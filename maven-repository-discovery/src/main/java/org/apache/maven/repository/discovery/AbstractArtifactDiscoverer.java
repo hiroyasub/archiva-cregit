@@ -200,7 +200,7 @@ operator|new
 name|ArrayList
 argument_list|()
 decl_stmt|;
-comment|/**      * Scan the repository for artifact paths      *      * @todo operate on better parameters, more collections, less arrays      */
+comment|/**      * Scan the repository for artifact paths.      *      * @todo replace blacklisted patterns by an artifact filter      */
 specifier|protected
 name|String
 index|[]

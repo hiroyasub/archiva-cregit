@@ -251,8 +251,6 @@ name|String
 name|path
 parameter_list|)
 block|{
-try|try
-block|{
 name|StringTokenizer
 name|tokens
 init|=
@@ -1209,37 +1207,20 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|//            getLogger().debug(
-comment|//                               "Resulting artifact is: " + result + " and has classifier of: "
-comment|//                                   + result.getClassifier() + "\n\n" );
+name|result
+operator|.
+name|setFile
+argument_list|(
+operator|new
+name|File
+argument_list|(
+name|path
+argument_list|)
+argument_list|)
+expr_stmt|;
 return|return
 name|result
 return|;
-block|}
-catch|catch
-parameter_list|(
-name|RuntimeException
-name|e
-parameter_list|)
-block|{
-name|getLogger
-argument_list|()
-operator|.
-name|error
-argument_list|(
-literal|"While parsing artifact path: \'"
-operator|+
-name|path
-operator|+
-literal|"\'..."
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-throw|throw
-name|e
-throw|;
-block|}
 block|}
 block|}
 end_class
