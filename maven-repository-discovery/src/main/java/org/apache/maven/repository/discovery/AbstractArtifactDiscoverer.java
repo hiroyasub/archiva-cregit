@@ -331,7 +331,7 @@ name|getIncludedFiles
 argument_list|()
 return|;
 block|}
-comment|/**      * Add a path to the list of files that were kicked out due to being invalid.      *      * @param path the path to add      */
+comment|/**      * Add a path to the list of files that were kicked out due to being invalid.      *      * @param path the path to add      * @todo add a reason      */
 specifier|protected
 name|void
 name|addKickedOutPath

@@ -1207,6 +1207,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|result
+operator|!=
+literal|null
+condition|)
+block|{
 name|result
 operator|.
 name|setFile
@@ -1218,6 +1225,7 @@ name|path
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|result
 return|;

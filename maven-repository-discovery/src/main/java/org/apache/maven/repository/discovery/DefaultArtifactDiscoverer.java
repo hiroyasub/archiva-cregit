@@ -297,14 +297,20 @@ return|return
 literal|null
 return|;
 block|}
-comment|//discard the actual artifact filename.
+comment|// the actual artifact filename.
+name|String
+name|filename
+init|=
+operator|(
+name|String
+operator|)
 name|pathParts
 operator|.
 name|remove
 argument_list|(
 literal|0
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// the next one is the version.
 name|String
 name|version
@@ -314,18 +320,11 @@ name|String
 operator|)
 name|pathParts
 operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-decl_stmt|;
-name|pathParts
-operator|.
 name|remove
 argument_list|(
 literal|0
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// the next one is the artifactId.
 name|String
 name|artifactId
@@ -335,18 +334,11 @@ name|String
 operator|)
 name|pathParts
 operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-decl_stmt|;
-name|pathParts
-operator|.
 name|remove
 argument_list|(
 literal|0
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// the remaining are the groupId.
 name|Collections
 operator|.
@@ -370,6 +362,28 @@ argument_list|,
 literal|"."
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|filename
+operator|.
+name|startsWith
+argument_list|(
+name|artifactId
+operator|+
+literal|"-"
+argument_list|)
+condition|)
+block|{
+name|addKickedOutPath
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
 name|result
 operator|=
 name|artifactFactory
