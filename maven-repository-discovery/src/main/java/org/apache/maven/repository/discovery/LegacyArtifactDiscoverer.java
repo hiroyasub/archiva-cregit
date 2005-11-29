@@ -381,6 +381,7 @@ operator|.
 name|removeLast
 argument_list|()
 decl_stmt|;
+comment|// TODO: share with other discoverer, use artifact handlers instead
 if|if
 condition|(
 name|lastAvceToken
