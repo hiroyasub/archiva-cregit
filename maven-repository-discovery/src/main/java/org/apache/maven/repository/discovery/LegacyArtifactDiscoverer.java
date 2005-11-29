@@ -304,6 +304,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|type
 operator|.
 name|endsWith
@@ -312,6 +313,15 @@ literal|"s"
 argument_list|)
 condition|)
 block|{
+name|addKickedOutPath
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
 name|type
 operator|=
 name|type
@@ -328,7 +338,6 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-block|}
 comment|// contains artifactId, version, classifier, and extension.
 name|String
 name|avceGlob
