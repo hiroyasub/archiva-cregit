@@ -45,6 +45,10 @@ name|Model
 import|;
 end_import
 
+begin_comment
+comment|/**  * This interface will be called by the main system for each artifact as it is discovered. This is how each of the   *      different types of reports are implemented.  */
+end_comment
+
 begin_interface
 specifier|public
 interface|interface

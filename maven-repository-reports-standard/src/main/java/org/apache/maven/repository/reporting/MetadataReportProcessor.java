@@ -35,6 +35,10 @@ name|RepositoryMetadata
 import|;
 end_import
 
+begin_comment
+comment|/**  * This interface is called by the main system for each piece of metadata as it is discovered.  */
+end_comment
+
 begin_interface
 specifier|public
 interface|interface

@@ -31,6 +31,10 @@ name|Artifact
 import|;
 end_import
 
+begin_comment
+comment|/**  * The transitive and metadata validation reports will need to query the repository for artifacts.  */
+end_comment
+
 begin_interface
 specifier|public
 interface|interface

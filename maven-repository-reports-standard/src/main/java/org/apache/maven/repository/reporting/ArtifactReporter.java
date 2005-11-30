@@ -31,6 +31,10 @@ name|Artifact
 import|;
 end_import
 
+begin_comment
+comment|/**  * This interface is used by the single artifact processor.  *  * The initial implementation of this will just need to be a mock implementation in src/test/java, used to track the   *      failures and successes for checking assertions. Later, implementations will be made to present reports on the   *      web interface, send them via mail, and so on.  */
+end_comment
+
 begin_interface
 specifier|public
 interface|interface
