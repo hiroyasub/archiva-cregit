@@ -50,7 +50,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-name|void
+name|boolean
 name|containsArtifact
 parameter_list|(
 name|Artifact
