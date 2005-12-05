@@ -49,8 +49,18 @@ name|RepositoryMetadata
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
+import|;
+end_import
+
 begin_comment
-comment|/**  * This interface is used by the single artifact processor.  *  * The initial implementation of this will just need to be a mock implementation in src/test/java, used to track the   *      failures and successes for checking assertions. Later, implementations will be made to present reports on the   *      web interface, send them via mail, and so on.  */
+comment|/**  * This interface is used by the single artifact processor.  *<p/>  * The initial implementation of this will just need to be a mock implementation in src/test/java, used to track the  * failures and successes for checking assertions. Later, implementations will be made to present reports on the  * web interface, send them via mail, and so on.  */
 end_comment
 
 begin_interface
@@ -121,6 +131,30 @@ parameter_list|,
 name|String
 name|message
 parameter_list|)
+function_decl|;
+name|Iterator
+name|getArtifactFailureIterator
+parameter_list|()
+function_decl|;
+name|Iterator
+name|getArtifactSuccessIterator
+parameter_list|()
+function_decl|;
+name|Iterator
+name|getArtifactWarningIterator
+parameter_list|()
+function_decl|;
+name|Iterator
+name|getRepositoryMetadataFailureIterator
+parameter_list|()
+function_decl|;
+name|Iterator
+name|getRepositoryMetadataSuccessIterator
+parameter_list|()
+function_decl|;
+name|Iterator
+name|getRepositoryMetadataWarningIterator
+parameter_list|()
 function_decl|;
 block|}
 end_interface

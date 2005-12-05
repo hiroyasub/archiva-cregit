@@ -82,6 +82,8 @@ parameter_list|,
 name|ArtifactReporter
 name|reporter
 parameter_list|)
+throws|throws
+name|ReportProcessorException
 function_decl|;
 block|}
 end_interface

@@ -37,7 +37,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|ArrayList
 import|;
 end_import
 
@@ -57,7 +57,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|List
 import|;
 end_import
 
@@ -163,8 +163,9 @@ name|queryConditions
 operator|.
 name|add
 argument_list|(
-operator|new
 name|Boolean
+operator|.
+name|valueOf
 argument_list|(
 name|queryCondition
 argument_list|)
