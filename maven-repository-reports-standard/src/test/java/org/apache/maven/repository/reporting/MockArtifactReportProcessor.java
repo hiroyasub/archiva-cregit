@@ -150,6 +150,14 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+while|while
+condition|(
+name|iterator
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
 name|ReportCondition
 name|reportCondition
 init|=
@@ -229,6 +237,7 @@ name|getReason
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
