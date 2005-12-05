@@ -543,6 +543,8 @@ argument_list|,
 literal|"Missing or empty plugin prefix for artifactId "
 operator|+
 name|artifactId
+operator|+
+literal|"."
 argument_list|)
 expr_stmt|;
 name|hasFailures
@@ -864,17 +866,10 @@ operator|+
 literal|"missing in the repository."
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|hasFailures
-condition|)
-block|{
 name|hasFailures
 operator|=
 literal|true
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return
@@ -1025,17 +1020,10 @@ operator|+
 literal|"missing in the metadata."
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|hasFailures
-condition|)
-block|{
 name|hasFailures
 operator|=
 literal|true
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return
