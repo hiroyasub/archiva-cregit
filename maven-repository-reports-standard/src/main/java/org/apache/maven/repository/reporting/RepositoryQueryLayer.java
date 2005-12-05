@@ -31,6 +31,24 @@ name|Artifact
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|repository
+operator|.
+name|metadata
+operator|.
+name|Snapshot
+import|;
+end_import
+
 begin_comment
 comment|/**  * The transitive and metadata validation reports will need to query the repository for artifacts.  */
 end_comment
@@ -55,6 +73,16 @@ name|containsArtifact
 parameter_list|(
 name|Artifact
 name|artifact
+parameter_list|)
+function_decl|;
+name|boolean
+name|containsArtifact
+parameter_list|(
+name|Artifact
+name|artifact
+parameter_list|,
+name|Snapshot
+name|snapshot
 parameter_list|)
 function_decl|;
 block|}
