@@ -219,6 +219,7 @@ specifier|private
 name|RepositoryQueryLayerFactory
 name|repositoryQueryLayerFactory
 decl_stmt|;
+comment|/**      * Process the metadata encountered in the repository and report all errors found, if any.      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ArtifactReporter to receive processing results      *      * @throws ReportProcessorException if an error was occurred while processing the metadata      */
 specifier|public
 name|void
 name|processMetadata
@@ -393,7 +394,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Checks the plugin metadata      */
+comment|/**      * Method for processing a GroupRepositoryMetadata      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ArtifactReporter to receive processing results      */
 specifier|protected
 name|boolean
 name|checkPluginMetadata
@@ -646,7 +647,7 @@ return|return
 name|hasFailures
 return|;
 block|}
-comment|/**      * Checks the snapshot metadata      */
+comment|/**      * Method for processing a SnapshotArtifactRepository      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ArtifactReporter to receive processing results      */
 specifier|protected
 name|boolean
 name|checkSnapshotMetadata
@@ -758,7 +759,7 @@ return|return
 name|hasFailures
 return|;
 block|}
-comment|/**      * Checks the declared metadata versions if the artifacts are present in the repository      */
+comment|/**      * Method for validating the versions declared inside an ArtifactRepositoryMetadata      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ArtifactReporter to receive processing results      */
 specifier|protected
 name|boolean
 name|checkMetadataVersions
@@ -876,7 +877,7 @@ return|return
 name|hasFailures
 return|;
 block|}
-comment|/**      * Searches the artifact repository directory for all versions and verifies that all of them are listed in the      * metadata file.      */
+comment|/**      * Searches the artifact repository directory for all versions and verifies that all of them are listed in the      * ArtifactRepositoryMetadata      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ArtifactReporter to receive processing results      */
 specifier|protected
 name|boolean
 name|checkRepositoryVersions
