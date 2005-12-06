@@ -153,7 +153,9 @@ return|;
 block|}
 else|else
 block|{
-return|return
+name|boolean
+name|temp
+init|=
 operator|(
 operator|(
 name|Boolean
@@ -166,6 +168,9 @@ operator|)
 operator|.
 name|booleanValue
 argument_list|()
+decl_stmt|;
+return|return
+name|temp
 return|;
 block|}
 block|}
@@ -181,9 +186,8 @@ name|queryConditions
 operator|.
 name|add
 argument_list|(
+operator|new
 name|Boolean
-operator|.
-name|valueOf
 argument_list|(
 name|queryCondition
 argument_list|)

@@ -135,7 +135,7 @@ name|ArtifactReporter
 name|reporter
 parameter_list|,
 name|ArtifactRepository
-name|repository
+name|artifactRepository
 parameter_list|)
 block|{
 if|if
@@ -212,6 +212,7 @@ name|getArtifact
 argument_list|()
 argument_list|)
 expr_stmt|;
+break|break;
 block|}
 case|case
 name|ReportCondition
@@ -234,6 +235,7 @@ name|getReason
 argument_list|()
 argument_list|)
 expr_stmt|;
+break|break;
 block|}
 case|case
 name|ReportCondition
@@ -256,6 +258,7 @@ name|getReason
 argument_list|()
 argument_list|)
 expr_stmt|;
+break|break;
 block|}
 block|}
 block|}

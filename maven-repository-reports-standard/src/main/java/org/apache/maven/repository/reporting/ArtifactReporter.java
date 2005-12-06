@@ -78,6 +78,34 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
+specifier|public
+specifier|static
+name|String
+name|NULL_MODEL
+init|=
+literal|"Provided model was null"
+decl_stmt|;
+specifier|public
+specifier|static
+name|String
+name|NULL_ARTIFACT
+init|=
+literal|"Provided artifact was null"
+decl_stmt|;
+specifier|public
+specifier|static
+name|String
+name|NO_DEPENDENCIES
+init|=
+literal|"Artifact has no dependencies"
+decl_stmt|;
+specifier|public
+specifier|static
+name|String
+name|ARTIFACT_NOT_FOUND
+init|=
+literal|"Artifact does not exist in the repository"
+decl_stmt|;
 name|void
 name|addFailure
 parameter_list|(
@@ -154,6 +182,18 @@ parameter_list|()
 function_decl|;
 name|Iterator
 name|getRepositoryMetadataWarningIterator
+parameter_list|()
+function_decl|;
+name|int
+name|getFailures
+parameter_list|()
+function_decl|;
+name|int
+name|getSuccesses
+parameter_list|()
+function_decl|;
+name|int
+name|getWarnings
 parameter_list|()
 function_decl|;
 block|}
