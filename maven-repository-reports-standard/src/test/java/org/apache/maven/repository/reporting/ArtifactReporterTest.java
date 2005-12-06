@@ -247,6 +247,8 @@ argument_list|,
 name|artifact
 argument_list|,
 name|reporter
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|Iterator
@@ -332,6 +334,8 @@ argument_list|,
 name|artifact
 argument_list|,
 name|reporter
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|Iterator
@@ -409,6 +413,8 @@ argument_list|,
 name|artifact
 argument_list|,
 name|reporter
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|Iterator
@@ -494,6 +500,8 @@ argument_list|,
 name|artifact
 argument_list|,
 name|reporter
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|Iterator
@@ -571,6 +579,8 @@ argument_list|,
 name|artifact
 argument_list|,
 name|reporter
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|Iterator
@@ -656,6 +666,8 @@ argument_list|,
 name|artifact
 argument_list|,
 name|reporter
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|Iterator
