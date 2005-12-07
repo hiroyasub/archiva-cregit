@@ -497,7 +497,7 @@ name|super
 operator|.
 name|repository
 operator|.
-name|getUrl
+name|getBasedir
 argument_list|()
 decl_stmt|;
 try|try
@@ -514,29 +514,8 @@ argument_list|,
 literal|'/'
 argument_list|)
 decl_stmt|;
-name|String
-index|[]
-name|split1
-init|=
-name|repoUrl
-operator|.
-name|split
-argument_list|(
-literal|"file:/"
-argument_list|)
-decl_stmt|;
-name|split1
-index|[
-literal|1
-index|]
-operator|=
-name|split1
-index|[
-literal|1
-index|]
-operator|+
-literal|"/"
-expr_stmt|;
+comment|//String[] split1 = repoUrl.split( "file:/" );
+comment|//split1[1] = split1[1] + "/";
 comment|//create the group level directory of the artifact
 name|File
 name|dirFiles
@@ -544,10 +523,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|split1
-index|[
-literal|1
-index|]
+name|repoUrl
 operator|+
 name|relativePath
 operator|+
@@ -568,10 +544,7 @@ operator|=
 operator|new
 name|FileOutputStream
 argument_list|(
-name|split1
-index|[
-literal|1
-index|]
+name|repoUrl
 operator|+
 name|relativePath
 operator|+
@@ -602,10 +575,7 @@ comment|// jar sample.txt
 name|String
 name|filename1
 init|=
-name|split1
-index|[
-literal|1
-index|]
+name|repoUrl
 operator|+
 name|relativePath
 operator|+
@@ -688,10 +658,7 @@ name|md5chk
 init|=
 name|createChecksum
 argument_list|(
-name|split1
-index|[
-literal|1
-index|]
+name|repoUrl
 operator|+
 name|relativePath
 operator|+
@@ -714,10 +681,7 @@ name|sha1chk
 init|=
 name|createChecksum
 argument_list|(
-name|split1
-index|[
-literal|1
-index|]
+name|repoUrl
 operator|+
 name|relativePath
 operator|+
@@ -779,10 +743,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-name|split1
-index|[
-literal|1
-index|]
+name|repoUrl
 operator|+
 name|relativePath
 operator|+
@@ -863,10 +824,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-name|split1
-index|[
-literal|1
-index|]
+name|repoUrl
 operator|+
 name|relativePath
 operator|+
@@ -993,59 +951,32 @@ comment|//create checksum for the metadata file..
 name|String
 name|repoUrl
 init|=
-name|super
-operator|.
 name|repository
 operator|.
-name|getUrl
+name|getBasedir
 argument_list|()
 decl_stmt|;
-comment|//System.out.println( "REPO URL :::: " + repoUrl );
-name|String
-index|[]
-name|split1
-init|=
-name|repoUrl
+comment|//System.out.println("repoUrl ---->>> " + repoUrl);
+name|System
 operator|.
-name|split
+name|out
+operator|.
+name|println
 argument_list|(
-literal|"file:/"
-argument_list|)
-decl_stmt|;
-name|split1
-index|[
-literal|1
-index|]
-operator|=
-name|split1
-index|[
-literal|1
-index|]
+literal|"REPO URL :::: "
 operator|+
-literal|"/"
-expr_stmt|;
-comment|// get the pre-created metadata file
-name|String
-index|[]
-name|split
-init|=
-name|split1
-index|[
-literal|1
-index|]
-operator|.
-name|split
-argument_list|(
-literal|"/repository"
+name|repoUrl
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+comment|// String[] split1 = repoUrl.split( "file:/" );
+comment|// split1[1] = split1[1] + "/";
 name|String
 name|url
 init|=
-name|split
-index|[
-literal|0
-index|]
+name|repository
+operator|.
+name|getBasedir
+argument_list|()
 operator|+
 literal|"/"
 operator|+
@@ -1055,7 +986,6 @@ literal|"."
 operator|+
 name|type
 decl_stmt|;
-comment|//System.out.println( "URL of maven-metadata file :: " + url );
 name|boolean
 name|copied
 init|=
@@ -1063,10 +993,7 @@ name|copyFile
 argument_list|(
 name|url
 argument_list|,
-name|split1
-index|[
-literal|1
-index|]
+name|repoUrl
 operator|+
 name|relativePath
 operator|+
@@ -1077,6 +1004,7 @@ operator|+
 name|type
 argument_list|)
 decl_stmt|;
+comment|//FileUtils.copyFile( new File( url ), new File( repoUrl + relativePath + filename + "." + type ) );
 comment|//System.out.println( "META FILE COPIED ---->>> " + copied );
 comment|//Create md5 and sha-1 checksum files..
 name|byte
@@ -1085,10 +1013,7 @@ name|md5chk
 init|=
 name|createChecksum
 argument_list|(
-name|split1
-index|[
-literal|1
-index|]
+name|repoUrl
 operator|+
 name|relativePath
 operator|+
@@ -1107,10 +1032,7 @@ name|sha1chk
 init|=
 name|createChecksum
 argument_list|(
-name|split1
-index|[
-literal|1
-index|]
+name|repoUrl
 operator|+
 name|relativePath
 operator|+
@@ -1168,10 +1090,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-name|split1
-index|[
-literal|1
-index|]
+name|repoUrl
 operator|+
 name|relativePath
 operator|+
@@ -1248,10 +1167,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-name|split1
-index|[
-literal|1
-index|]
+name|repoUrl
 operator|+
 name|relativePath
 operator|+
