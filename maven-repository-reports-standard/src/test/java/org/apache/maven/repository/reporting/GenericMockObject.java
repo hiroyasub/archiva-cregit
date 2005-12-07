@@ -93,20 +93,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|Artifact
-import|;
-end_import
-
 begin_comment
 comment|/**  *  * @author Edwin Punzalan  */
 end_comment
