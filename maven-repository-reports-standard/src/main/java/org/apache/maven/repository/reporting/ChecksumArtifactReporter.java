@@ -239,20 +239,6 @@ operator|.
 name|getUrl
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"REPOSITORY PROTOCOL ------>>>> "
-operator|+
-name|repository
-operator|.
-name|getProtocol
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|artifactUrl
 operator|=
 name|repositoryUrl
