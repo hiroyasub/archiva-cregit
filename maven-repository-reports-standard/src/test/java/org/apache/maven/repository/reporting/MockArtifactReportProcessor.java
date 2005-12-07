@@ -92,7 +92,7 @@ comment|/*  * Copyright 2001-2005 The Apache Software Foundation.  *  * Licensed
 end_comment
 
 begin_comment
-comment|/**  * @author<a href="mailto:jtolentino@mergere.com">John Tolentino</a>  */
+comment|/**  *   */
 end_comment
 
 begin_class

@@ -90,7 +90,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author<a href="mailto:jtolentino@mergere.com">John Tolentino</a>  */
+comment|/**  *   */
 end_comment
 
 begin_class
