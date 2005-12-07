@@ -360,6 +360,11 @@ name|artifactFailures
 operator|.
 name|size
 argument_list|()
+operator|+
+name|metadataFailures
+operator|.
+name|size
+argument_list|()
 return|;
 block|}
 specifier|public
@@ -372,6 +377,11 @@ name|artifactSuccesses
 operator|.
 name|size
 argument_list|()
+operator|+
+name|metadataSuccesses
+operator|.
+name|size
+argument_list|()
 return|;
 block|}
 specifier|public
@@ -381,6 +391,11 @@ parameter_list|()
 block|{
 return|return
 name|artifactWarnings
+operator|.
+name|size
+argument_list|()
+operator|+
+name|metadataWarnings
 operator|.
 name|size
 argument_list|()
