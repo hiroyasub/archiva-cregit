@@ -224,7 +224,7 @@ specifier|final
 name|String
 name|metadataChecksumFilename
 init|=
-literal|"maven-metadata"
+literal|"maven-metadata-repository"
 decl_stmt|;
 specifier|public
 name|AbstractChecksumArtifactReporterTest
@@ -970,20 +970,6 @@ operator|.
 name|getBasedir
 argument_list|()
 decl_stmt|;
-comment|//System.out.println("repoUrl ---->>> " + repoUrl);
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"REPO URL :::: "
-operator|+
-name|repoUrl
-argument_list|)
-expr_stmt|;
-comment|// String[] split1 = repoUrl.split( "file:/" );
-comment|// split1[1] = split1[1] + "/";
 name|String
 name|url
 init|=
@@ -1026,7 +1012,6 @@ name|type
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//System.out.println( "META FILE COPIED ---->>> " + copied );
 comment|//Create md5 and sha-1 checksum files..
 name|byte
 index|[]
