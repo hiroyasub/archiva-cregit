@@ -170,7 +170,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class reports invalid and mismatched checksums of artifacts and metadata files.   * It validates MD5 and SHA-1 chacksums.  *   * @TODO   *  - Validate using remote repository.  */
+comment|/**  * This class reports invalid and mismatched checksums of artifacts and metadata files.   * It validates MD5 and SHA-1 checksums.  */
 end_comment
 
 begin_class
@@ -224,24 +224,9 @@ name|ArtifactRepository
 name|repository
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|" "
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"===================================== +++++  PROCESS ARTIFACT +++++ ===================================="
-argument_list|)
-expr_stmt|;
+comment|//System.out.println( " " );
+comment|//System.out
+comment|//   .println( "===================================== +++++  PROCESS ARTIFACT +++++ ====================================" );
 name|String
 name|artifactUrl
 init|=
@@ -385,6 +370,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+else|else
+block|{
+name|reporter
+operator|.
+name|addFailure
+argument_list|(
+name|artifact
+argument_list|,
+literal|"MD5 checksum file does not exist."
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|sha1Exists
@@ -421,6 +418,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+else|else
+block|{
+name|reporter
+operator|.
+name|addFailure
+argument_list|(
+name|artifact
+argument_list|,
+literal|"SHA-1 checksum file does not exist."
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Validate the checksums of the metadata. Get the metadata file from the       * repository then validate the checksum.      */
 specifier|public
@@ -437,24 +446,9 @@ name|ArtifactReporter
 name|reporter
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|" "
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"====================================== +++++  PROCESS METADATA +++++ =============================="
-argument_list|)
-expr_stmt|;
+comment|// System.out.println( " " );
+comment|// System.out
+comment|//   .println( "====================================== +++++  PROCESS METADATA +++++ ==============================" );
 name|String
 name|metadataUrl
 init|=
@@ -520,7 +514,6 @@ name|repository
 argument_list|)
 expr_stmt|;
 block|}
-comment|//version metadata
 if|if
 condition|(
 name|metadata
@@ -538,6 +531,7 @@ operator|==
 literal|false
 condition|)
 block|{
+comment|//version metadata
 name|metadataUrl
 operator|=
 name|repositoryUrl
@@ -563,7 +557,6 @@ argument_list|()
 operator|+
 literal|"/"
 expr_stmt|;
-comment|//group metadata
 block|}
 if|else if
 condition|(
@@ -582,6 +575,7 @@ operator|==
 literal|true
 condition|)
 block|{
+comment|//group metadata
 name|metadataUrl
 operator|=
 name|repositoryUrl
@@ -593,10 +587,10 @@ argument_list|()
 operator|+
 literal|"/"
 expr_stmt|;
-comment|//artifact metadata
 block|}
 else|else
 block|{
+comment|//artifact metadata
 name|metadataUrl
 operator|=
 name|repositoryUrl
@@ -676,6 +670,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+else|else
+block|{
+name|reporter
+operator|.
+name|addFailure
+argument_list|(
+name|metadata
+argument_list|,
+literal|"MD5 checksum file does not exist."
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|sha1Exists
@@ -711,6 +717,18 @@ literal|"SHA-1 checksum does not match."
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+else|else
+block|{
+name|reporter
+operator|.
+name|addFailure
+argument_list|(
+name|metadata
+argument_list|,
+literal|"SHA-1 checksum file does not exist."
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Get the MD5 Checksum file. If not found, return false.      * @param filename The name of the artifact whose MD5 Checksum file will be retrieved.      * @return      */
@@ -1015,39 +1033,10 @@ argument_list|(
 name|chars
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"-----"
-operator|+
-name|algo
-operator|+
-literal|" Checksum value (CHK1 - created checksum for jar file) ::::: "
-operator|+
-name|byteArrayToHexStr
-argument_list|(
-name|chk1
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"-----"
-operator|+
-name|algo
-operator|+
-literal|" Checksum value (CHK2 - content of CHECKSUM file) ::::: "
-operator|+
-name|chk2Str
-argument_list|)
-expr_stmt|;
+comment|//System.out.println( "-----" + algo + " Checksum value (CHK1 - created checksum for jar file) ::::: "
+comment|//   + byteArrayToHexStr( chk1 ) );
+comment|// System.out.println( "-----" + algo + " Checksum value (CHK2 - content of CHECKSUM file) ::::: "
+comment|//     + chk2Str );
 if|if
 condition|(
 name|chk2Str
@@ -1090,11 +1079,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+comment|//e.printStackTrace();
 return|return
 name|valid
 return|;
