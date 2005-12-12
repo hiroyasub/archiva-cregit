@@ -19,6 +19,16 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -100,6 +110,15 @@ parameter_list|,
 name|Snapshot
 name|snapshot
 parameter_list|)
+function_decl|;
+name|List
+name|getVersions
+parameter_list|(
+name|Artifact
+name|artifact
+parameter_list|)
+throws|throws
+name|RepositoryQueryLayerException
 function_decl|;
 block|}
 end_interface
