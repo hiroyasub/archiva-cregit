@@ -59,14 +59,14 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"check cache usage"
-argument_list|,
 literal|0
 argument_list|,
 name|queryLayer
 operator|.
-name|getCacheHits
+name|getCacheHitRate
 argument_list|()
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|testContainsArtifactTrue
@@ -74,14 +74,14 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"check cache usage"
-argument_list|,
-literal|1
+literal|0.50
 argument_list|,
 name|queryLayer
 operator|.
-name|getCacheHits
+name|getCacheHitRate
 argument_list|()
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -97,14 +97,14 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"check cache usage"
-argument_list|,
 literal|0
 argument_list|,
 name|queryLayer
 operator|.
-name|getCacheHits
+name|getCacheHitRate
 argument_list|()
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|testArtifactVersionsTrue
@@ -112,14 +112,14 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"check cache usage"
-argument_list|,
-literal|1
+literal|0.50
 argument_list|,
 name|queryLayer
 operator|.
-name|getCacheHits
+name|getCacheHitRate
 argument_list|()
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -133,14 +133,14 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"check cache usage"
-argument_list|,
 literal|0
 argument_list|,
 name|queryLayer
 operator|.
-name|getCacheHits
+name|getCacheHitRate
 argument_list|()
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|testContainsSnapshotArtifactTrue
@@ -148,14 +148,14 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"check cache usage"
-argument_list|,
-literal|1
+literal|0.50
 argument_list|,
 name|queryLayer
 operator|.
-name|getCacheHits
+name|getCacheHitRate
 argument_list|()
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}

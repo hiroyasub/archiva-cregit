@@ -306,7 +306,7 @@ operator|.
 name|getVersion
 argument_list|()
 operator|.
-name|replaceAll
+name|replaceFirst
 argument_list|(
 literal|"SNAPSHOT"
 argument_list|,
