@@ -38,7 +38,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Class to implement caching  *  */
 end_comment
 
 begin_class
@@ -78,6 +78,7 @@ name|cacheMiss
 init|=
 literal|0
 decl_stmt|;
+comment|/**      * Caches all data and expires only the oldest data when the specified cache hit rate is reached.      */
 specifier|public
 name|Cache
 parameter_list|(
@@ -93,6 +94,26 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Caches all data and expires only the oldest data when the maximum cache size is reached      */
+specifier|public
+name|Cache
+parameter_list|(
+name|long
+name|cacheMaxSize
+parameter_list|)
+block|{
+name|this
+argument_list|(
+operator|(
+name|double
+operator|)
+literal|1
+argument_list|,
+name|cacheMaxSize
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Caches all data and expires only the oldest data when either the specified cache hit rate is reached      *     or the maximum cache size is reached.      */
 specifier|public
 name|Cache
 parameter_list|(
@@ -122,6 +143,45 @@ name|HashMap
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * Check if the specified key is already mapped to an object.      *      * @param key the key used to map the cached object      *      * @returns true if the cache contains an object associated with the given key      */
+specifier|public
+name|boolean
+name|containsKey
+parameter_list|(
+name|Object
+name|key
+parameter_list|)
+block|{
+name|boolean
+name|contains
+init|=
+name|cache
+operator|.
+name|containsKey
+argument_list|(
+name|key
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|contains
+condition|)
+block|{
+name|cacheHits
+operator|++
+expr_stmt|;
+block|}
+else|else
+block|{
+name|cacheMiss
+operator|++
+expr_stmt|;
+block|}
+return|return
+name|contains
+return|;
+block|}
+comment|/**      * Check for a cached object and return it if it exists. Returns null when the keyed object is not found      *      * @param key the key used to map the cached object      *      * @returns the object mapped to the given key, or null if no cache object is mapped to the given key      */
 specifier|public
 name|Object
 name|get
@@ -183,6 +243,7 @@ return|return
 name|retValue
 return|;
 block|}
+comment|/**      * Cache the given value and map it using the given key      *      * @param key   the object to map the valued object      * @param value the object to cache      */
 specifier|public
 name|void
 name|put
@@ -252,6 +313,7 @@ name|entry
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Compute for the efficiency of this cache.      *      * @returns the ratio of cache hits to the cache misses to queries for cache objects      */
 specifier|public
 name|double
 name|getHitRate
@@ -287,6 +349,7 @@ name|cacheMiss
 operator|)
 return|;
 block|}
+comment|/**      * Get the total number of cache objects currently cached.      */
 specifier|public
 name|long
 name|size
@@ -299,6 +362,7 @@ name|size
 argument_list|()
 return|;
 block|}
+comment|/**      * Empty the cache and reset the cache hit rate      */
 specifier|public
 name|void
 name|flush
@@ -446,7 +510,7 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|//if desired HitRatio is reached, we can trim the cache to conserve memory
+comment|//desired HitRatio is reached, we can trim the cache to conserve memory
 if|if
 condition|(
 name|cacheHitRatio
@@ -470,7 +534,7 @@ operator|>
 name|cacheMaxSize
 condition|)
 block|{
-comment|//trim cache regardless of cacheHitRatio
+comment|// maximum cache size is reached
 while|while
 condition|(
 name|cache
@@ -479,6 +543,23 @@ name|size
 argument_list|()
 operator|>
 name|cacheMaxSize
+condition|)
+block|{
+name|trimCache
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|//even though the max has not been reached, the desired HitRatio is already reached,
+comment|//    so we can trim the cache to conserve memory
+if|if
+condition|(
+name|cacheHitRatio
+operator|<=
+name|getHitRate
+argument_list|()
 condition|)
 block|{
 name|trimCache

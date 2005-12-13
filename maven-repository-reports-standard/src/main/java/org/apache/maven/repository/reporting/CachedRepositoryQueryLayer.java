@@ -124,7 +124,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  *   */
 end_comment
 
 begin_class
@@ -372,20 +372,6 @@ block|}
 return|return
 name|metadata
 return|;
-block|}
-specifier|private
-class|class
-name|DblLinkedList
-block|{
-name|DblLinkedList
-name|prev
-decl_stmt|;
-name|Object
-name|cacheObject
-decl_stmt|;
-name|DblLinkedList
-name|next
-decl_stmt|;
 block|}
 block|}
 end_class
