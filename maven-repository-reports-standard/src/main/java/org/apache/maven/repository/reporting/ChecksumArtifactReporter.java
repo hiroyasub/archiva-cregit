@@ -486,6 +486,8 @@ name|repository
 operator|.
 name|getUrl
 argument_list|()
+operator|+
+literal|"/"
 expr_stmt|;
 name|filename
 operator|=
@@ -503,6 +505,8 @@ name|repository
 operator|.
 name|getBasedir
 argument_list|()
+operator|+
+literal|"/"
 expr_stmt|;
 name|filename
 operator|=
