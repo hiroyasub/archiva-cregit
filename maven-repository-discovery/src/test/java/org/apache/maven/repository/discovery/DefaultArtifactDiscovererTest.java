@@ -1599,6 +1599,8 @@ argument_list|,
 literal|"1.0"
 argument_list|,
 literal|"java-source"
+argument_list|,
+literal|"sources"
 argument_list|)
 argument_list|)
 argument_list|)
