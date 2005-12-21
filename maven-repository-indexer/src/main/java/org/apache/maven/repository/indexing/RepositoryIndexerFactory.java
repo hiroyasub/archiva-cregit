@@ -55,6 +55,9 @@ decl_stmt|;
 name|RepositoryIndexer
 name|getRepositoryIndexer
 parameter_list|(
+name|String
+name|indexPath
+parameter_list|,
 name|ArtifactRepository
 name|repository
 parameter_list|,

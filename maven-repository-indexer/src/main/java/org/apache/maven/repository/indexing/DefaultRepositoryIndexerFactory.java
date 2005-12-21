@@ -89,6 +89,9 @@ specifier|public
 name|RepositoryIndexer
 name|getRepositoryIndexer
 parameter_list|(
+name|String
+name|indexPath
+parameter_list|,
 name|ArtifactRepository
 name|repository
 parameter_list|,
@@ -123,7 +126,11 @@ name|indexer
 operator|=
 operator|new
 name|ArtifactRepositoryIndexer
-argument_list|(  )
+argument_list|(
+name|repository
+argument_list|,
+name|indexPath
+argument_list|)
 expr_stmt|;
 block|}
 else|else
