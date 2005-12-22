@@ -355,6 +355,15 @@ parameter_list|()
 throws|throws
 name|RepositoryIndexerException
 block|{
+name|indexOpen
+operator|=
+literal|true
+expr_stmt|;
+if|if
+condition|(
+literal|true
+condition|)
+return|return;
 try|try
 block|{
 name|getIndexReader
