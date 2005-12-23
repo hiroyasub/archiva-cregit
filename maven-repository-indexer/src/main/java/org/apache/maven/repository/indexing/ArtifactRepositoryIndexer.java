@@ -438,9 +438,6 @@ block|{
 name|getIndexWriter
 argument_list|()
 expr_stmt|;
-name|initBuffers
-argument_list|()
-expr_stmt|;
 name|processArtifactContents
 argument_list|(
 name|artifact
@@ -860,6 +857,9 @@ name|IOException
 throws|,
 name|ZipException
 block|{
+name|initBuffers
+argument_list|()
+expr_stmt|;
 name|ZipFile
 name|jar
 init|=

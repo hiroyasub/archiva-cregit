@@ -194,11 +194,6 @@ parameter_list|()
 throws|throws
 name|RepositoryIndexerException
 block|{
-if|if
-condition|(
-name|indexOpen
-condition|)
-block|{
 try|try
 block|{
 if|if
@@ -255,7 +250,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-block|}
 specifier|public
 name|void
 name|open
@@ -265,16 +259,9 @@ name|RepositoryIndexerException
 block|{
 try|try
 block|{
-if|if
-condition|(
-operator|!
-name|indexOpen
-condition|)
-block|{
 name|validateIndex
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
