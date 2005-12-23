@@ -71,9 +71,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|standard
-operator|.
-name|StandardAnalyzer
+name|SimpleAnalyzer
 import|;
 end_import
 
@@ -354,8 +352,12 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|StandardAnalyzer
+name|ArtifactRepositoryIndexAnalyzer
+argument_list|(
+operator|new
+name|SimpleAnalyzer
 argument_list|()
+argument_list|)
 return|;
 block|}
 specifier|protected
