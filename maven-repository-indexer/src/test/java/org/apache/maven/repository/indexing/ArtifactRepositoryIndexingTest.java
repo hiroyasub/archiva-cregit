@@ -167,7 +167,7 @@ name|String
 name|indexPath
 decl_stmt|;
 specifier|private
-name|RepositorySearcher
+name|RepositoryIndexSearcher
 name|repoSearcher
 decl_stmt|;
 specifier|private
@@ -357,7 +357,7 @@ expr_stmt|;
 name|repoSearcher
 operator|=
 operator|new
-name|ArtifactRepositorySearcher
+name|ArtifactRepositoryIndexSearcher
 argument_list|(
 name|indexPath
 argument_list|,

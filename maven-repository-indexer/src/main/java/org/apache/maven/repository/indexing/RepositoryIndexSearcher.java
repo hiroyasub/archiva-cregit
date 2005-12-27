@@ -34,7 +34,7 @@ end_comment
 begin_interface
 specifier|public
 interface|interface
-name|RepositorySearcher
+name|RepositoryIndexSearcher
 block|{
 name|String
 name|ROLE
