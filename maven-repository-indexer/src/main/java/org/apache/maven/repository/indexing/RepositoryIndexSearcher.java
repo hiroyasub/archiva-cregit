@@ -39,18 +39,21 @@ block|{
 name|String
 name|ROLE
 init|=
-name|RepositoryIndexer
+name|RepositoryIndexSearcher
 operator|.
 name|class
 operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/** 	 * Search the artifact that contains the query string in the specified 	 * search field. 	 *  	 * @param queryString 	 * @param searchField 	 * @return 	 */
+comment|/** 	 * Search the artifact that contains the query string in the specified 	 * search field. 	 *       * @param index 	 * @param queryString 	 * @param searchField 	 * @return 	 */
 specifier|public
 name|List
-name|searchArtifact
+name|search
 parameter_list|(
+name|RepositoryIndex
+name|index
+parameter_list|,
 name|String
 name|queryString
 parameter_list|,

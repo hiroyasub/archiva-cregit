@@ -24,12 +24,12 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|RepositoryIndexerException
+name|RepositoryIndexException
 extends|extends
 name|Exception
 block|{
 specifier|public
-name|RepositoryIndexerException
+name|RepositoryIndexException
 parameter_list|(
 name|String
 name|message
@@ -47,7 +47,7 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|public
-name|RepositoryIndexerException
+name|RepositoryIndexException
 parameter_list|(
 name|Throwable
 name|cause
@@ -60,7 +60,7 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|public
-name|RepositoryIndexerException
+name|RepositoryIndexException
 parameter_list|(
 name|String
 name|message
