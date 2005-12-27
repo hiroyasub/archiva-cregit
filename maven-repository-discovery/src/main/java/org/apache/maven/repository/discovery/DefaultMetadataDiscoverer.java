@@ -382,7 +382,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class gets all the paths that contain the metadata files.  *   * @author Maria Odea Ching  */
+comment|/**  * This class gets all the paths that contain the metadata files.  *   */
 end_comment
 
 begin_class

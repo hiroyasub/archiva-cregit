@@ -28,7 +28,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Maria Odea Ching  */
+comment|/**  *  */
 end_comment
 
 begin_interface

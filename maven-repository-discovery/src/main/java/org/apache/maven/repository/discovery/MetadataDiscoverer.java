@@ -48,7 +48,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Interface for discovering metadata files.  *   * @author Maria Odea Ching  */
+comment|/**  * Interface for discovering metadata files.  *   */
 end_comment
 
 begin_interface
