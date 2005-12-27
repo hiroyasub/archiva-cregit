@@ -202,7 +202,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * @author Edwin Punzalan  */
+comment|/**  * Class used to index Artifact objects in a specified repository  *  * @author Edwin Punzalan  */
 end_comment
 
 begin_class
@@ -327,6 +327,7 @@ specifier|private
 name|StringBuffer
 name|files
 decl_stmt|;
+comment|/**      * Constructor      * @todo change repository to layout ???      *      * @param repository the repository where the indexed artifacts are located.  This is necessary only to distinguish      *                   between default and legacy directory structure of the artifact location.      * @param path the directory where the index is located or will be created.      */
 specifier|public
 name|ArtifactRepositoryIndexer
 parameter_list|(
@@ -353,6 +354,7 @@ name|validateIndex
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * method for collecting the available index fields usable for searching      *      * @return index field names      */
 specifier|public
 name|String
 index|[]
@@ -363,6 +365,7 @@ return|return
 name|FIELDS
 return|;
 block|}
+comment|/**      * generic method for indexing      *      * @param obj the object to be indexed by this indexer      */
 specifier|public
 name|void
 name|addObjectIndex
@@ -408,6 +411,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * method to index a given artifact      *      * @param artifact the Artifact object to be indexed      */
 specifier|public
 name|void
 name|addArtifactIndex

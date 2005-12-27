@@ -90,7 +90,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * @author Edwin Punzalan  */
+comment|/**  * Class created specifically to index artifacts  *  * @author Edwin Punzalan  */
 end_comment
 
 begin_class
@@ -104,6 +104,7 @@ specifier|private
 name|Analyzer
 name|defaultAnalyzer
 decl_stmt|;
+comment|/**      * constructor to for this analyzer      *       * @character defaultAnalyzer the analyzer to use as default for the general fields of the artifact indeces      */
 specifier|public
 name|ArtifactRepositoryIndexAnalyzer
 parameter_list|(
@@ -118,6 +119,7 @@ operator|=
 name|defaultAnalyzer
 expr_stmt|;
 block|}
+comment|/**      * Method called by lucence during indexing operations      *       * @character fieldName the field name that the lucene object is currently processing      * @character reader a Reader object to the index stream      *       * @return an analyzer to specific to the field name or the default analyzer if none is present      */
 specifier|public
 name|TokenStream
 name|tokenStream
@@ -169,12 +171,14 @@ return|return
 name|tokenStream
 return|;
 block|}
+comment|/**      * Class used to tokenize an artifact's version.      */
 specifier|private
 class|class
 name|VersionTokenizer
 extends|extends
 name|CharTokenizer
 block|{
+comment|/**          * Constructor with the required reader to the index stream          *          * @reader the Reader object of the index stream          */
 specifier|public
 name|VersionTokenizer
 parameter_list|(
@@ -188,12 +192,13 @@ name|reader
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**          * method that lucene calls to check tokenization of a stream character          *           * @param character char currently being processed          *          * @return true if the char is a token, false if the char is a stop char          */
 specifier|protected
 name|boolean
 name|isTokenChar
 parameter_list|(
 name|char
-name|param
+name|character
 parameter_list|)
 block|{
 name|boolean
@@ -201,7 +206,7 @@ name|token
 decl_stmt|;
 switch|switch
 condition|(
-name|param
+name|character
 condition|)
 block|{
 case|case

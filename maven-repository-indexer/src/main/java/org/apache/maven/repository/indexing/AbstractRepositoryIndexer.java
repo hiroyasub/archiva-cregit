@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * @author Edwin Punzalan  */
+comment|/**  * Abstract class for RepositoryIndexers  *  * @author Edwin Punzalan  */
 end_comment
 
 begin_class
@@ -131,6 +131,7 @@ specifier|protected
 name|IndexWriter
 name|indexWriter
 decl_stmt|;
+comment|/**      * method to encapsulate the optimize() method for lucene      */
 specifier|public
 name|void
 name|optimize
@@ -178,6 +179,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * method used to query the index status      *      * @param true if the index is open.      */
 specifier|public
 name|boolean
 name|isOpen
@@ -187,6 +189,7 @@ return|return
 name|indexOpen
 return|;
 block|}
+comment|/**      * method used to close all open streams to the index directory      */
 specifier|public
 name|void
 name|close
@@ -250,6 +253,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * method for opening the index directory for indexing operations      */
 specifier|public
 name|void
 name|open
@@ -347,6 +351,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * method for validating an index directory      *      * @throws RepositoryIndexerException if the given indexPath is not valid for this type of RepositoryIndexer      */
 specifier|protected
 name|void
 name|validateIndex
