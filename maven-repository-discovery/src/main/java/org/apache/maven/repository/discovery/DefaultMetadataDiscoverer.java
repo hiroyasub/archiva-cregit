@@ -344,7 +344,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class gets all the paths that contain the metadata files.  */
+comment|/**  * This class gets all the paths that contain the metadata files.  *  * @plexus.component role="org.apache.maven.repository.discovery.MetadataDiscoverer" role-hint="default" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

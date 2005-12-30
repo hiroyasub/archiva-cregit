@@ -118,7 +118,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Artifact discoverer for the legacy repository layout (Maven 1.x).  *  * @author John Casey  * @author Brett Porter  */
+comment|/**  * Artifact discoverer for the legacy repository layout (Maven 1.x).  *  * @author John Casey  * @author Brett Porter  *  * @plexus.component role="org.apache.maven.repository.discovery.ArtifactDiscoverer" role-hint="legacy" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -130,6 +130,7 @@ name|AbstractArtifactDiscoverer
 implements|implements
 name|ArtifactDiscoverer
 block|{
+comment|/** @plexus.requirement */
 specifier|private
 name|ArtifactFactory
 name|artifactFactory
