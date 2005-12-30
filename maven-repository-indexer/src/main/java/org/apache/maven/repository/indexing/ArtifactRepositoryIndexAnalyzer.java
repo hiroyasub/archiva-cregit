@@ -84,7 +84,7 @@ specifier|private
 name|Analyzer
 name|defaultAnalyzer
 decl_stmt|;
-comment|/**      * constructor to for this analyzer      *      * @character defaultAnalyzer the analyzer to use as default for the general fields of the artifact indeces      */
+comment|/**      * constructor to for this analyzer      *      * @param defaultAnalyzer the analyzer to use as default for the general fields of the artifact indeces      */
 specifier|public
 name|ArtifactRepositoryIndexAnalyzer
 parameter_list|(
@@ -99,7 +99,7 @@ operator|=
 name|defaultAnalyzer
 expr_stmt|;
 block|}
-comment|/**      * Method called by lucence during indexing operations      *      * @return an analyzer to specific to the field name or the default analyzer if none is present      * @character fieldName the field name that the lucene object is currently processing      * @character reader a Reader object to the index stream      */
+comment|/**      * Method called by lucence during indexing operations      *      * @param fieldName the field name that the lucene object is currently processing      * @param reader    a Reader object to the index stream      * @return an analyzer to specific to the field name or the default analyzer if none is present      */
 specifier|public
 name|TokenStream
 name|tokenStream
@@ -153,13 +153,13 @@ return|;
 block|}
 comment|/**      * Class used to tokenize an artifact's version.      */
 specifier|private
+specifier|static
 class|class
 name|VersionTokenizer
 extends|extends
 name|CharTokenizer
 block|{
-comment|/**          * Constructor with the required reader to the index stream          *          * @reader the Reader object of the index stream          */
-specifier|public
+comment|/**          * Constructor with the required reader to the index stream          *          * @param reader the Reader object of the index stream          */
 name|VersionTokenizer
 parameter_list|(
 name|Reader
@@ -181,33 +181,14 @@ name|char
 name|character
 parameter_list|)
 block|{
-name|boolean
-name|token
-decl_stmt|;
-switch|switch
-condition|(
-name|character
-condition|)
-block|{
-case|case
-literal|'.'
-case|:
-case|case
-literal|'-'
-case|:
-name|token
-operator|=
-literal|false
-expr_stmt|;
-break|break;
-default|default:
-name|token
-operator|=
-literal|true
-expr_stmt|;
-block|}
 return|return
-name|token
+name|character
+operator|!=
+literal|'.'
+operator|&&
+name|character
+operator|!=
+literal|'-'
 return|;
 block|}
 block|}

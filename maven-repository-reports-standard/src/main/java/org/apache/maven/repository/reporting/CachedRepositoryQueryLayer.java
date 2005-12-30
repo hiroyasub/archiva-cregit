@@ -98,6 +98,14 @@ specifier|private
 name|Cache
 name|cache
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|double
+name|CACHE_HIT_RATIO
+init|=
+literal|0.5
+decl_stmt|;
 specifier|public
 name|CachedRepositoryQueryLayer
 parameter_list|(
@@ -116,7 +124,7 @@ operator|=
 operator|new
 name|Cache
 argument_list|(
-literal|0.5
+name|CACHE_HIT_RATIO
 argument_list|)
 expr_stmt|;
 block|}

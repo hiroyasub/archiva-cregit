@@ -231,6 +231,7 @@ return|return
 name|artifacts
 return|;
 block|}
+comment|/**      * @noinspection CollectionDeclaredAsConcreteClass      */
 specifier|private
 name|Artifact
 name|buildArtifact
@@ -592,6 +593,16 @@ literal|null
 return|;
 block|}
 block|}
+comment|// let's discover the version, and whatever's leftover will be either
+comment|// a classifier, or part of the artifactId, depending on position.
+comment|// Since version is at the end, we have to move in from the back.
+name|Collections
+operator|.
+name|reverse
+argument_list|(
+name|avceTokenList
+argument_list|)
+expr_stmt|;
 comment|// TODO: this is obscene - surely a better way?
 name|String
 name|validVersionParts
@@ -628,16 +639,6 @@ literal|"([Nn][Ii][Gg][Hh][Tt][Ll][Yy])|"
 operator|+
 literal|"([AaBb][_.0-9]*)"
 decl_stmt|;
-comment|// let's discover the version, and whatever's leftover will be either
-comment|// a classifier, or part of the artifactId, depending on position.
-comment|// Since version is at the end, we have to move in from the back.
-name|Collections
-operator|.
-name|reverse
-argument_list|(
-name|avceTokenList
-argument_list|)
-expr_stmt|;
 name|StringBuffer
 name|classifierBuffer
 init|=
@@ -722,6 +723,7 @@ condition|(
 name|firstVersionTokenEncountered
 condition|)
 block|{
+comment|//noinspection BreakStatement
 break|break;
 block|}
 else|else

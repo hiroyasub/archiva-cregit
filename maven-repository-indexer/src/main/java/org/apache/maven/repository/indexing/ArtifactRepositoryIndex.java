@@ -329,6 +329,14 @@ specifier|private
 name|StringBuffer
 name|files
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHEKCSUM_BUFFER_SIZE
+init|=
+literal|256
+decl_stmt|;
 comment|/**      * method to get the Analyzer used to create indices      *      * @return the Analyzer object used to create the artifact indices      */
 specifier|public
 name|Analyzer
@@ -744,7 +752,7 @@ init|=
 operator|new
 name|byte
 index|[
-literal|256
+name|CHEKCSUM_BUFFER_SIZE
 index|]
 decl_stmt|;
 name|MessageDigest
@@ -1128,11 +1136,6 @@ name|ZipEntry
 name|entry
 parameter_list|)
 block|{
-name|boolean
-name|isAdded
-init|=
-literal|false
-decl_stmt|;
 name|String
 name|name
 init|=
@@ -1170,6 +1173,11 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+name|boolean
+name|isAdded
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|files

@@ -219,6 +219,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class will report on bad metadata files.  These include invalid version declarations and incomplete version  * information inside the metadata file.  Plugin metadata will be checked for validity of the latest plugin artifacts.  */
 end_comment
@@ -485,7 +495,7 @@ argument_list|(
 name|metadataDir
 argument_list|)
 decl_stmt|;
-name|HashMap
+name|Map
 name|prefixes
 init|=
 operator|new

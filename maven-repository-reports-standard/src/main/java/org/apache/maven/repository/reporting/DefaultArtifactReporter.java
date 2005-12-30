@@ -191,7 +191,7 @@ name|Artifact
 name|artifact
 parameter_list|,
 name|String
-name|reason
+name|message
 parameter_list|)
 block|{
 name|artifactWarnings
@@ -203,7 +203,7 @@ name|ArtifactResult
 argument_list|(
 name|artifact
 argument_list|,
-name|reason
+name|message
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -261,7 +261,7 @@ name|RepositoryMetadata
 name|metadata
 parameter_list|,
 name|String
-name|reason
+name|message
 parameter_list|)
 block|{
 name|metadataWarnings
@@ -273,7 +273,7 @@ name|RepositoryMetadataResult
 argument_list|(
 name|metadata
 argument_list|,
-name|reason
+name|message
 argument_list|)
 argument_list|)
 expr_stmt|;

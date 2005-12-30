@@ -47,6 +47,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|logging
+operator|.
+name|AbstractLogEnabled
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -84,6 +98,8 @@ specifier|public
 specifier|abstract
 class|class
 name|AbstractRepositoryIndex
+extends|extends
+name|AbstractLogEnabled
 implements|implements
 name|RepositoryIndex
 block|{
@@ -114,8 +130,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|isOpen
-argument_list|()
+name|indexOpen
 condition|)
 block|{
 throw|throw
@@ -151,7 +166,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * method used to query the index status      *      * @param true if the index is open.      */
+comment|/**      * method used to query the index status      *      * @return true if the index is open.      */
 specifier|public
 name|boolean
 name|isOpen
@@ -439,11 +454,10 @@ block|}
 block|}
 else|else
 block|{
-name|System
+name|getLogger
+argument_list|()
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Skipping index field validations for empty index."
 argument_list|)
@@ -472,11 +486,10 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|System
+name|getLogger
+argument_list|()
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"New index directory created in: "
 operator|+

@@ -182,16 +182,6 @@ name|ArtifactReportProcessor
 implements|,
 name|MetadataReportProcessor
 block|{
-name|String
-name|ROLE
-init|=
-name|ChecksumArtifactReporter
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-decl_stmt|;
 specifier|protected
 name|InputStream
 name|md5InputStream
@@ -206,7 +196,23 @@ name|isLocal
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Validate the checksum of the specified artifact.      *      * @param model      * @param artifact      * @param reporter      * @param repository      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|BYTE_MASK
+init|=
+literal|0xFF
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHECKSUM_BUFFER_SIZE
+init|=
+literal|256
+decl_stmt|;
+comment|/**      * Validate the checksum of the specified artifact.      *      * @param model      * @param artifact      * @param reporter      * @param repository      * @todo fix repo paths      */
 specifier|public
 name|void
 name|processArtifact
@@ -224,18 +230,8 @@ name|ArtifactRepository
 name|repository
 parameter_list|)
 block|{
-comment|//System.out.println( " " );
-comment|//System.out
-comment|//   .println( "===================================== +++++  PROCESS ARTIFACT +++++ ====================================" );
-name|String
-name|artifactUrl
-init|=
-literal|""
-decl_stmt|;
 name|String
 name|repositoryUrl
-init|=
-literal|""
 decl_stmt|;
 if|if
 condition|(
@@ -273,8 +269,9 @@ name|getBasedir
 argument_list|()
 expr_stmt|;
 block|}
+name|String
 name|artifactUrl
-operator|=
+init|=
 name|repositoryUrl
 operator|+
 name|artifact
@@ -316,7 +313,7 @@ name|artifact
 operator|.
 name|getType
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 comment|//check if checksum files exist
 name|boolean
 name|md5Exists
@@ -431,7 +428,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Validate the checksums of the metadata. Get the metadata file from the      * repository then validate the checksum.      */
+comment|/**      * Validate the checksums of the metadata. Get the metadata file from the      * repository then validate the checksum.      *      * @todo fix repo paths      */
 specifier|public
 name|void
 name|processMetadata
@@ -446,21 +443,11 @@ name|ArtifactReporter
 name|reporter
 parameter_list|)
 block|{
-comment|// System.out.println( " " );
-comment|// System.out
-comment|//   .println( "====================================== +++++  PROCESS METADATA +++++ ==============================" );
 name|String
-name|metadataUrl
-init|=
-literal|""
-decl_stmt|,
 name|repositoryUrl
-init|=
-literal|""
-decl_stmt|,
+decl_stmt|;
+name|String
 name|filename
-init|=
-literal|""
 decl_stmt|;
 if|if
 condition|(
@@ -518,21 +505,21 @@ name|repository
 argument_list|)
 expr_stmt|;
 block|}
+name|String
+name|metadataUrl
+decl_stmt|;
 if|if
 condition|(
 name|metadata
 operator|.
 name|storedInArtifactVersionDirectory
 argument_list|()
-operator|==
-literal|true
 operator|&&
+operator|!
 name|metadata
 operator|.
 name|storedInGroupDirectory
 argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 comment|//version metadata
@@ -564,19 +551,16 @@ expr_stmt|;
 block|}
 if|else if
 condition|(
+operator|!
 name|metadata
 operator|.
 name|storedInArtifactVersionDirectory
 argument_list|()
-operator|==
-literal|false
 operator|&&
 name|metadata
 operator|.
 name|storedInGroupDirectory
 argument_list|()
-operator|==
-literal|true
 condition|)
 block|{
 comment|//group metadata
@@ -735,7 +719,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the MD5 Checksum file. If not found, return false.      *      * @param filename The name of the artifact whose MD5 Checksum file will be retrieved.      * @return      */
+comment|/**      * Get the MD5 Checksum file. If not found, return false.      *      * @param filename The name of the artifact whose MD5 Checksum file will be retrieved.      * @todo fix this erroneous object state      */
 specifier|public
 name|boolean
 name|getMD5File
@@ -801,7 +785,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Get the SHA1 Checksum file. If not found, return false.      *      * @param filename The name of the artifact whose SHA-1 Checksum file will be retrieved.      * @return      */
+comment|/**      * Get the SHA1 Checksum file. If not found, return false.      *      * @param filename The name of the artifact whose SHA-1 Checksum file will be retrieved.      * @todo fix this erroneous object state      */
 specifier|public
 name|boolean
 name|getSHA1File
@@ -867,7 +851,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Validate the checksum of the file.      *      * @param fileUrl The file to be validated.      * @param algo    The checksum algorithm used.      * @return      */
+comment|/**      * Validate the checksum of the file.      *      * @param fileUrl The file to be validated.      * @param algo    The checksum algorithm used.      */
 specifier|protected
 name|boolean
 name|validateChecksum
@@ -883,16 +867,6 @@ name|boolean
 name|valid
 init|=
 literal|false
-decl_stmt|;
-name|byte
-index|[]
-name|chk1
-init|=
-literal|null
-decl_stmt|,
-name|chk2
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -917,15 +891,17 @@ operator|=
 literal|".sha1"
 expr_stmt|;
 block|}
+name|byte
+index|[]
 name|chk1
-operator|=
+init|=
 name|createChecksum
 argument_list|(
 name|fileUrl
 argument_list|,
 name|algo
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|chk1
@@ -934,16 +910,6 @@ literal|null
 condition|)
 block|{
 comment|//read the md5 file
-name|chk2
-operator|=
-operator|new
-name|byte
-index|[
-name|chk1
-operator|.
-name|length
-index|]
-expr_stmt|;
 name|File
 name|f
 init|=
@@ -1039,12 +1005,8 @@ argument_list|(
 name|chars
 argument_list|)
 decl_stmt|;
-comment|//System.out.println( "-----" + algo + " Checksum value (CHK1 - created checksum for jar file) ::::: "
-comment|//   + byteArrayToHexStr( chk1 ) );
-comment|// System.out.println( "-----" + algo + " Checksum value (CHK2 - content of CHECKSUM file) ::::: "
-comment|//     + chk2Str );
-if|if
-condition|(
+name|valid
+operator|=
 name|chk2Str
 operator|.
 name|toUpperCase
@@ -1060,24 +1022,8 @@ operator|.
 name|toUpperCase
 argument_list|()
 argument_list|)
-condition|)
-block|{
-name|valid
-operator|=
-literal|true
 expr_stmt|;
 block|}
-else|else
-block|{
-name|valid
-operator|=
-literal|false
-expr_stmt|;
-block|}
-block|}
-return|return
-name|valid
-return|;
 block|}
 catch|catch
 parameter_list|(
@@ -1085,13 +1031,13 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|//e.printStackTrace();
+comment|// TODO: fix this error handling
+block|}
 return|return
 name|valid
 return|;
 block|}
-block|}
-comment|/**      * Create a checksum from the specified metadata file.      *      * @param filename The file that will be created a checksum.      * @param algo     The algorithm to be used (MD5, SHA-1)      * @return      * @throws FileNotFoundException      * @throws NoSuchAlgorithmException      * @throws IOException      */
+comment|/**      * Create a checksum from the specified metadata file.      *      * @param filename The file that will be created a checksum.      * @param algo     The algorithm to be used (MD5, SHA-1)      * @return      * @throws FileNotFoundException      * @throws NoSuchAlgorithmException      * @throws IOException      * @todo move to utility class      */
 specifier|protected
 name|byte
 index|[]
@@ -1112,18 +1058,6 @@ name|IOException
 block|{
 name|InputStream
 name|fis
-init|=
-literal|null
-decl_stmt|;
-name|byte
-index|[]
-name|buffer
-init|=
-operator|new
-name|byte
-index|[
-literal|1024
-index|]
 decl_stmt|;
 comment|//check whether file is located locally or remotely
 if|if
@@ -1159,6 +1093,16 @@ name|openStream
 argument_list|()
 expr_stmt|;
 block|}
+name|byte
+index|[]
+name|buffer
+init|=
+operator|new
+name|byte
+index|[
+name|CHECKSUM_BUFFER_SIZE
+index|]
+decl_stmt|;
 name|MessageDigest
 name|complete
 init|=
@@ -1223,8 +1167,9 @@ name|digest
 argument_list|()
 return|;
 block|}
-comment|/**      * Convert an incoming array of bytes into a string that represents each of      * the bytes as two hex characters.      *      * @param data      * @return      */
+comment|/**      * Convert an incoming array of bytes into a string that represents each of      * the bytes as two hex characters.      *      * @param data      * @todo move to utilities      */
 specifier|public
+specifier|static
 name|String
 name|byteArrayToHexStr
 parameter_list|(
@@ -1273,7 +1218,7 @@ index|[
 name|cnt
 index|]
 operator|&
-literal|0xFF
+name|BYTE_MASK
 expr_stmt|;
 comment|//Get hex representation of the int as a string.
 name|tempStr

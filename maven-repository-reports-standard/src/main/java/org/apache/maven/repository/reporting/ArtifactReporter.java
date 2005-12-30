@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This interface is used by the single artifact processor.  *<p/>  * The initial implementation of this will just need to be a mock implementation in src/test/java, used to track the  * failures and successes for checking assertions. Later, implementations will be made to present reports on the  * web interface, send them via mail, and so on.  */
+comment|/**  * This interface is used by the single artifact processor.  *<p/>  * The initial implementation of this will just need to be a mock implementation in src/test/java, used to track the  * failures and successes for checking assertions. Later, implementations will be made to present reports on the  * web interface, send them via mail, and so on.  *  * @todo i18n  */
 end_comment
 
 begin_interface
@@ -78,78 +78,56 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-specifier|public
-specifier|static
 name|String
 name|NULL_MODEL
 init|=
 literal|"Provided model was null"
 decl_stmt|;
-specifier|public
-specifier|static
 name|String
 name|NULL_ARTIFACT
 init|=
 literal|"Provided artifact was null"
 decl_stmt|;
-specifier|public
-specifier|static
 name|String
 name|EMPTY_GROUP_ID
 init|=
 literal|"Group id was empty or null"
 decl_stmt|;
-specifier|public
-specifier|static
 name|String
 name|EMPTY_ARTIFACT_ID
 init|=
 literal|"Artifact id was empty or null"
 decl_stmt|;
-specifier|public
-specifier|static
 name|String
 name|EMPTY_VERSION
 init|=
 literal|"Version was empty or null"
 decl_stmt|;
-specifier|public
-specifier|static
 name|String
 name|EMPTY_DEPENDENCY_GROUP_ID
 init|=
 literal|"Group id was empty or null"
 decl_stmt|;
-specifier|public
-specifier|static
 name|String
 name|EMPTY_DEPENDENCY_ARTIFACT_ID
 init|=
 literal|"Artifact id was empty or null"
 decl_stmt|;
-specifier|public
-specifier|static
 name|String
 name|EMPTY_DEPENDENCY_VERSION
 init|=
 literal|"Version was empty or null"
 decl_stmt|;
-specifier|public
-specifier|static
 name|String
 name|NO_DEPENDENCIES
 init|=
 literal|"Artifact has no dependencies"
 decl_stmt|;
-specifier|public
-specifier|static
 name|String
 name|ARTIFACT_NOT_FOUND
 init|=
 literal|"Artifact does not exist in the repository"
 decl_stmt|;
-specifier|public
-specifier|static
 name|String
 name|DEPENDENCY_NOT_FOUND
 init|=

@@ -244,10 +244,6 @@ specifier|protected
 name|String
 name|indexPath
 decl_stmt|;
-specifier|private
-name|RepositoryIndexSearcher
-name|repoSearcher
-decl_stmt|;
 specifier|protected
 name|void
 name|setUp
@@ -772,8 +768,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|//repoSearcher = new ArtifactRepositoryIndexSearcher( indexer, indexPath, repository );
+name|RepositoryIndexSearcher
 name|repoSearcher
-operator|=
+init|=
 operator|(
 name|RepositoryIndexSearcher
 operator|)
@@ -785,7 +782,7 @@ name|ROLE
 argument_list|,
 literal|"artifact"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|List
 name|artifacts
 init|=

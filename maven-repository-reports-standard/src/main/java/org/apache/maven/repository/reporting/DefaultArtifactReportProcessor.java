@@ -123,8 +123,8 @@ implements|implements
 name|ArtifactReportProcessor
 block|{
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|EMPTY_STRING
 init|=

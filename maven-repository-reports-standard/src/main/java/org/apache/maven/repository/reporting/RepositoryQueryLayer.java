@@ -78,17 +78,11 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-specifier|public
-specifier|final
-specifier|static
 name|boolean
 name|ARTIFACT_FOUND
 init|=
 literal|true
 decl_stmt|;
-specifier|public
-specifier|final
-specifier|static
 name|boolean
 name|ARTIFACT_NOT_FOUND
 init|=

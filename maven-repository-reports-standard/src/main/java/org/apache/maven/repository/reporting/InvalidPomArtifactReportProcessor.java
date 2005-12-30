@@ -188,7 +188,7 @@ name|InvalidPomArtifactReportProcessor
 implements|implements
 name|ArtifactReportProcessor
 block|{
-comment|/**      * @param model      * @param artifact   The pom xml file to be validated, passed as an artifact object.      * @param reporter   The artifact reporter object.      * @param repository the repository where the artifact is located.      */
+comment|/**      * @param model      * @param artifact   The pom xml file to be validated, passed as an artifact object.      * @param reporter   The artifact reporter object.      * @param repository the repository where the artifact is located.      * @todo fix repo paths      */
 specifier|public
 name|void
 name|processArtifact
@@ -206,11 +206,6 @@ name|ArtifactRepository
 name|repository
 parameter_list|)
 block|{
-name|InputStream
-name|is
-init|=
-literal|null
-decl_stmt|;
 if|if
 condition|(
 literal|"pom"
@@ -227,6 +222,11 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+name|InputStream
+name|is
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 literal|"file"
@@ -426,16 +426,13 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|Model
-name|pomModel
-init|=
 name|pomReader
 operator|.
 name|read
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|reporter
 operator|.
 name|addSuccess

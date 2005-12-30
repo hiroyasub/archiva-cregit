@@ -82,6 +82,7 @@ name|GenericMockObject
 implements|implements
 name|InvocationHandler
 block|{
+specifier|private
 name|Map
 name|invocations
 init|=
@@ -104,7 +105,11 @@ parameter_list|)
 block|{
 name|invocations
 operator|=
+operator|new
+name|HashMap
+argument_list|(
 name|returnMap
+argument_list|)
 expr_stmt|;
 block|}
 specifier|public
@@ -142,8 +147,6 @@ name|Object
 index|[]
 name|args
 parameter_list|)
-throws|throws
-name|Throwable
 block|{
 if|if
 condition|(
