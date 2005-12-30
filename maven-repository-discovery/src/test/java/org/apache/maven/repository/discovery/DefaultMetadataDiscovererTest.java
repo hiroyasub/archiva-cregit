@@ -78,7 +78,7 @@ specifier|private
 name|File
 name|repositoryLocation
 decl_stmt|;
-comment|/** 	 *  	 */
+comment|/**      *      */
 specifier|public
 name|void
 name|setUp
@@ -113,7 +113,7 @@ literal|"src/test/repository"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 *  	 */
+comment|/**      *      */
 specifier|public
 name|void
 name|tearDown
@@ -131,7 +131,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/** 	 * Test DefaultMetadataDiscoverer when the all metadata paths are valid. 	 *  	 */
+comment|/**      * Test DefaultMetadataDiscoverer when the all metadata paths are valid.      */
 specifier|public
 name|void
 name|testMetadataDiscovererSuccess
@@ -167,7 +167,7 @@ literal|3
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Test if metadata file in wrong directory was added to the kickedOutPaths. 	 */
+comment|/**      * Test if metadata file in wrong directory was added to the kickedOutPaths.      */
 specifier|public
 name|void
 name|testKickoutWrongDirectory
@@ -220,13 +220,25 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+name|String
+name|normalizedDir
+init|=
+name|dir
+operator|.
+name|replace
+argument_list|(
+literal|'\\'
+argument_list|,
+literal|'/'
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|dir
+literal|"javax/maven-metadata-repository.xml"
 operator|.
 name|equals
 argument_list|(
-literal|"javax\\maven-metadata-repository.xml"
+name|normalizedDir
 argument_list|)
 condition|)
 block|{
@@ -242,7 +254,7 @@ name|found
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Test if blank metadata file was added to the kickedOutPaths. 	 */
+comment|/**      * Test if blank metadata file was added to the kickedOutPaths.      */
 specifier|public
 name|void
 name|testKickoutBlankMetadata
@@ -295,13 +307,25 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+name|String
+name|normalizedDir
+init|=
+name|dir
+operator|.
+name|replace
+argument_list|(
+literal|'\\'
+argument_list|,
+literal|'/'
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|dir
+literal|"org/apache/maven/some-ejb/1.0/maven-metadata-repository.xml"
 operator|.
 name|equals
 argument_list|(
-literal|"org\\apache\\maven\\some-ejb\\1.0\\maven-metadata-repository.xml"
+name|normalizedDir
 argument_list|)
 condition|)
 block|{
