@@ -204,7 +204,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class used to index Artifact objects in a specified repository  *  * @author Edwin Punzalan  */
+comment|/**  * Class used to index Artifact objects in a specified repository  *  * @author Edwin Punzalan  *  * @plexus.component role="org.apache.maven.repository.indexing.RepositoryIndex" role-hint="artifact" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

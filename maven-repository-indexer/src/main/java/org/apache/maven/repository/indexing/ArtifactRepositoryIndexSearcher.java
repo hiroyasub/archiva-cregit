@@ -133,22 +133,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|repository
-operator|.
-name|ArtifactRepository
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -178,7 +162,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class searches the index for existing artifacts that contains the  * specified query string.  */
+comment|/**  * This class searches the index for existing artifacts that contains the  * specified query string.  *  * @plexus.component role="org.apache.maven.repository.indexing.RepositoryIndexSearcher" role-hint="artifact"  */
 end_comment
 
 begin_class
@@ -220,10 +204,7 @@ name|VERSION
 init|=
 literal|"version"
 decl_stmt|;
-specifier|private
-name|ArtifactRepository
-name|repository
-decl_stmt|;
+comment|/** @plexus.requirement */
 specifier|private
 name|ArtifactFactory
 name|factory
