@@ -718,7 +718,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Get the MD5 Checksum file. If not found, return false.      *      * @param filename The name of the artifact whose MD5 Checksum file will be retrieved.      * @todo fix this erroneous object state      */
-specifier|public
+specifier|private
 name|boolean
 name|getMD5File
 parameter_list|(
@@ -784,7 +784,7 @@ literal|true
 return|;
 block|}
 comment|/**      * Get the SHA1 Checksum file. If not found, return false.      *      * @param filename The name of the artifact whose SHA-1 Checksum file will be retrieved.      * @todo fix this erroneous object state      */
-specifier|public
+specifier|private
 name|boolean
 name|getSHA1File
 parameter_list|(
@@ -921,8 +921,6 @@ argument_list|)
 decl_stmt|;
 name|InputStream
 name|is
-init|=
-literal|null
 decl_stmt|;
 comment|//check whether the file is located locally or remotely
 if|if
@@ -1036,7 +1034,7 @@ name|valid
 return|;
 block|}
 comment|/**      * Create a checksum from the specified metadata file.      *      * @param filename The file that will be created a checksum.      * @param algo     The algorithm to be used (MD5, SHA-1)      * @return      * @throws FileNotFoundException      * @throws NoSuchAlgorithmException      * @throws IOException      * @todo move to utility class      */
-specifier|protected
+specifier|private
 name|byte
 index|[]
 name|createChecksum
@@ -1181,16 +1179,6 @@ name|output
 init|=
 literal|""
 decl_stmt|;
-name|String
-name|tempStr
-init|=
-literal|""
-decl_stmt|;
-name|int
-name|tempInt
-init|=
-literal|0
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -1209,25 +1197,27 @@ operator|++
 control|)
 block|{
 comment|//Deposit a byte into the 8 lsb of an int.
+name|int
 name|tempInt
-operator|=
+init|=
 name|data
 index|[
 name|cnt
 index|]
 operator|&
 name|BYTE_MASK
-expr_stmt|;
+decl_stmt|;
 comment|//Get hex representation of the int as a string.
+name|String
 name|tempStr
-operator|=
+init|=
 name|Integer
 operator|.
 name|toHexString
 argument_list|(
 name|tempInt
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|//Append a leading 0 if necessary so that each hex string will contain 2 characters.
 if|if
 condition|(

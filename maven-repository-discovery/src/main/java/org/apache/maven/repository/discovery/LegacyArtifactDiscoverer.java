@@ -118,7 +118,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Artifact discoverer for the legacy repository layout (Maven 1.x).  *  * @author John Casey  * @author Brett Porter  *  * @plexus.component role="org.apache.maven.repository.discovery.ArtifactDiscoverer" role-hint="legacy" instantiation-strategy="per-lookup"  */
+comment|/**  * Artifact discoverer for the legacy repository layout (Maven 1.x).  *  * @author John Casey  * @author Brett Porter  * @plexus.component role="org.apache.maven.repository.discovery.ArtifactDiscoverer" role-hint="legacy" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -130,7 +130,7 @@ name|AbstractArtifactDiscoverer
 implements|implements
 name|ArtifactDiscoverer
 block|{
-comment|/** @plexus.requirement */
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|ArtifactFactory
 name|artifactFactory
@@ -252,6 +252,11 @@ argument_list|,
 literal|"/\\"
 argument_list|)
 decl_stmt|;
+name|Artifact
+name|result
+init|=
+literal|null
+decl_stmt|;
 name|int
 name|numberOfTokens
 init|=
@@ -272,10 +277,9 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
-return|return
-literal|null
-return|;
 block|}
+else|else
+block|{
 name|String
 name|groupId
 init|=
@@ -308,10 +312,9 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
-return|return
-literal|null
-return|;
 block|}
+else|else
+block|{
 name|type
 operator|=
 name|type
@@ -384,6 +387,11 @@ name|avceTokenList
 operator|.
 name|removeLast
 argument_list|()
+decl_stmt|;
+name|boolean
+name|valid
+init|=
+literal|true
 decl_stmt|;
 comment|// TODO: share with other discoverer, use artifact handlers instead
 if|if
@@ -576,9 +584,10 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
-return|return
-literal|null
-return|;
+name|valid
+operator|=
+literal|false
+expr_stmt|;
 block|}
 block|}
 else|else
@@ -589,11 +598,17 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
-return|return
-literal|null
-return|;
+name|valid
+operator|=
+literal|false
+expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|valid
+condition|)
+block|{
 comment|// let's discover the version, and whatever's leftover will be either
 comment|// a classifier, or part of the artifactId, depending on position.
 comment|// Since version is at the end, we have to move in from the back.
@@ -1084,10 +1099,9 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
-return|return
-literal|null
-return|;
 block|}
+else|else
+block|{
 name|getLogger
 argument_list|()
 operator|.
@@ -1126,11 +1140,6 @@ operator|+
 literal|"\'"
 argument_list|)
 expr_stmt|;
-name|Artifact
-name|result
-init|=
-literal|null
-decl_stmt|;
 if|if
 condition|(
 name|classifierBuffer
@@ -1203,6 +1212,10 @@ name|path
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+block|}
+block|}
 return|return
 name|result
 return|;
