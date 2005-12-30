@@ -810,11 +810,6 @@ name|NoSuchAlgorithmException
 throws|,
 name|IOException
 block|{
-name|boolean
-name|valid
-init|=
-literal|false
-decl_stmt|;
 comment|//Create checksum for jar file
 name|byte
 index|[]
@@ -827,13 +822,6 @@ argument_list|,
 name|algo
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|chk1
-operator|!=
-literal|null
-condition|)
-block|{
 comment|//read the checksum file
 name|String
 name|checksum
@@ -845,8 +833,7 @@ argument_list|(
 name|checksumFile
 argument_list|)
 decl_stmt|;
-name|valid
-operator|=
+return|return
 name|checksum
 operator|.
 name|toUpperCase
@@ -862,10 +849,6 @@ operator|.
 name|toUpperCase
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|valid
 return|;
 block|}
 comment|/**      * Create a checksum from the specified metadata file.      *      * @param file The file that will be created a checksum.      * @param algo The algorithm to be used (MD5, SHA-1)      * @return      * @throws FileNotFoundException      * @throws NoSuchAlgorithmException      * @throws IOException      * @todo move to utility class      */
