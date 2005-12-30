@@ -853,6 +853,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+else|else
+block|{
+name|finalResult
+operator|=
+name|result
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
