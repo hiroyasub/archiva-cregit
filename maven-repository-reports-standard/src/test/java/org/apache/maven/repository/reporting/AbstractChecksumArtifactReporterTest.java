@@ -275,11 +275,11 @@ decl_stmt|;
 comment|//loop through the valid artifact names..
 if|if
 condition|(
-name|type
+literal|"VALID"
 operator|.
 name|equals
 argument_list|(
-literal|"VALID"
+name|type
 argument_list|)
 condition|)
 block|{
@@ -334,11 +334,11 @@ block|}
 block|}
 if|else if
 condition|(
-name|type
+literal|"INVALID"
 operator|.
 name|equals
 argument_list|(
-literal|"INVALID"
+name|type
 argument_list|)
 condition|)
 block|{
@@ -412,11 +412,11 @@ decl_stmt|;
 comment|//loop through the valid artifact names..
 if|if
 condition|(
-name|type
+literal|"VALID"
 operator|.
 name|equals
 argument_list|(
-literal|"VALID"
+name|type
 argument_list|)
 condition|)
 block|{
@@ -456,11 +456,11 @@ expr_stmt|;
 block|}
 if|else if
 condition|(
-name|type
+literal|"INVALID"
 operator|.
 name|equals
 argument_list|(
-literal|"INVALID"
+name|type
 argument_list|)
 condition|)
 block|{

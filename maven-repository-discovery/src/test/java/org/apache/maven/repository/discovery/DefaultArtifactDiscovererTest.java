@@ -353,11 +353,11 @@ argument_list|()
 decl_stmt|;
 name|found
 operator|=
-name|path
+literal|"KEYS"
 operator|.
 name|equals
 argument_list|(
-literal|"KEYS"
+name|path
 argument_list|)
 expr_stmt|;
 block|}
@@ -400,6 +400,10 @@ name|assertFalse
 argument_list|(
 literal|"Check not KEYS"
 argument_list|,
+literal|"KEYS"
+operator|.
+name|equals
+argument_list|(
 name|a
 operator|.
 name|getFile
@@ -407,10 +411,6 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"KEYS"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -480,6 +480,10 @@ argument_list|()
 decl_stmt|;
 name|found
 operator|=
+literal|"javax/sql/jdbc/2.0/jdbc-2.0.jar"
+operator|.
+name|equals
+argument_list|(
 name|path
 operator|.
 name|replace
@@ -488,10 +492,6 @@ literal|'\\'
 argument_list|,
 literal|'/'
 argument_list|)
-operator|.
-name|equals
-argument_list|(
-literal|"javax/sql/jdbc/2.0/jdbc-2.0.jar"
 argument_list|)
 expr_stmt|;
 block|}
@@ -586,6 +586,10 @@ argument_list|()
 decl_stmt|;
 name|found
 operator|=
+literal|"invalid/invalid-1.0.jar"
+operator|.
+name|equals
+argument_list|(
 name|path
 operator|.
 name|replace
@@ -594,10 +598,6 @@ literal|'\\'
 argument_list|,
 literal|'/'
 argument_list|)
-operator|.
-name|equals
-argument_list|(
-literal|"invalid/invalid-1.0.jar"
 argument_list|)
 expr_stmt|;
 block|}
@@ -640,6 +640,10 @@ name|assertFalse
 argument_list|(
 literal|"Check not invalid-1.0.jar"
 argument_list|,
+literal|"invalid-1.0.jar"
+operator|.
+name|equals
+argument_list|(
 name|a
 operator|.
 name|getFile
@@ -647,10 +651,6 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"invalid-1.0.jar"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -720,6 +720,10 @@ argument_list|()
 decl_stmt|;
 name|found
 operator|=
+literal|"org/apache/maven/test/1.0-SNAPSHOT/wrong-artifactId-1.0-20050611.112233-1.jar"
+operator|.
+name|equals
+argument_list|(
 name|path
 operator|.
 name|replace
@@ -728,10 +732,6 @@ literal|'\\'
 argument_list|,
 literal|'/'
 argument_list|)
-operator|.
-name|equals
-argument_list|(
-literal|"org/apache/maven/test/1.0-SNAPSHOT/wrong-artifactId-1.0-20050611.112233-1.jar"
 argument_list|)
 expr_stmt|;
 block|}
@@ -774,6 +774,10 @@ name|assertFalse
 argument_list|(
 literal|"Check not wrong jar"
 argument_list|,
+literal|"wrong-artifactId-1.0-20050611.112233-1.jar"
+operator|.
+name|equals
+argument_list|(
 name|a
 operator|.
 name|getFile
@@ -781,10 +785,6 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"wrong-artifactId-1.0-20050611.112233-1.jar"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -854,6 +854,10 @@ argument_list|()
 decl_stmt|;
 name|found
 operator|=
+literal|"invalid/invalid/1/invalid-1"
+operator|.
+name|equals
+argument_list|(
 name|path
 operator|.
 name|replace
@@ -862,10 +866,6 @@ literal|'\\'
 argument_list|,
 literal|'/'
 argument_list|)
-operator|.
-name|equals
-argument_list|(
-literal|"invalid/invalid/1/invalid-1"
 argument_list|)
 expr_stmt|;
 block|}
@@ -908,6 +908,10 @@ name|assertFalse
 argument_list|(
 literal|"Check not 'invalid-1'"
 argument_list|,
+literal|"invalid-1"
+operator|.
+name|equals
+argument_list|(
 name|a
 operator|.
 name|getFile
@@ -915,10 +919,6 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"invalid-1"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -988,6 +988,10 @@ argument_list|()
 decl_stmt|;
 name|found
 operator|=
+literal|"invalid/invalid/1.0/invalid-2.0.jar"
+operator|.
+name|equals
+argument_list|(
 name|path
 operator|.
 name|replace
@@ -996,10 +1000,6 @@ literal|'\\'
 argument_list|,
 literal|'/'
 argument_list|)
-operator|.
-name|equals
-argument_list|(
-literal|"invalid/invalid/1.0/invalid-2.0.jar"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1042,6 +1042,10 @@ name|assertFalse
 argument_list|(
 literal|"Check not 'invalid-2.0.jar'"
 argument_list|,
+literal|"invalid-2.0.jar"
+operator|.
+name|equals
+argument_list|(
 name|a
 operator|.
 name|getFile
@@ -1049,10 +1053,6 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"invalid-2.0.jar"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1122,6 +1122,10 @@ argument_list|()
 decl_stmt|;
 name|found
 operator|=
+literal|"invalid/invalid/1.0/invalid-1.0b.jar"
+operator|.
+name|equals
+argument_list|(
 name|path
 operator|.
 name|replace
@@ -1130,10 +1134,6 @@ literal|'\\'
 argument_list|,
 literal|'/'
 argument_list|)
-operator|.
-name|equals
-argument_list|(
-literal|"invalid/invalid/1.0/invalid-1.0b.jar"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1176,6 +1176,10 @@ name|assertFalse
 argument_list|(
 literal|"Check not 'invalid-1.0b.jar'"
 argument_list|,
+literal|"invalid-1.0b.jar"
+operator|.
+name|equals
+argument_list|(
 name|a
 operator|.
 name|getFile
@@ -1183,10 +1187,6 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"invalid-1.0b.jar"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1256,6 +1256,10 @@ argument_list|()
 decl_stmt|;
 name|found
 operator|=
+literal|"invalid/invalid/1.0-SNAPSHOT/invalid-1.0.jar"
+operator|.
+name|equals
+argument_list|(
 name|path
 operator|.
 name|replace
@@ -1264,10 +1268,6 @@ literal|'\\'
 argument_list|,
 literal|'/'
 argument_list|)
-operator|.
-name|equals
-argument_list|(
-literal|"invalid/invalid/1.0-SNAPSHOT/invalid-1.0.jar"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1310,6 +1310,10 @@ name|assertFalse
 argument_list|(
 literal|"Check not 'invalid-1.0.jar'"
 argument_list|,
+literal|"invalid-1.0.jar"
+operator|.
+name|equals
+argument_list|(
 name|a
 operator|.
 name|getFile
@@ -1317,10 +1321,6 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"invalid-1.0.jar"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1390,6 +1390,10 @@ argument_list|()
 decl_stmt|;
 name|found
 operator|=
+literal|"invalid/invalid/1.0-20050611.123456-1/invalid-1.0-20050611.123456-1.jar"
+operator|.
+name|equals
+argument_list|(
 name|path
 operator|.
 name|replace
@@ -1398,10 +1402,6 @@ literal|'\\'
 argument_list|,
 literal|'/'
 argument_list|)
-operator|.
-name|equals
-argument_list|(
-literal|"invalid/invalid/1.0-20050611.123456-1/invalid-1.0-20050611.123456-1.jar"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1444,6 +1444,10 @@ name|assertFalse
 argument_list|(
 literal|"Check not 'invalid-1.0-20050611-123456-1.jar'"
 argument_list|,
+literal|"invalid-1.0-20050611.123456-1.jar"
+operator|.
+name|equals
+argument_list|(
 name|a
 operator|.
 name|getFile
@@ -1451,10 +1455,6 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"invalid-1.0-20050611.123456-1.jar"
 argument_list|)
 argument_list|)
 expr_stmt|;
