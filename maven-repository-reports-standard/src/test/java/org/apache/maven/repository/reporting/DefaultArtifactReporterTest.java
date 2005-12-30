@@ -1184,17 +1184,6 @@ argument_list|(
 literal|"1.0-alpha-2"
 argument_list|)
 expr_stmt|;
-name|RepositoryMetadata
-name|metadata
-init|=
-operator|new
-name|ArtifactRepositoryMetadata
-argument_list|(
-name|artifact
-argument_list|,
-name|versioning
-argument_list|)
-decl_stmt|;
 block|}
 specifier|protected
 name|void

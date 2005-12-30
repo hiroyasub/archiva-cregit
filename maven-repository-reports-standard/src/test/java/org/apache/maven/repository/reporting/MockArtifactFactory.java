@@ -64,7 +64,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *   */
+comment|/**  * @noinspection ReturnOfNull  */
 end_comment
 
 begin_class

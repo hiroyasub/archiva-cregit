@@ -204,12 +204,12 @@ name|VERSION
 init|=
 literal|"version"
 decl_stmt|;
-comment|/** @plexus.requirement */
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|ArtifactFactory
 name|factory
 decl_stmt|;
-comment|/**      * Search the artifact that contains the query string in the specified      * search field.      *      * @param queryString      * @param searchField      * @return      */
+comment|/**      * Search the artifact that contains the query string in the specified      * search field.      *      * @param queryString      * @param searchField      */
 specifier|public
 name|List
 name|search

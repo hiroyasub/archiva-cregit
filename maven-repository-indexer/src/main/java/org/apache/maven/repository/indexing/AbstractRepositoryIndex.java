@@ -115,7 +115,7 @@ specifier|private
 name|IndexReader
 name|indexReader
 decl_stmt|;
-specifier|protected
+specifier|private
 name|IndexWriter
 name|indexWriter
 decl_stmt|;
@@ -288,7 +288,7 @@ name|indexPath
 return|;
 block|}
 specifier|protected
-name|void
+name|IndexWriter
 name|getIndexWriter
 parameter_list|()
 throws|throws
@@ -315,9 +315,12 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|indexWriter
+return|;
 block|}
 specifier|private
-name|void
+name|IndexReader
 name|getIndexReader
 parameter_list|()
 throws|throws
@@ -340,6 +343,9 @@ name|indexPath
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|indexReader
+return|;
 block|}
 comment|/**      * method for validating an index directory      *      * @throws RepositoryIndexException if the given indexPath is not valid for this type of RepositoryIndex      */
 specifier|private
@@ -370,9 +376,12 @@ name|indexDir
 argument_list|)
 condition|)
 block|{
+name|IndexReader
+name|indexReader
+init|=
 name|getIndexReader
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|indexReader

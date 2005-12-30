@@ -173,9 +173,6 @@ name|void
 name|testKickoutWrongDirectory
 parameter_list|()
 block|{
-name|List
-name|metadataPaths
-init|=
 name|discoverer
 operator|.
 name|discoverMetadata
@@ -184,7 +181,7 @@ name|repositoryLocation
 argument_list|,
 literal|null
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|Iterator
 name|iter
 init|=
@@ -260,9 +257,6 @@ name|void
 name|testKickoutBlankMetadata
 parameter_list|()
 block|{
-name|List
-name|metadataPaths
-init|=
 name|discoverer
 operator|.
 name|discoverMetadata
@@ -271,7 +265,7 @@ name|repositoryLocation
 argument_list|,
 literal|null
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|Iterator
 name|iter
 init|=

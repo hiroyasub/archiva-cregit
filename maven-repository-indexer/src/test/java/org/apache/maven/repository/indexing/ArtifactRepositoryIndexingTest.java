@@ -139,16 +139,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -192,22 +182,6 @@ specifier|private
 specifier|static
 specifier|final
 name|String
-name|SHA1
-init|=
-literal|"sha1"
-decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|MD5
-init|=
-literal|"md5"
-decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|String
 name|CLASSES
 init|=
 literal|"classes"
@@ -227,10 +201,6 @@ name|String
 name|FILES
 init|=
 literal|"files"
-decl_stmt|;
-specifier|private
-name|ArtifactRepositoryIndex
-name|indexer
 decl_stmt|;
 specifier|private
 name|ArtifactFactory
@@ -339,6 +309,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ArtifactRepositoryIndex
+name|indexer
+decl_stmt|;
 try|try
 block|{
 name|String
@@ -574,8 +547,9 @@ throws|throws
 name|Exception
 block|{
 comment|//indexer = (ArtifactRepositoryIndex) factory.getArtifactRepositoryIndexer( indexPath, repository );
+name|ArtifactRepositoryIndex
 name|indexer
-operator|=
+init|=
 operator|(
 name|ArtifactRepositoryIndex
 operator|)
@@ -587,7 +561,7 @@ name|ROLE
 argument_list|,
 literal|"artifact"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|indexer
 operator|.
 name|open
@@ -735,6 +709,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+comment|// TODO: assert something!
 block|}
 specifier|public
 name|void
@@ -743,8 +718,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ArtifactRepositoryIndex
 name|indexer
-operator|=
+init|=
 operator|(
 name|ArtifactRepositoryIndex
 operator|)
@@ -756,7 +732,7 @@ name|ROLE
 argument_list|,
 literal|"artifact"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|indexer
 operator|.
 name|open
@@ -767,7 +743,6 @@ literal|"src/test/index"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//repoSearcher = new ArtifactRepositoryIndexSearcher( indexer, indexPath, repository );
 name|RepositoryIndexSearcher
 name|repoSearcher
 init|=
@@ -922,45 +897,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-for|for
-control|(
-name|Iterator
-name|iter
-init|=
-name|artifacts
-operator|.
-name|iterator
-argument_list|()
-init|;
-name|iter
-operator|.
-name|hasNext
-argument_list|()
-condition|;
-control|)
-block|{
-name|Artifact
-name|artifact
-init|=
-operator|(
-name|Artifact
-operator|)
-name|iter
-operator|.
-name|next
-argument_list|()
-decl_stmt|;
-name|File
-name|f
-init|=
-name|artifact
-operator|.
-name|getFile
-argument_list|()
-decl_stmt|;
-comment|//assertNotNull( f );
-comment|//assertTrue( f.exists() );
-block|}
 name|artifacts
 operator|=
 name|repoSearcher

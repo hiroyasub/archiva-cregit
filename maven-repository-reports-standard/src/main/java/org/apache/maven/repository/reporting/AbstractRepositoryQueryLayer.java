@@ -365,8 +365,6 @@ name|RepositoryQueryLayerException
 block|{
 name|Metadata
 name|metadata
-init|=
-literal|null
 decl_stmt|;
 name|ArtifactRepositoryMetadata
 name|repositoryMetadata

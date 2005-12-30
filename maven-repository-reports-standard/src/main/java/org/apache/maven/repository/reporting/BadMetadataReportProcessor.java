@@ -282,6 +282,8 @@ condition|)
 block|{
 try|try
 block|{
+name|hasFailures
+operator|=
 name|checkPluginMetadata
 argument_list|(
 name|metadata
@@ -361,6 +363,8 @@ name|storedInArtifactVersionDirectory
 argument_list|()
 condition|)
 block|{
+name|hasFailures
+operator||=
 name|checkSnapshotMetadata
 argument_list|(
 name|metadata

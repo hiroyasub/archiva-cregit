@@ -143,26 +143,13 @@ literal|"invalid-pom"
 argument_list|)
 expr_stmt|;
 block|}
-specifier|public
-name|void
-name|tearDown
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
-block|}
 comment|/**      * Test the InvalidPomArtifactReportProcessor when the artifact is an invalid pom.      */
 specifier|public
 name|void
 name|testInvalidPomArtifactReportProcessorFailure
 parameter_list|()
-block|{
-try|try
+throws|throws
+name|ReportProcessorException
 block|{
 name|ArtifactHandler
 name|handler
@@ -217,33 +204,24 @@ argument_list|,
 name|repository
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
+literal|1
+argument_list|,
 name|reporter
 operator|.
 name|getFailures
 argument_list|()
-operator|==
-literal|1
 argument_list|)
 expr_stmt|;
-comment|//System.out.println("INVALID POM ARTIFACT FAILURES --->> " + reporter.getFailures());
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-block|}
 block|}
 comment|/**      * Test the InvalidPomArtifactReportProcessor when the artifact is a valid pom.      */
 specifier|public
 name|void
 name|testInvalidPomArtifactReportProcessorSuccess
 parameter_list|()
-block|{
-try|try
+throws|throws
+name|ReportProcessorException
 block|{
 name|ArtifactHandler
 name|handler
@@ -298,33 +276,24 @@ argument_list|,
 name|repository
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
+literal|1
+argument_list|,
 name|reporter
 operator|.
 name|getSuccesses
 argument_list|()
-operator|==
-literal|1
 argument_list|)
 expr_stmt|;
-comment|//System.out.println("VALID POM ARTIFACT SUCCESS --->> " + reporter.getSuccesses());
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-block|}
 block|}
 comment|/**      * Test the InvalidPomArtifactReportProcessor when the artifact is not a pom.      */
 specifier|public
 name|void
 name|testNotAPomArtifactReportProcessorSuccess
 parameter_list|()
-block|{
-try|try
+throws|throws
+name|ReportProcessorException
 block|{
 name|ArtifactHandler
 name|handler
@@ -379,28 +348,19 @@ argument_list|,
 name|repository
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
+literal|1
+argument_list|,
 name|reporter
 operator|.
 name|getWarnings
 argument_list|()
-operator|==
-literal|1
 argument_list|)
 expr_stmt|;
-comment|//System.out.println("NOT A POM ARTIFACT WARNINGS --->> " + reporter.getWarnings());
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-block|}
 block|}
 comment|/**      * Test the InvalidPomArtifactReportProcessor when the pom is located in       * a remote repository.      */
-comment|/* public void testRemotePomArtifactReportProcessorSuccess(){         try{             ArtifactHandler handler = new DefaultArtifactHandler( "pom" );             VersionRange version = VersionRange.createFromVersion( remoteArtifactVersion );             Artifact artifact = new DefaultArtifact( remoteArtifactGroup, remoteArtifactId, version, remoteArtifactScope,                                                      "pom", "", handler );             ArtifactRepository repository = new DefaultArtifactRepository( remoteRepoId, remoteRepoUrl,                                                                            new DefaultRepositoryLayout() );                      artifactReportProcessor.processArtifact(null, artifact, reporter, repository);             if(reporter.getSuccesses() == 1)                 assertTrue(reporter.getSuccesses() == 1);                                      //System.out.println("Remote pom SUCCESS --> " + reporter.getSuccesses());         }catch(Exception e){                      }     }     */
+comment|/* public void testRemotePomArtifactReportProcessorSuccess(){         try{             ArtifactHandler handler = new DefaultArtifactHandler( "pom" );             VersionRange version = VersionRange.createFromVersion( remoteArtifactVersion );             Artifact artifact = new DefaultArtifact( remoteArtifactGroup, remoteArtifactId, version, remoteArtifactScope,                                                      "pom", "", handler );             ArtifactRepository repository = new DefaultArtifactRepository( remoteRepoId, remoteRepoUrl,                                                                            new DefaultRepositoryLayout() );                      artifactReportProcessor.processArtifact(null, artifact, reporter, repository);             if(reporter.getSuccesses() == 1)                 assertTrue(reporter.getSuccesses() == 1);                                  }catch(Exception e){                      }     }     */
 block|}
 end_class
 

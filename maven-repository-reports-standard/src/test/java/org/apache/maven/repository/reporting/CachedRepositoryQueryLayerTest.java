@@ -26,7 +26,7 @@ specifier|public
 class|class
 name|CachedRepositoryQueryLayerTest
 extends|extends
-name|AbstractRepositoryQueryLayerTest
+name|AbstractRepositoryQueryLayerTestCase
 block|{
 comment|// TODO: share
 specifier|private

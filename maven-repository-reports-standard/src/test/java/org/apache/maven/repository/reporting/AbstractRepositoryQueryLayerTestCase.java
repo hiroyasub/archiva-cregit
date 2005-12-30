@@ -155,7 +155,7 @@ begin_class
 specifier|public
 specifier|abstract
 class|class
-name|AbstractRepositoryQueryLayerTest
+name|AbstractRepositoryQueryLayerTestCase
 extends|extends
 name|PlexusTestCase
 block|{
