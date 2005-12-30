@@ -156,14 +156,14 @@ argument_list|,
 name|metadataPaths
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
+literal|3
+argument_list|,
 name|metadataPaths
 operator|.
 name|size
 argument_list|()
-operator|==
-literal|3
 argument_list|)
 expr_stmt|;
 block|}

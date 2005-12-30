@@ -127,6 +127,8 @@ class|class
 name|LegacyArtifactDiscoverer
 extends|extends
 name|AbstractArtifactDiscoverer
+implements|implements
+name|ArtifactDiscoverer
 block|{
 specifier|private
 name|ArtifactFactory
