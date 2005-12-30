@@ -139,7 +139,7 @@ name|String
 name|blacklistedPatterns
 parameter_list|,
 name|boolean
-name|convertSnapshots
+name|includeSnapshots
 parameter_list|)
 block|{
 name|List
@@ -202,7 +202,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|convertSnapshots
+name|includeSnapshots
 operator|||
 operator|!
 name|artifact
@@ -233,9 +233,6 @@ name|String
 name|path
 parameter_list|)
 block|{
-name|Artifact
-name|result
-decl_stmt|;
 name|List
 name|pathParts
 init|=
@@ -280,6 +277,11 @@ argument_list|(
 name|pathParts
 argument_list|)
 expr_stmt|;
+name|Artifact
+name|finalResult
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|pathParts
@@ -295,10 +297,9 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
-return|return
-literal|null
-return|;
 block|}
+else|else
+block|{
 comment|// the actual artifact filename.
 name|String
 name|filename
@@ -387,10 +388,9 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
-return|return
-literal|null
-return|;
 block|}
+else|else
+block|{
 name|remainingFilename
 operator|=
 name|remainingFilename
@@ -413,6 +413,8 @@ decl_stmt|;
 comment|// TODO: use artifact handler, share with legacy discoverer
 name|String
 name|type
+init|=
+literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -441,7 +443,10 @@ operator|.
 name|length
 argument_list|()
 operator|-
-literal|7
+literal|".tar.gz"
+operator|.
+name|length
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -472,7 +477,10 @@ operator|.
 name|length
 argument_list|()
 operator|-
-literal|4
+literal|".zip"
+operator|.
+name|length
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -507,7 +515,10 @@ operator|.
 name|length
 argument_list|()
 operator|-
-literal|12
+literal|"-sources.jar"
+operator|.
+name|length
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -535,10 +546,9 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
-return|return
-literal|null
-return|;
 block|}
+else|else
+block|{
 name|type
 operator|=
 name|remainingFilename
@@ -562,6 +572,17 @@ name|index
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|type
+operator|!=
+literal|null
+condition|)
+block|{
+name|Artifact
+name|result
+decl_stmt|;
 if|if
 condition|(
 name|classifier
@@ -719,11 +740,8 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
-return|return
-literal|null
-return|;
 block|}
-if|if
+if|else if
 condition|(
 operator|!
 name|result
@@ -742,9 +760,13 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
-return|return
-literal|null
-return|;
+block|}
+else|else
+block|{
+name|finalResult
+operator|=
+name|result
+expr_stmt|;
 block|}
 block|}
 if|else if
@@ -763,9 +785,6 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
-return|return
-literal|null
-return|;
 block|}
 if|else if
 condition|(
@@ -798,10 +817,9 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
-return|return
-literal|null
-return|;
 block|}
+else|else
+block|{
 name|classifier
 operator|=
 name|remainingFilename
@@ -816,7 +834,7 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-name|result
+name|finalResult
 operator|=
 name|artifactFactory
 operator|.
@@ -834,7 +852,18 @@ name|classifier
 argument_list|)
 expr_stmt|;
 block|}
-name|result
+block|}
+block|}
+block|}
+block|}
+if|if
+condition|(
+name|finalResult
+operator|!=
+literal|null
+condition|)
+block|{
+name|finalResult
 operator|.
 name|setFile
 argument_list|(
@@ -845,8 +874,9 @@ name|path
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 return|return
-name|result
+name|finalResult
 return|;
 block|}
 block|}
