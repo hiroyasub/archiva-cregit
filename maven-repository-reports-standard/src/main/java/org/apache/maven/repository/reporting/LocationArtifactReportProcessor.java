@@ -489,26 +489,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Validate the if the artifact exists in the specified location.      *      * @param filename      */
-specifier|private
-name|boolean
-name|validateArtifactLocation
-parameter_list|(
-name|String
-name|filename
-parameter_list|)
-block|{
-return|return
-operator|new
-name|File
-argument_list|(
-name|filename
-argument_list|)
-operator|.
-name|exists
-argument_list|()
-return|;
-block|}
 comment|/**      * Extract the contents of the artifact/jar file.      *      * @param file      * @param groupId      * @param artifactId      */
 specifier|private
 name|Model
