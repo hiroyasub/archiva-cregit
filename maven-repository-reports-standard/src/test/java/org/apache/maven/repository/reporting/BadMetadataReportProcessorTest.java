@@ -194,7 +194,7 @@ name|BadMetadataReportProcessorTest
 extends|extends
 name|AbstractRepositoryReportsTestCase
 block|{
-specifier|protected
+specifier|private
 name|ArtifactFactory
 name|artifactFactory
 decl_stmt|;

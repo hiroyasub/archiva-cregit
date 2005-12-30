@@ -180,11 +180,11 @@ name|ChecksumArtifactReporter
 implements|implements
 name|ArtifactReportProcessor
 block|{
-specifier|protected
+specifier|private
 name|InputStream
 name|md5InputStream
 decl_stmt|;
-specifier|protected
+specifier|private
 name|InputStream
 name|sha1InputStream
 decl_stmt|;
@@ -850,7 +850,7 @@ literal|true
 return|;
 block|}
 comment|/**      * Validate the checksum of the file.      *      * @param fileUrl The file to be validated.      * @param algo    The checksum algorithm used.      */
-specifier|protected
+specifier|private
 name|boolean
 name|validateChecksum
 parameter_list|(

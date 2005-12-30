@@ -223,7 +223,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-specifier|protected
+specifier|private
 name|void
 name|processArtifact
 parameter_list|(
@@ -387,7 +387,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-specifier|protected
+specifier|private
 name|void
 name|processDependencies
 parameter_list|(

@@ -211,7 +211,7 @@ name|AbstractChecksumArtifactReporterTestCase
 extends|extends
 name|AbstractRepositoryReportsTestCase
 block|{
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -222,7 +222,7 @@ block|{
 literal|"validArtifact-1.0"
 block|}
 decl_stmt|;
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -233,7 +233,7 @@ block|{
 literal|"invalidArtifact-1.0"
 block|}
 decl_stmt|;
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|String

@@ -103,15 +103,15 @@ name|AbstractLogEnabled
 implements|implements
 name|RepositoryIndex
 block|{
-specifier|protected
+specifier|private
 name|String
 name|indexPath
 decl_stmt|;
-specifier|protected
+specifier|private
 name|boolean
 name|indexOpen
 decl_stmt|;
-specifier|protected
+specifier|private
 name|IndexReader
 name|indexReader
 decl_stmt|;
@@ -316,7 +316,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-specifier|protected
+specifier|private
 name|void
 name|getIndexReader
 parameter_list|()
@@ -342,7 +342,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * method for validating an index directory      *      * @throws RepositoryIndexException if the given indexPath is not valid for this type of RepositoryIndex      */
-specifier|protected
+specifier|private
 name|void
 name|validateIndex
 parameter_list|()

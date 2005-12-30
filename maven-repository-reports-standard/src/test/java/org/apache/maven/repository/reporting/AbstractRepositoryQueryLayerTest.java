@@ -159,7 +159,7 @@ name|AbstractRepositoryQueryLayerTest
 extends|extends
 name|PlexusTestCase
 block|{
-specifier|protected
+specifier|private
 name|ArtifactFactory
 name|artifactFactory
 decl_stmt|;
@@ -594,7 +594,7 @@ block|{
 comment|//expected
 block|}
 block|}
-specifier|protected
+specifier|private
 name|Artifact
 name|getArtifact
 parameter_list|(

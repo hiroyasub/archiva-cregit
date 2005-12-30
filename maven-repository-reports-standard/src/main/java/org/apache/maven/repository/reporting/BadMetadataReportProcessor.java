@@ -240,12 +240,12 @@ name|BadMetadataReportProcessor
 implements|implements
 name|MetadataReportProcessor
 block|{
-comment|/** @plexus.requirement */
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|ArtifactFactory
 name|artifactFactory
 decl_stmt|;
-comment|/** @plexus.requirement */
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|RepositoryQueryLayerFactory
 name|repositoryQueryLayerFactory
@@ -445,7 +445,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Method for processing a GroupRepositoryMetadata      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ArtifactReporter to receive processing results      */
-specifier|protected
+specifier|private
 name|boolean
 name|checkPluginMetadata
 parameter_list|(
@@ -789,7 +789,7 @@ name|hasFailures
 return|;
 block|}
 comment|/**      * Method for processing a SnapshotArtifactRepository      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ArtifactReporter to receive processing results      */
-specifier|protected
+specifier|private
 name|boolean
 name|checkSnapshotMetadata
 parameter_list|(
@@ -901,7 +901,7 @@ name|hasFailures
 return|;
 block|}
 comment|/**      * Method for validating the versions declared inside an ArtifactRepositoryMetadata      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ArtifactReporter to receive processing results      */
-specifier|protected
+specifier|private
 name|boolean
 name|checkMetadataVersions
 parameter_list|(
@@ -1019,7 +1019,7 @@ name|hasFailures
 return|;
 block|}
 comment|/**      * Searches the artifact repository directory for all versions and verifies that all of them are listed in the      * ArtifactRepositoryMetadata      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ArtifactReporter to receive processing results      */
-specifier|protected
+specifier|private
 name|boolean
 name|checkRepositoryVersions
 parameter_list|(
