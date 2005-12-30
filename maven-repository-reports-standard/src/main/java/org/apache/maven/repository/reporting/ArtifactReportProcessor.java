@@ -95,6 +95,8 @@ parameter_list|,
 name|ArtifactRepository
 name|repository
 parameter_list|)
+throws|throws
+name|ReportProcessorException
 function_decl|;
 block|}
 end_interface
