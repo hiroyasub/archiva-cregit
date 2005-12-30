@@ -178,7 +178,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class validates well-formedness of pom xml file.  */
+comment|/**  * This class validates well-formedness of pom xml file.  * @plexus.component role="org.apache.maven.repository.reporting.ArtifactReportProcessor" role-hint="invalid-pom"  */
 end_comment
 
 begin_class

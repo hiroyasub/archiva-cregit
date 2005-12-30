@@ -230,7 +230,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class will report on bad metadata files.  These include invalid version declarations and incomplete version  * information inside the metadata file.  Plugin metadata will be checked for validity of the latest plugin artifacts.  */
+comment|/**  * This class will report on bad metadata files.  These include invalid version declarations and incomplete version  * information inside the metadata file.  Plugin metadata will be checked for validity of the latest plugin artifacts.  *  * @plexus.component role="org.apache.maven.repository.reporting.MetadataReportProcessor" role-hint="bad-metadata"  */
 end_comment
 
 begin_class
@@ -240,11 +240,12 @@ name|BadMetadataReportProcessor
 implements|implements
 name|MetadataReportProcessor
 block|{
-comment|// plexus components
+comment|/** @plexus.requirement */
 specifier|private
 name|ArtifactFactory
 name|artifactFactory
 decl_stmt|;
+comment|/** @plexus.requirement */
 specifier|private
 name|RepositoryQueryLayerFactory
 name|repositoryQueryLayerFactory

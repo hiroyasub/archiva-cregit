@@ -202,7 +202,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Validate the location of the artifact based on the values indicated  * in its pom (both the pom packaged with the artifact& the pom in the  * file system).  */
+comment|/**  * Validate the location of the artifact based on the values indicated  * in its pom (both the pom packaged with the artifact& the pom in the  * file system).  * @plexus.component role="org.apache.maven.repository.reporting.ArtifactReportProcessor" role-hint="artifact-location"  */
 end_comment
 
 begin_class
@@ -212,6 +212,7 @@ name|LocationArtifactReportProcessor
 implements|implements
 name|ArtifactReportProcessor
 block|{
+comment|/** @plexus.requirement */
 specifier|private
 name|ArtifactFactory
 name|artifactFactory

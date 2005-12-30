@@ -170,7 +170,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class reports invalid and mismatched checksums of artifacts and metadata files.  * It validates MD5 and SHA-1 checksums.  */
+comment|/**  * This class reports invalid and mismatched checksums of artifacts and metadata files.  * It validates MD5 and SHA-1 checksums.  *  * @todo remove stateful parts, change to singleton instantiation  * @plexus.component role="org.apache.maven.repository.reporting.ArtifactReportProcessor" role-hint="checksum" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -179,8 +179,6 @@ class|class
 name|ChecksumArtifactReporter
 implements|implements
 name|ArtifactReportProcessor
-implements|,
-name|MetadataReportProcessor
 block|{
 specifier|protected
 name|InputStream

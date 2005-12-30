@@ -34,7 +34,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Gets the default implementation of a repository query layer for the given repository.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @version $Id$  */
+comment|/**  * Gets the default implementation of a repository query layer for the given repository.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @version $Id$  * @plexus.component role="org.apache.maven.repository.reporting.RepositoryQueryLayerFactory"  */
 end_comment
 
 begin_class
