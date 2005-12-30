@@ -66,7 +66,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Search for metadata files in the repository.      *      * @param repositoryBase      The repository directory.      * @param blacklistedPatterns Patterns that are to be excluded from the discovery process.      * @return      */
+comment|/**      * Search for metadata files in the repository.      *      * @param repositoryBase      The repository directory.      * @param blacklistedPatterns Patterns that are to be excluded from the discovery process.      */
 name|List
 name|discoverMetadata
 parameter_list|(

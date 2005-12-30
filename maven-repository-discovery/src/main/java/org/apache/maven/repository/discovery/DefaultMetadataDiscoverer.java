@@ -289,6 +289,16 @@ name|java
 operator|.
 name|net
 operator|.
+name|MalformedURLException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
 name|URL
 import|;
 end_import
@@ -823,6 +833,14 @@ catch|catch
 parameter_list|(
 name|XmlPullParserException
 name|xe
+parameter_list|)
+block|{
+comment|// TODO: log ignored metadata
+block|}
+catch|catch
+parameter_list|(
+name|MalformedURLException
+name|e
 parameter_list|)
 block|{
 comment|// TODO: log ignored metadata

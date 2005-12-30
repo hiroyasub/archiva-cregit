@@ -188,7 +188,7 @@ specifier|final
 name|int
 name|CHECKSUM_BUFFER_SIZE
 init|=
-literal|256
+literal|16384
 decl_stmt|;
 comment|/**      * Validate the checksum of the specified artifact.      *      * @param model      * @param artifact      * @param reporter      * @param repository      */
 specifier|public
@@ -870,6 +870,7 @@ return|;
 block|}
 comment|/**      * Create a checksum from the specified metadata file.      *      * @param file The file that will be created a checksum.      * @param algo The algorithm to be used (MD5, SHA-1)      * @return      * @throws FileNotFoundException      * @throws NoSuchAlgorithmException      * @throws IOException      * @todo move to utility class      */
 specifier|private
+specifier|static
 name|byte
 index|[]
 name|createChecksum
