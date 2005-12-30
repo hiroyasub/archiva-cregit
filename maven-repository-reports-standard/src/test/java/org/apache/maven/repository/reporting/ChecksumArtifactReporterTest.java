@@ -14,28 +14,8 @@ package|;
 end_package
 
 begin_comment
-comment|/*   * Copyright 2001-2005 The Apache Software Foundation.   *   * Licensed under the Apache License, Version 2.0 (the "License");   * you may not use this file except in compliance with the License.   * You may obtain a copy of the License at   *   *      http://www.apache.org/licenses/LICENSE-2.0   *   * Unless required by applicable law or agreed to in writing, software   * distributed under the License is distributed on an "AS IS" BASIS,   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   * See the License for the specific language governing permissions and   * limitations under the License.   */
+comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Iterator
-import|;
-end_import
 
 begin_import
 import|import
@@ -94,56 +74,6 @@ operator|.
 name|handler
 operator|.
 name|DefaultArtifactHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|repository
-operator|.
-name|ArtifactRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|repository
-operator|.
-name|DefaultArtifactRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|repository
-operator|.
-name|layout
-operator|.
-name|DefaultRepositoryLayout
 import|;
 end_import
 
@@ -235,8 +165,28 @@ name|VersionRange
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
+import|;
+end_import
+
 begin_comment
-comment|/**   * This class tests the ChecksumArtifactReporter.   * It extends the AbstractChecksumArtifactReporterTest class.  */
+comment|/**  * This class tests the ChecksumArtifactReporter.  * It extends the AbstractChecksumArtifactReporterTest class.  */
 end_comment
 
 begin_class
@@ -539,7 +489,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Test the valid checksum of a metadata file.       * The reporter should report 2 success validation.      */
+comment|/**      * Test the valid checksum of a metadata file.      * The reporter should report 2 success validation.      */
 specifier|public
 name|void
 name|testChecksumMetadataReporterSuccess
@@ -681,7 +631,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Test the corrupted checksum of a metadata file.       * The reporter must report 2 failures.      */
+comment|/**      * Test the corrupted checksum of a metadata file.      * The reporter must report 2 failures.      */
 specifier|public
 name|void
 name|testChecksumMetadataReporterFailure

@@ -14,8 +14,70 @@ package|;
 end_package
 
 begin_comment
-comment|/*   * Copyright 2001-2005 The Apache Software Foundation.   *   * Licensed under the Apache License, Version 2.0 (the "License");   * you may not use this file except in compliance with the License.   * You may obtain a copy of the License at   *   *      http://www.apache.org/licenses/LICENSE-2.0   *   * Unless required by applicable law or agreed to in writing, software   * distributed under the License is distributed on an "AS IS" BASIS,   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   * See the License for the specific language governing permissions and   * limitations under the License.   */
+comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|Artifact
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|repository
+operator|.
+name|ArtifactRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|repository
+operator|.
+name|metadata
+operator|.
+name|RepositoryMetadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|model
+operator|.
+name|Model
+import|;
+end_import
 
 begin_import
 import|import
@@ -107,70 +169,8 @@ name|NoSuchAlgorithmException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|Artifact
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|repository
-operator|.
-name|metadata
-operator|.
-name|RepositoryMetadata
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|model
-operator|.
-name|Model
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|repository
-operator|.
-name|*
-import|;
-end_import
-
 begin_comment
-comment|/**  * This class reports invalid and mismatched checksums of artifacts and metadata files.   * It validates MD5 and SHA-1 checksums.  */
+comment|/**  * This class reports invalid and mismatched checksums of artifacts and metadata files.  * It validates MD5 and SHA-1 checksums.  */
 end_comment
 
 begin_class
@@ -206,7 +206,7 @@ name|isLocal
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Validate the checksum of the specified artifact.      * @param model      * @param artifact      * @param reporter      * @param repository      */
+comment|/**      * Validate the checksum of the specified artifact.      *      * @param model      * @param artifact      * @param reporter      * @param repository      */
 specifier|public
 name|void
 name|processArtifact
@@ -431,7 +431,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Validate the checksums of the metadata. Get the metadata file from the       * repository then validate the checksum.      */
+comment|/**      * Validate the checksums of the metadata. Get the metadata file from the      * repository then validate the checksum.      */
 specifier|public
 name|void
 name|processMetadata
@@ -735,7 +735,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the MD5 Checksum file. If not found, return false.      * @param filename The name of the artifact whose MD5 Checksum file will be retrieved.      * @return      */
+comment|/**      * Get the MD5 Checksum file. If not found, return false.      *      * @param filename The name of the artifact whose MD5 Checksum file will be retrieved.      * @return      */
 specifier|public
 name|boolean
 name|getMD5File
@@ -801,7 +801,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Get the SHA1 Checksum file. If not found, return false.      * @param filename The name of the artifact whose SHA-1 Checksum file will be retrieved.      * @return      */
+comment|/**      * Get the SHA1 Checksum file. If not found, return false.      *      * @param filename The name of the artifact whose SHA-1 Checksum file will be retrieved.      * @return      */
 specifier|public
 name|boolean
 name|getSHA1File
@@ -867,7 +867,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Validate the checksum of the file.      * @param fileUrl The file to be validated.      * @param algo The checksum algorithm used.       * @return      */
+comment|/**      * Validate the checksum of the file.      *      * @param fileUrl The file to be validated.      * @param algo    The checksum algorithm used.      * @return      */
 specifier|protected
 name|boolean
 name|validateChecksum
@@ -911,10 +911,12 @@ argument_list|(
 literal|"SHA-1"
 argument_list|)
 condition|)
+block|{
 name|ext
 operator|=
 literal|".sha1"
 expr_stmt|;
+block|}
 name|chk1
 operator|=
 name|createChecksum
@@ -1089,7 +1091,7 @@ name|valid
 return|;
 block|}
 block|}
-comment|/**      * Create a checksum from the specified metadata file.      * @param filename The file that will be created a checksum.      * @param algo The algorithm to be used (MD5, SHA-1)      * @return      * @throws FileNotFoundException      * @throws NoSuchAlgorithmException      * @throws IOException      */
+comment|/**      * Create a checksum from the specified metadata file.      *      * @param filename The file that will be created a checksum.      * @param algo     The algorithm to be used (MD5, SHA-1)      * @return      * @throws FileNotFoundException      * @throws NoSuchAlgorithmException      * @throws IOException      */
 specifier|protected
 name|byte
 index|[]
@@ -1221,7 +1223,7 @@ name|digest
 argument_list|()
 return|;
 block|}
-comment|/**      * Convert an incoming array of bytes into a string that represents each of      * the bytes as two hex characters.      * @param data      * @return      */
+comment|/**      * Convert an incoming array of bytes into a string that represents each of      * the bytes as two hex characters.      *      * @param data      * @return      */
 specifier|public
 name|String
 name|byteArrayToHexStr
@@ -1293,12 +1295,14 @@ argument_list|()
 operator|==
 literal|1
 condition|)
+block|{
 name|tempStr
 operator|=
 literal|"0"
 operator|+
 name|tempStr
 expr_stmt|;
+block|}
 comment|//Concatenate the two characters to the output string.
 name|output
 operator|=

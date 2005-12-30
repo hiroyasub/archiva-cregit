@@ -14,8 +14,22 @@ package|;
 end_package
 
 begin_comment
-comment|/*   * Copyright 2001-2005 The Apache Software Foundation.   *   * Licensed under the Apache License, Version 2.0 (the "License");   * you may not use this file except in compliance with the License.   * You may obtain a copy of the License at   *   *      http://www.apache.org/licenses/LICENSE-2.0   *   * Unless required by applicable law or agreed to in writing, software   * distributed under the License is distributed on an "AS IS" BASIS,   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   * See the License for the specific language governing permissions and   * limitations under the License.   */
+comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|util
+operator|.
+name|FileUtils
+import|;
+end_import
 
 begin_import
 import|import
@@ -171,20 +185,6 @@ name|JarOutputStream
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|util
-operator|.
-name|FileUtils
-import|;
-end_import
-
 begin_comment
 comment|/**  * This class creates the artifact and metadata files used for testing the ChecksumArtifactReporter.  * It is extended by ChecksumArtifactReporterTest class.  */
 end_comment
@@ -257,7 +257,7 @@ name|tearDown
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Create checksum files.      * @param type The type of checksum file to be created.      * @return      */
+comment|/**      * Create checksum files.      *      * @param type The type of checksum file to be created.      * @return      */
 specifier|protected
 name|boolean
 name|createChecksumFile
@@ -394,7 +394,7 @@ return|return
 name|written
 return|;
 block|}
-comment|/**      * Create checksum files for metadata.      * @param type The type of checksum to be created. (Valid or invalid)      * @return      */
+comment|/**      * Create checksum files for metadata.      *      * @param type The type of checksum to be created. (Valid or invalid)      * @return      */
 specifier|protected
 name|boolean
 name|createMetadataFile
@@ -479,7 +479,7 @@ return|return
 name|written
 return|;
 block|}
-comment|/**      * Create artifact together with its checksums.      * @param relativePath The groupId      * @param filename The filename of the artifact to be created.      * @param type The file type (JAR)      * @param isValid Indicates whether the checksum to be created is valid or not.      * @return      */
+comment|/**      * Create artifact together with its checksums.      *      * @param relativePath The groupId      * @param filename     The filename of the artifact to be created.      * @param type         The file type (JAR)      * @param isValid      Indicates whether the checksum to be created is valid or not.      * @return      */
 specifier|private
 name|boolean
 name|writeChecksumFile
@@ -775,6 +775,7 @@ condition|(
 operator|!
 name|isValid
 condition|)
+block|{
 name|osw
 operator|.
 name|write
@@ -787,7 +788,9 @@ operator|+
 literal|"1"
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|osw
 operator|.
 name|write
@@ -798,6 +801,7 @@ name|md5chk
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|osw
 operator|.
 name|close
@@ -856,6 +860,7 @@ condition|(
 operator|!
 name|isValid
 condition|)
+block|{
 name|osw
 operator|.
 name|write
@@ -868,7 +873,9 @@ operator|+
 literal|"2"
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|osw
 operator|.
 name|write
@@ -879,6 +886,7 @@ name|sha1chk
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|osw
 operator|.
 name|close
@@ -901,7 +909,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Create metadata file together with its checksums.      * @param relativePath The groupId      * @param filename The filename of the artifact to be created.      * @param type The file type (JAR)      * @param isValid Indicates whether the checksum to be created is valid or not.      * @return      */
+comment|/**      * Create metadata file together with its checksums.      *      * @param relativePath The groupId      * @param filename     The filename of the artifact to be created.      * @param type         The file type (JAR)      * @param isValid      Indicates whether the checksum to be created is valid or not.      * @return      */
 specifier|private
 name|boolean
 name|writeMetadataFile
@@ -1067,6 +1075,7 @@ condition|(
 operator|!
 name|isValid
 condition|)
+block|{
 name|osw
 operator|.
 name|write
@@ -1079,7 +1088,9 @@ operator|+
 literal|"1"
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|osw
 operator|.
 name|write
@@ -1090,6 +1101,7 @@ name|md5chk
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|osw
 operator|.
 name|close
@@ -1144,6 +1156,7 @@ condition|(
 operator|!
 name|isValid
 condition|)
+block|{
 name|osw
 operator|.
 name|write
@@ -1156,7 +1169,9 @@ operator|+
 literal|"2"
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|osw
 operator|.
 name|write
@@ -1167,6 +1182,7 @@ name|sha1chk
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|osw
 operator|.
 name|close
@@ -1193,7 +1209,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Create the sample file that will be included in the jar.      * @param filename      * @return      */
+comment|/**      * Create the sample file that will be included in the jar.      *      * @param filename      * @return      */
 specifier|private
 name|boolean
 name|createSampleFile
@@ -1258,7 +1274,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Create a checksum from the specified metadata file.      *       * @param metadataUrl      * @return      * @throws FileNotFoundException      * @throws NoSuchAlgorithmException      * @throws IOException      */
+comment|/**      * Create a checksum from the specified metadata file.      *      * @param metadataUrl      * @return      * @throws FileNotFoundException      * @throws NoSuchAlgorithmException      * @throws IOException      */
 specifier|private
 name|byte
 index|[]
@@ -1360,7 +1376,7 @@ name|digest
 argument_list|()
 return|;
 block|}
-comment|/**      * Convert an incoming array of bytes into a string that represents each of      * the bytes as two hex characters.      * @param data      * @return      */
+comment|/**      * Convert an incoming array of bytes into a string that represents each of      * the bytes as two hex characters.      *      * @param data      * @return      */
 specifier|private
 name|String
 name|byteArrayToHexStr
@@ -1429,12 +1445,14 @@ argument_list|()
 operator|==
 literal|1
 condition|)
+block|{
 name|tempStr
 operator|=
 literal|"0"
 operator|+
 name|tempStr
 expr_stmt|;
+block|}
 name|output
 operator|=
 name|output
@@ -1449,7 +1467,7 @@ name|toUpperCase
 argument_list|()
 return|;
 block|}
-comment|/**      * Delete the test directory created in the repository.      * @param dirname The directory to be deleted.      * @return      */
+comment|/**      * Delete the test directory created in the repository.      *      * @param dirname The directory to be deleted.      * @return      */
 specifier|protected
 name|boolean
 name|deleteTestDirectory
@@ -1517,7 +1535,7 @@ name|delete
 argument_list|()
 return|;
 block|}
-comment|/**      *       * @return      */
+comment|/**      * @return      */
 specifier|protected
 name|boolean
 name|deleteChecksumFiles
@@ -1592,9 +1610,11 @@ name|b
 operator|==
 literal|false
 condition|)
+block|{
 return|return
 name|b
 return|;
+block|}
 name|b
 operator|=
 name|deleteFile
@@ -1638,9 +1658,11 @@ name|b
 operator|==
 literal|false
 condition|)
+block|{
 return|return
 name|b
 return|;
+block|}
 block|}
 comment|//delete valid checksum files of metadata file
 for|for
@@ -1696,9 +1718,11 @@ name|b
 operator|==
 literal|false
 condition|)
+block|{
 return|return
 name|b
 return|;
+block|}
 name|b
 operator|=
 name|deleteFile
@@ -1735,9 +1759,11 @@ name|b
 operator|==
 literal|false
 condition|)
+block|{
 return|return
 name|b
 return|;
+block|}
 block|}
 return|return
 name|b

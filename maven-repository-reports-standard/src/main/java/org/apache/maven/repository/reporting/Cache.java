@@ -14,7 +14,7 @@ package|;
 end_package
 
 begin_comment
-comment|/*  * Copyright 2001-2005 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0    *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_import
@@ -38,7 +38,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class to implement caching  *  */
+comment|/**  * Class to implement caching  */
 end_comment
 
 begin_class
@@ -113,7 +113,7 @@ name|cacheMaxSize
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Caches all data and expires only the oldest data when either the specified cache hit rate is reached      *     or the maximum cache size is reached.      */
+comment|/**      * Caches all data and expires only the oldest data when either the specified cache hit rate is reached      * or the maximum cache size is reached.      */
 specifier|public
 name|Cache
 parameter_list|(
@@ -143,7 +143,7 @@ name|HashMap
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Check if the specified key is already mapped to an object.      *      * @param key the key used to map the cached object      *      * @returns true if the cache contains an object associated with the given key      */
+comment|/**      * Check if the specified key is already mapped to an object.      *      * @param key the key used to map the cached object      * @returns true if the cache contains an object associated with the given key      */
 specifier|public
 name|boolean
 name|containsKey
@@ -181,7 +181,7 @@ return|return
 name|contains
 return|;
 block|}
-comment|/**      * Check for a cached object and return it if it exists. Returns null when the keyed object is not found      *      * @param key the key used to map the cached object      *      * @returns the object mapped to the given key, or null if no cache object is mapped to the given key      */
+comment|/**      * Check for a cached object and return it if it exists. Returns null when the keyed object is not found      *      * @param key the key used to map the cached object      * @returns the object mapped to the given key, or null if no cache object is mapped to the given key      */
 specifier|public
 name|Object
 name|get
@@ -377,9 +377,11 @@ argument_list|()
 operator|>
 literal|0
 condition|)
+block|{
 name|trimCache
 argument_list|()
 expr_stmt|;
+block|}
 name|cacheHits
 operator|=
 literal|0
@@ -457,6 +459,7 @@ name|prev
 operator|!=
 literal|null
 condition|)
+block|{
 name|list
 operator|.
 name|prev
@@ -467,6 +470,7 @@ name|list
 operator|.
 name|next
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|list
@@ -475,6 +479,7 @@ name|next
 operator|!=
 literal|null
 condition|)
+block|{
 name|list
 operator|.
 name|next
@@ -485,6 +490,7 @@ name|list
 operator|.
 name|prev
 expr_stmt|;
+block|}
 name|list
 operator|.
 name|prev
@@ -630,12 +636,14 @@ name|next
 operator|!=
 literal|null
 condition|)
+block|{
 name|trail
 operator|=
 name|trail
 operator|.
 name|next
 expr_stmt|;
+block|}
 return|return
 name|trail
 return|;
