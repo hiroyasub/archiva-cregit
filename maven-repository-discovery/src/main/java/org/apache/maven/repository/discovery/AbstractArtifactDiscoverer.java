@@ -198,7 +198,7 @@ operator|new
 name|ArrayList
 argument_list|()
 decl_stmt|;
-comment|/**      * Scan the repository for artifact paths.      *      * @todo replace blacklisted patterns by an artifact filter      */
+comment|/**      * Scan the repository for artifact paths.      */
 specifier|protected
 name|String
 index|[]
@@ -224,7 +224,7 @@ name|STANDARD_DISCOVERY_EXCLUDES
 argument_list|)
 return|;
 block|}
-comment|/**      * Scan the repository for artifact paths.      *      * @todo replace blacklisted patterns by an artifact filter      */
+comment|/**      * Scan the repository for artifact paths.      */
 specifier|protected
 name|String
 index|[]
