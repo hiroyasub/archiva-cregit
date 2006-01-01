@@ -637,7 +637,7 @@ argument_list|)
 expr_stmt|;
 name|cache
 operator|.
-name|flush
+name|clear
 argument_list|()
 expr_stmt|;
 name|assertNull
@@ -681,7 +681,7 @@ argument_list|)
 expr_stmt|;
 name|cache
 operator|.
-name|flush
+name|clear
 argument_list|()
 expr_stmt|;
 block|}

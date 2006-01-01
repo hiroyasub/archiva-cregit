@@ -1055,7 +1055,6 @@ operator|.
 name|getVersioning
 argument_list|()
 decl_stmt|;
-comment|// TODO: change this to look for repository artifacts. It needs to centre around that I think, currently this is hardwired to the default layout
 name|File
 name|versionsDir
 init|=

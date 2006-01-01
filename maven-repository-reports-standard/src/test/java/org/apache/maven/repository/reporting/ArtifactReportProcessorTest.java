@@ -112,6 +112,22 @@ specifier|private
 name|DefaultArtifactReportProcessor
 name|processor
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|boolean
+name|ARTIFACT_FOUND
+init|=
+literal|true
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|boolean
+name|ARTIFACT_NOT_FOUND
+init|=
+literal|false
+decl_stmt|;
 specifier|protected
 name|void
 name|setUp
@@ -245,8 +261,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -359,8 +373,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -442,8 +454,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_NOT_FOUND
 argument_list|)
 expr_stmt|;
@@ -581,8 +591,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -615,8 +623,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -712,8 +718,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -746,8 +750,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -832,8 +834,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -866,8 +866,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -882,8 +880,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -898,8 +894,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -914,8 +908,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -930,8 +922,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -1027,8 +1017,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -1061,8 +1049,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -1077,8 +1063,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -1093,8 +1077,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_NOT_FOUND
 argument_list|)
 expr_stmt|;
@@ -1109,8 +1091,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -1125,8 +1105,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -1239,8 +1217,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -1353,8 +1329,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -1467,8 +1441,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -1581,8 +1553,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -1695,8 +1665,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -1809,8 +1777,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -1923,8 +1889,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -2106,8 +2070,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -2140,8 +2102,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -2268,8 +2228,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -2302,8 +2260,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -2430,8 +2386,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -2464,8 +2418,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -2592,8 +2544,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;
@@ -2626,8 +2576,6 @@ name|queryLayer
 operator|.
 name|addReturnValue
 argument_list|(
-name|RepositoryQueryLayer
-operator|.
 name|ARTIFACT_FOUND
 argument_list|)
 expr_stmt|;

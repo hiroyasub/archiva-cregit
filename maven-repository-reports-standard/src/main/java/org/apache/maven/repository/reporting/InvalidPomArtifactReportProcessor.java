@@ -172,7 +172,7 @@ name|InvalidPomArtifactReportProcessor
 implements|implements
 name|ArtifactReportProcessor
 block|{
-comment|/**      * @param model      * @param artifact   The pom xml file to be validated, passed as an artifact object.      * @param reporter   The artifact reporter object.      * @param repository the repository where the artifact is located.      * @todo fix repo paths      */
+comment|/**      * @param model      * @param artifact   The pom xml file to be validated, passed as an artifact object.      * @param reporter   The artifact reporter object.      * @param repository the repository where the artifact is located.      */
 specifier|public
 name|void
 name|processArtifact

@@ -153,7 +153,6 @@ name|artifactFound
 init|=
 literal|true
 decl_stmt|;
-comment|// @todo should check for snapshot artifacts
 name|String
 name|artifactPath
 init|=

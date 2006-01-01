@@ -230,7 +230,6 @@ name|Snapshot
 name|snapshot
 parameter_list|)
 block|{
-comment|// TODO
 return|return
 name|containsArtifact
 argument_list|(

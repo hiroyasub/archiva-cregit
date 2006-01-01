@@ -79,22 +79,13 @@ name|getName
 argument_list|()
 decl_stmt|;
 name|boolean
-name|ARTIFACT_FOUND
-init|=
-literal|true
-decl_stmt|;
-name|boolean
-name|ARTIFACT_NOT_FOUND
-init|=
-literal|false
-decl_stmt|;
-name|boolean
 name|containsArtifact
 parameter_list|(
 name|Artifact
 name|artifact
 parameter_list|)
 function_decl|;
+comment|/** @todo I believe we can remove this [BP] - artifact should contain all the necessary version info */
 name|boolean
 name|containsArtifact
 parameter_list|(
