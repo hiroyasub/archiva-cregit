@@ -74,15 +74,7 @@ parameter_list|()
 throws|throws
 name|RepositoryIndexException
 function_decl|;
-name|void
-name|open
-parameter_list|(
-name|String
-name|indexPath
-parameter_list|)
-throws|throws
-name|RepositoryIndexException
-function_decl|;
+comment|/*    void open( String indexPath )         throws RepositoryIndexException; */
 name|void
 name|optimize
 parameter_list|()

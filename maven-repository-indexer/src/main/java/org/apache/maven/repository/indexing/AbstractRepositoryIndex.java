@@ -49,13 +49,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|maven
 operator|.
-name|logging
+name|artifact
 operator|.
-name|AbstractLogEnabled
+name|repository
+operator|.
+name|ArtifactRepository
 import|;
 end_import
 
@@ -98,8 +100,6 @@ specifier|public
 specifier|abstract
 class|class
 name|AbstractRepositoryIndex
-extends|extends
-name|AbstractLogEnabled
 implements|implements
 name|RepositoryIndex
 block|{
@@ -118,6 +118,10 @@ decl_stmt|;
 specifier|private
 name|IndexWriter
 name|indexWriter
+decl_stmt|;
+specifier|protected
+name|ArtifactRepository
+name|repository
 decl_stmt|;
 comment|/**      * method to encapsulate the optimize() method for lucene      */
 specifier|public
@@ -246,7 +250,7 @@ throw|;
 block|}
 block|}
 comment|/**      * method for opening the index directory for indexing operations      */
-specifier|public
+specifier|protected
 name|void
 name|open
 parameter_list|(
@@ -468,14 +472,7 @@ block|}
 block|}
 else|else
 block|{
-name|getLogger
-argument_list|()
-operator|.
-name|info
-argument_list|(
-literal|"Skipping index field validations for empty index."
-argument_list|)
-expr_stmt|;
+comment|//getLogger().info( "Skipping index field validations for empty index." );
 block|}
 block|}
 if|else if
@@ -500,19 +497,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|getLogger
-argument_list|()
-operator|.
-name|info
-argument_list|(
-literal|"New index directory created in: "
-operator|+
-name|indexDir
-operator|.
-name|getAbsolutePath
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//getLogger().info( "New index directory created in: " + indexDir.getAbsolutePath() );
 block|}
 if|else if
 condition|(

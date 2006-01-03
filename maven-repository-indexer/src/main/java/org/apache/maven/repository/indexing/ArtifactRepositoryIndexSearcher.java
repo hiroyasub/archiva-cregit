@@ -390,6 +390,11 @@ name|artifact
 argument_list|)
 expr_stmt|;
 block|}
+name|searcher
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

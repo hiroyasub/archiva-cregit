@@ -179,8 +179,24 @@ name|ZipFile
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|repository
+operator|.
+name|ArtifactRepository
+import|;
+end_import
+
 begin_comment
-comment|/**  * Class used to index Artifact objects in a specified repository  *  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.indexing.RepositoryIndex" role-hint="artifact" instantiation-strategy="per-lookup"  * @todo I think we should merge with Abstract*. Don't see that there'd be multiple implementations based on this  * @todo I think we should instantiate this based on a repository from a factory instead of making it a component of its own  */
+comment|/**  * Class used to index Artifact objects in a specified repository  *  * @author Edwin Punzalan  * @todo I think we should merge with Abstract*. Don't see that there'd be multiple implementations based on this  * @todo I think we should instantiate this based on a repository from a factory instead of making it a component of its own  */
 end_comment
 
 begin_class
@@ -293,11 +309,43 @@ specifier|private
 name|Analyzer
 name|analyzer
 decl_stmt|;
-comment|/** @plexus.requirement */
 specifier|private
 name|Digester
 name|digester
 decl_stmt|;
+specifier|public
+name|ArtifactRepositoryIndex
+parameter_list|(
+name|String
+name|indexPath
+parameter_list|,
+name|ArtifactRepository
+name|repository
+parameter_list|,
+name|Digester
+name|digester
+parameter_list|)
+throws|throws
+name|RepositoryIndexException
+block|{
+name|this
+operator|.
+name|repository
+operator|=
+name|repository
+expr_stmt|;
+name|this
+operator|.
+name|digester
+operator|=
+name|digester
+expr_stmt|;
+name|open
+argument_list|(
+name|indexPath
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * method to get the Analyzer used to create indices      *      * @return the Analyzer object used to create the artifact indices      */
 specifier|public
 name|Analyzer
