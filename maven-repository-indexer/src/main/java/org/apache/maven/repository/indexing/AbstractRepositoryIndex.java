@@ -47,22 +47,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|repository
-operator|.
-name|ArtifactRepository
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
