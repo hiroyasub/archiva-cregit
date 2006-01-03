@@ -46,18 +46,38 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Search the artifact that contains the query string in the specified      * search field.      *      * @param index      * @param queryString      * @param searchField      */
+comment|/**      * Search the artifact that contains the query string in the specified      * search field.      *      * @param index      * @param queryString      * @param searchField           List search( RepositoryIndex index, String queryString, String searchField )         throws RepositoryIndexSearchException;     */
+comment|/**      *      */
+name|void
+name|addQuery
+parameter_list|(
+name|String
+name|queryField
+parameter_list|,
+name|String
+name|queryText
+parameter_list|)
+function_decl|;
+comment|/**      *      */
+name|void
+name|addQuery
+parameter_list|(
+name|String
+name|queryField
+parameter_list|,
+name|String
+name|queryText
+parameter_list|,
+name|boolean
+name|required
+parameter_list|)
+function_decl|;
+comment|/**      *       */
 name|List
 name|search
 parameter_list|(
 name|RepositoryIndex
 name|index
-parameter_list|,
-name|String
-name|queryString
-parameter_list|,
-name|String
-name|searchField
 parameter_list|)
 throws|throws
 name|RepositoryIndexSearchException
