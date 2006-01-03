@@ -180,7 +180,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class used to index Artifact objects in a specified repository  *  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.indexing.RepositoryIndex" role-hint="artifact" instantiation-strategy="per-lookup"  */
+comment|/**  * Class used to index Artifact objects in a specified repository  *  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.indexing.RepositoryIndex" role-hint="artifact" instantiation-strategy="per-lookup"  * @todo I think we should merge with Abstract*. Don't see that there'd be multiple implementations based on this  * @todo I think we should instantiate this based on a repository from a factory instead of making it a component of its own  */
 end_comment
 
 begin_class
