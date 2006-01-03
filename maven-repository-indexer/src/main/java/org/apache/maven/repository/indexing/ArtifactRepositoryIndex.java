@@ -196,7 +196,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class used to index Artifact objects in a specified repository  *  * @author Edwin Punzalan  * @todo I think we should merge with Abstract*. Don't see that there'd be multiple implementations based on this  * @todo I think we should instantiate this based on a repository from a factory instead of making it a component of its own  */
+comment|/**  * Class used to index Artifact objects in a specified repository  *  * @author Edwin Punzalan  * @todo I think we should merge with Abstract*. Don't see that there'd be multiple implementations based on this  *   --> the methods in Abstract are all lucene index methods/validations which can be used by pom and metadata indices  * @todo I think we should instantiate this based on a repository from a factory instead of making it a component of its own  */
 end_comment
 
 begin_class
@@ -312,6 +312,10 @@ decl_stmt|;
 specifier|private
 name|Digester
 name|digester
+decl_stmt|;
+specifier|private
+name|ArtifactRepository
+name|repository
 decl_stmt|;
 specifier|public
 name|ArtifactRepositoryIndex
@@ -1123,6 +1127,15 @@ expr_stmt|;
 block|}
 return|return
 name|isAdded
+return|;
+block|}
+specifier|public
+name|ArtifactRepository
+name|getRepository
+parameter_list|()
+block|{
+return|return
+name|repository
 return|;
 block|}
 block|}

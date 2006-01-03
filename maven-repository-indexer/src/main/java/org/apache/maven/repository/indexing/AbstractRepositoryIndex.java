@@ -119,10 +119,6 @@ specifier|private
 name|IndexWriter
 name|indexWriter
 decl_stmt|;
-specifier|protected
-name|ArtifactRepository
-name|repository
-decl_stmt|;
 comment|/**      * method to encapsulate the optimize() method for lucene      */
 specifier|public
 name|void
