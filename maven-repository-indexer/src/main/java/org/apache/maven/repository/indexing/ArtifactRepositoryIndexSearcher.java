@@ -162,7 +162,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class searches the index for existing artifacts that contains the  * specified query string.  *  * @plexus.component role="org.apache.maven.repository.indexing.RepositoryIndexSearcher" role-hint="artifact"  */
+comment|/**  * This class searches the index for existing artifacts that contains the  * specified query string.  */
 end_comment
 
 begin_class
@@ -204,19 +204,42 @@ name|VERSION
 init|=
 literal|"version"
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
 specifier|private
 name|ArtifactFactory
 name|factory
 decl_stmt|;
+specifier|private
+name|ArtifactRepositoryIndex
+name|index
+decl_stmt|;
+specifier|public
+name|ArtifactRepositoryIndexSearcher
+parameter_list|(
+name|ArtifactRepositoryIndex
+name|index
+parameter_list|,
+name|ArtifactFactory
+name|factory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|factory
+operator|=
+name|factory
+expr_stmt|;
+name|this
+operator|.
+name|index
+operator|=
+name|index
+expr_stmt|;
+block|}
 comment|/**      * Search the artifact that contains the query string in the specified      * search field.      *      * @param queryString      * @param searchField      */
 specifier|public
 name|List
 name|search
 parameter_list|(
-name|RepositoryIndex
-name|index
-parameter_list|,
 name|String
 name|queryString
 parameter_list|,

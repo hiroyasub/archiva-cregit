@@ -716,8 +716,6 @@ decl_stmt|;
 name|ArtifactRepositoryIndex
 name|indexer
 init|=
-name|indexer
-operator|=
 name|factory
 operator|.
 name|createArtifactRepositoryIndex
@@ -730,16 +728,11 @@ decl_stmt|;
 name|RepositoryIndexSearcher
 name|repoSearcher
 init|=
-operator|(
-name|RepositoryIndexSearcher
-operator|)
-name|lookup
-argument_list|(
-name|RepositoryIndexSearcher
+name|factory
 operator|.
-name|ROLE
-argument_list|,
-literal|"artifact"
+name|createArtifactRepositoryIndexSearcher
+argument_list|(
+name|indexer
 argument_list|)
 decl_stmt|;
 name|List
@@ -749,8 +742,6 @@ name|repoSearcher
 operator|.
 name|search
 argument_list|(
-name|indexer
-argument_list|,
 literal|"test"
 argument_list|,
 name|GROUPID
@@ -772,8 +763,6 @@ name|repoSearcher
 operator|.
 name|search
 argument_list|(
-name|indexer
-argument_list|,
 literal|"test"
 argument_list|,
 name|ARTIFACTID
@@ -795,8 +784,6 @@ name|repoSearcher
 operator|.
 name|search
 argument_list|(
-name|indexer
-argument_list|,
 literal|"1.0"
 argument_list|,
 name|VERSION
@@ -818,8 +805,6 @@ name|repoSearcher
 operator|.
 name|search
 argument_list|(
-name|indexer
-argument_list|,
 literal|"App"
 argument_list|,
 name|CLASSES
@@ -841,8 +826,6 @@ name|repoSearcher
 operator|.
 name|search
 argument_list|(
-name|indexer
-argument_list|,
 literal|"groupId"
 argument_list|,
 name|PACKAGES
@@ -864,8 +847,6 @@ name|repoSearcher
 operator|.
 name|search
 argument_list|(
-name|indexer
-argument_list|,
 literal|"pom.xml"
 argument_list|,
 name|FILES
@@ -887,8 +868,6 @@ name|repoSearcher
 operator|.
 name|search
 argument_list|(
-name|indexer
-argument_list|,
 literal|"org.apache.maven"
 argument_list|,
 name|GROUPID
@@ -910,8 +889,6 @@ name|repoSearcher
 operator|.
 name|search
 argument_list|(
-name|indexer
-argument_list|,
 literal|"maven-artifact"
 argument_list|,
 name|ARTIFACTID
@@ -933,8 +910,6 @@ name|repoSearcher
 operator|.
 name|search
 argument_list|(
-name|indexer
-argument_list|,
 literal|"2"
 argument_list|,
 name|VERSION
