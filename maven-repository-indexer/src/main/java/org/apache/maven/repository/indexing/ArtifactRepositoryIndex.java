@@ -196,7 +196,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class used to index Artifact objects in a specified repository  *  * @author Edwin Punzalan  * @todo I think we should merge with Abstract*. Don't see that there'd be multiple implementations based on this  *   --> the methods in Abstract are all lucene index methods/validations which can be used by pom and metadata indices  * @todo I think we should instantiate this based on a repository from a factory instead of making it a component of its own  */
+comment|/**  * Class used to index Artifact objects in a specified repository  *  * @author Edwin Punzalan  */
 end_comment
 
 begin_class
