@@ -48,6 +48,8 @@ specifier|public
 specifier|abstract
 class|class
 name|AbstractCompoundQuery
+implements|implements
+name|Query
 block|{
 specifier|protected
 name|List
