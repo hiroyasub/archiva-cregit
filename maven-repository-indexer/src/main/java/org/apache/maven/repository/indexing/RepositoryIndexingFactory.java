@@ -34,7 +34,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * @author Edwin Punzalan  */
+comment|/**  * @author Edwin Punzalan  */
 end_comment
 
 begin_interface

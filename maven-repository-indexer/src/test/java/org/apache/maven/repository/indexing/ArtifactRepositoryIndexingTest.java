@@ -684,7 +684,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Create an index that will be used for testing.      *       * @throws Exception      */
+comment|/**      * Create an index that will be used for testing.      *      * @throws Exception      */
 specifier|public
 name|void
 name|createTestIndex
@@ -846,7 +846,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test the ArtifactRepositoryIndexSearcher using a single-phrase search.      *       * @throws Exception      */
+comment|/**      * Test the ArtifactRepositoryIndexSearcher using a single-phrase search.      *      * @throws Exception      */
 specifier|public
 name|void
 name|testSearchSingle
@@ -1621,7 +1621,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test the ArtifactRepositoryIndexSearcher using compound search (AND, OR).      *       * @throws Exception      */
+comment|/**      * Test the ArtifactRepositoryIndexSearcher using compound search (AND, OR).      *      * @throws Exception      */
 specifier|public
 name|void
 name|testSearchCompound

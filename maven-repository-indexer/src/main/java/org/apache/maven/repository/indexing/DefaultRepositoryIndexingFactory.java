@@ -66,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.indexing.RepositoryIndexingFactory"  */
+comment|/**  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.indexing.RepositoryIndexingFactory"  */
 end_comment
 
 begin_class
@@ -76,12 +76,12 @@ name|DefaultRepositoryIndexingFactory
 implements|implements
 name|RepositoryIndexingFactory
 block|{
-comment|/** @plexus.requirement */
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|Digester
 name|digester
 decl_stmt|;
-comment|/** @plexus.requirement */
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|ArtifactFactory
 name|artifactFactory

@@ -20,7 +20,7 @@ comment|/*  * Copyright 2001-2005 The Apache Software Foundation.  *  * Licensed
 end_comment
 
 begin_comment
-comment|/**  *  * @author Edwin Punzalan  */
+comment|/**  * @author Edwin Punzalan  */
 end_comment
 
 begin_interface

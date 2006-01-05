@@ -19,16 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -47,29 +37,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|Artifact
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|Document
+name|List
 import|;
 end_import
 
@@ -82,7 +54,7 @@ specifier|public
 interface|interface
 name|RepositoryIndexSearcher
 block|{
-comment|/**      * Search the artifact based on the search criteria specified in the query object. Returns a list of      * artifact objects.       * @param query The query object that contains the search criteria.      * @return List      * @exception RepositoryIndexSearchException      */
+comment|/**      * Search the artifact based on the search criteria specified in the query object. Returns a list of      * artifact objects.      *      * @param query The query object that contains the search criteria.      * @return List      * @throws RepositoryIndexSearchException      */
 name|List
 name|search
 parameter_list|(

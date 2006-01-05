@@ -25,6 +25,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|document
+operator|.
+name|Document
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|queryParser
 operator|.
 name|ParseException
@@ -69,7 +83,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|IndexSearcher
+name|Hits
 import|;
 end_import
 
@@ -83,7 +97,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Hits
+name|IndexSearcher
 import|;
 end_import
 
@@ -93,11 +107,15 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
+name|maven
 operator|.
-name|document
+name|repository
 operator|.
-name|Document
+name|indexing
+operator|.
+name|query
+operator|.
+name|AbstractCompoundQuery
 import|;
 end_import
 
@@ -175,24 +193,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|repository
-operator|.
-name|indexing
-operator|.
-name|query
-operator|.
-name|AbstractCompoundQuery
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -207,7 +207,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|ArrayList
 import|;
 end_import
 
@@ -227,7 +227,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|List
 import|;
 end_import
 
@@ -261,7 +261,7 @@ name|isRequired
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Constructor      *      * @param index   the index object      */
+comment|/**      * Constructor      *      * @param index the index object      */
 specifier|public
 name|AbstractRepositoryIndexSearcher
 parameter_list|(
