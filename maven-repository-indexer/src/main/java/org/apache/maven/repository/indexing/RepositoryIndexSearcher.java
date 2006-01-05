@@ -27,8 +27,54 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|repository
+operator|.
+name|indexing
+operator|.
+name|query
+operator|.
+name|Query
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|Artifact
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
+name|Document
+import|;
+end_import
+
 begin_comment
-comment|/**  *  */
+comment|/**  * @author Maria Odea Ching  */
 end_comment
 
 begin_interface
@@ -36,15 +82,12 @@ specifier|public
 interface|interface
 name|RepositoryIndexSearcher
 block|{
-comment|/**      * Search the artifact that contains the query string in the specified      * search field.      *      * @param index      * @param queryString      * @param searchField      */
+comment|/**      * Search the artifact based on the search criteria specified in the query object. Returns a list of      * artifact objects.       * @param query The query object that contains the search criteria.      * @return List      * @exception RepositoryIndexSearchException      */
 name|List
 name|search
 parameter_list|(
-name|String
-name|queryString
-parameter_list|,
-name|String
-name|searchField
+name|Query
+name|query
 parameter_list|)
 throws|throws
 name|RepositoryIndexSearchException
