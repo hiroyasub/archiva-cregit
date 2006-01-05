@@ -244,7 +244,7 @@ implements|implements
 name|RepositoryIndexSearcher
 block|{
 specifier|protected
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 name|index
 decl_stmt|;
 specifier|private
@@ -265,7 +265,7 @@ comment|/**      * Constructor      *      * @param index the index object      
 specifier|public
 name|AbstractRepositoryIndexSearcher
 parameter_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 name|index
 parameter_list|)
 block|{

@@ -31,6 +31,22 @@ name|Analyzer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|repository
+operator|.
+name|ArtifactRepository
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Edwin Punzalan  */
 end_comment
@@ -74,7 +90,10 @@ parameter_list|()
 throws|throws
 name|RepositoryIndexException
 function_decl|;
-comment|/*    void open( String indexPath )         throws RepositoryIndexException; */
+name|ArtifactRepository
+name|getRepository
+parameter_list|()
+function_decl|;
 name|void
 name|optimize
 parameter_list|()
