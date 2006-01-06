@@ -108,6 +108,13 @@ name|String
 name|getIndexPath
 parameter_list|()
 function_decl|;
+name|boolean
+name|isKeywordField
+parameter_list|(
+name|String
+name|field
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

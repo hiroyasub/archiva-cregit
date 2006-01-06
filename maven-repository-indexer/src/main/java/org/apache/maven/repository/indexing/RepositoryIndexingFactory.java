@@ -71,6 +71,26 @@ parameter_list|)
 throws|throws
 name|RepositoryIndexException
 function_decl|;
+name|PomRepositoryIndex
+name|createPomRepositoryIndex
+parameter_list|(
+name|String
+name|indexPath
+parameter_list|,
+name|ArtifactRepository
+name|repository
+parameter_list|)
+throws|throws
+name|RepositoryIndexException
+function_decl|;
+specifier|public
+name|PomRepositoryIndexSearcher
+name|createPomRepositoryIndexSearcher
+parameter_list|(
+name|PomRepositoryIndex
+name|index
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
