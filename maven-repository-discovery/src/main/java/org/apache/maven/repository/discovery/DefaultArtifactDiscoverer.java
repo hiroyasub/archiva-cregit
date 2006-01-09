@@ -112,7 +112,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Artifact discoverer for the new repository layout (Maven 2.0+).  *  * @author John Casey  * @author Brett Porter  *  * @plexus.component role="org.apache.maven.repository.discovery.ArtifactDiscoverer" role-hint="default" instantiation-strategy="per-lookup"  */
+comment|/**  * Artifact discoverer for the new repository layout (Maven 2.0+).  *  * @author John Casey  * @author Brett Porter  * @plexus.component role="org.apache.maven.repository.discovery.ArtifactDiscoverer" role-hint="default" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -124,7 +124,7 @@ name|AbstractArtifactDiscoverer
 implements|implements
 name|ArtifactDiscoverer
 block|{
-comment|/** @plexus.requirement */
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|ArtifactFactory
 name|artifactFactory
@@ -191,6 +191,8 @@ name|artifact
 init|=
 name|buildArtifact
 argument_list|(
+name|repositoryBase
+argument_list|,
 name|path
 argument_list|)
 decl_stmt|;
@@ -230,6 +232,9 @@ specifier|private
 name|Artifact
 name|buildArtifact
 parameter_list|(
+name|File
+name|repositoryBase
+parameter_list|,
 name|String
 name|path
 parameter_list|)
@@ -878,6 +883,8 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
+name|repositoryBase
+argument_list|,
 name|path
 argument_list|)
 argument_list|)
