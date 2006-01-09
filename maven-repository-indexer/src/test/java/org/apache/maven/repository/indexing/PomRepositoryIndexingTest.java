@@ -636,29 +636,6 @@ argument_list|,
 name|repository
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|indexer
-operator|.
-name|index
-argument_list|(
-literal|"should fail"
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Must throw exception on add non-Artifact object."
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RepositoryIndexException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|indexer
 operator|.
 name|close
@@ -2592,7 +2569,7 @@ argument_list|)
 expr_stmt|;
 name|indexer
 operator|.
-name|index
+name|indexPom
 argument_list|(
 name|pom
 argument_list|)
