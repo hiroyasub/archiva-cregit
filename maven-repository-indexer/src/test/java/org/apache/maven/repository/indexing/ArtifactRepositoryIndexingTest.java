@@ -439,9 +439,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArtifactRepositoryIndex
-name|indexer
-decl_stmt|;
 name|RepositoryIndexingFactory
 name|factory
 init|=
@@ -562,8 +559,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ArtifactRepositoryIndex
 name|indexer
-operator|=
+init|=
 name|factory
 operator|.
 name|createArtifactRepositoryIndex
@@ -572,7 +570,7 @@ name|indexPath
 argument_list|,
 name|repository
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|indexer
 operator|.
 name|close

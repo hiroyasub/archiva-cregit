@@ -83,7 +83,6 @@ parameter_list|)
 throws|throws
 name|RepositoryIndexException
 function_decl|;
-specifier|public
 name|PomRepositoryIndexSearcher
 name|createPomRepositoryIndexSearcher
 parameter_list|(
