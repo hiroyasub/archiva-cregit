@@ -430,6 +430,8 @@ argument_list|(
 name|indexPath
 argument_list|,
 name|repository
+argument_list|,
+name|FIELDS
 argument_list|)
 expr_stmt|;
 name|this
@@ -516,16 +518,6 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-block|}
-specifier|public
-name|String
-index|[]
-name|getIndexFields
-parameter_list|()
-block|{
-return|return
-name|FIELDS
-return|;
 block|}
 specifier|public
 name|void

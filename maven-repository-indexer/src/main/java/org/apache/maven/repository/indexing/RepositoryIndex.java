@@ -66,11 +66,6 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-name|String
-index|[]
-name|getIndexFields
-parameter_list|()
-function_decl|;
 name|boolean
 name|isOpen
 parameter_list|()

@@ -333,6 +333,8 @@ argument_list|(
 name|indexPath
 argument_list|,
 name|repository
+argument_list|,
+name|FIELDS
 argument_list|)
 expr_stmt|;
 name|this
@@ -368,17 +370,6 @@ expr_stmt|;
 block|}
 return|return
 name|analyzer
-return|;
-block|}
-comment|/**      * method for collecting the available index fields usable for searching      *      * @return index field names      */
-specifier|public
-name|String
-index|[]
-name|getIndexFields
-parameter_list|()
-block|{
-return|return
-name|FIELDS
 return|;
 block|}
 comment|/**      * generic method for indexing      *      * @param obj the object to be indexed by this indexer      */
