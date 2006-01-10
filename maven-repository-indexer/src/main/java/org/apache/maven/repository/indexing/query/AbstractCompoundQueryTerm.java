@@ -71,7 +71,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * @see CompoundQueryTerm#getQuery()       */
+comment|/**      * @see CompoundQueryTerm#getQuery()      */
 specifier|public
 name|Query
 name|getQuery

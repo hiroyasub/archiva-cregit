@@ -159,7 +159,7 @@ name|artifactFactory
 argument_list|)
 return|;
 block|}
-comment|/**      * @see RepositoryIndexingFactory#createPomRepositoryIndexSearcher(PomRepositoryIndex)       */
+comment|/**      * @see RepositoryIndexingFactory#createPomRepositoryIndexSearcher(PomRepositoryIndex)      */
 specifier|public
 name|PomRepositoryIndexSearcher
 name|createPomRepositoryIndexSearcher

@@ -60,7 +60,7 @@ name|ArtifactRepositoryIndex
 name|index
 parameter_list|)
 function_decl|;
-comment|/**      * Method to create an instance of the ArtifactRepositoryIndex      *      * @param indexPath the path where the index will be created/updated      * @param repository the repository where the indexed artifacts are located      * @return the ArtifactRepositoryIndex instance      * @throws RepositoryIndexException      */
+comment|/**      * Method to create an instance of the ArtifactRepositoryIndex      *      * @param indexPath  the path where the index will be created/updated      * @param repository the repository where the indexed artifacts are located      * @return the ArtifactRepositoryIndex instance      * @throws RepositoryIndexException      */
 name|ArtifactRepositoryIndex
 name|createArtifactRepositoryIndex
 parameter_list|(
@@ -73,7 +73,7 @@ parameter_list|)
 throws|throws
 name|RepositoryIndexException
 function_decl|;
-comment|/**      * Method to create an instance of the PomRepositoryIndex      *      * @param indexPath the path where the index will be created/updated      * @param repository the repository where the indexed poms are located      * @return the PomRepositoryIndex instance      * @throws RepositoryIndexException      */
+comment|/**      * Method to create an instance of the PomRepositoryIndex      *      * @param indexPath  the path where the index will be created/updated      * @param repository the repository where the indexed poms are located      * @return the PomRepositoryIndex instance      * @throws RepositoryIndexException      */
 name|PomRepositoryIndex
 name|createPomRepositoryIndex
 parameter_list|(

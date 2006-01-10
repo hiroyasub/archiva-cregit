@@ -66,7 +66,7 @@ name|ArrayList
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Appends a required Query object to this Query object. The Query object will be encapsulated inside an      *     AndQueryTerm object.      *      * @param query the Query object to be appended to this Query object      */
+comment|/**      * Appends a required Query object to this Query object. The Query object will be encapsulated inside an      * AndQueryTerm object.      *      * @param query the Query object to be appended to this Query object      */
 specifier|public
 name|void
 name|and
@@ -87,7 +87,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Appends an optional Query object to this Query object. The Query object will be encapsulated inside an      *     OrQueryTerm object.      *      * @param query the Query object to be appended to this Query object      */
+comment|/**      * Appends an optional Query object to this Query object. The Query object will be encapsulated inside an      * OrQueryTerm object.      *      * @param query the Query object to be appended to this Query object      */
 specifier|public
 name|void
 name|or
@@ -108,7 +108,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Appends a prohibited Query object to this Query object. The Query object will be encapsulated inside an      *     NotQueryTerm object.      *      * @param query the Query object to be appended to this Query object      */
+comment|/**      * Appends a prohibited Query object to this Query object. The Query object will be encapsulated inside an      * NotQueryTerm object.      *      * @param query the Query object to be appended to this Query object      */
 specifier|public
 name|void
 name|not

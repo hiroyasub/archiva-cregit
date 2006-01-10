@@ -72,7 +72,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class searches the index for existing artifacts that contains the  * specified query string.  *  */
+comment|/**  * This class searches the index for existing artifacts that contains the  * specified query string.  */
 end_comment
 
 begin_class

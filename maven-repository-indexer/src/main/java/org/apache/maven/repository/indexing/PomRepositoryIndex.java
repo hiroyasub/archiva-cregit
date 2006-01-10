@@ -443,7 +443,7 @@ name|FLD_PLUGINS_ALL
 block|}
 argument_list|)
 decl_stmt|;
-comment|/**      * Class Constructor      *      * @param indexPath the path where the index is available or will be made available      * @param repository the repository where objects indexed by this class resides      * @param digester the digester to be used for generating checksums      * @param artifactFactory the factory for building artifact objects      * @throws RepositoryIndexException      */
+comment|/**      * Class Constructor      *      * @param indexPath       the path where the index is available or will be made available      * @param repository      the repository where objects indexed by this class resides      * @param digester        the digester to be used for generating checksums      * @param artifactFactory the factory for building artifact objects      * @throws RepositoryIndexException      */
 specifier|public
 name|PomRepositoryIndex
 parameter_list|(
@@ -955,7 +955,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * @see RepositoryIndex#isKeywordField(String)       */
+comment|/**      * @see RepositoryIndex#isKeywordField(String)      */
 specifier|public
 name|boolean
 name|isKeywordField
@@ -1203,7 +1203,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Method to index plugins to a specified index field      *      * @param doc the index object to create the fields for the plugins      * @param field the index field to store the passed plugin      * @param plugins the iterator to the list of plugins to be indexed      */
+comment|/**      * Method to index plugins to a specified index field      *      * @param doc     the index object to create the fields for the plugins      * @param field   the index field to store the passed plugin      * @param plugins the iterator to the list of plugins to be indexed      */
 specifier|private
 name|void
 name|indexPlugins
@@ -1274,7 +1274,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Method to index report plugins to a specified index field      *      * @param doc the index object to create the fields for the report plugins      * @param field the index field to store the passed report plugin      * @param plugins the iterator to the list of report plugins to be indexed      */
+comment|/**      * Method to index report plugins to a specified index field      *      * @param doc     the index object to create the fields for the report plugins      * @param field   the index field to store the passed report plugin      * @param plugins the iterator to the list of report plugins to be indexed      */
 specifier|private
 name|void
 name|indexReportPlugins
@@ -1345,7 +1345,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Method to generate the computed checksum of an existing file using the specified algorithm.      *      * @param algorithm the algorithm to be used to generate the checksum      * @param file the file to match the generated checksum      * @return a string representing the checksum      * @throws RepositoryIndexException      */
+comment|/**      * Method to generate the computed checksum of an existing file using the specified algorithm.      *      * @param algorithm the algorithm to be used to generate the checksum      * @param file      the file to match the generated checksum      * @return a string representing the checksum      * @throws RepositoryIndexException      */
 specifier|private
 name|String
 name|getChecksum
@@ -1415,7 +1415,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Method to create the unique artifact id to represent the artifact in the repository      *      * @param groupId the artifact groupId      * @param artifactId the artifact artifactId      * @param version the artifact version      * @return the String id to uniquely represent the artifact      */
+comment|/**      * Method to create the unique artifact id to represent the artifact in the repository      *      * @param groupId    the artifact groupId      * @param artifactId the artifact artifactId      * @param version    the artifact version      * @return the String id to uniquely represent the artifact      */
 specifier|private
 name|String
 name|getId
