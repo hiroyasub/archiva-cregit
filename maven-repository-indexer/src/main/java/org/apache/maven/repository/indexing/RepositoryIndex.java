@@ -56,10 +56,12 @@ specifier|public
 interface|interface
 name|RepositoryIndex
 block|{
+comment|/**      * Method used to query the index status      *      * @return true if the index is open.      */
 name|boolean
 name|isOpen
 parameter_list|()
 function_decl|;
+comment|/**      * Method to close open streams to the index directory      */
 name|void
 name|close
 parameter_list|()
@@ -70,20 +72,24 @@ name|ArtifactRepository
 name|getRepository
 parameter_list|()
 function_decl|;
+comment|/**      * Method to encapsulate the optimize() method for lucene      */
 name|void
 name|optimize
 parameter_list|()
 throws|throws
 name|RepositoryIndexException
 function_decl|;
+comment|/**      * Method to retrieve the lucene analyzer object used in creating the document fields for this index      *      * @return lucene Analyzer object used in creating the index fields      */
 name|Analyzer
 name|getAnalyzer
 parameter_list|()
 function_decl|;
+comment|/**      * Method to retrieve the path where the index is made available      *      * @return the path where the index resides      */
 name|String
 name|getIndexPath
 parameter_list|()
 function_decl|;
+comment|/**      * Tests an index field if it is a keyword field      *      * @param field the name of the index field to test      * @return true if the index field passed is a keyword, otherwise its false      */
 name|boolean
 name|isKeywordField
 parameter_list|(

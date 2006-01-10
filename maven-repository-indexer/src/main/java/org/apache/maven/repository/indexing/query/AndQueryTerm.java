@@ -30,6 +30,7 @@ name|AndQueryTerm
 extends|extends
 name|AbstractCompoundQueryTerm
 block|{
+comment|/**      * Class constructor      *      * @param query the Query object represented by this object      */
 specifier|public
 name|AndQueryTerm
 parameter_list|(
@@ -43,6 +44,7 @@ name|query
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @see AbstractCompoundQueryTerm#isRequired()      */
 specifier|public
 name|boolean
 name|isRequired

@@ -28,14 +28,17 @@ specifier|public
 interface|interface
 name|CompoundQueryTerm
 block|{
+comment|/**      * Method to test if the Query is a search requirement      *      * @return true if this Query is a search requirement, otherwise returns false      */
 name|boolean
 name|isRequired
 parameter_list|()
 function_decl|;
+comment|/**      * Method to test if the Query is prohibited in the search result      *      * @return true if this Query is prohibited in the search result      */
 name|boolean
 name|isProhibited
 parameter_list|()
 function_decl|;
+comment|/**      * Method to get the Query object represented by this object      *      * @return the Query object represented by this object      */
 name|Query
 name|getQuery
 parameter_list|()

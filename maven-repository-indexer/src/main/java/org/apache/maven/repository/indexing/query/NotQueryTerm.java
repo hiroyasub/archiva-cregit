@@ -30,6 +30,7 @@ name|NotQueryTerm
 extends|extends
 name|AbstractCompoundQueryTerm
 block|{
+comment|/**      * Class constructor      *      * @param query the Query object represented by this Query object      */
 specifier|public
 name|NotQueryTerm
 parameter_list|(
@@ -43,6 +44,7 @@ name|query
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @see CompoundQueryTerm#isProhibited()      */
 specifier|public
 name|boolean
 name|isProhibited

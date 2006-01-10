@@ -119,6 +119,7 @@ specifier|protected
 name|ArtifactRepository
 name|repository
 decl_stmt|;
+comment|/**      * Class constructor      *      * @param indexPath      * @param repository      * @param indexFields      * @throws RepositoryIndexException      */
 specifier|protected
 name|AbstractRepositoryIndex
 parameter_list|(
@@ -170,7 +171,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * method to encapsulate the optimize() method for lucene      */
+comment|/**      * @see org.apache.maven.repository.indexing.RepositoryIndex#optimize()      */
 specifier|public
 name|void
 name|optimize
@@ -217,7 +218,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * method used to query the index status      *      * @return true if the index is open.      */
+comment|/**      * @see org.apache.maven.repository.indexing.RepositoryIndex#isOpen()      */
 specifier|public
 name|boolean
 name|isOpen
@@ -227,7 +228,7 @@ return|return
 name|indexOpen
 return|;
 block|}
-comment|/**      * method used to close all open streams to the index directory      */
+comment|/**      * @see org.apache.maven.repository.indexing.RepositoryIndex#close()      */
 specifier|public
 name|void
 name|close
@@ -279,6 +280,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * @see org.apache.maven.repository.indexing.RepositoryIndex#getIndexPath()      */
 specifier|public
 name|String
 name|getIndexPath
@@ -288,6 +290,7 @@ return|return
 name|indexPath
 return|;
 block|}
+comment|/**      * Method to retrieve the lucene IndexWriter used in creating/updating the index      *      * @return the lucene IndexWriter object used to update the index      * @throws IOException      */
 specifier|protected
 name|IndexWriter
 name|getIndexWriter
@@ -503,6 +506,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+comment|/**      * @see org.apache.maven.repository.indexing.RepositoryIndex#getRepository()      */
 specifier|public
 name|ArtifactRepository
 name|getRepository

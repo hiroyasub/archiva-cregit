@@ -86,6 +86,7 @@ specifier|private
 name|ArtifactFactory
 name|artifactFactory
 decl_stmt|;
+comment|/**      * @see RepositoryIndexingFactory#createArtifactRepositoryIndexSearcher(ArtifactRepositoryIndex)      */
 specifier|public
 name|ArtifactRepositoryIndexSearcher
 name|createArtifactRepositoryIndexSearcher
@@ -104,6 +105,7 @@ name|artifactFactory
 argument_list|)
 return|;
 block|}
+comment|/**      * @see RepositoryIndexingFactory#createArtifactRepositoryIndex(String, org.apache.maven.artifact.repository.ArtifactRepository)      */
 specifier|public
 name|ArtifactRepositoryIndex
 name|createArtifactRepositoryIndex
@@ -129,6 +131,7 @@ name|digester
 argument_list|)
 return|;
 block|}
+comment|/**      * @see RepositoryIndexingFactory#createPomRepositoryIndex(String, org.apache.maven.artifact.repository.ArtifactRepository)      */
 specifier|public
 name|PomRepositoryIndex
 name|createPomRepositoryIndex
@@ -156,6 +159,7 @@ name|artifactFactory
 argument_list|)
 return|;
 block|}
+comment|/**      * @see RepositoryIndexingFactory#createPomRepositoryIndexSearcher(PomRepositoryIndex)       */
 specifier|public
 name|PomRepositoryIndexSearcher
 name|createPomRepositoryIndexSearcher

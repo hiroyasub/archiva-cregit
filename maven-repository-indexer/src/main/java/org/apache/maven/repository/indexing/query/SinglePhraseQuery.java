@@ -20,7 +20,7 @@ comment|/*  * Copyright 2001-2005 The Apache Software Foundation.  *  * Licensed
 end_comment
 
 begin_comment
-comment|/**  * @author Edwin Punzalan  */
+comment|/**  * Class to hold a single field search condition  *  * @author Edwin Punzalan  */
 end_comment
 
 begin_class
@@ -38,6 +38,7 @@ specifier|private
 name|String
 name|value
 decl_stmt|;
+comment|/**      * Class constructor      *      * @param field the index field to search      * @param value the index value requirement      */
 specifier|public
 name|SinglePhraseQuery
 parameter_list|(
@@ -61,6 +62,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+comment|/**      * Method to retrieve the name of the index field searched      *      * @return the name of the index field      */
 specifier|public
 name|String
 name|getField
@@ -70,6 +72,7 @@ return|return
 name|field
 return|;
 block|}
+comment|/**      * Method to retrieve the value used in searching the index field      *      * @return the value to corresspond the index field      */
 specifier|public
 name|String
 name|getValue

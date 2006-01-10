@@ -196,7 +196,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class used to index Artifact objects in a specified repository  *  * @author Edwin Punzalan  */
+comment|/**  * Class used to index Artifact objects in a specific repository  *  * @author Edwin Punzalan  */
 end_comment
 
 begin_class
@@ -313,6 +313,7 @@ specifier|private
 name|Digester
 name|digester
 decl_stmt|;
+comment|/**      * Class constructor      *      * @param indexPath the path where the lucene index will be created/updated.      * @param repository the repository where the indexed artifacts are located      * @param digester the digester object to generate the checksum strings      * @throws RepositoryIndexException      */
 specifier|public
 name|ArtifactRepositoryIndex
 parameter_list|(
@@ -344,7 +345,7 @@ operator|=
 name|digester
 expr_stmt|;
 block|}
-comment|/**      * method to get the Analyzer used to create indices      *      * @return the Analyzer object used to create the artifact indices      */
+comment|/**      * @see org.apache.maven.repository.indexing.RepositoryIndex#getAnalyzer()      */
 specifier|public
 name|Analyzer
 name|getAnalyzer
@@ -372,7 +373,7 @@ return|return
 name|analyzer
 return|;
 block|}
-comment|/**      * method to index a given artifact      *      * @param artifact the Artifact object to be indexed      */
+comment|/**      * Method to index a given artifact      *      * @param artifact the Artifact object to be indexed      * @throws RepositoryIndexException      */
 specifier|public
 name|void
 name|indexArtifact
@@ -818,6 +819,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * @see RepositoryIndex#isKeywordField(String)      */
 specifier|public
 name|boolean
 name|isKeywordField
@@ -830,6 +832,7 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**      * Method to test a zip entry if it is a java class, and adds it to the classes buffer      *      * @param entry the zip entry to test for java class      * @param classes the String buffer to add the java class if the test result as true      * @return true if the zip entry is a java class and was successfully added to the buffer      */
 specifier|private
 name|boolean
 name|addIfClassEntry
@@ -939,6 +942,7 @@ return|return
 name|isAdded
 return|;
 block|}
+comment|/**      * Method to add a class package to the buffer of packages      *      * @param name the complete path name of the class      * @param packages the packages buffer      * @return true if the package is successfully added      */
 specifier|private
 name|boolean
 name|addClassPackage
@@ -1027,6 +1031,7 @@ return|return
 name|isAdded
 return|;
 block|}
+comment|/**      * Method to add the zip entry as a file list      *      * @param entry the zip entry to be added      * @param files the buffer of files to update      * @return true if the file was successfully added      */
 specifier|private
 name|boolean
 name|addFile

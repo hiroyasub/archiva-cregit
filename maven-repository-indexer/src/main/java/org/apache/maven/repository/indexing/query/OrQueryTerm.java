@@ -30,6 +30,7 @@ name|OrQueryTerm
 extends|extends
 name|AbstractCompoundQueryTerm
 block|{
+comment|/**      * Class constructor      *      * @param query the Query object represented by this Query object      */
 specifier|public
 name|OrQueryTerm
 parameter_list|(

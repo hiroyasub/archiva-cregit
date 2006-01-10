@@ -256,7 +256,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Abstract Class to hold common codes for the different RepositoryIndexSearcher  */
 end_comment
 
 begin_class
@@ -288,7 +288,7 @@ operator|=
 name|index
 expr_stmt|;
 block|}
-comment|/**      * Search the artifact based on the search criteria specified in the query      * object. Returns a list of artifact objects      *      * @param query the query object that contains the search criteria      * @return List      * @throws RepositoryIndexSearchException      */
+comment|/**      * @see RepositoryIndexSearcher#search(org.apache.maven.repository.indexing.query.Query)      */
 specifier|public
 name|List
 name|search
@@ -455,6 +455,7 @@ return|return
 name|docs
 return|;
 block|}
+comment|/**      * Method to create a lucene Query object from a single query phrase      *      * @param field the index field name to search into      * @param value the index field value to match the field with      * @return a lucene Query object representing the query phrase field = value      * @throws ParseException      */
 specifier|private
 name|org
 operator|.
@@ -547,6 +548,7 @@ return|return
 name|qry
 return|;
 block|}
+comment|/**      * Method to create a lucene Query object by converting a prepared Query object      *      * @param query the prepared Query object to be converted into a lucene Query object      * @return a lucene Query object to represent the passed Query object      * @throws ParseException      */
 specifier|private
 name|org
 operator|.

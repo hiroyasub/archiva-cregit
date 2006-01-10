@@ -48,7 +48,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Edwin Punzalan  */
+comment|/**  * The PomRepositoryIndexSearcher is used to search for artifacts in the index created by a PomRepositoryIndex class.  *  * @author Edwin Punzalan  */
 end_comment
 
 begin_class
@@ -62,6 +62,7 @@ specifier|private
 name|ArtifactFactory
 name|factory
 decl_stmt|;
+comment|/**      *      * @param index the PomRepositoryIndex      * @param artifactFactory      */
 specifier|public
 name|PomRepositoryIndexSearcher
 parameter_list|(
@@ -84,6 +85,7 @@ operator|=
 name|artifactFactory
 expr_stmt|;
 block|}
+comment|/**      * @see AbstractRepositoryIndexSearcher#createSearchedObjectFromIndexDocument(org.apache.lucene.document.Document)       */
 specifier|protected
 name|Object
 name|createSearchedObjectFromIndexDocument

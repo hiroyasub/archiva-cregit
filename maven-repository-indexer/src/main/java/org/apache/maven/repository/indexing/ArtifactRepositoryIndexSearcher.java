@@ -72,7 +72,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class searches the index for existing artifacts that contains the  * specified query string.  *  * @author Maria Odea Ching  */
+comment|/**  * This class searches the index for existing artifacts that contains the  * specified query string.  *  */
 end_comment
 
 begin_class
@@ -109,6 +109,7 @@ operator|=
 name|factory
 expr_stmt|;
 block|}
+comment|/**      * @see AbstractRepositoryIndexSearcher#createSearchedObjectFromIndexDocument(org.apache.lucene.document.Document)      */
 specifier|protected
 name|Object
 name|createSearchedObjectFromIndexDocument

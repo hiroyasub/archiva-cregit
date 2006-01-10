@@ -36,6 +36,7 @@ specifier|private
 name|Query
 name|query
 decl_stmt|;
+comment|/**      * Class constructor      *      * @param query the query represented by this object      */
 specifier|protected
 name|AbstractCompoundQueryTerm
 parameter_list|(
@@ -50,6 +51,7 @@ operator|=
 name|query
 expr_stmt|;
 block|}
+comment|/**      * @see CompoundQueryTerm#isRequired()      */
 specifier|public
 name|boolean
 name|isRequired
@@ -59,6 +61,7 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**      * @see CompoundQueryTerm#isProhibited()      */
 specifier|public
 name|boolean
 name|isProhibited
@@ -68,6 +71,7 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**      * @see CompoundQueryTerm#getQuery()       */
 specifier|public
 name|Query
 name|getQuery
