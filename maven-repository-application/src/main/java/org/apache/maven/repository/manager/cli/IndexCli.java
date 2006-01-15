@@ -252,6 +252,11 @@ specifier|public
 class|class
 name|IndexCli
 block|{
+specifier|private
+name|IndexCli
+parameter_list|()
+block|{
+block|}
 specifier|public
 specifier|static
 name|void
@@ -388,14 +393,7 @@ name|discoverer
 operator|.
 name|discoverArtifacts
 argument_list|(
-operator|new
-name|File
-argument_list|(
 name|repository
-operator|.
-name|getBasedir
-argument_list|()
-argument_list|)
 argument_list|,
 literal|null
 argument_list|,
