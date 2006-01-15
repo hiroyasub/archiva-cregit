@@ -19,11 +19,17 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|File
+name|maven
+operator|.
+name|artifact
+operator|.
+name|repository
+operator|.
+name|ArtifactRepository
 import|;
 end_import
 
@@ -66,12 +72,12 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Discover artifacts in the repository.      *      * @param repositoryBase      the base directory of the repository on the local filesystem      * @param blacklistedPatterns pattern that lists any files to prevent from being included when scanning      * @param includeSnapshots    whether to discover snapshots      * @return the list of artifacts discovered      * @todo replace repositoryBase with wagon repository      * @todo do we want blacklisted patterns in another form? Part of the object construction?      * @todo should includeSnapshots be configuration on the component?      * @todo instead of a returned list, should a listener be passed in?      */
+comment|/**      * Discover artifacts in the repository.      *      * @param repository          the location of the repository      * @param blacklistedPatterns pattern that lists any files to prevent from being included when scanning      * @param includeSnapshots    whether to discover snapshots      * @return the list of artifacts discovered      * @todo replace repositoryBase with wagon repository      * @todo do we want blacklisted patterns in another form? Part of the object construction?      * @todo should includeSnapshots be configuration on the component?      * @todo instead of a returned list, should a listener be passed in?      */
 name|List
 name|discoverArtifacts
 parameter_list|(
-name|File
-name|repositoryBase
+name|ArtifactRepository
+name|repository
 parameter_list|,
 name|String
 name|blacklistedPatterns
