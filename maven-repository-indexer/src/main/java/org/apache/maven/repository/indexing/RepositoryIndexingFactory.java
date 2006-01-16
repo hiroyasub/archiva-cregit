@@ -94,6 +94,25 @@ name|PomRepositoryIndex
 name|index
 parameter_list|)
 function_decl|;
+name|MetadataRepositoryIndex
+name|createMetadataRepositoryIndex
+parameter_list|(
+name|String
+name|indexPath
+parameter_list|,
+name|ArtifactRepository
+name|repository
+parameter_list|)
+throws|throws
+name|RepositoryIndexException
+function_decl|;
+name|MetadataRepositoryIndexSearcher
+name|createMetadataRepositoryIndexSearcher
+parameter_list|(
+name|MetadataRepositoryIndex
+name|index
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
