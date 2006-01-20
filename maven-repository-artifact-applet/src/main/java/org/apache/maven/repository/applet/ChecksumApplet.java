@@ -210,11 +210,6 @@ operator|.
 name|WEST
 argument_list|)
 expr_stmt|;
-name|setVisible
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 block|}
 specifier|public
 name|String
@@ -229,11 +224,6 @@ name|IOException
 throws|,
 name|NoSuchAlgorithmException
 block|{
-name|setVisible
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 return|return
 operator|(
 name|String
@@ -275,11 +265,6 @@ operator|.
 name|length
 argument_list|()
 decl_stmt|;
-name|long
-name|totalRead
-init|=
-literal|0
-decl_stmt|;
 name|InputStream
 name|fis
 init|=
@@ -291,6 +276,11 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+name|long
+name|totalRead
+init|=
+literal|0
+decl_stmt|;
 name|byte
 index|[]
 name|buffer
