@@ -3270,7 +3270,7 @@ operator|.
 name|trim
 argument_list|()
 operator|.
-name|replace
+name|replaceAll
 argument_list|(
 literal|"\r\n"
 argument_list|,
