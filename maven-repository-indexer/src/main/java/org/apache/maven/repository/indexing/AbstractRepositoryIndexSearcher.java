@@ -197,7 +197,7 @@ name|indexing
 operator|.
 name|query
 operator|.
-name|SinglePhraseQuery
+name|RangeQuery
 import|;
 end_import
 
@@ -215,7 +215,7 @@ name|indexing
 operator|.
 name|query
 operator|.
-name|RangeQuery
+name|SinglePhraseQuery
 import|;
 end_import
 

@@ -105,43 +105,7 @@ name|repository
 operator|.
 name|metadata
 operator|.
-name|RepositoryMetadata
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|repository
-operator|.
-name|metadata
-operator|.
 name|Metadata
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|repository
-operator|.
-name|metadata
-operator|.
-name|Versioning
 import|;
 end_import
 
@@ -165,11 +129,47 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|repository
+operator|.
+name|metadata
+operator|.
+name|RepositoryMetadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|repository
+operator|.
+name|metadata
+operator|.
+name|Versioning
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
-name|util
+name|io
 operator|.
-name|List
+name|IOException
 import|;
 end_import
 
@@ -187,9 +187,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|util
 operator|.
-name|IOException
+name|List
 import|;
 end_import
 
@@ -204,7 +204,15 @@ name|MetadataRepositoryIndex
 extends|extends
 name|AbstractRepositoryIndex
 block|{
-specifier|private
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|FLD_ID
+init|=
+literal|"id"
+decl_stmt|;
+specifier|protected
 specifier|static
 specifier|final
 name|String
@@ -212,7 +220,7 @@ name|FLD_LASTUPDATE
 init|=
 literal|"lastUpdate"
 decl_stmt|;
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String
@@ -220,7 +228,7 @@ name|FLD_PLUGINPREFIX
 init|=
 literal|"pluginPrefix"
 decl_stmt|;
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String
@@ -228,7 +236,7 @@ name|FLD_METADATAPATH
 init|=
 literal|"path"
 decl_stmt|;
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String
@@ -236,7 +244,7 @@ name|FLD_GROUPID
 init|=
 literal|"groupId"
 decl_stmt|;
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String
@@ -244,7 +252,7 @@ name|FLD_ARTIFACTID
 init|=
 literal|"artifactId"
 decl_stmt|;
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String
@@ -260,6 +268,8 @@ index|[]
 name|FIELDS
 init|=
 block|{
+name|FLD_ID
+block|,
 name|FLD_METADATAPATH
 block|,
 name|FLD_PLUGINPREFIX
@@ -273,7 +283,7 @@ block|,
 name|FLD_VERSION
 block|}
 decl_stmt|;
-comment|/**      * Constructor      * @param indexPath the path to the index      * @param repository the repository where the metadata to be indexed is located      * @throws RepositoryIndexException      */
+comment|/**      * Constructor      *      * @param indexPath  the path to the index      * @param repository the repository where the metadata to be indexed is located      * @throws RepositoryIndexException      */
 specifier|public
 name|MetadataRepositoryIndex
 parameter_list|(
@@ -296,7 +306,7 @@ name|FIELDS
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the field names to be used in the index      * @return array of strings      */
+comment|/**      * Get the field names to be used in the index      *      * @return array of strings      */
 specifier|public
 name|String
 index|[]
@@ -307,7 +317,7 @@ return|return
 name|FIELDS
 return|;
 block|}
-comment|/**      * Returns the analyzer used for indexing      * @return Analyzer object      */
+comment|/**      * Returns the analyzer used for indexing      *      * @return Analyzer object      */
 specifier|public
 name|Analyzer
 name|getAnalyzer
@@ -319,7 +329,7 @@ name|StandardAnalyzer
 argument_list|()
 return|;
 block|}
-comment|/**      * Index the paramater object      * @param obj      * @throws RepositoryIndexException      */
+comment|/**      * Index the paramater object      *      * @param obj      * @throws RepositoryIndexException      */
 specifier|public
 name|void
 name|index
@@ -365,7 +375,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Index the contents of the specified RepositoryMetadata paramter object      * @param repoMetadata the metadata object to be indexed      * @throws RepositoryIndexException      */
+comment|/**      * Index the contents of the specified RepositoryMetadata paramter object      *      * @param repoMetadata the metadata object to be indexed      * @throws RepositoryIndexException      */
 specifier|private
 name|void
 name|indexMetadata
@@ -402,6 +412,26 @@ operator|new
 name|Document
 argument_list|()
 decl_stmt|;
+name|doc
+operator|.
+name|add
+argument_list|(
+name|Field
+operator|.
+name|Keyword
+argument_list|(
+name|FLD_ID
+argument_list|,
+operator|(
+name|String
+operator|)
+name|repoMetadata
+operator|.
+name|getKey
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|String
 name|path
 init|=

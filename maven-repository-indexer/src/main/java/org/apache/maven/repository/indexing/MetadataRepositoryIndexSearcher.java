@@ -41,6 +41,20 @@ name|maven
 operator|.
 name|artifact
 operator|.
+name|Artifact
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
 name|factory
 operator|.
 name|ArtifactFactory
@@ -61,7 +75,7 @@ name|repository
 operator|.
 name|metadata
 operator|.
-name|RepositoryMetadata
+name|ArtifactRepositoryMetadata
 import|;
 end_import
 
@@ -97,7 +111,7 @@ name|repository
 operator|.
 name|metadata
 operator|.
-name|ArtifactRepositoryMetadata
+name|RepositoryMetadata
 import|;
 end_import
 
@@ -143,25 +157,11 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|Artifact
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
-name|net
+name|io
 operator|.
-name|URL
+name|File
 import|;
 end_import
 
@@ -181,7 +181,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
+name|InputStreamReader
 import|;
 end_import
 
@@ -189,9 +189,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|net
 operator|.
-name|InputStreamReader
+name|URL
 import|;
 end_import
 
@@ -201,12 +201,52 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|StringTokenizer
 import|;
 end_import
 
 begin_comment
-comment|/**  * This class searches the specified index given the search/query criteria.  *  */
+comment|/**  * This class searches the specified index given the search/query criteria.  */
 end_comment
 
 begin_class
@@ -276,7 +316,7 @@ name|SNAPSHOT_TYPE
 init|=
 literal|"SNAPSHOT"
 decl_stmt|;
-comment|/**      * Constructor      * @param index the index object to be set      * @param factory      */
+comment|/**      * Constructor      *      * @param index   the index object to be set      * @param factory      */
 specifier|public
 name|MetadataRepositoryIndexSearcher
 parameter_list|(
@@ -297,7 +337,7 @@ operator|=
 name|factory
 expr_stmt|;
 block|}
-comment|/**      * Create object to be returned by the search based on the document      * @param doc      * @return Object      */
+comment|/**      * Create object to be returned by the search based on the document      *      * @param doc      * @return Object      */
 specifier|protected
 name|Object
 name|createSearchedObjectFromIndexDocument
@@ -487,7 +527,7 @@ return|return
 name|repoMetadata
 return|;
 block|}
-comment|/**      * Create RepositoryMetadata object.      *      * @param groupId the groupId to be set      * @param artifactId the artifactId to be set      * @param version the version to be set      * @param filename the name of the metadata file      * @param metadataType the type of RepositoryMetadata object to be created (GROUP, ARTIFACT or SNAPSHOT)      * @return RepositoryMetadata      * @throws Exception      */
+comment|/**      * Create RepositoryMetadata object.      *      * @param groupId      the groupId to be set      * @param artifactId   the artifactId to be set      * @param version      the version to be set      * @param filename     the name of the metadata file      * @param metadataType the type of RepositoryMetadata object to be created (GROUP, ARTIFACT or SNAPSHOT)      * @return RepositoryMetadata      * @throws Exception      */
 specifier|private
 name|RepositoryMetadata
 name|getMetadata
@@ -779,7 +819,7 @@ return|return
 name|repoMetadata
 return|;
 block|}
-comment|/**      * Create artifact object.      * @param groupId the groupId of the artifact      * @param artifactId the artifactId of the artifact      * @param version the version of the artifact      * @return Artifact      * @throws Exception      */
+comment|/**      * Create artifact object.      *      * @param groupId    the groupId of the artifact      * @param artifactId the artifactId of the artifact      * @param version    the version of the artifact      * @return Artifact      * @throws Exception      */
 specifier|private
 name|Artifact
 name|getArtifact

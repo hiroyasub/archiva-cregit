@@ -25,7 +25,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|ArrayList
 import|;
 end_import
 
@@ -35,12 +35,12 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|List
 import|;
 end_import
 
 begin_comment
-comment|/**  * Query object that handles range queries for dates.  * @author Maria Odea Ching  */
+comment|/**  * Query object that handles range queries for dates.  *  * @author Maria Odea Ching  */
 end_comment
 
 begin_class

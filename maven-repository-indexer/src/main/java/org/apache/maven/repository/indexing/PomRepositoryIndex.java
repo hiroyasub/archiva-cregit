@@ -14,7 +14,7 @@ package|;
 end_package
 
 begin_comment
-comment|/*  * Copyright 2001-2005 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0    *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Copyright 2001-2005 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0   *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_import
@@ -294,6 +294,14 @@ specifier|protected
 specifier|static
 specifier|final
 name|String
+name|FLD_ID
+init|=
+literal|"id"
+decl_stmt|;
+specifier|protected
+specifier|static
+specifier|final
+name|String
 name|FLD_GROUPID
 init|=
 literal|"groupId"
@@ -386,6 +394,8 @@ index|[]
 name|FIELDS
 init|=
 block|{
+name|FLD_ID
+block|,
 name|FLD_GROUPID
 block|,
 name|FLD_ARTIFACTID
@@ -431,6 +441,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|FLD_ID
+block|,
 name|FLD_LICENSE_URLS
 block|,
 name|FLD_DEPENDENCIES
@@ -442,6 +454,14 @@ block|,
 name|FLD_PLUGINS_ALL
 block|}
 argument_list|)
+decl_stmt|;
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|POM_TYPE
+init|=
+literal|"POM"
 decl_stmt|;
 comment|/**      * Class Constructor      *      * @param indexPath       the path where the index is available or will be made available      * @param repository      the repository where objects indexed by this class resides      * @param digester        the digester to be used for generating checksums      * @param artifactFactory the factory for building artifact objects      * @throws RepositoryIndexException      */
 specifier|public
@@ -545,6 +565,25 @@ operator|new
 name|Document
 argument_list|()
 decl_stmt|;
+name|doc
+operator|.
+name|add
+argument_list|(
+name|Field
+operator|.
+name|Keyword
+argument_list|(
+name|FLD_ID
+argument_list|,
+name|POM_TYPE
+operator|+
+name|pom
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|doc
 operator|.
 name|add
