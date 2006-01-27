@@ -132,22 +132,6 @@ name|ChecksumArtifactReporter
 implements|implements
 name|ArtifactReportProcessor
 block|{
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|BYTE_MASK
-init|=
-literal|0xFF
-decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|CHECKSUM_BUFFER_SIZE
-init|=
-literal|16384
-decl_stmt|;
 comment|/** @plexus.requirement */
 specifier|private
 name|Digester
