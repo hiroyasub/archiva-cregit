@@ -49,6 +49,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|repository
+operator|.
+name|reporting
+operator|.
+name|ArtifactReporter
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -76,8 +92,8 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Convert a single artifact, writing it into the target repository.      *      * @param artifact         the artifact to convert      * @param targetRepository the target repository      * @return a list of warnings occuring during the conversion      */
-name|List
+comment|/**      * Convert a single artifact, writing it into the target repository.      *      * @param artifact         the artifact to convert      * @param targetRepository the target repository      * @param reporter         reporter to track the results of the conversion      */
+name|void
 name|convert
 parameter_list|(
 name|Artifact
@@ -85,11 +101,14 @@ name|artifact
 parameter_list|,
 name|ArtifactRepository
 name|targetRepository
+parameter_list|,
+name|ArtifactReporter
+name|reporter
 parameter_list|)
 throws|throws
 name|RepositoryConversionException
 function_decl|;
-comment|/**      * Convert a set of artifacts, writing them into the target repository.      *      * @param artifacts        the set of artifacts to convert      * @param targetRepository the target repository      */
+comment|/**      * Convert a set of artifacts, writing them into the target repository.      *      * @param artifacts        the set of artifacts to convert      * @param targetRepository the target repository      * @param reporter         reporter to track the results of the conversions      */
 name|void
 name|convert
 parameter_list|(
@@ -98,6 +117,9 @@ name|artifacts
 parameter_list|,
 name|ArtifactRepository
 name|targetRepository
+parameter_list|,
+name|ArtifactReporter
+name|reporter
 parameter_list|)
 throws|throws
 name|RepositoryConversionException
