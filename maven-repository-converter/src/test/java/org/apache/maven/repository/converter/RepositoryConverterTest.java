@@ -2295,7 +2295,7 @@ name|IOException
 throws|,
 name|RepositoryConversionException
 block|{
-comment|// test that a POM is created when there was none at the source
+comment|// test that a POM is not created when there was none at the source
 name|Artifact
 name|artifact
 init|=
@@ -2319,8 +2319,57 @@ argument_list|,
 name|reporter
 argument_list|)
 expr_stmt|;
-name|checkSuccess
+name|assertEquals
+argument_list|(
+literal|"check no errors"
+argument_list|,
+literal|0
+argument_list|,
+name|reporter
+operator|.
+name|getFailures
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check no warnings"
+argument_list|,
+literal|1
+argument_list|,
+name|reporter
+operator|.
+name|getWarnings
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check success"
+argument_list|,
+literal|1
+argument_list|,
+name|reporter
+operator|.
+name|getSuccesses
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check warning message"
+argument_list|,
+name|getI18nString
+argument_list|(
+literal|"warning.missing.pom"
+argument_list|)
+argument_list|,
+name|getWarning
+argument_list|()
+operator|.
+name|getReason
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|File
 name|artifactFile
@@ -2413,7 +2462,6 @@ name|artifact
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// TODO: should we fail? Warn?
 name|assertFalse
 argument_list|(
 literal|"Check no POM created"
@@ -2493,20 +2541,6 @@ expr_stmt|;
 name|checkFailure
 argument_list|()
 expr_stmt|;
-name|ArtifactResult
-name|failure
-init|=
-operator|(
-name|ArtifactResult
-operator|)
-name|reporter
-operator|.
-name|getArtifactFailureIterator
-argument_list|()
-operator|.
-name|next
-argument_list|()
-decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"check failure message"
@@ -2516,7 +2550,8 @@ argument_list|(
 literal|"failure.incorrect.md5"
 argument_list|)
 argument_list|,
-name|failure
+name|getFailure
+argument_list|()
 operator|.
 name|getReason
 argument_list|()
@@ -2591,20 +2626,6 @@ expr_stmt|;
 name|checkFailure
 argument_list|()
 expr_stmt|;
-name|ArtifactResult
-name|failure
-init|=
-operator|(
-name|ArtifactResult
-operator|)
-name|reporter
-operator|.
-name|getArtifactFailureIterator
-argument_list|()
-operator|.
-name|next
-argument_list|()
-decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"check failure message"
@@ -2614,7 +2635,8 @@ argument_list|(
 literal|"failure.incorrect.sha1"
 argument_list|)
 argument_list|,
-name|failure
+name|getFailure
+argument_list|()
 operator|.
 name|getReason
 argument_list|()
@@ -4132,6 +4154,42 @@ argument_list|()
 argument_list|,
 name|key
 argument_list|)
+return|;
+block|}
+specifier|private
+name|ArtifactResult
+name|getFailure
+parameter_list|()
+block|{
+return|return
+operator|(
+name|ArtifactResult
+operator|)
+name|reporter
+operator|.
+name|getArtifactFailureIterator
+argument_list|()
+operator|.
+name|next
+argument_list|()
+return|;
+block|}
+specifier|private
+name|ArtifactResult
+name|getWarning
+parameter_list|()
+block|{
+return|return
+operator|(
+name|ArtifactResult
+operator|)
+name|reporter
+operator|.
+name|getArtifactWarningIterator
+argument_list|()
+operator|.
+name|next
+argument_list|()
 return|;
 block|}
 block|}
