@@ -866,6 +866,9 @@ block|}
 if|if
 condition|(
 name|changed
+operator|&&
+operator|!
+name|dryrun
 condition|)
 block|{
 name|Writer
