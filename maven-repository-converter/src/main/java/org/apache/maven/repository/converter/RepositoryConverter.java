@@ -76,8 +76,8 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Convert a single artifact, writing it into the target repository.      *      * @param artifact         the artifact to convert      * @param targetRepository the target repository      */
-name|void
+comment|/**      * Convert a single artifact, writing it into the target repository.      *      * @param artifact         the artifact to convert      * @param targetRepository the target repository      * @return a list of warnings occuring during the conversion      */
+name|List
 name|convert
 parameter_list|(
 name|Artifact
