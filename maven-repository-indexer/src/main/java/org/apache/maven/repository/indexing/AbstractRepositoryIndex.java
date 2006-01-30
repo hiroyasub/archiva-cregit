@@ -565,11 +565,13 @@ name|indexReader
 operator|!=
 literal|null
 condition|)
+block|{
 name|indexReader
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Check if the index already exists.      *      * @throws IOException      * @throws RepositoryIndexException      */
