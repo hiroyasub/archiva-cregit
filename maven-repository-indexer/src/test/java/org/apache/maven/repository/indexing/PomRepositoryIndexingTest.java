@@ -321,6 +321,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Iterator
@@ -535,7 +545,11 @@ name|RepositoryIndexException
 name|e
 parameter_list|)
 block|{
-comment|// expected
+name|assertTrue
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 try|try
 block|{
@@ -582,7 +596,11 @@ name|RepositoryIndexException
 name|e
 parameter_list|)
 block|{
-comment|// expected
+name|assertTrue
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 name|PomRepositoryIndex
 name|indexer
@@ -615,11 +633,32 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|RepositoryIndexException
 name|e
 parameter_list|)
 block|{
-comment|//expected
+name|assertTrue
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ie
+parameter_list|)
+block|{
+name|fail
+argument_list|(
+literal|"Unexpected IOException thrown: "
+operator|+
+name|ie
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Test the PomRepositoryIndexSearcher using a single-phrase search.      *      * @throws Exception      */

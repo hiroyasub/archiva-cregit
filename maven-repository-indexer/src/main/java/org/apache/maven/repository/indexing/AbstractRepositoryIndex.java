@@ -559,6 +559,12 @@ throw|;
 block|}
 finally|finally
 block|{
+if|if
+condition|(
+name|indexReader
+operator|!=
+literal|null
+condition|)
 name|indexReader
 operator|.
 name|close

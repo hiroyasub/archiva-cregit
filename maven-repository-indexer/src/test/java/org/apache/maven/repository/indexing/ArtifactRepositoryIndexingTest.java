@@ -466,7 +466,11 @@ name|RepositoryIndexException
 name|e
 parameter_list|)
 block|{
-comment|// expected
+name|assertTrue
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 try|try
 block|{
@@ -513,7 +517,11 @@ name|RepositoryIndexException
 name|e
 parameter_list|)
 block|{
-comment|// expected
+name|assertTrue
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 name|ArtifactRepositoryIndex
 name|indexer
@@ -550,7 +558,11 @@ name|RepositoryIndexException
 name|e
 parameter_list|)
 block|{
-comment|// expected
+name|assertTrue
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Create an index that will be used for testing.      * Indexing process: check if the object was already indexed [ checkIfIndexed(Object) ], open the index [ open() ],      * index the object [ index(Object) ], optimize the index [ optimize() ] and close the index [ close() ].      *      * @throws Exception      */
