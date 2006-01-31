@@ -187,7 +187,7 @@ name|ArtifactRepository
 name|repoCache
 decl_stmt|;
 specifier|private
-name|ArrayList
+name|List
 name|repositories
 init|=
 operator|new
@@ -223,7 +223,7 @@ name|void
 name|setRepositoryCachePath
 parameter_list|(
 name|String
-name|repoCachePath
+name|repoCacheURL
 parameter_list|)
 block|{
 name|ArtifactRepositoryPolicy
@@ -260,7 +260,7 @@ name|createArtifactRepository
 argument_list|(
 literal|"localCache"
 argument_list|,
-name|repoCachePath
+name|repoCacheURL
 argument_list|,
 name|layout
 argument_list|,
@@ -325,7 +325,7 @@ specifier|public
 name|void
 name|setRepositories
 parameter_list|(
-name|ArrayList
+name|List
 name|repositories
 parameter_list|)
 block|{
