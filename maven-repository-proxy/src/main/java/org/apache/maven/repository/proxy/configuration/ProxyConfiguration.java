@@ -15,6 +15,10 @@ name|configuration
 package|;
 end_package
 
+begin_comment
+comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
 begin_import
 import|import
 name|org
@@ -43,7 +47,7 @@ name|artifact
 operator|.
 name|repository
 operator|.
-name|ArtifactRepositoryPolicy
+name|ArtifactRepositoryFactory
 import|;
 end_import
 
@@ -59,7 +63,7 @@ name|artifact
 operator|.
 name|repository
 operator|.
-name|ArtifactRepositoryFactory
+name|ArtifactRepositoryPolicy
 import|;
 end_import
 
@@ -133,7 +137,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Collections
 import|;
 end_import
 
@@ -143,12 +147,12 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
+name|List
 import|;
 end_import
 
 begin_comment
-comment|/**  * @plexus.component role="org.apache.maven.repository.proxy.configuration.ProxyConfiguration"  *  * @author Edwin Punzalan  */
+comment|/**  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.proxy.configuration.ProxyConfiguration"  */
 end_comment
 
 begin_class
@@ -169,7 +173,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/** @plexus.requirement */
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|ArtifactRepositoryFactory
 name|artifactRepositoryFactory
@@ -269,7 +273,7 @@ block|}
 specifier|public
 name|ArtifactRepository
 name|getRepositoryCache
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|repoCache
