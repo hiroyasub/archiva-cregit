@@ -674,6 +674,8 @@ name|String
 name|path
 parameter_list|)
 throws|throws
+name|ResourceDoesNotExistException
+throws|,
 name|ProxyException
 block|{
 return|return
@@ -696,6 +698,8 @@ name|boolean
 name|useChecksum
 parameter_list|)
 throws|throws
+name|ResourceDoesNotExistException
+throws|,
 name|ProxyException
 block|{
 name|ArtifactRepository
@@ -1001,7 +1005,7 @@ block|}
 block|}
 throw|throw
 operator|new
-name|ProxyException
+name|ResourceDoesNotExistException
 argument_list|(
 literal|"Could not find "
 operator|+
