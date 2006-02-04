@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Edwin Punzalan  */
+comment|/**  * Class to represent the Proxy repository.  Currently does not provide additional methods from  * DefaultArtifactRepository but is expected to do so like enabled/disabled when a UI is present.  *  * @author Edwin Punzalan  */
 end_comment
 
 begin_class

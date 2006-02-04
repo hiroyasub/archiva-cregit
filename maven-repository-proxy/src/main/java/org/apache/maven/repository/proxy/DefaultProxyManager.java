@@ -396,6 +396,7 @@ specifier|private
 name|ProxyConfiguration
 name|config
 decl_stmt|;
+comment|/**      * Constructor.      *      * @param configuration the configuration object to base the behavior of this instance      */
 specifier|public
 name|DefaultProxyManager
 parameter_list|(
@@ -408,6 +409,7 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+comment|/**      * @see org.apache.maven.repository.proxy.ProxyManager#get(String)      */
 specifier|public
 name|File
 name|get
@@ -459,6 +461,7 @@ return|return
 name|cachedFile
 return|;
 block|}
+comment|/**      * @see org.apache.maven.repository.proxy.ProxyManager#getRemoteFile(String)      */
 specifier|public
 name|File
 name|getRemoteFile
@@ -470,8 +473,6 @@ throws|throws
 name|ProxyException
 throws|,
 name|ResourceDoesNotExistException
-block|{
-try|try
 block|{
 name|Artifact
 name|artifact
@@ -545,26 +546,7 @@ return|return
 name|remoteFile
 return|;
 block|}
-catch|catch
-parameter_list|(
-name|TransferFailedException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|ProxyException
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
+comment|/**      * Used to download an artifact object from the remote repositories.      *      * @param artifact the artifact object to be downloaded from a remote repository      * @return File object representing the remote artifact in the repository cache      * @throws ProxyException when an error occurred during retrieval of the requested artifact      * @throws ResourceDoesNotExistException when the requested artifact cannot be found in any of the      *      configured repositories      */
 specifier|private
 name|File
 name|getArtifactFile
@@ -573,9 +555,9 @@ name|Artifact
 name|artifact
 parameter_list|)
 throws|throws
-name|TransferFailedException
-throws|,
 name|ResourceDoesNotExistException
+throws|,
+name|ProxyException
 block|{
 name|ArtifactRepository
 name|repoCache
@@ -613,6 +595,8 @@ name|exists
 argument_list|()
 condition|)
 block|{
+try|try
+block|{
 name|wagon
 operator|.
 name|getArtifact
@@ -625,6 +609,26 @@ name|getRepositories
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|TransferFailedException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ProxyException
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 name|artifactFile
 operator|=
 name|artifact
@@ -637,6 +641,7 @@ return|return
 name|artifactFile
 return|;
 block|}
+comment|/**      * Used to retrieve a remote file from the remote repositories.  This method is used only when the requested      *      path cannot be resolved into a repository object, for example, an Artifact.      *      * @param path the remote path to use to search for the requested file      * @return File object representing the remote file in the repository cache      * @throws ResourceDoesNotExistException when the requested path cannot be found in any of the configured      *      repositories.      * @throws ProxyException when an error occurred during the retrieval of the requested path      */
 specifier|private
 name|File
 name|getRepositoryFile
@@ -658,6 +663,7 @@ literal|true
 argument_list|)
 return|;
 block|}
+comment|/**      * Used to retrieve a remote file from the remote repositories.  This method is used only when the requested      *      path cannot be resolved into a repository object, for example, an Artifact.      *      * @param path the remote path to use to search for the requested file      * @param useChecksum forces the download to whether use a checksum (if present in the remote repository) or not      * @return File object representing the remote file in the repository cache      * @throws ResourceDoesNotExistException when the requested path cannot be found in any of the configured      *      repositories.      * @throws ProxyException when an error occurred during the retrieval of the requested path      */
 specifier|private
 name|File
 name|getRepositoryFile
@@ -673,6 +679,21 @@ name|ResourceDoesNotExistException
 throws|,
 name|ProxyException
 block|{
+name|Map
+name|checksums
+init|=
+literal|null
+decl_stmt|;
+name|Wagon
+name|wagon
+init|=
+literal|null
+decl_stmt|;
+name|boolean
+name|connected
+init|=
+literal|false
+decl_stmt|;
 name|ArtifactRepository
 name|cache
 init|=
@@ -728,9 +749,8 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|Wagon
 name|wagon
-init|=
+operator|=
 name|this
 operator|.
 name|wagon
@@ -742,13 +762,8 @@ operator|.
 name|getProtocol
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|//@todo configure wagon
-name|Map
-name|checksums
-init|=
-literal|null
-decl_stmt|;
 if|if
 condition|(
 name|useChecksum
@@ -762,14 +777,18 @@ name|wagon
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
+name|connected
+operator|=
 name|connectToRepository
 argument_list|(
 name|wagon
 argument_list|,
 name|repository
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|connected
 condition|)
 block|{
 name|File
@@ -971,6 +990,39 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
+if|if
+condition|(
+name|wagon
+operator|!=
+literal|null
+operator|&&
+name|checksums
+operator|!=
+literal|null
+condition|)
+block|{
+name|releaseChecksums
+argument_list|(
+name|wagon
+argument_list|,
+name|checksums
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|connected
+condition|)
+block|{
+name|disconnectWagon
+argument_list|(
+name|wagon
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 throw|throw
 operator|new
@@ -984,6 +1036,7 @@ literal|" in any of the repositories."
 argument_list|)
 throw|;
 block|}
+comment|/**      * Used to add checksum observers as transfer listeners to the wagon object      *      * @param wagon the wagon object to use the checksum with      * @return map of ChecksumObservers added into the wagon transfer listeners      */
 specifier|private
 name|Map
 name|prepareChecksums
@@ -1072,6 +1125,7 @@ return|return
 name|checksums
 return|;
 block|}
+comment|/**      * Used to remove the ChecksumObservers from the wagon object      *      * @param wagon the wagon object to remote the ChecksumObservers from      * @param checksumMap the map representing the list of ChecksumObservers added to the wagon object      */
 specifier|private
 name|void
 name|releaseChecksums
@@ -1123,6 +1177,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Used to request the wagon object to connect to a repository      *      * @param wagon the wagon object that will be used to connect to the repository      * @param repository the repository object to connect the wagon to      * @return true when the wagon is able to connect to the repository      */
 specifier|private
 name|boolean
 name|connectToRepository
@@ -1211,6 +1266,7 @@ return|return
 name|connected
 return|;
 block|}
+comment|/**      * Used to verify the checksum during a wagon download      *      * @param checksumMap the map of ChecksumObservers present in the wagon as transferlisteners      * @param path path of the remote object whose checksum is to be verified      * @param wagon the wagon object used to download the requested path      * @return true when the checksum succeeds and false when the checksum failed.      */
 specifier|private
 name|boolean
 name|doChecksumCheck
@@ -1533,6 +1589,7 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**      * Used to disconnect the wagon from its repository      *      * @param wagon the connected wagon object      */
 specifier|private
 name|void
 name|disconnectWagon

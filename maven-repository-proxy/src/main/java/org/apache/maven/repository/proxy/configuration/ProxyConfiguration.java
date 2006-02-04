@@ -152,7 +152,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.proxy.configuration.ProxyConfiguration"  */
+comment|/**  * Class to represent the configuration file for the proxy  *  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.proxy.configuration.ProxyConfiguration"  */
 end_comment
 
 begin_class
@@ -194,6 +194,7 @@ operator|new
 name|ArrayList
 argument_list|()
 decl_stmt|;
+comment|/**      * Method to set/unset the web-view of the repository cache      *      * @param browsable set to true to enable the web-view of the proxy repository cache      */
 specifier|public
 name|void
 name|setBrowsable
@@ -209,6 +210,7 @@ operator|=
 name|browsable
 expr_stmt|;
 block|}
+comment|/**      * Used to determine if the repsented configuration allows web view of the repository cache      *      * @return true if the repository cache is configured for web view.      */
 specifier|public
 name|boolean
 name|isBrowsable
@@ -218,6 +220,7 @@ return|return
 name|browsable
 return|;
 block|}
+comment|/**      * Used to set the location where the proxy should cache the configured repositories      *      * @param repoCacheURL      */
 specifier|public
 name|void
 name|setRepositoryCachePath
@@ -270,6 +273,7 @@ name|standardPolicy
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Used to retrieve an ArtifactRepository Object of the proxy cache      *      * @return the ArtifactRepository representation of the proxy cache      */
 specifier|public
 name|ArtifactRepository
 name|getRepositoryCache
@@ -279,6 +283,7 @@ return|return
 name|repoCache
 return|;
 block|}
+comment|/**      * Used to retrieved the absolute path of the repository cache      *      * @return path to the proxy cache      */
 specifier|public
 name|String
 name|getRepositoryCachePath
@@ -291,6 +296,7 @@ name|getBasedir
 argument_list|()
 return|;
 block|}
+comment|/**      * Used to add proxied repositories.      *      * @param repository the repository to be proxied      */
 specifier|public
 name|void
 name|addRepository
@@ -307,6 +313,7 @@ name|repository
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Used to retrieve an unmodifyable list of proxied repositories. They returned list determines the search sequence      * for retrieving artifacts.      *      * @return a list of ProxyRepository objects representing proxied repositories      */
 specifier|public
 name|List
 name|getRepositories
@@ -321,6 +328,7 @@ name|repositories
 argument_list|)
 return|;
 block|}
+comment|/**      * Used to set the list of repositories to be proxied.  This replaces any repositories already added to this      * configuraion instance.  Useful for re-arranging an existing proxied list.      *      * @param repositories      */
 specifier|public
 name|void
 name|setRepositories
