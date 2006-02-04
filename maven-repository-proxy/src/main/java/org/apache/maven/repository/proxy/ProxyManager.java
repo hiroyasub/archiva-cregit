@@ -19,6 +19,20 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|wagon
+operator|.
+name|ResourceDoesNotExistException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -45,6 +59,8 @@ name|path
 parameter_list|)
 throws|throws
 name|ProxyException
+throws|,
+name|ResourceDoesNotExistException
 function_decl|;
 specifier|public
 name|File
@@ -55,6 +71,8 @@ name|path
 parameter_list|)
 throws|throws
 name|ProxyException
+throws|,
+name|ResourceDoesNotExistException
 function_decl|;
 block|}
 end_interface

@@ -417,6 +417,8 @@ name|path
 parameter_list|)
 throws|throws
 name|ProxyException
+throws|,
+name|ResourceDoesNotExistException
 block|{
 comment|//@todo use wagon for cache use file:// as URL
 name|String
@@ -466,6 +468,8 @@ name|path
 parameter_list|)
 throws|throws
 name|ProxyException
+throws|,
+name|ResourceDoesNotExistException
 block|{
 try|try
 block|{
@@ -544,25 +548,6 @@ block|}
 catch|catch
 parameter_list|(
 name|TransferFailedException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|ProxyException
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
-name|ResourceDoesNotExistException
 name|e
 parameter_list|)
 block|{
