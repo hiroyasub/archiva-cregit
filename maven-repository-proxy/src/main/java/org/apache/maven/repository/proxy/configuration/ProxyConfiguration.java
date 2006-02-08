@@ -151,6 +151,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
 begin_comment
 comment|/**  * Class to represent the configuration file for the proxy  *  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.proxy.configuration.ProxyConfiguration"  */
 end_comment
@@ -220,13 +230,13 @@ return|return
 name|browsable
 return|;
 block|}
-comment|/**      * Used to set the location where the proxy should cache the configured repositories      *      * @param repoCacheURL      */
+comment|/**      * Used to set the location where the proxy should cache the configured repositories      *      * @param path      */
 specifier|public
 name|void
 name|setRepositoryCachePath
 parameter_list|(
 name|String
-name|repoCacheURL
+name|path
 parameter_list|)
 block|{
 name|ArtifactRepositoryPolicy
@@ -263,7 +273,16 @@ name|createArtifactRepository
 argument_list|(
 literal|"localCache"
 argument_list|,
-name|repoCacheURL
+literal|"file://"
+operator|+
+operator|new
+name|File
+argument_list|(
+name|path
+argument_list|)
+operator|.
+name|getAbsolutePath
+argument_list|()
 argument_list|,
 name|layout
 argument_list|,

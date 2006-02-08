@@ -234,8 +234,6 @@ name|config
 operator|.
 name|setRepositoryCachePath
 argument_list|(
-literal|"file://"
-operator|+
 name|cacheFile
 operator|.
 name|getAbsolutePath
