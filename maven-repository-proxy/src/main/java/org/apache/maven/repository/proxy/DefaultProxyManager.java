@@ -370,7 +370,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.proxy.ProxyManager"  */
+comment|/**  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.proxy.ProxyManager" role-hint="default"  */
 end_comment
 
 begin_class
@@ -385,7 +385,7 @@ block|{
 comment|/**      * @plexus.requirement      */
 specifier|private
 name|WagonManager
-name|wagon
+name|wagonManager
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
@@ -396,18 +396,29 @@ specifier|private
 name|ProxyConfiguration
 name|config
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param configuration the configuration object to base the behavior of this instance      */
 specifier|public
-name|DefaultProxyManager
+name|void
+name|setConfiguration
 parameter_list|(
 name|ProxyConfiguration
-name|configuration
+name|config
 parameter_list|)
 block|{
+name|this
+operator|.
 name|config
 operator|=
-name|configuration
+name|config
 expr_stmt|;
+block|}
+specifier|public
+name|ProxyConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|config
+return|;
 block|}
 comment|/**      * @see org.apache.maven.repository.proxy.ProxyManager#get(String)      */
 specifier|public
@@ -422,7 +433,10 @@ name|ProxyException
 throws|,
 name|ResourceDoesNotExistException
 block|{
-comment|//@todo use wagon for cache use file:// as URL
+name|checkConfiguration
+argument_list|()
+expr_stmt|;
+comment|//@todo use wagonManager for cache use file:// as URL
 name|String
 name|cachePath
 init|=
@@ -474,6 +488,9 @@ name|ProxyException
 throws|,
 name|ResourceDoesNotExistException
 block|{
+name|checkConfiguration
+argument_list|()
+expr_stmt|;
 name|Artifact
 name|artifact
 init|=
@@ -597,7 +614,7 @@ condition|)
 block|{
 try|try
 block|{
-name|wagon
+name|wagonManager
 operator|.
 name|getArtifact
 argument_list|(
@@ -751,9 +768,7 @@ try|try
 block|{
 name|wagon
 operator|=
-name|this
-operator|.
-name|wagon
+name|wagonManager
 operator|.
 name|getWagon
 argument_list|(
@@ -763,7 +778,7 @@ name|getProtocol
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//@todo configure wagon
+comment|//@todo configure wagonManager
 if|if
 condition|(
 name|useChecksum
@@ -981,7 +996,7 @@ operator|.
 name|getUrl
 argument_list|()
 operator|+
-literal|": no wagon configured for protocol "
+literal|": no wagonManager configured for protocol "
 operator|+
 name|repository
 operator|.
@@ -1036,7 +1051,7 @@ literal|" in any of the repositories."
 argument_list|)
 throw|;
 block|}
-comment|/**      * Used to add checksum observers as transfer listeners to the wagon object      *      * @param wagon the wagon object to use the checksum with      * @return map of ChecksumObservers added into the wagon transfer listeners      */
+comment|/**      * Used to add checksum observers as transfer listeners to the wagonManager object      *      * @param wagon the wagonManager object to use the checksum with      * @return map of ChecksumObservers added into the wagonManager transfer listeners      */
 specifier|private
 name|Map
 name|prepareChecksums
@@ -1125,7 +1140,7 @@ return|return
 name|checksums
 return|;
 block|}
-comment|/**      * Used to remove the ChecksumObservers from the wagon object      *      * @param wagon the wagon object to remote the ChecksumObservers from      * @param checksumMap the map representing the list of ChecksumObservers added to the wagon object      */
+comment|/**      * Used to remove the ChecksumObservers from the wagonManager object      *      * @param wagon the wagonManager object to remote the ChecksumObservers from      * @param checksumMap the map representing the list of ChecksumObservers added to the wagonManager object      */
 specifier|private
 name|void
 name|releaseChecksums
@@ -1177,7 +1192,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Used to request the wagon object to connect to a repository      *      * @param wagon the wagon object that will be used to connect to the repository      * @param repository the repository object to connect the wagon to      * @return true when the wagon is able to connect to the repository      */
+comment|/**      * Used to request the wagonManager object to connect to a repository      *      * @param wagon the wagonManager object that will be used to connect to the repository      * @param repository the repository object to connect the wagonManager to      * @return true when the wagonManager is able to connect to the repository      */
 specifier|private
 name|boolean
 name|connectToRepository
@@ -1266,7 +1281,7 @@ return|return
 name|connected
 return|;
 block|}
-comment|/**      * Used to verify the checksum during a wagon download      *      * @param checksumMap the map of ChecksumObservers present in the wagon as transferlisteners      * @param path path of the remote object whose checksum is to be verified      * @param wagon the wagon object used to download the requested path      * @return true when the checksum succeeds and false when the checksum failed.      */
+comment|/**      * Used to verify the checksum during a wagonManager download      *      * @param checksumMap the map of ChecksumObservers present in the wagonManager as transferlisteners      * @param path path of the remote object whose checksum is to be verified      * @param wagon the wagonManager object used to download the requested path      * @return true when the checksum succeeds and false when the checksum failed.      */
 specifier|private
 name|boolean
 name|doChecksumCheck
@@ -1589,7 +1604,30 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Used to disconnect the wagon from its repository      *      * @param wagon the connected wagon object      */
+specifier|private
+name|void
+name|checkConfiguration
+parameter_list|()
+throws|throws
+name|ProxyException
+block|{
+if|if
+condition|(
+name|config
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ProxyException
+argument_list|(
+literal|"No proxy configuration defined."
+argument_list|)
+throw|;
+block|}
+block|}
+comment|/**      * Used to disconnect the wagonManager from its repository      *      * @param wagon the connected wagonManager object      */
 specifier|private
 name|void
 name|disconnectWagon
@@ -1617,7 +1655,7 @@ argument_list|()
 operator|.
 name|error
 argument_list|(
-literal|"Problem disconnecting from wagon - ignoring: "
+literal|"Problem disconnecting from wagonManager - ignoring: "
 operator|+
 name|e
 operator|.

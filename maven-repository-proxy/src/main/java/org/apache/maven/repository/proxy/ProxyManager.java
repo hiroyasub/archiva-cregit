@@ -33,6 +33,24 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|repository
+operator|.
+name|proxy
+operator|.
+name|configuration
+operator|.
+name|ProxyConfiguration
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -50,8 +68,18 @@ specifier|public
 interface|interface
 name|ProxyManager
 block|{
+specifier|static
+name|String
+name|ROLE
+init|=
+name|ProxyManager
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
 comment|/**      * Used to retrieve a cached path or retrieve one if the cache does not contain it yet.      *      * @param path the expected repository path      * @return File object referencing the requested path in the cache      * @throws ProxyException when an exception occurred during the retrieval of the requested path      * @throws ResourceDoesNotExistException when the requested object can't be found in any of the      *      configured repositories      */
-specifier|public
 name|File
 name|get
 parameter_list|(
@@ -64,7 +92,6 @@ throws|,
 name|ResourceDoesNotExistException
 function_decl|;
 comment|/**      * Used to force remote download of the requested path from any the configured repositories.  This method will      *      only bypass the cache for searching but the requested path will still be cached.      *      * @param path the expected repository path      * @return File object referencing the requested path in the cache      * @throws ProxyException when an exception occurred during the retrieval of the requested path      * @throws ResourceDoesNotExistException when the requested object can't be found in any of the      *      configured repositories      */
-specifier|public
 name|File
 name|getRemoteFile
 parameter_list|(
@@ -75,6 +102,19 @@ throws|throws
 name|ProxyException
 throws|,
 name|ResourceDoesNotExistException
+function_decl|;
+comment|/**      * Used by the factory to set the configuration of the proxy      *      * @param config the ProxyConfiguration to set the behavior of the proxy      */
+name|void
+name|setConfiguration
+parameter_list|(
+name|ProxyConfiguration
+name|config
+parameter_list|)
+function_decl|;
+comment|/**      * Used to retrieve the configuration describing the behavior of the proxy      *      * @return the ProxyConfiguration of this proxy      */
+name|ProxyConfiguration
+name|getConfiguration
+parameter_list|()
 function_decl|;
 block|}
 end_interface
