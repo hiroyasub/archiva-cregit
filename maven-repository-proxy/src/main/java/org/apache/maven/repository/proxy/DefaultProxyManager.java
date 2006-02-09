@@ -287,7 +287,7 @@ name|plexus
 operator|.
 name|util
 operator|.
-name|FileUtils
+name|IOUtil
 import|;
 end_import
 
@@ -301,7 +301,7 @@ name|plexus
 operator|.
 name|util
 operator|.
-name|IOUtil
+name|FileUtils
 import|;
 end_import
 
@@ -867,7 +867,7 @@ argument_list|()
 operator|.
 name|info
 argument_list|(
-literal|"trying "
+literal|"Trying "
 operator|+
 name|path
 operator|+
@@ -877,6 +877,8 @@ name|repository
 operator|.
 name|getId
 argument_list|()
+operator|+
+literal|"..."
 argument_list|)
 expr_stmt|;
 name|wagon
@@ -938,62 +940,13 @@ argument_list|(
 name|wagon
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|temp
-operator|.
-name|renameTo
-argument_list|(
-name|target
-argument_list|)
-condition|)
-block|{
-name|getLogger
-argument_list|()
-operator|.
-name|warn
-argument_list|(
-literal|"Unable to rename tmp file to its final name... resorting to copy command."
-argument_list|)
-expr_stmt|;
-try|try
-block|{
-name|FileUtils
-operator|.
-name|copyFile
+name|copyTempToTarget
 argument_list|(
 name|temp
 argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|ProxyException
-argument_list|(
-literal|"Cannot copy tmp file to its final location"
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-finally|finally
-block|{
-name|temp
-operator|.
-name|delete
-argument_list|()
-expr_stmt|;
-block|}
-block|}
 return|return
 name|target
 return|;
@@ -1381,6 +1334,8 @@ parameter_list|,
 name|Wagon
 name|wagon
 parameter_list|)
+throws|throws
+name|ProxyException
 block|{
 name|releaseChecksums
 argument_list|(
@@ -1472,9 +1427,7 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 operator|+
-literal|"."
-operator|+
-name|checksumExt
+literal|".tmp"
 argument_list|)
 decl_stmt|;
 name|wagon
@@ -1526,7 +1479,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-return|return
+name|boolean
+name|checksumCheck
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
 name|remoteChecksum
 operator|.
 name|toUpperCase
@@ -1542,6 +1501,22 @@ operator|.
 name|toUpperCase
 argument_list|()
 argument_list|)
+condition|)
+block|{
+name|copyTempToTarget
+argument_list|(
+name|tempChecksumFile
+argument_list|,
+name|checksumFile
+argument_list|)
+expr_stmt|;
+name|checksumCheck
+operator|=
+literal|true
+expr_stmt|;
+block|}
+return|return
+name|checksumCheck
 return|;
 block|}
 catch|catch
@@ -1563,7 +1538,7 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"An error occurred during the download of "
 operator|+
@@ -1575,6 +1550,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 comment|// do nothing try the next checksum
@@ -1588,7 +1565,7 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"An error occurred during the download of "
 operator|+
@@ -1600,6 +1577,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 comment|// do nothing try the next checksum
@@ -1613,7 +1592,7 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"An error occurred during the download of "
 operator|+
@@ -1625,6 +1604,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 comment|// do nothing try the next checksum
@@ -1638,9 +1619,11 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"An error occurred while reading the temporary checksum file."
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 return|return
@@ -1651,7 +1634,7 @@ block|}
 name|getLogger
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Skipping checksum validation for "
 operator|+
@@ -1776,6 +1759,103 @@ block|}
 return|return
 name|text
 return|;
+block|}
+specifier|private
+name|void
+name|copyTempToTarget
+parameter_list|(
+name|File
+name|temp
+parameter_list|,
+name|File
+name|target
+parameter_list|)
+throws|throws
+name|ProxyException
+block|{
+if|if
+condition|(
+name|target
+operator|.
+name|exists
+argument_list|()
+operator|&&
+operator|!
+name|target
+operator|.
+name|delete
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|ProxyException
+argument_list|(
+literal|"Unable to overwrite existing target file: "
+operator|+
+name|target
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+operator|!
+name|temp
+operator|.
+name|renameTo
+argument_list|(
+name|target
+argument_list|)
+condition|)
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|warn
+argument_list|(
+literal|"Unable to rename tmp file to its final name... resorting to copy command."
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|FileUtils
+operator|.
+name|copyFile
+argument_list|(
+name|temp
+argument_list|,
+name|target
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ProxyException
+argument_list|(
+literal|"Cannot copy tmp file to its final location"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+finally|finally
+block|{
+name|temp
+operator|.
+name|delete
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 block|}
 comment|/**      * Used to disconnect the wagonManager from its repository      *      * @param wagon the connected wagonManager object      */
 specifier|private
