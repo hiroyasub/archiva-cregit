@@ -287,7 +287,7 @@ name|plexus
 operator|.
 name|util
 operator|.
-name|IOUtil
+name|FileUtils
 import|;
 end_import
 
@@ -301,7 +301,7 @@ name|plexus
 operator|.
 name|util
 operator|.
-name|FileUtils
+name|IOUtil
 import|;
 end_import
 
@@ -579,7 +579,7 @@ return|return
 name|remoteFile
 return|;
 block|}
-comment|/**      * Used to download an artifact object from the remote repositories.      *      * @param artifact the artifact object to be downloaded from a remote repository      * @return File object representing the remote artifact in the repository cache      * @throws ProxyException when an error occurred during retrieval of the requested artifact      * @throws ResourceDoesNotExistException when the requested artifact cannot be found in any of the      *      configured repositories      */
+comment|/**      * Used to download an artifact object from the remote repositories.      *      * @param artifact the artifact object to be downloaded from a remote repository      * @return File object representing the remote artifact in the repository cache      * @throws ProxyException                when an error occurred during retrieval of the requested artifact      * @throws ResourceDoesNotExistException when the requested artifact cannot be found in any of the      *                                       configured repositories      */
 specifier|private
 name|File
 name|getArtifactFile
@@ -681,7 +681,7 @@ return|return
 name|artifactFile
 return|;
 block|}
-comment|/**      * Used to retrieve a remote file from the remote repositories.  This method is used only when the requested      *      path cannot be resolved into a repository object, for example, an Artifact.      *      * @param path the remote path to use to search for the requested file      * @return File object representing the remote file in the repository cache      * @throws ResourceDoesNotExistException when the requested path cannot be found in any of the configured      *      repositories.      * @throws ProxyException when an error occurred during the retrieval of the requested path      */
+comment|/**      * Used to retrieve a remote file from the remote repositories.  This method is used only when the requested      * path cannot be resolved into a repository object, for example, an Artifact.      *      * @param path the remote path to use to search for the requested file      * @return File object representing the remote file in the repository cache      * @throws ResourceDoesNotExistException when the requested path cannot be found in any of the configured      *                                       repositories.      * @throws ProxyException                when an error occurred during the retrieval of the requested path      */
 specifier|private
 name|File
 name|getRepositoryFile
@@ -703,7 +703,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Used to retrieve a remote file from the remote repositories.  This method is used only when the requested      *      path cannot be resolved into a repository object, for example, an Artifact.      *      * @param path the remote path to use to search for the requested file      * @param useChecksum forces the download to whether use a checksum (if present in the remote repository) or not      * @return File object representing the remote file in the repository cache      * @throws ResourceDoesNotExistException when the requested path cannot be found in any of the configured      *      repositories.      * @throws ProxyException when an error occurred during the retrieval of the requested path      */
+comment|/**      * Used to retrieve a remote file from the remote repositories.  This method is used only when the requested      * path cannot be resolved into a repository object, for example, an Artifact.      *      * @param path        the remote path to use to search for the requested file      * @param useChecksum forces the download to whether use a checksum (if present in the remote repository) or not      * @return File object representing the remote file in the repository cache      * @throws ResourceDoesNotExistException when the requested path cannot be found in any of the configured      *                                       repositories.      * @throws ProxyException                when an error occurred during the retrieval of the requested path      */
 specifier|private
 name|File
 name|getRepositoryFile
@@ -1179,7 +1179,7 @@ return|return
 name|checksums
 return|;
 block|}
-comment|/**      * Used to remove the ChecksumObservers from the wagonManager object      *      * @param wagon the wagonManager object to remote the ChecksumObservers from      * @param checksumMap the map representing the list of ChecksumObservers added to the wagonManager object      */
+comment|/**      * Used to remove the ChecksumObservers from the wagonManager object      *      * @param wagon       the wagonManager object to remote the ChecksumObservers from      * @param checksumMap the map representing the list of ChecksumObservers added to the wagonManager object      */
 specifier|private
 name|void
 name|releaseChecksums
@@ -1231,7 +1231,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Used to request the wagonManager object to connect to a repository      *      * @param wagon the wagonManager object that will be used to connect to the repository      * @param repository the repository object to connect the wagonManager to      * @return true when the wagonManager is able to connect to the repository      */
+comment|/**      * Used to request the wagonManager object to connect to a repository      *      * @param wagon      the wagonManager object that will be used to connect to the repository      * @param repository the repository object to connect the wagonManager to      * @return true when the wagonManager is able to connect to the repository      */
 specifier|private
 name|boolean
 name|connectToRepository
@@ -1320,7 +1320,7 @@ return|return
 name|connected
 return|;
 block|}
-comment|/**      * Used to verify the checksum during a wagonManager download      *      * @param checksumMap the map of ChecksumObservers present in the wagonManager as transferlisteners      * @param path path of the remote object whose checksum is to be verified      * @param wagon the wagonManager object used to download the requested path      * @return true when the checksum succeeds and false when the checksum failed.      */
+comment|/**      * Used to verify the checksum during a wagonManager download      *      * @param checksumMap the map of ChecksumObservers present in the wagonManager as transferlisteners      * @param path        path of the remote object whose checksum is to be verified      * @param wagon       the wagonManager object used to download the requested path      * @return true when the checksum succeeds and false when the checksum failed.      */
 specifier|private
 name|boolean
 name|doChecksumCheck

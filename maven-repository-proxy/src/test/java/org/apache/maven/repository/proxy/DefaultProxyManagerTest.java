@@ -17,11 +17,17 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|maven
 operator|.
-name|PlexusTestCase
+name|artifact
+operator|.
+name|repository
+operator|.
+name|layout
+operator|.
+name|ArtifactRepositoryLayout
 import|;
 end_import
 
@@ -29,17 +35,17 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|maven
 operator|.
-name|component
+name|artifact
 operator|.
 name|repository
 operator|.
-name|exception
+name|layout
 operator|.
-name|ComponentLookupException
+name|DefaultRepositoryLayout
 import|;
 end_import
 
@@ -97,17 +103,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|codehaus
 operator|.
-name|maven
+name|plexus
 operator|.
-name|artifact
-operator|.
-name|repository
-operator|.
-name|layout
-operator|.
-name|ArtifactRepositoryLayout
+name|PlexusTestCase
 import|;
 end_import
 
@@ -115,17 +115,17 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|codehaus
 operator|.
-name|maven
+name|plexus
 operator|.
-name|artifact
+name|component
 operator|.
 name|repository
 operator|.
-name|layout
+name|exception
 operator|.
-name|DefaultRepositoryLayout
+name|ComponentLookupException
 import|;
 end_import
 
