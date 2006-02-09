@@ -1647,6 +1647,7 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**      * Used to ensure that this proxy instance is running with a valid configuration instance.      *      * @throws ProxyException      */
 specifier|private
 name|void
 name|checkConfiguration
@@ -1670,6 +1671,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * Used to read text file contents for use with the checksum validation      *      * @param file The file to be read      * @return The String content of the file parameter      * @throws IOException when an error occurred while reading the file contents      */
 specifier|private
 name|String
 name|readTextFile
@@ -1760,6 +1762,7 @@ return|return
 name|text
 return|;
 block|}
+comment|/**      * Used to move the temporary file to its real destination.  This is patterned from the way WagonManager handles      * its downloaded files.      *      * @param temp   The completed download file      * @param target The final location of the downloaded file      * @throws ProxyException when the temp file cannot replace the target file      */
 specifier|private
 name|void
 name|copyTempToTarget
