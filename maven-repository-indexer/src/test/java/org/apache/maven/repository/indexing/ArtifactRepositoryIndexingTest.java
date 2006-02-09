@@ -143,7 +143,7 @@ name|indexing
 operator|.
 name|query
 operator|.
-name|CompoundQuery
+name|SinglePhraseQuery
 import|;
 end_import
 
@@ -179,7 +179,7 @@ name|indexing
 operator|.
 name|query
 operator|.
-name|SinglePhraseQuery
+name|CompoundQuery
 import|;
 end_import
 
@@ -225,7 +225,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
+name|List
 import|;
 end_import
 
@@ -235,7 +235,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Iterator
 import|;
 end_import
 
@@ -265,14 +265,6 @@ decl_stmt|;
 specifier|private
 name|Digester
 name|digester
-decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|ARTIFACT_TYPE
-init|=
-literal|"ARTIFACT"
 decl_stmt|;
 specifier|protected
 name|void
@@ -358,7 +350,7 @@ argument_list|()
 expr_stmt|;
 name|indexPath
 operator|=
-literal|"target/index/jar"
+literal|"target/index"
 expr_stmt|;
 name|FileUtils
 operator|.
@@ -368,6 +360,7 @@ name|indexPath
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Method for testing the exceptions thrown by ArtifactRepositoryIndex      *      * @throws Exception      */
 specifier|public
 name|void
 name|testIndexerExceptions
@@ -796,7 +789,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test the ArtifactRepositoryIndexSearcher using a single-phrase search.      *      * @throws Exception      */
+comment|/**      * Test the ArtifactRepositoryIndex using a single-phrase search.      *      * @throws Exception      */
 specifier|public
 name|void
 name|testSearchSingle
@@ -837,7 +830,7 @@ name|repoSearcher
 init|=
 name|factory
 operator|.
-name|createArtifactRepositoryIndexSearcher
+name|createDefaultRepositoryIndexSearcher
 argument_list|(
 name|indexer
 argument_list|)
@@ -849,7 +842,7 @@ init|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_VERSION
 argument_list|,
@@ -921,7 +914,7 @@ operator|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_CLASSES
 argument_list|,
@@ -992,7 +985,7 @@ operator|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_PACKAGES
 argument_list|,
@@ -1063,7 +1056,7 @@ operator|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_FILES
 argument_list|,
@@ -1133,7 +1126,7 @@ operator|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_GROUPID
 argument_list|,
@@ -1202,7 +1195,7 @@ operator|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_ARTIFACTID
 argument_list|,
@@ -1272,7 +1265,7 @@ operator|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_VERSION
 argument_list|,
@@ -1398,7 +1391,7 @@ operator|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_SHA1
 argument_list|,
@@ -1502,7 +1495,7 @@ operator|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_MD5
 argument_list|,
@@ -1589,7 +1582,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test the ArtifactRepositoryIndexSearcher using compound search (AND, OR).      *      * @throws Exception      */
+comment|/**      * Test the ArtifactRepositoryIndex using compound search (AND, OR).      *      * @throws Exception      */
 specifier|public
 name|void
 name|testSearchCompound
@@ -1630,7 +1623,7 @@ name|repoSearcher
 init|=
 name|factory
 operator|.
-name|createArtifactRepositoryIndexSearcher
+name|createDefaultRepositoryIndexSearcher
 argument_list|(
 name|indexer
 argument_list|)
@@ -1643,7 +1636,7 @@ init|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_ARTIFACTID
 argument_list|,
@@ -1656,7 +1649,7 @@ init|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_GROUPID
 argument_list|,
@@ -1752,7 +1745,7 @@ init|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_VERSION
 argument_list|,
@@ -1848,7 +1841,7 @@ init|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_VERSION
 argument_list|,
@@ -1888,7 +1881,7 @@ init|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_NAME
 argument_list|,
@@ -1901,7 +1894,7 @@ init|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_NAME
 argument_list|,
@@ -2036,7 +2029,7 @@ init|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_ARTIFACTID
 argument_list|,
@@ -2049,7 +2042,7 @@ init|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_GROUPID
 argument_list|,
@@ -2178,7 +2171,7 @@ init|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_ARTIFACTID
 argument_list|,
@@ -2191,7 +2184,7 @@ init|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_GROUPID
 argument_list|,
@@ -2283,6 +2276,159 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * Test the exceptions thrown by DefaultRepositoryIndexSearcher      *      * @throws Exception      */
+specifier|public
+name|void
+name|testSearchExceptions
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|createTestIndex
+argument_list|()
+expr_stmt|;
+name|RepositoryIndexingFactory
+name|factory
+init|=
+operator|(
+name|RepositoryIndexingFactory
+operator|)
+name|lookup
+argument_list|(
+name|RepositoryIndexingFactory
+operator|.
+name|ROLE
+argument_list|)
+decl_stmt|;
+name|ArtifactRepositoryIndex
+name|indexer
+init|=
+name|factory
+operator|.
+name|createArtifactRepositoryIndex
+argument_list|(
+name|indexPath
+argument_list|,
+name|repository
+argument_list|)
+decl_stmt|;
+name|RepositoryIndexSearcher
+name|repoSearcher
+init|=
+name|factory
+operator|.
+name|createDefaultRepositoryIndexSearcher
+argument_list|(
+name|indexer
+argument_list|)
+decl_stmt|;
+try|try
+block|{
+name|Query
+name|qry
+init|=
+operator|new
+name|SinglePhraseQuery
+argument_list|(
+name|RepositoryIndex
+operator|.
+name|FLD_VERSION
+argument_list|,
+literal|"~~~~~"
+argument_list|)
+decl_stmt|;
+name|List
+name|artifacts
+init|=
+name|repoSearcher
+operator|.
+name|search
+argument_list|(
+name|qry
+argument_list|)
+decl_stmt|;
+name|fail
+argument_list|(
+literal|"Must throw an exception on unparseable query."
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RepositoryIndexSearchException
+name|re
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+name|indexer
+operator|=
+name|factory
+operator|.
+name|createArtifactRepositoryIndex
+argument_list|(
+literal|"target/index/sample"
+argument_list|,
+name|repository
+argument_list|)
+expr_stmt|;
+name|repoSearcher
+operator|=
+name|factory
+operator|.
+name|createDefaultRepositoryIndexSearcher
+argument_list|(
+name|indexer
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|Query
+name|qry
+init|=
+operator|new
+name|SinglePhraseQuery
+argument_list|(
+name|RepositoryIndex
+operator|.
+name|FLD_VERSION
+argument_list|,
+literal|"1.0"
+argument_list|)
+decl_stmt|;
+name|List
+name|artifacts
+init|=
+name|repoSearcher
+operator|.
+name|search
+argument_list|(
+name|qry
+argument_list|)
+decl_stmt|;
+name|fail
+argument_list|(
+literal|"Must throw an exception on invalid index location."
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RepositoryIndexSearchException
+name|re
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|/**      * Test delete of document from the artifact index.      *      * @throws Exception      */
 specifier|public
 name|void
@@ -2356,11 +2502,13 @@ name|indexer
 operator|.
 name|deleteDocument
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_ID
 argument_list|,
-name|ARTIFACT_TYPE
+name|RepositoryIndex
+operator|.
+name|ARTIFACT
 operator|+
 name|artifact
 operator|.
@@ -2373,7 +2521,7 @@ name|repoSearcher
 init|=
 name|factory
 operator|.
-name|createArtifactRepositoryIndexSearcher
+name|createDefaultRepositoryIndexSearcher
 argument_list|(
 name|indexer
 argument_list|)
@@ -2384,11 +2532,13 @@ init|=
 operator|new
 name|SinglePhraseQuery
 argument_list|(
-name|ArtifactRepositoryIndex
+name|RepositoryIndex
 operator|.
 name|FLD_ID
 argument_list|,
-name|ARTIFACT_TYPE
+name|RepositoryIndex
+operator|.
+name|ARTIFACT
 operator|+
 name|artifact
 operator|.
@@ -2417,6 +2567,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Method for creating artifact object      *      * @param groupId    the groupId of the artifact to be created      * @param artifactId the artifactId of the artifact to be created      * @param version    the version of the artifact to be created      * @return Artifact object      * @throws Exception      */
 specifier|private
 name|Artifact
 name|getArtifact

@@ -86,25 +86,6 @@ specifier|private
 name|ArtifactFactory
 name|artifactFactory
 decl_stmt|;
-comment|/**      * @see RepositoryIndexingFactory#createArtifactRepositoryIndexSearcher(ArtifactRepositoryIndex)      */
-specifier|public
-name|ArtifactRepositoryIndexSearcher
-name|createArtifactRepositoryIndexSearcher
-parameter_list|(
-name|ArtifactRepositoryIndex
-name|index
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ArtifactRepositoryIndexSearcher
-argument_list|(
-name|index
-argument_list|,
-name|artifactFactory
-argument_list|)
-return|;
-block|}
 comment|/**      * @see RepositoryIndexingFactory#createArtifactRepositoryIndex(String, org.apache.maven.artifact.repository.ArtifactRepository)      */
 specifier|public
 name|ArtifactRepositoryIndex
@@ -159,25 +140,7 @@ name|artifactFactory
 argument_list|)
 return|;
 block|}
-comment|/**      * @see RepositoryIndexingFactory#createPomRepositoryIndexSearcher(PomRepositoryIndex)      */
-specifier|public
-name|PomRepositoryIndexSearcher
-name|createPomRepositoryIndexSearcher
-parameter_list|(
-name|PomRepositoryIndex
-name|index
-parameter_list|)
-block|{
-return|return
-operator|new
-name|PomRepositoryIndexSearcher
-argument_list|(
-name|index
-argument_list|,
-name|artifactFactory
-argument_list|)
-return|;
-block|}
+comment|/**      * @see RepositoryIndexingFactory#createMetadataRepositoryIndex(String, org.apache.maven.artifact.repository.ArtifactRepository)      */
 specifier|public
 name|MetadataRepositoryIndex
 name|createMetadataRepositoryIndex
@@ -201,17 +164,37 @@ name|repository
 argument_list|)
 return|;
 block|}
+comment|/*      * @see RepositoryIndexingFactory#createGeneralRepositoryIndexSearcher(RepositoryIndex)      */
 specifier|public
-name|MetadataRepositoryIndexSearcher
-name|createMetadataRepositoryIndexSearcher
+name|GeneralRepositoryIndexSearcher
+name|createGeneralRepositoryIndexSearcher
 parameter_list|(
-name|MetadataRepositoryIndex
+name|RepositoryIndex
 name|index
 parameter_list|)
 block|{
 return|return
 operator|new
-name|MetadataRepositoryIndexSearcher
+name|GeneralRepositoryIndexSearcher
+argument_list|(
+name|index
+argument_list|,
+name|artifactFactory
+argument_list|)
+return|;
+block|}
+comment|/**      * @see RepositoryIndexingFactory#createDefaultRepositoryIndexSearcher(RepositoryIndex)      */
+specifier|public
+name|DefaultRepositoryIndexSearcher
+name|createDefaultRepositoryIndexSearcher
+parameter_list|(
+name|RepositoryIndex
+name|index
+parameter_list|)
+block|{
+return|return
+operator|new
+name|DefaultRepositoryIndexSearcher
 argument_list|(
 name|index
 argument_list|,
