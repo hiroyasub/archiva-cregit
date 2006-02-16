@@ -121,6 +121,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|util
+operator|.
+name|FileUtils
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -513,11 +527,20 @@ name|ValidationException
 throws|,
 name|IOException
 block|{
+comment|//must create the test directory bec configuration is using relative path which varies
+name|FileUtils
+operator|.
+name|mkdir
+argument_list|(
+literal|"target/remote-repo1"
+argument_list|)
+expr_stmt|;
+try|try
+block|{
 name|File
 name|confFile
 init|=
-operator|new
-name|File
+name|getTestFile
 argument_list|(
 literal|"src/test/conf/maven-proxy-complete.conf"
 argument_list|)
@@ -603,7 +626,7 @@ condition|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"file:///./src/test/remote-repo1"
+literal|"file:///./target/remote-repo1"
 argument_list|,
 name|repo
 operator|.
@@ -684,6 +707,18 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+comment|//make sure to delete the test directory after tests
+finally|finally
+block|{
+name|FileUtils
+operator|.
+name|deleteDirectory
+argument_list|(
+literal|"target/remote-repo1"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 specifier|protected

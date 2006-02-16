@@ -602,8 +602,7 @@ decl_stmt|;
 name|File
 name|repo1File
 init|=
-operator|new
-name|File
+name|getTestFile
 argument_list|(
 literal|"src/test/remote-repo1"
 argument_list|)
