@@ -1449,6 +1449,11 @@ operator|.
 name|connect
 argument_list|(
 name|repository
+argument_list|,
+name|repository
+operator|.
+name|getProxy
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|connected
