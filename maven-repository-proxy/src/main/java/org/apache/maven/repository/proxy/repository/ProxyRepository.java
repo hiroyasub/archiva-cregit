@@ -94,6 +94,12 @@ init|=
 literal|false
 decl_stmt|;
 specifier|private
+name|boolean
+name|hardfail
+init|=
+literal|false
+decl_stmt|;
+specifier|private
 name|ProxyInfo
 name|proxy
 decl_stmt|;
@@ -416,6 +422,32 @@ operator|.
 name|proxy
 operator|=
 name|proxy
+expr_stmt|;
+block|}
+comment|/**      * Checks the repository hardfail setting.      *      * @return true if the hardfail is enabled, otherwise, returns false.      */
+specifier|public
+name|boolean
+name|isHardfail
+parameter_list|()
+block|{
+return|return
+name|hardfail
+return|;
+block|}
+comment|/**      * If hardfail is set to true, then any unexpected errors from retrieving files from this repository      * will cause the download to fail.      *      * @param hardfail set to true to enable hard failures      */
+specifier|public
+name|void
+name|setHardfail
+parameter_list|(
+name|boolean
+name|hardfail
+parameter_list|)
+block|{
+name|this
+operator|.
+name|hardfail
+operator|=
+name|hardfail
 expr_stmt|;
 block|}
 block|}

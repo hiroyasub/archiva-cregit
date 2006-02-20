@@ -546,6 +546,16 @@ name|getCachePeriod
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|repo
+operator|.
+name|setHardfail
+argument_list|(
+name|repoConfig
+operator|.
+name|getHardFail
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|repoConfig
