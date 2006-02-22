@@ -1213,7 +1213,7 @@ name|pomFile
 init|=
 name|getTestFile
 argument_list|(
-literal|"src/test/target-repository/"
+literal|"src/test/expected-files/"
 operator|+
 name|targetRepository
 operator|.
@@ -1300,7 +1300,7 @@ name|testFile
 operator|=
 name|getTestFile
 argument_list|(
-literal|"src/test/target-repository/"
+literal|"src/test/expected-files/"
 operator|+
 name|targetRepository
 operator|.
