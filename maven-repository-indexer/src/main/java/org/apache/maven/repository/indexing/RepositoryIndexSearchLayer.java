@@ -227,7 +227,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|StringTokenizer
+name|Set
 import|;
 end_import
 
@@ -237,7 +237,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Set
+name|StringTokenizer
 import|;
 end_import
 
