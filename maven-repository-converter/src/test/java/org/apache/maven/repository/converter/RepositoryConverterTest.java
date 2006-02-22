@@ -5189,7 +5189,13 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Check file match"
+literal|"Check file match between "
+operator|+
+name|expectedPomFile
+operator|+
+literal|" and "
+operator|+
+name|pomFile
 argument_list|,
 name|expectedContent
 argument_list|,

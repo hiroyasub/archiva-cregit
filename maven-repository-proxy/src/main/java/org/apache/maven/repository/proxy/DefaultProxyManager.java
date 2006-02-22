@@ -1133,6 +1133,14 @@ argument_list|(
 name|wagon
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|temp
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
 name|copyTempToTarget
 argument_list|(
 name|temp
@@ -1140,6 +1148,7 @@ argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|target
 return|;
