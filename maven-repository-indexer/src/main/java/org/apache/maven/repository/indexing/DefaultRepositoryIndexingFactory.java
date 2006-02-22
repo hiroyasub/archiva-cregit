@@ -164,10 +164,10 @@ name|repository
 argument_list|)
 return|;
 block|}
-comment|/*      * @see RepositoryIndexingFactory#createGeneralRepositoryIndexSearcher(RepositoryIndex)      */
+comment|/*      * @see RepositoryIndexingFactory#createRepositoryIndexSearchLayer(RepositoryIndex)      */
 specifier|public
-name|GeneralRepositoryIndexSearcher
-name|createGeneralRepositoryIndexSearcher
+name|RepositoryIndexSearchLayer
+name|createRepositoryIndexSearchLayer
 parameter_list|(
 name|RepositoryIndex
 name|index
@@ -175,7 +175,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|GeneralRepositoryIndexSearcher
+name|RepositoryIndexSearchLayer
 argument_list|(
 name|index
 argument_list|,

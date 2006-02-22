@@ -592,7 +592,7 @@ operator|.
 name|getPrefix
 argument_list|()
 operator|+
-literal|" "
+literal|"\n"
 expr_stmt|;
 block|}
 block|}
