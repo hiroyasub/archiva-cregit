@@ -1238,18 +1238,11 @@ name|pomArtifact
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Check if expected relocated pom matches"
-argument_list|,
-name|FileUtils
-operator|.
-name|contentEquals
+name|compareFiles
 argument_list|(
 name|pomFile
 argument_list|,
 name|testFile
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|Artifact
@@ -1310,18 +1303,11 @@ name|orig
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Check if expected artifact matches"
-argument_list|,
-name|FileUtils
-operator|.
-name|contentEquals
+name|compareFiles
 argument_list|(
 name|artifactFile
 argument_list|,
 name|testFile
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
