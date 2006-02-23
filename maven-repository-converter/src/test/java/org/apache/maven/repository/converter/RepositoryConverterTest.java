@@ -5507,6 +5507,13 @@ literal|'\r'
 argument_list|,
 literal|'\n'
 argument_list|)
+operator|.
+name|replaceAll
+argument_list|(
+literal|"<\\?xml .+\\?>"
+argument_list|,
+literal|""
+argument_list|)
 return|;
 block|}
 specifier|private
