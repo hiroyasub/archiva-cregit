@@ -183,6 +183,36 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|scheduler
+operator|.
+name|Scheduler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|scheduler
+operator|.
+name|configuration
+operator|.
+name|SchedulerConfiguration
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -229,6 +259,11 @@ decl_stmt|;
 specifier|private
 name|String
 name|md5
+decl_stmt|;
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|Scheduler
+name|scheduler
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
