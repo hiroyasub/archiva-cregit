@@ -191,7 +191,7 @@ name|factory
 operator|.
 name|getProxyManager
 argument_list|(
-literal|"default"
+literal|"legacy"
 argument_list|,
 name|getTestConfiguration
 argument_list|()
@@ -589,7 +589,7 @@ name|config
 operator|.
 name|setRepositoryCachePath
 argument_list|(
-literal|"target/proxy-cache"
+literal|"target/m1-proxy-cache"
 argument_list|)
 expr_stmt|;
 name|ArtifactRepositoryLayout
