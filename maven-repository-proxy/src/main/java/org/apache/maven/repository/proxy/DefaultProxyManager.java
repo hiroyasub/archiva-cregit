@@ -406,7 +406,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.proxy.ProxyManager" role-hint="default"  */
+comment|/**  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.proxy.ProxyManager"  */
 end_comment
 
 begin_class

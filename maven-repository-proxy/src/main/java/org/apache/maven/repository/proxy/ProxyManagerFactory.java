@@ -174,10 +174,15 @@ argument_list|(
 name|ProxyManager
 operator|.
 name|ROLE
-argument_list|,
-name|proxy_type
 argument_list|)
 decl_stmt|;
+name|config
+operator|.
+name|setLayout
+argument_list|(
+name|proxy_type
+argument_list|)
+expr_stmt|;
 name|proxy
 operator|.
 name|setConfiguration
