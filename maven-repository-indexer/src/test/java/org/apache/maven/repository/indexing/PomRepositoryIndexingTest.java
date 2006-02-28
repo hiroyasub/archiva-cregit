@@ -572,7 +572,7 @@ try|try
 block|{
 name|indexer
 operator|.
-name|isIndexed
+name|deleteIfIndexed
 argument_list|(
 operator|new
 name|Object

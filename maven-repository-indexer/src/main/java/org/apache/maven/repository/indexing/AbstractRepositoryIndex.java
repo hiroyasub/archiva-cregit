@@ -161,10 +161,6 @@ specifier|protected
 name|ArtifactRepository
 name|repository
 decl_stmt|;
-specifier|protected
-name|boolean
-name|indexExists
-decl_stmt|;
 specifier|private
 name|Analyzer
 name|analyzer
@@ -208,6 +204,7 @@ block|{
 if|if
 condition|(
 name|indexExists
+argument_list|()
 condition|)
 block|{
 name|indexWriter
@@ -607,10 +604,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Check if the index already exists.      *      * @throws IOException      * @throws RepositoryIndexException      */
+comment|/**      * Check if the index already exists.      *      * @return true if the index already exists      * @throws IOException      * @throws RepositoryIndexException      */
 specifier|protected
-name|void
-name|checkIfIndexExists
+name|boolean
+name|indexExists
 parameter_list|()
 throws|throws
 name|IOException
@@ -636,10 +633,9 @@ name|indexDir
 argument_list|)
 condition|)
 block|{
-name|indexExists
-operator|=
+return|return
 literal|true
-expr_stmt|;
+return|;
 block|}
 if|else if
 condition|(
@@ -650,10 +646,9 @@ name|exists
 argument_list|()
 condition|)
 block|{
-name|indexExists
-operator|=
+return|return
 literal|false
-expr_stmt|;
+return|;
 block|}
 if|else if
 condition|(
@@ -686,10 +681,10 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Checks if the object has already been indexed.      *      * @param object the object to be indexed.      * @throws RepositoryIndexException      * @throws IOException      */
+comment|/**      * Checks if the object has already been indexed and deletes it if it is.      *      * @param object the object to be indexed.      * @throws RepositoryIndexException      * @throws IOException      */
 specifier|abstract
 name|void
-name|isIndexed
+name|deleteIfIndexed
 parameter_list|(
 name|Object
 name|object

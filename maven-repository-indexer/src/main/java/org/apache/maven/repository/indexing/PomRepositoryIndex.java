@@ -299,10 +299,10 @@ operator|=
 name|artifactFactory
 expr_stmt|;
 block|}
-comment|/**      * @see org.apache.maven.repository.indexing.AbstractRepositoryIndex#isIndexed(Object)      */
+comment|/**      * @see org.apache.maven.repository.indexing.AbstractRepositoryIndex#deleteIfIndexed(Object)      */
 specifier|public
 name|void
-name|isIndexed
+name|deleteIfIndexed
 parameter_list|(
 name|Object
 name|object
@@ -327,12 +327,10 @@ name|Model
 operator|)
 name|object
 decl_stmt|;
-name|checkIfIndexExists
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|indexExists
+argument_list|()
 condition|)
 block|{
 name|validateIndex
@@ -888,7 +886,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|isIndexed
+name|deleteIfIndexed
 argument_list|(
 name|pom
 argument_list|)

@@ -909,7 +909,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|isIndexed
+name|deleteIfIndexed
 argument_list|(
 name|repoMetadata
 argument_list|)
@@ -951,10 +951,10 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * @see org.apache.maven.repository.indexing.AbstractRepositoryIndex#isIndexed(Object)      */
+comment|/**      * @see org.apache.maven.repository.indexing.AbstractRepositoryIndex#deleteIfIndexed(Object)      */
 specifier|public
 name|void
-name|isIndexed
+name|deleteIfIndexed
 parameter_list|(
 name|Object
 name|object
@@ -979,12 +979,10 @@ name|RepositoryMetadata
 operator|)
 name|object
 decl_stmt|;
-name|checkIfIndexExists
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|indexExists
+argument_list|()
 condition|)
 block|{
 name|validateIndex
