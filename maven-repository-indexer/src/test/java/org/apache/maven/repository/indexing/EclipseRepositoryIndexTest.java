@@ -398,6 +398,16 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|artifact
+operator|.
+name|getFile
+argument_list|()
+operator|.
+name|setLastModified
+argument_list|(
+literal|1137381114096L
+argument_list|)
+expr_stmt|;
 name|indexer
 operator|.
 name|indexArtifact
