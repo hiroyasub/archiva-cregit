@@ -41,39 +41,9 @@ name|maven
 operator|.
 name|artifact
 operator|.
-name|DefaultArtifact
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|factory
 operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|handler
-operator|.
-name|ArtifactHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|handler
-operator|.
-name|DefaultArtifactHandler
+name|ArtifactFactory
 import|;
 end_import
 
@@ -186,22 +156,6 @@ operator|.
 name|xpp3
 operator|.
 name|MetadataXpp3Reader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|versioning
-operator|.
-name|VersionRange
 import|;
 end_import
 
@@ -354,7 +308,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class gets all the paths that contain the metadata files.  *  * @plexus.component role="org.apache.maven.repository.discovery.MetadataDiscoverer" role-hint="default" instantiation-strategy="per-lookup"  */
+comment|/**  * This class gets all the paths that contain the metadata files.  *  * @plexus.component role="org.apache.maven.repository.discovery.MetadataDiscoverer" role-hint="org.apache.maven.repository.discovery.DefaultMetadataDiscoverer"  */
 end_comment
 
 begin_class
@@ -366,6 +320,11 @@ name|AbstractArtifactDiscoverer
 implements|implements
 name|MetadataDiscoverer
 block|{
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|ArtifactFactory
+name|artifactFactory
+decl_stmt|;
 comment|/**      * Standard patterns to include in discovery of metadata files.      */
 specifier|private
 specifier|static
@@ -653,55 +612,67 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|ArtifactHandler
-name|handler
-init|=
-operator|new
-name|DefaultArtifactHandler
-argument_list|(
-literal|"jar"
-argument_list|)
-decl_stmt|;
-name|VersionRange
-name|version
-init|=
-name|VersionRange
-operator|.
-name|createFromVersion
-argument_list|(
-name|metaVersion
-argument_list|)
-decl_stmt|;
+comment|//ArtifactHandler handler = new DefaultArtifactHandler( "jar" );
+comment|//if( metaVersion != null&& !metaVersion.equals( "" ) )
+comment|//{
+comment|//   VersionRange version = VersionRange.createFromVersion( metaVersion );
+comment|//}
 name|Artifact
 name|artifact
 init|=
-operator|new
-name|DefaultArtifact
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|metaVersion
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|metaVersion
+operator|.
+name|equals
+argument_list|(
+literal|""
+argument_list|)
+condition|)
+block|{
+name|artifact
+operator|=
+name|artifactFactory
+operator|.
+name|createBuildArtifact
 argument_list|(
 name|metaGroupId
 argument_list|,
 name|metaArtifactId
 argument_list|,
-name|version
-argument_list|,
-literal|"compile"
+name|metaVersion
 argument_list|,
 literal|"jar"
-argument_list|,
-literal|""
-argument_list|,
-name|handler
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// snapshotMetadata
 if|if
 condition|(
+name|tmpDir
+operator|!=
+literal|null
+operator|&&
 name|tmpDir
 operator|.
 name|equals
 argument_list|(
 name|metaVersion
 argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|artifact
+operator|!=
+literal|null
 condition|)
 block|{
 name|metadata
@@ -713,8 +684,13 @@ name|artifact
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 if|else if
 condition|(
+name|tmpDir
+operator|!=
+literal|null
+operator|&&
 name|tmpDir
 operator|.
 name|equals
@@ -724,6 +700,13 @@ argument_list|)
 condition|)
 block|{
 comment|// artifactMetadata
+if|if
+condition|(
+name|artifact
+operator|!=
+literal|null
+condition|)
+block|{
 name|metadata
 operator|=
 operator|new
@@ -732,6 +715,7 @@ argument_list|(
 name|artifact
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -802,6 +786,10 @@ block|}
 comment|// groupMetadata
 if|if
 condition|(
+name|metaGroupId
+operator|!=
+literal|null
+operator|&&
 name|metaGroupId
 operator|.
 name|equals

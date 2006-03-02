@@ -41,6 +41,22 @@ name|maven
 operator|.
 name|artifact
 operator|.
+name|factory
+operator|.
+name|ArtifactFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
 name|repository
 operator|.
 name|ArtifactRepository
@@ -55,11 +71,9 @@ name|apache
 operator|.
 name|maven
 operator|.
-name|artifact
+name|model
 operator|.
-name|factory
-operator|.
-name|ArtifactFactory
+name|Model
 import|;
 end_import
 
@@ -78,20 +92,6 @@ operator|.
 name|xpp3
 operator|.
 name|MavenXpp3Reader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|model
-operator|.
-name|Model
 import|;
 end_import
 
@@ -190,7 +190,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Artifact discoverer for the legacy repository layout (Maven 1.x).  *  * @author John Casey  * @author Brett Porter  * @plexus.component role="org.apache.maven.repository.discovery.ArtifactDiscoverer" role-hint="legacy" instantiation-strategy="per-lookup"  */
+comment|/**  * Artifact discoverer for the legacy repository layout (Maven 1.x).  *  * @author John Casey  * @author Brett Porter  * @plexus.component role="org.apache.maven.repository.discovery.ArtifactDiscoverer" role-hint="org.apache.maven.repository.discovery.LegacyArtifactDiscoverer"  */
 end_comment
 
 begin_class

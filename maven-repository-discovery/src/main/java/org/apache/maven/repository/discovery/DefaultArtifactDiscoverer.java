@@ -71,9 +71,9 @@ name|apache
 operator|.
 name|maven
 operator|.
-name|repository
+name|model
 operator|.
-name|ArtifactUtils
+name|Model
 import|;
 end_import
 
@@ -103,9 +103,9 @@ name|apache
 operator|.
 name|maven
 operator|.
-name|model
+name|repository
 operator|.
-name|Model
+name|ArtifactUtils
 import|;
 end_import
 
@@ -184,7 +184,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Artifact discoverer for the new repository layout (Maven 2.0+).  *  * @author John Casey  * @author Brett Porter  * @plexus.component role="org.apache.maven.repository.discovery.ArtifactDiscoverer" role-hint="default" instantiation-strategy="per-lookup"  */
+comment|/**  * Artifact discoverer for the new repository layout (Maven 2.0+).  *  * @author John Casey  * @author Brett Porter  * @plexus.component role="org.apache.maven.repository.discovery.ArtifactDiscoverer" role-hint="org.apache.maven.repository.discovery.DefaultArtifactDiscoverer"  */
 end_comment
 
 begin_class
@@ -492,7 +492,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|(
-name|pomArtifact
+name|model
 operator|!=
 literal|null
 operator|)
@@ -510,26 +510,15 @@ argument_list|)
 operator|)
 condition|)
 block|{
-if|if
-condition|(
-name|convertSnapshots
-operator|||
-operator|!
-name|pomArtifact
-operator|.
-name|isSnapshot
-argument_list|()
-condition|)
-block|{
 name|artifacts
 operator|.
 name|add
 argument_list|(
-name|pomArtifact
+name|model
 argument_list|)
 expr_stmt|;
 block|}
-block|}
+comment|/*if ( ( pomArtifact != null )&& ( "pom".equals( model.getPackaging() ) ) )                     {                         if ( convertSnapshots || !pomArtifact.isSnapshot() )                         {                             artifacts.add( pomArtifact );                         }                     }                     */
 block|}
 catch|catch
 parameter_list|(
