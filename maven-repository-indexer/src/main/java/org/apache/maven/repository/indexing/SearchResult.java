@@ -51,6 +51,16 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is the object type contained in the list that will be returned by the  * RepositoryIndexSearchLayer to the action class  */
 end_comment
@@ -131,6 +141,21 @@ name|fieldMatches
 operator|=
 name|fieldMatches
 expr_stmt|;
+block|}
+comment|/**      * Getter method for derived value MapEntrySet      *      * @return Map      */
+specifier|public
+name|Set
+name|getFieldMatchesEntrySet
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|fieldMatches
+operator|.
+name|entrySet
+argument_list|()
+return|;
 block|}
 block|}
 end_class
