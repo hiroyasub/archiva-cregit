@@ -126,7 +126,7 @@ comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed
 end_comment
 
 begin_comment
-comment|/**  *  */
+comment|/**  * This class contains the configuration values to be used by the scheduler  */
 end_comment
 
 begin_class
@@ -140,6 +140,7 @@ specifier|private
 name|Properties
 name|props
 decl_stmt|;
+comment|/**      * @throws InitializationException      */
 specifier|public
 name|void
 name|initialize
@@ -147,16 +148,8 @@ parameter_list|()
 throws|throws
 name|InitializationException
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Configuration initialized"
-argument_list|)
-expr_stmt|;
 block|}
+comment|/**      * Set the properties object      *      * @param properties      */
 specifier|public
 name|void
 name|setProperties
@@ -172,6 +165,7 @@ operator|=
 name|properties
 expr_stmt|;
 block|}
+comment|/**      * Returns the properties object      *      * @return a Properties object that contains the configuration values      */
 specifier|public
 name|Properties
 name|getProperties
