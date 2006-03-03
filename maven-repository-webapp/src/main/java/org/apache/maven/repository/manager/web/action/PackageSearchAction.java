@@ -157,7 +157,7 @@ name|repository
 operator|.
 name|indexing
 operator|.
-name|RepositoryIndex
+name|RepositoryIndexSearchLayer
 import|;
 end_import
 
@@ -196,6 +196,22 @@ operator|.
 name|job
 operator|.
 name|Configuration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|repository
+operator|.
+name|indexing
+operator|.
+name|RepositoryIndex
 import|;
 end_import
 
@@ -248,6 +264,10 @@ specifier|private
 name|String
 name|md5
 decl_stmt|;
+specifier|private
+name|List
+name|searchResult
+decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
 name|RepositoryIndexingFactory
@@ -262,10 +282,6 @@ comment|/**      * @plexus.requirement      */
 specifier|private
 name|Configuration
 name|configuration
-decl_stmt|;
-specifier|private
-name|List
-name|artifacts
 decl_stmt|;
 specifier|public
 name|String
@@ -404,21 +420,21 @@ argument_list|,
 name|repository
 argument_list|)
 decl_stmt|;
-name|DefaultRepositoryIndexSearcher
-name|searcher
+name|RepositoryIndexSearchLayer
+name|searchLayer
 init|=
 name|factory
 operator|.
-name|createDefaultRepositoryIndexSearcher
+name|createRepositoryIndexSearchLayer
 argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
-name|artifacts
+name|searchResult
 operator|=
-name|searcher
+name|searchLayer
 operator|.
-name|search
+name|searchAdvanced
 argument_list|(
 operator|new
 name|SinglePhraseQuery
@@ -465,11 +481,11 @@ expr_stmt|;
 block|}
 specifier|public
 name|List
-name|getArtifacts
+name|getSearchResult
 parameter_list|()
 block|{
 return|return
-name|artifacts
+name|searchResult
 return|;
 block|}
 block|}
