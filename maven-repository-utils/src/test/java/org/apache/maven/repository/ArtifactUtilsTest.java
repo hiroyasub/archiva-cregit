@@ -157,7 +157,7 @@ argument_list|(
 name|testPath
 argument_list|)
 decl_stmt|;
-name|assertNull
+name|assertNotNull
 argument_list|(
 literal|"Artifact should be null for short paths"
 argument_list|,
