@@ -596,15 +596,7 @@ operator|==
 literal|0
 condition|)
 block|{
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"Using an empty 'prefix' is deprecated behaviour.  Please set a prefix."
-argument_list|)
-expr_stmt|;
+comment|//System.err.println( "Using an empty 'prefix' is deprecated behaviour.  Please set a prefix." );
 block|}
 block|{
 name|String

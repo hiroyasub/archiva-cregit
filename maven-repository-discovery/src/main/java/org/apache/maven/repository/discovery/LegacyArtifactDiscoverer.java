@@ -509,11 +509,10 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|System
+name|getLogger
+argument_list|()
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"error reading file: "
 operator|+

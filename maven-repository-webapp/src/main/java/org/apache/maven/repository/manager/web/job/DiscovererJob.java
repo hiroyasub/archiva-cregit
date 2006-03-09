@@ -504,11 +504,10 @@ parameter_list|)
 throws|throws
 name|JobExecutionException
 block|{
-name|System
+name|getLogger
+argument_list|()
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Start execution of DiscovererJob.."
 argument_list|)
@@ -837,11 +836,10 @@ name|printStackTrace
 argument_list|()
 expr_stmt|;
 block|}
-name|System
+name|getLogger
+argument_list|()
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"[DiscovererJob] DiscovererJob has finished executing."
 argument_list|)
