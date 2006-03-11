@@ -157,7 +157,7 @@ argument_list|(
 name|testPath
 argument_list|)
 decl_stmt|;
-name|assertNotNull
+name|assertNull
 argument_list|(
 literal|"Artifact should be null for short paths"
 argument_list|,
@@ -672,8 +672,6 @@ parameter_list|(
 name|String
 name|path
 parameter_list|)
-throws|throws
-name|ComponentLookupException
 block|{
 return|return
 name|ArtifactUtils
