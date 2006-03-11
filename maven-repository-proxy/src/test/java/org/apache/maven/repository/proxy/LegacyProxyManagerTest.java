@@ -277,7 +277,12 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"File must be downloaded."
+literal|"File must be downloaded: "
+operator|+
+name|file
+operator|.
+name|getAbsolutePath
+argument_list|()
 argument_list|,
 name|file
 operator|.
@@ -589,7 +594,13 @@ name|config
 operator|.
 name|setRepositoryCachePath
 argument_list|(
+name|getTestFile
+argument_list|(
 literal|"target/m1-proxy-cache"
+argument_list|)
+operator|.
+name|getAbsolutePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ArtifactRepositoryLayout
