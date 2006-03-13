@@ -591,15 +591,6 @@ operator|==
 literal|null
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Trying legacy path"
-argument_list|)
-expr_stmt|;
 name|artifact
 operator|=
 name|ArtifactUtils
