@@ -107,17 +107,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|StringTokenizer
+name|Iterator
 import|;
 end_import
 
@@ -137,7 +127,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|StringTokenizer
 import|;
 end_import
 
@@ -146,7 +146,7 @@ comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed
 end_comment
 
 begin_comment
-comment|/**  * @author Edwin Punzalan  */
+comment|/**  * Class used to build an artifact object based on a relative from a repository's basedir.  *  * @author Edwin Punzalan  */
 end_comment
 
 begin_class
@@ -154,6 +154,7 @@ specifier|public
 class|class
 name|ArtifactUtils
 block|{
+comment|/**      * Method used to build an artifact and then set its repository and file fields with the proper values      *      * @param repositoryBase  the base directory of the repository      * @param path            the path of the artifact relative from the repository base directory      * @param repository      the repository where the artifact can be found      * @param artifactFactory the artifactFactory to build the Artifact object when the given path is a valid artifact path      * @return Artifact object if the given path represents an artifact path, otherwise, returns null      */
 specifier|public
 specifier|static
 name|Artifact
@@ -214,6 +215,7 @@ return|return
 name|artifact
 return|;
 block|}
+comment|/**      * Method used to build an artifact object using a relative path from a repository base directory.      *      * @param path            the relative path of the artifact from a "default" ArtifactRepository's base directory      * @param artifactFactory the artifactFactory to build the Artifact object when the given path is a valid artifact path      * @return Artifact object if the given path represents an artifact path, otherwise, returns null      */
 specifier|public
 specifier|static
 name|Artifact
@@ -839,6 +841,7 @@ return|return
 name|artifact
 return|;
 block|}
+comment|/**      * Method used to build an artifact object using a relative path from a repository base directory.  An artifactId      * having the words "DEV", "PRE", "RC", "ALPHA", "BETA", "DEBUG", "UNOFFICIAL", "CURRENT", "LATEST", "FCS",      * "RELEASE", "NIGHTLY", "SNAPSHOT" and "TEST" (not case-sensitive) will most likely make this method fail as      * they are reserved for version usage.      *      * @param path            the relative path of the artifact from a "legacy" ArtifactRepository's base directory      * @param artifactFactory the artifactFactory to build the Artifact object when the given path is a valid artifact path      * @return Artifact object if the given path represents an artifact path, otherwise, returns null      */
 specifier|public
 specifier|static
 name|Artifact
