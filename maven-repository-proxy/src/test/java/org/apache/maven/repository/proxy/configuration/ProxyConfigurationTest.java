@@ -327,7 +327,14 @@ argument_list|)
 expr_stmt|;
 name|repo2
 operator|.
-name|setProxy
+name|setProxied
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|config
+operator|.
+name|setHttpProxy
 argument_list|(
 literal|"some.local.proxy"
 argument_list|,
@@ -508,9 +515,9 @@ expr_stmt|;
 name|ProxyInfo
 name|proxyInfo
 init|=
-name|repo
+name|config
 operator|.
-name|getProxy
+name|getHttpProxy
 argument_list|()
 decl_stmt|;
 name|assertNotNull
