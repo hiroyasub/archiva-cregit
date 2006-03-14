@@ -31,22 +31,6 @@ name|artifact
 operator|.
 name|repository
 operator|.
-name|ArtifactRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|repository
-operator|.
 name|layout
 operator|.
 name|ArtifactRepositoryLayout
@@ -137,20 +121,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|util
-operator|.
-name|FileUtils
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -163,29 +133,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Iterator
 import|;
 end_import
 
@@ -239,35 +189,6 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|testBrowsable
-parameter_list|()
-block|{
-name|assertFalse
-argument_list|(
-name|config
-operator|.
-name|isBrowsable
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|config
-operator|.
-name|setBrowsable
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|config
-operator|.
-name|isBrowsable
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-specifier|public
-name|void
 name|testRepositoryCache
 parameter_list|()
 block|{
@@ -290,27 +211,6 @@ name|getAbsolutePath
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ArtifactRepository
-name|cache
-init|=
-name|config
-operator|.
-name|getRepositoryCache
-argument_list|()
-decl_stmt|;
-name|assertEquals
-argument_list|(
-name|cacheFile
-operator|.
-name|getAbsolutePath
-argument_list|()
-argument_list|,
-name|cache
-operator|.
-name|getBasedir
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 name|config
@@ -318,9 +218,9 @@ operator|.
 name|getRepositoryCachePath
 argument_list|()
 argument_list|,
-name|cache
+name|cacheFile
 operator|.
-name|getBasedir
+name|getAbsolutePath
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -735,336 +635,72 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-specifier|public
-name|void
-name|testLoadValidMavenProxyConfiguration
-parameter_list|()
-throws|throws
-name|ValidationException
-throws|,
-name|IOException
-block|{
-comment|//must create the test directory bec configuration is using relative path which varies
-name|FileUtils
-operator|.
-name|mkdir
-argument_list|(
-literal|"target/remote-repo1"
-argument_list|)
-expr_stmt|;
-try|try
-block|{
-name|File
-name|confFile
-init|=
-name|getTestFile
-argument_list|(
-literal|"src/test/conf/maven-proxy-complete.conf"
-argument_list|)
-decl_stmt|;
-name|config
-operator|.
-name|loadMavenProxyConfiguration
-argument_list|(
-name|confFile
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"cache path changed"
-argument_list|,
-name|config
-operator|.
-name|getRepositoryCachePath
-argument_list|()
-operator|.
-name|endsWith
-argument_list|(
-literal|"target"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Count repositories"
-argument_list|,
-literal|4
-argument_list|,
-name|config
-operator|.
-name|getRepositories
-argument_list|()
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|int
-name|idx
-init|=
-literal|0
-decl_stmt|;
-for|for
-control|(
-name|Iterator
-name|repos
-init|=
-name|config
-operator|.
-name|getRepositories
-argument_list|()
-operator|.
-name|iterator
-argument_list|()
-init|;
-name|repos
-operator|.
-name|hasNext
-argument_list|()
-condition|;
-control|)
-block|{
-name|idx
-operator|++
-expr_stmt|;
-name|ProxyRepository
-name|repo
-init|=
-operator|(
-name|ProxyRepository
-operator|)
-name|repos
-operator|.
-name|next
-argument_list|()
-decl_stmt|;
-comment|//switch is made to check for ordering
-switch|switch
-condition|(
-name|idx
-condition|)
-block|{
-case|case
-literal|1
-case|:
-name|assertEquals
-argument_list|(
-literal|"Repository name not as expected"
-argument_list|,
-literal|"local-repo"
-argument_list|,
-name|repo
-operator|.
-name|getKey
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Repository url does not match its name"
-argument_list|,
-literal|"file:///./target/remote-repo1"
-argument_list|,
-name|repo
-operator|.
-name|getUrl
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Repository cache period check failed"
-argument_list|,
-literal|0
-argument_list|,
-name|repo
-operator|.
-name|getCachePeriod
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertFalse
-argument_list|(
-literal|"Repository failure caching check failed"
-argument_list|,
-name|repo
-operator|.
-name|isCacheFailures
-argument_list|()
-argument_list|)
-expr_stmt|;
-break|break;
-case|case
-literal|2
-case|:
-name|assertEquals
-argument_list|(
-literal|"Repository name not as expected"
-argument_list|,
-literal|"www-ibiblio-org"
-argument_list|,
-name|repo
-operator|.
-name|getKey
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Repository url does not match its name"
-argument_list|,
-literal|"http://www.ibiblio.org/maven2"
-argument_list|,
-name|repo
-operator|.
-name|getUrl
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Repository cache period check failed"
-argument_list|,
-literal|3600
-argument_list|,
-name|repo
-operator|.
-name|getCachePeriod
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Repository failure caching check failed"
-argument_list|,
-name|repo
-operator|.
-name|isCacheFailures
-argument_list|()
-argument_list|)
-expr_stmt|;
-break|break;
-case|case
-literal|3
-case|:
-name|assertEquals
-argument_list|(
-literal|"Repository name not as expected"
-argument_list|,
-literal|"dist-codehaus-org"
-argument_list|,
-name|repo
-operator|.
-name|getKey
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Repository url does not match its name"
-argument_list|,
-literal|"http://dist.codehaus.org"
-argument_list|,
-name|repo
-operator|.
-name|getUrl
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Repository cache period check failed"
-argument_list|,
-literal|3600
-argument_list|,
-name|repo
-operator|.
-name|getCachePeriod
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Repository failure caching check failed"
-argument_list|,
-name|repo
-operator|.
-name|isCacheFailures
-argument_list|()
-argument_list|)
-expr_stmt|;
-break|break;
-case|case
-literal|4
-case|:
-name|assertEquals
-argument_list|(
-literal|"Repository name not as expected"
-argument_list|,
-literal|"private-example-com"
-argument_list|,
-name|repo
-operator|.
-name|getKey
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Repository url does not match its name"
-argument_list|,
-literal|"http://private.example.com/internal"
-argument_list|,
-name|repo
-operator|.
-name|getUrl
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Repository cache period check failed"
-argument_list|,
-literal|3600
-argument_list|,
-name|repo
-operator|.
-name|getCachePeriod
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertFalse
-argument_list|(
-literal|"Repository failure caching check failed"
-argument_list|,
-name|repo
-operator|.
-name|isCacheFailures
-argument_list|()
-argument_list|)
-expr_stmt|;
-break|break;
-default|default:
-name|fail
-argument_list|(
-literal|"Unexpected order count"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
-comment|//make sure to delete the test directory after tests
-finally|finally
-block|{
-name|FileUtils
-operator|.
-name|deleteDirectory
-argument_list|(
-literal|"target/remote-repo1"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+comment|//    public void testLoadValidMavenProxyConfiguration()
+comment|//        throws ValidationException, IOException
+comment|//    {
+comment|//        //must create the test directory bec configuration is using relative path which varies
+comment|//        FileUtils.mkdir( "target/remote-repo1" );
+comment|//
+comment|//        try
+comment|//        {
+comment|//            File confFile = getTestFile( "src/test/conf/maven-proxy-complete.conf" );
+comment|//
+comment|//            config.loadMavenProxyConfiguration( confFile );
+comment|//
+comment|//            assertTrue( "cache path changed", config.getRepositoryCachePath().endsWith( "target" ) );
+comment|//
+comment|//            assertEquals( "Count repositories", 4, config.getRepositories().size() );
+comment|//
+comment|//            int idx = 0;
+comment|//            for ( Iterator repos = config.getRepositories().iterator(); repos.hasNext(); )
+comment|//            {
+comment|//                idx++;
+comment|//
+comment|//                ProxyRepository repo = (ProxyRepository) repos.next();
+comment|//
+comment|//                //switch is made to check for ordering
+comment|//                switch ( idx )
+comment|//                {
+comment|//                    case 1:
+comment|//                        assertEquals( "Repository name not as expected", "local-repo", repo.getKey() );
+comment|//                        assertEquals( "Repository url does not match its name", "file:///./target/remote-repo1",
+comment|//                                      repo.getUrl() );
+comment|//                        assertEquals( "Repository cache period check failed", 0, repo.getCachePeriod() );
+comment|//                        assertFalse( "Repository failure caching check failed", repo.isCacheFailures() );
+comment|//                        break;
+comment|//                    case 2:
+comment|//                        assertEquals( "Repository name not as expected", "www-ibiblio-org", repo.getKey() );
+comment|//                        assertEquals( "Repository url does not match its name", "http://www.ibiblio.org/maven2",
+comment|//                                      repo.getUrl() );
+comment|//                        assertEquals( "Repository cache period check failed", 3600, repo.getCachePeriod() );
+comment|//                        assertTrue( "Repository failure caching check failed", repo.isCacheFailures() );
+comment|//                        break;
+comment|//                    case 3:
+comment|//                        assertEquals( "Repository name not as expected", "dist-codehaus-org", repo.getKey() );
+comment|//                        assertEquals( "Repository url does not match its name", "http://dist.codehaus.org",
+comment|//                                      repo.getUrl() );
+comment|//                        assertEquals( "Repository cache period check failed", 3600, repo.getCachePeriod() );
+comment|//                        assertTrue( "Repository failure caching check failed", repo.isCacheFailures() );
+comment|//                        break;
+comment|//                    case 4:
+comment|//                        assertEquals( "Repository name not as expected", "private-example-com", repo.getKey() );
+comment|//                        assertEquals( "Repository url does not match its name", "http://private.example.com/internal",
+comment|//                                      repo.getUrl() );
+comment|//                        assertEquals( "Repository cache period check failed", 3600, repo.getCachePeriod() );
+comment|//                        assertFalse( "Repository failure caching check failed", repo.isCacheFailures() );
+comment|//                        break;
+comment|//                    default:
+comment|//                        fail( "Unexpected order count" );
+comment|//                }
+comment|//            }
+comment|//        }
+comment|//        //make sure to delete the test directory after tests
+comment|//        finally
+comment|//        {
+comment|//            FileUtils.deleteDirectory( "target/remote-repo1" );
+comment|//        }
+comment|//    }
+comment|//
 specifier|protected
 name|void
 name|tearDown
