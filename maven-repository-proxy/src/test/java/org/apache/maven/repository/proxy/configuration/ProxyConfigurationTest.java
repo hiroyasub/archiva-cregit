@@ -479,7 +479,7 @@ name|isCacheFailures
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertTrue
 argument_list|(
 name|repo
 operator|.
@@ -642,72 +642,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|//    public void testLoadValidMavenProxyConfiguration()
-comment|//        throws ValidationException, IOException
-comment|//    {
-comment|//        //must create the test directory bec configuration is using relative path which varies
-comment|//        FileUtils.mkdir( "target/remote-repo1" );
-comment|//
-comment|//        try
-comment|//        {
-comment|//            File confFile = getTestFile( "src/test/conf/maven-proxy-complete.conf" );
-comment|//
-comment|//            config.loadMavenProxyConfiguration( confFile );
-comment|//
-comment|//            assertTrue( "cache path changed", config.getRepositoryCachePath().endsWith( "target" ) );
-comment|//
-comment|//            assertEquals( "Count repositories", 4, config.getRepositories().size() );
-comment|//
-comment|//            int idx = 0;
-comment|//            for ( Iterator repos = config.getRepositories().iterator(); repos.hasNext(); )
-comment|//            {
-comment|//                idx++;
-comment|//
-comment|//                ProxyRepository repo = (ProxyRepository) repos.next();
-comment|//
-comment|//                //switch is made to check for ordering
-comment|//                switch ( idx )
-comment|//                {
-comment|//                    case 1:
-comment|//                        assertEquals( "Repository name not as expected", "local-repo", repo.getKey() );
-comment|//                        assertEquals( "Repository url does not match its name", "file:///./target/remote-repo1",
-comment|//                                      repo.getUrl() );
-comment|//                        assertEquals( "Repository cache period check failed", 0, repo.getCachePeriod() );
-comment|//                        assertFalse( "Repository failure caching check failed", repo.isCacheFailures() );
-comment|//                        break;
-comment|//                    case 2:
-comment|//                        assertEquals( "Repository name not as expected", "www-ibiblio-org", repo.getKey() );
-comment|//                        assertEquals( "Repository url does not match its name", "http://www.ibiblio.org/maven2",
-comment|//                                      repo.getUrl() );
-comment|//                        assertEquals( "Repository cache period check failed", 3600, repo.getCachePeriod() );
-comment|//                        assertTrue( "Repository failure caching check failed", repo.isCacheFailures() );
-comment|//                        break;
-comment|//                    case 3:
-comment|//                        assertEquals( "Repository name not as expected", "dist-codehaus-org", repo.getKey() );
-comment|//                        assertEquals( "Repository url does not match its name", "http://dist.codehaus.org",
-comment|//                                      repo.getUrl() );
-comment|//                        assertEquals( "Repository cache period check failed", 3600, repo.getCachePeriod() );
-comment|//                        assertTrue( "Repository failure caching check failed", repo.isCacheFailures() );
-comment|//                        break;
-comment|//                    case 4:
-comment|//                        assertEquals( "Repository name not as expected", "private-example-com", repo.getKey() );
-comment|//                        assertEquals( "Repository url does not match its name", "http://private.example.com/internal",
-comment|//                                      repo.getUrl() );
-comment|//                        assertEquals( "Repository cache period check failed", 3600, repo.getCachePeriod() );
-comment|//                        assertFalse( "Repository failure caching check failed", repo.isCacheFailures() );
-comment|//                        break;
-comment|//                    default:
-comment|//                        fail( "Unexpected order count" );
-comment|//                }
-comment|//            }
-comment|//        }
-comment|//        //make sure to delete the test directory after tests
-comment|//        finally
-comment|//        {
-comment|//            FileUtils.deleteDirectory( "target/remote-repo1" );
-comment|//        }
-comment|//    }
-comment|//
 specifier|protected
 name|void
 name|tearDown
