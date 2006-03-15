@@ -170,14 +170,6 @@ name|POM
 init|=
 literal|".pom"
 decl_stmt|;
-specifier|private
-specifier|final
-specifier|static
-name|String
-name|DELIM
-init|=
-literal|"\\"
-decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
 name|ArtifactFactory
@@ -460,7 +452,7 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 operator|+
-name|DELIM
+literal|"/"
 operator|+
 name|path
 decl_stmt|;
