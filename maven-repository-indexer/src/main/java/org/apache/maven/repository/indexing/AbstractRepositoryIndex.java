@@ -696,6 +696,18 @@ name|isDirectory
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|indexDir
+operator|.
+name|listFiles
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|1
+condition|)
+block|{
 throw|throw
 operator|new
 name|RepositoryIndexException
@@ -705,6 +717,13 @@ operator|+
 literal|" is not a valid index directory."
 argument_list|)
 throw|;
+block|}
+else|else
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 else|else
 block|{
