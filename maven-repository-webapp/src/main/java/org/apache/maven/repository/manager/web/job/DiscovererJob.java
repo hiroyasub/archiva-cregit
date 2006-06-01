@@ -504,14 +504,6 @@ parameter_list|)
 throws|throws
 name|JobExecutionException
 block|{
-name|getLogger
-argument_list|()
-operator|.
-name|info
-argument_list|(
-literal|"Start execution of DiscovererJob.."
-argument_list|)
-expr_stmt|;
 name|JobDataMap
 name|dataMap
 init|=
@@ -523,6 +515,19 @@ operator|.
 name|getJobDataMap
 argument_list|()
 decl_stmt|;
+name|setJobDataMap
+argument_list|(
+name|dataMap
+argument_list|)
+expr_stmt|;
+name|getLogger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"[DiscovererJob] Start execution of DiscovererJob.."
+argument_list|)
+expr_stmt|;
 comment|//configuration values specified in properties file
 name|String
 name|indexPath
