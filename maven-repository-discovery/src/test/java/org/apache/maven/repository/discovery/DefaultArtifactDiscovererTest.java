@@ -229,7 +229,7 @@ name|ArtifactDiscoverer
 operator|.
 name|ROLE
 argument_list|,
-literal|"org.apache.maven.repository.discovery.DefaultArtifactDiscoverer"
+literal|"default"
 argument_list|)
 expr_stmt|;
 name|factory

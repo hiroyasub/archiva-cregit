@@ -195,7 +195,7 @@ name|ArtifactDiscoverer
 operator|.
 name|ROLE
 argument_list|,
-literal|"org.apache.maven.repository.discovery.LegacyArtifactDiscoverer"
+literal|"legacy"
 argument_list|)
 expr_stmt|;
 name|factory

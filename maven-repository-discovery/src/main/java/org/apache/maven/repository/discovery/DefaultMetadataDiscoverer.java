@@ -41,22 +41,6 @@ name|maven
 operator|.
 name|artifact
 operator|.
-name|factory
-operator|.
-name|ArtifactFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
 name|repository
 operator|.
 name|metadata
@@ -316,15 +300,10 @@ specifier|public
 class|class
 name|DefaultMetadataDiscoverer
 extends|extends
-name|AbstractArtifactDiscoverer
+name|AbstractDiscoverer
 implements|implements
 name|MetadataDiscoverer
 block|{
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|ArtifactFactory
-name|artifactFactory
-decl_stmt|;
 comment|/**      * Standard patterns to include in discovery of metadata files.      */
 specifier|private
 specifier|static

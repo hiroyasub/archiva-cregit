@@ -154,15 +154,12 @@ specifier|public
 class|class
 name|ArtifactUtils
 block|{
-comment|/**      * Method used to build an artifact and then set its repository and file fields with the proper values      *      * @param repositoryBase  the base directory of the repository      * @param path            the path of the artifact relative from the repository base directory      * @param repository      the repository where the artifact can be found      * @param artifactFactory the artifactFactory to build the Artifact object when the given path is a valid artifact path      * @return Artifact object if the given path represents an artifact path, otherwise, returns null      */
+comment|/**      * Method used to build an artifact and then set its repository and file fields with the proper values      *      * @param path            the path of the artifact relative from the repository base directory      * @param repository      the repository where the artifact can be found      * @param artifactFactory the artifactFactory to build the Artifact object when the given path is a valid artifact path      * @return Artifact object if the given path represents an artifact path, otherwise, returns null      */
 specifier|public
 specifier|static
 name|Artifact
 name|buildArtifact
 parameter_list|(
-name|File
-name|repositoryBase
-parameter_list|,
 name|String
 name|path
 parameter_list|,
@@ -204,7 +201,10 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-name|repositoryBase
+name|repository
+operator|.
+name|getBasedir
+argument_list|()
 argument_list|,
 name|path
 argument_list|)
