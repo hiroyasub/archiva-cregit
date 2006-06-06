@@ -1240,6 +1240,8 @@ literal|"([Rr][Ee][Ll][Ee][Aa][Ss][Ee][_.0-9]*)|"
 operator|+
 literal|"([Nn][Ii][Gg][Hh][Tt][Ll][Yy])|"
 operator|+
+literal|"[Ff][Ii][Nn][Aa][Ll]|"
+operator|+
 literal|"([AaBb][_.0-9]*)"
 decl_stmt|;
 name|StringBuffer
