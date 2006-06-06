@@ -53,6 +53,26 @@ name|DiscovererScheduler
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|repository
+operator|.
+name|manager
+operator|.
+name|web
+operator|.
+name|execution
+operator|.
+name|DiscovererExecution
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is the Action class of index.jsp, which is the initial page of the web application.  * It invokes the DiscovererScheduler to set the DiscoverJob in the scheduler.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="org.apache.maven.repository.manager.web.action.BaseAction"  */
 end_comment
@@ -66,6 +86,11 @@ name|Action
 block|{
 comment|/**      * @plexus.requirement      */
 specifier|private
+name|DiscovererExecution
+name|execution
+decl_stmt|;
+comment|/**      * @plexus.requirement      */
+specifier|private
 name|DiscovererScheduler
 name|discovererScheduler
 decl_stmt|;
@@ -77,6 +102,11 @@ parameter_list|()
 block|{
 try|try
 block|{
+name|execution
+operator|.
+name|executeDiscovererIfIndexDoesNotExist
+argument_list|()
+expr_stmt|;
 name|discovererScheduler
 operator|.
 name|setSchedule
