@@ -442,7 +442,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.proxy.ProxyManager"  */
+comment|/**  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.proxy.ProxyManager"  * @todo too much of wagon manager is reproduced here because checksums need to be downloaded separately - is that necessary?  */
 end_comment
 
 begin_class
@@ -1171,15 +1171,10 @@ name|getReleasesPolicy
 parameter_list|()
 block|{
 comment|//todo get policy configuration from ProxyConfiguration
-name|ArtifactRepositoryPolicy
-name|repositoryPolicy
-init|=
+return|return
 operator|new
 name|ArtifactRepositoryPolicy
 argument_list|()
-decl_stmt|;
-return|return
-name|repositoryPolicy
 return|;
 block|}
 specifier|private
@@ -1188,15 +1183,10 @@ name|getSnapshotsPolicy
 parameter_list|()
 block|{
 comment|//todo get policy configuration from ProxyConfiguration
-name|ArtifactRepositoryPolicy
-name|repositoryPolicy
-init|=
+return|return
 operator|new
 name|ArtifactRepositoryPolicy
 argument_list|()
-decl_stmt|;
-return|return
-name|repositoryPolicy
 return|;
 block|}
 specifier|public

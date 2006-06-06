@@ -146,7 +146,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class used to build an artifact object based on a relative from a repository's basedir.  *  * @author Edwin Punzalan  */
+comment|/**  * Class used to build an artifact object based on a relative from a repository's basedir.  *  * @author Edwin Punzalan  * @todo I'm not sure why this class needs to exist. It seems like the perfect candidate for two implementations of an interface  */
 end_comment
 
 begin_class
