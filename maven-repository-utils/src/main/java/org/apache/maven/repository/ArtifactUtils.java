@@ -620,7 +620,7 @@ name|isSnapshot
 argument_list|()
 condition|)
 block|{
-comment|// version is XXX-SNAPSHOT, filename is XXX-yyyyMMdd.hhmmss-b
+comment|// version is *-SNAPSHOT, filename is *-yyyyMMdd.hhmmss-b
 name|int
 name|classifierIndex
 init|=
