@@ -33,7 +33,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
+name|FileNotFoundException
 import|;
 end_import
 
@@ -43,7 +43,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileNotFoundException
+name|IOException
 import|;
 end_import
 
