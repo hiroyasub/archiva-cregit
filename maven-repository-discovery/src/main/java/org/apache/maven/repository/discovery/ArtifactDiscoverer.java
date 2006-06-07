@@ -86,7 +86,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Discover artifacts in the repository.      *      * @param repository          the location of the repository      * @param blacklistedPatterns pattern that lists any files to prevent from being included when scanning      * @param includeSnapshots    whether to discover snapshots      * @return the list of artifacts discovered      * @todo replace repositoryBase with wagon repository      * @todo do we want blacklisted patterns in another form? Part of the object construction?      * @todo should includeSnapshots be configuration on the component?      * @todo instead of a returned list, should a listener be passed in?      */
+comment|/**      * Discover artifacts in the repository.      *      * @param repository          the location of the repository      * @param blacklistedPatterns pattern that lists any files to prevent from being included when scanning      * @param includeSnapshots    whether to discover snapshots      * @return the list of artifacts discovered      * @todo do we want blacklisted patterns in another form? Part of the object construction?      * @todo should includeSnapshots be configuration on the component?      * @todo instead of a returned list, should a listener be passed in?      */
 name|List
 name|discoverArtifacts
 parameter_list|(
@@ -100,7 +100,7 @@ name|boolean
 name|includeSnapshots
 parameter_list|)
 function_decl|;
-comment|/**      * Discover standalone POM artifacts in the repository.      *      * @param repository          the location of the repository      * @param blacklistedPatterns pattern that lists any files to prevent from being included when scanning      * @param includeSnapshots    whether to discover snapshots      * @return the list of artifacts discovered      * @todo replace repositoryBase with wagon repository      * @todo do we want blacklisted patterns in another form? Part of the object construction?      * @todo should includeSnapshots be configuration on the component?      * @todo instead of a returned list, should a listener be passed in?      */
+comment|/**      * Discover standalone POM artifacts in the repository.      *      * @param repository          the location of the repository      * @param blacklistedPatterns pattern that lists any files to prevent from being included when scanning      * @param includeSnapshots    whether to discover snapshots      * @return the list of artifacts discovered      * @todo do we want blacklisted patterns in another form? Part of the object construction?      * @todo should includeSnapshots be configuration on the component?      * @todo instead of a returned list, should a listener be passed in?      */
 name|List
 name|discoverStandalonePoms
 parameter_list|(

@@ -126,7 +126,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO [!]: Description.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * Base class for the artifact and metadata discoverers.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
 end_comment
 
 begin_class

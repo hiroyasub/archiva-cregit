@@ -174,7 +174,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO: Description.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="org.apache.maven.repository.manager.web.action.RepositoryBrowseAction"  */
+comment|/**  * Browse the repository.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="org.apache.maven.repository.manager.web.action.RepositoryBrowseAction"  */
 end_comment
 
 begin_class

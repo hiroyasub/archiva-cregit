@@ -230,7 +230,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO: Description.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="org.apache.maven.repository.manager.web.action.PackageSearchAction"  */
+comment|/**  * Search by package name.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="org.apache.maven.repository.manager.web.action.PackageSearchAction"  */
 end_comment
 
 begin_class
@@ -338,7 +338,7 @@ return|return
 name|ERROR
 return|;
 block|}
-comment|// TODO: better config
+comment|// TODO: better config [!]
 name|String
 name|indexPath
 init|=

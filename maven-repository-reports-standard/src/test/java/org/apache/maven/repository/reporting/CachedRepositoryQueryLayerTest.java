@@ -28,15 +28,6 @@ name|CachedRepositoryQueryLayerTest
 extends|extends
 name|AbstractRepositoryQueryLayerTestCase
 block|{
-comment|// TODO: share
-specifier|private
-specifier|static
-specifier|final
-name|double
-name|CACHE_HIT_RATIO
-init|=
-literal|0.5
-decl_stmt|;
 specifier|protected
 name|void
 name|setUp
@@ -83,6 +74,8 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|CachedRepositoryQueryLayer
+operator|.
 name|CACHE_HIT_RATIO
 argument_list|,
 name|queryLayer
@@ -121,6 +114,8 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|CachedRepositoryQueryLayer
+operator|.
 name|CACHE_HIT_RATIO
 argument_list|,
 name|queryLayer
@@ -157,6 +152,8 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|CachedRepositoryQueryLayer
+operator|.
 name|CACHE_HIT_RATIO
 argument_list|,
 name|queryLayer

@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class used to bridge the servlet to the repository proxy implementation.  *  * @author Edwin Punzalan  * @todo the names get() and getRemoteFile() are confusing  */
+comment|/**  * Class used to bridge the servlet to the repository proxy implementation.  *  * @author Edwin Punzalan  * @todo the names get() and getRemoteFile() are confusing [!]  */
 end_comment
 
 begin_interface

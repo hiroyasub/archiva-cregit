@@ -98,7 +98,7 @@ specifier|private
 name|Cache
 name|cache
 decl_stmt|;
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|double

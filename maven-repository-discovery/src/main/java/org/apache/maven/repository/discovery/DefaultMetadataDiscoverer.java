@@ -794,7 +794,7 @@ name|FileNotFoundException
 name|fe
 parameter_list|)
 block|{
-comment|// TODO: log ignored metadata
+comment|// TODO: log ignored metadata!
 block|}
 catch|catch
 parameter_list|(
@@ -802,7 +802,7 @@ name|XmlPullParserException
 name|xe
 parameter_list|)
 block|{
-comment|// TODO: log ignored metadata
+comment|// TODO: log ignored metadata!
 block|}
 catch|catch
 parameter_list|(
@@ -810,7 +810,7 @@ name|MalformedURLException
 name|e
 parameter_list|)
 block|{
-comment|// TODO: log ignored metadata
+comment|// TODO: log ignored metadata!
 block|}
 catch|catch
 parameter_list|(
@@ -818,7 +818,7 @@ name|IOException
 name|ie
 parameter_list|)
 block|{
-comment|// TODO: log ignored metadata
+comment|// TODO: log ignored metadata!
 block|}
 return|return
 name|metadata
