@@ -399,35 +399,6 @@ return|return
 name|SUCCESS
 return|;
 block|}
-comment|// TODO! is this method needed?
-specifier|public
-name|String
-name|doEdit
-parameter_list|()
-block|{
-name|idx
-operator|=
-name|idx
-operator|+
-literal|1
-expr_stmt|;
-comment|//set folder to "" if we are at the root directory
-if|if
-condition|(
-name|idx
-operator|==
-literal|1
-condition|)
-block|{
-name|folder
-operator|=
-literal|""
-expr_stmt|;
-block|}
-return|return
-name|SUCCESS
-return|;
-block|}
 specifier|public
 name|Map
 name|getArtifactMap

@@ -126,7 +126,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class contains the configuration values to be used by the scheduler  */
+comment|/**  * This class contains the configuration values to be used by the scheduler  *  * @todo should not need to be initializable [!] Should have individual configuration items, and they could well be configured on the job itself, not in this class  */
 end_comment
 
 begin_class
@@ -180,6 +180,7 @@ name|ArtifactRepositoryLayout
 name|getLayout
 parameter_list|()
 block|{
+comment|// TODO: lookup from map [!]
 name|ArtifactRepositoryLayout
 name|layout
 decl_stmt|;

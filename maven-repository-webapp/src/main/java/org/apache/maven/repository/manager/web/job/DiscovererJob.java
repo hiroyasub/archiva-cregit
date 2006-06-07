@@ -205,11 +205,20 @@ name|RepositoryIndexException
 name|e
 parameter_list|)
 block|{
-comment|// TODO!
+name|getLogger
+argument_list|()
+operator|.
+name|error
+argument_list|(
+literal|"Error indexing: "
+operator|+
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|()
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -218,11 +227,20 @@ name|MalformedURLException
 name|me
 parameter_list|)
 block|{
-comment|// TODO!
+name|getLogger
+argument_list|()
+operator|.
+name|error
+argument_list|(
+literal|"Error indexing: "
+operator|+
 name|me
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|()
+argument_list|,
+name|me
+argument_list|)
 expr_stmt|;
 block|}
 name|getLogger
