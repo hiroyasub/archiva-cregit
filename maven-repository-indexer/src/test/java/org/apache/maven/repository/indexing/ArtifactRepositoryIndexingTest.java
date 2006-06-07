@@ -2451,16 +2451,13 @@ argument_list|,
 literal|"~~~~~"
 argument_list|)
 decl_stmt|;
-name|List
-name|artifacts
-init|=
 name|repoSearchLayer
 operator|.
 name|searchAdvanced
 argument_list|(
 name|qry
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Must throw an exception on unparseable query."
@@ -2514,16 +2511,13 @@ argument_list|,
 literal|"1.0"
 argument_list|)
 decl_stmt|;
-name|List
-name|artifacts
-init|=
 name|repoSearchLayer
 operator|.
 name|searchAdvanced
 argument_list|(
 name|qry
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Must throw an exception on invalid index location."
@@ -2672,12 +2666,12 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
+literal|0
+argument_list|,
 name|artifacts
 operator|.
 name|size
 argument_list|()
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 block|}

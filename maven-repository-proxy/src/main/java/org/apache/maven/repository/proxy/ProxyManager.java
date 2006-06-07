@@ -68,7 +68,6 @@ specifier|public
 interface|interface
 name|ProxyManager
 block|{
-specifier|static
 name|String
 name|ROLE
 init|=

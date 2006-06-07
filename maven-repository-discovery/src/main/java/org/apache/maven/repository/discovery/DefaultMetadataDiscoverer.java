@@ -608,11 +608,11 @@ operator|!=
 literal|null
 operator|&&
 operator|!
-name|metaVersion
+literal|""
 operator|.
 name|equals
 argument_list|(
-literal|""
+name|metaVersion
 argument_list|)
 condition|)
 block|{

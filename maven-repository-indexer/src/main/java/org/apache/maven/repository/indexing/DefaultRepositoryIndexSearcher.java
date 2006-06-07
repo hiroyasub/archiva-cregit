@@ -566,6 +566,27 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+name|MalformedURLException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RepositoryIndexSearchException
+argument_list|(
+literal|"Unable to search index: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+catch|catch
+parameter_list|(
 name|IOException
 name|e
 parameter_list|)
@@ -739,17 +760,6 @@ name|IOException
 throws|,
 name|XmlPullParserException
 block|{
-name|String
-name|groupId
-decl_stmt|,
-name|artifactId
-decl_stmt|,
-name|version
-decl_stmt|,
-name|name
-decl_stmt|,
-name|packaging
-decl_stmt|;
 name|RepositoryIndexSearchHit
 name|searchHit
 init|=
@@ -775,8 +785,9 @@ name|ARTIFACT
 argument_list|)
 condition|)
 block|{
+name|String
 name|groupId
-operator|=
+init|=
 name|doc
 operator|.
 name|get
@@ -785,9 +796,10 @@ name|RepositoryIndex
 operator|.
 name|FLD_GROUPID
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+name|String
 name|artifactId
-operator|=
+init|=
 name|doc
 operator|.
 name|get
@@ -796,9 +808,10 @@ name|RepositoryIndex
 operator|.
 name|FLD_ARTIFACTID
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+name|String
 name|version
-operator|=
+init|=
 name|doc
 operator|.
 name|get
@@ -807,20 +820,10 @@ name|RepositoryIndex
 operator|.
 name|FLD_VERSION
 argument_list|)
-expr_stmt|;
-name|name
-operator|=
-name|doc
-operator|.
-name|get
-argument_list|(
-name|RepositoryIndex
-operator|.
-name|FLD_NAME
-argument_list|)
-expr_stmt|;
+decl_stmt|;
+name|String
 name|packaging
-operator|=
+init|=
 name|doc
 operator|.
 name|get
@@ -829,7 +832,7 @@ name|RepositoryIndex
 operator|.
 name|FLD_PACKAGING
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|Artifact
 name|artifact
 init|=
@@ -1259,8 +1262,6 @@ argument_list|()
 decl_stmt|;
 name|String
 name|metadataType
-init|=
-literal|""
 decl_stmt|;
 if|if
 condition|(
@@ -1380,7 +1381,7 @@ return|return
 name|searchHit
 return|;
 block|}
-comment|/**      * Create RepositoryMetadata object.      *      * @param groupId      the groupId to be set      * @param artifactId   the artifactId to be set      * @param version      the version to be set      * @param filename     the name of the metadata file      * @param metadataType the type of RepositoryMetadata object to be created (GROUP, ARTIFACT or SNAPSHOT)      * @return RepositoryMetadata      * @throws MalformedURLException      * @throws IOException      * @throws XmlPullParserException      */
+comment|/**      * Create RepositoryMetadata object.      *      * @param groupId      the groupId to be set      * @param artifactId   the artifactId to be set      * @param version      the version to be set      * @param filename     the name of the metadata file      * @param metadataType the type of RepositoryMetadata object to be created (GROUP, ARTIFACT or SNAPSHOT)      * @return RepositoryMetadata      * @throws IOException      * @throws XmlPullParserException      */
 specifier|private
 name|RepositoryMetadata
 name|getMetadata
@@ -1401,8 +1402,6 @@ name|String
 name|metadataType
 parameter_list|)
 throws|throws
-name|MalformedURLException
-throws|,
 name|IOException
 throws|,
 name|XmlPullParserException
@@ -1412,10 +1411,9 @@ name|repoMetadata
 init|=
 literal|null
 decl_stmt|;
+comment|// TODO! file handles left open
 name|InputStream
 name|is
-init|=
-literal|null
 decl_stmt|;
 name|MetadataXpp3Reader
 name|metadataReader

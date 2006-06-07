@@ -274,7 +274,7 @@ return|;
 block|}
 comment|/**      * Cache the given value and map it using the given key      *      * @param key   the object to map the valued object      * @param value the object to cache      */
 specifier|public
-name|Object
+name|void
 name|put
 parameter_list|(
 name|Object
@@ -328,9 +328,6 @@ block|}
 name|manageCache
 argument_list|()
 expr_stmt|;
-return|return
-name|old
-return|;
 block|}
 comment|/**      * Compute for the efficiency of this cache.      *      * @return the ratio of cache hits to the cache misses to queries for cache objects      */
 specifier|public

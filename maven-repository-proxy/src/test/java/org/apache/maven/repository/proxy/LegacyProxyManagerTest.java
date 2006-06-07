@@ -307,8 +307,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|//test cache
-name|file
-operator|=
 name|proxy
 operator|.
 name|get
@@ -318,8 +316,6 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|file
-operator|=
 name|proxy
 operator|.
 name|get

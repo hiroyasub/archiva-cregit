@@ -93,16 +93,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Iterator
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author Edwin Punzalan  */
 end_comment
@@ -114,6 +104,14 @@ name|MavenProxyPropertyLoaderTest
 extends|extends
 name|PlexusTestCase
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_CACHE_PERIOD
+init|=
+literal|3600
+decl_stmt|;
 specifier|public
 name|void
 name|testLoadValidMavenProxyConfiguration
@@ -192,54 +190,22 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|int
-name|idx
-init|=
-literal|0
-decl_stmt|;
-for|for
-control|(
-name|Iterator
-name|repos
-init|=
-name|config
-operator|.
-name|getRepositories
-argument_list|()
-operator|.
-name|iterator
-argument_list|()
-init|;
-name|repos
-operator|.
-name|hasNext
-argument_list|()
-condition|;
-control|)
-block|{
-name|idx
-operator|++
-expr_stmt|;
 name|ProxyRepository
 name|repo
 init|=
 operator|(
 name|ProxyRepository
 operator|)
-name|repos
+name|config
 operator|.
-name|next
+name|getRepositories
 argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
 decl_stmt|;
-comment|//switch is made to check for ordering
-switch|switch
-condition|(
-name|idx
-condition|)
-block|{
-case|case
-literal|1
-case|:
 name|assertEquals
 argument_list|(
 literal|"Repository name not as expected"
@@ -286,10 +252,21 @@ name|isCacheFailures
 argument_list|()
 argument_list|)
 expr_stmt|;
-break|break;
-case|case
-literal|2
-case|:
+name|repo
+operator|=
+operator|(
+name|ProxyRepository
+operator|)
+name|config
+operator|.
+name|getRepositories
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Repository name not as expected"
@@ -318,7 +295,7 @@ name|assertEquals
 argument_list|(
 literal|"Repository cache period check failed"
 argument_list|,
-literal|3600
+name|DEFAULT_CACHE_PERIOD
 argument_list|,
 name|repo
 operator|.
@@ -336,10 +313,21 @@ name|isCacheFailures
 argument_list|()
 argument_list|)
 expr_stmt|;
-break|break;
-case|case
-literal|3
-case|:
+name|repo
+operator|=
+operator|(
+name|ProxyRepository
+operator|)
+name|config
+operator|.
+name|getRepositories
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Repository name not as expected"
@@ -368,7 +356,7 @@ name|assertEquals
 argument_list|(
 literal|"Repository cache period check failed"
 argument_list|,
-literal|3600
+name|DEFAULT_CACHE_PERIOD
 argument_list|,
 name|repo
 operator|.
@@ -386,10 +374,21 @@ name|isCacheFailures
 argument_list|()
 argument_list|)
 expr_stmt|;
-break|break;
-case|case
-literal|4
-case|:
+name|repo
+operator|=
+operator|(
+name|ProxyRepository
+operator|)
+name|config
+operator|.
+name|getRepositories
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|3
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Repository name not as expected"
@@ -418,7 +417,7 @@ name|assertEquals
 argument_list|(
 literal|"Repository cache period check failed"
 argument_list|,
-literal|3600
+name|DEFAULT_CACHE_PERIOD
 argument_list|,
 name|repo
 operator|.
@@ -436,19 +435,10 @@ name|isCacheFailures
 argument_list|()
 argument_list|)
 expr_stmt|;
-break|break;
-default|default:
-name|fail
-argument_list|(
-literal|"Unexpected order count"
-argument_list|)
-expr_stmt|;
 block|}
-block|}
-block|}
-comment|//make sure to delete the test directory after tests
 finally|finally
 block|{
+comment|//make sure to delete the test directory after tests
 name|FileUtils
 operator|.
 name|deleteDirectory

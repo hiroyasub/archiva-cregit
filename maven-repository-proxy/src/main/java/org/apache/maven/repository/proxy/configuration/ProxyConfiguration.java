@@ -213,10 +213,9 @@ argument_list|(
 name|port
 argument_list|)
 expr_stmt|;
-name|setHttpProxy
-argument_list|(
+name|httpProxy
+operator|=
 name|proxyInfo
-argument_list|)
 expr_stmt|;
 block|}
 specifier|public

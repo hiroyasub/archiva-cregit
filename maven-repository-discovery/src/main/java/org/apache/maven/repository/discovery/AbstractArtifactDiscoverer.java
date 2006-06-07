@@ -81,6 +81,24 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|util
+operator|.
+name|xml
+operator|.
+name|pull
+operator|.
+name|XmlPullParserException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -95,7 +113,27 @@ name|java
 operator|.
 name|io
 operator|.
+name|FileNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|FileReader
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -179,7 +217,7 @@ block|,
 literal|"**/KEYS*"
 block|}
 decl_stmt|;
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -188,7 +226,7 @@ init|=
 literal|".pom"
 decl_stmt|;
 comment|/**      * Scan the repository for artifact paths.      */
-specifier|protected
+specifier|private
 name|String
 index|[]
 name|scanForArtifactPaths
@@ -516,13 +554,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|(
 name|pomArtifact
 operator|!=
 literal|null
-operator|)
 operator|&&
-operator|(
 literal|"pom"
 operator|.
 name|equals
@@ -532,7 +567,6 @@ operator|.
 name|getPackaging
 argument_list|()
 argument_list|)
-operator|)
 condition|)
 block|{
 if|if
@@ -558,24 +592,67 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|FileNotFoundException
+name|e
+parameter_list|)
+block|{
+comment|// this should never happen
+name|getLogger
+argument_list|()
+operator|.
+name|error
+argument_list|(
+literal|"Error finding file during POM discovery: "
+operator|+
+name|filename
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
 name|e
 parameter_list|)
 block|{
 name|getLogger
 argument_list|()
 operator|.
-name|info
+name|error
 argument_list|(
-literal|"error reading file: "
+literal|"Error reading file during POM discovery: "
 operator|+
 name|filename
+operator|+
+literal|": "
+operator|+
+name|e
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|XmlPullParserException
+name|e
+parameter_list|)
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|error
+argument_list|(
+literal|"Parse error reading file during POM discovery: "
+operator|+
+name|filename
+operator|+
+literal|": "
+operator|+
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}

@@ -372,7 +372,7 @@ specifier|private
 name|Digester
 name|digester
 decl_stmt|;
-comment|/**      * Class constructor      *      * @param indexPath  the path where the lucene index will be created/updated.      * @param repository the repository where the indexed artifacts are located      * @param digester   the digester object to generate the checksum strings      * @throws RepositoryIndexException      */
+comment|/**      * Class constructor      *      * @param indexPath  the path where the lucene index will be created/updated.      * @param repository the repository where the indexed artifacts are located      * @param digester   the digester object to generate the checksum strings      */
 specifier|public
 name|EclipseRepositoryIndex
 parameter_list|(
@@ -385,8 +385,6 @@ parameter_list|,
 name|Digester
 name|digester
 parameter_list|)
-throws|throws
-name|RepositoryIndexException
 block|{
 name|super
 argument_list|(

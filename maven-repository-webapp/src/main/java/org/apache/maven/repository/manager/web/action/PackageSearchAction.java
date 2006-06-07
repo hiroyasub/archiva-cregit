@@ -93,7 +93,7 @@ name|repository
 operator|.
 name|indexing
 operator|.
-name|DefaultRepositoryIndexSearcher
+name|RepositoryIndex
 import|;
 end_import
 
@@ -141,7 +141,7 @@ name|repository
 operator|.
 name|indexing
 operator|.
-name|RepositoryIndexingFactory
+name|RepositoryIndexSearchLayer
 import|;
 end_import
 
@@ -157,7 +157,7 @@ name|repository
 operator|.
 name|indexing
 operator|.
-name|RepositoryIndexSearchLayer
+name|RepositoryIndexingFactory
 import|;
 end_import
 
@@ -196,22 +196,6 @@ operator|.
 name|job
 operator|.
 name|Configuration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|repository
-operator|.
-name|indexing
-operator|.
-name|RepositoryIndex
 import|;
 end_import
 

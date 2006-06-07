@@ -215,7 +215,7 @@ specifier|private
 name|Analyzer
 name|analyzer
 decl_stmt|;
-comment|/**      * Class constructor      *      * @param indexPath      * @param repository      * @throws RepositoryIndexException      */
+comment|/**      * Class constructor      *      * @param indexPath      * @param repository      */
 specifier|protected
 name|AbstractRepositoryIndex
 parameter_list|(
@@ -225,8 +225,6 @@ parameter_list|,
 name|ArtifactRepository
 name|repository
 parameter_list|)
-throws|throws
-name|RepositoryIndexException
 block|{
 name|this
 operator|.
@@ -654,14 +652,12 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Check if the index already exists.      *      * @return true if the index already exists      * @throws IOException      * @throws RepositoryIndexException      */
+comment|/**      * Check if the index already exists.      *      * @return true if the index already exists      * @throws RepositoryIndexException      */
 specifier|protected
 name|boolean
 name|indexExists
 parameter_list|()
 throws|throws
-name|IOException
-throws|,
 name|RepositoryIndexException
 block|{
 name|File
@@ -922,6 +918,7 @@ name|isAdded
 return|;
 block|}
 specifier|private
+specifier|static
 class|class
 name|ArtifactRepositoryIndexAnalyzer
 extends|extends
@@ -932,7 +929,6 @@ name|Analyzer
 name|defaultAnalyzer
 decl_stmt|;
 comment|/**          * constructor to for this analyzer          *          * @param defaultAnalyzer the analyzer to use as default for the general fields of the artifact indeces          */
-specifier|public
 name|ArtifactRepositoryIndexAnalyzer
 parameter_list|(
 name|Analyzer
@@ -1009,14 +1005,16 @@ return|return
 name|tokenStream
 return|;
 block|}
-comment|/**          * Class used to tokenize an artifact's version.          */
+block|}
+comment|/**      * Class used to tokenize an artifact's version.      */
 specifier|private
+specifier|static
 class|class
 name|VersionTokenizer
 extends|extends
 name|CharTokenizer
 block|{
-comment|/**              * Constructor with the required reader to the index stream              *              * @param reader the Reader object of the index stream              */
+comment|/**          * Constructor with the required reader to the index stream          *          * @param reader the Reader object of the index stream          */
 name|VersionTokenizer
 parameter_list|(
 name|Reader
@@ -1029,7 +1027,7 @@ name|reader
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**              * method that lucene calls to check tokenization of a stream character              *              * @param character char currently being processed              * @return true if the char is a token, false if the char is a stop char              */
+comment|/**          * method that lucene calls to check tokenization of a stream character          *          * @param character char currently being processed          * @return true if the char is a token, false if the char is a stop char          */
 specifier|protected
 name|boolean
 name|isTokenChar
@@ -1047,7 +1045,6 @@ name|character
 operator|!=
 literal|'-'
 return|;
-block|}
 block|}
 block|}
 block|}

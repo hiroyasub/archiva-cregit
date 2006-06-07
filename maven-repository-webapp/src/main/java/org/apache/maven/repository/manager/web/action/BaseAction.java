@@ -47,9 +47,9 @@ name|manager
 operator|.
 name|web
 operator|.
-name|job
+name|execution
 operator|.
-name|DiscovererScheduler
+name|DiscovererExecution
 import|;
 end_import
 
@@ -67,9 +67,9 @@ name|manager
 operator|.
 name|web
 operator|.
-name|execution
+name|job
 operator|.
-name|DiscovererExecution
+name|DiscovererScheduler
 import|;
 end_import
 
@@ -119,6 +119,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+comment|// TODO: better exception handling!
 name|e
 operator|.
 name|printStackTrace

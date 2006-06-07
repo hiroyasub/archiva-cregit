@@ -154,6 +154,11 @@ specifier|public
 class|class
 name|ArtifactUtils
 block|{
+specifier|private
+name|ArtifactUtils
+parameter_list|()
+block|{
+block|}
 comment|/**      * Method used to build an artifact and then set its repository and file fields with the proper values      *      * @param path            the path of the artifact relative from the repository base directory      * @param repository      the repository where the artifact can be found      * @param artifactFactory the artifactFactory to build the Artifact object when the given path is a valid artifact path      * @return Artifact object if the given path represents an artifact path, otherwise, returns null      */
 specifier|public
 specifier|static
@@ -936,6 +941,7 @@ operator|.
 name|nextToken
 argument_list|()
 decl_stmt|;
+comment|//noinspection CollectionDeclaredAsConcreteClass
 name|LinkedList
 name|avceTokenList
 init|=

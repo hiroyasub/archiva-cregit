@@ -17,6 +17,10 @@ name|action
 package|;
 end_package
 
+begin_comment
+comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
 begin_import
 import|import
 name|com
@@ -155,6 +159,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|TreeMap
 import|;
 end_import
@@ -190,7 +204,7 @@ name|String
 name|group
 decl_stmt|;
 specifier|private
-name|TreeMap
+name|Map
 name|artifactMap
 decl_stmt|;
 specifier|private
@@ -205,9 +219,8 @@ specifier|public
 name|String
 name|execute
 parameter_list|()
-throws|throws
-name|Exception
 block|{
+comment|// TODO! fix hardcoded path
 name|String
 name|path
 init|=
@@ -261,9 +274,6 @@ operator|new
 name|TreeMap
 argument_list|()
 expr_stmt|;
-name|String
-name|groupId
-decl_stmt|;
 while|while
 condition|(
 name|iterator
@@ -283,13 +293,14 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+name|String
 name|groupId
-operator|=
+init|=
 name|artifact
 operator|.
 name|getGroupId
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|String
 name|key
 init|=
@@ -316,7 +327,7 @@ operator|.
 name|getVersion
 argument_list|()
 decl_stmt|;
-name|ArrayList
+name|List
 name|artifactList
 decl_stmt|;
 if|if
@@ -332,7 +343,7 @@ block|{
 name|artifactList
 operator|=
 operator|(
-name|ArrayList
+name|List
 operator|)
 name|artifactMap
 operator|.
@@ -376,48 +387,41 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//set the index for folder level to be displayed
-name|setIdx
-argument_list|(
+name|idx
+operator|=
 literal|1
-argument_list|)
 expr_stmt|;
-name|setFolder
-argument_list|(
+name|folder
+operator|=
 literal|""
-argument_list|)
 expr_stmt|;
 return|return
 name|SUCCESS
 return|;
 block|}
+comment|// TODO! is this method needed?
 specifier|public
 name|String
 name|doEdit
 parameter_list|()
-throws|throws
-name|Exception
 block|{
-name|setIdx
-argument_list|(
-name|getIdx
-argument_list|()
+name|idx
+operator|=
+name|idx
 operator|+
 literal|1
-argument_list|)
 expr_stmt|;
 comment|//set folder to "" if we are at the root directory
 if|if
 condition|(
-name|getIdx
-argument_list|()
+name|idx
 operator|==
 literal|1
 condition|)
 block|{
-name|setFolder
-argument_list|(
+name|folder
+operator|=
 literal|""
-argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -425,7 +429,7 @@ name|SUCCESS
 return|;
 block|}
 specifier|public
-name|TreeMap
+name|Map
 name|getArtifactMap
 parameter_list|()
 block|{

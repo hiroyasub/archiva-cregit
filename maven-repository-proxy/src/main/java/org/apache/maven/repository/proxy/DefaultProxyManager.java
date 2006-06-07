@@ -488,6 +488,14 @@ operator|new
 name|HashMap
 argument_list|()
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|MS_PER_SEC
+init|=
+literal|1000
+decl_stmt|;
 specifier|public
 name|void
 name|setConfiguration
@@ -1564,7 +1572,7 @@ operator|.
 name|getCachePeriod
 argument_list|()
 operator|*
-literal|1000
+name|MS_PER_SEC
 decl_stmt|;
 name|wagon
 operator|.

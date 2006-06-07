@@ -182,7 +182,7 @@ specifier|private
 name|Digester
 name|digester
 decl_stmt|;
-comment|/**      * Class constructor      *      * @param indexPath  the path where the lucene index will be created/updated.      * @param repository the repository where the indexed artifacts are located      * @param digester   the digester object to generate the checksum strings      * @throws RepositoryIndexException      */
+comment|/**      * Class constructor      *      * @param indexPath  the path where the lucene index will be created/updated.      * @param repository the repository where the indexed artifacts are located      * @param digester   the digester object to generate the checksum strings      */
 specifier|public
 name|ArtifactRepositoryIndex
 parameter_list|(
@@ -195,8 +195,6 @@ parameter_list|,
 name|Digester
 name|digester
 parameter_list|)
-throws|throws
-name|RepositoryIndexException
 block|{
 name|super
 argument_list|(
@@ -900,9 +898,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Method to add a class package to the buffer of packages      *      * @param name     the complete path name of the class      * @param packages the packages buffer      * @return true if the package is successfully added      */
+comment|/**      * Method to add a class package to the buffer of packages      *      * @param name     the complete path name of the class      * @param packages the packages buffer      */
 specifier|private
-name|boolean
+name|void
 name|addClassPackage
 parameter_list|(
 name|String
@@ -912,11 +910,6 @@ name|StringBuffer
 name|packages
 parameter_list|)
 block|{
-name|boolean
-name|isAdded
-init|=
-literal|false
-decl_stmt|;
 name|int
 name|idx
 init|=
@@ -980,18 +973,11 @@ literal|"\n"
 argument_list|)
 expr_stmt|;
 block|}
-name|isAdded
-operator|=
-literal|true
-expr_stmt|;
 block|}
-return|return
-name|isAdded
-return|;
 block|}
-comment|/**      * Method to add the zip entry as a file list      *      * @param entry the zip entry to be added      * @param files the buffer of files to update      * @return true if the file was successfully added      */
+comment|/**      * Method to add the zip entry as a file list      *      * @param entry the zip entry to be added      * @param files the buffer of files to update      */
 specifier|private
-name|boolean
+name|void
 name|addFile
 parameter_list|(
 name|ZipEntry
@@ -1038,11 +1024,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|boolean
-name|isAdded
-init|=
-literal|false
-decl_stmt|;
 if|if
 condition|(
 name|files
@@ -1069,14 +1050,7 @@ argument_list|(
 literal|"\n"
 argument_list|)
 expr_stmt|;
-name|isAdded
-operator|=
-literal|true
-expr_stmt|;
 block|}
-return|return
-name|isAdded
-return|;
 block|}
 block|}
 end_class

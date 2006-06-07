@@ -33,20 +33,14 @@ decl_stmt|;
 specifier|private
 name|boolean
 name|isHashMap
-init|=
-literal|false
 decl_stmt|;
 specifier|private
 name|boolean
 name|isMetadata
-init|=
-literal|false
 decl_stmt|;
 specifier|private
 name|boolean
 name|isModel
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Class constructor      *      * @param isHashMap  indicates whether the object is a HashMap object      * @param isMetadata indicates whether the object is a RepositoryMetadata object      * @param isModel    indicates whether the object is a Model object      */
 specifier|public

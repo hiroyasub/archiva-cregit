@@ -14,7 +14,7 @@ package|;
 end_package
 
 begin_comment
-comment|/*  * Copyright 2001-2005 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0   *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_import
@@ -207,6 +207,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|FileNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -260,7 +270,7 @@ specifier|private
 name|ArtifactFactory
 name|artifactFactory
 decl_stmt|;
-comment|/**      * Class Constructor      *      * @param indexPath       the path where the index is available or will be made available      * @param repository      the repository where objects indexed by this class resides      * @param digester        the digester to be used for generating checksums      * @param artifactFactory the factory for building artifact objects      * @throws RepositoryIndexException      */
+comment|/**      * Class Constructor      *      * @param indexPath       the path where the index is available or will be made available      * @param repository      the repository where objects indexed by this class resides      * @param digester        the digester to be used for generating checksums      * @param artifactFactory the factory for building artifact objects      */
 specifier|public
 name|PomRepositoryIndex
 parameter_list|(
@@ -276,8 +286,6 @@ parameter_list|,
 name|ArtifactFactory
 name|artifactFactory
 parameter_list|)
-throws|throws
-name|RepositoryIndexException
 block|{
 name|super
 argument_list|(
@@ -1330,6 +1338,25 @@ argument_list|,
 name|algorithm
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|FileNotFoundException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RepositoryIndexException
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 catch|catch
 parameter_list|(
