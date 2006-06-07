@@ -27,6 +27,20 @@ name|maven
 operator|.
 name|artifact
 operator|.
+name|Artifact
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
 name|repository
 operator|.
 name|ArtifactRepository
@@ -109,6 +123,14 @@ comment|/**      * Get the list of paths excluded during the discovery process. 
 name|Iterator
 name|getExcludedPathsIterator
 parameter_list|()
+function_decl|;
+comment|/**      * Build an artifact from a path in the repository      *      * @param path the path      * @return the artifact      * @todo this should be in maven-artifact      */
+name|Artifact
+name|buildArtifact
+parameter_list|(
+name|String
+name|path
+parameter_list|)
 function_decl|;
 block|}
 end_interface

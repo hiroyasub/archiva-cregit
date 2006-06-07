@@ -41,22 +41,6 @@ name|maven
 operator|.
 name|artifact
 operator|.
-name|factory
-operator|.
-name|ArtifactFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
 name|manager
 operator|.
 name|ChecksumFailedException
@@ -155,7 +139,9 @@ name|maven
 operator|.
 name|repository
 operator|.
-name|ArtifactUtils
+name|discovery
+operator|.
+name|ArtifactDiscoverer
 import|;
 end_import
 
@@ -461,11 +447,6 @@ name|wagonManager
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
-name|ArtifactFactory
-name|artifactFactory
-decl_stmt|;
-comment|/**      * @plexus.requirement      */
-specifier|private
 name|ArtifactRepositoryFactory
 name|repositoryFactory
 decl_stmt|;
@@ -495,6 +476,16 @@ name|int
 name|MS_PER_SEC
 init|=
 literal|1000
+decl_stmt|;
+comment|/**      * @plexus.requirement role-hint="default"      * @todo use a map, and have priorities in them      */
+specifier|private
+name|ArtifactDiscoverer
+name|defaultArtifactDiscoverer
+decl_stmt|;
+comment|/**      * @plexus.requirement role-hint="legacy"      */
+specifier|private
+name|ArtifactDiscoverer
+name|legacyArtifactDiscoverer
 decl_stmt|;
 specifier|public
 name|void
@@ -681,13 +672,11 @@ block|{
 name|Artifact
 name|artifact
 init|=
-name|ArtifactUtils
+name|defaultArtifactDiscoverer
 operator|.
 name|buildArtifact
 argument_list|(
 name|path
-argument_list|,
-name|artifactFactory
 argument_list|)
 decl_stmt|;
 if|if
@@ -699,13 +688,11 @@ condition|)
 block|{
 name|artifact
 operator|=
-name|ArtifactUtils
+name|legacyArtifactDiscoverer
 operator|.
-name|buildArtifactFromLegacyPath
+name|buildArtifact
 argument_list|(
 name|path
-argument_list|,
-name|artifactFactory
 argument_list|)
 expr_stmt|;
 block|}
