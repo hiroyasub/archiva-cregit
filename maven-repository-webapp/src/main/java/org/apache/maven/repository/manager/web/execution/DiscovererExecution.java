@@ -359,17 +359,17 @@ specifier|private
 name|Configuration
 name|config
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.repository.discovery.ArtifactDiscoverer" role-hint="org.apache.maven.repository.discovery.DefaultArtifactDiscoverer"      */
+comment|/**      * @plexus.requirement role-hint="default"      */
 specifier|private
 name|ArtifactDiscoverer
 name|defaultArtifactDiscoverer
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.repository.discovery.ArtifactDiscoverer" role-hint="org.apache.maven.repository.discovery.LegacyArtifactDiscoverer"      */
+comment|/**      * @plexus.requirement role-hint="legacy"      */
 specifier|private
 name|ArtifactDiscoverer
 name|legacyArtifactDiscoverer
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.repository.discovery.MetadataDiscoverer" role-hint="org.apache.maven.repository.discovery.DefaultMetadataDiscoverer"      */
+comment|/**      * @plexus.requirement role-hint="default"      */
 specifier|private
 name|MetadataDiscoverer
 name|defaultMetadataDiscoverer

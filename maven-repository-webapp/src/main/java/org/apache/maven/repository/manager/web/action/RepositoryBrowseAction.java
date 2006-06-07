@@ -184,7 +184,7 @@ name|RepositoryBrowseAction
 implements|implements
 name|Action
 block|{
-comment|/**      * @plexus.requirement role-hint="org.apache.maven.repository.discovery.DefaultArtifactDiscoverer"      */
+comment|/**      * @plexus.requirement role-hint="default"      */
 specifier|private
 name|ArtifactDiscoverer
 name|discoverer
