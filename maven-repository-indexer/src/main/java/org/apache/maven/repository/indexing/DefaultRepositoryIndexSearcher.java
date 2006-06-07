@@ -1435,6 +1435,7 @@ name|GROUP_METADATA
 argument_list|)
 condition|)
 block|{
+comment|// TODO! use pathOfMetadata
 name|is
 operator|=
 operator|new
@@ -1504,6 +1505,7 @@ name|ARTIFACT_METADATA
 argument_list|)
 condition|)
 block|{
+comment|// TODO! use pathOfMetadata
 name|is
 operator|=
 operator|new
@@ -1588,6 +1590,7 @@ name|SNAPSHOT_METADATA
 argument_list|)
 condition|)
 block|{
+comment|// TODO! use pathOfMetadata
 name|is
 operator|=
 operator|new

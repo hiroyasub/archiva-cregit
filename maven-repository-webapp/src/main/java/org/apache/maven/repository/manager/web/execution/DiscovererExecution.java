@@ -633,7 +633,7 @@ literal|"[DiscovererExecution] Finished discovery and indexing."
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Method that discovers and indexes artifacts, poms and metadata in a default      * m2 repository structure      *      * @throws MalformedURLException      * @throws RepositoryIndexException      */
+comment|/**      * Method that discovers and indexes artifacts, poms and metadata in a default      * m2 repository structure.      *      * @throws MalformedURLException      * @throws RepositoryIndexException      * @todo why is this any different from legacy?      */
 specifier|protected
 name|void
 name|executeDiscovererInDefaultRepo
