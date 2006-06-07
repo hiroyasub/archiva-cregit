@@ -66,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.indexing.RepositoryIndexingFactory"  */
+comment|/**  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.indexing.RepositoryIndexingFactory"  * @todo these methods should be replaced by plexus lookups of some kind!  */
 end_comment
 
 begin_class

@@ -396,7 +396,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation Class for searching through the index  */
+comment|/**  * Implementation Class for searching through the index.  *  * @todo this is not a component, but extends ALE, meaning logging will throw an exception! -- should be a component  */
 end_comment
 
 begin_class

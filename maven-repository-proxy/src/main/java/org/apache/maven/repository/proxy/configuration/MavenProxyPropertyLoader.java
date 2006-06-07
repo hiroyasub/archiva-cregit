@@ -599,7 +599,9 @@ return|return
 name|config
 return|;
 block|}
+comment|/**      * @todo should be shared with any other configuration loader - move method to configuration?      */
 specifier|private
+specifier|static
 name|void
 name|validateRemoteRepo
 parameter_list|(
@@ -803,7 +805,9 @@ return|return
 name|value
 return|;
 block|}
+comment|/**      * @todo should be shared with any other configuration loader - move method to configuration?      */
 specifier|private
+specifier|static
 name|void
 name|validateDirectories
 parameter_list|(

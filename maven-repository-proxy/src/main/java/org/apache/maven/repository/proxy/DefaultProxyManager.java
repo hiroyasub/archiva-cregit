@@ -428,7 +428,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.proxy.ProxyManager"  * @todo too much of wagon manager is reproduced here because checksums need to be downloaded separately - is that necessary?  * @todo this isn't reusing the parts of wagon manager than handle snapshots [!]  */
+comment|/**  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.proxy.ProxyManager"  * @todo too much of wagon manager is reproduced here because checksums need to be downloaded separately - is that necessary?  * @todo this isn't reusing the parts of wagon manager than handle snapshots [!]  * @todo currently, cache must be in the same layout as the request, which prohibits any mapping  */
 end_comment
 
 begin_class
