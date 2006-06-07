@@ -2352,7 +2352,6 @@ name|PomTranslationException
 name|e
 parameter_list|)
 block|{
-comment|// TODO! check handling, fix error message
 name|reporter
 operator|.
 name|addFailure
