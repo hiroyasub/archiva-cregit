@@ -102,7 +102,7 @@ name|MetadataDiscoverer
 operator|.
 name|ROLE
 argument_list|,
-literal|"org.apache.maven.repository.discovery.DefaultMetadataDiscoverer"
+literal|"default"
 argument_list|)
 expr_stmt|;
 name|repositoryLocation
