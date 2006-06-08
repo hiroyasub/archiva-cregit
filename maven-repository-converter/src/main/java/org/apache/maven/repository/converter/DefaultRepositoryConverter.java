@@ -1908,7 +1908,6 @@ name|exists
 argument_list|()
 condition|)
 block|{
-comment|// TODO: utility methods in the model converter
 name|File
 name|targetFile
 init|=
