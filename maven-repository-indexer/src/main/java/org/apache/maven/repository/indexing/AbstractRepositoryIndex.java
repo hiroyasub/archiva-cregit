@@ -184,7 +184,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract class for RepositoryIndexers.  *  * @author Edwin Punzalan  */
+comment|/**  * Abstract class for RepositoryIndexers.  *  * @author Edwin Punzalan  * @todo [BP] overall am not happy with the design of this class and subclasses, but will refactor over time based on how it is used and by assessing how this affects Lucene's performance  */
 end_comment
 
 begin_class
@@ -195,7 +195,7 @@ name|AbstractRepositoryIndex
 implements|implements
 name|RepositoryIndex
 block|{
-comment|// TODO [!] can this be derived from the repository?
+comment|// TODO: can this be derived from the repository? -- probably a sensible default, but still should be configurable, but this could just be on the call to open()
 specifier|private
 name|String
 name|indexPath
@@ -204,7 +204,7 @@ specifier|private
 name|boolean
 name|indexOpen
 decl_stmt|;
-comment|// TODO [!] why is the writer open for the life, but not the reader? why keep them open that length of time anyway? investigate best practices in Lucene
+comment|// TODO: why is the writer open for the life, but not the reader? why keep them open that length of time anyway? investigate best practices in Lucene
 specifier|private
 name|IndexWriter
 name|indexWriter
@@ -213,7 +213,6 @@ specifier|protected
 name|ArtifactRepository
 name|repository
 decl_stmt|;
-comment|// TODO [!] is this really needed externally?
 specifier|private
 name|Analyzer
 name|analyzer
@@ -435,7 +434,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// TODO [!] why is this allowed to be called before open()?
+comment|// TODO: why is this allowed to be called before open()?
 if|if
 condition|(
 name|indexWriter
