@@ -200,6 +200,14 @@ argument_list|)
 decl_stmt|;
 name|testFile
 operator|.
+name|getParentFile
+argument_list|()
+operator|.
+name|mkdirs
+argument_list|()
+expr_stmt|;
+name|testFile
+operator|.
 name|createNewFile
 argument_list|()
 expr_stmt|;
@@ -253,14 +261,25 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|assertTrue
+name|contents
+operator|=
+name|FileUtils
+operator|.
+name|fileRead
 argument_list|(
-literal|"Test file is not yet created"
-argument_list|,
 name|testFile
 operator|.
-name|exists
+name|getAbsolutePath
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Test contents have not changed"
+argument_list|,
+literal|"modified contents"
+argument_list|,
+name|contents
 argument_list|)
 expr_stmt|;
 name|event
@@ -268,43 +287,25 @@ operator|.
 name|rollback
 argument_list|()
 expr_stmt|;
-name|assertFalse
+name|contents
+operator|=
+name|FileUtils
+operator|.
+name|fileRead
 argument_list|(
-literal|"Test file is has been deleted after rollback"
-argument_list|,
 name|testFile
 operator|.
-name|exists
+name|getAbsolutePath
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertEquals
 argument_list|(
-literal|"Test file parent directories has been rolledback too"
+literal|"Test contents have not changed"
 argument_list|,
-name|testDir
-operator|.
-name|exists
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"target directory still exists"
+literal|"original contents"
 argument_list|,
-operator|new
-name|File
-argument_list|(
-name|PlexusTestCase
-operator|.
-name|getBasedir
-argument_list|()
-argument_list|,
-literal|"target"
-argument_list|)
-operator|.
-name|exists
-argument_list|()
+name|contents
 argument_list|)
 expr_stmt|;
 block|}
@@ -397,7 +398,10 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-name|testDir
+name|PlexusTestCase
+operator|.
+name|getBasedir
+argument_list|()
 argument_list|,
 literal|"target/transaction-tests"
 argument_list|)
