@@ -428,7 +428,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.proxy.ProxyManager"  * @todo too much of wagon manager is reproduced here because checksums need to be downloaded separately - is that necessary?  * @todo this isn't reusing the parts of wagon manager than handle snapshots [!]  * @todo currently, cache must be in the same layout as the request, which prohibits any mapping  */
+comment|/**  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.proxy.ProxyManager"  * @todo too much of wagon manager is reproduced here because checksums need to be downloaded separately - is that necessary?  * @todo this isn't reusing the parts of artifact resolver that handles snapshots - should this be more artifact based than file-based?  * @todo currently, cache must be in the same layout as the request, which prohibits any mapping  */
 end_comment
 
 begin_class
@@ -450,17 +450,11 @@ specifier|private
 name|ArtifactRepositoryFactory
 name|repositoryFactory
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|ProxyConfiguration
-name|config
-decl_stmt|;
 comment|/**      * @plexus.requirement role="org.apache.maven.artifact.repository.layout.ArtifactRepositoryLayout"      */
 specifier|private
 name|Map
 name|repositoryLayoutMap
 decl_stmt|;
-comment|/**      * A map      */
 specifier|private
 name|Map
 name|failuresCache
@@ -468,6 +462,10 @@ init|=
 operator|new
 name|HashMap
 argument_list|()
+decl_stmt|;
+specifier|private
+name|ProxyConfiguration
+name|config
 decl_stmt|;
 specifier|private
 specifier|static
@@ -501,15 +499,6 @@ name|config
 operator|=
 name|config
 expr_stmt|;
-block|}
-specifier|public
-name|ProxyConfiguration
-name|getConfiguration
-parameter_list|()
-block|{
-return|return
-name|config
-return|;
 block|}
 comment|/**      * @see org.apache.maven.repository.proxy.ProxyManager#get(String)      */
 specifier|public
@@ -558,7 +547,7 @@ condition|)
 block|{
 name|cachedFile
 operator|=
-name|getRemoteFile
+name|getAlways
 argument_list|(
 name|path
 argument_list|)
@@ -568,10 +557,10 @@ return|return
 name|cachedFile
 return|;
 block|}
-comment|/**      * @see org.apache.maven.repository.proxy.ProxyManager#getRemoteFile(String)      */
+comment|/**      * @see org.apache.maven.repository.proxy.ProxyManager#getAlways(String)      */
 specifier|public
 name|File
-name|getRemoteFile
+name|getAlways
 parameter_list|(
 name|String
 name|path
@@ -1444,7 +1433,7 @@ name|getProtocol
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//@todo configure wagonManager [!]
+comment|//@todo configure wagon (ssh settings, etc)
 if|if
 condition|(
 name|useChecksum

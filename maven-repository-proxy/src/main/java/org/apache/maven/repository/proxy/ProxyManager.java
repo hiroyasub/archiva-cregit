@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class used to bridge the servlet to the repository proxy implementation.  *  * @author Edwin Punzalan  * @todo the names get() and getRemoteFile() are confusing [!]  */
+comment|/**  * Class used to bridge the servlet to the repository proxy implementation.  *  * @author Edwin Punzalan  */
 end_comment
 
 begin_interface
@@ -92,7 +92,7 @@ name|ResourceDoesNotExistException
 function_decl|;
 comment|/**      * Used to force remote download of the requested path from any the configured repositories.  This method will      * only bypass the cache for searching but the requested path will still be cached.      *      * @param path the expected repository path      * @return File object referencing the requested path in the cache      * @throws ProxyException                when an exception occurred during the retrieval of the requested path      * @throws ResourceDoesNotExistException when the requested object can't be found in any of the      *                                       configured repositories      */
 name|File
-name|getRemoteFile
+name|getAlways
 parameter_list|(
 name|String
 name|path
@@ -109,11 +109,6 @@ parameter_list|(
 name|ProxyConfiguration
 name|config
 parameter_list|)
-function_decl|;
-comment|/**      * Used to retrieve the configuration describing the behavior of the proxy      *      * @return the ProxyConfiguration of this proxy      */
-name|ProxyConfiguration
-name|getConfiguration
-parameter_list|()
 function_decl|;
 block|}
 end_interface
