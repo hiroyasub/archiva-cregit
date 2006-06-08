@@ -1165,7 +1165,7 @@ name|ArtifactRepositoryPolicy
 name|getReleasesPolicy
 parameter_list|()
 block|{
-comment|//todo get policy configuration from ProxyConfiguration [!]
+comment|//todo get policy configuration from ProxyConfiguration
 return|return
 operator|new
 name|ArtifactRepositoryPolicy
@@ -1177,7 +1177,7 @@ name|ArtifactRepositoryPolicy
 name|getSnapshotsPolicy
 parameter_list|()
 block|{
-comment|//todo get policy configuration from ProxyConfiguration [!]
+comment|//todo get policy configuration from ProxyConfiguration
 return|return
 operator|new
 name|ArtifactRepositoryPolicy

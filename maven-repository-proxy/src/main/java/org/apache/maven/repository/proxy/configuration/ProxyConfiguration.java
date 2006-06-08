@@ -94,7 +94,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class to represent the configuration file for the proxy  *  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.proxy.configuration.ProxyConfiguration"  * @todo investigate how these should be set - probably plexus configuration [!]  */
+comment|/**  * Class to represent the configuration file for the proxy  *  * @author Edwin Punzalan  */
 end_comment
 
 begin_class
@@ -102,19 +102,6 @@ specifier|public
 class|class
 name|ProxyConfiguration
 block|{
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|ROLE
-init|=
-name|ProxyConfiguration
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-decl_stmt|;
 specifier|private
 name|List
 name|repositories
