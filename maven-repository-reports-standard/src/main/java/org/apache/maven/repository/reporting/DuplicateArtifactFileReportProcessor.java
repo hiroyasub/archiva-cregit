@@ -41,22 +41,6 @@ name|maven
 operator|.
 name|artifact
 operator|.
-name|factory
-operator|.
-name|ArtifactFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
 name|repository
 operator|.
 name|ArtifactRepository
@@ -89,39 +73,7 @@ name|repository
 operator|.
 name|digest
 operator|.
-name|DefaultDigester
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|repository
-operator|.
-name|digest
-operator|.
 name|Digester
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|repository
-operator|.
-name|indexing
-operator|.
-name|DefaultRepositoryIndexingFactory
 import|;
 end_import
 
@@ -308,7 +260,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Validates an artifact file for duplicates within the same groupId based from what's available in a RepositoryIndex  *  * @author Edwin Punzalan  */
+comment|/**  * Validates an artifact file for duplicates within the same groupId based from what's available in a RepositoryIndex  *  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.reporting.ArtifactReportProcessor" role-hint="duplicate"  */
 end_comment
 
 begin_class
@@ -318,10 +270,12 @@ name|DuplicateArtifactFileReportProcessor
 implements|implements
 name|ArtifactReportProcessor
 block|{
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|Digester
 name|digester
 decl_stmt|;
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|RepositoryIndexingFactory
 name|indexFactory
@@ -335,14 +289,10 @@ name|RepositoryIndex
 operator|.
 name|FLD_MD5
 decl_stmt|;
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|RepositoryIndexSearchLayer
 name|searchLayer
-decl_stmt|;
-comment|//@todo must be injected
-specifier|private
-name|ArtifactFactory
-name|artifactFactory
 decl_stmt|;
 specifier|public
 name|void
@@ -386,36 +336,6 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 decl_stmt|;
-comment|//@todo may be injected?
-if|if
-condition|(
-name|digester
-operator|==
-literal|null
-condition|)
-block|{
-name|digester
-operator|=
-operator|new
-name|DefaultDigester
-argument_list|()
-expr_stmt|;
-block|}
-comment|//@todo may be injected?
-if|if
-condition|(
-name|indexFactory
-operator|==
-literal|null
-condition|)
-block|{
-name|indexFactory
-operator|=
-operator|new
-name|DefaultRepositoryIndexingFactory
-argument_list|()
-expr_stmt|;
-block|}
 name|RepositoryIndex
 name|index
 decl_stmt|;
@@ -448,24 +368,6 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
-block|}
-if|if
-condition|(
-name|searchLayer
-operator|==
-literal|null
-condition|)
-block|{
-name|searchLayer
-operator|=
-operator|new
-name|RepositoryIndexSearchLayer
-argument_list|(
-name|index
-argument_list|,
-name|artifactFactory
-argument_list|)
-expr_stmt|;
 block|}
 name|String
 name|checksum
@@ -543,6 +445,8 @@ operator|.
 name|searchAdvanced
 argument_list|(
 name|query
+argument_list|,
+name|index
 argument_list|)
 decl_stmt|;
 if|if
@@ -715,30 +619,6 @@ literal|"Artifact file is null"
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-specifier|public
-name|ArtifactFactory
-name|getArtifactFactory
-parameter_list|()
-block|{
-return|return
-name|artifactFactory
-return|;
-block|}
-specifier|public
-name|void
-name|setArtifactFactory
-parameter_list|(
-name|ArtifactFactory
-name|artifactFactory
-parameter_list|)
-block|{
-name|this
-operator|.
-name|artifactFactory
-operator|=
-name|artifactFactory
-expr_stmt|;
 block|}
 block|}
 end_class
