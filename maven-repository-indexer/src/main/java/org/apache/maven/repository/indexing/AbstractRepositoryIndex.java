@@ -184,7 +184,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract class for RepositoryIndexers  *  * @author Edwin Punzalan  */
+comment|/**  * Abstract class for RepositoryIndexers.  *  * @author Edwin Punzalan  */
 end_comment
 
 begin_class
@@ -195,6 +195,7 @@ name|AbstractRepositoryIndex
 implements|implements
 name|RepositoryIndex
 block|{
+comment|// TODO [!] can this be derived from the repository?
 specifier|private
 name|String
 name|indexPath
@@ -203,6 +204,7 @@ specifier|private
 name|boolean
 name|indexOpen
 decl_stmt|;
+comment|// TODO [!] why is the writer open for the life, but not the reader? why keep them open that length of time anyway? investigate best practices in Lucene
 specifier|private
 name|IndexWriter
 name|indexWriter
@@ -211,6 +213,7 @@ specifier|protected
 name|ArtifactRepository
 name|repository
 decl_stmt|;
+comment|// TODO [!] is this really needed externally?
 specifier|private
 name|Analyzer
 name|analyzer
@@ -432,6 +435,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// TODO [!] why is this allowed to be called before open()?
 if|if
 condition|(
 name|indexWriter
@@ -631,7 +635,7 @@ name|RepositoryIndexException
 argument_list|(
 name|indexPath
 operator|+
-literal|"is not a valid directory."
+literal|" is not a valid directory."
 argument_list|)
 throw|;
 block|}

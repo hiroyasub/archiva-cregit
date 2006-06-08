@@ -54,12 +54,26 @@ specifier|public
 interface|interface
 name|RepositoryIndexSearcher
 block|{
-comment|/**      * Search the artifact based on the search criteria specified in the query object. Returns a list of      * artifact objects.      *      * @param query The query object that contains the search criteria.      * @return List      * @throws RepositoryIndexSearchException      */
+comment|/**      * Plexus component role name.      */
+name|String
+name|ROLE
+init|=
+name|RepositoryIndexSearcher
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
+comment|/**      * Search the artifact based on the search criteria specified in the query object. Returns a list of      * artifact objects.      *      * @param query The query object that contains the search criteria.      * @param index      * @return List      * @throws RepositoryIndexSearchException      */
 name|List
 name|search
 parameter_list|(
 name|Query
 name|query
+parameter_list|,
+name|RepositoryIndex
+name|index
 parameter_list|)
 throws|throws
 name|RepositoryIndexSearchException

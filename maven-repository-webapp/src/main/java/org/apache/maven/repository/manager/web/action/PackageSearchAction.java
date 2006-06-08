@@ -264,6 +264,11 @@ name|repositoryFactory
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
+name|RepositoryIndexSearchLayer
+name|searchLayer
+decl_stmt|;
+comment|/**      * @plexus.requirement      */
+specifier|private
 name|Configuration
 name|configuration
 decl_stmt|;
@@ -404,16 +409,6 @@ argument_list|,
 name|repository
 argument_list|)
 decl_stmt|;
-name|RepositoryIndexSearchLayer
-name|searchLayer
-init|=
-name|factory
-operator|.
-name|createRepositoryIndexSearchLayer
-argument_list|(
-name|index
-argument_list|)
-decl_stmt|;
 name|searchResult
 operator|=
 name|searchLayer
@@ -427,6 +422,8 @@ name|key
 argument_list|,
 name|searchTerm
 argument_list|)
+argument_list|,
+name|index
 argument_list|)
 expr_stmt|;
 return|return

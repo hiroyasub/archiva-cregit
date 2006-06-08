@@ -66,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.indexing.RepositoryIndexingFactory"  * @todo these methods should be replaced by plexus lookups of some kind!  */
+comment|/**  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.indexing.RepositoryIndexingFactory"  */
 end_comment
 
 begin_class
@@ -161,44 +161,6 @@ argument_list|(
 name|indexPath
 argument_list|,
 name|repository
-argument_list|)
-return|;
-block|}
-comment|/*      * @see RepositoryIndexingFactory#createRepositoryIndexSearchLayer(RepositoryIndex)      */
-specifier|public
-name|RepositoryIndexSearchLayer
-name|createRepositoryIndexSearchLayer
-parameter_list|(
-name|RepositoryIndex
-name|index
-parameter_list|)
-block|{
-return|return
-operator|new
-name|RepositoryIndexSearchLayer
-argument_list|(
-name|index
-argument_list|,
-name|artifactFactory
-argument_list|)
-return|;
-block|}
-comment|/**      * @see RepositoryIndexingFactory#createDefaultRepositoryIndexSearcher(RepositoryIndex)      */
-specifier|public
-name|DefaultRepositoryIndexSearcher
-name|createDefaultRepositoryIndexSearcher
-parameter_list|(
-name|RepositoryIndex
-name|index
-parameter_list|)
-block|{
-return|return
-operator|new
-name|DefaultRepositoryIndexSearcher
-argument_list|(
-name|index
-argument_list|,
-name|artifactFactory
 argument_list|)
 return|;
 block|}

@@ -622,6 +622,19 @@ operator|.
 name|ROLE
 argument_list|)
 decl_stmt|;
+name|RepositoryIndexSearchLayer
+name|repoSearchLayer
+init|=
+operator|(
+name|RepositoryIndexSearchLayer
+operator|)
+name|lookup
+argument_list|(
+name|RepositoryIndexSearchLayer
+operator|.
+name|ROLE
+argument_list|)
+decl_stmt|;
 name|PomRepositoryIndex
 name|indexer
 init|=
@@ -632,17 +645,6 @@ argument_list|(
 name|indexPath
 argument_list|,
 name|repository
-argument_list|)
-decl_stmt|;
-comment|//RepositoryIndexSearcher repoSearchLayer = factory.createDefaultRepositoryIndexSearcher( indexer );
-name|RepositoryIndexSearchLayer
-name|repoSearchLayer
-init|=
-name|factory
-operator|.
-name|createRepositoryIndexSearchLayer
-argument_list|(
-name|indexer
 argument_list|)
 decl_stmt|;
 comment|// search version
@@ -667,6 +669,8 @@ operator|.
 name|searchAdvanced
 argument_list|(
 name|qry
+argument_list|,
+name|indexer
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -746,6 +750,8 @@ operator|.
 name|searchAdvanced
 argument_list|(
 name|qry
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -824,6 +830,8 @@ operator|.
 name|searchAdvanced
 argument_list|(
 name|qry
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -902,6 +910,8 @@ operator|.
 name|searchAdvanced
 argument_list|(
 name|qry
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -986,6 +996,8 @@ operator|.
 name|searchAdvanced
 argument_list|(
 name|qry
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1079,6 +1091,8 @@ operator|.
 name|searchAdvanced
 argument_list|(
 name|qry
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1193,6 +1207,8 @@ operator|.
 name|searchAdvanced
 argument_list|(
 name|qry
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1332,6 +1348,8 @@ operator|.
 name|searchAdvanced
 argument_list|(
 name|qry
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1471,6 +1489,8 @@ operator|.
 name|searchAdvanced
 argument_list|(
 name|qry
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1663,6 +1683,8 @@ operator|.
 name|searchAdvanced
 argument_list|(
 name|qry
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1775,6 +1797,8 @@ operator|.
 name|searchAdvanced
 argument_list|(
 name|qry
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1877,6 +1901,19 @@ operator|.
 name|ROLE
 argument_list|)
 decl_stmt|;
+name|RepositoryIndexSearchLayer
+name|repoSearchLayer
+init|=
+operator|(
+name|RepositoryIndexSearchLayer
+operator|)
+name|lookup
+argument_list|(
+name|RepositoryIndexSearchLayer
+operator|.
+name|ROLE
+argument_list|)
+decl_stmt|;
 name|PomRepositoryIndex
 name|indexer
 init|=
@@ -1887,17 +1924,6 @@ argument_list|(
 name|indexPath
 argument_list|,
 name|repository
-argument_list|)
-decl_stmt|;
-comment|//RepositoryIndexSearcher repoSearchLayer = factory.createDefaultRepositoryIndexSearcher( indexer );
-name|RepositoryIndexSearchLayer
-name|repoSearchLayer
-init|=
-name|factory
-operator|.
-name|createRepositoryIndexSearchLayer
-argument_list|(
-name|indexer
 argument_list|)
 decl_stmt|;
 comment|// Criteria 1: required query
@@ -1957,6 +1983,8 @@ operator|.
 name|searchAdvanced
 argument_list|(
 name|rQry
+argument_list|,
+name|indexer
 argument_list|)
 decl_stmt|;
 for|for
@@ -2060,6 +2088,8 @@ operator|.
 name|searchAdvanced
 argument_list|(
 name|oQry
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 for|for
@@ -2238,6 +2268,8 @@ operator|.
 name|searchAdvanced
 argument_list|(
 name|rQry2
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 for|for
@@ -2387,6 +2419,8 @@ operator|.
 name|searchAdvanced
 argument_list|(
 name|oQry2
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 for|for
@@ -2523,6 +2557,8 @@ operator|.
 name|searchAdvanced
 argument_list|(
 name|oQry2
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 for|for
@@ -2759,6 +2795,19 @@ operator|.
 name|ROLE
 argument_list|)
 decl_stmt|;
+name|RepositoryIndexSearcher
+name|repoSearcher
+init|=
+operator|(
+name|RepositoryIndexSearcher
+operator|)
+name|lookup
+argument_list|(
+name|RepositoryIndexSearcher
+operator|.
+name|ROLE
+argument_list|)
+decl_stmt|;
 name|PomRepositoryIndex
 name|indexer
 init|=
@@ -2801,16 +2850,6 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|RepositoryIndexSearcher
-name|repoSearcher
-init|=
-name|factory
-operator|.
-name|createDefaultRepositoryIndexSearcher
-argument_list|(
-name|indexer
-argument_list|)
-decl_stmt|;
 name|Query
 name|qry
 init|=
@@ -2839,6 +2878,8 @@ operator|.
 name|search
 argument_list|(
 name|qry
+argument_list|,
+name|indexer
 argument_list|)
 decl_stmt|;
 name|assertEquals

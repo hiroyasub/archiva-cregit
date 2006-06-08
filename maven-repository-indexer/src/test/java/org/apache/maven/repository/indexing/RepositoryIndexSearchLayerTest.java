@@ -1038,6 +1038,19 @@ operator|.
 name|ROLE
 argument_list|)
 decl_stmt|;
+name|RepositoryIndexSearchLayer
+name|searchLayer
+init|=
+operator|(
+name|RepositoryIndexSearchLayer
+operator|)
+name|lookup
+argument_list|(
+name|RepositoryIndexSearchLayer
+operator|.
+name|ROLE
+argument_list|)
+decl_stmt|;
 name|ArtifactRepositoryIndex
 name|indexer
 init|=
@@ -1050,16 +1063,6 @@ argument_list|,
 name|repository
 argument_list|)
 decl_stmt|;
-name|RepositoryIndexSearchLayer
-name|searchLayer
-init|=
-name|factory
-operator|.
-name|createRepositoryIndexSearchLayer
-argument_list|(
-name|indexer
-argument_list|)
-decl_stmt|;
 name|List
 name|returnList
 init|=
@@ -1068,6 +1071,8 @@ operator|.
 name|searchGeneral
 argument_list|(
 literal|"org.apache.maven"
+argument_list|,
+name|indexer
 argument_list|)
 decl_stmt|;
 for|for
@@ -1222,6 +1227,8 @@ operator|.
 name|searchGeneral
 argument_list|(
 literal|"http://www.apache.org/licenses/LICENSE-2.0.txt"
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 for|for
@@ -1368,6 +1375,8 @@ operator|.
 name|searchGeneral
 argument_list|(
 literal|"org.codehaus.plexus:plexus-utils:1.0.5"
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 for|for
@@ -1514,6 +1523,8 @@ operator|.
 name|searchGeneral
 argument_list|(
 literal|"org.apache.maven.plugins:maven-checkstyle-plugin:2.0"
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 for|for
@@ -1660,6 +1671,8 @@ operator|.
 name|searchGeneral
 argument_list|(
 literal|"org.codehaus.modello:modello-maven-plugin:2.0"
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 for|for
@@ -1806,6 +1819,8 @@ operator|.
 name|searchGeneral
 argument_list|(
 literal|"F5A934ABBBC70A33136D89A996B9D5C09F652766"
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 for|for
@@ -1931,6 +1946,8 @@ operator|.
 name|searchGeneral
 argument_list|(
 literal|"AE55D9B5720E11B6CF19FE1E31A42E51"
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 for|for
@@ -2056,6 +2073,8 @@ operator|.
 name|searchGeneral
 argument_list|(
 literal|"jar"
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 for|for
@@ -2172,6 +2191,8 @@ operator|.
 name|searchGeneral
 argument_list|(
 literal|"test"
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 for|for
@@ -2223,6 +2244,8 @@ operator|.
 name|searchGeneral
 argument_list|(
 literal|"test-artifactId"
+argument_list|,
+name|indexer
 argument_list|)
 expr_stmt|;
 for|for

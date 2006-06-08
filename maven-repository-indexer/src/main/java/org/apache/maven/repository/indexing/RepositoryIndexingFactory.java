@@ -91,22 +91,6 @@ parameter_list|)
 throws|throws
 name|RepositoryIndexException
 function_decl|;
-comment|/**      * Method to create an instance of RepositoryIndexSearchLayer      *      * @param index the RepositoryIndex object where the query string will be searched      * @return the RepositoryIndexSearchLayer instance      */
-name|RepositoryIndexSearchLayer
-name|createRepositoryIndexSearchLayer
-parameter_list|(
-name|RepositoryIndex
-name|index
-parameter_list|)
-function_decl|;
-comment|/**      * Method to create an instance of DefaultRepositoryIndexSearcher      *      * @param index the RepositoryIndex object where the query string will be searched      * @return the DefaultRepositoryIndexSearcher instance      */
-name|DefaultRepositoryIndexSearcher
-name|createDefaultRepositoryIndexSearcher
-parameter_list|(
-name|RepositoryIndex
-name|index
-parameter_list|)
-function_decl|;
 block|}
 end_interface
 
