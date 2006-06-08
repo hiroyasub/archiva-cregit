@@ -526,6 +526,9 @@ name|index
 operator|.
 name|getIndexPath
 argument_list|()
+operator|.
+name|getAbsolutePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -259,7 +259,7 @@ name|ArtifactRepository
 name|repository
 decl_stmt|;
 specifier|private
-name|String
+name|File
 name|indexPath
 decl_stmt|;
 specifier|private
@@ -350,7 +350,10 @@ argument_list|()
 expr_stmt|;
 name|indexPath
 operator|=
+name|getTestFile
+argument_list|(
 literal|"target/index"
+argument_list|)
 expr_stmt|;
 name|FileUtils
 operator|.
@@ -416,7 +419,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|String
+name|File
 name|notIndexDir
 init|=
 operator|new
@@ -424,9 +427,6 @@ name|File
 argument_list|(
 literal|"pom.xml"
 argument_list|)
-operator|.
-name|getAbsolutePath
-argument_list|()
 decl_stmt|;
 name|ArtifactRepositoryIndex
 name|indexer
@@ -467,7 +467,7 @@ expr_stmt|;
 block|}
 try|try
 block|{
-name|String
+name|File
 name|notIndexDir
 init|=
 operator|new
@@ -475,9 +475,6 @@ name|File
 argument_list|(
 literal|""
 argument_list|)
-operator|.
-name|getAbsolutePath
-argument_list|()
 decl_stmt|;
 name|ArtifactRepositoryIndex
 name|indexer
@@ -2519,7 +2516,10 @@ name|factory
 operator|.
 name|createArtifactRepositoryIndex
 argument_list|(
+name|getTestFile
+argument_list|(
 literal|"target/index/sample"
+argument_list|)
 argument_list|,
 name|repository
 argument_list|)

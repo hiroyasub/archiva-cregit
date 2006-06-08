@@ -274,7 +274,7 @@ comment|/**      * Class Constructor      *      * @param indexPath       the pa
 specifier|public
 name|PomRepositoryIndex
 parameter_list|(
-name|String
+name|File
 name|indexPath
 parameter_list|,
 name|ArtifactRepository

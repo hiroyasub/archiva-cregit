@@ -388,9 +388,6 @@ index|]
 argument_list|,
 literal|".index"
 argument_list|)
-operator|.
-name|getAbsolutePath
-argument_list|()
 argument_list|,
 name|repository
 argument_list|)

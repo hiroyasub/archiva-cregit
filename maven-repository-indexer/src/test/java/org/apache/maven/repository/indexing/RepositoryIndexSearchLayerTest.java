@@ -399,7 +399,7 @@ name|ArtifactFactory
 name|artifactFactory
 decl_stmt|;
 specifier|private
-name|String
+name|File
 name|indexPath
 decl_stmt|;
 comment|/**      * Setup method      *      * @throws Exception      */
@@ -481,7 +481,10 @@ argument_list|)
 expr_stmt|;
 name|indexPath
 operator|=
+name|getTestFile
+argument_list|(
 literal|"target/index"
+argument_list|)
 expr_stmt|;
 name|FileUtils
 operator|.

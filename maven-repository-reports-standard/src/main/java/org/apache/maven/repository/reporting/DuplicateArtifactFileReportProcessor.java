@@ -323,8 +323,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|//@todo remove hard-coded value; current value enables tests to pass
-name|String
+comment|//@todo remove hard-coded value; current value enables tests to pass!
+name|File
 name|indexPath
 init|=
 operator|new
@@ -332,9 +332,6 @@ name|File
 argument_list|(
 literal|"target/.index"
 argument_list|)
-operator|.
-name|getAbsolutePath
-argument_list|()
 decl_stmt|;
 name|RepositoryIndex
 name|index

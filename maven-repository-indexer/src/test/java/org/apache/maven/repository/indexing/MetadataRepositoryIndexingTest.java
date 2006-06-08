@@ -433,7 +433,7 @@ name|ArtifactRepository
 name|repository
 decl_stmt|;
 specifier|private
-name|String
+name|File
 name|indexPath
 decl_stmt|;
 specifier|private
@@ -519,7 +519,10 @@ argument_list|)
 expr_stmt|;
 name|indexPath
 operator|=
+name|getTestFile
+argument_list|(
 literal|"target/index"
+argument_list|)
 expr_stmt|;
 name|FileUtils
 operator|.

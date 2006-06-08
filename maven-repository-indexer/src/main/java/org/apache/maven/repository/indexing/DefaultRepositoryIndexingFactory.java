@@ -65,6 +65,16 @@ name|Digester
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Edwin Punzalan  * @plexus.component role="org.apache.maven.repository.indexing.RepositoryIndexingFactory"  */
 end_comment
@@ -86,12 +96,11 @@ specifier|private
 name|ArtifactFactory
 name|artifactFactory
 decl_stmt|;
-comment|/**      * @see RepositoryIndexingFactory#createArtifactRepositoryIndex(String, org.apache.maven.artifact.repository.ArtifactRepository)      */
 specifier|public
 name|ArtifactRepositoryIndex
 name|createArtifactRepositoryIndex
 parameter_list|(
-name|String
+name|File
 name|indexPath
 parameter_list|,
 name|ArtifactRepository
@@ -112,12 +121,11 @@ name|digester
 argument_list|)
 return|;
 block|}
-comment|/**      * @see RepositoryIndexingFactory#createPomRepositoryIndex(String, org.apache.maven.artifact.repository.ArtifactRepository)      */
 specifier|public
 name|PomRepositoryIndex
 name|createPomRepositoryIndex
 parameter_list|(
-name|String
+name|File
 name|indexPath
 parameter_list|,
 name|ArtifactRepository
@@ -140,12 +148,11 @@ name|artifactFactory
 argument_list|)
 return|;
 block|}
-comment|/**      * @see RepositoryIndexingFactory#createMetadataRepositoryIndex(String, org.apache.maven.artifact.repository.ArtifactRepository)      */
 specifier|public
 name|MetadataRepositoryIndex
 name|createMetadataRepositoryIndex
 parameter_list|(
-name|String
+name|File
 name|indexPath
 parameter_list|,
 name|ArtifactRepository

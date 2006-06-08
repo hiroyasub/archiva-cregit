@@ -133,16 +133,6 @@ name|ParseException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Properties
-import|;
-end_import
-
 begin_comment
 comment|/**  * This class sets the job to be executed in the plexus-quartz scheduler  *  * @plexus.component role="org.apache.maven.repository.manager.web.job.DiscovererScheduler"  */
 end_comment
@@ -156,11 +146,6 @@ name|AbstractLogEnabled
 block|{
 comment|/**      * @plexus.requirement      */
 specifier|private
-name|Configuration
-name|config
-decl_stmt|;
-comment|/**      * @plexus.requirement      */
-specifier|private
 name|Scheduler
 name|scheduler
 decl_stmt|;
@@ -169,24 +154,19 @@ specifier|private
 name|DiscovererExecution
 name|execution
 decl_stmt|;
-comment|/**      * Method that sets the schedule in the plexus-quartz scheduler      *      * @throws ParseException      * @throws SchedulerException      */
+comment|/**      * Method that sets the schedule in the plexus-quartz scheduler      *      * @param cronExpression      * @throws ParseException      * @throws SchedulerException      */
 specifier|public
 name|void
 name|setSchedule
-parameter_list|()
+parameter_list|(
+name|String
+name|cronExpression
+parameter_list|)
 throws|throws
 name|ParseException
 throws|,
 name|SchedulerException
 block|{
-name|Properties
-name|props
-init|=
-name|config
-operator|.
-name|getProperties
-argument_list|()
-decl_stmt|;
 name|JobDetail
 name|jobDetail
 init|=
@@ -249,12 +229,7 @@ literal|"DiscovererTrigger"
 argument_list|,
 literal|"DISCOVERER"
 argument_list|,
-name|props
-operator|.
-name|getProperty
-argument_list|(
-literal|"cron.expression"
-argument_list|)
+name|cronExpression
 argument_list|)
 decl_stmt|;
 name|scheduler
@@ -266,32 +241,6 @@ argument_list|,
 name|trigger
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * Method that sets the configuration object      *      * @param config      */
-specifier|public
-name|void
-name|setConfiguration
-parameter_list|(
-name|Configuration
-name|config
-parameter_list|)
-block|{
-name|this
-operator|.
-name|config
-operator|=
-name|config
-expr_stmt|;
-block|}
-comment|/**      * Returns the cofiguration      *      * @return a Configuration object that contains the configuration values      */
-specifier|public
-name|Configuration
-name|getConfiguration
-parameter_list|()
-block|{
-return|return
-name|config
-return|;
 block|}
 block|}
 end_class

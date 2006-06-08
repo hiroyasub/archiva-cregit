@@ -51,6 +51,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -302,7 +312,7 @@ name|getAnalyzer
 parameter_list|()
 function_decl|;
 comment|/**      * Method to retrieve the path where the index is made available      *      * @return the path where the index resides      */
-name|String
+name|File
 name|getIndexPath
 parameter_list|()
 function_decl|;

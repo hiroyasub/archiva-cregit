@@ -139,6 +139,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -178,7 +188,7 @@ comment|/**      * Class Constructor      *      * @param indexPath  the path to
 specifier|public
 name|MetadataRepositoryIndex
 parameter_list|(
-name|String
+name|File
 name|indexPath
 parameter_list|,
 name|ArtifactRepository

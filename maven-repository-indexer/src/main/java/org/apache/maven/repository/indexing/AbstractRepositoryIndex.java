@@ -197,7 +197,7 @@ name|RepositoryIndex
 block|{
 comment|// TODO: can this be derived from the repository? -- probably a sensible default, but still should be configurable, but this could just be on the call to open()
 specifier|private
-name|String
+name|File
 name|indexPath
 decl_stmt|;
 specifier|private
@@ -221,7 +221,7 @@ comment|/**      * Class constructor      *      * @param indexPath      * @para
 specifier|protected
 name|AbstractRepositoryIndex
 parameter_list|(
-name|String
+name|File
 name|indexPath
 parameter_list|,
 name|ArtifactRepository
@@ -418,7 +418,7 @@ block|}
 block|}
 comment|/**      * @see org.apache.maven.repository.indexing.RepositoryIndex#getIndexPath()      */
 specifier|public
-name|String
+name|File
 name|getIndexPath
 parameter_list|()
 block|{
@@ -663,22 +663,13 @@ parameter_list|()
 throws|throws
 name|RepositoryIndexException
 block|{
-name|File
-name|indexDir
-init|=
-operator|new
-name|File
-argument_list|(
-name|indexPath
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|IndexReader
 operator|.
 name|indexExists
 argument_list|(
-name|indexDir
+name|indexPath
 argument_list|)
 condition|)
 block|{
@@ -689,7 +680,7 @@ block|}
 if|else if
 condition|(
 operator|!
-name|indexDir
+name|indexPath
 operator|.
 name|exists
 argument_list|()
@@ -701,7 +692,7 @@ return|;
 block|}
 if|else if
 condition|(
-name|indexDir
+name|indexPath
 operator|.
 name|isDirectory
 argument_list|()
@@ -709,7 +700,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|indexDir
+name|indexPath
 operator|.
 name|listFiles
 argument_list|()

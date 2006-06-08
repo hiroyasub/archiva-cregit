@@ -376,7 +376,7 @@ comment|/**      * Class constructor      *      * @param indexPath  the path wh
 specifier|public
 name|EclipseRepositoryIndex
 parameter_list|(
-name|String
+name|File
 name|indexPath
 parameter_list|,
 name|ArtifactRepository
@@ -784,12 +784,8 @@ block|{
 name|File
 name|indexPath
 init|=
-operator|new
-name|File
-argument_list|(
 name|getIndexPath
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|String
 name|name

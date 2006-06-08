@@ -33,6 +33,16 @@ name|ArtifactRepository
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Edwin Punzalan  */
 end_comment
@@ -56,7 +66,7 @@ comment|/**      * Method to create an instance of the ArtifactRepositoryIndex  
 name|ArtifactRepositoryIndex
 name|createArtifactRepositoryIndex
 parameter_list|(
-name|String
+name|File
 name|indexPath
 parameter_list|,
 name|ArtifactRepository
@@ -69,7 +79,7 @@ comment|/**      * Method to create an instance of the PomRepositoryIndex      *
 name|PomRepositoryIndex
 name|createPomRepositoryIndex
 parameter_list|(
-name|String
+name|File
 name|indexPath
 parameter_list|,
 name|ArtifactRepository
@@ -82,7 +92,7 @@ comment|/**      * Method to create instance of the MetadataRepositoryIndex     
 name|MetadataRepositoryIndex
 name|createMetadataRepositoryIndex
 parameter_list|(
-name|String
+name|File
 name|indexPath
 parameter_list|,
 name|ArtifactRepository
