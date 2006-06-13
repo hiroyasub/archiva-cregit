@@ -89,6 +89,8 @@ parameter_list|(
 name|String
 name|path
 parameter_list|)
+throws|throws
+name|DiscovererException
 block|{
 name|StringTokenizer
 name|tokens
@@ -103,8 +105,6 @@ argument_list|)
 decl_stmt|;
 name|Artifact
 name|result
-init|=
-literal|null
 decl_stmt|;
 name|int
 name|numberOfTokens
@@ -220,11 +220,6 @@ name|avceTokenList
 operator|.
 name|removeLast
 argument_list|()
-decl_stmt|;
-name|boolean
-name|valid
-init|=
-literal|true
 decl_stmt|;
 comment|// TODO: share with other discoverer, use artifact handlers instead
 if|if
@@ -412,27 +407,26 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|//type does not match extension
-name|valid
-operator|=
-literal|false
-expr_stmt|;
+throw|throw
+operator|new
+name|DiscovererException
+argument_list|(
+literal|"Path type does not match the extension"
+argument_list|)
+throw|;
 block|}
 block|}
 else|else
 block|{
-comment|// no extension
-name|valid
-operator|=
-literal|false
-expr_stmt|;
+throw|throw
+operator|new
+name|DiscovererException
+argument_list|(
+literal|"Path filename does not have an extension"
+argument_list|)
+throw|;
 block|}
 block|}
-if|if
-condition|(
-name|valid
-condition|)
-block|{
 comment|// let's discover the version, and whatever's leftover will be either
 comment|// a classifier, or part of the artifactId, depending on position.
 comment|// Since version is at the end, we have to move in from the back.
@@ -849,8 +843,8 @@ name|version
 operator|.
 name|length
 argument_list|()
-operator|>=
-literal|1
+operator|>
+literal|0
 condition|)
 block|{
 if|if
@@ -907,9 +901,48 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|DiscovererException
+argument_list|(
+literal|"Path filename version is empty"
+argument_list|)
+throw|;
 block|}
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|DiscovererException
+argument_list|(
+literal|"Path filename artifactId is empty"
+argument_list|)
+throw|;
 block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|DiscovererException
+argument_list|(
+literal|"Path artifact type does not corresspond to an artifact type"
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|DiscovererException
+argument_list|(
+literal|"Path does not match a legacy repository path for an artifact"
+argument_list|)
+throw|;
 block|}
 return|return
 name|result

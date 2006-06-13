@@ -163,6 +163,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|util
+operator|.
+name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -367,6 +381,8 @@ name|i
 operator|++
 control|)
 block|{
+try|try
+block|{
 name|RepositoryMetadata
 name|metadata
 init|=
@@ -383,13 +399,6 @@ name|i
 index|]
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|metadata
-operator|!=
-literal|null
-condition|)
-block|{
 name|metadataFiles
 operator|.
 name|add
@@ -398,7 +407,11 @@ name|metadata
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+catch|catch
+parameter_list|(
+name|DiscovererException
+name|e
+parameter_list|)
 block|{
 name|addKickedOutPath
 argument_list|(
@@ -406,6 +419,11 @@ name|metadataPaths
 index|[
 name|i
 index|]
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -425,6 +443,8 @@ parameter_list|,
 name|String
 name|metadataPath
 parameter_list|)
+throws|throws
+name|DiscovererException
 block|{
 name|Metadata
 name|m
@@ -494,10 +514,9 @@ name|XmlPullParserException
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
-operator|.
-name|error
+throw|throw
+operator|new
+name|DiscovererException
 argument_list|(
 literal|"Error parsing metadata file '"
 operator|+
@@ -512,7 +531,7 @@ argument_list|()
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 catch|catch
 parameter_list|(
@@ -521,10 +540,9 @@ name|e
 parameter_list|)
 block|{
 comment|// shouldn't happen
-name|getLogger
-argument_list|()
-operator|.
-name|error
+throw|throw
+operator|new
+name|DiscovererException
 argument_list|(
 literal|"Error constructing metadata file '"
 operator|+
@@ -539,7 +557,7 @@ argument_list|()
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 catch|catch
 parameter_list|(
@@ -547,10 +565,9 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
-operator|.
-name|error
+throw|throw
+operator|new
+name|DiscovererException
 argument_list|(
 literal|"Error reading metadata file '"
 operator|+
@@ -565,29 +582,32 @@ argument_list|()
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 name|RepositoryMetadata
 name|repositoryMetadata
 init|=
-literal|null
-decl_stmt|;
-if|if
-condition|(
-name|m
-operator|!=
-literal|null
-condition|)
-block|{
-name|repositoryMetadata
-operator|=
 name|buildMetadata
 argument_list|(
 name|m
 argument_list|,
 name|metadataPath
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+if|if
+condition|(
+name|repositoryMetadata
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|DiscovererException
+argument_list|(
+literal|"Unable to build a repository metadata from path"
+argument_list|)
+throw|;
 block|}
 return|return
 name|repositoryMetadata
@@ -702,11 +722,6 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-comment|//ArtifactHandler handler = new DefaultArtifactHandler( "jar" );
-comment|//if( metaVersion != null&& !metaVersion.equals( "" ) )
-comment|//{
-comment|//   VersionRange version = VersionRange.createFromVersion( metaVersion );
-comment|//}
 name|Artifact
 name|artifact
 init|=
@@ -714,14 +729,10 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|metaVersion
-operator|!=
-literal|null
-operator|&&
 operator|!
-literal|""
+name|StringUtils
 operator|.
-name|equals
+name|isEmpty
 argument_list|(
 name|metaVersion
 argument_list|)

@@ -2234,6 +2234,8 @@ name|String
 name|path
 parameter_list|)
 block|{
+try|try
+block|{
 return|return
 name|discoverer
 operator|.
@@ -2242,6 +2244,17 @@ argument_list|(
 name|path
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|DiscovererException
+name|e
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 specifier|private
 name|Artifact

@@ -53,16 +53,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -75,6 +65,8 @@ begin_interface
 specifier|public
 interface|interface
 name|ArtifactDiscoverer
+extends|extends
+name|Discoverer
 block|{
 name|String
 name|ROLE
@@ -114,16 +106,6 @@ name|boolean
 name|includeSnapshots
 parameter_list|)
 function_decl|;
-comment|/**      * Get the list of paths kicked out during the discovery process.      *      * @return the paths as Strings.      */
-name|Iterator
-name|getKickedOutPathsIterator
-parameter_list|()
-function_decl|;
-comment|/**      * Get the list of paths excluded during the discovery process.      *      * @return the paths as Strings.      */
-name|Iterator
-name|getExcludedPathsIterator
-parameter_list|()
-function_decl|;
 comment|/**      * Build an artifact from a path in the repository      *      * @param path the path      * @return the artifact      * @todo this should be in maven-artifact      */
 name|Artifact
 name|buildArtifact
@@ -131,6 +113,8 @@ parameter_list|(
 name|String
 name|path
 parameter_list|)
+throws|throws
+name|DiscovererException
 function_decl|;
 block|}
 end_interface

@@ -103,6 +103,8 @@ parameter_list|(
 name|String
 name|path
 parameter_list|)
+throws|throws
+name|DiscovererException
 block|{
 name|List
 name|pathParts
@@ -236,7 +238,6 @@ name|filename
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|remainingFilename
 operator|.
 name|startsWith
@@ -246,12 +247,6 @@ operator|+
 literal|"-"
 argument_list|)
 condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
-else|else
 block|{
 name|remainingFilename
 operator|=
@@ -397,15 +392,9 @@ decl_stmt|;
 if|if
 condition|(
 name|index
-operator|<
+operator|>=
 literal|0
 condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
-else|else
 block|{
 name|type
 operator|=
@@ -430,14 +419,17 @@ name|index
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-if|if
-condition|(
-name|type
-operator|!=
-literal|null
-condition|)
+else|else
 block|{
+throw|throw
+operator|new
+name|DiscovererException
+argument_list|(
+literal|"Path filename does not have an extension"
+argument_list|)
+throw|;
+block|}
+block|}
 name|Artifact
 name|result
 decl_stmt|;
@@ -593,9 +585,13 @@ name|isSnapshot
 argument_list|()
 condition|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|DiscovererException
+argument_list|(
+literal|"Failed to create a snapshot artifact"
+argument_list|)
+throw|;
 block|}
 if|else if
 condition|(
@@ -611,9 +607,15 @@ name|version
 argument_list|)
 condition|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|DiscovererException
+argument_list|(
+literal|"Built snapshot artifact base version does not match "
+operator|+
+literal|"path version"
+argument_list|)
+throw|;
 block|}
 else|else
 block|{
@@ -634,9 +636,13 @@ name|version
 argument_list|)
 condition|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|DiscovererException
+argument_list|(
+literal|"Built artifact version does not match path version"
+argument_list|)
+throw|;
 block|}
 if|else if
 condition|(
@@ -660,15 +666,9 @@ operator|.
 name|length
 argument_list|()
 argument_list|)
-operator|!=
+operator|==
 literal|'-'
 condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
-else|else
 block|{
 name|classifier
 operator|=
@@ -702,6 +702,16 @@ name|classifier
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|DiscovererException
+argument_list|(
+literal|"Path version does not corresspond to an artifact version"
+argument_list|)
+throw|;
+block|}
 block|}
 else|else
 block|{
@@ -711,7 +721,26 @@ name|result
 expr_stmt|;
 block|}
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|DiscovererException
+argument_list|(
+literal|"Path filename does not correspond to an artifact"
+argument_list|)
+throw|;
 block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|DiscovererException
+argument_list|(
+literal|"Path is too short to build an artifact from"
+argument_list|)
+throw|;
 block|}
 return|return
 name|artifact

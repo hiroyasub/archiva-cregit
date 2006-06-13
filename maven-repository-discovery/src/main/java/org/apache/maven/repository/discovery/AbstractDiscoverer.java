@@ -125,6 +125,26 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for the artifact and metadata discoverers.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
 end_comment
@@ -136,13 +156,15 @@ class|class
 name|AbstractDiscoverer
 extends|extends
 name|AbstractLogEnabled
+implements|implements
+name|Discoverer
 block|{
 specifier|private
-name|List
+name|Map
 name|kickedOutPaths
 init|=
 operator|new
-name|ArrayList
+name|HashMap
 argument_list|()
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
@@ -171,20 +193,25 @@ operator|new
 name|ArrayList
 argument_list|()
 decl_stmt|;
-comment|/**      * Add a path to the list of files that were kicked out due to being invalid.      *      * @param path the path to add      * @todo add a reason      */
+comment|/**      * Add a path to the list of files that were kicked out due to being invalid.      *      * @param path the path to add      * @param reason the reason why the path is being kicked out      */
 specifier|protected
 name|void
 name|addKickedOutPath
 parameter_list|(
 name|String
 name|path
+parameter_list|,
+name|String
+name|reason
 parameter_list|)
 block|{
 name|kickedOutPaths
 operator|.
-name|add
+name|put
 argument_list|(
 name|path
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 block|}
@@ -195,6 +222,9 @@ parameter_list|()
 block|{
 return|return
 name|kickedOutPaths
+operator|.
+name|keySet
+argument_list|()
 operator|.
 name|iterator
 argument_list|()
