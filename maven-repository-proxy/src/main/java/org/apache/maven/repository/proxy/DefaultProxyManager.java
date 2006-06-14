@@ -1220,10 +1220,10 @@ name|ArtifactRepositoryPolicy
 name|getReleasesPolicy
 parameter_list|()
 block|{
-comment|//todo get policy configuration from ProxyConfiguration
 return|return
-operator|new
-name|ArtifactRepositoryPolicy
+name|config
+operator|.
+name|getCacheReleasePolicy
 argument_list|()
 return|;
 block|}
@@ -1232,10 +1232,10 @@ name|ArtifactRepositoryPolicy
 name|getSnapshotsPolicy
 parameter_list|()
 block|{
-comment|//todo get policy configuration from ProxyConfiguration
 return|return
-operator|new
-name|ArtifactRepositoryPolicy
+name|config
+operator|.
+name|getCacheSnapshotPolicy
 argument_list|()
 return|;
 block|}
