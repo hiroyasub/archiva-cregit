@@ -213,6 +213,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Returns an iterator for the list if DiscovererPaths that were found to not represent a searched object      *      * @return Iterator for the DiscovererPath List      */
 specifier|public
 name|Iterator
 name|getKickedOutPathsIterator
@@ -419,6 +420,7 @@ name|getIncludedFiles
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns an iterator for the list if DiscovererPaths that were not processed because they are explicitly excluded      *      * @return Iterator for the DiscovererPath List      */
 specifier|public
 name|Iterator
 name|getExcludedPathsIterator

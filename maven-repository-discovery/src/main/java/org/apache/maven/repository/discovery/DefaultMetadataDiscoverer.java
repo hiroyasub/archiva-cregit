@@ -330,7 +330,7 @@ block|,
 literal|"**/*/*/*-metadata-*.xml"
 block|}
 decl_stmt|;
-comment|/**      * Search the repository for metadata files.      *      * @param repositoryBase      * @param blacklistedPatterns      */
+comment|/**      * @see org.apache.maven.repository.discovery.MetadataDiscoverer#discoverMetadata(java.io.File, String)      */
 specifier|public
 name|List
 name|discoverMetadata
@@ -448,8 +448,6 @@ name|DiscovererException
 block|{
 name|Metadata
 name|m
-init|=
-literal|null
 decl_stmt|;
 name|String
 name|repoPath
@@ -613,6 +611,7 @@ return|return
 name|repositoryMetadata
 return|;
 block|}
+comment|/**      * Builds a RepositoryMetadata object from a Metadata object and its path      *      * @param m Metadata      * @param metadataPath path      * @return RepositoryMetadata if the parameters represent one; null if not      */
 specifier|private
 name|RepositoryMetadata
 name|buildMetadata

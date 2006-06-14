@@ -96,6 +96,7 @@ name|DefaultArtifactDiscoverer
 extends|extends
 name|AbstractArtifactDiscoverer
 block|{
+comment|/**      * @see org.apache.maven.repository.discovery.ArtifactDiscoverer#buildArtifact(String)      */
 specifier|public
 name|Artifact
 name|buildArtifact

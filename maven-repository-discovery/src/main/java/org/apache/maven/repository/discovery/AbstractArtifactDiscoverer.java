@@ -253,6 +253,7 @@ name|STANDARD_DISCOVERY_EXCLUDES
 argument_list|)
 return|;
 block|}
+comment|/**      * Return a list of artifacts found in a specified repository      *      * @param repository The ArtifactRepository to discover artifacts      * @param blacklistedPatterns Comma-delimited list of string paths that will be excluded in the discovery      * @param includeSnapshots if the repository contains snapshots which should also be included      * @return list of artifacts      */
 specifier|public
 name|List
 name|discoverArtifacts
@@ -346,8 +347,6 @@ index|]
 decl_stmt|;
 name|Artifact
 name|artifact
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -402,6 +401,7 @@ return|return
 name|artifacts
 return|;
 block|}
+comment|/**      * Returns a list of pom packaging artifacts found in a specified repository      *      * @param repository The ArtifactRepository to discover artifacts      * @param blacklistedPatterns Comma-delimited list of string paths that will be excluded in the discovery      * @param includeSnapshots if the repository contains snapshots which should also be included      * @return list of pom artifacts      */
 specifier|public
 name|List
 name|discoverStandalonePoms
@@ -656,6 +656,7 @@ return|return
 name|artifacts
 return|;
 block|}
+comment|/**      * Returns an artifact object that is represented by the specified path in a repository      *      * @param path The path that is pointing to an artifact      * @param repository The repository of the artifact      * @return Artifact      * @throws DiscovererException when the specified path does correspond to an artifact      */
 specifier|public
 name|Artifact
 name|buildArtifactFromPath
