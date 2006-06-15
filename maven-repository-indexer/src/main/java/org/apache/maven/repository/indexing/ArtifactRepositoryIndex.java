@@ -276,51 +276,7 @@ operator|=
 name|digester
 expr_stmt|;
 block|}
-comment|/**      * Checks if the artifact has already been indexed and deletes it if it is.      *      * @param artifact the object to be indexed.      * @throws RepositoryIndexException      */
-specifier|private
-name|void
-name|deleteIfIndexed
-parameter_list|(
-name|Artifact
-name|artifact
-parameter_list|)
-throws|throws
-name|RepositoryIndexException
-block|{
-try|try
-block|{
-name|deleteDocument
-argument_list|(
-name|FLD_ID
-argument_list|,
-name|ARTIFACT
-operator|+
-literal|":"
-operator|+
-name|artifact
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RepositoryIndexException
-argument_list|(
-literal|"Failed to delete a document"
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
+comment|/**      * Indexes the artifacts found within the specified list.  Deletes existing indices for the same artifacts first,      * before proceeding on adding them into the index.      *      * @param artifactList      * @throws RepositoryIndexException      */
 specifier|public
 name|void
 name|indexArtifacts
@@ -367,6 +323,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Creates a list of Lucene Term object used in index deletion      *      * @param artifactList      * @return List of Term object      */
 specifier|private
 name|List
 name|getTermList
@@ -435,6 +392,7 @@ return|return
 name|list
 return|;
 block|}
+comment|/**      * Creates a list of Lucene documents, used for index additions      *      * @param artifactList      * @return      * @throws RepositoryIndexException      */
 specifier|private
 name|List
 name|getDocumentList
@@ -517,6 +475,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Creates a Lucene Document from an artifact; used for index additions      *      * @param artifact      * @return      * @throws RepositoryIndexException      */
 specifier|private
 name|Document
 name|createDocument

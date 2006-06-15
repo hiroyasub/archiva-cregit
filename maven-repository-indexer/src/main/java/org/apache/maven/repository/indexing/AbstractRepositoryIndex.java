@@ -620,6 +620,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @see RepositoryIndex#deleteDocuments(java.util.List)       */
 specifier|public
 name|void
 name|deleteDocuments
@@ -709,7 +710,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Opens the lucene index and add all the lucene documents inside the list into the index.      * Closes the index at the end.      *      * @param docList List of Lucene Documents      * @throws RepositoryIndexException when an error occurred during the indexing of the documents      */
+comment|/**      * @see RepositoryIndex#addDocuments(java.util.List)      */
 specifier|public
 name|void
 name|addDocuments

@@ -239,7 +239,7 @@ name|repository
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Index the contents of the specified RepositoryMetadata paramter object      *      * @param repoMetadata the metadata object to be indexed      * @throws RepositoryIndexException      */
+comment|/**      * Index the contents of the specified RepositoryMetadata parameter object      *      * @param repoMetadata the metadata object to be indexed      * @throws RepositoryIndexException      */
 specifier|public
 name|void
 name|indexMetadata
@@ -261,6 +261,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Index the metadata found within the provided list.  Deletes existing entries in the index first before      * proceeding with the index additions.      *      * @param metadataList      * @throws RepositoryIndexException      */
 specifier|public
 name|void
 name|indexMetadata
@@ -307,6 +308,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Creates a list of Lucene Term object used in index deletion      *      * @param metadataList      * @return List of Term object      */
 specifier|private
 name|List
 name|getTermList
@@ -374,6 +376,7 @@ return|return
 name|terms
 return|;
 block|}
+comment|/**      * Creates a list of Lucene documents      *      * @param metadataList      * @return List of Lucene Documents      */
 specifier|private
 name|List
 name|getDocumentList
@@ -432,6 +435,7 @@ return|return
 name|docs
 return|;
 block|}
+comment|/**      * Creates a Lucene Document from a RepositoryMetadata; used for index additions      *      * @param repoMetadata      * @return Lucene Document      */
 specifier|private
 name|Document
 name|createDocument
@@ -936,49 +940,6 @@ expr_stmt|;
 return|return
 name|doc
 return|;
-block|}
-specifier|private
-name|void
-name|deleteIfIndexed
-parameter_list|(
-name|RepositoryMetadata
-name|repoMetadata
-parameter_list|)
-throws|throws
-name|RepositoryIndexException
-block|{
-try|try
-block|{
-name|deleteDocument
-argument_list|(
-name|FLD_ID
-argument_list|,
-operator|(
-name|String
-operator|)
-name|repoMetadata
-operator|.
-name|getKey
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RepositoryIndexException
-argument_list|(
-literal|"Failed to delete document"
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 block|}
 end_class

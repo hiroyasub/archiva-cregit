@@ -382,6 +382,7 @@ name|RepositoryIndexException
 throws|,
 name|IOException
 function_decl|;
+comment|/**      * Opens the lucene index and add all the lucene documents inside the list into the index.      * Closes the index at the end.      *      * @param docList List of Lucene Documents      * @throws RepositoryIndexException when an error occurred during the indexing of the documents      */
 specifier|public
 name|void
 name|addDocuments
@@ -392,6 +393,7 @@ parameter_list|)
 throws|throws
 name|RepositoryIndexException
 function_decl|;
+comment|/**      * Delete from the index matching the list of lucene Terms      *      * @param termList List of Lucene Term      * @throws RepositoryIndexException      * @throws IOException      */
 specifier|public
 name|void
 name|deleteDocuments

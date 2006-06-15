@@ -343,50 +343,6 @@ operator|=
 name|artifactFactory
 expr_stmt|;
 block|}
-specifier|private
-name|void
-name|deleteIfIndexed
-parameter_list|(
-name|Model
-name|pom
-parameter_list|)
-throws|throws
-name|RepositoryIndexException
-block|{
-try|try
-block|{
-name|deleteDocument
-argument_list|(
-name|FLD_ID
-argument_list|,
-name|POM
-operator|+
-literal|":"
-operator|+
-name|pom
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RepositoryIndexException
-argument_list|(
-literal|"Failed to delete document"
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
 comment|/**      * Method to create the index fields for a Model object into the index      *      * @param pom the Model object to be indexed      * @throws RepositoryIndexException      */
 specifier|public
 name|void
@@ -409,6 +365,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Index the Models within the supplied List.  Deletes existing index values before adding them to the list.      *      * @param pomList      * @throws RepositoryIndexException      */
 specifier|public
 name|void
 name|indexPoms
@@ -455,6 +412,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Creates a list of Lucene Term object used in index deletion      *      * @param pomList      * @return List of Term object      */
 specifier|private
 name|List
 name|getTermList
@@ -523,6 +481,7 @@ return|return
 name|terms
 return|;
 block|}
+comment|/**      * Creates a list of Lucene documents      *      * @param pomList      * @return      * @throws RepositoryIndexException      */
 specifier|private
 name|List
 name|getDocumentList
@@ -583,6 +542,7 @@ return|return
 name|docs
 return|;
 block|}
+comment|/**      * Creates a Lucene Document from a Model; used for index additions      *      * @param pom      * @return      * @throws RepositoryIndexException      */
 specifier|private
 name|Document
 name|createDocument

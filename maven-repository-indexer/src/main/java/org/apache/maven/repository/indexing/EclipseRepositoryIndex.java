@@ -458,6 +458,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Indexes the artifacts inside the provided list      *      * @param artifactList      * @throws RepositoryIndexException      */
 specifier|public
 name|void
 name|indexArtifacts
@@ -571,6 +572,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Creates a Lucene Document from an artifact; used for index additions      *      * @param artifact      * @return      * @throws RepositoryIndexException      */
 specifier|private
 name|Document
 name|createDocument
