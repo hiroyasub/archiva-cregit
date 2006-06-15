@@ -280,6 +280,16 @@ specifier|private
 name|RepositoryIndexingFactory
 name|indexFactory
 decl_stmt|;
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|RepositoryIndexSearchLayer
+name|searchLayer
+decl_stmt|;
+comment|/**      * @plexus.configuration      */
+specifier|private
+name|String
+name|indexDirectory
+decl_stmt|;
 comment|//@todo configurable?
 specifier|private
 name|String
@@ -288,11 +298,6 @@ init|=
 name|RepositoryIndex
 operator|.
 name|FLD_MD5
-decl_stmt|;
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|RepositoryIndexSearchLayer
-name|searchLayer
 decl_stmt|;
 specifier|public
 name|void
@@ -323,31 +328,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|//@todo remove hard-coded value; current value enables tests to pass!
-name|File
-name|indexPath
-init|=
-operator|new
-name|File
-argument_list|(
-literal|"target/.index"
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|indexPath
-operator|.
-name|exists
-argument_list|()
-condition|)
-block|{
-name|indexPath
-operator|.
-name|mkdirs
-argument_list|()
-expr_stmt|;
-block|}
 name|RepositoryIndex
 name|index
 decl_stmt|;
@@ -359,7 +339,11 @@ name|indexFactory
 operator|.
 name|createArtifactRepositoryIndex
 argument_list|(
-name|indexPath
+operator|new
+name|File
+argument_list|(
+name|indexDirectory
+argument_list|)
 argument_list|,
 name|repository
 argument_list|)

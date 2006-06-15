@@ -112,7 +112,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *   */
+comment|/**  * @plexus.component role="org.apache.maven.repository.reporting.ArtifactReportProcessor" role-hint="default"  */
 end_comment
 
 begin_class
