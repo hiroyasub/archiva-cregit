@@ -23,6 +23,16 @@ name|PlexusTestCase
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Jason van Zyl  */
 end_comment
@@ -41,6 +51,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|File
+name|legacyRepositoryDirectory
+init|=
+name|getTestFile
+argument_list|(
+literal|"src/test/maven-1.x-repository"
+argument_list|)
+decl_stmt|;
+name|File
+name|repositoryDirectory
+init|=
+name|getTestFile
+argument_list|(
+literal|"target/maven-2.x-repository"
+argument_list|)
+decl_stmt|;
 name|RepositoryManager
 name|rm
 init|=
@@ -54,6 +80,17 @@ operator|.
 name|ROLE
 argument_list|)
 decl_stmt|;
+name|rm
+operator|.
+name|convertLegacyRepository
+argument_list|(
+name|legacyRepositoryDirectory
+argument_list|,
+name|repositoryDirectory
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

@@ -251,7 +251,7 @@ name|createArtifactRepository
 argument_list|(
 literal|"default"
 argument_list|,
-name|legacyRepositoryDirectory
+name|repositoryDirectory
 operator|.
 name|toURL
 argument_list|()
