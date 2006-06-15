@@ -73,6 +73,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
 begin_comment
 comment|/**  * Copy a set of artifacts from one repository to the other, converting if necessary.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
 end_comment
