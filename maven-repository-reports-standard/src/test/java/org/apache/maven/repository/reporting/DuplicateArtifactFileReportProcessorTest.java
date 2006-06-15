@@ -95,20 +95,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|util
-operator|.
-name|FileUtils
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -260,11 +246,6 @@ expr_stmt|;
 name|index
 operator|.
 name|optimize
-argument_list|()
-expr_stmt|;
-name|index
-operator|.
-name|close
 argument_list|()
 expr_stmt|;
 name|processor
