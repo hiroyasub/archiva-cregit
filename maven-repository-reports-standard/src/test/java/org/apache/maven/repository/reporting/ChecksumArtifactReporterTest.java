@@ -167,6 +167,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|repository
+operator|.
+name|digest
+operator|.
+name|DigesterException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -182,16 +198,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|security
-operator|.
-name|NoSuchAlgorithmException
 import|;
 end_import
 
@@ -281,9 +287,9 @@ parameter_list|()
 throws|throws
 name|ReportProcessorException
 throws|,
-name|NoSuchAlgorithmException
-throws|,
 name|IOException
+throws|,
+name|DigesterException
 block|{
 name|createChecksumFile
 argument_list|(
@@ -439,7 +445,7 @@ parameter_list|()
 throws|throws
 name|ReportProcessorException
 throws|,
-name|NoSuchAlgorithmException
+name|DigesterException
 throws|,
 name|IOException
 block|{
@@ -672,7 +678,7 @@ parameter_list|()
 throws|throws
 name|ReportProcessorException
 throws|,
-name|NoSuchAlgorithmException
+name|DigesterException
 throws|,
 name|IOException
 block|{

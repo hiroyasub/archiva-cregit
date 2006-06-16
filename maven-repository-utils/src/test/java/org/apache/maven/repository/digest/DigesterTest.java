@@ -105,7 +105,7 @@ name|void
 name|testBareDigestFormat
 parameter_list|()
 throws|throws
-name|NoSuchAlgorithmException
+name|DigesterException
 throws|,
 name|IOException
 block|{
@@ -127,10 +127,8 @@ name|getPath
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"test bare format MD5"
-argument_list|,
+try|try
+block|{
 name|digester
 operator|.
 name|verifyChecksum
@@ -143,12 +141,22 @@ name|Digester
 operator|.
 name|MD5
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|DigesterException
+name|e
+parameter_list|)
+block|{
+name|fail
+argument_list|(
+literal|"Bare format MD5 must not throw exception"
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"test bare format SHA1"
-argument_list|,
+block|}
+try|try
+block|{
 name|digester
 operator|.
 name|verifyChecksum
@@ -161,12 +169,22 @@ name|Digester
 operator|.
 name|SHA1
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|DigesterException
+name|e
+parameter_list|)
+block|{
+name|fail
+argument_list|(
+literal|"Bare format SHA1 must not throw exception"
 argument_list|)
 expr_stmt|;
-name|assertFalse
-argument_list|(
-literal|"test wrong sha1"
-argument_list|,
+block|}
+try|try
+block|{
 name|digester
 operator|.
 name|verifyChecksum
@@ -179,16 +197,27 @@ name|Digester
 operator|.
 name|SHA1
 argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"wrong checksum must throw an exception"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|DigesterException
+name|e
+parameter_list|)
+block|{
+comment|//expected
+block|}
 block|}
 specifier|public
 name|void
 name|testOpensslDigestFormat
 parameter_list|()
 throws|throws
-name|NoSuchAlgorithmException
-throws|,
 name|IOException
 block|{
 name|File
@@ -209,10 +238,8 @@ name|getPath
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"test openssl format MD5"
-argument_list|,
+try|try
+block|{
 name|digester
 operator|.
 name|verifyChecksum
@@ -227,12 +254,22 @@ name|Digester
 operator|.
 name|MD5
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|DigesterException
+name|e
+parameter_list|)
+block|{
+name|fail
+argument_list|(
+literal|"OpenSSL MD5 format must not cause exception"
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"test openssl format SHA1"
-argument_list|,
+block|}
+try|try
+block|{
 name|digester
 operator|.
 name|verifyChecksum
@@ -247,12 +284,22 @@ name|Digester
 operator|.
 name|SHA1
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|DigesterException
+name|e
+parameter_list|)
+block|{
+name|fail
+argument_list|(
+literal|"OpenSSL SHA1 format must not cause exception"
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"test freebsd format MD5"
-argument_list|,
+block|}
+try|try
+block|{
 name|digester
 operator|.
 name|verifyChecksum
@@ -267,12 +314,22 @@ name|Digester
 operator|.
 name|MD5
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|DigesterException
+name|e
+parameter_list|)
+block|{
+name|fail
+argument_list|(
+literal|"FreeBSD MD5 format must not cause exception"
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"test freebsd format SHA1"
-argument_list|,
+block|}
+try|try
+block|{
 name|digester
 operator|.
 name|verifyChecksum
@@ -287,12 +344,22 @@ name|Digester
 operator|.
 name|SHA1
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|DigesterException
+name|e
+parameter_list|)
+block|{
+name|fail
+argument_list|(
+literal|"FreeBSD SHA1 format must not cause exception"
 argument_list|)
 expr_stmt|;
-name|assertFalse
-argument_list|(
-literal|"test wrong filename"
-argument_list|,
+block|}
+try|try
+block|{
 name|digester
 operator|.
 name|verifyChecksum
@@ -307,12 +374,23 @@ name|Digester
 operator|.
 name|SHA1
 argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Wrong filename should cause an exception"
 argument_list|)
 expr_stmt|;
-name|assertFalse
-argument_list|(
-literal|"test wrong sha1"
-argument_list|,
+block|}
+catch|catch
+parameter_list|(
+name|DigesterException
+name|e
+parameter_list|)
+block|{
+comment|//expected
+block|}
+try|try
+block|{
 name|digester
 operator|.
 name|verifyChecksum
@@ -327,8 +405,21 @@ name|Digester
 operator|.
 name|SHA1
 argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Wrong sha1 should cause an exception"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|DigesterException
+name|e
+parameter_list|)
+block|{
+comment|//expected
+block|}
 block|}
 specifier|public
 name|void
@@ -357,10 +448,8 @@ name|getPath
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"test GNU format MD5"
-argument_list|,
+try|try
+block|{
 name|digester
 operator|.
 name|verifyChecksum
@@ -375,12 +464,22 @@ name|Digester
 operator|.
 name|MD5
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|DigesterException
+name|e
+parameter_list|)
+block|{
+name|fail
+argument_list|(
+literal|"GNU format MD5 must not cause exception"
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"test GNU format SHA1"
-argument_list|,
+block|}
+try|try
+block|{
 name|digester
 operator|.
 name|verifyChecksum
@@ -395,12 +494,22 @@ name|Digester
 operator|.
 name|SHA1
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|DigesterException
+name|e
+parameter_list|)
+block|{
+name|fail
+argument_list|(
+literal|"GNU format SHA1 must not cause exception"
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"test GNU text format MD5"
-argument_list|,
+block|}
+try|try
+block|{
 name|digester
 operator|.
 name|verifyChecksum
@@ -415,12 +524,22 @@ name|Digester
 operator|.
 name|MD5
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|DigesterException
+name|e
+parameter_list|)
+block|{
+name|fail
+argument_list|(
+literal|"GNU text format MD5 must not cause exception"
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"test GNU text format SHA1"
-argument_list|,
+block|}
+try|try
+block|{
 name|digester
 operator|.
 name|verifyChecksum
@@ -435,12 +554,22 @@ name|Digester
 operator|.
 name|SHA1
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|DigesterException
+name|e
+parameter_list|)
+block|{
+name|fail
+argument_list|(
+literal|"GNU text format SHA1 must not cause exception"
 argument_list|)
 expr_stmt|;
-name|assertFalse
-argument_list|(
-literal|"test wrong filename"
-argument_list|,
+block|}
+try|try
+block|{
 name|digester
 operator|.
 name|verifyChecksum
@@ -455,12 +584,23 @@ name|Digester
 operator|.
 name|SHA1
 argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Wrong filename cause an exception"
 argument_list|)
 expr_stmt|;
-name|assertFalse
-argument_list|(
-literal|"test wrong sha1"
-argument_list|,
+block|}
+catch|catch
+parameter_list|(
+name|DigesterException
+name|e
+parameter_list|)
+block|{
+comment|//expected
+block|}
+try|try
+block|{
 name|digester
 operator|.
 name|verifyChecksum
@@ -475,8 +615,21 @@ name|Digester
 operator|.
 name|SHA1
 argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Wrong SHA1 cause an exception"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|DigesterException
+name|e
+parameter_list|)
+block|{
+comment|//expected
+block|}
 block|}
 specifier|public
 name|void
@@ -505,10 +658,8 @@ name|getPath
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"test untrimmed GNU format SHA1"
-argument_list|,
+try|try
+block|{
 name|digester
 operator|.
 name|verifyChecksum
@@ -523,8 +674,20 @@ name|Digester
 operator|.
 name|SHA1
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|DigesterException
+name|e
+parameter_list|)
+block|{
+name|fail
+argument_list|(
+literal|"GNU untrimmed SHA1 must not cause exception"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

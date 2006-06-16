@@ -37,6 +37,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|repository
+operator|.
+name|digest
+operator|.
+name|DigesterException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -145,16 +161,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|security
-operator|.
-name|NoSuchAlgorithmException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|jar
@@ -255,7 +261,7 @@ name|String
 name|type
 parameter_list|)
 throws|throws
-name|NoSuchAlgorithmException
+name|DigesterException
 throws|,
 name|IOException
 block|{
@@ -356,7 +362,7 @@ name|String
 name|type
 parameter_list|)
 throws|throws
-name|NoSuchAlgorithmException
+name|DigesterException
 throws|,
 name|IOException
 block|{
@@ -448,7 +454,7 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|NoSuchAlgorithmException
+name|DigesterException
 block|{
 comment|//Initialize variables for creating jar files
 name|String
@@ -769,7 +775,7 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|NoSuchAlgorithmException
+name|DigesterException
 block|{
 comment|//create checksum for the metadata file..
 name|String

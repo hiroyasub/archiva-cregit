@@ -71,6 +71,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|repository
+operator|.
+name|digest
+operator|.
+name|DigesterException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -98,16 +114,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|security
-operator|.
-name|NoSuchAlgorithmException
 import|;
 end_import
 
@@ -283,8 +289,6 @@ condition|)
 block|{
 try|try
 block|{
-if|if
-condition|(
 name|digester
 operator|.
 name|verifyChecksum
@@ -300,8 +304,7 @@ argument_list|)
 argument_list|,
 name|checksumAlgorithm
 argument_list|)
-condition|)
-block|{
+expr_stmt|;
 name|reporter
 operator|.
 name|addSuccess
@@ -310,24 +313,9 @@ name|metadata
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-name|reporter
-operator|.
-name|addFailure
-argument_list|(
-name|metadata
-argument_list|,
-name|checksumAlgorithm
-operator|+
-literal|" checksum does not match."
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 catch|catch
 parameter_list|(
-name|NoSuchAlgorithmException
+name|DigesterException
 name|e
 parameter_list|)
 block|{
@@ -337,12 +325,6 @@ name|addFailure
 argument_list|(
 name|metadata
 argument_list|,
-literal|"Unable to read "
-operator|+
-name|checksumAlgorithm
-operator|+
-literal|": "
-operator|+
 name|e
 operator|.
 name|getMessage
@@ -362,11 +344,7 @@ name|addFailure
 argument_list|(
 name|metadata
 argument_list|,
-literal|"Unable to read "
-operator|+
-name|checksumAlgorithm
-operator|+
-literal|": "
+literal|"Read file error: "
 operator|+
 name|e
 operator|.
