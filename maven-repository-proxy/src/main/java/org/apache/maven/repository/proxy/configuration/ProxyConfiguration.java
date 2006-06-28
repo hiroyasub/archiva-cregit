@@ -447,7 +447,7 @@ block|}
 specifier|private
 name|void
 name|validateRemoteRepo
-parameter_list|(  )
+parameter_list|()
 throws|throws
 name|ValidationException
 block|{
@@ -486,8 +486,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|getRepositoryCachePath
-argument_list|()
+name|cachePath
 argument_list|)
 decl_stmt|;
 if|if

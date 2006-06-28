@@ -985,8 +985,6 @@ name|metadata
 decl_stmt|;
 name|boolean
 name|changed
-init|=
-literal|false
 decl_stmt|;
 comment|//merge with target repository metadata
 name|File
@@ -1088,7 +1086,7 @@ decl_stmt|;
 name|changed
 operator|=
 name|changed
-operator||
+operator|||
 name|metadata
 operator|.
 name|merge
@@ -3009,14 +3007,10 @@ name|reporter
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|RepositoryConversionException
 block|{
 name|boolean
 name|result
-decl_stmt|;
-name|result
-operator|=
+init|=
 name|verifyChecksum
 argument_list|(
 name|file
@@ -3038,7 +3032,7 @@ name|artifact
 argument_list|,
 literal|"failure.incorrect.md5"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|result
 operator|=
 name|result

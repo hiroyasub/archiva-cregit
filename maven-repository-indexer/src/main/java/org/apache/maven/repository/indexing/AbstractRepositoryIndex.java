@@ -81,6 +81,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|document
+operator|.
+name|Document
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|IndexReader
@@ -112,20 +126,6 @@ operator|.
 name|index
 operator|.
 name|Term
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|Document
 import|;
 end_import
 
@@ -191,7 +191,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Collections
 import|;
 end_import
 
@@ -211,7 +211,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
+name|List
 import|;
 end_import
 
@@ -299,8 +299,7 @@ name|RepositoryIndexException
 argument_list|(
 literal|"Failed to validate index path: "
 operator|+
-name|getIndexPath
-argument_list|()
+name|indexPath
 operator|.
 name|getAbsolutePath
 argument_list|()
@@ -465,6 +464,7 @@ return|;
 block|}
 comment|/**      * @see RepositoryIndex#validate()      */
 specifier|public
+specifier|final
 name|void
 name|validate
 parameter_list|()
@@ -620,7 +620,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @see RepositoryIndex#deleteDocuments(java.util.List)       */
+comment|/**      * @see RepositoryIndex#deleteDocuments(java.util.List)      */
 specifier|public
 name|void
 name|deleteDocuments

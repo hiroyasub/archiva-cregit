@@ -600,8 +600,6 @@ name|repository
 parameter_list|)
 throws|throws
 name|RepositoryIndexException
-throws|,
-name|MalformedURLException
 block|{
 name|MetadataRepositoryIndex
 name|metadataIndex

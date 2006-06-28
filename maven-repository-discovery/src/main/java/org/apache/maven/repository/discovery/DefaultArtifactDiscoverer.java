@@ -153,8 +153,6 @@ argument_list|)
 expr_stmt|;
 name|Artifact
 name|artifact
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(

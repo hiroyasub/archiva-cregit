@@ -53,7 +53,7 @@ name|io
 operator|.
 name|xpp3
 operator|.
-name|ConfigurationXpp3Writer
+name|ConfigurationXpp3Reader
 import|;
 end_import
 
@@ -73,7 +73,7 @@ name|io
 operator|.
 name|xpp3
 operator|.
-name|ConfigurationXpp3Reader
+name|ConfigurationXpp3Writer
 import|;
 end_import
 
@@ -111,6 +111,26 @@ name|java
 operator|.
 name|io
 operator|.
+name|FileNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|FileReader
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|FileWriter
 import|;
 end_import
@@ -131,16 +151,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|Writer
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|Reader
 import|;
 end_import
@@ -151,17 +161,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileReader
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|FileNotFoundException
+name|Writer
 import|;
 end_import
 
@@ -440,10 +440,13 @@ name|setDiscoverSnapshots
 argument_list|(
 name|Boolean
 operator|.
-name|getBoolean
+name|valueOf
 argument_list|(
 name|value
 argument_list|)
+operator|.
+name|booleanValue
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -535,11 +538,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|Map
-name|map
-init|=
-literal|null
-decl_stmt|;
 name|File
 name|file
 init|=
@@ -586,6 +584,7 @@ name|XmlPullParserException
 name|xe
 parameter_list|)
 block|{
+comment|// TODO: fix error handling!
 name|xe
 operator|.
 name|printStackTrace

@@ -27,9 +27,11 @@ name|com
 operator|.
 name|opensymphony
 operator|.
-name|xwork
+name|webwork
 operator|.
-name|ActionSupport
+name|interceptor
+operator|.
+name|ParameterAware
 import|;
 end_import
 
@@ -39,11 +41,9 @@ name|com
 operator|.
 name|opensymphony
 operator|.
-name|webwork
+name|xwork
 operator|.
-name|interceptor
-operator|.
-name|ParameterAware
+name|ActionSupport
 import|;
 end_import
 
@@ -139,7 +139,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|HashMap
 import|;
 end_import
 
@@ -149,7 +149,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|Map
 import|;
 end_import
 
@@ -282,8 +282,9 @@ name|ConfigurationManager
 operator|.
 name|DISCOVER_SNAPSHOTS
 argument_list|,
-operator|new
 name|Boolean
+operator|.
+name|valueOf
 argument_list|(
 name|config
 operator|.
@@ -306,10 +307,11 @@ name|getDiscoveryCronExpression
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setParameters
-argument_list|(
+name|this
+operator|.
 name|parameters
-argument_list|)
+operator|=
+name|parameters
 expr_stmt|;
 comment|//Configuration configuration = new Configuration(); // TODO!
 name|execution

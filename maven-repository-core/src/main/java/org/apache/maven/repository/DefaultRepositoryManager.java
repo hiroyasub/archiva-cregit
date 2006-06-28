@@ -23,9 +23,7 @@ name|artifact
 operator|.
 name|repository
 operator|.
-name|layout
-operator|.
-name|ArtifactRepositoryLayout
+name|ArtifactRepository
 import|;
 end_import
 
@@ -57,7 +55,9 @@ name|artifact
 operator|.
 name|repository
 operator|.
-name|ArtifactRepository
+name|layout
+operator|.
+name|ArtifactRepositoryLayout
 import|;
 end_import
 
@@ -139,9 +139,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
+name|net
 operator|.
-name|List
+name|MalformedURLException
 import|;
 end_import
 
@@ -149,9 +149,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
+name|util
 operator|.
-name|MalformedURLException
+name|List
 import|;
 end_import
 

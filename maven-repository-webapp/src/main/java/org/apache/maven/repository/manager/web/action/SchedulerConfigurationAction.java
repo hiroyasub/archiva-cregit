@@ -17,17 +17,9 @@ name|action
 package|;
 end_package
 
-begin_import
-import|import
-name|com
-operator|.
-name|opensymphony
-operator|.
-name|xwork
-operator|.
-name|Action
-import|;
-end_import
+begin_comment
+comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
 
 begin_import
 import|import
@@ -45,21 +37,13 @@ end_import
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|util
+name|opensymphony
 operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|xwork
 operator|.
-name|util
-operator|.
-name|HashMap
+name|Action
 import|;
 end_import
 
@@ -83,8 +67,28 @@ name|ConfigurationManager
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
-comment|/**  * @author<a href="mailto:aramirez@apache.org">Allan Ramirez</a>  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="org.apache.maven.repository.manager.web.action.SchedulerConfigurationAction"  */
+comment|/**  * @author<a href="mailto:aramirez@apache.org">Allan Ramirez</a>  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="org.apache.maven.repository.manager.web.action.SchedulerConfigurationAction"  */
 end_comment
 
 begin_class
@@ -135,17 +139,15 @@ name|String
 name|execute
 parameter_list|()
 block|{
-name|Map
-name|map
-decl_stmt|;
 try|try
 block|{
+name|Map
 name|map
-operator|=
+init|=
 operator|new
 name|HashMap
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|String
 index|[]
 name|cronExpression
@@ -211,6 +213,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+comment|// TODO: fix error handling!
 name|e
 operator|.
 name|printStackTrace

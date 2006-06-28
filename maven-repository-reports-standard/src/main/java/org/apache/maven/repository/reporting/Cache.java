@@ -284,11 +284,6 @@ name|Object
 name|value
 parameter_list|)
 block|{
-name|Object
-name|old
-init|=
-literal|null
-decl_stmt|;
 comment|// remove and put: this promotes it to the top since we use a linked hash map
 synchronized|synchronized
 init|(
@@ -305,8 +300,6 @@ name|key
 argument_list|)
 condition|)
 block|{
-name|old
-operator|=
 name|cache
 operator|.
 name|remove
