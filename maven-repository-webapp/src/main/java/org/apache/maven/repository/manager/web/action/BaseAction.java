@@ -127,16 +127,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|HashMap
@@ -154,7 +144,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the Action class of index.jsp, which is the initial page of the web application.  * It invokes the DiscovererScheduler to set the DiscoverJob in the scheduler.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="org.apache.maven.repository.manager.web.action.BaseAction"  */
+comment|/**  * This is the Action class of index.jsp, which is the initial page of the web application.  * It invokes the DiscovererScheduler to set the DiscoverJob in the scheduler.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="baseAction"  */
 end_comment
 
 begin_class
@@ -314,20 +304,7 @@ operator|=
 name|parameters
 expr_stmt|;
 comment|//Configuration configuration = new Configuration(); // TODO!
-name|execution
-operator|.
-name|executeDiscovererIfIndexDoesNotExist
-argument_list|(
-operator|new
-name|File
-argument_list|(
-name|config
-operator|.
-name|getIndexPath
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|//            execution.executeDiscovererIfIndexDoesNotExist( new File( config.getIndexPath() ) );
 name|discovererScheduler
 operator|.
 name|setSchedule

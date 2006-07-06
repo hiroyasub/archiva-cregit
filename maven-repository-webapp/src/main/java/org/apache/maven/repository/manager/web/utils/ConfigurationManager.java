@@ -552,6 +552,13 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+name|file
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
 operator|!
 name|file
 operator|.
@@ -590,6 +597,7 @@ operator|.
 name|printStackTrace
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return
@@ -735,6 +743,13 @@ operator|+
 name|WEB_XML_FILE
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|xmlPath
+operator|!=
+literal|null
+condition|)
+block|{
 name|String
 name|path
 init|=
@@ -780,6 +795,7 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|plexusDescriptor
