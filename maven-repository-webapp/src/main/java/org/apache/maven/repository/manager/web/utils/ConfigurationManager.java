@@ -224,14 +224,6 @@ specifier|public
 specifier|static
 specifier|final
 name|String
-name|CONFIGURATION
-init|=
-literal|"configuration"
-decl_stmt|;
-specifier|public
-specifier|static
-specifier|final
-name|String
 name|DISCOVER_SNAPSHOTS
 init|=
 literal|"discoverSnapshots"
@@ -325,6 +317,7 @@ name|XmlPullParserException
 name|de
 parameter_list|)
 block|{
+comment|// TODO!
 name|de
 operator|.
 name|printStackTrace
