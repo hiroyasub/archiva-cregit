@@ -249,7 +249,7 @@ operator|.
 name|mkdirs
 argument_list|()
 expr_stmt|;
-comment|// TODO: error handling when this fails
+comment|// TODO: error handling when this fails, or is not a directory
 block|}
 comment|// TODO: these defaults belong in the model. They shouldn't be stored here, as you want them to re-default
 comment|// should the repository change even if these didn't
