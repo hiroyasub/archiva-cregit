@@ -252,7 +252,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Searches for searchString in all indexed fields.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="quickSearchAction"  */
+comment|/**  * Searches for searchString in all indexed fields.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="quickSearchAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

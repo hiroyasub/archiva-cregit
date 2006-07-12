@@ -184,7 +184,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Load and store the configuration. No synchronization is used, but it is unnecessary as the old configuration object  * can continue to be used.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @todo would be great for plexus to do this for us - so the configuration would be a component itself rather than this store  * @todo would be good to monitor the store file for changes  * @todo support other implementations than XML file  * @plexus.component role="org.apache.maven.repository.configuration.ConfigurationStore" role-hint="default"  */
+comment|/**  * Load and store the configuration. No synchronization is used, but it is unnecessary as the old configuration object  * can continue to be used.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @todo would be great for plexus to do this for us - so the configuration would be a component itself rather than this store  * @todo would be good to monitor the store file for changes  * @todo support other implementations than XML file  * @plexus.component role="org.apache.maven.repository.configuration.ConfigurationStore"  */
 end_comment
 
 begin_class
@@ -302,6 +302,16 @@ return|return
 name|configuration
 return|;
 block|}
+name|getLogger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Reading configuration from "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|configuration
@@ -420,6 +430,16 @@ operator|new
 name|ConfigurationXpp3Writer
 argument_list|()
 decl_stmt|;
+name|getLogger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Writing configuration to "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
 name|FileWriter
 name|fileWriter
 init|=
