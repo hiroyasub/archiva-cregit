@@ -174,7 +174,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Configures the application.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="configureAction" instantiation-strategy="per-lookup"  */
+comment|/**  * Configures the application.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="configureAction"  */
 end_comment
 
 begin_class
