@@ -790,7 +790,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Check if the index already exists.      *      * @return true if the index already exists      * @throws RepositoryIndexException      */
-specifier|protected
+specifier|public
 name|boolean
 name|indexExists
 parameter_list|()

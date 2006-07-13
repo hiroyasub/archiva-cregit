@@ -311,7 +311,6 @@ throws|,
 name|ConfigurationStoreException
 block|{
 comment|// TODO: give action message if indexing is in progress
-comment|// TODO: return zero results if index doesn't yet exist
 assert|assert
 name|q
 operator|!=
@@ -364,6 +363,24 @@ argument_list|,
 name|repository
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|index
+operator|.
+name|indexExists
+argument_list|()
+condition|)
+block|{
+name|addActionError
+argument_list|(
+literal|"The repository is not yet indexed. Please wait, and then try again."
+argument_list|)
+expr_stmt|;
+return|return
+name|ERROR
+return|;
+block|}
 name|searchResult
 operator|=
 name|searchLayer
