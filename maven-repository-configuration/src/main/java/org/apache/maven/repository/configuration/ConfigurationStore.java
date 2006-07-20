@@ -53,6 +53,18 @@ name|configuration
 parameter_list|)
 throws|throws
 name|ConfigurationStoreException
+throws|,
+name|InvalidConfigurationException
+throws|,
+name|ConfigurationChangeException
+function_decl|;
+comment|/**      * Add a configuration change listener.      *      * @param listener the listener      */
+name|void
+name|addChangeListener
+parameter_list|(
+name|ConfigurationChangeListener
+name|listener
+parameter_list|)
 function_decl|;
 block|}
 end_interface

@@ -87,6 +87,22 @@ name|repository
 operator|.
 name|configuration
 operator|.
+name|ConfigurationChangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|repository
+operator|.
+name|configuration
+operator|.
 name|ConfigurationStore
 import|;
 end_import
@@ -104,6 +120,22 @@ operator|.
 name|configuration
 operator|.
 name|ConfigurationStoreException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|repository
+operator|.
+name|configuration
+operator|.
+name|InvalidConfigurationException
 import|;
 end_import
 
@@ -210,6 +242,10 @@ throws|,
 name|RepositoryIndexSearchException
 throws|,
 name|ConfigurationStoreException
+throws|,
+name|InvalidConfigurationException
+throws|,
+name|ConfigurationChangeException
 block|{
 comment|// TODO: if this didn't come from the form, go to configure.action instead of going through with re-saving what was just loaded
 comment|// Normalize the path
@@ -366,7 +402,7 @@ name|void
 name|prepare
 parameter_list|()
 throws|throws
-name|Exception
+name|ConfigurationStoreException
 block|{
 name|configuration
 operator|=

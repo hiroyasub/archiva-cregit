@@ -393,7 +393,7 @@ condition|)
 block|{
 name|config
 operator|.
-name|setDiscoveryCronExpression
+name|setIndexerCronExpression
 argument_list|(
 name|value
 argument_list|)

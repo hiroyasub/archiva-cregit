@@ -9,7 +9,7 @@ name|maven
 operator|.
 name|repository
 operator|.
-name|configuration
+name|scheduler
 package|;
 end_package
 
@@ -18,25 +18,30 @@ comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed
 end_comment
 
 begin_comment
-comment|/**  * Component capable of noticing configuration changes and adjusting accordingly.  * This is not a Plexus role.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * The component that takes care of scheduling in the application.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
 end_comment
 
 begin_interface
 specifier|public
 interface|interface
-name|ConfigurationChangeListener
+name|RepositoryTaskScheduler
 block|{
-comment|/**      * Notify the object that there has been a configuration change.      *      * @param configuration the new configuration      * @throws InvalidConfigurationException if there is a problem with the new configuration      * @throws ConfigurationChangeException  if there is a problem changing the configuration, but the configuration is valid      */
+comment|/**      * The Plexus component role.      */
+name|String
+name|ROLE
+init|=
+name|RepositoryTaskScheduler
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
 name|void
-name|notifyOfConfigurationChange
-parameter_list|(
-name|Configuration
-name|configuration
-parameter_list|)
+name|runIndexer
+parameter_list|()
 throws|throws
-name|InvalidConfigurationException
-throws|,
-name|ConfigurationChangeException
+name|TaskExecutionException
 function_decl|;
 block|}
 end_interface

@@ -73,33 +73,9 @@ name|maven
 operator|.
 name|repository
 operator|.
-name|manager
+name|configuration
 operator|.
-name|web
-operator|.
-name|execution
-operator|.
-name|DiscovererExecution
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|repository
-operator|.
-name|manager
-operator|.
-name|web
-operator|.
-name|job
-operator|.
-name|DiscovererScheduler
+name|ConfigurationStore
 import|;
 end_import
 
@@ -144,7 +120,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the Action class of index.jsp, which is the initial page of the web application.  * It invokes the DiscovererScheduler to set the DiscoverJob in the scheduler.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="baseAction"  */
+comment|/**  * This is the Action class of index.jsp, which is the initial page of the web application.  * It invokes the DiscovererScheduler to set the DiscoverJob in the scheduler.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="baseAction"  * @todo don't like this as a base and as a forwarding action!  */
 end_comment
 
 begin_class
@@ -158,18 +134,8 @@ name|ParameterAware
 block|{
 comment|/**      * @plexus.requirement      */
 specifier|private
-name|DiscovererExecution
-name|execution
-decl_stmt|;
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|DiscovererScheduler
-name|discovererScheduler
-decl_stmt|;
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|ConfigurationManager
-name|configManager
+name|ConfigurationStore
+name|configurationStore
 decl_stmt|;
 specifier|private
 name|Map
@@ -210,9 +176,9 @@ block|{
 name|Configuration
 name|config
 init|=
-name|configManager
+name|configurationStore
 operator|.
-name|getConfiguration
+name|getConfigurationFromStore
 argument_list|()
 decl_stmt|;
 name|Map
@@ -293,7 +259,7 @@ name|DISCOVERY_CRON_EXPRESSION
 argument_list|,
 name|config
 operator|.
-name|getDiscoveryCronExpression
+name|getIndexerCronExpression
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -305,16 +271,6 @@ name|parameters
 expr_stmt|;
 comment|//Configuration configuration = new Configuration(); // TODO!
 comment|//            execution.executeDiscovererIfIndexDoesNotExist( new File( config.getIndexPath() ) );
-name|discovererScheduler
-operator|.
-name|setSchedule
-argument_list|(
-name|config
-operator|.
-name|getDiscoveryCronExpression
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
