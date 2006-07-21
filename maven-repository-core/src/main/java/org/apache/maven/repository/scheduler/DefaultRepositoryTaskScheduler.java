@@ -419,6 +419,16 @@ name|ParseException
 throws|,
 name|SchedulerException
 block|{
+if|if
+condition|(
+name|configuration
+operator|.
+name|getIndexPath
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|JobDetail
 name|jobDetail
 init|=
@@ -538,6 +548,18 @@ name|getMessage
 argument_list|()
 argument_list|,
 name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Not scheduling indexer - index path is not configured"
 argument_list|)
 expr_stmt|;
 block|}
