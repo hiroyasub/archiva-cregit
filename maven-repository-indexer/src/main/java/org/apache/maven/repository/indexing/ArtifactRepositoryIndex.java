@@ -438,7 +438,7 @@ return|return
 name|list
 return|;
 block|}
-comment|/**      * Creates a list of Lucene documents, used for index additions      *      * @param artifactList      * @return      * @throws RepositoryIndexException      */
+comment|/**      * Creates a list of Lucene documents, used for index additions      *      * @param artifactList      * @return      */
 specifier|private
 name|List
 name|getDocumentList
@@ -446,8 +446,6 @@ parameter_list|(
 name|List
 name|artifactList
 parameter_list|)
-throws|throws
-name|RepositoryIndexException
 block|{
 name|List
 name|list
@@ -484,6 +482,8 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|list
 operator|.
 name|add
@@ -494,6 +494,16 @@ name|artifact
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RepositoryIndexException
+name|e
+parameter_list|)
+block|{
+comment|// TODO: log the problem and record it as a repository error
+comment|// We log the problem, but do not add the document to the list to be added to the index
+block|}
 block|}
 return|return
 name|list
