@@ -588,7 +588,9 @@ throw|throw
 operator|new
 name|DiscovererException
 argument_list|(
-literal|"Failed to create a snapshot artifact"
+literal|"Failed to create a snapshot artifact: "
+operator|+
+name|result
 argument_list|)
 throw|;
 block|}
@@ -610,9 +612,13 @@ throw|throw
 operator|new
 name|DiscovererException
 argument_list|(
-literal|"Built snapshot artifact base version does not match "
+literal|"Built snapshot artifact base version does not match path version: "
 operator|+
-literal|"path version"
+name|result
+operator|+
+literal|"; should have been version: "
+operator|+
+name|version
 argument_list|)
 throw|;
 block|}
