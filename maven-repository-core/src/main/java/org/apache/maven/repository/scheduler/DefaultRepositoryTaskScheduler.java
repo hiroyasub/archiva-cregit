@@ -521,6 +521,7 @@ argument_list|,
 name|trigger
 argument_list|)
 expr_stmt|;
+comment|// TODO: run as a job so it doesn't block startup/configuration saving
 try|try
 block|{
 name|indexerTask

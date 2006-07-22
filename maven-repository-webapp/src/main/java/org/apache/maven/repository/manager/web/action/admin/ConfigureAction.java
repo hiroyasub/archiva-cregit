@@ -289,6 +289,7 @@ comment|// TODO: error handling when this fails, or is not a directory
 block|}
 comment|// TODO: these defaults belong in the model. They shouldn't be stored here, as you want them to re-default
 comment|// should the repository change even if these didn't
+comment|// TODO: if these are changed, do we move the index or recreate it?
 comment|// TODO: these should be on an advanced configuration form, not the standard one
 if|if
 condition|(
@@ -370,6 +371,7 @@ argument_list|(
 name|configuration
 argument_list|)
 expr_stmt|;
+comment|// TODO: if the repository has changed, we need to check if indexing is needed
 name|addActionMessage
 argument_list|(
 literal|"Successfully saved configuration"
