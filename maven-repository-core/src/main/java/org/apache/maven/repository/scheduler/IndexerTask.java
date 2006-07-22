@@ -363,6 +363,14 @@ parameter_list|)
 throws|throws
 name|TaskExecutionException
 block|{
+name|long
+name|time
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+decl_stmt|;
 name|getLogger
 argument_list|()
 operator|.
@@ -602,12 +610,25 @@ name|e
 argument_list|)
 throw|;
 block|}
+name|time
+operator|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|-
+name|time
+expr_stmt|;
 name|getLogger
 argument_list|()
 operator|.
 name|info
 argument_list|(
-literal|"Finished repository indexing process"
+literal|"Finished repository indexing process in "
+operator|+
+name|time
+operator|+
+literal|"ms"
 argument_list|)
 expr_stmt|;
 block|}
