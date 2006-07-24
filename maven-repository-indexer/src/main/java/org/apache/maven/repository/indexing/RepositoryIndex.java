@@ -353,6 +353,13 @@ name|RepositoryIndexException
 throws|,
 name|IOException
 function_decl|;
+comment|/**      * Check if the index already exists.      *      * @return true if the index already exists      * @throws RepositoryIndexException      */
+name|boolean
+name|indexExists
+parameter_list|()
+throws|throws
+name|RepositoryIndexException
+function_decl|;
 block|}
 end_interface
 

@@ -77,6 +77,8 @@ parameter_list|,
 name|String
 name|blacklistedPatterns
 parameter_list|)
+throws|throws
+name|DiscovererException
 function_decl|;
 block|}
 end_interface

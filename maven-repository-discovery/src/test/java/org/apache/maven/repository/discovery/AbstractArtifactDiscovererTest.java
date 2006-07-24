@@ -567,7 +567,7 @@ name|createArtifact
 argument_list|(
 literal|"org.apache.maven.update"
 argument_list|,
-literal|"test-not-updated"
+literal|"test-updated"
 argument_list|,
 literal|"1.0"
 argument_list|)

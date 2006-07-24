@@ -287,6 +287,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
 import|;
 end_import
@@ -324,7 +334,7 @@ name|AbstractDiscoverer
 implements|implements
 name|MetadataDiscoverer
 block|{
-comment|/**      * Standard patterns to include in discovery of metadata files.      *      * @todo do we really need all these paths? Add tests for all 3 levels and confirm only 2 are needed.      */
+comment|/**      * Standard patterns to include in discovery of metadata files.      */
 specifier|private
 specifier|static
 specifier|final
@@ -333,17 +343,9 @@ index|[]
 name|STANDARD_DISCOVERY_INCLUDES
 init|=
 block|{
-literal|"**/*-metadata.xml"
+literal|"**/maven-metadata.xml"
 block|,
-literal|"**/*/*-metadata.xml"
-block|,
-literal|"**/*/*/*-metadata.xml"
-block|,
-literal|"**/*-metadata-*.xml"
-block|,
-literal|"**/*/*-metadata-*.xml"
-block|,
-literal|"**/*/*/*-metadata-*.xml"
+literal|"**/maven-metadata-*.xml"
 block|}
 decl_stmt|;
 specifier|public
@@ -359,7 +361,31 @@ parameter_list|,
 name|String
 name|blacklistedPatterns
 parameter_list|)
+throws|throws
+name|DiscovererException
 block|{
+if|if
+condition|(
+operator|!
+literal|"file"
+operator|.
+name|equals
+argument_list|(
+name|repository
+operator|.
+name|getProtocol
+argument_list|()
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Only filesystem repositories are supported"
+argument_list|)
+throw|;
+block|}
 name|long
 name|comparisonTimestamp
 init|=
@@ -369,6 +395,16 @@ name|repository
 argument_list|,
 name|operation
 argument_list|)
+decl_stmt|;
+comment|// Note that last checked time is deliberately set to the start of the process so that anything added
+comment|// mid-discovery and missed by the scanner will get checked next time.
+comment|// Due to this, there must be no negative side-effects of discovering something twice.
+name|Date
+name|newLastCheckedTime
+init|=
+operator|new
+name|Date
+argument_list|()
 decl_stmt|;
 name|List
 name|metadataFiles
@@ -400,7 +436,42 @@ argument_list|,
 name|comparisonTimestamp
 argument_list|)
 decl_stmt|;
-comment|// TODO: save! should we be using a different entry for metadata?
+comment|// Also note that the last check time, while set at the start, is saved at the end, so that if any exceptions
+comment|// occur, then the timestamp is not updated so that the discovery is attempted again
+comment|// TODO: under the list-return behaviour we have now, exceptions might occur later and the timestamp will not be reset - see MRM-83
+try|try
+block|{
+name|setLastCheckedTime
+argument_list|(
+name|repository
+argument_list|,
+name|operation
+argument_list|,
+name|newLastCheckedTime
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|DiscovererException
+argument_list|(
+literal|"Error writing metadata: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 for|for
 control|(
 name|Iterator
@@ -785,15 +856,13 @@ name|artifact
 operator|=
 name|artifactFactory
 operator|.
-name|createBuildArtifact
+name|createProjectArtifact
 argument_list|(
 name|metaGroupId
 argument_list|,
 name|metaArtifactId
 argument_list|,
 name|metaVersion
-argument_list|,
-literal|"jar"
 argument_list|)
 expr_stmt|;
 block|}
@@ -856,6 +925,30 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|metadata
+operator|=
+operator|new
+name|ArtifactRepositoryMetadata
+argument_list|(
+name|artifact
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|artifact
+operator|=
+name|artifactFactory
+operator|.
+name|createProjectArtifact
+argument_list|(
+name|metaGroupId
+argument_list|,
+name|metaArtifactId
+argument_list|,
+literal|"1.0"
+argument_list|)
+expr_stmt|;
 name|metadata
 operator|=
 operator|new
