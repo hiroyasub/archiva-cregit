@@ -370,7 +370,7 @@ name|AbstractDiscoverer
 implements|implements
 name|MetadataDiscoverer
 block|{
-comment|/**      * Standard patterns to include in discovery of metadata files.      */
+comment|/**      * Standard patterns to include in discovery of metadata files.      *      * @todo Note that only the remote format is supported at this time: you cannot search local repository metadata due      * to the way it is later loaded in the searchers. Review code using pathOfRemoteMetadata. IS there any value in      * searching the local metadata in the first place though?      */
 specifier|private
 specifier|static
 specifier|final
@@ -380,8 +380,6 @@ name|STANDARD_DISCOVERY_INCLUDES
 init|=
 block|{
 literal|"**/maven-metadata.xml"
-block|,
-literal|"**/maven-metadata-*.xml"
 block|}
 decl_stmt|;
 specifier|public

@@ -514,7 +514,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-literal|"javax/maven-metadata-repository.xml"
+literal|"javax/maven-metadata.xml"
 operator|.
 name|equals
 argument_list|(
@@ -622,7 +622,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-literal|"org/apache/maven/some-ejb/1.0/maven-metadata-repository.xml"
+literal|"org/apache/maven/some-ejb/1.0/maven-metadata.xml"
 operator|.
 name|equals
 argument_list|(
@@ -661,6 +661,8 @@ specifier|private
 name|void
 name|removeTimestampMetadata
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 comment|// remove the metadata that tracks time
 name|File
@@ -677,6 +679,12 @@ argument_list|,
 literal|"maven-metadata.xml"
 argument_list|)
 decl_stmt|;
+name|System
+operator|.
+name|gc
+argument_list|()
+expr_stmt|;
+comment|// for Windows
 name|file
 operator|.
 name|delete
