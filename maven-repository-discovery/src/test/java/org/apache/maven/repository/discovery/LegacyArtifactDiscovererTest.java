@@ -191,8 +191,8 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|found
-operator|=
+if|if
+condition|(
 name|path
 operator|.
 name|indexOf
@@ -201,7 +201,25 @@ literal|".svn"
 argument_list|)
 operator|>=
 literal|0
+condition|)
+block|{
+name|found
+operator|=
+literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check comment"
+argument_list|,
+literal|"Artifact was in the specified list of exclusions"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertTrue
 argument_list|(
@@ -330,15 +348,33 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|found
-operator|=
+if|if
+condition|(
 literal|"KEYS"
 operator|.
 name|equals
 argument_list|(
 name|path
 argument_list|)
+condition|)
+block|{
+name|found
+operator|=
+literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check comment"
+argument_list|,
+literal|"Artifact was in the specified list of exclusions"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertTrue
 argument_list|(
@@ -465,8 +501,8 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|found
-operator|=
+if|if
+condition|(
 literal|"javax.sql/jars/jdbc-2.0.jar"
 operator|.
 name|equals
@@ -480,7 +516,25 @@ argument_list|,
 literal|'/'
 argument_list|)
 argument_list|)
+condition|)
+block|{
+name|found
+operator|=
+literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check comment is about blacklisting"
+argument_list|,
+literal|"Artifact was in the specified list of exclusions"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertTrue
 argument_list|(
@@ -579,8 +633,8 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|found
-operator|=
+if|if
+condition|(
 literal|"invalid/invalid-1.0.jar"
 operator|.
 name|equals
@@ -594,7 +648,25 @@ argument_list|,
 literal|'/'
 argument_list|)
 argument_list|)
+condition|)
+block|{
+name|found
+operator|=
+literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check reason for kickout"
+argument_list|,
+literal|"Path does not match a legacy repository path for an artifact"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertTrue
 argument_list|(
@@ -721,8 +793,8 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|found
-operator|=
+if|if
+condition|(
 literal|"invalid/jars/1.0/invalid-1.0.jar"
 operator|.
 name|equals
@@ -736,7 +808,25 @@ argument_list|,
 literal|'/'
 argument_list|)
 argument_list|)
+condition|)
+block|{
+name|found
+operator|=
+literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check reason for kickout"
+argument_list|,
+literal|"Path does not match a legacy repository path for an artifact"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertTrue
 argument_list|(
@@ -863,8 +953,8 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|found
-operator|=
+if|if
+condition|(
 literal|"invalid/foo/invalid-1.0.foo"
 operator|.
 name|equals
@@ -878,7 +968,25 @@ argument_list|,
 literal|'/'
 argument_list|)
 argument_list|)
+condition|)
+block|{
+name|found
+operator|=
+literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check reason for kickout"
+argument_list|,
+literal|"Path artifact type does not corresspond to an artifact type"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertTrue
 argument_list|(
@@ -1005,8 +1113,8 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|found
-operator|=
+if|if
+condition|(
 literal|"invalid/jars/no-extension"
 operator|.
 name|equals
@@ -1020,7 +1128,25 @@ argument_list|,
 literal|'/'
 argument_list|)
 argument_list|)
+condition|)
+block|{
+name|found
+operator|=
+literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check reason for kickout"
+argument_list|,
+literal|"Path filename does not have an extension"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertTrue
 argument_list|(
@@ -1147,8 +1273,8 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|found
-operator|=
+if|if
+condition|(
 literal|"invalid/jars/invalid-1.0.rar"
 operator|.
 name|equals
@@ -1162,7 +1288,25 @@ argument_list|,
 literal|'/'
 argument_list|)
 argument_list|)
+condition|)
+block|{
+name|found
+operator|=
+literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check reason for kickout"
+argument_list|,
+literal|"Path type does not match the extension"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertTrue
 argument_list|(
@@ -1289,8 +1433,8 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|found
-operator|=
+if|if
+condition|(
 literal|"invalid/jars/invalid.jar"
 operator|.
 name|equals
@@ -1304,7 +1448,25 @@ argument_list|,
 literal|'/'
 argument_list|)
 argument_list|)
+condition|)
+block|{
+name|found
+operator|=
+literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check reason for kickout"
+argument_list|,
+literal|"Path filename version is empty"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertTrue
 argument_list|(

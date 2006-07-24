@@ -187,7 +187,7 @@ operator|new
 name|ArrayList
 argument_list|()
 decl_stmt|;
-comment|/**      * Add a path to the list of files that were kicked out due to being invalid.      *      * @param path the path to add      * @param reason the reason why the path is being kicked out      */
+comment|/**      * Add a path to the list of files that were kicked out due to being invalid.      *      * @param path   the path to add      * @param reason the reason why the path is being kicked out      */
 specifier|protected
 name|void
 name|addKickedOutPath
@@ -408,7 +408,7 @@ name|DiscovererPath
 argument_list|(
 name|path
 argument_list|,
-literal|"Excluded by DirectoryScanner"
+literal|"Artifact was in the specified list of exclusions"
 argument_list|)
 argument_list|)
 expr_stmt|;

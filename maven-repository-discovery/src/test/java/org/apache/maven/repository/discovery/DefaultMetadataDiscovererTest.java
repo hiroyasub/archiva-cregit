@@ -251,6 +251,18 @@ name|found
 operator|=
 literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check reason for kickout"
+argument_list|,
+literal|"Unable to build a repository metadata from path"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 name|assertTrue
@@ -342,6 +354,21 @@ block|{
 name|found
 operator|=
 literal|true
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Check reason for kickout"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+operator|.
+name|matches
+argument_list|(
+literal|"Error reading metadata file '(.*)': input contained no data"
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 block|}

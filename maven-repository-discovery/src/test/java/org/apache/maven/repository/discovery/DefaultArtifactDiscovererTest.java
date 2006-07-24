@@ -225,8 +225,9 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|found
-operator|=
+name|boolean
+name|b
+init|=
 name|path
 operator|.
 name|indexOf
@@ -235,7 +236,29 @@ literal|".svn"
 argument_list|)
 operator|>=
 literal|0
+decl_stmt|;
+if|if
+condition|(
+name|b
+condition|)
+block|{
+name|found
+operator|=
+literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check comment"
+argument_list|,
+literal|"Artifact was in the specified list of exclusions"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertTrue
 argument_list|(
@@ -364,15 +387,33 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|found
-operator|=
+if|if
+condition|(
 literal|"KEYS"
 operator|.
 name|equals
 argument_list|(
 name|path
 argument_list|)
+condition|)
+block|{
+name|found
+operator|=
+literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check comment"
+argument_list|,
+literal|"Artifact was in the specified list of exclusions"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertTrue
 argument_list|(
@@ -499,8 +540,8 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|found
-operator|=
+if|if
+condition|(
 literal|"javax/sql/jdbc/2.0/jdbc-2.0.jar"
 operator|.
 name|equals
@@ -514,7 +555,25 @@ argument_list|,
 literal|'/'
 argument_list|)
 argument_list|)
+condition|)
+block|{
+name|found
+operator|=
+literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check comment is about blacklisting"
+argument_list|,
+literal|"Artifact was in the specified list of exclusions"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertTrue
 argument_list|(
@@ -613,8 +672,8 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|found
-operator|=
+if|if
+condition|(
 literal|"invalid/invalid-1.0.jar"
 operator|.
 name|equals
@@ -628,7 +687,25 @@ argument_list|,
 literal|'/'
 argument_list|)
 argument_list|)
+condition|)
+block|{
+name|found
+operator|=
+literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check reason for kickout"
+argument_list|,
+literal|"Path is too short to build an artifact from"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertTrue
 argument_list|(
@@ -755,8 +832,8 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|found
-operator|=
+if|if
+condition|(
 literal|"org/apache/maven/test/1.0-SNAPSHOT/wrong-artifactId-1.0-20050611.112233-1.jar"
 operator|.
 name|equals
@@ -770,7 +847,25 @@ argument_list|,
 literal|'/'
 argument_list|)
 argument_list|)
+condition|)
+block|{
+name|found
+operator|=
+literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check reason for kickout"
+argument_list|,
+literal|"Path filename does not correspond to an artifact"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertTrue
 argument_list|(
@@ -897,8 +992,8 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|found
-operator|=
+if|if
+condition|(
 literal|"invalid/invalid/1/invalid-1"
 operator|.
 name|equals
@@ -912,7 +1007,25 @@ argument_list|,
 literal|'/'
 argument_list|)
 argument_list|)
+condition|)
+block|{
+name|found
+operator|=
+literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check reason for kickout"
+argument_list|,
+literal|"Path filename does not have an extension"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertTrue
 argument_list|(
@@ -1039,8 +1152,8 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|found
-operator|=
+if|if
+condition|(
 literal|"invalid/invalid/1.0/invalid-2.0.jar"
 operator|.
 name|equals
@@ -1054,7 +1167,25 @@ argument_list|,
 literal|'/'
 argument_list|)
 argument_list|)
+condition|)
+block|{
+name|found
+operator|=
+literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check reason for kickout"
+argument_list|,
+literal|"Built artifact version does not match path version"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertTrue
 argument_list|(
@@ -1181,8 +1312,8 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|found
-operator|=
+if|if
+condition|(
 literal|"invalid/invalid/1.0/invalid-1.0b.jar"
 operator|.
 name|equals
@@ -1196,7 +1327,25 @@ argument_list|,
 literal|'/'
 argument_list|)
 argument_list|)
+condition|)
+block|{
+name|found
+operator|=
+literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check reason for kickout"
+argument_list|,
+literal|"Path version does not corresspond to an artifact version"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertTrue
 argument_list|(
@@ -1323,8 +1472,8 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|found
-operator|=
+if|if
+condition|(
 literal|"invalid/invalid/1.0-SNAPSHOT/invalid-1.0.jar"
 operator|.
 name|equals
@@ -1338,7 +1487,25 @@ argument_list|,
 literal|'/'
 argument_list|)
 argument_list|)
+condition|)
+block|{
+name|found
+operator|=
+literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check reason for kickout"
+argument_list|,
+literal|"Failed to create a snapshot artifact: invalid:invalid:jar:1.0:runtime"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertTrue
 argument_list|(
@@ -1465,8 +1632,8 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|found
-operator|=
+if|if
+condition|(
 literal|"invalid/invalid/1.0-20050611.123456-1/invalid-1.0-20050611.123456-1.jar"
 operator|.
 name|equals
@@ -1480,7 +1647,25 @@ argument_list|,
 literal|'/'
 argument_list|)
 argument_list|)
+condition|)
+block|{
+name|found
+operator|=
+literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check reason for kickout"
+argument_list|,
+literal|"Built snapshot artifact base version does not match path version: invalid:invalid:jar:1.0-SNAPSHOT:runtime; should have been version: 1.0-20050611.123456-1"
+argument_list|,
+name|dPath
+operator|.
+name|getComment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertTrue
 argument_list|(
