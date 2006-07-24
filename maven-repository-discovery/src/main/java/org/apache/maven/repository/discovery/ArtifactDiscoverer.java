@@ -51,6 +51,26 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -78,7 +98,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Discover artifacts in the repository.      *      * @param repository          the location of the repository      * @param blacklistedPatterns pattern that lists any files to prevent from being included when scanning      * @param includeSnapshots    whether to discover snapshots      * @return the list of artifacts discovered      */
+comment|/**      * Discover artifacts in the repository.      *      * @param repository          the location of the repository      * @param operation           the operation being used to discover for timestamp checking      * @param blacklistedPatterns pattern that lists any files to prevent from being included when scanning      * @param includeSnapshots    whether to discover snapshots      * @return the list of artifacts discovered      * @throws DiscovererException if there was an unrecoverable problem discovering artifacts or recording progress      */
 name|List
 name|discoverArtifacts
 parameter_list|(
@@ -86,11 +106,16 @@ name|ArtifactRepository
 name|repository
 parameter_list|,
 name|String
+name|operation
+parameter_list|,
+name|String
 name|blacklistedPatterns
 parameter_list|,
 name|boolean
 name|includeSnapshots
 parameter_list|)
+throws|throws
+name|DiscovererException
 function_decl|;
 comment|/**      * Discover standalone POM artifacts in the repository.      *      * @param repository          the location of the repository      * @param blacklistedPatterns pattern that lists any files to prevent from being included when scanning      * @param includeSnapshots    whether to discover snapshots      * @return the list of artifacts discovered      * @todo why do we need this? shouldn't the discovered artifacts above link to the related POM, and include standalone POMs? Why would we need just this list?      */
 name|List
@@ -115,6 +140,35 @@ name|path
 parameter_list|)
 throws|throws
 name|DiscovererException
+function_decl|;
+comment|/**      * Reset the time in the repository that indicates the last time a check was performed.      *      * @param repository the location of the repository      * @param operation  the operation to record the timestamp for      * @throws java.io.IOException if there is a non-recoverable problem reading or writing the metadata      */
+name|void
+name|resetLastCheckedTime
+parameter_list|(
+name|ArtifactRepository
+name|repository
+parameter_list|,
+name|String
+name|operation
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Set the time in the repository that indicates the last time a check was performed.      *      * @param repository the location of the repository      * @param operation  the operation to record the timestamp for      * @param date       the date to set the last check to      * @throws java.io.IOException if there is a non-recoverable problem reading or writing the metadata      */
+name|void
+name|setLastCheckedTime
+parameter_list|(
+name|ArtifactRepository
+name|repository
+parameter_list|,
+name|String
+name|operation
+parameter_list|,
+name|Date
+name|date
+parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 block|}
 end_interface
