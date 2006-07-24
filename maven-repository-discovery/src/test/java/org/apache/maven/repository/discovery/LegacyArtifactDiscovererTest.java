@@ -125,6 +125,8 @@ specifier|public
 name|void
 name|testDefaultExcludes
 parameter_list|()
+throws|throws
+name|DiscovererException
 block|{
 name|List
 name|artifacts
@@ -134,6 +136,8 @@ operator|.
 name|discoverArtifacts
 argument_list|(
 name|repository
+argument_list|,
+name|TEST_OPERATION
 argument_list|,
 literal|null
 argument_list|,
@@ -282,6 +286,8 @@ specifier|public
 name|void
 name|testStandardExcludes
 parameter_list|()
+throws|throws
+name|DiscovererException
 block|{
 name|List
 name|artifacts
@@ -291,6 +297,8 @@ operator|.
 name|discoverArtifacts
 argument_list|(
 name|repository
+argument_list|,
+name|TEST_OPERATION
 argument_list|,
 literal|null
 argument_list|,
@@ -435,6 +443,8 @@ specifier|public
 name|void
 name|testBlacklistedExclude
 parameter_list|()
+throws|throws
+name|DiscovererException
 block|{
 name|List
 name|artifacts
@@ -444,6 +454,8 @@ operator|.
 name|discoverArtifacts
 argument_list|(
 name|repository
+argument_list|,
+name|TEST_OPERATION
 argument_list|,
 literal|"javax.sql/**"
 argument_list|,
@@ -567,6 +579,8 @@ specifier|public
 name|void
 name|testKickoutWithShortPath
 parameter_list|()
+throws|throws
+name|DiscovererException
 block|{
 name|List
 name|artifacts
@@ -576,6 +590,8 @@ operator|.
 name|discoverArtifacts
 argument_list|(
 name|repository
+argument_list|,
+name|TEST_OPERATION
 argument_list|,
 literal|null
 argument_list|,
@@ -727,6 +743,8 @@ specifier|public
 name|void
 name|testKickoutWithLongPath
 parameter_list|()
+throws|throws
+name|DiscovererException
 block|{
 name|List
 name|artifacts
@@ -736,6 +754,8 @@ operator|.
 name|discoverArtifacts
 argument_list|(
 name|repository
+argument_list|,
+name|TEST_OPERATION
 argument_list|,
 literal|null
 argument_list|,
@@ -887,6 +907,8 @@ specifier|public
 name|void
 name|testKickoutWithInvalidType
 parameter_list|()
+throws|throws
+name|DiscovererException
 block|{
 name|List
 name|artifacts
@@ -896,6 +918,8 @@ operator|.
 name|discoverArtifacts
 argument_list|(
 name|repository
+argument_list|,
+name|TEST_OPERATION
 argument_list|,
 literal|null
 argument_list|,
@@ -1047,6 +1071,8 @@ specifier|public
 name|void
 name|testKickoutWithNoExtension
 parameter_list|()
+throws|throws
+name|DiscovererException
 block|{
 name|List
 name|artifacts
@@ -1056,6 +1082,8 @@ operator|.
 name|discoverArtifacts
 argument_list|(
 name|repository
+argument_list|,
+name|TEST_OPERATION
 argument_list|,
 literal|null
 argument_list|,
@@ -1207,6 +1235,8 @@ specifier|public
 name|void
 name|testKickoutWithWrongExtension
 parameter_list|()
+throws|throws
+name|DiscovererException
 block|{
 name|List
 name|artifacts
@@ -1216,6 +1246,8 @@ operator|.
 name|discoverArtifacts
 argument_list|(
 name|repository
+argument_list|,
+name|TEST_OPERATION
 argument_list|,
 literal|null
 argument_list|,
@@ -1367,6 +1399,8 @@ specifier|public
 name|void
 name|testKickoutWithNoVersion
 parameter_list|()
+throws|throws
+name|DiscovererException
 block|{
 name|List
 name|artifacts
@@ -1376,6 +1410,8 @@ operator|.
 name|discoverArtifacts
 argument_list|(
 name|repository
+argument_list|,
+name|TEST_OPERATION
 argument_list|,
 literal|null
 argument_list|,
@@ -1527,6 +1563,8 @@ specifier|public
 name|void
 name|testInclusion
 parameter_list|()
+throws|throws
+name|DiscovererException
 block|{
 name|List
 name|artifacts
@@ -1536,6 +1574,8 @@ operator|.
 name|discoverArtifacts
 argument_list|(
 name|repository
+argument_list|,
+name|TEST_OPERATION
 argument_list|,
 literal|null
 argument_list|,
@@ -1573,6 +1613,8 @@ specifier|public
 name|void
 name|testTextualVersion
 parameter_list|()
+throws|throws
+name|DiscovererException
 block|{
 name|List
 name|artifacts
@@ -1582,6 +1624,8 @@ operator|.
 name|discoverArtifacts
 argument_list|(
 name|repository
+argument_list|,
+name|TEST_OPERATION
 argument_list|,
 literal|null
 argument_list|,
@@ -1619,6 +1663,8 @@ specifier|public
 name|void
 name|testArtifactWithClassifier
 parameter_list|()
+throws|throws
+name|DiscovererException
 block|{
 name|List
 name|artifacts
@@ -1628,6 +1674,8 @@ operator|.
 name|discoverArtifacts
 argument_list|(
 name|repository
+argument_list|,
+name|TEST_OPERATION
 argument_list|,
 literal|null
 argument_list|,
@@ -1669,6 +1717,8 @@ specifier|public
 name|void
 name|testJavaSourcesInclusion
 parameter_list|()
+throws|throws
+name|DiscovererException
 block|{
 name|List
 name|artifacts
@@ -1678,6 +1728,8 @@ operator|.
 name|discoverArtifacts
 argument_list|(
 name|repository
+argument_list|,
+name|TEST_OPERATION
 argument_list|,
 literal|null
 argument_list|,
@@ -1719,6 +1771,8 @@ specifier|public
 name|void
 name|testDistributionInclusion
 parameter_list|()
+throws|throws
+name|DiscovererException
 block|{
 name|List
 name|artifacts
@@ -1728,6 +1782,8 @@ operator|.
 name|discoverArtifacts
 argument_list|(
 name|repository
+argument_list|,
+name|TEST_OPERATION
 argument_list|,
 literal|null
 argument_list|,
@@ -1788,6 +1844,8 @@ specifier|public
 name|void
 name|testSnapshotInclusion
 parameter_list|()
+throws|throws
+name|DiscovererException
 block|{
 name|List
 name|artifacts
@@ -1797,6 +1855,8 @@ operator|.
 name|discoverArtifacts
 argument_list|(
 name|repository
+argument_list|,
+name|TEST_OPERATION
 argument_list|,
 literal|null
 argument_list|,
@@ -1853,6 +1913,8 @@ specifier|public
 name|void
 name|testSnapshotExclusion
 parameter_list|()
+throws|throws
+name|DiscovererException
 block|{
 name|List
 name|artifacts
@@ -1862,6 +1924,8 @@ operator|.
 name|discoverArtifacts
 argument_list|(
 name|repository
+argument_list|,
+name|TEST_OPERATION
 argument_list|,
 literal|null
 argument_list|,
@@ -1918,6 +1982,8 @@ specifier|public
 name|void
 name|testFileSet
 parameter_list|()
+throws|throws
+name|DiscovererException
 block|{
 name|List
 name|artifacts
@@ -1927,6 +1993,8 @@ operator|.
 name|discoverArtifacts
 argument_list|(
 name|repository
+argument_list|,
+name|TEST_OPERATION
 argument_list|,
 literal|null
 argument_list|,
@@ -1986,6 +2054,8 @@ name|testRepositorySet
 parameter_list|()
 throws|throws
 name|MalformedURLException
+throws|,
+name|DiscovererException
 block|{
 name|List
 name|artifacts
@@ -1995,6 +2065,8 @@ operator|.
 name|discoverArtifacts
 argument_list|(
 name|repository
+argument_list|,
+name|TEST_OPERATION
 argument_list|,
 literal|null
 argument_list|,

@@ -228,7 +228,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract class for RepositoryIndexers.  *  * @author Edwin Punzalan  * @todo [BP] overall am not happy with the design of this class and subclasses, but will refactor over time based on how it is used and by assessing how this affects Lucene's performance  */
+comment|/**  * Abstract class for RepositoryIndexers.  *  * @author Edwin Punzalan  * @todo [BP] overall am not happy with the design of this class and subclasses, but will refactor over time based on how it is used and by assessing how this affects Lucene's performance  * @todo in particular - we should remove the reference to documents and instead just index artifacts, models and metadata.  * @todo these should be individual tasks, with the grouping and atomicity (closing of index after a whole unit) done separately  */
 end_comment
 
 begin_class

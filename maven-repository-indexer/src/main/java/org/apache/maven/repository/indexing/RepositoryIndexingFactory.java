@@ -75,19 +75,6 @@ parameter_list|)
 throws|throws
 name|RepositoryIndexException
 function_decl|;
-comment|/**      * Method to create an instance of the PomRepositoryIndex      *      * @param indexPath  the path where the index will be created/updated      * @param repository the repository where the indexed poms are located      * @return the PomRepositoryIndex instance      * @throws RepositoryIndexException      */
-name|PomRepositoryIndex
-name|createPomRepositoryIndex
-parameter_list|(
-name|File
-name|indexPath
-parameter_list|,
-name|ArtifactRepository
-name|repository
-parameter_list|)
-throws|throws
-name|RepositoryIndexException
-function_decl|;
 comment|/**      * Method to create instance of the MetadataRepositoryIndex      *      * @param indexPath  the path where the index will be created/updated      * @param repository the repository where the indexed metadata are located      * @return the MetadataRepositoryIndex instance      * @throws RepositoryIndexException      */
 name|MetadataRepositoryIndex
 name|createMetadataRepositoryIndex

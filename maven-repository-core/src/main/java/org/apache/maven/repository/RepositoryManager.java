@@ -29,6 +29,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|repository
+operator|.
+name|discovery
+operator|.
+name|DiscovererException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -72,6 +88,8 @@ name|includeSnapshots
 parameter_list|)
 throws|throws
 name|RepositoryConversionException
+throws|,
+name|DiscovererException
 function_decl|;
 block|}
 end_interface
