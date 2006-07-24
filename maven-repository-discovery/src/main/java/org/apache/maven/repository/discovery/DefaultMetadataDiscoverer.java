@@ -153,11 +153,7 @@ name|plexus
 operator|.
 name|util
 operator|.
-name|xml
-operator|.
-name|pull
-operator|.
-name|XmlPullParserException
+name|StringUtils
 import|;
 end_import
 
@@ -171,7 +167,11 @@ name|plexus
 operator|.
 name|util
 operator|.
-name|StringUtils
+name|xml
+operator|.
+name|pull
+operator|.
+name|XmlPullParserException
 import|;
 end_import
 
@@ -308,7 +308,7 @@ name|AbstractDiscoverer
 implements|implements
 name|MetadataDiscoverer
 block|{
-comment|/**      * Standard patterns to include in discovery of metadata files.      */
+comment|/**      * Standard patterns to include in discovery of metadata files.      *      * @todo do we really need all these paths? Add tests for all 3 levels and confirm only 2 are needed.      */
 specifier|private
 specifier|static
 specifier|final
@@ -330,7 +330,7 @@ block|,
 literal|"**/*/*/*-metadata-*.xml"
 block|}
 decl_stmt|;
-comment|/**      * @see org.apache.maven.repository.discovery.MetadataDiscoverer#discoverMetadata(java.io.File, String)      */
+comment|/**      * @see org.apache.maven.repository.discovery.MetadataDiscoverer#discoverMetadata(java.io.File,String)      */
 specifier|public
 name|List
 name|discoverMetadata
@@ -611,7 +611,7 @@ return|return
 name|repositoryMetadata
 return|;
 block|}
-comment|/**      * Builds a RepositoryMetadata object from a Metadata object and its path      *      * @param m Metadata      * @param metadataPath path      * @return RepositoryMetadata if the parameters represent one; null if not      */
+comment|/**      * Builds a RepositoryMetadata object from a Metadata object and its path      *      * @param m            Metadata      * @param metadataPath path      * @return RepositoryMetadata if the parameters represent one; null if not      */
 specifier|private
 name|RepositoryMetadata
 name|buildMetadata

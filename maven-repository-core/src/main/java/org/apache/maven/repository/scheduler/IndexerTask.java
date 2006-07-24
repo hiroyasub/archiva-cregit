@@ -476,6 +476,7 @@ name|defaultRepository
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: I believe this is incorrect, since it only discovers standalone POMs, not the individual artifacts!
 name|List
 name|models
 init|=

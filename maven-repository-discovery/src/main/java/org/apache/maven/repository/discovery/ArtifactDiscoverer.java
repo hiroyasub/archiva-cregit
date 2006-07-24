@@ -58,7 +58,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Interface for implementation that can discover artifacts within a repository.  *  * @author John Casey  * @author Brett Porter  */
+comment|/**  * Interface for implementation that can discover artifacts within a repository.  *  * @author John Casey  * @author Brett Porter  * @todo do we want blacklisted patterns in another form? Part of the object construction?  * @todo should includeSnapshots be configuration on the component? If not, should the methods be changed to include alternates for both possibilities (discoverReleaseArtifacts, discoverReleaseAndSnapshotArtifacts)?  * @todo instead of a returned list, should a listener be passed in?  */
 end_comment
 
 begin_interface
@@ -78,7 +78,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Discover artifacts in the repository.      *      * @param repository          the location of the repository      * @param blacklistedPatterns pattern that lists any files to prevent from being included when scanning      * @param includeSnapshots    whether to discover snapshots      * @return the list of artifacts discovered      * @todo do we want blacklisted patterns in another form? Part of the object construction?      * @todo should includeSnapshots be configuration on the component?      * @todo instead of a returned list, should a listener be passed in?      */
+comment|/**      * Discover artifacts in the repository.      *      * @param repository          the location of the repository      * @param blacklistedPatterns pattern that lists any files to prevent from being included when scanning      * @param includeSnapshots    whether to discover snapshots      * @return the list of artifacts discovered      */
 name|List
 name|discoverArtifacts
 parameter_list|(
@@ -92,7 +92,7 @@ name|boolean
 name|includeSnapshots
 parameter_list|)
 function_decl|;
-comment|/**      * Discover standalone POM artifacts in the repository.      *      * @param repository          the location of the repository      * @param blacklistedPatterns pattern that lists any files to prevent from being included when scanning      * @param includeSnapshots    whether to discover snapshots      * @return the list of artifacts discovered      * @todo do we want blacklisted patterns in another form? Part of the object construction?      * @todo should includeSnapshots be configuration on the component?      * @todo instead of a returned list, should a listener be passed in?      */
+comment|/**      * Discover standalone POM artifacts in the repository.      *      * @param repository          the location of the repository      * @param blacklistedPatterns pattern that lists any files to prevent from being included when scanning      * @param includeSnapshots    whether to discover snapshots      * @return the list of artifacts discovered      * @todo why do we need this? shouldn't the discovered artifacts above link to the related POM, and include standalone POMs? Why would we need just this list?      */
 name|List
 name|discoverStandalonePoms
 parameter_list|(
@@ -106,7 +106,7 @@ name|boolean
 name|includeSnapshots
 parameter_list|)
 function_decl|;
-comment|/**      * Build an artifact from a path in the repository      *      * @param path the path      * @return the artifact      * @todo this should be in maven-artifact      */
+comment|/**      * Build an artifact from a path in the repository      *      * @param path the path      * @return the artifact      * @throws DiscovererException if the file is not a valid artifact      * @todo this should be in maven-artifact      */
 name|Artifact
 name|buildArtifact
 parameter_list|(
