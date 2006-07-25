@@ -149,7 +149,25 @@ name|indexing
 operator|.
 name|query
 operator|.
-name|SinglePhraseQuery
+name|QueryTerm
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|repository
+operator|.
+name|indexing
+operator|.
+name|query
+operator|.
+name|SingleTermQuery
 import|;
 end_import
 
@@ -283,11 +301,12 @@ name|i
 operator|++
 control|)
 block|{
-name|Query
-name|qry
+comment|// TODO! does simply iterating the fields and searching each perform well enough and yield correct rankings?
+name|QueryTerm
+name|term
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -304,7 +323,11 @@ name|results
 init|=
 name|searchAdvanced
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|term
+argument_list|)
 argument_list|,
 name|index
 argument_list|)
@@ -642,6 +665,7 @@ name|FLD_MD5
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// TODO! this doesn't seem like the correct way to determine what matched
 name|result
 operator|.
 name|setFieldMatches

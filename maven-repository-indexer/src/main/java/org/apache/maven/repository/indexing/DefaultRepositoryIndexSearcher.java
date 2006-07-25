@@ -691,8 +691,7 @@ return|return
 name|docs
 return|;
 block|}
-comment|/**      * Method for creating the object to be returned for the search      *      * @param doc        the index document where the object field values will be retrieved from      * @param repository      * @return Object      */
-specifier|protected
+specifier|private
 name|RepositoryIndexSearchHit
 name|createSearchedObjectFromIndexDocument
 parameter_list|(
@@ -815,6 +814,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// TODO: introduce strongly types search result!
 name|Map
 name|map
 init|=
@@ -995,6 +995,7 @@ argument_list|,
 name|version
 argument_list|)
 decl_stmt|;
+comment|// TODO: introduce strongly types search result! Don't read the POM here, though - populate with the data from the index
 name|searchHit
 operator|=
 operator|new
@@ -1124,15 +1125,13 @@ name|SnapshotArtifactRepositoryMetadata
 argument_list|(
 name|factory
 operator|.
-name|createBuildArtifact
+name|createProjectArtifact
 argument_list|(
 name|groupId
 argument_list|,
 name|artifactId
 argument_list|,
 name|version
-argument_list|,
-literal|"jar"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1154,15 +1153,13 @@ name|ArtifactRepositoryMetadata
 argument_list|(
 name|factory
 operator|.
-name|createBuildArtifact
+name|createProjectArtifact
 argument_list|(
 name|groupId
 argument_list|,
 name|artifactId
 argument_list|,
 name|version
-argument_list|,
-literal|"jar"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1178,6 +1175,7 @@ name|groupId
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: introduce strongly types search result! Don't read the metadata here, though - populate with the data from the index
 name|repoMetadata
 operator|.
 name|setMetadata
@@ -1214,7 +1212,6 @@ return|return
 name|searchHit
 return|;
 block|}
-comment|/**      * Create RepositoryMetadata object.      *      * @return RepositoryMetadata      */
 specifier|private
 name|Metadata
 name|readMetadata
@@ -1352,7 +1349,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Create RepositoryMetadata object.      *      * @return RepositoryMetadata      */
 specifier|private
 name|Model
 name|readPom

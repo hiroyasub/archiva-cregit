@@ -297,7 +297,7 @@ name|ArtifactRepository
 name|getRepository
 parameter_list|()
 function_decl|;
-comment|/**      * Method to encapsulate the optimize() method for lucene      */
+comment|/**      * Method to encapsulate the optimize() method for lucene      *      * @throws RepositoryIndexException if there is a problem optimizing the index.      */
 name|void
 name|optimize
 parameter_list|()

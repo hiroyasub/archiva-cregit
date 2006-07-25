@@ -20,38 +20,64 @@ comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed
 end_comment
 
 begin_comment
-comment|/**  * A boolean NOT query term.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * Class to hold a single field search condition  *  * @author Edwin Punzalan  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|NotQueryTerm
-extends|extends
-name|AbstractCompoundQueryTerm
+name|QueryTerm
 block|{
-comment|/**      * Class constructor      *      * @param query the Query object represented by this Query object      */
+specifier|private
+name|String
+name|field
+decl_stmt|;
+specifier|private
+name|String
+name|value
+decl_stmt|;
+comment|/**      * Class constructor      *      * @param field the index field to search      * @param value the index value requirement      */
 specifier|public
-name|NotQueryTerm
+name|QueryTerm
 parameter_list|(
-name|Query
-name|query
+name|String
+name|field
+parameter_list|,
+name|String
+name|value
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|query
-argument_list|)
+name|this
+operator|.
+name|field
+operator|=
+name|field
+expr_stmt|;
+name|this
+operator|.
+name|value
+operator|=
+name|value
 expr_stmt|;
 block|}
-comment|/**      * @see CompoundQueryTerm#isProhibited()      */
+comment|/**      * Method to retrieve the name of the index field searched      *      * @return the name of the index field      */
 specifier|public
-name|boolean
-name|isProhibited
+name|String
+name|getField
 parameter_list|()
 block|{
 return|return
-literal|true
+name|field
+return|;
+block|}
+comment|/**      * Method to retrieve the value used in searching the index field      *      * @return the value to corresspond the index field      */
+specifier|public
+name|String
+name|getValue
+parameter_list|()
+block|{
+return|return
+name|value
 return|;
 block|}
 block|}

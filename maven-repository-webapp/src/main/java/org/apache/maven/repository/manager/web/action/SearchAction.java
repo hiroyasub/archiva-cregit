@@ -207,7 +207,7 @@ name|indexing
 operator|.
 name|query
 operator|.
-name|SinglePhraseQuery
+name|SingleTermQuery
 import|;
 end_import
 
@@ -407,7 +407,7 @@ operator|.
 name|searchAdvanced
 argument_list|(
 operator|new
-name|SinglePhraseQuery
+name|SingleTermQuery
 argument_list|(
 literal|"md5"
 argument_list|,

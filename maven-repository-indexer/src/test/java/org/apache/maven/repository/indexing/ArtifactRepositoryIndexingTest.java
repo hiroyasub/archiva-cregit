@@ -177,7 +177,7 @@ name|indexing
 operator|.
 name|query
 operator|.
-name|Query
+name|QueryTerm
 import|;
 end_import
 
@@ -195,7 +195,7 @@ name|indexing
 operator|.
 name|query
 operator|.
-name|SinglePhraseQuery
+name|SingleTermQuery
 import|;
 end_import
 
@@ -481,11 +481,11 @@ name|ROLE
 argument_list|)
 decl_stmt|;
 comment|// search version
-name|Query
-name|qry
+name|QueryTerm
+name|queryTerm
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -501,7 +501,11 @@ name|repoSearchLayer
 operator|.
 name|searchAdvanced
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -564,10 +568,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// search group id
-name|qry
+name|queryTerm
 operator|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -582,7 +586,11 @@ name|repoSearchLayer
 operator|.
 name|searchAdvanced
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -1096,11 +1104,11 @@ name|repository
 argument_list|)
 decl_stmt|;
 comment|// search version
-name|Query
-name|qry
+name|QueryTerm
+name|queryTerm
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -1116,7 +1124,11 @@ name|repoSearchLayer
 operator|.
 name|searchAdvanced
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -1179,10 +1191,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// search group id
-name|qry
+name|queryTerm
 operator|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -1197,7 +1209,11 @@ name|repoSearchLayer
 operator|.
 name|searchAdvanced
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -1259,10 +1275,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// search artifact id
-name|qry
+name|queryTerm
 operator|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -1277,7 +1293,11 @@ name|repoSearchLayer
 operator|.
 name|searchAdvanced
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -1339,10 +1359,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// search version
-name|qry
+name|queryTerm
 operator|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -1357,7 +1377,11 @@ name|repoSearchLayer
 operator|.
 name|searchAdvanced
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -1425,10 +1449,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// search classes
-name|qry
+name|queryTerm
 operator|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -1443,7 +1467,11 @@ name|repoSearchLayer
 operator|.
 name|searchAdvanced
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -1505,10 +1533,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// search packages
-name|qry
+name|queryTerm
 operator|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -1523,7 +1551,11 @@ name|repoSearchLayer
 operator|.
 name|searchAdvanced
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -1585,10 +1617,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// search files
-name|qry
+name|queryTerm
 operator|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -1603,7 +1635,11 @@ name|repoSearchLayer
 operator|.
 name|searchAdvanced
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -1664,10 +1700,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// search packaging
-name|qry
+name|queryTerm
 operator|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -1682,7 +1718,11 @@ name|repoSearchLayer
 operator|.
 name|searchAdvanced
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -1751,10 +1791,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//search license url
-name|qry
+name|queryTerm
 operator|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -1769,7 +1809,11 @@ name|repoSearchLayer
 operator|.
 name|searchAdvanced
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -1867,10 +1911,10 @@ expr_stmt|;
 block|}
 block|}
 comment|//search dependencies
-name|qry
+name|queryTerm
 operator|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -1885,7 +1929,11 @@ name|repoSearchLayer
 operator|.
 name|searchAdvanced
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -2008,10 +2056,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//search build plugin
-name|qry
+name|queryTerm
 operator|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -2026,7 +2074,11 @@ name|repoSearchLayer
 operator|.
 name|searchAdvanced
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -2149,10 +2201,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//search reporting plugin
-name|qry
+name|queryTerm
 operator|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -2167,7 +2219,11 @@ name|repoSearchLayer
 operator|.
 name|searchAdvanced
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -2422,11 +2478,11 @@ argument_list|,
 name|algorithm
 argument_list|)
 decl_stmt|;
-name|Query
-name|qry
+name|QueryTerm
+name|queryTerm
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|field
 argument_list|,
@@ -2443,7 +2499,11 @@ name|repoSearchLayer
 operator|.
 name|searchAdvanced
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -2569,11 +2629,11 @@ argument_list|)
 decl_stmt|;
 comment|// Criteria 1: required query
 comment|// ex. artifactId=maven-artifact AND groupId=org.apache.maven
-name|Query
+name|QueryTerm
 name|qry1
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -2582,11 +2642,11 @@ argument_list|,
 literal|"maven-artifact"
 argument_list|)
 decl_stmt|;
-name|Query
+name|QueryTerm
 name|qry2
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -2688,11 +2748,11 @@ block|}
 comment|// Criteria 2: nested required query
 comment|// ex. (artifactId=maven-artifact AND groupId=org.apache.maven) OR
 comment|// version=2.0.3
-name|Query
+name|QueryTerm
 name|qry3
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -2794,11 +2854,11 @@ comment|// Criteria 3: nested required query
 comment|// ex. (artifactId=maven-artifact AND groupId=org.apache.maven) AND
 comment|// (version=2.0.3 OR version=2.0.1)
 comment|// AND (name=maven-artifact-2.0.1.jar OR name=maven-artifact)
-name|Query
+name|QueryTerm
 name|qry4
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -2834,11 +2894,11 @@ operator|new
 name|CompoundQuery
 argument_list|()
 decl_stmt|;
-name|Query
+name|QueryTerm
 name|qry9
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -2847,11 +2907,11 @@ argument_list|,
 literal|"maven-artifact-2.0.1.jar"
 argument_list|)
 decl_stmt|;
-name|Query
+name|QueryTerm
 name|qry10
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -2987,11 +3047,11 @@ operator|new
 name|CompoundQuery
 argument_list|()
 decl_stmt|;
-name|Query
+name|QueryTerm
 name|qry11
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -3000,11 +3060,11 @@ argument_list|,
 literal|"org.codehaus.plexus:plexus-utils:1.0.5"
 argument_list|)
 decl_stmt|;
-name|Query
+name|QueryTerm
 name|qry12
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -3145,11 +3205,11 @@ operator|new
 name|CompoundQuery
 argument_list|()
 decl_stmt|;
-name|Query
+name|QueryTerm
 name|qry5
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -3158,11 +3218,11 @@ argument_list|,
 literal|"sample"
 argument_list|)
 decl_stmt|;
-name|Query
+name|QueryTerm
 name|qry6
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -3297,11 +3357,11 @@ operator|new
 name|CompoundQuery
 argument_list|()
 decl_stmt|;
-name|Query
+name|QueryTerm
 name|qry7
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -3310,11 +3370,11 @@ argument_list|,
 literal|"sample2"
 argument_list|)
 decl_stmt|;
-name|Query
+name|QueryTerm
 name|qry8
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -3464,11 +3524,11 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|Query
-name|qry
+name|QueryTerm
+name|queryTerm
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -3481,7 +3541,11 @@ name|repoSearchLayer
 operator|.
 name|searchAdvanced
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -3520,11 +3584,11 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|Query
-name|qry
+name|QueryTerm
+name|queryTerm
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -3537,7 +3601,11 @@ name|repoSearchLayer
 operator|.
 name|searchAdvanced
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -3645,11 +3713,11 @@ argument_list|,
 literal|"pom"
 argument_list|)
 decl_stmt|;
-name|Query
-name|qry
+name|QueryTerm
+name|queryTerm
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -3674,7 +3742,11 @@ name|repoSearcher
 operator|.
 name|search
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -3687,10 +3759,10 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|qry
+name|queryTerm
 operator|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -3714,7 +3786,11 @@ name|repoSearcher
 operator|.
 name|search
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -3741,10 +3817,10 @@ argument_list|(
 name|pomArtifact
 argument_list|)
 expr_stmt|;
-name|qry
+name|queryTerm
 operator|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -3768,7 +3844,11 @@ name|repoSearcher
 operator|.
 name|search
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -3781,10 +3861,10 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|qry
+name|queryTerm
 operator|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -3808,7 +3888,11 @@ name|repoSearcher
 operator|.
 name|search
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
@@ -3890,11 +3974,11 @@ argument_list|(
 name|artifact
 argument_list|)
 expr_stmt|;
-name|Query
-name|qry
+name|QueryTerm
+name|queryTerm
 init|=
 operator|new
-name|SinglePhraseQuery
+name|QueryTerm
 argument_list|(
 name|RepositoryIndex
 operator|.
@@ -3917,7 +4001,11 @@ name|repoSearcher
 operator|.
 name|search
 argument_list|(
-name|qry
+operator|new
+name|SingleTermQuery
+argument_list|(
+name|queryTerm
+argument_list|)
 argument_list|,
 name|indexer
 argument_list|)
