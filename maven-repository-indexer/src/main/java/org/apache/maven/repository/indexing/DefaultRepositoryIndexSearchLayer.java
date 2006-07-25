@@ -302,6 +302,8 @@ operator|++
 control|)
 block|{
 comment|// TODO! does simply iterating the fields and searching each perform well enough and yield correct rankings?
+comment|// look into: http://wiki.apache.org/jakarta-lucene/LuceneFAQ#head-300f0756fdaa71f522c96a868351f716573f2d77
+comment|// ie: http://lucene.apache.org/java/docs/api/org/apache/lucene/queryParser/MultiFieldQueryParser.html
 name|QueryTerm
 name|term
 init|=
