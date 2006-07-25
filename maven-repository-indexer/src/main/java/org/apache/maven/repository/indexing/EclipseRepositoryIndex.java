@@ -364,6 +364,8 @@ name|EclipseRepositoryIndex
 extends|extends
 name|AbstractRepositoryIndex
 block|{
+comment|// TODO: change constants to an enumerated type
+comment|/**      * Field name for the JAR filename.      */
 specifier|private
 specifier|static
 specifier|final
@@ -372,6 +374,7 @@ name|JAR_NAME
 init|=
 literal|"j"
 decl_stmt|;
+comment|/**      * Field name for the JAR file size.      */
 specifier|private
 specifier|static
 specifier|final
@@ -380,6 +383,7 @@ name|JAR_SIZE
 init|=
 literal|"s"
 decl_stmt|;
+comment|/**      * Field name for the JAR last modified timestamp.      */
 specifier|private
 specifier|static
 specifier|final
@@ -388,6 +392,7 @@ name|JAR_DATE
 init|=
 literal|"d"
 decl_stmt|;
+comment|/**      * Field name for the list of classes in the JAR.      */
 specifier|private
 specifier|static
 specifier|final
@@ -396,6 +401,7 @@ name|NAMES
 init|=
 literal|"c"
 decl_stmt|;
+comment|/**      * Field name for the MD5 checksum of the JAR.      */
 specifier|private
 specifier|static
 specifier|final
