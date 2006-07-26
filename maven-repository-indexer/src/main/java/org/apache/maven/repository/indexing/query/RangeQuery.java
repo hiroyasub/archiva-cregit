@@ -130,7 +130,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a bounded range, excluding the endpoints.      *      * @return the query object      */
+comment|/**      * Create a bounded range, excluding the endpoints.      *      * @param begin the lower bound value to compare to      * @param end   the upper bound value to compare to      * @return the query object      */
 specifier|public
 specifier|static
 name|RangeQuery
@@ -155,7 +155,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a bounded range, including the endpoints.      *      * @return the query object      */
+comment|/**      * Create a bounded range, including the endpoints.      *      * @param begin the lower bound value to compare to      * @param end   the upper bound value to compare to      * @return the query object      */
 specifier|public
 specifier|static
 name|RangeQuery
@@ -180,7 +180,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a range that is greater than or equal to a given term.      *      * @return the query object      */
+comment|/**      * Create a range that is greater than or equal to a given term.      *      * @param begin the value to compare to      * @return the query object      */
 specifier|public
 specifier|static
 name|RangeQuery
@@ -202,7 +202,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a range that is greater than a given term.      *      * @return the query object      */
+comment|/**      * Create a range that is greater than a given term.      *      * @param begin the value to compare to      * @return the query object      */
 specifier|public
 specifier|static
 name|RangeQuery
@@ -224,7 +224,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a range that is less than or equal to a given term.      *      * @return the query object      */
+comment|/**      * Create a range that is less than or equal to a given term.      *      * @param end the value to compare to      * @return the query object      */
 specifier|public
 specifier|static
 name|RangeQuery
@@ -246,7 +246,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a range that is less than a given term.      *      * @return the query object      */
+comment|/**      * Create a range that is less than a given term.      *      * @param end the value to compare to      * @return the query object      */
 specifier|public
 specifier|static
 name|RangeQuery
