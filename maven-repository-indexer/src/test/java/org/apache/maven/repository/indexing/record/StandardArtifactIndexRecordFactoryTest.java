@@ -122,7 +122,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test the minimal artifact index record.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * Test the minimal artifact index record.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @todo test packaging!  * @todo test pluginPrefix!  */
 end_comment
 
 begin_class

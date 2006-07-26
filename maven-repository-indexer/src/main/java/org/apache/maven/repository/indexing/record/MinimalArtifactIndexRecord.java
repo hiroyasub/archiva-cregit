@@ -456,6 +456,15 @@ operator|+
 name|classes
 return|;
 block|}
+specifier|public
+name|String
+name|getPrimaryKey
+parameter_list|()
+block|{
+return|return
+name|filename
+return|;
+block|}
 block|}
 end_class
 

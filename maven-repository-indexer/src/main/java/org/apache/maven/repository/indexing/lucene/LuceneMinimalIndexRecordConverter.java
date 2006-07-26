@@ -11,7 +11,7 @@ name|repository
 operator|.
 name|indexing
 operator|.
-name|record
+name|lucene
 package|;
 end_package
 
@@ -19,22 +19,64 @@ begin_comment
 comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
+name|Document
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|repository
+operator|.
+name|indexing
+operator|.
+name|record
+operator|.
+name|RepositoryIndexRecord
+import|;
+end_import
+
 begin_comment
-comment|/**  * A repository index record.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * Convert the minimal index record to a Lucene document.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
 end_comment
 
-begin_interface
+begin_class
 specifier|public
-interface|interface
-name|RepositoryIndexRecord
+class|class
+name|LuceneMinimalIndexRecordConverter
+implements|implements
+name|LuceneIndexRecordConverter
 block|{
-comment|/**      * Get the primary key used to identify the record uniquely in the index.      *      * @return the primary key      */
-name|String
-name|getPrimaryKey
-parameter_list|()
-function_decl|;
+specifier|public
+name|Document
+name|convert
+parameter_list|(
+name|RepositoryIndexRecord
+name|record
+parameter_list|)
+block|{
+comment|// TODO: implement!
+return|return
+literal|null
+return|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

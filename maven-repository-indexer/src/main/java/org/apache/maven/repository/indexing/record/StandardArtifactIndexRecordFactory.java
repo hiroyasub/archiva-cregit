@@ -410,7 +410,8 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|/* TODO! these come from the POM and metadata, so probably part of an update record method instead                 record.setPluginPrefix( pluginPrefix );                 record.setPackaging( packaging );                 indexPlugins( doc, FLD_PLUGINS_BUILD, pom.getBuild().getPlugins().iterator() );                 indexReportPlugins( doc, FLD_PLUGINS_REPORT, pom.getReporting().getPlugins().iterator() );                 record.setDependencies( dependencies );                 record.setLicenses( licenses ); */
+comment|/* TODO! these come from the POM and metadata, so probably part of an update record method instead // remember to test parent& inheritence                 record.setPluginPrefix( pluginPrefix );                 record.setPackaging( packaging );                 record.setProjectName( name );                 record.setProjectDescription( description );                 record.setInceptionYear( year );                 */
+comment|/* TODO: fields for later                 indexPlugins( doc, FLD_PLUGINS_BUILD, pom.getBuild().getPlugins().iterator() );                 indexReportPlugins( doc, FLD_PLUGINS_REPORT, pom.getReporting().getPlugins().iterator() );                 record.setDependencies( dependencies );                 record.setLicenses( licenses ); */
 name|populateArchiveEntries
 argument_list|(
 name|files
