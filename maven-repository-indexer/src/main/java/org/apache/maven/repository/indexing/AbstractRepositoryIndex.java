@@ -507,7 +507,13 @@ init|=
 name|indexReader
 operator|.
 name|getFieldNames
-argument_list|()
+argument_list|(
+name|IndexReader
+operator|.
+name|FieldOption
+operator|.
+name|ALL
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -685,7 +691,7 @@ argument_list|()
 decl_stmt|;
 name|indexReader
 operator|.
-name|delete
+name|deleteDocuments
 argument_list|(
 name|term
 argument_list|)
