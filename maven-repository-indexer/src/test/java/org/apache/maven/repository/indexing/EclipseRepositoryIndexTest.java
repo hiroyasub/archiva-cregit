@@ -27,7 +27,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DateField
+name|DateTools
 import|;
 end_import
 
@@ -241,7 +241,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|ArrayList
 import|;
 end_import
 
@@ -251,7 +251,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|List
 import|;
 end_import
 
@@ -739,7 +739,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|""
+literal|"."
 argument_list|)
 decl_stmt|;
 name|EclipseRepositoryIndex
@@ -962,11 +962,17 @@ name|parser
 operator|.
 name|parse
 argument_list|(
-name|DateField
+name|DateTools
 operator|.
 name|timeToString
 argument_list|(
 name|artifactFileTime
+argument_list|,
+name|DateTools
+operator|.
+name|Resolution
+operator|.
+name|SECOND
 argument_list|)
 argument_list|)
 argument_list|)

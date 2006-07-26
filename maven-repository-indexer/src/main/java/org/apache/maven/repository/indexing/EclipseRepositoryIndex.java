@@ -83,7 +83,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DateField
+name|DateTools
 import|;
 end_import
 
@@ -833,7 +833,7 @@ name|Field
 argument_list|(
 name|JAR_DATE
 argument_list|,
-name|DateField
+name|DateTools
 operator|.
 name|timeToString
 argument_list|(
@@ -841,6 +841,12 @@ name|artifactFile
 operator|.
 name|lastModified
 argument_list|()
+argument_list|,
+name|DateTools
+operator|.
+name|Resolution
+operator|.
+name|SECOND
 argument_list|)
 argument_list|,
 name|Field
@@ -1159,7 +1165,45 @@ name|tokenStream
 decl_stmt|;
 if|if
 condition|(
-literal|"s"
+name|JAR_SIZE
+operator|.
+name|equals
+argument_list|(
+name|fieldName
+argument_list|)
+condition|)
+block|{
+name|tokenStream
+operator|=
+operator|new
+name|EclipseIndexTokenizer
+argument_list|(
+name|reader
+argument_list|)
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|JAR_DATE
+operator|.
+name|equals
+argument_list|(
+name|fieldName
+argument_list|)
+condition|)
+block|{
+name|tokenStream
+operator|=
+operator|new
+name|EclipseIndexTokenizer
+argument_list|(
+name|reader
+argument_list|)
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|MD5
 operator|.
 name|equals
 argument_list|(
