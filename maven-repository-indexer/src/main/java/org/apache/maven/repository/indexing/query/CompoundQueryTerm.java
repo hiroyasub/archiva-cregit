@@ -24,6 +24,7 @@ comment|/**  * Base of all query terms.  *  * @author<a href="mailto:brett@apach
 end_comment
 
 begin_class
+specifier|public
 class|class
 name|CompoundQueryTerm
 block|{
@@ -79,6 +80,7 @@ name|required
 expr_stmt|;
 block|}
 comment|/**      * Method to test if the Query is a search requirement      *      * @return true if this Query is a search requirement, otherwise returns false      */
+specifier|public
 name|boolean
 name|isRequired
 parameter_list|()
@@ -88,6 +90,7 @@ name|required
 return|;
 block|}
 comment|/**      * Method to test if the Query is prohibited in the search result      *      * @return true if this Query is prohibited in the search result      */
+specifier|public
 name|boolean
 name|isProhibited
 parameter_list|()
@@ -97,6 +100,7 @@ name|prohibited
 return|;
 block|}
 comment|/**      * The subquery to execute.      *      * @return the query      */
+specifier|public
 name|Query
 name|getQuery
 parameter_list|()
