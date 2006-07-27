@@ -773,7 +773,7 @@ return|return
 name|repositoryMetadata
 return|;
 block|}
-comment|/**      * Builds a RepositoryMetadata object from a Metadata object and its path      *      * @param m            Metadata      * @param metadataPath path      * @return RepositoryMetadata if the parameters represent one; null if not      */
+comment|/**      * Builds a RepositoryMetadata object from a Metadata object and its path.      *      * @param m            Metadata      * @param metadataPath path      * @return RepositoryMetadata if the parameters represent one; null if not      * @todo should we just be using the path information, and loading it later when it is needed? (for reporting, etc)      */
 specifier|private
 name|RepositoryMetadata
 name|buildMetadata

@@ -397,6 +397,13 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|record
+operator|!=
+literal|null
+condition|)
+block|{
 name|Document
 name|document
 init|=
@@ -442,6 +449,7 @@ argument_list|(
 name|document
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
@@ -520,7 +528,7 @@ name|Analyzer
 name|getAnalyzer
 parameter_list|()
 block|{
-comment|// TODO: investigate why changed in original!
+comment|// TODO: investigate why changed in original! Probably for MD5 and number querying.
 return|return
 operator|new
 name|StandardAnalyzer
@@ -589,6 +597,13 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|record
+operator|!=
+literal|null
+condition|)
+block|{
 name|Term
 name|term
 init|=
@@ -610,6 +625,7 @@ argument_list|(
 name|term
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 finally|finally
