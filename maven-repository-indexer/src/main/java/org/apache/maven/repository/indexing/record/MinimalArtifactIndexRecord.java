@@ -40,7 +40,7 @@ name|MinimalArtifactIndexRecord
 implements|implements
 name|RepositoryIndexRecord
 block|{
-comment|/**      * The classes in the archive for the artifact, if it is a JAR. The package name is<b>not</b> included.      */
+comment|/**      * The classes in the archive for the artifact, if it is a JAR.      */
 specifier|private
 name|String
 name|classes
