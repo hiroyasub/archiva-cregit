@@ -1658,7 +1658,7 @@ name|assertEquals
 argument_list|(
 literal|"Check document classes"
 argument_list|,
-literal|"A\nb.B\nb.c.C\n"
+literal|"A\nb.B\nb.c.C"
 argument_list|,
 name|document
 operator|.
@@ -1672,7 +1672,7 @@ name|assertEquals
 argument_list|(
 literal|"Check document files"
 argument_list|,
-literal|"META-INF/MANIFEST.MF\nA.class\nb/B.class\nb/c/C.class\n"
+literal|"META-INF/MANIFEST.MF\nA.class\nb/B.class\nb/c/C.class"
 argument_list|,
 name|document
 operator|.
@@ -1773,7 +1773,7 @@ name|assertEquals
 argument_list|(
 literal|"Check document classes"
 argument_list|,
-literal|"org.apache.maven.repository.record.MyMojo\n"
+literal|"org.apache.maven.repository.record.MyMojo"
 argument_list|,
 name|document
 operator|.
@@ -1795,7 +1795,7 @@ literal|"org/apache/maven/repository/record/MyMojo.class\n"
 operator|+
 literal|"META-INF/maven/org.apache.maven.repository.record/test-plugin/pom.xml\n"
 operator|+
-literal|"META-INF/maven/org.apache.maven.repository.record/test-plugin/pom.properties\n"
+literal|"META-INF/maven/org.apache.maven.repository.record/test-plugin/pom.properties"
 argument_list|,
 name|document
 operator|.

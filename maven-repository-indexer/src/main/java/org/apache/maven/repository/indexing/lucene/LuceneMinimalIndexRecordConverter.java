@@ -111,6 +111,20 @@ name|RepositoryIndexRecord
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|util
+operator|.
+name|StringUtils
+import|;
+end_import
+
 begin_comment
 comment|/**  * Convert the minimal index record to a Lucene document.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
 end_comment
@@ -255,10 +269,20 @@ name|document
 argument_list|,
 name|FLD_CLASSES
 argument_list|,
+name|StringUtils
+operator|.
+name|join
+argument_list|(
 name|standardIndexRecord
 operator|.
 name|getClasses
 argument_list|()
+operator|.
+name|iterator
+argument_list|()
+argument_list|,
+literal|"\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
