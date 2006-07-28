@@ -78,7 +78,7 @@ name|RepositoryIndexRecord
 name|record
 parameter_list|)
 function_decl|;
-comment|/**      * Convert a Lucene document to an index record.      *      * @param document the document      * @return the record      */
+comment|/**      * Convert a Lucene document to an index record.      *      * @param document the document      * @return the record      * @throws java.text.ParseException if there is a problem parsing a field (specifically, dates)      */
 name|RepositoryIndexRecord
 name|convert
 parameter_list|(
