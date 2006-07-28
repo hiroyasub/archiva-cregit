@@ -91,6 +91,16 @@ parameter_list|()
 throws|throws
 name|RepositoryIndexException
 function_decl|;
+comment|/**      * Delete records from the index. Simply ignore the request any did not exist.      *      * @param records the records to delete      */
+name|void
+name|deleteRecords
+parameter_list|(
+name|Collection
+name|records
+parameter_list|)
+throws|throws
+name|RepositoryIndexException
+function_decl|;
 block|}
 end_interface
 
