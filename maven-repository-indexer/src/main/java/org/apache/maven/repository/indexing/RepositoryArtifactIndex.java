@@ -19,6 +19,34 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|repository
+operator|.
+name|indexing
+operator|.
+name|query
+operator|.
+name|Query
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -40,11 +68,21 @@ comment|/**      * Indexes the artifacts found within the specified list of inde
 name|void
 name|indexRecords
 parameter_list|(
-name|List
+name|Collection
 name|records
 parameter_list|)
 throws|throws
 name|RepositoryIndexException
+function_decl|;
+comment|/**      * Search the index based on the search criteria specified. Returns a list of index records.      *      * @param query The query that contains the search criteria      * @return the index records found      * @throws RepositoryIndexSearchException if there is a problem searching      * @todo should it return "SearchResult" instances that contain the index record and other search data (like score?)      */
+name|List
+name|search
+parameter_list|(
+name|Query
+name|query
+parameter_list|)
+throws|throws
+name|RepositoryIndexSearchException
 function_decl|;
 comment|/**      * Check if the index already exists.      *      * @return true if the index already exists      * @throws RepositoryIndexException if the index location is not valid      */
 name|boolean

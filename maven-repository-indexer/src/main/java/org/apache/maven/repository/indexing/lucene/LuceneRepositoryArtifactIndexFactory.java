@@ -105,8 +105,6 @@ name|LuceneRepositoryArtifactIndex
 argument_list|(
 name|indexPath
 argument_list|,
-name|repository
-argument_list|,
 operator|new
 name|LuceneStandardIndexRecordConverter
 argument_list|()
@@ -129,8 +127,6 @@ operator|new
 name|LuceneRepositoryArtifactIndex
 argument_list|(
 name|indexPath
-argument_list|,
-name|repository
 argument_list|,
 operator|new
 name|LuceneMinimalIndexRecordConverter

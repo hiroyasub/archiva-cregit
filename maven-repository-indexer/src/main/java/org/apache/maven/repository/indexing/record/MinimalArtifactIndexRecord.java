@@ -65,7 +65,7 @@ specifier|private
 name|String
 name|filename
 decl_stmt|;
-comment|/**      * The timestamp that the artifact file was last modified.      */
+comment|/**      * The timestamp that the artifact file was last modified. Granularity is seconds.      */
 specifier|private
 name|long
 name|lastModified
@@ -74,6 +74,14 @@ comment|/**      * The size of the artifact file in bytes.      */
 specifier|private
 name|long
 name|size
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|MS_PER_SEC
+init|=
+literal|1000
 decl_stmt|;
 specifier|public
 name|void
@@ -133,6 +141,10 @@ operator|.
 name|lastModified
 operator|=
 name|lastModified
+operator|-
+name|lastModified
+operator|%
+name|MS_PER_SEC
 expr_stmt|;
 block|}
 specifier|public
