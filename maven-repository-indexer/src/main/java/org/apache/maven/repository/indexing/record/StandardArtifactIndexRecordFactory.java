@@ -411,6 +411,15 @@ name|ARCHETYPE_METADATA_NAME
 init|=
 literal|"META-INF/maven/archetype.xml"
 decl_stmt|;
+comment|// some current/old archetypes have the archetype.xml at different location.
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ARCHETYPE_METADATA_NAME_OLD
+init|=
+literal|"META-INF/archetype.xml"
+decl_stmt|;
 specifier|public
 name|RepositoryIndexRecord
 name|createRecord
@@ -1107,6 +1116,13 @@ block|}
 if|else if
 condition|(
 name|ARCHETYPE_METADATA_NAME
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+operator|||
+name|ARCHETYPE_METADATA_NAME_OLD
 operator|.
 name|equals
 argument_list|(
