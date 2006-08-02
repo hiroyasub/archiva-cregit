@@ -954,6 +954,7 @@ name|RepositoryIndexException
 throws|,
 name|ProjectBuildingException
 block|{
+comment|// TODO: this can create a -SNAPSHOT.pom when it didn't exist and a timestamped one did. This is harmless, but should be avoided
 comment|// TODO: will this pollute with local repo metadata?
 name|MavenProject
 name|project
