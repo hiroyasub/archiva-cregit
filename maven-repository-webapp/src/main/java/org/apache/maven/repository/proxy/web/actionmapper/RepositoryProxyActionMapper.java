@@ -143,6 +143,10 @@ name|Properties
 import|;
 end_import
 
+begin_comment
+comment|/**  * @todo remove this!  */
+end_comment
+
 begin_class
 specifier|public
 class|class
