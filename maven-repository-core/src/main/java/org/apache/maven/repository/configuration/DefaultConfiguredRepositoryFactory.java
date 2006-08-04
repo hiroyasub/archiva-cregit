@@ -185,13 +185,15 @@ name|getLayout
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// TODO! real ID
 return|return
 name|repoFactory
 operator|.
 name|createArtifactRepository
 argument_list|(
-literal|"test"
+name|configuration
+operator|.
+name|getId
+argument_list|()
 argument_list|,
 name|repoDir
 argument_list|,
