@@ -33,6 +33,16 @@ name|ArtifactRepository
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * Create an artifact repository from the given configuration.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
 end_comment
@@ -52,9 +62,17 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Create an artifact repository from the given configuration.      *      * @param configuration the configuration      */
+comment|/**      * Create an artifact repository from the given configuration.      *      * @param configuration the configuration      * @return the artifact repository      */
 name|ArtifactRepository
 name|createRepository
+parameter_list|(
+name|RepositoryConfiguration
+name|configuration
+parameter_list|)
+function_decl|;
+comment|/**      * Create artifact repositories from the given configuration.      *      * @param configuration the configuration containing the repositories      * @return the artifact repositories      */
+name|List
+name|createRepositories
 parameter_list|(
 name|Configuration
 name|configuration

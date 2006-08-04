@@ -321,6 +321,8 @@ operator|.
 name|read
 argument_list|(
 name|fileReader
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

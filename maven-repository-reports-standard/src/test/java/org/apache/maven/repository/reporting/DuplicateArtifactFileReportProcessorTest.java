@@ -267,8 +267,6 @@ operator|.
 name|createStandardIndex
 argument_list|(
 name|indexDirectory
-argument_list|,
-name|repository
 argument_list|)
 decl_stmt|;
 name|RepositoryIndexRecordFactory

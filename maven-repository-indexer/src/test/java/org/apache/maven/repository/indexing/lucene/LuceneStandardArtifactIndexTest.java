@@ -574,8 +574,6 @@ operator|.
 name|createStandardIndex
 argument_list|(
 name|indexLocation
-argument_list|,
-name|repository
 argument_list|)
 expr_stmt|;
 block|}

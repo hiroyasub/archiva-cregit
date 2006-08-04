@@ -320,8 +320,6 @@ name|File
 argument_list|(
 name|indexDirectory
 argument_list|)
-argument_list|,
-name|repository
 argument_list|)
 decl_stmt|;
 name|String

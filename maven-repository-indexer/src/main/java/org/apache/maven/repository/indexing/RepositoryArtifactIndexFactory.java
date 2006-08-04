@@ -19,22 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|repository
-operator|.
-name|ArtifactRepository
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -63,26 +47,20 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Method to create an instance of the standard index.      *      * @param indexPath  the path where the index will be created/updated      * @param repository the repository where the indexed artifacts are located      * @return the index instance      */
+comment|/**      * Method to create an instance of the standard index.      *      * @param indexPath the path where the index will be created/updated      * @return the index instance      */
 name|RepositoryArtifactIndex
 name|createStandardIndex
 parameter_list|(
 name|File
 name|indexPath
-parameter_list|,
-name|ArtifactRepository
-name|repository
 parameter_list|)
 function_decl|;
-comment|/**      * Method to create an instance of the minimal index.      *      * @param indexPath  the path where the index will be created/updated      * @param repository the repository where the indexed artifacts are located      * @return the index instance      */
+comment|/**      * Method to create an instance of the minimal index.      *      * @param indexPath the path where the index will be created/updated      * @return the index instance      */
 name|RepositoryArtifactIndex
 name|createMinimalIndex
 parameter_list|(
 name|File
 name|indexPath
-parameter_list|,
-name|ArtifactRepository
-name|repository
 parameter_list|)
 function_decl|;
 block|}
