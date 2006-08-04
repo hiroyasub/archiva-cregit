@@ -78,6 +78,14 @@ name|Configuration
 name|configuration
 parameter_list|)
 function_decl|;
+comment|/**      * Create a local repository from the given configuration.      *      * @param configuration the configuration      * @return the local artifact repository      */
+name|ArtifactRepository
+name|createLocalRepository
+parameter_list|(
+name|Configuration
+name|configuration
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
