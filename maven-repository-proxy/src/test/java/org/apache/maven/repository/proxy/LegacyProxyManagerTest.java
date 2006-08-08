@@ -190,7 +190,7 @@ argument_list|)
 expr_stmt|;
 name|configuration
 operator|=
-name|getTestConfiguration
+name|getProxyConfiguration
 argument_list|()
 expr_stmt|;
 name|proxy
@@ -554,7 +554,7 @@ expr_stmt|;
 block|}
 specifier|private
 name|ProxyConfiguration
-name|getTestConfiguration
+name|getProxyConfiguration
 parameter_list|()
 throws|throws
 name|ComponentLookupException
