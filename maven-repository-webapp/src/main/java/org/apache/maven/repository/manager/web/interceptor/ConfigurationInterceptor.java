@@ -79,6 +79,20 @@ name|ConfigurationStore
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|logging
+operator|.
+name|AbstractLogEnabled
+import|;
+end_import
+
 begin_comment
 comment|/**  * An interceptor that makes the application configuration available  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @todo might be a generally useful thing in plexus-xwork-integration  * @plexus.component role="com.opensymphony.xwork.interceptor.Interceptor" role-hint="configurationInterceptor"  */
 end_comment
@@ -87,6 +101,8 @@ begin_class
 specifier|public
 class|class
 name|ConfigurationInterceptor
+extends|extends
+name|AbstractLogEnabled
 implements|implements
 name|Interceptor
 block|{
@@ -133,12 +149,28 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|getLogger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"No repositories were configured - forwarding to repository configuration page"
+argument_list|)
+expr_stmt|;
 return|return
 literal|"config-repository-needed"
 return|;
 block|}
 else|else
 block|{
+name|getLogger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Configuration is incomplete - forwarding to configuration page"
+argument_list|)
+expr_stmt|;
 return|return
 literal|"config-needed"
 return|;
