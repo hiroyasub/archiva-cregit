@@ -538,6 +538,7 @@ name|EMPTY_STRING_ARRAY
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// TODO: Correct for extremely large repositories (artifact counts over 200,000 entries)
 name|scanner
 operator|.
 name|scan

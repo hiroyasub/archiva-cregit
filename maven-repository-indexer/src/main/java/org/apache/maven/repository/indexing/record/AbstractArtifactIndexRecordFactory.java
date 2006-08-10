@@ -153,11 +153,6 @@ name|AbstractLogEnabled
 implements|implements
 name|RepositoryIndexRecordFactory
 block|{
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|Digester
-name|digester
-decl_stmt|;
 specifier|protected
 name|String
 name|readChecksum
@@ -165,8 +160,8 @@ parameter_list|(
 name|File
 name|file
 parameter_list|,
-name|String
-name|algorithm
+name|Digester
+name|digester
 parameter_list|)
 block|{
 name|String
@@ -178,11 +173,9 @@ name|checksum
 operator|=
 name|digester
 operator|.
-name|createChecksum
+name|calc
 argument_list|(
 name|file
-argument_list|,
-name|algorithm
 argument_list|)
 operator|.
 name|toLowerCase

@@ -128,10 +128,15 @@ name|ChecksumMetadataReporter
 implements|implements
 name|MetadataReportProcessor
 block|{
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role-hint="sha1"      */
 specifier|private
 name|Digester
-name|digester
+name|sha1Digester
+decl_stmt|;
+comment|/**      * @plexus.requirement role-hint="md5"      */
+specifier|private
+name|Digester
+name|md5Digester
 decl_stmt|;
 comment|/**      * Validate the checksums of the metadata. Get the metadata file from the      * repository then validate the checksum.      */
 specifier|public
@@ -213,9 +218,7 @@ literal|".md5"
 argument_list|,
 name|file
 argument_list|,
-name|Digester
-operator|.
-name|MD5
+name|md5Digester
 argument_list|,
 name|reporter
 argument_list|,
@@ -232,9 +235,7 @@ literal|".sha1"
 argument_list|,
 name|file
 argument_list|,
-name|Digester
-operator|.
-name|SHA1
+name|sha1Digester
 argument_list|,
 name|reporter
 argument_list|,
@@ -255,8 +256,8 @@ parameter_list|,
 name|File
 name|file
 parameter_list|,
-name|String
-name|checksumAlgorithm
+name|Digester
+name|digester
 parameter_list|,
 name|ArtifactReporter
 name|reporter
@@ -291,7 +292,7 @@ try|try
 block|{
 name|digester
 operator|.
-name|verifyChecksum
+name|verify
 argument_list|(
 name|file
 argument_list|,
@@ -301,8 +302,6 @@ name|fileRead
 argument_list|(
 name|checksumFile
 argument_list|)
-argument_list|,
-name|checksumAlgorithm
 argument_list|)
 expr_stmt|;
 name|reporter
@@ -362,7 +361,10 @@ name|addFailure
 argument_list|(
 name|metadata
 argument_list|,
-name|checksumAlgorithm
+name|digester
+operator|.
+name|getAlgorithm
+argument_list|()
 operator|+
 literal|" checksum file does not exist."
 argument_list|)

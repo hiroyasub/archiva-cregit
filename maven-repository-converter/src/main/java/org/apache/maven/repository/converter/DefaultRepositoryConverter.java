@@ -592,10 +592,15 @@ name|DefaultRepositoryConverter
 implements|implements
 name|RepositoryConverter
 block|{
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role-hint="sha1"      */
 specifier|private
 name|Digester
-name|digester
+name|sha1Digester
+decl_stmt|;
+comment|/**      * @plexus.requirement role-hint="md5"      */
+specifier|private
+name|Digester
+name|md5Digester
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
@@ -2950,9 +2955,7 @@ argument_list|()
 operator|+
 literal|".md5"
 argument_list|,
-name|Digester
-operator|.
-name|MD5
+name|md5Digester
 argument_list|,
 name|reporter
 argument_list|,
@@ -2976,9 +2979,7 @@ argument_list|()
 operator|+
 literal|".sha1"
 argument_list|,
-name|Digester
-operator|.
-name|SHA1
+name|sha1Digester
 argument_list|,
 name|reporter
 argument_list|,
@@ -3001,8 +3002,8 @@ parameter_list|,
 name|String
 name|fileName
 parameter_list|,
-name|String
-name|algorithm
+name|Digester
+name|digester
 parameter_list|,
 name|ArtifactReporter
 name|reporter
@@ -3022,7 +3023,7 @@ init|=
 literal|true
 decl_stmt|;
 name|File
-name|md5
+name|checksumFile
 init|=
 operator|new
 name|File
@@ -3037,7 +3038,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|md5
+name|checksumFile
 operator|.
 name|exists
 argument_list|()
@@ -3050,20 +3051,18 @@ name|FileUtils
 operator|.
 name|fileRead
 argument_list|(
-name|md5
+name|checksumFile
 argument_list|)
 decl_stmt|;
 try|try
 block|{
 name|digester
 operator|.
-name|verifyChecksum
+name|verify
 argument_list|(
 name|file
 argument_list|,
 name|checksum
-argument_list|,
-name|algorithm
 argument_list|)
 expr_stmt|;
 block|}

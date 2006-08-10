@@ -165,6 +165,16 @@ block|}
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|/**      * @plexus.requirement role-hint="sha1"      */
+specifier|protected
+name|Digester
+name|sha1Digester
+decl_stmt|;
+comment|/**      * @plexus.requirement role-hint="md5"      */
+specifier|protected
+name|Digester
+name|md5Digester
+decl_stmt|;
 specifier|public
 name|RepositoryIndexRecord
 name|createRecord
@@ -215,9 +225,7 @@ name|readChecksum
 argument_list|(
 name|file
 argument_list|,
-name|Digester
-operator|.
-name|MD5
+name|md5Digester
 argument_list|)
 decl_stmt|;
 name|List
