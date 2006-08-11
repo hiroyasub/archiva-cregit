@@ -641,15 +641,6 @@ operator|new
 name|MockArtifactReporter
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"OKAY"
-argument_list|)
-expr_stmt|;
 name|processor
 operator|.
 name|processArtifact
