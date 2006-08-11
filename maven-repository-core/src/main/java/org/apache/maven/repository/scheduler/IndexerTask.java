@@ -544,7 +544,7 @@ operator|+
 literal|" new artifacts"
 argument_list|)
 expr_stmt|;
-name|indexArtifact
+name|indexArtifacts
 argument_list|(
 name|artifacts
 argument_list|,
@@ -718,7 +718,7 @@ block|}
 block|}
 specifier|private
 name|void
-name|indexArtifact
+name|indexArtifacts
 parameter_list|(
 name|List
 name|artifacts
@@ -729,16 +729,6 @@ parameter_list|)
 throws|throws
 name|RepositoryIndexException
 block|{
-name|RepositoryArtifactIndex
-name|artifactIndex
-init|=
-name|indexFactory
-operator|.
-name|createStandardIndex
-argument_list|(
-name|indexPath
-argument_list|)
-decl_stmt|;
 name|List
 name|records
 init|=
@@ -787,6 +777,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|RepositoryArtifactIndex
+name|artifactIndex
+init|=
+name|indexFactory
+operator|.
+name|createStandardIndex
+argument_list|(
+name|indexPath
+argument_list|)
+decl_stmt|;
 name|artifactIndex
 operator|.
 name|indexRecords
