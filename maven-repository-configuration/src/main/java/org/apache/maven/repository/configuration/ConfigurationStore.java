@@ -37,7 +37,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Get the configuration from the store. A cached version may be used.      *      * @return the configuration      */
+comment|/**      * Get the configuration from the store. A cached version may be used.      *      * @return the configuration      * @throws ConfigurationStoreException if there is a problem loading the configuration      */
 name|Configuration
 name|getConfigurationFromStore
 parameter_list|()

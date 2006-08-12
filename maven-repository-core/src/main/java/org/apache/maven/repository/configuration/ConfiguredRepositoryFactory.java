@@ -86,6 +86,22 @@ name|Configuration
 name|configuration
 parameter_list|)
 function_decl|;
+comment|/**      * Create an artifact repository from the given proxy repository configuration.      *      * @param configuration the configuration      * @return the artifact repository      */
+name|ArtifactRepository
+name|createProxiedRepository
+parameter_list|(
+name|ProxiedRepositoryConfiguration
+name|configuration
+parameter_list|)
+function_decl|;
+comment|/**      * Create artifact repositories from the given proxy repository configurations.      *      * @param configuration the configuration containing the repositories      * @return the artifact repositories      */
+name|List
+name|createProxiedRepositories
+parameter_list|(
+name|Configuration
+name|configuration
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

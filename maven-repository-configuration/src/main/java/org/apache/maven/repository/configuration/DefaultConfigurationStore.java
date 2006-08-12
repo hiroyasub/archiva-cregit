@@ -184,7 +184,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Load and store the configuration. No synchronization is used, but it is unnecessary as the old configuration object  * can continue to be used.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @todo would be great for plexus to do this for us - so the configuration would be a component itself rather than this store  * @todo would be good to monitor the store file for changes  * @todo support other implementations than XML file  * @plexus.component role="org.apache.maven.repository.configuration.ConfigurationStore"  */
+comment|/**  * Load and store the configuration. No synchronization is used, but it is unnecessary as the old configuration object  * can continue to be used.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @todo would be great for plexus to do this for us - so the configuration would be a component itself rather than this store  * @todo would be good to monitor the store file for changes  * @todo support other implementations than XML file  * @plexus.component  */
 end_comment
 
 begin_class
@@ -453,6 +453,14 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+name|file
+operator|.
+name|getParentFile
+argument_list|()
+operator|.
+name|mkdirs
+argument_list|()
+expr_stmt|;
 name|fileWriter
 operator|=
 operator|new

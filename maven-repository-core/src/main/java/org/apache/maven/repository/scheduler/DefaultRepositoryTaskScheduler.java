@@ -651,7 +651,7 @@ throw|throw
 operator|new
 name|InvalidConfigurationException
 argument_list|(
-literal|"discoveryCronExpression"
+literal|"indexerCronExpression"
 argument_list|,
 literal|"Invalid cron expression"
 argument_list|,
