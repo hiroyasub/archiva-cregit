@@ -567,19 +567,11 @@ name|path
 argument_list|)
 condition|)
 block|{
-name|getLogger
-argument_list|()
-operator|.
-name|debug
+name|processRepositoryFailure
 argument_list|(
-literal|"Skipping repository "
-operator|+
 name|repository
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|" for a cached path failure."
+argument_list|,
+literal|"Cached failure found"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1111,16 +1103,16 @@ operator|!
 name|success
 condition|)
 block|{
-comment|//noinspection ThrowCaughtLocally
-throw|throw
-operator|new
-name|TransferFailedException
+name|processRepositoryFailure
 argument_list|(
+name|repository
+argument_list|,
 literal|"Checksum failures occurred while downloading "
 operator|+
 name|path
 argument_list|)
-throw|;
+expr_stmt|;
+return|return;
 block|}
 comment|// temp won't exist if we called getIfNewer and it was older, but its still a successful return
 if|if
@@ -1155,28 +1147,9 @@ name|TransferFailedException
 name|e
 parameter_list|)
 block|{
-name|String
-name|message
-init|=
-literal|"Skipping repository "
-operator|+
-name|repository
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|": "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-decl_stmt|;
 name|processRepositoryFailure
 argument_list|(
 name|repository
-argument_list|,
-name|message
 argument_list|,
 name|e
 argument_list|)
@@ -1188,28 +1161,9 @@ name|AuthorizationException
 name|e
 parameter_list|)
 block|{
-name|String
-name|message
-init|=
-literal|"Skipping repository "
-operator|+
-name|repository
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|": "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-decl_stmt|;
 name|processRepositoryFailure
 argument_list|(
 name|repository
-argument_list|,
-name|message
 argument_list|,
 name|e
 argument_list|)
@@ -2058,16 +2012,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Queries the configuration on how to handle a repository download failure      *      * @param repository the repository object where the failure occurred      * @param message    the message/reason for the failure      * @param t          the cause for the exception      * @throws ProxyException if hard failure is enabled on the repository causing the failure      */
 specifier|private
 name|void
 name|processRepositoryFailure
 parameter_list|(
 name|ProxiedArtifactRepository
 name|repository
-parameter_list|,
-name|String
-name|message
 parameter_list|,
 name|Throwable
 name|t
@@ -2096,7 +2046,10 @@ argument_list|()
 operator|+
 literal|"...\n    "
 operator|+
-name|message
+name|t
+operator|.
+name|getMessage
+argument_list|()
 argument_list|,
 name|t
 argument_list|)
@@ -2109,7 +2062,19 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-name|message
+literal|"Skipping repository "
+operator|+
+name|repository
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": "
+operator|+
+name|t
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|getLogger
@@ -2117,9 +2082,68 @@ argument_list|()
 operator|.
 name|debug
 argument_list|(
-name|message
+literal|"Cause"
 argument_list|,
 name|t
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+specifier|private
+name|void
+name|processRepositoryFailure
+parameter_list|(
+name|ProxiedArtifactRepository
+name|repository
+parameter_list|,
+name|String
+name|message
+parameter_list|)
+throws|throws
+name|ProxyException
+block|{
+if|if
+condition|(
+name|repository
+operator|.
+name|isHardFail
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|ProxyException
+argument_list|(
+literal|"An error occurred in hardfailing repository "
+operator|+
+name|repository
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"...\n    "
+operator|+
+name|message
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|warn
+argument_list|(
+literal|"Skipping repository "
+operator|+
+name|repository
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": "
+operator|+
+name|message
 argument_list|)
 expr_stmt|;
 block|}
