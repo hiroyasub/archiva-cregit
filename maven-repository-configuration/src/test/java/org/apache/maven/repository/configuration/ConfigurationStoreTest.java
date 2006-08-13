@@ -60,7 +60,7 @@ comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed
 end_comment
 
 begin_comment
-comment|/**  * Test the configuration store.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * Test the configuration store.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @noinspection JavaDoc  */
 end_comment
 
 begin_class
@@ -676,6 +676,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @noinspection JUnitTestMethodWithNoAssertions      */
 specifier|public
 name|void
 name|testChangeListeners

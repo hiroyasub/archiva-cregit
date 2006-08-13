@@ -41,22 +41,6 @@ name|maven
 operator|.
 name|artifact
 operator|.
-name|manager
-operator|.
-name|ChecksumFailedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
 name|repository
 operator|.
 name|ArtifactRepository
@@ -321,7 +305,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|Iterator
 import|;
 end_import
 
@@ -331,7 +315,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
+name|LinkedHashMap
 import|;
 end_import
 
@@ -356,7 +340,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of the proxy handler.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @plexus.component  * @todo this currently duplicates a lot of the wagon manager, and doesn't do things like snapshot resolution, etc.  * Should we have a more artifact based one? This will merge metadata so should behave correctly, and it is able to  * correct some limitations of the wagon manager (eg, it can retrieve newer SNAPSHOT files without metadata)  */
+comment|/**  * An implementation of the proxy handler.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @plexus.component  * @todo this currently duplicates a lot of the wagon manager, and doesn't do things like snapshot resolution, etc.  * The checksum handling is inconsistent with that of the wagon manager.  * Should we have a more artifact based one? This will merge metadata so should behave correctly, and it is able to  * correct some limitations of the wagon manager (eg, it can retrieve newer SNAPSHOT files without metadata)  */
 end_comment
 
 begin_class
@@ -527,9 +511,9 @@ name|ProxyInfo
 name|wagonProxy
 parameter_list|)
 throws|throws
-name|ProxyException
-throws|,
 name|ResourceDoesNotExistException
+throws|,
+name|ProxyException
 block|{
 name|File
 name|target
@@ -600,6 +584,116 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
+try|try
+block|{
+name|get
+argument_list|(
+name|path
+argument_list|,
+name|target
+argument_list|,
+name|repository
+argument_list|,
+name|managedRepository
+argument_list|,
+name|wagonProxy
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|target
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+name|repository
+operator|.
+name|addFailure
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// in case it previously failed and we've since found it
+name|repository
+operator|.
+name|clearFailure
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|ProxyException
+name|e
+parameter_list|)
+block|{
+name|repository
+operator|.
+name|addFailure
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
+block|}
+block|}
+if|if
+condition|(
+operator|!
+name|target
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|ResourceDoesNotExistException
+argument_list|(
+literal|"Could not find "
+operator|+
+name|path
+operator|+
+literal|" in any of the repositories."
+argument_list|)
+throw|;
+block|}
+return|return
+name|target
+return|;
+block|}
+specifier|private
+name|void
+name|get
+parameter_list|(
+name|String
+name|path
+parameter_list|,
+name|File
+name|target
+parameter_list|,
+name|ProxiedArtifactRepository
+name|repository
+parameter_list|,
+name|ArtifactRepository
+name|managedRepository
+parameter_list|,
+name|ProxyInfo
+name|wagonProxy
+parameter_list|)
+throws|throws
+name|ProxyException
 block|{
 if|if
 condition|(
@@ -803,60 +897,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-if|if
-condition|(
-operator|!
-name|target
-operator|.
-name|exists
-argument_list|()
-condition|)
-block|{
-name|repository
-operator|.
-name|addFailure
-argument_list|(
-name|path
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// in case it previously failed and we've since found it
-name|repository
-operator|.
-name|clearFailure
-argument_list|(
-name|path
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
-if|if
-condition|(
-operator|!
-name|target
-operator|.
-name|exists
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|ResourceDoesNotExistException
-argument_list|(
-literal|"Could not find "
-operator|+
-name|path
-operator|+
-literal|" in any of the repositories."
-argument_list|)
-throw|;
-block|}
-return|return
-name|target
-return|;
 block|}
 specifier|private
 name|void
@@ -879,8 +919,6 @@ name|target
 parameter_list|)
 throws|throws
 name|ProxyException
-throws|,
-name|ResourceDoesNotExistException
 block|{
 name|boolean
 name|connected
@@ -998,7 +1036,7 @@ expr_stmt|;
 name|getLogger
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Trying "
 operator|+
@@ -1052,7 +1090,7 @@ expr_stmt|;
 block|}
 name|success
 operator|=
-name|doChecksumCheck
+name|checkChecksum
 argument_list|(
 name|checksums
 argument_list|,
@@ -1073,9 +1111,10 @@ operator|!
 name|success
 condition|)
 block|{
+comment|//noinspection ThrowCaughtLocally
 throw|throw
 operator|new
-name|ProxyException
+name|TransferFailedException
 argument_list|(
 literal|"Checksum failures occurred while downloading "
 operator|+
@@ -1083,18 +1122,7 @@ name|path
 argument_list|)
 throw|;
 block|}
-block|}
-do|while
-condition|(
-operator|!
-name|success
-condition|)
-do|;
-name|disconnectWagon
-argument_list|(
-name|wagon
-argument_list|)
-expr_stmt|;
+comment|// temp won't exist if we called getIfNewer and it was older, but its still a successful return
 if|if
 condition|(
 name|temp
@@ -1111,6 +1139,13 @@ name|target
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+do|while
+condition|(
+operator|!
+name|success
+condition|)
+do|;
 block|}
 comment|//try next repository
 block|}
@@ -1177,6 +1212,34 @@ argument_list|,
 name|message
 argument_list|,
 name|e
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ResourceDoesNotExistException
+name|e
+parameter_list|)
+block|{
+comment|// hard failure setting doesn't affect "not found".
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Artifact not found in repository: "
+operator|+
+name|repository
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1259,7 +1322,7 @@ name|Map
 name|checksums
 init|=
 operator|new
-name|HashMap
+name|LinkedHashMap
 argument_list|()
 decl_stmt|;
 try|try
@@ -1529,7 +1592,7 @@ return|;
 block|}
 specifier|private
 name|boolean
-name|doChecksumCheck
+name|checkChecksum
 parameter_list|(
 name|Map
 name|checksumMap
@@ -1684,20 +1747,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|boolean
-name|checksumCheck
+name|String
+name|actualChecksum
 init|=
-literal|false
-decl_stmt|;
-if|if
-condition|(
-name|remoteChecksum
-operator|.
-name|toUpperCase
-argument_list|()
-operator|.
-name|equals
-argument_list|(
 name|checksum
 operator|.
 name|getActualChecksum
@@ -1705,6 +1757,24 @@ argument_list|()
 operator|.
 name|toUpperCase
 argument_list|()
+decl_stmt|;
+name|remoteChecksum
+operator|=
+name|remoteChecksum
+operator|.
+name|toUpperCase
+argument_list|()
+expr_stmt|;
+name|boolean
+name|checksumCheck
+decl_stmt|;
+if|if
+condition|(
+name|remoteChecksum
+operator|.
+name|equals
+argument_list|(
+name|actualChecksum
 argument_list|)
 condition|)
 block|{
@@ -1720,18 +1790,29 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+else|else
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|warn
+argument_list|(
+literal|"The checksum '"
+operator|+
+name|actualChecksum
+operator|+
+literal|"' did not match the remote value: "
+operator|+
+name|remoteChecksum
+argument_list|)
+expr_stmt|;
+name|checksumCheck
+operator|=
+literal|false
+expr_stmt|;
+block|}
 return|return
 name|checksumCheck
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|ChecksumFailedException
-name|e
-parameter_list|)
-block|{
-return|return
-literal|false
 return|;
 block|}
 catch|catch
@@ -1743,7 +1824,7 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|debug
+name|warn
 argument_list|(
 literal|"An error occurred during the download of "
 operator|+
@@ -1772,16 +1853,9 @@ argument_list|()
 operator|.
 name|debug
 argument_list|(
-literal|"An error occurred during the download of "
+literal|"The checksum did not exist: "
 operator|+
 name|checksumPath
-operator|+
-literal|": "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|,
 name|e
 argument_list|)
@@ -1797,7 +1871,7 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|debug
+name|warn
 argument_list|(
 literal|"An error occurred during the download of "
 operator|+
@@ -1824,7 +1898,7 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|debug
+name|warn
 argument_list|(
 literal|"An error occurred while reading the temporary checksum file."
 argument_list|,
@@ -1841,11 +1915,7 @@ argument_list|()
 operator|.
 name|debug
 argument_list|(
-literal|"Skipping checksum validation for "
-operator|+
-name|path
-operator|+
-literal|": No remote checksums available."
+literal|"No remote checksums available."
 argument_list|)
 expr_stmt|;
 return|return
@@ -2037,7 +2107,15 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|error
+name|warn
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
+name|getLogger
+argument_list|()
+operator|.
+name|debug
 argument_list|(
 name|message
 argument_list|,
@@ -2067,8 +2145,6 @@ name|remoteFile
 parameter_list|)
 throws|throws
 name|ProxyException
-throws|,
-name|ResourceDoesNotExistException
 block|{
 name|ArtifactRepository
 name|artifactRepository
