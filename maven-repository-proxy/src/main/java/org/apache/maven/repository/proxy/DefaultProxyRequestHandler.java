@@ -2008,11 +2008,14 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|info
+name|error
 argument_list|(
-literal|"An error occurred while preparing checksum observers"
-argument_list|,
+literal|"An error occurred while preparing checksum observers: "
+operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2460,8 +2463,6 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-name|e
 argument_list|)
 expr_stmt|;
 comment|// do nothing try the next checksum
@@ -2484,8 +2485,13 @@ argument_list|(
 literal|"The checksum did not exist: "
 operator|+
 name|checksumPath
-argument_list|,
+operator|+
+literal|"; "
+operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// do nothing try the next checksum
@@ -2526,8 +2532,6 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-name|e
 argument_list|)
 expr_stmt|;
 comment|// do nothing try the next checksum
@@ -2547,9 +2551,12 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-literal|"An error occurred while reading the temporary checksum file."
-argument_list|,
+literal|"An error occurred while reading the temporary checksum file: "
+operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// do nothing try the next checksum
@@ -2579,8 +2586,6 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-name|e
 argument_list|)
 expr_stmt|;
 comment|// do nothing try the next checksum
