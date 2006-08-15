@@ -35,6 +35,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|repository
+operator|.
+name|proxy
+operator|.
+name|ProxiedArtifactRepository
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -87,7 +103,7 @@ name|configuration
 parameter_list|)
 function_decl|;
 comment|/**      * Create an artifact repository from the given proxy repository configuration.      *      * @param configuration the configuration      * @return the artifact repository      */
-name|ArtifactRepository
+name|ProxiedArtifactRepository
 name|createProxiedRepository
 parameter_list|(
 name|ProxiedRepositoryConfiguration

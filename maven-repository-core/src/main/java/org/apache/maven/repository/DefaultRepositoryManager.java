@@ -182,32 +182,32 @@ name|DefaultRepositoryManager
 implements|implements
 name|RepositoryManager
 block|{
-comment|/**      * @plexus.requirement role="org.apache.maven.artifact.repository.discovery.ArtifactDiscoverer" role-hint="legacy"      */
+comment|/**      * @plexus.requirement role-hint="legacy"      */
 specifier|private
 name|ArtifactDiscoverer
 name|artifactDiscoverer
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.artifact.repository.layout.ArtifactRepositoryLayout" role-hint="legacy"      */
+comment|/**      * @plexus.requirement role-hint="legacy"      */
 specifier|private
 name|ArtifactRepositoryLayout
 name|legacyLayout
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.artifact.repository.layout.ArtifactRepositoryLayout" role-hint="default"      */
+comment|/**      * @plexus.requirement role-hint="default"      */
 specifier|private
 name|ArtifactRepositoryLayout
 name|defaultLayout
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.artifact.repository.ArtifactRepositoryFactory"      */
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|ArtifactRepositoryFactory
 name|artifactRepositoryFactory
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.repository.converter.ArtifactRepositoryFactory"      */
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|RepositoryConverter
 name|repositoryConverter
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.artifact.repository.reporter.ArtifactReporter" role-hint="default"      */
+comment|/**      * @plexus.requirement role-hint="default"      */
 specifier|private
 name|ArtifactReporter
 name|reporter
