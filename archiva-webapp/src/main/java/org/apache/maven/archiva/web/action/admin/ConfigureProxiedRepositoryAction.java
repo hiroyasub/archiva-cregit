@@ -9,8 +9,6 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|manager
-operator|.
 name|web
 operator|.
 name|action
@@ -20,7 +18,7 @@ package|;
 end_package
 
 begin_comment
-comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_import
@@ -51,7 +49,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|SyncedRepositoryConfiguration
+name|ProxiedRepositoryConfiguration
 import|;
 end_import
 
@@ -66,13 +64,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Configures the application repositories.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="configureSyncedRepositoryAction"  */
+comment|/**  * Configures the application repositories.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="configureProxiedRepositoryAction"  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|ConfigureSyncedRepositoryAction
+name|ConfigureProxiedRepositoryAction
 extends|extends
 name|AbstractConfigureRepositoryAction
 block|{
@@ -86,10 +84,10 @@ parameter_list|)
 block|{
 name|configuration
 operator|.
-name|removeSyncedRepository
+name|removeProxiedRepository
 argument_list|(
 operator|(
-name|SyncedRepositoryConfiguration
+name|ProxiedRepositoryConfiguration
 operator|)
 name|existingRepository
 argument_list|)
@@ -106,7 +104,7 @@ block|{
 return|return
 name|configuration
 operator|.
-name|getSyncedRepositoryById
+name|getProxiedRepositoryById
 argument_list|(
 name|id
 argument_list|)
@@ -119,18 +117,18 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|SyncedRepositoryConfiguration
+name|ProxiedRepositoryConfiguration
 name|repository
 init|=
 operator|(
-name|SyncedRepositoryConfiguration
+name|ProxiedRepositoryConfiguration
 operator|)
 name|getRepository
 argument_list|()
 decl_stmt|;
 name|configuration
 operator|.
-name|addSyncedRepository
+name|addProxiedRepository
 argument_list|(
 name|repository
 argument_list|)
@@ -143,7 +141,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|SyncedRepositoryConfiguration
+name|ProxiedRepositoryConfiguration
 argument_list|()
 return|;
 block|}

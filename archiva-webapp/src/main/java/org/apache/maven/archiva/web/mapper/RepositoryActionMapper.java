@@ -9,8 +9,6 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|manager
-operator|.
 name|web
 operator|.
 name|mapper

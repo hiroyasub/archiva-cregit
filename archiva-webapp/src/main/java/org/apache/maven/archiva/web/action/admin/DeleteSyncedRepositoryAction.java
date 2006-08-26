@@ -9,8 +9,6 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|manager
-operator|.
 name|web
 operator|.
 name|action
@@ -20,7 +18,7 @@ package|;
 end_package
 
 begin_comment
-comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_import
@@ -67,21 +65,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|RepositoryConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|util
-operator|.
-name|FileUtils
+name|SyncedRepositoryConfiguration
 import|;
 end_import
 
@@ -96,13 +80,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Configures the application repositories.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="deleteRepositoryAction"  */
+comment|/**  * Configures the application repositories.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="deleteSyncedRepositoryAction"  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|DeleteRepositoryAction
+name|DeleteSyncedRepositoryAction
 extends|extends
 name|AbstractDeleteRepositoryAction
 block|{
@@ -117,7 +101,7 @@ block|{
 return|return
 name|configuration
 operator|.
-name|getRepositoryById
+name|getSyncedRepositoryById
 argument_list|(
 name|repoId
 argument_list|)
@@ -136,10 +120,10 @@ parameter_list|)
 block|{
 name|configuration
 operator|.
-name|removeRepository
+name|removeSyncedRepository
 argument_list|(
 operator|(
-name|RepositoryConfiguration
+name|SyncedRepositoryConfiguration
 operator|)
 name|existingRepository
 argument_list|)
@@ -155,37 +139,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|RepositoryConfiguration
-name|repository
-init|=
-operator|(
-name|RepositoryConfiguration
-operator|)
-name|existingRepository
-decl_stmt|;
-name|getLogger
-argument_list|()
-operator|.
-name|info
-argument_list|(
-literal|"Removing "
-operator|+
-name|repository
-operator|.
-name|getDirectory
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|FileUtils
-operator|.
-name|deleteDirectory
-argument_list|(
-name|repository
-operator|.
-name|getDirectory
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// TODO!
 block|}
 block|}
 end_class
