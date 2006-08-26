@@ -486,7 +486,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of the proxy handler.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @plexus.component  * @todo use wagonManager for cache use file:// as URL  * @todo this currently duplicates a lot of the wagon manager, and doesn't do things like snapshot resolution, etc.  * The checksum handling is inconsistent with that of the wagon manager.  * Should we have a more artifact based one? This will merge metadata so should behave correctly, and it is able to  * correct some limitations of the wagon manager (eg, it can retrieve newer SNAPSHOT files without metadata)  */
+comment|/**  * An implementation of the proxy handler. This class is not thread safe (the class itself is, but the wagons it uses  * are not) - it is declared<code>per-lookup</code> for that reason.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @plexus.component instantiation-strategy="per-lookup"  * @todo use wagonManager for cache use file:// as URL  * @todo this currently duplicates a lot of the wagon manager, and doesn't do things like snapshot resolution, etc.  * The checksum handling is inconsistent with that of the wagon manager.  * Should we have a more artifact based one? This will merge metadata so should behave correctly, and it is able to  * correct some limitations of the wagon manager (eg, it can retrieve newer SNAPSHOT files without metadata)  */
 end_comment
 
 begin_class
@@ -513,12 +513,6 @@ specifier|private
 name|Map
 comment|/*<String,Wagon>*/
 name|wagons
-decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.repository.digest.Digester"      */
-specifier|private
-name|Map
-comment|/*<String,Digester>*/
-name|digesters
 decl_stmt|;
 specifier|public
 name|File

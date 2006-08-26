@@ -250,7 +250,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of the proxy manager that bridges the repository configuration classes to the proxy API.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @todo we should be able to configure "views" that sit in front of this (ie, prefix = /legacy, appears as layout maven-1.x, path gets translated before being passed on)  * @plexus.component  */
+comment|/**  * Default implementation of the proxy manager that bridges the repository configuration classes to the proxy API. This  * class is not thread safe (due to the request handler being a non-thread safe requirement).  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @todo we should be able to configure "views" that sit in front of this (ie, prefix = /legacy, appears as layout maven-1.x, path gets translated before being passed on)  * @plexus.component instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -277,12 +277,14 @@ name|repositoryFactory
 decl_stmt|;
 comment|/**      * The proxy groups for each managed repository.      */
 specifier|private
+specifier|static
 name|Map
 comment|/*<String,ProxiedRepositoryGroup>*/
 name|proxyGroups
 decl_stmt|;
 comment|/**      * The default proxy group/managed repository.      */
 specifier|private
+specifier|static
 name|ProxiedRepositoryGroup
 name|defaultProxyGroup
 decl_stmt|;
