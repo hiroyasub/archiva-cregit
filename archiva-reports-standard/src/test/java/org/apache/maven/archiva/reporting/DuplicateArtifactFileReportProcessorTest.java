@@ -27,7 +27,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|indexing
+name|indexer
 operator|.
 name|RepositoryArtifactIndex
 import|;
@@ -43,7 +43,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|indexing
+name|indexer
 operator|.
 name|RepositoryArtifactIndexFactory
 import|;
@@ -59,7 +59,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|indexing
+name|indexer
 operator|.
 name|record
 operator|.
