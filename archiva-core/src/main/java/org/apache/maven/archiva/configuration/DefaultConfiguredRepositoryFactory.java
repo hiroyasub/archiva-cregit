@@ -160,7 +160,7 @@ name|DefaultConfiguredRepositoryFactory
 implements|implements
 name|ConfiguredRepositoryFactory
 block|{
-comment|/**      * @plexus.requirement role="org.apache.maven.artifact.archiva.layout.ArtifactRepositoryLayout"      */
+comment|/**      * @plexus.requirement role="org.apache.maven.artifact.repository.layout.ArtifactRepositoryLayout"      */
 specifier|private
 name|Map
 name|repositoryLayouts
@@ -343,6 +343,26 @@ name|getLayout
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|layout
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Invalid layout: "
+operator|+
+name|configuration
+operator|.
+name|getLayout
+argument_list|()
+argument_list|)
+throw|;
+block|}
 name|ArtifactRepository
 name|artifactRepository
 init|=
