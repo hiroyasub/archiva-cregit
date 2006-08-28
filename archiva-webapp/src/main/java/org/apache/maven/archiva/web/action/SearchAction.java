@@ -342,14 +342,6 @@ specifier|private
 specifier|static
 specifier|final
 name|String
-name|NO_RESULTS
-init|=
-literal|"noResults"
-decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|String
 name|RESULTS
 init|=
 literal|"results"
@@ -414,7 +406,6 @@ return|return
 name|ERROR
 return|;
 block|}
-comment|// TODO! this is correct, but ugly
 name|MultiFieldQueryParser
 name|parser
 init|=
@@ -485,6 +476,23 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|searchResults
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|addActionError
+argument_list|(
+literal|"No results found"
+argument_list|)
+expr_stmt|;
+return|return
+name|INPUT
+return|;
+block|}
 return|return
 name|SUCCESS
 return|;
@@ -569,8 +577,13 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|addActionError
+argument_list|(
+literal|"No results found"
+argument_list|)
+expr_stmt|;
 return|return
-name|NO_RESULTS
+name|INPUT
 return|;
 block|}
 if|if
