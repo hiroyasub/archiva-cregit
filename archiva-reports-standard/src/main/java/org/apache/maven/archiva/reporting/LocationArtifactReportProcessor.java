@@ -574,7 +574,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-comment|// TODO: should just warn and continue?
+comment|// TODO: should just warn and continue!
 throw|throw
 operator|new
 name|ReportProcessorException
@@ -591,7 +591,7 @@ name|XmlPullParserException
 name|e
 parameter_list|)
 block|{
-comment|// TODO: should just warn and continue?
+comment|// TODO: should just warn and continue!
 throw|throw
 operator|new
 name|ReportProcessorException

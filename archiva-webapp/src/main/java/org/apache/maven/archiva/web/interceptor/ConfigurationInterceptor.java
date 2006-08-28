@@ -92,7 +92,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interceptor that makes the application configuration available  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @todo might be a generally useful thing in plexus-xwork-integration  * @plexus.component role="com.opensymphony.xwork.interceptor.Interceptor" role-hint="configurationInterceptor"  */
+comment|/**  * An interceptor that makes the application configuration available  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @plexus.component role="com.opensymphony.xwork.interceptor.Interceptor" role-hint="configurationInterceptor"  */
 end_comment
 
 begin_class

@@ -85,7 +85,7 @@ name|Artifact
 name|artifact
 parameter_list|)
 function_decl|;
-comment|/**      * @todo I believe we can remove this [BP] - artifact should contain all the necessary version info      */
+comment|/**      * @todo I believe we can remove this [BP] - artifact should contain all the necessary version info!      */
 name|boolean
 name|containsArtifact
 parameter_list|(

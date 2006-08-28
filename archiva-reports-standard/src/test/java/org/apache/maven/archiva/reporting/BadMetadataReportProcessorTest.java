@@ -183,10 +183,6 @@ name|Iterator
 import|;
 end_import
 
-begin_comment
-comment|/**  * @todo??? should use MetadataXpp3Reader instead ?  */
-end_comment
-
 begin_class
 specifier|public
 class|class

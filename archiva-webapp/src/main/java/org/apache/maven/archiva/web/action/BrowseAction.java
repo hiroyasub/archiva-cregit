@@ -418,7 +418,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Browse the repository.  *  * @todo the tree part probably belongs in a browsing component, and the indexer could optimize how it retrieves the terms rather than querying everything  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="browseAction"  */
+comment|/**  * Browse the repository.  *  * @todo the tree part probably belongs in a browsing component, and the indexer could optimize how it retrieves the terms rather than querying everything!  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="browseAction"  */
 end_comment
 
 begin_class
@@ -998,7 +998,7 @@ throws|,
 name|RepositoryIndexSearchException
 block|{
 comment|// TODO: give action message if indexing is in progress
-comment|// TODO: this will be inefficient over a very large number of artifacts, should be cached
+comment|// TODO: this will be inefficient over a very large number of artifacts, should be cached!
 name|List
 name|records
 init|=

@@ -270,7 +270,7 @@ operator|.
 name|mkdirs
 argument_list|()
 expr_stmt|;
-comment|// TODO: error handling when this fails, or is not a directory
+comment|// TODO: error handling when this fails, or is not a directory!
 block|}
 comment|// Just double checking that our validation routines line up with what is expected in the configuration
 assert|assert
@@ -286,7 +286,7 @@ argument_list|(
 name|configuration
 argument_list|)
 expr_stmt|;
-comment|// TODO: if the repository has changed, we need to check if indexing is needed
+comment|// TODO: if the repository has changed, we need to check if indexing is needed!
 name|addActionMessage
 argument_list|(
 literal|"Successfully saved configuration"

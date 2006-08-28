@@ -521,7 +521,7 @@ argument_list|,
 name|trigger
 argument_list|)
 expr_stmt|;
-comment|// TODO: run as a job so it doesn't block startup/configuration saving
+comment|// TODO: run as a job so it doesn't block startup/configuration saving!
 try|try
 block|{
 name|indexerTask
@@ -564,7 +564,6 @@ literal|"Not scheduling indexer - index path is not configured"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: wire in the converter
 block|}
 specifier|public
 name|void

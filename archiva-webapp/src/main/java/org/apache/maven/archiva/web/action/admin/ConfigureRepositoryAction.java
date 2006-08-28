@@ -173,7 +173,7 @@ operator|.
 name|mkdirs
 argument_list|()
 expr_stmt|;
-comment|// TODO: error handling when this fails, or is not a directory
+comment|// TODO: error handling when this fails, or is not a directory!
 block|}
 name|configuration
 operator|.
