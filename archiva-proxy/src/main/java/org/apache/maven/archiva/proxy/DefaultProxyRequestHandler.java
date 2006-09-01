@@ -739,6 +739,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|target
+operator|=
 name|get
 argument_list|(
 name|path
@@ -781,8 +783,9 @@ return|return
 name|target
 return|;
 block|}
+comment|/**      * @return the target File may not be same as the target argument, if a      *         maven1 to maven2 path convertion occured.      */
 specifier|private
-name|void
+name|File
 name|get
 parameter_list|(
 name|String
@@ -1025,6 +1028,24 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|target
+operator|=
+operator|new
+name|File
+argument_list|(
+name|managedRepository
+operator|.
+name|getBasedir
+argument_list|()
+argument_list|,
+name|managedRepository
+operator|.
+name|pathOf
+argument_list|(
+name|artifact
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|ArtifactRepository
 name|artifactRepository
 init|=
@@ -1186,6 +1207,9 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|target
+return|;
 block|}
 specifier|private
 name|void
