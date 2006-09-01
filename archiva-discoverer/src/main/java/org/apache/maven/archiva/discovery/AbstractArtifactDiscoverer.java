@@ -212,7 +212,7 @@ parameter_list|(
 name|File
 name|repositoryBase
 parameter_list|,
-name|String
+name|List
 name|blacklistedPatterns
 parameter_list|,
 name|long
@@ -244,7 +244,7 @@ parameter_list|,
 name|String
 name|operation
 parameter_list|,
-name|String
+name|List
 name|blacklistedPatterns
 parameter_list|,
 name|boolean

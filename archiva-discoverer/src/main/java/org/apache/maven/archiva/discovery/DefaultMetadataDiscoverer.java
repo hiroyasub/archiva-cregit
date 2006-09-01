@@ -392,7 +392,7 @@ parameter_list|,
 name|String
 name|operation
 parameter_list|,
-name|String
+name|List
 name|blacklistedPatterns
 parameter_list|)
 throws|throws

@@ -75,6 +75,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
 import|;
 end_import
@@ -90,7 +100,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test the legacy artifact discoverer.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @version $Id$  */
+comment|/**  * Test the legacy artifact discoverer.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @version $Id:LegacyArtifactDiscovererTest.java 437105 2006-08-26 17:22:22 +1000 (Sat, 26 Aug 2006) brett $  */
 end_comment
 
 begin_class
@@ -100,6 +110,19 @@ name|LegacyArtifactDiscovererTest
 extends|extends
 name|AbstractArtifactDiscovererTest
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|List
+name|JAVAX_SQL_BLACKLIST
+init|=
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
+literal|"javax.sql/**"
+argument_list|)
+decl_stmt|;
 specifier|protected
 name|String
 name|getLayout
@@ -457,7 +480,7 @@ name|repository
 argument_list|,
 name|TEST_OPERATION
 argument_list|,
-literal|"javax.sql/**"
+name|JAVAX_SQL_BLACKLIST
 argument_list|,
 literal|false
 argument_list|)
