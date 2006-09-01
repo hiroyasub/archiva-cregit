@@ -9,7 +9,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|discovery
+name|discoverer
 package|;
 end_package
 
@@ -299,7 +299,7 @@ name|dom
 argument_list|)
 decl_stmt|;
 comment|// Note that last checked time is deliberately set to the start of the process so that anything added
-comment|// mid-discovery and missed by the scanner will get checked next time.
+comment|// mid-discoverer and missed by the scanner will get checked next time.
 comment|// Due to this, there must be no negative side-effects of discovering something twice.
 name|Date
 name|newLastCheckedTime
@@ -340,7 +340,7 @@ name|comparisonTimestamp
 argument_list|)
 decl_stmt|;
 comment|// Also note that the last check time, while set at the start, is saved at the end, so that if any exceptions
-comment|// occur, then the timestamp is not updated so that the discovery is attempted again
+comment|// occur, then the timestamp is not updated so that the discoverer is attempted again
 comment|// TODO: under the list-return behaviour we have now, exceptions might occur later and the timestamp will not be reset - see MRM-83
 try|try
 block|{

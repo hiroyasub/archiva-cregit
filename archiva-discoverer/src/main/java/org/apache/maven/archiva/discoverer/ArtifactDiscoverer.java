@@ -9,7 +9,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|discovery
+name|discoverer
 package|;
 end_package
 

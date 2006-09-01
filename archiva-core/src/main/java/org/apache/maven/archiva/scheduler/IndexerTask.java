@@ -107,7 +107,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|discovery
+name|discoverer
 operator|.
 name|ArtifactDiscoverer
 import|;
@@ -123,7 +123,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|discovery
+name|discoverer
 operator|.
 name|DiscovererException
 import|;
@@ -317,7 +317,7 @@ specifier|private
 name|ConfiguredRepositoryFactory
 name|repoFactory
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.archiva.discovery.ArtifactDiscoverer"      */
+comment|/**      * @plexus.requirement role="org.apache.maven.archiva.discoverer.ArtifactDiscoverer"      */
 specifier|private
 name|Map
 name|artifactDiscoverers

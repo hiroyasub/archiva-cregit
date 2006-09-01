@@ -9,7 +9,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|discovery
+name|discoverer
 package|;
 end_package
 
@@ -72,7 +72,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Artifact discoverer for the legacy repository layout (Maven 1.x).  * Method used to build an artifact object using a relative path from a repository base directory.  An artifactId  * having the words "DEV", "PRE", "RC", "ALPHA", "BETA", "DEBUG", "UNOFFICIAL", "CURRENT", "LATEST", "FCS",  * "RELEASE", "NIGHTLY", "SNAPSHOT" and "TEST" (not case-sensitive) will most likely make this method fail as  * they are reserved for version usage.  *  * @author John Casey  * @author Brett Porter  * @plexus.component role="org.apache.maven.archiva.discovery.ArtifactDiscoverer" role-hint="legacy"  */
+comment|/**  * Artifact discoverer for the legacy repository layout (Maven 1.x).  * Method used to build an artifact object using a relative path from a repository base directory.  An artifactId  * having the words "DEV", "PRE", "RC", "ALPHA", "BETA", "DEBUG", "UNOFFICIAL", "CURRENT", "LATEST", "FCS",  * "RELEASE", "NIGHTLY", "SNAPSHOT" and "TEST" (not case-sensitive) will most likely make this method fail as  * they are reserved for version usage.  *  * @author John Casey  * @author Brett Porter  * @plexus.component role="org.apache.maven.archiva.discoverer.ArtifactDiscoverer" role-hint="legacy"  */
 end_comment
 
 begin_class
@@ -82,7 +82,7 @@ name|LegacyArtifactDiscoverer
 extends|extends
 name|AbstractArtifactDiscoverer
 block|{
-comment|/**      * @see org.apache.maven.archiva.discovery.ArtifactDiscoverer#buildArtifact(String)      */
+comment|/**      * @see org.apache.maven.archiva.discoverer.ArtifactDiscoverer#buildArtifact(String)      */
 specifier|public
 name|Artifact
 name|buildArtifact

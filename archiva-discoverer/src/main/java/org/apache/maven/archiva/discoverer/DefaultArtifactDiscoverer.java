@@ -9,7 +9,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|discovery
+name|discoverer
 package|;
 end_package
 
@@ -86,7 +86,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Artifact discoverer for the new repository layout (Maven 2.0+).  *  * @author John Casey  * @author Brett Porter  * @plexus.component role="org.apache.maven.archiva.discovery.ArtifactDiscoverer" role-hint="default"  */
+comment|/**  * Artifact discoverer for the new repository layout (Maven 2.0+).  *  * @author John Casey  * @author Brett Porter  * @plexus.component role="org.apache.maven.archiva.discoverer.ArtifactDiscoverer" role-hint="default"  */
 end_comment
 
 begin_class
@@ -96,7 +96,7 @@ name|DefaultArtifactDiscoverer
 extends|extends
 name|AbstractArtifactDiscoverer
 block|{
-comment|/**      * @see org.apache.maven.archiva.discovery.ArtifactDiscoverer#buildArtifact(String)      */
+comment|/**      * @see org.apache.maven.archiva.discoverer.ArtifactDiscoverer#buildArtifact(String)      */
 specifier|public
 name|Artifact
 name|buildArtifact

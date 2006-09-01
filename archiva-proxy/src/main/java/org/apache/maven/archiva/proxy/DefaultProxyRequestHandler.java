@@ -59,7 +59,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|discovery
+name|discoverer
 operator|.
 name|ArtifactDiscoverer
 import|;
@@ -75,7 +75,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|discovery
+name|discoverer
 operator|.
 name|DiscovererException
 import|;
