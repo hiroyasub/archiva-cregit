@@ -139,11 +139,11 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|path
+name|filename
 operator|.
 name|endsWith
 argument_list|(
-name|filename
+name|path
 argument_list|)
 condition|)
 block|{
@@ -203,11 +203,11 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|path
+name|filename
 operator|.
 name|endsWith
 argument_list|(
-name|filename
+name|path
 argument_list|)
 condition|)
 block|{
