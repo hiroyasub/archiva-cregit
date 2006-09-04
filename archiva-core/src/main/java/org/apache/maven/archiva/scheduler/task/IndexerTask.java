@@ -350,7 +350,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Task for discovering changes in the repository.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @plexus.component role=org.apache.maven.archiva.scheduler.task.RepositoryTaskk" role-hint="indexer"  */
+comment|/**  * Task for discovering changes in the repository.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @plexus.component role="org.apache.maven.archiva.scheduler.task.RepositoryTask" role-hint="indexer"  */
 end_comment
 
 begin_class

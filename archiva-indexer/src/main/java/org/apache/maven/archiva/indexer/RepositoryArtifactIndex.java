@@ -126,7 +126,7 @@ parameter_list|()
 throws|throws
 name|RepositoryIndexSearchException
 function_decl|;
-comment|/**      * Retrieve all primary keys of records in the index.      *      * @return the keys      * @throws RepositoryIndexSearchException if there was an error searching the index      */
+comment|/**      * Retrieve all primary keys of records in the index.      *      * @return the keys      * @throws RepositoryIndexException if there was an error searching the index      */
 name|Collection
 name|getAllRecordKeys
 parameter_list|()
@@ -145,6 +145,41 @@ name|factory
 parameter_list|)
 throws|throws
 name|RepositoryIndexException
+function_decl|;
+comment|/**      * Get all the group IDs in the index.      *      * @return list of groups as strings      * @throws RepositoryIndexException if there is a problem searching for the group ID      */
+name|List
+name|getAllGroupIds
+parameter_list|()
+throws|throws
+name|RepositoryIndexException
+function_decl|;
+comment|/**      * Get the list of artifact IDs in a group in the index.      *      * @param groupId the group ID to search      * @return the list of artifact ID strings      * @throws RepositoryIndexSearchException if there is a problem searching for the group ID      */
+name|List
+name|getArtifactIds
+parameter_list|(
+name|String
+name|groupId
+parameter_list|)
+throws|throws
+name|RepositoryIndexSearchException
+function_decl|;
+comment|/**      * Get the list of available versions for a given artifact.      *      * @param groupId    the group ID to search for      * @param artifactId the artifact ID to search for      * @return the list of version strings      * @throws RepositoryIndexSearchException if there is a problem searching for the artifact      */
+name|List
+name|getVersions
+parameter_list|(
+name|String
+name|groupId
+parameter_list|,
+name|String
+name|artifactId
+parameter_list|)
+throws|throws
+name|RepositoryIndexSearchException
+function_decl|;
+comment|/**      * Get the time when the index was last updated. Note that this does not monitor external processes or multiple      * instances of the index.      *      * @return the last updated time, or 0 if it has not been updated since the class was instantiated.      */
+name|long
+name|getLastUpdatedTime
+parameter_list|()
 function_decl|;
 block|}
 end_interface
