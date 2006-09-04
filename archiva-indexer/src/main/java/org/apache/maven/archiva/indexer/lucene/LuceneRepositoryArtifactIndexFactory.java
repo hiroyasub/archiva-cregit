@@ -53,6 +53,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|project
+operator|.
+name|MavenProjectBuilder
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -72,6 +86,11 @@ name|LuceneRepositoryArtifactIndexFactory
 implements|implements
 name|RepositoryArtifactIndexFactory
 block|{
+comment|/**      * @plexus.requirement      * @todo remove when MNG-142 is fixed      */
+specifier|private
+name|MavenProjectBuilder
+name|projectBuilder
+decl_stmt|;
 specifier|public
 name|RepositoryArtifactIndex
 name|createStandardIndex
@@ -89,6 +108,8 @@ argument_list|,
 operator|new
 name|LuceneStandardIndexRecordConverter
 argument_list|()
+argument_list|,
+name|projectBuilder
 argument_list|)
 return|;
 block|}
@@ -109,6 +130,8 @@ argument_list|,
 operator|new
 name|LuceneMinimalIndexRecordConverter
 argument_list|()
+argument_list|,
+name|projectBuilder
 argument_list|)
 return|;
 block|}

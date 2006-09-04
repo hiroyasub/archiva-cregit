@@ -37,6 +37,24 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|record
+operator|.
+name|RepositoryIndexRecordFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -64,7 +82,7 @@ specifier|public
 interface|interface
 name|RepositoryArtifactIndex
 block|{
-comment|/**      * Indexes the artifacts found within the specified list of index records. If the artifacts are already in the      * repository they are updated.      *      * @param records the artifacts to index      * @throws RepositoryIndexException if there is a problem indexing the records      */
+comment|/**      * Indexes the artifacts found within the specified list of index records. If the artifacts are already in the      * repository they are updated.      *      * @param records the records to index      * @throws RepositoryIndexException if there is a problem indexing the records      */
 name|void
 name|indexRecords
 parameter_list|(
@@ -97,6 +115,33 @@ name|deleteRecords
 parameter_list|(
 name|Collection
 name|records
+parameter_list|)
+throws|throws
+name|RepositoryIndexException
+function_decl|;
+comment|/**      * Retrieve all records in the index.      *      * @return the records      * @throws RepositoryIndexSearchException if there was an error searching the index      */
+name|Collection
+name|getAllRecords
+parameter_list|()
+throws|throws
+name|RepositoryIndexSearchException
+function_decl|;
+comment|/**      * Retrieve all primary keys of records in the index.      *      * @return the keys      * @throws RepositoryIndexSearchException if there was an error searching the index      */
+name|Collection
+name|getAllRecordKeys
+parameter_list|()
+throws|throws
+name|RepositoryIndexException
+function_decl|;
+comment|/**      * Indexes the artifacts found within the specified list. If the artifacts are already in the      * repository they are updated. This method should use less memory than indexRecords as the records can be      * created and disposed of on the fly.      *      * @param artifacts the artifacts to index      * @param factory   the artifact to record factory      * @throws RepositoryIndexException if there is a problem indexing the artifacts      */
+name|void
+name|indexArtifacts
+parameter_list|(
+name|List
+name|artifacts
+parameter_list|,
+name|RepositoryIndexRecordFactory
+name|factory
 parameter_list|)
 throws|throws
 name|RepositoryIndexException

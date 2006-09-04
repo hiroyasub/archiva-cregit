@@ -9,7 +9,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|scheduler
+name|discoverer
+operator|.
+name|filter
 package|;
 end_package
 
@@ -17,31 +19,63 @@ begin_comment
 comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|Artifact
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|resolver
+operator|.
+name|filter
+operator|.
+name|ArtifactFilter
+import|;
+end_import
+
 begin_comment
-comment|/**  * A repository task.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * Filter that accepts all.  */
 end_comment
 
-begin_interface
+begin_class
 specifier|public
-interface|interface
-name|RepositoryTask
+class|class
+name|AcceptAllArtifactFilter
+implements|implements
+name|ArtifactFilter
 block|{
-comment|/**      * Execute the task.      */
-name|void
-name|execute
-parameter_list|()
-throws|throws
-name|TaskExecutionException
-function_decl|;
-comment|/**      * Execute the task now if needed because the target doesn't exist.      */
-name|void
-name|executeNowIfNeeded
-parameter_list|()
-throws|throws
-name|TaskExecutionException
-function_decl|;
+specifier|public
+name|boolean
+name|include
+parameter_list|(
+name|Artifact
+name|artifact
+parameter_list|)
+block|{
+return|return
+literal|true
+return|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

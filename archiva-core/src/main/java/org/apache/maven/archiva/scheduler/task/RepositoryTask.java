@@ -9,17 +9,25 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|discoverer
+name|scheduler
+operator|.
+name|task
 package|;
 end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Iterator
+name|maven
+operator|.
+name|archiva
+operator|.
+name|scheduler
+operator|.
+name|TaskExecutionException
 import|;
 end_import
 
@@ -28,30 +36,27 @@ comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed
 end_comment
 
 begin_comment
-comment|/**  * @author Edwin Punzalan  */
+comment|/**  * A repository task.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
 end_comment
 
 begin_interface
 specifier|public
 interface|interface
-name|Discoverer
+name|RepositoryTask
 block|{
-comment|/**      * Get the list of paths kicked out during the discovery process.      *      * @return the paths as Strings.      */
-name|Iterator
-name|getKickedOutPathsIterator
-parameter_list|()
-function_decl|;
-comment|/**      * Get the list of paths excluded during the discovery process.      *      * @return the paths as Strings.      */
-name|Iterator
-name|getExcludedPathsIterator
-parameter_list|()
-function_decl|;
+comment|/**      * Execute the task.      */
 name|void
-name|setTrackOmittedPaths
-parameter_list|(
-name|boolean
-name|trackOmittedPaths
-parameter_list|)
+name|execute
+parameter_list|()
+throws|throws
+name|TaskExecutionException
+function_decl|;
+comment|/**      * Execute the task now if needed because the target doesn't exist.      */
+name|void
+name|executeNowIfNeeded
+parameter_list|()
+throws|throws
+name|TaskExecutionException
 function_decl|;
 block|}
 end_interface

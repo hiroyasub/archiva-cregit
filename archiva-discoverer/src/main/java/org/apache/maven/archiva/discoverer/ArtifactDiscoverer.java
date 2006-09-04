@@ -49,6 +49,24 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|resolver
+operator|.
+name|filter
+operator|.
+name|ArtifactFilter
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -78,21 +96,18 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Discover artifacts in the repository. Only artifacts added since the last attempt at discovery will be found.      * This process guarantees never to miss an artifact, however it is possible that an artifact will be received twice      * consecutively even if unchanged, so any users of this list must handle such a situation gracefully.      *      * @param repository          the location of the repository      * @param operation           the operation being used to discover for timestamp checking      * @param blacklistedPatterns pattern that lists any files to prevent from being included when scanning      * @param includeSnapshots    whether to discover snapshots      * @return the list of artifacts discovered      * @throws DiscovererException if there was an unrecoverable problem discovering artifacts or recording progress      */
+comment|/**      * Discover artifacts in the repository. Only artifacts added since the last attempt at discovery will be found.      * This process guarantees never to miss an artifact, however it is possible that an artifact will be received twice      * consecutively even if unchanged, so any users of this list must handle such a situation gracefully.      *      * @param repository          the location of the repository      * @param blacklistedPatterns pattern that lists any files to prevent from being included when scanning      * @param filter              filter for artifacts to include in the discovered list      * @return the list of artifacts discovered      * @throws DiscovererException if there was an unrecoverable problem discovering artifacts or recording progress      */
 name|List
 name|discoverArtifacts
 parameter_list|(
 name|ArtifactRepository
 name|repository
 parameter_list|,
-name|String
-name|operation
-parameter_list|,
 name|List
 name|blacklistedPatterns
 parameter_list|,
-name|boolean
-name|includeSnapshots
+name|ArtifactFilter
+name|filter
 parameter_list|)
 throws|throws
 name|DiscovererException
