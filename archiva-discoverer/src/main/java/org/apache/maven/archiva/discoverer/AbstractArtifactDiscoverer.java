@@ -317,7 +317,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO: else add to excluded? [!]
-comment|// TODO! excluded/kickout tracking should be optional
 block|}
 catch|catch
 parameter_list|(

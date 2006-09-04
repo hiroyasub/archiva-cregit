@@ -178,7 +178,6 @@ specifier|private
 name|boolean
 name|trackOmittedPaths
 decl_stmt|;
-comment|/** TODO!      * @plexus.configuration default-value="60000"     protected int blackoutPeriod;      protected static final String DATE_FMT = "yyyyMMddHHmmss";      */
 comment|/**      * Add a path to the list of files that were kicked out due to being invalid.      *      * @param path   the path to add      * @param reason the reason why the path is being kicked out      */
 specifier|protected
 name|void
