@@ -176,7 +176,7 @@ parameter_list|)
 throws|throws
 name|RepositoryIndexSearchException
 function_decl|;
-comment|/**      * Get the time when the index was last updated. Note that this does not monitor external processes or multiple      * instances of the index.      *      * @return the last updated time, or 0 if it has not been updated since the class was instantiated.      */
+comment|/**      * Get the time when the index was last updated. Note that this does not monitor external processes.      *      * @return the last updated time, or 0 if it has not been updated since the class was instantiated.      */
 name|long
 name|getLastUpdatedTime
 parameter_list|()

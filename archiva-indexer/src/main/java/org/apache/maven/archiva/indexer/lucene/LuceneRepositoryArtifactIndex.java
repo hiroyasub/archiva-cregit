@@ -578,6 +578,7 @@ name|MavenProjectBuilder
 name|projectBuilder
 decl_stmt|;
 specifier|private
+specifier|static
 name|long
 name|lastUpdatedTime
 init|=
