@@ -1187,7 +1187,7 @@ block|{
 return|return
 name|artifactFactory
 operator|.
-name|createBuildArtifact
+name|createProjectArtifact
 argument_list|(
 name|metadata
 operator|.
@@ -1203,8 +1203,6 @@ name|metadata
 operator|.
 name|getBaseVersion
 argument_list|()
-argument_list|,
-literal|"pom"
 argument_list|)
 return|;
 block|}
@@ -1223,7 +1221,7 @@ block|{
 return|return
 name|artifactFactory
 operator|.
-name|createBuildArtifact
+name|createProjectArtifact
 argument_list|(
 name|metadata
 operator|.
@@ -1236,8 +1234,6 @@ name|getArtifactId
 argument_list|()
 argument_list|,
 name|version
-argument_list|,
-literal|"pom"
 argument_list|)
 return|;
 block|}

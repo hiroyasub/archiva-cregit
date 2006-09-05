@@ -352,7 +352,7 @@ return|;
 block|}
 specifier|public
 name|int
-name|getFailures
+name|getNumFailures
 parameter_list|()
 block|{
 return|return
@@ -369,7 +369,7 @@ return|;
 block|}
 specifier|public
 name|int
-name|getSuccesses
+name|getNumSuccesses
 parameter_list|()
 block|{
 return|return
@@ -386,7 +386,7 @@ return|;
 block|}
 specifier|public
 name|int
-name|getWarnings
+name|getNumWarnings
 parameter_list|()
 block|{
 return|return

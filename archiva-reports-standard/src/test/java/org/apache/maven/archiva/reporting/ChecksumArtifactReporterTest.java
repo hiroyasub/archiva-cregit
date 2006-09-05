@@ -231,7 +231,7 @@ name|ArtifactReporter
 name|reporter
 init|=
 operator|new
-name|MockArtifactReporter
+name|DefaultArtifactReporter
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -360,7 +360,7 @@ literal|2
 argument_list|,
 name|reporter
 operator|.
-name|getSuccesses
+name|getNumSuccesses
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -432,7 +432,7 @@ literal|2
 argument_list|,
 name|reporter
 operator|.
-name|getFailures
+name|getNumFailures
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -752,7 +752,7 @@ literal|2
 argument_list|,
 name|reporter
 operator|.
-name|getFailures
+name|getNumFailures
 argument_list|()
 argument_list|)
 expr_stmt|;

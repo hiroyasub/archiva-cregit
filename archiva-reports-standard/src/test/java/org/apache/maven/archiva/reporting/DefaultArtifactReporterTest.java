@@ -147,7 +147,7 @@ literal|0
 argument_list|,
 name|reporter
 operator|.
-name|getFailures
+name|getNumFailures
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -159,7 +159,7 @@ literal|0
 argument_list|,
 name|reporter
 operator|.
-name|getWarnings
+name|getNumWarnings
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -171,7 +171,7 @@ literal|0
 argument_list|,
 name|reporter
 operator|.
-name|getSuccesses
+name|getNumSuccesses
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -276,7 +276,7 @@ literal|1
 argument_list|,
 name|reporter
 operator|.
-name|getFailures
+name|getNumFailures
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -288,7 +288,7 @@ literal|0
 argument_list|,
 name|reporter
 operator|.
-name|getWarnings
+name|getNumWarnings
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -300,7 +300,7 @@ literal|0
 argument_list|,
 name|reporter
 operator|.
-name|getSuccesses
+name|getNumSuccesses
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -399,7 +399,7 @@ literal|2
 argument_list|,
 name|reporter
 operator|.
-name|getFailures
+name|getNumFailures
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -411,7 +411,7 @@ literal|0
 argument_list|,
 name|reporter
 operator|.
-name|getWarnings
+name|getNumWarnings
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -423,7 +423,7 @@ literal|0
 argument_list|,
 name|reporter
 operator|.
-name|getSuccesses
+name|getNumSuccesses
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -557,7 +557,7 @@ literal|0
 argument_list|,
 name|reporter
 operator|.
-name|getFailures
+name|getNumFailures
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -569,7 +569,7 @@ literal|1
 argument_list|,
 name|reporter
 operator|.
-name|getWarnings
+name|getNumWarnings
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -581,7 +581,7 @@ literal|0
 argument_list|,
 name|reporter
 operator|.
-name|getSuccesses
+name|getNumSuccesses
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -680,7 +680,7 @@ literal|0
 argument_list|,
 name|reporter
 operator|.
-name|getFailures
+name|getNumFailures
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -692,7 +692,7 @@ literal|2
 argument_list|,
 name|reporter
 operator|.
-name|getWarnings
+name|getNumWarnings
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -704,7 +704,7 @@ literal|0
 argument_list|,
 name|reporter
 operator|.
-name|getSuccesses
+name|getNumSuccesses
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -836,7 +836,7 @@ literal|0
 argument_list|,
 name|reporter
 operator|.
-name|getFailures
+name|getNumFailures
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -848,7 +848,7 @@ literal|0
 argument_list|,
 name|reporter
 operator|.
-name|getWarnings
+name|getNumWarnings
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -860,7 +860,7 @@ literal|1
 argument_list|,
 name|reporter
 operator|.
-name|getSuccesses
+name|getNumSuccesses
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -985,7 +985,7 @@ literal|0
 argument_list|,
 name|reporter
 operator|.
-name|getFailures
+name|getNumFailures
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -997,7 +997,7 @@ literal|0
 argument_list|,
 name|reporter
 operator|.
-name|getWarnings
+name|getNumWarnings
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1009,7 +1009,7 @@ literal|2
 argument_list|,
 name|reporter
 operator|.
-name|getSuccesses
+name|getNumSuccesses
 argument_list|()
 argument_list|)
 expr_stmt|;
