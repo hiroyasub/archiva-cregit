@@ -9,7 +9,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|reporting
+name|layer
 package|;
 end_package
 
@@ -34,32 +34,34 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *   */
+comment|/**  * Gets the preferred implementation of a repository query layer for the given repository.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @version $Id:RepositoryQueryLayerFactory.java 437105 2006-08-26 17:22:22 +1000 (Sat, 26 Aug 2006) brett $  */
 end_comment
 
-begin_class
+begin_interface
 specifier|public
-class|class
-name|DefaultRepositoryQueryLayer
-extends|extends
-name|AbstractRepositoryQueryLayer
+interface|interface
+name|RepositoryQueryLayerFactory
 block|{
-specifier|public
-name|DefaultRepositoryQueryLayer
+name|String
+name|ROLE
+init|=
+name|RepositoryQueryLayerFactory
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
+comment|/**      * Create or obtain a query interface.      *      * @param repository the repository to query      * @return the obtained query layer      */
+name|RepositoryQueryLayer
+name|createRepositoryQueryLayer
 parameter_list|(
 name|ArtifactRepository
 name|repository
 parameter_list|)
-block|{
-name|this
-operator|.
-name|repository
-operator|=
-name|repository
-expr_stmt|;
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

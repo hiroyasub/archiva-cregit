@@ -9,7 +9,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|reporting
+name|layer
 package|;
 end_package
 
@@ -84,7 +84,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *   */
+comment|/**  *  */
 end_comment
 
 begin_class

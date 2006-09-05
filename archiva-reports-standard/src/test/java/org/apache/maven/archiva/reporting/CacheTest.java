@@ -27,6 +27,22 @@ name|TestCase
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|layer
+operator|.
+name|Cache
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment

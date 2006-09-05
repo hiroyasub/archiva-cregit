@@ -9,7 +9,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|reporting
+name|layer
 package|;
 end_package
 

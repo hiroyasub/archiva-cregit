@@ -25,6 +25,22 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|archiva
+operator|.
+name|layer
+operator|.
+name|RepositoryQueryLayer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
 name|artifact
 operator|.
 name|Artifact
@@ -90,7 +106,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *   */
+comment|/**  *  */
 end_comment
 
 begin_class

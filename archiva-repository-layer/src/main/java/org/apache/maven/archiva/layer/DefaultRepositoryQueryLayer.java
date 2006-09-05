@@ -9,7 +9,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|reporting
+name|layer
 package|;
 end_package
 
@@ -34,31 +34,29 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Gets the default implementation of a repository query layer for the given repository.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.reporting.RepositoryQueryLayerFactory"  */
+comment|/**  *  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|DefaultRepositoryQueryLayerFactory
-implements|implements
-name|RepositoryQueryLayerFactory
+name|DefaultRepositoryQueryLayer
+extends|extends
+name|AbstractRepositoryQueryLayer
 block|{
 specifier|public
-name|RepositoryQueryLayer
-name|createRepositoryQueryLayer
+name|DefaultRepositoryQueryLayer
 parameter_list|(
 name|ArtifactRepository
 name|repository
 parameter_list|)
 block|{
-return|return
-operator|new
-name|DefaultRepositoryQueryLayer
-argument_list|(
+name|this
+operator|.
 name|repository
-argument_list|)
-return|;
+operator|=
+name|repository
+expr_stmt|;
 block|}
 block|}
 end_class
