@@ -9,7 +9,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|reporting
+name|layer
 package|;
 end_package
 
@@ -24,22 +24,6 @@ operator|.
 name|framework
 operator|.
 name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|layer
-operator|.
-name|Cache
 import|;
 end_import
 

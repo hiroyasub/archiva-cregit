@@ -1833,7 +1833,7 @@ name|assertEquals
 argument_list|(
 literal|"check reason"
 argument_list|,
-literal|"Snapshot artifact 20050611.202024-2 does not exist."
+literal|"Snapshot artifact 1.0-alpha-1-20050611.202024-2 does not exist."
 argument_list|,
 name|result
 operator|.

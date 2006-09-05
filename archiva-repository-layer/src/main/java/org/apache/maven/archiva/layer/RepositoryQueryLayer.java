@@ -43,9 +43,7 @@ name|artifact
 operator|.
 name|repository
 operator|.
-name|metadata
-operator|.
-name|Snapshot
+name|ArtifactRepository
 import|;
 end_import
 
@@ -85,16 +83,6 @@ name|Artifact
 name|artifact
 parameter_list|)
 function_decl|;
-name|boolean
-name|containsArtifact
-parameter_list|(
-name|Artifact
-name|artifact
-parameter_list|,
-name|Snapshot
-name|snapshot
-parameter_list|)
-function_decl|;
 name|List
 name|getVersions
 parameter_list|(
@@ -103,6 +91,10 @@ name|artifact
 parameter_list|)
 throws|throws
 name|RepositoryQueryLayerException
+function_decl|;
+name|ArtifactRepository
+name|getRepository
+parameter_list|()
 function_decl|;
 block|}
 end_interface

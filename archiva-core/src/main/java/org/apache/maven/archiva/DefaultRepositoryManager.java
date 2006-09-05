@@ -261,7 +261,7 @@ specifier|private
 name|RepositoryConverter
 name|repositoryConverter
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="default"      */
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|ArtifactReporter
 name|reporter

@@ -80,7 +80,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @plexus.component role="org.apache.maven.archiva.reporting.ArtifactReporter" role-hint="default"  */
+comment|/**  * @plexus.component role="org.apache.maven.archiva.reporting.ArtifactReporter"  */
 end_comment
 
 begin_class
