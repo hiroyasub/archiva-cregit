@@ -66,13 +66,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Configures the application.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="runIndexerAction"  */
+comment|/**  * Configures the application.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="runRepositoryTaskAction"  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|RunIndexerAction
+name|RunRepositoryTaskAction
 extends|extends
 name|ActionSupport
 block|{
@@ -83,7 +83,7 @@ name|taskScheduler
 decl_stmt|;
 specifier|public
 name|String
-name|execute
+name|runIndexer
 parameter_list|()
 throws|throws
 name|TaskExecutionException
@@ -91,6 +91,22 @@ block|{
 name|taskScheduler
 operator|.
 name|runIndexer
+argument_list|()
+expr_stmt|;
+return|return
+name|SUCCESS
+return|;
+block|}
+specifier|public
+name|String
+name|runReporter
+parameter_list|()
+throws|throws
+name|TaskExecutionException
+block|{
+name|taskScheduler
+operator|.
+name|runReporter
 argument_list|()
 expr_stmt|;
 return|return

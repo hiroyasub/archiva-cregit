@@ -211,6 +211,24 @@ name|indexer
 operator|.
 name|record
 operator|.
+name|IndexRecordExistsArtifactFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|record
+operator|.
 name|RepositoryIndexRecordFactory
 import|;
 end_import
@@ -350,7 +368,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Task for discovering changes in the repository.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @plexus.component role="org.apache.maven.archiva.scheduler.task.RepositoryTask" role-hint="indexer"  */
+comment|/**  * Task for discovering changes in the repository and updating the index accordingly.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @plexus.component role="org.apache.maven.archiva.scheduler.task.RepositoryTask" role-hint="indexer"  */
 end_comment
 
 begin_class
@@ -472,7 +490,7 @@ argument_list|()
 operator|.
 name|info
 argument_list|(
-literal|"Starting repository discovery process"
+literal|"Starting repository indexing process"
 argument_list|)
 expr_stmt|;
 name|RepositoryArtifactIndex
