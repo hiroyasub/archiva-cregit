@@ -212,7 +212,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class tests the ChecksumArtifactReporter.  * It extends the AbstractChecksumArtifactReporterTestCase class.  */
+comment|/**  * This class tests the ChecksumArtifactReportProcessor.  * It extends the AbstractChecksumArtifactReporterTestCase class.  */
 end_comment
 
 begin_class
@@ -279,7 +279,7 @@ literal|"checksum-metadata"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test the ChecksumArtifactReporter when the checksum files are valid.      */
+comment|/**      * Test the ChecksumArtifactReportProcessor when the checksum files are valid.      */
 specifier|public
 name|void
 name|testChecksumArtifactReporterSuccess
@@ -365,7 +365,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test the ChecksumArtifactReporter when the checksum files are invalid.      */
+comment|/**      * Test the ChecksumArtifactReportProcessor when the checksum files are invalid.      */
 specifier|public
 name|void
 name|testChecksumArtifactReporterFailed

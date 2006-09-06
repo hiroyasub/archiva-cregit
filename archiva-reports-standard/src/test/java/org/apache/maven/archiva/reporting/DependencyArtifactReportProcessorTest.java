@@ -92,7 +92,7 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|ArtifactReportProcessorTest
+name|DependencyArtifactReportProcessorTest
 extends|extends
 name|AbstractRepositoryReportsTestCase
 block|{
@@ -185,7 +185,7 @@ name|ArtifactReportProcessor
 operator|.
 name|ROLE
 argument_list|,
-literal|"default"
+literal|"dependency"
 argument_list|)
 expr_stmt|;
 name|artifactFactory

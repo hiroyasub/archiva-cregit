@@ -182,7 +182,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class creates the artifact and metadata files used for testing the ChecksumArtifactReporter.  * It is extended by ChecksumArtifactReporterTest class.  */
+comment|/**  * This class creates the artifact and metadata files used for testing the ChecksumArtifactReportProcessor.  * It is extended by ChecksumArtifactReporterTest class.  */
 end_comment
 
 begin_class

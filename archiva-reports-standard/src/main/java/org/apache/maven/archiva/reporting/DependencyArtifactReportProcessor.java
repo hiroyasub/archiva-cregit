@@ -176,13 +176,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @plexus.component role="org.apache.maven.archiva.reporting.ArtifactReportProcessor" role-hint="default"  */
+comment|/**  * @plexus.component role="org.apache.maven.archiva.reporting.ArtifactReportProcessor" role-hint="dependency"  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|DefaultArtifactReportProcessor
+name|DependencyArtifactReportProcessor
 implements|implements
 name|ArtifactReportProcessor
 block|{

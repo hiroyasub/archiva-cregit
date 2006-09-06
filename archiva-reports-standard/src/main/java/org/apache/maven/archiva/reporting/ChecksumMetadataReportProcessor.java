@@ -59,7 +59,9 @@ name|maven
 operator|.
 name|artifact
 operator|.
-name|Artifact
+name|repository
+operator|.
+name|ArtifactRepository
 import|;
 end_import
 
@@ -75,21 +77,9 @@ name|artifact
 operator|.
 name|repository
 operator|.
-name|ArtifactRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|metadata
 operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|model
-operator|.
-name|Model
+name|RepositoryMetadata
 import|;
 end_import
 
@@ -128,15 +118,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class reports invalid and mismatched checksums of artifacts and metadata files.  * It validates MD5 and SHA-1 checksums.  *  * @plexus.component role="org.apache.maven.archiva.reporting.ArtifactReportProcessor" role-hint="checksum"  */
+comment|/**  * This class reports invalid and mismatched checksums of artifacts and metadata files.  * It validates MD5 and SHA-1 checksums.  *  * @plexus.component role="org.apache.maven.archiva.reporting.MetadataReportProcessor" role-hint="checksum-metadata"  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|ChecksumArtifactReporter
+name|ChecksumMetadataReportProcessor
 implements|implements
-name|ArtifactReportProcessor
+name|MetadataReportProcessor
 block|{
 comment|/**      * @plexus.requirement role-hint="sha1"      */
 specifier|private
@@ -148,22 +138,19 @@ specifier|private
 name|Digester
 name|md5Digester
 decl_stmt|;
-comment|/**      * Validate the checksum of the specified artifact.      *      * @param model      * @param artifact      * @param reporter      * @param repository      */
+comment|/**      * Validate the checksums of the metadata. Get the metadata file from the      * repository then validate the checksum.      */
 specifier|public
 name|void
-name|processArtifact
+name|processMetadata
 parameter_list|(
-name|Model
-name|model
-parameter_list|,
-name|Artifact
-name|artifact
-parameter_list|,
-name|ArtifactReporter
-name|reporter
+name|RepositoryMetadata
+name|metadata
 parameter_list|,
 name|ArtifactRepository
 name|repository
+parameter_list|,
+name|ArtifactReporter
+name|reporter
 parameter_list|)
 block|{
 if|if
@@ -202,9 +189,9 @@ name|path
 init|=
 name|repository
 operator|.
-name|pathOf
+name|pathOfRemoteRepositoryMetadata
 argument_list|(
-name|artifact
+name|metadata
 argument_list|)
 decl_stmt|;
 name|File
@@ -235,7 +222,7 @@ name|md5Digester
 argument_list|,
 name|reporter
 argument_list|,
-name|artifact
+name|metadata
 argument_list|)
 expr_stmt|;
 name|verifyChecksum
@@ -252,7 +239,7 @@ name|sha1Digester
 argument_list|,
 name|reporter
 argument_list|,
-name|artifact
+name|metadata
 argument_list|)
 expr_stmt|;
 block|}
@@ -275,8 +262,8 @@ parameter_list|,
 name|ArtifactReporter
 name|reporter
 parameter_list|,
-name|Artifact
-name|artifact
+name|RepositoryMetadata
+name|metadata
 parameter_list|)
 block|{
 name|File
@@ -321,7 +308,7 @@ name|reporter
 operator|.
 name|addSuccess
 argument_list|(
-name|artifact
+name|metadata
 argument_list|)
 expr_stmt|;
 block|}
@@ -335,7 +322,7 @@ name|reporter
 operator|.
 name|addFailure
 argument_list|(
-name|artifact
+name|metadata
 argument_list|,
 name|e
 operator|.
@@ -354,7 +341,7 @@ name|reporter
 operator|.
 name|addFailure
 argument_list|(
-name|artifact
+name|metadata
 argument_list|,
 literal|"Read file error: "
 operator|+
@@ -372,7 +359,7 @@ name|reporter
 operator|.
 name|addFailure
 argument_list|(
-name|artifact
+name|metadata
 argument_list|,
 name|digester
 operator|.
