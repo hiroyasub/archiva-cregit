@@ -36,13 +36,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A result of the report for a given artifact being processed.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @version $Id$  */
+comment|/**  * A result of the report for a given artifact being processed.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @version $Id:RepositoryMetadataResult.java 437105 2006-08-26 17:22:22 +1000 (Sat, 26 Aug 2006) brett $  */
 end_comment
 
 begin_class
 specifier|public
 class|class
 name|RepositoryMetadataResult
+implements|implements
+name|Result
 block|{
 specifier|private
 specifier|final
