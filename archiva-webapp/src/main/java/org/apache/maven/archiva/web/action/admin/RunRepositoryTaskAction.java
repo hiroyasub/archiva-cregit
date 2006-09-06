@@ -97,22 +97,6 @@ return|return
 name|SUCCESS
 return|;
 block|}
-specifier|public
-name|String
-name|runReporter
-parameter_list|()
-throws|throws
-name|TaskExecutionException
-block|{
-name|taskScheduler
-operator|.
-name|runReporter
-argument_list|()
-expr_stmt|;
-return|return
-name|SUCCESS
-return|;
-block|}
 block|}
 end_class
 

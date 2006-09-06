@@ -43,12 +43,6 @@ parameter_list|()
 throws|throws
 name|TaskExecutionException
 function_decl|;
-name|void
-name|runReporter
-parameter_list|()
-throws|throws
-name|TaskExecutionException
-function_decl|;
 block|}
 end_interface
 
