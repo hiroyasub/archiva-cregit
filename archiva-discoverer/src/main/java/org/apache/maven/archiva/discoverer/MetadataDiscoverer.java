@@ -25,6 +25,24 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|archiva
+operator|.
+name|discoverer
+operator|.
+name|filter
+operator|.
+name|MetadataFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
 name|artifact
 operator|.
 name|repository
@@ -64,6 +82,22 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
+comment|/**      * Search for metadata files in the repository.      *      * @param repository          The repository.      * @param blacklistedPatterns Patterns that are to be excluded from the discovery process.      * @param metadataFilter      filter to use on the discovered metadata before returning      * @return the list of artifacts found      * @throws DiscovererException if there is a problem during the discovery process      */
+name|List
+name|discoverMetadata
+parameter_list|(
+name|ArtifactRepository
+name|repository
+parameter_list|,
+name|List
+name|blacklistedPatterns
+parameter_list|,
+name|MetadataFilter
+name|metadataFilter
+parameter_list|)
+throws|throws
+name|DiscovererException
+function_decl|;
 comment|/**      * Search for metadata files in the repository.      *      * @param repository          The repository.      * @param blacklistedPatterns Patterns that are to be excluded from the discovery process.      * @return the list of artifacts found      * @throws DiscovererException if there is a problem during the discovery process      */
 name|List
 name|discoverMetadata
