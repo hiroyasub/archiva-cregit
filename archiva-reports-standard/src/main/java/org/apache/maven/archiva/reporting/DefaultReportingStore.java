@@ -508,6 +508,22 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+specifier|public
+name|void
+name|removeReportDatabase
+parameter_list|(
+name|ArtifactRepository
+name|repository
+parameter_list|)
+block|{
+name|reports
+operator|.
+name|remove
+argument_list|(
+name|repository
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

@@ -76,6 +76,14 @@ parameter_list|)
 throws|throws
 name|ReportingStoreException
 function_decl|;
+comment|/**      * Remove the report database from the memory cache.      *      * @param repository the repository of the database to remove      */
+name|void
+name|removeReportDatabase
+parameter_list|(
+name|ArtifactRepository
+name|repository
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
