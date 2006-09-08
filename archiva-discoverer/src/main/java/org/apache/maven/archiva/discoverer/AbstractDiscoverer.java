@@ -210,6 +210,32 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Add a path to the list of files that were excluded.      *      * @param path   the path to add      * @param reason the reason why the path is excluded      */
+specifier|protected
+name|void
+name|addExcludedPath
+parameter_list|(
+name|String
+name|path
+parameter_list|,
+name|String
+name|reason
+parameter_list|)
+block|{
+name|excludedPaths
+operator|.
+name|add
+argument_list|(
+operator|new
+name|DiscovererPath
+argument_list|(
+name|path
+argument_list|,
+name|reason
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Returns an iterator for the list if DiscovererPaths that were found to not represent a searched object      *      * @return Iterator for the DiscovererPath List      */
 specifier|public
 name|Iterator

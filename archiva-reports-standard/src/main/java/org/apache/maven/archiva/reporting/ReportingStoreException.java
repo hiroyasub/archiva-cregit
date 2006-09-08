@@ -18,21 +18,49 @@ comment|/*  * Copyright 2005-2006 The Apache Software Foundation.  *  * Licensed
 end_comment
 
 begin_comment
-comment|/**  * A result record during the reporting.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * Exception occurring using the reporting store.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
 end_comment
 
-begin_interface
+begin_class
 specifier|public
-interface|interface
-name|Result
+class|class
+name|ReportingStoreException
+extends|extends
+name|Exception
 block|{
-comment|/**      * The reason given for the result.      *      * @return the message      */
+specifier|public
+name|ReportingStoreException
+parameter_list|(
 name|String
-name|getReason
-parameter_list|()
-function_decl|;
+name|message
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
 block|}
-end_interface
+specifier|public
+name|ReportingStoreException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+end_class
 
 end_unit
 

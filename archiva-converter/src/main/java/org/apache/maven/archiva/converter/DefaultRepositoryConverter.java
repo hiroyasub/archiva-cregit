@@ -79,7 +79,7 @@ name|archiva
 operator|.
 name|reporting
 operator|.
-name|ArtifactReporter
+name|ReportingDatabase
 import|;
 end_import
 
@@ -642,7 +642,7 @@ parameter_list|,
 name|ArtifactRepository
 name|targetRepository
 parameter_list|,
-name|ArtifactReporter
+name|ReportingDatabase
 name|reporter
 parameter_list|)
 throws|throws
@@ -898,13 +898,6 @@ name|commit
 argument_list|()
 expr_stmt|;
 block|}
-name|reporter
-operator|.
-name|addSuccess
-argument_list|(
-name|artifact
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}
@@ -1218,7 +1211,7 @@ parameter_list|(
 name|Artifact
 name|artifact
 parameter_list|,
-name|ArtifactReporter
+name|ReportingDatabase
 name|reporter
 parameter_list|)
 throws|throws
@@ -1370,7 +1363,7 @@ parameter_list|,
 name|Artifact
 name|artifact
 parameter_list|,
-name|ArtifactReporter
+name|ReportingDatabase
 name|reporter
 parameter_list|)
 block|{
@@ -1837,7 +1830,7 @@ parameter_list|,
 name|ArtifactRepository
 name|targetRepository
 parameter_list|,
-name|ArtifactReporter
+name|ReportingDatabase
 name|reporter
 parameter_list|,
 name|FileTransaction
@@ -2935,7 +2928,7 @@ parameter_list|,
 name|File
 name|file
 parameter_list|,
-name|ArtifactReporter
+name|ReportingDatabase
 name|reporter
 parameter_list|)
 throws|throws
@@ -3005,7 +2998,7 @@ parameter_list|,
 name|Digester
 name|digester
 parameter_list|,
-name|ArtifactReporter
+name|ReportingDatabase
 name|reporter
 parameter_list|,
 name|Artifact
@@ -3104,7 +3097,7 @@ parameter_list|,
 name|ArtifactRepository
 name|targetRepository
 parameter_list|,
-name|ArtifactReporter
+name|ReportingDatabase
 name|reporter
 parameter_list|,
 name|FileTransaction
@@ -3273,7 +3266,7 @@ parameter_list|,
 name|ArtifactRepository
 name|targetRepository
 parameter_list|,
-name|ArtifactReporter
+name|ReportingDatabase
 name|reporter
 parameter_list|)
 throws|throws

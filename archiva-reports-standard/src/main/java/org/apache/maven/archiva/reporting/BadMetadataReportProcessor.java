@@ -296,7 +296,7 @@ specifier|private
 name|RepositoryQueryLayerFactory
 name|repositoryQueryLayerFactory
 decl_stmt|;
-comment|/**      * Process the metadata encountered in the repository and report all errors found, if any.      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ArtifactReporter to receive processing results      * @throws ReportProcessorException if an error was occurred while processing the metadata      */
+comment|/**      * Process the metadata encountered in the repository and report all errors found, if any.      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ReportingDatabase to receive processing results      */
 specifier|public
 name|void
 name|processMetadata
@@ -307,17 +307,10 @@ parameter_list|,
 name|ArtifactRepository
 name|repository
 parameter_list|,
-name|ArtifactReporter
+name|ReportingDatabase
 name|reporter
 parameter_list|)
-throws|throws
-name|ReportProcessorException
 block|{
-name|boolean
-name|hasFailures
-init|=
-literal|false
-decl_stmt|;
 if|if
 condition|(
 name|metadata
@@ -328,8 +321,6 @@ condition|)
 block|{
 try|try
 block|{
-name|hasFailures
-operator|=
 name|checkPluginMetadata
 argument_list|(
 name|metadata
@@ -346,15 +337,17 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|ReportProcessorException
+name|reporter
+operator|.
+name|addWarning
 argument_list|(
-literal|"Error getting plugin artifact directories versions"
+name|metadata
 argument_list|,
+literal|"Error getting plugin artifact directories versions: "
+operator|+
 name|e
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 else|else
@@ -396,10 +389,6 @@ argument_list|,
 literal|"Missing lastUpdated element inside the metadata."
 argument_list|)
 expr_stmt|;
-name|hasFailures
-operator|=
-literal|true
-expr_stmt|;
 block|}
 if|if
 condition|(
@@ -409,8 +398,6 @@ name|storedInArtifactVersionDirectory
 argument_list|()
 condition|)
 block|{
-name|hasFailures
-operator||=
 name|checkSnapshotMetadata
 argument_list|(
 name|metadata
@@ -423,9 +410,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-operator|!
 name|checkMetadataVersions
 argument_list|(
 name|metadata
@@ -434,17 +418,9 @@ name|repository
 argument_list|,
 name|reporter
 argument_list|)
-condition|)
-block|{
-name|hasFailures
-operator|=
-literal|true
 expr_stmt|;
-block|}
 try|try
 block|{
-if|if
-condition|(
 name|checkRepositoryVersions
 argument_list|(
 name|metadata
@@ -453,13 +429,7 @@ name|repository
 argument_list|,
 name|reporter
 argument_list|)
-condition|)
-block|{
-name|hasFailures
-operator|=
-literal|true
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -467,36 +437,24 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|ReportProcessorException
-argument_list|(
-literal|"Error getting versions"
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-block|}
-if|if
-condition|(
-operator|!
-name|hasFailures
-condition|)
-block|{
 name|reporter
 operator|.
-name|addSuccess
+name|addWarning
 argument_list|(
 name|metadata
+argument_list|,
+literal|"Error getting plugin artifact directories versions: "
+operator|+
+name|e
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Method for processing a GroupRepositoryMetadata      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ArtifactReporter to receive processing results      */
+block|}
+block|}
+comment|/**      * Method for processing a GroupRepositoryMetadata      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ReportingDatabase to receive processing results      */
 specifier|private
-name|boolean
+name|void
 name|checkPluginMetadata
 parameter_list|(
 name|RepositoryMetadata
@@ -505,17 +463,12 @@ parameter_list|,
 name|ArtifactRepository
 name|repository
 parameter_list|,
-name|ArtifactReporter
+name|ReportingDatabase
 name|reporter
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|boolean
-name|hasFailures
-init|=
-literal|false
-decl_stmt|;
 name|File
 name|metadataDir
 init|=
@@ -615,12 +568,13 @@ name|addFailure
 argument_list|(
 name|metadata
 argument_list|,
-literal|"Missing or empty artifactId in group metadata."
+literal|"Missing or empty artifactId in group metadata for plugin "
+operator|+
+name|plugin
+operator|.
+name|getPrefix
+argument_list|()
 argument_list|)
-expr_stmt|;
-name|hasFailures
-operator|=
-literal|true
 expr_stmt|;
 block|}
 name|String
@@ -658,10 +612,6 @@ operator|+
 literal|"."
 argument_list|)
 expr_stmt|;
-name|hasFailures
-operator|=
-literal|true
-expr_stmt|;
 block|}
 else|else
 block|{
@@ -687,10 +637,6 @@ name|prefix
 operator|+
 literal|"."
 argument_list|)
-expr_stmt|;
-name|hasFailures
-operator|=
-literal|true
 expr_stmt|;
 block|}
 else|else
@@ -754,10 +700,6 @@ name|artifactId
 operator|+
 literal|" not found in the repository"
 argument_list|)
-expr_stmt|;
-name|hasFailures
-operator|=
-literal|true
 expr_stmt|;
 block|}
 else|else
@@ -829,18 +771,11 @@ literal|"missing in the metadata."
 argument_list|)
 expr_stmt|;
 block|}
-name|hasFailures
-operator|=
-literal|true
-expr_stmt|;
 block|}
-return|return
-name|hasFailures
-return|;
 block|}
-comment|/**      * Method for processing a SnapshotArtifactRepository      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ArtifactReporter to receive processing results      */
+comment|/**      * Method for processing a SnapshotArtifactRepository      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ReportingDatabase to receive processing results      */
 specifier|private
-name|boolean
+name|void
 name|checkSnapshotMetadata
 parameter_list|(
 name|RepositoryMetadata
@@ -849,7 +784,7 @@ parameter_list|,
 name|ArtifactRepository
 name|repository
 parameter_list|,
-name|ArtifactReporter
+name|ReportingDatabase
 name|reporter
 parameter_list|)
 block|{
@@ -862,11 +797,6 @@ name|createRepositoryQueryLayer
 argument_list|(
 name|repository
 argument_list|)
-decl_stmt|;
-name|boolean
-name|hasFailures
-init|=
-literal|false
 decl_stmt|;
 name|Snapshot
 name|snapshot
@@ -961,18 +891,11 @@ operator|+
 literal|" does not exist."
 argument_list|)
 expr_stmt|;
-name|hasFailures
-operator|=
-literal|true
-expr_stmt|;
 block|}
-return|return
-name|hasFailures
-return|;
 block|}
-comment|/**      * Method for validating the versions declared inside an ArtifactRepositoryMetadata      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ArtifactReporter to receive processing results      */
+comment|/**      * Method for validating the versions declared inside an ArtifactRepositoryMetadata      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ReportingDatabase to receive processing results      */
 specifier|private
-name|boolean
+name|void
 name|checkMetadataVersions
 parameter_list|(
 name|RepositoryMetadata
@@ -981,7 +904,7 @@ parameter_list|,
 name|ArtifactRepository
 name|repository
 parameter_list|,
-name|ArtifactReporter
+name|ReportingDatabase
 name|reporter
 parameter_list|)
 block|{
@@ -994,11 +917,6 @@ name|createRepositoryQueryLayer
 argument_list|(
 name|repository
 argument_list|)
-decl_stmt|;
-name|boolean
-name|hasFailures
-init|=
-literal|false
 decl_stmt|;
 name|Versioning
 name|versioning
@@ -1088,19 +1006,12 @@ operator|+
 literal|"missing in the repository."
 argument_list|)
 expr_stmt|;
-name|hasFailures
-operator|=
-literal|true
-expr_stmt|;
 block|}
 block|}
-return|return
-name|hasFailures
-return|;
 block|}
-comment|/**      * Searches the artifact repository directory for all versions and verifies that all of them are listed in the      * ArtifactRepositoryMetadata      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ArtifactReporter to receive processing results      */
+comment|/**      * Searches the artifact repository directory for all versions and verifies that all of them are listed in the      * ArtifactRepositoryMetadata      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ReportingDatabase to receive processing results      */
 specifier|private
-name|boolean
+name|void
 name|checkRepositoryVersions
 parameter_list|(
 name|RepositoryMetadata
@@ -1109,17 +1020,12 @@ parameter_list|,
 name|ArtifactRepository
 name|repository
 parameter_list|,
-name|ArtifactReporter
+name|ReportingDatabase
 name|reporter
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|boolean
-name|hasFailures
-init|=
-literal|false
-decl_stmt|;
 name|Versioning
 name|versioning
 init|=
@@ -1241,15 +1147,8 @@ operator|+
 literal|"missing in the metadata."
 argument_list|)
 expr_stmt|;
-name|hasFailures
-operator|=
-literal|true
-expr_stmt|;
 block|}
 block|}
-return|return
-name|hasFailures
-return|;
 block|}
 comment|/**      * Used to gather artifactIds from a groupId directory.      *      * @param groupIdDir the directory of the group      * @return the list of artifact ID File objects for each directory      * @throws IOException if there was a failure to read the directories      */
 specifier|private
@@ -1269,34 +1168,38 @@ operator|new
 name|ArrayList
 argument_list|()
 decl_stmt|;
-name|List
-name|fileArray
+name|File
+index|[]
+name|files
 init|=
-operator|new
-name|ArrayList
-argument_list|(
-name|Arrays
-operator|.
-name|asList
-argument_list|(
 name|groupIdDir
 operator|.
 name|listFiles
 argument_list|()
-argument_list|)
-argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|files
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|Iterator
-name|files
+name|i
 init|=
-name|fileArray
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|files
+argument_list|)
 operator|.
 name|iterator
 argument_list|()
 init|;
-name|files
+name|i
 operator|.
 name|hasNext
 argument_list|()
@@ -1309,7 +1212,7 @@ init|=
 operator|(
 name|File
 operator|)
-name|files
+name|i
 operator|.
 name|next
 argument_list|()
@@ -1355,6 +1258,7 @@ argument_list|(
 name|artifactDir
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

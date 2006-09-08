@@ -394,8 +394,6 @@ name|discoverMetadata
 argument_list|(
 name|repository
 argument_list|,
-name|TEST_OPERATION
-argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
@@ -501,8 +499,6 @@ operator|.
 name|discoverMetadata
 argument_list|(
 name|repository
-argument_list|,
-name|TEST_OPERATION
 argument_list|,
 literal|null
 argument_list|)
@@ -656,8 +652,6 @@ operator|.
 name|discoverMetadata
 argument_list|(
 name|repository
-argument_list|,
-name|TEST_OPERATION
 argument_list|,
 literal|null
 argument_list|)

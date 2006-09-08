@@ -343,9 +343,6 @@ parameter_list|(
 name|ArtifactRepository
 name|repository
 parameter_list|,
-name|String
-name|operation
-parameter_list|,
 name|List
 name|blacklistedPatterns
 parameter_list|)

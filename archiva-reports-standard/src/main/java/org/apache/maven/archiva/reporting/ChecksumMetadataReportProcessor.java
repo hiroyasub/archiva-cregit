@@ -149,7 +149,7 @@ parameter_list|,
 name|ArtifactRepository
 name|repository
 parameter_list|,
-name|ArtifactReporter
+name|ReportingDatabase
 name|reporter
 parameter_list|)
 block|{
@@ -259,7 +259,7 @@ parameter_list|,
 name|Digester
 name|digester
 parameter_list|,
-name|ArtifactReporter
+name|ReportingDatabase
 name|reporter
 parameter_list|,
 name|RepositoryMetadata
@@ -302,13 +302,6 @@ name|fileRead
 argument_list|(
 name|checksumFile
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|reporter
-operator|.
-name|addSuccess
-argument_list|(
-name|metadata
 argument_list|)
 expr_stmt|;
 block|}

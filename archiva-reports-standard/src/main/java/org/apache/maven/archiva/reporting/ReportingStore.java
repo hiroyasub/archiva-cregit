@@ -33,55 +33,48 @@ name|ArtifactRepository
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|repository
-operator|.
-name|metadata
-operator|.
-name|RepositoryMetadata
-import|;
-end_import
-
 begin_comment
-comment|/**  * This interface is called by the main system for each piece of metadata as it is discovered.  */
+comment|/**  * A component for loading the reporting database into the model.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @todo this is something that could possibly be generalised into Modello.  */
 end_comment
 
 begin_interface
 specifier|public
 interface|interface
-name|MetadataReportProcessor
+name|ReportingStore
 block|{
+comment|/**      * The Plexus role for the component.      */
 name|String
 name|ROLE
 init|=
-name|MetadataReportProcessor
+name|ReportingStore
 operator|.
 name|class
 operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-name|void
-name|processMetadata
+comment|/**      * Get the reports from the store. A cached version may be used.      *      * @param repository the repository to load the reports for      * @return the reporting database      * @throws ReportingStoreException if there was a problem reading the store      */
+name|ReportingDatabase
+name|getReportsFromStore
 parameter_list|(
-name|RepositoryMetadata
-name|metadata
+name|ArtifactRepository
+name|repository
+parameter_list|)
+throws|throws
+name|ReportingStoreException
+function_decl|;
+comment|/**      * Save the reporting to the store.      *      * @param database   the reports to store      * @param repository the repositorry to store the reports in      * @throws ReportingStoreException if there was a problem writing the store      */
+name|void
+name|storeReports
+parameter_list|(
+name|ReportingDatabase
+name|database
 parameter_list|,
 name|ArtifactRepository
 name|repository
-parameter_list|,
-name|ReportingDatabase
-name|reporter
 parameter_list|)
+throws|throws
+name|ReportingStoreException
 function_decl|;
 block|}
 end_interface

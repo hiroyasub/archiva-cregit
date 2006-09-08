@@ -316,7 +316,16 @@ name|artifact
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: else add to excluded? [!]
+else|else
+block|{
+name|addExcludedPath
+argument_list|(
+name|path
+argument_list|,
+literal|"Omitted by filter"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(

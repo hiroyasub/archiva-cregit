@@ -64,15 +64,12 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Search for metadata files in the repository.      *      * @param repository          The repository.      * @param operation           the operation being performed (used for timestamp comparison)      * @param blacklistedPatterns Patterns that are to be excluded from the discovery process.      * @return the list of artifacts found      * @throws DiscovererException if there is a problem during the discovery process      */
+comment|/**      * Search for metadata files in the repository.      *      * @param repository          The repository.      * @param blacklistedPatterns Patterns that are to be excluded from the discovery process.      * @return the list of artifacts found      * @throws DiscovererException if there is a problem during the discovery process      */
 name|List
 name|discoverMetadata
 parameter_list|(
 name|ArtifactRepository
 name|repository
-parameter_list|,
-name|String
-name|operation
 parameter_list|,
 name|List
 name|blacklistedPatterns

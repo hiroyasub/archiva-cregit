@@ -29,7 +29,7 @@ name|archiva
 operator|.
 name|reporting
 operator|.
-name|ArtifactReporter
+name|ReportingDatabase
 import|;
 end_import
 
@@ -102,7 +102,7 @@ parameter_list|,
 name|ArtifactRepository
 name|targetRepository
 parameter_list|,
-name|ArtifactReporter
+name|ReportingDatabase
 name|reporter
 parameter_list|)
 throws|throws
@@ -118,7 +118,7 @@ parameter_list|,
 name|ArtifactRepository
 name|targetRepository
 parameter_list|,
-name|ArtifactReporter
+name|ReportingDatabase
 name|reporter
 parameter_list|)
 throws|throws
