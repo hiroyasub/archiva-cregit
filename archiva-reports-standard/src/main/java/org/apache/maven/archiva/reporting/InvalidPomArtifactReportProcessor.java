@@ -162,7 +162,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class validates well-formedness of pom xml file.  *  * @plexus.component role="org.apache.maven.archiva.reporting.ArtifactReportProcessor" role-hint="invalid-pom"  */
+comment|/**  * This class validates well-formedness of pom xml file.  *  * @todo nice to have this a specific, tested report - however it is likely to double up with project building exceptions from IndexerTask. Resolve [!]  * @plexus.component role="org.apache.maven.archiva.reporting.ArtifactReportProcessor" role-hint="invalid-pom"  */
 end_comment
 
 begin_class
@@ -385,18 +385,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-else|else
-block|{
-name|reporter
-operator|.
-name|addWarning
-argument_list|(
-name|artifact
-argument_list|,
-literal|"The artifact is not a pom xml file."
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}

@@ -301,6 +301,14 @@ specifier|private
 name|MavenProjectBuilder
 name|projectBuilder
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|POM
+init|=
+literal|"pom"
+decl_stmt|;
 comment|/**      * Check whether the artifact is in its proper location. The location of the artifact      * is validated first against the groupId, artifactId and versionId in the specified model      * object (pom in the file system). Then unpack the artifact (jar file) and get the model (pom)      * included in the package. If a model exists inside the package, then check if the artifact's      * location is valid based on the location specified in the pom. Check if the both the location      * specified in the file system pom and in the pom included in the package is the same.      */
 specifier|public
 name|void
@@ -371,6 +379,32 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// only check if it is a standalone POM, or an artifact other than a POM
+comment|// ie, don't check the location of the POM for another artifact matches that of the artifact
+if|if
+condition|(
+operator|!
+name|POM
+operator|.
+name|equals
+argument_list|(
+name|artifact
+operator|.
+name|getType
+argument_list|()
+argument_list|)
+operator|||
+name|POM
+operator|.
+name|equals
+argument_list|(
+name|model
+operator|.
+name|getPackaging
+argument_list|()
+argument_list|)
+condition|)
+block|{
 comment|//check if the artifact is located in its proper location based on the info
 comment|//specified in the model object/pom
 name|Artifact
@@ -378,7 +412,7 @@ name|modelArtifact
 init|=
 name|artifactFactory
 operator|.
-name|createBuildArtifact
+name|createArtifactWithClassifier
 argument_list|(
 name|model
 operator|.
@@ -395,9 +429,14 @@ operator|.
 name|getVersion
 argument_list|()
 argument_list|,
-name|model
+name|artifact
 operator|.
-name|getPackaging
+name|getType
+argument_list|()
+argument_list|,
+name|artifact
+operator|.
+name|getClassifier
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -428,9 +467,12 @@ name|addFailure
 argument_list|(
 name|artifact
 argument_list|,
-literal|"The artifact is out of place. It does not match the specified location in the repository pom."
+literal|"The artifact is out of place. It does not match the specified location in the repository pom: "
+operator|+
+name|modelPath
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|//get the location of the artifact itself
@@ -549,15 +591,15 @@ block|}
 block|}
 else|else
 block|{
-name|reporter
-operator|.
-name|addFailure
+throw|throw
+operator|new
+name|IllegalStateException
 argument_list|(
-name|artifact
-argument_list|,
-literal|"The artifact is out of place. It does not exist at the specified location in the repository pom."
+literal|"Couldn't find artifact "
+operator|+
+name|file
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 specifier|private
