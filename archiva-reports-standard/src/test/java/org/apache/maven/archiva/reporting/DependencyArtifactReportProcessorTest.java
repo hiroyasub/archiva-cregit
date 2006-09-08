@@ -1345,11 +1345,32 @@ block|{
 return|return
 literal|"Artifact's dependency "
 operator|+
+name|getDependencyString
+argument_list|(
 name|dependency
+argument_list|)
 operator|+
 literal|" contains an invalid version "
 operator|+
 name|version
+return|;
+block|}
+specifier|private
+specifier|static
+name|String
+name|getDependencyString
+parameter_list|(
+name|Dependency
+name|dependency
+parameter_list|)
+block|{
+return|return
+name|DependencyArtifactReportProcessor
+operator|.
+name|getDependencyString
+argument_list|(
+name|dependency
+argument_list|)
 return|;
 block|}
 specifier|private
@@ -1363,10 +1384,10 @@ block|{
 return|return
 literal|"Artifact's dependency "
 operator|+
+name|getDependencyString
+argument_list|(
 name|dependency
-operator|.
-name|toString
-argument_list|()
+argument_list|)
 operator|+
 literal|" does not exist in the repository"
 return|;
