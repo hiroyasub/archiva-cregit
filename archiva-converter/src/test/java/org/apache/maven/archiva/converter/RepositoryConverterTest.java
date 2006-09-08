@@ -265,16 +265,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|MalformedURLException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|text
 operator|.
 name|SimpleDateFormat
@@ -3498,8 +3488,6 @@ name|testForcedUnmodifiedArtifact
 parameter_list|()
 throws|throws
 name|Exception
-throws|,
-name|IOException
 block|{
 comment|// test unmodified artifact is still converted when set to force
 name|repositoryConverter
@@ -4807,8 +4795,6 @@ name|testInvalidSourceSnapshotMetadata
 parameter_list|()
 throws|throws
 name|Exception
-throws|,
-name|MalformedURLException
 block|{
 comment|// test artifact is not converted when source snapshot metadata is invalid and returns failure
 name|createModernSourceRepository
