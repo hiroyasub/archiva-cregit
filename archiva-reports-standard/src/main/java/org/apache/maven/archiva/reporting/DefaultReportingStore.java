@@ -411,6 +411,11 @@ parameter_list|)
 throws|throws
 name|ReportingStoreException
 block|{
+name|database
+operator|.
+name|updateTimings
+argument_list|()
+expr_stmt|;
 name|ReportingXpp3Writer
 name|writer
 init|=
