@@ -941,12 +941,12 @@ argument_list|,
 name|recordFactory
 argument_list|)
 expr_stmt|;
-block|}
 comment|// MNG-142 - the project builder retains a lot of objects in its inflexible cache. This is a hack
 comment|// around that. TODO: remove when it is configurable
 name|flushProjectBuilderCacheHack
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 name|MetadataFilter
 name|metadataFilter
