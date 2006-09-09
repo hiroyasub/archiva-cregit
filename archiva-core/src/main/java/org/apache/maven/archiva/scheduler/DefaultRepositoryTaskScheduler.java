@@ -437,7 +437,7 @@ name|ParseException
 throws|,
 name|SchedulerException
 block|{
-comment|// TODO! would be nice to queue jobs that are triggered so we could avoid two running at the same time (so have a queue for discovery based jobs so they didn't thrash the repo)
+comment|// TODO: would be nice to queue jobs that are triggered so we could avoid two running at the same time (so have a queue for discovery based jobs so they didn't thrash the repo)
 if|if
 condition|(
 name|configuration
@@ -498,7 +498,7 @@ argument_list|,
 name|trigger
 argument_list|)
 expr_stmt|;
-comment|// TODO: run as a job so it doesn't block startup/configuration saving!
+comment|// TODO: run as a job so it doesn't block startup/configuration saving
 try|try
 block|{
 name|indexerTask

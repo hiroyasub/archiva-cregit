@@ -184,7 +184,7 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
-comment|// TODO: could be better!
+comment|// TODO: set the correct content type and other headers!
 name|contentType
 operator|=
 literal|"application/octet-stream"

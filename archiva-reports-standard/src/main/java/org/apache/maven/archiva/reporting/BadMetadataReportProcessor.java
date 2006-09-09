@@ -1135,7 +1135,7 @@ operator|.
 name|getParentFile
 argument_list|()
 decl_stmt|;
-comment|// TODO! I don't know how this condition can happen, but it was seen on the main repository.
+comment|// TODO: I don't know how this condition can happen, but it was seen on the main repository.
 comment|// Avoid hard failure
 if|if
 condition|(
