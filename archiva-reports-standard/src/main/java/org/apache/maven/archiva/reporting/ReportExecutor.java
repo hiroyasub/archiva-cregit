@@ -135,7 +135,7 @@ parameter_list|)
 throws|throws
 name|ReportingStoreException
 function_decl|;
-comment|/**      * Run the artifact and metadata reports for the repository. The artifacts and metadata will be discovered.      *      * @param repository          the repository to run from      * @param blacklistedPatterns the patterns to exclude during discovery      * @param filter              the filter to use during discovery to get a consistent list of artifacts      */
+comment|/**      * Run the artifact and metadata reports for the repository. The artifacts and metadata will be discovered.      *      * @param repository          the repository to run from      * @param blacklistedPatterns the patterns to exclude during discovery      * @param filter              the filter to use during discovery to get a consistent list of artifacts      * @throws ReportingStoreException if there is a problem reading/writing the report database      * @throws org.apache.maven.archiva.discoverer.DiscovererException      *                                 if there is a problem finding the artifacts and metadata to report on      */
 specifier|public
 name|void
 name|runReports

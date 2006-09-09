@@ -920,6 +920,7 @@ else|:
 name|end
 argument_list|)
 decl_stmt|;
+comment|// TODO: proper queueing of this in case it was triggered externally (not harmful to do so at present, but not optimal)
 comment|// run the reports. Done intermittently to avoid losing track of what is indexed since
 comment|// that is what the filter is based on.
 name|reportExecutor
