@@ -1135,6 +1135,16 @@ operator|.
 name|getParentFile
 argument_list|()
 decl_stmt|;
+comment|// TODO! I don't know how this condition can happen, but it was seen on the main repository.
+comment|// Avoid hard failure
+if|if
+condition|(
+name|versionsDir
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
 name|List
 name|versions
 init|=
@@ -1221,6 +1231,21 @@ literal|"missing in the metadata."
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+else|else
+block|{
+name|reporter
+operator|.
+name|addFailure
+argument_list|(
+name|metadata
+argument_list|,
+literal|"Metadata's directory did not exist: "
+operator|+
+name|versionsDir
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Used to gather artifactIds from a groupId directory.      *      * @param groupIdDir the directory of the group      * @return the list of artifact ID File objects for each directory      * @throws IOException if there was a failure to read the directories      */
