@@ -372,6 +372,21 @@ argument_list|(
 name|dependency
 argument_list|)
 decl_stmt|;
+comment|// TODO: handle ranges properly. We should instead be mapping out all the artifacts in the
+comment|// repository and mapping out the graph
+if|if
+condition|(
+name|artifact
+operator|.
+name|getVersion
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+comment|// it was a range, for now presume it exists
+continue|continue;
+block|}
 if|if
 condition|(
 operator|!
@@ -541,6 +556,34 @@ parameter_list|)
 throws|throws
 name|InvalidVersionSpecificationException
 block|{
+name|VersionRange
+name|spec
+init|=
+name|VersionRange
+operator|.
+name|createFromVersionSpec
+argument_list|(
+name|dependency
+operator|.
+name|getVersion
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|spec
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|InvalidVersionSpecificationException
+argument_list|(
+literal|"Dependency version was null"
+argument_list|)
+throw|;
+block|}
 return|return
 name|artifactFactory
 operator|.
@@ -556,15 +599,7 @@ operator|.
 name|getArtifactId
 argument_list|()
 argument_list|,
-name|VersionRange
-operator|.
-name|createFromVersionSpec
-argument_list|(
-name|dependency
-operator|.
-name|getVersion
-argument_list|()
-argument_list|)
+name|spec
 argument_list|,
 name|dependency
 operator|.

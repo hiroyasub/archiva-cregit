@@ -837,8 +837,8 @@ argument_list|(
 name|repository
 argument_list|)
 decl_stmt|;
-name|Snapshot
-name|snapshot
+name|Versioning
+name|versioning
 init|=
 name|metadata
 operator|.
@@ -847,6 +847,18 @@ argument_list|()
 operator|.
 name|getVersioning
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|versioning
+operator|!=
+literal|null
+condition|)
+block|{
+name|Snapshot
+name|snapshot
+init|=
+name|versioning
 operator|.
 name|getSnapshot
 argument_list|()
@@ -930,6 +942,7 @@ operator|+
 literal|" does not exist."
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Method for validating the versions declared inside an ArtifactRepositoryMetadata      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ReportingDatabase to receive processing results      */
