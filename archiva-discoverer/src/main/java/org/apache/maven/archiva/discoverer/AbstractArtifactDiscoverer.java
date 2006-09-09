@@ -132,6 +132,10 @@ literal|"bin/**"
 block|,
 literal|"reports/**"
 block|,
+literal|".index"
+block|,
+literal|".reports/**"
+block|,
 literal|".maven/**"
 block|,
 literal|"**/*.md5"
@@ -349,7 +353,7 @@ return|return
 name|artifacts
 return|;
 block|}
-comment|/**      * Returns an artifact object that is represented by the specified path in a repository      *      * @param path       The path that is pointing to an artifact      * @param repository The repository of the artifact      * @return Artifact      * @throws DiscovererException when the specified path does correspond to an artifact      */
+comment|/**  * Returns an artifact object that is represented by the specified path in a repository      *      * @param path       The path that is pointing to an artifact      * @param repository The repository of the artifact      * @return Artifact      * @throws DiscovererException when the specified path does correspond to an artifact      */
 specifier|public
 name|Artifact
 name|buildArtifactFromPath
