@@ -53,12 +53,15 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Get the reports from the store. A cached version may be used.      *      * @param repository the repository to load the reports for      * @return the reporting database      * @throws ReportingStoreException if there was a problem reading the store      */
+comment|/**      * Get the reports from the store. A cached version may be used.      *      * @param repository  the repository to load the reports for      * @param reportGroup the report group to get the report for      * @return the reporting database      * @throws ReportingStoreException if there was a problem reading the store      */
 name|ReportingDatabase
 name|getReportsFromStore
 parameter_list|(
 name|ArtifactRepository
 name|repository
+parameter_list|,
+name|ReportGroup
+name|reportGroup
 parameter_list|)
 throws|throws
 name|ReportingStoreException

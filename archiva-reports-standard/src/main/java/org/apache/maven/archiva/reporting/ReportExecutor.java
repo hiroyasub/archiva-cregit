@@ -97,11 +97,14 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Run reports on a set of metadata.      *      * @param metadata   the RepositoryMetadata objects to report on      * @param repository the repository that they come from      * @throws ReportingStoreException if there is a problem reading/writing the report database      */
+comment|/**      * Run reports on a set of metadata.      *      * @param reportGroup the report set to run      * @param metadata    the RepositoryMetadata objects to report on      * @param repository  the repository that they come from      * @throws ReportingStoreException if there is a problem reading/writing the report database      */
 specifier|public
 name|void
 name|runMetadataReports
 parameter_list|(
+name|ReportGroup
+name|reportGroup
+parameter_list|,
 name|List
 name|metadata
 parameter_list|,
@@ -111,11 +114,14 @@ parameter_list|)
 throws|throws
 name|ReportingStoreException
 function_decl|;
-comment|/**      * Run reports on a set of artifacts.      *      * @param artifacts  the Artifact objects to report on      * @param repository the repository that they come from      * @throws ReportingStoreException if there is a problem reading/writing the report database      */
+comment|/**      * Run reports on a set of artifacts.      *      * @param reportGroup the report set to run      * @param artifacts   the Artifact objects to report on      * @param repository  the repository that they come from      * @throws ReportingStoreException if there is a problem reading/writing the report database      */
 specifier|public
 name|void
 name|runArtifactReports
 parameter_list|(
+name|ReportGroup
+name|reportGroup
+parameter_list|,
 name|List
 name|artifacts
 parameter_list|,
@@ -125,21 +131,27 @@ parameter_list|)
 throws|throws
 name|ReportingStoreException
 function_decl|;
-comment|/**      * Get the report database in use for a given repository.      *      * @param repository the repository      * @return the report database      * @throws ReportingStoreException if there is a problem reading the report database      */
+comment|/**      * Get the report database in use for a given repository.      *      * @param repository  the repository      * @param reportGroup the report set to run      * @return the report database      * @throws ReportingStoreException if there is a problem reading the report database      */
 name|ReportingDatabase
 name|getReportDatabase
 parameter_list|(
 name|ArtifactRepository
 name|repository
+parameter_list|,
+name|ReportGroup
+name|reportGroup
 parameter_list|)
 throws|throws
 name|ReportingStoreException
 function_decl|;
-comment|/**      * Run the artifact and metadata reports for the repository. The artifacts and metadata will be discovered.      *      * @param repository          the repository to run from      * @param blacklistedPatterns the patterns to exclude during discovery      * @param filter              the filter to use during discovery to get a consistent list of artifacts      * @throws ReportingStoreException if there is a problem reading/writing the report database      * @throws org.apache.maven.archiva.discoverer.DiscovererException      *                                 if there is a problem finding the artifacts and metadata to report on      */
+comment|/**      * Run the artifact and metadata reports for the repository. The artifacts and metadata will be discovered.      *      * @param repository          the repository to run from      * @param blacklistedPatterns the patterns to exclude during discovery      * @param filter              the filter to use during discovery to get a consistent list of artifacts      * @param reportGroup         the report set to run      * @throws ReportingStoreException if there is a problem reading/writing the report database      * @throws org.apache.maven.archiva.discoverer.DiscovererException      *                                 if there is a problem finding the artifacts and metadata to report on      */
 specifier|public
 name|void
 name|runReports
 parameter_list|(
+name|ReportGroup
+name|reportGroup
+parameter_list|,
 name|ArtifactRepository
 name|repository
 parameter_list|,

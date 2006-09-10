@@ -123,6 +123,22 @@ name|archiva
 operator|.
 name|reporting
 operator|.
+name|ReportGroup
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|reporting
+operator|.
 name|ReportingDatabase
 import|;
 end_import
@@ -298,6 +314,11 @@ specifier|private
 name|ReportingStore
 name|reportingStore
 decl_stmt|;
+comment|/**      * @plexus.requirement role-hint="health"      */
+specifier|private
+name|ReportGroup
+name|reportGroup
+decl_stmt|;
 specifier|public
 name|void
 name|convertLegacyRepository
@@ -435,6 +456,8 @@ operator|.
 name|getReportsFromStore
 argument_list|(
 name|repository
+argument_list|,
+name|reportGroup
 argument_list|)
 expr_stmt|;
 name|repositoryConverter

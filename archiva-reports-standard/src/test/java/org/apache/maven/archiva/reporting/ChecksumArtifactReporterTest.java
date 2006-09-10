@@ -184,11 +184,7 @@ name|artifactReportProcessor
 decl_stmt|;
 specifier|private
 name|ReportingDatabase
-name|reporter
-init|=
-operator|new
-name|ReportingDatabase
-argument_list|()
+name|reportingDatabase
 decl_stmt|;
 specifier|private
 name|MetadataReportProcessor
@@ -234,6 +230,29 @@ argument_list|,
 literal|"checksum-metadata"
 argument_list|)
 expr_stmt|;
+name|ReportGroup
+name|reportGroup
+init|=
+operator|(
+name|ReportGroup
+operator|)
+name|lookup
+argument_list|(
+name|ReportGroup
+operator|.
+name|ROLE
+argument_list|,
+literal|"health"
+argument_list|)
+decl_stmt|;
+name|reportingDatabase
+operator|=
+operator|new
+name|ReportingDatabase
+argument_list|(
+name|reportGroup
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Test the ChecksumArtifactReportProcessor when the checksum files are valid.      */
 specifier|public
@@ -275,14 +294,14 @@ name|artifact
 argument_list|,
 literal|null
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumFailures
 argument_list|()
@@ -292,7 +311,7 @@ name|assertEquals
 argument_list|(
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -335,14 +354,14 @@ name|artifact
 argument_list|,
 literal|null
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumFailures
 argument_list|()
@@ -352,14 +371,14 @@ name|assertEquals
 argument_list|(
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumWarnings
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test the valid checksum of a metadata file.      * The reporter should report 2 success validation.      */
+comment|/**      * Test the valid checksum of a metadata file.      * The reportingDatabase should report 2 success validation.      */
 specifier|public
 name|void
 name|testChecksumMetadataReporterSuccess
@@ -409,7 +428,7 @@ name|metadata
 argument_list|,
 name|repository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 comment|//Artifact level metadata
@@ -429,7 +448,7 @@ name|metadata
 argument_list|,
 name|repository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 comment|//Group level metadata
@@ -449,11 +468,11 @@ name|metadata
 argument_list|,
 name|repository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test the corrupted checksum of a metadata file.      * The reporter must report 2 failures.      */
+comment|/**      * Test the corrupted checksum of a metadata file.      * The reportingDatabase must report 2 failures.      */
 specifier|public
 name|void
 name|testChecksumMetadataReporterFailure
@@ -488,13 +507,13 @@ name|metadata
 argument_list|,
 name|repository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|Iterator
 name|failures
 init|=
-name|reporter
+name|reportingDatabase
 operator|.
 name|getMetadataIterator
 argument_list|()
@@ -586,14 +605,14 @@ name|artifact
 argument_list|,
 literal|null
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumFailures
 argument_list|()
@@ -616,13 +635,13 @@ name|metadata
 argument_list|,
 name|repository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|Iterator
 name|failures
 init|=
-name|reporter
+name|reportingDatabase
 operator|.
 name|getMetadataIterator
 argument_list|()

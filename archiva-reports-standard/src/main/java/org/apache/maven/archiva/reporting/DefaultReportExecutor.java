@@ -340,7 +340,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Report executor implementation.  *  * @plexus.component  */
+comment|/**  * Report executor implementation.  *  * @todo should the report set be limitable by configuration?  * @plexus.component  */
 end_comment
 
 begin_class
@@ -367,16 +367,6 @@ specifier|private
 name|ArtifactFactory
 name|artifactFactory
 decl_stmt|;
-comment|/**      * @todo replace with a ReportGroup that is identified as "health" and has requirements on the specific health reports      * @plexus.requirement role="org.apache.maven.archiva.reporting.ArtifactReportProcessor"      */
-specifier|private
-name|List
-name|artifactReports
-decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.archiva.reporting.MetadataReportProcessor"      */
-specifier|private
-name|List
-name|metadataReports
-decl_stmt|;
 comment|/**      * @plexus.requirement role="org.apache.maven.archiva.discoverer.ArtifactDiscoverer"      */
 specifier|private
 name|Map
@@ -399,6 +389,9 @@ specifier|public
 name|void
 name|runMetadataReports
 parameter_list|(
+name|ReportGroup
+name|reportGroup
+parameter_list|,
 name|List
 name|metadata
 parameter_list|,
@@ -414,6 +407,8 @@ init|=
 name|getReportDatabase
 argument_list|(
 name|repository
+argument_list|,
+name|reportGroup
 argument_list|)
 decl_stmt|;
 for|for
@@ -475,8 +470,9 @@ name|lastModified
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO: should the report set be limitable by configuration?
-name|runMetadataReports
+name|reportGroup
+operator|.
+name|processMetadata
 argument_list|(
 name|repositoryMetadata
 argument_list|,
@@ -496,65 +492,13 @@ name|repository
 argument_list|)
 expr_stmt|;
 block|}
-specifier|private
-name|void
-name|runMetadataReports
-parameter_list|(
-name|RepositoryMetadata
-name|repositoryMetadata
-parameter_list|,
-name|ArtifactRepository
-name|repository
-parameter_list|,
-name|ReportingDatabase
-name|reporter
-parameter_list|)
-block|{
-for|for
-control|(
-name|Iterator
-name|i
-init|=
-name|metadataReports
-operator|.
-name|iterator
-argument_list|()
-init|;
-name|i
-operator|.
-name|hasNext
-argument_list|()
-condition|;
-control|)
-block|{
-name|MetadataReportProcessor
-name|report
-init|=
-operator|(
-name|MetadataReportProcessor
-operator|)
-name|i
-operator|.
-name|next
-argument_list|()
-decl_stmt|;
-name|report
-operator|.
-name|processMetadata
-argument_list|(
-name|repositoryMetadata
-argument_list|,
-name|repository
-argument_list|,
-name|reporter
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 specifier|public
 name|void
 name|runArtifactReports
 parameter_list|(
+name|ReportGroup
+name|reportGroup
+parameter_list|,
 name|List
 name|artifacts
 parameter_list|,
@@ -570,6 +514,8 @@ init|=
 name|getReportDatabase
 argument_list|(
 name|repository
+argument_list|,
+name|reportGroup
 argument_list|)
 decl_stmt|;
 for|for
@@ -679,7 +625,9 @@ argument_list|(
 name|artifact
 argument_list|)
 expr_stmt|;
-name|runArtifactReports
+name|reportGroup
+operator|.
+name|processArtifact
 argument_list|(
 name|artifact
 argument_list|,
@@ -705,6 +653,9 @@ name|getReportDatabase
 parameter_list|(
 name|ArtifactRepository
 name|repository
+parameter_list|,
+name|ReportGroup
+name|reportGroup
 parameter_list|)
 throws|throws
 name|ReportingStoreException
@@ -714,7 +665,14 @@ argument_list|()
 operator|.
 name|debug
 argument_list|(
-literal|"Reading previous report database from repository "
+literal|"Reading previous report database "
+operator|+
+name|reportGroup
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" from repository "
 operator|+
 name|repository
 operator|.
@@ -728,6 +686,8 @@ operator|.
 name|getReportsFromStore
 argument_list|(
 name|repository
+argument_list|,
+name|reportGroup
 argument_list|)
 return|;
 block|}
@@ -735,6 +695,9 @@ specifier|public
 name|void
 name|runReports
 parameter_list|(
+name|ReportGroup
+name|reportGroup
+parameter_list|,
 name|ArtifactRepository
 name|repository
 parameter_list|,
@@ -756,6 +719,8 @@ init|=
 name|getReportDatabase
 argument_list|(
 name|repository
+argument_list|,
+name|reportGroup
 argument_list|)
 decl_stmt|;
 name|database
@@ -890,6 +855,8 @@ comment|// TODO: proper queueing of this in case it was triggered externally (no
 comment|// run the reports.
 name|runArtifactReports
 argument_list|(
+name|reportGroup
+argument_list|,
 name|currentArtifacts
 argument_list|,
 name|repository
@@ -958,6 +925,8 @@ expr_stmt|;
 comment|// run the reports
 name|runMetadataReports
 argument_list|(
+name|reportGroup
+argument_list|,
 name|metadata
 argument_list|,
 name|repository
@@ -1023,62 +992,6 @@ operator|+
 name|layout
 argument_list|)
 throw|;
-block|}
-block|}
-specifier|private
-name|void
-name|runArtifactReports
-parameter_list|(
-name|Artifact
-name|artifact
-parameter_list|,
-name|Model
-name|model
-parameter_list|,
-name|ReportingDatabase
-name|reporter
-parameter_list|)
-block|{
-comment|// TODO: should the report set be limitable by configuration?
-for|for
-control|(
-name|Iterator
-name|i
-init|=
-name|artifactReports
-operator|.
-name|iterator
-argument_list|()
-init|;
-name|i
-operator|.
-name|hasNext
-argument_list|()
-condition|;
-control|)
-block|{
-name|ArtifactReportProcessor
-name|report
-init|=
-operator|(
-name|ArtifactReportProcessor
-operator|)
-name|i
-operator|.
-name|next
-argument_list|()
-decl_stmt|;
-name|report
-operator|.
-name|processArtifact
-argument_list|(
-name|artifact
-argument_list|,
-name|model
-argument_list|,
-name|reporter
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 specifier|private

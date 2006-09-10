@@ -29,6 +29,22 @@ name|archiva
 operator|.
 name|reporting
 operator|.
+name|ReportGroup
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|reporting
+operator|.
 name|ReportingDatabase
 import|;
 end_import
@@ -352,7 +368,7 @@ name|artifactFactory
 decl_stmt|;
 specifier|private
 name|ReportingDatabase
-name|reporter
+name|reportingDatabase
 decl_stmt|;
 specifier|private
 specifier|static
@@ -530,11 +546,28 @@ operator|.
 name|ROLE
 argument_list|)
 expr_stmt|;
-name|reporter
+name|ReportGroup
+name|reportGroup
+init|=
+operator|(
+name|ReportGroup
+operator|)
+name|lookup
+argument_list|(
+name|ReportGroup
+operator|.
+name|ROLE
+argument_list|,
+literal|"health"
+argument_list|)
+decl_stmt|;
+name|reportingDatabase
 operator|=
 operator|new
 name|ReportingDatabase
-argument_list|()
+argument_list|(
+name|reportGroup
+argument_list|)
 expr_stmt|;
 block|}
 specifier|private
@@ -872,7 +905,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|checkSuccess
@@ -1113,7 +1146,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|checkSuccess
@@ -1361,7 +1394,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 comment|//checkSuccess();  --> commented until MNG-2100 is fixed
@@ -1626,7 +1659,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1635,7 +1668,7 @@ literal|"check no errors"
 argument_list|,
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumFailures
 argument_list|()
@@ -1647,7 +1680,7 @@ literal|"check number of warnings"
 argument_list|,
 literal|2
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -1854,7 +1887,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|checkSuccess
@@ -2114,7 +2147,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|checkSuccess
@@ -2407,7 +2440,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|checkSuccess
@@ -2590,7 +2623,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2599,7 +2632,7 @@ literal|"check no errors"
 argument_list|,
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumFailures
 argument_list|()
@@ -2611,7 +2644,7 @@ literal|"check no warnings"
 argument_list|,
 literal|1
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -2797,7 +2830,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|checkFailure
@@ -2920,7 +2953,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|checkFailure
@@ -3171,7 +3204,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|checkSuccess
@@ -3397,7 +3430,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|checkFailure
@@ -3679,7 +3712,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|checkSuccess
@@ -3888,7 +3921,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|checkSuccess
@@ -4163,7 +4196,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|checkFailure
@@ -4363,7 +4396,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|checkFailure
@@ -4502,7 +4535,7 @@ name|artifacts
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -4511,7 +4544,7 @@ literal|"check no errors"
 argument_list|,
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumFailures
 argument_list|()
@@ -4523,7 +4556,7 @@ literal|"check no warnings"
 argument_list|,
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -4718,7 +4751,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|checkFailure
@@ -4844,7 +4877,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|checkFailure
@@ -4945,7 +4978,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|checkSuccess
@@ -5179,7 +5212,7 @@ name|artifact
 argument_list|,
 name|targetRepository
 argument_list|,
-name|reporter
+name|reportingDatabase
 argument_list|)
 expr_stmt|;
 name|fail
@@ -5509,7 +5542,7 @@ literal|"check no errors"
 argument_list|,
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumFailures
 argument_list|()
@@ -5521,7 +5554,7 @@ literal|"check no warnings"
 argument_list|,
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -5539,7 +5572,7 @@ literal|"check num errors"
 argument_list|,
 literal|1
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumFailures
 argument_list|()
@@ -5551,7 +5584,7 @@ literal|"check no warnings"
 argument_list|,
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -5599,7 +5632,7 @@ init|=
 operator|(
 name|ArtifactResults
 operator|)
-name|reporter
+name|reportingDatabase
 operator|.
 name|getArtifactIterator
 argument_list|()
@@ -5633,7 +5666,7 @@ init|=
 operator|(
 name|ArtifactResults
 operator|)
-name|reporter
+name|reportingDatabase
 operator|.
 name|getArtifactIterator
 argument_list|()

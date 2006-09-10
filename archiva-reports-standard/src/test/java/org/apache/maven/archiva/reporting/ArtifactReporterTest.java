@@ -124,7 +124,7 @@ name|AbstractRepositoryReportsTestCase
 block|{
 specifier|private
 name|ReportingDatabase
-name|reporter
+name|reportingDatabase
 decl_stmt|;
 specifier|private
 name|Artifact
@@ -140,12 +140,6 @@ block|{
 name|super
 operator|.
 name|setUp
-argument_list|()
-expr_stmt|;
-name|reporter
-operator|=
-operator|new
-name|ReportingDatabase
 argument_list|()
 expr_stmt|;
 name|ArtifactFactory
@@ -197,13 +191,36 @@ argument_list|(
 literal|"20050611.202020"
 argument_list|)
 expr_stmt|;
+name|ReportGroup
+name|reportGroup
+init|=
+operator|(
+name|ReportGroup
+operator|)
+name|lookup
+argument_list|(
+name|ReportGroup
+operator|.
+name|ROLE
+argument_list|,
+literal|"health"
+argument_list|)
+decl_stmt|;
+name|reportingDatabase
+operator|=
+operator|new
+name|ReportingDatabase
+argument_list|(
+name|reportGroup
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|void
 name|testArtifactReporterSingleFailure
 parameter_list|()
 block|{
-name|reporter
+name|reportingDatabase
 operator|.
 name|addFailure
 argument_list|(
@@ -215,7 +232,7 @@ expr_stmt|;
 name|Iterator
 name|artifactIterator
 init|=
-name|reporter
+name|reportingDatabase
 operator|.
 name|getArtifactIterator
 argument_list|()
@@ -283,7 +300,7 @@ name|assertEquals
 argument_list|(
 literal|1
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumFailures
 argument_list|()
@@ -293,7 +310,7 @@ name|assertEquals
 argument_list|(
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -305,7 +322,7 @@ name|void
 name|testArtifactReporterMultipleFailure
 parameter_list|()
 block|{
-name|reporter
+name|reportingDatabase
 operator|.
 name|addFailure
 argument_list|(
@@ -314,7 +331,7 @@ argument_list|,
 literal|"failed once"
 argument_list|)
 expr_stmt|;
-name|reporter
+name|reportingDatabase
 operator|.
 name|addFailure
 argument_list|(
@@ -323,7 +340,7 @@ argument_list|,
 literal|"failed twice"
 argument_list|)
 expr_stmt|;
-name|reporter
+name|reportingDatabase
 operator|.
 name|addFailure
 argument_list|(
@@ -335,7 +352,7 @@ expr_stmt|;
 name|Iterator
 name|artifactIterator
 init|=
-name|reporter
+name|reportingDatabase
 operator|.
 name|getArtifactIterator
 argument_list|()
@@ -403,7 +420,7 @@ name|assertEquals
 argument_list|(
 literal|3
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumFailures
 argument_list|()
@@ -413,7 +430,7 @@ name|assertEquals
 argument_list|(
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -425,7 +442,7 @@ name|void
 name|testFailureMessages
 parameter_list|()
 block|{
-name|reporter
+name|reportingDatabase
 operator|.
 name|addFailure
 argument_list|(
@@ -434,7 +451,7 @@ argument_list|,
 literal|"failed once"
 argument_list|)
 expr_stmt|;
-name|reporter
+name|reportingDatabase
 operator|.
 name|addFailure
 argument_list|(
@@ -443,7 +460,7 @@ argument_list|,
 literal|"failed twice"
 argument_list|)
 expr_stmt|;
-name|reporter
+name|reportingDatabase
 operator|.
 name|addFailure
 argument_list|(
@@ -455,7 +472,7 @@ expr_stmt|;
 name|Iterator
 name|artifactIterator
 init|=
-name|reporter
+name|reportingDatabase
 operator|.
 name|getArtifactIterator
 argument_list|()
@@ -550,7 +567,7 @@ name|void
 name|testArtifactReporterSingleWarning
 parameter_list|()
 block|{
-name|reporter
+name|reportingDatabase
 operator|.
 name|addWarning
 argument_list|(
@@ -562,7 +579,7 @@ expr_stmt|;
 name|Iterator
 name|artifactIterator
 init|=
-name|reporter
+name|reportingDatabase
 operator|.
 name|getArtifactIterator
 argument_list|()
@@ -630,7 +647,7 @@ name|assertEquals
 argument_list|(
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumFailures
 argument_list|()
@@ -640,7 +657,7 @@ name|assertEquals
 argument_list|(
 literal|1
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -652,7 +669,7 @@ name|void
 name|testArtifactReporterMultipleWarning
 parameter_list|()
 block|{
-name|reporter
+name|reportingDatabase
 operator|.
 name|addWarning
 argument_list|(
@@ -661,7 +678,7 @@ argument_list|,
 literal|"i'm warning you"
 argument_list|)
 expr_stmt|;
-name|reporter
+name|reportingDatabase
 operator|.
 name|addWarning
 argument_list|(
@@ -670,7 +687,7 @@ argument_list|,
 literal|"you have to stop now"
 argument_list|)
 expr_stmt|;
-name|reporter
+name|reportingDatabase
 operator|.
 name|addWarning
 argument_list|(
@@ -682,7 +699,7 @@ expr_stmt|;
 name|Iterator
 name|artifactIterator
 init|=
-name|reporter
+name|reportingDatabase
 operator|.
 name|getArtifactIterator
 argument_list|()
@@ -750,7 +767,7 @@ name|assertEquals
 argument_list|(
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumFailures
 argument_list|()
@@ -760,7 +777,7 @@ name|assertEquals
 argument_list|(
 literal|3
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -772,7 +789,7 @@ name|void
 name|testWarningMessages
 parameter_list|()
 block|{
-name|reporter
+name|reportingDatabase
 operator|.
 name|addWarning
 argument_list|(
@@ -781,7 +798,7 @@ argument_list|,
 literal|"i'm warning you"
 argument_list|)
 expr_stmt|;
-name|reporter
+name|reportingDatabase
 operator|.
 name|addWarning
 argument_list|(
@@ -790,7 +807,7 @@ argument_list|,
 literal|"you have to stop now"
 argument_list|)
 expr_stmt|;
-name|reporter
+name|reportingDatabase
 operator|.
 name|addWarning
 argument_list|(
@@ -802,7 +819,7 @@ expr_stmt|;
 name|Iterator
 name|artifactIterator
 init|=
-name|reporter
+name|reportingDatabase
 operator|.
 name|getArtifactIterator
 argument_list|()

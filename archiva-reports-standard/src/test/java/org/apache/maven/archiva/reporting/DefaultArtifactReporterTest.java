@@ -160,7 +160,7 @@ name|AbstractRepositoryReportsTestCase
 block|{
 specifier|private
 name|ReportingDatabase
-name|reporter
+name|reportingDatabase
 decl_stmt|;
 specifier|private
 name|RepositoryMetadata
@@ -177,7 +177,7 @@ literal|"No failures"
 argument_list|,
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumFailures
 argument_list|()
@@ -189,7 +189,7 @@ literal|"No warnings"
 argument_list|,
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -199,7 +199,7 @@ name|assertFalse
 argument_list|(
 literal|"No artifact failures"
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getArtifactIterator
 argument_list|()
@@ -212,7 +212,7 @@ name|assertFalse
 argument_list|(
 literal|"No metadata failures"
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getMetadataIterator
 argument_list|()
@@ -227,7 +227,7 @@ name|void
 name|testMetadataSingleFailure
 parameter_list|()
 block|{
-name|reporter
+name|reportingDatabase
 operator|.
 name|addFailure
 argument_list|(
@@ -242,7 +242,7 @@ literal|"failures count"
 argument_list|,
 literal|1
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumFailures
 argument_list|()
@@ -254,7 +254,7 @@ literal|"warnings count"
 argument_list|,
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -263,7 +263,7 @@ expr_stmt|;
 name|Iterator
 name|failures
 init|=
-name|reporter
+name|reportingDatabase
 operator|.
 name|getMetadataIterator
 argument_list|()
@@ -407,7 +407,7 @@ name|void
 name|testMetadataMultipleFailures
 parameter_list|()
 block|{
-name|reporter
+name|reportingDatabase
 operator|.
 name|addFailure
 argument_list|(
@@ -416,7 +416,7 @@ argument_list|,
 literal|"First Failure Reason"
 argument_list|)
 expr_stmt|;
-name|reporter
+name|reportingDatabase
 operator|.
 name|addFailure
 argument_list|(
@@ -431,7 +431,7 @@ literal|"failures count"
 argument_list|,
 literal|2
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumFailures
 argument_list|()
@@ -443,7 +443,7 @@ literal|"warnings count"
 argument_list|,
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -452,7 +452,7 @@ expr_stmt|;
 name|Iterator
 name|failures
 init|=
-name|reporter
+name|reportingDatabase
 operator|.
 name|getMetadataIterator
 argument_list|()
@@ -574,7 +574,7 @@ name|void
 name|testMetadataSingleWarning
 parameter_list|()
 block|{
-name|reporter
+name|reportingDatabase
 operator|.
 name|addWarning
 argument_list|(
@@ -589,7 +589,7 @@ literal|"warnings count"
 argument_list|,
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumFailures
 argument_list|()
@@ -601,7 +601,7 @@ literal|"warnings count"
 argument_list|,
 literal|1
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -610,7 +610,7 @@ expr_stmt|;
 name|Iterator
 name|warnings
 init|=
-name|reporter
+name|reportingDatabase
 operator|.
 name|getMetadataIterator
 argument_list|()
@@ -700,7 +700,7 @@ name|void
 name|testMetadataMultipleWarnings
 parameter_list|()
 block|{
-name|reporter
+name|reportingDatabase
 operator|.
 name|addWarning
 argument_list|(
@@ -709,7 +709,7 @@ argument_list|,
 literal|"First Warning"
 argument_list|)
 expr_stmt|;
-name|reporter
+name|reportingDatabase
 operator|.
 name|addWarning
 argument_list|(
@@ -724,7 +724,7 @@ literal|"warnings count"
 argument_list|,
 literal|0
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumFailures
 argument_list|()
@@ -736,7 +736,7 @@ literal|"warnings count"
 argument_list|,
 literal|2
 argument_list|,
-name|reporter
+name|reportingDatabase
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -745,7 +745,7 @@ expr_stmt|;
 name|Iterator
 name|warnings
 init|=
-name|reporter
+name|reportingDatabase
 operator|.
 name|getMetadataIterator
 argument_list|()
@@ -874,12 +874,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|reporter
-operator|=
-operator|new
-name|ReportingDatabase
-argument_list|()
-expr_stmt|;
 name|ArtifactFactory
 name|artifactFactory
 init|=
@@ -938,6 +932,29 @@ argument_list|(
 name|artifact
 argument_list|,
 name|versioning
+argument_list|)
+expr_stmt|;
+name|ReportGroup
+name|reportGroup
+init|=
+operator|(
+name|ReportGroup
+operator|)
+name|lookup
+argument_list|(
+name|ReportGroup
+operator|.
+name|ROLE
+argument_list|,
+literal|"health"
+argument_list|)
+decl_stmt|;
+name|reportingDatabase
+operator|=
+operator|new
+name|ReportingDatabase
+argument_list|(
+name|reportGroup
 argument_list|)
 expr_stmt|;
 block|}

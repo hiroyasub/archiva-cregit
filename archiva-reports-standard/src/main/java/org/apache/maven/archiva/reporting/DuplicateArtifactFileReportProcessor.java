@@ -301,14 +301,6 @@ operator|.
 name|getRepository
 argument_list|()
 decl_stmt|;
-comment|// TODO! always null currently, need to configure this properly
-if|if
-condition|(
-name|indexDirectory
-operator|!=
-literal|null
-condition|)
-block|{
 if|if
 condition|(
 name|artifact
@@ -545,7 +537,6 @@ argument_list|,
 literal|"Artifact file is null"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

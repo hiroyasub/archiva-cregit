@@ -295,6 +295,22 @@ name|archiva
 operator|.
 name|reporting
 operator|.
+name|ReportGroup
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|reporting
+operator|.
 name|ReportingDatabase
 import|;
 end_import
@@ -526,6 +542,11 @@ comment|/**      * @plexus.requirement      */
 specifier|private
 name|ReportExecutor
 name|reportExecutor
+decl_stmt|;
+comment|/**      * @plexus.requirement role-hint="health"      */
+specifier|private
+name|ReportGroup
+name|reportGroup
 decl_stmt|;
 specifier|private
 specifier|static
@@ -777,6 +798,8 @@ operator|.
 name|getReportDatabase
 argument_list|(
 name|repository
+argument_list|,
+name|reportGroup
 argument_list|)
 decl_stmt|;
 comment|// keep original value in case there is another process under way
@@ -972,6 +995,8 @@ name|reportExecutor
 operator|.
 name|runArtifactReports
 argument_list|(
+name|reportGroup
+argument_list|,
 name|currentArtifacts
 argument_list|,
 name|repository
@@ -1058,6 +1083,8 @@ name|reportExecutor
 operator|.
 name|runMetadataReports
 argument_list|(
+name|reportGroup
+argument_list|,
 name|metadata
 argument_list|,
 name|repository
