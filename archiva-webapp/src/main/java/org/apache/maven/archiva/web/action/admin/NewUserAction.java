@@ -18,8 +18,26 @@ package|;
 end_package
 
 begin_comment
-comment|/*  * Copyright 2005 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/* * Copyright 2005 The Apache Software Foundation. * * Licensed under the Apache License, Version 2.0 (the "License"); * you may not use this file except in compliance with the License. * You may obtain a copy of the License at * *      http://www.apache.org/licenses/LICENSE-2.0 * * Unless required by applicable law or agreed to in writing, software * distributed under the License is distributed on an "AS IS" BASIS, * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. * See the License for the specific language governing permissions and * limitations under the License. */
 end_comment
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|web
+operator|.
+name|util
+operator|.
+name|RoleManager
+import|;
+end_import
 
 begin_import
 import|import
@@ -132,24 +150,6 @@ operator|.
 name|action
 operator|.
 name|PlexusActionSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|web
-operator|.
-name|util
-operator|.
-name|RoleManager
 import|;
 end_import
 
@@ -295,6 +295,24 @@ operator|.
 name|getUserManager
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|um
+operator|.
+name|userExists
+argument_list|(
+name|username
+argument_list|)
+condition|)
+block|{
+name|addActionError
+argument_list|(
+literal|"User already exists!"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|User
 name|user
 init|=
@@ -377,16 +395,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|hasActionErrors
-argument_list|()
-condition|)
-block|{
-return|return
-name|ERROR
-return|;
-block|}
 name|roleManager
 operator|.
 name|addUser
@@ -400,6 +408,17 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|hasActionErrors
+argument_list|()
+condition|)
+block|{
+return|return
+name|ERROR
+return|;
+block|}
 return|return
 name|SUCCESS
 return|;
