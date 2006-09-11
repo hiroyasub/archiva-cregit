@@ -306,6 +306,14 @@ specifier|private
 name|RepositoryQueryLayerFactory
 name|repositoryQueryLayerFactory
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ROLE_HINT
+init|=
+literal|"bad-metadata"
+decl_stmt|;
 comment|/**      * Process the metadata encountered in the repository and report all errors found, if any.      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ReportingDatabase to receive processing results      */
 specifier|public
 name|void
@@ -347,11 +355,13 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|reporter
-operator|.
 name|addWarning
 argument_list|(
+name|reporter
+argument_list|,
 name|metadata
+argument_list|,
+literal|null
 argument_list|,
 literal|"Error getting plugin artifact directories versions: "
 operator|+
@@ -419,11 +429,13 @@ operator|!
 name|found
 condition|)
 block|{
-name|reporter
-operator|.
 name|addFailure
 argument_list|(
+name|reporter
+argument_list|,
 name|metadata
+argument_list|,
+literal|"missing-last-updated"
 argument_list|,
 literal|"Missing lastUpdated element inside the metadata."
 argument_list|)
@@ -476,20 +488,60 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|String
+name|reason
+init|=
+literal|"Error getting plugin artifact directories versions: "
+operator|+
+name|e
+decl_stmt|;
+name|addWarning
+argument_list|(
+name|reporter
+argument_list|,
+name|metadata
+argument_list|,
+literal|null
+argument_list|,
+name|reason
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+block|}
+specifier|private
+specifier|static
+name|void
+name|addWarning
+parameter_list|(
+name|ReportingDatabase
+name|reporter
+parameter_list|,
+name|RepositoryMetadata
+name|metadata
+parameter_list|,
+name|String
+name|problem
+parameter_list|,
+name|String
+name|reason
+parameter_list|)
+block|{
+comment|// TODO: reason could be an i18n key derived from the processor and the problem ID and the
 name|reporter
 operator|.
 name|addWarning
 argument_list|(
 name|metadata
 argument_list|,
-literal|"Error getting plugin artifact directories versions: "
-operator|+
-name|e
+name|ROLE_HINT
+argument_list|,
+name|problem
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-block|}
 block|}
 comment|/**      * Method for processing a GroupRepositoryMetadata      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ReportingDatabase to receive processing results      */
 specifier|private
@@ -601,11 +653,18 @@ operator|==
 literal|0
 condition|)
 block|{
-name|reporter
-operator|.
 name|addFailure
 argument_list|(
+name|reporter
+argument_list|,
 name|metadata
+argument_list|,
+literal|"missing-artifact-id:"
+operator|+
+name|plugin
+operator|.
+name|getPrefix
+argument_list|()
 argument_list|,
 literal|"Missing or empty artifactId in group metadata for plugin "
 operator|+
@@ -638,11 +697,15 @@ operator|==
 literal|0
 condition|)
 block|{
-name|reporter
-operator|.
 name|addFailure
 argument_list|(
+name|reporter
+argument_list|,
 name|metadata
+argument_list|,
+literal|"missing-plugin-prefix:"
+operator|+
+name|artifactId
 argument_list|,
 literal|"Missing or empty plugin prefix for artifactId "
 operator|+
@@ -664,11 +727,15 @@ name|prefix
 argument_list|)
 condition|)
 block|{
-name|reporter
-operator|.
 name|addFailure
 argument_list|(
+name|reporter
+argument_list|,
 name|metadata
+argument_list|,
+literal|"duplicate-plugin-prefix:"
+operator|+
+name|prefix
 argument_list|,
 literal|"Duplicate plugin prefix found: "
 operator|+
@@ -727,11 +794,15 @@ name|pluginDir
 argument_list|)
 condition|)
 block|{
-name|reporter
-operator|.
 name|addFailure
 argument_list|(
+name|reporter
+argument_list|,
 name|metadata
+argument_list|,
+literal|"missing-plugin-from-repository:"
+operator|+
+name|artifactId
 argument_list|,
 literal|"Metadata plugin "
 operator|+
@@ -791,11 +862,18 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|reporter
-operator|.
 name|addFailure
 argument_list|(
+name|reporter
+argument_list|,
 name|metadata
+argument_list|,
+literal|"missing-plugin-from-metadata:"
+operator|+
+name|plugin
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 literal|"Plugin "
 operator|+
@@ -929,11 +1007,15 @@ name|artifact
 argument_list|)
 condition|)
 block|{
-name|reporter
-operator|.
 name|addFailure
 argument_list|(
+name|reporter
+argument_list|,
 name|metadata
+argument_list|,
+literal|"missing-snapshot-artifact-from-repository:"
+operator|+
+name|version
 argument_list|,
 literal|"Snapshot artifact "
 operator|+
@@ -1050,11 +1132,15 @@ name|artifact
 argument_list|)
 condition|)
 block|{
-name|reporter
-operator|.
 name|addFailure
 argument_list|(
+name|reporter
+argument_list|,
 name|metadata
+argument_list|,
+literal|"missing-artifact-from-repository:"
+operator|+
+name|version
 argument_list|,
 literal|"Artifact version "
 operator|+
@@ -1069,7 +1155,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Searches the artifact repository directory for all versions and verifies that all of them are listed in the      * ArtifactRepositoryMetadata      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ReportingDatabase to receive processing results      */
+comment|/**      * Searches the artifact repository directory for all versions and verifies that all of them are listed in the      * ArtifactRepositoryMetadata      *      * @param metadata   the metadata to be processed.      * @param repository the repository where the metadata was encountered      * @param reporter   the ReportingDatabase to receive processing results      * @throws java.io.IOException if there is a problem reading from the file system      */
 specifier|private
 name|void
 name|checkRepositoryVersions
@@ -1215,11 +1301,15 @@ name|version
 argument_list|)
 condition|)
 block|{
-name|reporter
-operator|.
 name|addFailure
 argument_list|(
+name|reporter
+argument_list|,
 name|metadata
+argument_list|,
+literal|"missing-artifact-from-metadata:"
+operator|+
+name|version
 argument_list|,
 literal|"Artifact version "
 operator|+
@@ -1235,11 +1325,13 @@ block|}
 block|}
 else|else
 block|{
-name|reporter
-operator|.
 name|addFailure
 argument_list|(
+name|reporter
+argument_list|,
 name|metadata
+argument_list|,
+literal|null
 argument_list|,
 literal|"Metadata's directory did not exist: "
 operator|+
@@ -1363,6 +1455,39 @@ block|}
 return|return
 name|artifactIdFiles
 return|;
+block|}
+specifier|private
+specifier|static
+name|void
+name|addFailure
+parameter_list|(
+name|ReportingDatabase
+name|reporter
+parameter_list|,
+name|RepositoryMetadata
+name|metadata
+parameter_list|,
+name|String
+name|problem
+parameter_list|,
+name|String
+name|reason
+parameter_list|)
+block|{
+comment|// TODO: reason could be an i18n key derived from the processor and the problem ID and the
+name|reporter
+operator|.
+name|addFailure
+argument_list|(
+name|metadata
+argument_list|,
+name|ROLE_HINT
+argument_list|,
+name|problem
+argument_list|,
+name|reason
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

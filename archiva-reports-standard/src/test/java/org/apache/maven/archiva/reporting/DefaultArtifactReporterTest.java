@@ -166,6 +166,22 @@ specifier|private
 name|RepositoryMetadata
 name|metadata
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|PROCESSOR
+init|=
+literal|"processor"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|PROBLEM
+init|=
+literal|"problem"
+decl_stmt|;
 specifier|public
 name|void
 name|testEmptyArtifactReporter
@@ -232,6 +248,10 @@ operator|.
 name|addFailure
 argument_list|(
 name|metadata
+argument_list|,
+name|PROCESSOR
+argument_list|,
+name|PROBLEM
 argument_list|,
 literal|"Single Failure Reason"
 argument_list|)
@@ -334,6 +354,30 @@ argument_list|,
 name|result
 operator|.
 name|getReason
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check failure parameters"
+argument_list|,
+name|PROCESSOR
+argument_list|,
+name|result
+operator|.
+name|getProcessor
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check failure parameters"
+argument_list|,
+name|PROBLEM
+argument_list|,
+name|result
+operator|.
+name|getProblem
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -413,6 +457,10 @@ name|addFailure
 argument_list|(
 name|metadata
 argument_list|,
+name|PROCESSOR
+argument_list|,
+name|PROBLEM
+argument_list|,
 literal|"First Failure Reason"
 argument_list|)
 expr_stmt|;
@@ -421,6 +469,10 @@ operator|.
 name|addFailure
 argument_list|(
 name|metadata
+argument_list|,
+name|PROCESSOR
+argument_list|,
+name|PROBLEM
 argument_list|,
 literal|"Second Failure Reason"
 argument_list|)
@@ -526,6 +578,30 @@ name|getReason
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check failure parameters"
+argument_list|,
+name|PROCESSOR
+argument_list|,
+name|result
+operator|.
+name|getProcessor
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check failure parameters"
+argument_list|,
+name|PROBLEM
+argument_list|,
+name|result
+operator|.
+name|getProblem
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"must have 2nd failure"
@@ -558,6 +634,30 @@ name|getReason
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check failure parameters"
+argument_list|,
+name|PROCESSOR
+argument_list|,
+name|result
+operator|.
+name|getProcessor
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check failure parameters"
+argument_list|,
+name|PROBLEM
+argument_list|,
+name|result
+operator|.
+name|getProblem
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertFalse
 argument_list|(
 literal|"no more failures"
@@ -579,6 +679,10 @@ operator|.
 name|addWarning
 argument_list|(
 name|metadata
+argument_list|,
+name|PROCESSOR
+argument_list|,
+name|PROBLEM
 argument_list|,
 literal|"Single Warning Message"
 argument_list|)
@@ -684,6 +788,30 @@ name|getReason
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check failure parameters"
+argument_list|,
+name|PROCESSOR
+argument_list|,
+name|result
+operator|.
+name|getProcessor
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check failure parameters"
+argument_list|,
+name|PROBLEM
+argument_list|,
+name|result
+operator|.
+name|getProblem
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertFalse
 argument_list|(
 literal|"no more warnings"
@@ -706,6 +834,10 @@ name|addWarning
 argument_list|(
 name|metadata
 argument_list|,
+name|PROCESSOR
+argument_list|,
+name|PROBLEM
+argument_list|,
 literal|"First Warning"
 argument_list|)
 expr_stmt|;
@@ -714,6 +846,10 @@ operator|.
 name|addWarning
 argument_list|(
 name|metadata
+argument_list|,
+name|PROCESSOR
+argument_list|,
+name|PROBLEM
 argument_list|,
 literal|"Second Warning"
 argument_list|)
@@ -819,6 +955,30 @@ name|getReason
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check failure parameters"
+argument_list|,
+name|PROCESSOR
+argument_list|,
+name|result
+operator|.
+name|getProcessor
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check failure parameters"
+argument_list|,
+name|PROBLEM
+argument_list|,
+name|result
+operator|.
+name|getProblem
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"must have 2nd warning"
@@ -848,6 +1008,30 @@ argument_list|,
 name|result
 operator|.
 name|getReason
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check failure parameters"
+argument_list|,
+name|PROCESSOR
+argument_list|,
+name|result
+operator|.
+name|getProcessor
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check failure parameters"
+argument_list|,
+name|PROBLEM
+argument_list|,
+name|result
+operator|.
+name|getProblem
 argument_list|()
 argument_list|)
 expr_stmt|;

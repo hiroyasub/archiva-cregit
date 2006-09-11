@@ -612,6 +612,10 @@ name|addWarning
 argument_list|(
 name|artifact
 argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|,
 literal|"Error reading project model: "
 operator|+
 name|e

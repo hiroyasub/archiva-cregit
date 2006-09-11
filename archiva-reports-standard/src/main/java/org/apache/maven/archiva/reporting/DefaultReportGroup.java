@@ -23,7 +23,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
+name|LinkedHashMap
 import|;
 end_import
 
@@ -33,27 +33,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|LinkedHashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
+name|Map
 import|;
 end_import
 
@@ -68,40 +48,76 @@ name|DefaultReportGroup
 extends|extends
 name|AbstractReportGroup
 block|{
-comment|/**      * Role hints of the reports to include in this set.      *      * @todo re-enable duplicate, once a way to populate the index is determined!      */
+comment|/**      * Role hints of the reports to include in this set.      */
 specifier|private
 specifier|static
 specifier|final
-name|Set
+name|Map
 name|reports
 init|=
 operator|new
-name|LinkedHashSet
-argument_list|(
-name|Arrays
-operator|.
-name|asList
-argument_list|(
-operator|new
-name|String
-index|[]
-block|{
-literal|"checksum"
-block|,
-literal|"dependency"
-comment|/*, "duplicate"*/
-block|,
-literal|"invalid-pom"
-block|,
-literal|"artifact-location"
-block|,
-literal|"bad-metadata"
-block|,
-literal|"checksum-metadata"
-block|}
-argument_list|)
-argument_list|)
+name|LinkedHashMap
+argument_list|()
 decl_stmt|;
+static|static
+block|{
+name|reports
+operator|.
+name|put
+argument_list|(
+literal|"checksum"
+argument_list|,
+literal|"Checksum Problems"
+argument_list|)
+expr_stmt|;
+name|reports
+operator|.
+name|put
+argument_list|(
+literal|"dependency"
+argument_list|,
+literal|"Dependency Problems"
+argument_list|)
+expr_stmt|;
+comment|// TODO re-enable duplicate, once a way to populate the index is determined!
+comment|//        reports.put( "duplicate", "Duplicate Artifact Problems" );
+name|reports
+operator|.
+name|put
+argument_list|(
+literal|"invalid-pom"
+argument_list|,
+literal|"POM Problems"
+argument_list|)
+expr_stmt|;
+name|reports
+operator|.
+name|put
+argument_list|(
+literal|"bad-metadata"
+argument_list|,
+literal|"Metadata Problems"
+argument_list|)
+expr_stmt|;
+name|reports
+operator|.
+name|put
+argument_list|(
+literal|"checksum-metadata"
+argument_list|,
+literal|"Metadata Checksum Problems"
+argument_list|)
+expr_stmt|;
+name|reports
+operator|.
+name|put
+argument_list|(
+literal|"artifact-location"
+argument_list|,
+literal|"Artifact Location Problems"
+argument_list|)
+expr_stmt|;
+block|}
 specifier|public
 name|boolean
 name|includeReport
@@ -113,15 +129,15 @@ block|{
 return|return
 name|reports
 operator|.
-name|contains
+name|containsKey
 argument_list|(
 name|key
 argument_list|)
 return|;
 block|}
 specifier|public
-name|Collection
-name|getReportIds
+name|Map
+name|getReports
 parameter_list|()
 block|{
 return|return

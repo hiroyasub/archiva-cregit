@@ -81,7 +81,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
+name|Map
 import|;
 end_import
 
@@ -145,9 +145,9 @@ name|String
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      * Get a list of the report processors in this set.      *      * @return the report IDs      */
-name|Collection
-name|getReportIds
+comment|/**      * Get the report processors in this set. The map is keyed by the report's role hint, and the value is it's      * display name.      *      * @return the reports      */
+name|Map
+name|getReports
 parameter_list|()
 function_decl|;
 comment|/**      * Get the user-friendly name of this report.      *      * @return the report name      */
