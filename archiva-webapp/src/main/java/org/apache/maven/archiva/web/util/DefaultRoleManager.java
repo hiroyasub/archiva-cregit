@@ -960,8 +960,6 @@ parameter_list|)
 throws|throws
 name|RbacStoreException
 block|{
-try|try
-block|{
 comment|// make the resource
 name|Resource
 name|usernameResource
@@ -987,33 +985,15 @@ name|manager
 operator|.
 name|createPermission
 argument_list|(
-literal|"Edit Myself"
-argument_list|)
-decl_stmt|;
-name|editUser
-operator|.
-name|setOperation
-argument_list|(
-name|manager
-operator|.
-name|getOperation
-argument_list|(
+literal|"Edit Myself - "
+operator|+
+name|principal
+argument_list|,
 literal|"edit-user"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|editUser
-operator|.
-name|setResource
-argument_list|(
-name|manager
-operator|.
-name|getResource
-argument_list|(
+argument_list|,
 name|principal
 argument_list|)
-argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|editUser
 operator|=
 name|manager
@@ -1076,23 +1056,6 @@ argument_list|(
 name|assignment
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RbacObjectNotFoundException
-name|ne
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RbacStoreException
-argument_list|(
-literal|"rbac object not found in repo role creation"
-argument_list|,
-name|ne
-argument_list|)
-throw|;
-block|}
 block|}
 specifier|public
 name|void
