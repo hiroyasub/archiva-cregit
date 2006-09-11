@@ -272,6 +272,8 @@ argument_list|(
 name|MetadataReportProcessor
 operator|.
 name|ROLE
+argument_list|,
+literal|"bad-metadata"
 argument_list|)
 expr_stmt|;
 name|ReportGroup
