@@ -1686,6 +1686,18 @@ name|getNumWarnings
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportingDatabase
+operator|.
+name|getNumNotices
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|File
 name|artifactFile
 init|=
@@ -2640,7 +2652,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"check no warnings"
+literal|"check warnings"
 argument_list|,
 literal|1
 argument_list|,
@@ -2663,6 +2675,18 @@ name|getWarning
 argument_list|()
 operator|.
 name|getReason
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportingDatabase
+operator|.
+name|getNumNotices
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4562,6 +4586,18 @@ name|getNumWarnings
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportingDatabase
+operator|.
+name|getNumNotices
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|Iterator
@@ -5560,6 +5596,18 @@ name|getNumWarnings
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportingDatabase
+operator|.
+name|getNumNotices
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 specifier|private
 name|void
@@ -5587,6 +5635,18 @@ argument_list|,
 name|reportingDatabase
 operator|.
 name|getNumWarnings
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportingDatabase
+operator|.
+name|getNumNotices
 argument_list|()
 argument_list|)
 expr_stmt|;

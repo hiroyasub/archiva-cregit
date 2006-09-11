@@ -193,6 +193,18 @@ name|getNumWarnings
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportDatabase
+operator|.
+name|getNumNotices
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Test the InvalidPomArtifactReportProcessor when the artifact is not a pom.      */
 specifier|public
@@ -242,6 +254,18 @@ argument_list|,
 name|reportDatabase
 operator|.
 name|getNumWarnings
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportDatabase
+operator|.
+name|getNumNotices
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -360,6 +360,18 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"Check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportDatabase
+operator|.
+name|getNumNotices
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
 literal|"Check warnings"
 argument_list|,
 literal|1
@@ -399,6 +411,18 @@ argument_list|,
 name|model
 argument_list|,
 name|reportDatabase
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportDatabase
+operator|.
+name|getNumNotices
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -449,6 +473,18 @@ argument_list|,
 name|model
 argument_list|,
 name|reportDatabase
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportDatabase
+operator|.
+name|getNumNotices
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -508,6 +544,18 @@ argument_list|,
 name|model
 argument_list|,
 name|reportDatabase
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportDatabase
+operator|.
+name|getNumNotices
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -597,6 +645,18 @@ argument_list|,
 name|reportDatabase
 operator|.
 name|getNumWarnings
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportDatabase
+operator|.
+name|getNumNotices
 argument_list|()
 argument_list|)
 expr_stmt|;

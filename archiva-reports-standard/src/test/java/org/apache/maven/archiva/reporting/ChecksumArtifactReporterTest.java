@@ -317,6 +317,18 @@ name|getNumWarnings
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportingDatabase
+operator|.
+name|getNumNotices
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Test the ChecksumArtifactReportProcessor when the checksum files are invalid.      */
 specifier|public
@@ -374,6 +386,18 @@ argument_list|,
 name|reportingDatabase
 operator|.
 name|getNumWarnings
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportingDatabase
+operator|.
+name|getNumNotices
 argument_list|()
 argument_list|)
 expr_stmt|;

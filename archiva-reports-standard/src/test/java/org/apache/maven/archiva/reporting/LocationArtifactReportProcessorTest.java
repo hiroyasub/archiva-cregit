@@ -243,6 +243,18 @@ name|getNumWarnings
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportDatabase
+operator|.
+name|getNumNotices
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Test the LocationArtifactReporter when the artifact is in the location specified in the      * file system pom (but the jar file does not have a pom included in its package).      */
 specifier|public
@@ -324,6 +336,18 @@ name|getNumWarnings
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportDatabase
+operator|.
+name|getNumNotices
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Test the LocationArtifactReporter when the artifact is in the location specified in the      * file system pom, but the pom itself is passed in.      */
 specifier|public
@@ -390,6 +414,18 @@ argument_list|,
 name|reportDatabase
 operator|.
 name|getNumWarnings
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportDatabase
+operator|.
+name|getNumNotices
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -473,6 +509,18 @@ argument_list|,
 name|reportDatabase
 operator|.
 name|getNumWarnings
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportDatabase
+operator|.
+name|getNumNotices
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -561,6 +609,18 @@ name|getNumWarnings
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportDatabase
+operator|.
+name|getNumNotices
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Test the LocationArtifactReporter when the artifact is in the location specified in the      * file system pom, with a classifier.      */
 specifier|public
@@ -643,6 +703,18 @@ argument_list|,
 name|reportDatabase
 operator|.
 name|getNumWarnings
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Check no notices"
+argument_list|,
+literal|0
+argument_list|,
+name|reportDatabase
+operator|.
+name|getNumNotices
 argument_list|()
 argument_list|)
 expr_stmt|;
