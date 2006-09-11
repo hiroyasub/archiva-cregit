@@ -21,18 +21,6 @@ end_comment
 
 begin_import
 import|import
-name|com
-operator|.
-name|opensymphony
-operator|.
-name|xwork
-operator|.
-name|ActionSupport
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -271,6 +259,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|xwork
+operator|.
+name|action
+operator|.
+name|PlexusActionSupport
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -308,7 +312,7 @@ specifier|public
 class|class
 name|SearchAction
 extends|extends
-name|ActionSupport
+name|PlexusActionSupport
 block|{
 comment|/**      * Query string.      */
 specifier|private

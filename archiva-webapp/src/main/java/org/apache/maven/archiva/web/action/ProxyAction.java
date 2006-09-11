@@ -21,18 +21,6 @@ end_comment
 
 begin_import
 import|import
-name|com
-operator|.
-name|opensymphony
-operator|.
-name|xwork
-operator|.
-name|ActionSupport
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -74,6 +62,22 @@ operator|.
 name|wagon
 operator|.
 name|ResourceDoesNotExistException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|xwork
+operator|.
+name|action
+operator|.
+name|PlexusActionSupport
 import|;
 end_import
 
@@ -126,7 +130,7 @@ specifier|public
 class|class
 name|ProxyAction
 extends|extends
-name|ActionSupport
+name|PlexusActionSupport
 block|{
 comment|/**      * @plexus.requirement      */
 specifier|private

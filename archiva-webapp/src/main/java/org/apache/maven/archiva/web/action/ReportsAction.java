@@ -259,6 +259,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|xwork
+operator|.
+name|action
+operator|.
+name|PlexusActionSupport
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -306,7 +322,7 @@ specifier|public
 class|class
 name|ReportsAction
 extends|extends
-name|ActionSupport
+name|PlexusActionSupport
 implements|implements
 name|Preparable
 block|{

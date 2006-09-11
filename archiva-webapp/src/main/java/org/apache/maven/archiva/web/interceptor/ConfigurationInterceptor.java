@@ -81,6 +81,24 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|web
+operator|.
+name|util
+operator|.
+name|RoleManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -109,6 +127,12 @@ specifier|private
 name|ConfigurationStore
 name|configurationStore
 decl_stmt|;
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|RoleManager
+name|roleManager
+decl_stmt|;
+comment|/**      *      * @param actionInvocation      * @return      * @throws Exception      */
 specifier|public
 name|String
 name|intercept

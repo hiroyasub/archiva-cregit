@@ -23,18 +23,6 @@ end_comment
 
 begin_import
 import|import
-name|com
-operator|.
-name|opensymphony
-operator|.
-name|xwork
-operator|.
-name|ActionSupport
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -65,6 +53,22 @@ name|TaskExecutionException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|xwork
+operator|.
+name|action
+operator|.
+name|PlexusActionSupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * Configures the application.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="runRepositoryTaskAction"  */
 end_comment
@@ -74,7 +78,7 @@ specifier|public
 class|class
 name|RunRepositoryTaskAction
 extends|extends
-name|ActionSupport
+name|PlexusActionSupport
 block|{
 comment|/**      * @plexus.requirement      */
 specifier|private
