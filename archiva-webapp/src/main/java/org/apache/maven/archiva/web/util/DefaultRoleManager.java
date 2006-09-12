@@ -1367,7 +1367,7 @@ name|manager
 operator|.
 name|createPermission
 argument_list|(
-literal|"Get Reports - "
+literal|"Access Reports - "
 operator|+
 name|repositoryName
 argument_list|)
@@ -1380,7 +1380,7 @@ name|manager
 operator|.
 name|getOperation
 argument_list|(
-literal|"get-reports"
+literal|"access-reports"
 argument_list|)
 argument_list|)
 expr_stmt|;
