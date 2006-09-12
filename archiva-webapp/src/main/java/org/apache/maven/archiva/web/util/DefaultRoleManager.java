@@ -769,7 +769,7 @@ name|manager
 operator|.
 name|permissionExists
 argument_list|(
-literal|"Generate All Reports"
+literal|"Generate Reports"
 argument_list|)
 condition|)
 block|{
@@ -780,7 +780,7 @@ name|manager
 operator|.
 name|createPermission
 argument_list|(
-literal|"Generate All Reports"
+literal|"Generate Reports"
 argument_list|,
 literal|"generate-reports"
 argument_list|,
@@ -1082,7 +1082,7 @@ name|manager
 operator|.
 name|getPermission
 argument_list|(
-literal|"Generate All Reports"
+literal|"Generate Reports"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1360,86 +1360,6 @@ argument_list|(
 name|deleteRepo
 argument_list|)
 expr_stmt|;
-name|Permission
-name|getReports
-init|=
-name|manager
-operator|.
-name|createPermission
-argument_list|(
-literal|"Access Reports - "
-operator|+
-name|repositoryName
-argument_list|)
-decl_stmt|;
-name|getReports
-operator|.
-name|setOperation
-argument_list|(
-name|manager
-operator|.
-name|getOperation
-argument_list|(
-literal|"access-reports"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|getReports
-operator|.
-name|setResource
-argument_list|(
-name|repoResource
-argument_list|)
-expr_stmt|;
-name|getReports
-operator|=
-name|manager
-operator|.
-name|savePermission
-argument_list|(
-name|getReports
-argument_list|)
-expr_stmt|;
-name|Permission
-name|regenReports
-init|=
-name|manager
-operator|.
-name|createPermission
-argument_list|(
-literal|"generate Reports - "
-operator|+
-name|repositoryName
-argument_list|)
-decl_stmt|;
-name|regenReports
-operator|.
-name|setOperation
-argument_list|(
-name|manager
-operator|.
-name|getOperation
-argument_list|(
-literal|"generate-reports"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|regenReports
-operator|.
-name|setResource
-argument_list|(
-name|repoResource
-argument_list|)
-expr_stmt|;
-name|regenReports
-operator|=
-name|manager
-operator|.
-name|savePermission
-argument_list|(
-name|regenReports
-argument_list|)
-expr_stmt|;
 comment|// make the roles
 name|Role
 name|repositoryObserver
@@ -1457,7 +1377,12 @@ name|repositoryObserver
 operator|.
 name|addPermission
 argument_list|(
-name|getReports
+name|manager
+operator|.
+name|getPermission
+argument_list|(
+literal|"Access Reports"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|repositoryObserver
@@ -1506,7 +1431,12 @@ name|repositoryManager
 operator|.
 name|addPermission
 argument_list|(
-name|regenReports
+name|manager
+operator|.
+name|getPermission
+argument_list|(
+literal|"Generate Reports"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|repositoryManager
