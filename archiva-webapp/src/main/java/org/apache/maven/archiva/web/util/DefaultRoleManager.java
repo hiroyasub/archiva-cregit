@@ -1407,7 +1407,7 @@ name|manager
 operator|.
 name|createPermission
 argument_list|(
-literal|"Regenerate Reports - "
+literal|"generate Reports - "
 operator|+
 name|repositoryName
 argument_list|)
@@ -1420,7 +1420,7 @@ name|manager
 operator|.
 name|getOperation
 argument_list|(
-literal|"regenerate-reports"
+literal|"generate-reports"
 argument_list|)
 argument_list|)
 expr_stmt|;
