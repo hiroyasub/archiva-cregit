@@ -219,6 +219,17 @@ name|String
 name|createUser
 parameter_list|()
 block|{
+if|if
+condition|(
+name|username
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|INPUT
+return|;
+block|}
 comment|// TODO: use commons-validator for these fields.
 if|if
 condition|(
@@ -425,7 +436,7 @@ argument_list|()
 condition|)
 block|{
 return|return
-name|ERROR
+name|INPUT
 return|;
 block|}
 return|return
