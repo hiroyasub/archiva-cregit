@@ -291,6 +291,11 @@ literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|artifact
+operator|.
+name|isSnapshot
+argument_list|()
+expr_stmt|;
 return|return
 name|artifact
 return|;
@@ -361,6 +366,11 @@ name|setRepository
 argument_list|(
 name|repository
 argument_list|)
+expr_stmt|;
+name|artifact
+operator|.
+name|isSnapshot
+argument_list|()
 expr_stmt|;
 return|return
 name|artifact

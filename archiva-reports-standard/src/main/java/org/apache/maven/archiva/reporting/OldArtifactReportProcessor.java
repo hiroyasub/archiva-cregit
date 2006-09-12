@@ -88,7 +88,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Find artifacts in the repository that are considered old.  *  * @plexus.component role="org.apache.maven.archiva.reporting.ArtifactReportProcessor" role-hint="old-artifact"  */
+comment|/**  * Find artifacts in the repository that are considered old.  *  * @plexus.component role="org.apache.maven.archiva.reporting.ArtifactReportProcessor" role-hint="old-artifact"  * @todo make this configurable from the web interface  */
 end_comment
 
 begin_class
