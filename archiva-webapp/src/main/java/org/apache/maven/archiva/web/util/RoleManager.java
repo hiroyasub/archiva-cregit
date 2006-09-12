@@ -78,6 +78,16 @@ throws|throws
 name|RbacStoreException
 function_decl|;
 specifier|public
+name|void
+name|addAdminUser
+parameter_list|(
+name|String
+name|principal
+parameter_list|)
+throws|throws
+name|RbacStoreException
+function_decl|;
+specifier|public
 name|boolean
 name|isInitialized
 parameter_list|()

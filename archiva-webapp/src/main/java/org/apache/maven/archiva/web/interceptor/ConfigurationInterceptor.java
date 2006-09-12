@@ -109,6 +109,22 @@ name|AbstractLogEnabled
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|security
+operator|.
+name|rbac
+operator|.
+name|RBACManager
+import|;
+end_import
+
 begin_comment
 comment|/**  * An interceptor that makes the application configuration available  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @plexus.component role="com.opensymphony.xwork.interceptor.Interceptor" role-hint="configurationInterceptor"  */
 end_comment
@@ -132,6 +148,11 @@ specifier|private
 name|RoleManager
 name|roleManager
 decl_stmt|;
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|RBACManager
+name|rbacManager
+decl_stmt|;
 comment|/**      *      * @param actionInvocation      * @return      * @throws Exception      */
 specifier|public
 name|String
@@ -143,6 +164,31 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|rbacManager
+operator|.
+name|getAllUserAssignments
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"no accounts setup, create user account, forwarding to registration"
+argument_list|)
+expr_stmt|;
+return|return
+literal|"admin-account-needed"
+return|;
+block|}
 name|Configuration
 name|configuration
 init|=
