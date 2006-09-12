@@ -347,7 +347,9 @@ name|roleManager
 operator|.
 name|addRepository
 argument_list|(
-name|getRepoId
+name|repository
+operator|.
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;

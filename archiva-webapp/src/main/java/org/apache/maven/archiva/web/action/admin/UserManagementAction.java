@@ -270,16 +270,7 @@ operator|.
 name|getAllResources
 argument_list|()
 expr_stmt|;
-name|resources
-operator|.
-name|remove
-argument_list|(
-name|rbacManager
-operator|.
-name|getGlobalResource
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//resources.remove( rbacManager.getGlobalResource() );
 comment|// check if the user has any roles assigned to them, and populate the lists for
 comment|// rendering assign and remove roles links
 if|if

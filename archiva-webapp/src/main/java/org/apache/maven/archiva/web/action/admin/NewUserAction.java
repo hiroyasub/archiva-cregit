@@ -408,6 +408,15 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|addActionMessage
+argument_list|(
+literal|"user "
+operator|+
+name|username
+operator|+
+literal|" was successfully registered!"
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
