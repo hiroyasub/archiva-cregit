@@ -251,74 +251,7 @@ return|return
 name|INPUT
 return|;
 block|}
-comment|// TODO: use commons-validator for these fields.
-if|if
-condition|(
-name|StringUtils
-operator|.
-name|isEmpty
-argument_list|(
-name|username
-argument_list|)
-condition|)
-block|{
-name|addActionError
-argument_list|(
-literal|"User Name is required."
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|StringUtils
-operator|.
-name|isEmpty
-argument_list|(
-name|fullName
-argument_list|)
-condition|)
-block|{
-name|addActionError
-argument_list|(
-literal|"Full Name is required."
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|StringUtils
-operator|.
-name|isEmpty
-argument_list|(
-name|email
-argument_list|)
-condition|)
-block|{
-name|addActionError
-argument_list|(
-literal|"Email Address is required."
-argument_list|)
-expr_stmt|;
-block|}
-comment|// TODO: Validate Email Address (use commons-validator)
-if|if
-condition|(
-name|StringUtils
-operator|.
-name|equals
-argument_list|(
-name|password
-argument_list|,
-name|passwordConfirm
-argument_list|)
-condition|)
-block|{
-name|addActionError
-argument_list|(
-literal|"Passwords do not match."
-argument_list|)
-expr_stmt|;
-block|}
+comment|/*         // TODO: use commons-validator for these fields.          if ( StringUtils.isEmpty( username ) )         {             addActionError( "User Name is required." );         }          if ( StringUtils.isEmpty( fullName ) )         {             addActionError( "Full Name is required." );         }          if ( StringUtils.isEmpty( email ) )         {             addActionError( "Email Address is required." );         }          // TODO: Validate Email Address (use commons-validator)          if ( StringUtils.equals( password, passwordConfirm ) )         {             addActionError( "Passwords do not match." );         }                  */
 name|UserManager
 name|um
 init|=
