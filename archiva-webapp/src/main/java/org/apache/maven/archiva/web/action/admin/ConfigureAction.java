@@ -47,6 +47,18 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|opensymphony
+operator|.
+name|xwork
+operator|.
+name|Validateable
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -221,6 +233,8 @@ implements|implements
 name|ModelDriven
 implements|,
 name|Preparable
+implements|,
+name|Validateable
 block|{
 comment|/**      * @plexus.requirement      */
 specifier|private
@@ -276,6 +290,75 @@ specifier|private
 name|String
 name|year
 decl_stmt|;
+specifier|private
+name|String
+name|cronEx
+init|=
+literal|""
+decl_stmt|;
+specifier|public
+name|void
+name|validate
+parameter_list|()
+block|{
+name|cronEx
+operator|=
+operator|(
+name|second
+operator|+
+literal|" "
+operator|+
+name|minute
+operator|+
+literal|" "
+operator|+
+name|hour
+operator|+
+literal|" "
+operator|+
+name|dayOfMonth
+operator|+
+literal|" "
+operator|+
+name|month
+operator|+
+literal|" "
+operator|+
+name|dayOfWeek
+operator|+
+literal|" "
+operator|+
+name|year
+operator|)
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
+comment|//validate cron expression
+name|cronValidator
+operator|=
+operator|new
+name|CronExpressionValidator
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|cronValidator
+operator|.
+name|validate
+argument_list|(
+name|cronEx
+argument_list|)
+condition|)
+block|{
+name|addActionError
+argument_list|(
+literal|"Invalid Cron Expression"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 specifier|public
 name|String
 name|execute
