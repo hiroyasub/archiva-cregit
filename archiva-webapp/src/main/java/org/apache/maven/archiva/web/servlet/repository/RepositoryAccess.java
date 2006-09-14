@@ -614,7 +614,11 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-literal|null
+operator|new
+name|AuthenticationException
+argument_list|(
+literal|"User Credentials Invalid"
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return;
