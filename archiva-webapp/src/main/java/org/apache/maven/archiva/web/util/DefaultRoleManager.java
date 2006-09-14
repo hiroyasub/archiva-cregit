@@ -285,6 +285,13 @@ name|editUser
 argument_list|)
 expr_stmt|;
 comment|// todo this one role a user will go away when we have expressions in the resources
+name|String
+name|personalRoleName
+init|=
+literal|"Personal Role - "
+operator|+
+name|principal
+decl_stmt|;
 name|Role
 name|userRole
 init|=
@@ -292,9 +299,7 @@ name|manager
 operator|.
 name|createRole
 argument_list|(
-literal|"Personal Role - "
-operator|+
-name|principal
+name|personalRoleName
 argument_list|)
 decl_stmt|;
 name|userRole
@@ -325,9 +330,9 @@ argument_list|)
 decl_stmt|;
 name|assignment
 operator|.
-name|addRole
+name|addRoleName
 argument_list|(
-name|userRole
+name|personalRoleName
 argument_list|)
 expr_stmt|;
 name|manager
@@ -349,8 +354,6 @@ parameter_list|)
 throws|throws
 name|RbacStoreException
 block|{
-try|try
-block|{
 name|UserAssignment
 name|assignment
 init|=
@@ -363,14 +366,11 @@ argument_list|)
 decl_stmt|;
 name|assignment
 operator|.
-name|addRole
+name|addRoleName
 argument_list|(
-name|manager
+name|ArchivaDefaults
 operator|.
-name|getRole
-argument_list|(
-literal|"System Administrator"
-argument_list|)
+name|SYSTEM_ADMINISTRATOR
 argument_list|)
 expr_stmt|;
 name|manager
@@ -380,23 +380,6 @@ argument_list|(
 name|assignment
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RbacObjectNotFoundException
-name|ne
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RbacStoreException
-argument_list|(
-literal|"unable to find administrator role, this of course is bad"
-argument_list|,
-name|ne
-argument_list|)
-throw|;
-block|}
 block|}
 specifier|public
 name|void
