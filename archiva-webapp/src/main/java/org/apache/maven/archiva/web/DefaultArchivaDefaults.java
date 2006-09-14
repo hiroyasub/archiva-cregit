@@ -199,8 +199,24 @@ name|UserNotFoundException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|security
+operator|.
+name|policy
+operator|.
+name|UserSecurityPolicy
+import|;
+end_import
+
 begin_comment
-comment|/**  * DefaultArchivaDefaults   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.web.ArchivaDefaults"  */
+comment|/**  * DefaultArchivaDefaults  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.web.ArchivaDefaults"  */
 end_comment
 
 begin_class
@@ -223,6 +239,11 @@ comment|/**      * @plexus.requirement      */
 specifier|private
 name|UserManager
 name|userManager
+decl_stmt|;
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|UserSecurityPolicy
+name|securityPolicy
 decl_stmt|;
 specifier|private
 name|boolean
@@ -783,6 +804,13 @@ name|GUEST_USERNAME
 argument_list|)
 condition|)
 block|{
+name|securityPolicy
+operator|.
+name|setEnabled
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|guestUser
@@ -809,6 +837,13 @@ argument_list|(
 name|this
 operator|.
 name|guestUser
+argument_list|)
+expr_stmt|;
+name|securityPolicy
+operator|.
+name|setEnabled
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
