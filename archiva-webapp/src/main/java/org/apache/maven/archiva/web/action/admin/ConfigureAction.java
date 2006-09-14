@@ -290,50 +290,11 @@ specifier|private
 name|String
 name|year
 decl_stmt|;
-specifier|private
-name|String
-name|cronEx
-init|=
-literal|""
-decl_stmt|;
 specifier|public
 name|void
 name|validate
 parameter_list|()
 block|{
-name|cronEx
-operator|=
-operator|(
-name|second
-operator|+
-literal|" "
-operator|+
-name|minute
-operator|+
-literal|" "
-operator|+
-name|hour
-operator|+
-literal|" "
-operator|+
-name|dayOfMonth
-operator|+
-literal|" "
-operator|+
-name|month
-operator|+
-literal|" "
-operator|+
-name|dayOfWeek
-operator|+
-literal|" "
-operator|+
-name|year
-operator|)
-operator|.
-name|trim
-argument_list|()
-expr_stmt|;
 comment|//validate cron expression
 name|cronValidator
 operator|=
@@ -348,7 +309,8 @@ name|cronValidator
 operator|.
 name|validate
 argument_list|(
-name|cronEx
+name|getCronExpression
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -378,72 +340,12 @@ name|ConfigurationChangeException
 block|{
 comment|// TODO: if this didn't come from the form, go to configure.action instead of going through with re-saving what was just loaded
 comment|// TODO: if this is changed, do we move the index or recreate it?
-name|String
-name|cronEx
-init|=
-operator|(
-name|second
-operator|+
-literal|" "
-operator|+
-name|minute
-operator|+
-literal|" "
-operator|+
-name|hour
-operator|+
-literal|" "
-operator|+
-name|dayOfMonth
-operator|+
-literal|" "
-operator|+
-name|month
-operator|+
-literal|" "
-operator|+
-name|dayOfWeek
-operator|+
-literal|" "
-operator|+
-name|year
-operator|)
-operator|.
-name|trim
-argument_list|()
-decl_stmt|;
-comment|//validate cron expression
-name|cronValidator
-operator|=
-operator|new
-name|CronExpressionValidator
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|cronValidator
-operator|.
-name|validate
-argument_list|(
-name|cronEx
-argument_list|)
-condition|)
-block|{
-name|addActionError
-argument_list|(
-literal|"Invalid Cron Expression"
-argument_list|)
-expr_stmt|;
-return|return
-name|ERROR
-return|;
-block|}
 name|configuration
 operator|.
 name|setIndexerCronExpression
 argument_list|(
-name|cronEx
+name|getCronExpression
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Normalize the path
@@ -824,6 +726,44 @@ name|dayOfWeek
 operator|=
 name|dayOfWeek
 expr_stmt|;
+block|}
+specifier|private
+name|String
+name|getCronExpression
+parameter_list|()
+block|{
+return|return
+operator|(
+name|second
+operator|+
+literal|" "
+operator|+
+name|minute
+operator|+
+literal|" "
+operator|+
+name|hour
+operator|+
+literal|" "
+operator|+
+name|dayOfMonth
+operator|+
+literal|" "
+operator|+
+name|month
+operator|+
+literal|" "
+operator|+
+name|dayOfWeek
+operator|+
+literal|" "
+operator|+
+name|year
+operator|)
+operator|.
+name|trim
+argument_list|()
+return|;
 block|}
 block|}
 end_class
