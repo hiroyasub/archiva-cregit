@@ -741,6 +741,21 @@ operator|.
 name|ROLE
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|securitySession
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|SecureActionException
+argument_list|(
+literal|"no session, not authenticated, not allowed access"
+argument_list|)
+throw|;
+block|}
 name|User
 name|user
 init|=
