@@ -164,31 +164,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|rbacManager
-operator|.
-name|getAllUserAssignments
-argument_list|()
-operator|.
-name|size
-argument_list|()
-operator|==
-literal|0
-condition|)
-block|{
-name|getLogger
-argument_list|()
-operator|.
-name|info
-argument_list|(
-literal|"no accounts setup, create user account, forwarding to registration"
-argument_list|)
-expr_stmt|;
-return|return
-literal|"admin-account-needed"
-return|;
-block|}
+comment|//        if ( rbacManager.getAllUserAssignments().size() == 0 )
+comment|//        {
+comment|//            getLogger().info( "no accounts setup, create user account, forwarding to registration" );
+comment|//            return "admin-account-needed";
+comment|//        }
 name|Configuration
 name|configuration
 init|=

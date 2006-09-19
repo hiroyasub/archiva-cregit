@@ -289,7 +289,7 @@ break|break;
 block|}
 name|logger
 operator|.
-name|debug
+name|info
 argument_list|(
 name|message
 operator|+
