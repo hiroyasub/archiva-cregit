@@ -99,6 +99,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|web
+operator|.
+name|ArchivaDefaults
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -153,6 +169,11 @@ specifier|private
 name|RBACManager
 name|rbacManager
 decl_stmt|;
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|ArchivaDefaults
+name|archivaDefaults
+decl_stmt|;
 comment|/**      *      * @param actionInvocation      * @return      * @throws Exception      */
 specifier|public
 name|String
@@ -164,11 +185,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|//        if ( rbacManager.getAllUserAssignments().size() == 0 )
-comment|//        {
-comment|//            getLogger().info( "no accounts setup, create user account, forwarding to registration" );
-comment|//            return "admin-account-needed";
-comment|//        }
+name|archivaDefaults
+operator|.
+name|ensureDefaultsExist
+argument_list|()
+expr_stmt|;
+comment|// determine if we need an admin account made
 name|Configuration
 name|configuration
 init|=
