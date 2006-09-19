@@ -281,7 +281,7 @@ name|path
 operator|.
 name|indexOf
 argument_list|(
-literal|".svn"
+literal|"CVS"
 argument_list|)
 operator|>=
 literal|0
@@ -344,6 +344,26 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+name|assertFalse
+argument_list|(
+literal|"Check not CVS"
+argument_list|,
+name|a
+operator|.
+name|getFile
+argument_list|()
+operator|.
+name|getPath
+argument_list|()
+operator|.
+name|indexOf
+argument_list|(
+literal|"CVS"
+argument_list|)
+operator|>=
+literal|0
+argument_list|)
+expr_stmt|;
 name|assertFalse
 argument_list|(
 literal|"Check not .svn"
