@@ -59,6 +59,14 @@ specifier|public
 specifier|static
 specifier|final
 name|String
+name|GUEST_ROLE
+init|=
+literal|"Guest Role"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
 name|GUEST_USERNAME
 init|=
 literal|"guest"
