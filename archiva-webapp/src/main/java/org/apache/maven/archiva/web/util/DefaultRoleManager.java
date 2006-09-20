@@ -31,7 +31,7 @@ name|archiva
 operator|.
 name|web
 operator|.
-name|ArchivaDefaults
+name|ArchivaSecurityDefaults
 import|;
 end_import
 
@@ -207,8 +207,8 @@ name|manager
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
-name|ArchivaDefaults
-name|archivaDefaults
+name|ArchivaSecurityDefaults
+name|archivaSecurity
 decl_stmt|;
 specifier|private
 name|boolean
@@ -221,7 +221,7 @@ parameter_list|()
 throws|throws
 name|InitializationException
 block|{
-name|archivaDefaults
+name|archivaSecurity
 operator|.
 name|ensureDefaultsExist
 argument_list|()
@@ -368,7 +368,7 @@ name|assignment
 operator|.
 name|addRoleName
 argument_list|(
-name|ArchivaDefaults
+name|ArchivaSecurityDefaults
 operator|.
 name|SYSTEM_ADMINISTRATOR
 argument_list|)
@@ -421,7 +421,7 @@ name|manager
 operator|.
 name|createPermission
 argument_list|(
-name|ArchivaDefaults
+name|ArchivaSecurityDefaults
 operator|.
 name|REPOSITORY_EDIT
 operator|+
@@ -438,7 +438,7 @@ name|manager
 operator|.
 name|getOperation
 argument_list|(
-name|ArchivaDefaults
+name|ArchivaSecurityDefaults
 operator|.
 name|REPOSITORY_EDIT_OPERATION
 argument_list|)
@@ -467,7 +467,7 @@ name|manager
 operator|.
 name|createPermission
 argument_list|(
-name|ArchivaDefaults
+name|ArchivaSecurityDefaults
 operator|.
 name|REPOSITORY_DELETE
 operator|+
@@ -484,7 +484,7 @@ name|manager
 operator|.
 name|getOperation
 argument_list|(
-name|ArchivaDefaults
+name|ArchivaSecurityDefaults
 operator|.
 name|REPOSITORY_DELETE_OPERATION
 argument_list|)
@@ -513,7 +513,7 @@ name|manager
 operator|.
 name|createPermission
 argument_list|(
-name|ArchivaDefaults
+name|ArchivaSecurityDefaults
 operator|.
 name|REPOSITORY_ACCESS
 operator|+
@@ -530,7 +530,7 @@ name|manager
 operator|.
 name|getOperation
 argument_list|(
-name|ArchivaDefaults
+name|ArchivaSecurityDefaults
 operator|.
 name|REPOSITORY_ACCESS_OPERATION
 argument_list|)
@@ -559,7 +559,7 @@ name|manager
 operator|.
 name|createPermission
 argument_list|(
-name|ArchivaDefaults
+name|ArchivaSecurityDefaults
 operator|.
 name|REPOSITORY_UPLOAD
 operator|+
@@ -576,7 +576,7 @@ name|manager
 operator|.
 name|getOperation
 argument_list|(
-name|ArchivaDefaults
+name|ArchivaSecurityDefaults
 operator|.
 name|REPOSITORY_UPLOAD_OPERATION
 argument_list|)
@@ -619,7 +619,7 @@ name|manager
 operator|.
 name|getPermission
 argument_list|(
-name|ArchivaDefaults
+name|ArchivaSecurityDefaults
 operator|.
 name|REPORTS_ACCESS_PERMISSION
 argument_list|)
@@ -689,7 +689,7 @@ name|manager
 operator|.
 name|getPermission
 argument_list|(
-name|ArchivaDefaults
+name|ArchivaSecurityDefaults
 operator|.
 name|REPORTS_GENERATE_PERMISSION
 argument_list|)

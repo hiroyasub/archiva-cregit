@@ -115,22 +115,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|web
-operator|.
-name|ArchivaDefaults
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -205,11 +189,6 @@ specifier|private
 name|RBACManager
 name|rbacManager
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|ArchivaDefaults
-name|archivaDefaults
-decl_stmt|;
 comment|/**      *      * @param actionInvocation      * @return      * @throws Exception      */
 specifier|public
 name|String
@@ -221,11 +200,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|archivaDefaults
-operator|.
-name|ensureDefaultsExist
-argument_list|()
-expr_stmt|;
 name|ensureRepoRolesExist
 argument_list|()
 expr_stmt|;

@@ -34,13 +34,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaDefaults  *  * NOTE: this is targeted for removal with the forth coming rbac role templating   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ArchivaSecurityDefaults  *  * NOTE: this is targeted for removal with the forth coming rbac role templating   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_interface
 specifier|public
 interface|interface
-name|ArchivaDefaults
+name|ArchivaSecurityDefaults
 block|{
 specifier|public
 specifier|static
@@ -48,7 +48,7 @@ specifier|final
 name|String
 name|ROLE
 init|=
-name|ArchivaDefaults
+name|ArchivaSecurityDefaults
 operator|.
 name|class
 operator|.

@@ -121,7 +121,7 @@ name|archiva
 operator|.
 name|web
 operator|.
-name|ArchivaDefaults
+name|ArchivaSecurityDefaults
 import|;
 end_import
 
@@ -390,7 +390,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryAccess - access read/write to the repository.  *  * @plexus.component role="org.apache.maven.archiva.web.servlet.PlexusServlet"   *                   role-hint="repositoryAccess"  *   * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @todo CACHE REPOSITORY LIST  */
+comment|/**  * RepositoryAccess - access read/write to the repository.  *  * @plexus.component role="org.apache.maven.archiva.web.servlet.PlexusServlet"  *                   role-hint="repositoryAccess"  *   * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @todo CACHE REPOSITORY LIST  */
 end_comment
 
 begin_class
@@ -417,8 +417,8 @@ name|httpAuth
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
-name|ArchivaDefaults
-name|archiva
+name|ArchivaSecurityDefaults
+name|archivaSecurity
 decl_stmt|;
 comment|/**      * List of request methods that fall into the category of 'access' or 'read' of a repository.      * All other method requests are to be considered 'write' or 'upload' requests.      */
 specifier|private
@@ -609,7 +609,7 @@ name|request
 argument_list|,
 name|response
 argument_list|,
-name|archiva
+name|archivaSecurity
 operator|.
 name|getGuestUser
 argument_list|()
@@ -771,7 +771,7 @@ block|{
 name|String
 name|permission
 init|=
-name|ArchivaDefaults
+name|ArchivaSecurityDefaults
 operator|.
 name|REPOSITORY_ACCESS
 decl_stmt|;
@@ -782,7 +782,7 @@ condition|)
 block|{
 name|permission
 operator|=
-name|ArchivaDefaults
+name|ArchivaSecurityDefaults
 operator|.
 name|REPOSITORY_UPLOAD
 expr_stmt|;

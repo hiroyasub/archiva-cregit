@@ -216,17 +216,17 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultArchivaDefaults  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.web.ArchivaDefaults"  */
+comment|/**  * DefaultArchivaSecurityDefaults  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.web.ArchivaSecurityDefaults"  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|DefaultArchivaDefaults
+name|DefaultArchivaSecurityDefaults
 extends|extends
 name|AbstractLogEnabled
 implements|implements
-name|ArchivaDefaults
+name|ArchivaSecurityDefaults
 implements|,
 name|Initializable
 block|{
