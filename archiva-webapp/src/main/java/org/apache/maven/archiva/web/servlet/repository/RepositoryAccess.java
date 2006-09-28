@@ -608,17 +608,6 @@ argument_list|(
 name|request
 argument_list|,
 name|response
-argument_list|,
-name|archivaSecurity
-operator|.
-name|getGuestUser
-argument_list|()
-operator|.
-name|getPrincipal
-argument_list|()
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|if

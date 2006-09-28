@@ -177,6 +177,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|security
+operator|.
+name|rbac
+operator|.
+name|RbacManagerException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -238,6 +254,8 @@ throws|,
 name|InvalidConfigurationException
 throws|,
 name|ConfigurationChangeException
+throws|,
+name|RbacManagerException
 block|{
 comment|// TODO: if this didn't come from the form, go to configure.action instead of going through with re-saving what was just loaded
 name|AbstractRepositoryConfiguration
@@ -286,6 +304,8 @@ throws|,
 name|InvalidConfigurationException
 throws|,
 name|ConfigurationChangeException
+throws|,
+name|RbacManagerException
 block|{
 comment|// TODO: if this didn't come from the form, go to configure.action instead of going through with re-saving what was just loaded
 name|AbstractRepositoryConfiguration
@@ -339,6 +359,8 @@ throws|,
 name|InvalidConfigurationException
 throws|,
 name|ConfigurationChangeException
+throws|,
+name|RbacManagerException
 block|{
 name|addRepository
 argument_list|()

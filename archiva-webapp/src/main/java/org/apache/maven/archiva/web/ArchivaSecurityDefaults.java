@@ -33,6 +33,22 @@ name|User
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|security
+operator|.
+name|rbac
+operator|.
+name|RbacManagerException
+import|;
+end_import
+
 begin_comment
 comment|/**  * ArchivaSecurityDefaults  *  * NOTE: this is targeted for removal with the forth coming rbac role templating   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
@@ -59,33 +75,9 @@ specifier|public
 specifier|static
 specifier|final
 name|String
-name|GUEST_ROLE
-init|=
-literal|"Guest Role"
-decl_stmt|;
-specifier|public
-specifier|static
-specifier|final
-name|String
 name|GUEST_USERNAME
 init|=
 literal|"guest"
-decl_stmt|;
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|CONFIGURATION_EDIT_OPERATION
-init|=
-literal|"edit-configuration"
-decl_stmt|;
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|CONFIGURATION_EDIT_PERMISSION
-init|=
-literal|"Edit Configuration"
 decl_stmt|;
 specifier|public
 specifier|static
@@ -323,11 +315,8 @@ specifier|public
 name|void
 name|ensureDefaultsExist
 parameter_list|()
-function_decl|;
-specifier|public
-name|User
-name|getGuestUser
-parameter_list|()
+throws|throws
+name|RbacManagerException
 function_decl|;
 block|}
 end_interface
