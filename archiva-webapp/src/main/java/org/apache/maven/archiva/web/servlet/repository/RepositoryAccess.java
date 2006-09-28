@@ -119,9 +119,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|web
+name|security
 operator|.
-name|ArchivaSecurityDefaults
+name|ArchivaRoleConstants
 import|;
 end_import
 
@@ -201,6 +201,38 @@ name|plexus
 operator|.
 name|security
 operator|.
+name|policy
+operator|.
+name|AccountLockedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|security
+operator|.
+name|policy
+operator|.
+name|MustChangePasswordException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|security
+operator|.
 name|system
 operator|.
 name|SecuritySession
@@ -242,38 +274,6 @@ operator|.
 name|authentication
 operator|.
 name|HttpAuthenticator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|security
-operator|.
-name|policy
-operator|.
-name|AccountLockedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|security
-operator|.
-name|policy
-operator|.
-name|MustChangePasswordException
 import|;
 end_import
 
@@ -390,7 +390,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryAccess - access read/write to the repository.  *  * @plexus.component role="org.apache.maven.archiva.web.servlet.PlexusServlet"  *                   role-hint="repositoryAccess"  *   * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @todo CACHE REPOSITORY LIST  */
+comment|/**  * RepositoryAccess - access read/write to the repository.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.web.servlet.PlexusServlet"  * role-hint="repositoryAccess"  * @todo CACHE REPOSITORY LIST  */
 end_comment
 
 begin_class
@@ -414,11 +414,6 @@ comment|/**      * @plexus.requirement role-hint="basic"      */
 specifier|private
 name|HttpAuthenticator
 name|httpAuth
-decl_stmt|;
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|ArchivaSecurityDefaults
-name|archivaSecurity
 decl_stmt|;
 comment|/**      * List of request methods that fall into the category of 'access' or 'read' of a repository.      * All other method requests are to be considered 'write' or 'upload' requests.      */
 specifier|private
@@ -760,9 +755,9 @@ block|{
 name|String
 name|permission
 init|=
-name|ArchivaSecurityDefaults
+name|ArchivaRoleConstants
 operator|.
-name|REPOSITORY_ACCESS
+name|OPERATION_REPOSITORY_ACCESS
 decl_stmt|;
 if|if
 condition|(
@@ -771,9 +766,9 @@ condition|)
 block|{
 name|permission
 operator|=
-name|ArchivaSecurityDefaults
+name|ArchivaRoleConstants
 operator|.
-name|REPOSITORY_UPLOAD
+name|OPERATION_REPOSITORY_UPLOAD
 expr_stmt|;
 block|}
 name|permission
