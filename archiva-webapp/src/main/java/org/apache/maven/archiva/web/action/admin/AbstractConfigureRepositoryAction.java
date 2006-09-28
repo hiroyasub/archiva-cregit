@@ -199,6 +199,22 @@ name|plexus
 operator|.
 name|security
 operator|.
+name|rbac
+operator|.
+name|Resource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|security
+operator|.
 name|ui
 operator|.
 name|web
@@ -613,6 +629,13 @@ operator|new
 name|SecureActionBundle
 argument_list|()
 decl_stmt|;
+name|bundle
+operator|.
+name|setRequiresAuthentication
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|getRepoId
@@ -621,14 +644,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|bundle
-operator|.
-name|setRequiresAuthentication
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-comment|// TODO: this is not right. It needs to change based on method
+comment|// TODO: this is not right. It needs to change based on method. But is this really the right way to restrict this area?
+comment|// TODO: not right. We only care about this permission on managed repositories. Otherwise, it's configuration
 name|bundle
 operator|.
 name|addRequiredAuthorization
@@ -639,6 +656,22 @@ name|OPERATION_EDIT_REPOSITORY
 argument_list|,
 name|getRepoId
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|bundle
+operator|.
+name|addRequiredAuthorization
+argument_list|(
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_MANAGE_CONFIGURATION
+argument_list|,
+name|Resource
+operator|.
+name|GLOBAL
 argument_list|)
 expr_stmt|;
 block|}
