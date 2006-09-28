@@ -70,7 +70,7 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|RepsitoryManagerDynamicRoleProfile
+name|RepositoryManagerDynamicRoleProfile
 extends|extends
 name|AbstractDynamicRoleProfile
 block|{

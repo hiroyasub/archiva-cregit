@@ -60,7 +60,7 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|RepsitoryObserverDynamicRoleProfile
+name|RepositoryObserverDynamicRoleProfile
 extends|extends
 name|AbstractDynamicRoleProfile
 block|{
