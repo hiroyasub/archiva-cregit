@@ -2168,6 +2168,9 @@ operator|.
 name|setLastModified
 argument_list|(
 name|endTime
+operator|.
+name|getTime
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
