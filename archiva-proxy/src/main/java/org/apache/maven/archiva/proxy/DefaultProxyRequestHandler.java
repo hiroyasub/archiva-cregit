@@ -875,6 +875,11 @@ name|index
 argument_list|)
 expr_stmt|;
 block|}
+name|String
+name|msg
+init|=
+literal|""
+decl_stmt|;
 comment|// Request for artifact: parse the requested path to build an Artifact.
 name|Artifact
 name|artifact
@@ -892,6 +897,16 @@ argument_list|(
 name|artifactPath
 argument_list|)
 expr_stmt|;
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Artifact requested is: "
+operator|+
+name|artifact
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -899,18 +914,14 @@ name|DiscovererException
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
-operator|.
-name|debug
-argument_list|(
-literal|"Failed to build artifact using default layout with message: "
+name|msg
+operator|=
+literal|"Failed to build artifact from path:\n\tfrom default: "
 operator|+
 name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -931,6 +942,16 @@ argument_list|(
 name|artifactPath
 argument_list|)
 expr_stmt|;
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Artifact requested is: "
+operator|+
+name|artifact
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -943,7 +964,9 @@ argument_list|()
 operator|.
 name|debug
 argument_list|(
-literal|"Failed to build artifact using legacy layout with message: "
+name|msg
+operator|+
+literal|"\n\tfrom legacy: "
 operator|+
 name|e
 operator|.
@@ -2489,25 +2512,6 @@ block|{
 name|tries
 operator|++
 expr_stmt|;
-name|getLogger
-argument_list|()
-operator|.
-name|debug
-argument_list|(
-literal|"Trying "
-operator|+
-name|path
-operator|+
-literal|" from "
-operator|+
-name|repository
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|"..."
-argument_list|)
-expr_stmt|;
 name|boolean
 name|downloaded
 init|=
@@ -2524,6 +2528,23 @@ name|exists
 argument_list|()
 condition|)
 block|{
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Retrieving "
+operator|+
+name|path
+operator|+
+literal|" from "
+operator|+
+name|repository
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|wagon
 operator|.
 name|get
@@ -2536,6 +2557,25 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Retrieving "
+operator|+
+name|path
+operator|+
+literal|" from "
+operator|+
+name|repository
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" if updated"
+argument_list|)
+expr_stmt|;
 name|downloaded
 operator|=
 name|wagon
@@ -2629,6 +2669,14 @@ name|target
 argument_list|)
 expr_stmt|;
 block|}
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Successfully downloaded"
+argument_list|)
+expr_stmt|;
 block|}
 comment|//try next repository
 block|}

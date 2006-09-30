@@ -207,6 +207,19 @@ name|ResourceDoesNotExistException
 name|e
 parameter_list|)
 block|{
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Requested proxy path not found: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// TODO: set message?
 return|return
 name|NOT_FOUND
@@ -218,6 +231,19 @@ name|FileNotFoundException
 name|e
 parameter_list|)
 block|{
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Requested proxy file not found: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// TODO: set message?
 return|return
 name|NOT_FOUND
