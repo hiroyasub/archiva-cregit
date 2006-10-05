@@ -275,6 +275,24 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|web
+operator|.
+name|util
+operator|.
+name|VersionMerger
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -299,7 +317,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Collection
 import|;
 end_import
 
@@ -326,7 +344,7 @@ name|md5
 decl_stmt|;
 comment|/**      * Search results.      */
 specifier|private
-name|List
+name|Collection
 name|searchResults
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
@@ -500,6 +518,15 @@ return|return
 name|INPUT
 return|;
 block|}
+name|searchResults
+operator|=
+name|VersionMerger
+operator|.
+name|merge
+argument_list|(
+name|searchResults
+argument_list|)
+expr_stmt|;
 return|return
 name|SUCCESS
 return|;
@@ -710,7 +737,7 @@ name|md5
 expr_stmt|;
 block|}
 specifier|public
-name|List
+name|Collection
 name|getSearchResults
 parameter_list|()
 block|{
