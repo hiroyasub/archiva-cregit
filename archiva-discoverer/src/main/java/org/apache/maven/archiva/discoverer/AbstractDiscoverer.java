@@ -89,6 +89,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -330,6 +340,27 @@ operator|new
 name|DirectoryScanner
 argument_list|()
 decl_stmt|;
+try|try
+block|{
+comment|//Fix FNFE when repositoryBase contain spaces
+comment|//TODO: move this code in DirectoryScanner.setBasedir()
+name|scanner
+operator|.
+name|setBasedir
+argument_list|(
+name|repositoryBase
+operator|.
+name|getCanonicalFile
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
 name|scanner
 operator|.
 name|setBasedir
@@ -337,6 +368,7 @@ argument_list|(
 name|repositoryBase
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|includes
