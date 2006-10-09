@@ -101,6 +101,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|util
+operator|.
+name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -201,6 +215,34 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
+comment|//workaround for spaces non converted by PathUtils in wagon
+comment|//todo: remove it when PathUtils will be fixed
+if|if
+condition|(
+name|repoDir
+operator|.
+name|indexOf
+argument_list|(
+literal|"%20"
+argument_list|)
+operator|>=
+literal|0
+condition|)
+block|{
+name|repoDir
+operator|=
+name|StringUtils
+operator|.
+name|replace
+argument_list|(
+name|repoDir
+argument_list|,
+literal|"%20"
+argument_list|,
+literal|" "
+argument_list|)
+expr_stmt|;
+block|}
 name|ArtifactRepositoryLayout
 name|layout
 init|=
