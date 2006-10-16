@@ -64,12 +64,13 @@ name|RepositoryObserverDynamicRoleProfile
 extends|extends
 name|AbstractDynamicRoleProfile
 block|{
+comment|/**      * Create the Role name for a Repository Observer, using the provided repository id.      *       * @param repoId the repository id      */
 specifier|public
 name|String
 name|getRoleName
 parameter_list|(
 name|String
-name|string
+name|repoId
 parameter_list|)
 block|{
 return|return
@@ -81,7 +82,7 @@ name|ArchivaRoleConstants
 operator|.
 name|DELIMITER
 operator|+
-name|string
+name|repoId
 return|;
 block|}
 specifier|public
