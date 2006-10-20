@@ -848,7 +848,15 @@ argument_list|()
 operator|.
 name|error
 argument_list|(
-literal|"Error reading POM file, not populating in index: "
+literal|"Error reading POM file ["
+operator|+
+name|pomFile
+operator|+
+literal|"] for "
+operator|+
+name|artifact
+operator|+
+literal|", not populating in index: "
 operator|+
 name|e
 operator|.
@@ -920,7 +928,11 @@ argument_list|()
 operator|.
 name|error
 argument_list|(
-literal|"Error reading POM file, not populating in index: "
+literal|"Error reading POM file for "
+operator|+
+name|artifact
+operator|+
+literal|", not populating in index: "
 operator|+
 name|e
 operator|.
