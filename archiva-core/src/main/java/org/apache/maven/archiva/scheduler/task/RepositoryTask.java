@@ -35,6 +35,20 @@ name|TaskExecutionException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|taskqueue
+operator|.
+name|Task
+import|;
+end_import
+
 begin_comment
 comment|/**  * A repository task.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
 end_comment
@@ -43,6 +57,8 @@ begin_interface
 specifier|public
 interface|interface
 name|RepositoryTask
+extends|extends
+name|Task
 block|{
 comment|/**      * Execute the task.      */
 name|void
