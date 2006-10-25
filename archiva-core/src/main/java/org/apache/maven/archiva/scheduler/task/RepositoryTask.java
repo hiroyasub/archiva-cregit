@@ -23,22 +23,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|scheduler
-operator|.
-name|TaskExecutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -60,19 +44,40 @@ name|RepositoryTask
 extends|extends
 name|Task
 block|{
-comment|/**      * Execute the task.      */
-name|void
-name|execute
+name|String
+name|QUEUE_POLICY_WAIT
+init|=
+literal|"wait"
+decl_stmt|;
+name|String
+name|QUEUE_POLICY_SKIP
+init|=
+literal|"skip"
+decl_stmt|;
+comment|/**      * Gets the queue policy for this task.      *      * @return Queue policy for this task      */
+name|String
+name|getQueuePolicy
 parameter_list|()
-throws|throws
-name|TaskExecutionException
 function_decl|;
-comment|/**      * Execute the task now if needed because the target doesn't exist.      */
+comment|/**      * Sets the queue policy for this task.      *      * @param policy        */
 name|void
-name|executeNowIfNeeded
+name|setQueuePolicy
+parameter_list|(
+name|String
+name|policy
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the job name to represent a group of similar / identical job tasks.  Can be used to check the      * task queue for similar / identical job tasks.      */
+name|void
+name|setJobName
+parameter_list|(
+name|String
+name|jobName
+parameter_list|)
+function_decl|;
+name|String
+name|getJobName
 parameter_list|()
-throws|throws
-name|TaskExecutionException
 function_decl|;
 block|}
 end_interface
