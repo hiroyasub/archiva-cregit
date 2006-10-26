@@ -141,11 +141,11 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|xwork
+name|security
 operator|.
-name|action
+name|rbac
 operator|.
-name|PlexusActionSupport
+name|Resource
 import|;
 end_import
 
@@ -217,11 +217,11 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|security
+name|xwork
 operator|.
-name|rbac
+name|action
 operator|.
-name|Resource
+name|PlexusActionSupport
 import|;
 end_import
 

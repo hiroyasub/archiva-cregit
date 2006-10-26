@@ -27,9 +27,13 @@ name|apache
 operator|.
 name|maven
 operator|.
-name|model
+name|archiva
 operator|.
-name|Dependency
+name|indexer
+operator|.
+name|record
+operator|.
+name|StandardArtifactIndexRecord
 import|;
 end_import
 
@@ -57,13 +61,9 @@ name|apache
 operator|.
 name|maven
 operator|.
-name|archiva
+name|model
 operator|.
-name|indexer
-operator|.
-name|record
-operator|.
-name|StandardArtifactIndexRecord
+name|Dependency
 import|;
 end_import
 
@@ -123,7 +123,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|LinkedHashMap
 import|;
 end_import
 
@@ -133,7 +133,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|LinkedHashMap
+name|List
 import|;
 end_import
 
