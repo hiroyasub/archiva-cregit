@@ -131,7 +131,7 @@ name|expectedId
 argument_list|,
 name|requestPath
 operator|.
-name|repoId
+name|repoName
 argument_list|)
 expr_stmt|;
 name|assertEquals

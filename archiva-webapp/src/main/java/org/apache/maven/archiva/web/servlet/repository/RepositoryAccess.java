@@ -464,7 +464,7 @@ class|class
 name|RequestPath
 block|{
 name|String
-name|repoId
+name|repoName
 decl_stmt|;
 name|String
 name|path
@@ -566,11 +566,11 @@ name|repoconfig
 init|=
 name|config
 operator|.
-name|getRepositoryById
+name|getRepositoryByUrlName
 argument_list|(
 name|reqpath
 operator|.
-name|repoId
+name|repoName
 argument_list|)
 decl_stmt|;
 if|if
@@ -584,7 +584,7 @@ name|routeToErrorPage
 argument_list|(
 name|response
 argument_list|,
-literal|"Invalid Repository ID."
+literal|"Invalid Repository URL."
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1084,7 +1084,7 @@ comment|// Find the first 'path' of the pathInfo.
 comment|// Default: "/pathid" -> "pathid"
 name|ret
 operator|.
-name|repoId
+name|repoName
 operator|=
 name|requestPathInfo
 operator|.
@@ -1122,7 +1122,7 @@ block|{
 comment|// Filtered: "/central/org/apache/maven/" -> "central"
 name|ret
 operator|.
-name|repoId
+name|repoName
 operator|=
 name|requestPathInfo
 operator|.
