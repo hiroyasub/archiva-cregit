@@ -497,7 +497,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|addFailures
+name|addFailure
 argument_list|(
 name|reporter
 argument_list|,
@@ -558,7 +558,7 @@ block|}
 specifier|private
 specifier|static
 name|void
-name|addFailures
+name|addFailure
 parameter_list|(
 name|ReportingDatabase
 name|reporter
