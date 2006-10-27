@@ -450,6 +450,13 @@ name|ACCESS_METHODS
 operator|.
 name|add
 argument_list|(
+literal|"HEAD"
+argument_list|)
+expr_stmt|;
+name|ACCESS_METHODS
+operator|.
+name|add
+argument_list|(
 literal|"GET"
 argument_list|)
 expr_stmt|;
@@ -833,11 +840,29 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-literal|"Authorization Denied"
-argument_list|,
+literal|"Authorization Denied [ip="
+operator|+
+name|request
+operator|.
+name|getRemoteAddr
+argument_list|()
+operator|+
+literal|",isWriteRequest="
+operator|+
+name|isWriteRequest
+operator|+
+literal|",permission="
+operator|+
+name|permission
+operator|+
+literal|"] : "
+operator|+
 name|authzResult
 operator|.
 name|getException
+argument_list|()
+operator|.
+name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
