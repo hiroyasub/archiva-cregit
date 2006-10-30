@@ -27,11 +27,9 @@ name|apache
 operator|.
 name|maven
 operator|.
-name|archiva
+name|artifact
 operator|.
-name|digest
-operator|.
-name|Digester
+name|Artifact
 import|;
 end_import
 
@@ -39,13 +37,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|codehaus
 operator|.
-name|maven
+name|plexus
 operator|.
-name|artifact
+name|digest
 operator|.
-name|Artifact
+name|Digester
 import|;
 end_import
 

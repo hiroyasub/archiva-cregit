@@ -21,11 +21,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|codehaus
 operator|.
-name|maven
-operator|.
-name|archiva
+name|plexus
 operator|.
 name|digest
 operator|.
@@ -37,11 +35,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|codehaus
 operator|.
-name|maven
-operator|.
-name|archiva
+name|plexus
 operator|.
 name|digest
 operator|.
