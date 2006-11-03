@@ -25,6 +25,22 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|conversion
+operator|.
+name|LegacyRepositoryConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
 name|converter
 operator|.
 name|RepositoryConversionException
@@ -58,26 +74,22 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Jason van Zyl  */
+comment|/**  * @author Jason van Zyl  * @plexus.component  * @todo turn this into a general conversion component and hide all this crap here.  */
 end_comment
 
-begin_interface
+begin_class
 specifier|public
-interface|interface
-name|RepositoryManager
+class|class
+name|DefaultArchiva
+implements|implements
+name|Archiva
 block|{
-comment|/**      * Role of the Repository Manager      */
-name|String
-name|ROLE
-init|=
-name|RepositoryManager
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|LegacyRepositoryConverter
+name|legacyRepositoryConverter
 decl_stmt|;
-comment|/**      * Convert a legacy repository to a modern repository. This means a Maven 1.x repository      * using v3 POMs to a Maven 2.x repository using v4.0.0 POMs.      *      * @param legacyRepositoryDirectory      * @param repositoryDirectory      * @throws RepositoryConversionException      */
+specifier|public
 name|void
 name|convertLegacyRepository
 parameter_list|(
@@ -94,9 +106,21 @@ throws|throws
 name|RepositoryConversionException
 throws|,
 name|DiscovererException
-function_decl|;
+block|{
+name|legacyRepositoryConverter
+operator|.
+name|convertLegacyRepository
+argument_list|(
+name|legacyRepositoryDirectory
+argument_list|,
+name|repositoryDirectory
+argument_list|,
+name|includeSnapshots
+argument_list|)
+expr_stmt|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 
