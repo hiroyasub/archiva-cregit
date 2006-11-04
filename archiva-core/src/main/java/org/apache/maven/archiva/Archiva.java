@@ -57,6 +57,16 @@ name|File
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Jason van Zyl  */
 end_comment
@@ -86,6 +96,9 @@ name|legacyRepositoryDirectory
 parameter_list|,
 name|File
 name|repositoryDirectory
+parameter_list|,
+name|List
+name|blacklistedPatterns
 parameter_list|,
 name|boolean
 name|includeSnapshots

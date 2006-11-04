@@ -163,6 +163,14 @@ name|NEW_REPOSITORY_PATH
 init|=
 literal|'n'
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|char
+name|BLACKLISTED_PATTERNS
+init|=
+literal|'b'
+decl_stmt|;
 comment|// ----------------------------------------------------------------------------
 comment|// These are standard options that we would want to use for all our projects.
 comment|// ----------------------------------------------------------------------------
@@ -297,6 +305,31 @@ operator|.
 name|create
 argument_list|(
 name|NEW_REPOSITORY_PATH
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|options
+operator|.
+name|addOption
+argument_list|(
+name|OptionBuilder
+operator|.
+name|withLongOpt
+argument_list|(
+literal|"new-repo"
+argument_list|)
+operator|.
+name|hasArg
+argument_list|()
+operator|.
+name|withDescription
+argument_list|(
+literal|"Path to newly created Maven 2.x repository."
+argument_list|)
+operator|.
+name|create
+argument_list|(
+name|BLACKLISTED_PATTERNS
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -73,6 +73,16 @@ name|File
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Jason van Zyl  * @plexus.component  * @todo turn this into a general conversion component and hide all this crap here.  */
 end_comment
@@ -99,6 +109,9 @@ parameter_list|,
 name|File
 name|repositoryDirectory
 parameter_list|,
+name|List
+name|blacklistedPatterns
+parameter_list|,
 name|boolean
 name|includeSnapshots
 parameter_list|)
@@ -114,6 +127,8 @@ argument_list|(
 name|legacyRepositoryDirectory
 argument_list|,
 name|repositoryDirectory
+argument_list|,
+name|blacklistedPatterns
 argument_list|,
 name|includeSnapshots
 argument_list|)
