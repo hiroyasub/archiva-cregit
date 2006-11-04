@@ -261,6 +261,9 @@ argument_list|(
 literal|"old-repo"
 argument_list|)
 operator|.
+name|hasArg
+argument_list|()
+operator|.
 name|withDescription
 argument_list|(
 literal|"Path to Maven 1.x legacy repository to convert."
@@ -282,6 +285,9 @@ name|withLongOpt
 argument_list|(
 literal|"new-repo"
 argument_list|)
+operator|.
+name|hasArg
+argument_list|()
 operator|.
 name|withDescription
 argument_list|(

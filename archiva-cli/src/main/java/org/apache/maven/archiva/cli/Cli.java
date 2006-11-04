@@ -609,6 +609,21 @@ name|NEW_REPOSITORY_PATH
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Converting "
+operator|+
+name|oldRepositoryPath
+operator|+
+literal|" to "
+operator|+
+name|newRepositoryPath
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|archiva
