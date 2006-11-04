@@ -44,7 +44,7 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|RepositoryManagerTest
+name|ArchivaTest
 extends|extends
 name|PlexusTestCase
 block|{

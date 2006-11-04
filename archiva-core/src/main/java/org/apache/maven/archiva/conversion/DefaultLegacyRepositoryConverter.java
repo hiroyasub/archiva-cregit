@@ -345,6 +345,9 @@ parameter_list|,
 name|File
 name|repositoryDirectory
 parameter_list|,
+name|List
+name|blacklistedPatterns
+parameter_list|,
 name|boolean
 name|includeSnapshots
 parameter_list|)
@@ -455,7 +458,7 @@ name|discoverArtifacts
 argument_list|(
 name|legacyRepository
 argument_list|,
-literal|null
+name|blacklistedPatterns
 argument_list|,
 name|filter
 argument_list|)

@@ -55,6 +55,16 @@ name|File
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Jason van Zyl  */
 end_comment
@@ -74,7 +84,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Convert a legacy repository to a modern repository. This means a Maven 1.x repository      * using v3 POMs to a Maven 2.x repository using v4.0.0 POMs.      *      * @param legacyRepositoryDirectory      * @param repositoryDirectory      * @throws org.apache.maven.archiva.converter.RepositoryConversionException      */
+comment|/**      * Convert a legacy repository to a modern repository. This means a Maven 1.x repository      * using v3 POMs to a Maven 2.x repository using v4.0.0 POMs.      *      * @param legacyRepositoryDirectory      * @param repositoryDirectory      * @throws org.apache.maven.archiva.converter.RepositoryConversionException      *      */
 name|void
 name|convertLegacyRepository
 parameter_list|(
@@ -83,6 +93,9 @@ name|legacyRepositoryDirectory
 parameter_list|,
 name|File
 name|repositoryDirectory
+parameter_list|,
+name|List
+name|blacklistedPatterns
 parameter_list|,
 name|boolean
 name|includeSnapshots
