@@ -2027,6 +2027,8 @@ name|checksumsValid
 operator|=
 literal|true
 expr_stmt|;
+block|}
+comment|// Even if the checksums for the POM are invalid we should still convert the POM
 name|contents
 operator|=
 name|FileUtils
@@ -2036,7 +2038,6 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
