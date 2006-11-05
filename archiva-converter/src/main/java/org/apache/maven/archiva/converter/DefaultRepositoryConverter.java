@@ -1446,6 +1446,13 @@ literal|true
 decl_stmt|;
 if|if
 condition|(
+name|metadata
+operator|.
+name|getGroupId
+argument_list|()
+operator|==
+literal|null
+operator|||
 operator|!
 name|metadata
 operator|.
@@ -1486,6 +1493,13 @@ condition|)
 block|{
 if|if
 condition|(
+name|metadata
+operator|.
+name|getGroupId
+argument_list|()
+operator|==
+literal|null
+operator|||
 operator|!
 name|metadata
 operator|.
