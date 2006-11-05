@@ -3377,6 +3377,8 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|convert
 argument_list|(
 name|artifact
@@ -3386,6 +3388,44 @@ argument_list|,
 name|reporter
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RepositoryConversionException
+name|e
+parameter_list|)
+block|{
+comment|// Need to add:
+comment|// artifact
+comment|// processor
+comment|// problem
+comment|// reason
+comment|//TODO: this doesn't really provide any real facility for a decent error message, having
+comment|// the stack trace would be useful. I also have no idea what a processor is currently or
+comment|// how to get hold of it here.
+name|reporter
+operator|.
+name|addFailure
+argument_list|(
+name|artifact
+argument_list|,
+literal|""
+argument_list|,
+name|e
+operator|.
+name|getLocalizedMessage
+argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getLocalizedMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
