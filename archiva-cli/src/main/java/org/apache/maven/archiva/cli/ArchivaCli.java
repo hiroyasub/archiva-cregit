@@ -137,22 +137,6 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|tools
-operator|.
-name|cli
-operator|.
-name|Cli
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
 name|util
 operator|.
 name|StringUtils
@@ -230,6 +214,9 @@ name|ArchivaCli
 extends|extends
 name|AbstractCli
 block|{
+comment|// ----------------------------------------------------------------------------
+comment|// Options
+comment|// ----------------------------------------------------------------------------
 specifier|public
 specifier|static
 specifier|final
@@ -238,6 +225,9 @@ name|CONVERT
 init|=
 literal|'c'
 decl_stmt|;
+comment|// ----------------------------------------------------------------------------
+comment|// Properties controlling Repository conversion
+comment|// ----------------------------------------------------------------------------
 specifier|public
 specifier|static
 specifier|final
@@ -262,9 +252,6 @@ name|BLACKLISTED_PATTERNS
 init|=
 literal|"blacklistPatterns"
 decl_stmt|;
-comment|// ----------------------------------------------------------------------------
-comment|//
-comment|// ----------------------------------------------------------------------------
 specifier|public
 specifier|static
 name|void
