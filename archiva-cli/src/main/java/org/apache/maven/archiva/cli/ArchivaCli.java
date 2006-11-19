@@ -293,7 +293,7 @@ name|getPomPropertiesPath
 parameter_list|()
 block|{
 return|return
-literal|"META-INF/maven/org.apache.maven/maven-core/pom.properties"
+literal|"META-INF/maven/org.apache.maven.archiva/archiva-cli/pom.properties"
 return|;
 block|}
 specifier|public
