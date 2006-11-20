@@ -70,7 +70,7 @@ name|HttpServletRequestWrapper
 block|{
 specifier|private
 name|String
-name|repoId
+name|repoUrlName
 decl_stmt|;
 specifier|public
 name|RepositoryRequest
@@ -79,7 +79,7 @@ name|HttpServletRequest
 name|request
 parameter_list|,
 name|String
-name|repoid
+name|repoUrlName
 parameter_list|)
 block|{
 name|super
@@ -89,26 +89,26 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|repoId
+name|repoUrlName
 operator|=
 literal|""
 expr_stmt|;
 if|if
 condition|(
-name|repoid
+name|repoUrlName
 operator|!=
 literal|null
 condition|)
 block|{
 name|this
 operator|.
-name|repoId
+name|repoUrlName
 operator|=
-name|repoid
+name|repoUrlName
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Adjust the path info value to remove reference to repoId.      * This is done to satisfy the needs of {@link DAVTransaction}      */
+comment|/**      * Adjust the path info value to remove reference to repoUrlName.      * This is done to satisfy the needs of {@link DAVTransaction}      */
 specifier|public
 name|String
 name|getPathInfo
@@ -172,7 +172,7 @@ name|pathInfo
 operator|.
 name|startsWith
 argument_list|(
-name|repoId
+name|repoUrlName
 argument_list|)
 condition|)
 block|{
@@ -182,7 +182,7 @@ name|pathInfo
 operator|.
 name|substring
 argument_list|(
-name|repoId
+name|repoUrlName
 operator|.
 name|length
 argument_list|()
@@ -208,7 +208,7 @@ literal|"/"
 operator|+
 name|this
 operator|.
-name|repoId
+name|repoUrlName
 return|;
 block|}
 block|}

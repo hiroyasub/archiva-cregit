@@ -981,7 +981,7 @@ name|request
 argument_list|,
 name|repoconfig
 operator|.
-name|getId
+name|getUrlName
 argument_list|()
 argument_list|)
 argument_list|,
