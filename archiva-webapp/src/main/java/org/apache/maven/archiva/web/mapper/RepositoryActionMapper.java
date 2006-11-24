@@ -310,7 +310,7 @@ argument_list|(
 literal|"version"
 argument_list|)
 operator|+
-literal|"/dependedonby"
+literal|"/usedby"
 return|;
 block|}
 if|else if
@@ -708,7 +708,7 @@ return|;
 block|}
 if|else if
 condition|(
-literal|"dependedonby"
+literal|"usedby"
 operator|.
 name|equals
 argument_list|(
