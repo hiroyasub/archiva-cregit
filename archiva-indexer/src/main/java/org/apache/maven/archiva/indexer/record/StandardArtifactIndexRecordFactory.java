@@ -59,6 +59,20 @@ name|maven
 operator|.
 name|artifact
 operator|.
+name|InvalidArtifactRTException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
 name|factory
 operator|.
 name|ArtifactFactory
@@ -1216,6 +1230,8 @@ name|ProjectBuildingException
 block|{
 comment|// TODO: this can create a -SNAPSHOT.pom when it didn't exist and a timestamped one did. This is harmless, but should be avoided
 comment|// TODO: will this pollute with local repo metadata?
+try|try
+block|{
 name|MavenProject
 name|project
 init|=
@@ -1238,6 +1254,32 @@ operator|.
 name|getModel
 argument_list|()
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|InvalidArtifactRTException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ProjectBuildingException
+argument_list|(
+name|artifact
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+literal|"Unable to build project from invalid artifact ["
+operator|+
+name|artifact
+operator|+
+literal|"]"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 specifier|private
 name|void

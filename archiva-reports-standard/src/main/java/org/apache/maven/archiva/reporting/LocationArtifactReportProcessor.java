@@ -511,7 +511,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|//get the location of the artifact itself
+comment|// get the location of the artifact itself
 name|File
 name|file
 init|=
@@ -629,15 +629,21 @@ block|}
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|IllegalStateException
+name|addFailure
 argument_list|(
-literal|"Couldn't find artifact "
+name|reporter
+argument_list|,
+name|artifact
+argument_list|,
+literal|"missing-artifact"
+argument_list|,
+literal|"The artifact file ["
 operator|+
 name|file
+operator|+
+literal|"] cannot be found for metadata."
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 specifier|private

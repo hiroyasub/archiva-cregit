@@ -755,8 +755,6 @@ argument_list|,
 literal|"pom"
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|Model
 name|model
 init|=
@@ -781,20 +779,16 @@ argument_list|,
 name|reportDatabase
 argument_list|)
 expr_stmt|;
-name|fail
+name|assertEquals
 argument_list|(
-literal|"Should not have passed the artifact"
+literal|1
+argument_list|,
+name|reportDatabase
+operator|.
+name|getNumFailures
+argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalStateException
-name|e
-parameter_list|)
-block|{
-comment|// correct!
-block|}
 block|}
 comment|/**      * Test the LocationArtifactReporter when the artifact's physical location does not match the      * location in the file system pom but instead matches the specified location in the packaged pom.      */
 specifier|public
