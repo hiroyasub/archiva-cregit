@@ -241,11 +241,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|commons
 operator|.
-name|util
+name|lang
 operator|.
 name|StringUtils
 import|;
@@ -1022,10 +1022,9 @@ name|proxy
 operator|!=
 literal|null
 operator|&&
-operator|!
 name|StringUtils
 operator|.
-name|isEmpty
+name|isNotEmpty
 argument_list|(
 name|proxy
 operator|.

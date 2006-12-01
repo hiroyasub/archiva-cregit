@@ -199,11 +199,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|commons
 operator|.
-name|util
+name|lang
 operator|.
 name|StringUtils
 import|;
@@ -798,10 +798,9 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|StringUtils
 operator|.
-name|isEmpty
+name|isNotEmpty
 argument_list|(
 name|metaVersion
 argument_list|)
