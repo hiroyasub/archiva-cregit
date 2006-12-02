@@ -65,13 +65,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|commons
 operator|.
-name|util
+name|io
 operator|.
-name|IOUtil
+name|IOUtils
 import|;
 end_import
 
@@ -614,7 +614,7 @@ name|filename1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|IOUtil
+name|IOUtils
 operator|.
 name|copy
 argument_list|(

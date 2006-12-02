@@ -121,13 +121,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|commons
 operator|.
-name|util
+name|io
 operator|.
-name|IOUtil
+name|IOUtils
 import|;
 end_import
 
@@ -397,9 +397,9 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|IOUtil
+name|IOUtils
 operator|.
-name|close
+name|closeQuietly
 argument_list|(
 name|reader
 argument_list|)
