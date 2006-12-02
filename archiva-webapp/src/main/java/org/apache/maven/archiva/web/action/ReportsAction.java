@@ -443,7 +443,7 @@ specifier|private
 name|Configuration
 name|configuration
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.archiva.reporting.ReportGroup"      */
+comment|/**      * @plexus.requirement role="org.apache.maven.archiva.reporting.group.ReportGroup"      */
 specifier|private
 name|Map
 name|reports
