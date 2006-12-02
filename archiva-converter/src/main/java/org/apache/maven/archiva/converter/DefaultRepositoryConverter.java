@@ -47,6 +47,8 @@ name|archiva
 operator|.
 name|reporting
 operator|.
+name|database
+operator|.
 name|ReportingDatabase
 import|;
 end_import

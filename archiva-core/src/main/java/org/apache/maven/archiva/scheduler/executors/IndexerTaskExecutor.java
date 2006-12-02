@@ -279,6 +279,8 @@ name|archiva
 operator|.
 name|reporting
 operator|.
+name|executor
+operator|.
 name|ReportExecutor
 import|;
 end_import
@@ -294,6 +296,8 @@ operator|.
 name|archiva
 operator|.
 name|reporting
+operator|.
+name|group
 operator|.
 name|ReportGroup
 import|;
@@ -311,6 +315,8 @@ name|archiva
 operator|.
 name|reporting
 operator|.
+name|database
+operator|.
 name|ReportingDatabase
 import|;
 end_import
@@ -327,6 +333,8 @@ name|archiva
 operator|.
 name|reporting
 operator|.
+name|filter
+operator|.
 name|ReportingMetadataFilter
 import|;
 end_import
@@ -342,6 +350,8 @@ operator|.
 name|archiva
 operator|.
 name|reporting
+operator|.
+name|store
 operator|.
 name|ReportingStoreException
 import|;
