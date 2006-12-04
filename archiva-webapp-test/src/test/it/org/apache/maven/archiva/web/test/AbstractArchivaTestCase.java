@@ -117,14 +117,6 @@ block|{
 name|getSelenium
 argument_list|()
 operator|.
-name|setTimeout
-argument_list|(
-literal|"120000"
-argument_list|)
-expr_stmt|;
-name|getSelenium
-argument_list|()
-operator|.
 name|open
 argument_list|(
 literal|"/archiva"
