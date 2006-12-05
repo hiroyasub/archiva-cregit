@@ -63,6 +63,14 @@ name|GUEST_ROLE
 init|=
 literal|"Guest"
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|BASE_REPOSITORY_MANAGER
+init|=
+literal|"Repository Manager Base"
+decl_stmt|;
 comment|// dynamic role prefixes
 specifier|public
 specifier|static

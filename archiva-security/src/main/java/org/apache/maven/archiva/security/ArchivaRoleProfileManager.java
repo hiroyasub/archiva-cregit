@@ -67,6 +67,11 @@ parameter_list|()
 throws|throws
 name|RoleProfileException
 block|{
+name|getRole
+argument_list|(
+literal|"archiva-repository-manager-base"
+argument_list|)
+expr_stmt|;
 name|mergeRoleProfiles
 argument_list|(
 literal|"system-administrator"
