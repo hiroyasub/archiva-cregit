@@ -121,11 +121,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|commons
 operator|.
-name|util
+name|io
 operator|.
 name|FileUtils
 import|;
@@ -340,9 +340,11 @@ name|file
 argument_list|,
 name|FileUtils
 operator|.
-name|fileRead
+name|readFileToString
 argument_list|(
 name|checksumFile
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
