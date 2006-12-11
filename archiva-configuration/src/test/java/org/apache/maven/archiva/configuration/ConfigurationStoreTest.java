@@ -112,7 +112,7 @@ name|assertEquals
 argument_list|(
 literal|"check configuration has default elements"
 argument_list|,
-literal|"0 0 * * * ?"
+literal|"0 0,30 * * * ?"
 argument_list|,
 name|configuration
 operator|.
