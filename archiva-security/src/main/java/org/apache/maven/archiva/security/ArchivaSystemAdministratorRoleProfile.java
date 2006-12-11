@@ -160,6 +160,8 @@ operator|.
 name|OPERATION_DELETE_REPOSITORY
 argument_list|)
 expr_stmt|;
+comment|// we don't add access/upload repository operations. This isn't a sys-admin function, and we don't want to
+comment|// encourage the use of the sys admin role for such operations. They can grant it as necessary.
 return|return
 name|operations
 return|;
