@@ -3353,7 +3353,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Check unmodified"
+literal|"Check artifact unmodified"
 argument_list|,
 name|origTime
 argument_list|,
@@ -3365,7 +3365,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Check unmodified"
+literal|"Check POM unmodified"
 argument_list|,
 name|origPomTime
 argument_list|,
