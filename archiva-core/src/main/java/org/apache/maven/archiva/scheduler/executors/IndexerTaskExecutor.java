@@ -1220,7 +1220,7 @@ argument_list|,
 name|recordFactory
 argument_list|)
 expr_stmt|;
-comment|// MNG-142 - the project builder retains a lot of objects in its inflexible cache. This is a hack
+comment|// MRM-142 - the project builder retains a lot of objects in its inflexible cache. This is a hack
 comment|// around that. TODO: remove when it is configurable
 name|flushProjectBuilderCacheHack
 argument_list|()
@@ -1396,7 +1396,7 @@ literal|"ms"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @todo remove when no longer needed (MNG-142)      * @plexus.requirement      */
+comment|/**      * @todo remove when no longer needed (MRM-142)      * @plexus.requirement      */
 specifier|private
 name|MavenProjectBuilder
 name|projectBuilder
