@@ -75,6 +75,7 @@ argument_list|,
 literal|"temp-pass"
 argument_list|)
 expr_stmt|;
+comment|// change of password required for new users
 if|if
 condition|(
 name|getTitle
@@ -260,40 +261,20 @@ argument_list|(
 literal|"[Admin] User List"
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|15000
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|e
-parameter_list|)
-block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
-block|}
 name|assertLinkPresent
 argument_list|(
 name|username
 argument_list|)
 expr_stmt|;
-name|clickLinkWithXPath
+comment|//this does not work bec the image is pointing to /archiva/archiva/images/pss/admin/delete.gif
+comment|// when ran in selenium
+comment|// clickLinkWithXPath( "//a[@href='/security/userdelete.action?username=" + username + "']" );
+comment|//so instead we use this
+name|open
 argument_list|(
-literal|"//a[@href='/security/userdelete.action?username="
+literal|"/archiva/security/userdelete.action?username="
 operator|+
 name|username
-operator|+
-literal|"']"
 argument_list|)
 expr_stmt|;
 name|assertPage
