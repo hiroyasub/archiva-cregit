@@ -16,20 +16,8 @@ package|;
 end_package
 
 begin_comment
-comment|/*  * Copyright 2006 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *   http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
-
-begin_import
-import|import
-name|com
-operator|.
-name|thoughtworks
-operator|.
-name|selenium
-operator|.
-name|Selenium
-import|;
-end_import
 
 begin_comment
 comment|/**  * @author Edwin Punzalan  */
@@ -61,7 +49,7 @@ argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
-literal|"Authentication failed"
+literal|"You have entered an incorrect username and/or password"
 argument_list|)
 expr_stmt|;
 block|}
@@ -72,9 +60,9 @@ parameter_list|()
 block|{
 name|createUser
 argument_list|(
-literal|"user"
+literal|"test-user"
 argument_list|,
-literal|"user01"
+literal|"temp-pass"
 argument_list|)
 expr_stmt|;
 name|goToLoginPage
@@ -82,9 +70,58 @@ argument_list|()
 expr_stmt|;
 name|submitLoginPage
 argument_list|(
-literal|"user"
+literal|"test-user"
 argument_list|,
-literal|"user01"
+literal|"temp-pass"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|getTitle
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|getTitlePrefix
+argument_list|()
+operator|+
+literal|"Change Password"
+argument_list|)
+condition|)
+block|{
+name|setFieldValue
+argument_list|(
+literal|"existingPassword"
+argument_list|,
+literal|"temp-pass"
+argument_list|)
+expr_stmt|;
+name|setFieldValue
+argument_list|(
+literal|"newPassword"
+argument_list|,
+literal|"p4ssw0rd"
+argument_list|)
+expr_stmt|;
+name|setFieldValue
+argument_list|(
+literal|"newPasswordConfirm"
+argument_list|,
+literal|"p4ssw0rd"
+argument_list|)
+expr_stmt|;
+name|clickButtonWithValue
+argument_list|(
+literal|"Change Password"
+argument_list|)
+expr_stmt|;
+block|}
+name|logout
+argument_list|()
+expr_stmt|;
+name|deleteUser
+argument_list|(
+literal|"test-user"
 argument_list|)
 expr_stmt|;
 block|}
@@ -99,12 +136,6 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|Selenium
-name|sel
-init|=
-name|getSelenium
-argument_list|()
-decl_stmt|;
 name|goToLoginPage
 argument_list|()
 expr_stmt|;
@@ -115,47 +146,39 @@ argument_list|,
 name|adminPassword
 argument_list|)
 expr_stmt|;
-name|sel
-operator|.
-name|open
+name|clickLinkWithText
 argument_list|(
-literal|"/archiva/security/userlist.action"
+literal|"User Management"
 argument_list|)
 expr_stmt|;
 name|assertPage
 argument_list|(
-literal|"Maven Archiva :: [Admin] User List"
+literal|"[Admin] User List"
 argument_list|)
 expr_stmt|;
-name|assertTextNotPresent
+name|assertLinkNotPresent
 argument_list|(
 name|username
 argument_list|)
 expr_stmt|;
-name|sel
-operator|.
-name|open
+name|clickButtonWithValue
 argument_list|(
-literal|"/archiva/security/usercreate!show.action"
+literal|"Create New User"
 argument_list|)
 expr_stmt|;
 name|assertPage
 argument_list|(
-literal|"Maven Archiva :: [Admin] User Create"
+literal|"[Admin] User Create"
 argument_list|)
 expr_stmt|;
-name|sel
-operator|.
-name|type
+name|setFieldValue
 argument_list|(
 literal|"user.username"
 argument_list|,
 name|username
 argument_list|)
 expr_stmt|;
-name|sel
-operator|.
-name|type
+name|setFieldValue
 argument_list|(
 literal|"user.fullName"
 argument_list|,
@@ -164,9 +187,7 @@ operator|+
 literal|" FullName"
 argument_list|)
 expr_stmt|;
-name|sel
-operator|.
-name|type
+name|setFieldValue
 argument_list|(
 literal|"user.email"
 argument_list|,
@@ -175,29 +196,23 @@ operator|+
 literal|"@localhost.com"
 argument_list|)
 expr_stmt|;
-name|sel
-operator|.
-name|type
+name|setFieldValue
 argument_list|(
 literal|"user.password"
 argument_list|,
 name|password
 argument_list|)
 expr_stmt|;
-name|sel
-operator|.
-name|type
+name|setFieldValue
 argument_list|(
 literal|"user.confirmPassword"
 argument_list|,
 name|password
 argument_list|)
 expr_stmt|;
-name|sel
-operator|.
-name|click
+name|clickButtonWithValue
 argument_list|(
-literal|"//input[@type='submit' and @value='Create User']"
+literal|"Create User"
 argument_list|)
 expr_stmt|;
 name|waitPage
@@ -205,13 +220,106 @@ argument_list|()
 expr_stmt|;
 name|assertPage
 argument_list|(
-literal|"Maven Archiva :: [Admin] User List"
+literal|"[Admin] User List"
+argument_list|)
+expr_stmt|;
+name|assertLinkPresent
+argument_list|(
+name|username
+argument_list|)
+expr_stmt|;
+name|logout
+argument_list|()
+expr_stmt|;
+block|}
+specifier|private
+name|void
+name|deleteUser
+parameter_list|(
+name|String
+name|username
+parameter_list|)
+block|{
+name|goToLoginPage
+argument_list|()
+expr_stmt|;
+name|submitLoginPage
+argument_list|(
+name|adminUsername
+argument_list|,
+name|adminPassword
+argument_list|)
+expr_stmt|;
+name|clickLinkWithText
+argument_list|(
+literal|"User Management"
+argument_list|)
+expr_stmt|;
+name|assertPage
+argument_list|(
+literal|"[Admin] User List"
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|15000
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
+block|}
+name|assertLinkPresent
+argument_list|(
+name|username
+argument_list|)
+expr_stmt|;
+name|clickLinkWithXPath
+argument_list|(
+literal|"//a[@href='/security/userdelete.action?username="
+operator|+
+name|username
+operator|+
+literal|"']"
+argument_list|)
+expr_stmt|;
+name|assertPage
+argument_list|(
+literal|"[Admin] User Delete"
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
+literal|"The following user will be deleted: "
+operator|+
 name|username
 argument_list|)
+expr_stmt|;
+name|clickButtonWithValue
+argument_list|(
+literal|"Delete User"
+argument_list|)
+expr_stmt|;
+name|assertPage
+argument_list|(
+literal|"[Admin] User List"
+argument_list|)
+expr_stmt|;
+name|logout
+argument_list|()
 expr_stmt|;
 block|}
 block|}
