@@ -126,7 +126,7 @@ argument_list|)
 expr_stmt|;
 name|clickButtonWithValue
 argument_list|(
-literal|"AddRepository"
+literal|"Add Repository"
 argument_list|)
 expr_stmt|;
 comment|//Set Index location
