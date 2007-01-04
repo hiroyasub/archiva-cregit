@@ -37,6 +37,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|digest
+operator|.
+name|Digester
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -62,6 +76,16 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
@@ -258,6 +282,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|/**      * @deprecated use {@link #copyFile(File, File, List)}      * @param source      * @param destination      */
 specifier|public
 name|void
 name|copyFile
@@ -267,6 +292,33 @@ name|source
 parameter_list|,
 name|File
 name|destination
+parameter_list|)
+block|{
+name|copyFile
+argument_list|(
+name|source
+argument_list|,
+name|destination
+argument_list|,
+name|Collections
+operator|.
+name|EMPTY_LIST
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      *       * @param source      * @param destination      * @param digesters {@link List}&lt;{@link Digester}> digesters to use for checksumming       */
+specifier|public
+name|void
+name|copyFile
+parameter_list|(
+name|File
+name|source
+parameter_list|,
+name|File
+name|destination
+parameter_list|,
+name|List
+name|digesters
 parameter_list|)
 block|{
 name|events
@@ -279,10 +331,13 @@ argument_list|(
 name|source
 argument_list|,
 name|destination
+argument_list|,
+name|digesters
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @deprecated use {@link #createFile(String, File, List)}      * @param content      * @param destination      */
 specifier|public
 name|void
 name|createFile
@@ -292,6 +347,33 @@ name|content
 parameter_list|,
 name|File
 name|destination
+parameter_list|)
+block|{
+name|createFile
+argument_list|(
+name|content
+argument_list|,
+name|destination
+argument_list|,
+name|Collections
+operator|.
+name|EMPTY_LIST
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      *       * @param content      * @param destination      * @param digesters {@link List}&lt;{@link Digester}> digesters to use for checksumming       */
+specifier|public
+name|void
+name|createFile
+parameter_list|(
+name|String
+name|content
+parameter_list|,
+name|File
+name|destination
+parameter_list|,
+name|List
+name|digesters
 parameter_list|)
 block|{
 name|events
@@ -304,6 +386,8 @@ argument_list|(
 name|content
 argument_list|,
 name|destination
+argument_list|,
+name|digesters
 argument_list|)
 argument_list|)
 expr_stmt|;

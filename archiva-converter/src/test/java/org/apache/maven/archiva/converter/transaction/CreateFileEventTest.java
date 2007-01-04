@@ -21,6 +21,16 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -45,16 +55,6 @@ name|PlexusTestCase
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author Edwin Punzalan  */
 end_comment
@@ -64,7 +64,7 @@ specifier|public
 class|class
 name|CreateFileEventTest
 extends|extends
-name|PlexusTestCase
+name|AbstractFileEventTest
 block|{
 specifier|private
 name|File
@@ -108,6 +108,8 @@ argument_list|(
 literal|"file contents"
 argument_list|,
 name|testFile
+argument_list|,
+name|digesters
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -127,12 +129,17 @@ argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Test file is not yet created"
+literal|"Test file has been created"
 argument_list|,
 name|testFile
 operator|.
 name|exists
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertChecksumCommit
+argument_list|(
+name|testFile
 argument_list|)
 expr_stmt|;
 name|event
@@ -148,6 +155,11 @@ name|testFile
 operator|.
 name|exists
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertChecksumRollback
+argument_list|(
+name|testFile
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -231,6 +243,8 @@ argument_list|(
 literal|"modified contents"
 argument_list|,
 name|testFile
+argument_list|,
+name|digesters
 argument_list|)
 decl_stmt|;
 name|String
@@ -279,6 +293,11 @@ argument_list|,
 name|contents
 argument_list|)
 expr_stmt|;
+name|assertChecksumCommit
+argument_list|(
+name|testFile
+argument_list|)
+expr_stmt|;
 name|event
 operator|.
 name|rollback
@@ -302,6 +321,11 @@ argument_list|,
 literal|"original contents"
 argument_list|,
 name|contents
+argument_list|)
+expr_stmt|;
+name|assertChecksumRollback
+argument_list|(
+name|testFile
 argument_list|)
 expr_stmt|;
 block|}
@@ -332,6 +356,8 @@ argument_list|(
 literal|"file contents"
 argument_list|,
 name|testFile
+argument_list|,
+name|digesters
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -372,6 +398,11 @@ name|testFile
 operator|.
 name|exists
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertChecksumCommit
+argument_list|(
+name|testFile
 argument_list|)
 expr_stmt|;
 block|}
