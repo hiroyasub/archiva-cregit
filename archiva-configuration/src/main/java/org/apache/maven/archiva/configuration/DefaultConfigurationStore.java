@@ -599,6 +599,26 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+comment|//does file directory exist ?
+if|if
+condition|(
+name|file
+operator|.
+name|getParentFile
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|file
+operator|.
+name|getParentFile
+argument_list|()
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
 name|file
 operator|.
 name|getParentFile
@@ -607,6 +627,7 @@ operator|.
 name|mkdirs
 argument_list|()
 expr_stmt|;
+block|}
 name|fileWriter
 operator|=
 operator|new
