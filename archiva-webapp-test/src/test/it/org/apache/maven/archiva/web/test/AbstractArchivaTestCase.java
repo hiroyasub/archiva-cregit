@@ -53,7 +53,7 @@ specifier|private
 name|String
 name|baseUrl
 init|=
-literal|"http://localhost:9595/archiva"
+literal|"http://localhost:9696/archiva"
 decl_stmt|;
 specifier|protected
 name|String
