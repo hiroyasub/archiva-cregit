@@ -58,7 +58,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * CachedRepositoryQueryLayer   *  * @version $Id$  */
 end_comment
 
 begin_class

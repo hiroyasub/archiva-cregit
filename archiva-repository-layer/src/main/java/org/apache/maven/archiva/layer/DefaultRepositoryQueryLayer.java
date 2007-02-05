@@ -174,7 +174,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * DefaultRepositoryQueryLayer   *  * @version $Id$  */
 end_comment
 
 begin_class
