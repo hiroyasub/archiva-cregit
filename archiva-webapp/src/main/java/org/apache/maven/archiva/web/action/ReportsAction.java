@@ -43,7 +43,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|Configuration
+name|ArchivaConfiguration
 import|;
 end_import
 
@@ -59,7 +59,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|ConfigurationStore
+name|Configuration
 import|;
 end_import
 
@@ -418,8 +418,8 @@ name|SecureAction
 block|{
 comment|/**      * @plexus.requirement      */
 specifier|private
-name|ConfigurationStore
-name|configurationStore
+name|ArchivaConfiguration
+name|archivaConfiguration
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
@@ -919,9 +919,9 @@ name|Exception
 block|{
 name|configuration
 operator|=
-name|configurationStore
+name|archivaConfiguration
 operator|.
-name|getConfigurationFromStore
+name|getConfiguration
 argument_list|()
 expr_stmt|;
 block|}

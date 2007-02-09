@@ -78,7 +78,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultActiveManagedRepositoriesTest   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * DefaultActiveManagedRepositoriesTest  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -107,7 +107,7 @@ expr_stmt|;
 name|managedRepos
 operator|=
 operator|(
-name|DefaultActiveManagedRepositories
+name|ActiveManagedRepositories
 operator|)
 name|lookup
 argument_list|(
@@ -117,7 +117,7 @@ name|ROLE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test a simple java find artifact with extras (sources / javadoc).       */
+comment|/**      * Test a simple java find artifact with extras (sources / javadoc).      */
 specifier|public
 name|void
 name|testFindArtifactJavaWithExtras
@@ -383,7 +383,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test a java find of a snapshot artifact that uses a timestamp format.       */
+comment|/**      * Test a java find of a snapshot artifact that uses a timestamp format.      */
 specifier|public
 name|void
 name|testFindArtifactJavaSnapshotTimestamp
@@ -522,7 +522,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test a java find of a snapshot artifact.       */
+comment|/**      * Test a java find of a snapshot artifact.      */
 specifier|public
 name|void
 name|testFindArtifactJavaSnapshot
@@ -661,7 +661,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test a ejb find of a snapshot artifact that also has a client jar available.       */
+comment|/**      * Test a ejb find of a snapshot artifact that also has a client jar available.      */
 specifier|public
 name|void
 name|testFindArtifactEjbSnapshot

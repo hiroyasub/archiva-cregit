@@ -108,7 +108,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ActiveManagedRepositories   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ActiveManagedRepositories  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_interface
@@ -116,9 +116,6 @@ specifier|public
 interface|interface
 name|ActiveManagedRepositories
 block|{
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|ROLE
 init|=
@@ -129,8 +126,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Obtain the ArtifactRepository for the specified Repository ID.      *       * @param id the ID of the repository.      * @return the ArtifactRepository associated with the provided ID, or null if none found.      */
-specifier|public
+comment|/**      * Obtain the ArtifactRepository for the specified Repository ID.      *      * @param id the ID of the repository.      * @return the ArtifactRepository associated with the provided ID, or null if none found.      */
 name|ArtifactRepository
 name|getArtifactRepository
 parameter_list|(
@@ -138,7 +134,6 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
-specifier|public
 name|RepositoryConfiguration
 name|getRepositoryConfiguration
 parameter_list|(
@@ -146,7 +141,6 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
-specifier|public
 name|MavenProject
 name|findProject
 parameter_list|(
@@ -162,7 +156,6 @@ parameter_list|)
 throws|throws
 name|ProjectBuildingException
 function_decl|;
-specifier|public
 name|ManagedArtifact
 name|findArtifact
 parameter_list|(
@@ -178,7 +171,6 @@ parameter_list|)
 throws|throws
 name|ProjectBuildingException
 function_decl|;
-specifier|public
 name|ManagedArtifact
 name|findArtifact
 parameter_list|(
@@ -195,7 +187,6 @@ name|String
 name|type
 parameter_list|)
 function_decl|;
-specifier|public
 name|ManagedArtifact
 name|findArtifact
 parameter_list|(

@@ -31,7 +31,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|ConfigurationStore
+name|ArchivaConfiguration
 import|;
 end_import
 
@@ -47,7 +47,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|ConfigurationStoreException
+name|Configuration
 import|;
 end_import
 
@@ -166,8 +166,8 @@ name|EnvironmentCheck
 block|{
 comment|/**      * @plexus.requirement      */
 specifier|private
-name|ConfigurationStore
-name|configurationStore
+name|ArchivaConfiguration
+name|archivaConfiguration
 decl_stmt|;
 comment|/**      * @plexus.requirement role-hint="archiva"      */
 specifier|private
@@ -177,8 +177,6 @@ decl_stmt|;
 specifier|private
 name|boolean
 name|checked
-init|=
-literal|false
 decl_stmt|;
 specifier|public
 name|void
@@ -197,12 +195,17 @@ block|{
 try|try
 block|{
 comment|// check if there is potential for role/repo disconnect
+name|Configuration
+name|configuration
+init|=
+name|archivaConfiguration
+operator|.
+name|getConfiguration
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
-name|configurationStore
-operator|.
-name|getConfigurationFromStore
-argument_list|()
+name|configuration
 operator|.
 name|isValid
 argument_list|()
@@ -211,10 +214,7 @@ block|{
 name|List
 name|repos
 init|=
-name|configurationStore
-operator|.
-name|getConfigurationFromStore
-argument_list|()
+name|configuration
 operator|.
 name|getRepositories
 argument_list|()
@@ -273,43 +273,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|ConfigurationStoreException
-name|cse
-parameter_list|)
-block|{
-name|list
-operator|.
-name|add
-argument_list|(
-name|this
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|" error loading configuration store: "
-operator|+
-name|cse
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|getLogger
-argument_list|()
-operator|.
-name|info
-argument_list|(
-literal|"error loading configuration store"
-argument_list|,
-name|cse
-argument_list|)
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

@@ -17,26 +17,65 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *   http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|registry
+operator|.
+name|RegistryException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|registry
+operator|.
+name|RegistryListener
+import|;
+end_import
+
 begin_comment
-comment|/**  * Component capable of noticing configuration changes and adjusting accordingly.  * This is not a Plexus role.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * Configuration holder for the model read from the registry.  */
 end_comment
 
 begin_interface
 specifier|public
 interface|interface
-name|ConfigurationChangeListener
+name|ArchivaConfiguration
 block|{
-comment|/**      * Notify the object that there has been a configuration change.      *      * @param configuration the new configuration      * @throws InvalidConfigurationException if there is a problem with the new configuration      * @throws ConfigurationChangeException  if there is a problem changing the configuration, but the configuration is valid      */
+comment|/**      * Get the configuration.      *      * @return the configuration      */
+name|Configuration
+name|getConfiguration
+parameter_list|()
+function_decl|;
+comment|/**      * Save any updated configuration.      *      * @param configuration the configuration to save      * @throws org.codehaus.plexus.registry.RegistryException      *          if there is a problem saving the registry data      */
 name|void
-name|notifyOfConfigurationChange
+name|save
 parameter_list|(
 name|Configuration
 name|configuration
 parameter_list|)
 throws|throws
-name|InvalidConfigurationException
-throws|,
-name|ConfigurationChangeException
+name|RegistryException
+function_decl|;
+comment|/**      * Add a change listener so that registry changes are propogated.      *      * @param listener the listener      */
+name|void
+name|addChangeListener
+parameter_list|(
+name|RegistryListener
+name|listener
+parameter_list|)
 function_decl|;
 block|}
 end_interface

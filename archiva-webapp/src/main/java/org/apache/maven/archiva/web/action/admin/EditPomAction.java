@@ -401,18 +401,6 @@ throws|,
 name|ConfigurationChangeException
 throws|,
 name|ArtifactInstallationException
-throws|,
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|ConfigurationStoreException
 block|{
 comment|// TODO: hack for passed in String[]
 name|String
@@ -489,18 +477,6 @@ throws|,
 name|ProjectBuildingException
 throws|,
 name|ArtifactMetadataRetrievalException
-throws|,
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|ConfigurationStoreException
 block|{
 name|configuration
 operator|=
