@@ -85,7 +85,7 @@ name|app
 operator|.
 name|configuration
 operator|.
-name|ConfigurationStore
+name|MavenAppConfiguration
 import|;
 end_import
 
@@ -119,7 +119,7 @@ name|handler
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
-name|ConfigurationStore
+name|MavenAppConfiguration
 name|appConfigurationStore
 decl_stmt|;
 specifier|public
@@ -138,7 +138,7 @@ name|getCompanyPomModel
 argument_list|(
 name|appConfigurationStore
 operator|.
-name|getConfigurationFromStore
+name|getConfiguration
 argument_list|()
 operator|.
 name|getCompanyPom
