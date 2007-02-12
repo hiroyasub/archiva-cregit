@@ -243,6 +243,12 @@ operator|.
 name|save
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
 block|}
 specifier|public
 name|void
