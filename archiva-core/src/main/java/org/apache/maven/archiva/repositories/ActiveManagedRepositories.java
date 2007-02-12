@@ -107,6 +107,16 @@ name|ProjectBuildingException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * ActiveManagedRepositories  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
@@ -133,6 +143,10 @@ parameter_list|(
 name|String
 name|id
 parameter_list|)
+function_decl|;
+name|List
+name|getAllArtifactRepositories
+parameter_list|()
 function_decl|;
 name|RepositoryConfiguration
 name|getRepositoryConfiguration
