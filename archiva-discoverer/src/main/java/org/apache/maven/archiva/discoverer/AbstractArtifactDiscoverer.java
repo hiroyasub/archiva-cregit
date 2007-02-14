@@ -252,6 +252,14 @@ operator|new
 name|ArrayList
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|repositoryBase
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
 name|List
 name|artifactPaths
 init|=
@@ -347,6 +355,7 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return
