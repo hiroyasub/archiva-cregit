@@ -463,6 +463,13 @@ argument_list|(
 literal|"4.0.0"
 argument_list|)
 expr_stmt|;
+name|companyModel
+operator|.
+name|setPackaging
+argument_list|(
+literal|"pom"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|companyPom
