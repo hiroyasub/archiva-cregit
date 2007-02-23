@@ -162,7 +162,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AuditLog - Audit Log.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.web.repository.AuditLog"  */
+comment|/**  * AuditLog - Audit Log.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.web.repository.AuditLog"  */
 end_comment
 
 begin_class

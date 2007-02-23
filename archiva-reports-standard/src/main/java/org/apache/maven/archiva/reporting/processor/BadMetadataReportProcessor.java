@@ -79,7 +79,7 @@ name|reporting
 operator|.
 name|database
 operator|.
-name|ReportingDatabase
+name|MetadataResultsDatabase
 import|;
 end_import
 
@@ -326,6 +326,11 @@ specifier|private
 name|RepositoryQueryLayerFactory
 name|repositoryQueryLayerFactory
 decl_stmt|;
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|MetadataResultsDatabase
+name|database
+decl_stmt|;
 specifier|private
 specifier|static
 specifier|final
@@ -344,9 +349,6 @@ name|metadata
 parameter_list|,
 name|ArtifactRepository
 name|repository
-parameter_list|,
-name|ReportingDatabase
-name|reporter
 parameter_list|)
 block|{
 if|if
@@ -364,8 +366,6 @@ argument_list|(
 name|metadata
 argument_list|,
 name|repository
-argument_list|,
-name|reporter
 argument_list|)
 expr_stmt|;
 block|}
@@ -377,8 +377,6 @@ parameter_list|)
 block|{
 name|addWarning
 argument_list|(
-name|reporter
-argument_list|,
 name|metadata
 argument_list|,
 literal|null
@@ -451,8 +449,6 @@ condition|)
 block|{
 name|addFailure
 argument_list|(
-name|reporter
-argument_list|,
 name|metadata
 argument_list|,
 literal|"missing-last-updated"
@@ -474,8 +470,6 @@ argument_list|(
 name|metadata
 argument_list|,
 name|repository
-argument_list|,
-name|reporter
 argument_list|)
 expr_stmt|;
 block|}
@@ -486,8 +480,6 @@ argument_list|(
 name|metadata
 argument_list|,
 name|repository
-argument_list|,
-name|reporter
 argument_list|)
 expr_stmt|;
 try|try
@@ -497,8 +489,6 @@ argument_list|(
 name|metadata
 argument_list|,
 name|repository
-argument_list|,
-name|reporter
 argument_list|)
 expr_stmt|;
 block|}
@@ -517,8 +507,6 @@ name|e
 decl_stmt|;
 name|addWarning
 argument_list|(
-name|reporter
-argument_list|,
 name|metadata
 argument_list|,
 literal|null
@@ -531,13 +519,9 @@ block|}
 block|}
 block|}
 specifier|private
-specifier|static
 name|void
 name|addWarning
 parameter_list|(
-name|ReportingDatabase
-name|reporter
-parameter_list|,
 name|RepositoryMetadata
 name|metadata
 parameter_list|,
@@ -549,7 +533,7 @@ name|reason
 parameter_list|)
 block|{
 comment|// TODO: reason could be an i18n key derived from the processor and the problem ID and the
-name|reporter
+name|database
 operator|.
 name|addWarning
 argument_list|(
@@ -573,9 +557,6 @@ name|metadata
 parameter_list|,
 name|ArtifactRepository
 name|repository
-parameter_list|,
-name|ReportingDatabase
-name|reporter
 parameter_list|)
 throws|throws
 name|IOException
@@ -675,8 +656,6 @@ condition|)
 block|{
 name|addFailure
 argument_list|(
-name|reporter
-argument_list|,
 name|metadata
 argument_list|,
 literal|"missing-artifact-id:"
@@ -719,8 +698,6 @@ condition|)
 block|{
 name|addFailure
 argument_list|(
-name|reporter
-argument_list|,
 name|metadata
 argument_list|,
 literal|"missing-plugin-prefix:"
@@ -749,8 +726,6 @@ condition|)
 block|{
 name|addFailure
 argument_list|(
-name|reporter
-argument_list|,
 name|metadata
 argument_list|,
 literal|"duplicate-plugin-prefix:"
@@ -816,8 +791,6 @@ condition|)
 block|{
 name|addFailure
 argument_list|(
-name|reporter
-argument_list|,
 name|metadata
 argument_list|,
 literal|"missing-plugin-from-repository:"
@@ -884,8 +857,6 @@ argument_list|()
 decl_stmt|;
 name|addFailure
 argument_list|(
-name|reporter
-argument_list|,
 name|metadata
 argument_list|,
 literal|"missing-plugin-from-metadata:"
@@ -920,9 +891,6 @@ name|metadata
 parameter_list|,
 name|ArtifactRepository
 name|repository
-parameter_list|,
-name|ReportingDatabase
-name|reporter
 parameter_list|)
 block|{
 name|RepositoryQueryLayer
@@ -1029,8 +997,6 @@ condition|)
 block|{
 name|addFailure
 argument_list|(
-name|reporter
-argument_list|,
 name|metadata
 argument_list|,
 literal|"missing-snapshot-artifact-from-repository:"
@@ -1057,9 +1023,6 @@ name|metadata
 parameter_list|,
 name|ArtifactRepository
 name|repository
-parameter_list|,
-name|ReportingDatabase
-name|reporter
 parameter_list|)
 block|{
 name|RepositoryQueryLayer
@@ -1154,8 +1117,6 @@ condition|)
 block|{
 name|addFailure
 argument_list|(
-name|reporter
-argument_list|,
 name|metadata
 argument_list|,
 literal|"missing-artifact-from-repository:"
@@ -1185,9 +1146,6 @@ name|metadata
 parameter_list|,
 name|ArtifactRepository
 name|repository
-parameter_list|,
-name|ReportingDatabase
-name|reporter
 parameter_list|)
 throws|throws
 name|IOException
@@ -1323,8 +1281,6 @@ condition|)
 block|{
 name|addFailure
 argument_list|(
-name|reporter
-argument_list|,
 name|metadata
 argument_list|,
 literal|"missing-artifact-from-metadata:"
@@ -1347,8 +1303,6 @@ else|else
 block|{
 name|addFailure
 argument_list|(
-name|reporter
-argument_list|,
 name|metadata
 argument_list|,
 literal|null
@@ -1477,13 +1431,9 @@ name|artifactIdFiles
 return|;
 block|}
 specifier|private
-specifier|static
 name|void
 name|addFailure
 parameter_list|(
-name|ReportingDatabase
-name|reporter
-parameter_list|,
 name|RepositoryMetadata
 name|metadata
 parameter_list|,
@@ -1495,7 +1445,7 @@ name|reason
 parameter_list|)
 block|{
 comment|// TODO: reason could be an i18n key derived from the processor and the problem ID and the
-name|reporter
+name|database
 operator|.
 name|addFailure
 argument_list|(

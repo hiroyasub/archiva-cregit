@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default report set, for repository health.  *  * @plexus.component role="org.apache.maven.archiva.reporting.group.ReportGroup" role-hint="health"  * @todo could these report groups be assembled dynamically by configuration rather than as explicit components? eg, reportGroup.addReport( ARP ), reportGroup.addReport( MRP )  */
+comment|/**  * The default report set, for repository health.  *  * @plexus.component role="org.apache.maven.archiva.reporting.group.ReportGroup"   *      role-hint="health"  * @todo could these report groups be assembled dynamically by configuration rather than as explicit components? eg, reportGroup.addReport( ARP ), reportGroup.addReport( MRP )  */
 end_comment
 
 begin_class
@@ -153,15 +153,6 @@ parameter_list|()
 block|{
 return|return
 literal|"Repository Health"
-return|;
-block|}
-specifier|public
-name|String
-name|getFilename
-parameter_list|()
-block|{
-return|return
-literal|"health-report.xml"
 return|;
 block|}
 block|}

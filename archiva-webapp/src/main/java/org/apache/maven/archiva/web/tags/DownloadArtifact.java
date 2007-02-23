@@ -97,7 +97,11 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|common
+operator|.
 name|artifact
+operator|.
+name|managed
 operator|.
 name|ManagedArtifact
 import|;
@@ -256,7 +260,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DownloadArtifact   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.webwork.components.Component" role-hint="download-artifact"   *  instantiation-strategy="per-lookup"  */
+comment|/**  * DownloadArtifact   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.webwork.components.Component" role-hint="download-artifact"   *  instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

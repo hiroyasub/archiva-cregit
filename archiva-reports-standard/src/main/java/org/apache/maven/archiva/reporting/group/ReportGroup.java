@@ -27,24 +27,6 @@ name|apache
 operator|.
 name|maven
 operator|.
-name|archiva
-operator|.
-name|reporting
-operator|.
-name|database
-operator|.
-name|ReportingDatabase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
 name|artifact
 operator|.
 name|Artifact
@@ -129,7 +111,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Run any artifact related reports in the report set.      *      * @param artifact          the artifact to process      * @param model             the POM associated with the artifact to process      * @param reportingDatabase the report database to store results in      */
+comment|/**      * Run any artifact related reports in the report set.      *      * @param artifact          the artifact to process      * @param model             the POM associated with the artifact to process      */
 name|void
 name|processArtifact
 parameter_list|(
@@ -138,12 +120,9 @@ name|artifact
 parameter_list|,
 name|Model
 name|model
-parameter_list|,
-name|ReportingDatabase
-name|reportingDatabase
 parameter_list|)
 function_decl|;
-comment|/**      * Run any metadata related reports in the report set.      *      * @param repositoryMetadata the metadata to process      * @param repository         the repository the metadata is located in      * @param reportingDatabase  the report database to store results in      */
+comment|/**      * Run any metadata related reports in the report set.      *      * @param repositoryMetadata the metadata to process      * @param repository         the repository the metadata is located in      */
 name|void
 name|processMetadata
 parameter_list|(
@@ -152,9 +131,6 @@ name|repositoryMetadata
 parameter_list|,
 name|ArtifactRepository
 name|repository
-parameter_list|,
-name|ReportingDatabase
-name|reportingDatabase
 parameter_list|)
 function_decl|;
 comment|/**      * Whether a report with the given role hint is included in this report set.      *      * @param key the report role hint.      * @return whether the report is included      */
@@ -173,11 +149,6 @@ function_decl|;
 comment|/**      * Get the user-friendly name of this report.      *      * @return the report name      */
 name|String
 name|getName
-parameter_list|()
-function_decl|;
-comment|/**      * Get the filename of the reports within the repository's reports directory.      *      * @return the filename      */
-name|String
-name|getFilename
 parameter_list|()
 function_decl|;
 block|}

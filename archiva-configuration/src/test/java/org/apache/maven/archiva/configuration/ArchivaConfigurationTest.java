@@ -109,7 +109,7 @@ literal|"0 0,30 * * * ?"
 argument_list|,
 name|configuration
 operator|.
-name|getIndexerCronExpression
+name|getDataRefreshCronExpression
 argument_list|()
 argument_list|)
 expr_stmt|;

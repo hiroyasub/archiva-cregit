@@ -47,7 +47,7 @@ name|reporting
 operator|.
 name|database
 operator|.
-name|ReportingDatabase
+name|ArtifactResultsDatabase
 import|;
 end_import
 
@@ -190,6 +190,11 @@ name|ROLE_HINT
 init|=
 literal|"invalid-pom"
 decl_stmt|;
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|ArtifactResultsDatabase
+name|database
+decl_stmt|;
 comment|/**      * @param artifact The pom xml file to be validated, passed as an artifact object.      * @param reporter The artifact reporter object.      */
 specifier|public
 name|void
@@ -200,9 +205,6 @@ name|artifact
 parameter_list|,
 name|Model
 name|model
-parameter_list|,
-name|ReportingDatabase
-name|reporter
 parameter_list|)
 block|{
 name|ArtifactRepository
@@ -289,8 +291,6 @@ condition|)
 block|{
 name|addFailure
 argument_list|(
-name|reporter
-argument_list|,
 name|artifact
 argument_list|,
 literal|"pom-missing"
@@ -339,8 +339,6 @@ parameter_list|)
 block|{
 name|addFailure
 argument_list|(
-name|reporter
-argument_list|,
 name|artifact
 argument_list|,
 literal|"pom-parse-exception"
@@ -362,8 +360,6 @@ parameter_list|)
 block|{
 name|addFailure
 argument_list|(
-name|reporter
-argument_list|,
 name|artifact
 argument_list|,
 literal|"pom-io-exception"
@@ -391,13 +387,9 @@ block|}
 block|}
 block|}
 specifier|private
-specifier|static
 name|void
 name|addFailure
 parameter_list|(
-name|ReportingDatabase
-name|reporter
-parameter_list|,
 name|Artifact
 name|artifact
 parameter_list|,
@@ -409,7 +401,7 @@ name|reason
 parameter_list|)
 block|{
 comment|// TODO: reason could be an i18n key derived from the processor and the problem ID and the
-name|reporter
+name|database
 operator|.
 name|addFailure
 argument_list|(

@@ -55,9 +55,13 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|discoverer
+name|common
 operator|.
-name|ArtifactDiscoverer
+name|artifact
+operator|.
+name|builder
+operator|.
+name|BuilderException
 import|;
 end_import
 
@@ -71,9 +75,13 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|discoverer
+name|common
 operator|.
-name|DiscovererException
+name|artifact
+operator|.
+name|builder
+operator|.
+name|LayoutArtifactBuilder
 import|;
 end_import
 
@@ -643,15 +651,15 @@ specifier|private
 name|ArtifactFactory
 name|factory
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="default"      * @todo use a map, and have priorities in them      */
+comment|/**      * @plexus.requirement role-hint="default"      * @todo use a map, and have priorities in them.      */
 specifier|private
-name|ArtifactDiscoverer
-name|defaultArtifactDiscoverer
+name|LayoutArtifactBuilder
+name|defaultArtifactBuilder
 decl_stmt|;
 comment|/**      * @plexus.requirement role-hint="legacy"      */
 specifier|private
-name|ArtifactDiscoverer
-name|legacyArtifactDiscoverer
+name|LayoutArtifactBuilder
+name|legacyArtifactBuilder
 decl_stmt|;
 comment|/**      * @plexus.requirement role="org.apache.maven.wagon.Wagon"      */
 specifier|private
@@ -957,9 +965,9 @@ try|try
 block|{
 name|artifact
 operator|=
-name|defaultArtifactDiscoverer
+name|defaultArtifactBuilder
 operator|.
-name|buildArtifact
+name|build
 argument_list|(
 name|artifactPath
 argument_list|)
@@ -977,7 +985,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|DiscovererException
+name|BuilderException
 name|e
 parameter_list|)
 block|{
@@ -1002,9 +1010,9 @@ try|try
 block|{
 name|artifact
 operator|=
-name|legacyArtifactDiscoverer
+name|legacyArtifactBuilder
 operator|.
-name|buildArtifact
+name|build
 argument_list|(
 name|artifactPath
 argument_list|)
@@ -1022,7 +1030,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|DiscovererException
+name|BuilderException
 name|e
 parameter_list|)
 block|{

@@ -25,6 +25,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|archiva
@@ -50,24 +64,6 @@ operator|.
 name|database
 operator|.
 name|ReportingDatabase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|reporting
-operator|.
-name|group
-operator|.
-name|ReportGroup
 import|;
 end_import
 
@@ -220,7 +216,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * DefaultArtifactReporterTest   *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -232,7 +228,7 @@ name|AbstractRepositoryReportsTestCase
 block|{
 specifier|private
 name|ReportingDatabase
-name|reportingDatabase
+name|database
 decl_stmt|;
 specifier|private
 name|RepositoryMetadata
@@ -258,6 +254,90 @@ specifier|private
 name|Artifact
 name|artifact
 decl_stmt|;
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+name|database
+operator|=
+operator|(
+name|ReportingDatabase
+operator|)
+name|lookup
+argument_list|(
+name|ReportingDatabase
+operator|.
+name|ROLE
+argument_list|)
+expr_stmt|;
+name|ArtifactFactory
+name|artifactFactory
+init|=
+operator|(
+name|ArtifactFactory
+operator|)
+name|lookup
+argument_list|(
+name|ArtifactFactory
+operator|.
+name|ROLE
+argument_list|)
+decl_stmt|;
+name|artifact
+operator|=
+name|artifactFactory
+operator|.
+name|createBuildArtifact
+argument_list|(
+literal|"groupId"
+argument_list|,
+literal|"artifactId"
+argument_list|,
+literal|"1.0-alpha-1"
+argument_list|,
+literal|"type"
+argument_list|)
+expr_stmt|;
+name|Versioning
+name|versioning
+init|=
+operator|new
+name|Versioning
+argument_list|()
+decl_stmt|;
+name|versioning
+operator|.
+name|addVersion
+argument_list|(
+literal|"1.0-alpha-1"
+argument_list|)
+expr_stmt|;
+name|versioning
+operator|.
+name|addVersion
+argument_list|(
+literal|"1.0-alpha-2"
+argument_list|)
+expr_stmt|;
+name|metadata
+operator|=
+operator|new
+name|ArtifactRepositoryMetadata
+argument_list|(
+name|artifact
+argument_list|,
+name|versioning
+argument_list|)
+expr_stmt|;
+block|}
 specifier|public
 name|void
 name|testEmptyArtifactReporter
@@ -269,7 +349,7 @@ literal|"No failures"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumFailures
 argument_list|()
@@ -281,7 +361,7 @@ literal|"No warnings"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -293,7 +373,7 @@ literal|"check no notices"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumNotices
 argument_list|()
@@ -303,7 +383,7 @@ name|assertFalse
 argument_list|(
 literal|"No artifact failures"
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getArtifactIterator
 argument_list|()
@@ -316,7 +396,7 @@ name|assertFalse
 argument_list|(
 literal|"No metadata failures"
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getMetadataIterator
 argument_list|()
@@ -331,7 +411,10 @@ name|void
 name|testMetadataSingleFailure
 parameter_list|()
 block|{
-name|reportingDatabase
+name|database
+operator|.
+name|getMetadataDatabase
+argument_list|()
 operator|.
 name|addFailure
 argument_list|(
@@ -350,7 +433,7 @@ literal|"failures count"
 argument_list|,
 literal|1
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumFailures
 argument_list|()
@@ -362,7 +445,7 @@ literal|"warnings count"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -374,7 +457,7 @@ literal|"check no notices"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumNotices
 argument_list|()
@@ -383,7 +466,7 @@ expr_stmt|;
 name|Iterator
 name|failures
 init|=
-name|reportingDatabase
+name|database
 operator|.
 name|getMetadataIterator
 argument_list|()
@@ -500,14 +583,20 @@ name|MetadataResults
 name|result
 parameter_list|)
 block|{
+comment|/* The funky StringUtils.defaultString() is used because of database constraints.          * The MetadataResults object has a complex primary key consisting of groupId, artifactId, and version.          * This also means that none of those fields may be null.  however, that doesn't eliminate the          * ability to have an empty string in place of a null.          */
 name|assertEquals
 argument_list|(
 literal|"check failure cause"
 argument_list|,
+name|StringUtils
+operator|.
+name|defaultString
+argument_list|(
 name|metadata
 operator|.
 name|getGroupId
 argument_list|()
+argument_list|)
 argument_list|,
 name|result
 operator|.
@@ -519,10 +608,15 @@ name|assertEquals
 argument_list|(
 literal|"check failure cause"
 argument_list|,
+name|StringUtils
+operator|.
+name|defaultString
+argument_list|(
 name|metadata
 operator|.
 name|getArtifactId
 argument_list|()
+argument_list|)
 argument_list|,
 name|result
 operator|.
@@ -534,10 +628,15 @@ name|assertEquals
 argument_list|(
 literal|"check failure cause"
 argument_list|,
+name|StringUtils
+operator|.
+name|defaultString
+argument_list|(
 name|metadata
 operator|.
 name|getBaseVersion
 argument_list|()
+argument_list|)
 argument_list|,
 name|result
 operator|.
@@ -551,7 +650,10 @@ name|void
 name|testMetadataMultipleFailures
 parameter_list|()
 block|{
-name|reportingDatabase
+name|database
+operator|.
+name|getMetadataDatabase
+argument_list|()
 operator|.
 name|addFailure
 argument_list|(
@@ -564,7 +666,10 @@ argument_list|,
 literal|"First Failure Reason"
 argument_list|)
 expr_stmt|;
-name|reportingDatabase
+name|database
+operator|.
+name|getMetadataDatabase
+argument_list|()
 operator|.
 name|addFailure
 argument_list|(
@@ -583,7 +688,7 @@ literal|"failures count"
 argument_list|,
 literal|2
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumFailures
 argument_list|()
@@ -595,7 +700,7 @@ literal|"warnings count"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -607,7 +712,7 @@ literal|"check no notices"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumNotices
 argument_list|()
@@ -616,7 +721,7 @@ expr_stmt|;
 name|Iterator
 name|failures
 init|=
-name|reportingDatabase
+name|database
 operator|.
 name|getMetadataIterator
 argument_list|()
@@ -786,7 +891,10 @@ name|void
 name|testMetadataSingleWarning
 parameter_list|()
 block|{
-name|reportingDatabase
+name|database
+operator|.
+name|getMetadataDatabase
+argument_list|()
 operator|.
 name|addWarning
 argument_list|(
@@ -805,7 +913,7 @@ literal|"warnings count"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumFailures
 argument_list|()
@@ -817,7 +925,7 @@ literal|"warnings count"
 argument_list|,
 literal|1
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -829,7 +937,7 @@ literal|"check no notices"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumNotices
 argument_list|()
@@ -838,7 +946,7 @@ expr_stmt|;
 name|Iterator
 name|warnings
 init|=
-name|reportingDatabase
+name|database
 operator|.
 name|getMetadataIterator
 argument_list|()
@@ -952,7 +1060,10 @@ name|void
 name|testMetadataMultipleWarnings
 parameter_list|()
 block|{
-name|reportingDatabase
+name|database
+operator|.
+name|getMetadataDatabase
+argument_list|()
 operator|.
 name|addWarning
 argument_list|(
@@ -965,7 +1076,10 @@ argument_list|,
 literal|"First Warning"
 argument_list|)
 expr_stmt|;
-name|reportingDatabase
+name|database
+operator|.
+name|getMetadataDatabase
+argument_list|()
 operator|.
 name|addWarning
 argument_list|(
@@ -984,7 +1098,7 @@ literal|"warnings count"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumFailures
 argument_list|()
@@ -996,7 +1110,7 @@ literal|"warnings count"
 argument_list|,
 literal|2
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -1008,7 +1122,7 @@ literal|"check no notices"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumNotices
 argument_list|()
@@ -1017,7 +1131,7 @@ expr_stmt|;
 name|Iterator
 name|warnings
 init|=
-name|reportingDatabase
+name|database
 operator|.
 name|getMetadataIterator
 argument_list|()
@@ -1187,7 +1301,10 @@ name|void
 name|testMetadataSingleNotice
 parameter_list|()
 block|{
-name|reportingDatabase
+name|database
+operator|.
+name|getMetadataDatabase
+argument_list|()
 operator|.
 name|addNotice
 argument_list|(
@@ -1206,7 +1323,7 @@ literal|"failure count"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumFailures
 argument_list|()
@@ -1218,7 +1335,7 @@ literal|"warnings count"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -1230,7 +1347,7 @@ literal|"check notices"
 argument_list|,
 literal|1
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumNotices
 argument_list|()
@@ -1239,7 +1356,7 @@ expr_stmt|;
 name|Iterator
 name|warnings
 init|=
-name|reportingDatabase
+name|database
 operator|.
 name|getMetadataIterator
 argument_list|()
@@ -1353,7 +1470,10 @@ name|void
 name|testMetadataMultipleNotices
 parameter_list|()
 block|{
-name|reportingDatabase
+name|database
+operator|.
+name|getMetadataDatabase
+argument_list|()
 operator|.
 name|addNotice
 argument_list|(
@@ -1366,7 +1486,10 @@ argument_list|,
 literal|"First Notice"
 argument_list|)
 expr_stmt|;
-name|reportingDatabase
+name|database
+operator|.
+name|getMetadataDatabase
+argument_list|()
 operator|.
 name|addNotice
 argument_list|(
@@ -1385,7 +1508,7 @@ literal|"warnings count"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumFailures
 argument_list|()
@@ -1397,7 +1520,7 @@ literal|"warnings count"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -1409,7 +1532,7 @@ literal|"check no notices"
 argument_list|,
 literal|2
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumNotices
 argument_list|()
@@ -1418,7 +1541,7 @@ expr_stmt|;
 name|Iterator
 name|warnings
 init|=
-name|reportingDatabase
+name|database
 operator|.
 name|getMetadataIterator
 argument_list|()
@@ -1588,7 +1711,10 @@ name|void
 name|testArtifactSingleFailure
 parameter_list|()
 block|{
-name|reportingDatabase
+name|database
+operator|.
+name|getArtifactDatabase
+argument_list|()
 operator|.
 name|addFailure
 argument_list|(
@@ -1607,7 +1733,7 @@ literal|"failures count"
 argument_list|,
 literal|1
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumFailures
 argument_list|()
@@ -1619,7 +1745,7 @@ literal|"warnings count"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -1631,7 +1757,7 @@ literal|"check no notices"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumNotices
 argument_list|()
@@ -1640,7 +1766,7 @@ expr_stmt|;
 name|Iterator
 name|failures
 init|=
-name|reportingDatabase
+name|database
 operator|.
 name|getArtifactIterator
 argument_list|()
@@ -1757,14 +1883,20 @@ name|ArtifactResults
 name|results
 parameter_list|)
 block|{
+comment|/* The funky StringUtils.defaultString() is used because of database constraints.          * The ArtifactResults object has a complex primary key consisting of groupId, artifactId, version,          * type, classifier.          * This also means that none of those fields may be null.  however, that doesn't eliminate the          * ability to have an empty string in place of a null.          */
 name|assertEquals
 argument_list|(
 literal|"check failure cause"
 argument_list|,
+name|StringUtils
+operator|.
+name|defaultString
+argument_list|(
 name|artifact
 operator|.
 name|getGroupId
 argument_list|()
+argument_list|)
 argument_list|,
 name|results
 operator|.
@@ -1776,10 +1908,15 @@ name|assertEquals
 argument_list|(
 literal|"check failure cause"
 argument_list|,
+name|StringUtils
+operator|.
+name|defaultString
+argument_list|(
 name|artifact
 operator|.
 name|getArtifactId
 argument_list|()
+argument_list|)
 argument_list|,
 name|results
 operator|.
@@ -1791,10 +1928,15 @@ name|assertEquals
 argument_list|(
 literal|"check failure cause"
 argument_list|,
+name|StringUtils
+operator|.
+name|defaultString
+argument_list|(
 name|artifact
 operator|.
 name|getVersion
 argument_list|()
+argument_list|)
 argument_list|,
 name|results
 operator|.
@@ -1806,10 +1948,15 @@ name|assertEquals
 argument_list|(
 literal|"check failure cause"
 argument_list|,
+name|StringUtils
+operator|.
+name|defaultString
+argument_list|(
 name|artifact
 operator|.
 name|getClassifier
 argument_list|()
+argument_list|)
 argument_list|,
 name|results
 operator|.
@@ -1821,10 +1968,15 @@ name|assertEquals
 argument_list|(
 literal|"check failure cause"
 argument_list|,
+name|StringUtils
+operator|.
+name|defaultString
+argument_list|(
 name|artifact
 operator|.
 name|getType
 argument_list|()
+argument_list|)
 argument_list|,
 name|results
 operator|.
@@ -1838,7 +1990,10 @@ name|void
 name|testArtifactMultipleFailures
 parameter_list|()
 block|{
-name|reportingDatabase
+name|database
+operator|.
+name|getArtifactDatabase
+argument_list|()
 operator|.
 name|addFailure
 argument_list|(
@@ -1851,7 +2006,10 @@ argument_list|,
 literal|"First Failure Reason"
 argument_list|)
 expr_stmt|;
-name|reportingDatabase
+name|database
+operator|.
+name|getArtifactDatabase
+argument_list|()
 operator|.
 name|addFailure
 argument_list|(
@@ -1870,7 +2028,7 @@ literal|"failures count"
 argument_list|,
 literal|2
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumFailures
 argument_list|()
@@ -1882,7 +2040,7 @@ literal|"warnings count"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -1894,7 +2052,7 @@ literal|"check no notices"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumNotices
 argument_list|()
@@ -1903,7 +2061,7 @@ expr_stmt|;
 name|Iterator
 name|failures
 init|=
-name|reportingDatabase
+name|database
 operator|.
 name|getArtifactIterator
 argument_list|()
@@ -2073,7 +2231,10 @@ name|void
 name|testArtifactSingleWarning
 parameter_list|()
 block|{
-name|reportingDatabase
+name|database
+operator|.
+name|getArtifactDatabase
+argument_list|()
 operator|.
 name|addWarning
 argument_list|(
@@ -2092,7 +2253,7 @@ literal|"warnings count"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumFailures
 argument_list|()
@@ -2104,7 +2265,7 @@ literal|"warnings count"
 argument_list|,
 literal|1
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -2116,7 +2277,7 @@ literal|"check no notices"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumNotices
 argument_list|()
@@ -2125,7 +2286,7 @@ expr_stmt|;
 name|Iterator
 name|warnings
 init|=
-name|reportingDatabase
+name|database
 operator|.
 name|getArtifactIterator
 argument_list|()
@@ -2239,7 +2400,10 @@ name|void
 name|testArtifactMultipleWarnings
 parameter_list|()
 block|{
-name|reportingDatabase
+name|database
+operator|.
+name|getArtifactDatabase
+argument_list|()
 operator|.
 name|addWarning
 argument_list|(
@@ -2252,7 +2416,10 @@ argument_list|,
 literal|"First Warning"
 argument_list|)
 expr_stmt|;
-name|reportingDatabase
+name|database
+operator|.
+name|getArtifactDatabase
+argument_list|()
 operator|.
 name|addWarning
 argument_list|(
@@ -2271,7 +2438,7 @@ literal|"warnings count"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumFailures
 argument_list|()
@@ -2283,7 +2450,7 @@ literal|"warnings count"
 argument_list|,
 literal|2
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -2295,7 +2462,7 @@ literal|"check no notices"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumNotices
 argument_list|()
@@ -2304,7 +2471,7 @@ expr_stmt|;
 name|Iterator
 name|warnings
 init|=
-name|reportingDatabase
+name|database
 operator|.
 name|getArtifactIterator
 argument_list|()
@@ -2474,7 +2641,10 @@ name|void
 name|testArtifactSingleNotice
 parameter_list|()
 block|{
-name|reportingDatabase
+name|database
+operator|.
+name|getArtifactDatabase
+argument_list|()
 operator|.
 name|addNotice
 argument_list|(
@@ -2493,7 +2663,7 @@ literal|"failure count"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumFailures
 argument_list|()
@@ -2505,7 +2675,7 @@ literal|"warnings count"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -2517,7 +2687,7 @@ literal|"check notices"
 argument_list|,
 literal|1
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumNotices
 argument_list|()
@@ -2526,7 +2696,7 @@ expr_stmt|;
 name|Iterator
 name|warnings
 init|=
-name|reportingDatabase
+name|database
 operator|.
 name|getArtifactIterator
 argument_list|()
@@ -2640,7 +2810,10 @@ name|void
 name|testArtifactMultipleNotices
 parameter_list|()
 block|{
-name|reportingDatabase
+name|database
+operator|.
+name|getArtifactDatabase
+argument_list|()
 operator|.
 name|addNotice
 argument_list|(
@@ -2653,7 +2826,10 @@ argument_list|,
 literal|"First Notice"
 argument_list|)
 expr_stmt|;
-name|reportingDatabase
+name|database
+operator|.
+name|getArtifactDatabase
+argument_list|()
 operator|.
 name|addNotice
 argument_list|(
@@ -2672,7 +2848,7 @@ literal|"warnings count"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumFailures
 argument_list|()
@@ -2684,7 +2860,7 @@ literal|"warnings count"
 argument_list|,
 literal|0
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumWarnings
 argument_list|()
@@ -2696,7 +2872,7 @@ literal|"check no notices"
 argument_list|,
 literal|2
 argument_list|,
-name|reportingDatabase
+name|database
 operator|.
 name|getNumNotices
 argument_list|()
@@ -2705,7 +2881,7 @@ expr_stmt|;
 name|Iterator
 name|warnings
 init|=
-name|reportingDatabase
+name|database
 operator|.
 name|getArtifactIterator
 argument_list|()
@@ -2867,101 +3043,6 @@ name|warnings
 operator|.
 name|hasNext
 argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-specifier|protected
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-name|ArtifactFactory
-name|artifactFactory
-init|=
-operator|(
-name|ArtifactFactory
-operator|)
-name|lookup
-argument_list|(
-name|ArtifactFactory
-operator|.
-name|ROLE
-argument_list|)
-decl_stmt|;
-name|artifact
-operator|=
-name|artifactFactory
-operator|.
-name|createBuildArtifact
-argument_list|(
-literal|"groupId"
-argument_list|,
-literal|"artifactId"
-argument_list|,
-literal|"1.0-alpha-1"
-argument_list|,
-literal|"type"
-argument_list|)
-expr_stmt|;
-name|Versioning
-name|versioning
-init|=
-operator|new
-name|Versioning
-argument_list|()
-decl_stmt|;
-name|versioning
-operator|.
-name|addVersion
-argument_list|(
-literal|"1.0-alpha-1"
-argument_list|)
-expr_stmt|;
-name|versioning
-operator|.
-name|addVersion
-argument_list|(
-literal|"1.0-alpha-2"
-argument_list|)
-expr_stmt|;
-name|metadata
-operator|=
-operator|new
-name|ArtifactRepositoryMetadata
-argument_list|(
-name|artifact
-argument_list|,
-name|versioning
-argument_list|)
-expr_stmt|;
-name|ReportGroup
-name|reportGroup
-init|=
-operator|(
-name|ReportGroup
-operator|)
-name|lookup
-argument_list|(
-name|ReportGroup
-operator|.
-name|ROLE
-argument_list|,
-literal|"health"
-argument_list|)
-decl_stmt|;
-name|reportingDatabase
-operator|=
-operator|new
-name|ReportingDatabase
-argument_list|(
-name|reportGroup
 argument_list|)
 expr_stmt|;
 block|}

@@ -27,7 +27,11 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|common
+operator|.
 name|artifact
+operator|.
+name|managed
 operator|.
 name|ManagedArtifact
 import|;
@@ -118,7 +122,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ActiveManagedRepositories  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ActiveManagedRepositories  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_interface
@@ -137,6 +141,7 @@ name|getName
 argument_list|()
 decl_stmt|;
 comment|/**      * Obtain the ArtifactRepository for the specified Repository ID.      *      * @param id the ID of the repository.      * @return the ArtifactRepository associated with the provided ID, or null if none found.      */
+specifier|public
 name|ArtifactRepository
 name|getArtifactRepository
 parameter_list|(
@@ -144,7 +149,10 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
+comment|/**      * Get the List of active managed repositories as a List of {@link ArtifactRepository} objects.      *        * @return the list of ArtifactRepository objects.      */
+specifier|public
 name|List
+comment|/*<ArtifactRepository>*/
 name|getAllArtifactRepositories
 parameter_list|()
 function_decl|;
@@ -155,6 +163,7 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
+comment|/**      * Providing only a groupId, artifactId, and version, return the MavenProject that      * is found, in any managed repository.      *       * @param groupId the groupId to search for      * @param artifactId the artifactId to search for      * @param version the version to search for      * @return the MavenProject from the provided parameters.      * @throws ProjectBuildingException if there was a problem building the maven project object.      */
 name|MavenProject
 name|findProject
 parameter_list|(
@@ -207,6 +216,16 @@ parameter_list|(
 name|Artifact
 name|artifact
 parameter_list|)
+function_decl|;
+comment|/**      * Obtain the last data refresh timestamp for all Managed Repositories.      *       * @return the last data refresh timestamp.      */
+name|long
+name|getLastDataRefreshTime
+parameter_list|()
+function_decl|;
+comment|/**      * Tests to see if there needs to be a data refresh performed.      *       * The only valid scenario is if 1 or more repositories have not had their data refreshed ever.       *       * @return true if there needs to be a data refresh.      */
+name|boolean
+name|needsDataRefresh
+parameter_list|()
 function_decl|;
 block|}
 end_interface

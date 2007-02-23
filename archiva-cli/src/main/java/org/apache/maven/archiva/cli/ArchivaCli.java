@@ -83,22 +83,6 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|conversion
-operator|.
-name|LegacyRepositoryConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
 name|converter
 operator|.
 name|RepositoryConversionException
@@ -115,9 +99,11 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|discoverer
+name|converter
 operator|.
-name|DiscovererException
+name|legacy
+operator|.
+name|LegacyRepositoryConverter
 import|;
 end_import
 
@@ -450,7 +436,7 @@ name|newRepositoryPath
 argument_list|)
 expr_stmt|;
 name|List
-name|blacklistedPatterns
+name|fileExclusionPatterns
 init|=
 literal|null
 decl_stmt|;
@@ -471,7 +457,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|blacklistedPatterns
+name|fileExclusionPatterns
 operator|=
 name|Arrays
 operator|.
@@ -498,7 +484,7 @@ name|oldRepositoryPath
 argument_list|,
 name|newRepositoryPath
 argument_list|,
-name|blacklistedPatterns
+name|fileExclusionPatterns
 argument_list|,
 literal|true
 argument_list|)
@@ -513,22 +499,6 @@ block|{
 name|showFatalError
 argument_list|(
 literal|"Error converting repository."
-argument_list|,
-name|e
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|DiscovererException
-name|e
-parameter_list|)
-block|{
-name|showFatalError
-argument_list|(
-literal|"Error discovery artifacts to convert."
 argument_list|,
 name|e
 argument_list|,

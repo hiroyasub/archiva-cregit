@@ -55,6 +55,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|Artifact
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -130,6 +144,19 @@ comment|/**      * Retrieve all primary keys of records in the index.      *    
 name|Collection
 name|getAllRecordKeys
 parameter_list|()
+throws|throws
+name|RepositoryIndexException
+function_decl|;
+comment|/**      * Indexes the artifact specified. If the artifact is already in the repository they it is updated.       * This method should use less memory than indexRecords as the records can be created and disposed of on the fly.      *      * @param artifact  the artifact to index      * @param factory   the artifact to record factory      * @throws RepositoryIndexException if there is a problem indexing the artifacts      */
+name|void
+name|indexArtifact
+parameter_list|(
+name|Artifact
+name|artifact
+parameter_list|,
+name|RepositoryIndexRecordFactory
+name|factory
+parameter_list|)
 throws|throws
 name|RepositoryIndexException
 function_decl|;

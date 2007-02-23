@@ -33,7 +33,7 @@ name|reporting
 operator|.
 name|database
 operator|.
-name|ReportingDatabase
+name|ArtifactResultsDatabase
 import|;
 end_import
 
@@ -131,6 +131,11 @@ specifier|private
 name|int
 name|maxAge
 decl_stmt|;
+comment|/**      * TODO: Must create an 'Old Artifact' database.      * TODO: Base this off of an artifact table query instead.      * @plexus.requirement      */
+specifier|private
+name|ArtifactResultsDatabase
+name|database
+decl_stmt|;
 specifier|public
 name|void
 name|processArtifact
@@ -140,9 +145,6 @@ name|artifact
 parameter_list|,
 name|Model
 name|model
-parameter_list|,
-name|ReportingDatabase
-name|reporter
 parameter_list|)
 block|{
 name|ArtifactRepository
@@ -239,7 +241,7 @@ literal|1000
 condition|)
 block|{
 comment|// TODO: reason could be an i18n key derived from the processor and the problem ID and the
-name|reporter
+name|database
 operator|.
 name|addNotice
 argument_list|(

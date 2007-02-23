@@ -163,7 +163,7 @@ name|reporting
 operator|.
 name|database
 operator|.
-name|ReportingDatabase
+name|ArtifactResultsDatabase
 import|;
 end_import
 
@@ -295,6 +295,11 @@ specifier|private
 name|String
 name|indexDirectory
 decl_stmt|;
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|ArtifactResultsDatabase
+name|database
+decl_stmt|;
 specifier|private
 specifier|static
 specifier|final
@@ -312,9 +317,6 @@ name|artifact
 parameter_list|,
 name|Model
 name|model
-parameter_list|,
-name|ReportingDatabase
-name|reporter
 parameter_list|)
 block|{
 name|ArtifactRepository
@@ -393,8 +395,6 @@ parameter_list|)
 block|{
 name|addWarning
 argument_list|(
-name|reporter
-argument_list|,
 name|artifact
 argument_list|,
 literal|null
@@ -531,8 +531,6 @@ condition|)
 block|{
 name|addFailure
 argument_list|(
-name|reporter
-argument_list|,
 name|artifact
 argument_list|,
 literal|"duplicate"
@@ -558,8 +556,6 @@ parameter_list|)
 block|{
 name|addWarning
 argument_list|(
-name|reporter
-argument_list|,
 name|artifact
 argument_list|,
 literal|null
@@ -576,8 +572,6 @@ else|else
 block|{
 name|addWarning
 argument_list|(
-name|reporter
-argument_list|,
 name|artifact
 argument_list|,
 literal|null
@@ -588,13 +582,9 @@ expr_stmt|;
 block|}
 block|}
 specifier|private
-specifier|static
 name|void
 name|addFailure
 parameter_list|(
-name|ReportingDatabase
-name|reporter
-parameter_list|,
 name|Artifact
 name|artifact
 parameter_list|,
@@ -606,7 +596,7 @@ name|reason
 parameter_list|)
 block|{
 comment|// TODO: reason could be an i18n key derived from the processor and the problem ID and the
-name|reporter
+name|database
 operator|.
 name|addFailure
 argument_list|(
@@ -621,13 +611,9 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|private
-specifier|static
 name|void
 name|addWarning
 parameter_list|(
-name|ReportingDatabase
-name|reporter
-parameter_list|,
 name|Artifact
 name|artifact
 parameter_list|,
@@ -639,7 +625,7 @@ name|reason
 parameter_list|)
 block|{
 comment|// TODO: reason could be an i18n key derived from the processor and the problem ID and the
-name|reporter
+name|database
 operator|.
 name|addWarning
 argument_list|(

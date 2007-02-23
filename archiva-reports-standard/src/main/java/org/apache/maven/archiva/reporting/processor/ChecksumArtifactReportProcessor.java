@@ -47,7 +47,7 @@ name|reporting
 operator|.
 name|database
 operator|.
-name|ReportingDatabase
+name|ArtifactResultsDatabase
 import|;
 end_import
 
@@ -164,6 +164,11 @@ specifier|private
 name|Digester
 name|md5Digester
 decl_stmt|;
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|ArtifactResultsDatabase
+name|database
+decl_stmt|;
 specifier|private
 specifier|static
 specifier|final
@@ -181,9 +186,6 @@ name|artifact
 parameter_list|,
 name|Model
 name|model
-parameter_list|,
-name|ReportingDatabase
-name|reporter
 parameter_list|)
 block|{
 name|ArtifactRepository
@@ -263,8 +265,6 @@ name|file
 argument_list|,
 name|sha1Digester
 argument_list|,
-name|reporter
-argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
@@ -284,9 +284,6 @@ name|file
 parameter_list|,
 name|Digester
 name|digester
-parameter_list|,
-name|ReportingDatabase
-name|reporter
 parameter_list|,
 name|Artifact
 name|artifact
@@ -341,8 +338,6 @@ parameter_list|)
 block|{
 name|addFailure
 argument_list|(
-name|reporter
-argument_list|,
 name|artifact
 argument_list|,
 literal|"checksum-wrong"
@@ -362,8 +357,6 @@ parameter_list|)
 block|{
 name|addFailure
 argument_list|(
-name|reporter
-argument_list|,
 name|artifact
 argument_list|,
 literal|"checksum-io-exception"
@@ -382,8 +375,6 @@ else|else
 block|{
 name|addFailure
 argument_list|(
-name|reporter
-argument_list|,
 name|artifact
 argument_list|,
 literal|"checksum-missing"
@@ -399,13 +390,9 @@ expr_stmt|;
 block|}
 block|}
 specifier|private
-specifier|static
 name|void
 name|addFailure
 parameter_list|(
-name|ReportingDatabase
-name|reporter
-parameter_list|,
 name|Artifact
 name|artifact
 parameter_list|,
@@ -417,7 +404,7 @@ name|reason
 parameter_list|)
 block|{
 comment|// TODO: reason could be an i18n key derived from the processor and the problem ID and the
-name|reporter
+name|database
 operator|.
 name|addFailure
 argument_list|(

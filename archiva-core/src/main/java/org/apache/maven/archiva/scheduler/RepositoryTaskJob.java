@@ -31,7 +31,7 @@ name|scheduler
 operator|.
 name|task
 operator|.
-name|IndexerTask
+name|DataRefreshTask
 import|;
 end_import
 
@@ -185,7 +185,7 @@ name|dataMap
 argument_list|)
 expr_stmt|;
 name|TaskQueue
-name|indexerQueue
+name|taskQueue
 init|=
 operator|(
 name|TaskQueue
@@ -214,7 +214,7 @@ name|RepositoryTask
 name|task
 init|=
 operator|new
-name|IndexerTask
+name|DataRefreshTask
 argument_list|()
 decl_stmt|;
 name|task
@@ -234,7 +234,7 @@ try|try
 block|{
 if|if
 condition|(
-name|indexerQueue
+name|taskQueue
 operator|.
 name|getQueueSnapshot
 argument_list|()
@@ -245,7 +245,7 @@ operator|==
 literal|0
 condition|)
 block|{
-name|indexerQueue
+name|taskQueue
 operator|.
 name|put
 argument_list|(
@@ -267,7 +267,7 @@ name|queuePolicy
 argument_list|)
 condition|)
 block|{
-name|indexerQueue
+name|taskQueue
 operator|.
 name|put
 argument_list|(
@@ -287,7 +287,7 @@ name|queuePolicy
 argument_list|)
 condition|)
 block|{
-comment|//do not queue anymore, policy is to skip
+comment|// do not queue anymore, policy is to skip
 block|}
 block|}
 block|}

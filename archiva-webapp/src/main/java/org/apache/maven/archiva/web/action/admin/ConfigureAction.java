@@ -147,11 +147,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|scheduler
+name|repositories
 operator|.
-name|executors
-operator|.
-name|IndexerTaskExecutor
+name|ActiveManagedRepositories
 import|;
 end_import
 
@@ -345,10 +343,10 @@ specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.codehaus.plexus.taskqueue.execution.TaskExecutor" role-hint="indexer"      */
+comment|/**      * @plexus.requirement      */
 specifier|private
-name|IndexerTaskExecutor
-name|indexer
+name|ActiveManagedRepositories
+name|activeRepositories
 decl_stmt|;
 comment|/**      * The configuration.      */
 specifier|private
@@ -453,7 +451,7 @@ comment|// TODO: if this didn't come from the form, go to configure.action inste
 comment|// TODO: if this is changed, do we move the index or recreate it?
 name|configuration
 operator|.
-name|setIndexerCronExpression
+name|setDataRefreshCronExpression
 argument_list|(
 name|getCronExpression
 argument_list|()
@@ -533,7 +531,7 @@ name|cronEx
 init|=
 name|configuration
 operator|.
-name|getIndexerCronExpression
+name|getDataRefreshCronExpression
 argument_list|()
 operator|.
 name|split
@@ -644,9 +642,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|indexer
+name|activeRepositories
 operator|.
-name|getLastIndexingTime
+name|getLastDataRefreshTime
 argument_list|()
 operator|!=
 literal|0
@@ -657,9 +655,9 @@ operator|=
 operator|new
 name|Date
 argument_list|(
-name|indexer
+name|activeRepositories
 operator|.
-name|getLastIndexingTime
+name|getLastDataRefreshTime
 argument_list|()
 argument_list|)
 operator|.

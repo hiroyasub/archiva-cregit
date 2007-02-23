@@ -27,7 +27,11 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|common
+operator|.
 name|artifact
+operator|.
+name|managed
 operator|.
 name|ManagedArtifact
 import|;
@@ -43,7 +47,11 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|common
+operator|.
 name|artifact
+operator|.
+name|managed
 operator|.
 name|ManagedEjbArtifact
 import|;
@@ -59,7 +67,11 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|common
+operator|.
 name|artifact
+operator|.
+name|managed
 operator|.
 name|ManagedJavaArtifact
 import|;
@@ -78,7 +90,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultActiveManagedRepositoriesTest  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * DefaultActiveManagedRepositoriesTest  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

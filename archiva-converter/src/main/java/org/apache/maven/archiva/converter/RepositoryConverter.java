@@ -25,24 +25,6 @@ name|apache
 operator|.
 name|maven
 operator|.
-name|archiva
-operator|.
-name|reporting
-operator|.
-name|database
-operator|.
-name|ReportingDatabase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
 name|artifact
 operator|.
 name|Artifact
@@ -94,7 +76,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Convert a single artifact, writing it into the target repository.      *      * @param artifact         the artifact to convert      * @param targetRepository the target repository      * @param reporter         reporter to track the results of the conversion      */
+comment|/**      * Convert a single artifact, writing it into the target repository.      *      * @param artifact         the artifact to convert      * @param targetRepository the target repository      */
 name|void
 name|convert
 parameter_list|(
@@ -103,14 +85,11 @@ name|artifact
 parameter_list|,
 name|ArtifactRepository
 name|targetRepository
-parameter_list|,
-name|ReportingDatabase
-name|reporter
 parameter_list|)
 throws|throws
 name|RepositoryConversionException
 function_decl|;
-comment|/**      * Convert a set of artifacts, writing them into the target repository.      *      * @param artifacts        the set of artifacts to convert      * @param targetRepository the target repository      * @param reporter         reporter to track the results of the conversions      */
+comment|/**      * Convert a set of artifacts, writing them into the target repository.      *      * @param artifacts        the set of artifacts to convert      * @param targetRepository the target repository      */
 name|void
 name|convert
 parameter_list|(
@@ -119,12 +98,25 @@ name|artifacts
 parameter_list|,
 name|ArtifactRepository
 name|targetRepository
-parameter_list|,
-name|ReportingDatabase
-name|reporter
 parameter_list|)
 throws|throws
 name|RepositoryConversionException
+function_decl|;
+comment|/**      * Add a listener to the conversion process.      *       * @param listener the listener to add.      */
+name|void
+name|addConversionListener
+parameter_list|(
+name|ConversionListener
+name|listener
+parameter_list|)
+function_decl|;
+comment|/**      * Remove a listener from the conversion process.      *       * @param listener the listener to remove.      */
+name|void
+name|removeConversionListener
+parameter_list|(
+name|ConversionListener
+name|listener
+parameter_list|)
 function_decl|;
 block|}
 end_interface
