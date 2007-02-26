@@ -13,26 +13,12 @@ name|layer
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|cache
-operator|.
-name|Cache
-import|;
-end_import
-
 begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *   http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_comment
-comment|/**  *  */
+comment|/**  * CachedRepositoryQueryLayerTest   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -42,10 +28,6 @@ name|CachedRepositoryQueryLayerTest
 extends|extends
 name|AbstractRepositoryQueryLayerTestCase
 block|{
-specifier|private
-name|Cache
-name|cache
-decl_stmt|;
 specifier|protected
 name|void
 name|setUp
@@ -58,32 +40,18 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|cache
+name|queryLayer
 operator|=
 operator|(
-name|Cache
+name|RepositoryQueryLayer
 operator|)
 name|lookup
 argument_list|(
-name|Cache
+name|RepositoryQueryLayer
 operator|.
 name|ROLE
 argument_list|,
-literal|"test"
-argument_list|)
-expr_stmt|;
-name|queryLayer
-operator|=
-operator|new
-name|CachedRepositoryQueryLayer
-argument_list|(
-operator|new
-name|DefaultRepositoryQueryLayer
-argument_list|(
-name|repository
-argument_list|)
-argument_list|,
-name|cache
+literal|"test-cached"
 argument_list|)
 expr_stmt|;
 block|}
