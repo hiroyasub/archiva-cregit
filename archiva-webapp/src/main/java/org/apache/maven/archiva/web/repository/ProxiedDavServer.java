@@ -283,6 +283,18 @@ end_import
 
 begin_import
 import|import
+name|sun
+operator|.
+name|security
+operator|.
+name|action
+operator|.
+name|GetLongAction
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|servlet
@@ -692,15 +704,9 @@ name|ResourceDoesNotExistException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|ServletException
-argument_list|(
-literal|"Unable to fetch resource, it does not exist."
-argument_list|,
-name|e
-argument_list|)
-throw|;
+comment|// TODO: getLogger().info( "Unable to fetch resource, it does not exist.", e );
+comment|// return an HTTP 404 instead of HTTP 500 error.
+return|return;
 block|}
 catch|catch
 parameter_list|(
