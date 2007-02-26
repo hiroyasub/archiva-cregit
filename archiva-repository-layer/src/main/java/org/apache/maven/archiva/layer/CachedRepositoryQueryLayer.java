@@ -49,6 +49,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|cache
+operator|.
+name|Cache
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -58,7 +72,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CachedRepositoryQueryLayer   *  * @version $Id$  */
+comment|/**  * CachedRepositoryQueryLayer - simple wrapper around another non-cached Repository Query Layer.  *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.layer.RepositoryQueryLayer" role-hint="cached"  */
 end_comment
 
 begin_class
@@ -68,18 +82,12 @@ name|CachedRepositoryQueryLayer
 implements|implements
 name|RepositoryQueryLayer
 block|{
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|Cache
 name|cache
 decl_stmt|;
-specifier|public
-specifier|static
-specifier|final
-name|double
-name|CACHE_HIT_RATIO
-init|=
-literal|0.5
-decl_stmt|;
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|RepositoryQueryLayer
 name|layer
@@ -96,14 +104,6 @@ operator|.
 name|layer
 operator|=
 name|layer
-expr_stmt|;
-name|cache
-operator|=
-operator|new
-name|Cache
-argument_list|(
-name|CACHE_HIT_RATIO
-argument_list|)
 expr_stmt|;
 block|}
 specifier|public
@@ -128,18 +128,6 @@ name|layer
 operator|=
 name|layer
 expr_stmt|;
-block|}
-specifier|public
-name|double
-name|getCacheHitRate
-parameter_list|()
-block|{
-return|return
-name|cache
-operator|.
-name|getHitRate
-argument_list|()
-return|;
 block|}
 specifier|public
 name|boolean
