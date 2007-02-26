@@ -39,6 +39,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|util
+operator|.
+name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -98,7 +112,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FileProblemsTracker   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * FileProblemsTracker  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -152,6 +166,19 @@ name|String
 name|message
 parameter_list|)
 block|{
+name|path
+operator|=
+name|StringUtils
+operator|.
+name|replace
+argument_list|(
+name|path
+argument_list|,
+literal|"\\"
+argument_list|,
+literal|"/"
+argument_list|)
+expr_stmt|;
 name|List
 name|problems
 init|=
