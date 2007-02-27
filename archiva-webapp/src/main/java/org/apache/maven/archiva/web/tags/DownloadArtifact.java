@@ -413,6 +413,13 @@ argument_list|,
 name|version
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|managedArtifact
+operator|!=
+literal|null
+condition|)
+block|{
 name|RepositoryConfiguration
 name|repoConfig
 init|=
@@ -467,6 +474,7 @@ argument_list|,
 name|managedArtifact
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
