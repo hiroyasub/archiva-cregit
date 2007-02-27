@@ -16,12 +16,12 @@ end_package
 begin_class
 specifier|public
 class|class
-name|MetadataStoreException
+name|ArchivaDatabaseException
 extends|extends
 name|Exception
 block|{
 specifier|public
-name|MetadataStoreException
+name|ArchivaDatabaseException
 parameter_list|(
 name|String
 name|message
@@ -39,7 +39,7 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|public
-name|MetadataStoreException
+name|ArchivaDatabaseException
 parameter_list|(
 name|String
 name|message
