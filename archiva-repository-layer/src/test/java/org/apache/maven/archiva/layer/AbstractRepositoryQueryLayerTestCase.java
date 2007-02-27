@@ -170,7 +170,7 @@ name|repositoryDirectory
 init|=
 name|getTestFile
 argument_list|(
-literal|"src/test/repository"
+literal|"src/test/repositories/repository"
 argument_list|)
 decl_stmt|;
 name|artifactFactory
