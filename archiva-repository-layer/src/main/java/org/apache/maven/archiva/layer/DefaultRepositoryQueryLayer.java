@@ -174,7 +174,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultRepositoryQueryLayer   *  * @version $Id$  */
+comment|/**  * DefaultRepositoryQueryLayer   *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.layer.RepositoryQueryLayer" role-hint="default"  */
 end_comment
 
 begin_class
