@@ -51,6 +51,14 @@ specifier|public
 specifier|static
 specifier|final
 name|String
+name|GLOBAL_REPOSITORY_MANAGER_ROLE
+init|=
+literal|"Global Repository Manager"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
 name|REGISTERED_USER_ROLE
 init|=
 literal|"Registered User"

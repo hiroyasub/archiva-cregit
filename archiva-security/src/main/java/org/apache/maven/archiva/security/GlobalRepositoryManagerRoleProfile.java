@@ -54,25 +54,35 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @todo why does this need to be created in the client app?  * @todo composition instead of inheritence?  * @plexus.component role="org.codehaus.plexus.rbac.profile.RoleProfile" role-hint="archiva-system-administrator"  */
+comment|/**  * @plexus.component role="org.codehaus.plexus.rbac.profile.RoleProfile"  * role-hint="archiva-repository-administrator"  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|ArchivaSystemAdministratorRoleProfile
+name|GlobalRepositoryManagerRoleProfile
 extends|extends
 name|AbstractRoleProfile
 block|{
+comment|/**      * Create the Role name for a Repository Observer, using the provided repository id.      *      * @param repoId the repository id      */
 specifier|public
 name|String
 name|getRoleName
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|ArchivaRoleConstants
 operator|.
-name|SYSTEM_ADMINISTRATOR_ROLE
+name|GLOBAL_REPOSITORY_MANAGER_ROLE
+return|;
+block|}
+specifier|public
+name|boolean
+name|isAssignable
+parameter_list|()
+block|{
+return|return
+literal|true
 return|;
 block|}
 specifier|public
@@ -93,7 +103,7 @@ name|add
 argument_list|(
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_MANAGE_CONFIGURATION
+name|OPERATION_ADD_REPOSITORY
 argument_list|)
 expr_stmt|;
 name|operations
@@ -102,7 +112,7 @@ name|add
 argument_list|(
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_EDIT_CONFIGURATION
+name|OPERATION_EDIT_REPOSITORY
 argument_list|)
 expr_stmt|;
 name|operations
@@ -111,75 +121,11 @@ name|add
 argument_list|(
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_MANAGE_USERS
-argument_list|)
-expr_stmt|;
-name|operations
-operator|.
-name|add
-argument_list|(
-name|ArchivaRoleConstants
-operator|.
-name|OPERATION_RUN_INDEXER
-argument_list|)
-expr_stmt|;
-name|operations
-operator|.
-name|add
-argument_list|(
-name|ArchivaRoleConstants
-operator|.
-name|OPERATION_REGENERATE_INDEX
-argument_list|)
-expr_stmt|;
-name|operations
-operator|.
-name|add
-argument_list|(
-name|ArchivaRoleConstants
-operator|.
-name|OPERATION_ACCESS_REPORT
-argument_list|)
-expr_stmt|;
-comment|// TODO: does this need to be templated?
-comment|// we don't add access/upload repository operations. This isn't a sys-admin function, and we don't want to
-comment|// encourage the use of the sys admin role for such operations. They can grant it as necessary.
-return|return
-name|operations
-return|;
-block|}
-specifier|public
-name|List
-name|getChildRoles
-parameter_list|()
-block|{
-name|List
-name|childRoles
-init|=
-operator|new
-name|ArrayList
-argument_list|()
-decl_stmt|;
-name|childRoles
-operator|.
-name|add
-argument_list|(
-name|ArchivaRoleConstants
-operator|.
-name|GLOBAL_REPOSITORY_MANAGER_ROLE
+name|OPERATION_DELETE_REPOSITORY
 argument_list|)
 expr_stmt|;
 return|return
-name|childRoles
-return|;
-block|}
-specifier|public
-name|boolean
-name|isAssignable
-parameter_list|()
-block|{
-return|return
-literal|false
+name|operations
 return|;
 block|}
 block|}
