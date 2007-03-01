@@ -50,7 +50,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Role profile manager.  *  * @author Brett Porter  * @todo composition over inheritence?  * @plexus.component role="org.codehaus.plexus.rbac.profile.RoleProfileManager" role-hint="archiva"  */
+comment|/**  * Role profile manager.  *  * Role Structures are laid out as documented http://docs.codehaus.org/display/MAVENUSER/Archiva+Security+Roles  *  * @author Brett Porter  * @todo composition over inheritence?  * @plexus.component role="org.codehaus.plexus.rbac.profile.RoleProfileManager" role-hint="archiva"  */
 end_comment
 
 begin_class
@@ -69,7 +69,12 @@ name|RoleProfileException
 block|{
 name|getRole
 argument_list|(
-literal|"archiva-repository-manager-base"
+literal|"global-repository-manager"
+argument_list|)
+expr_stmt|;
+name|getRole
+argument_list|(
+literal|"global-repository-observer"
 argument_list|)
 expr_stmt|;
 name|mergeRoleProfiles

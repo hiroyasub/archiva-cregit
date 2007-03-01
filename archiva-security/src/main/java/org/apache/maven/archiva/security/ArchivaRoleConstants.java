@@ -79,14 +79,6 @@ name|GUEST_ROLE
 init|=
 literal|"Guest"
 decl_stmt|;
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|BASE_REPOSITORY_MANAGER
-init|=
-literal|"Repository Manager Base"
-decl_stmt|;
 comment|// dynamic role prefixes
 specifier|public
 specifier|static
@@ -192,14 +184,6 @@ name|String
 name|OPERATION_REPOSITORY_UPLOAD
 init|=
 literal|"archiva-upload-repository"
-decl_stmt|;
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|OPERATION_EDIT_CONFIGURATION
-init|=
-literal|"archiva-edit-configuration"
 decl_stmt|;
 block|}
 end_class

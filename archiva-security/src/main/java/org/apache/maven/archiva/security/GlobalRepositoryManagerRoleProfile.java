@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @plexus.component role="org.codehaus.plexus.rbac.profile.RoleProfile"  * role-hint="archiva-repository-administrator"  */
+comment|/**  * @plexus.component role="org.codehaus.plexus.rbac.profile.RoleProfile"  * role-hint="global-repository-manager"  */
 end_comment
 
 begin_class
@@ -103,6 +103,15 @@ name|add
 argument_list|(
 name|ArchivaRoleConstants
 operator|.
+name|OPERATION_MANAGE_CONFIGURATION
+argument_list|)
+expr_stmt|;
+name|operations
+operator|.
+name|add
+argument_list|(
+name|ArchivaRoleConstants
+operator|.
 name|OPERATION_ADD_REPOSITORY
 argument_list|)
 expr_stmt|;
@@ -126,6 +135,31 @@ argument_list|)
 expr_stmt|;
 return|return
 name|operations
+return|;
+block|}
+specifier|public
+name|List
+name|getChildRoles
+parameter_list|()
+block|{
+name|List
+name|childRoles
+init|=
+operator|new
+name|ArrayList
+argument_list|()
+decl_stmt|;
+name|childRoles
+operator|.
+name|add
+argument_list|(
+name|ArchivaRoleConstants
+operator|.
+name|GLOBAL_REPOSITORY_OBSERVER_ROLE
+argument_list|)
+expr_stmt|;
+return|return
+name|childRoles
 return|;
 block|}
 block|}

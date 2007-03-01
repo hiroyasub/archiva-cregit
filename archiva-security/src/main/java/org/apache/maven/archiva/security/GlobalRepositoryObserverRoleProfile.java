@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @plexus.component role="org.codehaus.plexus.rbac.profile.RoleProfile"  * role-hint="archiva-repository-administrator"  */
+comment|/**  * @plexus.component role="org.codehaus.plexus.rbac.profile.RoleProfile"  * role-hint="global-repository-observer"  */
 end_comment
 
 begin_class
@@ -90,8 +90,24 @@ name|List
 name|getOperations
 parameter_list|()
 block|{
+name|List
+name|operations
+init|=
+operator|new
+name|ArrayList
+argument_list|()
+decl_stmt|;
+name|operations
+operator|.
+name|add
+argument_list|(
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_ACCESS
+argument_list|)
+expr_stmt|;
 return|return
-literal|null
+name|operations
 return|;
 block|}
 block|}

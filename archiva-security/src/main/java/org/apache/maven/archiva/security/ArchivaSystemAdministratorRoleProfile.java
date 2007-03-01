@@ -102,15 +102,6 @@ name|add
 argument_list|(
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_EDIT_CONFIGURATION
-argument_list|)
-expr_stmt|;
-name|operations
-operator|.
-name|add
-argument_list|(
-name|ArchivaRoleConstants
-operator|.
 name|OPERATION_MANAGE_USERS
 argument_list|)
 expr_stmt|;
