@@ -286,9 +286,9 @@ name|addWarning
 argument_list|(
 name|artifact
 argument_list|,
-literal|null
+literal|"health"
 argument_list|,
-literal|null
+literal|"invalid"
 argument_list|,
 literal|"Invalid artifact ["
 operator|+
@@ -312,9 +312,9 @@ name|addWarning
 argument_list|(
 name|artifact
 argument_list|,
-literal|null
+literal|"health"
 argument_list|,
-literal|null
+literal|"project-build"
 argument_list|,
 literal|"Error reading project model: "
 operator|+

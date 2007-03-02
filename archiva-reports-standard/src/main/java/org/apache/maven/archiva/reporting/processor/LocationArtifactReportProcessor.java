@@ -941,7 +941,7 @@ name|artifact
 argument_list|,
 name|ROLE_HINT
 argument_list|,
-literal|null
+literal|"bad-location"
 argument_list|,
 name|reason
 argument_list|)
