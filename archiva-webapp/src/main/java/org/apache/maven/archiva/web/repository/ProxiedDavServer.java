@@ -283,18 +283,6 @@ end_import
 
 begin_import
 import|import
-name|sun
-operator|.
-name|security
-operator|.
-name|action
-operator|.
-name|GetLongAction
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|servlet
