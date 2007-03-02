@@ -397,7 +397,7 @@ name|addWarning
 argument_list|(
 name|artifact
 argument_list|,
-literal|null
+literal|"cant-checksum"
 argument_list|,
 literal|"Unable to generate checksum for "
 operator|+
