@@ -139,6 +139,16 @@ name|RegistryListener
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
+import|;
+end_import
+
 begin_comment
 comment|/**  * Implementation of configuration holder that retrieves it from the registry.  *  * @plexus.component  */
 end_comment
@@ -244,10 +254,6 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|java
-operator|.
-name|util
-operator|.
 name|Iterator
 name|i
 init|=
