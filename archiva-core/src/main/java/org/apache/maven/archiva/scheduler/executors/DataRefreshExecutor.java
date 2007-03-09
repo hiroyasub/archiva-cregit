@@ -332,6 +332,14 @@ name|AbstractLogEnabled
 implements|implements
 name|TaskExecutor
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|DATAREFRESH_FILE
+init|=
+literal|".datarefresh"
+decl_stmt|;
 comment|/**      * Configuration store.      *      * @plexus.requirement      */
 specifier|private
 name|ArchivaConfiguration
@@ -580,7 +588,7 @@ name|lastRunStats
 operator|.
 name|load
 argument_list|(
-literal|".datarefresh"
+name|DATAREFRESH_FILE
 argument_list|)
 expr_stmt|;
 block|}
@@ -647,6 +655,13 @@ name|getLogger
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|lastRunStats
+operator|.
+name|save
+argument_list|(
+name|DATAREFRESH_FILE
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -674,6 +689,33 @@ name|getMessage
 argument_list|()
 argument_list|,
 name|e
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|warn
+argument_list|(
+literal|"Unable to save last run statistics for repository ["
+operator|+
+name|repository
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|"]: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
