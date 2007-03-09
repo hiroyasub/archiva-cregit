@@ -332,7 +332,7 @@ name|AbstractLogEnabled
 implements|implements
 name|TaskExecutor
 block|{
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
