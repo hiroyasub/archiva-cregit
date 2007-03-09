@@ -655,7 +655,7 @@ name|getLogger
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|lastRunStats
+name|stats
 operator|.
 name|save
 argument_list|(
