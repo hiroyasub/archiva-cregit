@@ -423,6 +423,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|FileNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -1569,7 +1579,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|FileNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -1577,6 +1587,27 @@ name|getLogger
 argument_list|()
 operator|.
 name|info
+argument_list|(
+literal|"No previous datarefresh timestamp available, as "
+operator|+
+name|DataRefreshExecutor
+operator|.
+name|DATAREFRESH_FILE
+operator|+
+literal|" has never been generated."
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|warn
 argument_list|(
 literal|"Unable to load "
 operator|+
