@@ -83,7 +83,7 @@ name|reporting
 operator|.
 name|model
 operator|.
-name|Result
+name|ResultReason
 import|;
 end_import
 
@@ -194,10 +194,10 @@ argument_list|(
 name|metadata
 argument_list|)
 decl_stmt|;
-name|Result
+name|ResultReason
 name|result
 init|=
-name|createResult
+name|createResultReason
 argument_list|(
 name|processor
 argument_list|,
@@ -259,10 +259,10 @@ argument_list|(
 name|metadata
 argument_list|)
 decl_stmt|;
-name|Result
+name|ResultReason
 name|result
 init|=
-name|createResult
+name|createResultReason
 argument_list|(
 name|processor
 argument_list|,
@@ -324,10 +324,10 @@ argument_list|(
 name|metadata
 argument_list|)
 decl_stmt|;
-name|Result
+name|ResultReason
 name|result
 init|=
-name|createResult
+name|createResultReason
 argument_list|(
 name|processor
 argument_list|,

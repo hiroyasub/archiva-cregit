@@ -85,7 +85,7 @@ name|reporting
 operator|.
 name|model
 operator|.
-name|Result
+name|ResultReason
 import|;
 end_import
 
@@ -330,11 +330,11 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
-name|Result
+name|ResultReason
 name|result
 init|=
 operator|(
-name|Result
+name|ResultReason
 operator|)
 name|i
 operator|.

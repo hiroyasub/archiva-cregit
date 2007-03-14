@@ -74,7 +74,7 @@ literal|""
 decl_stmt|;
 specifier|public
 name|String
-name|type
+name|artifactType
 init|=
 literal|""
 decl_stmt|;
@@ -131,7 +131,7 @@ index|[
 literal|2
 index|]
 expr_stmt|;
-name|type
+name|artifactType
 operator|=
 name|parts
 index|[
@@ -166,7 +166,7 @@ name|artifactId
 block|,
 name|version
 block|,
-name|type
+name|artifactType
 block|,
 name|classifier
 block|}
@@ -262,14 +262,14 @@ name|result
 operator|+
 operator|(
 operator|(
-name|type
+name|artifactType
 operator|==
 literal|null
 operator|)
 condition|?
 literal|0
 else|:
-name|type
+name|artifactType
 operator|.
 name|hashCode
 argument_list|()
@@ -470,7 +470,7 @@ return|;
 block|}
 if|if
 condition|(
-name|type
+name|artifactType
 operator|==
 literal|null
 condition|)
@@ -479,7 +479,7 @@ if|if
 condition|(
 name|other
 operator|.
-name|type
+name|artifactType
 operator|!=
 literal|null
 condition|)
@@ -492,13 +492,13 @@ block|}
 if|else if
 condition|(
 operator|!
-name|type
+name|artifactType
 operator|.
 name|equals
 argument_list|(
 name|other
 operator|.
-name|type
+name|artifactType
 argument_list|)
 condition|)
 block|{

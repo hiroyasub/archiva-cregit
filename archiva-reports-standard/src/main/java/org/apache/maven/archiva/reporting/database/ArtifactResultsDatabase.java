@@ -83,7 +83,7 @@ name|reporting
 operator|.
 name|model
 operator|.
-name|Result
+name|ResultReason
 import|;
 end_import
 
@@ -223,10 +223,10 @@ argument_list|(
 name|artifact
 argument_list|)
 decl_stmt|;
-name|Result
+name|ResultReason
 name|result
 init|=
-name|createResult
+name|createResultReason
 argument_list|(
 name|processor
 argument_list|,
@@ -288,10 +288,10 @@ argument_list|(
 name|artifact
 argument_list|)
 decl_stmt|;
-name|Result
+name|ResultReason
 name|result
 init|=
-name|createResult
+name|createResultReason
 argument_list|(
 name|processor
 argument_list|,
@@ -353,10 +353,10 @@ argument_list|(
 name|artifact
 argument_list|)
 decl_stmt|;
-name|Result
+name|ResultReason
 name|result
 init|=
-name|createResult
+name|createResultReason
 argument_list|(
 name|processor
 argument_list|,
@@ -753,7 +753,7 @@ argument_list|)
 expr_stmt|;
 name|results
 operator|.
-name|setType
+name|setArtifactType
 argument_list|(
 name|StringUtils
 operator|.
@@ -848,7 +848,7 @@ argument_list|)
 expr_stmt|;
 name|key
 operator|.
-name|type
+name|artifactType
 operator|=
 name|StringUtils
 operator|.

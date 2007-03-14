@@ -33,7 +33,7 @@ name|reporting
 operator|.
 name|model
 operator|.
-name|Result
+name|ResultReason
 import|;
 end_import
 
@@ -72,8 +72,8 @@ parameter_list|()
 function_decl|;
 specifier|protected
 specifier|static
-name|Result
-name|createResult
+name|ResultReason
+name|createResultReason
 parameter_list|(
 name|String
 name|processor
@@ -85,11 +85,11 @@ name|String
 name|reason
 parameter_list|)
 block|{
-name|Result
+name|ResultReason
 name|result
 init|=
 operator|new
-name|Result
+name|ResultReason
 argument_list|()
 decl_stmt|;
 name|result
