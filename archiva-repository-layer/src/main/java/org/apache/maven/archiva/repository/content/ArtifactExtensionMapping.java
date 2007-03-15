@@ -11,7 +11,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|connector
+name|content
 package|;
 end_package
 
@@ -31,48 +31,34 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ArchivaRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
+name|ArchivaArtifact
 import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryConnector   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ArtifactExtensionMapping - Utility to provide the mapping between an Artifact's extension and it's type and   * vice versa.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_interface
 specifier|public
 interface|interface
-name|RepositoryConnector
+name|ArtifactExtensionMapping
 block|{
 specifier|public
-name|ArchivaRepository
-name|getSourceRepository
-parameter_list|()
+name|String
+name|getExtension
+parameter_list|(
+name|ArchivaArtifact
+name|artifact
+parameter_list|)
 function_decl|;
 specifier|public
-name|ArchivaRepository
-name|getTargetRepository
-parameter_list|()
-function_decl|;
-specifier|public
-name|List
-name|getBlacklist
-parameter_list|()
-function_decl|;
-specifier|public
-name|List
-name|getWhitelist
-parameter_list|()
+name|String
+name|getType
+parameter_list|(
+name|String
+name|filename
+parameter_list|)
 function_decl|;
 block|}
 end_interface

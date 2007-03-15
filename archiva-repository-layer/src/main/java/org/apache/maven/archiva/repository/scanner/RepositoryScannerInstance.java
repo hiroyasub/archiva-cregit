@@ -61,9 +61,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|consumers
+name|model
 operator|.
-name|Consumer
+name|RepositoryContentStatistics
 import|;
 end_import
 
@@ -77,7 +77,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|model
+name|repository
 operator|.
 name|ArchivaRepository
 import|;
@@ -93,25 +93,11 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|model
-operator|.
-name|RepositoryContentStatistics
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
 name|repository
 operator|.
-name|ArtifactRepository
+name|consumer
+operator|.
+name|Consumer
 import|;
 end_import
 
@@ -408,7 +394,7 @@ name|this
 operator|.
 name|repository
 operator|.
-name|getRepositoryURL
+name|getUrl
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -491,7 +477,7 @@ name|BaseFile
 argument_list|(
 name|repository
 operator|.
-name|getRepositoryURL
+name|getUrl
 argument_list|()
 operator|.
 name|getPath
@@ -659,7 +645,7 @@ name|this
 operator|.
 name|repository
 operator|.
-name|getRepositoryURL
+name|getUrl
 argument_list|()
 argument_list|)
 expr_stmt|;

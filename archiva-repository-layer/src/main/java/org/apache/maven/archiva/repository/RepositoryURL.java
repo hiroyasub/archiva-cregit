@@ -9,9 +9,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|common
-operator|.
-name|utils
+name|repository
 package|;
 end_package
 

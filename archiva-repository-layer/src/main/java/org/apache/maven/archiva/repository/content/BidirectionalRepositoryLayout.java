@@ -29,14 +29,14 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|model
+name|repository
 operator|.
 name|ArchivaArtifact
 import|;
 end_import
 
 begin_comment
-comment|/**  * BidirectionalRepositoryLayout - Similar in scope to ArtifactRepositoryLayout, but does  * the both the Path to Artifact and Artifact to Path conversions.    *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * BidirectionalRepositoryLayout - Similar in scope to ArtifactRepositoryLayout, but does  * the both the Path to Artifact, and Artifact to Path conversions.    *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_interface
@@ -44,7 +44,13 @@ specifier|public
 interface|interface
 name|BidirectionalRepositoryLayout
 block|{
-comment|/**      * Given an ArchivaArtifact      *       * @param artifact      * @return      */
+comment|/**      * Get the identifier for this layout.      *       * @return the identifier for this layout.      */
+specifier|public
+name|String
+name|getId
+parameter_list|()
+function_decl|;
+comment|/**      * Given an ArchivaArtifact, return the relative path to the artifact.      *       * @param artifact the artifact to compute the path of.      * @return the relative path to the artifact.       */
 specifier|public
 name|String
 name|pathOf
@@ -53,6 +59,7 @@ name|ArchivaArtifact
 name|artifact
 parameter_list|)
 function_decl|;
+comment|/**      * Given a repository relative path to a filename, return the ArchivaArtifact object suitable for the path.      *       * @param path the path relative to the repository base dir for the artifact.      * @return the ArchivaArtifact representing the path. (or null if path cannot be converted to an ArchivaArtifact)      */
 name|ArchivaArtifact
 name|toArtifact
 parameter_list|(

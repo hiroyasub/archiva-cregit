@@ -29,7 +29,7 @@ name|archiva
 operator|.
 name|model
 operator|.
-name|ArchivaArtifact
+name|ArchivaArtifactModel
 import|;
 end_import
 
@@ -45,7 +45,7 @@ name|archiva
 operator|.
 name|model
 operator|.
-name|ArchivaRepository
+name|ArchivaRepositoryModel
 import|;
 end_import
 
@@ -87,7 +87,7 @@ block|{
 comment|/* NOTE TO ARCHIVA DEVELOPERS.      *       * Please keep this interface clean and lean.      * We don't want a repeat of the Continuum Store.      * You should have the following methods per object type ...      *       *   (Required Methods)      *       *    DatabaseObject .createDatabaseObject( Required Params ) ;      *    List           .queryDatabaseObject( Constraint )       throws ObjectNotFoundException, DatabaseException;      *    DatabaseObject .saveDatabaseObject( DatabaseObject )    throws DatabaseException;      *          *   (Optional Methods)      *         *    DatabaseObject .getDatabaseObject( Id )                 throws ObjectNotFoundException, DatabaseException;      *    List           .getDatabaseObjects()                    throws ObjectNotFoundException, DatabaseException;      *    void           .deleteDatabaseObject( DatabaseObject )  throws DatabaseException;      *          * This is the only list of options created in this DAO.      */
 comment|/* .\ Archiva Repository \.____________________________________________________________ */
 specifier|public
-name|ArchivaRepository
+name|ArchivaRepositoryModel
 name|createRepository
 parameter_list|(
 name|String
@@ -99,7 +99,7 @@ parameter_list|)
 function_decl|;
 specifier|public
 name|List
-comment|/*<ArchivaRepository>*/
+comment|/*<ArchivaRepositoryModel>*/
 name|getRepositories
 parameter_list|()
 throws|throws
@@ -108,7 +108,7 @@ throws|,
 name|ArchivaDatabaseException
 function_decl|;
 specifier|public
-name|ArchivaRepository
+name|ArchivaRepositoryModel
 name|getRepository
 parameter_list|(
 name|String
@@ -132,10 +132,10 @@ throws|,
 name|ArchivaDatabaseException
 function_decl|;
 specifier|public
-name|ArchivaRepository
+name|ArchivaRepositoryModel
 name|saveRepository
 parameter_list|(
-name|ArchivaRepository
+name|ArchivaRepositoryModel
 name|repository
 parameter_list|)
 throws|throws
@@ -145,7 +145,7 @@ specifier|public
 name|void
 name|deleteRepository
 parameter_list|(
-name|ArchivaRepository
+name|ArchivaRepositoryModel
 name|repository
 parameter_list|)
 throws|throws
@@ -225,7 +225,7 @@ name|ArchivaDatabaseException
 function_decl|;
 comment|/* .\ Archiva Artifact \. _____________________________________________________________ */
 specifier|public
-name|ArchivaArtifact
+name|ArchivaArtifactModel
 name|createArtifact
 parameter_list|(
 name|RepositoryContent
@@ -239,7 +239,7 @@ name|type
 parameter_list|)
 function_decl|;
 specifier|public
-name|ArchivaArtifact
+name|ArchivaArtifactModel
 name|getArtifact
 parameter_list|(
 name|RepositoryContent
@@ -258,7 +258,7 @@ name|ArchivaDatabaseException
 function_decl|;
 specifier|public
 name|List
-comment|/*<ArchivaArtifact>*/
+comment|/*<ArchivaArtifactModel>*/
 name|queryArtifacts
 parameter_list|(
 name|Constraint
@@ -270,10 +270,10 @@ throws|,
 name|ArchivaDatabaseException
 function_decl|;
 specifier|public
-name|ArchivaArtifact
+name|ArchivaArtifactModel
 name|saveArtifact
 parameter_list|(
-name|ArchivaArtifact
+name|ArchivaArtifactModel
 name|artifact
 parameter_list|)
 throws|throws
@@ -283,7 +283,7 @@ specifier|public
 name|void
 name|deleteArtifact
 parameter_list|(
-name|ArchivaArtifact
+name|ArchivaArtifactModel
 name|artifact
 parameter_list|)
 throws|throws

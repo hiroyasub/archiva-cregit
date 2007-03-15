@@ -89,11 +89,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|database
+name|model
 operator|.
-name|constraints
-operator|.
-name|ArchivaRepositoryByUrlConstraint
+name|ArchivaArtifactModel
 import|;
 end_import
 
@@ -109,23 +107,7 @@ name|archiva
 operator|.
 name|model
 operator|.
-name|ArchivaArtifact
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|model
-operator|.
-name|ArchivaRepository
+name|ArchivaRepositoryModel
 import|;
 end_import
 
@@ -205,7 +187,7 @@ name|jdo
 decl_stmt|;
 comment|/* .\ Archiva Repository \.____________________________________________________________ */
 specifier|public
-name|ArchivaRepository
+name|ArchivaRepositoryModel
 name|createRepository
 parameter_list|(
 name|String
@@ -215,7 +197,7 @@ name|String
 name|url
 parameter_list|)
 block|{
-name|ArchivaRepository
+name|ArchivaRepositoryModel
 name|repo
 decl_stmt|;
 try|try
@@ -237,7 +219,7 @@ block|{
 name|repo
 operator|=
 operator|new
-name|ArchivaRepository
+name|ArchivaRepositoryModel
 argument_list|()
 expr_stmt|;
 name|repo
@@ -273,14 +255,14 @@ name|jdo
 operator|.
 name|getAllObjects
 argument_list|(
-name|ArchivaRepository
+name|ArchivaRepositoryModel
 operator|.
 name|class
 argument_list|)
 return|;
 block|}
 specifier|public
-name|ArchivaRepository
+name|ArchivaRepositoryModel
 name|getRepository
 parameter_list|(
 name|String
@@ -293,13 +275,13 @@ name|ArchivaDatabaseException
 block|{
 return|return
 operator|(
-name|ArchivaRepository
+name|ArchivaRepositoryModel
 operator|)
 name|jdo
 operator|.
 name|getObjectById
 argument_list|(
-name|ArchivaRepository
+name|ArchivaRepositoryModel
 operator|.
 name|class
 argument_list|,
@@ -326,7 +308,7 @@ name|jdo
 operator|.
 name|getAllObjects
 argument_list|(
-name|ArchivaRepository
+name|ArchivaRepositoryModel
 operator|.
 name|class
 argument_list|,
@@ -335,16 +317,16 @@ argument_list|)
 return|;
 block|}
 specifier|public
-name|ArchivaRepository
+name|ArchivaRepositoryModel
 name|saveRepository
 parameter_list|(
-name|ArchivaRepository
+name|ArchivaRepositoryModel
 name|repository
 parameter_list|)
 block|{
 return|return
 operator|(
-name|ArchivaRepository
+name|ArchivaRepositoryModel
 operator|)
 name|jdo
 operator|.
@@ -358,7 +340,7 @@ specifier|public
 name|void
 name|deleteRepository
 parameter_list|(
-name|ArchivaRepository
+name|ArchivaRepositoryModel
 name|repository
 parameter_list|)
 throws|throws
@@ -571,7 +553,7 @@ expr_stmt|;
 block|}
 comment|/* .\ Archiva Artifact \. _____________________________________________________________ */
 specifier|public
-name|ArchivaArtifact
+name|ArchivaArtifactModel
 name|createArtifact
 parameter_list|(
 name|RepositoryContent
@@ -584,7 +566,7 @@ name|String
 name|type
 parameter_list|)
 block|{
-name|ArchivaArtifact
+name|ArchivaArtifactModel
 name|artifact
 decl_stmt|;
 try|try
@@ -610,7 +592,7 @@ block|{
 name|artifact
 operator|=
 operator|new
-name|ArchivaArtifact
+name|ArchivaArtifactModel
 argument_list|()
 expr_stmt|;
 name|artifact
@@ -640,7 +622,7 @@ name|artifact
 return|;
 block|}
 specifier|public
-name|ArchivaArtifact
+name|ArchivaArtifactModel
 name|getArtifact
 parameter_list|(
 name|RepositoryContent
@@ -679,10 +661,10 @@ literal|null
 return|;
 block|}
 specifier|public
-name|ArchivaArtifact
+name|ArchivaArtifactModel
 name|saveArtifact
 parameter_list|(
-name|ArchivaArtifact
+name|ArchivaArtifactModel
 name|artifact
 parameter_list|)
 throws|throws
@@ -697,7 +679,7 @@ specifier|public
 name|void
 name|deleteArtifact
 parameter_list|(
-name|ArchivaArtifact
+name|ArchivaArtifactModel
 name|artifact
 parameter_list|)
 throws|throws
