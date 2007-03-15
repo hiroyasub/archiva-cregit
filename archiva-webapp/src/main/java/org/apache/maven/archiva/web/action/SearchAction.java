@@ -331,7 +331,7 @@ specifier|private
 name|Collection
 name|searchResults
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role-hint="lucene"      */
 specifier|private
 name|RepositoryArtifactIndexFactory
 name|factory

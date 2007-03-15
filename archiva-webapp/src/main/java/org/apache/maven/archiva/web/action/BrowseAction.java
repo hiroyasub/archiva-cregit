@@ -262,7 +262,7 @@ name|BrowseAction
 extends|extends
 name|PlexusActionSupport
 block|{
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role-hint="lucene"      */
 specifier|private
 name|RepositoryArtifactIndexFactory
 name|factory

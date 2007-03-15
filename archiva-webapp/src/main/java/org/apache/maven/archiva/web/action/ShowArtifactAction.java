@@ -698,12 +698,12 @@ specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role-hint="lucene"      */
 specifier|private
 name|RepositoryArtifactIndexFactory
 name|factory
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role-hint="maven"      */
 specifier|private
 name|ArtifactMetadataSource
 name|artifactMetadataSource
