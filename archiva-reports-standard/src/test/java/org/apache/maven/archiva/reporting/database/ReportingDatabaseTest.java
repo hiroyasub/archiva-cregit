@@ -72,6 +72,8 @@ argument_list|(
 name|ReportingDatabase
 operator|.
 name|ROLE
+argument_list|,
+literal|"default"
 argument_list|)
 expr_stmt|;
 block|}

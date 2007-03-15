@@ -30,7 +30,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Main Reporting Database.  *   * @todo i18n, including message formatting and parameterisation  * @plexus.component role="org.apache.maven.archiva.reporting.database.ReportingDatabase"  */
+comment|/**  * The Main Reporting Database.  *   * @todo i18n, including message formatting and parameterisation  * @plexus.component role="org.apache.maven.archiva.reporting.database.ReportingDatabase"  *                   role-hint="default"  */
 end_comment
 
 begin_class
@@ -51,12 +51,12 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role-hint="default"      */
 specifier|private
 name|ArtifactResultsDatabase
 name|artifactDatabase
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role-hint="default"      */
 specifier|private
 name|MetadataResultsDatabase
 name|metadataDatabase

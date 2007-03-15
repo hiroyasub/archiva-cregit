@@ -326,7 +326,7 @@ specifier|private
 name|RepositoryQueryLayerFactory
 name|repositoryQueryLayerFactory
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role-hint="default"      */
 specifier|private
 name|MetadataResultsDatabase
 name|database

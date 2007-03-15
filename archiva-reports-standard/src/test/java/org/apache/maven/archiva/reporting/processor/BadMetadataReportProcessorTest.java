@@ -326,6 +326,8 @@ argument_list|(
 name|MetadataResultsDatabase
 operator|.
 name|ROLE
+argument_list|,
+literal|"default"
 argument_list|)
 expr_stmt|;
 name|badMetadataReportProcessor

@@ -316,6 +316,8 @@ argument_list|(
 name|MetadataResultsDatabase
 operator|.
 name|ROLE
+argument_list|,
+literal|"default"
 argument_list|)
 expr_stmt|;
 name|artifactsDatabase
@@ -328,6 +330,8 @@ argument_list|(
 name|ArtifactResultsDatabase
 operator|.
 name|ROLE
+argument_list|,
+literal|"default"
 argument_list|)
 expr_stmt|;
 block|}

@@ -154,7 +154,7 @@ specifier|private
 name|Digester
 name|md5Digester
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role-hint="default"      */
 specifier|private
 name|MetadataResultsDatabase
 name|database

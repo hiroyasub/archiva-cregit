@@ -172,7 +172,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactResultsDatabase - Database of ArtifactResults.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.reporting.database.ArtifactResultsDatabase"  */
+comment|/**  * ArtifactResultsDatabase - Database of ArtifactResults.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.reporting.database.ArtifactResultsDatabase"  *                   role-hint="default"  */
 end_comment
 
 begin_class

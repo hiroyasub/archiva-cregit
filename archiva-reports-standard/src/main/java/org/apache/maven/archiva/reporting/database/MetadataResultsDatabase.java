@@ -146,7 +146,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MetadataResultsDatabase   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.reporting.database.MetadataResultsDatabase"  */
+comment|/**  * MetadataResultsDatabase   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.reporting.database.MetadataResultsDatabase"  *                   role-hint="default"  */
 end_comment
 
 begin_class

@@ -168,7 +168,7 @@ name|PlexusActionSupport
 implements|implements
 name|SecureAction
 block|{
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role-hint="default"      */
 specifier|private
 name|ReportingDatabase
 name|database
