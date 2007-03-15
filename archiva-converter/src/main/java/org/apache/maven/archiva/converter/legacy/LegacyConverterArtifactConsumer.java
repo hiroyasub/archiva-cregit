@@ -31,9 +31,9 @@ name|archiva
 operator|.
 name|common
 operator|.
-name|consumers
+name|utils
 operator|.
-name|GenericArtifactConsumer
+name|BaseFile
 import|;
 end_import
 
@@ -47,11 +47,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|common
+name|consumers
 operator|.
-name|utils
-operator|.
-name|BaseFile
+name|GenericArtifactConsumer
 import|;
 end_import
 

@@ -27,8 +27,6 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|common
-operator|.
 name|consumers
 operator|.
 name|Consumer

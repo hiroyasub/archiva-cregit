@@ -29,9 +29,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|repository
+name|model
 operator|.
-name|Repository
+name|ArchivaRepository
 import|;
 end_import
 
@@ -55,12 +55,12 @@ interface|interface
 name|RepositoryConnector
 block|{
 specifier|public
-name|Repository
+name|ArchivaRepository
 name|getSourceRepository
 parameter_list|()
 function_decl|;
 specifier|public
-name|Repository
+name|ArchivaRepository
 name|getTargetRepository
 parameter_list|()
 function_decl|;

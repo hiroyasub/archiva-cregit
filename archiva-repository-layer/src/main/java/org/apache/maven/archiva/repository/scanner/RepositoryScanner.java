@@ -29,8 +29,6 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|common
-operator|.
 name|consumers
 operator|.
 name|Consumer
@@ -47,9 +45,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|repository
+name|model
 operator|.
-name|RepositoryException
+name|ArchivaRepository
 import|;
 end_import
 
@@ -61,11 +59,27 @@ name|apache
 operator|.
 name|maven
 operator|.
-name|artifact
+name|archiva
+operator|.
+name|model
+operator|.
+name|RepositoryContentStatistics
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
 operator|.
 name|repository
 operator|.
-name|ArtifactRepository
+name|RepositoryException
 import|;
 end_import
 
@@ -196,10 +210,10 @@ block|}
 decl_stmt|;
 comment|/**      * Walk the repository, and report to the consumers the files found.      *       * Report changes to the appropriate Consumer.      *       * This is just a convenience method to {@link #scan(ArtifactRepository, List, boolean, long, List, List)}      * equivalent to calling<code>scan( repository, consumers, includeSnapshots, 0, null, null );</code>      *       * @param repository the repository to change.      * @param consumers use the provided list of consumers.      * @param includeSnapshots true to include snapshots in the walking of this repository.      * @return the statistics for this scan.      * @throws RepositoryException if there was a fundamental problem with getting the discoverer started.      */
 specifier|public
-name|ScanStatistics
+name|RepositoryContentStatistics
 name|scan
 parameter_list|(
-name|ArtifactRepository
+name|ArchivaRepository
 name|repository
 parameter_list|,
 name|List
@@ -230,10 +244,10 @@ return|;
 block|}
 comment|/**      * Walk the repository, and report to the consumers the files found.      *       * Report changes to the appropriate Consumer.      *       * @param repository the repository to change.      * @param consumers use the provided list of consumers.      * @param includeSnapshots true to include snapshots in the scanning of this repository.      * @param onlyModifiedAfterTimestamp Only report to the consumers, files that have a {@link File#lastModified()})       *          after the provided timestamp.      * @param extraFileExclusions an optional list of file exclusions on the walk.      * @param extraFileInclusions an optional list of file inclusions on the walk.      * @return the statistics for this scan.      * @throws RepositoryException if there was a fundamental problem with getting the discoverer started.       */
 specifier|public
-name|ScanStatistics
+name|RepositoryContentStatistics
 name|scan
 parameter_list|(
-name|ArtifactRepository
+name|ArchivaRepository
 name|repository
 parameter_list|,
 name|List
@@ -278,6 +292,9 @@ name|equals
 argument_list|(
 name|repository
 operator|.
+name|getRepositoryURL
+argument_list|()
+operator|.
 name|getProtocol
 argument_list|()
 argument_list|)
@@ -299,7 +316,10 @@ name|File
 argument_list|(
 name|repository
 operator|.
-name|getBasedir
+name|getRepositoryURL
+argument_list|()
+operator|.
+name|getPath
 argument_list|()
 argument_list|)
 decl_stmt|;

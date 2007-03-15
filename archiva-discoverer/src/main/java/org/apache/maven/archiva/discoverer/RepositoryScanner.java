@@ -43,9 +43,9 @@ name|archiva
 operator|.
 name|common
 operator|.
-name|consumers
+name|utils
 operator|.
-name|Consumer
+name|BaseFile
 import|;
 end_import
 
@@ -59,11 +59,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|common
+name|consumers
 operator|.
-name|utils
-operator|.
-name|BaseFile
+name|Consumer
 import|;
 end_import
 
