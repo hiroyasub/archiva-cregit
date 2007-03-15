@@ -202,7 +202,7 @@ name|IndexArtifactConsumer
 extends|extends
 name|GenericArtifactConsumer
 block|{
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role-hint="lucene"      */
 specifier|private
 name|RepositoryArtifactIndexFactory
 name|indexFactory

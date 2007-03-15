@@ -285,7 +285,7 @@ specifier|private
 name|Digester
 name|digester
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role-hint="lucene"      */
 specifier|private
 name|RepositoryArtifactIndexFactory
 name|indexFactory
