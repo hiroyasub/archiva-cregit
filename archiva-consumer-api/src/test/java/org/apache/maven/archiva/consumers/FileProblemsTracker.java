@@ -45,7 +45,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|consumers
+name|repository
+operator|.
+name|consumer
 operator|.
 name|ConsumerException
 import|;

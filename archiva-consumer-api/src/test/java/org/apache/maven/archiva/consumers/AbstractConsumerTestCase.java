@@ -27,7 +27,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|model
+name|repository
 operator|.
 name|ArchivaRepository
 import|;
