@@ -318,7 +318,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JdoAccess   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * JdoAccess   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.database.jdo.JdoAccess" role-hint="default"  */
 end_comment
 
 begin_class
@@ -332,7 +332,7 @@ name|InstanceLifecycleListener
 implements|,
 name|StoreLifecycleListener
 block|{
-comment|/**      * @plexus.requirement role-hint="users"      */
+comment|/**      * @plexus.requirement role-hint="archiva"      */
 specifier|private
 name|JdoFactory
 name|jdoFactory

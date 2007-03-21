@@ -168,7 +168,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JdoArchivaDAO   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.database.ArchivaDAO"  *                   role-hint="jdo"  */
+comment|/**  * JdoArchivaDAO   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role-hint="jdo"  */
 end_comment
 
 begin_class
@@ -180,7 +180,7 @@ name|AbstractLogEnabled
 implements|implements
 name|ArchivaDAO
 block|{
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role-hint="default"      */
 specifier|private
 name|JdoAccess
 name|jdo
