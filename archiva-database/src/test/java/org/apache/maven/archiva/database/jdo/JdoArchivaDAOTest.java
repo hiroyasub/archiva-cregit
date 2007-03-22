@@ -77,6 +77,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|jdo
+operator|.
+name|JDOHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * JdoArchivaDAOTest   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
@@ -95,6 +105,7 @@ parameter_list|()
 throws|throws
 name|ArchivaDatabaseException
 block|{
+comment|// Create it
 name|ArchivaRepositoryModel
 name|repo
 init|=
@@ -112,11 +123,19 @@ argument_list|(
 name|repo
 argument_list|)
 expr_stmt|;
+comment|// Set some mandatory values
 name|repo
 operator|.
 name|setName
 argument_list|(
-literal|"The Test Repostitory."
+literal|"The Test Repository."
+argument_list|)
+expr_stmt|;
+name|repo
+operator|.
+name|setCreationSource
+argument_list|(
+literal|"Test Case"
 argument_list|)
 expr_stmt|;
 name|repo
@@ -126,6 +145,7 @@ argument_list|(
 literal|"default"
 argument_list|)
 expr_stmt|;
+comment|// Save it.
 name|ArchivaRepositoryModel
 name|repoSaved
 init|=
@@ -141,6 +161,22 @@ argument_list|(
 name|repoSaved
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"testRepo"
+argument_list|,
+name|JDOHelper
+operator|.
+name|getObjectId
+argument_list|(
+name|repoSaved
+argument_list|)
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Test that something has been saved.
 name|List
 name|repos
 init|=
@@ -164,6 +200,66 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Test that retreived object is what we expect.
+name|ArchivaRepositoryModel
+name|firstRepo
+init|=
+operator|(
+name|ArchivaRepositoryModel
+operator|)
+name|repos
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|firstRepo
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"testRepo"
+argument_list|,
+name|repo
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"The Test Repository."
+argument_list|,
+name|repo
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Test Case"
+argument_list|,
+name|repo
+operator|.
+name|getCreationSource
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"default"
+argument_list|,
+name|repo
+operator|.
+name|getLayoutName
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Change value and save.
 name|repoSaved
 operator|.
 name|setName
@@ -178,6 +274,21 @@ argument_list|(
 name|repoSaved
 argument_list|)
 expr_stmt|;
+comment|// Test that only 1 object is saved.
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|dao
+operator|.
+name|getRepositories
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Get the specific repo.
 name|ArchivaRepositoryModel
 name|actualRepo
 init|=
@@ -193,6 +304,7 @@ argument_list|(
 name|actualRepo
 argument_list|)
 expr_stmt|;
+comment|// Test expected values.
 name|assertEquals
 argument_list|(
 literal|"testRepo"
@@ -223,6 +335,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Test that only 1 object is saved.
 name|assertEquals
 argument_list|(
 literal|1
@@ -236,6 +349,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Delete object.
 name|dao
 operator|.
 name|deleteRepository
