@@ -92,9 +92,6 @@ argument_list|(
 name|ArchivaConfiguration
 operator|.
 name|class
-operator|.
-name|getName
-argument_list|()
 argument_list|,
 literal|"test-defaults"
 argument_list|)
@@ -113,28 +110,6 @@ argument_list|(
 literal|"check configuration returned"
 argument_list|,
 name|configuration
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check configuration has default elements"
-argument_list|,
-literal|"0 0,30 * * * ?"
-argument_list|,
-name|configuration
-operator|.
-name|getDataRefreshCronExpression
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertNull
-argument_list|(
-literal|"check configuration has default elements"
-argument_list|,
-name|configuration
-operator|.
-name|getIndexPath
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -186,37 +161,58 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"check indexPath"
+literal|"check repositories"
 argument_list|,
-literal|".index"
-argument_list|,
-name|configuration
-operator|.
-name|getIndexPath
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check localRepository"
-argument_list|,
-literal|"local-repository"
-argument_list|,
-name|configuration
-operator|.
-name|getLocalRepository
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check managed repositories"
-argument_list|,
-literal|1
+literal|4
 argument_list|,
 name|configuration
 operator|.
 name|getRepositories
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check proxy connectors"
+argument_list|,
+literal|2
+argument_list|,
+name|configuration
+operator|.
+name|getProxyConnectors
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check network proxies"
+argument_list|,
+literal|0
+argument_list|,
+name|configuration
+operator|.
+name|getNetworkProxies
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check file processors"
+argument_list|,
+literal|12
+argument_list|,
+name|configuration
+operator|.
+name|getFileProcessors
 argument_list|()
 operator|.
 name|size
@@ -244,11 +240,11 @@ name|assertEquals
 argument_list|(
 literal|"check managed repositories"
 argument_list|,
-literal|"managed-repository"
+literal|"file://${appserver.home}/repositories/internal"
 argument_list|,
 name|repository
 operator|.
-name|getDirectory
+name|getUrl
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -256,7 +252,7 @@ name|assertEquals
 argument_list|(
 literal|"check managed repositories"
 argument_list|,
-literal|"local"
+literal|"Archiva Managed Internal Repository"
 argument_list|,
 name|repository
 operator|.
@@ -268,7 +264,7 @@ name|assertEquals
 argument_list|(
 literal|"check managed repositories"
 argument_list|,
-literal|"local"
+literal|"internal"
 argument_list|,
 name|repository
 operator|.
@@ -295,249 +291,6 @@ argument_list|,
 name|repository
 operator|.
 name|isIndexed
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check proxied repositories"
-argument_list|,
-literal|1
-argument_list|,
-name|configuration
-operator|.
-name|getProxiedRepositories
-argument_list|()
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|ProxiedRepositoryConfiguration
-name|proxiedRepository
-init|=
-operator|(
-name|ProxiedRepositoryConfiguration
-operator|)
-name|configuration
-operator|.
-name|getProxiedRepositories
-argument_list|()
-operator|.
-name|iterator
-argument_list|()
-operator|.
-name|next
-argument_list|()
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check proxied repositories"
-argument_list|,
-literal|"local"
-argument_list|,
-name|proxiedRepository
-operator|.
-name|getManagedRepository
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check proxied repositories"
-argument_list|,
-literal|"http://www.ibiblio.org/maven2/"
-argument_list|,
-name|proxiedRepository
-operator|.
-name|getUrl
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check proxied repositories"
-argument_list|,
-literal|"ibiblio"
-argument_list|,
-name|proxiedRepository
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check proxied repositories"
-argument_list|,
-literal|"Ibiblio"
-argument_list|,
-name|proxiedRepository
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check proxied repositories"
-argument_list|,
-literal|0
-argument_list|,
-name|proxiedRepository
-operator|.
-name|getSnapshotsInterval
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check proxied repositories"
-argument_list|,
-literal|0
-argument_list|,
-name|proxiedRepository
-operator|.
-name|getReleasesInterval
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"check proxied repositories"
-argument_list|,
-name|proxiedRepository
-operator|.
-name|isUseNetworkProxy
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check synced repositories"
-argument_list|,
-literal|1
-argument_list|,
-name|configuration
-operator|.
-name|getSyncedRepositories
-argument_list|()
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|SyncedRepositoryConfiguration
-name|syncedRepository
-init|=
-operator|(
-name|SyncedRepositoryConfiguration
-operator|)
-name|configuration
-operator|.
-name|getSyncedRepositories
-argument_list|()
-operator|.
-name|iterator
-argument_list|()
-operator|.
-name|next
-argument_list|()
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check synced repositories"
-argument_list|,
-literal|"local"
-argument_list|,
-name|syncedRepository
-operator|.
-name|getManagedRepository
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check synced repositories"
-argument_list|,
-literal|"apache"
-argument_list|,
-name|syncedRepository
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check synced repositories"
-argument_list|,
-literal|"ASF"
-argument_list|,
-name|syncedRepository
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check synced repositories"
-argument_list|,
-literal|"0 0 * * * ?"
-argument_list|,
-name|syncedRepository
-operator|.
-name|getCronExpression
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check synced repositories"
-argument_list|,
-literal|"rsync"
-argument_list|,
-name|syncedRepository
-operator|.
-name|getMethod
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|Properties
-name|properties
-init|=
-operator|new
-name|Properties
-argument_list|()
-decl_stmt|;
-name|properties
-operator|.
-name|setProperty
-argument_list|(
-literal|"rsyncHost"
-argument_list|,
-literal|"host"
-argument_list|)
-expr_stmt|;
-name|properties
-operator|.
-name|setProperty
-argument_list|(
-literal|"rsyncMethod"
-argument_list|,
-literal|"ssh"
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check synced repositories"
-argument_list|,
-name|properties
-argument_list|,
-name|syncedRepository
-operator|.
-name|getProperties
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -584,30 +337,8 @@ operator|.
 name|getConfiguration
 argument_list|()
 decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check localRepository"
-argument_list|,
-literal|"system-repository"
-argument_list|,
-name|configuration
-operator|.
-name|getLocalRepository
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check indexPath"
-argument_list|,
-literal|".index"
-argument_list|,
-name|configuration
-operator|.
-name|getIndexPath
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//        assertEquals( "check localRepository", "system-repository", configuration.getLocalRepository() );
+comment|//        assertEquals( "check indexPath", ".index", configuration.getIndexPath() );
 block|}
 specifier|public
 name|void
@@ -691,13 +422,7 @@ operator|new
 name|Configuration
 argument_list|()
 decl_stmt|;
-name|configuration
-operator|.
-name|setIndexPath
-argument_list|(
-literal|"index-path"
-argument_list|)
-expr_stmt|;
+comment|//        configuration.setIndexPath( "index-path" );
 name|archivaConfiguration
 operator|.
 name|save
@@ -723,18 +448,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check value"
-argument_list|,
-literal|"index-path"
-argument_list|,
-name|configuration
-operator|.
-name|getIndexPath
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//        assertEquals( "check value", "index-path", configuration.getIndexPath() );
 comment|// read it back
 name|archivaConfiguration
 operator|=
@@ -760,18 +474,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check value"
-argument_list|,
-literal|"index-path"
-argument_list|,
-name|configuration
-operator|.
-name|getIndexPath
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//        assertEquals( "check value", "index-path", configuration.getIndexPath() );
 block|}
 specifier|public
 name|void
@@ -876,13 +579,7 @@ operator|new
 name|Configuration
 argument_list|()
 decl_stmt|;
-name|configuration
-operator|.
-name|setIndexPath
-argument_list|(
-literal|"index-path"
-argument_list|)
-expr_stmt|;
+comment|//        configuration.setIndexPath( "index-path" );
 name|archivaConfiguration
 operator|.
 name|save
@@ -918,18 +615,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check value"
-argument_list|,
-literal|"index-path"
-argument_list|,
-name|configuration
-operator|.
-name|getIndexPath
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//        assertEquals( "check value", "index-path", configuration.getIndexPath() );
 block|}
 specifier|public
 name|void
@@ -1034,13 +720,7 @@ operator|new
 name|Configuration
 argument_list|()
 decl_stmt|;
-name|configuration
-operator|.
-name|setIndexPath
-argument_list|(
-literal|"index-path"
-argument_list|)
-expr_stmt|;
+comment|//        configuration.setIndexPath( "index-path" );
 name|archivaConfiguration
 operator|.
 name|save
@@ -1076,18 +756,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"check value"
-argument_list|,
-literal|"index-path"
-argument_list|,
-name|configuration
-operator|.
-name|getIndexPath
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//        assertEquals( "check value", "index-path", configuration.getIndexPath() );
 block|}
 specifier|public
 name|void
@@ -1148,16 +817,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 decl_stmt|;
-name|configuration
-operator|.
-name|getProxiedRepositories
-argument_list|()
-operator|.
-name|remove
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
+comment|//        configuration.getProxiedRepositories().remove( 0 );
 name|archivaConfiguration
 operator|.
 name|save
@@ -1173,19 +833,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
-name|configuration
-operator|.
-name|getProxiedRepositories
-argument_list|()
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//        assertEquals( 1, configuration.getProxiedRepositories().size() );
 name|release
 argument_list|(
 name|archivaConfiguration
@@ -1216,19 +864,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
-name|configuration
-operator|.
-name|getProxiedRepositories
-argument_list|()
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//        assertEquals( 1, configuration.getProxiedRepositories().size() );
 block|}
 block|}
 end_class
