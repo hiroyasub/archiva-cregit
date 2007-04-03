@@ -380,7 +380,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Jason van Zyl  */
+comment|/**  * ArchivaCli   *  * @author Jason van Zyl  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -839,6 +839,15 @@ name|out
 operator|.
 name|println
 argument_list|(
+literal|""
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
 literal|".\\ Scan of "
 operator|+
 name|repo
@@ -903,6 +912,72 @@ name|out
 operator|.
 name|println
 argument_list|(
+literal|"  Consumers         : ("
+operator|+
+name|consumerList
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" active)"
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+name|Iterator
+name|iter
+init|=
+name|consumerList
+operator|.
+name|iterator
+argument_list|()
+init|;
+name|iter
+operator|.
+name|hasNext
+argument_list|()
+condition|;
+control|)
+block|{
+name|RepositoryContentConsumer
+name|consumer
+init|=
+operator|(
+name|RepositoryContentConsumer
+operator|)
+name|iter
+operator|.
+name|next
+argument_list|()
+decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"                      "
+operator|+
+name|consumer
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|" - "
+operator|+
+name|consumer
+operator|.
+name|getDescription
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
 literal|"  Duration          : "
 operator|+
 name|DateUtil
@@ -949,18 +1024,35 @@ name|getTotalFileCount
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|long
+name|averageMsPerFile
+init|=
+operator|(
+name|stats
+operator|.
+name|getDuration
+argument_list|()
+operator|/
+name|stats
+operator|.
+name|getTotalFileCount
+argument_list|()
+operator|)
+decl_stmt|;
 name|System
 operator|.
 name|out
 operator|.
 name|println
 argument_list|(
-literal|"  New File Count    : "
+literal|"  Avg Time Per File : "
 operator|+
-name|stats
+name|DateUtil
 operator|.
-name|getNewFileCount
-argument_list|()
+name|getDuration
+argument_list|(
+name|averageMsPerFile
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|System
