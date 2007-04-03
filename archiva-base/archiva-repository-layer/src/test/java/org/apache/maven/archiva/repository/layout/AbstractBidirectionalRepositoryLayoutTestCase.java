@@ -43,7 +43,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|repository
+name|model
 operator|.
 name|ArchivaArtifact
 import|;
@@ -59,7 +59,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|repository
+name|model
 operator|.
 name|ArchivaRepository
 import|;

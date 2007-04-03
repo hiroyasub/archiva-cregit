@@ -47,6 +47,8 @@ name|archiva
 operator|.
 name|consumers
 operator|.
+name|core
+operator|.
 name|GenericModelConsumer
 import|;
 end_import

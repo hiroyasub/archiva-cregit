@@ -47,7 +47,7 @@ parameter_list|()
 throws|throws
 name|LayoutException
 block|{
-name|assertSplit
+name|assertFilenameParts
 argument_list|(
 name|RepositoryLayoutUtils
 operator|.
@@ -62,7 +62,7 @@ literal|"commons-lang"
 argument_list|,
 literal|"2.1"
 argument_list|,
-literal|""
+literal|null
 argument_list|,
 literal|"jar"
 argument_list|)
@@ -75,7 +75,7 @@ parameter_list|()
 throws|throws
 name|LayoutException
 block|{
-name|assertSplit
+name|assertFilenameParts
 argument_list|(
 name|RepositoryLayoutUtils
 operator|.
@@ -90,7 +90,7 @@ literal|"commons-lang"
 argument_list|,
 literal|"2.0-alpha-1"
 argument_list|,
-literal|""
+literal|null
 argument_list|,
 literal|"jar"
 argument_list|)
@@ -103,7 +103,7 @@ parameter_list|()
 throws|throws
 name|LayoutException
 block|{
-name|assertSplit
+name|assertFilenameParts
 argument_list|(
 name|RepositoryLayoutUtils
 operator|.
@@ -118,7 +118,7 @@ literal|"foo"
 argument_list|,
 literal|"2.0-SNAPSHOT"
 argument_list|,
-literal|""
+literal|null
 argument_list|,
 literal|"jar"
 argument_list|)
@@ -131,7 +131,7 @@ parameter_list|()
 throws|throws
 name|LayoutException
 block|{
-name|assertSplit
+name|assertFilenameParts
 argument_list|(
 name|RepositoryLayoutUtils
 operator|.
@@ -146,7 +146,7 @@ literal|"fletch"
 argument_list|,
 literal|"2.0-20060822-123456-35"
 argument_list|,
-literal|""
+literal|null
 argument_list|,
 literal|"tar.gz"
 argument_list|)
@@ -159,7 +159,7 @@ parameter_list|()
 throws|throws
 name|LayoutException
 block|{
-name|assertSplit
+name|assertFilenameParts
 argument_list|(
 name|RepositoryLayoutUtils
 operator|.
@@ -179,7 +179,7 @@ argument_list|,
 literal|"jar"
 argument_list|)
 expr_stmt|;
-name|assertSplit
+name|assertFilenameParts
 argument_list|(
 name|RepositoryLayoutUtils
 operator|.
@@ -207,7 +207,7 @@ parameter_list|()
 throws|throws
 name|LayoutException
 block|{
-name|assertSplit
+name|assertFilenameParts
 argument_list|(
 name|RepositoryLayoutUtils
 operator|.
@@ -227,7 +227,7 @@ argument_list|,
 literal|"jar"
 argument_list|)
 expr_stmt|;
-name|assertSplit
+name|assertFilenameParts
 argument_list|(
 name|RepositoryLayoutUtils
 operator|.
@@ -255,7 +255,7 @@ parameter_list|()
 throws|throws
 name|LayoutException
 block|{
-name|assertSplit
+name|assertFilenameParts
 argument_list|(
 name|RepositoryLayoutUtils
 operator|.
@@ -275,7 +275,7 @@ argument_list|,
 literal|"jar"
 argument_list|)
 expr_stmt|;
-name|assertSplit
+name|assertFilenameParts
 argument_list|(
 name|RepositoryLayoutUtils
 operator|.
@@ -303,7 +303,7 @@ parameter_list|()
 throws|throws
 name|LayoutException
 block|{
-name|assertSplit
+name|assertFilenameParts
 argument_list|(
 name|RepositoryLayoutUtils
 operator|.
@@ -323,7 +323,7 @@ argument_list|,
 literal|"jar"
 argument_list|)
 expr_stmt|;
-name|assertSplit
+name|assertFilenameParts
 argument_list|(
 name|RepositoryLayoutUtils
 operator|.
@@ -351,7 +351,7 @@ parameter_list|()
 throws|throws
 name|LayoutException
 block|{
-name|assertSplit
+name|assertFilenameParts
 argument_list|(
 name|RepositoryLayoutUtils
 operator|.
@@ -366,12 +366,12 @@ literal|"cxf-common"
 argument_list|,
 literal|"2.0-incubator-M1"
 argument_list|,
-literal|""
+literal|null
 argument_list|,
 literal|"pom"
 argument_list|)
 expr_stmt|;
-name|assertSplit
+name|assertFilenameParts
 argument_list|(
 name|RepositoryLayoutUtils
 operator|.
@@ -386,7 +386,7 @@ literal|"commonj-api_r1.1"
 argument_list|,
 literal|"1.0-incubator-M2"
 argument_list|,
-literal|""
+literal|null
 argument_list|,
 literal|"jar"
 argument_list|)
@@ -654,11 +654,10 @@ block|}
 block|}
 specifier|private
 name|void
-name|assertSplit
+name|assertFilenameParts
 parameter_list|(
-name|String
-index|[]
-name|actualSplit
+name|FilenameParts
+name|actualParts
 parameter_list|,
 name|String
 name|artifactId
@@ -679,10 +678,9 @@ literal|"Split - artifactId"
 argument_list|,
 name|artifactId
 argument_list|,
-name|actualSplit
-index|[
-literal|0
-index|]
+name|actualParts
+operator|.
+name|artifactId
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -691,10 +689,9 @@ literal|"Split - version"
 argument_list|,
 name|version
 argument_list|,
-name|actualSplit
-index|[
-literal|1
-index|]
+name|actualParts
+operator|.
+name|version
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -703,10 +700,9 @@ literal|"Split - classifier"
 argument_list|,
 name|classifier
 argument_list|,
-name|actualSplit
-index|[
-literal|2
-index|]
+name|actualParts
+operator|.
+name|classifier
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -715,10 +711,9 @@ literal|"Split - extension"
 argument_list|,
 name|extension
 argument_list|,
-name|actualSplit
-index|[
-literal|3
-index|]
+name|actualParts
+operator|.
+name|extension
 argument_list|)
 expr_stmt|;
 block|}

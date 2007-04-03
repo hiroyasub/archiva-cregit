@@ -61,9 +61,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|model
+name|consumers
 operator|.
-name|RepositoryContentStatistics
+name|ConsumerException
 import|;
 end_import
 
@@ -77,7 +77,23 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|repository
+name|consumers
+operator|.
+name|RepositoryContentConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|model
 operator|.
 name|ArchivaRepository
 import|;
@@ -93,11 +109,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|repository
+name|model
 operator|.
-name|consumer
-operator|.
-name|Consumer
+name|RepositoryContentStatistics
 import|;
 end_import
 
@@ -298,51 +312,55 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|Consumer
+name|RepositoryContentConsumer
 name|consumer
 init|=
 operator|(
-name|Consumer
+name|RepositoryContentConsumer
 operator|)
 name|it
 operator|.
 name|next
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-operator|!
+try|try
+block|{
 name|consumer
 operator|.
-name|init
+name|beginScan
 argument_list|(
-name|this
-operator|.
 name|repository
 argument_list|)
-condition|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ConsumerException
+name|e
+parameter_list|)
 block|{
-throw|throw
-operator|new
-name|IllegalStateException
+comment|// TODO: remove bad consumers from list
+name|log
+operator|.
+name|warn
 argument_list|(
 literal|"Consumer ["
 operator|+
 name|consumer
 operator|.
-name|getName
-argument_list|()
-operator|+
-literal|"] is reporting that it is incompatible with the ["
-operator|+
-name|repository
-operator|.
 name|getId
 argument_list|()
 operator|+
-literal|"] repository."
+literal|"] cannot begin: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 if|if
@@ -504,11 +522,11 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|Consumer
+name|RepositoryContentConsumer
 name|consumer
 init|=
 operator|(
-name|Consumer
+name|RepositoryContentConsumer
 operator|)
 name|itConsumers
 operator|.
@@ -547,7 +565,7 @@ literal|"Sending to consumer: "
 operator|+
 name|consumer
 operator|.
-name|getName
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -556,6 +574,9 @@ operator|.
 name|processFile
 argument_list|(
 name|basefile
+operator|.
+name|getRelativePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -574,7 +595,7 @@ literal|"Consumer ["
 operator|+
 name|consumer
 operator|.
-name|getName
+name|getId
 argument_list|()
 operator|+
 literal|"] had an error when processing file ["
@@ -606,7 +627,7 @@ literal|"Skipping consumer "
 operator|+
 name|consumer
 operator|.
-name|getName
+name|getId
 argument_list|()
 operator|+
 literal|" for file "
@@ -659,7 +680,7 @@ specifier|private
 name|boolean
 name|wantsFile
 parameter_list|(
-name|Consumer
+name|RepositoryContentConsumer
 name|consumer
 parameter_list|,
 name|String
@@ -670,11 +691,21 @@ name|Iterator
 name|it
 decl_stmt|;
 comment|// Test excludes first.
+if|if
+condition|(
+name|consumer
+operator|.
+name|getExcludes
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|it
 operator|=
 name|consumer
 operator|.
-name|getExcludePatterns
+name|getExcludes
 argument_list|()
 operator|.
 name|iterator
@@ -719,12 +750,13 @@ literal|false
 return|;
 block|}
 block|}
+block|}
 comment|// Now test includes.
 name|it
 operator|=
 name|consumer
 operator|.
-name|getIncludePatterns
+name|getIncludes
 argument_list|()
 operator|.
 name|iterator

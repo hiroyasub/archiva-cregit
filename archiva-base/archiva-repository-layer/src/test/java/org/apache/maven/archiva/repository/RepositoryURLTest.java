@@ -19,6 +19,22 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|model
+operator|.
+name|RepositoryURL
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|net
