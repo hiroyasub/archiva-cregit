@@ -567,7 +567,9 @@ condition|(
 name|mat
 operator|.
 name|find
-argument_list|()
+argument_list|(
+name|offset
+argument_list|)
 condition|)
 block|{
 name|ret
@@ -607,7 +609,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|offset
-operator|+=
+operator|=
 name|mat
 operator|.
 name|start

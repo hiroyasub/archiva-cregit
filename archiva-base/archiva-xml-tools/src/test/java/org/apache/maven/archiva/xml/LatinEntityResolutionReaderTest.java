@@ -423,6 +423,21 @@ literal|409600
 argument_list|)
 expr_stmt|;
 block|}
+specifier|public
+name|void
+name|testNoLatinEntitiesHugeLine
+parameter_list|()
+block|{
+name|assertProperRead
+argument_list|(
+literal|"commons-codec-1.2.pom"
+argument_list|,
+literal|"commons-codec-1.2.pom"
+argument_list|,
+literal|4096
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
