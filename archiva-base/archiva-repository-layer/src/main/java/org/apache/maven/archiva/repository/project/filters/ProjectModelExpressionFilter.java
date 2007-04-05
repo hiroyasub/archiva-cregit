@@ -33,6 +33,22 @@ name|archiva
 operator|.
 name|model
 operator|.
+name|ArchivaModelCloner
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|model
+operator|.
 name|ArchivaProjectModel
 import|;
 end_import
@@ -75,13 +91,17 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|maven
 operator|.
-name|evaluator
+name|archiva
 operator|.
-name|DefaultExpressionEvaluator
+name|repository
+operator|.
+name|project
+operator|.
+name|ProjectModelFilter
 import|;
 end_import
 
@@ -166,33 +186,33 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProjectModelExpressionExpander   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.repository.project.ProjectModelExpressionExpander"  */
+comment|/**  * ProjectModelExpressionFilter   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.repository.project.ProjectModelFilter"  *                   role-hint="expression"   *                   instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|ProjectModelExpressionExpander
+name|ProjectModelExpressionFilter
+implements|implements
+name|ProjectModelFilter
 block|{
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|ExpressionEvaluator
+name|evaluator
+decl_stmt|;
 comment|/**      * Find and Evaluate the Expressions present in the model.      *       * @param model the model to correct.      */
 specifier|public
-specifier|static
-name|void
-name|evaluateExpressions
+name|ArchivaProjectModel
+name|filter
 parameter_list|(
+specifier|final
 name|ArchivaProjectModel
 name|model
 parameter_list|)
 throws|throws
 name|ProjectModelException
 block|{
-name|ExpressionEvaluator
-name|evaluator
-init|=
-operator|new
-name|DefaultExpressionEvaluator
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|model
@@ -237,9 +257,19 @@ name|SystemPropertyExpressionSource
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|ArchivaProjectModel
+name|ret
+init|=
+name|ArchivaModelCloner
+operator|.
+name|clone
+argument_list|(
+name|model
+argument_list|)
+decl_stmt|;
 try|try
 block|{
-name|model
+name|ret
 operator|.
 name|setVersion
 argument_list|(
@@ -247,14 +277,14 @@ name|evaluator
 operator|.
 name|expand
 argument_list|(
-name|model
+name|ret
 operator|.
 name|getVersion
 argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|model
+name|ret
 operator|.
 name|setGroupId
 argument_list|(
@@ -262,7 +292,7 @@ name|evaluator
 operator|.
 name|expand
 argument_list|(
-name|model
+name|ret
 operator|.
 name|getGroupId
 argument_list|()
@@ -273,7 +303,7 @@ name|evaluateExpressionsInDependencyList
 argument_list|(
 name|evaluator
 argument_list|,
-name|model
+name|ret
 operator|.
 name|getDependencies
 argument_list|()
@@ -283,7 +313,7 @@ name|evaluateExpressionsInDependencyList
 argument_list|(
 name|evaluator
 argument_list|,
-name|model
+name|ret
 operator|.
 name|getDependencyManagement
 argument_list|()
@@ -311,6 +341,9 @@ name|e
 argument_list|)
 throw|;
 block|}
+return|return
+name|ret
+return|;
 block|}
 specifier|private
 specifier|static

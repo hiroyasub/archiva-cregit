@@ -44,7 +44,7 @@ specifier|public
 interface|interface
 name|ProjectModelFilter
 block|{
-comment|/**      * Filter a model and return the results of the filtering.      *       * @param model the model to filter.      * @return a new model representing the filtered state of the model.      */
+comment|/**      * Filter a model and return the results of the filtering.      *       * @param model the model to filter.      * @return a new model representing the filtered state of the model.      * @throws ProjectModelException if there was a problem executing the filter.      */
 specifier|public
 name|ArchivaProjectModel
 name|filter
@@ -53,6 +53,8 @@ specifier|final
 name|ArchivaProjectModel
 name|model
 parameter_list|)
+throws|throws
+name|ProjectModelException
 function_decl|;
 block|}
 end_interface

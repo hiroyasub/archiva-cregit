@@ -79,7 +79,7 @@ name|suite
 operator|.
 name|addTestSuite
 argument_list|(
-name|EffectiveProjectModelBuilderTest
+name|EffectiveProjectModelFilterTest
 operator|.
 name|class
 argument_list|)

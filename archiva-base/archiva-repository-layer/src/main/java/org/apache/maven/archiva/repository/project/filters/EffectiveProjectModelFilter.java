@@ -131,6 +131,24 @@ name|repository
 operator|.
 name|project
 operator|.
+name|ProjectModelFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|project
+operator|.
 name|ProjectModelMerge
 import|;
 end_import
@@ -204,20 +222,27 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Builder for the Effective Project Model.    *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Builder for the Effective Project Model.    *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.repository.project.ProjectModelFilter"   *                   role-hint="effective"   *                   instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|EffectiveProjectModelBuilder
+name|EffectiveProjectModelFilter
+implements|implements
+name|ProjectModelFilter
 block|{
+comment|/**      * @plexus.requirement role-hint="expression"      */
+specifier|private
+name|ProjectModelFilter
+name|expressionFilter
+decl_stmt|;
 specifier|private
 name|List
 name|projectModelResolvers
 decl_stmt|;
 specifier|public
-name|EffectiveProjectModelBuilder
+name|EffectiveProjectModelFilter
 parameter_list|()
 block|{
 name|projectModelResolvers
@@ -257,8 +282,9 @@ block|}
 comment|/**      * Take the provided {@link ArchivaProjectModel} and build the effective {@link ArchivaProjectModel}.      *       * Steps:      * 1) Expand any expressions / properties.      * 2) Walk the parent project references and merge.      * 3) Apply dependency management settings.      *       * @param project the project to create the effective {@link ArchivaProjectModel} from.      * @return a the effective {@link ArchivaProjectModel}.      * @throws ProjectModelException if there was a problem building the effective pom.      */
 specifier|public
 name|ArchivaProjectModel
-name|buildEffectiveProjectModel
+name|filter
 parameter_list|(
+specifier|final
 name|ArchivaProjectModel
 name|project
 parameter_list|)
@@ -306,9 +332,11 @@ name|project
 argument_list|)
 decl_stmt|;
 comment|// Setup Expression Evaluation pieces.
-name|ProjectModelExpressionExpander
+name|effectiveProject
+operator|=
+name|expressionFilter
 operator|.
-name|evaluateExpressions
+name|filter
 argument_list|(
 name|effectiveProject
 argument_list|)
@@ -724,9 +752,11 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|ProjectModelExpressionExpander
+name|parentProject
+operator|=
+name|expressionFilter
 operator|.
-name|evaluateExpressions
+name|filter
 argument_list|(
 name|parentProject
 argument_list|)

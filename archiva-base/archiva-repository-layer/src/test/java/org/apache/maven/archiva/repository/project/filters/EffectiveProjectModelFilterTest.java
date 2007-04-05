@@ -101,6 +101,24 @@ name|repository
 operator|.
 name|project
 operator|.
+name|ProjectModelFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|project
+operator|.
 name|ProjectModelReader
 import|;
 end_import
@@ -139,7 +157,7 @@ name|project
 operator|.
 name|filters
 operator|.
-name|EffectiveProjectModelBuilder
+name|EffectiveProjectModelFilter
 import|;
 end_import
 
@@ -226,13 +244,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * EffectiveProjectModelBuilderTest   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * EffectiveProjectModelFilterTest   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|EffectiveProjectModelBuilderTest
+name|EffectiveProjectModelFilterTest
 extends|extends
 name|PlexusTestCase
 block|{
@@ -244,6 +262,27 @@ name|DEFAULT_REPOSITORY
 init|=
 literal|"src/test/repositories/default-repository"
 decl_stmt|;
+specifier|private
+name|EffectiveProjectModelFilter
+name|lookupEffective
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+operator|(
+name|EffectiveProjectModelFilter
+operator|)
+name|lookup
+argument_list|(
+name|ProjectModelFilter
+operator|.
+name|class
+argument_list|,
+literal|"effective"
+argument_list|)
+return|;
+block|}
 specifier|private
 name|ArchivaProjectModel
 name|createArchivaProjectModel
@@ -337,14 +376,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|EffectiveProjectModelBuilder
-name|builder
+name|EffectiveProjectModelFilter
+name|filter
 init|=
-operator|new
-name|EffectiveProjectModelBuilder
+name|lookupEffective
 argument_list|()
 decl_stmt|;
-name|builder
+name|filter
 operator|.
 name|addProjectModelResolver
 argument_list|(
@@ -365,9 +403,9 @@ decl_stmt|;
 name|ArchivaProjectModel
 name|effectiveModel
 init|=
-name|builder
+name|filter
 operator|.
-name|buildEffectiveProjectModel
+name|filter
 argument_list|(
 name|startModel
 argument_list|)
