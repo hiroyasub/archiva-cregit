@@ -304,7 +304,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * IndexContentConsumer - generic full file content indexing consumer.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role-hint="index-content"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * IndexContentConsumer - generic full file content indexing consumer.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.RepositoryContentConsumer"  *                   role-hint="index-content"  *                   instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

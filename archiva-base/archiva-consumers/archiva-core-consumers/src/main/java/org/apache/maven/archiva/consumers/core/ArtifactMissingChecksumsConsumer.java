@@ -294,7 +294,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactMissingChecksumsConsumer - Create missing checksums for the artifact.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role-hint="create-missing-checksums"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * ArtifactMissingChecksumsConsumer - Create missing checksums for the artifact.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.RepositoryContentConsumer"  *                   role-hint="create-missing-checksums"  *                   instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
