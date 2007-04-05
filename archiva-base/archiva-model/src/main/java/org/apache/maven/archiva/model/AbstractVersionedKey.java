@@ -42,23 +42,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryContentKey - the jpox application key support class for all content within the repository.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  *<p>  * AbstractVersionedKey - a versioned reference to a Project.  * This refers to all artifacts of a specific version of a project.  * This type of reference is typically used by {@link ArchivaProjectModel} objects.   *</p>  *   *<p>  *   If you require things like "Version" or "Type", consider the other keys below.  *</p>  *   *<table border="1" cellpadding="3">  *<tr>  *<th>Key Type</th>  *<th>Group ID</th>  *<th>Artifact ID</th>  *<th>Version</th>  *<th>Classifier</th>  *<th>Type</th>  *</tr>  *<tr>  *<td>{@link AbstractProjectKey}</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *<td>&nbsp;</td>  *<td>&nbsp;</td>  *<td>&nbsp;</td>  *</tr>  *<tr>  *<td>{@link AbstractVersionedKey}</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *<td>&nbsp;</td>  *<td>&nbsp;</td>  *</tr>  *<tr>  *<td>{@link AbstractArtifactKey}</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *</tr>  *</table>  *   *<p>  * NOTE: This is a jpox required compound key handler class.  *</p>  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|RepositoryContentKey
+name|AbstractVersionedKey
 implements|implements
 name|Serializable
 block|{
-comment|/**      * The Repository ID. (JPOX Requires this remain public)      */
-specifier|public
-name|String
-name|repositoryId
-init|=
-literal|""
-decl_stmt|;
 comment|/**      * The Group ID. (JPOX Requires this remain public)      */
 specifier|public
 name|String
@@ -82,13 +75,14 @@ literal|""
 decl_stmt|;
 comment|/**      * Default Constructor.  Required by JPOX.      */
 specifier|public
-name|RepositoryContentKey
+name|AbstractVersionedKey
 parameter_list|()
 block|{
+comment|/* do nothing */
 block|}
 comment|/**      * Key Based Constructor.  Required by JPOX.      *       * @param key the String representing this object's values.      */
 specifier|public
-name|RepositoryContentKey
+name|AbstractVersionedKey
 parameter_list|(
 name|String
 name|key
@@ -104,16 +98,9 @@ name|splitPreserveAllTokens
 argument_list|(
 name|key
 argument_list|,
-literal|':'
+literal|":"
 argument_list|)
 decl_stmt|;
-name|repositoryId
-operator|=
-name|parts
-index|[
-literal|0
-index|]
-expr_stmt|;
 name|groupId
 operator|=
 name|parts
@@ -151,8 +138,6 @@ operator|new
 name|String
 index|[]
 block|{
-name|repositoryId
-block|,
 name|groupId
 block|,
 name|artifactId
@@ -177,29 +162,11 @@ decl_stmt|;
 name|int
 name|result
 init|=
-literal|1
-decl_stmt|;
-name|result
-operator|=
-name|PRIME
-operator|*
-name|result
-operator|+
-operator|(
-operator|(
-name|repositoryId
-operator|==
-literal|null
-operator|)
-condition|?
-literal|0
-else|:
-name|repositoryId
+name|super
 operator|.
 name|hashCode
 argument_list|()
-operator|)
-expr_stmt|;
+decl_stmt|;
 name|result
 operator|=
 name|PRIME
@@ -289,9 +256,13 @@ return|;
 block|}
 if|if
 condition|(
+operator|!
+name|super
+operator|.
+name|equals
+argument_list|(
 name|obj
-operator|==
-literal|null
+argument_list|)
 condition|)
 block|{
 return|return
@@ -314,52 +285,14 @@ literal|false
 return|;
 block|}
 specifier|final
-name|RepositoryContentKey
+name|AbstractVersionedKey
 name|other
 init|=
 operator|(
-name|RepositoryContentKey
+name|AbstractVersionedKey
 operator|)
 name|obj
 decl_stmt|;
-if|if
-condition|(
-name|repositoryId
-operator|==
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|other
-operator|.
-name|repositoryId
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-block|}
-if|else if
-condition|(
-operator|!
-name|repositoryId
-operator|.
-name|equals
-argument_list|(
-name|other
-operator|.
-name|repositoryId
-argument_list|)
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
 if|if
 condition|(
 name|groupId
