@@ -21,25 +21,25 @@ end_comment
 
 begin_import
 import|import
-name|junit
+name|org
 operator|.
-name|framework
+name|apache
 operator|.
-name|TestCase
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|junit
 operator|.
-name|codehaus
+name|framework
 operator|.
-name|plexus
-operator|.
-name|util
-operator|.
-name|StringUtils
+name|TestCase
 import|;
 end_import
 

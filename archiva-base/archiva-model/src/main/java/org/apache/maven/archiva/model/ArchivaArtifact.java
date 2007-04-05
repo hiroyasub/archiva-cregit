@@ -224,6 +224,13 @@ argument_list|(
 name|version
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|repository
+operator|!=
+literal|null
+condition|)
+block|{
 name|model
 operator|.
 name|setRepositoryId
@@ -234,6 +241,7 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|model
 operator|.
 name|setClassifier

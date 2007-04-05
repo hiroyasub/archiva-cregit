@@ -128,9 +128,6 @@ literal|"org.apache.maven.shared"
 argument_list|,
 name|metadata
 operator|.
-name|getContentKey
-argument_list|()
-operator|.
 name|getGroupId
 argument_list|()
 argument_list|)
@@ -142,9 +139,6 @@ argument_list|,
 literal|"maven-downloader"
 argument_list|,
 name|metadata
-operator|.
-name|getContentKey
-argument_list|()
 operator|.
 name|getArtifactId
 argument_list|()
