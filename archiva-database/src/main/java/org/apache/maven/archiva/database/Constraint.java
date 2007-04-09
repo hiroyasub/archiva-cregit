@@ -62,6 +62,27 @@ name|String
 name|getSortDirection
 parameter_list|()
 function_decl|;
+comment|/**      * Get the declared imports used for this query. (optional)      *       * NOTE: This is DAO implementation specific.      *       * @return the imports. (can be null)      */
+specifier|public
+name|String
+index|[]
+name|getDeclaredImports
+parameter_list|()
+function_decl|;
+comment|/**      * Get the declared parameters used for this query. (optional)      *       * NOTE: This is DAO implementation specific.      *       * @return the parameters. (can be null)      */
+specifier|public
+name|String
+index|[]
+name|getDeclaredParameters
+parameter_list|()
+function_decl|;
+comment|/**      * Get the parameters used for this query. (required if using {@link #getDeclaredParameters()} )      *       * NOTE: This is DAO implementation specific.      *       * @return the parameters. (can be null)      */
+specifier|public
+name|Object
+index|[]
+name|getParameters
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

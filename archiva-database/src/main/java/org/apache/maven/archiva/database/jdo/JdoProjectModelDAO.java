@@ -120,7 +120,7 @@ name|JdoProjectModelDAO
 implements|implements
 name|ProjectModelDAO
 block|{
-comment|/**      * @plexus.requirement role-hint="default"      */
+comment|/**      * @plexus.requirement role-hint="archiva"      */
 specifier|private
 name|JdoAccess
 name|jdo

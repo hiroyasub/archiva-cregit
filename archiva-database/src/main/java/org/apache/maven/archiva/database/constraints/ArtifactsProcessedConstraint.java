@@ -35,25 +35,97 @@ name|Constraint
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
 begin_comment
-comment|/**  * UnprocessedArtifactsConstraint   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ArtifactsProcessedConstraint   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|UnprocessedArtifactsConstraint
+name|ArtifactsProcessedConstraint
+extends|extends
+name|AbstractConstraint
 implements|implements
 name|Constraint
 block|{
-specifier|public
+specifier|private
 name|String
-name|getFetchLimits
-parameter_list|()
+name|whereClause
+decl_stmt|;
+specifier|public
+name|ArtifactsProcessedConstraint
+parameter_list|(
+name|boolean
+name|isProcessed
+parameter_list|)
 block|{
-return|return
-literal|null
-return|;
+if|if
+condition|(
+name|isProcessed
+condition|)
+block|{
+name|whereClause
+operator|=
+literal|"whenProcessed != null"
+expr_stmt|;
+block|}
+else|else
+block|{
+name|whereClause
+operator|=
+literal|"whenProcessed == null"
+expr_stmt|;
+block|}
+block|}
+comment|/**      * A Constraint showing artifacts processed since date provided.      * @param since      */
+specifier|public
+name|ArtifactsProcessedConstraint
+parameter_list|(
+name|Date
+name|since
+parameter_list|)
+block|{
+name|whereClause
+operator|=
+literal|"whenProcessed> since"
+expr_stmt|;
+name|declImports
+operator|=
+operator|new
+name|String
+index|[]
+block|{
+literal|"import java.util.Date"
+block|}
+expr_stmt|;
+name|declParams
+operator|=
+operator|new
+name|String
+index|[]
+block|{
+literal|"Date since"
+block|}
+expr_stmt|;
+name|params
+operator|=
+operator|new
+name|Object
+index|[]
+block|{
+name|since
+block|}
+expr_stmt|;
 block|}
 specifier|public
 name|String
@@ -66,22 +138,11 @@ return|;
 block|}
 specifier|public
 name|String
-name|getSortDirection
-parameter_list|()
-block|{
-return|return
-name|Constraint
-operator|.
-name|ASCENDING
-return|;
-block|}
-specifier|public
-name|String
 name|getWhereCondition
 parameter_list|()
 block|{
 return|return
-literal|"whenProcessed == null"
+name|whereClause
 return|;
 block|}
 block|}

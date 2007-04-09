@@ -899,6 +899,11 @@ argument_list|(
 name|extent
 argument_list|)
 decl_stmt|;
+name|List
+name|result
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|constraint
@@ -997,10 +1002,283 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-name|List
-name|result
+if|if
+condition|(
+name|constraint
+operator|.
+name|getDeclaredImports
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+for|for
+control|(
+name|int
+name|i
 init|=
+literal|0
+init|;
+name|i
+operator|<
+name|constraint
+operator|.
+name|getDeclaredImports
+argument_list|()
+operator|.
+name|length
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|String
+name|qimport
+init|=
+name|constraint
+operator|.
+name|getDeclaredImports
+argument_list|()
+index|[
+name|i
+index|]
+decl_stmt|;
+name|query
+operator|.
+name|declareImports
+argument_list|(
+name|qimport
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|constraint
+operator|.
+name|getDeclaredParameters
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|constraint
+operator|.
+name|getParameters
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|JDOException
+argument_list|(
+literal|"Unable to use query, there are declared parameters, "
+operator|+
+literal|"but no parameter objects to use."
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|constraint
+operator|.
+name|getParameters
+argument_list|()
+operator|.
+name|length
+operator|!=
+name|constraint
+operator|.
+name|getDeclaredParameters
+argument_list|()
+operator|.
+name|length
+condition|)
+block|{
+throw|throw
+operator|new
+name|JDOException
+argument_list|(
+literal|"Unable to use query, there are<"
+operator|+
+name|constraint
+operator|.
+name|getDeclaredParameters
+argument_list|()
+operator|.
+name|length
+operator|+
+literal|"> declared parameters, yet there are<"
+operator|+
+name|constraint
+operator|.
+name|getParameters
+argument_list|()
+operator|.
+name|length
+operator|+
+literal|"> parameter objects to use.  This should be equal."
+argument_list|)
+throw|;
+block|}
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|constraint
+operator|.
+name|getDeclaredParameters
+argument_list|()
+operator|.
+name|length
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|String
+name|declaredParam
+init|=
+name|constraint
+operator|.
+name|getDeclaredParameters
+argument_list|()
+index|[
+name|i
+index|]
+decl_stmt|;
+name|query
+operator|.
+name|declareParameters
+argument_list|(
+name|declaredParam
+argument_list|)
+expr_stmt|;
+block|}
+switch|switch
+condition|(
+name|constraint
+operator|.
+name|getParameters
+argument_list|()
+operator|.
+name|length
+condition|)
+block|{
+case|case
+literal|1
+case|:
+name|result
+operator|=
+operator|(
+name|List
+operator|)
+name|query
+operator|.
+name|execute
+argument_list|(
+name|constraint
+operator|.
+name|getParameters
+argument_list|()
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+literal|2
+case|:
+name|result
+operator|=
+operator|(
+name|List
+operator|)
+name|query
+operator|.
+name|execute
+argument_list|(
+name|constraint
+operator|.
+name|getParameters
+argument_list|()
+index|[
+literal|0
+index|]
+argument_list|,
+name|constraint
+operator|.
+name|getParameters
+argument_list|()
+index|[
+literal|1
+index|]
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+literal|3
+case|:
+name|result
+operator|=
+operator|(
+name|List
+operator|)
+name|query
+operator|.
+name|execute
+argument_list|(
+name|constraint
+operator|.
+name|getParameters
+argument_list|()
+index|[
+literal|0
+index|]
+argument_list|,
+name|constraint
+operator|.
+name|getParameters
+argument_list|()
+index|[
+literal|1
+index|]
+argument_list|,
+name|constraint
+operator|.
+name|getParameters
+argument_list|()
+index|[
+literal|2
+index|]
+argument_list|)
+expr_stmt|;
+break|break;
+default|default:
+throw|throw
+operator|new
+name|JDOException
+argument_list|(
+literal|"Unable to use more than 3 parameters."
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
+comment|// Process unparameterized query.
+name|result
+operator|=
 operator|(
 name|List
 operator|)
@@ -1008,7 +1286,22 @@ name|query
 operator|.
 name|execute
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|result
+operator|=
+operator|(
+name|List
+operator|)
+name|query
+operator|.
+name|execute
+argument_list|()
+expr_stmt|;
+block|}
 name|result
 operator|=
 operator|(
@@ -1039,55 +1332,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|//    public List getUserAssignmentsForRoles( Class clazz, String ordering, Collection roleNames )
-comment|//    {
-comment|//        PersistenceManager pm = getPersistenceManager();
-comment|//        Transaction tx = pm.currentTransaction();
-comment|//
-comment|//        try
-comment|//        {
-comment|//            tx.begin();
-comment|//
-comment|//            Extent extent = pm.getExtent( clazz, true );
-comment|//
-comment|//            Query query = pm.newQuery( extent );
-comment|//
-comment|//            if ( ordering != null )
-comment|//            {
-comment|//                query.setOrdering( ordering );
-comment|//            }
-comment|//
-comment|//            query.declareImports( "import java.lang.String" );
-comment|//
-comment|//            StringBuffer filter = new StringBuffer();
-comment|//
-comment|//            Iterator i = roleNames.iterator();
-comment|//
-comment|//            if ( roleNames.size()> 0 )
-comment|//            {
-comment|//                filter.append( "this.roleNames.contains(\"" ).append( i.next() ).append( "\")" );
-comment|//
-comment|//                while ( i.hasNext() )
-comment|//                {
-comment|//                    filter.append( " || this.roleNames.contains(\"" ).append( i.next() ).append( "\")" );
-comment|//                }
-comment|//
-comment|//                query.setFilter( filter.toString() );
-comment|//            }
-comment|//
-comment|//            List result = (List) query.execute();
-comment|//
-comment|//            result = (List) pm.detachCopyAll( result );
-comment|//
-comment|//            tx.commit();
-comment|//
-comment|//            return result;
-comment|//        }
-comment|//        finally
-comment|//        {
-comment|//            rollbackIfActive( tx );
-comment|//        }
-comment|//    }
 specifier|public
 name|Object
 name|getObjectById
