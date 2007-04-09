@@ -85,6 +85,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|model
+operator|.
+name|CompoundKey
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -1414,6 +1430,34 @@ block|}
 name|Object
 name|objectId
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|id
+operator|instanceof
+name|CompoundKey
+condition|)
+block|{
+name|objectId
+operator|=
+name|pm
+operator|.
+name|newObjectIdInstance
+argument_list|(
+name|clazz
+argument_list|,
+name|id
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|objectId
+operator|=
 name|pm
 operator|.
 name|newObjectIdInstance
@@ -1422,7 +1466,8 @@ name|clazz
 argument_list|,
 name|id
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 name|Object
 name|object
 init|=
@@ -1461,22 +1506,34 @@ throw|throw
 operator|new
 name|ObjectNotFoundException
 argument_list|(
-literal|"Unable to find Database Object '"
+literal|"Unable to find Database Object ["
 operator|+
 name|id
 operator|+
-literal|"' of type "
+literal|"] of type "
 operator|+
 name|clazz
 operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" using fetch-group '"
+literal|" using "
+operator|+
+operator|(
+operator|(
+name|fetchGroup
+operator|==
+literal|null
+operator|)
+condition|?
+literal|"no fetch-group"
+else|:
+literal|"a fetch-group of ["
 operator|+
 name|fetchGroup
 operator|+
-literal|"'"
+literal|"]"
+operator|)
 argument_list|,
 name|e
 argument_list|,
@@ -1494,22 +1551,34 @@ throw|throw
 operator|new
 name|ArchivaDatabaseException
 argument_list|(
-literal|"Error in JDO during get of Database object id '"
+literal|"Error in JDO during get of Database object id ["
 operator|+
 name|id
 operator|+
-literal|"' of type "
+literal|"] of type "
 operator|+
 name|clazz
 operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" using fetch-group '"
+literal|" using "
+operator|+
+operator|(
+operator|(
+name|fetchGroup
+operator|==
+literal|null
+operator|)
+condition|?
+literal|"no fetch-group"
+else|:
+literal|"a fetch-group of ["
 operator|+
 name|fetchGroup
 operator|+
-literal|"'"
+literal|"]"
+operator|)
 argument_list|,
 name|e
 argument_list|)

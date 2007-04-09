@@ -50,6 +50,8 @@ specifier|public
 class|class
 name|AbstractProjectKey
 implements|implements
+name|CompoundKey
+implements|,
 name|Serializable
 block|{
 comment|/**      * The Group ID. (JPOX Requires this remain public)      */
@@ -98,14 +100,14 @@ name|groupId
 operator|=
 name|parts
 index|[
-literal|1
+literal|0
 index|]
 expr_stmt|;
 name|artifactId
 operator|=
 name|parts
 index|[
-literal|2
+literal|1
 index|]
 expr_stmt|;
 block|}

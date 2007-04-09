@@ -88,7 +88,7 @@ function_decl|;
 specifier|public
 name|List
 comment|/*<ArchivaProjectModel>*/
-name|queryProjectModel
+name|queryProjectModels
 parameter_list|(
 name|Constraint
 name|constraint
