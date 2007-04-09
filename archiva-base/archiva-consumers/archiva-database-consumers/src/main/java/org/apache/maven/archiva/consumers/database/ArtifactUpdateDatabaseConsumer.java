@@ -774,12 +774,12 @@ argument_list|)
 expr_stmt|;
 name|dao
 operator|.
+name|getArtifactDAO
+argument_list|()
+operator|.
 name|saveArtifact
 argument_list|(
 name|artifact
-operator|.
-name|getModel
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

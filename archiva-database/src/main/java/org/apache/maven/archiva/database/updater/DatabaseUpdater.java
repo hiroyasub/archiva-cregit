@@ -11,7 +11,7 @@ name|archiva
 operator|.
 name|database
 operator|.
-name|jdo
+name|updater
 package|;
 end_package
 
@@ -31,49 +31,56 @@ name|archiva
 operator|.
 name|database
 operator|.
-name|AbstractArchivaDatabaseTestCase
+name|ArchivaDatabaseException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|model
+operator|.
+name|ArchivaArtifact
 import|;
 end_import
 
 begin_comment
-comment|/**  * JdoArchivaDAOTest   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * The database update component.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
-begin_class
+begin_interface
 specifier|public
-class|class
-name|JdoArchivaDAOTest
-extends|extends
-name|AbstractArchivaDatabaseTestCase
+interface|interface
+name|DatabaseUpdater
 block|{
+comment|/**      * Update all unprocessed content.      *       * @throws ArchivaDatabaseException if there was a fatal error with the database.      */
 specifier|public
 name|void
-name|testSubDAOs
+name|updateAllUnprocessed
 parameter_list|()
-block|{
-name|assertNotNull
-argument_list|(
-literal|"Artifact DAO"
-argument_list|,
-name|dao
-operator|.
-name|getArtifactDAO
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"Repository DAO"
-argument_list|,
-name|dao
-operator|.
-name|getRepositoryDAO
-argument_list|()
-argument_list|)
-expr_stmt|;
+throws|throws
+name|ArchivaDatabaseException
+function_decl|;
+comment|/**      * Update specific unprocessed content.      *       * @throws ArchivaDatabaseException if there was a fatal error with the database.      */
+specifier|public
+name|void
+name|updateUnprocessed
+parameter_list|(
+name|ArchivaArtifact
+name|artifact
+parameter_list|)
+throws|throws
+name|ArchivaDatabaseException
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 
