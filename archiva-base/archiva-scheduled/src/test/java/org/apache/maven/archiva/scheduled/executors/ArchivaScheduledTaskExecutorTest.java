@@ -171,7 +171,12 @@ name|TaskExecutor
 operator|)
 name|lookup
 argument_list|(
-literal|"org.codehaus.plexus.taskqueue.execution.TaskExecutor"
+name|TaskExecutor
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 literal|"test-archiva-task-executor"
 argument_list|)
