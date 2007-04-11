@@ -173,7 +173,7 @@ name|lookup
 argument_list|(
 literal|"org.codehaus.plexus.taskqueue.execution.TaskExecutor"
 argument_list|,
-literal|"archiva-task-executor"
+literal|"test-archiva-task-executor"
 argument_list|)
 expr_stmt|;
 block|}
