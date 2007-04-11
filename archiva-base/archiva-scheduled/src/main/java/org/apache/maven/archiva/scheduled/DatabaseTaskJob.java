@@ -49,7 +49,7 @@ name|scheduled
 operator|.
 name|tasks
 operator|.
-name|RepositoryTask
+name|DatabaseTask
 import|;
 end_import
 
@@ -126,13 +126,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is the repository job that is executed by the scheduler.  */
+comment|/**  * This class is the database job that is executed by the scheduler.  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|RepositoryTaskJob
+name|DatabaseTaskJob
 extends|extends
 name|AbstractJob
 block|{
@@ -156,13 +156,6 @@ name|String
 name|TASK_QUEUE_POLICY
 init|=
 literal|"TASK_QUEUE_POLICY"
-decl_stmt|;
-specifier|static
-specifier|final
-name|String
-name|TASK_REPOSITORY
-init|=
-literal|"TASK_REPOSITORY"
 decl_stmt|;
 comment|/**      * Execute the discoverer and the indexer.      *      * @param context      * @throws org.quartz.JobExecutionException      *      */
 specifier|public
@@ -221,7 +214,7 @@ name|ArchivaTask
 name|task
 init|=
 operator|new
-name|RepositoryTask
+name|DatabaseTask
 argument_list|()
 decl_stmt|;
 name|task
