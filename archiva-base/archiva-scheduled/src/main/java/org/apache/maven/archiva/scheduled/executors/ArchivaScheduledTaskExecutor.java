@@ -434,6 +434,7 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
+comment|// insert repository scanning codelets here
 name|time
 operator|=
 name|System
@@ -455,22 +456,6 @@ operator|+
 literal|"ms."
 argument_list|)
 expr_stmt|;
-block|}
-specifier|public
-name|void
-name|execute
-parameter_list|()
-throws|throws
-name|TaskExecutionException
-block|{
-name|Configuration
-name|configuration
-init|=
-name|archivaConfiguration
-operator|.
-name|getConfiguration
-argument_list|()
-decl_stmt|;
 block|}
 block|}
 end_class
