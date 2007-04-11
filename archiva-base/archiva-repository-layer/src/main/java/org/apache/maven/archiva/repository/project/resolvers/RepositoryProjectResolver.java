@@ -299,7 +299,7 @@ name|path
 init|=
 name|layout
 operator|.
-name|pathOf
+name|toPath
 argument_list|(
 name|artifact
 argument_list|)

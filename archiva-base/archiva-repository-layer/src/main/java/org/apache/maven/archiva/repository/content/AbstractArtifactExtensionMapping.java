@@ -21,22 +21,6 @@ end_comment
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|model
-operator|.
-name|ArchivaArtifact
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -168,8 +152,8 @@ specifier|public
 name|String
 name|getExtension
 parameter_list|(
-name|ArchivaArtifact
-name|artifact
+name|String
+name|type
 parameter_list|)
 block|{
 comment|// Try specialized types first.
@@ -179,10 +163,7 @@ name|typeToExtensionMap
 operator|.
 name|containsKey
 argument_list|(
-name|artifact
-operator|.
-name|getType
-argument_list|()
+name|type
 argument_list|)
 condition|)
 block|{
@@ -194,19 +175,13 @@ name|typeToExtensionMap
 operator|.
 name|get
 argument_list|(
-name|artifact
-operator|.
-name|getType
-argument_list|()
+name|type
 argument_list|)
 return|;
 block|}
 comment|// Return type
 return|return
-name|artifact
-operator|.
-name|getType
-argument_list|()
+name|type
 return|;
 block|}
 block|}

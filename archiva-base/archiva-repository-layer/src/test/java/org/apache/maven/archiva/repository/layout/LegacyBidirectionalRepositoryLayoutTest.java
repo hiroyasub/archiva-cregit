@@ -125,7 +125,7 @@ literal|"com.foo/jars/foo-tool-1.0.jar"
 argument_list|,
 name|layout
 operator|.
-name|pathOf
+name|toPath
 argument_list|(
 name|artifact
 argument_list|)
@@ -159,7 +159,7 @@ literal|"com.foo/ejbs/foo-client-1.0.jar"
 argument_list|,
 name|layout
 operator|.
-name|pathOf
+name|toPath
 argument_list|(
 name|artifact
 argument_list|)
@@ -193,7 +193,7 @@ literal|"com.foo.lib/javadoc.jars/foo-lib-2.1-alpha-1-sources.jar"
 argument_list|,
 name|layout
 operator|.
-name|pathOf
+name|toPath
 argument_list|(
 name|artifact
 argument_list|)
@@ -227,7 +227,7 @@ literal|"com.foo/jars/foo-connector-2.1-20060822.123456-35.jar"
 argument_list|,
 name|layout
 operator|.
-name|pathOf
+name|toPath
 argument_list|(
 name|artifact
 argument_list|)

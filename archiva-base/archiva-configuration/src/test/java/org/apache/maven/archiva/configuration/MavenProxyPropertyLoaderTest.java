@@ -148,11 +148,11 @@ operator|new
 name|Configuration
 argument_list|()
 decl_stmt|;
-name|ProxyConfiguration
+name|NetworkProxyConfiguration
 name|proxy
 init|=
 operator|new
-name|ProxyConfiguration
+name|NetworkProxyConfiguration
 argument_list|()
 decl_stmt|;
 name|proxy

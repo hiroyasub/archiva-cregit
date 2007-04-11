@@ -9,9 +9,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|model
+name|proxy
 operator|.
-name|jpox
+name|policy
 package|;
 end_package
 
@@ -21,63 +21,37 @@ end_comment
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|model
-operator|.
-name|AbstractArtifactKey
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
 operator|.
-name|Serializable
+name|File
 import|;
 end_import
 
 begin_comment
-comment|/**  * DependencyKey - unique classid-key for JPOX.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Policy to apply before the fetch of content.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
-begin_class
+begin_interface
 specifier|public
-class|class
-name|DependencyKey
-extends|extends
-name|AbstractArtifactKey
-implements|implements
-name|Serializable
+interface|interface
+name|PrefetchPolicy
 block|{
+comment|/**      * Apply the policy using the provided policy code and local file.      *       * @param policyCode the policy code to use.      * @param localFile the local file that might affect the policy.      * @return true if the policy passes, false if the policy prevents the      *         fetching of the content.      */
 specifier|public
-name|DependencyKey
-parameter_list|()
-block|{
-block|}
-specifier|public
-name|DependencyKey
+name|boolean
+name|applyPolicy
 parameter_list|(
 name|String
-name|key
+name|policyCode
+parameter_list|,
+name|File
+name|localFile
 parameter_list|)
-block|{
-name|super
-argument_list|(
-name|key
-argument_list|)
-expr_stmt|;
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

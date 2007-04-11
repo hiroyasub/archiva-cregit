@@ -26,9 +26,6 @@ specifier|public
 class|class
 name|ArchivaRepository
 block|{
-comment|//    protected ArtifactRepositoryPolicy releases;
-comment|//
-comment|//    protected ArtifactRepositoryPolicy snapshots;
 specifier|private
 name|ArchivaRepositoryModel
 name|model
@@ -85,7 +82,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Construct a Repository.      *       * @param id the unique identifier for this repository.      * @param name the name for this repository.      * @param url the base URL for this repository (this should point to the top level URL for the entire repository)      * @param layout the layout technique for this repository.      */
+comment|/**      * Construct a Repository.      *       * @param model the model to use      */
 specifier|public
 name|ArchivaRepository
 parameter_list|(
@@ -196,25 +193,6 @@ operator|=
 name|blacklisted
 expr_stmt|;
 block|}
-comment|//    public ArtifactRepositoryPolicy getReleases()
-comment|//    {
-comment|//        return releases;
-comment|//    }
-comment|//
-comment|//    public void setReleases( ArtifactRepositoryPolicy releases )
-comment|//    {
-comment|//        this.releases = releases;
-comment|//    }
-comment|//
-comment|//    public ArtifactRepositoryPolicy getSnapshots()
-comment|//    {
-comment|//        return snapshots;
-comment|//    }
-comment|//
-comment|//    public void setSnapshots( ArtifactRepositoryPolicy snapshots )
-comment|//    {
-comment|//        this.snapshots = snapshots;
-comment|//    }
 specifier|public
 name|boolean
 name|isRemote
@@ -251,6 +229,34 @@ name|equals
 argument_list|(
 literal|"file"
 argument_list|)
+return|;
+block|}
+specifier|public
+name|String
+name|getLayoutType
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|model
+operator|.
+name|getLayoutName
+argument_list|()
+return|;
+block|}
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|model
+operator|.
+name|getName
+argument_list|()
 return|;
 block|}
 block|}

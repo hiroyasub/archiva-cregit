@@ -35,6 +35,38 @@ name|ArchivaArtifact
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|model
+operator|.
+name|ArtifactReference
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|model
+operator|.
+name|ProjectReference
+import|;
+end_import
+
 begin_comment
 comment|/**  * BidirectionalRepositoryLayout - Similar in scope to ArtifactRepositoryLayout, but does  * the both the Path to Artifact, and Artifact to Path conversions.    *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
@@ -50,13 +82,31 @@ name|String
 name|getId
 parameter_list|()
 function_decl|;
-comment|/**      * Given an ArchivaArtifact, return the relative path to the artifact.      *       * @param artifact the artifact to compute the path of.      * @return the relative path to the artifact.       */
+comment|/**      * Given an ArchivaArtifact, return the relative path to the artifact.      *       * @param artifact the artifact to use.      * @return the relative path to the artifact.       */
 specifier|public
 name|String
-name|pathOf
+name|toPath
 parameter_list|(
 name|ArchivaArtifact
 name|artifact
+parameter_list|)
+function_decl|;
+comment|/**      * Given an ArtifactReference, return the relative path to the artifact.      *       * @param artifact the artifact reference to use.      * @return the relative path to the artifact.       */
+specifier|public
+name|String
+name|toPath
+parameter_list|(
+name|ArtifactReference
+name|artifact
+parameter_list|)
+function_decl|;
+comment|/**      * Given an ProjectReference, return the relative path to that reference.      *       * @param project the project reference to use.      * @return the relative path to the project reference.       */
+specifier|public
+name|String
+name|toPath
+parameter_list|(
+name|ProjectReference
+name|project
 parameter_list|)
 function_decl|;
 comment|/**      * Given a repository relative path to a filename, return the ArchivaArtifact object suitable for the path.      *       * @param path the path relative to the repository base dir for the artifact.      * @return the ArchivaArtifact representing the path. (or null if path cannot be converted to an ArchivaArtifact)      * @throws LayoutException if there was a problem converting the path to an artifact.      */

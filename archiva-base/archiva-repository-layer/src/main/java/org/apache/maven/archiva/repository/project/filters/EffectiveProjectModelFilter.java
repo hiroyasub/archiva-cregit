@@ -407,7 +407,7 @@ operator|||
 operator|(
 name|pom
 operator|.
-name|getDependencies
+name|getDependencyTree
 argument_list|()
 operator|==
 literal|null
@@ -429,7 +429,7 @@ argument_list|()
 operator|||
 name|pom
 operator|.
-name|getDependencies
+name|getDependencyTree
 argument_list|()
 operator|.
 name|isEmpty
@@ -455,7 +455,10 @@ name|it
 init|=
 name|pom
 operator|.
-name|getDependencies
+name|getDependencyTree
+argument_list|()
+operator|.
+name|getDependencyNodes
 argument_list|()
 operator|.
 name|iterator
