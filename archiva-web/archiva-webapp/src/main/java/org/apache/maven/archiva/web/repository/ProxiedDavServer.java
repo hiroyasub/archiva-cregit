@@ -389,11 +389,6 @@ specifier|private
 name|ProxyRequestHandler
 name|proxyRequestHandler
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|ConfiguredRepositoryFactory
-name|repositoryFactory
-decl_stmt|;
 specifier|private
 name|RepositoryConfiguration
 name|repositoryConfiguration

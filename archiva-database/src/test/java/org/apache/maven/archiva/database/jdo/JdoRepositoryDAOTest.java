@@ -79,7 +79,7 @@ name|archiva
 operator|.
 name|model
 operator|.
-name|ArchivaRepositoryModel
+name|ArchivaRepository
 import|;
 end_import
 
@@ -130,7 +130,7 @@ name|getRepositoryDAO
 argument_list|()
 decl_stmt|;
 comment|// Create it
-name|ArchivaRepositoryModel
+name|ArchivaRepository
 name|repo
 init|=
 name|repoDao
@@ -138,6 +138,8 @@ operator|.
 name|createRepository
 argument_list|(
 literal|"testRepo"
+argument_list|,
+literal|"Test Repository"
 argument_list|,
 literal|"http://localhost:8080/repository/foo"
 argument_list|)
@@ -150,12 +152,8 @@ expr_stmt|;
 comment|// Set some mandatory values
 name|repo
 operator|.
-name|setName
-argument_list|(
-literal|"The Test Repository."
-argument_list|)
-expr_stmt|;
-name|repo
+name|getModel
+argument_list|()
 operator|.
 name|setCreationSource
 argument_list|(
@@ -164,13 +162,16 @@ argument_list|)
 expr_stmt|;
 name|repo
 operator|.
+name|getModel
+argument_list|()
+operator|.
 name|setLayoutName
 argument_list|(
 literal|"default"
 argument_list|)
 expr_stmt|;
 comment|// Save it.
-name|ArchivaRepositoryModel
+name|ArchivaRepository
 name|repoSaved
 init|=
 name|repoDao
@@ -225,11 +226,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Test that retreived object is what we expect.
-name|ArchivaRepositoryModel
+name|ArchivaRepository
 name|firstRepo
 init|=
 operator|(
-name|ArchivaRepositoryModel
+name|ArchivaRepository
 operator|)
 name|repos
 operator|.
@@ -259,6 +260,9 @@ literal|"The Test Repository."
 argument_list|,
 name|repo
 operator|.
+name|getModel
+argument_list|()
+operator|.
 name|getName
 argument_list|()
 argument_list|)
@@ -268,6 +272,9 @@ argument_list|(
 literal|"Test Case"
 argument_list|,
 name|repo
+operator|.
+name|getModel
+argument_list|()
 operator|.
 name|getCreationSource
 argument_list|()
@@ -279,6 +286,9 @@ literal|"default"
 argument_list|,
 name|repo
 operator|.
+name|getModel
+argument_list|()
+operator|.
 name|getLayoutName
 argument_list|()
 argument_list|)
@@ -286,9 +296,12 @@ expr_stmt|;
 comment|// Change value and save.
 name|repoSaved
 operator|.
-name|setName
+name|getModel
+argument_list|()
+operator|.
+name|setCreationSource
 argument_list|(
-literal|"Saved Again"
+literal|"Changed"
 argument_list|)
 expr_stmt|;
 name|repoDao
@@ -313,7 +326,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Get the specific repo.
-name|ArchivaRepositoryModel
+name|ArchivaRepository
 name|actualRepo
 init|=
 name|repoDao
@@ -351,11 +364,14 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Saved Again"
+literal|"Changed"
 argument_list|,
 name|actualRepo
 operator|.
-name|getName
+name|getModel
+argument_list|()
+operator|.
+name|getCreationSource
 argument_list|()
 argument_list|)
 expr_stmt|;

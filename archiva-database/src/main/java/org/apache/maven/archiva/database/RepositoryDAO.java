@@ -29,7 +29,7 @@ name|archiva
 operator|.
 name|model
 operator|.
-name|ArchivaRepositoryModel
+name|ArchivaRepository
 import|;
 end_import
 
@@ -54,11 +54,14 @@ name|RepositoryDAO
 block|{
 comment|/* NOTE TO ARCHIVA DEVELOPERS.      *       * Please keep this interface clean and lean.      * We don't want a repeat of the Continuum Store.      * You should have the following methods per object type ...      *       *   (Required Methods)      *       *    DatabaseObject .createDatabaseObject( Required Params ) ;      *    List           .queryDatabaseObject( Constraint )       throws ObjectNotFoundException, DatabaseException;      *    DatabaseObject .saveDatabaseObject( DatabaseObject )    throws DatabaseException;      *          *   (Optional Methods)      *         *    DatabaseObject .getDatabaseObject( Id )                 throws ObjectNotFoundException, DatabaseException;      *    List           .getDatabaseObjects()                    throws ObjectNotFoundException, DatabaseException;      *    void           .deleteDatabaseObject( DatabaseObject )  throws DatabaseException;      *          * This is the only list of options created in this DAO.      */
 specifier|public
-name|ArchivaRepositoryModel
+name|ArchivaRepository
 name|createRepository
 parameter_list|(
 name|String
 name|id
+parameter_list|,
+name|String
+name|name
 parameter_list|,
 name|String
 name|url
@@ -66,7 +69,7 @@ parameter_list|)
 function_decl|;
 specifier|public
 name|List
-comment|/*<ArchivaRepositoryModel>*/
+comment|/*<ArchivaRepository>*/
 name|getRepositories
 parameter_list|()
 throws|throws
@@ -75,7 +78,7 @@ throws|,
 name|ArchivaDatabaseException
 function_decl|;
 specifier|public
-name|ArchivaRepositoryModel
+name|ArchivaRepository
 name|getRepository
 parameter_list|(
 name|String
@@ -88,7 +91,8 @@ name|ArchivaDatabaseException
 function_decl|;
 specifier|public
 name|List
-name|queryRepository
+comment|/*<ArchivaRepository>*/
+name|queryRepositories
 parameter_list|(
 name|Constraint
 name|constraint
@@ -99,10 +103,10 @@ throws|,
 name|ArchivaDatabaseException
 function_decl|;
 specifier|public
-name|ArchivaRepositoryModel
+name|ArchivaRepository
 name|saveRepository
 parameter_list|(
-name|ArchivaRepositoryModel
+name|ArchivaRepository
 name|repository
 parameter_list|)
 throws|throws
@@ -112,7 +116,7 @@ specifier|public
 name|void
 name|deleteRepository
 parameter_list|(
-name|ArchivaRepositoryModel
+name|ArchivaRepository
 name|repository
 parameter_list|)
 throws|throws
