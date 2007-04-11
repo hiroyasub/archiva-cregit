@@ -292,7 +292,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JdoDatabaseUpdater  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component  */
+comment|/**  * JdoDatabaseUpdater  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.database.updater.DatabaseUpdater"   *   role-hint="jdo"   */
 end_comment
 
 begin_class
