@@ -186,6 +186,14 @@ argument_list|(
 name|repoSaved
 argument_list|)
 expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|repoSaved
+operator|.
+name|getModel
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"testRepo"
@@ -195,6 +203,9 @@ operator|.
 name|getObjectId
 argument_list|(
 name|repoSaved
+operator|.
+name|getModel
+argument_list|()
 argument_list|)
 operator|.
 name|toString
@@ -256,7 +267,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"The Test Repository."
+literal|"Test Repository"
 argument_list|,
 name|repo
 operator|.
@@ -359,6 +370,9 @@ argument_list|,
 name|actualRepo
 operator|.
 name|getUrl
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;

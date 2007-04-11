@@ -222,13 +222,9 @@ throws|,
 name|ArchivaDatabaseException
 block|{
 return|return
-name|jdo
-operator|.
-name|getAllObjects
+name|queryRepositories
 argument_list|(
-name|ArchivaRepositoryModel
-operator|.
-name|class
+literal|null
 argument_list|)
 return|;
 block|}
