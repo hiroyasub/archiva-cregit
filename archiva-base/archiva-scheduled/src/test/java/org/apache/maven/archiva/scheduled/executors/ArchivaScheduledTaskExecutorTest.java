@@ -138,13 +138,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * IndexerTaskExecutorTest  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * IndexerTaskExecutorTest  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id:$  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|DataRefreshExecutorTest
+name|ArchivaScheduledTaskExecutorTest
 extends|extends
 name|PlexusTestCase
 block|{
@@ -176,30 +176,6 @@ argument_list|,
 literal|"archiva-task-executor"
 argument_list|)
 expr_stmt|;
-name|ArchivaConfiguration
-name|archivaConfiguration
-init|=
-operator|(
-name|ArchivaConfiguration
-operator|)
-name|lookup
-argument_list|(
-name|ArchivaConfiguration
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|Configuration
-name|configuration
-init|=
-name|archivaConfiguration
-operator|.
-name|getConfiguration
-argument_list|()
-decl_stmt|;
 block|}
 specifier|public
 name|void
