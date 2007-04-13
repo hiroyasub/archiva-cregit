@@ -164,7 +164,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation of configuration holder that retrieves it from the registry.  *  * @plexus.component  */
+comment|/**  * Implementation of configuration holder that retrieves it from the registry.  *  * @plexus.component role="org.apache.maven.archiva.configuration.ArchivaConfiguration"  */
 end_comment
 
 begin_class

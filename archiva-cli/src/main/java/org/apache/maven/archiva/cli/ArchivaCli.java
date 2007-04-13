@@ -1626,6 +1626,8 @@ argument_list|(
 name|ArchivaConfiguration
 operator|.
 name|ROLE
+argument_list|,
+literal|"cli"
 argument_list|)
 expr_stmt|;
 name|System
