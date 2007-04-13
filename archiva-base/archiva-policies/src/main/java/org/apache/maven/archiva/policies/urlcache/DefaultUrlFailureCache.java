@@ -10,6 +10,8 @@ operator|.
 name|archiva
 operator|.
 name|policies
+operator|.
+name|urlcache
 package|;
 end_package
 
@@ -19,11 +21,15 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|codehaus
 operator|.
-name|File
+name|plexus
+operator|.
+name|cache
+operator|.
+name|Cache
 import|;
 end_import
 
@@ -33,67 +39,85 @@ name|java
 operator|.
 name|util
 operator|.
-name|Properties
+name|Date
 import|;
 end_import
 
 begin_comment
-comment|/**  * DownloadPolicy   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * DefaultUrlFailureCache   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.policies.urlcache.UrlFailureCache"  *                   role-hint="default"  */
 end_comment
 
-begin_interface
+begin_class
 specifier|public
-interface|interface
-name|DownloadPolicy
+class|class
+name|DefaultUrlFailureCache
+implements|implements
+name|UrlFailureCache
 block|{
-comment|/**      * The IGNORED policy means that the policy is ignored.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|IGNORED
-init|=
-literal|"ignored"
+comment|/**      * @plexus.requirement role-hint="url-failures-cache"      */
+specifier|private
+name|Cache
+name|urlCache
 decl_stmt|;
 specifier|public
-specifier|static
-specifier|final
-name|boolean
-name|PASS
-init|=
-literal|true
-decl_stmt|;
-specifier|public
-specifier|static
-specifier|final
-name|boolean
-name|FAIL
-init|=
-literal|false
-decl_stmt|;
-comment|/**      * Get the default policy setting.      *       * @return the default policy setting.      */
-specifier|public
-name|String
-name|getDefaultPolicySetting
-parameter_list|()
-function_decl|;
-comment|/**      * Apply the download policy.      *       * @param policySetting the policy setting.      * @param request the list of request properties that the policy might use.      * @param localFile      *       * @return true if the policy passes.      */
-specifier|public
-name|boolean
-name|applyPolicy
+name|void
+name|cacheFailure
 parameter_list|(
 name|String
-name|policySetting
-parameter_list|,
-name|Properties
-name|request
-parameter_list|,
-name|File
-name|localFile
+name|url
 parameter_list|)
-function_decl|;
+block|{
+name|urlCache
+operator|.
+name|register
+argument_list|(
+name|url
+argument_list|,
+operator|new
+name|Date
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
-end_interface
+specifier|public
+name|boolean
+name|hasFailedBefore
+parameter_list|(
+name|String
+name|url
+parameter_list|)
+block|{
+if|if
+condition|(
+name|urlCache
+operator|.
+name|hasKey
+argument_list|(
+name|url
+argument_list|)
+condition|)
+block|{
+name|urlCache
+operator|.
+name|register
+argument_list|(
+name|url
+argument_list|,
+operator|new
+name|Date
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+return|return
+literal|false
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 
