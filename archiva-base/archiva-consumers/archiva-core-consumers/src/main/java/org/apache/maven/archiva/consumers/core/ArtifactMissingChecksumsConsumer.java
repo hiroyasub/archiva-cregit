@@ -890,7 +890,7 @@ operator|+
 name|getId
 argument_list|()
 operator|+
-literal|" due to empty includes list."
+literal|" due to empty includes list.  Check the configuration sources."
 argument_list|)
 throw|;
 block|}
