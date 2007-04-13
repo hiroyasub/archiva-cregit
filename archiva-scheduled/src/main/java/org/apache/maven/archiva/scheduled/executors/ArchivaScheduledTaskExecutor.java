@@ -764,6 +764,16 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
+name|getLogger
+argument_list|()
+operator|.
+name|warn
+argument_list|(
+literal|"Using consumer "
+operator|+
+name|consumer
+argument_list|)
+expr_stmt|;
 name|activeConsumers
 operator|.
 name|add
