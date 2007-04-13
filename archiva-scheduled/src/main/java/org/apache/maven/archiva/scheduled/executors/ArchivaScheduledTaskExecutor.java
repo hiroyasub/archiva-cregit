@@ -325,10 +325,15 @@ specifier|private
 name|RepositoryDAO
 name|repositoryDAO
 decl_stmt|;
-comment|/**      * The collection of available consumers.      * @plexus.requirement role="org.apache.maven.archiva.consumers.ArchivaArtifactConsumer"      */
+comment|/**      * The collection of available database consumers.      * @plexus.requirement role="org.apache.maven.archiva.consumers.ArchivaArtifactConsumer"      */
 specifier|private
 name|Map
-name|availableConsumers
+name|availableDBConsumers
+decl_stmt|;
+comment|/**      * The collection of available repository consumers.      * @plexus.requirement role="org.apache.maven.archiva.consumers.RepositoryContentConsumer"      */
+specifier|private
+name|Map
+name|availableRepositoryConsumers
 decl_stmt|;
 specifier|public
 name|void
@@ -679,11 +684,11 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|availableConsumers
+name|availableRepositoryConsumers
 operator|.
 name|containsKey
 argument_list|(
-name|availableConsumers
+name|availableRepositoryConsumers
 operator|.
 name|get
 argument_list|(
@@ -696,7 +701,7 @@ name|activeConsumers
 operator|.
 name|add
 argument_list|(
-name|availableConsumers
+name|availableRepositoryConsumers
 operator|.
 name|get
 argument_list|(
@@ -751,11 +756,11 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|availableConsumers
+name|availableRepositoryConsumers
 operator|.
 name|containsKey
 argument_list|(
-name|availableConsumers
+name|availableRepositoryConsumers
 operator|.
 name|get
 argument_list|(
@@ -778,7 +783,7 @@ name|activeConsumers
 operator|.
 name|add
 argument_list|(
-name|availableConsumers
+name|availableRepositoryConsumers
 operator|.
 name|get
 argument_list|(
