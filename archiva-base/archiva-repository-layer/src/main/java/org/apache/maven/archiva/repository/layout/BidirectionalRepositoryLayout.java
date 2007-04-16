@@ -120,6 +120,17 @@ parameter_list|)
 throws|throws
 name|LayoutException
 function_decl|;
+comment|/**      * Given a repository relateive path to a filename, return the ProjectReference object suitable for the path.      *       * @param path the path relative to the repository base dir for the artifact.      * @return the ProjectReference representing the path.  (or null if path cannot be converted to a ProjectReference)      * @throws LayoutException if there was a problem converting the path to an artifact.      */
+specifier|public
+name|ProjectReference
+name|toProjectReference
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+throws|throws
+name|LayoutException
+function_decl|;
 block|}
 end_interface
 
