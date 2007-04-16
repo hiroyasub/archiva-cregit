@@ -458,6 +458,14 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
+name|getLogger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Task: Updating unprocessed artifacts"
+argument_list|)
+expr_stmt|;
 name|databaseUpdater
 operator|.
 name|updateAllUnprocessed
@@ -482,6 +490,14 @@ throw|;
 block|}
 try|try
 block|{
+name|getLogger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Task: Updating processed artifacts"
+argument_list|)
+expr_stmt|;
 name|databaseUpdater
 operator|.
 name|updateAllProcessed
