@@ -50,6 +50,15 @@ return|return
 literal|false
 return|;
 block|}
+specifier|protected
+name|String
+name|getUpdateMode
+parameter_list|()
+block|{
+return|return
+literal|"releases"
+return|;
+block|}
 block|}
 end_class
 

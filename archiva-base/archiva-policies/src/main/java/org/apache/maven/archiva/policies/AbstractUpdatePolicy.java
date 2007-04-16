@@ -217,6 +217,12 @@ name|boolean
 name|isSnapshotPolicy
 parameter_list|()
 function_decl|;
+specifier|protected
+specifier|abstract
+name|String
+name|getUpdateMode
+parameter_list|()
+function_decl|;
 specifier|public
 name|boolean
 name|applyPolicy
@@ -268,49 +274,6 @@ name|version
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Test for mismatches.
-if|if
-condition|(
-operator|!
-name|isSnapshotVersion
-operator|&&
-name|isSnapshotPolicy
-argument_list|()
-condition|)
-block|{
-name|getLogger
-argument_list|()
-operator|.
-name|debug
-argument_list|(
-literal|"Non-snapshot version detected in during snapshot policy. ignoring policy."
-argument_list|)
-expr_stmt|;
-return|return
-literal|true
-return|;
-block|}
-if|if
-condition|(
-name|isSnapshotVersion
-operator|&&
-operator|!
-name|isSnapshotPolicy
-argument_list|()
-condition|)
-block|{
-name|getLogger
-argument_list|()
-operator|.
-name|debug
-argument_list|(
-literal|"Snapshot version detected in during release policy. ignoring policy."
-argument_list|)
-expr_stmt|;
-return|return
-literal|true
-return|;
-block|}
 if|if
 condition|(
 operator|!
@@ -349,13 +312,61 @@ name|policySetting
 argument_list|)
 condition|)
 block|{
-comment|// Disabled means no.
+comment|// Ignored means ok to update.
 name|getLogger
 argument_list|()
 operator|.
 name|debug
 argument_list|(
-literal|"OK to update, policy ignored."
+literal|"OK to update, "
+operator|+
+name|getUpdateMode
+argument_list|()
+operator|+
+literal|" policy set to IGNORED."
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+comment|// Test for mismatches.
+if|if
+condition|(
+operator|!
+name|isSnapshotVersion
+operator|&&
+name|isSnapshotPolicy
+argument_list|()
+condition|)
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"OK to update, snapshot policy does not apply for non-snapshot versions."
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+if|if
+condition|(
+name|isSnapshotVersion
+operator|&&
+operator|!
+name|isSnapshotPolicy
+argument_list|()
+condition|)
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"OK to update, release policy does not apply for snapshot versions."
 argument_list|)
 expr_stmt|;
 return|return
@@ -378,7 +389,12 @@ argument_list|()
 operator|.
 name|debug
 argument_list|(
-literal|"NO to update, disabled."
+literal|"NO to update, "
+operator|+
+name|getUpdateMode
+argument_list|()
+operator|+
+literal|" policy set to DISABLED."
 argument_list|)
 expr_stmt|;
 return|return
@@ -400,7 +416,12 @@ argument_list|()
 operator|.
 name|debug
 argument_list|(
-literal|"OK to update, local file does not exist."
+literal|"OK to update "
+operator|+
+name|getUpdateMode
+argument_list|()
+operator|+
+literal|", local file does not exist."
 argument_list|)
 expr_stmt|;
 return|return
@@ -423,7 +444,12 @@ argument_list|()
 operator|.
 name|debug
 argument_list|(
-literal|"NO to update, local file exist (and policy is ONCE)."
+literal|"NO to update"
+operator|+
+name|getUpdateMode
+argument_list|()
+operator|+
+literal|", local file exist (and policy is ONCE)."
 argument_list|)
 expr_stmt|;
 return|return

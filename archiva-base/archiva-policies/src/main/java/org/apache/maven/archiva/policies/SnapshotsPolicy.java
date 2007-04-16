@@ -50,6 +50,15 @@ return|return
 literal|true
 return|;
 block|}
+specifier|protected
+name|String
+name|getUpdateMode
+parameter_list|()
+block|{
+return|return
+literal|"snapshots"
+return|;
+block|}
 block|}
 end_class
 

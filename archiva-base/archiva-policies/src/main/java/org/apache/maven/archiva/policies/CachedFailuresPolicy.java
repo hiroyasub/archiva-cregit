@@ -210,6 +210,14 @@ argument_list|)
 condition|)
 block|{
 comment|// Ignore.
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"OK to fetch, check-failures policy set to IGNORED."
+argument_list|)
+expr_stmt|;
 return|return
 literal|true
 return|;
@@ -244,11 +252,29 @@ name|url
 argument_list|)
 condition|)
 block|{
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"NO to fetch, check-failures detected previous failure on url: "
+operator|+
+name|url
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
 block|}
 block|}
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"OK to fetch, check-failures detected no issues."
+argument_list|)
+expr_stmt|;
 return|return
 literal|true
 return|;
