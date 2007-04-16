@@ -69,6 +69,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -86,7 +96,7 @@ name|RepositoryProxyConnectors
 block|{
 comment|/**      * Performs the artifact fetch operation against the target repositories      * of the provided source repository.      *       * If the artifact is found, it is downloaded and placed into the source repository      * filesystem.      *       * @param repository the source repository to use. (must be a managed repository)      * @param artifact the artifact to fetch.      * @return true if the fetch operation succeeded in obtaining content, false if no content was obtained.      * @throws ProxyException if there was a problem fetching the content from the target repositories.      */
 specifier|public
-name|boolean
+name|File
 name|fetchFromProxies
 parameter_list|(
 name|ArchivaRepository
@@ -100,7 +110,7 @@ name|ProxyException
 function_decl|;
 comment|/**      * Performs the metadata fetch operation against the target repositories      * of the provided source repository.      *       * If the metadata is found, it is downloaded and placed into the source repository      * filesystem.      *       * @param repository the source repository to use. (must be a managed repository)      * @param metadata the metadata to fetch.      * @return true if the fetch operation succeeded in obtaining content, false if no content was obtained.      * @throws ProxyException if there was a problem fetching the content from the target repositories.      */
 specifier|public
-name|boolean
+name|File
 name|fetchFromProxies
 parameter_list|(
 name|ArchivaRepository

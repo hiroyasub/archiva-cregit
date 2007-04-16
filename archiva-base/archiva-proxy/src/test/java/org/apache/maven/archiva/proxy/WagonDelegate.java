@@ -201,6 +201,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|logging
+operator|.
+name|AbstractLogEnabled
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -237,6 +251,8 @@ begin_class
 specifier|public
 class|class
 name|WagonDelegate
+extends|extends
+name|AbstractLogEnabled
 implements|implements
 name|Wagon
 block|{
@@ -265,6 +281,22 @@ name|ResourceDoesNotExistException
 throws|,
 name|AuthorizationException
 block|{
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|".get("
+operator|+
+name|resourceName
+operator|+
+literal|", "
+operator|+
+name|destination
+operator|+
+literal|")"
+argument_list|)
+expr_stmt|;
 name|delegate
 operator|.
 name|get
@@ -300,6 +332,26 @@ name|ResourceDoesNotExistException
 throws|,
 name|AuthorizationException
 block|{
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|".getIfNewer("
+operator|+
+name|resourceName
+operator|+
+literal|", "
+operator|+
+name|destination
+operator|+
+literal|", "
+operator|+
+name|timestamp
+operator|+
+literal|")"
+argument_list|)
+expr_stmt|;
 name|boolean
 name|result
 init|=
