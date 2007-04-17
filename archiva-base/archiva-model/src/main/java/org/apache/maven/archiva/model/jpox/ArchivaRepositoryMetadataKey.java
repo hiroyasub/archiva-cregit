@@ -31,7 +31,7 @@ name|archiva
 operator|.
 name|model
 operator|.
-name|AbstractProjectKey
+name|AbstractVersionedKey
 import|;
 end_import
 
@@ -54,7 +54,7 @@ specifier|public
 class|class
 name|ArchivaRepositoryMetadataKey
 extends|extends
-name|AbstractProjectKey
+name|AbstractVersionedKey
 implements|implements
 name|Serializable
 block|{
