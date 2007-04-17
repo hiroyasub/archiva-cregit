@@ -23,11 +23,115 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|FileUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|model
+operator|.
+name|ArtifactReference
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|policies
+operator|.
+name|CachedFailuresPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|policies
+operator|.
+name|ChecksumPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|policies
+operator|.
+name|ReleasesPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|policies
+operator|.
+name|SnapshotsPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|wagon
 operator|.
 name|ResourceDoesNotExistException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
 import|;
 end_import
 
@@ -66,143 +170,432 @@ specifier|public
 name|void
 name|testSnapshotNonExistant
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|String
 name|path
 init|=
 literal|"org/apache/maven/test/does-not-exist/1.0-SNAPSHOT/does-not-exist-1.0-SNAPSHOT.jar"
 decl_stmt|;
-name|fail
+name|File
+name|expectedFile
+init|=
+operator|new
+name|File
 argument_list|(
-literal|"Implemented "
-operator|+
-name|getName
+name|managedDefaultDir
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|ArtifactReference
+name|artifact
+init|=
+name|createArtifactReference
+argument_list|(
+literal|"default"
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|expectedFile
+operator|.
+name|delete
+argument_list|()
+expr_stmt|;
+name|assertFalse
+argument_list|(
+name|expectedFile
+operator|.
+name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        String path = "org/apache/maven/test/does-not-exist/1.0-SNAPSHOT/does-not-exist-1.0-SNAPSHOT.jar";
-comment|//        File expectedFile = new File( defaultManagedRepository.getBasedir(), path );
-comment|//
-comment|//        assertFalse( expectedFile.exists() );
-comment|//
-comment|//        try
-comment|//        {
-comment|//            File file = requestHandler.get( path, proxiedRepositories, defaultManagedRepository );
-comment|//            fail( "File returned was: " + file + "; should have got a not found exception" );
-comment|//        }
-comment|//        catch ( ResourceDoesNotExistException e )
-comment|//        {
-comment|//            // expected, but check file was not created
-comment|//            assertFalse( expectedFile.exists() );
-comment|//        }
+comment|// Configure Connector (usually done within archiva.xml configuration)
+name|saveConnector
+argument_list|(
+name|ID_DEFAULT_MANAGED
+argument_list|,
+name|ID_PROXIED1
+argument_list|,
+name|ChecksumPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|ReleasesPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|SnapshotsPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|CachedFailuresPolicy
+operator|.
+name|IGNORED
+argument_list|)
+expr_stmt|;
+name|File
+name|downloadedFile
+init|=
+name|proxyHandler
+operator|.
+name|fetchFromProxies
+argument_list|(
+name|managedDefaultRepository
+argument_list|,
+name|artifact
+argument_list|)
+decl_stmt|;
+name|assertNotDownloaded
+argument_list|(
+name|downloadedFile
+argument_list|)
+expr_stmt|;
+name|assertNoTempFiles
+argument_list|(
+name|expectedFile
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|void
 name|testTimestampDrivenSnapshotNotPresentAlready
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|String
 name|path
 init|=
-literal|"org/apache/maven/test/does-not-exist/1.0-SNAPSHOT/does-not-exist-1.0-SNAPSHOT.jar"
+literal|"org/apache/maven/test/get-timestamped-snapshot/1.0-SNAPSHOT/get-timestamped-snapshot-1.0-SNAPSHOT.jar"
 decl_stmt|;
-name|fail
+name|File
+name|expectedFile
+init|=
+operator|new
+name|File
 argument_list|(
-literal|"Implemented "
-operator|+
-name|getName
+name|managedDefaultDir
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|ArtifactReference
+name|artifact
+init|=
+name|createArtifactReference
+argument_list|(
+literal|"default"
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|expectedFile
+operator|.
+name|delete
+argument_list|()
+expr_stmt|;
+name|assertFalse
+argument_list|(
+name|expectedFile
+operator|.
+name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        String path =
-comment|//            "org/apache/maven/test/get-timestamped-snapshot/1.0-SNAPSHOT/get-timestamped-snapshot-1.0-SNAPSHOT.jar";
-comment|//        File expectedFile = new File( defaultManagedRepository.getBasedir(), path );
-comment|//
-comment|//        expectedFile.delete();
-comment|//        assertFalse( expectedFile.exists() );
-comment|//
-comment|//        File file = requestHandler.get( path, proxiedRepositories, defaultManagedRepository );
-comment|//
-comment|//        assertEquals( "Check file matches", expectedFile, file );
-comment|//        assertTrue( "Check file created", file.exists() );
-comment|//        File proxiedFile = new File( proxiedRepository1.getBasedir(), path );
-comment|//        String expectedContents = FileUtils.readFileToString( proxiedFile, null );
-comment|//        assertEquals( "Check file contents", expectedContents, FileUtils.readFileToString( file, null ) );
+comment|// Configure Connector (usually done within archiva.xml configuration)
+name|saveConnector
+argument_list|(
+name|ID_DEFAULT_MANAGED
+argument_list|,
+name|ID_PROXIED1
+argument_list|,
+name|ChecksumPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|ReleasesPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|SnapshotsPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|CachedFailuresPolicy
+operator|.
+name|IGNORED
+argument_list|)
+expr_stmt|;
+name|File
+name|downloadedFile
+init|=
+name|proxyHandler
+operator|.
+name|fetchFromProxies
+argument_list|(
+name|managedDefaultRepository
+argument_list|,
+name|artifact
+argument_list|)
+decl_stmt|;
+name|File
+name|proxiedFile
+init|=
+operator|new
+name|File
+argument_list|(
+name|REPOPATH_PROXIED1
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|assertFileEquals
+argument_list|(
+name|expectedFile
+argument_list|,
+name|downloadedFile
+argument_list|,
+name|proxiedFile
+argument_list|)
+expr_stmt|;
+name|assertNoTempFiles
+argument_list|(
+name|expectedFile
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|void
 name|testNewerTimestampDrivenSnapshotOnFirstRepo
 parameter_list|()
 throws|throws
-name|ResourceDoesNotExistException
-throws|,
-name|ProxyException
-throws|,
-name|IOException
-throws|,
-name|ParseException
+name|Exception
 block|{
-name|fail
+name|String
+name|path
+init|=
+literal|"org/apache/maven/test/get-present-timestamped-snapshot/1.0-SNAPSHOT/get-present-timestamped-snapshot-1.0-SNAPSHOT.jar"
+decl_stmt|;
+name|File
+name|expectedFile
+init|=
+operator|new
+name|File
 argument_list|(
-literal|"Implemented "
-operator|+
-name|getName
+name|managedDefaultDir
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|ArtifactReference
+name|artifact
+init|=
+name|createArtifactReference
+argument_list|(
+literal|"default"
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|expectedFile
+operator|.
+name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        String path = "org/apache/maven/test/get-present-timestamped-snapshot/1.0-SNAPSHOT/get-present-timestamped-snapshot-1.0-SNAPSHOT.jar";
-comment|//        File expectedFile = new File( defaultManagedRepository.getBasedir(), path );
-comment|//
-comment|//        assertTrue( expectedFile.exists() );
-comment|//
-comment|//        expectedFile.setLastModified( getPastDate().getTime() );
-comment|//
-comment|//        File file = requestHandler.get( path, proxiedRepositories, defaultManagedRepository );
-comment|//
-comment|//        assertEquals( "Check file matches", expectedFile, file );
-comment|//        assertTrue( "Check file created", file.exists() );
-comment|//        File proxiedFile = new File( proxiedRepository1.getBasedir(), path );
-comment|//        String expectedContents = FileUtils.readFileToString( proxiedFile, null );
-comment|//        assertEquals( "Check file contents", expectedContents, FileUtils.readFileToString( file, null ) );
+name|expectedFile
+operator|.
+name|setLastModified
+argument_list|(
+name|getPastDate
+argument_list|()
+operator|.
+name|getTime
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Configure Connector (usually done within archiva.xml configuration)
+name|saveConnector
+argument_list|(
+name|ID_DEFAULT_MANAGED
+argument_list|,
+name|ID_PROXIED1
+argument_list|,
+name|ChecksumPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|ReleasesPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|SnapshotsPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|CachedFailuresPolicy
+operator|.
+name|IGNORED
+argument_list|)
+expr_stmt|;
+name|File
+name|downloadedFile
+init|=
+name|proxyHandler
+operator|.
+name|fetchFromProxies
+argument_list|(
+name|managedDefaultRepository
+argument_list|,
+name|artifact
+argument_list|)
+decl_stmt|;
+name|File
+name|proxiedFile
+init|=
+operator|new
+name|File
+argument_list|(
+name|REPOPATH_PROXIED1
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|assertFileEquals
+argument_list|(
+name|expectedFile
+argument_list|,
+name|downloadedFile
+argument_list|,
+name|proxiedFile
+argument_list|)
+expr_stmt|;
+name|assertNoTempFiles
+argument_list|(
+name|expectedFile
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|void
 name|testOlderTimestampDrivenSnapshotOnFirstRepo
 parameter_list|()
 throws|throws
-name|ResourceDoesNotExistException
-throws|,
-name|ProxyException
-throws|,
-name|IOException
+name|Exception
 block|{
-name|fail
+name|String
+name|path
+init|=
+literal|"org/apache/maven/test/get-present-timestamped-snapshot/1.0-SNAPSHOT/get-present-timestamped-snapshot-1.0-SNAPSHOT.jar"
+decl_stmt|;
+name|File
+name|expectedFile
+init|=
+operator|new
+name|File
 argument_list|(
-literal|"Implemented "
-operator|+
-name|getName
+name|managedDefaultDir
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|ArtifactReference
+name|artifact
+init|=
+name|createArtifactReference
+argument_list|(
+literal|"default"
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|expectedFile
+operator|.
+name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        String path = "org/apache/maven/test/get-present-timestamped-snapshot/1.0-SNAPSHOT/get-present-timestamped-snapshot-1.0-SNAPSHOT.jar";
-comment|//        File expectedFile = new File( defaultManagedRepository.getBasedir(), path );
-comment|//        String expectedContents = FileUtils.readFileToString( expectedFile, null );
-comment|//
-comment|//        assertTrue( expectedFile.exists() );
-comment|//
-comment|//        expectedFile.setLastModified( getFutureDate().getTime() );
-comment|//
-comment|//        proxiedRepository1.getSnapshots().setUpdatePolicy( ArtifactRepositoryPolicy.UPDATE_POLICY_ALWAYS );
-comment|//        File file = requestHandler.get( path, proxiedRepositories, defaultManagedRepository );
-comment|//
-comment|//        assertEquals( "Check file matches", expectedFile, file );
-comment|//        assertTrue( "Check file created", file.exists() );
-comment|//        assertEquals( "Check file contents", expectedContents, FileUtils.readFileToString( file, null ) );
-comment|//
-comment|//        File proxiedFile = new File( proxiedRepository1.getBasedir(), path );
-comment|//        String unexpectedContents = FileUtils.readFileToString( proxiedFile, null );
-comment|//        assertFalse( "Check file contents", unexpectedContents.equals( FileUtils.readFileToString( file, null ) ) );
+name|expectedFile
+operator|.
+name|setLastModified
+argument_list|(
+name|getFutureDate
+argument_list|()
+operator|.
+name|getTime
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Configure Connector (usually done within archiva.xml configuration)
+name|saveConnector
+argument_list|(
+name|ID_DEFAULT_MANAGED
+argument_list|,
+name|ID_PROXIED1
+argument_list|,
+name|ChecksumPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|ReleasesPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|SnapshotsPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|CachedFailuresPolicy
+operator|.
+name|IGNORED
+argument_list|)
+expr_stmt|;
+name|File
+name|downloadedFile
+init|=
+name|proxyHandler
+operator|.
+name|fetchFromProxies
+argument_list|(
+name|managedDefaultRepository
+argument_list|,
+name|artifact
+argument_list|)
+decl_stmt|;
+name|File
+name|proxiedFile
+init|=
+operator|new
+name|File
+argument_list|(
+name|REPOPATH_PROXIED1
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|assertFileEquals
+argument_list|(
+name|expectedFile
+argument_list|,
+name|downloadedFile
+argument_list|,
+name|proxiedFile
+argument_list|)
+expr_stmt|;
+name|assertNoTempFiles
+argument_list|(
+name|expectedFile
+argument_list|)
+expr_stmt|;
 block|}
+comment|/**      * TODO: Has problems with wagon implementation not preserving timestamp.      */
 specifier|public
 name|void
 name|testNewerTimestampDrivenSnapshotOnSecondRepoThanFirstNotPresentAlready
@@ -210,43 +603,162 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: wagon may not support timestamps (yet)
-name|fail
+name|String
+name|path
+init|=
+literal|"org/apache/maven/test/get-timestamped-snapshot-in-both/1.0-SNAPSHOT/get-timestamped-snapshot-in-both-1.0-SNAPSHOT.jar"
+decl_stmt|;
+name|File
+name|expectedFile
+init|=
+operator|new
+name|File
 argument_list|(
-literal|"Implemented "
-operator|+
-name|getName
+name|managedDefaultDir
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|ArtifactReference
+name|artifact
+init|=
+name|createArtifactReference
+argument_list|(
+literal|"default"
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|expectedFile
+operator|.
+name|delete
+argument_list|()
+expr_stmt|;
+name|assertFalse
+argument_list|(
+name|expectedFile
+operator|.
+name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        String path = "org/apache/maven/test/get-timestamped-snapshot-in-both/1.0-SNAPSHOT/get-timestamped-snapshot-in-both-1.0-SNAPSHOT.jar";
-comment|//        File expectedFile = new File( defaultManagedRepository.getBasedir(), path );
-comment|//
-comment|//        assertFalse( expectedFile.exists() );
-comment|//
-comment|//        File repoLocation = getTestFile( "target/test-repository/proxied1" );
-comment|//        FileUtils.deleteDirectory( repoLocation );
-comment|//        copyDirectoryStructure( getTestFile( "src/test/repositories/proxied1" ), repoLocation );
-comment|//        proxiedRepository1 = createRepository( "proxied1", repoLocation );
-comment|//
-comment|//        new File( proxiedRepository1.getBasedir(), path ).setLastModified( getPastDate().getTime() );
-comment|//
-comment|//        proxiedRepositories.clear();
-comment|//        proxiedRepositories.add( createProxiedRepository( proxiedRepository1 ) );
-comment|//        proxiedRepositories.add( createProxiedRepository( proxiedRepository2 ) );
-comment|//
-comment|//        File file = requestHandler.get( path, proxiedRepositories, defaultManagedRepository );
-comment|//
-comment|//        assertEquals( "Check file matches", expectedFile, file );
-comment|//        assertTrue( "Check file created", file.exists() );
-comment|//
-comment|//        File proxiedFile = new File( proxiedRepository2.getBasedir(), path );
-comment|//        String expectedContents = FileUtils.readFileToString( proxiedFile, null );
-comment|//        assertEquals( "Check file contents", expectedContents, FileUtils.readFileToString( file, null ) );
-comment|//
-comment|//        proxiedFile = new File( proxiedRepository1.getBasedir(), path );
-comment|//        String unexpectedContents = FileUtils.readFileToString( proxiedFile, null );
-comment|//        assertFalse( "Check file contents", unexpectedContents.equals( FileUtils.readFileToString( file, null ) ) );
+comment|// Create customized proxy / target repository
+name|File
+name|targetProxyDir
+init|=
+name|saveTargetedRepositoryConfig
+argument_list|(
+name|ID_PROXIED1_TARGET
+argument_list|,
+name|REPOPATH_PROXIED1
+argument_list|,
+name|REPOPATH_PROXIED1_TARGET
+argument_list|,
+literal|"default"
+argument_list|)
+decl_stmt|;
+operator|new
+name|File
+argument_list|(
+name|targetProxyDir
+argument_list|,
+name|path
+argument_list|)
+operator|.
+name|setLastModified
+argument_list|(
+name|getPastDate
+argument_list|()
+operator|.
+name|getTime
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Configure Connector (usually done within archiva.xml configuration)
+name|saveConnector
+argument_list|(
+name|ID_DEFAULT_MANAGED
+argument_list|,
+name|ID_PROXIED1_TARGET
+argument_list|,
+name|ChecksumPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|ReleasesPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|SnapshotsPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|CachedFailuresPolicy
+operator|.
+name|IGNORED
+argument_list|)
+expr_stmt|;
+name|saveConnector
+argument_list|(
+name|ID_DEFAULT_MANAGED
+argument_list|,
+name|ID_PROXIED2
+argument_list|,
+name|ChecksumPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|ReleasesPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|SnapshotsPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|CachedFailuresPolicy
+operator|.
+name|IGNORED
+argument_list|)
+expr_stmt|;
+name|File
+name|downloadedFile
+init|=
+name|proxyHandler
+operator|.
+name|fetchFromProxies
+argument_list|(
+name|managedDefaultRepository
+argument_list|,
+name|artifact
+argument_list|)
+decl_stmt|;
+comment|// Should have downloaded the content from proxy2, as proxy1 has an old (by file.lastModified check) version.
+name|File
+name|proxiedFile
+init|=
+operator|new
+name|File
+argument_list|(
+name|REPOPATH_PROXIED2
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|assertFileEquals
+argument_list|(
+name|expectedFile
+argument_list|,
+name|downloadedFile
+argument_list|,
+name|proxiedFile
+argument_list|)
+expr_stmt|;
+name|assertNoTempFiles
+argument_list|(
+name|expectedFile
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|void
@@ -255,43 +767,161 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|fail
+name|String
+name|path
+init|=
+literal|"org/apache/maven/test/get-timestamped-snapshot-in-both/1.0-SNAPSHOT/get-timestamped-snapshot-in-both-1.0-SNAPSHOT.jar"
+decl_stmt|;
+name|File
+name|expectedFile
+init|=
+operator|new
+name|File
 argument_list|(
-literal|"Implemented "
-operator|+
-name|getName
+name|managedDefaultDir
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|ArtifactReference
+name|artifact
+init|=
+name|createArtifactReference
+argument_list|(
+literal|"default"
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|expectedFile
+operator|.
+name|delete
+argument_list|()
+expr_stmt|;
+name|assertFalse
+argument_list|(
+name|expectedFile
+operator|.
+name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        String path = "org/apache/maven/test/get-timestamped-snapshot-in-both/1.0-SNAPSHOT/get-timestamped-snapshot-in-both-1.0-SNAPSHOT.jar";
-comment|//        File expectedFile = new File( defaultManagedRepository.getBasedir(), path );
-comment|//
-comment|//        expectedFile.delete();
-comment|//        assertFalse( expectedFile.exists() );
-comment|//
-comment|//        File repoLocation = getTestFile( "target/test-repository/proxied2" );
-comment|//        FileUtils.deleteDirectory( repoLocation );
-comment|//        copyDirectoryStructure( getTestFile( "src/test/repositories/proxied2" ), repoLocation );
-comment|//        proxiedRepository2 = createRepository( "proxied2", repoLocation );
-comment|//
-comment|//        new File( proxiedRepository2.getBasedir(), path ).setLastModified( getPastDate().getTime() );
-comment|//
-comment|//        proxiedRepositories.clear();
-comment|//        proxiedRepositories.add( createProxiedRepository( proxiedRepository1 ) );
-comment|//        proxiedRepositories.add( createProxiedRepository( proxiedRepository2 ) );
-comment|//
-comment|//        File file = requestHandler.get( path, proxiedRepositories, defaultManagedRepository );
-comment|//
-comment|//        assertEquals( "Check file matches", expectedFile, file );
-comment|//        assertTrue( "Check file created", file.exists() );
-comment|//
-comment|//        File proxiedFile = new File( proxiedRepository1.getBasedir(), path );
-comment|//        String expectedContents = FileUtils.readFileToString( proxiedFile, null );
-comment|//        assertEquals( "Check file contents", expectedContents, FileUtils.readFileToString( file, null ) );
-comment|//
-comment|//        proxiedFile = new File( proxiedRepository2.getBasedir(), path );
-comment|//        String unexpectedContents = FileUtils.readFileToString( proxiedFile, null );
-comment|//        assertFalse( "Check file contents", unexpectedContents.equals( FileUtils.readFileToString( file, null ) ) );
+comment|// Create customized proxy / target repository
+name|File
+name|targetProxyDir
+init|=
+name|saveTargetedRepositoryConfig
+argument_list|(
+name|ID_PROXIED2_TARGET
+argument_list|,
+name|REPOPATH_PROXIED2
+argument_list|,
+name|REPOPATH_PROXIED2_TARGET
+argument_list|,
+literal|"default"
+argument_list|)
+decl_stmt|;
+operator|new
+name|File
+argument_list|(
+name|targetProxyDir
+argument_list|,
+name|path
+argument_list|)
+operator|.
+name|setLastModified
+argument_list|(
+name|getPastDate
+argument_list|()
+operator|.
+name|getTime
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Configure Connector (usually done within archiva.xml configuration)
+name|saveConnector
+argument_list|(
+name|ID_DEFAULT_MANAGED
+argument_list|,
+name|ID_PROXIED1
+argument_list|,
+name|ChecksumPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|ReleasesPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|SnapshotsPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|CachedFailuresPolicy
+operator|.
+name|IGNORED
+argument_list|)
+expr_stmt|;
+name|saveConnector
+argument_list|(
+name|ID_DEFAULT_MANAGED
+argument_list|,
+name|ID_PROXIED2_TARGET
+argument_list|,
+name|ChecksumPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|ReleasesPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|SnapshotsPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|CachedFailuresPolicy
+operator|.
+name|IGNORED
+argument_list|)
+expr_stmt|;
+name|File
+name|downloadedFile
+init|=
+name|proxyHandler
+operator|.
+name|fetchFromProxies
+argument_list|(
+name|managedDefaultRepository
+argument_list|,
+name|artifact
+argument_list|)
+decl_stmt|;
+name|File
+name|proxiedFile
+init|=
+operator|new
+name|File
+argument_list|(
+name|REPOPATH_PROXIED1_TARGET
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|assertFileEquals
+argument_list|(
+name|expectedFile
+argument_list|,
+name|downloadedFile
+argument_list|,
+name|proxiedFile
+argument_list|)
+expr_stmt|;
+name|assertNoTempFiles
+argument_list|(
+name|expectedFile
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|void
@@ -300,31 +930,112 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|fail
+name|String
+name|path
+init|=
+literal|"org/apache/maven/test/get-present-timestamped-snapshot/1.0-SNAPSHOT/get-present-timestamped-snapshot-1.0-SNAPSHOT.jar"
+decl_stmt|;
+name|File
+name|expectedFile
+init|=
+operator|new
+name|File
 argument_list|(
-literal|"Implemented "
-operator|+
-name|getName
+name|managedDefaultDir
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|ArtifactReference
+name|artifact
+init|=
+name|createArtifactReference
+argument_list|(
+literal|"default"
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|expectedFile
+operator|.
+name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        String path = "org/apache/maven/test/get-present-timestamped-snapshot/1.0-SNAPSHOT/get-present-timestamped-snapshot-1.0-SNAPSHOT.jar";
-comment|//        File expectedFile = new File( defaultManagedRepository.getBasedir(), path );
-comment|//
-comment|//        assertTrue( expectedFile.exists() );
-comment|//
-comment|//        File proxiedFile = new File( proxiedRepository1.getBasedir(), path );
-comment|//        proxiedFile.setLastModified( getFutureDate().getTime() );
-comment|//
-comment|//        File file = requestHandler.get( path, proxiedRepositories, defaultManagedRepository );
-comment|//
-comment|//        assertEquals( "Check file matches", expectedFile, file );
-comment|//        assertTrue( "Check file created", file.exists() );
-comment|//        String expectedContents = FileUtils.readFileToString( expectedFile, null );
-comment|//        assertEquals( "Check file contents", expectedContents, FileUtils.readFileToString( file, null ) );
-comment|//
-comment|//        String unexpectedContents = FileUtils.readFileToString( proxiedFile, null );
-comment|//        assertFalse( "Check file contents", unexpectedContents.equals( FileUtils.readFileToString( file, null ) ) );
+name|File
+name|proxiedFile
+init|=
+operator|new
+name|File
+argument_list|(
+name|REPOPATH_PROXIED1
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|proxiedFile
+operator|.
+name|setLastModified
+argument_list|(
+name|getFutureDate
+argument_list|()
+operator|.
+name|getTime
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Configure Connector (usually done within archiva.xml configuration)
+name|saveConnector
+argument_list|(
+name|ID_DEFAULT_MANAGED
+argument_list|,
+name|ID_PROXIED1
+argument_list|,
+name|ChecksumPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|ReleasesPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|SnapshotsPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|CachedFailuresPolicy
+operator|.
+name|IGNORED
+argument_list|)
+expr_stmt|;
+name|File
+name|downloadedFile
+init|=
+name|proxyHandler
+operator|.
+name|fetchFromProxies
+argument_list|(
+name|managedDefaultRepository
+argument_list|,
+name|artifact
+argument_list|)
+decl_stmt|;
+name|assertFileEquals
+argument_list|(
+name|expectedFile
+argument_list|,
+name|downloadedFile
+argument_list|,
+name|proxiedFile
+argument_list|)
+expr_stmt|;
+name|assertNoTempFiles
+argument_list|(
+name|expectedFile
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|void
@@ -333,146 +1044,466 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|fail
+name|String
+name|path
+init|=
+literal|"org/apache/maven/test/get-present-timestamped-snapshot/1.0-SNAPSHOT/get-present-timestamped-snapshot-1.0-SNAPSHOT.jar"
+decl_stmt|;
+name|File
+name|expectedFile
+init|=
+operator|new
+name|File
 argument_list|(
-literal|"Implemented "
-operator|+
-name|getName
+name|managedDefaultDir
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|ArtifactReference
+name|artifact
+init|=
+name|createArtifactReference
+argument_list|(
+literal|"default"
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|expectedFile
+operator|.
+name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        String path = "org/apache/maven/test/get-present-timestamped-snapshot/1.0-SNAPSHOT/get-present-timestamped-snapshot-1.0-SNAPSHOT.jar";
-comment|//        File expectedFile = new File( defaultManagedRepository.getBasedir(), path );
-comment|//        String expectedContents = FileUtils.readFileToString( expectedFile, null );
-comment|//
-comment|//        assertTrue( expectedFile.exists() );
-comment|//
-comment|//        File proxiedFile = new File( proxiedRepository1.getBasedir(), path );
-comment|//        expectedFile.setLastModified( proxiedFile.lastModified() );
-comment|//
-comment|//        proxiedRepository1.getSnapshots().setUpdatePolicy( ArtifactRepositoryPolicy.UPDATE_POLICY_ALWAYS );
-comment|//        File file = requestHandler.get( path, proxiedRepositories, defaultManagedRepository );
-comment|//
-comment|//        assertEquals( "Check file matches", expectedFile, file );
-comment|//        assertTrue( "Check file created", file.exists() );
-comment|//        assertEquals( "Check file contents", expectedContents, FileUtils.readFileToString( file, null ) );
-comment|//
-comment|//        String unexpectedContents = FileUtils.readFileToString( proxiedFile, null );
-comment|//        assertFalse( "Check file contents", unexpectedContents.equals( FileUtils.readFileToString( file, null ) ) );
+name|File
+name|proxiedFile
+init|=
+operator|new
+name|File
+argument_list|(
+name|REPOPATH_PROXIED1
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|expectedFile
+operator|.
+name|setLastModified
+argument_list|(
+name|proxiedFile
+operator|.
+name|lastModified
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Configure Connector (usually done within archiva.xml configuration)
+name|saveConnector
+argument_list|(
+name|ID_DEFAULT_MANAGED
+argument_list|,
+name|ID_PROXIED1
+argument_list|,
+name|ChecksumPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|ReleasesPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|SnapshotsPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|CachedFailuresPolicy
+operator|.
+name|IGNORED
+argument_list|)
+expr_stmt|;
+name|File
+name|downloadedFile
+init|=
+name|proxyHandler
+operator|.
+name|fetchFromProxies
+argument_list|(
+name|managedDefaultRepository
+argument_list|,
+name|artifact
+argument_list|)
+decl_stmt|;
+name|assertFileEquals
+argument_list|(
+name|expectedFile
+argument_list|,
+name|downloadedFile
+argument_list|,
+name|proxiedFile
+argument_list|)
+expr_stmt|;
+name|assertNoTempFiles
+argument_list|(
+name|expectedFile
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|void
 name|testTimestampDrivenSnapshotNotPresentAlreadyExpiredCacheFailure
 parameter_list|()
 throws|throws
-name|ResourceDoesNotExistException
-throws|,
-name|ProxyException
-throws|,
-name|IOException
+name|Exception
 block|{
-name|fail
+name|String
+name|path
+init|=
+literal|"org/apache/maven/test/get-timestamped-snapshot/1.0-SNAPSHOT/get-timestamped-snapshot-1.0-SNAPSHOT.jar"
+decl_stmt|;
+name|File
+name|expectedFile
+init|=
+operator|new
+name|File
 argument_list|(
-literal|"Implemented "
-operator|+
-name|getName
+name|managedDefaultDir
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|ArtifactReference
+name|artifact
+init|=
+name|createArtifactReference
+argument_list|(
+literal|"default"
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|expectedFile
+operator|.
+name|delete
+argument_list|()
+expr_stmt|;
+name|assertFalse
+argument_list|(
+name|expectedFile
+operator|.
+name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        String path = "org/apache/maven/test/get-timestamped-snapshot/1.0-SNAPSHOT/get-timestamped-snapshot-1.0-SNAPSHOT.jar";
-comment|//        File expectedFile = new File( defaultManagedRepository.getBasedir(), path );
-comment|//
-comment|//        expectedFile.delete();
-comment|//        assertFalse( expectedFile.exists() );
-comment|//
-comment|//        proxiedRepositories.clear();
-comment|//        ProxiedArtifactRepository proxiedArtifactRepository = createProxiedRepository( proxiedRepository1 );
-comment|//        proxiedArtifactRepository.addFailure( path, ALWAYS_UPDATE_POLICY );
-comment|//        proxiedRepositories.add( proxiedArtifactRepository );
-comment|//        proxiedRepositories.add( createProxiedRepository( proxiedRepository2 ) );
-comment|//        File file = requestHandler.get( path, proxiedRepositories, defaultManagedRepository );
-comment|//
-comment|//        assertEquals( "Check file matches", expectedFile, file );
-comment|//        assertTrue( "Check file created", file.exists() );
-comment|//
-comment|//        File proxiedFile = new File( proxiedRepository1.getBasedir(), path );
-comment|//        String expectedContents = FileUtils.readFileToString( proxiedFile, null );
-comment|//        assertEquals( "Check file contents", expectedContents, FileUtils.readFileToString( file, null ) );
-comment|//
-comment|//        assertFalse( "Check failure", proxiedArtifactRepository.isCachedFailure( path ) );
+comment|// Configure Connector (usually done within archiva.xml configuration)
+name|saveConnector
+argument_list|(
+name|ID_DEFAULT_MANAGED
+argument_list|,
+name|ID_PROXIED1
+argument_list|,
+name|ChecksumPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|ReleasesPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|SnapshotsPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|CachedFailuresPolicy
+operator|.
+name|CACHED
+argument_list|)
+expr_stmt|;
+name|saveConnector
+argument_list|(
+name|ID_DEFAULT_MANAGED
+argument_list|,
+name|ID_PROXIED2
+argument_list|,
+name|ChecksumPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|ReleasesPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|SnapshotsPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|CachedFailuresPolicy
+operator|.
+name|CACHED
+argument_list|)
+expr_stmt|;
+name|File
+name|downloadedFile
+init|=
+name|proxyHandler
+operator|.
+name|fetchFromProxies
+argument_list|(
+name|managedDefaultRepository
+argument_list|,
+name|artifact
+argument_list|)
+decl_stmt|;
+name|File
+name|proxiedFile
+init|=
+operator|new
+name|File
+argument_list|(
+name|REPOPATH_PROXIED1
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|assertFileEquals
+argument_list|(
+name|expectedFile
+argument_list|,
+name|downloadedFile
+argument_list|,
+name|proxiedFile
+argument_list|)
+expr_stmt|;
+name|assertNoTempFiles
+argument_list|(
+name|expectedFile
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|void
 name|testMetadataDrivenSnapshotNotPresentAlready
 parameter_list|()
 throws|throws
-name|ResourceDoesNotExistException
-throws|,
-name|ProxyException
-throws|,
-name|IOException
+name|Exception
 block|{
-name|fail
+name|String
+name|path
+init|=
+literal|"org/apache/maven/test/get-metadata-snapshot/1.0-SNAPSHOT/get-metadata-snapshot-1.0-20050831.101112-1.jar"
+decl_stmt|;
+name|File
+name|expectedFile
+init|=
+operator|new
+name|File
 argument_list|(
-literal|"Implemented "
-operator|+
-name|getName
+name|managedDefaultDir
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|ArtifactReference
+name|artifact
+init|=
+name|createArtifactReference
+argument_list|(
+literal|"default"
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|expectedFile
+operator|.
+name|delete
+argument_list|()
+expr_stmt|;
+name|assertFalse
+argument_list|(
+name|expectedFile
+operator|.
+name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        String path = "org/apache/maven/test/get-metadata-snapshot/1.0-SNAPSHOT/get-metadata-snapshot-1.0-20050831.101112-1.jar";
-comment|//        File expectedFile = new File( defaultManagedRepository.getBasedir(), path );
-comment|//
-comment|//        expectedFile.delete();
-comment|//        assertFalse( expectedFile.exists() );
-comment|//
-comment|//        File file = requestHandler.get( path, proxiedRepositories, defaultManagedRepository );
-comment|//
-comment|//        assertEquals( "Check file matches", expectedFile, file );
-comment|//        assertTrue( "Check file created", file.exists() );
-comment|//        File proxiedFile = new File( proxiedRepository1.getBasedir(), path );
-comment|//        String expectedContents = FileUtils.readFileToString( proxiedFile, null );
-comment|//        assertEquals( "Check file contents", expectedContents, FileUtils.readFileToString( file, null ) );
+comment|// Configure Connector (usually done within archiva.xml configuration)
+name|saveConnector
+argument_list|(
+name|ID_DEFAULT_MANAGED
+argument_list|,
+name|ID_PROXIED1
+argument_list|,
+name|ChecksumPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|ReleasesPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|SnapshotsPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|CachedFailuresPolicy
+operator|.
+name|IGNORED
+argument_list|)
+expr_stmt|;
+name|File
+name|downloadedFile
+init|=
+name|proxyHandler
+operator|.
+name|fetchFromProxies
+argument_list|(
+name|managedDefaultRepository
+argument_list|,
+name|artifact
+argument_list|)
+decl_stmt|;
+name|File
+name|proxiedFile
+init|=
+operator|new
+name|File
+argument_list|(
+name|REPOPATH_PROXIED1
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|assertFileEquals
+argument_list|(
+name|expectedFile
+argument_list|,
+name|downloadedFile
+argument_list|,
+name|proxiedFile
+argument_list|)
+expr_stmt|;
+name|assertNoTempFiles
+argument_list|(
+name|expectedFile
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|void
 name|testGetMetadataDrivenSnapshotRemoteUpdate
 parameter_list|()
 throws|throws
-name|ResourceDoesNotExistException
-throws|,
-name|ProxyException
-throws|,
-name|IOException
-throws|,
-name|ParseException
+name|Exception
 block|{
-name|fail
+comment|// Metadata driven snapshots (using a full timestamp) are treated like a release. It is the timing of the
+comment|// updates to the metadata files that triggers which will be downloaded
+name|String
+name|path
+init|=
+literal|"org/apache/maven/test/get-present-metadata-snapshot/1.0-SNAPSHOT/get-present-metadata-snapshot-1.0-20050831.101112-1.jar"
+decl_stmt|;
+name|File
+name|expectedFile
+init|=
+operator|new
+name|File
 argument_list|(
-literal|"Implemented "
-operator|+
-name|getName
+name|managedDefaultDir
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|ArtifactReference
+name|artifact
+init|=
+name|createArtifactReference
+argument_list|(
+literal|"default"
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|expectedFile
+operator|.
+name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Metadata driven snapshots (using a full timestamp) are treated like a release. It is the timing of the
-comment|// updates to the metadata files that triggers which will be downloaded
-comment|//        String path = "org/apache/maven/test/get-present-metadata-snapshot/1.0-SNAPSHOT/get-present-metadata-snapshot-1.0-20050831.101112-1.jar";
-comment|//        File expectedFile = new File( defaultManagedRepository.getBasedir(), path );
-comment|//        String expectedContents = FileUtils.readFileToString( expectedFile, null );
-comment|//
-comment|//        assertTrue( expectedFile.exists() );
-comment|//
-comment|//        expectedFile.setLastModified( getPastDate().getTime() );
-comment|//
-comment|//        File file = requestHandler.get( path, proxiedRepositories, defaultManagedRepository );
-comment|//
-comment|//        assertEquals( "Check file matches", expectedFile, file );
-comment|//        assertTrue( "Check file created", file.exists() );
-comment|//        assertEquals( "Check file contents", expectedContents, FileUtils.readFileToString( file, null ) );
-comment|//        File proxiedFile = new File( proxiedRepository1.getBasedir(), path );
-comment|//        String unexpectedContents = FileUtils.readFileToString( proxiedFile, null );
-comment|//        assertFalse( "Check file contents", unexpectedContents.equals( FileUtils.readFileToString( file, null ) ) );
+name|expectedFile
+operator|.
+name|setLastModified
+argument_list|(
+name|getPastDate
+argument_list|()
+operator|.
+name|getTime
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Configure Connector (usually done within archiva.xml configuration)
+name|saveConnector
+argument_list|(
+name|ID_DEFAULT_MANAGED
+argument_list|,
+name|ID_PROXIED1
+argument_list|,
+name|ChecksumPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|ReleasesPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|SnapshotsPolicy
+operator|.
+name|IGNORED
+argument_list|,
+name|CachedFailuresPolicy
+operator|.
+name|IGNORED
+argument_list|)
+expr_stmt|;
+name|File
+name|downloadedFile
+init|=
+name|proxyHandler
+operator|.
+name|fetchFromProxies
+argument_list|(
+name|managedDefaultRepository
+argument_list|,
+name|artifact
+argument_list|)
+decl_stmt|;
+name|File
+name|proxiedFile
+init|=
+operator|new
+name|File
+argument_list|(
+name|REPOPATH_PROXIED1
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|assertFileEquals
+argument_list|(
+name|expectedFile
+argument_list|,
+name|downloadedFile
+argument_list|,
+name|proxiedFile
+argument_list|)
+expr_stmt|;
+name|assertNoTempFiles
+argument_list|(
+name|expectedFile
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

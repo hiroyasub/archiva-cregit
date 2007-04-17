@@ -816,6 +816,30 @@ argument_list|(
 name|artifact
 argument_list|)
 decl_stmt|;
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Using target repository: "
+operator|+
+name|targetRepository
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|" - layout: "
+operator|+
+name|targetRepository
+operator|.
+name|getLayoutType
+argument_list|()
+operator|+
+literal|" - targetPath: "
+operator|+
+name|targetPath
+argument_list|)
+expr_stmt|;
 name|File
 name|downloadedFile
 init|=
@@ -3045,6 +3069,19 @@ name|getUrl
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|repo
+operator|.
+name|getModel
+argument_list|()
+operator|.
+name|setLayoutName
+argument_list|(
+name|repoConfig
+operator|.
+name|getLayout
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|repo
 return|;
