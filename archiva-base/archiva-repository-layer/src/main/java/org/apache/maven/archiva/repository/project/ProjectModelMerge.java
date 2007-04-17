@@ -363,21 +363,6 @@ parameter_list|)
 throws|throws
 name|ProjectModelException
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"## Merging: "
-operator|+
-name|mainProject
-operator|+
-literal|" with "
-operator|+
-name|parentProject
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|mainProject
@@ -389,7 +374,7 @@ throw|throw
 operator|new
 name|ProjectModelException
 argument_list|(
-literal|"Cannot copy a null main project."
+literal|"Cannot merge with a null main project."
 argument_list|)
 throw|;
 block|}
@@ -404,7 +389,7 @@ throw|throw
 operator|new
 name|ProjectModelException
 argument_list|(
-literal|"Cannot copy to a null parent project."
+literal|"Cannot merge with a null parent project."
 argument_list|)
 throw|;
 block|}

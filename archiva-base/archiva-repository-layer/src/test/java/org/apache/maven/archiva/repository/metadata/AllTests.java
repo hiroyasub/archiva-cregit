@@ -68,6 +68,15 @@ name|suite
 operator|.
 name|addTestSuite
 argument_list|(
+name|RepositoryMetadataWriterTest
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|suite
+operator|.
+name|addTestSuite
+argument_list|(
 name|RepositoryMetadataReaderTest
 operator|.
 name|class
