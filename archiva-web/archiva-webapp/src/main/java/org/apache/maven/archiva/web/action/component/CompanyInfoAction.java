@@ -39,58 +39,20 @@ name|AbstractConfiguredAction
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|model
-operator|.
-name|Model
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|shared
-operator|.
-name|app
-operator|.
-name|company
-operator|.
-name|CompanyPomHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|shared
-operator|.
-name|app
-operator|.
-name|configuration
-operator|.
-name|MavenAppConfiguration
-import|;
-end_import
+begin_comment
+comment|// TODO import org.apache.maven.model.Model;
+end_comment
 
 begin_comment
-comment|/**  * Stores the company information for displaying on the page.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="companyInfo"  */
+comment|// import org.apache.maven.shared.app.company.CompanyPomHandler;
+end_comment
+
+begin_comment
+comment|// import org.apache.maven.shared.app.configuration.MavenAppConfiguration;
+end_comment
+
+begin_comment
+comment|/**  * Stores the company information for displaying on the page.  *  * @TODO plexus.component role="com.opensymphony.xwork.Action" role-hint="companyInfo"  */
 end_comment
 
 begin_class
@@ -112,16 +74,10 @@ specifier|private
 name|String
 name|companyName
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|CompanyPomHandler
-name|handler
-decl_stmt|;
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|MavenAppConfiguration
-name|appConfigurationStore
-decl_stmt|;
+comment|/**      * @TODO plexus.requirement      */
+comment|// private CompanyPomHandler handler;
+comment|/**      * @TODO plexus.requirement      */
+comment|// private MavenAppConfiguration appConfigurationStore;
 specifier|public
 name|String
 name|execute
@@ -129,76 +85,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Model
-name|model
-init|=
-name|handler
-operator|.
-name|getCompanyPomModel
-argument_list|(
-name|appConfigurationStore
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|getCompanyPom
-argument_list|()
-argument_list|,
-name|createLocalRepository
-argument_list|()
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|model
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|model
-operator|.
-name|getOrganization
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|companyName
-operator|=
-name|model
-operator|.
-name|getOrganization
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-expr_stmt|;
-name|companyUrl
-operator|=
-name|model
-operator|.
-name|getOrganization
-argument_list|()
-operator|.
-name|getUrl
-argument_list|()
-expr_stmt|;
-block|}
-name|companyLogo
-operator|=
-name|model
-operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|getProperty
-argument_list|(
-literal|"organization.logo"
-argument_list|)
-expr_stmt|;
-block|}
+comment|/* TODO         Model model = handler.getCompanyPomModel( appConfigurationStore.getConfiguration().getCompanyPom(),                                                   createLocalRepository() );          if ( model != null )         {             if ( model.getOrganization() != null )             {                 companyName = model.getOrganization().getName();                 companyUrl = model.getOrganization().getUrl();             }              companyLogo = model.getProperties().getProperty( "organization.logo" );         }*/
 return|return
 name|SUCCESS
 return|;

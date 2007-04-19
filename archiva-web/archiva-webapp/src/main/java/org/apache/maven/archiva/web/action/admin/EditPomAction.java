@@ -79,137 +79,37 @@ name|AbstractConfiguredAction
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|installer
-operator|.
-name|ArtifactInstallationException
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.artifact.installer.ArtifactInstallationException;
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|metadata
-operator|.
-name|ArtifactMetadataRetrievalException
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.artifact.metadata.ArtifactMetadataRetrievalException;
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|model
-operator|.
-name|Model
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.model.Model;
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|project
-operator|.
-name|ProjectBuildingException
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.project.ProjectBuildingException;
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|shared
-operator|.
-name|app
-operator|.
-name|company
-operator|.
-name|CompanyPomHandler
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.shared.app.company.CompanyPomHandler;
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|shared
-operator|.
-name|app
-operator|.
-name|configuration
-operator|.
-name|CompanyPom
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.shared.app.configuration.CompanyPom;
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|shared
-operator|.
-name|app
-operator|.
-name|configuration
-operator|.
-name|Configuration
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.shared.app.configuration.Configuration;
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|shared
-operator|.
-name|app
-operator|.
-name|configuration
-operator|.
-name|MavenAppConfiguration
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.shared.app.configuration.MavenAppConfiguration;
+end_comment
 
 begin_import
 import|import
@@ -298,7 +198,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @version $Id: ConfigurationAction.java 480950 2006-11-30 14:58:35Z evenisse $  * @plexus.component role="com.opensymphony.xwork.Action"  * role-hint="editPom"  */
+comment|/**  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @version $Id: ConfigurationAction.java 480950 2006-11-30 14:58:35Z evenisse $  * @TODO plexus.component role="com.opensymphony.xwork.Action"  * role-hint="editPom"  */
 end_comment
 
 begin_class
@@ -315,85 +215,26 @@ implements|,
 name|Preparable
 block|{
 comment|/**      * @plexus.requirement      */
-specifier|private
-name|MavenAppConfiguration
-name|appConfigurationStore
-decl_stmt|;
+comment|// private MavenAppConfiguration appConfigurationStore;
 comment|/**      * The configuration.      */
-specifier|private
-name|Configuration
-name|configuration
-decl_stmt|;
+comment|//    private Configuration configuration;
 comment|/**      * @plexus.requirement      */
-specifier|private
-name|CompanyPomHandler
-name|companyPomHandler
-decl_stmt|;
-specifier|private
-name|Model
-name|companyModel
-decl_stmt|;
+comment|// private CompanyPomHandler companyPomHandler;
+comment|// private Model companyModel;
 specifier|public
 name|String
 name|execute
 parameter_list|()
-throws|throws
-name|IOException
-throws|,
-name|ArtifactInstallationException
+comment|//        throws IOException, ArtifactInstallationException
 block|{
 comment|// TODO: hack for passed in String[]
-name|String
-index|[]
-name|logo
-init|=
-operator|(
-name|String
-index|[]
-operator|)
-name|companyModel
-operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|"organization.logo"
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|logo
-operator|!=
-literal|null
-condition|)
-block|{
-name|companyModel
-operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|put
-argument_list|(
-literal|"organization.logo"
-argument_list|,
-name|logo
-index|[
-literal|0
-index|]
-argument_list|)
-expr_stmt|;
-block|}
-name|companyPomHandler
-operator|.
-name|save
-argument_list|(
-name|companyModel
-argument_list|,
-name|createLocalRepository
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//        String[] logo = (String[]) companyModel.getProperties().get( "organization.logo" );
+comment|//        if ( logo != null )
+comment|//        {
+comment|//            companyModel.getProperties().put( "organization.logo", logo[0] );
+comment|//        }
+comment|//
+comment|//        companyPomHandler.save( companyModel, createLocalRepository() );
 return|return
 name|SUCCESS
 return|;
@@ -403,102 +244,36 @@ name|Object
 name|getModel
 parameter_list|()
 block|{
+comment|//        return companyModel;
 return|return
-name|companyModel
+operator|new
+name|Object
+argument_list|()
 return|;
 block|}
 specifier|public
 name|void
 name|prepare
 parameter_list|()
-throws|throws
-name|ProjectBuildingException
-throws|,
-name|ArtifactMetadataRetrievalException
+comment|//     throws ProjectBuildingException, ArtifactMetadataRetrievalException
 block|{
-name|configuration
-operator|=
-name|appConfigurationStore
-operator|.
-name|getConfiguration
-argument_list|()
-expr_stmt|;
-name|CompanyPom
-name|companyPom
-init|=
-name|configuration
-operator|.
-name|getCompanyPom
-argument_list|()
-decl_stmt|;
-name|companyModel
-operator|=
-name|companyPomHandler
-operator|.
-name|getCompanyPomModel
-argument_list|(
-name|companyPom
-argument_list|,
-name|createLocalRepository
-argument_list|()
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|companyModel
-operator|==
-literal|null
-condition|)
-block|{
-name|companyModel
-operator|=
-operator|new
-name|Model
-argument_list|()
-expr_stmt|;
-name|companyModel
-operator|.
-name|setModelVersion
-argument_list|(
-literal|"4.0.0"
-argument_list|)
-expr_stmt|;
-name|companyModel
-operator|.
-name|setPackaging
-argument_list|(
-literal|"pom"
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|companyPom
-operator|!=
-literal|null
-condition|)
-block|{
-name|companyModel
-operator|.
-name|setGroupId
-argument_list|(
-name|companyPom
-operator|.
-name|getGroupId
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|companyModel
-operator|.
-name|setArtifactId
-argument_list|(
-name|companyPom
-operator|.
-name|getArtifactId
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+comment|//        configuration = appConfigurationStore.getConfiguration();
+comment|//
+comment|//        CompanyPom companyPom = configuration.getCompanyPom();
+comment|//        companyModel = companyPomHandler.getCompanyPomModel( companyPom, createLocalRepository() );
+comment|//
+comment|//        if ( companyModel == null )
+comment|//        {
+comment|//            companyModel = new Model();
+comment|//            companyModel.setModelVersion( "4.0.0" );
+comment|//            companyModel.setPackaging( "pom" );
+comment|//
+comment|//            if ( companyPom != null )
+comment|//            {
+comment|//                companyModel.setGroupId( companyPom.getGroupId() );
+comment|//                companyModel.setArtifactId( companyPom.getArtifactId() );
+comment|//            }
+comment|//        }
 block|}
 specifier|public
 name|SecureActionBundle
@@ -538,15 +313,10 @@ return|return
 name|bundle
 return|;
 block|}
-specifier|public
-name|Model
-name|getCompanyModel
-parameter_list|()
-block|{
-return|return
-name|companyModel
-return|;
-block|}
+comment|//    public Model getCompanyModel()
+comment|//    {
+comment|//        return companyModel;
+comment|//    }
 block|}
 end_class
 

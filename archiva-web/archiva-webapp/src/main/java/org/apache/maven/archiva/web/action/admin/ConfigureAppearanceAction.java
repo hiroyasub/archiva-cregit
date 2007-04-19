@@ -79,103 +79,29 @@ name|AbstractConfiguredAction
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|metadata
-operator|.
-name|ArtifactMetadataRetrievalException
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.artifact.metadata.ArtifactMetadataRetrievalException;
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|model
-operator|.
-name|Model
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.model.Model;
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|project
-operator|.
-name|ProjectBuildingException
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.project.ProjectBuildingException;
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|shared
-operator|.
-name|app
-operator|.
-name|company
-operator|.
-name|CompanyPomHandler
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.shared.app.company.CompanyPomHandler;
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|shared
-operator|.
-name|app
-operator|.
-name|configuration
-operator|.
-name|Configuration
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.shared.app.configuration.Configuration;
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|shared
-operator|.
-name|app
-operator|.
-name|configuration
-operator|.
-name|MavenAppConfiguration
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.shared.app.configuration.MavenAppConfiguration;
+end_comment
 
 begin_import
 import|import
@@ -278,7 +204,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @version $Id: ConfigurationAction.java 480950 2006-11-30 14:58:35Z evenisse $  * @plexus.component role="com.opensymphony.xwork.Action"  * role-hint="configureAppearance"  */
+comment|/**  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @version $Id: ConfigurationAction.java 480950 2006-11-30 14:58:35Z evenisse $  * @TODO plexus.component role="com.opensymphony.xwork.Action"  * role-hint="configureAppearance"  */
 end_comment
 
 begin_class
@@ -294,25 +220,23 @@ name|SecureAction
 implements|,
 name|Preparable
 block|{
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|MavenAppConfiguration
-name|appConfigurationStore
-decl_stmt|;
-comment|/**      * The configuration.      */
-specifier|private
-name|Configuration
-name|configuration
-decl_stmt|;
-specifier|private
-name|Model
-name|companyModel
-decl_stmt|;
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|CompanyPomHandler
-name|companyPomHandler
-decl_stmt|;
+comment|//    /**
+comment|//     * @plexus.requirement
+comment|//     */
+comment|//    private MavenAppConfiguration appConfigurationStore;
+comment|//
+comment|//    /**
+comment|//     * The configuration.
+comment|//     */
+comment|//    private Configuration configuration;
+comment|//
+comment|//    private Model companyModel;
+comment|//
+comment|//    /**
+comment|//     * @plexus.requirement
+comment|//     */
+comment|//    private CompanyPomHandler companyPomHandler;
+comment|//
 specifier|public
 name|String
 name|execute
@@ -322,13 +246,7 @@ name|IOException
 throws|,
 name|RegistryException
 block|{
-name|appConfigurationStore
-operator|.
-name|save
-argument_list|(
-name|configuration
-argument_list|)
-expr_stmt|;
+comment|//        appConfigurationStore.save( configuration );
 return|return
 name|SUCCESS
 return|;
@@ -339,40 +257,21 @@ name|getModel
 parameter_list|()
 block|{
 return|return
-name|configuration
+operator|new
+name|Object
+argument_list|()
 return|;
+comment|//        return configuration;
 block|}
 specifier|public
 name|void
 name|prepare
 parameter_list|()
-throws|throws
-name|ProjectBuildingException
-throws|,
-name|ArtifactMetadataRetrievalException
+comment|//        throws ProjectBuildingException, ArtifactMetadataRetrievalException
 block|{
-name|configuration
-operator|=
-name|appConfigurationStore
-operator|.
-name|getConfiguration
-argument_list|()
-expr_stmt|;
-name|companyModel
-operator|=
-name|companyPomHandler
-operator|.
-name|getCompanyPomModel
-argument_list|(
-name|configuration
-operator|.
-name|getCompanyPom
-argument_list|()
-argument_list|,
-name|createLocalRepository
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//        configuration = appConfigurationStore.getConfiguration();
+comment|//
+comment|//        companyModel = companyPomHandler.getCompanyPomModel( configuration.getCompanyPom(), createLocalRepository() );
 block|}
 specifier|public
 name|SecureActionBundle
@@ -412,15 +311,11 @@ return|return
 name|bundle
 return|;
 block|}
-specifier|public
-name|Model
-name|getCompanyModel
-parameter_list|()
-block|{
-return|return
-name|companyModel
-return|;
-block|}
+comment|//
+comment|//    public Model getCompanyModel()
+comment|//    {
+comment|//        return companyModel;
+comment|//    }
 block|}
 end_class
 

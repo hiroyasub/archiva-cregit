@@ -19,53 +19,17 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *   http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|indexer
-operator|.
-name|record
-operator|.
-name|StandardArtifactIndexRecord
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.archiva.indexer.record.StandardArtifactIndexRecord;
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|versioning
-operator|.
-name|DefaultArtifactVersion
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|model
-operator|.
-name|Dependency
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.model.Dependency;
+end_comment
 
 begin_import
 import|import
@@ -180,46 +144,12 @@ operator|new
 name|ArrayList
 argument_list|()
 decl_stmt|;
-for|for
-control|(
-name|Iterator
-name|i
-init|=
-name|artifacts
-operator|.
-name|iterator
-argument_list|()
-init|;
-name|i
-operator|.
-name|hasNext
-argument_list|()
-condition|;
-control|)
-block|{
-name|Dependency
-name|dependency
-init|=
-operator|(
-name|Dependency
-operator|)
-name|i
-operator|.
-name|next
-argument_list|()
-decl_stmt|;
-name|dependencies
-operator|.
-name|add
-argument_list|(
-operator|new
-name|DependencyWrapper
-argument_list|(
-name|dependency
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
+comment|//        for ( Iterator i = artifacts.iterator(); i.hasNext(); )
+comment|//        {
+comment|//            Dependency dependency = (Dependency) i.next();
+comment|//
+comment|//            dependencies.add( new DependencyWrapper( dependency ) );
+comment|//        }
 return|return
 name|dependencies
 return|;
@@ -242,105 +172,23 @@ operator|new
 name|LinkedHashMap
 argument_list|()
 decl_stmt|;
-for|for
-control|(
-name|Iterator
-name|i
-init|=
-name|artifacts
-operator|.
-name|iterator
-argument_list|()
-init|;
-name|i
-operator|.
-name|hasNext
-argument_list|()
-condition|;
-control|)
-block|{
-name|StandardArtifactIndexRecord
-name|record
-init|=
-operator|(
-name|StandardArtifactIndexRecord
-operator|)
-name|i
-operator|.
-name|next
-argument_list|()
-decl_stmt|;
-name|String
-name|key
-init|=
-name|record
-operator|.
-name|getGroupId
-argument_list|()
-operator|+
-literal|":"
-operator|+
-name|record
-operator|.
-name|getArtifactId
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|dependees
-operator|.
-name|containsKey
-argument_list|(
-name|key
-argument_list|)
-condition|)
-block|{
-name|DependencyWrapper
-name|wrapper
-init|=
-operator|(
-name|DependencyWrapper
-operator|)
-name|dependees
-operator|.
-name|get
-argument_list|(
-name|key
-argument_list|)
-decl_stmt|;
-name|wrapper
-operator|.
-name|addVersion
-argument_list|(
-name|record
-operator|.
-name|getVersion
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|DependencyWrapper
-name|wrapper
-init|=
-operator|new
-name|DependencyWrapper
-argument_list|(
-name|record
-argument_list|)
-decl_stmt|;
-name|dependees
-operator|.
-name|put
-argument_list|(
-name|key
-argument_list|,
-name|wrapper
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+comment|//        for ( Iterator i = artifacts.iterator(); i.hasNext(); )
+comment|//        {
+comment|//            StandardArtifactIndexRecord record = (StandardArtifactIndexRecord) i.next();
+comment|//
+comment|//            String key = record.getGroupId() + ":" + record.getArtifactId();
+comment|//            if ( dependees.containsKey( key ) )
+comment|//            {
+comment|//                DependencyWrapper wrapper = (DependencyWrapper) dependees.get( key );
+comment|//                wrapper.addVersion( record.getVersion() );
+comment|//            }
+comment|//            else
+comment|//            {
+comment|//                DependencyWrapper wrapper = new DependencyWrapper( record );
+comment|//
+comment|//                dependees.put( key, wrapper );
+comment|//            }
+comment|//        }
 return|return
 name|dependees
 operator|.
@@ -348,458 +196,144 @@ name|values
 argument_list|()
 return|;
 block|}
-specifier|public
-specifier|static
-class|class
-name|DependencyWrapper
-block|{
-specifier|private
-specifier|final
-name|String
-name|groupId
-decl_stmt|;
-specifier|private
-specifier|final
-name|String
-name|artifactId
-decl_stmt|;
-comment|/**          * Versions added. We ignore duplicates since you might add those with varying classifiers.          */
-specifier|private
-name|Set
-name|versions
-init|=
-operator|new
-name|HashSet
-argument_list|()
-decl_stmt|;
-specifier|private
-name|String
-name|version
-decl_stmt|;
-specifier|private
-name|String
-name|scope
-decl_stmt|;
-specifier|private
-name|String
-name|classifier
-decl_stmt|;
-specifier|public
-name|DependencyWrapper
-parameter_list|(
-name|StandardArtifactIndexRecord
-name|record
-parameter_list|)
-block|{
-name|this
-operator|.
-name|groupId
-operator|=
-name|record
-operator|.
-name|getGroupId
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|artifactId
-operator|=
-name|record
-operator|.
-name|getArtifactId
-argument_list|()
-expr_stmt|;
-name|addVersion
-argument_list|(
-name|record
-operator|.
-name|getVersion
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-specifier|public
-name|DependencyWrapper
-parameter_list|(
-name|Dependency
-name|dependency
-parameter_list|)
-block|{
-name|this
-operator|.
-name|groupId
-operator|=
-name|dependency
-operator|.
-name|getGroupId
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|artifactId
-operator|=
-name|dependency
-operator|.
-name|getArtifactId
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|scope
-operator|=
-name|dependency
-operator|.
-name|getScope
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|classifier
-operator|=
-name|dependency
-operator|.
-name|getClassifier
-argument_list|()
-expr_stmt|;
-name|addVersion
-argument_list|(
-name|dependency
-operator|.
-name|getVersion
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-specifier|public
-name|String
-name|getScope
-parameter_list|()
-block|{
-return|return
-name|scope
-return|;
-block|}
-specifier|public
-name|String
-name|getClassifier
-parameter_list|()
-block|{
-return|return
-name|classifier
-return|;
-block|}
-specifier|public
-name|void
-name|addVersion
-parameter_list|(
-name|String
-name|version
-parameter_list|)
-block|{
-comment|// We use DefaultArtifactVersion to get the correct sorting order later, however it does not have
-comment|// hashCode properly implemented, so we add it here.
-comment|// TODO: add these methods to the actual DefaultArtifactVersion and use that.
-name|versions
-operator|.
-name|add
-argument_list|(
-operator|new
-name|DefaultArtifactVersion
-argument_list|(
-name|version
-argument_list|)
-block|{
-specifier|public
-name|int
-name|hashCode
-parameter_list|()
-block|{
-name|int
-name|result
-decl_stmt|;
-name|result
-operator|=
-name|getBuildNumber
-argument_list|()
-expr_stmt|;
-name|result
-operator|=
-literal|31
-operator|*
-name|result
-operator|+
-name|getMajorVersion
-argument_list|()
-expr_stmt|;
-name|result
-operator|=
-literal|31
-operator|*
-name|result
-operator|+
-name|getMinorVersion
-argument_list|()
-expr_stmt|;
-name|result
-operator|=
-literal|31
-operator|*
-name|result
-operator|+
-name|getIncrementalVersion
-argument_list|()
-expr_stmt|;
-name|result
-operator|=
-literal|31
-operator|*
-name|result
-operator|+
-operator|(
-name|getQualifier
-argument_list|()
-operator|!=
-literal|null
-condition|?
-name|getQualifier
-argument_list|()
-operator|.
-name|hashCode
-argument_list|()
-else|:
-literal|0
-operator|)
-expr_stmt|;
-return|return
-name|result
-return|;
-block|}
-specifier|public
-name|boolean
-name|equals
-parameter_list|(
-name|Object
-name|o
-parameter_list|)
-block|{
-if|if
-condition|(
-name|this
-operator|==
-name|o
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-if|if
-condition|(
-name|o
-operator|==
-literal|null
-operator|||
-name|getClass
-argument_list|()
-operator|!=
-name|o
-operator|.
-name|getClass
-argument_list|()
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-name|DefaultArtifactVersion
-name|that
-init|=
-operator|(
-name|DefaultArtifactVersion
-operator|)
-name|o
-decl_stmt|;
-if|if
-condition|(
-name|getBuildNumber
-argument_list|()
-operator|!=
-name|that
-operator|.
-name|getBuildNumber
-argument_list|()
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-if|if
-condition|(
-name|getIncrementalVersion
-argument_list|()
-operator|!=
-name|that
-operator|.
-name|getIncrementalVersion
-argument_list|()
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-if|if
-condition|(
-name|getMajorVersion
-argument_list|()
-operator|!=
-name|that
-operator|.
-name|getMajorVersion
-argument_list|()
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-if|if
-condition|(
-name|getMinorVersion
-argument_list|()
-operator|!=
-name|that
-operator|.
-name|getMinorVersion
-argument_list|()
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-if|if
-condition|(
-name|getQualifier
-argument_list|()
-operator|!=
-literal|null
-condition|?
-operator|!
-name|getQualifier
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|that
-operator|.
-name|getQualifier
-argument_list|()
-argument_list|)
-else|:
-name|that
-operator|.
-name|getQualifier
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-return|return
-literal|true
-return|;
-block|}
-block|}
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|versions
-operator|.
-name|size
-argument_list|()
-operator|==
-literal|1
-condition|)
-block|{
-name|this
-operator|.
-name|version
-operator|=
-name|version
-expr_stmt|;
-block|}
-else|else
-block|{
-name|this
-operator|.
-name|version
-operator|=
-literal|null
-expr_stmt|;
-block|}
-block|}
-specifier|public
-name|String
-name|getGroupId
-parameter_list|()
-block|{
-return|return
-name|groupId
-return|;
-block|}
-specifier|public
-name|String
-name|getArtifactId
-parameter_list|()
-block|{
-return|return
-name|artifactId
-return|;
-block|}
-specifier|public
-name|List
-name|getVersions
-parameter_list|()
-block|{
-name|List
-name|versions
-init|=
-operator|new
-name|ArrayList
-argument_list|(
-name|this
-operator|.
-name|versions
-argument_list|)
-decl_stmt|;
-name|Collections
-operator|.
-name|sort
-argument_list|(
-name|versions
-argument_list|)
-expr_stmt|;
-return|return
-name|versions
-return|;
-block|}
-specifier|public
-name|String
-name|getVersion
-parameter_list|()
-block|{
-return|return
-name|version
-return|;
-block|}
-block|}
+comment|//    public static class DependencyWrapper
+comment|//    {
+comment|//        private final String groupId;
+comment|//
+comment|//        private final String artifactId;
+comment|//
+comment|//        /**
+comment|//         * Versions added. We ignore duplicates since you might add those with varying classifiers.
+comment|//         */
+comment|//        private Set versions = new HashSet();
+comment|//
+comment|//        private String version;
+comment|//
+comment|//        private String scope;
+comment|//
+comment|//        private String classifier;
+comment|//
+comment|//        public DependencyWrapper( StandardArtifactIndexRecord record )
+comment|//        {
+comment|//            this.groupId = record.getGroupId();
+comment|//
+comment|//            this.artifactId = record.getArtifactId();
+comment|//
+comment|//            addVersion( record.getVersion() );
+comment|//        }
+comment|//
+comment|//        public DependencyWrapper( Dependency dependency )
+comment|//        {
+comment|//            this.groupId = dependency.getGroupId();
+comment|//
+comment|//            this.artifactId = dependency.getArtifactId();
+comment|//
+comment|//            this.scope = dependency.getScope();
+comment|//
+comment|//            this.classifier = dependency.getClassifier();
+comment|//
+comment|//            addVersion( dependency.getVersion() );
+comment|//        }
+comment|//
+comment|//        public String getScope()
+comment|//        {
+comment|//            return scope;
+comment|//        }
+comment|//
+comment|//        public String getClassifier()
+comment|//        {
+comment|//            return classifier;
+comment|//        }
+comment|//
+comment|//        public void addVersion( String version )
+comment|//        {
+comment|//            // We use DefaultArtifactVersion to get the correct sorting order later, however it does not have
+comment|//            // hashCode properly implemented, so we add it here.
+comment|//            // TODO: add these methods to the actual DefaultArtifactVersion and use that.
+comment|//            versions.add( new DefaultArtifactVersion( version )
+comment|//            {
+comment|//                public int hashCode()
+comment|//                {
+comment|//                    int result;
+comment|//                    result = getBuildNumber();
+comment|//                    result = 31 * result + getMajorVersion();
+comment|//                    result = 31 * result + getMinorVersion();
+comment|//                    result = 31 * result + getIncrementalVersion();
+comment|//                    result = 31 * result + ( getQualifier() != null ? getQualifier().hashCode() : 0 );
+comment|//                    return result;
+comment|//                }
+comment|//
+comment|//                public boolean equals( Object o )
+comment|//                {
+comment|//                    if ( this == o )
+comment|//                    {
+comment|//                        return true;
+comment|//                    }
+comment|//                    if ( o == null || getClass() != o.getClass() )
+comment|//                    {
+comment|//                        return false;
+comment|//                    }
+comment|//
+comment|//                    DefaultArtifactVersion that = (DefaultArtifactVersion) o;
+comment|//
+comment|//                    if ( getBuildNumber() != that.getBuildNumber() )
+comment|//                    {
+comment|//                        return false;
+comment|//                    }
+comment|//                    if ( getIncrementalVersion() != that.getIncrementalVersion() )
+comment|//                    {
+comment|//                        return false;
+comment|//                    }
+comment|//                    if ( getMajorVersion() != that.getMajorVersion() )
+comment|//                    {
+comment|//                        return false;
+comment|//                    }
+comment|//                    if ( getMinorVersion() != that.getMinorVersion() )
+comment|//                    {
+comment|//                        return false;
+comment|//                    }
+comment|//                    if ( getQualifier() != null ? !getQualifier().equals( that.getQualifier() )
+comment|//                        : that.getQualifier() != null )
+comment|//                    {
+comment|//                        return false;
+comment|//                    }
+comment|//
+comment|//                    return true;
+comment|//                }
+comment|//            } );
+comment|//
+comment|//            if ( versions.size() == 1 )
+comment|//            {
+comment|//                this.version = version;
+comment|//            }
+comment|//            else
+comment|//            {
+comment|//                this.version = null;
+comment|//            }
+comment|//        }
+comment|//
+comment|//        public String getGroupId()
+comment|//        {
+comment|//            return groupId;
+comment|//        }
+comment|//
+comment|//        public String getArtifactId()
+comment|//        {
+comment|//            return artifactId;
+comment|//        }
+comment|//
+comment|//        public List getVersions()
+comment|//        {
+comment|//            List versions = new ArrayList( this.versions );
+comment|//            Collections.sort( versions );
+comment|//            return versions;
+comment|//        }
+comment|//
+comment|//        public String getVersion()
+comment|//        {
+comment|//            return version;
+comment|//        }
+comment|//    }
 block|}
 end_class
 

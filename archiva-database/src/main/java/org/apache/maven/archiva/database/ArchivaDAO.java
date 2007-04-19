@@ -51,6 +51,10 @@ name|RepositoryDAO
 name|getRepositoryDAO
 parameter_list|()
 function_decl|;
+name|RepositoryProblemDAO
+name|getRepositoryProblemDAO
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
