@@ -34,7 +34,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * LegacyArtifactExtensionMapping   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.repository.content.ArtifactExtensionMapping"  *                   role-hint="legacy"  */
+comment|/**  * LegacyArtifactExtensionMapping   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -43,8 +43,6 @@ class|class
 name|LegacyArtifactExtensionMapping
 extends|extends
 name|AbstractArtifactExtensionMapping
-implements|implements
-name|ArtifactExtensionMapping
 block|{
 specifier|public
 name|LegacyArtifactExtensionMapping
@@ -58,6 +56,9 @@ specifier|public
 name|String
 name|getType
 parameter_list|(
+name|String
+name|pathType
+parameter_list|,
 name|String
 name|filename
 parameter_list|)
@@ -73,7 +74,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|null
+name|pathType
 return|;
 block|}
 name|String
@@ -126,54 +127,28 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|"java-source"
+literal|"jar"
 return|;
 block|}
-comment|// TODO: handle type for -javadoc.jar ?
-else|else
-block|{
-name|int
-name|index
-init|=
+if|else if
+condition|(
 name|normalizedName
 operator|.
-name|lastIndexOf
+name|endsWith
 argument_list|(
-literal|'.'
+literal|"-javadoc.jar"
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|index
-operator|>=
-literal|0
 condition|)
 block|{
 return|return
-name|normalizedName
-operator|.
-name|substring
-argument_list|(
-name|index
-operator|+
-literal|1
-argument_list|)
+literal|"jar"
 return|;
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Filename "
-operator|+
-name|filename
-operator|+
-literal|" does not have an extension."
-argument_list|)
-throw|;
-block|}
+return|return
+name|pathType
+return|;
 block|}
 block|}
 block|}
