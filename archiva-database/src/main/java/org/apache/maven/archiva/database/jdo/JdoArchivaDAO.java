@@ -103,6 +103,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|database
+operator|.
+name|SimpleConstraint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -110,6 +126,16 @@ operator|.
 name|logging
 operator|.
 name|AbstractLogEnabled
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -126,6 +152,11 @@ name|AbstractLogEnabled
 implements|implements
 name|ArchivaDAO
 block|{
+comment|/**      * @plexus.requirement role-hint="archiva"      */
+specifier|private
+name|JdoAccess
+name|jdo
+decl_stmt|;
 comment|/**      * @plexus.requirement role-hint="jdo"      */
 specifier|private
 name|ArtifactDAO
@@ -146,6 +177,23 @@ specifier|private
 name|RepositoryProblemDAO
 name|repositoryProblemDAO
 decl_stmt|;
+specifier|public
+name|List
+name|query
+parameter_list|(
+name|SimpleConstraint
+name|constraint
+parameter_list|)
+block|{
+return|return
+name|jdo
+operator|.
+name|queryObjects
+argument_list|(
+name|constraint
+argument_list|)
+return|;
+block|}
 specifier|public
 name|ArtifactDAO
 name|getArtifactDAO

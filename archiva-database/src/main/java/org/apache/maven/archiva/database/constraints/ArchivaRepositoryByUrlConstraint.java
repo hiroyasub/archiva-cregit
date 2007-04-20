@@ -40,7 +40,7 @@ specifier|public
 class|class
 name|ArchivaRepositoryByUrlConstraint
 extends|extends
-name|AbstractConstraint
+name|AbstractDeclarativeConstraint
 implements|implements
 name|Constraint
 block|{

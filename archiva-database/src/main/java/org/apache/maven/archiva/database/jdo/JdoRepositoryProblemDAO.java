@@ -140,7 +140,7 @@ block|{
 return|return
 name|jdo
 operator|.
-name|getAllObjects
+name|queryObjects
 argument_list|(
 name|RepositoryProblem
 operator|.

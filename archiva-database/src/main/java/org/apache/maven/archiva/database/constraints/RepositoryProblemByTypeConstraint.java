@@ -44,7 +44,7 @@ specifier|public
 class|class
 name|RepositoryProblemByTypeConstraint
 extends|extends
-name|AbstractConstraint
+name|AbstractDeclarativeConstraint
 implements|implements
 name|Constraint
 block|{

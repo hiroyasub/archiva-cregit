@@ -14,7 +14,11 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Constraint   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *  http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+end_comment
+
+begin_comment
+comment|/**  * Constraint - a generic object for dealing with database constraints.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @see DeclarativeConstraint  * @see SimpleConstraint  */
 end_comment
 
 begin_interface
@@ -42,45 +46,6 @@ comment|/**      * Get the fetch limits on the object.      *       * @return th
 specifier|public
 name|String
 name|getFetchLimits
-parameter_list|()
-function_decl|;
-comment|/**      * Get the SELECT WHERE (condition) value for the constraint.      *       * @return the equivalent of the SELECT WHERE (condition) value for this constraint. (can be null)      */
-specifier|public
-name|String
-name|getWhereCondition
-parameter_list|()
-function_decl|;
-comment|/**      * Get the sort column name.      *       * @return the sort column name. (can be null)      */
-specifier|public
-name|String
-name|getSortColumn
-parameter_list|()
-function_decl|;
-comment|/**      * Get the sort direction name.      *       * @return the sort direction name. ("ASC" or "DESC") (only valid if {@link #getSortColumn()} is specified.)      */
-specifier|public
-name|String
-name|getSortDirection
-parameter_list|()
-function_decl|;
-comment|/**      * Get the declared imports used for this query. (optional)      *       * NOTE: This is DAO implementation specific.      *       * @return the imports. (can be null)      */
-specifier|public
-name|String
-index|[]
-name|getDeclaredImports
-parameter_list|()
-function_decl|;
-comment|/**      * Get the declared parameters used for this query. (optional)      *       * NOTE: This is DAO implementation specific.      *       * @return the parameters. (can be null)      */
-specifier|public
-name|String
-index|[]
-name|getDeclaredParameters
-parameter_list|()
-function_decl|;
-comment|/**      * Get the parameters used for this query. (required if using {@link #getDeclaredParameters()} )      *       * NOTE: This is DAO implementation specific.      *       * @return the parameters. (can be null)      */
-specifier|public
-name|Object
-index|[]
-name|getParameters
 parameter_list|()
 function_decl|;
 block|}

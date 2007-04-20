@@ -374,7 +374,7 @@ name|results
 init|=
 name|jdo
 operator|.
-name|getAllObjects
+name|queryObjects
 argument_list|(
 name|ArchivaArtifactModel
 operator|.
