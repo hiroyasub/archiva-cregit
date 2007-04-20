@@ -67,6 +67,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|model
+operator|.
+name|VersionedReference
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -104,6 +120,20 @@ name|repository
 parameter_list|,
 name|ArtifactReference
 name|artifact
+parameter_list|)
+throws|throws
+name|ProxyException
+function_decl|;
+comment|/**      * Performs the metadata fetch operation against the target repositories      * of the provided source repository.      *       * If the metadata is found, it is downloaded and placed into the source repository      * filesystem.      *       * @param repository the source repository to use. (must be a managed repository)      * @param metadata the metadata to fetch.      * @return true if the fetch operation succeeded in obtaining content, false if no content was obtained.      * @throws ProxyException if there was a problem fetching the content from the target repositories.      */
+specifier|public
+name|File
+name|fetchFromProxies
+parameter_list|(
+name|ArchivaRepository
+name|repository
+parameter_list|,
+name|VersionedReference
+name|metadata
 parameter_list|)
 throws|throws
 name|ProxyException
