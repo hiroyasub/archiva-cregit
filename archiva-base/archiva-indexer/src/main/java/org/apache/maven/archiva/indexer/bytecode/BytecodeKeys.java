@@ -50,6 +50,14 @@ specifier|public
 specifier|static
 specifier|final
 name|String
+name|ID
+init|=
+literal|"bytecode"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
 name|CLASSES
 init|=
 literal|"classes"

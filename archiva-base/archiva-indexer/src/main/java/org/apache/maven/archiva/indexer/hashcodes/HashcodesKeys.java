@@ -50,6 +50,14 @@ specifier|public
 specifier|static
 specifier|final
 name|String
+name|ID
+init|=
+literal|"hashcodes"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
 name|MD5
 init|=
 literal|"md5"

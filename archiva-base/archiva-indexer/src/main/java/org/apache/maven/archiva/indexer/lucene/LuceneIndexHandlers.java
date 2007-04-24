@@ -33,6 +33,20 @@ name|Analyzer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|queryParser
+operator|.
+name|QueryParser
+import|;
+end_import
+
 begin_comment
 comment|/**  * The important bits and pieces for handling a specific lucene index      *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
@@ -52,6 +66,18 @@ comment|/**      * Get the analyzer to user with this index.       *       * @re
 specifier|public
 name|Analyzer
 name|getAnalyzer
+parameter_list|()
+function_decl|;
+comment|/**      * Get the {@link QueryParser} appropriate for searches within this index.      *       * @return the query parser.      */
+specifier|public
+name|QueryParser
+name|getQueryParser
+parameter_list|()
+function_decl|;
+comment|/**      * Get the id of the index handler.      *       * @return the id of the index handler.      */
+specifier|public
+name|String
+name|getId
 parameter_list|()
 function_decl|;
 block|}

@@ -23,6 +23,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|queryParser
+operator|.
+name|QueryParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|archiva
@@ -168,6 +182,16 @@ function_decl|;
 comment|/**      * Get the index directory.      *       * @return the index directory.      */
 name|File
 name|getIndexDirectory
+parameter_list|()
+function_decl|;
+comment|/**      * Get the {@link QueryParser} appropriate for searches within this index.      *       * @return the query parser;      */
+name|QueryParser
+name|getQueryParser
+parameter_list|()
+function_decl|;
+comment|/**      * Get the id of index.      *       * @return the id of index.      */
+name|String
+name|getId
 parameter_list|()
 function_decl|;
 block|}
