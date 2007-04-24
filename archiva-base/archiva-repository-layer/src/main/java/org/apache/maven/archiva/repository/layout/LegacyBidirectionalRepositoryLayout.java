@@ -848,15 +848,19 @@ literal|"> and expected layout specified type<"
 operator|+
 name|prefs
 operator|.
-name|type
+name|pathType
 operator|+
-literal|"> (mapped from actual path provided type<"
+literal|"> (mapped type:<"
 operator|+
 name|prefs
 operator|.
-name|pathType
+name|type
 operator|+
-literal|">)"
+literal|">) on path<"
+operator|+
+name|path
+operator|+
+literal|">"
 argument_list|)
 throw|;
 block|}

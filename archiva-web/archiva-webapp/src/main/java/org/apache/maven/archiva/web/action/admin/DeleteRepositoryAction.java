@@ -21,21 +21,9 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *   http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|AbstractRepositoryConfiguration
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.archiva.configuration.AbstractRepositoryConfiguration;
+end_comment
 
 begin_import
 import|import
@@ -120,164 +108,41 @@ name|DeleteRepositoryAction
 extends|extends
 name|AbstractDeleteRepositoryAction
 block|{
-specifier|protected
-name|AbstractRepositoryConfiguration
-name|getRepository
-parameter_list|(
-name|Configuration
-name|configuration
-parameter_list|)
-block|{
-return|return
-name|configuration
-operator|.
-name|getRepositoryById
-argument_list|(
-name|repoId
-argument_list|)
-return|;
-block|}
-specifier|protected
-name|void
-name|removeRepository
-parameter_list|(
-name|Configuration
-name|configuration
-parameter_list|,
-name|AbstractRepositoryConfiguration
-name|existingRepository
-parameter_list|)
-block|{
-name|configuration
-operator|.
-name|removeRepository
-argument_list|(
-operator|(
-name|RepositoryConfiguration
-operator|)
-name|existingRepository
-argument_list|)
-expr_stmt|;
-try|try
-block|{
-name|removeRepositoryRoles
-argument_list|(
-name|existingRepository
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RoleProfileException
-name|e
-parameter_list|)
-block|{
-name|getLogger
-argument_list|()
-operator|.
-name|error
-argument_list|(
-literal|"Error removing user roles associated with repository "
-operator|+
-name|existingRepository
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-specifier|protected
-name|void
-name|removeContents
-parameter_list|(
-name|AbstractRepositoryConfiguration
-name|existingRepository
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|RepositoryConfiguration
-name|repository
-init|=
-operator|(
-name|RepositoryConfiguration
-operator|)
-name|existingRepository
-decl_stmt|;
-name|getLogger
-argument_list|()
-operator|.
-name|info
-argument_list|(
-literal|"Removing "
-operator|+
-name|repository
-operator|.
-name|getDirectory
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|FileUtils
-operator|.
-name|deleteDirectory
-argument_list|(
-name|repository
-operator|.
-name|getDirectory
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+comment|//    protected AbstractRepositoryConfiguration getRepository( Configuration configuration )
+comment|//    {
+comment|//        return configuration.getRepositoryById( repoId );
+comment|//    }
+comment|//
+comment|//    protected void removeRepository( Configuration configuration, AbstractRepositoryConfiguration existingRepository )
+comment|//    {
+comment|//        configuration.removeRepository( (RepositoryConfiguration) existingRepository );
+comment|//
+comment|//        try
+comment|//        {
+comment|//            removeRepositoryRoles( existingRepository );
+comment|//        }
+comment|//        catch ( RoleProfileException e )
+comment|//        {
+comment|//            getLogger().error( "Error removing user roles associated with repository " + existingRepository.getId() );
+comment|//        }
+comment|//    }
+comment|//
+comment|//    protected void removeContents( AbstractRepositoryConfiguration existingRepository )
+comment|//        throws IOException
+comment|//    {
+comment|//        RepositoryConfiguration repository = (RepositoryConfiguration) existingRepository;
+comment|//        getLogger().info( "Removing " + repository.getDirectory() );
+comment|//        FileUtils.deleteDirectory( repository.getDirectory() );
+comment|//    }
 comment|/**      * Remove user roles associated with the repository      *      * @param existingRepository      * @throws RoleProfileException      */
-specifier|private
-name|void
-name|removeRepositoryRoles
-parameter_list|(
-name|AbstractRepositoryConfiguration
-name|existingRepository
-parameter_list|)
-throws|throws
-name|RoleProfileException
-block|{
-name|roleProfileManager
-operator|.
-name|deleteDynamicRole
-argument_list|(
-literal|"archiva-repository-manager"
-argument_list|,
-name|existingRepository
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|roleProfileManager
-operator|.
-name|deleteDynamicRole
-argument_list|(
-literal|"archiva-repository-observer"
-argument_list|,
-name|existingRepository
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|getLogger
-argument_list|()
-operator|.
-name|info
-argument_list|(
-literal|"removed user roles associated with repository "
-operator|+
-name|existingRepository
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+comment|//    private void removeRepositoryRoles( AbstractRepositoryConfiguration existingRepository )
+comment|//        throws RoleProfileException
+comment|//    {
+comment|//        roleProfileManager.deleteDynamicRole( "archiva-repository-manager", existingRepository.getId() );
+comment|//        roleProfileManager.deleteDynamicRole( "archiva-repository-observer", existingRepository.getId() );
+comment|//
+comment|//        getLogger().info( "removed user roles associated with repository " + existingRepository.getId() );
+comment|//    }
 block|}
 end_class
 

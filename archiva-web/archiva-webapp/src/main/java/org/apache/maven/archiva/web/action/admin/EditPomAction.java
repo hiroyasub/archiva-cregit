@@ -61,24 +61,6 @@ name|ArchivaRoleConstants
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|web
-operator|.
-name|action
-operator|.
-name|AbstractConfiguredAction
-import|;
-end_import
-
 begin_comment
 comment|//import org.apache.maven.artifact.installer.ArtifactInstallationException;
 end_comment
@@ -189,6 +171,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|xwork
+operator|.
+name|action
+operator|.
+name|PlexusActionSupport
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -206,7 +204,7 @@ specifier|public
 class|class
 name|EditPomAction
 extends|extends
-name|AbstractConfiguredAction
+name|PlexusActionSupport
 implements|implements
 name|ModelDriven
 implements|,

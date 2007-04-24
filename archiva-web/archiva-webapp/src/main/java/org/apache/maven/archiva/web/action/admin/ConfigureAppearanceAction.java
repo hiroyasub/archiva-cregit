@@ -61,23 +61,9 @@ name|ArchivaRoleConstants
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|web
-operator|.
-name|action
-operator|.
-name|AbstractConfiguredAction
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.archiva.web.action.AbstractConfiguredAction;
+end_comment
 
 begin_comment
 comment|//import org.apache.maven.artifact.metadata.ArtifactMetadataRetrievalException;
@@ -195,6 +181,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|xwork
+operator|.
+name|action
+operator|.
+name|PlexusActionSupport
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -212,7 +214,7 @@ specifier|public
 class|class
 name|ConfigureAppearanceAction
 extends|extends
-name|AbstractConfiguredAction
+name|PlexusActionSupport
 implements|implements
 name|ModelDriven
 implements|,

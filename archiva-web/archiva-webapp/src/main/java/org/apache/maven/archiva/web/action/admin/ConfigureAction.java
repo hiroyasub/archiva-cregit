@@ -137,21 +137,9 @@ name|RepositoryIndexSearchException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|repositories
-operator|.
-name|ActiveManagedRepositories
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.archiva.repositories.ActiveManagedRepositories;
+end_comment
 
 begin_import
 import|import
@@ -343,11 +331,10 @@ specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|ActiveManagedRepositories
-name|activeRepositories
-decl_stmt|;
+comment|//    /**
+comment|//     * @plexus.requirement
+comment|//     */
+comment|//    private ActiveManagedRepositories activeRepositories;
 comment|/**      * The configuration.      */
 specifier|private
 name|Configuration
@@ -449,60 +436,17 @@ name|RegistryException
 block|{
 comment|// TODO: if this didn't come from the form, go to configure.action instead of going through with re-saving what was just loaded
 comment|// TODO: if this is changed, do we move the index or recreate it?
-name|configuration
-operator|.
-name|setDataRefreshCronExpression
-argument_list|(
-name|getCronExpression
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//        configuration.setDataRefreshCronExpression( getCronExpression() );
 comment|// Normalize the path
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-name|configuration
-operator|.
-name|getIndexPath
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|configuration
-operator|.
-name|setIndexPath
-argument_list|(
-name|file
-operator|.
-name|getCanonicalPath
-argument_list|()
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|file
-operator|.
-name|exists
-argument_list|()
-condition|)
-block|{
-name|file
-operator|.
-name|mkdirs
-argument_list|()
-expr_stmt|;
-comment|// TODO: error handling when this fails, or is not a directory!
-block|}
+comment|//        File file = new File( configuration.getIndexPath() );
+comment|//        configuration.setIndexPath( file.getCanonicalPath() );
+comment|//        if ( !file.exists() )
+comment|//        {
+comment|//            file.mkdirs();
+comment|//            // TODO: error handling when this fails, or is not a directory!
+comment|//        }
 comment|// Just double checking that our validation routines line up with what is expected in the configuration
-assert|assert
-name|configuration
-operator|.
-name|isValid
-argument_list|()
-assert|;
+comment|//        assert configuration.isValid();
 name|archivaConfiguration
 operator|.
 name|save
@@ -525,19 +469,29 @@ name|String
 name|input
 parameter_list|()
 block|{
+comment|//        String[] cronEx = configuration.getDataRefreshCronExpression().split( " " );
 name|String
 index|[]
 name|cronEx
 init|=
-name|configuration
-operator|.
-name|getDataRefreshCronExpression
-argument_list|()
-operator|.
-name|split
-argument_list|(
-literal|" "
-argument_list|)
+operator|new
+name|String
+index|[]
+block|{
+literal|"0"
+block|,
+literal|"0"
+block|,
+literal|"*"
+block|,
+literal|"*"
+block|,
+literal|"*"
+block|,
+literal|"*"
+block|,
+literal|"*"
+block|}
 decl_stmt|;
 name|int
 name|i
@@ -640,32 +594,11 @@ name|i
 operator|++
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|activeRepositories
-operator|.
-name|getLastDataRefreshTime
-argument_list|()
-operator|!=
-literal|0
-condition|)
-block|{
-name|lastIndexingTime
-operator|=
-operator|new
-name|Date
-argument_list|(
-name|activeRepositories
-operator|.
-name|getLastDataRefreshTime
-argument_list|()
-argument_list|)
-operator|.
-name|toString
-argument_list|()
-expr_stmt|;
-block|}
-else|else
+comment|//        if ( activeRepositories.getLastDataRefreshTime() != 0 )
+comment|//        {
+comment|//            lastIndexingTime = new Date( activeRepositories.getLastDataRefreshTime() ).toString();
+comment|//        }
+comment|//        else
 block|{
 name|lastIndexingTime
 operator|=

@@ -21,21 +21,9 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *   http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|AbstractRepositoryConfiguration
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.archiva.configuration.AbstractRepositoryConfiguration;
+end_comment
 
 begin_import
 import|import
@@ -100,42 +88,15 @@ name|ConfigureRepositoryAction
 extends|extends
 name|AbstractConfigureRepositoryAction
 block|{
-specifier|protected
-name|void
-name|removeRepository
-parameter_list|(
-name|AbstractRepositoryConfiguration
-name|existingRepository
-parameter_list|)
-block|{
-name|configuration
-operator|.
-name|removeRepository
-argument_list|(
-operator|(
-name|RepositoryConfiguration
-operator|)
-name|existingRepository
-argument_list|)
-expr_stmt|;
-block|}
-specifier|protected
-name|AbstractRepositoryConfiguration
-name|getRepository
-parameter_list|(
-name|String
-name|id
-parameter_list|)
-block|{
-return|return
-name|configuration
-operator|.
-name|getRepositoryById
-argument_list|(
-name|id
-argument_list|)
-return|;
-block|}
+comment|//    protected void removeRepository( AbstractRepositoryConfiguration existingRepository )
+comment|//    {
+comment|//        configuration.removeRepository( (RepositoryConfiguration) existingRepository );
+comment|//    }
+comment|//
+comment|//    protected AbstractRepositoryConfiguration getRepository( String id )
+comment|//    {
+comment|//        return configuration.getRepositoryById( id );
+comment|//    }
 specifier|protected
 name|void
 name|addRepository
@@ -145,110 +106,30 @@ name|IOException
 throws|,
 name|RoleProfileException
 block|{
-name|RepositoryConfiguration
-name|repository
-init|=
-operator|(
-name|RepositoryConfiguration
-operator|)
-name|getRepository
-argument_list|()
-decl_stmt|;
-comment|// Normalize the path
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-name|repository
-operator|.
-name|getDirectory
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|repository
-operator|.
-name|setDirectory
-argument_list|(
-name|file
-operator|.
-name|getCanonicalPath
-argument_list|()
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|file
-operator|.
-name|exists
-argument_list|()
-condition|)
-block|{
-name|file
-operator|.
-name|mkdirs
-argument_list|()
-expr_stmt|;
-comment|// TODO: error handling when this fails, or is not a directory!
+comment|//        RepositoryConfiguration repository = (RepositoryConfiguration) getRepository();
+comment|//
+comment|//        // Normalize the path
+comment|//        File file = new File( repository.getDirectory() );
+comment|//        repository.setDirectory( file.getCanonicalPath() );
+comment|//        if ( !file.exists() )
+comment|//        {
+comment|//            file.mkdirs();
+comment|//            // TODO: error handling when this fails, or is not a directory!
+comment|//        }
+comment|//
+comment|//        configuration.addRepository( repository );
+comment|//
+comment|//        // TODO: double check these are configured on start up
+comment|//        roleProfileManager.getDynamicRole( "archiva-repository-manager", repository.getId() );
+comment|//
+comment|//        roleProfileManager.getDynamicRole( "archiva-repository-observer", repository.getId() );
 block|}
-name|configuration
-operator|.
-name|addRepository
-argument_list|(
-name|repository
-argument_list|)
-expr_stmt|;
-comment|// TODO: double check these are configured on start up
-name|roleProfileManager
-operator|.
-name|getDynamicRole
-argument_list|(
-literal|"archiva-repository-manager"
-argument_list|,
-name|repository
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|roleProfileManager
-operator|.
-name|getDynamicRole
-argument_list|(
-literal|"archiva-repository-observer"
-argument_list|,
-name|repository
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-specifier|protected
-name|AbstractRepositoryConfiguration
-name|createRepository
-parameter_list|()
-block|{
-name|RepositoryConfiguration
-name|repository
-init|=
-operator|new
-name|RepositoryConfiguration
-argument_list|()
-decl_stmt|;
-name|repository
-operator|.
-name|setIndexed
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-return|return
-name|repository
-return|;
-block|}
+comment|//    protected AbstractRepositoryConfiguration createRepository()
+comment|//    {
+comment|//        RepositoryConfiguration repository = new RepositoryConfiguration();
+comment|//        repository.setIndexed( false );
+comment|//        return repository;
+comment|//    }
 block|}
 end_class
 

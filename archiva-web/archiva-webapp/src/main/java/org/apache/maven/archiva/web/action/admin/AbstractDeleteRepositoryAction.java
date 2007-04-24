@@ -21,21 +21,9 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *   http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|AbstractRepositoryConfiguration
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.archiva.configuration.AbstractRepositoryConfiguration;
+end_comment
 
 begin_import
 import|import
@@ -306,98 +294,35 @@ operator|.
 name|getConfiguration
 argument_list|()
 decl_stmt|;
-name|AbstractRepositoryConfiguration
-name|existingRepository
-init|=
-name|getRepository
-argument_list|(
-name|configuration
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|existingRepository
-operator|==
-literal|null
-condition|)
-block|{
-name|addActionError
-argument_list|(
-literal|"A repository with that id does not exist"
-argument_list|)
-expr_stmt|;
-return|return
-name|ERROR
-return|;
-block|}
-comment|// TODO: remove from index too!
-name|removeRepository
-argument_list|(
-name|configuration
-argument_list|,
-name|existingRepository
-argument_list|)
-expr_stmt|;
-name|archivaConfiguration
-operator|.
-name|save
-argument_list|(
-name|configuration
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-literal|"delete-contents"
-operator|.
-name|equals
-argument_list|(
-name|operation
-argument_list|)
-condition|)
-block|{
-name|removeContents
-argument_list|(
-name|existingRepository
-argument_list|)
-expr_stmt|;
-block|}
+comment|//            AbstractRepositoryConfiguration existingRepository = getRepository( configuration );
+comment|//            if ( existingRepository == null )
+comment|//            {
+comment|//                addActionError( "A repository with that id does not exist" );
+comment|//                return ERROR;
+comment|//            }
+comment|//
+comment|//            // TODO: remove from index too!
+comment|//
+comment|//            removeRepository( configuration, existingRepository );
+comment|//
+comment|//            archivaConfiguration.save( configuration );
+comment|//
+comment|//            if ( "delete-contents".equals( operation ) )
+comment|//            {
+comment|//                removeContents( existingRepository );
+comment|//            }
 block|}
 return|return
 name|SUCCESS
 return|;
 block|}
-specifier|protected
-specifier|abstract
-name|void
-name|removeContents
-parameter_list|(
-name|AbstractRepositoryConfiguration
-name|existingRepository
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-specifier|protected
-specifier|abstract
-name|AbstractRepositoryConfiguration
-name|getRepository
-parameter_list|(
-name|Configuration
-name|configuration
-parameter_list|)
-function_decl|;
-specifier|protected
-specifier|abstract
-name|void
-name|removeRepository
-parameter_list|(
-name|Configuration
-name|configuration
-parameter_list|,
-name|AbstractRepositoryConfiguration
-name|existingRepository
-parameter_list|)
-function_decl|;
+comment|//    protected abstract void removeContents( AbstractRepositoryConfiguration existingRepository )
+comment|//        throws IOException;
+comment|//
+comment|//    protected abstract AbstractRepositoryConfiguration getRepository( Configuration configuration );
+comment|//
+comment|//    protected abstract void removeRepository( Configuration configuration,
+comment|//                                              AbstractRepositoryConfiguration existingRepository );
 specifier|public
 name|String
 name|input

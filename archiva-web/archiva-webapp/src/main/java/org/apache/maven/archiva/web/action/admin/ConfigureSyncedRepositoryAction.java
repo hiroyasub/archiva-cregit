@@ -21,37 +21,13 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *   http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|AbstractRepositoryConfiguration
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.archiva.configuration.AbstractRepositoryConfiguration;
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|SyncedRepositoryConfiguration
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.archiva.configuration.SyncedRepositoryConfiguration;
+end_comment
 
 begin_import
 import|import
@@ -74,42 +50,15 @@ name|ConfigureSyncedRepositoryAction
 extends|extends
 name|AbstractConfigureRepositoryAction
 block|{
-specifier|protected
-name|void
-name|removeRepository
-parameter_list|(
-name|AbstractRepositoryConfiguration
-name|existingRepository
-parameter_list|)
-block|{
-name|configuration
-operator|.
-name|removeSyncedRepository
-argument_list|(
-operator|(
-name|SyncedRepositoryConfiguration
-operator|)
-name|existingRepository
-argument_list|)
-expr_stmt|;
-block|}
-specifier|protected
-name|AbstractRepositoryConfiguration
-name|getRepository
-parameter_list|(
-name|String
-name|id
-parameter_list|)
-block|{
-return|return
-name|configuration
-operator|.
-name|getSyncedRepositoryById
-argument_list|(
-name|id
-argument_list|)
-return|;
-block|}
+comment|//    protected void removeRepository( AbstractRepositoryConfiguration existingRepository )
+comment|//    {
+comment|//        configuration.removeSyncedRepository( (SyncedRepositoryConfiguration) existingRepository );
+comment|//    }
+comment|//
+comment|//    protected AbstractRepositoryConfiguration getRepository( String id )
+comment|//    {
+comment|//        return configuration.getSyncedRepositoryById( id );
+comment|//    }
 specifier|protected
 name|void
 name|addRepository
@@ -117,34 +66,14 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|SyncedRepositoryConfiguration
-name|repository
-init|=
-operator|(
-name|SyncedRepositoryConfiguration
-operator|)
-name|getRepository
-argument_list|()
-decl_stmt|;
-name|configuration
-operator|.
-name|addSyncedRepository
-argument_list|(
-name|repository
-argument_list|)
-expr_stmt|;
+comment|//        SyncedRepositoryConfiguration repository = (SyncedRepositoryConfiguration) getRepository();
+comment|//
+comment|//        configuration.addSyncedRepository( repository );
 block|}
-specifier|protected
-name|AbstractRepositoryConfiguration
-name|createRepository
-parameter_list|()
-block|{
-return|return
-operator|new
-name|SyncedRepositoryConfiguration
-argument_list|()
-return|;
-block|}
+comment|//    protected AbstractRepositoryConfiguration createRepository()
+comment|//    {
+comment|//        return new SyncedRepositoryConfiguration();
+comment|//    }
 block|}
 end_class
 

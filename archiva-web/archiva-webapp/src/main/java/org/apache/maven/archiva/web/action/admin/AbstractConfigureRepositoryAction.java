@@ -45,21 +45,9 @@ name|Preparable
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|AbstractRepositoryConfiguration
-import|;
-end_import
+begin_comment
+comment|//import org.apache.maven.archiva.configuration.AbstractRepositoryConfiguration;
+end_comment
 
 begin_import
 import|import
@@ -318,10 +306,7 @@ name|RoleProfileManager
 name|roleProfileManager
 decl_stmt|;
 comment|/**      * The repository.      */
-specifier|private
-name|AbstractRepositoryConfiguration
-name|repository
-decl_stmt|;
+comment|//    private AbstractRepositoryConfiguration repository;
 comment|/**      * The repository ID to lookup when editing a repository.      */
 specifier|private
 name|String
@@ -348,35 +333,12 @@ throws|,
 name|RegistryException
 block|{
 comment|// TODO: if this didn't come from the form, go to configure.action instead of going through with re-saving what was just loaded
-name|AbstractRepositoryConfiguration
-name|existingRepository
-init|=
-name|getRepository
-argument_list|(
-name|repository
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|existingRepository
-operator|!=
-literal|null
-condition|)
-block|{
-name|addFieldError
-argument_list|(
-literal|"id"
-argument_list|,
-literal|"A repository with that id already exists"
-argument_list|)
-expr_stmt|;
-return|return
-name|INPUT
-return|;
-block|}
+comment|//        AbstractRepositoryConfiguration existingRepository = getRepository( repository.getId() );
+comment|//        if ( existingRepository != null )
+comment|//        {
+comment|//            addFieldError( "id", "A repository with that id already exists" );
+comment|//            return INPUT;
+comment|//        }
 return|return
 name|saveConfiguration
 argument_list|()
@@ -398,45 +360,16 @@ throws|,
 name|RegistryException
 block|{
 comment|// TODO: if this didn't come from the form, go to configure.action instead of going through with re-saving what was just loaded
-name|AbstractRepositoryConfiguration
-name|existingRepository
-init|=
-name|getRepository
-argument_list|(
-name|repository
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|removeRepository
-argument_list|(
-name|existingRepository
-argument_list|)
-expr_stmt|;
+comment|//        AbstractRepositoryConfiguration existingRepository = getRepository( repository.getId() );
+comment|//        removeRepository( existingRepository );
 return|return
 name|saveConfiguration
 argument_list|()
 return|;
 block|}
-specifier|protected
-specifier|abstract
-name|void
-name|removeRepository
-parameter_list|(
-name|AbstractRepositoryConfiguration
-name|existingRepository
-parameter_list|)
-function_decl|;
-specifier|protected
-specifier|abstract
-name|AbstractRepositoryConfiguration
-name|getRepository
-parameter_list|(
-name|String
-name|id
-parameter_list|)
-function_decl|;
+comment|//    protected abstract void removeRepository( AbstractRepositoryConfiguration existingRepository );
+comment|//
+comment|//    protected abstract AbstractRepositoryConfiguration getRepository( String id );
 specifier|private
 name|String
 name|saveConfiguration
@@ -497,15 +430,13 @@ name|getModel
 parameter_list|()
 block|{
 return|return
-name|repository
+operator|new
+name|Object
+argument_list|()
 return|;
+comment|//        return repository;
 block|}
-specifier|protected
-specifier|abstract
-name|AbstractRepositoryConfiguration
-name|createRepository
-parameter_list|()
-function_decl|;
+comment|//    protected abstract AbstractRepositoryConfiguration createRepository();
 specifier|public
 name|void
 name|prepare
@@ -518,34 +449,14 @@ operator|.
 name|getConfiguration
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|repository
-operator|==
-literal|null
-condition|)
-block|{
-name|repository
-operator|=
-name|getRepository
-argument_list|(
-name|repoId
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|repository
-operator|==
-literal|null
-condition|)
-block|{
-name|repository
-operator|=
-name|createRepository
-argument_list|()
-expr_stmt|;
-block|}
+comment|//        if ( repository == null )
+comment|//        {
+comment|//            repository = getRepository( repoId );
+comment|//        }
+comment|//        if ( repository == null )
+comment|//        {
+comment|//            repository = createRepository();
+comment|//        }
 block|}
 specifier|public
 name|String
@@ -571,15 +482,10 @@ operator|=
 name|repoId
 expr_stmt|;
 block|}
-specifier|protected
-name|AbstractRepositoryConfiguration
-name|getRepository
-parameter_list|()
-block|{
-return|return
-name|repository
-return|;
-block|}
+comment|//    protected AbstractRepositoryConfiguration getRepository()
+comment|//    {
+comment|//        return repository;
+comment|//    }
 specifier|public
 name|Configuration
 name|getConfiguration
