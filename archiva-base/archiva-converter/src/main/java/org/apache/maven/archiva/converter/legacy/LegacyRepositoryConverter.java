@@ -31,22 +31,6 @@ name|archiva
 operator|.
 name|converter
 operator|.
-name|ConversionListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|converter
-operator|.
 name|RepositoryConversionException
 import|;
 end_import
@@ -90,7 +74,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Convert a legacy repository to a modern repository. This means a Maven 1.x repository      * using v3 POMs to a Maven 2.x repository using v4.0.0 POMs.      *      * @param legacyRepositoryDirectory the directory of the legacy repository.       * @param destinationRepositoryDirectory the directory of the modern repository.      * @param fileExclusionPatterns the list of patterns to exclude from the conversion.      * @param includeSnapshots true to include snapshots in conversion or not.      * @throws RepositoryConversionException       */
+comment|/**      * Convert a legacy repository to a modern repository. This means a Maven 1.x repository      * using v3 POMs to a Maven 2.x repository using v4.0.0 POMs.      *      * @param legacyRepositoryDirectory the directory of the legacy repository.       * @param destinationRepositoryDirectory the directory of the modern repository.      * @param fileExclusionPatterns the list of patterns to exclude from the conversion.      * @throws RepositoryConversionException       */
 name|void
 name|convertLegacyRepository
 parameter_list|(
@@ -102,28 +86,9 @@ name|destinationRepositoryDirectory
 parameter_list|,
 name|List
 name|fileExclusionPatterns
-parameter_list|,
-name|boolean
-name|includeSnapshots
 parameter_list|)
 throws|throws
 name|RepositoryConversionException
-function_decl|;
-comment|/**      * Add a listener to the conversion process.      *       * @param listener the listener to add.      */
-name|void
-name|addConversionListener
-parameter_list|(
-name|ConversionListener
-name|listener
-parameter_list|)
-function_decl|;
-comment|/**      * Remove a listener from the conversion process.      *       * @param listener the listener to remove.      */
-name|void
-name|removeConversionListener
-parameter_list|(
-name|ConversionListener
-name|listener
-parameter_list|)
 function_decl|;
 block|}
 end_interface
