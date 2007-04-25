@@ -261,11 +261,11 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|RepositoryConfiguration
+name|ArchivaRepository
 name|repository
 init|=
 operator|(
-name|RepositoryConfiguration
+name|ArchivaRepository
 operator|)
 name|it
 operator|.
