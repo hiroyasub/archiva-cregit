@@ -50,6 +50,46 @@ extends|extends
 name|TestCase
 block|{
 specifier|protected
+specifier|static
+specifier|final
+name|String
+name|OSLASH
+init|=
+literal|"\u00f8"
+decl_stmt|;
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|TRYGVIS
+init|=
+literal|"Trygve Laugst"
+operator|+
+name|OSLASH
+operator|+
+literal|"l"
+decl_stmt|;
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|INFIN
+init|=
+literal|"\u221e"
+decl_stmt|;
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|INFINITE_ARCHIVA
+init|=
+literal|"The "
+operator|+
+name|INFIN
+operator|+
+literal|" Archiva"
+decl_stmt|;
+specifier|protected
 name|File
 name|getExampleXml
 parameter_list|(

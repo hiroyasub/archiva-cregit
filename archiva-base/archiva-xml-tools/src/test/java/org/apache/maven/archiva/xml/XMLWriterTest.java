@@ -141,7 +141,7 @@ argument_list|)
 operator|.
 name|setText
 argument_list|(
-literal|"Trygve Laugst\u00f8l"
+name|TRYGVIS
 argument_list|)
 expr_stmt|;
 name|names
@@ -153,7 +153,7 @@ argument_list|)
 operator|.
 name|setText
 argument_list|(
-literal|"The \u221e Archiva"
+name|INFINITE_ARCHIVA
 argument_list|)
 expr_stmt|;
 name|StringWriter
