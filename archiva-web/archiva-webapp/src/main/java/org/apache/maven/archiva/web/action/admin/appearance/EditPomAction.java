@@ -14,6 +14,8 @@ operator|.
 name|action
 operator|.
 name|admin
+operator|.
+name|appearance
 package|;
 end_package
 
@@ -47,98 +49,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|opensymphony
-operator|.
-name|xwork
-operator|.
-name|Validateable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|ArchivaConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|Configuration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|InvalidConfigurationException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|indexer
-operator|.
-name|RepositoryIndexException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|indexer
-operator|.
-name|RepositoryIndexSearchException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -157,13 +67,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|maven
 operator|.
-name|registry
+name|artifact
 operator|.
-name|RegistryException
+name|installer
+operator|.
+name|ArtifactInstallationException
 import|;
 end_import
 
@@ -171,13 +83,115 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|maven
 operator|.
-name|scheduler
+name|artifact
 operator|.
-name|CronExpressionValidator
+name|metadata
+operator|.
+name|ArtifactMetadataRetrievalException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|model
+operator|.
+name|Model
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|project
+operator|.
+name|ProjectBuildingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|shared
+operator|.
+name|app
+operator|.
+name|company
+operator|.
+name|CompanyPomHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|shared
+operator|.
+name|app
+operator|.
+name|configuration
+operator|.
+name|CompanyPom
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|shared
+operator|.
+name|app
+operator|.
+name|configuration
+operator|.
+name|Configuration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|shared
+operator|.
+name|app
+operator|.
+name|configuration
+operator|.
+name|MavenAppConfiguration
 import|;
 end_import
 
@@ -259,22 +273,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|xwork
-operator|.
-name|action
-operator|.
-name|PlexusActionSupport
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -284,41 +282,41 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Configures the application.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="configureAction"  */
+comment|/**  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @version $Id: ConfigurationAction.java 480950 2006-11-30 14:58:35Z evenisse $  *   * @plexus.component role="com.opensymphony.xwork.Action"  *                   role-hint="editPom"  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|ConfigureAction
+name|EditPomAction
 extends|extends
-name|PlexusActionSupport
+name|AbstractAppearanceAction
 implements|implements
 name|ModelDriven
 implements|,
-name|Preparable
-implements|,
-name|Validateable
-implements|,
 name|SecureAction
+implements|,
+name|Preparable
 block|{
 comment|/**      * @plexus.requirement      */
 specifier|private
-name|ArchivaConfiguration
-name|archivaConfiguration
+name|MavenAppConfiguration
+name|appConfigurationStore
 decl_stmt|;
 comment|/**      * The configuration.      */
 specifier|private
 name|Configuration
 name|configuration
 decl_stmt|;
-specifier|public
-name|void
-name|validate
-parameter_list|()
-block|{
-comment|//validate cron expression
-block|}
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|CompanyPomHandler
+name|companyPomHandler
+decl_stmt|;
+specifier|private
+name|Model
+name|companyModel
+decl_stmt|;
 specifier|public
 name|String
 name|execute
@@ -326,106 +324,166 @@ parameter_list|()
 throws|throws
 name|IOException
 throws|,
-name|RepositoryIndexException
-throws|,
-name|RepositoryIndexSearchException
-throws|,
-name|InvalidConfigurationException
-throws|,
-name|RegistryException
+name|ArtifactInstallationException
 block|{
-comment|// TODO: if this didn't come from the form, go to configure.action instead of going through with re-saving what was just loaded
-comment|// TODO: if this is changed, do we move the index or recreate it?
-name|archivaConfiguration
+comment|// TODO: hack for passed in String[]
+name|String
+index|[]
+name|logo
+init|=
+operator|(
+name|String
+index|[]
+operator|)
+name|companyModel
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"organization.logo"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|logo
+operator|!=
+literal|null
+condition|)
+block|{
+name|companyModel
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|put
+argument_list|(
+literal|"organization.logo"
+argument_list|,
+name|logo
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
+block|}
+name|companyPomHandler
 operator|.
 name|save
 argument_list|(
-name|configuration
-argument_list|)
-expr_stmt|;
-comment|// TODO: if the repository has changed, we need to check if indexing is needed!
-name|addActionMessage
-argument_list|(
-literal|"Successfully saved configuration"
+name|companyModel
+argument_list|,
+name|createLocalRepository
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
 name|SUCCESS
 return|;
 block|}
-comment|//    public String input()
-comment|//    {
-comment|////        String[] cronEx = configuration.getDataRefreshCronExpression().split( " " );
-comment|//        String[] cronEx = new String[]{"0","0","*","*","*","*","*"};
-comment|//        int i = 0;
-comment|//
-comment|//        while ( i< cronEx.length )
-comment|//        {
-comment|//            switch ( i )
-comment|//            {
-comment|//                case 0:
-comment|//                    second = cronEx[i];
-comment|//                    break;
-comment|//                case 1:
-comment|//                    minute = cronEx[i];
-comment|//                    break;
-comment|//                case 2:
-comment|//                    hour = cronEx[i];
-comment|//                    break;
-comment|//                case 3:
-comment|//                    dayOfMonth = cronEx[i];
-comment|//                    break;
-comment|//                case 4:
-comment|//                    month = cronEx[i];
-comment|//                    break;
-comment|//                case 5:
-comment|//                    dayOfWeek = cronEx[i];
-comment|//                    break;
-comment|//                case 6:
-comment|//                    year = cronEx[i];
-comment|//                    break;
-comment|//            }
-comment|//            i++;
-comment|//        }
-comment|//
-comment|////        if ( activeRepositories.getLastDataRefreshTime() != 0 )
-comment|////        {
-comment|////            lastIndexingTime = new Date( activeRepositories.getLastDataRefreshTime() ).toString();
-comment|////        }
-comment|////        else
-comment|//        {
-comment|//            lastIndexingTime = "Never been run.";
-comment|//        }
-comment|//
-comment|//        return INPUT;
-comment|//    }
 specifier|public
 name|Object
 name|getModel
 parameter_list|()
 block|{
 return|return
-name|configuration
+name|companyModel
 return|;
 block|}
 specifier|public
 name|void
 name|prepare
 parameter_list|()
+throws|throws
+name|ProjectBuildingException
+throws|,
+name|ArtifactMetadataRetrievalException
 block|{
 name|configuration
 operator|=
-name|archivaConfiguration
+name|appConfigurationStore
 operator|.
 name|getConfiguration
 argument_list|()
 expr_stmt|;
+name|CompanyPom
+name|companyPom
+init|=
+name|configuration
+operator|.
+name|getCompanyPom
+argument_list|()
+decl_stmt|;
+name|companyModel
+operator|=
+name|companyPomHandler
+operator|.
+name|getCompanyPomModel
+argument_list|(
+name|companyPom
+argument_list|,
+name|createLocalRepository
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|companyModel
+operator|==
+literal|null
+condition|)
+block|{
+name|companyModel
+operator|=
+operator|new
+name|Model
+argument_list|()
+expr_stmt|;
+name|companyModel
+operator|.
+name|setModelVersion
+argument_list|(
+literal|"4.0.0"
+argument_list|)
+expr_stmt|;
+name|companyModel
+operator|.
+name|setPackaging
+argument_list|(
+literal|"pom"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|companyPom
+operator|!=
+literal|null
+condition|)
+block|{
+name|companyModel
+operator|.
+name|setGroupId
+argument_list|(
+name|companyPom
+operator|.
+name|getGroupId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|companyModel
+operator|.
+name|setArtifactId
+argument_list|(
+name|companyPom
+operator|.
+name|getArtifactId
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
-comment|//    private String getCronExpression()
-comment|//    {
-comment|//        return ( second + " " + minute + " " + hour + " " + dayOfMonth + " " + month + " " + dayOfWeek + " " +
-comment|//            year ).trim();
-comment|//    }
+block|}
+block|}
 specifier|public
 name|SecureActionBundle
 name|getSecureActionBundle
@@ -462,6 +520,15 @@ argument_list|)
 expr_stmt|;
 return|return
 name|bundle
+return|;
+block|}
+specifier|public
+name|Model
+name|getCompanyModel
+parameter_list|()
+block|{
+return|return
+name|companyModel
 return|;
 block|}
 block|}

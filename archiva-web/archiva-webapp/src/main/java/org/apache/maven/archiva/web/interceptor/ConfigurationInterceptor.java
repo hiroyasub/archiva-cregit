@@ -124,7 +124,7 @@ name|AbstractLogEnabled
 implements|implements
 name|Interceptor
 block|{
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role-hint="jdo"      */
 specifier|private
 name|ArchivaDAO
 name|dao

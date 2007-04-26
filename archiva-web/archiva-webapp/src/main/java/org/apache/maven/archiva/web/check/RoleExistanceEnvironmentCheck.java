@@ -196,7 +196,7 @@ name|AbstractLogEnabled
 implements|implements
 name|EnvironmentCheck
 block|{
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role-hint="jdo"      */
 specifier|private
 name|ArchivaDAO
 name|dao

@@ -13,7 +13,9 @@ name|web
 operator|.
 name|action
 operator|.
-name|component
+name|admin
+operator|.
+name|appearance
 package|;
 end_package
 
@@ -21,36 +23,58 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *   http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
-begin_comment
-comment|// TODO import org.apache.maven.model.Model;
-end_comment
-
-begin_comment
-comment|// import org.apache.maven.shared.app.company.CompanyPomHandler;
-end_comment
-
-begin_comment
-comment|// import org.apache.maven.shared.app.configuration.MavenAppConfiguration;
-end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|model
+operator|.
+name|Model
+import|;
+end_import
 
 begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|maven
 operator|.
-name|xwork
+name|shared
 operator|.
-name|action
+name|app
 operator|.
-name|PlexusActionSupport
+name|company
+operator|.
+name|CompanyPomHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|shared
+operator|.
+name|app
+operator|.
+name|configuration
+operator|.
+name|MavenAppConfiguration
 import|;
 end_import
 
 begin_comment
-comment|/**  * Stores the company information for displaying on the page.  *  * @TODO plexus.component role="com.opensymphony.xwork.Action" role-hint="companyInfo"  */
+comment|/**  * Stores the company information for displaying on the page.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="companyInfo"  */
 end_comment
 
 begin_class
@@ -58,7 +82,7 @@ specifier|public
 class|class
 name|CompanyInfoAction
 extends|extends
-name|PlexusActionSupport
+name|AbstractAppearanceAction
 block|{
 specifier|private
 name|String
@@ -72,10 +96,16 @@ specifier|private
 name|String
 name|companyName
 decl_stmt|;
-comment|/**      * @TODO plexus.requirement      */
-comment|// private CompanyPomHandler handler;
-comment|/**      * @TODO plexus.requirement      */
-comment|// private MavenAppConfiguration appConfigurationStore;
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|CompanyPomHandler
+name|handler
+decl_stmt|;
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|MavenAppConfiguration
+name|appConfigurationStore
+decl_stmt|;
 specifier|public
 name|String
 name|execute
@@ -83,7 +113,76 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|/* TODO         Model model = handler.getCompanyPomModel( appConfigurationStore.getConfiguration().getCompanyPom(),                                                   createLocalRepository() );          if ( model != null )         {             if ( model.getOrganization() != null )             {                 companyName = model.getOrganization().getName();                 companyUrl = model.getOrganization().getUrl();             }              companyLogo = model.getProperties().getProperty( "organization.logo" );         }*/
+name|Model
+name|model
+init|=
+name|handler
+operator|.
+name|getCompanyPomModel
+argument_list|(
+name|appConfigurationStore
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getCompanyPom
+argument_list|()
+argument_list|,
+name|createLocalRepository
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|model
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|model
+operator|.
+name|getOrganization
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|companyName
+operator|=
+name|model
+operator|.
+name|getOrganization
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+expr_stmt|;
+name|companyUrl
+operator|=
+name|model
+operator|.
+name|getOrganization
+argument_list|()
+operator|.
+name|getUrl
+argument_list|()
+expr_stmt|;
+block|}
+name|companyLogo
+operator|=
+name|model
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|getProperty
+argument_list|(
+literal|"organization.logo"
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|SUCCESS
 return|;

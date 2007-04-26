@@ -42,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultReportingManager   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * DefaultReportingManager   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.reporting.ReportingManager"  *                   role-hint="default"  */
 end_comment
 
 begin_class

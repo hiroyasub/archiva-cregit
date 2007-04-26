@@ -279,7 +279,7 @@ extends|extends
 name|PlexusActionSupport
 block|{
 comment|/* .\ Not Exposed \._____________________________________________ */
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role-hint="jdo"      */
 specifier|private
 name|ArchivaDAO
 name|dao
