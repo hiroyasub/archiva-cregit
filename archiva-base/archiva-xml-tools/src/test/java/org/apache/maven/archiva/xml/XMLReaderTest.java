@@ -79,6 +79,46 @@ extends|extends
 name|AbstractArchivaXmlTestCase
 block|{
 specifier|private
+specifier|static
+specifier|final
+name|String
+name|OSLASH
+init|=
+literal|"\u00f8"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|TRYGVIS
+init|=
+literal|"Trygve Laugst"
+operator|+
+name|OSLASH
+operator|+
+literal|"l"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|INFIN
+init|=
+literal|"\u221e"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|INFINITE_ARCHIVA
+init|=
+literal|"The "
+operator|+
+name|INFIN
+operator|+
+literal|" Archiva"
+decl_stmt|;
+specifier|private
 name|void
 name|assertElementTexts
 parameter_list|(
@@ -292,9 +332,9 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"Trygve LaugstÃ¸l"
+name|TRYGVIS
 block|,
-literal|"The â Archiva"
+name|INFINITE_ARCHIVA
 block|}
 argument_list|)
 expr_stmt|;
@@ -343,9 +383,9 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"Trygve LaugstÃ¸l"
+name|TRYGVIS
 block|,
-literal|"The â Archiva"
+name|INFINITE_ARCHIVA
 block|}
 argument_list|)
 expr_stmt|;
@@ -394,9 +434,9 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"Trygve LaugstÃ¸l"
+name|TRYGVIS
 block|,
-literal|"The â Archiva"
+name|INFINITE_ARCHIVA
 block|}
 argument_list|)
 expr_stmt|;

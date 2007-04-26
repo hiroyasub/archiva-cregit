@@ -448,6 +448,8 @@ operator|new
 name|InputStreamReader
 argument_list|(
 name|in
+argument_list|,
+literal|"UTF-8"
 argument_list|)
 decl_stmt|;
 name|LatinEntityResolutionReader

@@ -46,7 +46,7 @@ block|{
 comment|// Good Entities.
 name|assertEquals
 argument_list|(
-literal|"Â©"
+literal|"\u00a9"
 argument_list|,
 name|LatinEntities
 operator|.
@@ -58,7 +58,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"â"
+literal|"\u221e"
 argument_list|,
 name|LatinEntities
 operator|.
@@ -70,7 +70,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Ã¸"
+literal|"\u00f8"
 argument_list|,
 name|LatinEntities
 operator|.
