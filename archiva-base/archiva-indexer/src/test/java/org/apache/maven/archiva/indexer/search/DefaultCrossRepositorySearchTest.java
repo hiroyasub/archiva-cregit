@@ -690,18 +690,7 @@ operator|.
 name|size
 argument_list|()
 operator|)
-operator|||
-operator|(
-name|contentCount
-operator|!=
-name|results
-operator|.
-name|getContentHits
-argument_list|()
-operator|.
-name|size
-argument_list|()
-operator|)
+comment|/* || ( contentCount != results.getContentHits().size() ) */
 condition|)
 block|{
 name|fail
