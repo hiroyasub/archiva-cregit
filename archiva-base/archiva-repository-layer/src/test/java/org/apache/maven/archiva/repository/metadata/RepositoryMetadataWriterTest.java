@@ -63,6 +63,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|custommonkey
+operator|.
+name|xmlunit
+operator|.
+name|XMLAssert
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -212,7 +224,9 @@ argument_list|,
 name|actual
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|XMLAssert
+operator|.
+name|assertXMLEqual
 argument_list|(
 literal|"XML Contents"
 argument_list|,
