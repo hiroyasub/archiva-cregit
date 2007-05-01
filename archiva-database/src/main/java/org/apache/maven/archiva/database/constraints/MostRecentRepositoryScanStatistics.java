@@ -10,6 +10,8 @@ operator|.
 name|archiva
 operator|.
 name|database
+operator|.
+name|constraints
 package|;
 end_package
 
@@ -19,80 +21,93 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|Serializable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|maven
 operator|.
-name|util
+name|archiva
 operator|.
-name|List
+name|model
+operator|.
+name|RepositoryContentStatistics
 import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaDAO - The interface for all content within the database.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * MostRecentRepositoryScanStatistics   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
-begin_interface
+begin_class
 specifier|public
-interface|interface
-name|ArchivaDAO
+class|class
+name|MostRecentRepositoryScanStatistics
+extends|extends
+name|AbstractSimpleConstraint
 block|{
-specifier|public
-specifier|static
-specifier|final
+specifier|private
 name|String
-name|ROLE
-init|=
-name|ArchivaDAO
+name|sql
+decl_stmt|;
+specifier|public
+name|MostRecentRepositoryScanStatistics
+parameter_list|(
+name|String
+name|repoId
+parameter_list|)
+block|{
+name|sql
+operator|=
+literal|"SELECT FROM "
+operator|+
+name|RepositoryContentStatistics
 operator|.
 name|class
 operator|.
 name|getName
 argument_list|()
-decl_stmt|;
-comment|/**      * Perform a simple query against the database.      *       * @param constraint the constraint to use.      * @return the List of results.      */
-name|List
-name|query
-parameter_list|(
-name|SimpleConstraint
-name|constraint
-parameter_list|)
-function_decl|;
-comment|/**      * Perform a simple save of a peristable object to the database.      *       * @param o the serializable (persistable) object to save.      * @return the post-serialized object.      */
+operator|+
+literal|" WHERE repositoryId == repoId PARAMETERS String repoId"
+operator|+
+literal|" ORDER BY whenGathered DESCENDING"
+operator|+
+literal|" RANGE 1,1"
+expr_stmt|;
+name|super
+operator|.
+name|params
+operator|=
+operator|new
 name|Object
-name|save
-parameter_list|(
-name|Serializable
-name|obj
-parameter_list|)
-function_decl|;
-name|ArtifactDAO
-name|getArtifactDAO
-parameter_list|()
-function_decl|;
-name|ProjectModelDAO
-name|getProjectModelDAO
-parameter_list|()
-function_decl|;
-name|RepositoryDAO
-name|getRepositoryDAO
-parameter_list|()
-function_decl|;
-name|RepositoryProblemDAO
-name|getRepositoryProblemDAO
-parameter_list|()
-function_decl|;
+index|[]
+block|{
+name|repoId
 block|}
-end_interface
+expr_stmt|;
+block|}
+specifier|public
+name|Class
+name|getResultClass
+parameter_list|()
+block|{
+return|return
+name|RepositoryContentStatistics
+operator|.
+name|class
+return|;
+block|}
+specifier|public
+name|String
+name|getSelectSql
+parameter_list|()
+block|{
+return|return
+name|sql
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 

@@ -14,6 +14,8 @@ operator|.
 name|action
 operator|.
 name|admin
+operator|.
+name|models
 package|;
 end_package
 
@@ -55,17 +57,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|model
-operator|.
-name|RepositoryURL
+name|ArrayList
 import|;
 end_import
 
@@ -75,7 +71,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|HashMap
 import|;
 end_import
 
@@ -96,6 +92,16 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -128,6 +134,14 @@ operator|new
 name|ArrayList
 argument_list|()
 decl_stmt|;
+specifier|private
+name|Map
+name|repoMap
+init|=
+operator|new
+name|HashMap
+argument_list|()
+decl_stmt|;
 specifier|public
 name|AdminModel
 parameter_list|()
@@ -141,6 +155,16 @@ name|Configuration
 name|configuration
 parameter_list|)
 block|{
+name|repoMap
+operator|.
+name|putAll
+argument_list|(
+name|configuration
+operator|.
+name|createRepositoryMap
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Iterator
 name|it
 init|=
@@ -171,32 +195,35 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|RepositoryURL
-name|repourl
-init|=
-operator|new
-name|RepositoryURL
-argument_list|(
-name|repoconfig
-operator|.
-name|getUrl
-argument_list|()
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
-literal|"file"
+name|repoconfig
 operator|.
-name|equals
-argument_list|(
-name|repourl
-operator|.
-name|getProtocol
+name|isManaged
 argument_list|()
-argument_list|)
 condition|)
 block|{
 name|managedRepositories
+operator|.
+name|add
+argument_list|(
+operator|new
+name|AdminRepositoryConfiguration
+argument_list|(
+name|repoconfig
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|repoconfig
+operator|.
+name|isRemote
+argument_list|()
+condition|)
+block|{
+name|remoteRepositories
 operator|.
 name|add
 argument_list|(
@@ -206,13 +233,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|remoteRepositories
-operator|.
-name|add
-argument_list|(
-name|repoconfig
-argument_list|)
-expr_stmt|;
+comment|// Should never occur, but it is possible that the configuration could
+comment|// contain a repository configuration which is null.
 block|}
 block|}
 block|}
@@ -287,6 +309,15 @@ name|baseUrl
 operator|=
 name|baseUrl
 expr_stmt|;
+block|}
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"[ActionModel]"
+return|;
 block|}
 block|}
 end_class

@@ -317,6 +317,14 @@ name|void
 name|validate
 parameter_list|()
 block|{
+name|getLogger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"validate()"
+argument_list|)
+expr_stmt|;
 comment|//validate cron expression
 block|}
 specifier|public
@@ -334,6 +342,14 @@ name|InvalidConfigurationException
 throws|,
 name|RegistryException
 block|{
+name|getLogger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"execute()"
+argument_list|)
+expr_stmt|;
 comment|// TODO: if this didn't come from the form, go to configure.action instead of going through with re-saving what was just loaded
 comment|// TODO: if this is changed, do we move the index or recreate it?
 name|archivaConfiguration
