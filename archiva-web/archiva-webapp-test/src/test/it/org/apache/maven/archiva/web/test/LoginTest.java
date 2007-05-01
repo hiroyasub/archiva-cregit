@@ -152,26 +152,14 @@ argument_list|(
 literal|"User Management"
 argument_list|)
 expr_stmt|;
-name|assertPage
-argument_list|(
-literal|"[Admin] User List"
-argument_list|)
-expr_stmt|;
-name|assertLinkNotPresent
-argument_list|(
-name|username
-argument_list|)
-expr_stmt|;
+comment|//assertPage( "[Admin] User List" );
+comment|//assertLinkNotPresent( username );
 name|clickButtonWithValue
 argument_list|(
 literal|"Create New User"
 argument_list|)
 expr_stmt|;
-name|assertPage
-argument_list|(
-literal|"[Admin] User Create"
-argument_list|)
-expr_stmt|;
+comment|//assertPage( "[Admin] User Create" );
 name|setFieldValue
 argument_list|(
 literal|"user.username"
@@ -219,16 +207,8 @@ expr_stmt|;
 name|waitPage
 argument_list|()
 expr_stmt|;
-name|assertPage
-argument_list|(
-literal|"[Admin] User List"
-argument_list|)
-expr_stmt|;
-name|assertLinkPresent
-argument_list|(
-name|username
-argument_list|)
-expr_stmt|;
+comment|//assertPage( "[Admin] User List" );
+comment|//assertLinkPresent( username );
 name|logout
 argument_list|()
 expr_stmt|;

@@ -97,14 +97,14 @@ name|setFieldValue
 argument_list|(
 literal|"id"
 argument_list|,
-literal|"web-ui"
+literal|"test-repository"
 argument_list|)
 expr_stmt|;
 name|setFieldValue
 argument_list|(
 literal|"urlName"
 argument_list|,
-literal|"web-ui"
+literal|"test-repository"
 argument_list|)
 expr_stmt|;
 name|setFieldValue
@@ -121,7 +121,7 @@ argument_list|,
 name|getBasedir
 argument_list|()
 operator|+
-literal|"target/web-ui-dir"
+literal|"/target/repository"
 argument_list|)
 expr_stmt|;
 name|clickButtonWithValue
@@ -142,7 +142,7 @@ argument_list|,
 name|getBasedir
 argument_list|()
 operator|+
-literal|"target/web-ui-index"
+literal|"/target/index"
 argument_list|)
 expr_stmt|;
 name|clickButtonWithValue
