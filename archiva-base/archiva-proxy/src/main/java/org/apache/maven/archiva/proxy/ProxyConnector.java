@@ -57,7 +57,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Enumeration
+name|Iterator
 import|;
 end_import
 
@@ -77,7 +77,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Properties
+name|Map
 import|;
 end_import
 
@@ -113,7 +113,7 @@ name|String
 name|proxyId
 decl_stmt|;
 specifier|private
-name|Properties
+name|Map
 name|policies
 decl_stmt|;
 specifier|public
@@ -213,7 +213,7 @@ name|whitelist
 expr_stmt|;
 block|}
 specifier|public
-name|Properties
+name|Map
 name|getPolicies
 parameter_list|()
 block|{
@@ -225,7 +225,7 @@ specifier|public
 name|void
 name|setPolicies
 parameter_list|(
-name|Properties
+name|Map
 name|policies
 parameter_list|)
 block|{
@@ -336,21 +336,24 @@ argument_list|(
 literal|"\n"
 argument_list|)
 expr_stmt|;
-name|Enumeration
+name|Iterator
 name|keys
 init|=
 name|this
 operator|.
 name|policies
 operator|.
-name|propertyNames
+name|keySet
+argument_list|()
+operator|.
+name|iterator
 argument_list|()
 decl_stmt|;
 while|while
 condition|(
 name|keys
 operator|.
-name|hasMoreElements
+name|hasNext
 argument_list|()
 condition|)
 block|{
@@ -362,7 +365,7 @@ name|String
 operator|)
 name|keys
 operator|.
-name|nextElement
+name|next
 argument_list|()
 decl_stmt|;
 name|sb
@@ -390,7 +393,7 @@ name|this
 operator|.
 name|policies
 operator|.
-name|getProperty
+name|get
 argument_list|(
 name|name
 argument_list|)
@@ -427,7 +430,17 @@ name|String
 name|policySetting
 parameter_list|)
 block|{
-comment|// TODO Auto-generated method stub
+name|this
+operator|.
+name|policies
+operator|.
+name|put
+argument_list|(
+name|policyId
+argument_list|,
+name|policySetting
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

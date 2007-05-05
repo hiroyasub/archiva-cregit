@@ -33,6 +33,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Properties
 import|;
 end_import
@@ -71,10 +81,22 @@ name|FAIL
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Get the default policy setting.      *       * @return the default policy setting.      */
+comment|/**      * Get the list of options for this policy.      *       * @return the list of options for this policy.      */
+specifier|public
+name|List
+name|getOptions
+parameter_list|()
+function_decl|;
+comment|/**      * Get the default option for this policy.      *       * @return the default policy for this policy.      */
 specifier|public
 name|String
-name|getDefaultPolicySetting
+name|getDefaultOption
+parameter_list|()
+function_decl|;
+comment|/**      * Get the id for this policy.      *       * @return the id for this policy.      */
+specifier|public
+name|String
+name|getId
 parameter_list|()
 function_decl|;
 comment|/**      * Apply the download policy.      *       * @param policySetting the policy setting.      * @param request the list of request properties that the policy might use.      * @param localFile      *       * @return true if the policy passes.      */
