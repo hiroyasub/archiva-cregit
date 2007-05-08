@@ -63,6 +63,22 @@ name|archiva
 operator|.
 name|consumers
 operator|.
+name|KnownRepositoryContentConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|consumers
+operator|.
 name|RepositoryContentConsumer
 import|;
 end_import
@@ -226,7 +242,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ValidateChecksumConsumer - validate the provided checksum against the file it represents.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.RepositoryContentConsumer"  *                   role-hint="validate-checksum"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * ValidateChecksumConsumer - validate the provided checksum against the file it represents.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *                   role-hint="validate-checksum"  *                   instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -236,7 +252,7 @@ name|ValidateChecksumConsumer
 extends|extends
 name|AbstractMonitoredConsumer
 implements|implements
-name|RepositoryContentConsumer
+name|KnownRepositoryContentConsumer
 implements|,
 name|Initializable
 block|{

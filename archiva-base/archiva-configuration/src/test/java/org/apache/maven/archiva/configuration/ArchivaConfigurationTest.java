@@ -53,6 +53,16 @@ name|File
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * Test the configuration store.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
 end_comment
@@ -64,6 +74,10 @@ name|ArchivaConfigurationTest
 extends|extends
 name|PlexusTestCase
 block|{
+specifier|private
+name|FileTypes
+name|filetypes
+decl_stmt|;
 specifier|public
 name|void
 name|testDefaults
@@ -86,6 +100,18 @@ argument_list|,
 literal|"test-defaults"
 argument_list|)
 decl_stmt|;
+name|filetypes
+operator|=
+operator|(
+name|FileTypes
+operator|)
+name|lookup
+argument_list|(
+name|FileTypes
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|Configuration
 name|configuration
 init|=
@@ -254,12 +280,12 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|FileType
-name|artifactTypes
+name|List
+name|patterns
 init|=
-name|repoScanning
+name|filetypes
 operator|.
-name|getFileTypeById
+name|getFileTypePatterns
 argument_list|(
 literal|"artifacts"
 argument_list|)
@@ -268,7 +294,7 @@ name|assertNotNull
 argument_list|(
 literal|"check 'artifacts' file type"
 argument_list|,
-name|artifactTypes
+name|patterns
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -277,10 +303,7 @@ literal|"check 'artifacts' patterns"
 argument_list|,
 literal|13
 argument_list|,
-name|artifactTypes
-operator|.
-name|getPatterns
-argument_list|()
+name|patterns
 operator|.
 name|size
 argument_list|()

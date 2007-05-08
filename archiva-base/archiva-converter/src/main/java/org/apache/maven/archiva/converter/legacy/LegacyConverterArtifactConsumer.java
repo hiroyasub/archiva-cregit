@@ -63,6 +63,22 @@ name|archiva
 operator|.
 name|consumers
 operator|.
+name|KnownRepositoryContentConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|consumers
+operator|.
 name|RepositoryContentConsumer
 import|;
 end_import
@@ -234,7 +250,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LegacyConverterArtifactConsumer - convert artifacts as they are found  * into the destination repository.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.RepositoryContentConsumer"  *     role-hint="artifact-legacy-to-default-converter"  *     instantiation-strategy="per-lookup"  */
+comment|/**  * LegacyConverterArtifactConsumer - convert artifacts as they are found  * into the destination repository.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *     role-hint="artifact-legacy-to-default-converter"  *     instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -244,7 +260,7 @@ name|LegacyConverterArtifactConsumer
 extends|extends
 name|AbstractMonitoredConsumer
 implements|implements
-name|RepositoryContentConsumer
+name|KnownRepositoryContentConsumer
 block|{
 comment|/**      * @plexus.requirement role-hint="legacy-to-default"      */
 specifier|private

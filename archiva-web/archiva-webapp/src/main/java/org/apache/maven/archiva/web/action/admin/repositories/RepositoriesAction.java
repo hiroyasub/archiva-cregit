@@ -137,7 +137,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|util
+name|functors
 operator|.
 name|LocalRepositoryPredicate
 import|;
@@ -155,7 +155,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|util
+name|functors
 operator|.
 name|RemoteRepositoryPredicate
 import|;
@@ -173,7 +173,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|util
+name|functors
 operator|.
 name|RepositoryConfigurationComparator
 import|;

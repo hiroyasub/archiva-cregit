@@ -11,7 +11,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|util
+name|functors
 package|;
 end_package
 

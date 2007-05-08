@@ -63,7 +63,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|FileType
+name|FileTypes
 import|;
 end_import
 
@@ -111,7 +111,7 @@ name|archiva
 operator|.
 name|consumers
 operator|.
-name|RepositoryContentConsumer
+name|KnownRepositoryContentConsumer
 import|;
 end_import
 
@@ -370,7 +370,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactUpdateDatabaseConsumer - Take an artifact off of disk and put it into the repository.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.RepositoryContentConsumer"  *                   role-hint="update-db-artifact"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * ArtifactUpdateDatabaseConsumer - Take an artifact off of disk and put it into the repository.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *                   role-hint="update-db-artifact"  *                   instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -380,7 +380,7 @@ name|ArtifactUpdateDatabaseConsumer
 extends|extends
 name|AbstractMonitoredConsumer
 implements|implements
-name|RepositoryContentConsumer
+name|KnownRepositoryContentConsumer
 implements|,
 name|RegistryListener
 implements|,
@@ -429,6 +429,11 @@ comment|/**      * @plexus.requirement      */
 specifier|private
 name|ArchivaConfiguration
 name|configuration
+decl_stmt|;
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|FileTypes
+name|filetypes
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
@@ -886,40 +891,20 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|FileType
-name|artifactTypes
-init|=
-name|configuration
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|getRepositoryScanning
-argument_list|()
-operator|.
-name|getFileTypeById
-argument_list|(
-literal|"artifacts"
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|artifactTypes
-operator|!=
-literal|null
-condition|)
-block|{
 name|includes
 operator|.
 name|addAll
 argument_list|(
-name|artifactTypes
+name|filetypes
 operator|.
-name|getPatterns
-argument_list|()
+name|getFileTypePatterns
+argument_list|(
+name|FileTypes
+operator|.
+name|ARTIFACTS
+argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 specifier|public
 name|void
@@ -938,27 +923,6 @@ expr_stmt|;
 name|initIncludes
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|includes
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|InitializationException
-argument_list|(
-literal|"Unable to use "
-operator|+
-name|getId
-argument_list|()
-operator|+
-literal|" due to empty includes list."
-argument_list|)
-throw|;
-block|}
 block|}
 block|}
 end_class

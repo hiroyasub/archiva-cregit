@@ -215,7 +215,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|util
+name|functors
 operator|.
 name|ProxyConnectorSelectionPredicate
 import|;
@@ -233,7 +233,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|util
+name|functors
 operator|.
 name|RemoteRepositoryPredicate
 import|;
@@ -251,7 +251,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|util
+name|functors
 operator|.
 name|RepositoryIdListClosure
 import|;

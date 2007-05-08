@@ -63,6 +63,22 @@ name|archiva
 operator|.
 name|consumers
 operator|.
+name|KnownRepositoryContentConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|consumers
+operator|.
 name|RepositoryContentConsumer
 import|;
 end_import
@@ -168,7 +184,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AutoRenameConsumer   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.RepositoryContentConsumer"  *                   role-hint="auto-rename"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * AutoRenameConsumer   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *                   role-hint="auto-rename"  *                   instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -178,7 +194,7 @@ name|AutoRenameConsumer
 extends|extends
 name|AbstractMonitoredConsumer
 implements|implements
-name|RepositoryContentConsumer
+name|KnownRepositoryContentConsumer
 block|{
 comment|/**      * @plexus.configuration default-value="auto-rename"      */
 specifier|private

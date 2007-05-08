@@ -75,7 +75,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|util
+name|functors
 operator|.
 name|LocalRepositoryPredicate
 import|;
