@@ -214,13 +214,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryContentConsumerUtil   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.repository.scanner.RepositoryContentConsumerUtil"  */
+comment|/**  * RepositoryContentConsumerUtil   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.repository.scanner.RepositoryContentConsumers"  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|RepositoryContentConsumerUtil
+name|RepositoryContentConsumers
 block|{
 comment|/**      * @plexus.requirement      */
 specifier|private
@@ -230,12 +230,12 @@ decl_stmt|;
 comment|/**      * @plexus.requirement role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"      */
 specifier|private
 name|List
-name|availableGoodConsumers
+name|availableKnownConsumers
 decl_stmt|;
 comment|/**      * @plexus.requirement role="org.apache.maven.archiva.consumers.InvalidRepositoryContentConsumer"      */
 specifier|private
 name|List
-name|availableBadConsumers
+name|availableInvalidConsumers
 decl_stmt|;
 class|class
 name|SelectedKnownRepoConsumersPredicate
@@ -284,7 +284,7 @@ operator|.
 name|getRepositoryScanning
 argument_list|()
 operator|.
-name|getGoodConsumers
+name|getKnownContentConsumers
 argument_list|()
 operator|.
 name|contains
@@ -323,7 +323,7 @@ if|if
 condition|(
 name|object
 operator|instanceof
-name|KnownRepositoryContentConsumer
+name|InvalidRepositoryContentConsumer
 condition|)
 block|{
 name|InvalidRepositoryContentConsumer
@@ -348,7 +348,7 @@ operator|.
 name|getRepositoryScanning
 argument_list|()
 operator|.
-name|getBadConsumers
+name|getInvalidContentConsumers
 argument_list|()
 operator|.
 name|contains
@@ -448,8 +448,8 @@ argument_list|()
 return|;
 block|}
 specifier|public
-name|Map
-name|getSelectedKnownConsumersMap
+name|List
+name|getSelectedKnownConsumerIds
 parameter_list|()
 block|{
 name|RepositoryScanningConfiguration
@@ -463,6 +463,41 @@ operator|.
 name|getRepositoryScanning
 argument_list|()
 decl_stmt|;
+return|return
+name|scanning
+operator|.
+name|getKnownContentConsumers
+argument_list|()
+return|;
+block|}
+specifier|public
+name|List
+name|getSelectedInvalidConsumerIds
+parameter_list|()
+block|{
+name|RepositoryScanningConfiguration
+name|scanning
+init|=
+name|archivaConfiguration
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getRepositoryScanning
+argument_list|()
+decl_stmt|;
+return|return
+name|scanning
+operator|.
+name|getInvalidContentConsumers
+argument_list|()
+return|;
+block|}
+specifier|public
+name|Map
+name|getSelectedKnownConsumersMap
+parameter_list|()
+block|{
 name|RepoConsumerToMapClosure
 name|consumerMapClosure
 init|=
@@ -487,10 +522,7 @@ name|CollectionUtils
 operator|.
 name|forAllDo
 argument_list|(
-name|scanning
-operator|.
-name|getGoodConsumers
-argument_list|()
+name|availableKnownConsumers
 argument_list|,
 name|ifclosure
 argument_list|)
@@ -507,17 +539,6 @@ name|Map
 name|getSelectedInvalidConsumersMap
 parameter_list|()
 block|{
-name|RepositoryScanningConfiguration
-name|scanning
-init|=
-name|archivaConfiguration
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|getRepositoryScanning
-argument_list|()
-decl_stmt|;
 name|RepoConsumerToMapClosure
 name|consumerMapClosure
 init|=
@@ -542,10 +563,7 @@ name|CollectionUtils
 operator|.
 name|forAllDo
 argument_list|(
-name|scanning
-operator|.
-name|getGoodConsumers
-argument_list|()
+name|availableInvalidConsumers
 argument_list|,
 name|ifclosure
 argument_list|)
@@ -590,7 +608,7 @@ name|select
 argument_list|(
 name|scanning
 operator|.
-name|getGoodConsumers
+name|getKnownContentConsumers
 argument_list|()
 argument_list|,
 name|getKnownSelectionPredicate
@@ -635,7 +653,7 @@ name|select
 argument_list|(
 name|scanning
 operator|.
-name|getBadConsumers
+name|getInvalidContentConsumers
 argument_list|()
 argument_list|,
 name|getInvalidSelectionPredicate
@@ -653,7 +671,7 @@ name|getAvailableKnownConsumers
 parameter_list|()
 block|{
 return|return
-name|availableGoodConsumers
+name|availableKnownConsumers
 return|;
 block|}
 specifier|public
@@ -662,7 +680,7 @@ name|getAvailableInvalidConsumers
 parameter_list|()
 block|{
 return|return
-name|availableBadConsumers
+name|availableInvalidConsumers
 return|;
 block|}
 block|}

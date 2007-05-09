@@ -175,7 +175,7 @@ name|filetypes
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
-name|RepositoryContentConsumerUtil
+name|RepositoryContentConsumers
 name|consumerUtil
 decl_stmt|;
 specifier|public

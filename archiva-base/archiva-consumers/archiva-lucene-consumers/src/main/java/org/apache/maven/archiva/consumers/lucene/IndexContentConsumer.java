@@ -356,7 +356,7 @@ specifier|private
 name|FileTypes
 name|filetypes
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role-hint="lucene"      */
 specifier|private
 name|RepositoryContentIndexFactory
 name|indexFactory

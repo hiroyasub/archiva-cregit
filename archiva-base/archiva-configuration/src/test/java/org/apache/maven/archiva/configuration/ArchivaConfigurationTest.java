@@ -252,13 +252,13 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"check good consumers"
+literal|"check known consumers"
 argument_list|,
 literal|8
 argument_list|,
 name|repoScanning
 operator|.
-name|getGoodConsumers
+name|getKnownContentConsumers
 argument_list|()
 operator|.
 name|size
@@ -267,13 +267,13 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"check bad consumers"
+literal|"check invalid consumers"
 argument_list|,
 literal|1
 argument_list|,
 name|repoScanning
 operator|.
-name|getBadConsumers
+name|getInvalidContentConsumers
 argument_list|()
 operator|.
 name|size
@@ -341,13 +341,13 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"check processed consumers"
+literal|"check cleanup consumers"
 argument_list|,
 literal|3
 argument_list|,
 name|dbScanning
 operator|.
-name|getProcessedConsumers
+name|getCleanupConsumers
 argument_list|()
 operator|.
 name|size

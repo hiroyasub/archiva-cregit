@@ -862,7 +862,7 @@ name|getActiveConsumerList
 argument_list|(
 name|dbScanning
 operator|.
-name|getProcessedConsumers
+name|getCleanupConsumers
 argument_list|()
 argument_list|)
 argument_list|)
