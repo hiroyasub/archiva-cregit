@@ -274,6 +274,14 @@ name|INDEXABLE_CONTENT
 init|=
 literal|"indexable-content"
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|IGNORED
+init|=
+literal|"ignored"
+decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
 name|ArchivaConfiguration
@@ -421,7 +429,7 @@ argument_list|()
 operator|.
 name|getResource
 argument_list|(
-literal|""
+literal|"/org/apache/maven/archiva/configuration/default-archiva.xml"
 argument_list|)
 decl_stmt|;
 name|XMLReader
