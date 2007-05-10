@@ -599,6 +599,32 @@ name|id
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+if|if
+condition|(
+name|findNetworkProxy
+argument_list|(
+name|id
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+name|addActionError
+argument_list|(
+literal|"Unable to add new repository with id ["
+operator|+
+name|id
+operator|+
+literal|"], that id already exists."
+argument_list|)
+expr_stmt|;
+return|return
+name|INPUT
+return|;
+block|}
+block|}
 name|addNetworkProxy
 argument_list|(
 name|getProxy
