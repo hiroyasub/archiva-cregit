@@ -118,14 +118,6 @@ name|String
 name|browse
 parameter_list|()
 block|{
-name|getLogger
-argument_list|()
-operator|.
-name|info
-argument_list|(
-literal|".browse()"
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|results
@@ -144,18 +136,6 @@ name|String
 name|browseGroup
 parameter_list|()
 block|{
-name|getLogger
-argument_list|()
-operator|.
-name|info
-argument_list|(
-literal|".browseGroup( "
-operator|+
-name|groupId
-operator|+
-literal|" )"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|StringUtils
@@ -196,22 +176,6 @@ name|String
 name|browseArtifact
 parameter_list|()
 block|{
-name|getLogger
-argument_list|()
-operator|.
-name|info
-argument_list|(
-literal|".browseArtifact( "
-operator|+
-name|groupId
-operator|+
-literal|","
-operator|+
-name|artifactId
-operator|+
-literal|" )"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|StringUtils
