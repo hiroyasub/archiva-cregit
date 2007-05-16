@@ -263,7 +263,7 @@ comment|// results.setGroupIds( groups );
 comment|// results.setArtifacts( artifacts );
 name|results
 operator|.
-name|setArtifacts
+name|setVersions
 argument_list|(
 name|versions
 argument_list|)
