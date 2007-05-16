@@ -628,9 +628,6 @@ operator|.
 name|ROLE
 argument_list|)
 expr_stmt|;
-name|updateRepositoryMap
-argument_list|()
-expr_stmt|;
 name|configuration
 operator|=
 operator|(
@@ -652,6 +649,9 @@ name|addChangeListener
 argument_list|(
 name|this
 argument_list|)
+expr_stmt|;
+name|updateRepositoryMap
+argument_list|()
 expr_stmt|;
 block|}
 specifier|public
