@@ -170,7 +170,7 @@ argument_list|(
 literal|"user.home"
 argument_list|)
 operator|+
-literal|".m2/archiva"
+literal|"/.m2/archiva"
 decl_stmt|;
 name|ArtifactRepositoryLayout
 name|repositoryLayout
