@@ -123,6 +123,24 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|database
+operator|.
+name|browsing
+operator|.
+name|RepositoryBrowsing
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
 name|model
 operator|.
 name|ArchivaProjectModel
@@ -279,15 +297,10 @@ extends|extends
 name|PlexusActionSupport
 block|{
 comment|/* .\ Not Exposed \._____________________________________________ */
-comment|/**      * @plexus.requirement role-hint="jdo"      */
+comment|/**      * @plexus.requirement role-hint="default"      */
 specifier|private
-name|ArchivaDAO
-name|dao
-decl_stmt|;
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|ArchivaConfiguration
-name|archivaConfiguration
+name|RepositoryBrowsing
+name|repoBrowsing
 decl_stmt|;
 comment|/* .\ Input Parameters \.________________________________________ */
 specifier|private
@@ -545,17 +558,12 @@ name|ArchivaProjectModel
 name|readProject
 parameter_list|()
 throws|throws
-name|ObjectNotFoundException
-throws|,
 name|ArchivaDatabaseException
 block|{
 return|return
-name|dao
+name|repoBrowsing
 operator|.
-name|getProjectModelDAO
-argument_list|()
-operator|.
-name|getProjectModel
+name|selectVersion
 argument_list|(
 name|groupId
 argument_list|,

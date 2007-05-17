@@ -386,7 +386,7 @@ argument_list|(
 literal|"org.jpox.PersistenceManagerFactoryImpl"
 argument_list|)
 expr_stmt|;
-comment|/* derby version         File derbyDbDir = new File( "target/plexus-home/testdb" );         if ( derbyDbDir.exists() )         {             FileUtils.deleteDirectory( derbyDbDir );         }          jdoFactory.setDriverName( System.getProperty( "jdo.test.driver", "org.apache.derby.jdbc.EmbeddedDriver" ) );            jdoFactory.setUrl( System.getProperty( "jdo.test.url", "jdbc:derby:" + derbyDbDir.getAbsolutePath() + ";create=true" ) );          */
+comment|/* derby version          File derbyDbDir = new File( "target/plexus-home/testdb" );          if ( derbyDbDir.exists() )          {          FileUtils.deleteDirectory( derbyDbDir );          }           jdoFactory.setDriverName( System.getProperty( "jdo.test.driver", "org.apache.derby.jdbc.EmbeddedDriver" ) );             jdoFactory.setUrl( System.getProperty( "jdo.test.url", "jdbc:derby:" + derbyDbDir.getAbsolutePath() + ";create=true" ) );          */
 name|jdoFactory
 operator|.
 name|setDriverName
@@ -977,6 +977,37 @@ argument_list|(
 name|artifact
 argument_list|)
 expr_stmt|;
+comment|// Test for artifact existance.
+name|List
+name|artifactList
+init|=
+name|adao
+operator|.
+name|queryArtifacts
+argument_list|(
+literal|null
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Artifact list should not be null."
+argument_list|,
+name|artifactList
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Artifact list size"
+argument_list|,
+literal|1
+argument_list|,
+name|artifactList
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Test for unprocessed artifacts.
 name|List
 name|unprocessedResultList
 init|=
@@ -993,6 +1024,8 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
+literal|"Unprocessed Results should not be null."
+argument_list|,
 name|unprocessedResultList
 argument_list|)
 expr_stmt|;
@@ -1008,6 +1041,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Execute the database task.
 name|DatabaseTask
 name|dataTask
 init|=
@@ -1029,6 +1063,36 @@ argument_list|(
 name|dataTask
 argument_list|)
 expr_stmt|;
+comment|// Test for artifact existance.
+name|artifactList
+operator|=
+name|adao
+operator|.
+name|queryArtifacts
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Artifact list should not be null."
+argument_list|,
+name|artifactList
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Artifact list size"
+argument_list|,
+literal|1
+argument_list|,
+name|artifactList
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Test for processed artifacts.
 name|List
 name|processedResultList
 init|=
@@ -1045,6 +1109,8 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
+literal|"Processed Results should not be null."
+argument_list|,
 name|processedResultList
 argument_list|)
 expr_stmt|;
