@@ -404,7 +404,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProjectModel400Reader - read in modelVersion 4.0.0 pom files into archiva-model structures.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ProjectModel400Reader - read in modelVersion 4.0.0 pom files into archiva-model structures.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component   *      role="org.apache.maven.archiva.repository.project.ProjectModelReader"  *      role-hint="model400"  */
 end_comment
 
 begin_class
