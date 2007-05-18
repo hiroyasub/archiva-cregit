@@ -25,20 +25,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|StringEscapeUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|maven
 operator|.
 name|archiva
@@ -81,34 +67,33 @@ parameter_list|)
 block|{
 name|whereClause
 operator|=
-literal|"groupId == '"
-operator|+
-name|StringEscapeUtils
-operator|.
-name|escapeSql
-argument_list|(
+literal|"groupId.equals(selectedGroupId)&& artifactId.equals(selectedArtifactId)&& version.equals(selectedVersion)"
+expr_stmt|;
+name|declParams
+operator|=
+operator|new
+name|String
+index|[]
+block|{
+literal|"String selectedGroupId"
+block|,
+literal|"String selectedArtifactId"
+block|,
+literal|"String selectedVersion"
+block|}
+expr_stmt|;
+name|params
+operator|=
+operator|new
+name|Object
+index|[]
+block|{
 name|groupId
-argument_list|)
-operator|+
-literal|"' AND artifactId == '"
-operator|+
-name|StringEscapeUtils
-operator|.
-name|escapeSql
-argument_list|(
+block|,
 name|artifactId
-argument_list|)
-operator|+
-literal|"' AND version == '"
-operator|+
-name|StringEscapeUtils
-operator|.
-name|escapeSql
-argument_list|(
+block|,
 name|version
-argument_list|)
-operator|+
-literal|"'"
+block|}
 expr_stmt|;
 block|}
 specifier|public

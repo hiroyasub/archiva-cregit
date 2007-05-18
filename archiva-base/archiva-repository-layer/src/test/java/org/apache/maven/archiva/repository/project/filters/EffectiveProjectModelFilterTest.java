@@ -81,22 +81,6 @@ name|archiva
 operator|.
 name|model
 operator|.
-name|DependencyTree
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|model
-operator|.
 name|Individual
 import|;
 end_import
@@ -501,7 +485,7 @@ literal|"Expected"
 argument_list|,
 name|expectedModel
 operator|.
-name|getDependencyTree
+name|getDependencies
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -511,7 +495,7 @@ literal|"Effective"
 argument_list|,
 name|effectiveModel
 operator|.
-name|getDependencyTree
+name|getDependencies
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -521,18 +505,12 @@ literal|"Dependencies"
 argument_list|,
 name|expectedModel
 operator|.
-name|getDependencyTree
-argument_list|()
-operator|.
-name|getDependencyNodes
+name|getDependencies
 argument_list|()
 argument_list|,
 name|effectiveModel
 operator|.
-name|getDependencyTree
-argument_list|()
-operator|.
-name|getDependencyNodes
+name|getDependencies
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -559,13 +537,13 @@ parameter_list|(
 name|String
 name|type
 parameter_list|,
-name|DependencyTree
-name|tree
+name|List
+name|deps
 parameter_list|)
 block|{
 if|if
 condition|(
-name|tree
+name|deps
 operator|==
 literal|null
 condition|)
@@ -576,7 +554,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|" Tree ["
+literal|" Dependencies ["
 operator|+
 name|type
 operator|+
@@ -587,12 +565,10 @@ return|return;
 block|}
 if|if
 condition|(
-name|tree
+name|deps
 operator|.
-name|getDependencyNodes
+name|isEmpty
 argument_list|()
-operator|==
-literal|null
 condition|)
 block|{
 name|System
@@ -601,23 +577,15 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|" Tree ["
+literal|" Dependencies ["
 operator|+
 name|type
 operator|+
-literal|"] dependency list (nodes) is null."
+literal|"] dependency list is empty."
 argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|List
-name|deps
-init|=
-name|tree
-operator|.
-name|getDependencyNodes
-argument_list|()
-decl_stmt|;
 name|System
 operator|.
 name|out
