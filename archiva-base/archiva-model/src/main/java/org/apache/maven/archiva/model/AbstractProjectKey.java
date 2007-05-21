@@ -54,6 +54,14 @@ name|CompoundKey
 implements|,
 name|Serializable
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|4949927971768396064L
+decl_stmt|;
 comment|/**      * The Group ID. (JPOX Requires this remain public)      */
 specifier|public
 name|String

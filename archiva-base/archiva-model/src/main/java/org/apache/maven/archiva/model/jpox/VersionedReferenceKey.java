@@ -58,6 +58,15 @@ name|AbstractVersionedKey
 implements|implements
 name|Serializable
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|5040195285240958302L
+decl_stmt|;
 specifier|public
 name|VersionedReferenceKey
 parameter_list|()

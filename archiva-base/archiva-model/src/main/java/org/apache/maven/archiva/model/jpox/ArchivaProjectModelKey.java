@@ -58,6 +58,14 @@ name|AbstractVersionedKey
 implements|implements
 name|Serializable
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|7789859208617327581L
+decl_stmt|;
 specifier|public
 name|ArchivaProjectModelKey
 parameter_list|()

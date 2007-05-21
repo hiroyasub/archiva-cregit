@@ -58,6 +58,14 @@ name|AbstractProjectKey
 implements|implements
 name|Serializable
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|7803774484166902823L
+decl_stmt|;
 specifier|public
 name|ProjectReferenceKey
 parameter_list|()

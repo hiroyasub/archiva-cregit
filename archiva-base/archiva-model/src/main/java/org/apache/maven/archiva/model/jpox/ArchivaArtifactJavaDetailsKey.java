@@ -58,6 +58,15 @@ name|AbstractArtifactKey
 implements|implements
 name|Serializable
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|2565748477203220905L
+decl_stmt|;
 specifier|public
 name|ArchivaArtifactJavaDetailsKey
 parameter_list|()

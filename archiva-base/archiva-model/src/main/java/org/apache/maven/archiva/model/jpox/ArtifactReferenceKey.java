@@ -58,6 +58,14 @@ name|AbstractArtifactKey
 implements|implements
 name|Serializable
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|2107985498806534183L
+decl_stmt|;
 specifier|public
 name|ArtifactReferenceKey
 parameter_list|()
