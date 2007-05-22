@@ -533,7 +533,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|testSaveGetRealProjectModel
+name|disabled_testSaveGetRealProjectModel
 parameter_list|()
 throws|throws
 name|Exception
