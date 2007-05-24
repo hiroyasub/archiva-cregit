@@ -25,6 +25,18 @@ name|com
 operator|.
 name|opensymphony
 operator|.
+name|webwork
+operator|.
+name|ServletActionContext
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|opensymphony
+operator|.
 name|xwork
 operator|.
 name|ActionInvocation
@@ -42,6 +54,22 @@ operator|.
 name|interceptor
 operator|.
 name|Interceptor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
+name|ArchivaConfiguration
 import|;
 end_import
 
@@ -111,8 +139,20 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|servlet
+operator|.
+name|http
+operator|.
+name|HttpSession
+import|;
+end_import
+
 begin_comment
-comment|/**  * An interceptor that makes the application configuration available  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @plexus.component role="com.opensymphony.xwork.interceptor.Interceptor"  * role-hint="configurationInterceptor"  */
+comment|/**  * An interceptor that makes the configuration bits available, both to the application and the webapp  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @plexus.component role="com.opensymphony.xwork.interceptor.Interceptor"  * role-hint="configurationInterceptor"  */
 end_comment
 
 begin_class
@@ -129,6 +169,11 @@ specifier|private
 name|ArchivaDAO
 name|dao
 decl_stmt|;
+comment|/**       * @plexus.requirement role-hint="default"      */
+specifier|private
+name|ArchivaConfiguration
+name|configuration
+decl_stmt|;
 comment|/**      * @param actionInvocation      * @return      * @throws Exception      */
 specifier|public
 name|String
@@ -140,6 +185,44 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// populate webapp configuration bits into the session
+name|HttpSession
+name|session
+init|=
+name|ServletActionContext
+operator|.
+name|getRequest
+argument_list|()
+operator|.
+name|getSession
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|session
+operator|!=
+literal|null
+condition|)
+block|{
+name|session
+operator|.
+name|setAttribute
+argument_list|(
+literal|"uiOptions"
+argument_list|,
+name|configuration
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getWebapp
+argument_list|()
+operator|.
+name|getUi
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|List
 name|repos
 init|=
