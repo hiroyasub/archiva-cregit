@@ -465,13 +465,23 @@ argument_list|,
 name|ui
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertTrue
 argument_list|(
 literal|"check showFindArtifacts"
 argument_list|,
 name|ui
 operator|.
 name|isShowFindArtifacts
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"check appletFindEnabled"
+argument_list|,
+name|ui
+operator|.
+name|isAppletFindEnabled
 argument_list|()
 argument_list|)
 expr_stmt|;
