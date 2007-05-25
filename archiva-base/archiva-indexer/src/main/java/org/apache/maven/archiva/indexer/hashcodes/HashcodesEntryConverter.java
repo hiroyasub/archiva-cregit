@@ -404,6 +404,20 @@ operator|new
 name|HashcodesRecord
 argument_list|()
 decl_stmt|;
+name|record
+operator|.
+name|setRepositoryId
+argument_list|(
+name|document
+operator|.
+name|get
+argument_list|(
+name|LuceneDocumentMaker
+operator|.
+name|REPOSITORY_ID
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// Artifact Reference
 name|String
 name|groupId

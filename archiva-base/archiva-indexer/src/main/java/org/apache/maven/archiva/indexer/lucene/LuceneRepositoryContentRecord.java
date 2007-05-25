@@ -34,6 +34,12 @@ name|String
 name|getPrimaryKey
 parameter_list|()
 function_decl|;
+comment|/**      * Get the repository that this record belongs to.      *       * @return the repository id for this record.      */
+specifier|public
+name|String
+name|getRepositoryId
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

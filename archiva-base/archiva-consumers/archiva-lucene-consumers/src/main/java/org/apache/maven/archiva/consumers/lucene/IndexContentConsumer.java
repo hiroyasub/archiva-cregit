@@ -523,9 +523,9 @@ argument_list|)
 decl_stmt|;
 name|record
 operator|.
-name|setFile
+name|setFilename
 argument_list|(
-name|file
+name|path
 argument_list|)
 expr_stmt|;
 name|record

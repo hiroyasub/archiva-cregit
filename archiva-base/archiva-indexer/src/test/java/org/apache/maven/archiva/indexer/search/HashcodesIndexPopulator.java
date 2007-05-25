@@ -397,6 +397,13 @@ argument_list|,
 name|artifact
 argument_list|)
 decl_stmt|;
+name|record
+operator|.
+name|setRepositoryId
+argument_list|(
+literal|"test-repo"
+argument_list|)
+expr_stmt|;
 name|records
 operator|.
 name|put

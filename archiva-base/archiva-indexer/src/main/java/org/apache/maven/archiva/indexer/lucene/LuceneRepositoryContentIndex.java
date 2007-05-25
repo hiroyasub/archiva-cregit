@@ -27,6 +27,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|analysis
+operator|.
+name|Analyzer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|document
 operator|.
 name|Document
@@ -127,20 +141,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Hits
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|IndexSearcher
 import|;
 end_import
@@ -155,7 +155,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|MatchAllDocsQuery
+name|Searchable
 import|;
 end_import
 
@@ -217,11 +217,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|indexer
+name|model
 operator|.
-name|query
-operator|.
-name|Query
+name|ArchivaRepository
 import|;
 end_import
 
@@ -242,16 +240,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|text
-operator|.
-name|ParseException
 import|;
 end_import
 
@@ -325,9 +313,16 @@ specifier|private
 name|LuceneIndexHandlers
 name|indexHandlers
 decl_stmt|;
+specifier|private
+name|ArchivaRepository
+name|repository
+decl_stmt|;
 specifier|public
 name|LuceneRepositoryContentIndex
 parameter_list|(
+name|ArchivaRepository
+name|repository
+parameter_list|,
 name|File
 name|indexDir
 parameter_list|,
@@ -335,6 +330,12 @@ name|LuceneIndexHandlers
 name|handlers
 parameter_list|)
 block|{
+name|this
+operator|.
+name|repository
+operator|=
+name|repository
+expr_stmt|;
 name|this
 operator|.
 name|indexLocation
@@ -926,26 +927,6 @@ block|}
 block|}
 specifier|public
 name|Collection
-name|getAllRecords
-parameter_list|()
-throws|throws
-name|RepositoryIndexSearchException
-block|{
-return|return
-name|search
-argument_list|(
-operator|new
-name|LuceneQuery
-argument_list|(
-operator|new
-name|MatchAllDocsQuery
-argument_list|()
-argument_list|)
-argument_list|)
-return|;
-block|}
-specifier|public
-name|Collection
 name|getAllRecordKeys
 parameter_list|()
 throws|throws
@@ -1100,62 +1081,53 @@ return|return
 name|keys
 return|;
 block|}
-comment|//    public List getAllGroupIds() throws RepositoryIndexException
-comment|//    {
-comment|//        return getAllFieldValues( StandardIndexRecordFields.GROUPID_EXACT );
-comment|//    }
-comment|//
-comment|//    public List getArtifactIds( String groupId ) throws RepositoryIndexSearchException
-comment|//    {
-comment|//        return searchField( new TermQuery( new Term( StandardIndexRecordFields.GROUPID_EXACT, groupId ) ),
-comment|//                            StandardIndexRecordFields.ARTIFACTID );
-comment|//    }
-comment|//
-comment|//    public List getVersions( String groupId, String artifactId ) throws RepositoryIndexSearchException
-comment|//    {
-comment|//        BooleanQuery query = new BooleanQuery();
-comment|//        query.add( new TermQuery( new Term( StandardIndexRecordFields.GROUPID_EXACT, groupId ) ),
-comment|//                   BooleanClause.Occur.MUST );
-comment|//        query.add( new TermQuery( new Term( StandardIndexRecordFields.ARTIFACTID_EXACT, artifactId ) ),
-comment|//                   BooleanClause.Occur.MUST );
-comment|//
-comment|//        return searchField( query, StandardIndexRecordFields.VERSION );
-comment|//    }
-comment|//    private List searchField( org.apache.lucene.search.Query luceneQuery, String fieldName )
-comment|//        throws RepositoryIndexSearchException
-comment|//    {
-comment|//        Set results = new LinkedHashSet();
-comment|//
-comment|//        IndexSearcher searcher;
-comment|//        try
-comment|//        {
-comment|//            searcher = new IndexSearcher( indexLocation.getAbsolutePath() );
-comment|//        }
-comment|//        catch ( IOException e )
-comment|//        {
-comment|//            throw new RepositoryIndexSearchException( "Unable to open index: " + e.getMessage(), e );
-comment|//        }
-comment|//
-comment|//        try
-comment|//        {
-comment|//            Hits hits = searcher.search( luceneQuery );
-comment|//            for ( int i = 0; i< hits.length(); i++ )
-comment|//            {
-comment|//                Document doc = hits.doc( i );
-comment|//
-comment|//                results.add( doc.get( fieldName ) );
-comment|//            }
-comment|//        }
-comment|//        catch ( IOException e )
-comment|//        {
-comment|//            throw new RepositoryIndexSearchException( "Unable to search index: " + e.getMessage(), e );
-comment|//        }
-comment|//        finally
-comment|//        {
-comment|//            closeQuietly( searcher );
-comment|//        }
-comment|//        return new ArrayList( results );
-comment|//    }
+specifier|public
+name|Searchable
+name|getSearchable
+parameter_list|()
+throws|throws
+name|RepositoryIndexSearchException
+block|{
+try|try
+block|{
+name|IndexSearcher
+name|searcher
+init|=
+operator|new
+name|IndexSearcher
+argument_list|(
+name|indexLocation
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+decl_stmt|;
+return|return
+name|searcher
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RepositoryIndexSearchException
+argument_list|(
+literal|"Unable to open index: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 specifier|public
 name|boolean
 name|exists
@@ -1241,196 +1213,6 @@ throw|;
 block|}
 block|}
 specifier|public
-name|List
-name|search
-parameter_list|(
-name|Query
-name|query
-parameter_list|)
-throws|throws
-name|RepositoryIndexSearchException
-block|{
-name|LuceneQuery
-name|lQuery
-init|=
-operator|(
-name|LuceneQuery
-operator|)
-name|query
-decl_stmt|;
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Query
-name|luceneQuery
-init|=
-name|lQuery
-operator|.
-name|getLuceneQuery
-argument_list|()
-decl_stmt|;
-name|IndexSearcher
-name|searcher
-decl_stmt|;
-try|try
-block|{
-name|searcher
-operator|=
-operator|new
-name|IndexSearcher
-argument_list|(
-name|indexLocation
-operator|.
-name|getAbsolutePath
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RepositoryIndexSearchException
-argument_list|(
-literal|"Unable to open index: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-name|List
-name|records
-init|=
-operator|new
-name|ArrayList
-argument_list|()
-decl_stmt|;
-try|try
-block|{
-name|Hits
-name|hits
-init|=
-name|searcher
-operator|.
-name|search
-argument_list|(
-name|luceneQuery
-argument_list|)
-decl_stmt|;
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|hits
-operator|.
-name|length
-argument_list|()
-condition|;
-name|i
-operator|++
-control|)
-block|{
-name|Document
-name|doc
-init|=
-name|hits
-operator|.
-name|doc
-argument_list|(
-name|i
-argument_list|)
-decl_stmt|;
-name|records
-operator|.
-name|add
-argument_list|(
-name|indexHandlers
-operator|.
-name|getConverter
-argument_list|()
-operator|.
-name|convert
-argument_list|(
-name|doc
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RepositoryIndexSearchException
-argument_list|(
-literal|"Unable to search index: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
-name|ParseException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RepositoryIndexSearchException
-argument_list|(
-literal|"Unable to search index: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-finally|finally
-block|{
-name|closeQuietly
-argument_list|(
-name|searcher
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|records
-return|;
-block|}
-specifier|public
 name|QueryParser
 name|getQueryParser
 parameter_list|()
@@ -1444,30 +1226,29 @@ name|getQueryParser
 argument_list|()
 return|;
 block|}
-specifier|private
+specifier|public
 specifier|static
 name|void
-name|closeQuietly
+name|closeSearchable
 parameter_list|(
-name|IndexSearcher
-name|searcher
+name|Searchable
+name|searchable
 parameter_list|)
-block|{
-try|try
 block|{
 if|if
 condition|(
-name|searcher
+name|searchable
 operator|!=
 literal|null
 condition|)
 block|{
-name|searcher
+try|try
+block|{
+name|searchable
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -1475,7 +1256,8 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-comment|// ignore
+comment|// Ignore
+block|}
 block|}
 block|}
 specifier|private
@@ -1652,6 +1434,43 @@ operator|.
 name|indexHandlers
 operator|.
 name|getId
+argument_list|()
+return|;
+block|}
+specifier|public
+name|ArchivaRepository
+name|getRepository
+parameter_list|()
+block|{
+return|return
+name|repository
+return|;
+block|}
+specifier|public
+name|Analyzer
+name|getAnalyzer
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|indexHandlers
+operator|.
+name|getAnalyzer
+argument_list|()
+return|;
+block|}
+specifier|public
+name|LuceneEntryConverter
+name|getEntryConverter
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|indexHandlers
+operator|.
+name|getConverter
 argument_list|()
 return|;
 block|}

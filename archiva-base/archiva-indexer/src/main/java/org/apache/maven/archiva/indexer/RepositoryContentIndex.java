@@ -25,9 +25,55 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|analysis
+operator|.
+name|Analyzer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|queryParser
 operator|.
 name|QueryParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Searchable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|lucene
+operator|.
+name|LuceneEntryConverter
 import|;
 end_import
 
@@ -59,11 +105,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|indexer
+name|model
 operator|.
-name|query
-operator|.
-name|Query
+name|ArchivaRepository
 import|;
 end_import
 
@@ -84,16 +128,6 @@ operator|.
 name|util
 operator|.
 name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -138,16 +172,6 @@ parameter_list|)
 throws|throws
 name|RepositoryIndexException
 function_decl|;
-comment|/**      * Search the index based on the search criteria specified. Returns a list of index records.      *      * @param query The query that contains the search criteria      * @return the index records found      * @throws RepositoryIndexSearchException if there is a problem searching      * @todo should it return "SearchResult" instances that contain the index record and other search data (like score?)      */
-name|List
-name|search
-parameter_list|(
-name|Query
-name|query
-parameter_list|)
-throws|throws
-name|RepositoryIndexSearchException
-function_decl|;
 comment|/**      * Check if the index already exists.      *      * @return true if the index already exists      * @throws RepositoryIndexException if the index location is not valid      */
 name|boolean
 name|exists
@@ -164,13 +188,6 @@ name|records
 parameter_list|)
 throws|throws
 name|RepositoryIndexException
-function_decl|;
-comment|/**      * Retrieve all records in the index.      *      * @return the collection of {@link LuceneRepositoryContentRecord} objects.      * @throws RepositoryIndexSearchException if there was an error searching the index      */
-name|Collection
-name|getAllRecords
-parameter_list|()
-throws|throws
-name|RepositoryIndexSearchException
 function_decl|;
 comment|/**      * Retrieve all primary keys of records in the index.      *      * @return the keys      * @throws RepositoryIndexException if there was an error searching the index      */
 name|Collection
@@ -193,6 +210,28 @@ comment|/**      * Get the id of index.      *       * @return the id of index. 
 name|String
 name|getId
 parameter_list|()
+function_decl|;
+comment|/**      * Get the repository that this index belongs to.      *       * @return the repository that this index belongs to.      */
+name|ArchivaRepository
+name|getRepository
+parameter_list|()
+function_decl|;
+comment|/**      * Get the analyzer in use for this index.      *       * @return the analyzer in use.      */
+name|Analyzer
+name|getAnalyzer
+parameter_list|()
+function_decl|;
+comment|/**      * Get the document to record (and back again) converter.      *       * @return the converter in use.      */
+name|LuceneEntryConverter
+name|getEntryConverter
+parameter_list|()
+function_decl|;
+comment|/**      * Create a Searchable for this index.      *       * @return the Searchable.      * @throws RepositoryIndexSearchException if there was a problem creating the searchable.      */
+name|Searchable
+name|getSearchable
+parameter_list|()
+throws|throws
+name|RepositoryIndexSearchException
 function_decl|;
 block|}
 end_interface

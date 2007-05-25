@@ -137,43 +137,9 @@ name|archiva
 operator|.
 name|indexer
 operator|.
-name|RepositoryIndexSearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|indexer
-operator|.
 name|lucene
 operator|.
 name|LuceneIndexHandlers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|indexer
-operator|.
-name|lucene
-operator|.
-name|LuceneQuery
 import|;
 end_import
 
@@ -394,6 +360,13 @@ argument_list|,
 name|artifact
 argument_list|)
 decl_stmt|;
+name|record
+operator|.
+name|setRepositoryId
+argument_list|(
+literal|"test-repo"
+argument_list|)
+expr_stmt|;
 name|records
 operator|.
 name|put
@@ -416,7 +389,7 @@ name|void
 name|testExactMatchVersionSimple
 parameter_list|()
 throws|throws
-name|RepositoryIndexSearchException
+name|Exception
 block|{
 name|assertQueryExactMatch
 argument_list|(
@@ -440,7 +413,7 @@ name|void
 name|testExactMatchVersionSnapshot
 parameter_list|()
 throws|throws
-name|RepositoryIndexSearchException
+name|Exception
 block|{
 name|assertQueryExactMatch
 argument_list|(
@@ -464,7 +437,7 @@ name|void
 name|testExactMatchVersionAlphaSnapshot
 parameter_list|()
 throws|throws
-name|RepositoryIndexSearchException
+name|Exception
 block|{
 name|assertQueryExactMatch
 argument_list|(
@@ -488,7 +461,7 @@ name|void
 name|testExactMatchVersionTimestampedSnapshot
 parameter_list|()
 throws|throws
-name|RepositoryIndexSearchException
+name|Exception
 block|{
 name|assertQueryExactMatch
 argument_list|(
@@ -512,7 +485,7 @@ name|void
 name|testExactMatchVersionInvalid
 parameter_list|()
 throws|throws
-name|RepositoryIndexSearchException
+name|Exception
 block|{
 name|assertQueryExactMatchNoResults
 argument_list|(
@@ -529,7 +502,7 @@ name|void
 name|testExactMatchGroupIdOrgApacheMavenArchiva
 parameter_list|()
 throws|throws
-name|RepositoryIndexSearchException
+name|Exception
 block|{
 name|assertQueryExactMatch
 argument_list|(
@@ -553,7 +526,7 @@ name|void
 name|testExactMatchGroupIdOrgApacheMaven
 parameter_list|()
 throws|throws
-name|RepositoryIndexSearchException
+name|Exception
 block|{
 name|assertQueryExactMatch
 argument_list|(
@@ -577,7 +550,7 @@ name|void
 name|testExactMatchGroupIdInvalid
 parameter_list|()
 throws|throws
-name|RepositoryIndexSearchException
+name|Exception
 block|{
 name|assertQueryExactMatchNoResults
 argument_list|(
@@ -594,7 +567,7 @@ name|void
 name|testExactMatchArtifactIdArchivaCommon
 parameter_list|()
 throws|throws
-name|RepositoryIndexSearchException
+name|Exception
 block|{
 name|assertQueryExactMatch
 argument_list|(
@@ -618,7 +591,7 @@ name|void
 name|testExactMatchArtifactIdTestNg
 parameter_list|()
 throws|throws
-name|RepositoryIndexSearchException
+name|Exception
 block|{
 name|assertQueryExactMatch
 argument_list|(
@@ -642,7 +615,7 @@ name|void
 name|testExactMatchArtifactIdInvalid
 parameter_list|()
 throws|throws
-name|RepositoryIndexSearchException
+name|Exception
 block|{
 name|assertQueryExactMatchNoResults
 argument_list|(
@@ -659,7 +632,7 @@ name|void
 name|testExactMatchTypeJar
 parameter_list|()
 throws|throws
-name|RepositoryIndexSearchException
+name|Exception
 block|{
 name|assertQueryExactMatch
 argument_list|(
@@ -691,7 +664,7 @@ name|void
 name|testExactMatchTypeWar
 parameter_list|()
 throws|throws
-name|RepositoryIndexSearchException
+name|Exception
 block|{
 name|assertQueryExactMatch
 argument_list|(
@@ -712,14 +685,14 @@ literal|"war"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* TODO: Fix 'maven-plugin' type      public void testExactMatchTypePlugin() throws RepositoryIndexSearchException      {      assertQueryExactMatch( ArtifactKeys.TYPE, ( new String[] { "maven-help-plugin" } ), "maven-plugin" );      } */
-comment|/* TODO: Fix 'maven-archetype' type      public void testExactMatchTypeArchetype() throws RepositoryIndexSearchException      {      assertQueryExactMatch( ArtifactKeys.TYPE, ( new String[] { "maven-archetype-simple" } ), "maven-archetype" );      }      */
+comment|/* TODO: Fix 'maven-plugin' type      public void testExactMatchTypePlugin() throws Exception      {      assertQueryExactMatch( ArtifactKeys.TYPE, ( new String[] { "maven-help-plugin" } ), "maven-plugin" );      } */
+comment|/* TODO: Fix 'maven-archetype' type      public void testExactMatchTypeArchetype() throws Exception      {      assertQueryExactMatch( ArtifactKeys.TYPE, ( new String[] { "maven-archetype-simple" } ), "maven-archetype" );      }      */
 specifier|public
 name|void
 name|testExactMatchTypeInvalid
 parameter_list|()
 throws|throws
-name|RepositoryIndexSearchException
+name|Exception
 block|{
 name|assertQueryExactMatchNoResults
 argument_list|(
@@ -1157,15 +1130,9 @@ expr_stmt|;
 name|List
 name|results
 init|=
-name|index
-operator|.
 name|search
 argument_list|(
-operator|new
-name|LuceneQuery
-argument_list|(
 name|bQuery
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertResults

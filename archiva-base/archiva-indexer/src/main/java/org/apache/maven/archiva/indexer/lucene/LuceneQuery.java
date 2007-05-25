@@ -83,6 +83,7 @@ operator|=
 name|query
 expr_stmt|;
 block|}
+specifier|public
 name|org
 operator|.
 name|apache
