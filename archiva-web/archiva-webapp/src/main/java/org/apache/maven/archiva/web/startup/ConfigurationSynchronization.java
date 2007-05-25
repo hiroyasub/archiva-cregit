@@ -696,6 +696,13 @@ expr_stmt|;
 name|synchConfiguration
 argument_list|()
 expr_stmt|;
+name|archivaConfiguration
+operator|.
+name|addChangeListener
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
