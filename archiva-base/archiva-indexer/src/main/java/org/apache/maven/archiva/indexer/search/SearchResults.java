@@ -555,6 +555,28 @@ literal|null
 argument_list|)
 expr_stmt|;
 comment|// TODO: handle context + highlight later.
+comment|// Test for possible artifact reference ...
+if|if
+condition|(
+name|filecontent
+operator|.
+name|getArtifact
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|hit
+operator|.
+name|addArtifact
+argument_list|(
+name|filecontent
+operator|.
+name|getArtifact
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|hits

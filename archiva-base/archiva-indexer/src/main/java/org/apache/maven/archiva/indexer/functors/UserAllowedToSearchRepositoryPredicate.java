@@ -87,17 +87,6 @@ literal|true
 expr_stmt|;
 comment|// Everyone is allowed! (for now)
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"AllowedToSearchRepo: "
-operator|+
-name|satisfies
-argument_list|)
-expr_stmt|;
 return|return
 name|satisfies
 return|;
