@@ -7,6 +7,8 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|archiva
+operator|.
 name|transaction
 package|;
 end_package

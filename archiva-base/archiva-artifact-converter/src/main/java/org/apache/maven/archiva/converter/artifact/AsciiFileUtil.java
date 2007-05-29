@@ -7,9 +7,11 @@ name|apache
 operator|.
 name|maven
 operator|.
-name|artifact
+name|archiva
 operator|.
 name|converter
+operator|.
+name|artifact
 package|;
 end_package
 

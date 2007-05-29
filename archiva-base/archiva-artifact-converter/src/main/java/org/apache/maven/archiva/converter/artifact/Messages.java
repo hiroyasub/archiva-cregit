@@ -7,9 +7,11 @@ name|apache
 operator|.
 name|maven
 operator|.
-name|artifact
+name|archiva
 operator|.
 name|converter
+operator|.
+name|artifact
 package|;
 end_package
 
@@ -62,7 +64,7 @@ specifier|final
 name|String
 name|BUNDLE_NAME
 init|=
-literal|"org.apache.maven.artifact.converter.messages"
+literal|"org.apache.maven.archiva.converter.artifact.messages"
 decl_stmt|;
 comment|//$NON-NLS-1$
 specifier|private
