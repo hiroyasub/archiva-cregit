@@ -832,6 +832,43 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// Catch the other errors in the process to allow the rest of the process to complete.
+name|getLogger
+argument_list|()
+operator|.
+name|error
+argument_list|(
+literal|"Unable to process model "
+operator|+
+name|artifactFile
+operator|+
+literal|" due to : "
+operator|+
+name|t
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" : "
+operator|+
+name|t
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 specifier|private
 name|boolean
