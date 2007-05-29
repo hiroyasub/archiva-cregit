@@ -75,6 +75,22 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|RepositoryConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
 name|functors
 operator|.
 name|LocalRepositoryPredicate
@@ -205,6 +221,7 @@ operator|new
 name|ArrayList
 argument_list|()
 decl_stmt|;
+comment|/**      * Get the {@link List} of {@link RepositoryConfiguration} objects representing managed repositories.      *       * @return the {@link List} of {@link RepositoryConfiguration} objects.      */
 specifier|public
 name|List
 name|getAllManagedRepositories
@@ -316,7 +333,7 @@ argument_list|()
 decl_stmt|;
 name|CollectionUtils
 operator|.
-name|select
+name|filter
 argument_list|(
 name|configRepos
 argument_list|,

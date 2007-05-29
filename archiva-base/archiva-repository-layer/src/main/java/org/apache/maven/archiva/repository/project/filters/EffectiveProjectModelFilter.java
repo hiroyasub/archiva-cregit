@@ -173,6 +173,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|logging
+operator|.
+name|AbstractLogEnabled
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -222,13 +236,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Builder for the Effective Project Model.    *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.repository.project.ProjectModelFilter"   *                   role-hint="effective"   *                   instantiation-strategy="per-lookup"  */
+comment|/**  * Builder for the Effective Project Model.    *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.repository.project.ProjectModelFilter"   *                   role-hint="effective"   */
 end_comment
 
 begin_class
 specifier|public
 class|class
 name|EffectiveProjectModelFilter
+extends|extends
+name|AbstractLogEnabled
 implements|implements
 name|ProjectModelFilter
 block|{
@@ -341,6 +357,9 @@ argument_list|(
 name|effectiveProject
 argument_list|)
 expr_stmt|;
+name|getLogger
+argument_list|()
+operator|.
 name|debug
 argument_list|(
 literal|"Starting build of effective with: "
@@ -383,6 +402,19 @@ name|remove
 argument_list|(
 name|resolver
 argument_list|)
+expr_stmt|;
+block|}
+specifier|public
+name|void
+name|clearResolvers
+parameter_list|()
+block|{
+name|this
+operator|.
+name|projectModelResolvers
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 specifier|private
@@ -556,26 +588,6 @@ block|}
 block|}
 block|}
 specifier|private
-name|void
-name|debug
-parameter_list|(
-name|String
-name|msg
-parameter_list|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"## "
-operator|+
-name|msg
-argument_list|)
-expr_stmt|;
-block|}
-specifier|private
 name|ArchivaProjectModel
 name|findProject
 parameter_list|(
@@ -583,6 +595,9 @@ name|VersionedReference
 name|projectRef
 parameter_list|)
 block|{
+name|getLogger
+argument_list|()
+operator|.
 name|debug
 argument_list|(
 literal|"Trying to find project: "
@@ -621,6 +636,9 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
+name|getLogger
+argument_list|()
+operator|.
 name|debug
 argument_list|(
 literal|"Trying to find in "
@@ -651,6 +669,9 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|getLogger
+argument_list|()
+operator|.
 name|debug
 argument_list|(
 literal|"Found it!: "
@@ -662,6 +683,9 @@ return|return
 name|model
 return|;
 block|}
+name|getLogger
+argument_list|()
+operator|.
 name|debug
 argument_list|(
 literal|"Not found."
@@ -700,6 +724,9 @@ block|{
 name|ArchivaProjectModel
 name|mixedProject
 decl_stmt|;
+name|getLogger
+argument_list|()
+operator|.
 name|debug
 argument_list|(
 literal|"Parent: "
@@ -729,6 +756,9 @@ operator|.
 name|getParentProject
 argument_list|()
 decl_stmt|;
+name|getLogger
+argument_list|()
+operator|.
 name|debug
 argument_list|(
 literal|"Has parent: "
@@ -795,6 +825,9 @@ block|}
 block|}
 else|else
 block|{
+name|getLogger
+argument_list|()
+operator|.
 name|debug
 argument_list|(
 literal|"No parent found"
@@ -823,6 +856,9 @@ name|pom
 parameter_list|)
 block|{
 comment|// TODO: add super pom repositories.
+name|getLogger
+argument_list|()
+operator|.
 name|debug
 argument_list|(
 literal|"Mix in Super POM: "
