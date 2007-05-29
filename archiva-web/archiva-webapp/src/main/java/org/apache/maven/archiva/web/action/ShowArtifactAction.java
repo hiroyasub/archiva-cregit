@@ -149,6 +149,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collections
 import|;
 end_import
@@ -215,6 +225,11 @@ comment|/**      * The list of artifacts that depend on this versioned project. 
 specifier|private
 name|List
 name|dependees
+decl_stmt|;
+comment|/**      * The list of dependencies in tree format      */
+specifier|private
+name|List
+name|dependencyTree
 decl_stmt|;
 comment|/**      * The reports associated with this versioned project.      */
 specifier|private
@@ -283,8 +298,6 @@ argument_list|,
 name|version
 argument_list|)
 expr_stmt|;
-comment|// TODO: should this be the whole set of artifacts, and be more like the maven dependencies report?
-comment|// this.dependencies = VersionMerger.wrap( project.getModel().getDependencies() );
 name|this
 operator|.
 name|dependencies
@@ -438,6 +451,14 @@ name|artifactId
 argument_list|,
 name|version
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|dependencyTree
+operator|=
+operator|new
+name|ArrayList
+argument_list|()
 expr_stmt|;
 return|return
 name|SUCCESS
@@ -603,6 +624,24 @@ parameter_list|()
 block|{
 return|return
 name|dependencies
+return|;
+block|}
+specifier|public
+name|List
+name|getDependees
+parameter_list|()
+block|{
+return|return
+name|dependees
+return|;
+block|}
+specifier|public
+name|List
+name|getDependencyTree
+parameter_list|()
+block|{
+return|return
+name|dependencyTree
 return|;
 block|}
 block|}
