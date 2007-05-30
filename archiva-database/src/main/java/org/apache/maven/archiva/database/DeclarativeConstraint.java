@@ -44,6 +44,13 @@ index|[]
 name|getDeclaredParameters
 parameter_list|()
 function_decl|;
+comment|/**      * The JDOQL filter to apply to the query. (optional)      *       * NOTE: This is DAO implementation specific.      *       * @return the filter to apply. (can be null)      */
+specifier|public
+specifier|abstract
+name|String
+name|getFilter
+parameter_list|()
+function_decl|;
 comment|/**      * Get the parameters used for this query. (required if using {@link #getDeclaredParameters()} )      *       * NOTE: This is DAO implementation specific.      *       * @return the parameters. (can be null)      */
 specifier|public
 specifier|abstract
@@ -64,6 +71,14 @@ specifier|public
 specifier|abstract
 name|String
 name|getSortColumn
+parameter_list|()
+function_decl|;
+comment|/**      * Get the variables used within the query.      *       * NOTE: This is DAO implementation specific.      *       * @return the variables used within the query.      */
+specifier|public
+specifier|abstract
+name|String
+index|[]
+name|getVariables
 parameter_list|()
 function_decl|;
 comment|/**      * Get the SELECT WHERE (condition) value for the constraint.      *       * @return the equivalent of the SELECT WHERE (condition) value for this constraint. (can be null)      */

@@ -67,8 +67,18 @@ name|ArchivaProjectModel
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
-comment|/**  * RepositoryBrowsing   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Repository Browsing component   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_interface
@@ -76,11 +86,13 @@ specifier|public
 interface|interface
 name|RepositoryBrowsing
 block|{
+comment|/**      * Get the {@link BrowsingResults} for the root of the repository.      *       * @return the root browsing results.      */
 specifier|public
 name|BrowsingResults
 name|getRoot
 parameter_list|()
 function_decl|;
+comment|/**      * Get the {@link BrowsingResults} for the selected groupId.      *       * @param groupId the groupId to select.      * @return the {@link BrowsingResults} for the specified groupId.      */
 specifier|public
 name|BrowsingResults
 name|selectGroupId
@@ -89,6 +101,7 @@ name|String
 name|groupId
 parameter_list|)
 function_decl|;
+comment|/**      * Get the {@link BrowsingResults} for the selected groupId& artifactId.      *       * @param groupId the groupId selected      * @param artifactId the artifactId selected      * @return the {@link BrowsingResults} for the specified groupId / artifactId combo.      */
 specifier|public
 name|BrowsingResults
 name|selectArtifactId
@@ -100,6 +113,7 @@ name|String
 name|artifactId
 parameter_list|)
 function_decl|;
+comment|/**      * Get the {@link ArchivaProjectModel} for the selected groupId / artifactId / version combo.      *       * @param groupId the groupId selected      * @param artifactId the artifactId selected      * @param version the version selected      * @return the {@link ArchivaProjectModel} for the selected groupId / artifactId / version combo.      * @throws ObjectNotFoundException if the artifact object or project object isn't found in the database.      * @throws ArchivaDatabaseException if there is a fundamental database error.      */
 specifier|public
 name|ArchivaProjectModel
 name|selectVersion
@@ -116,6 +130,23 @@ parameter_list|)
 throws|throws
 name|ObjectNotFoundException
 throws|,
+name|ArchivaDatabaseException
+function_decl|;
+comment|/**      * Get the {@link List} of {@link ArchivaProjectModel} that are used by the provided      * groupId, artifactId, and version specified.      *       * @param groupId the groupId selected      * @param artifactId the artifactId selected      * @param version the version selected      * @return the {@link List} of {@link ArchivaProjectModel} objects. (never null, but can be empty)      * @throws ArchivaDatabaseException if there is a fundamental database error.      */
+specifier|public
+name|List
+name|getUsedBy
+parameter_list|(
+name|String
+name|groupId
+parameter_list|,
+name|String
+name|artifactId
+parameter_list|,
+name|String
+name|version
+parameter_list|)
+throws|throws
 name|ArchivaDatabaseException
 function_decl|;
 block|}
