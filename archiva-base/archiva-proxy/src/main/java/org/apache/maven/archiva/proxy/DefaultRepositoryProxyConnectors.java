@@ -3013,6 +3013,16 @@ argument_list|)
 expr_stmt|;
 name|connector
 operator|.
+name|setProxyId
+argument_list|(
+name|proxyConfig
+operator|.
+name|getProxyId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|connector
+operator|.
 name|setPolicies
 argument_list|(
 name|proxyConfig
