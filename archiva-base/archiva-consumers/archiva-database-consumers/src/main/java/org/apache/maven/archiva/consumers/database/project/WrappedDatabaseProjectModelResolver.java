@@ -195,6 +195,13 @@ argument_list|(
 name|reference
 argument_list|)
 decl_stmt|;
+name|model
+operator|.
+name|setOrigin
+argument_list|(
+literal|"filesystem"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|model
