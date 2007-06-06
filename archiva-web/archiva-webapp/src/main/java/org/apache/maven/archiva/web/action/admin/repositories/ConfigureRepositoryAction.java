@@ -1093,6 +1093,17 @@ operator|.
 name|getUrl
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|rawUrlEntry
+operator|.
+name|startsWith
+argument_list|(
+literal|"http://"
+argument_list|)
+condition|)
+block|{
 name|repository
 operator|.
 name|setUrl
@@ -1105,6 +1116,7 @@ name|rawUrlEntry
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|repository
