@@ -39,20 +39,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
-operator|.
-name|queryParser
-operator|.
-name|ParseException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|maven
 operator|.
 name|archiva
@@ -211,8 +197,6 @@ throws|,
 name|RepositoryIndexException
 throws|,
 name|RepositoryIndexSearchException
-throws|,
-name|ParseException
 block|{
 comment|/* TODO: give action message if indexing is in progress.          * This should be based off a count of 'unprocessed' artifacts.          * This (yet to be written) routine could tell the user that X (unprocessed) artifacts are not yet           * present in the full text search.          */
 assert|assert
