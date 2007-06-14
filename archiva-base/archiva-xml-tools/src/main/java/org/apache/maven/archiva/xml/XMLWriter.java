@@ -122,6 +122,11 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
+name|xmlwriter
+operator|.
+name|flush
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
