@@ -24,6 +24,7 @@ comment|/**  * FilenameParts - data object for {@link RepositoryLayoutUtils#spli
 end_comment
 
 begin_class
+specifier|public
 class|class
 name|FilenameParts
 block|{
