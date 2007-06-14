@@ -454,6 +454,9 @@ argument_list|()
 decl_stmt|;
 name|filter
 operator|.
+name|getProjectModelResolverStack
+argument_list|()
+operator|.
 name|addProjectModelResolver
 argument_list|(
 name|createDefaultRepositoryResolver

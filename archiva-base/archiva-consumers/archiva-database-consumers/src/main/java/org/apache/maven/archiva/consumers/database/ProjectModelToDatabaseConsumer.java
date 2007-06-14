@@ -1284,11 +1284,17 @@ init|)
 block|{
 name|effectiveModelFilter
 operator|.
+name|getProjectModelResolverStack
+argument_list|()
+operator|.
 name|clearResolvers
 argument_list|()
 expr_stmt|;
 comment|// Add the database resolver first!
 name|effectiveModelFilter
+operator|.
+name|getProjectModelResolverStack
+argument_list|()
 operator|.
 name|addProjectModelResolver
 argument_list|(
@@ -1332,6 +1338,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+comment|// TODO: Use listener to perform database saving of found models, instead of wrapped resolver.
 name|ProjectModelResolver
 name|wrapped
 init|=
@@ -1344,6 +1351,9 @@ name|resolver
 argument_list|)
 decl_stmt|;
 name|effectiveModelFilter
+operator|.
+name|getProjectModelResolverStack
+argument_list|()
 operator|.
 name|addProjectModelResolver
 argument_list|(
