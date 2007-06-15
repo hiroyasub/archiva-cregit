@@ -586,6 +586,17 @@ argument_list|(
 name|PATH_SEPARATOR
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|reference
+operator|.
+name|getVersion
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// add the version only if it is present
 name|path
 operator|.
 name|append
@@ -606,6 +617,7 @@ argument_list|(
 name|PATH_SEPARATOR
 argument_list|)
 expr_stmt|;
+block|}
 name|path
 operator|.
 name|append
