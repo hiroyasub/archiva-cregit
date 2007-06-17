@@ -621,7 +621,7 @@ operator|.
 name|getOut
 argument_list|()
 operator|.
-name|append
+name|print
 argument_list|(
 name|msg
 argument_list|)
