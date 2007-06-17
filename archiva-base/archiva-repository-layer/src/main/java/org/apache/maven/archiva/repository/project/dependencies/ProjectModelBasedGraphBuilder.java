@@ -173,9 +173,7 @@ name|repository
 operator|.
 name|project
 operator|.
-name|filters
-operator|.
-name|EffectiveProjectModelFilter
+name|ProjectModelResolverFactory
 import|;
 end_import
 
@@ -193,14 +191,14 @@ name|repository
 operator|.
 name|project
 operator|.
-name|resolvers
+name|filters
 operator|.
-name|ProjectModelResolverStack
+name|EffectiveProjectModelFilter
 import|;
 end_import
 
 begin_comment
-comment|/**  * ProjectModelBasedGraphBuilder   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ProjectModelBasedGraphBuilder   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component   *              role="org.apache.maven.archiva.dependency.graph.DependencyGraphBuilder"  *              role-hint="project-model"  */
 end_comment
 
 begin_class
@@ -210,10 +208,12 @@ name|ProjectModelBasedGraphBuilder
 implements|implements
 name|DependencyGraphBuilder
 block|{
+comment|/**      * @plexus.requirement      */
 specifier|private
-name|ProjectModelResolverStack
-name|modelResolver
+name|ProjectModelResolverFactory
+name|resolverFactory
 decl_stmt|;
+comment|/**      * @plexus.requirement       *          role="org.apache.maven.archiva.repository.project.ProjectModelFilter"      *          role-hint="effective"      */
 specifier|private
 name|EffectiveProjectModelFilter
 name|effectiveFilter
@@ -356,7 +356,10 @@ expr_stmt|;
 name|ArchivaProjectModel
 name|model
 init|=
-name|modelResolver
+name|resolverFactory
+operator|.
+name|getCurrentResolverStack
+argument_list|()
 operator|.
 name|findProject
 argument_list|(
@@ -379,13 +382,6 @@ return|;
 block|}
 try|try
 block|{
-name|effectiveFilter
-operator|.
-name|setProjectModelResolverStack
-argument_list|(
-name|modelResolver
-argument_list|)
-expr_stmt|;
 name|ArchivaProjectModel
 name|processedModel
 init|=
@@ -488,30 +484,6 @@ expr_stmt|;
 return|return
 name|model
 return|;
-block|}
-specifier|public
-name|ProjectModelResolverStack
-name|getModelResolver
-parameter_list|()
-block|{
-return|return
-name|modelResolver
-return|;
-block|}
-specifier|public
-name|void
-name|setModelResolver
-parameter_list|(
-name|ProjectModelResolverStack
-name|modelResolver
-parameter_list|)
-block|{
-name|this
-operator|.
-name|modelResolver
-operator|=
-name|modelResolver
-expr_stmt|;
 block|}
 block|}
 end_class

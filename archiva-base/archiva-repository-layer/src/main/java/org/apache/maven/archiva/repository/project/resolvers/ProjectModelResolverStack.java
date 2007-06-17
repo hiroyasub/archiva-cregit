@@ -134,7 +134,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a stack of {@link ProjectModelResolver} resolvers for  * finding/resolving an ArchivaProjectModel from multiple sources.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Represents a stack of {@link ProjectModelResolver} resolvers for  * finding/resolving an ArchivaProjectModel from multiple sources.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.repository.project.resolvers.ProjectModelResolverStack"  */
 end_comment
 
 begin_class
@@ -385,6 +385,25 @@ return|;
 block|}
 specifier|public
 name|boolean
+name|hasResolver
+parameter_list|(
+name|ProjectModelResolver
+name|resolver
+parameter_list|)
+block|{
+return|return
+name|this
+operator|.
+name|resolvers
+operator|.
+name|contains
+argument_list|(
+name|resolver
+argument_list|)
+return|;
+block|}
+specifier|public
+name|boolean
 name|isEmpty
 parameter_list|()
 block|{
@@ -396,6 +415,35 @@ operator|.
 name|isEmpty
 argument_list|()
 return|;
+block|}
+specifier|public
+name|void
+name|prependProjectModelResolver
+parameter_list|(
+name|ProjectModelResolver
+name|resolver
+parameter_list|)
+block|{
+if|if
+condition|(
+name|resolver
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
+name|this
+operator|.
+name|resolvers
+operator|.
+name|add
+argument_list|(
+literal|0
+argument_list|,
+name|resolver
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|void

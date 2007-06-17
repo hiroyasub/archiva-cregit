@@ -133,16 +133,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -189,11 +179,6 @@ comment|/**      * The list of artifacts that depend on this versioned project. 
 specifier|private
 name|List
 name|dependees
-decl_stmt|;
-comment|/**      * The list of dependencies in tree format      */
-specifier|private
-name|List
-name|dependencyTree
 decl_stmt|;
 comment|/**      * The reports associated with this versioned project.      */
 specifier|private
@@ -452,14 +437,6 @@ argument_list|,
 name|version
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|dependencyTree
-operator|=
-name|Collections
-operator|.
-name|EMPTY_LIST
-expr_stmt|;
 return|return
 name|SUCCESS
 return|;
@@ -633,15 +610,6 @@ parameter_list|()
 block|{
 return|return
 name|dependees
-return|;
-block|}
-specifier|public
-name|List
-name|getDependencyTree
-parameter_list|()
-block|{
-return|return
-name|dependencyTree
 return|;
 block|}
 block|}

@@ -282,7 +282,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ConfigurationSynchronization   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.web.startup.ConfigurationSynchronization"  *                   role-hint="default"  */
+comment|/**  * ConfigurationSynchronization   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component   *              role="org.apache.maven.archiva.web.startup.ConfigurationSynchronization"  *              role-hint="default"  */
 end_comment
 
 begin_class
@@ -302,6 +302,7 @@ name|ArchivaDAO
 name|dao
 decl_stmt|;
 comment|/**      * @plexus.requirement role-hint="default"      */
+specifier|private
 name|RoleManager
 name|roleManager
 decl_stmt|;
@@ -672,27 +673,6 @@ parameter_list|()
 throws|throws
 name|InitializationException
 block|{
-name|Banner
-operator|.
-name|display
-argument_list|(
-name|getLogger
-argument_list|()
-argument_list|,
-name|ArchivaVersion
-operator|.
-name|determineVersion
-argument_list|(
-name|this
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getClassLoader
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|synchConfiguration
 argument_list|()
 expr_stmt|;
