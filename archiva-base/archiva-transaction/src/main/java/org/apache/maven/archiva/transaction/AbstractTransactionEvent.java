@@ -199,7 +199,6 @@ operator|new
 name|HashMap
 argument_list|()
 decl_stmt|;
-empty_stmt|;
 specifier|private
 name|List
 name|createdDirs
@@ -216,7 +215,7 @@ operator|new
 name|ArrayList
 argument_list|()
 decl_stmt|;
-comment|/** {@link List}&lt;{@link Digester}> */
+comment|/**      * {@link List}&lt;{@link Digester}>      */
 specifier|private
 name|List
 name|digesters
@@ -658,7 +657,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Create checksums of file using all digesters defined at construction time.      *       * @param file      * @param force whether existing checksums should be overwritten or not      * @throws IOException      */
+comment|/**      * Create checksums of file using all digesters defined at construction time.      *      * @param file      * @param force whether existing checksums should be overwritten or not      * @throws IOException      */
 specifier|protected
 name|void
 name|createChecksums

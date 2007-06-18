@@ -240,7 +240,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      *       * @param source      * @param destination      * @param digesters {@link List}&lt;{@link Digester}> digesters to use for checksumming       */
+comment|/**      * @param source      * @param destination      * @param digesters   {@link List}&lt;{@link org.codehaus.plexus.digest.Digester}> digesters to use for checksumming      */
 specifier|public
 name|void
 name|copyFile
@@ -271,7 +271,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      *       * @param content      * @param destination      * @param digesters {@link List}&lt;{@link Digester}> digesters to use for checksumming       */
+comment|/**      * @param content      * @param destination      * @param digesters   {@link List}&lt;{@link org.codehaus.plexus.digest.Digester}> digesters to use for checksumming      */
 specifier|public
 name|void
 name|createFile
