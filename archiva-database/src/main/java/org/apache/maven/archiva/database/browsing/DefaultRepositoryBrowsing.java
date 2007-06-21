@@ -25,6 +25,50 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|collections
+operator|.
+name|CollectionUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|collections
+operator|.
+name|PredicateUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|collections
+operator|.
+name|functors
+operator|.
+name|NotPredicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|archiva
@@ -297,8 +341,7 @@ name|String
 name|artifactId
 parameter_list|)
 block|{
-comment|// List groups = dao.query( new UniqueGroupIdConstraint( groupId ) );
-comment|// List artifacts = dao.query( new UniqueArtifactIdConstraint( groupId ) );
+comment|// NOTE: No group Id or artifact Id's should be returned here.
 name|List
 name|versions
 init|=
@@ -326,8 +369,6 @@ argument_list|,
 name|artifactId
 argument_list|)
 decl_stmt|;
-comment|// results.setGroupIds( groups );
-comment|// results.setArtifacts( artifacts );
 name|results
 operator|.
 name|setVersions
@@ -384,6 +425,27 @@ argument_list|(
 name|groupId
 argument_list|)
 decl_stmt|;
+comment|// Remove searched for groupId from groups list.
+comment|// Easier to do this here, vs doing it in the SQL query.
+name|CollectionUtils
+operator|.
+name|filter
+argument_list|(
+name|groups
+argument_list|,
+name|NotPredicate
+operator|.
+name|getInstance
+argument_list|(
+name|PredicateUtils
+operator|.
+name|equalPredicate
+argument_list|(
+name|groupId
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|results
 operator|.
 name|setGroupIds
