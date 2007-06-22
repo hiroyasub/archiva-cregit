@@ -77,7 +77,7 @@ name|suite
 operator|.
 name|addTestSuite
 argument_list|(
-name|ArtifactsBySha1ChecksumConstraintTest
+name|ArtifactsByChecksumConstraintTest
 operator|.
 name|class
 argument_list|)

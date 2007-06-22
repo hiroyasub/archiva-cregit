@@ -191,7 +191,7 @@ name|database
 operator|.
 name|constraints
 operator|.
-name|ArtifactsBySha1ChecksumConstraint
+name|ArtifactsByChecksumConstraint
 import|;
 end_import
 
@@ -522,9 +522,13 @@ operator|.
 name|queryArtifacts
 argument_list|(
 operator|new
-name|ArtifactsBySha1ChecksumConstraint
+name|ArtifactsByChecksumConstraint
 argument_list|(
 name|checksumSha1
+argument_list|,
+name|ArtifactsByChecksumConstraint
+operator|.
+name|SHA1_CONDITION
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -36,13 +36,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactsBySha1ChecksumConstraint   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Constraint for retrieving artifacts whose sha1 or md5 checksum matches the  * specified value.  *  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|ArtifactsBySha1ChecksumConstraint
+name|ArtifactsByChecksumConstraint
 extends|extends
 name|AbstractDeclarativeConstraint
 implements|implements
@@ -53,16 +53,84 @@ name|String
 name|whereClause
 decl_stmt|;
 specifier|public
-name|ArtifactsBySha1ChecksumConstraint
+specifier|static
+specifier|final
+name|String
+name|SHA1_CONDITION
+init|=
+literal|"SHA1"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MD5_CONDITION
+init|=
+literal|"MD5"
+decl_stmt|;
+specifier|public
+name|ArtifactsByChecksumConstraint
 parameter_list|(
 name|String
 name|desiredChecksum
+parameter_list|,
+name|String
+name|condition
 parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+name|condition
+operator|.
+name|equals
+argument_list|(
+name|SHA1_CONDITION
+argument_list|)
+operator|&&
+operator|!
+name|condition
+operator|.
+name|equals
+argument_list|(
+name|MD5_CONDITION
+argument_list|)
+condition|)
 block|{
 name|whereClause
 operator|=
-literal|"this.checksumSHA1 == desiredChecksum"
+literal|"this.checksumSHA1 == desiredChecksum || this.checksumMD5 == desiredChecksum"
 expr_stmt|;
+block|}
+if|else if
+condition|(
+name|condition
+operator|.
+name|equals
+argument_list|(
+name|SHA1_CONDITION
+argument_list|)
+operator|||
+name|condition
+operator|.
+name|equals
+argument_list|(
+name|MD5_CONDITION
+argument_list|)
+condition|)
+block|{
+name|whereClause
+operator|=
+literal|"this.checksum"
+operator|+
+name|condition
+operator|.
+name|trim
+argument_list|()
+operator|+
+literal|" == desiredChecksum"
+expr_stmt|;
+block|}
 name|declParams
 operator|=
 operator|new
