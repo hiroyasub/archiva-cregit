@@ -528,7 +528,7 @@ name|checksumSha1
 argument_list|,
 name|ArtifactsByChecksumConstraint
 operator|.
-name|SHA1_CONDITION
+name|SHA1
 argument_list|)
 argument_list|)
 expr_stmt|;
