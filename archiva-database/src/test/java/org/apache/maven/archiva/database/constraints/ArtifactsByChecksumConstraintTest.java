@@ -462,7 +462,7 @@ name|SHA1_HASH1
 argument_list|,
 name|ArtifactsByChecksumConstraint
 operator|.
-name|SHA1_CONDITION
+name|SHA1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -479,7 +479,7 @@ name|SHA1_HASH2
 argument_list|,
 name|ArtifactsByChecksumConstraint
 operator|.
-name|SHA1_CONDITION
+name|SHA1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -496,7 +496,7 @@ name|SHA1_HASH3
 argument_list|,
 name|ArtifactsByChecksumConstraint
 operator|.
-name|SHA1_CONDITION
+name|SHA1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -706,7 +706,7 @@ name|MD5_HASH1
 argument_list|,
 name|ArtifactsByChecksumConstraint
 operator|.
-name|MD5_CONDITION
+name|MD5
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -723,7 +723,7 @@ name|MD5_HASH2
 argument_list|,
 name|ArtifactsByChecksumConstraint
 operator|.
-name|MD5_CONDITION
+name|MD5
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -740,7 +740,7 @@ name|MD5_HASH3
 argument_list|,
 name|ArtifactsByChecksumConstraint
 operator|.
-name|MD5_CONDITION
+name|MD5
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -947,8 +947,6 @@ operator|new
 name|ArtifactsByChecksumConstraint
 argument_list|(
 name|MD5_HASH1
-argument_list|,
-literal|""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -962,8 +960,6 @@ operator|new
 name|ArtifactsByChecksumConstraint
 argument_list|(
 name|MD5_HASH2
-argument_list|,
-literal|""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -977,8 +973,6 @@ operator|new
 name|ArtifactsByChecksumConstraint
 argument_list|(
 name|MD5_HASH3
-argument_list|,
-literal|""
 argument_list|)
 argument_list|)
 expr_stmt|;
