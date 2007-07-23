@@ -409,6 +409,24 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|common
+operator|.
+name|utils
+operator|.
+name|VersionUtil
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -438,7 +456,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProjectModelToDatabaseConsumer   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.DatabaseUnprocessedArtifactConsumer"  *                   role-hint="update-db-project"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * ProjectModelToDatabaseConsumer  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.DatabaseUnprocessedArtifactConsumer"  * role-hint="update-db-project"  * instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -490,7 +508,7 @@ specifier|private
 name|ProjectModelFilter
 name|expressionModelFilter
 decl_stmt|;
-comment|/**      * @plexus.requirement       *          role="org.apache.maven.archiva.repository.project.ProjectModelFilter"      *          role-hint="effective"      */
+comment|/**      * @plexus.requirement role="org.apache.maven.archiva.repository.project.ProjectModelFilter"      * role-hint="effective"      */
 specifier|private
 name|EffectiveProjectModelFilter
 name|effectiveModelFilter
@@ -673,6 +691,61 @@ argument_list|(
 name|model
 argument_list|)
 expr_stmt|;
+comment|// The version should be updated to the filename version if it is a unique snapshot
+name|FilenameParts
+name|parts
+init|=
+name|RepositoryLayoutUtils
+operator|.
+name|splitFilename
+argument_list|(
+name|artifactFile
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|model
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|VersionUtil
+operator|.
+name|getBaseVersion
+argument_list|(
+name|parts
+operator|.
+name|version
+argument_list|)
+argument_list|)
+operator|&&
+name|VersionUtil
+operator|.
+name|isUniqueSnapshot
+argument_list|(
+name|parts
+operator|.
+name|version
+argument_list|)
+condition|)
+block|{
+name|model
+operator|.
+name|setVersion
+argument_list|(
+name|parts
+operator|.
+name|version
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|isValidModel
@@ -683,6 +756,18 @@ name|artifact
 argument_list|)
 condition|)
 block|{
+name|getLogger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Add project model "
+operator|+
+name|model
+operator|+
+literal|" to database."
+argument_list|)
+expr_stmt|;
 name|dao
 operator|.
 name|getProjectModelDAO
@@ -1201,126 +1286,23 @@ operator|.
 name|getVersion
 argument_list|()
 argument_list|)
-condition|)
-block|{
-name|getLogger
-argument_list|()
-operator|.
-name|warn
-argument_list|(
-literal|"Project Model "
-operator|+
-name|model
-operator|+
-literal|" version: "
-operator|+
-name|model
-operator|.
-name|getVersion
-argument_list|()
-operator|+
-literal|" does not match the pom file's version: "
-operator|+
-name|parts
-operator|.
-name|version
-argument_list|)
-expr_stmt|;
-name|addProblem
-argument_list|(
-name|artifact
-argument_list|,
-literal|"Project Model "
-operator|+
-name|model
-operator|+
-literal|" version: "
-operator|+
-name|model
-operator|.
-name|getVersion
-argument_list|()
-operator|+
-literal|" does not match the pom file's version: "
-operator|+
-name|parts
-operator|.
-name|version
-argument_list|)
-expr_stmt|;
-return|return
-literal|false
-return|;
-block|}
-name|String
-name|constructedFilename
-decl_stmt|;
-if|if
-condition|(
-name|parts
-operator|.
-name|classifier
-operator|!=
-literal|null
-condition|)
-block|{
-name|constructedFilename
-operator|=
-name|model
-operator|.
-name|getArtifactId
-argument_list|()
-operator|+
-literal|"-"
-operator|+
-name|model
-operator|.
-name|getVersion
-argument_list|()
-operator|+
-literal|"-"
-operator|+
-name|parts
-operator|.
-name|classifier
-operator|.
-name|trim
-argument_list|()
-operator|+
-literal|".pom"
-expr_stmt|;
-block|}
-else|else
-block|{
-name|constructedFilename
-operator|=
-name|model
-operator|.
-name|getArtifactId
-argument_list|()
-operator|+
-literal|"-"
-operator|+
-name|model
-operator|.
-name|getVersion
-argument_list|()
-operator|+
-literal|".pom"
-expr_stmt|;
-block|}
-comment|//check if the file name matches the values indicated in the pom
-if|if
-condition|(
+operator|&&
 operator|!
-name|artifactFile
+name|VersionUtil
 operator|.
-name|getName
-argument_list|()
+name|getBaseVersion
+argument_list|(
+name|parts
+operator|.
+name|version
+argument_list|)
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-name|constructedFilename
+name|model
+operator|.
+name|getVersion
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -1329,30 +1311,44 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-literal|"Artifact "
-operator|+
-name|artifact
-operator|+
-literal|" does not match the artifactId and/or version "
-operator|+
-literal|"specified in the project model "
+literal|"Project Model "
 operator|+
 name|model
+operator|+
+literal|" version: "
+operator|+
+name|model
+operator|.
+name|getVersion
+argument_list|()
+operator|+
+literal|" does not match the pom file's version: "
+operator|+
+name|parts
+operator|.
+name|version
 argument_list|)
 expr_stmt|;
 name|addProblem
 argument_list|(
 name|artifact
 argument_list|,
-literal|"Artifact "
-operator|+
-name|artifact
-operator|+
-literal|" does not match the artifactId and/or version "
-operator|+
-literal|"specified in the project model "
+literal|"Project Model "
 operator|+
 name|model
+operator|+
+literal|" version: "
+operator|+
+name|model
+operator|.
+name|getVersion
+argument_list|()
+operator|+
+literal|" does not match the pom file's version: "
+operator|+
+name|parts
+operator|.
+name|version
 argument_list|)
 expr_stmt|;
 return|return

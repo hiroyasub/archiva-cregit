@@ -515,7 +515,7 @@ name|String
 name|artifactId
 parameter_list|,
 name|String
-name|version
+name|modelVersion
 parameter_list|,
 name|String
 name|nodevar
@@ -566,7 +566,7 @@ name|groupId
 argument_list|,
 name|artifactId
 argument_list|,
-name|version
+name|modelVersion
 argument_list|)
 decl_stmt|;
 if|if
@@ -879,7 +879,7 @@ name|String
 name|artifactId
 parameter_list|,
 name|String
-name|version
+name|modelVersion
 parameter_list|)
 block|{
 comment|// TODO Cache the results to disk, in XML format, in the same place as the artifact is located.
@@ -908,18 +908,23 @@ name|projectRef
 operator|.
 name|setVersion
 argument_list|(
-name|version
+name|modelVersion
 argument_list|)
 expr_stmt|;
 try|try
 block|{
-return|return
+name|DependencyGraph
+name|depGraph
+init|=
 name|graphFactory
 operator|.
 name|getGraph
 argument_list|(
 name|projectRef
 argument_list|)
+decl_stmt|;
+return|return
+name|depGraph
 return|;
 block|}
 catch|catch

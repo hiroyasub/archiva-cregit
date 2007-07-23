@@ -238,7 +238,7 @@ name|ver
 init|=
 name|artifact
 operator|.
-name|getBaseVersion
+name|getVersion
 argument_list|()
 decl_stmt|;
 if|if
