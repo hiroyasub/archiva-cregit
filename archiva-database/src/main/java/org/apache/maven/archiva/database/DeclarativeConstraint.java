@@ -88,6 +88,14 @@ name|String
 name|getWhereCondition
 parameter_list|()
 function_decl|;
+comment|/**      * Get the declared range used for this query. (optional)      *       * NOTE: This is DAO implementation specific.      *       * @return the range. (can be null)      */
+specifier|public
+specifier|abstract
+name|int
+index|[]
+name|getRange
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
