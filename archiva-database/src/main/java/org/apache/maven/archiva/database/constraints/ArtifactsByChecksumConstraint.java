@@ -82,7 +82,7 @@ name|MD5
 init|=
 literal|"MD5"
 decl_stmt|;
-comment|/**      * Create constraint for checksum (without providing type)      *       * @param desiredChecksum the checksum (either SHA1 or MD5)      */
+comment|/**      * Create constraint for checksum (without providing type)      *      * @param desiredChecksum the checksum (either SHA1 or MD5)      */
 specifier|public
 name|ArtifactsByChecksumConstraint
 parameter_list|(
@@ -98,7 +98,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create constraint for specific checksum.      *       * @param desiredChecksum the checksum (either SHA1 or MD5)      * @param type the type of checksum (either {@link #SHA1} or {@link #MD5})      */
+comment|/**      * Create constraint for specific checksum.      *      * @param desiredChecksum the checksum (either SHA1 or MD5)      * @param type            the type of checksum (either {@link #SHA1} or {@link #MD5})      */
 specifier|public
 name|ArtifactsByChecksumConstraint
 parameter_list|(
@@ -196,6 +196,9 @@ name|Object
 index|[]
 block|{
 name|desiredChecksum
+operator|.
+name|toLowerCase
+argument_list|()
 block|}
 expr_stmt|;
 block|}
