@@ -3312,8 +3312,10 @@ block|}
 return|return
 name|collection
 operator|.
-name|isEmpty
+name|size
 argument_list|()
+operator|==
+literal|0
 return|;
 block|}
 specifier|private
