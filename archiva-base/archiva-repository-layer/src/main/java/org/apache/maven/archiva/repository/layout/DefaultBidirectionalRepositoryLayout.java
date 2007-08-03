@@ -134,7 +134,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultBidirectionalRepositoryLayout - the layout mechanism for use by Maven 2.x repositories.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role-hint="default"  */
+comment|/**  * DefaultBidirectionalRepositoryLayout - the layout mechanism for use by Maven 2.x repositories.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role-hint="default"  */
 end_comment
 
 begin_class
@@ -956,6 +956,38 @@ operator|.
 name|toString
 argument_list|()
 return|;
+block|}
+specifier|public
+name|boolean
+name|isValidPath
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+try|try
+block|{
+name|toPathReferences
+argument_list|(
+name|path
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|LayoutException
+name|e
+parameter_list|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 specifier|private
 name|PathReferences

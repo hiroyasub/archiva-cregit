@@ -36,7 +36,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * BidirectionalRepositoryLayoutFactoryTest   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * BidirectionalRepositoryLayoutFactoryTest  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -212,6 +212,53 @@ parameter_list|)
 block|{
 comment|/* expected path */
 block|}
+block|}
+specifier|public
+name|void
+name|testFindLayoutForPath
+parameter_list|()
+throws|throws
+name|LayoutException
+block|{
+name|BidirectionalRepositoryLayout
+name|layout
+init|=
+name|factory
+operator|.
+name|getLayoutForPath
+argument_list|(
+literal|"javax/servlet/servlet-api/2.3/servlet-api-2.3.jar"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"default"
+argument_list|,
+name|layout
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|layout
+operator|=
+name|factory
+operator|.
+name|getLayoutForPath
+argument_list|(
+literal|"javax.servlet/jars/servlet-api-2.3.jar"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"legacy"
+argument_list|,
+name|layout
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

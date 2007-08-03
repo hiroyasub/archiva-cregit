@@ -136,7 +136,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LegacyBidirectionalRepositoryLayout - the layout mechanism for use by Maven 1.x repositories.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role-hint="legacy"  */
+comment|/**  * LegacyBidirectionalRepositoryLayout - the layout mechanism for use by Maven 1.x repositories.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role-hint="legacy"  */
 end_comment
 
 begin_class
@@ -886,6 +886,38 @@ argument_list|(
 literal|"Cannot parse legacy paths to a Project Reference."
 argument_list|)
 throw|;
+block|}
+specifier|public
+name|boolean
+name|isValidPath
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+try|try
+block|{
+name|toPathReferences
+argument_list|(
+name|path
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|LayoutException
+name|e
+parameter_list|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 specifier|public
 name|ArchivaArtifact
