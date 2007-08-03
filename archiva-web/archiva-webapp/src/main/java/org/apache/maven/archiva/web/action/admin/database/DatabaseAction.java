@@ -107,6 +107,22 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|configuration
+operator|.
+name|IndeterminateConfigurationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
 name|database
 operator|.
 name|updater
@@ -231,6 +247,20 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
+name|registry
+operator|.
+name|RegistryException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
 name|xwork
 operator|.
 name|action
@@ -260,7 +290,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DatabaseAction   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork.Action" role-hint="databaseAction"  */
+comment|/**  * DatabaseAction  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="databaseAction"  */
 end_comment
 
 begin_class
@@ -530,13 +560,44 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|RegistryException
+name|e
+parameter_list|)
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|error
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+name|addActionError
+argument_list|(
+literal|"Error in saving configuration"
+argument_list|)
+expr_stmt|;
+return|return
+name|INPUT
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|IndeterminateConfigurationException
 name|e
 parameter_list|)
 block|{
 name|addActionError
 argument_list|(
-literal|"Error in saving configuration"
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

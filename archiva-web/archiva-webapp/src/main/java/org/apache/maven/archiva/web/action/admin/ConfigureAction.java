@@ -101,6 +101,22 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|IndeterminateConfigurationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
 name|InvalidConfigurationException
 import|;
 end_import
@@ -245,20 +261,6 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|scheduler
-operator|.
-name|CronExpressionValidator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
 name|xwork
 operator|.
 name|action
@@ -346,6 +348,8 @@ argument_list|)
 expr_stmt|;
 comment|// TODO: if this didn't come from the form, go to configure.action instead of going through with re-saving what was just loaded
 comment|// TODO: if this is changed, do we move the index or recreate it?
+try|try
+block|{
 name|archivaConfiguration
 operator|.
 name|save
@@ -359,6 +363,22 @@ argument_list|(
 literal|"Successfully saved configuration"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IndeterminateConfigurationException
+name|e
+parameter_list|)
+block|{
+name|addActionError
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|SUCCESS
 return|;

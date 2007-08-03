@@ -155,6 +155,22 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|IndeterminateConfigurationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
 name|NetworkProxyConfiguration
 import|;
 end_import
@@ -172,24 +188,6 @@ operator|.
 name|configuration
 operator|.
 name|ProxyConnectorConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|functors
-operator|.
-name|NetworkProxySelectionPredicate
 import|;
 end_import
 
@@ -482,7 +480,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ConfigureProxyConnectorAction   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork.Action" role-hint="configureProxyConnectorAction"  */
+comment|/**  * ConfigureProxyConnectorAction  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="configureProxyConnectorAction"  */
 end_comment
 
 begin_class
@@ -554,7 +552,7 @@ specifier|private
 name|String
 name|pattern
 decl_stmt|;
-comment|/**      * The list of possible proxy ids.       */
+comment|/**      * The list of possible proxy ids.      */
 specifier|private
 name|List
 name|proxyIdOptions
@@ -2177,6 +2175,21 @@ name|addActionError
 argument_list|(
 literal|"Unable to save configuration: "
 operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IndeterminateConfigurationException
+name|e
+parameter_list|)
+block|{
+name|addActionError
+argument_list|(
 name|e
 operator|.
 name|getMessage

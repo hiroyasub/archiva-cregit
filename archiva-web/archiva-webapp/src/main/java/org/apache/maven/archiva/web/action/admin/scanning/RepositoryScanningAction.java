@@ -135,6 +135,22 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|IndeterminateConfigurationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
 name|RepositoryScanningConfiguration
 import|;
 end_import
@@ -350,7 +366,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryScanningAction   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork.Action" role-hint="repositoryScanningAction"  */
+comment|/**  * RepositoryScanningAction  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="repositoryScanningAction"  */
 end_comment
 
 begin_class
@@ -1124,6 +1140,24 @@ name|addActionError
 argument_list|(
 literal|"Unable to save configuration: "
 operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|INPUT
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|IndeterminateConfigurationException
+name|e
+parameter_list|)
+block|{
+name|addActionError
+argument_list|(
 name|e
 operator|.
 name|getMessage

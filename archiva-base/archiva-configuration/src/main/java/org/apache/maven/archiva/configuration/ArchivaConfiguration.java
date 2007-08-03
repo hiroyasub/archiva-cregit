@@ -54,9 +54,6 @@ specifier|public
 interface|interface
 name|ArchivaConfiguration
 block|{
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|ROLE
 init|=
@@ -72,7 +69,7 @@ name|Configuration
 name|getConfiguration
 parameter_list|()
 function_decl|;
-comment|/**      * Save any updated configuration.      *      * @param configuration the configuration to save      * @throws org.codehaus.plexus.registry.RegistryException      *          if there is a problem saving the registry data      */
+comment|/**      * Save any updated configuration.      *      * @param configuration the configuration to save      * @throws org.codehaus.plexus.registry.RegistryException      *          if there is a problem saving the registry data      * @throws IndeterminateConfigurationException      *          if the configuration cannot be saved because it was read from two sources      */
 name|void
 name|save
 parameter_list|(
@@ -81,6 +78,8 @@ name|configuration
 parameter_list|)
 throws|throws
 name|RegistryException
+throws|,
+name|IndeterminateConfigurationException
 function_decl|;
 comment|/**      * Add a change listener so that registry changes are propogated.      *      * @param listener the listener      */
 name|void
