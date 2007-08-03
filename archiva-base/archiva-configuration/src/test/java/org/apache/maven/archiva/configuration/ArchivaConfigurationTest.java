@@ -375,7 +375,7 @@ name|assertEquals
 argument_list|(
 literal|"check managed repositories"
 argument_list|,
-literal|"file://${appserver.home}/repositories/internal"
+literal|"file://${appserver.base}/repositories/internal"
 argument_list|,
 name|repository
 operator|.
