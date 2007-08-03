@@ -36,7 +36,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RangeConstraint   */
+comment|/**  * RangeConstraint  */
 end_comment
 
 begin_class
@@ -48,6 +48,17 @@ name|AbstractDeclarativeConstraint
 implements|implements
 name|Constraint
 block|{
+specifier|public
+name|RangeConstraint
+parameter_list|()
+block|{
+name|this
+operator|.
+name|range
+operator|=
+literal|null
+expr_stmt|;
+block|}
 specifier|public
 name|RangeConstraint
 parameter_list|(

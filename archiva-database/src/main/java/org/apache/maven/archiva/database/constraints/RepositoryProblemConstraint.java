@@ -36,13 +36,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryProblemByArtifactIdConstraint  */
+comment|/**  * RepositoryProblemConstraint  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|RepositoryProblemByArtifactIdConstraint
+name|RepositoryProblemConstraint
 extends|extends
 name|RangeConstraint
 implements|implements
@@ -52,25 +52,20 @@ specifier|private
 name|String
 name|whereClause
 decl_stmt|;
-specifier|public
-name|RepositoryProblemByArtifactIdConstraint
+specifier|private
+name|void
+name|createWhereClause
 parameter_list|(
-name|int
-index|[]
-name|range
+name|String
+name|desiredGroupId
 parameter_list|,
 name|String
-name|desiredArtifactId
+name|desiredRepositoryId
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|range
-argument_list|)
-expr_stmt|;
 name|whereClause
 operator|=
-literal|"artifactId == desiredArtifactId"
+literal|"groupId == desiredGroupId&& repositoryId == desiredRepositoryId"
 expr_stmt|;
 name|declParams
 operator|=
@@ -78,7 +73,9 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"String desiredArtifactId"
+literal|"String desiredGroupId"
+block|,
+literal|"String desiredRepositoryId"
 block|}
 expr_stmt|;
 name|params
@@ -87,8 +84,58 @@ operator|new
 name|Object
 index|[]
 block|{
-name|desiredArtifactId
+name|desiredGroupId
+block|,
+name|desiredRepositoryId
 block|}
+expr_stmt|;
+block|}
+specifier|public
+name|RepositoryProblemConstraint
+parameter_list|(
+name|String
+name|desiredGroupId
+parameter_list|,
+name|String
+name|desiredRepositoryId
+parameter_list|)
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+name|createWhereClause
+argument_list|(
+name|desiredGroupId
+argument_list|,
+name|desiredRepositoryId
+argument_list|)
+expr_stmt|;
+block|}
+specifier|public
+name|RepositoryProblemConstraint
+parameter_list|(
+name|int
+index|[]
+name|range
+parameter_list|,
+name|String
+name|desiredGroupId
+parameter_list|,
+name|String
+name|desiredRepositoryId
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|range
+argument_list|)
+expr_stmt|;
+name|createWhereClause
+argument_list|(
+name|desiredGroupId
+argument_list|,
+name|desiredRepositoryId
+argument_list|)
 expr_stmt|;
 block|}
 specifier|public
@@ -97,7 +144,7 @@ name|getSortColumn
 parameter_list|()
 block|{
 return|return
-literal|"groupId"
+literal|"artifactId"
 return|;
 block|}
 specifier|public

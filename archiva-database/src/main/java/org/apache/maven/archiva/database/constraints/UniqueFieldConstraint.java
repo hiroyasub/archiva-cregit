@@ -36,107 +36,120 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryProblemByRepositoryIdConstraint  */
+comment|/**  * UniqueFieldConstraint  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|RepositoryProblemByRepositoryIdConstraint
+name|UniqueFieldConstraint
 extends|extends
-name|RangeConstraint
+name|AbstractSimpleConstraint
 implements|implements
 name|Constraint
 block|{
 specifier|private
 name|String
-name|whereClause
+name|sql
 decl_stmt|;
-specifier|private
-name|void
-name|createWhereClause
+specifier|public
+name|UniqueFieldConstraint
 parameter_list|(
 name|String
-name|desiredRepositoryId
+name|className
+parameter_list|,
+name|String
+name|fieldName
 parameter_list|)
 block|{
-name|whereClause
+name|sql
 operator|=
-literal|"repositoryId == desiredRepositoryId"
+literal|"SELECT "
+operator|+
+name|fieldName
+operator|+
+literal|" FROM "
+operator|+
+name|className
+operator|+
+literal|" GROUP BY "
+operator|+
+name|fieldName
+operator|+
+literal|" ORDER BY "
+operator|+
+name|fieldName
+operator|+
+literal|" ASCENDING"
 expr_stmt|;
-name|declParams
-operator|=
-operator|new
-name|String
-index|[]
-block|{
-literal|"String desiredRepositoryId"
 block|}
+specifier|public
+name|UniqueFieldConstraint
+parameter_list|(
+name|String
+name|className
+parameter_list|,
+name|String
+name|fieldName
+parameter_list|,
+name|String
+name|fieldNamePrefix
+parameter_list|)
+block|{
+name|sql
+operator|=
+literal|"SELECT "
+operator|+
+name|fieldName
+operator|+
+literal|" FROM "
+operator|+
+name|className
+operator|+
+literal|" WHERE "
+operator|+
+name|fieldName
+operator|+
+literal|".startsWith( fieldPrefix ) PARAMETERS String fieldPrefix GROUP BY "
+operator|+
+name|fieldName
+operator|+
+literal|" ORDER BY "
+operator|+
+name|fieldName
+operator|+
+literal|" ASCENDING"
 expr_stmt|;
+name|super
+operator|.
 name|params
 operator|=
 operator|new
 name|Object
 index|[]
 block|{
-name|desiredRepositoryId
+name|fieldNamePrefix
 block|}
 expr_stmt|;
 block|}
 specifier|public
-name|RepositoryProblemByRepositoryIdConstraint
-parameter_list|(
-name|String
-name|desiredRepositoryId
-parameter_list|)
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-name|createWhereClause
-argument_list|(
-name|desiredRepositoryId
-argument_list|)
-expr_stmt|;
-block|}
-specifier|public
-name|RepositoryProblemByRepositoryIdConstraint
-parameter_list|(
-name|int
-index|[]
-name|range
-parameter_list|,
-name|String
-name|desiredRepositoryId
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|range
-argument_list|)
-expr_stmt|;
-name|createWhereClause
-argument_list|(
-name|desiredRepositoryId
-argument_list|)
-expr_stmt|;
-block|}
-specifier|public
-name|String
-name|getSortColumn
+name|Class
+name|getResultClass
 parameter_list|()
 block|{
 return|return
-literal|"groupId"
+name|String
+operator|.
+name|class
 return|;
 block|}
 specifier|public
 name|String
-name|getWhereCondition
+name|getSelectSql
 parameter_list|()
 block|{
 return|return
-name|whereClause
+name|sql
 return|;
 block|}
 block|}

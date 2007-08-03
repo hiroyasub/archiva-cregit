@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * DeclarativeConstraint   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * DeclarativeConstraint  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_interface
@@ -28,7 +28,7 @@ name|DeclarativeConstraint
 extends|extends
 name|Constraint
 block|{
-comment|/**      * Get the declared imports used for this query. (optional)      *       * NOTE: This is DAO implementation specific.      *       * @return the imports. (can be null)      */
+comment|/**      * Get the declared imports used for this query. (optional)      *<p/>      * NOTE: This is DAO implementation specific.      *      * @return the imports. (can be null)      */
 specifier|public
 specifier|abstract
 name|String
@@ -36,7 +36,7 @@ index|[]
 name|getDeclaredImports
 parameter_list|()
 function_decl|;
-comment|/**      * Get the declared parameters used for this query. (optional)      *       * NOTE: This is DAO implementation specific.      *       * @return the parameters. (can be null)      */
+comment|/**      * Get the declared parameters used for this query. (optional)      *<p/>      * NOTE: This is DAO implementation specific.      *      * @return the parameters. (can be null)      */
 specifier|public
 specifier|abstract
 name|String
@@ -44,14 +44,14 @@ index|[]
 name|getDeclaredParameters
 parameter_list|()
 function_decl|;
-comment|/**      * The JDOQL filter to apply to the query. (optional)      *       * NOTE: This is DAO implementation specific.      *       * @return the filter to apply. (can be null)      */
+comment|/**      * The JDOQL filter to apply to the query. (optional)      *<p/>      * NOTE: This is DAO implementation specific.      *      * @return the filter to apply. (can be null)      */
 specifier|public
 specifier|abstract
 name|String
 name|getFilter
 parameter_list|()
 function_decl|;
-comment|/**      * Get the parameters used for this query. (required if using {@link #getDeclaredParameters()} )      *       * NOTE: This is DAO implementation specific.      *       * @return the parameters. (can be null)      */
+comment|/**      * Get the parameters used for this query. (required if using {@link #getDeclaredParameters()} )      *<p/>      * NOTE: This is DAO implementation specific.      *      * @return the parameters. (can be null)      */
 specifier|public
 specifier|abstract
 name|Object
@@ -59,21 +59,21 @@ index|[]
 name|getParameters
 parameter_list|()
 function_decl|;
-comment|/**      * Get the sort direction name.      *       * @return the sort direction name. ("ASC" or "DESC") (only valid if {@link #getSortColumn()} is specified.)      */
+comment|/**      * Get the sort direction name.      *      * @return the sort direction name. ("ASC" or "DESC") (only valid if {@link #getSortColumn()} is specified.)      */
 specifier|public
 specifier|abstract
 name|String
 name|getSortDirection
 parameter_list|()
 function_decl|;
-comment|/**      * Get the sort column name.      *       * @return the sort column name. (can be null)      */
+comment|/**      * Get the sort column name.      *      * @return the sort column name. (can be null)      */
 specifier|public
 specifier|abstract
 name|String
 name|getSortColumn
 parameter_list|()
 function_decl|;
-comment|/**      * Get the variables used within the query.      *       * NOTE: This is DAO implementation specific.      *       * @return the variables used within the query.      */
+comment|/**      * Get the variables used within the query.      *<p/>      * NOTE: This is DAO implementation specific.      *      * @return the variables used within the query.      */
 specifier|public
 specifier|abstract
 name|String
@@ -81,14 +81,14 @@ index|[]
 name|getVariables
 parameter_list|()
 function_decl|;
-comment|/**      * Get the SELECT WHERE (condition) value for the constraint.      *       * @return the equivalent of the SELECT WHERE (condition) value for this constraint. (can be null)      */
+comment|/**      * Get the SELECT WHERE (condition) value for the constraint.      *      * @return the equivalent of the SELECT WHERE (condition) value for this constraint. (can be null)      */
 specifier|public
 specifier|abstract
 name|String
 name|getWhereCondition
 parameter_list|()
 function_decl|;
-comment|/**      * Get the declared range used for this query. (optional)      *       * NOTE: This is DAO implementation specific.      *       * @return the range. (can be null)      */
+comment|/**      * Get the declared range used for this query. (optional)      *<p/>      * NOTE: This is DAO implementation specific.      *      * @return the range. (can be null)      */
 specifier|public
 specifier|abstract
 name|int
