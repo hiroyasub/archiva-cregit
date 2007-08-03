@@ -839,6 +839,9 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return
+name|INPUT
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -854,6 +857,9 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return
+name|INPUT
+return|;
 block|}
 return|return
 name|SUCCESS
