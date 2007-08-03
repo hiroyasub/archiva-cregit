@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RoleProfilesTest   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id: RoleManagerTest.java 4330 2007-05-10 17:28:56Z jmcconnell $  */
+comment|/**  * RoleProfilesTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id: RoleManagerTest.java 4330 2007-05-10 17:28:56Z jmcconnell $  */
 end_comment
 
 begin_class

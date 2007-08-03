@@ -82,7 +82,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SearchableTransformer   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.commons.collections.Transformer" role-hint="searchable"  */
+comment|/**  * SearchableTransformer   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.commons.collections.Transformer" role-hint="searchable"  */
 end_comment
 
 begin_class

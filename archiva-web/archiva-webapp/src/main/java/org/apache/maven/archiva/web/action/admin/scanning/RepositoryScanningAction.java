@@ -366,7 +366,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryScanningAction  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="repositoryScanningAction"  */
+comment|/**  * RepositoryScanningAction  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="repositoryScanningAction"  */
 end_comment
 
 begin_class

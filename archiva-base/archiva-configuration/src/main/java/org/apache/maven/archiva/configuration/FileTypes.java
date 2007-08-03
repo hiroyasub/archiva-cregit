@@ -240,7 +240,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FileTypes   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.configuration.FileTypes"  */
+comment|/**  * FileTypes   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.configuration.FileTypes"  */
 end_comment
 
 begin_class

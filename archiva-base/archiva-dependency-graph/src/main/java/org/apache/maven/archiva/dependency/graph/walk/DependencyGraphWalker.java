@@ -88,7 +88,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Walk nodes of the {@link DependencyGraph}.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Walk nodes of the {@link DependencyGraph}.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_interface

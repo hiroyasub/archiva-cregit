@@ -50,7 +50,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Predicate for {@link RepositoryConfiguration} objects that are local (aka managed)   * {@link RepositoryConfiguration#isManaged()}   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Predicate for {@link RepositoryConfiguration} objects that are local (aka managed)   * {@link RepositoryConfiguration#isManaged()}   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

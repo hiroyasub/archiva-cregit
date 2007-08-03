@@ -318,7 +318,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RelocateTransferTest   *  * @author Brett Porter  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * RelocateTransferTest   *  * @author Brett Porter  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

@@ -134,7 +134,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultBidirectionalRepositoryLayout - the layout mechanism for use by Maven 2.x repositories.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role-hint="default"  */
+comment|/**  * DefaultBidirectionalRepositoryLayout - the layout mechanism for use by Maven 2.x repositories.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role-hint="default"  */
 end_comment
 
 begin_class

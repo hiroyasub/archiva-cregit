@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaRepositoryMetadataKey - unique classid-key for JPOX.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ArchivaRepositoryMetadataKey - unique classid-key for JPOX.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

@@ -228,7 +228,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CreateArchivaDependencyResolutionTestCaseMojo   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @goal generate-dependency-tests  */
+comment|/**  * CreateArchivaDependencyResolutionTestCaseMojo   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @goal generate-dependency-tests  */
 end_comment
 
 begin_class

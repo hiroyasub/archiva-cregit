@@ -590,7 +590,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultRepositoryProxyConnectors   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role-hint="default"  */
+comment|/**  * DefaultRepositoryProxyConnectors   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role-hint="default"  */
 end_comment
 
 begin_class

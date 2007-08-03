@@ -180,7 +180,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DependencyUtils - common utilities for dependencies.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * DependencyUtils - common utilities for dependencies.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

@@ -218,7 +218,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultLegacyRepositoryConverter   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component   */
+comment|/**  * DefaultLegacyRepositoryConverter   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component   */
 end_comment
 
 begin_class

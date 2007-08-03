@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link PreDownloadPolicy} to check if the requested url has failed before.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.policies.PreDownloadPolicy"  *                   role-hint="cache-failures"  */
+comment|/**  * {@link PreDownloadPolicy} to check if the requested url has failed before.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.policies.PreDownloadPolicy"  *                   role-hint="cache-failures"  */
 end_comment
 
 begin_class

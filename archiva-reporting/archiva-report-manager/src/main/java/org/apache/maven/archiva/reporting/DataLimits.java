@@ -14,7 +14,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Limits on how much data should be returned by the report sources.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Limits on how much data should be returned by the report sources.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

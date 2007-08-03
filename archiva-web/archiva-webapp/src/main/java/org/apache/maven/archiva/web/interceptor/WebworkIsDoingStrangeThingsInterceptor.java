@@ -130,7 +130,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * WebworkIsDoingStrangeThingsInterceptor   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="com.opensymphony.xwork.interceptor.Interceptor"  *                   role-hint="webwork-is-doing-strange-things"  */
+comment|/**  * WebworkIsDoingStrangeThingsInterceptor   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="com.opensymphony.xwork.interceptor.Interceptor"  *                   role-hint="webwork-is-doing-strange-things"  */
 end_comment
 
 begin_class

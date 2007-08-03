@@ -510,7 +510,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Validate the location of the artifact based on the values indicated  * in its pom (both the pom packaged with the artifact& the pom in the  * file system).  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.ArchivaArtifactConsumer"  *                   role-hint="validate-artifacts-location"  */
+comment|/**  * Validate the location of the artifact based on the values indicated  * in its pom (both the pom packaged with the artifact& the pom in the  * file system).  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.ArchivaArtifactConsumer"  *                   role-hint="validate-artifacts-location"  */
 end_comment
 
 begin_class

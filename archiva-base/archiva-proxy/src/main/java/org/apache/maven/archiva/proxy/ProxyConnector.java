@@ -82,7 +82,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a connector for a repository to repository proxy.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * This represents a connector for a repository to repository proxy.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

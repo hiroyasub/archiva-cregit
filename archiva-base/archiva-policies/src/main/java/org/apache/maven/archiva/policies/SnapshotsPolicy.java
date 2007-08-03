@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * {@link PreDownloadPolicy} to apply for snapshot versions.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.policies.PreDownloadPolicy"  *                   role-hint="snapshots"  */
+comment|/**  * {@link PreDownloadPolicy} to apply for snapshot versions.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.policies.PreDownloadPolicy"  *                   role-hint="snapshots"  */
 end_comment
 
 begin_class

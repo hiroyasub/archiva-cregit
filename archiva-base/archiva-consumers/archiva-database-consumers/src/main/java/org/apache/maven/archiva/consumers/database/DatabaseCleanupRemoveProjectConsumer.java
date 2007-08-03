@@ -94,7 +94,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DatabaseCleanupRemoveProjectConsumer   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.DatabaseCleanupConsumer"  *                   role-hint="not-present-remove-db-project"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * DatabaseCleanupRemoveProjectConsumer   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.DatabaseCleanupConsumer"  *                   role-hint="not-present-remove-db-project"  *                   instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

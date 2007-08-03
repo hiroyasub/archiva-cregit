@@ -62,7 +62,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Gather the text from a collection of {@link Element}'s into a {@link List}  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Gather the text from a collection of {@link Element}'s into a {@link List}  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

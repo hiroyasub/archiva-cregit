@@ -16,7 +16,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * GraphListener   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * GraphListener   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_interface

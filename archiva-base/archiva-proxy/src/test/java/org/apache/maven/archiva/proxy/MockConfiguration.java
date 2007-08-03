@@ -132,7 +132,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MockConfiguration   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.configuration.ArchivaConfiguration"  *                   role-hint="mock"  */
+comment|/**  * MockConfiguration   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.configuration.ArchivaConfiguration"  *                   role-hint="mock"  */
 end_comment
 
 begin_class

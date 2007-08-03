@@ -38,7 +38,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Policy to apply before the download is attempted.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Policy to apply before the download is attempted.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_interface

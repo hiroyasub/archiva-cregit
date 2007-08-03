@@ -198,7 +198,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProjectModelBasedGraphBuilder   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component   *              role="org.apache.maven.archiva.dependency.graph.DependencyGraphBuilder"  *              role-hint="project-model"  */
+comment|/**  * ProjectModelBasedGraphBuilder   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component   *              role="org.apache.maven.archiva.dependency.graph.DependencyGraphBuilder"  *              role-hint="project-model"  */
 end_comment
 
 begin_class

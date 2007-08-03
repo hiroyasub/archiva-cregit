@@ -210,7 +210,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * BidirectionalRepositoryLayoutFactory  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.repository.layout.BidirectionalRepositoryLayoutFactory"  */
+comment|/**  * BidirectionalRepositoryLayoutFactory  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.repository.layout.BidirectionalRepositoryLayoutFactory"  */
 end_comment
 
 begin_class

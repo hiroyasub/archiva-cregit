@@ -128,7 +128,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * OldSnapshotArtifactReport   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.reporting.DynamicReportSource"   *                   role-hint="old-snapshots"  */
+comment|/**  * OldSnapshotArtifactReport   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.reporting.DynamicReportSource"   *                   role-hint="old-snapshots"  */
 end_comment
 
 begin_class

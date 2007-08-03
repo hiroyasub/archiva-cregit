@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AllTests - Useful for developers using IDEs.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * AllTests - Useful for developers using IDEs.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

@@ -134,7 +134,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MetadataValidateConsumer   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * TODO: whoops, how do we consumer metadata?    */
+comment|/**  * MetadataValidateConsumer   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * TODO: whoops, how do we consumer metadata?    */
 end_comment
 
 begin_class

@@ -34,7 +34,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultArtifactExtensionMapping - extension mapping for Maven 2.x projects.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * DefaultArtifactExtensionMapping - extension mapping for Maven 2.x projects.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

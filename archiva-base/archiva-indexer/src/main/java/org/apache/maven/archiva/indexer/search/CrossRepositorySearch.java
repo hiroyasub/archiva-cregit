@@ -20,7 +20,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Search across repositories in lucene indexes.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @todo add security to not perform search in repositories you don't have access to.  */
+comment|/**  * Search across repositories in lucene indexes.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @todo add security to not perform search in repositories you don't have access to.  */
 end_comment
 
 begin_interface

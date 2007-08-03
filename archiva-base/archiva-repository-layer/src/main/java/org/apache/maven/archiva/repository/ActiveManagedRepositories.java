@@ -196,7 +196,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A component that provides a real-time listing of the active managed repositories within archiva.  * This object is internally consistent and will return maintain a consistent list of managed repositories internally.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.repository.ActiveManagedRepositories"  */
+comment|/**  * A component that provides a real-time listing of the active managed repositories within archiva.  * This object is internally consistent and will return maintain a consistent list of managed repositories internally.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.repository.ActiveManagedRepositories"  */
 end_comment
 
 begin_class

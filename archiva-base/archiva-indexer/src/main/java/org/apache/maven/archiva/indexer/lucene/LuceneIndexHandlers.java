@@ -48,7 +48,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The important bits and pieces for handling a specific lucene index      *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * The important bits and pieces for handling a specific lucene index      *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_interface

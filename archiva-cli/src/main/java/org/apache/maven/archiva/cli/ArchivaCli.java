@@ -378,7 +378,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaCli   *  * @author Jason van Zyl  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ArchivaCli   *  * @author Jason van Zyl  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

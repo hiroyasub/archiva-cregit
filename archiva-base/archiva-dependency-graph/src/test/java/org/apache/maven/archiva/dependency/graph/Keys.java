@@ -36,7 +36,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Keys - utility methods for converting common objects into string keys.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Keys - utility methods for converting common objects into string keys.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

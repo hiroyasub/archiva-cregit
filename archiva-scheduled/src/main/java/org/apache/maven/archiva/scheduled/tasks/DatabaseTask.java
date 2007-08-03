@@ -16,7 +16,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * DataRefreshTask - task for discovering changes in the repository   * and updating all associated data.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id: DataRefreshTask.java 525176 2007-04-03 15:21:33Z joakime $  */
+comment|/**  * DataRefreshTask - task for discovering changes in the repository   * and updating all associated data.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id: DataRefreshTask.java 525176 2007-04-03 15:21:33Z joakime $  */
 end_comment
 
 begin_class

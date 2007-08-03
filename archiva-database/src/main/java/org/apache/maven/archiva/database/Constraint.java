@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Constraint - a generic object for dealing with database constraints.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @see DeclarativeConstraint  * @see SimpleConstraint  */
+comment|/**  * Constraint - a generic object for dealing with database constraints.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @see DeclarativeConstraint  * @see SimpleConstraint  */
 end_comment
 
 begin_interface

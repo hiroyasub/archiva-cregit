@@ -238,7 +238,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProjectModelExpressionFilter   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.repository.project.ProjectModelFilter"  *                   role-hint="expression"   *                   instantiation-strategy="per-lookup"  */
+comment|/**  * ProjectModelExpressionFilter   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.repository.project.ProjectModelFilter"  *                   role-hint="expression"   *                   instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

@@ -216,7 +216,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DatabaseConsumers   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.database.updater.DatabaseConsumers"  */
+comment|/**  * DatabaseConsumers   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.database.updater.DatabaseConsumers"  */
 end_comment
 
 begin_class

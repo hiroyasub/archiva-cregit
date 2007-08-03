@@ -134,7 +134,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a stack of {@link ProjectModelResolver} resolvers for  * finding/resolving an ArchivaProjectModel from multiple sources.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.repository.project.resolvers.ProjectModelResolverStack"  */
+comment|/**  * Represents a stack of {@link ProjectModelResolver} resolvers for  * finding/resolving an ArchivaProjectModel from multiple sources.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.repository.project.resolvers.ProjectModelResolverStack"  */
 end_comment
 
 begin_class

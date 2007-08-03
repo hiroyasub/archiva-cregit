@@ -44,7 +44,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultUrlFailureCache   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.policies.urlcache.UrlFailureCache"  *                   role-hint="default"  */
+comment|/**  * DefaultUrlFailureCache   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.policies.urlcache.UrlFailureCache"  *                   role-hint="default"  */
 end_comment
 
 begin_class

@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Closure to set the edge scope.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Closure to set the edge scope.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

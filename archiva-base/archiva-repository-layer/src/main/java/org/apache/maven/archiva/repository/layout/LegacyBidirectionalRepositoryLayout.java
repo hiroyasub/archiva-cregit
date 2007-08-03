@@ -136,7 +136,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LegacyBidirectionalRepositoryLayout - the layout mechanism for use by Maven 1.x repositories.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role-hint="legacy"  */
+comment|/**  * LegacyBidirectionalRepositoryLayout - the layout mechanism for use by Maven 1.x repositories.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role-hint="legacy"  */
 end_comment
 
 begin_class

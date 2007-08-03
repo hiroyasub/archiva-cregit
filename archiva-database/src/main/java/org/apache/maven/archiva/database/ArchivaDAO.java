@@ -38,7 +38,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaDAO - The interface for all content within the database.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ArchivaDAO - The interface for all content within the database.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_interface

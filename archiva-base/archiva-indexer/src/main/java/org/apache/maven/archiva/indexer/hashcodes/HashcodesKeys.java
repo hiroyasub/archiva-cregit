@@ -36,7 +36,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Lucene Index Keys for the various fields in the Hashcodes Index.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Lucene Index Keys for the various fields in the Hashcodes Index.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

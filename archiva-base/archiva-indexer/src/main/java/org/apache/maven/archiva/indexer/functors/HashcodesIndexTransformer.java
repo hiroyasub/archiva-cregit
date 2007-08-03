@@ -66,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * HashcodesIndexTransformer   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.commons.collections.Transformer" role-hint="hashcodes"  */
+comment|/**  * HashcodesIndexTransformer   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.commons.collections.Transformer" role-hint="hashcodes"  */
 end_comment
 
 begin_class

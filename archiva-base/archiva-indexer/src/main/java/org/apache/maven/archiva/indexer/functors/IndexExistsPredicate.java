@@ -80,7 +80,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test the {@link RepositoryContentIndex} object for the existance of an index.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component   *      role="org.apache.commons.collections.Predicate"   *      role-hint="index-exists"  */
+comment|/**  * Test the {@link RepositoryContentIndex} object for the existance of an index.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component   *      role="org.apache.commons.collections.Predicate"   *      role-hint="index-exists"  */
 end_comment
 
 begin_class

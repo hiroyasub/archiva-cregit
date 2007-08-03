@@ -84,7 +84,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * BidirectionalRepositoryLayout - Similar in scope to ArtifactRepositoryLayout, but does  * the both the Path to Artifact, and Artifact to Path conversions.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * BidirectionalRepositoryLayout - Similar in scope to ArtifactRepositoryLayout, but does  * the both the Path to Artifact, and Artifact to Path conversions.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_interface

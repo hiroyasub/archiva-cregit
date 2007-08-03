@@ -114,7 +114,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryConfigurationAdminTransformer   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.commons.collections.Transformer"  *                   role-hint="adminrepoconfig"  */
+comment|/**  * RepositoryConfigurationAdminTransformer   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.commons.collections.Transformer"  *                   role-hint="adminrepoconfig"  */
 end_comment
 
 begin_class

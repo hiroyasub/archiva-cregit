@@ -64,7 +64,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaConfigurationAdaptor   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @todo the whole need for 2 objects is a consequence of using jpox. hopefully JPA will address some of this mess.  */
+comment|/**  * ArchivaConfigurationAdaptor   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @todo the whole need for 2 objects is a consequence of using jpox. hopefully JPA will address some of this mess.  */
 end_comment
 
 begin_class

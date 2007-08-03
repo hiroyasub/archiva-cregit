@@ -298,7 +298,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DependencyGraphTestCreator   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * DependencyGraphTestCreator   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

@@ -270,7 +270,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Builder for the Effective Project Model.    *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.repository.project.ProjectModelFilter"   *                   role-hint="effective"   */
+comment|/**  * Builder for the Effective Project Model.    *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.repository.project.ProjectModelFilter"   *                   role-hint="effective"   */
 end_comment
 
 begin_class

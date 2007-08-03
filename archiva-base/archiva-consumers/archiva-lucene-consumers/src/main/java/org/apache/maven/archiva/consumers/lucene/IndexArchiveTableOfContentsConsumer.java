@@ -94,7 +94,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * IndexArchiveTableOfContentsConsumer   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.DatabaseUnprocessedArtifactConsumer"  *                   role-hint="index-archive-toc"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * IndexArchiveTableOfContentsConsumer   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.DatabaseUnprocessedArtifactConsumer"  *                   role-hint="index-archive-toc"  *                   instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

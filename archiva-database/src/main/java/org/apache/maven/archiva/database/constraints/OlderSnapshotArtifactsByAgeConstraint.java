@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Constraint for snapshot artifacts that are of a certain age (in days) or older.   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Constraint for snapshot artifacts that are of a certain age (in days) or older.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

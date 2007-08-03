@@ -94,7 +94,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * VersionComparator - compare the parts of two version strings.  *   * Technique.  *   *  * Split the version strings into parts by splitting on<code>"-._"</code> first, then breaking apart words from numbers.  *   *<code>  *   "1.0"         = "1", "0"  *   "1.0-alpha-1" = "1", "0", "alpha", "1"  *   "2.0-rc2"     = "2", "0", "rc", "2"  *   "1.3-m2"      = "1", "3", "m", "3"  *</code>  *   * compare each part individually, and when they do not match, perform the following test.  *   * Numbers are calculated per normal comparison rules.  * Words that are part of the "special word list" will be treated as their index within that heirarchy.  * Words that cannot be identified as special, are treated using normal case-insensitive comparison rules.  *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * VersionComparator - compare the parts of two version strings.  *   * Technique.  *   *  * Split the version strings into parts by splitting on<code>"-._"</code> first, then breaking apart words from numbers.  *   *<code>  *   "1.0"         = "1", "0"  *   "1.0-alpha-1" = "1", "0", "alpha", "1"  *   "2.0-rc2"     = "2", "0", "rc", "2"  *   "1.3-m2"      = "1", "3", "m", "3"  *</code>  *   * compare each part individually, and when they do not match, perform the following test.  *   * Numbers are calculated per normal comparison rules.  * Words that are part of the "special word list" will be treated as their index within that heirarchy.  * Words that cannot be identified as special, are treated using normal case-insensitive comparison rules.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

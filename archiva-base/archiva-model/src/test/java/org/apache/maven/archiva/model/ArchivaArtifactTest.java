@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaModelClonerTest   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id: ArchivaModelClonerTest.java 525951 2007-04-05 20:11:19Z joakime $  */
+comment|/**  * ArchivaModelClonerTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id: ArchivaModelClonerTest.java 525951 2007-04-05 20:11:19Z joakime $  */
 end_comment
 
 begin_class
