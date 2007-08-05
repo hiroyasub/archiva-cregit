@@ -338,20 +338,15 @@ name|isDirectory
 argument_list|()
 condition|)
 block|{
-throw|throw
-operator|new
-name|RepositoryPurgeException
-argument_list|(
-literal|"Parent file "
-operator|+
-name|dir
+name|System
 operator|.
-name|getPath
-argument_list|()
-operator|+
-literal|" is not a directory."
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"File is not a directory."
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 name|File
 index|[]
@@ -604,12 +599,6 @@ name|le
 parameter_list|)
 block|{
 block|}
-block|}
-specifier|protected
-name|void
-name|updateMetadata
-parameter_list|()
-block|{
 block|}
 comment|/**      * Get the artifactId, version, extension and classifier from the path parameter      *      * @param path      * @return      * @throws LayoutException      */
 specifier|protected
