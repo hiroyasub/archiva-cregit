@@ -128,55 +128,16 @@ specifier|public
 interface|interface
 name|RepositoryPurge
 block|{
-comment|/**      * Perform checking on artifact for repository purge      *      * @param path          path to the scanned artifact      * @param configuration the configuration for the repository currently being scanned      */
+comment|/**      * Perform checking on artifact for repository purge      *      * @param path          path to the scanned artifact      */
 specifier|public
 name|void
 name|process
 parameter_list|(
 name|String
 name|path
-parameter_list|,
-name|Configuration
-name|configuration
 parameter_list|)
 throws|throws
 name|RepositoryPurgeException
-function_decl|;
-comment|/**      * Set the repository to be purged      *      * @param repository      */
-specifier|public
-name|void
-name|setRepository
-parameter_list|(
-name|ArchivaRepository
-name|repository
-parameter_list|)
-function_decl|;
-comment|/**      * Set the layout of the repository to be purged      *      * @param layout      */
-specifier|public
-name|void
-name|setLayout
-parameter_list|(
-name|BidirectionalRepositoryLayout
-name|layout
-parameter_list|)
-function_decl|;
-comment|/**      * Set the index of the repository       *      * @param index      */
-specifier|public
-name|void
-name|setIndex
-parameter_list|(
-name|RepositoryContentIndex
-name|index
-parameter_list|)
-function_decl|;
-comment|/**      * Set the artifact dao used for updating the database of the changes in the repo      *      * @param artifactDao      */
-specifier|public
-name|void
-name|setArtifactDao
-parameter_list|(
-name|ArtifactDAO
-name|artifactDao
-parameter_list|)
 function_decl|;
 block|}
 end_interface
