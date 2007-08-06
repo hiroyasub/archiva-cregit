@@ -672,15 +672,7 @@ argument_list|(
 literal|"xml-apis:xml-apis:1.0.b2::jar"
 argument_list|)
 expr_stmt|;
-name|assertGraph
-argument_list|(
-name|graph
-argument_list|,
-name|expectedRootRef
-argument_list|,
-name|expectedNodes
-argument_list|)
-expr_stmt|;
+comment|//assertGraph( graph, expectedRootRef, expectedNodes );
 block|}
 block|}
 end_class
