@@ -593,6 +593,10 @@ block|}
 block|}
 else|else
 block|{
+comment|// Create parent directories that don't exist when writing a file
+comment|// This actually makes this implementation not compliant to the WebDAV RFC - but we have enough knowledge
+comment|// about how the collection is being used to do this reasonably and some versions of Maven's WebDAV don't
+comment|// correctly create the collections themselves.
 name|File
 name|rootDirectory
 init|=
