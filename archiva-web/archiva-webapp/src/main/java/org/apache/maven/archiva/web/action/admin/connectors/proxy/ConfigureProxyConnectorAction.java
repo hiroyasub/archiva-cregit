@@ -924,7 +924,7 @@ condition|)
 block|{
 name|addActionError
 argument_list|(
-literal|"Cannot add an blank white list pattern."
+literal|"Cannot add a blank white list pattern."
 argument_list|)
 expr_stmt|;
 block|}
@@ -979,7 +979,7 @@ condition|)
 block|{
 name|addActionError
 argument_list|(
-literal|"Cannot remove an blank white list pattern."
+literal|"Cannot remove a blank white list pattern."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1034,7 +1034,7 @@ condition|)
 block|{
 name|addActionError
 argument_list|(
-literal|"Cannot add an blank black list pattern."
+literal|"Cannot add a blank black list pattern."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1074,7 +1074,7 @@ block|{
 name|String
 name|pattern
 init|=
-name|getBlackListPattern
+name|getPattern
 argument_list|()
 decl_stmt|;
 if|if
@@ -1089,7 +1089,7 @@ condition|)
 block|{
 name|addActionError
 argument_list|(
-literal|"Cannot remove an blank black list pattern."
+literal|"Cannot remove a blank black list pattern."
 argument_list|)
 expr_stmt|;
 block|}
