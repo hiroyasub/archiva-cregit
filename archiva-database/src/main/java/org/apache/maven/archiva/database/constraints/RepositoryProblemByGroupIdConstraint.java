@@ -62,7 +62,7 @@ parameter_list|)
 block|{
 name|whereClause
 operator|=
-literal|"groupId == desiredGroupId"
+literal|"groupId.like(desiredGroupId)"
 expr_stmt|;
 name|declParams
 operator|=
@@ -80,6 +80,8 @@ name|Object
 index|[]
 block|{
 name|desiredGroupId
+operator|+
+literal|"%"
 block|}
 expr_stmt|;
 block|}

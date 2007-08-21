@@ -132,6 +132,14 @@ name|ArrayList
 argument_list|()
 decl_stmt|;
 specifier|public
+specifier|static
+specifier|final
+name|String
+name|ALL_REPOSITORIES
+init|=
+literal|"All Repositories"
+decl_stmt|;
+specifier|public
 name|String
 name|execute
 parameter_list|()
@@ -142,7 +150,7 @@ name|repositoryIds
 operator|.
 name|add
 argument_list|(
-literal|""
+name|ALL_REPOSITORIES
 argument_list|)
 expr_stmt|;
 name|repositoryIds
