@@ -460,6 +460,7 @@ argument_list|)
 return|;
 block|}
 specifier|public
+specifier|synchronized
 name|void
 name|save
 parameter_list|(
@@ -1000,10 +1001,16 @@ name|Object
 name|propertyValue
 parameter_list|)
 block|{
+synchronized|synchronized
+init|(
+name|configuration
+init|)
+block|{
 name|configuration
 operator|=
 literal|null
 expr_stmt|;
+block|}
 block|}
 specifier|private
 name|String
