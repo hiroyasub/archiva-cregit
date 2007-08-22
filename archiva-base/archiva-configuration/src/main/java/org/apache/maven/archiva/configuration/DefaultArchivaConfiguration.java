@@ -988,6 +988,7 @@ block|{
 comment|// nothing to do here
 block|}
 specifier|public
+specifier|synchronized
 name|void
 name|afterConfigurationChange
 parameter_list|(
@@ -1001,16 +1002,10 @@ name|Object
 name|propertyValue
 parameter_list|)
 block|{
-synchronized|synchronized
-init|(
-name|configuration
-init|)
-block|{
 name|configuration
 operator|=
 literal|null
 expr_stmt|;
-block|}
 block|}
 specifier|private
 name|String
