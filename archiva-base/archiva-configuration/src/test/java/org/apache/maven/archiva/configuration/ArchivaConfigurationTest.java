@@ -2888,9 +2888,6 @@ name|repository
 operator|.
 name|getRefreshCronExpression
 argument_list|()
-operator|.
-name|trim
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|configuration
@@ -2929,6 +2926,45 @@ name|getDatabaseScanning
 argument_list|()
 operator|.
 name|getCronExpression
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// test for the escape character '\' showing up on repositories.jsp
+name|repository
+operator|.
+name|setRefreshCronExpression
+argument_list|(
+literal|"0 0,20 0 * * ?"
+argument_list|)
+expr_stmt|;
+name|archivaConfiguration
+operator|.
+name|save
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
+name|repository
+operator|=
+name|archivaConfiguration
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|findRepositoryById
+argument_list|(
+literal|"snapshots"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check cron expression"
+argument_list|,
+literal|"0 0,20 0 * * ?"
+argument_list|,
+name|repository
+operator|.
+name|getRefreshCronExpression
 argument_list|()
 argument_list|)
 expr_stmt|;
