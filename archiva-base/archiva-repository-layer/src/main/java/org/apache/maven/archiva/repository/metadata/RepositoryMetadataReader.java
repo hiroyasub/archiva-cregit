@@ -140,6 +140,7 @@ name|RepositoryMetadataReader
 block|{
 comment|/**      * Read and return the {@link ArchivaRepositoryMetadata} object from the provided xml file.      *       * @param metadataFile the maven-metadata.xml file to read.      * @return the archiva repository metadata object that represents the provided file contents.      * @throws RepositoryMetadataException      */
 specifier|public
+specifier|static
 name|ArchivaRepositoryMetadata
 name|read
 parameter_list|(
