@@ -153,6 +153,19 @@ argument_list|(
 literal|"^(.*)-([0-9]{8}\\.[0-9]{6})-([0-9]+)$"
 argument_list|)
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|Pattern
+name|TIMESTAMP_PATTERN
+init|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+literal|"^([0-9]{8})\\.([0-9]{6})$"
+argument_list|)
+decl_stmt|;
 comment|/**      *<p>      * Tests if the unknown string contains elements that identify it as a version string (or not).      *</p>      *       *<p>      * The algorithm tests each part of the string that is delimited by a '-' (dash) character.      * If 75% or more of the sections are identified as 'version' strings, the result is      * determined to be of a high probability to be version identifier string.      *</p>      *       * @param unknown the unknown string to test.      * @return true if the unknown string is likely a version string.      */
 specifier|public
 specifier|static
