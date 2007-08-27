@@ -363,6 +363,14 @@ specifier|public
 specifier|static
 specifier|final
 name|String
+name|PATH_TO_BY_DAYS_OLD_METADATA_DRIVEN_ARTIFACT
+init|=
+literal|"org/codehaus/plexus/plexus-utils/1.4.3-SNAPSHOT/plexus-utils-1.4.3-20070113.163208-4.jar"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
 name|PATH_TO_BY_RETENTION_COUNT_ARTIFACT
 init|=
 literal|"org/jruby/plugins/jruby-rake-plugin/1.0RC1-SNAPSHOT/jruby-rake-plugin-1.0RC1-20070504.153317-1.jar"
