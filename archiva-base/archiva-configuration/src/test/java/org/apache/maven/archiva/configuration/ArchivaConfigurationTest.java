@@ -411,6 +411,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Ensures that the provided configuration matches the details present in the archiva-default.xml file.      */
 specifier|private
 name|void
 name|assertConfiguration
@@ -501,7 +502,7 @@ name|assertEquals
 argument_list|(
 literal|"check known consumers"
 argument_list|,
-literal|8
+literal|9
 argument_list|,
 name|repoScanning
 operator|.

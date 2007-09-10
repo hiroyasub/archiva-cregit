@@ -2399,8 +2399,6 @@ name|metadata
 init|=
 name|createProjectReference
 argument_list|(
-literal|"default"
-argument_list|,
 name|requestedResource
 argument_list|)
 decl_stmt|;
@@ -2429,6 +2427,25 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+specifier|private
+name|ProjectReference
+name|createProjectReference
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+throws|throws
+name|RepositoryMetadataException
+block|{
+return|return
+name|metadataTools
+operator|.
+name|toProjectReference
+argument_list|(
+name|path
+argument_list|)
+return|;
+block|}
 comment|/**      * Transfer the metadata file, not expected to succeed.      *       * @param requestedResource the requested resource      * @throws Exception       */
 specifier|private
 name|void
@@ -2456,8 +2473,6 @@ name|metadata
 init|=
 name|createProjectReference
 argument_list|(
-literal|"default"
-argument_list|,
 name|requestedResource
 argument_list|)
 decl_stmt|;
@@ -2511,8 +2526,6 @@ name|metadata
 init|=
 name|createVersionedReference
 argument_list|(
-literal|"default"
-argument_list|,
 name|requestedResource
 argument_list|)
 decl_stmt|;
@@ -2541,6 +2554,25 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+specifier|private
+name|VersionedReference
+name|createVersionedReference
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+throws|throws
+name|RepositoryMetadataException
+block|{
+return|return
+name|metadataTools
+operator|.
+name|toVersionedReference
+argument_list|(
+name|path
+argument_list|)
+return|;
+block|}
 comment|/**      * Transfer the metadata file, not expected to succeed.      *       * @param requestedResource the requested resource      * @throws Exception       */
 specifier|private
 name|void
@@ -2568,8 +2600,6 @@ name|metadata
 init|=
 name|createVersionedReference
 argument_list|(
-literal|"default"
-argument_list|,
 name|requestedResource
 argument_list|)
 decl_stmt|;
@@ -2846,8 +2876,6 @@ name|metadata
 init|=
 name|createProjectReference
 argument_list|(
-literal|"default"
-argument_list|,
 name|requestedResource
 argument_list|)
 decl_stmt|;
@@ -2976,8 +3004,6 @@ name|metadata
 init|=
 name|createVersionedReference
 argument_list|(
-literal|"default"
-argument_list|,
 name|requestedResource
 argument_list|)
 decl_stmt|;
@@ -3102,8 +3128,6 @@ name|actualMetadata
 init|=
 name|createVersionedReference
 argument_list|(
-literal|"default"
-argument_list|,
 name|requestedResource
 argument_list|)
 decl_stmt|;
@@ -3184,8 +3208,6 @@ name|actualMetadata
 init|=
 name|createVersionedReference
 argument_list|(
-literal|"default"
-argument_list|,
 name|requestedResource
 argument_list|)
 decl_stmt|;
@@ -3419,8 +3441,6 @@ name|metadata
 init|=
 name|createProjectReference
 argument_list|(
-literal|"default"
-argument_list|,
 name|requestedResource
 argument_list|)
 decl_stmt|;
@@ -3564,8 +3584,6 @@ name|metadata
 init|=
 name|createVersionedReference
 argument_list|(
-literal|"default"
-argument_list|,
 name|requestedResource
 argument_list|)
 decl_stmt|;
