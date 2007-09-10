@@ -127,7 +127,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|"jar"
+literal|"java-source"
 return|;
 block|}
 if|else if
@@ -141,7 +141,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|"jar"
+literal|"javadoc.jar"
 return|;
 block|}
 else|else

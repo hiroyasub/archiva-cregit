@@ -63,22 +63,6 @@ name|archiva
 operator|.
 name|model
 operator|.
-name|ProjectReference
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|model
-operator|.
 name|VersionedReference
 import|;
 end_import
@@ -125,50 +109,10 @@ name|ArtifactReference
 name|reference
 parameter_list|)
 function_decl|;
-comment|/**      * Given an {@link VersionedReference}, return the relative path to that reference.      *      * @param reference the versioned project reference to use.      * @return the relative path to the project reference.      */
-specifier|public
-name|String
-name|toPath
-parameter_list|(
-name|VersionedReference
-name|reference
-parameter_list|)
-function_decl|;
-comment|/**      * Given an ProjectReference, return the relative path to that reference.      *      * @param reference the project reference to use.      * @return the relative path to the project reference.      */
-specifier|public
-name|String
-name|toPath
-parameter_list|(
-name|ProjectReference
-name|reference
-parameter_list|)
-function_decl|;
 comment|/**      * Given a repository relative path to a filename, return the {@link ArchivaArtifact} object suitable for the path.      *      * @param path the path relative to the repository base dir for the artifact.      * @return the {@link ArchivaArtifact} representing the path. (or null if path cannot be converted to      *         an {@link ArchivaArtifact})      * @throws LayoutException if there was a problem converting the path to an artifact.      */
 specifier|public
 name|ArchivaArtifact
 name|toArtifact
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-throws|throws
-name|LayoutException
-function_decl|;
-comment|/**      * Given a repository relative path to a filename, return the {@link ProjectReference} object suitable for the path.      *      * @param path the path relative to the repository base dir for the artifact.      * @return the {@link ProjectReference} representing the path.  (or null if path cannot be converted to      *         a {@link ProjectReference})      * @throws LayoutException if there was a problem converting the path to an artifact.      */
-specifier|public
-name|ProjectReference
-name|toProjectReference
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-throws|throws
-name|LayoutException
-function_decl|;
-comment|/**      * Given a repository relative path to a filename, return the {@link VersionedReference} object suitable for the path.      *      * @param path the path relative to the repository base dir for the artifact.      * @return the {@link VersionedReference} representing the path.  (or null if path cannot be converted to      *         a {@link VersionedReference})      * @throws LayoutException if there was a problem converting the path to an artifact.      */
-specifier|public
-name|VersionedReference
-name|toVersionedReference
 parameter_list|(
 name|String
 name|path

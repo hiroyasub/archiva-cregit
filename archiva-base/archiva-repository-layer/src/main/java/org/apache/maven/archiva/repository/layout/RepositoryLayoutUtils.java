@@ -426,6 +426,29 @@ operator|<
 literal|0
 condition|)
 block|{
+comment|// Assume rest of string is the version Id.
+if|if
+condition|(
+name|fileParts
+operator|.
+name|length
+operator|>
+literal|0
+condition|)
+block|{
+name|versionStart
+operator|=
+literal|0
+expr_stmt|;
+name|versionEnd
+operator|=
+name|fileParts
+operator|.
+name|length
+expr_stmt|;
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|LayoutException
@@ -435,6 +458,7 @@ operator|+
 name|filename
 argument_list|)
 throw|;
+block|}
 block|}
 comment|// Gather up the ArtifactID - Version - Classifier pieces found.
 name|int
