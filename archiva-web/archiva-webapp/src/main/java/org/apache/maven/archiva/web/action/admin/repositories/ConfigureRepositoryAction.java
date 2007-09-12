@@ -299,7 +299,6 @@ return|return
 name|ERROR
 return|;
 block|}
-comment|// TODO: remove from index too!
 try|try
 block|{
 name|Configuration
