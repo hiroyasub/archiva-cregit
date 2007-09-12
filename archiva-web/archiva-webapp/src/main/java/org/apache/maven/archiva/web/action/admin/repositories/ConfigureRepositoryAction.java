@@ -947,7 +947,31 @@ operator|.
 name|mkdirs
 argument_list|()
 expr_stmt|;
-comment|// TODO: error handling when this fails, or is not a directory!
+block|}
+if|if
+condition|(
+operator|!
+name|file
+operator|.
+name|exists
+argument_list|()
+operator|||
+operator|!
+name|file
+operator|.
+name|isDirectory
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"unable to add repository - can not create the root directory: "
+operator|+
+name|file
+argument_list|)
+throw|;
 block|}
 name|configuration
 operator|.
