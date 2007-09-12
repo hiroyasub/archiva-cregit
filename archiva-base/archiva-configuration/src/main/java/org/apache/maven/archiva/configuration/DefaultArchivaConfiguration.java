@@ -448,6 +448,16 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+name|r
+operator|.
+name|setScanned
+argument_list|(
+name|r
+operator|.
+name|isIndexed
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|r

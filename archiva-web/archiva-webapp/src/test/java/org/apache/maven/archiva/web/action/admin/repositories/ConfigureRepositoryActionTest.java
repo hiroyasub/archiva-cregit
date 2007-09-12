@@ -520,7 +520,7 @@ name|assertFalse
 argument_list|(
 name|configuration
 operator|.
-name|isIndexed
+name|isScanned
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -570,7 +570,7 @@ name|assertTrue
 argument_list|(
 name|configuration
 operator|.
-name|isIndexed
+name|isScanned
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1585,12 +1585,12 @@ name|assertEquals
 argument_list|(
 name|expectedRepository
 operator|.
-name|isIndexed
+name|isScanned
 argument_list|()
 argument_list|,
 name|actualRepository
 operator|.
-name|isIndexed
+name|isScanned
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1751,7 +1751,7 @@ argument_list|)
 expr_stmt|;
 name|repository
 operator|.
-name|setIndexed
+name|setScanned
 argument_list|(
 literal|true
 argument_list|)

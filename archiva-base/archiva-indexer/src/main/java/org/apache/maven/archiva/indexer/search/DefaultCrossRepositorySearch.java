@@ -1530,7 +1530,7 @@ if|if
 condition|(
 name|repo
 operator|.
-name|isIndexed
+name|isScanned
 argument_list|()
 condition|)
 block|{

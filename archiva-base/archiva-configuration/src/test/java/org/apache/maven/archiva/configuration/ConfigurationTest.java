@@ -649,7 +649,7 @@ name|String
 name|location
 parameter_list|,
 name|boolean
-name|indexed
+name|scanned
 parameter_list|)
 block|{
 name|ManagedRepositoryConfiguration
@@ -682,9 +682,9 @@ argument_list|)
 expr_stmt|;
 name|repo
 operator|.
-name|setIndexed
+name|setScanned
 argument_list|(
-name|indexed
+name|scanned
 argument_list|)
 expr_stmt|;
 return|return

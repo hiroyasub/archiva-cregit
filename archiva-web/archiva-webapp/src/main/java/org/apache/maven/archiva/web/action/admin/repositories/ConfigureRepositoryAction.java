@@ -238,7 +238,7 @@ name|this
 operator|.
 name|repository
 operator|.
-name|setIndexed
+name|setScanned
 argument_list|(
 literal|true
 argument_list|)
@@ -495,7 +495,7 @@ name|this
 operator|.
 name|repository
 operator|.
-name|setIndexed
+name|setScanned
 argument_list|(
 literal|false
 argument_list|)

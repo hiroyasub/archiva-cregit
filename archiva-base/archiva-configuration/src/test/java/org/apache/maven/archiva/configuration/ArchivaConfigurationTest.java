@@ -286,7 +286,7 @@ literal|"check managed repositories"
 argument_list|,
 name|repository
 operator|.
-name|isIndexed
+name|isScanned
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -414,7 +414,7 @@ literal|"check managed repositories"
 argument_list|,
 name|repository
 operator|.
-name|isIndexed
+name|isScanned
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2650,7 +2650,7 @@ literal|"check managed repositories"
 argument_list|,
 name|repository
 operator|.
-name|isIndexed
+name|isScanned
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2778,7 +2778,7 @@ literal|"check managed repositories"
 argument_list|,
 name|repository
 operator|.
-name|isIndexed
+name|isScanned
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2928,7 +2928,7 @@ literal|"check managed repositories"
 argument_list|,
 name|repository
 operator|.
-name|isIndexed
+name|isScanned
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2999,13 +2999,13 @@ name|getLayout
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertFalse
 argument_list|(
 literal|"check managed repositories"
 argument_list|,
 name|repository
 operator|.
-name|isIndexed
+name|isScanned
 argument_list|()
 argument_list|)
 expr_stmt|;

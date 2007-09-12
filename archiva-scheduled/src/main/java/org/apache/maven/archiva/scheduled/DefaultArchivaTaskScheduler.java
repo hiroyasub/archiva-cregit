@@ -540,7 +540,7 @@ if|if
 condition|(
 name|repoConfig
 operator|.
-name|isIndexed
+name|isScanned
 argument_list|()
 condition|)
 block|{
