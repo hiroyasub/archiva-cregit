@@ -15,6 +15,10 @@ name|tags
 package|;
 end_package
 
+begin_comment
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *  http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+end_comment
+
 begin_import
 import|import
 name|org
@@ -41,7 +45,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 import|;
 end_import
 
@@ -74,16 +78,6 @@ operator|.
 name|logging
 operator|.
 name|AbstractLogEnabled
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -123,8 +117,18 @@ name|PageContext
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
-comment|/**  * CopyPasteSnippet   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.web.tags.CopyPasteSnippet"  */
+comment|/**  * CopyPasteSnippet  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.web.tags.CopyPasteSnippet"  */
 end_comment
 
 begin_class
@@ -181,7 +185,7 @@ if|else if
 condition|(
 name|o
 operator|instanceof
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 condition|)
 block|{
 name|createSnippet
@@ -189,7 +193,7 @@ argument_list|(
 name|buf
 argument_list|,
 operator|(
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 operator|)
 name|o
 argument_list|,
@@ -278,7 +282,7 @@ parameter_list|(
 name|StringBuffer
 name|snippet
 parameter_list|,
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 name|repo
 parameter_list|,
 name|PageContext
@@ -488,14 +492,6 @@ argument_list|(
 literal|"<url>"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|repo
-operator|.
-name|isManaged
-argument_list|()
-condition|)
-block|{
 name|snippet
 operator|.
 name|append
@@ -530,20 +526,6 @@ argument_list|(
 literal|"/"
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|snippet
-operator|.
-name|append
-argument_list|(
-name|repo
-operator|.
-name|getUrl
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 name|snippet
 operator|.
 name|append

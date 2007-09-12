@@ -370,7 +370,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactUpdateDatabaseConsumer - Take an artifact off of disk and put it into the repository.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *                   role-hint="update-db-artifact"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * ArtifactUpdateDatabaseConsumer - Take an artifact off of disk and put it into the repository.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="update-db-artifact"  * instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -531,23 +531,6 @@ parameter_list|)
 throws|throws
 name|ConsumerException
 block|{
-if|if
-condition|(
-operator|!
-name|repository
-operator|.
-name|isManaged
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|ConsumerException
-argument_list|(
-literal|"Consumer requires managed repository."
-argument_list|)
-throw|;
-block|}
 name|this
 operator|.
 name|repository
@@ -813,7 +796,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get a Live Artifact from a Path.      *       * Will resolve the artifact details from the path, and then return a database live version      * of that artifact.  Suitable for modification and saving (without the need to check for      * existance in database prior to save.)      *       * @param path the path to work from.      * @return the artifact that is suitable for database saving.      */
+comment|/**      * Get a Live Artifact from a Path.      *<p/>      * Will resolve the artifact details from the path, and then return a database live version      * of that artifact.  Suitable for modification and saving (without the need to check for      * existance in database prior to save.)      *      * @param path the path to work from.      * @return the artifact that is suitable for database saving.      */
 specifier|public
 name|ArchivaArtifact
 name|getLiveArtifact

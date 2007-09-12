@@ -186,7 +186,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultRepositoryScanner   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.repository.scanner.RepositoryScanner"  */
+comment|/**  * DefaultRepositoryScanner  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.repository.scanner.RepositoryScanner"  */
 end_comment
 
 begin_class
@@ -304,10 +304,18 @@ block|}
 if|if
 condition|(
 operator|!
+literal|"file"
+operator|.
+name|equals
+argument_list|(
 name|repository
 operator|.
-name|isManaged
+name|getUrl
 argument_list|()
+operator|.
+name|getProtocol
+argument_list|()
+argument_list|)
 condition|)
 block|{
 throw|throw

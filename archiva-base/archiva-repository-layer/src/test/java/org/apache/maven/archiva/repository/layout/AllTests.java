@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AllTests - Useful for developers using IDEs.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * AllTests - Useful for developers using IDEs.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -64,15 +64,6 @@ literal|"Test for org.apache.maven.archiva.repository.layout"
 argument_list|)
 decl_stmt|;
 comment|//$JUnit-BEGIN$
-name|suite
-operator|.
-name|addTestSuite
-argument_list|(
-name|AbstractBidirectionalRepositoryLayoutTestCase
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
 name|suite
 operator|.
 name|addTestSuite

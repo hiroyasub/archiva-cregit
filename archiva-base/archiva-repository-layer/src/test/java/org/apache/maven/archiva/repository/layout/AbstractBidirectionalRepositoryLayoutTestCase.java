@@ -136,11 +136,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractBidirectionalRepositoryLayoutTestCase   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * AbstractBidirectionalRepositoryLayoutTestCase  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
 specifier|public
+specifier|abstract
 class|class
 name|AbstractBidirectionalRepositoryLayoutTestCase
 extends|extends
@@ -230,9 +231,7 @@ argument_list|,
 literal|"/"
 argument_list|)
 decl_stmt|;
-name|ArchivaRepository
-name|repo
-init|=
+return|return
 operator|new
 name|ArchivaRepository
 argument_list|(
@@ -242,9 +241,6 @@ literal|"Test Repository"
 argument_list|,
 name|repoUri
 argument_list|)
-decl_stmt|;
-return|return
-name|repo
 return|;
 block|}
 specifier|protected

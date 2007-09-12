@@ -43,24 +43,6 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|common
-operator|.
-name|utils
-operator|.
-name|PathUtil
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
 name|configuration
 operator|.
 name|ArchivaConfiguration
@@ -79,7 +61,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 import|;
 end_import
 
@@ -204,7 +186,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DuplicateArtifactReportTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * DuplicateArtifactReportTest  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -287,11 +269,11 @@ argument_list|,
 literal|"default"
 argument_list|)
 decl_stmt|;
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 name|repoConfig
 init|=
 operator|new
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 argument_list|()
 decl_stmt|;
 name|repoConfig
@@ -329,14 +311,12 @@ argument_list|)
 expr_stmt|;
 name|repoConfig
 operator|.
-name|setUrl
-argument_list|(
-name|PathUtil
-operator|.
-name|toUrl
+name|setLocation
 argument_list|(
 name|testRepoDir
-argument_list|)
+operator|.
+name|getAbsolutePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|config
@@ -344,7 +324,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|addRepository
+name|addManagedRepository
 argument_list|(
 name|repoConfig
 argument_list|)

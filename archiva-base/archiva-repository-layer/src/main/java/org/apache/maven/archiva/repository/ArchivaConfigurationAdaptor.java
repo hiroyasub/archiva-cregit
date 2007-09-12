@@ -41,9 +41,27 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|common
+operator|.
+name|utils
+operator|.
+name|PathUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
 name|configuration
 operator|.
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 import|;
 end_import
 
@@ -64,7 +82,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaConfigurationAdaptor   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @todo the whole need for 2 objects is a consequence of using jpox. hopefully JPA will address some of this mess.  */
+comment|/**  * ArchivaConfigurationAdaptor  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @todo the whole need for 2 objects is a consequence of using jpox. hopefully JPA will address some of this mess.  */
 end_comment
 
 begin_class
@@ -72,12 +90,17 @@ specifier|public
 class|class
 name|ArchivaConfigurationAdaptor
 block|{
+specifier|private
+name|ArchivaConfigurationAdaptor
+parameter_list|()
+block|{
+block|}
 specifier|public
 specifier|static
 name|ArchivaRepository
 name|toArchivaRepository
 parameter_list|(
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 name|config
 parameter_list|)
 block|{
@@ -125,7 +148,7 @@ name|isBlank
 argument_list|(
 name|config
 operator|.
-name|getUrl
+name|getLocation
 argument_list|()
 argument_list|)
 condition|)
@@ -134,7 +157,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unable to convert repository config with blank URL to archiva repository."
+literal|"Unable to convert repository config with blank location to archiva repository."
 argument_list|)
 throw|;
 block|}
@@ -154,10 +177,15 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
+name|PathUtil
+operator|.
+name|toUrl
+argument_list|(
 name|config
 operator|.
-name|getUrl
+name|getLocation
 argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|repository

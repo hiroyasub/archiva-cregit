@@ -150,7 +150,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ManagedDefaultTransferTest   *  * @author Brett Porter  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ManagedDefaultTransferTest  *  * @author Brett Porter  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -275,7 +275,7 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The attempt here should result in no file being transferred.      *       * The file exists locally, and the policy is ONCE.      *       * @throws Exception      */
+comment|/**      * The attempt here should result in no file being transferred.      *<p/>      * The file exists locally, and the policy is ONCE.      *      * @throws Exception      */
 specifier|public
 name|void
 name|testGetDefaultLayoutAlreadyPresentPolicyOnce
@@ -374,7 +374,7 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The attempt here should result in file being transferred.      *       * The file exists locally, and the policy is IGNORE.      *       * @throws Exception      */
+comment|/**      * The attempt here should result in file being transferred.      *<p/>      * The file exists locally, and the policy is IGNORE.      *      * @throws Exception      */
 specifier|public
 name|void
 name|testGetDefaultLayoutAlreadyPresentPolicyIgnored
@@ -522,7 +522,7 @@ comment|/* On some systems the timestamp functions are not accurate enough.     
 name|int
 name|delta
 init|=
-literal|1100
+literal|20000
 decl_stmt|;
 name|long
 name|hirange
@@ -586,7 +586,7 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The attempt here should result in file being transferred.      *       * The file exists locally, is over 6 years old, and the policy is DAILY.      *       * @throws Exception      */
+comment|/**      * The attempt here should result in file being transferred.      *<p/>      * The file exists locally, is over 6 years old, and the policy is DAILY.      *      * @throws Exception      */
 specifier|public
 name|void
 name|testGetDefaultLayoutRemoteUpdate
@@ -1229,7 +1229,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Configure Repository (usually done within archiva.xml configuration)
-name|saveRepositoryConfig
+name|saveRemoteRepositoryConfig
 argument_list|(
 literal|"badproxied"
 argument_list|,
@@ -1419,7 +1419,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Configure Repository (usually done within archiva.xml configuration)
-name|saveRepositoryConfig
+name|saveRemoteRepositoryConfig
 argument_list|(
 literal|"badproxied1"
 argument_list|,
@@ -1430,7 +1430,7 @@ argument_list|,
 literal|"default"
 argument_list|)
 expr_stmt|;
-name|saveRepositoryConfig
+name|saveRemoteRepositoryConfig
 argument_list|(
 literal|"badproxied2"
 argument_list|,

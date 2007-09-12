@@ -136,7 +136,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ChecksumTransferTest   *  * @author Brett Porter  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ChecksumTransferTest  *  * @author Brett Porter  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -1932,7 +1932,7 @@ name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|saveRepositoryConfig
+name|saveRemoteRepositoryConfig
 argument_list|(
 literal|"badproxied"
 argument_list|,

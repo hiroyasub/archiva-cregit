@@ -117,7 +117,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 import|;
 end_import
 
@@ -232,7 +232,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultCrossRepositorySearchTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * DefaultCrossRepositorySearchTest  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -242,6 +242,22 @@ name|DefaultCrossRepositorySearchTest
 extends|extends
 name|PlexusTestCase
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|TEST_DEFAULT_REPOSITORY_NAME
+init|=
+literal|"Test Default Repository"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|TEST_DEFAULT_REPO_ID
+init|=
+literal|"testDefaultRepo"
+decl_stmt|;
 specifier|protected
 name|void
 name|setUp
@@ -324,9 +340,9 @@ init|=
 operator|new
 name|ArchivaRepository
 argument_list|(
-literal|"testDefaultRepo"
+name|TEST_DEFAULT_REPO_ID
 argument_list|,
-literal|"Test Default Repository"
+name|TEST_DEFAULT_REPOSITORY_NAME
 argument_list|,
 name|repoUri
 argument_list|)
@@ -363,46 +379,34 @@ argument_list|,
 literal|"mock"
 argument_list|)
 decl_stmt|;
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 name|repoConfig
 init|=
 operator|new
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 argument_list|()
 decl_stmt|;
 name|repoConfig
 operator|.
 name|setId
 argument_list|(
-name|repository
-operator|.
-name|getId
-argument_list|()
+name|TEST_DEFAULT_REPO_ID
 argument_list|)
 expr_stmt|;
 name|repoConfig
 operator|.
 name|setName
 argument_list|(
-name|repository
-operator|.
-name|getModel
-argument_list|()
-operator|.
-name|getName
-argument_list|()
+name|TEST_DEFAULT_REPOSITORY_NAME
 argument_list|)
 expr_stmt|;
 name|repoConfig
 operator|.
-name|setUrl
+name|setLocation
 argument_list|(
-name|repository
+name|repoDir
 operator|.
-name|getModel
-argument_list|()
-operator|.
-name|getUrl
+name|getAbsolutePath
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -444,7 +448,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|addRepository
+name|addManagedRepository
 argument_list|(
 name|repoConfig
 argument_list|)

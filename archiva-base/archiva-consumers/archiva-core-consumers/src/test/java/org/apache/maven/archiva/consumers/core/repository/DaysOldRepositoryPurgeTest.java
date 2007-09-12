@@ -39,9 +39,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
+name|io
 operator|.
-name|List
+name|File
 import|;
 end_import
 
@@ -59,9 +59,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|util
 operator|.
-name|File
+name|List
 import|;
 end_import
 
@@ -102,6 +102,9 @@ argument_list|,
 name|dao
 argument_list|,
 name|getRepoConfiguration
+argument_list|()
+operator|.
+name|getDaysOlder
 argument_list|()
 argument_list|)
 expr_stmt|;

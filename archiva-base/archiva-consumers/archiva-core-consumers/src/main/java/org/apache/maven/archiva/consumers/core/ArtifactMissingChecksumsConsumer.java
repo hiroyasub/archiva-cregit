@@ -294,7 +294,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactMissingChecksumsConsumer - Create missing checksums for the artifact.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *                   role-hint="create-missing-checksums"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * ArtifactMissingChecksumsConsumer - Create missing checksums for the artifact.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="create-missing-checksums"  * instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -444,23 +444,6 @@ parameter_list|)
 throws|throws
 name|ConsumerException
 block|{
-if|if
-condition|(
-operator|!
-name|repository
-operator|.
-name|isManaged
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|ConsumerException
-argument_list|(
-literal|"Consumer requires managed repository."
-argument_list|)
-throw|;
-block|}
 name|this
 operator|.
 name|repository

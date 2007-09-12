@@ -36,7 +36,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MostRecentRepositoryScanStatistics   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * MostRecentRepositoryScanStatistics  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -72,7 +72,7 @@ literal|" WHERE repositoryId == repoId PARAMETERS String repoId"
 operator|+
 literal|" ORDER BY whenGathered DESCENDING"
 operator|+
-literal|" RANGE 1,1"
+literal|" RANGE 0,1"
 expr_stmt|;
 name|super
 operator|.

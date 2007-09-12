@@ -77,7 +77,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 import|;
 end_import
 
@@ -370,7 +370,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * IndexArtifactConsumer   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.DatabaseUnprocessedArtifactConsumer"  *                   role-hint="index-artifact"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * IndexArtifactConsumer  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.DatabaseUnprocessedArtifactConsumer"  * role-hint="index-artifact"  * instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -662,7 +662,7 @@ if|if
 condition|(
 name|ConfigurationNames
 operator|.
-name|isRepositories
+name|isManagedRepositories
 argument_list|(
 name|propertyName
 argument_list|)
@@ -734,7 +734,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|getRepositories
+name|getManagedRepositories
 argument_list|()
 operator|.
 name|iterator
@@ -748,28 +748,17 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 name|repoconfig
 init|=
 operator|(
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 operator|)
 name|it
 operator|.
 name|next
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|repoconfig
-operator|.
-name|isManaged
-argument_list|()
-condition|)
-block|{
-continue|continue;
-block|}
 name|ArchivaRepository
 name|repository
 init|=

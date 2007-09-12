@@ -77,22 +77,6 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|consumers
-operator|.
-name|RepositoryContentConsumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
 name|model
 operator|.
 name|ArchivaRepository
@@ -184,7 +168,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AutoRenameConsumer   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *                   role-hint="auto-rename"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * AutoRenameConsumer  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="auto-rename"  * instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -328,23 +312,6 @@ parameter_list|)
 throws|throws
 name|ConsumerException
 block|{
-if|if
-condition|(
-operator|!
-name|repository
-operator|.
-name|isManaged
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|ConsumerException
-argument_list|(
-literal|"Consumer requires managed repository."
-argument_list|)
-throw|;
-block|}
 name|this
 operator|.
 name|repositoryDir

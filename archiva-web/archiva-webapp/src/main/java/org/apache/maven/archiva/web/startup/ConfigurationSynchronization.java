@@ -29,6 +29,24 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|common
+operator|.
+name|utils
+operator|.
+name|PathUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
 name|configuration
 operator|.
 name|ArchivaConfiguration
@@ -63,7 +81,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 import|;
 end_import
 
@@ -282,7 +300,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ConfigurationSynchronization   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component   *              role="org.apache.maven.archiva.web.startup.ConfigurationSynchronization"  *              role-hint="default"  */
+comment|/**  * ConfigurationSynchronization  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.web.startup.ConfigurationSynchronization"  * role-hint="default"  * @todo consider whether we really need these in the database or not  */
 end_comment
 
 begin_class
@@ -329,14 +347,22 @@ if|if
 condition|(
 name|ConfigurationNames
 operator|.
-name|isRepositories
+name|isManagedRepositories
 argument_list|(
 name|propertyName
 argument_list|)
 condition|)
 block|{
 name|synchConfiguration
+argument_list|(
+name|archivaConfiguration
+operator|.
+name|getConfiguration
 argument_list|()
+operator|.
+name|getManagedRepositories
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -359,19 +385,11 @@ block|}
 specifier|private
 name|void
 name|synchConfiguration
-parameter_list|()
-block|{
+parameter_list|(
 name|List
 name|repos
-init|=
-name|archivaConfiguration
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|getRepositories
-argument_list|()
-decl_stmt|;
+parameter_list|)
+block|{
 name|Iterator
 name|it
 init|=
@@ -388,11 +406,11 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 name|repoConfig
 init|=
 operator|(
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 operator|)
 name|it
 operator|.
@@ -440,10 +458,15 @@ argument_list|()
 operator|.
 name|setUrl
 argument_list|(
+name|PathUtil
+operator|.
+name|toUrl
+argument_list|(
 name|repoConfig
 operator|.
-name|getUrl
+name|getLocation
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|repository
@@ -673,7 +696,15 @@ throws|throws
 name|InitializationException
 block|{
 name|synchConfiguration
+argument_list|(
+name|archivaConfiguration
+operator|.
+name|getConfiguration
 argument_list|()
+operator|.
+name|getManagedRepositories
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|archivaConfiguration
 operator|.

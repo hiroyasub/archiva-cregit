@@ -63,7 +63,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 import|;
 end_import
 
@@ -436,7 +436,7 @@ name|BidirectionalRepositoryLayout
 name|layout
 decl_stmt|;
 specifier|private
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 name|repositoryConfiguration
 decl_stmt|;
 specifier|private
@@ -528,7 +528,7 @@ name|repositoryConfiguration
 operator|=
 name|config
 operator|.
-name|findRepositoryById
+name|findManagedRepositoryById
 argument_list|(
 name|getPrefix
 argument_list|()
@@ -850,7 +850,6 @@ name|project
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 block|}
 catch|catch
@@ -977,7 +976,7 @@ throw|;
 block|}
 block|}
 specifier|public
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 name|getRepositoryConfiguration
 parameter_list|()
 block|{

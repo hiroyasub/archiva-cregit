@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * ArchivaRepository   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ArchivaRepository  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -38,7 +38,7 @@ specifier|protected
 name|boolean
 name|blacklisted
 decl_stmt|;
-comment|/**      * Construct a Repository.      *       * @param id the unique identifier for this repository.      * @param name the name for this repository.      * @param url the base URL for this repository (this should point to the top level URL for the entire repository)      * @param layout the layout technique for this repository.      */
+comment|/**      * Construct a Repository.      *      * @param id     the unique identifier for this repository.      * @param name   the name for this repository.      * @param url    the base URL for this repository (this should point to the top level URL for the entire repository)      * @param layout the layout technique for this repository.      */
 specifier|public
 name|ArchivaRepository
 parameter_list|(
@@ -82,7 +82,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Construct a Repository.      *       * @param model the model to use      */
+comment|/**      * Construct a Repository.      *      * @param model the model to use      */
 specifier|public
 name|ArchivaRepository
 parameter_list|(
@@ -192,44 +192,6 @@ name|blacklisted
 operator|=
 name|blacklisted
 expr_stmt|;
-block|}
-specifier|public
-name|boolean
-name|isRemote
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|url
-operator|.
-name|getProtocol
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"file"
-argument_list|)
-return|;
-block|}
-specifier|public
-name|boolean
-name|isManaged
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|url
-operator|.
-name|getProtocol
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"file"
-argument_list|)
-return|;
 block|}
 specifier|public
 name|String

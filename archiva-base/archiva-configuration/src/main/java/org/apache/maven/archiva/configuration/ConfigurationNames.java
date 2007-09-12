@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Utility methods for testing the configuration property name.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Utility methods for testing the configuration property name.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -65,7 +65,7 @@ block|}
 specifier|public
 specifier|static
 name|boolean
-name|isRepositories
+name|isManagedRepositories
 parameter_list|(
 name|String
 name|propertyName
@@ -74,7 +74,25 @@ block|{
 return|return
 name|startsWith
 argument_list|(
-literal|"repositories."
+literal|"managedRepositories."
+argument_list|,
+name|propertyName
+argument_list|)
+return|;
+block|}
+specifier|public
+specifier|static
+name|boolean
+name|isRemoteRepositories
+parameter_list|(
+name|String
+name|propertyName
+parameter_list|)
+block|{
+return|return
+name|startsWith
+argument_list|(
+literal|"remoteRepositories."
 argument_list|,
 name|propertyName
 argument_list|)

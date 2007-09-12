@@ -89,6 +89,22 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|ManagedRepositoryConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
 name|NetworkProxyConfiguration
 import|;
 end_import
@@ -121,7 +137,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|RepositoryConfiguration
+name|RemoteRepositoryConfiguration
 import|;
 end_import
 
@@ -220,6 +236,22 @@ operator|.
 name|urlcache
 operator|.
 name|UrlFailureCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|ArchivaConfigurationAdaptor
 import|;
 end_import
 
@@ -609,7 +641,9 @@ name|java
 operator|.
 name|util
 operator|.
-name|Properties
+name|Map
+operator|.
+name|Entry
 import|;
 end_import
 
@@ -619,14 +653,12 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
-operator|.
-name|Entry
+name|Properties
 import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultRepositoryProxyConnectors   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role-hint="default"  */
+comment|/**  * DefaultRepositoryProxyConnectors  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role-hint="default"  */
 end_comment
 
 begin_class
@@ -694,7 +726,7 @@ operator|new
 name|HashMap
 argument_list|()
 decl_stmt|;
-comment|/**      * Fetch an artifact from a remote repository.      *       * @param repository the managed repository to utilize for the request.      * @param artifact the artifact reference to fetch.      * @return the local file in the managed repository that was fetched, or null if the artifact was not (or       *          could not be) fetched.       * @throws ProxyException if there was a problem fetching the artifact.      */
+comment|/**      * Fetch an artifact from a remote repository.      *      * @param repository the managed repository to utilize for the request.      * @param artifact   the artifact reference to fetch.      * @return the local file in the managed repository that was fetched, or null if the artifact was not (or      *         could not be) fetched.      * @throws ProxyException if there was a problem fetching the artifact.      */
 specifier|public
 name|File
 name|fetchFromProxies
@@ -708,11 +740,6 @@ parameter_list|)
 throws|throws
 name|ProxyException
 block|{
-name|assertProxyCapable
-argument_list|(
-name|repository
-argument_list|)
-expr_stmt|;
 name|File
 name|localFile
 init|=
@@ -844,7 +871,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Fetch, from the proxies, a metadata.xml file for the groupId:artifactId:version metadata contents.      *       * @return the (local) metadata file that was fetched/merged/updated, or null if no metadata file exists.      */
+comment|/**      * Fetch, from the proxies, a metadata.xml file for the groupId:artifactId:version metadata contents.      *      * @return the (local) metadata file that was fetched/merged/updated, or null if no metadata file exists.      */
 specifier|public
 name|File
 name|fetchFromProxies
@@ -858,11 +885,6 @@ parameter_list|)
 throws|throws
 name|ProxyException
 block|{
-name|assertProxyCapable
-argument_list|(
-name|repository
-argument_list|)
-expr_stmt|;
 name|File
 name|localFile
 init|=
@@ -1120,7 +1142,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Fetch from the proxies a metadata.xml file for the groupId:artifactId metadata contents.      *       * @return the (local) metadata file that was fetched/merged/updated, or null if no metadata file exists.      */
+comment|/**      * Fetch from the proxies a metadata.xml file for the groupId:artifactId metadata contents.      *      * @return the (local) metadata file that was fetched/merged/updated, or null if no metadata file exists.      */
 specifier|public
 name|File
 name|fetchFromProxies
@@ -1134,11 +1156,6 @@ parameter_list|)
 throws|throws
 name|ProxyException
 block|{
-name|assertProxyCapable
-argument_list|(
-name|repository
-argument_list|)
-expr_stmt|;
 name|File
 name|localFile
 init|=
@@ -1469,35 +1486,6 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Test the repository to see if it is proxy capable.      *       * @param repository the repository to test.      * @throws ProxyException if the repository is not proxy capable.      */
-specifier|private
-name|void
-name|assertProxyCapable
-parameter_list|(
-name|ArchivaRepository
-name|repository
-parameter_list|)
-throws|throws
-name|ProxyException
-block|{
-if|if
-condition|(
-operator|!
-name|repository
-operator|.
-name|isManaged
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|ProxyException
-argument_list|(
-literal|"Can only proxy managed repositories."
-argument_list|)
-throw|;
-block|}
-block|}
 specifier|private
 name|File
 name|toLocalFile
@@ -1623,7 +1611,7 @@ name|sourcePath
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the layout for the repository.      *       * @param repository the repository to get the layout from.      * @return the layout      * @throws ProxyException if there was a problem obtaining the layout from the repository (usually due to a bad      *                        configuration of the repository)      */
+comment|/**      * Get the layout for the repository.      *      * @param repository the repository to get the layout from.      * @return the layout      * @throws ProxyException if there was a problem obtaining the layout from the repository (usually due to a bad      *                        configuration of the repository)      */
 specifier|private
 name|BidirectionalRepositoryLayout
 name|getLayout
@@ -1684,7 +1672,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Simple method to test if the file exists on the local disk.      *       * @param file the file to test. (may be null)      * @return true if file exists. false if the file param is null, doesn't exist, or is not of type File.      */
+comment|/**      * Simple method to test if the file exists on the local disk.      *      * @param file the file to test. (may be null)      * @return true if file exists. false if the file param is null, doesn't exist, or is not of type File.      */
 specifier|private
 name|boolean
 name|fileExists
@@ -1734,7 +1722,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Perform the transfer of the file.      *       * @param connector the connector configuration to use.       * @param remoteRepository the remote repository get the resource from.      * @param remotePath the path in the remote repository to the resource to get.      * @param localFile the local file to place the downloaded resource into      * @param requestProperties the request properties to utilize for policy handling.      * @return the local file that was downloaded, or null if not downloaded.      * @throws ProxyException if transfer was unsuccessful.      */
+comment|/**      * Perform the transfer of the file.      *      * @param connector         the connector configuration to use.      * @param remoteRepository  the remote repository get the resource from.      * @param remotePath        the path in the remote repository to the resource to get.      * @param localFile         the local file to place the downloaded resource into      * @param requestProperties the request properties to utilize for policy handling.      * @return the local file that was downloaded, or null if not downloaded.      * @throws ProxyException if transfer was unsuccessful.      */
 specifier|private
 name|File
 name|transferFile
@@ -2128,7 +2116,7 @@ return|return
 name|localFile
 return|;
 block|}
-comment|/**      * Quietly transfer the checksum file from the remote repository to the local file.      *       * NOTE: This will not throw a WagonException if the checksum is unable to be downloaded.      *       * @param wagon the wagon instance (should already be connected) to use.      * @param remoteRepository the remote repository to transfer from.      * @param remotePath the remote path to the resource to get.      * @param localFile the local file that should contain the downloaded contents      * @param type the type of checksum to transfer (example: ".md5" or ".sha1")      * @throws ProxyException if copying the downloaded file into place did not succeed.      */
+comment|/**      * Quietly transfer the checksum file from the remote repository to the local file.      *<p/>      * NOTE: This will not throw a WagonException if the checksum is unable to be downloaded.      *      * @param wagon            the wagon instance (should already be connected) to use.      * @param remoteRepository the remote repository to transfer from.      * @param remotePath       the remote path to the resource to get.      * @param localFile        the local file that should contain the downloaded contents      * @param type             the type of checksum to transfer (example: ".md5" or ".sha1")      * @throws ProxyException if copying the downloaded file into place did not succeed.      */
 specifier|private
 name|void
 name|transferChecksum
@@ -2283,7 +2271,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Perform the transfer of the remote file to the local file specified.      *       * @param wagon the wagon instance to use.      * @param remoteRepository the remote repository to use      * @param remotePath the remote path to attempt to get      * @param localFile the local file to save to      * @return The local file that was transfered.      * @throws ProxyException if there was a problem moving the downloaded file into place.      * @throws WagonException if there was a problem tranfering the file.      */
+comment|/**      * Perform the transfer of the remote file to the local file specified.      *      * @param wagon            the wagon instance to use.      * @param remoteRepository the remote repository to use      * @param remotePath       the remote path to attempt to get      * @param localFile        the local file to save to      * @return The local file that was transfered.      * @throws ProxyException if there was a problem moving the downloaded file into place.      * @throws WagonException if there was a problem tranfering the file.      */
 specifier|private
 name|File
 name|transferSimpleFile
@@ -2553,7 +2541,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Apply the policies.      * @param policies the map of policies to execute. (Map of String policy keys, to {@link DownloadPolicy} objects)      * @param settings the map of settings for the policies to execute. (Map of String policy keys, to String policy setting)       * @param request the request properties (utilized by the {@link DownloadPolicy#applyPolicy(String, Properties, File)})      * @param localFile the local file (utilized by the {@link DownloadPolicy#applyPolicy(String, Properties, File)})      *       * @return true if all of the policies passed, false if a policy failed.      */
+comment|/**      * Apply the policies.      *      * @param policies  the map of policies to execute. (Map of String policy keys, to {@link DownloadPolicy} objects)      * @param settings  the map of settings for the policies to execute. (Map of String policy keys, to String policy setting)      * @param request   the request properties (utilized by the {@link DownloadPolicy#applyPolicy(String,Properties,File)})      * @param localFile the local file (utilized by the {@link DownloadPolicy#applyPolicy(String,Properties,File)})      * @return true if all of the policies passed, false if a policy failed.      */
 specifier|private
 name|boolean
 name|applyPolicies
@@ -2803,7 +2791,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Using wagon, connect to the remote repository.      *        * @param connector the connector configuration to utilize (for obtaining network proxy configuration from)      * @param wagon the wagon instance to establish the connection on.      * @param remoteRepository the remote repository to connect to.      * @return true if the connection was successful. false if not connected.      */
+comment|/**      * Using wagon, connect to the remote repository.      *      * @param connector        the connector configuration to utilize (for obtaining network proxy configuration from)      * @param wagon            the wagon instance to establish the connection on.      * @param remoteRepository the remote repository to connect to.      * @return true if the connection was successful. false if not connected.      */
 specifier|private
 name|boolean
 name|connectToRepository
@@ -2973,7 +2961,7 @@ return|return
 name|connected
 return|;
 block|}
-comment|/**      * Tests whitelist and blacklist patterns against path.      *       * @param path the path to test.      * @param patterns the list of patterns to check.      * @return true if the path matches at least 1 pattern in the provided patterns list.      */
+comment|/**      * Tests whitelist and blacklist patterns against path.      *      * @param path     the path to test.      * @param patterns the list of patterns to check.      * @return true if the path matches at least 1 pattern in the provided patterns list.      */
 specifier|private
 name|boolean
 name|matchesPattern
@@ -3124,7 +3112,14 @@ argument_list|)
 operator|||
 name|ConfigurationNames
 operator|.
-name|isRepositories
+name|isManagedRepositories
+argument_list|(
+name|propertyName
+argument_list|)
+operator|||
+name|ConfigurationNames
+operator|.
+name|isRemoteRepositories
 argument_list|(
 name|propertyName
 argument_list|)
@@ -3237,7 +3232,7 @@ name|connector
 operator|.
 name|setSourceRepository
 argument_list|(
-name|getRepository
+name|getManagedRepository
 argument_list|(
 name|proxyConfig
 operator|.
@@ -3250,7 +3245,7 @@ name|connector
 operator|.
 name|setTargetRepository
 argument_list|(
-name|getRepository
+name|getRemoteRepository
 argument_list|(
 name|proxyConfig
 operator|.
@@ -3568,13 +3563,13 @@ return|;
 block|}
 specifier|private
 name|ArchivaRepository
-name|getRepository
+name|getRemoteRepository
 parameter_list|(
 name|String
 name|repoId
 parameter_list|)
 block|{
-name|RepositoryConfiguration
+name|RemoteRepositoryConfiguration
 name|repoConfig
 init|=
 name|archivaConfiguration
@@ -3582,22 +3577,11 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|findRepositoryById
+name|findRemoteRepositoryById
 argument_list|(
 name|repoId
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|repoConfig
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
 name|ArchivaRepository
 name|repo
 init|=
@@ -3635,6 +3619,36 @@ argument_list|)
 expr_stmt|;
 return|return
 name|repo
+return|;
+block|}
+specifier|private
+name|ArchivaRepository
+name|getManagedRepository
+parameter_list|(
+name|String
+name|repoId
+parameter_list|)
+block|{
+name|ManagedRepositoryConfiguration
+name|repoConfig
+init|=
+name|archivaConfiguration
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|findManagedRepositoryById
+argument_list|(
+name|repoId
+argument_list|)
+decl_stmt|;
+return|return
+name|ArchivaConfigurationAdaptor
+operator|.
+name|toArchivaRepository
+argument_list|(
+name|repoConfig
+argument_list|)
 return|;
 block|}
 specifier|public

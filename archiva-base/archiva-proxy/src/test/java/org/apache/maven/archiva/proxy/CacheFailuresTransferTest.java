@@ -158,7 +158,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CacheFailuresTransferTest   *  * @author Brett Porter  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * CacheFailuresTransferTest  *  * @author Brett Porter  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -215,7 +215,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Configure Repository (usually done within archiva.xml configuration)
-name|saveRepositoryConfig
+name|saveRemoteRepositoryConfig
 argument_list|(
 literal|"badproxied1"
 argument_list|,
@@ -226,7 +226,7 @@ argument_list|,
 literal|"default"
 argument_list|)
 expr_stmt|;
-name|saveRepositoryConfig
+name|saveRemoteRepositoryConfig
 argument_list|(
 literal|"badproxied2"
 argument_list|,
@@ -405,7 +405,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Configure Repository (usually done within archiva.xml configuration)
-name|saveRepositoryConfig
+name|saveRemoteRepositoryConfig
 argument_list|(
 literal|"badproxied1"
 argument_list|,
@@ -416,7 +416,7 @@ argument_list|,
 literal|"default"
 argument_list|)
 expr_stmt|;
-name|saveRepositoryConfig
+name|saveRemoteRepositoryConfig
 argument_list|(
 literal|"badproxied2"
 argument_list|,

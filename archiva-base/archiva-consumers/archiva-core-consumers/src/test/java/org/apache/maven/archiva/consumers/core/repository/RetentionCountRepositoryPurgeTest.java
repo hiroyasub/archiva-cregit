@@ -51,7 +51,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|ArrayList
 import|;
 end_import
 
@@ -61,7 +61,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|List
 import|;
 end_import
 
@@ -102,6 +102,9 @@ argument_list|,
 name|dao
 argument_list|,
 name|getRepoConfiguration
+argument_list|()
+operator|.
+name|getRetentionCount
 argument_list|()
 argument_list|)
 expr_stmt|;

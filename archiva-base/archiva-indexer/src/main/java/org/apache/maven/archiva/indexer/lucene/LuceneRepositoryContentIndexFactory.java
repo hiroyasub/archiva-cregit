@@ -61,7 +61,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 import|;
 end_import
 
@@ -178,7 +178,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory for Lucene repository content index instances.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  *   * @plexus.component role="org.apache.maven.archiva.indexer.RepositoryContentIndexFactory" role-hint="lucene"  */
+comment|/**  * Factory for Lucene repository content index instances.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @plexus.component role="org.apache.maven.archiva.indexer.RepositoryContentIndexFactory" role-hint="lucene"  */
 end_comment
 
 begin_class
@@ -289,7 +289,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Obtain the index directory for the provided repository.       *       * @param repository the repository to obtain the index directory from.      * @param indexId the id of the index      * @return the directory to put the index into.      */
+comment|/**      * Obtain the index directory for the provided repository.      *      * @param repository the repository to obtain the index directory from.      * @param indexId    the id of the index      * @return the directory to put the index into.      */
 specifier|private
 name|File
 name|toIndexDir
@@ -301,25 +301,8 @@ name|String
 name|indexId
 parameter_list|)
 block|{
-if|if
-condition|(
-operator|!
-name|repository
-operator|.
-name|isManaged
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Only supports managed repositories."
-argument_list|)
-throw|;
-block|}
 comment|// Attempt to get the specified indexDir in the configuration first.
-name|RepositoryConfiguration
+name|ManagedRepositoryConfiguration
 name|repoConfig
 init|=
 name|configuration
@@ -327,7 +310,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|findRepositoryById
+name|findManagedRepositoryById
 argument_list|(
 name|repository
 operator|.
