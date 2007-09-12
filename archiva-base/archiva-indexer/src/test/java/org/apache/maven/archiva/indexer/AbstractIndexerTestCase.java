@@ -902,7 +902,7 @@ argument_list|(
 literal|"."
 argument_list|)
 expr_stmt|;
-comment|// TODO: use the ArtifactExtensionMapping object!
+comment|// TODO: use the ArtifactExtensionMapping object
 if|if
 condition|(
 literal|"maven-plugin"

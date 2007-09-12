@@ -17,6 +17,16 @@ end_package
 
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|AssertionFailedError
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -104,16 +114,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|AssertionFailedError
 import|;
 end_import
 
@@ -504,7 +504,7 @@ argument_list|(
 literal|"."
 argument_list|)
 expr_stmt|;
-comment|// TODO: use the ArtifactExtensionMapping object!
+comment|// TODO: use the ArtifactExtensionMapping object
 if|if
 condition|(
 literal|"maven-plugin"

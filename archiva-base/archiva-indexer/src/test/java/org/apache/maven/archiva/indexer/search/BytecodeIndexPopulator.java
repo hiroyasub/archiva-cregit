@@ -21,6 +21,16 @@ end_comment
 
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|AssertionFailedError
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -111,18 +121,8 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|AssertionFailedError
-import|;
-end_import
-
 begin_comment
-comment|/**  * BytecodeIndexPopulator   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * BytecodeIndexPopulator  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -553,7 +553,7 @@ argument_list|(
 literal|"."
 argument_list|)
 expr_stmt|;
-comment|// TODO: use the ArtifactExtensionMapping object!
+comment|// TODO: use the ArtifactExtensionMapping object
 if|if
 condition|(
 literal|"maven-plugin"
