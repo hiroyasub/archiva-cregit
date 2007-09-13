@@ -542,7 +542,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MetadataTools   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.repository.metadata.MetadataTools"  */
+comment|/**  * MetadataTools  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.repository.metadata.MetadataTools"  * @todo use the maven-repository-metadata classes instead for merging  */
 end_comment
 
 begin_class
@@ -554,7 +554,6 @@ name|RegistryListener
 implements|,
 name|Initializable
 block|{
-comment|/**      * Static Logger. So what? Try and prove to me that IoC monitors are better.      */
 specifier|private
 specifier|static
 name|Logger
@@ -704,7 +703,7 @@ parameter_list|)
 block|{
 comment|/* nothing to do */
 block|}
-comment|/**      * Gather the Available Versions (on disk) for a specific Project Reference, based on filesystem      * information.      *       * @return the Set of available versions, based on the project reference.      * @throws LayoutException       */
+comment|/**      * Gather the Available Versions (on disk) for a specific Project Reference, based on filesystem      * information.      *      * @return the Set of available versions, based on the project reference.      * @throws LayoutException      */
 specifier|public
 name|Set
 argument_list|<
@@ -984,7 +983,7 @@ literal|false
 return|;
 block|}
 block|}
-comment|/**      * Get the first Artifact found in the provided VersionedReference location.       *       * @param managedRepository the repository to search within.      * @param reference the reference to the versioned reference to search within      * @return the ArtifactReference to the first artifact located within the versioned reference. or null if      *         no artifact was found within the versioned reference.      * @throws IOException if the versioned reference is invalid (example: doesn't exist, or isn't a directory)      * @throws LayoutException       */
+comment|/**      * Get the first Artifact found in the provided VersionedReference location.      *      * @param managedRepository the repository to search within.      * @param reference         the reference to the versioned reference to search within      * @return the ArtifactReference to the first artifact located within the versioned reference. or null if      *         no artifact was found within the versioned reference.      * @throws IOException     if the versioned reference is invalid (example: doesn't exist, or isn't a directory)      * @throws LayoutException      */
 specifier|public
 name|ArtifactReference
 name|getFirstArtifact
@@ -1200,7 +1199,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Gather the set of snapshot versions found in a particular versioned reference.      *       * @return the Set of snapshot artifact versions found.      * @throws LayoutException       */
+comment|/**      * Gather the set of snapshot versions found in a particular versioned reference.      *      * @return the Set of snapshot artifact versions found.      * @throws LayoutException      */
 specifier|public
 name|Set
 argument_list|<
@@ -1629,7 +1628,7 @@ return|return
 name|foundVersions
 return|;
 block|}
-comment|/**      * Take a path to a maven-metadata.xml, and attempt to translate it to a VersionedReference.       *       * @param path      * @return      */
+comment|/**      * Take a path to a maven-metadata.xml, and attempt to translate it to a VersionedReference.      *      * @param path      * @return      */
 specifier|public
 name|VersionedReference
 name|toVersionedReference
@@ -2236,7 +2235,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Adjusts a path for a metadata.xml file to its repository specific path.       *       * @param repository the repository to base new path off of.      * @param path the path to the metadata.xml file to adjust the name of.      *       * @return the newly adjusted path reference to the repository specific metadata path.      */
+comment|/**      * Adjusts a path for a metadata.xml file to its repository specific path.      *      * @param repository the repository to base new path off of.      * @param path       the path to the metadata.xml file to adjust the name of.      * @return the newly adjusted path reference to the repository specific metadata path.      */
 specifier|public
 name|String
 name|getRepositorySpecificName
@@ -2260,7 +2259,7 @@ name|path
 argument_list|)
 return|;
 block|}
-comment|/**      * Adjusts a path for a metadata.xml file to its repository specific path.       *       * @param proxyId the repository id to base new path off of.      * @param path the path to the metadata.xml file to adjust the name of.      *       * @return the newly adjusted path reference to the repository specific metadata path.      */
+comment|/**      * Adjusts a path for a metadata.xml file to its repository specific path.      *      * @param proxyId the repository id to base new path off of.      * @param path    the path to the metadata.xml file to adjust the name of.      * @return the newly adjusted path reference to the repository specific metadata path.      */
 specifier|public
 name|String
 name|getRepositorySpecificName
@@ -2539,7 +2538,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Update the metadata to represent the all versions of       * the provided groupId:artifactId project reference,      * based off of information present in the repository,      * the maven-metadata.xml files, and the proxy/repository specific      * metadata file contents.       *       * @param managedRepository the managed repository where the metadata is kept.      * @param reference the versioned referencfe to update.      * @throws LayoutException       * @throws RepositoryMetadataException       * @throws IOException       */
+comment|/**      * Update the metadata to represent the all versions of      * the provided groupId:artifactId project reference,      * based off of information present in the repository,      * the maven-metadata.xml files, and the proxy/repository specific      * metadata file contents.      *      * @param managedRepository the managed repository where the metadata is kept.      * @param reference         the versioned referencfe to update.      * @throws LayoutException      * @throws RepositoryMetadataException      * @throws IOException      */
 specifier|public
 name|void
 name|updateMetadata
@@ -2772,7 +2771,7 @@ name|metadataFile
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Update the metadata based on the following rules.      *       * 1) If this is a SNAPSHOT reference, then utilize the proxy/repository specific       *    metadata files to represent the current / latest SNAPSHOT available.      * 2) If this is a RELEASE reference, and the metadata file does not exist, then       *    create the metadata file with contents required of the VersionedReference      *       * @param managedRepository the managed repository where the metadata is kept.      * @param reference the versioned reference to update      * @throws LayoutException       * @throws RepositoryMetadataException       * @throws IOException       */
+comment|/**      * Update the metadata based on the following rules.      *<p/>      * 1) If this is a SNAPSHOT reference, then utilize the proxy/repository specific      * metadata files to represent the current / latest SNAPSHOT available.      * 2) If this is a RELEASE reference, and the metadata file does not exist, then      * create the metadata file with contents required of the VersionedReference      *      * @param managedRepository the managed repository where the metadata is kept.      * @param reference         the versioned reference to update      * @throws LayoutException      * @throws RepositoryMetadataException      * @throws IOException      */
 specifier|public
 name|void
 name|updateMetadata
