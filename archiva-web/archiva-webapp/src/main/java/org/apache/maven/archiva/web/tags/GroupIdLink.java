@@ -435,6 +435,8 @@ argument_list|,
 name|includeContext
 argument_list|,
 name|encode
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
@@ -478,6 +480,8 @@ argument_list|,
 name|includeContext
 argument_list|,
 name|encode
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
