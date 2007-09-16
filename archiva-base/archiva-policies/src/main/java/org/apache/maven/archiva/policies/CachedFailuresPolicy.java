@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link PreDownloadPolicy} to check if the requested url has failed before.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.policies.PreDownloadPolicy"  *                   role-hint="cache-failures"  */
+comment|/**  * {@link PreDownloadPolicy} to check if the requested url has failed before.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.policies.PreDownloadPolicy"  * role-hint="cache-failures"  */
 end_comment
 
 begin_class
@@ -116,7 +116,7 @@ name|AbstractLogEnabled
 implements|implements
 name|PreDownloadPolicy
 block|{
-comment|/**      * The CACHED policy indicates that if the URL provided exists in the      * cached failures pool, then the policy fails, and the download isn't even       * attempted.      */
+comment|/**      * The CACHED policy indicates that if the URL provided exists in the      * cached failures pool, then the policy fails, and the download isn't even      * attempted.      */
 specifier|public
 specifier|static
 specifier|final
@@ -188,7 +188,7 @@ argument_list|()
 operator|.
 name|error
 argument_list|(
-literal|"Unknown checksum policyCode ["
+literal|"Unknown check-failures policyCode ["
 operator|+
 name|policySetting
 operator|+
