@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractArtifactExtensionMapping   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * AbstractArtifactExtensionMapping  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -141,6 +141,15 @@ operator|.
 name|put
 argument_list|(
 literal|"uberjar"
+argument_list|,
+literal|"jar"
+argument_list|)
+expr_stmt|;
+name|typeToExtensionMap
+operator|.
+name|put
+argument_list|(
+literal|"plugin"
 argument_list|,
 literal|"jar"
 argument_list|)
