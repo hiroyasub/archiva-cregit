@@ -206,9 +206,14 @@ name|basedir
 operator|.
 name|endsWith
 argument_list|(
-name|File
+literal|"/"
+argument_list|)
+operator|||
+name|basedir
 operator|.
-name|separator
+name|endsWith
+argument_list|(
+literal|"\\"
 argument_list|)
 condition|)
 block|{
