@@ -2191,6 +2191,18 @@ name|String
 name|relativePath
 parameter_list|)
 block|{
+comment|// Correct the slash pattern.
+name|relativePath
+operator|=
+name|relativePath
+operator|.
+name|replace
+argument_list|(
+literal|'\\'
+argument_list|,
+literal|'/'
+argument_list|)
+expr_stmt|;
 name|Iterator
 argument_list|<
 name|String
