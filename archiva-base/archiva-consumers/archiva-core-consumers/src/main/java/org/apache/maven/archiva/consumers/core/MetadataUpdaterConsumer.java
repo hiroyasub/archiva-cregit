@@ -1110,18 +1110,6 @@ name|Object
 name|propertyValue
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
-operator|.
-name|info
-argument_list|(
-literal|"After Configuration Change: propertyName ["
-operator|+
-name|propertyName
-operator|+
-literal|"]"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|ConfigurationNames
