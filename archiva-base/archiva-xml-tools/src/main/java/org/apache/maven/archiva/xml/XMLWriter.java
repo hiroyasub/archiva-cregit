@@ -14,7 +14,7 @@ package|;
 end_package
 
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *  http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more contributor license  * agreements. See the NOTICE file distributed with this work for additional information regarding  * copyright ownership. The ASF licenses this file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance with the License. You may obtain a  * copy of the License at  *   * http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software distributed under the License  * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express  * or implied. See the License for the specific language governing permissions and limitations under  * the License.  */
 end_comment
 
 begin_import
@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * XMLWriter   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * XMLWriter - Making writing XML files easier.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -68,6 +68,7 @@ specifier|public
 class|class
 name|XMLWriter
 block|{
+comment|/**      * Write the Document to the provided Writer, leaving the Writer open.      *       * @param doc the document to write.      * @param writer the writer to write to.      * @throws XMLException if there was a problem writing the xml to the writer.      */
 specifier|public
 specifier|static
 name|void
@@ -78,6 +79,34 @@ name|doc
 parameter_list|,
 name|Writer
 name|writer
+parameter_list|)
+throws|throws
+name|XMLException
+block|{
+name|write
+argument_list|(
+name|doc
+argument_list|,
+name|writer
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Write the Document to the provided Writer, with an option to close the writer upon completion.      *       * @param doc the document to write.      * @param writer the writer to write to.      * @param close true to close the writer on completion.      * @throws XMLException if there was a problem writing the xml to the writer.      */
+specifier|public
+specifier|static
+name|void
+name|write
+parameter_list|(
+name|Document
+name|doc
+parameter_list|,
+name|Writer
+name|writer
+parameter_list|,
+name|boolean
+name|close
 parameter_list|)
 throws|throws
 name|XMLException
@@ -157,9 +186,13 @@ finally|finally
 block|{
 if|if
 condition|(
+name|close
+operator|&&
+operator|(
 name|xmlwriter
 operator|!=
 literal|null
+operator|)
 condition|)
 block|{
 try|try
