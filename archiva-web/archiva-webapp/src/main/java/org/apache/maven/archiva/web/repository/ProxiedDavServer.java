@@ -707,14 +707,11 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// if ( !hasResource( request.getLogicalResource() ) )
-comment|// {
 name|fetchContentFromProxies
 argument_list|(
 name|request
 argument_list|)
 expr_stmt|;
-comment|// }
 block|}
 else|else
 block|{
