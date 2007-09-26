@@ -70,6 +70,38 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
+name|testSplitFilenameMavenTestPlugin
+parameter_list|()
+throws|throws
+name|LayoutException
+block|{
+comment|// Using maven 2 logic (artifactId is present in full path)
+name|assertFilenameParts
+argument_list|(
+name|RepositoryLayoutUtils
+operator|.
+name|splitFilename
+argument_list|(
+literal|"maven-test-plugin-1.8.2.jar"
+argument_list|,
+literal|"maven-test-plugin"
+argument_list|)
+argument_list|,
+literal|"maven-test-plugin"
+argument_list|,
+literal|"1.8.2"
+argument_list|,
+literal|null
+argument_list|,
+literal|"jar"
+argument_list|)
+expr_stmt|;
+comment|// Using maven 1 logic (artifactId is unknown)
+comment|// [MRM-519] fail to resolve artifactId for libs that contain versionKeyword in artifactId, like "maven-test-plugin"
+comment|/*         assertFilenameParts( RepositoryLayoutUtils.splitFilename( "maven-test-plugin-1.8.2.jar", null ),                              "maven-test-plugin", "1.8.2", null, "jar" );          */
+block|}
+specifier|public
+name|void
 name|testSplitFilenameAlphaVersion
 parameter_list|()
 throws|throws
