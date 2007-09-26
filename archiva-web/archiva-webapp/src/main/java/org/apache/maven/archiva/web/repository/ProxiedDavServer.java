@@ -715,12 +715,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// Create parent directories that don't exist when writing a file
-comment|// This actually makes this implementation not compliant to the
-comment|// WebDAV RFC - but we have enough knowledge
-comment|// about how the collection is being used to do this reasonably and
-comment|// some versions of Maven's WebDAV don't
-comment|// correctly create the collections themselves.
+comment|/* Create parent directories that don't exist when writing a file              * This actually makes this implementation not compliant to the              * WebDAV RFC - but we have enough knowledge              * about how the collection is being used to do this reasonably and              * some versions of Maven's WebDAV don't              * correctly create the collections themselves.              */
 name|File
 name|rootDirectory
 init|=
@@ -753,6 +748,40 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|// MRM-503 - Metadata file need Pragma:no-cache response header.
+if|if
+condition|(
+name|request
+operator|.
+name|getLogicalResource
+argument_list|()
+operator|.
+name|endsWith
+argument_list|(
+literal|"/maven-metadata.xml"
+argument_list|)
+condition|)
+block|{
+name|response
+operator|.
+name|addHeader
+argument_list|(
+literal|"Pragma"
+argument_list|,
+literal|"no-cache"
+argument_list|)
+expr_stmt|;
+name|response
+operator|.
+name|addHeader
+argument_list|(
+literal|"Cache-Control"
+argument_list|,
+literal|"no-cache"
+argument_list|)
+expr_stmt|;
+block|}
+comment|// TODO: determine http caching options for other types of files (artifacts, sha1, md5, snapshots)
 name|davServer
 operator|.
 name|process
