@@ -77,10 +77,16 @@ name|BaseConsumer
 block|{
 specifier|private
 name|Set
+argument_list|<
+name|ConsumerMonitor
+argument_list|>
 name|monitors
 init|=
 operator|new
 name|HashSet
+argument_list|<
+name|ConsumerMonitor
+argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|public
@@ -129,6 +135,9 @@ block|{
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|ConsumerMonitor
+argument_list|>
 name|itmonitors
 init|=
 name|monitors
@@ -146,9 +155,6 @@ block|{
 name|ConsumerMonitor
 name|monitor
 init|=
-operator|(
-name|ConsumerMonitor
-operator|)
 name|itmonitors
 operator|.
 name|next
@@ -192,6 +198,9 @@ block|{
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|ConsumerMonitor
+argument_list|>
 name|itmonitors
 init|=
 name|monitors
@@ -209,9 +218,6 @@ block|{
 name|ConsumerMonitor
 name|monitor
 init|=
-operator|(
-name|ConsumerMonitor
-operator|)
 name|itmonitors
 operator|.
 name|next
@@ -252,6 +258,9 @@ block|{
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|ConsumerMonitor
+argument_list|>
 name|itmonitors
 init|=
 name|monitors
@@ -269,9 +278,6 @@ block|{
 name|ConsumerMonitor
 name|monitor
 init|=
-operator|(
-name|ConsumerMonitor
-operator|)
 name|itmonitors
 operator|.
 name|next

@@ -298,7 +298,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * M2 implementation for cleaning up the released snapshots.  *  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  */
+comment|/**  * M2 implementation for cleaning up the released snapshots.  *  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version $Id$  */
 end_comment
 
 begin_class

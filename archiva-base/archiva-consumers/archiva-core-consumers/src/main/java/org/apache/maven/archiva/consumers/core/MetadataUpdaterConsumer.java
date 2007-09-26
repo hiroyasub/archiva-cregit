@@ -462,10 +462,16 @@ name|repositoryLayout
 decl_stmt|;
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|includes
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -497,6 +503,9 @@ name|void
 name|setIncludes
 parameter_list|(
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|includes
 parameter_list|)
 block|{
@@ -603,6 +612,9 @@ comment|/* do nothing here */
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getExcludes
 parameter_list|()
 block|{
@@ -612,6 +624,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getIncludes
 parameter_list|()
 block|{

@@ -27,24 +27,6 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|common
-operator|.
-name|utils
-operator|.
-name|BaseFile
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
 name|model
 operator|.
 name|ArchivaRepository
@@ -75,12 +57,18 @@ block|{
 comment|/**      * Get the list of included file patterns for this consumer.      *       * @return the list of {@link String} patterns. (example:<code>"**<span />/*.pom"</code>)      */
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getIncludes
 parameter_list|()
 function_decl|;
 comment|/**      * Get the list of excluded file patterns for this consumer.      *       * @return the list of {@link String} patterns. (example:<code>"**<span />/*.pom"</code>) - (can be null for no exclusions)      */
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getExcludes
 parameter_list|()
 function_decl|;

@@ -414,6 +414,7 @@ specifier|private
 name|Map
 name|bidirectionalLayoutMap
 decl_stmt|;
+comment|// TODO: replace with new bidir-repo-layout-factory
 comment|/**      * @plexus.requirement role-hint="lucene"      */
 specifier|private
 name|RepositoryContentIndexFactory
@@ -421,10 +422,20 @@ name|indexFactory
 decl_stmt|;
 specifier|private
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|IndexedRepositoryDetails
+argument_list|>
 name|repositoryMap
 init|=
 operator|new
 name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|IndexedRepositoryDetails
+argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|public
@@ -443,6 +454,9 @@ comment|/* nothing to do here */
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getIncludedTypes
 parameter_list|()
 block|{
@@ -604,9 +618,6 @@ name|id
 parameter_list|)
 block|{
 return|return
-operator|(
-name|IndexedRepositoryDetails
-operator|)
 name|this
 operator|.
 name|repositoryMap
@@ -727,6 +738,9 @@ name|clear
 argument_list|()
 expr_stmt|;
 name|Iterator
+argument_list|<
+name|ManagedRepositoryConfiguration
+argument_list|>
 name|it
 init|=
 name|configuration
@@ -751,9 +765,6 @@ block|{
 name|ManagedRepositoryConfiguration
 name|repoconfig
 init|=
-operator|(
-name|ManagedRepositoryConfiguration
-operator|)
 name|it
 operator|.
 name|next

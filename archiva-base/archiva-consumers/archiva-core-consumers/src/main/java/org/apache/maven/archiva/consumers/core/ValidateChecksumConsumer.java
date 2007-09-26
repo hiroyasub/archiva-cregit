@@ -290,11 +290,10 @@ decl_stmt|;
 comment|/**      * @plexus.requirement role="org.codehaus.plexus.digest.Digester"      */
 specifier|private
 name|List
+argument_list|<
+name|Digester
+argument_list|>
 name|digesterList
-decl_stmt|;
-specifier|private
-name|ArchivaRepository
-name|repository
 decl_stmt|;
 specifier|private
 name|File
@@ -302,10 +301,16 @@ name|repositoryDir
 decl_stmt|;
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|includes
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|public
@@ -351,12 +356,6 @@ name|ConsumerException
 block|{
 name|this
 operator|.
-name|repository
-operator|=
-name|repository
-expr_stmt|;
-name|this
-operator|.
 name|repositoryDir
 operator|=
 operator|new
@@ -381,6 +380,9 @@ comment|/* nothing to do */
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getExcludes
 parameter_list|()
 block|{
@@ -390,6 +392,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getIncludes
 parameter_list|()
 block|{
@@ -510,6 +515,9 @@ block|{
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|Digester
+argument_list|>
 name|itDigesters
 init|=
 name|digesterList
@@ -527,9 +535,6 @@ block|{
 name|Digester
 name|digester
 init|=
-operator|(
-name|Digester
-operator|)
 name|itDigesters
 operator|.
 name|next

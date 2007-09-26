@@ -22,7 +22,7 @@ comment|/* * Licensed to the Apache Software Foundation (ASF) under one * or mor
 end_comment
 
 begin_comment
-comment|/**  *  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  *  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version $Id$  */
 end_comment
 
 begin_class

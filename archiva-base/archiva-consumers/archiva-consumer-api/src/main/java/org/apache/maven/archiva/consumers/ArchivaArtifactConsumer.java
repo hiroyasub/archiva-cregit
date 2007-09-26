@@ -57,6 +57,9 @@ block|{
 comment|/**      * Get the list of included file patterns for this consumer.      *       * @return the list of ({@link String}) artifact types to process.      */
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getIncludedTypes
 parameter_list|()
 function_decl|;
