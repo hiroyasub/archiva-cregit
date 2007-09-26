@@ -1232,7 +1232,7 @@ name|emsg
 operator|.
 name|append
 argument_list|(
-literal|" has an invalid project model<"
+literal|" has an invalid project model ["
 argument_list|)
 operator|.
 name|append
@@ -1245,14 +1245,14 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|">: "
+literal|"]: "
 argument_list|)
 expr_stmt|;
 name|emsg
 operator|.
 name|append
 argument_list|(
-literal|"The model artifactId<"
+literal|"The model artifactId ["
 argument_list|)
 operator|.
 name|append
@@ -1267,7 +1267,7 @@ name|emsg
 operator|.
 name|append
 argument_list|(
-literal|"> does not match the artifactId portion of the filename: "
+literal|"] does not match the artifactId portion of the filename: "
 argument_list|)
 operator|.
 name|append
@@ -1362,7 +1362,7 @@ name|emsg
 operator|.
 name|append
 argument_list|(
-literal|" has an invalid project model<"
+literal|" has an invalid project model ["
 argument_list|)
 operator|.
 name|append
@@ -1375,14 +1375,14 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|">: "
+literal|"]: "
 argument_list|)
 expr_stmt|;
 name|emsg
 operator|.
 name|append
 argument_list|(
-literal|"The model version<"
+literal|"The model version ["
 argument_list|)
 operator|.
 name|append
@@ -1397,7 +1397,7 @@ name|emsg
 operator|.
 name|append
 argument_list|(
-literal|"> does not match the version portion of the filename: "
+literal|"] does not match the version portion of the filename: "
 argument_list|)
 operator|.
 name|append
