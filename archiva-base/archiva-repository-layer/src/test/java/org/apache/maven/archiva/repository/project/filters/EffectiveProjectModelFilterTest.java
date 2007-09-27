@@ -516,7 +516,7 @@ name|expectedModel
 init|=
 name|createArchivaProjectModel
 argument_list|(
-literal|"src/test/effective-poms/"
+literal|"src/test/expected-poms/"
 operator|+
 literal|"/archiva-model-effective.pom"
 argument_list|)
