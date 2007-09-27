@@ -10,8 +10,6 @@ operator|.
 name|archiva
 operator|.
 name|repository
-operator|.
-name|metadata
 package|;
 end_package
 
@@ -154,10 +152,16 @@ argument_list|()
 decl_stmt|;
 specifier|private
 name|List
+argument_list|<
+name|RegistryListener
+argument_list|>
 name|listeners
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|RegistryListener
+argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -243,6 +247,9 @@ name|value
 parameter_list|)
 block|{
 name|Iterator
+argument_list|<
+name|RegistryListener
+argument_list|>
 name|it
 init|=
 name|listeners

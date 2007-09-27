@@ -680,26 +680,6 @@ argument_list|(
 literal|"filesystem"
 argument_list|)
 expr_stmt|;
-comment|// Filter the model
-name|model
-operator|=
-name|expressionModelFilter
-operator|.
-name|filter
-argument_list|(
-name|model
-argument_list|)
-expr_stmt|;
-comment|// Resolve the project model
-name|model
-operator|=
-name|effectiveModelFilter
-operator|.
-name|filter
-argument_list|(
-name|model
-argument_list|)
-expr_stmt|;
 comment|// The version should be updated to the filename version if it is a unique snapshot
 name|FilenameParts
 name|parts
@@ -718,23 +698,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|model
-operator|.
-name|getVersion
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|VersionUtil
-operator|.
-name|getBaseVersion
-argument_list|(
-name|parts
-operator|.
-name|version
-argument_list|)
-argument_list|)
-operator|&&
 name|VersionUtil
 operator|.
 name|isUniqueSnapshot
@@ -755,6 +718,26 @@ name|version
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Filter the model
+name|model
+operator|=
+name|expressionModelFilter
+operator|.
+name|filter
+argument_list|(
+name|model
+argument_list|)
+expr_stmt|;
+comment|// Resolve the project model
+name|model
+operator|=
+name|effectiveModelFilter
+operator|.
+name|filter
+argument_list|(
+name|model
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|isValidModel
