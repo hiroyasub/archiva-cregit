@@ -94,7 +94,7 @@ parameter_list|)
 throws|throws
 name|ConsumerException
 function_decl|;
-comment|/**      *<p>      * Event that triggers on the completion of a scan.      *</p>      *       *<p>      * NOTE: If the consumer opted to batch up processing requests in the {@link #processFile(String)} event      * this would be the last opportunity to drain any processing queue's.      *</p>      */
+comment|/**      *<p>      * Event that triggers on the completion of a scan.      *</p>      *       *<p>      * NOTE: If the consumer opted to batch up processing requests in the {@link #processFile(String)} event      * this would be the last opportunity to drain any processing queue's.      *</p>      *      * @todo! this is never called by the RepositoryScannerInstance      */
 specifier|public
 name|void
 name|completeScan
