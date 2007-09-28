@@ -353,6 +353,24 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|scanner
+operator|.
+name|RepositoryContentConsumers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
 name|wagon
 operator|.
 name|ConnectionException
@@ -725,6 +743,11 @@ init|=
 operator|new
 name|HashMap
 argument_list|()
+decl_stmt|;
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|RepositoryContentConsumers
+name|consumers
 decl_stmt|;
 comment|/**      * Fetch an artifact from a remote repository.      *      * @param repository the managed repository to utilize for the request.      * @param artifact   the artifact reference to fetch.      * @return the local file in the managed repository that was fetched, or null if the artifact was not (or      *         could not be) fetched.      * @throws ProxyException if there was a problem fetching the artifact.      */
 specifier|public
@@ -2111,6 +2134,19 @@ return|return
 literal|null
 return|;
 block|}
+comment|// Just-in-time update of the index and database by executing the consumers for this artifact
+name|consumers
+operator|.
+name|executeConsumers
+argument_list|(
+name|connector
+operator|.
+name|getSourceRepository
+argument_list|()
+argument_list|,
+name|localFile
+argument_list|)
+expr_stmt|;
 comment|// Everything passes.
 return|return
 name|localFile

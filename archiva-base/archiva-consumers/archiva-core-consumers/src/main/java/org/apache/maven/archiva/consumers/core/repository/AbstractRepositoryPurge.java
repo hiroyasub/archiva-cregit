@@ -485,6 +485,7 @@ argument_list|(
 name|queriedArtifact
 argument_list|)
 expr_stmt|;
+comment|// TODO [MRM-37]: re-run the database consumers to clean up
 block|}
 comment|/**      * Get the artifactId, version, extension and classifier from the path parameter      *      * @param path      * @return      * @throws LayoutException      */
 specifier|protected
