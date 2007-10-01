@@ -284,10 +284,16 @@ decl_stmt|;
 comment|/**      * Listeners we've registered.      */
 specifier|private
 name|List
+argument_list|<
+name|RegistryListener
+argument_list|>
 name|listeners
 init|=
 operator|new
 name|LinkedList
+argument_list|<
+name|RegistryListener
+argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|public
@@ -420,6 +426,9 @@ block|{
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|V1RepositoryConfiguration
+argument_list|>
 name|i
 init|=
 name|config
@@ -440,9 +449,6 @@ block|{
 name|V1RepositoryConfiguration
 name|r
 init|=
-operator|(
-name|V1RepositoryConfiguration
-operator|)
 name|i
 operator|.
 name|next
@@ -713,6 +719,9 @@ literal|null
 condition|)
 block|{
 name|Collection
+argument_list|<
+name|String
+argument_list|>
 name|keys
 init|=
 name|baseSection
@@ -728,6 +737,9 @@ decl_stmt|;
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|String
+argument_list|>
 name|i
 init|=
 name|keys
@@ -748,9 +760,6 @@ block|{
 name|String
 name|key
 init|=
-operator|(
-name|String
-operator|)
 name|i
 operator|.
 name|next
@@ -840,6 +849,9 @@ comment|// escape all cron expressions to handle ','
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|ManagedRepositoryConfiguration
+argument_list|>
 name|i
 init|=
 name|configuration
@@ -860,9 +872,6 @@ block|{
 name|ManagedRepositoryConfiguration
 name|c
 init|=
-operator|(
-name|ManagedRepositoryConfiguration
-operator|)
 name|i
 operator|.
 name|next
@@ -1006,6 +1015,9 @@ expr_stmt|;
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|RegistryListener
+argument_list|>
 name|i
 init|=
 name|listeners
@@ -1023,9 +1035,6 @@ block|{
 name|RegistryListener
 name|l
 init|=
-operator|(
-name|RegistryListener
-operator|)
 name|i
 operator|.
 name|next
@@ -1312,6 +1321,9 @@ comment|// TODO: for commons-configuration 1.3 only
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|ManagedRepositoryConfiguration
+argument_list|>
 name|i
 init|=
 name|config
@@ -1332,9 +1344,6 @@ block|{
 name|ManagedRepositoryConfiguration
 name|c
 init|=
-operator|(
-name|ManagedRepositoryConfiguration
-operator|)
 name|i
 operator|.
 name|next
