@@ -173,6 +173,13 @@ parameter_list|()
 throws|throws
 name|TaskExecutionException
 function_decl|;
+specifier|public
+name|void
+name|startup
+parameter_list|()
+throws|throws
+name|ArchivaException
+function_decl|;
 block|}
 end_interface
 
