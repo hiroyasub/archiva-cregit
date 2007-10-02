@@ -306,7 +306,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="generateReportAction"  */
+comment|/**  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="generateReport"  */
 end_comment
 
 begin_class
@@ -335,10 +335,16 @@ name|request
 decl_stmt|;
 specifier|protected
 name|List
+argument_list|<
+name|RepositoryProblemReport
+argument_list|>
 name|reports
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|RepositoryProblemReport
+argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|protected
@@ -409,12 +415,15 @@ name|jasperPresent
 decl_stmt|;
 specifier|public
 name|String
-name|execute
+name|input
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|List
+argument_list|<
+name|RepositoryProblem
+argument_list|>
 name|problemArtifacts
 init|=
 name|dao
@@ -640,13 +649,12 @@ return|;
 block|}
 if|else if
 condition|(
-operator|!
 name|isJasperPresent
 argument_list|()
 condition|)
 block|{
 return|return
-name|BASIC
+literal|"jasper"
 return|;
 block|}
 else|else
@@ -683,6 +691,19 @@ operator|=
 name|Boolean
 operator|.
 name|TRUE
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoClassDefFoundError
+name|e
+parameter_list|)
+block|{
+name|jasperPresent
+operator|=
+name|Boolean
+operator|.
+name|FALSE
 expr_stmt|;
 block|}
 catch|catch
@@ -778,7 +799,7 @@ name|repositoryId
 operator|.
 name|equals
 argument_list|(
-name|ShowReportsAction
+name|PickReportAction
 operator|.
 name|ALL_REPOSITORIES
 argument_list|)
@@ -832,7 +853,7 @@ name|repositoryId
 operator|.
 name|equals
 argument_list|(
-name|ShowReportsAction
+name|PickReportAction
 operator|.
 name|ALL_REPOSITORIES
 argument_list|)
@@ -882,6 +903,9 @@ expr_stmt|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|RepositoryProblemReport
+argument_list|>
 name|getReports
 parameter_list|()
 block|{

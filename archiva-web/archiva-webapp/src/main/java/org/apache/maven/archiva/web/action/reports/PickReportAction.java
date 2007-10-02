@@ -23,6 +23,18 @@ end_comment
 
 begin_import
 import|import
+name|com
+operator|.
+name|opensymphony
+operator|.
+name|xwork
+operator|.
+name|Preparable
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -108,15 +120,17 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Show reports.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="showReportsAction"  */
+comment|/**  * PickReportAction   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork.Action" role-hint="pickReport"  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|ShowReportsAction
+name|PickReportAction
 extends|extends
 name|PlexusActionSupport
+implements|implements
+name|Preparable
 block|{
 comment|/**      * @plexus.requirement role-hint="jdo"      */
 specifier|protected
@@ -125,10 +139,16 @@ name|dao
 decl_stmt|;
 specifier|private
 name|Collection
+argument_list|<
+name|String
+argument_list|>
 name|repositoryIds
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|public
@@ -140,11 +160,9 @@ init|=
 literal|"All Repositories"
 decl_stmt|;
 specifier|public
-name|String
-name|execute
+name|void
+name|prepare
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|repositoryIds
 operator|.
@@ -176,12 +194,23 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+specifier|public
+name|String
+name|input
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 return|return
-name|SUCCESS
+name|INPUT
 return|;
 block|}
 specifier|public
 name|Collection
+argument_list|<
+name|String
+argument_list|>
 name|getRepositoryIds
 parameter_list|()
 block|{
