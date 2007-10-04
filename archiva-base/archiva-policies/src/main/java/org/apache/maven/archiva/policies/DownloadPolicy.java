@@ -84,6 +84,9 @@ decl_stmt|;
 comment|/**      * Get the list of options for this policy.      *       * @return the list of options for this policy.      */
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getOptions
 parameter_list|()
 function_decl|;

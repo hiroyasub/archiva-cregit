@@ -155,6 +155,9 @@ function_decl|;
 comment|/**      * Get the List of {@link ProxyConnector} objects of the source repository.      *       * @param repository the source repository to look for.      * @return the List of {@link ProxyConnector} objects.      */
 specifier|public
 name|List
+argument_list|<
+name|ProxyConnector
+argument_list|>
 name|getProxyConnectors
 parameter_list|(
 name|ArchivaRepository

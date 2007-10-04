@@ -138,6 +138,11 @@ block|{
 comment|/**      * @plexus.requirement role="org.apache.maven.artifact.repository.layout.ArtifactRepositoryLayout"      */
 specifier|private
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|ArtifactRepositoryLayout
+argument_list|>
 name|repositoryLayouts
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
