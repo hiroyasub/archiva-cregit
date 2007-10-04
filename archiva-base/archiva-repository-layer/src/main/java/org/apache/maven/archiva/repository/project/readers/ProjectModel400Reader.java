@@ -1305,7 +1305,7 @@ name|dependency
 argument_list|)
 condition|)
 block|{
-comment|// TODO: throw into monitor as issue.
+comment|// TODO: throw into monitor as "duplicate dependency" issue.
 block|}
 name|dependencyList
 operator|.
