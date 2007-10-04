@@ -30,7 +30,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryLayoutUtilsTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * RepositoryLayoutUtilsTest  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -683,6 +683,58 @@ parameter_list|)
 block|{
 comment|/* Expected Path */
 block|}
+block|}
+specifier|public
+name|void
+name|testSplitFilenameWithProposedVersion
+parameter_list|()
+throws|throws
+name|LayoutException
+block|{
+name|assertFilenameParts
+argument_list|(
+name|RepositoryLayoutUtils
+operator|.
+name|splitFilename
+argument_list|(
+literal|"jtidy-r8-21122004.jar"
+argument_list|,
+literal|"jtidy"
+argument_list|,
+literal|"r8-21122004"
+argument_list|)
+argument_list|,
+literal|"jtidy"
+argument_list|,
+literal|"r8-21122004"
+argument_list|,
+literal|null
+argument_list|,
+literal|"jar"
+argument_list|)
+expr_stmt|;
+name|assertFilenameParts
+argument_list|(
+name|RepositoryLayoutUtils
+operator|.
+name|splitFilename
+argument_list|(
+literal|"jtidy-r8-21122004-sources.jar"
+argument_list|,
+literal|"jtidy"
+argument_list|,
+literal|"r8-21122004"
+argument_list|)
+argument_list|,
+literal|"jtidy"
+argument_list|,
+literal|"r8-21122004"
+argument_list|,
+literal|"sources"
+argument_list|,
+literal|"jar"
+argument_list|)
+expr_stmt|;
 block|}
 specifier|private
 name|void

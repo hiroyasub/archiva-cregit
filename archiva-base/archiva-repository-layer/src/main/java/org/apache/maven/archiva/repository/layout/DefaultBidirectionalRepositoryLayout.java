@@ -730,7 +730,7 @@ argument_list|,
 literal|'/'
 argument_list|)
 decl_stmt|;
-comment|/* Minimum parts.          *           *   path = "commons-lang/commons-lang/2.1/commons-lang-2.1.jar"          *   path[0] = "commons-lang";        // The Group ID          *   path[1] = "commons-lang";        // The Artifact ID          *   path[2] = "2.1";                 // The Version          *   path[3] = "commons-lang-2.1.jar" // The filename.          */
+comment|/* Minimum parts.          *          *   path = "commons-lang/commons-lang/2.1/commons-lang-2.1.jar"          *   path[0] = "commons-lang";        // The Group ID          *   path[1] = "commons-lang";        // The Artifact ID          *   path[2] = "2.1";                 // The Version          *   path[3] = "commons-lang-2.1.jar" // The filename.          */
 if|if
 condition|(
 name|pathParts
@@ -861,9 +861,13 @@ argument_list|,
 name|prefs
 operator|.
 name|artifactId
+argument_list|,
+name|prefs
+operator|.
+name|baseVersion
 argument_list|)
 expr_stmt|;
-comment|/* If classifier is discovered, see if it deserves to be.              *               * Filenames like "comm-3.0-u1.jar" might be identified as having a version of "3.0"              * and a classifier of "u1".              *               * This routine will take the version + classifier and compare it to the prefs.baseVersion and               * move the classifierensure that              *               * javax/comm/3.0-u1/comm-3.0-u1.jar              */
+comment|/* If classifier is discovered, see if it deserves to be.              *              * Filenames like "comm-3.0-u1.jar" might be identified as having a version of "3.0"              * and a classifier of "u1".              *              * This routine will take the version + classifier and compare it to the prefs.baseVersion and              * move the classifierensure that              *              * javax/comm/3.0-u1/comm-3.0-u1.jar              */
 if|if
 condition|(
 name|StringUtils
@@ -959,7 +963,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|/* Compare artifact version to path baseversion.              *               * Version naming in the wild can be strange at times.              * Sometimes what is seen as a classifier is actually part of the version id.              *               * To compensate for this, the path is checked against the artifact.version and              *  the concatenation of the artifact.version + "-" + artifact.classifier              */
+comment|/* Compare artifact version to path baseversion.              *              * Version naming in the wild can be strange at times.              * Sometimes what is seen as a classifier is actually part of the version id.              *              * To compensate for this, the path is checked against the artifact.version and              *  the concatenation of the artifact.version + "-" + artifact.classifier              */
 name|String
 name|pathVersion
 init|=
