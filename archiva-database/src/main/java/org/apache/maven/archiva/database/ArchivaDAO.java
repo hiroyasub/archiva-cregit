@@ -83,10 +83,6 @@ name|ProjectModelDAO
 name|getProjectModelDAO
 parameter_list|()
 function_decl|;
-name|RepositoryDAO
-name|getRepositoryDAO
-parameter_list|()
-function_decl|;
 name|RepositoryProblemDAO
 name|getRepositoryProblemDAO
 parameter_list|()

@@ -63,9 +63,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|database
+name|configuration
 operator|.
-name|ArtifactDAO
+name|ManagedRepositoryConfiguration
 import|;
 end_import
 
@@ -79,9 +79,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|model
+name|database
 operator|.
-name|ArchivaRepository
+name|ArtifactDAO
 import|;
 end_import
 
@@ -177,7 +177,7 @@ decl_stmt|;
 specifier|public
 name|DaysOldRepositoryPurge
 parameter_list|(
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repository
 parameter_list|,
 name|BidirectionalRepositoryLayout
@@ -226,10 +226,7 @@ name|File
 argument_list|(
 name|repository
 operator|.
-name|getUrl
-argument_list|()
-operator|.
-name|getPath
+name|getLocation
 argument_list|()
 argument_list|,
 name|path

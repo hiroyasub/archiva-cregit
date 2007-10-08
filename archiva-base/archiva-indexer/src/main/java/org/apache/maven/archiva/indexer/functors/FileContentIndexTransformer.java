@@ -43,9 +43,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|indexer
+name|configuration
 operator|.
-name|RepositoryContentIndexFactory
+name|ManagedRepositoryConfiguration
 import|;
 end_import
 
@@ -59,9 +59,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|model
+name|indexer
 operator|.
-name|ArchivaRepository
+name|RepositoryContentIndexFactory
 import|;
 end_import
 
@@ -93,7 +93,7 @@ if|if
 condition|(
 name|input
 operator|instanceof
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 condition|)
 block|{
 return|return
@@ -102,7 +102,7 @@ operator|.
 name|createFileContentIndex
 argument_list|(
 operator|(
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 operator|)
 name|input
 argument_list|)

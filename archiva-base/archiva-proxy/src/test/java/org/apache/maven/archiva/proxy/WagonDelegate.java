@@ -335,7 +335,7 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|".getIfNewer("
 operator|+

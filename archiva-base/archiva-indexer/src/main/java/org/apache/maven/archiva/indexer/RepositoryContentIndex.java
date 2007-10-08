@@ -69,6 +69,22 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|configuration
+operator|.
+name|ManagedRepositoryConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
 name|indexer
 operator|.
 name|lucene
@@ -92,22 +108,6 @@ operator|.
 name|lucene
 operator|.
 name|LuceneRepositoryContentRecord
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|model
-operator|.
-name|ArchivaRepository
 import|;
 end_import
 
@@ -212,7 +212,7 @@ name|getId
 parameter_list|()
 function_decl|;
 comment|/**      * Get the repository that this index belongs to.      *       * @return the repository that this index belongs to.      */
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|getRepository
 parameter_list|()
 function_decl|;

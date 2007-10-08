@@ -21,16 +21,6 @@ end_package
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -90,22 +80,6 @@ operator|.
 name|database
 operator|.
 name|ProjectModelDAO
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|database
-operator|.
-name|RepositoryDAO
 import|;
 end_import
 
@@ -184,6 +158,16 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -316,19 +300,6 @@ block|}
 specifier|public
 name|ProjectModelDAO
 name|getProjectModelDAO
-parameter_list|()
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"query not implemented for stub"
-argument_list|)
-throw|;
-block|}
-specifier|public
-name|RepositoryDAO
-name|getRepositoryDAO
 parameter_list|()
 block|{
 throw|throw

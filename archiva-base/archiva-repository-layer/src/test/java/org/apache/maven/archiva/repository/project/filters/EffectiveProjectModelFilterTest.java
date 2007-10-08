@@ -49,9 +49,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|model
+name|configuration
 operator|.
-name|ArchivaProjectModel
+name|ManagedRepositoryConfiguration
 import|;
 end_import
 
@@ -67,7 +67,7 @@ name|archiva
 operator|.
 name|model
 operator|.
-name|ArchivaRepository
+name|ArchivaProjectModel
 import|;
 end_import
 
@@ -100,6 +100,22 @@ operator|.
 name|model
 operator|.
 name|Individual
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|AbstractRepositoryLayerTestCase
 import|;
 end_import
 
@@ -265,19 +281,7 @@ name|project
 operator|.
 name|resolvers
 operator|.
-name|RepositoryProjectResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|PlexusTestCase
+name|ManagedRepositoryProjectResolver
 import|;
 end_import
 
@@ -340,7 +344,7 @@ specifier|public
 class|class
 name|EffectiveProjectModelFilterTest
 extends|extends
-name|PlexusTestCase
+name|AbstractRepositoryLayerTestCase
 block|{
 specifier|private
 specifier|static
@@ -426,22 +430,16 @@ argument_list|,
 name|DEFAULT_REPOSITORY
 argument_list|)
 decl_stmt|;
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repo
 init|=
-operator|new
-name|ArchivaRepository
+name|createRepository
 argument_list|(
 literal|"defaultTestRepo"
 argument_list|,
 literal|"Default Test Repo"
 argument_list|,
-literal|"file://"
-operator|+
 name|defaultRepoDir
-operator|.
-name|getAbsolutePath
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|ProjectModelReader
@@ -458,11 +456,11 @@ operator|new
 name|DefaultBidirectionalRepositoryLayout
 argument_list|()
 decl_stmt|;
-name|RepositoryProjectResolver
+name|ManagedRepositoryProjectResolver
 name|resolver
 init|=
 operator|new
-name|RepositoryProjectResolver
+name|ManagedRepositoryProjectResolver
 argument_list|(
 name|repo
 argument_list|,

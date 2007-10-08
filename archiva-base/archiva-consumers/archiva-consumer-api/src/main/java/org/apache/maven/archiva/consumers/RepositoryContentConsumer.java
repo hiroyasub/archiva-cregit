@@ -27,9 +27,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|model
+name|configuration
 operator|.
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 import|;
 end_import
 
@@ -77,7 +77,7 @@ specifier|public
 name|void
 name|beginScan
 parameter_list|(
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repository
 parameter_list|)
 throws|throws

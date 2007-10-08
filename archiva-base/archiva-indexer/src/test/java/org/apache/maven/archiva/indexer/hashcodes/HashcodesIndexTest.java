@@ -29,6 +29,22 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|configuration
+operator|.
+name|ManagedRepositoryConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
 name|indexer
 operator|.
 name|AbstractIndexCreationTestCase
@@ -119,22 +135,6 @@ name|ArchivaArtifact
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|model
-operator|.
-name|ArchivaRepository
-import|;
-end_import
-
 begin_comment
 comment|/**  * HashcodesIndexTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
@@ -173,7 +173,7 @@ parameter_list|(
 name|RepositoryContentIndexFactory
 name|indexFactory
 parameter_list|,
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repository
 parameter_list|)
 block|{

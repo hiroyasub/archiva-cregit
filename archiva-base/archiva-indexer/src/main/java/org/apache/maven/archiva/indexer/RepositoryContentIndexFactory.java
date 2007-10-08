@@ -27,9 +27,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|model
+name|configuration
 operator|.
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 import|;
 end_import
 
@@ -46,7 +46,7 @@ comment|/**      * Method to create an instance of the bytecode index.      *   
 name|RepositoryContentIndex
 name|createBytecodeIndex
 parameter_list|(
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repository
 parameter_list|)
 function_decl|;
@@ -54,7 +54,7 @@ comment|/**      * Method to create an instance of the file content index.      
 name|RepositoryContentIndex
 name|createFileContentIndex
 parameter_list|(
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repository
 parameter_list|)
 function_decl|;
@@ -62,7 +62,7 @@ comment|/**      * Method to create an instance of the hashcode index.      *   
 name|RepositoryContentIndex
 name|createHashcodeIndex
 parameter_list|(
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repository
 parameter_list|)
 function_decl|;

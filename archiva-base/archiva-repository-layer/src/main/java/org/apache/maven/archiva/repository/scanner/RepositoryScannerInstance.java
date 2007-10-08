@@ -105,9 +105,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|model
+name|configuration
 operator|.
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 import|;
 end_import
 
@@ -121,9 +121,25 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|model
+name|consumers
 operator|.
-name|RepositoryContentStatistics
+name|InvalidRepositoryContentConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|consumers
+operator|.
+name|KnownRepositoryContentConsumer
 import|;
 end_import
 
@@ -249,18 +265,25 @@ block|{
 comment|/**      * Consumers that process known content.      */
 specifier|private
 name|List
+argument_list|<
+name|KnownRepositoryContentConsumer
+argument_list|>
 name|knownConsumers
 decl_stmt|;
 comment|/**      * Consumers that process unknown/invalid content.      */
 specifier|private
 name|List
+argument_list|<
+name|InvalidRepositoryContentConsumer
+argument_list|>
 name|invalidConsumers
 decl_stmt|;
-name|ArchivaRepository
+specifier|private
+name|ManagedRepositoryConfiguration
 name|repository
 decl_stmt|;
 specifier|private
-name|RepositoryContentStatistics
+name|RepositoryScanStatistics
 name|stats
 decl_stmt|;
 specifier|private
@@ -284,13 +307,19 @@ decl_stmt|;
 specifier|public
 name|RepositoryScannerInstance
 parameter_list|(
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repository
 parameter_list|,
 name|List
+argument_list|<
+name|KnownRepositoryContentConsumer
+argument_list|>
 name|knownConsumerList
 parameter_list|,
 name|List
+argument_list|<
+name|InvalidRepositoryContentConsumer
+argument_list|>
 name|invalidConsumerList
 parameter_list|,
 name|Logger
@@ -342,7 +371,7 @@ expr_stmt|;
 name|stats
 operator|=
 operator|new
-name|RepositoryContentStatistics
+name|RepositoryScanStatistics
 argument_list|()
 expr_stmt|;
 name|stats
@@ -401,7 +430,7 @@ expr_stmt|;
 block|}
 block|}
 specifier|public
-name|RepositoryContentStatistics
+name|RepositoryScanStatistics
 name|getStatistics
 parameter_list|()
 block|{
@@ -436,7 +465,7 @@ name|this
 operator|.
 name|repository
 operator|.
-name|getUrl
+name|getLocation
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -514,10 +543,7 @@ name|BaseFile
 argument_list|(
 name|repository
 operator|.
-name|getUrl
-argument_list|()
-operator|.
-name|getPath
+name|getLocation
 argument_list|()
 argument_list|,
 name|file
@@ -608,7 +634,7 @@ name|this
 operator|.
 name|repository
 operator|.
-name|getUrl
+name|getLocation
 argument_list|()
 argument_list|)
 expr_stmt|;

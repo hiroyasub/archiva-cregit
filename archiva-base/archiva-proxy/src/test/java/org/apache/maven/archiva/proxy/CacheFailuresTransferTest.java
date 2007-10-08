@@ -187,6 +187,9 @@ operator|new
 name|File
 argument_list|(
 name|managedDefaultDir
+operator|.
+name|getAbsoluteFile
+argument_list|()
 argument_list|,
 name|path
 argument_list|)
@@ -377,6 +380,9 @@ operator|new
 name|File
 argument_list|(
 name|managedDefaultDir
+operator|.
+name|getAbsoluteFile
+argument_list|()
 argument_list|,
 name|path
 argument_list|)

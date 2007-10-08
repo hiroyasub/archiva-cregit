@@ -79,22 +79,6 @@ name|archiva
 operator|.
 name|database
 operator|.
-name|RepositoryDAO
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|database
-operator|.
 name|RepositoryProblemDAO
 import|;
 end_import
@@ -179,11 +163,6 @@ name|projectModelDAO
 decl_stmt|;
 comment|/**      * @plexus.requirement role-hint="jdo"      */
 specifier|private
-name|RepositoryDAO
-name|repositoryDAO
-decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="jdo"      */
-specifier|private
 name|RepositoryProblemDAO
 name|repositoryProblemDAO
 decl_stmt|;
@@ -237,15 +216,6 @@ parameter_list|()
 block|{
 return|return
 name|projectModelDAO
-return|;
-block|}
-specifier|public
-name|RepositoryDAO
-name|getRepositoryDAO
-parameter_list|()
-block|{
-return|return
-name|repositoryDAO
 return|;
 block|}
 specifier|public

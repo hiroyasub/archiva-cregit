@@ -27,9 +27,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|model
+name|configuration
 operator|.
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 import|;
 end_import
 
@@ -115,7 +115,7 @@ specifier|public
 name|File
 name|fetchFromProxies
 parameter_list|(
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repository
 parameter_list|,
 name|ArtifactReference
@@ -129,7 +129,7 @@ specifier|public
 name|File
 name|fetchFromProxies
 parameter_list|(
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repository
 parameter_list|,
 name|VersionedReference
@@ -143,7 +143,7 @@ specifier|public
 name|File
 name|fetchFromProxies
 parameter_list|(
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repository
 parameter_list|,
 name|ProjectReference
@@ -160,7 +160,7 @@ name|ProxyConnector
 argument_list|>
 name|getProxyConnectors
 parameter_list|(
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repository
 parameter_list|)
 function_decl|;
@@ -169,7 +169,7 @@ specifier|public
 name|boolean
 name|hasProxies
 parameter_list|(
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repository
 parameter_list|)
 function_decl|;

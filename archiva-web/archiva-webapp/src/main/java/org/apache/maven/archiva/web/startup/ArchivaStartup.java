@@ -120,8 +120,8 @@ name|Initializable
 block|{
 comment|/**      * @plexus.requirement role-hint="default"      */
 specifier|private
-name|ConfigurationSynchronization
-name|configSync
+name|SecuritySynchronization
+name|securitySync
 decl_stmt|;
 comment|/**      * @plexus.requirement role-hint="default"      */
 specifier|private
@@ -163,7 +163,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|configSync
+name|securitySync
 operator|.
 name|startup
 argument_list|()

@@ -27,9 +27,25 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|model
+name|configuration
 operator|.
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
+name|RemoteRepositoryConfiguration
 import|;
 end_import
 
@@ -93,11 +109,11 @@ implements|implements
 name|RepositoryConnector
 block|{
 specifier|private
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|sourceRepository
 decl_stmt|;
 specifier|private
-name|ArchivaRepository
+name|RemoteRepositoryConfiguration
 name|targetRepository
 decl_stmt|;
 specifier|private
@@ -162,7 +178,7 @@ name|blacklist
 expr_stmt|;
 block|}
 specifier|public
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|getSourceRepository
 parameter_list|()
 block|{
@@ -174,7 +190,7 @@ specifier|public
 name|void
 name|setSourceRepository
 parameter_list|(
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|sourceRepository
 parameter_list|)
 block|{
@@ -186,7 +202,7 @@ name|sourceRepository
 expr_stmt|;
 block|}
 specifier|public
-name|ArchivaRepository
+name|RemoteRepositoryConfiguration
 name|getTargetRepository
 parameter_list|()
 block|{
@@ -198,7 +214,7 @@ specifier|public
 name|void
 name|setTargetRepository
 parameter_list|(
-name|ArchivaRepository
+name|RemoteRepositoryConfiguration
 name|targetRepository
 parameter_list|)
 block|{

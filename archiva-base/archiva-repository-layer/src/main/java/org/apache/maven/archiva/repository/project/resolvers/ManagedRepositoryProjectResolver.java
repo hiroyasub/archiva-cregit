@@ -31,6 +31,22 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|configuration
+operator|.
+name|ManagedRepositoryConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
 name|model
 operator|.
 name|ArchivaArtifact
@@ -50,22 +66,6 @@ operator|.
 name|model
 operator|.
 name|ArchivaProjectModel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|model
-operator|.
-name|ArchivaRepository
 import|;
 end_import
 
@@ -168,20 +168,20 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Resolve Project from filesystem.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Resolve Project from managed repository.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|RepositoryProjectResolver
+name|ManagedRepositoryProjectResolver
 implements|implements
 name|ProjectModelResolver
 implements|,
 name|FilesystemBasedResolver
 block|{
 specifier|private
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repository
 decl_stmt|;
 specifier|private
@@ -193,9 +193,9 @@ name|BidirectionalRepositoryLayout
 name|layout
 decl_stmt|;
 specifier|public
-name|RepositoryProjectResolver
+name|ManagedRepositoryProjectResolver
 parameter_list|(
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repository
 parameter_list|,
 name|ProjectModelReader
@@ -280,10 +280,7 @@ name|this
 operator|.
 name|repository
 operator|.
-name|getUrl
-argument_list|()
-operator|.
-name|getPath
+name|getLocation
 argument_list|()
 argument_list|,
 name|path

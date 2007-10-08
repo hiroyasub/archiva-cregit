@@ -63,11 +63,21 @@ argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Repository DAO"
+literal|"Project Model DAO"
 argument_list|,
 name|dao
 operator|.
-name|getRepositoryDAO
+name|getProjectModelDAO
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Repository Problem DAO"
+argument_list|,
+name|dao
+operator|.
+name|getRepositoryProblemDAO
 argument_list|()
 argument_list|)
 expr_stmt|;

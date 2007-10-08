@@ -43,9 +43,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|model
+name|configuration
 operator|.
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 import|;
 end_import
 
@@ -77,7 +77,7 @@ if|if
 condition|(
 name|object
 operator|instanceof
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 condition|)
 block|{
 comment|// TODO: perform check here.

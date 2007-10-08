@@ -153,22 +153,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|model
-operator|.
-name|ArchivaRepository
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -197,7 +181,7 @@ specifier|public
 name|RepositoryContentIndex
 name|createBytecodeIndex
 parameter_list|(
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repository
 parameter_list|)
 block|{
@@ -229,7 +213,7 @@ specifier|public
 name|RepositoryContentIndex
 name|createFileContentIndex
 parameter_list|(
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repository
 parameter_list|)
 block|{
@@ -261,7 +245,7 @@ specifier|public
 name|RepositoryContentIndex
 name|createHashcodeIndex
 parameter_list|(
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repository
 parameter_list|)
 block|{
@@ -294,7 +278,7 @@ specifier|private
 name|File
 name|toIndexDir
 parameter_list|(
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repository
 parameter_list|,
 name|String
@@ -334,10 +318,7 @@ name|repoPath
 init|=
 name|repository
 operator|.
-name|getUrl
-argument_list|()
-operator|.
-name|getPath
+name|getLocation
 argument_list|()
 decl_stmt|;
 name|indexDir
@@ -380,10 +361,7 @@ name|repoPath
 operator|=
 name|repository
 operator|.
-name|getUrl
-argument_list|()
-operator|.
-name|getPath
+name|getLocation
 argument_list|()
 expr_stmt|;
 if|if

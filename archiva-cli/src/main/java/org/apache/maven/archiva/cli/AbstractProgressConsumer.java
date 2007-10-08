@@ -27,6 +27,22 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|configuration
+operator|.
+name|ManagedRepositoryConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
 name|consumers
 operator|.
 name|AbstractMonitoredConsumer
@@ -65,22 +81,6 @@ name|RepositoryContentConsumer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|model
-operator|.
-name|ArchivaRepository
-import|;
-end_import
-
 begin_comment
 comment|/**  * AbstractProgressConsumer   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
@@ -105,7 +105,7 @@ specifier|public
 name|void
 name|beginScan
 parameter_list|(
-name|ArchivaRepository
+name|ManagedRepositoryConfiguration
 name|repository
 parameter_list|)
 throws|throws
