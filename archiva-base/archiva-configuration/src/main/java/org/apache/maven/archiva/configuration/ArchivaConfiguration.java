@@ -81,7 +81,23 @@ name|RegistryException
 throws|,
 name|IndeterminateConfigurationException
 function_decl|;
-comment|/**      * Add a change listener so that registry changes are propogated.      *      * @param listener the listener      */
+comment|/**      * Add a configuration listener to notify of changes to the configuration.      *      * @param listener the listener      */
+name|void
+name|addListener
+parameter_list|(
+name|ConfigurationListener
+name|listener
+parameter_list|)
+function_decl|;
+comment|/**      * Remove a configuration listener to stop notifications of changes to the configuration.      *      * @param listener the listener      */
+name|void
+name|removeListener
+parameter_list|(
+name|ConfigurationListener
+name|listener
+parameter_list|)
+function_decl|;
+comment|/**      * Add a registry listener to notify of events in plexus-registry.      *      * @param listener the listener      * TODO: Remove in future.      */
 name|void
 name|addChangeListener
 parameter_list|(
