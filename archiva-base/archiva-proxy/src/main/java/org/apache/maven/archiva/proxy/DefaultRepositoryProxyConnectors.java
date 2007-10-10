@@ -2544,7 +2544,7 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"Resource does not exist: "
 operator|+
