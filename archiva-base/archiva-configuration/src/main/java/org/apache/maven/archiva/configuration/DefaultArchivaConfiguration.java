@@ -657,6 +657,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// Prevent duplicate repositories from showing up.
+name|config
+operator|.
+name|getRepositories
+argument_list|()
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 comment|// Normalize the order fields in the proxy connectors.
 if|if
