@@ -97,7 +97,7 @@ name|repository
 operator|.
 name|content
 operator|.
-name|DefaultArtifactExtensionMapping
+name|ArtifactExtensionMapping
 import|;
 end_import
 
@@ -187,14 +187,6 @@ name|char
 name|ARTIFACT_SEPARATOR
 init|=
 literal|'-'
-decl_stmt|;
-specifier|private
-name|DefaultArtifactExtensionMapping
-name|extensionMapper
-init|=
-operator|new
-name|DefaultArtifactExtensionMapping
-argument_list|()
 decl_stmt|;
 specifier|public
 name|String
@@ -621,7 +613,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|extensionMapper
+name|ArtifactExtensionMapping
 operator|.
 name|getExtension
 argument_list|(
@@ -935,9 +927,9 @@ name|prefs
 operator|.
 name|type
 operator|=
-name|extensionMapper
+name|ArtifactExtensionMapping
 operator|.
-name|getType
+name|guessTypeFromFilename
 argument_list|(
 name|filename
 argument_list|)

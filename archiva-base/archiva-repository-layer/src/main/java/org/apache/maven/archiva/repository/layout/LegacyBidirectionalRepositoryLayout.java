@@ -79,7 +79,7 @@ name|repository
 operator|.
 name|content
 operator|.
-name|LegacyArtifactExtensionMapping
+name|ArtifactExtensionMapping
 import|;
 end_import
 
@@ -137,14 +137,6 @@ name|String
 name|PATH_SEPARATOR
 init|=
 literal|"/"
-decl_stmt|;
-specifier|private
-name|LegacyArtifactExtensionMapping
-name|extensionMapper
-init|=
-operator|new
-name|LegacyArtifactExtensionMapping
-argument_list|()
 decl_stmt|;
 specifier|private
 name|Map
@@ -385,7 +377,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|extensionMapper
+name|ArtifactExtensionMapping
 operator|.
 name|getExtension
 argument_list|(
@@ -647,12 +639,10 @@ name|prefs
 operator|.
 name|type
 operator|=
-name|extensionMapper
+name|ArtifactExtensionMapping
 operator|.
-name|getType
+name|guessTypeFromFilename
 argument_list|(
-name|trimPathType
-argument_list|,
 name|filename
 argument_list|)
 expr_stmt|;
@@ -714,7 +704,7 @@ comment|// Sanity Check: does extension match pathType on path?
 name|String
 name|expectedExtension
 init|=
-name|extensionMapper
+name|ArtifactExtensionMapping
 operator|.
 name|getExtension
 argument_list|(

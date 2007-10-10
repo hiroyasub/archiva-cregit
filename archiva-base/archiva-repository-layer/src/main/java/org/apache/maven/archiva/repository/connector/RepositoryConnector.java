@@ -29,9 +29,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|configuration
+name|repository
 operator|.
-name|ManagedRepositoryConfiguration
+name|ManagedRepositoryContent
 import|;
 end_import
 
@@ -45,9 +45,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|configuration
+name|repository
 operator|.
-name|RemoteRepositoryConfiguration
+name|RemoteRepositoryContent
 import|;
 end_import
 
@@ -71,12 +71,12 @@ interface|interface
 name|RepositoryConnector
 block|{
 specifier|public
-name|ManagedRepositoryConfiguration
+name|ManagedRepositoryContent
 name|getSourceRepository
 parameter_list|()
 function_decl|;
 specifier|public
-name|RemoteRepositoryConfiguration
+name|RemoteRepositoryContent
 name|getTargetRepository
 parameter_list|()
 function_decl|;

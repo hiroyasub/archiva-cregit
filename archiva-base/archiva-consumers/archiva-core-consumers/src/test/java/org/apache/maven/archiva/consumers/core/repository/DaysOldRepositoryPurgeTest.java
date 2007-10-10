@@ -96,9 +96,6 @@ argument_list|(
 name|getRepository
 argument_list|()
 argument_list|,
-name|getLayout
-argument_list|()
-argument_list|,
 name|dao
 argument_list|,
 name|getRepoConfiguration

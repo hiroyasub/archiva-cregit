@@ -27,9 +27,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|configuration
+name|repository
 operator|.
-name|ManagedRepositoryConfiguration
+name|ManagedRepositoryContent
 import|;
 end_import
 
@@ -43,9 +43,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|configuration
+name|repository
 operator|.
-name|RemoteRepositoryConfiguration
+name|RemoteRepositoryContent
 import|;
 end_import
 
@@ -109,11 +109,11 @@ implements|implements
 name|RepositoryConnector
 block|{
 specifier|private
-name|ManagedRepositoryConfiguration
+name|ManagedRepositoryContent
 name|sourceRepository
 decl_stmt|;
 specifier|private
-name|RemoteRepositoryConfiguration
+name|RemoteRepositoryContent
 name|targetRepository
 decl_stmt|;
 specifier|private
@@ -178,7 +178,7 @@ name|blacklist
 expr_stmt|;
 block|}
 specifier|public
-name|ManagedRepositoryConfiguration
+name|ManagedRepositoryContent
 name|getSourceRepository
 parameter_list|()
 block|{
@@ -190,7 +190,7 @@ specifier|public
 name|void
 name|setSourceRepository
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepositoryContent
 name|sourceRepository
 parameter_list|)
 block|{
@@ -202,7 +202,7 @@ name|sourceRepository
 expr_stmt|;
 block|}
 specifier|public
-name|RemoteRepositoryConfiguration
+name|RemoteRepositoryContent
 name|getTargetRepository
 parameter_list|()
 block|{
@@ -214,7 +214,7 @@ specifier|public
 name|void
 name|setTargetRepository
 parameter_list|(
-name|RemoteRepositoryConfiguration
+name|RemoteRepositoryContent
 name|targetRepository
 parameter_list|)
 block|{
@@ -336,7 +336,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"  source:"
+literal|"  source: [managed] "
 argument_list|)
 operator|.
 name|append
@@ -344,6 +344,9 @@ argument_list|(
 name|this
 operator|.
 name|sourceRepository
+operator|.
+name|getRepoRoot
+argument_list|()
 argument_list|)
 operator|.
 name|append
@@ -355,7 +358,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"  target:"
+literal|"  target: [remote] "
 argument_list|)
 operator|.
 name|append
@@ -363,6 +366,12 @@ argument_list|(
 name|this
 operator|.
 name|targetRepository
+operator|.
+name|getRepository
+argument_list|()
+operator|.
+name|getUrl
+argument_list|()
 argument_list|)
 operator|.
 name|append

@@ -83,6 +83,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|ManagedRepositoryContent
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -115,7 +131,7 @@ specifier|public
 name|File
 name|fetchFromProxies
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepositoryContent
 name|repository
 parameter_list|,
 name|ArtifactReference
@@ -129,7 +145,7 @@ specifier|public
 name|File
 name|fetchFromProxies
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepositoryContent
 name|repository
 parameter_list|,
 name|VersionedReference
@@ -143,7 +159,7 @@ specifier|public
 name|File
 name|fetchFromProxies
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepositoryContent
 name|repository
 parameter_list|,
 name|ProjectReference
@@ -160,7 +176,7 @@ name|ProxyConnector
 argument_list|>
 name|getProxyConnectors
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepositoryContent
 name|repository
 parameter_list|)
 function_decl|;
@@ -169,7 +185,7 @@ specifier|public
 name|boolean
 name|hasProxies
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepositoryContent
 name|repository
 parameter_list|)
 function_decl|;

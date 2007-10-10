@@ -82,7 +82,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DeleteRemoteRepositoryAction   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork.Action" role-hint="deleteRemoteRepositoryAction"  */
+comment|/**  * DeleteRemoteRepositoryAction   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork.Action" role-hint="deleteRemoteRepositoryAction"  */
 end_comment
 
 begin_class

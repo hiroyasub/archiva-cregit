@@ -120,7 +120,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PickReportAction   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork.Action" role-hint="pickReport"  */
+comment|/**  * PickReportAction   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork.Action" role-hint="pickReport"  */
 end_comment
 
 begin_class

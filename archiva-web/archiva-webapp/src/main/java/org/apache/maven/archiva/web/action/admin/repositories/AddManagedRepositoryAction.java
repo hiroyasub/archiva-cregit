@@ -120,7 +120,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AddManagedRepositoryAction   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork.Action" role-hint="addManagedRepositoryAction"  */
+comment|/**  * AddManagedRepositoryAction   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork.Action" role-hint="addManagedRepositoryAction"  */
 end_comment
 
 begin_class
