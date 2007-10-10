@@ -2546,7 +2546,18 @@ argument_list|()
 operator|.
 name|debug
 argument_list|(
-literal|"Resource does not exist: "
+literal|"Resource ["
+operator|+
+name|remoteRepository
+operator|.
+name|getURL
+argument_list|()
+operator|+
+literal|"/"
+operator|+
+name|remotePath
+operator|+
+literal|"] does not exist: "
 operator|+
 name|e
 operator|.
@@ -2569,7 +2580,18 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-literal|"Download failure:"
+literal|"Download failure on resource ["
+operator|+
+name|remoteRepository
+operator|.
+name|getURL
+argument_list|()
+operator|+
+literal|"/"
+operator|+
+name|remotePath
+operator|+
+literal|"]:"
 operator|+
 name|e
 operator|.
