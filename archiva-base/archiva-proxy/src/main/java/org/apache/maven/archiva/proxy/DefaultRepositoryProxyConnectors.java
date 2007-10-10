@@ -950,7 +950,7 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Successfully transfered: "
 operator|+
@@ -1081,7 +1081,7 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Successfully transfered: "
 operator|+
@@ -1366,7 +1366,7 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Successfully transfered: "
 operator|+
@@ -1898,7 +1898,7 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Failed pre-download policies - "
 operator|+
@@ -2122,7 +2122,7 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Failed post-download policies - "
 operator|+
@@ -2495,7 +2495,7 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Not downloaded, as local file is newer than remote side: "
 operator|+
@@ -2729,7 +2729,7 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Didn't pass the ["
 operator|+
@@ -3049,7 +3049,7 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|info
+name|warn
 argument_list|(
 literal|"Could not connect to "
 operator|+
@@ -3083,7 +3083,7 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|info
+name|warn
 argument_list|(
 literal|"Could not connect to "
 operator|+
