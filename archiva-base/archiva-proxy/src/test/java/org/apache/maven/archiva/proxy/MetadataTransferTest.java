@@ -386,6 +386,8 @@ name|requestedResource
 argument_list|)
 expr_stmt|;
 comment|// Nothing fetched.  Should only contain contents of what is in the repository.
+comment|// A metadata update is not performed in this use case.  Local metadata content is only
+comment|// updated via the metadata updater consumer.
 name|assertProjectMetadataContents
 argument_list|(
 name|requestedResource
@@ -395,15 +397,11 @@ name|String
 index|[]
 block|{
 literal|"1.0"
-block|,
-literal|"1.1"
-block|,
-literal|"2.0"
 block|}
 argument_list|,
-literal|"2.0"
+literal|null
 argument_list|,
-literal|"2.0"
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -1015,6 +1013,8 @@ name|requestedResource
 argument_list|)
 expr_stmt|;
 comment|// metadata not fetched from both repos, and local version exists.
+comment|// Since there was no updated metadata content from a remote/proxy, a metadata update on
+comment|// the local file never ran.  Local only updates are performed via the metadata updater consumer.
 name|assertProjectMetadataContents
 argument_list|(
 name|requestedResource
@@ -1026,9 +1026,9 @@ block|{
 literal|"1.0-beta-2"
 block|}
 argument_list|,
-literal|"1.0-beta-2"
+literal|null
 argument_list|,
-literal|"1.0-beta-2"
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertNoRepoMetadata
