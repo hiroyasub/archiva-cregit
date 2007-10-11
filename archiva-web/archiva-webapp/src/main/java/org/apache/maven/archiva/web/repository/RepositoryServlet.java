@@ -643,7 +643,9 @@ argument_list|()
 condition|)
 block|{
 name|repositoryMap
-operator|=
+operator|.
+name|putAll
+argument_list|(
 name|configuration
 operator|.
 name|getConfiguration
@@ -651,6 +653,7 @@ argument_list|()
 operator|.
 name|getManagedRepositoriesAsMap
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 return|return
