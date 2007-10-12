@@ -324,20 +324,6 @@ argument_list|(
 name|reference
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"Purging: "
-operator|+
-name|artifactFile
-operator|.
-name|getAbsolutePath
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|artifactFile
 operator|.
 name|delete
@@ -460,20 +446,6 @@ name|file
 operator|.
 name|delete
 argument_list|()
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"Deleting support file: "
-operator|+
-name|file
-operator|.
-name|getAbsolutePath
-argument_list|()
-argument_list|)
 expr_stmt|;
 comment|// TODO: log that it was deleted?
 block|}

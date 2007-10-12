@@ -521,22 +521,6 @@ name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"Requesting (retention) purge of "
-operator|+
-name|ArtifactReference
-operator|.
-name|toKey
-argument_list|(
-name|reference
-argument_list|)
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|Set
