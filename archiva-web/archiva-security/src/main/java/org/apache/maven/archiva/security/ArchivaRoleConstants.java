@@ -185,6 +185,23 @@ name|OPERATION_REPOSITORY_UPLOAD
 init|=
 literal|"archiva-upload-repository"
 decl_stmt|;
+comment|// Role templates
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TEMPLATE_REPOSITORY_MANAGER
+init|=
+literal|"archiva-repository-manager"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TEMPLATE_REPOSITORY_OBSERVER
+init|=
+literal|"archiva-repository-observer"
+decl_stmt|;
 block|}
 end_class
 

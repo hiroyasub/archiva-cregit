@@ -87,6 +87,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|security
+operator|.
+name|ArchivaRoleConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -254,6 +270,7 @@ argument_list|>
 name|repos
 parameter_list|)
 block|{
+comment|// NOTE: Remote Repositories do not have roles or security placed around them.
 for|for
 control|(
 name|ManagedRepositoryConfiguration
@@ -272,7 +289,9 @@ name|roleManager
 operator|.
 name|templatedRoleExists
 argument_list|(
-literal|"archiva-repository-observer"
+name|ArchivaRoleConstants
+operator|.
+name|TEMPLATE_REPOSITORY_OBSERVER
 argument_list|,
 name|repoConfig
 operator|.
@@ -285,7 +304,9 @@ name|roleManager
 operator|.
 name|createTemplatedRole
 argument_list|(
-literal|"archiva-repository-observer"
+name|ArchivaRoleConstants
+operator|.
+name|TEMPLATE_REPOSITORY_OBSERVER
 argument_list|,
 name|repoConfig
 operator|.
@@ -301,7 +322,9 @@ name|roleManager
 operator|.
 name|templatedRoleExists
 argument_list|(
-literal|"archiva-repository-manager"
+name|ArchivaRoleConstants
+operator|.
+name|TEMPLATE_REPOSITORY_MANAGER
 argument_list|,
 name|repoConfig
 operator|.
@@ -314,7 +337,9 @@ name|roleManager
 operator|.
 name|createTemplatedRole
 argument_list|(
-literal|"archiva-repository-manager"
+name|ArchivaRoleConstants
+operator|.
+name|TEMPLATE_REPOSITORY_MANAGER
 argument_list|,
 name|repoConfig
 operator|.
