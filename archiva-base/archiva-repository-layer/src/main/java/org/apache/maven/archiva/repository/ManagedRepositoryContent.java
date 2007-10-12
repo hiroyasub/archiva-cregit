@@ -45,6 +45,22 @@ name|archiva
 operator|.
 name|model
 operator|.
+name|ArchivaArtifact
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|model
+operator|.
 name|ArtifactReference
 import|;
 end_import
@@ -173,7 +189,7 @@ name|ManagedRepositoryConfiguration
 name|getRepository
 parameter_list|()
 function_decl|;
-comment|/**      * Given a specific ProjectReference, return the list of available versions for      * that project reference.      *       * @param reference the project reference to work off of.      * @return the list of versions found for that project reference.      * @throws ContentNotFoundException if the project reference does nto exist within the repository.      * @throws LayoutException       */
+comment|/**      * Given a specific {@link ProjectReference}, return the list of available versions for      * that project reference.      *       * @param reference the project reference to work off of.      * @return the list of versions found for that project reference.      * @throws ContentNotFoundException if the project reference does nto exist within the repository.      * @throws LayoutException       */
 specifier|public
 name|Set
 argument_list|<
@@ -189,7 +205,7 @@ name|ContentNotFoundException
 throws|,
 name|LayoutException
 function_decl|;
-comment|/**      *<p>      * Given a specific VersionedReference, return the list of available versions for that      * versioned reference.      *</p>      *       *<p>      *<strong>NOTE:</strong> This is really only useful when working with SNAPSHOTs.      *</p>      *       * @param reference the versioned reference to work off of.      * @return the set of versions found.      * @throws ContentNotFoundException if the versioned reference does not exist within the repository.      * @throws LayoutException       */
+comment|/**      *<p>      * Given a specific {@link VersionedReference}, return the list of available versions for that      * versioned reference.      *</p>      *       *<p>      *<strong>NOTE:</strong> This is really only useful when working with SNAPSHOTs.      *</p>      *       * @param reference the versioned reference to work off of.      * @return the set of versions found.      * @throws ContentNotFoundException if the versioned reference does not exist within the repository.      * @throws LayoutException       */
 specifier|public
 name|Set
 argument_list|<
@@ -252,7 +268,7 @@ parameter_list|)
 throws|throws
 name|LayoutException
 function_decl|;
-comment|/**      * Given an ArtifactReference, return the file reference to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
+comment|/**      * Given an {@link ArtifactReference}, return the file reference to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
 specifier|public
 name|File
 name|toFile
@@ -261,7 +277,16 @@ name|ArtifactReference
 name|reference
 parameter_list|)
 function_decl|;
-comment|/**      * Given a project reference, return the path to the metadata for      * the project.       *       * @param reference the reference to use.      * @return the path to the metadata file, or null if no metadata is appropriate.      */
+comment|/**      * Given an {@link ArchivaArtifact}, return the file reference to the artifact.      *      * @param reference the archiva artifact to use.      * @return the relative path to the artifact.      */
+specifier|public
+name|File
+name|toFile
+parameter_list|(
+name|ArchivaArtifact
+name|reference
+parameter_list|)
+function_decl|;
+comment|/**      * Given a {@link ProjectReference}, return the path to the metadata for      * the project.       *       * @param reference the reference to use.      * @return the path to the metadata file, or null if no metadata is appropriate.      */
 specifier|public
 name|String
 name|toMetadataPath
@@ -270,7 +295,7 @@ name|ProjectReference
 name|reference
 parameter_list|)
 function_decl|;
-comment|/**      * Given a versioned reference, return the path to the metadata for      * the specific version of the project.       *       * @param reference the reference to use.      * @return the path to the metadata file, or null if no metadata is appropriate.      */
+comment|/**      * Given a {@link VersionedReference}, return the path to the metadata for      * the specific version of the project.       *       * @param reference the reference to use.      * @return the path to the metadata file, or null if no metadata is appropriate.      */
 specifier|public
 name|String
 name|toMetadataPath
@@ -279,12 +304,21 @@ name|VersionedReference
 name|reference
 parameter_list|)
 function_decl|;
-comment|/**      * Given an ArtifactReference, return the relative path to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
+comment|/**      * Given an {@link ArtifactReference}, return the relative path to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
 specifier|public
 name|String
 name|toPath
 parameter_list|(
 name|ArtifactReference
+name|reference
+parameter_list|)
+function_decl|;
+comment|/**      * Given an {@link ArchivaArtifact}, return the relative path to the artifact.      *      * @param reference the archiva artifact to use.      * @return the relative path to the artifact.      */
+specifier|public
+name|String
+name|toPath
+parameter_list|(
+name|ArchivaArtifact
 name|reference
 parameter_list|)
 function_decl|;
