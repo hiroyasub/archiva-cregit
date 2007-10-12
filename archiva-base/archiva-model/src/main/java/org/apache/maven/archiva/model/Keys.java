@@ -9,9 +9,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|dependency
-operator|.
-name|graph
+name|model
 package|;
 end_package
 
