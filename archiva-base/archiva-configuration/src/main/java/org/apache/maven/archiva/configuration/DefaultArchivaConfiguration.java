@@ -348,7 +348,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation of configuration holder that retrieves it from the registry.  *<p/>  * The registry layers and merges the 2 configuration files: user, and application server.  *<p/>  * Instead of relying on the model defaults, if the registry is empty a default configuration file is loaded and  * applied from a resource. The defaults are not loaded into the registry as the lists (eg repositories) could no longer  * be removed if that was the case.  *<p/>  * When saving the configuration, it is saved to the location it was read from. If it was read from the defaults, it  * will be saved to the user location.  * However, if the configuration contains information from both sources, an exception is raised as this is currently  * unsupported. The reason for this is that it is not possible to identify where to re-save elements, and can result  * in list configurations (eg repositories) becoming inconsistent.  *<p/>  * If the configuration is outdated, it will be upgraded when it is loaded. This is done by checking the version flag  * before reading it from the registry.  *  * @plexus.component role="org.apache.maven.archiva.configuration.ArchivaConfiguration"  */
+comment|/**  *<p>  * Implementation of configuration holder that retrieves it from the registry.  *</p>  *<p>  * The registry layers and merges the 2 configuration files: user, and application server.  *</p>  *<p>  * Instead of relying on the model defaults, if the registry is empty a default configuration file is loaded and  * applied from a resource. The defaults are not loaded into the registry as the lists (eg repositories) could no longer  * be removed if that was the case.  *</p>  *<p>  * When saving the configuration, it is saved to the location it was read from. If it was read from the defaults, it  * will be saved to the user location.  * However, if the configuration contains information from both sources, an exception is raised as this is currently  * unsupported. The reason for this is that it is not possible to identify where to re-save elements, and can result  * in list configurations (eg repositories) becoming inconsistent.  *</p>  *<p>  * If the configuration is outdated, it will be upgraded when it is loaded. This is done by checking the version flag  * before reading it from the registry.  *</p>  *  * @plexus.component role="org.apache.maven.archiva.configuration.ArchivaConfiguration"  */
 end_comment
 
 begin_class
@@ -421,6 +421,13 @@ argument_list|<
 name|RegistryListener
 argument_list|>
 argument_list|()
+decl_stmt|;
+comment|/**      * Boolean to help determine if the configuration exists as a result of pulling in      * the default-archiva.xml      */
+specifier|private
+name|boolean
+name|isConfigurationDefaulted
+init|=
+literal|false
 decl_stmt|;
 specifier|public
 specifier|synchronized
@@ -830,6 +837,12 @@ argument_list|,
 name|KEY
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|isConfigurationDefaulted
+operator|=
+literal|true
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1169,7 +1182,7 @@ throws|throws
 name|RegistryException
 block|{
 comment|// TODO: may not be needed under commons-configuration 1.4 - check
-comment|// UPDATE: Upgrading to commons-configuration 1.4 breaks half the unit tests. 10/11/2007 (joakime)
+comment|// UPDATE: Upgrading to commons-configuration 1.4 breaks half the unit tests. 2007-10-11 (joakime)
 name|String
 name|contents
 init|=
@@ -1864,6 +1877,17 @@ parameter_list|()
 block|{
 return|return
 name|altConfigFilename
+return|;
+block|}
+specifier|public
+name|boolean
+name|isDefaulted
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|isConfigurationDefaulted
 return|;
 block|}
 block|}
