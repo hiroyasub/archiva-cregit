@@ -189,7 +189,7 @@ name|getDescription
 parameter_list|()
 block|{
 return|return
-literal|"Test Consumer for Database Unprocessed"
+literal|"Test Consumer for Database Cleanup"
 return|;
 block|}
 specifier|public
@@ -198,7 +198,7 @@ name|getId
 parameter_list|()
 block|{
 return|return
-literal|"test-db-unprocessed"
+literal|"test-db-cleanup"
 return|;
 block|}
 specifier|public

@@ -360,7 +360,7 @@ decl_stmt|;
 return|return
 name|config
 operator|.
-name|getUnprocessedConsumers
+name|getCleanupConsumers
 argument_list|()
 operator|.
 name|contains
