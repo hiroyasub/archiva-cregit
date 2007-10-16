@@ -148,13 +148,6 @@ argument_list|)
 expr_stmt|;
 name|dbCleanupRemoveProjectConsumer
 operator|.
-name|setBidirectionalRepositoryLayoutFactory
-argument_list|(
-name|layoutFactory
-argument_list|)
-expr_stmt|;
-name|dbCleanupRemoveProjectConsumer
-operator|.
 name|setRepositoryFactory
 argument_list|(
 name|repositoryFactory

@@ -132,13 +132,6 @@ argument_list|)
 expr_stmt|;
 name|dbCleanupRemoveArtifactConsumer
 operator|.
-name|setBidirectionalRepositoryLayoutFactory
-argument_list|(
-name|layoutFactory
-argument_list|)
-expr_stmt|;
-name|dbCleanupRemoveArtifactConsumer
-operator|.
 name|setRepositoryFactory
 argument_list|(
 name|repositoryFactory
