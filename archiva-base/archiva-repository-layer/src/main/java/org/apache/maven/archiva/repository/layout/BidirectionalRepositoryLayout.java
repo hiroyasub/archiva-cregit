@@ -67,8 +67,74 @@ name|VersionedReference
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|ManagedRepositoryContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|RemoteRepositoryContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|RepositoryContentFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|RepositoryRequest
+import|;
+end_import
+
 begin_comment
-comment|/**  * BidirectionalRepositoryLayout - Similar in scope to ArtifactRepositoryLayout, but does  * the both the Path to Artifact, and Artifact to Path conversions.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * BidirectionalRepositoryLayout - Similar in scope to ArtifactRepositoryLayout, but does  * the both the Path to Artifact, and Artifact to Path conversions.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @deprecated use {@link RepositoryContentFactory} instead.  */
 end_comment
 
 begin_interface
@@ -76,13 +142,13 @@ specifier|public
 interface|interface
 name|BidirectionalRepositoryLayout
 block|{
-comment|/**      * Get the identifier for this layout.      *      * @return the identifier for this layout.      */
+comment|/**      * Get the identifier for this layout.      *      * @return the identifier for this layout.      *       * @deprecated use {@link ManagedRepositoryContent#getId()} or {@link RemoteRepositoryContent#getId()} instead.      */
 specifier|public
 name|String
 name|getId
 parameter_list|()
 function_decl|;
-comment|/**      * Given a repository relative path, return<code>true</code> if the path is valid      * according to the repository layout.      */
+comment|/**      * Given a repository relative path, return<code>true</code> if the path is valid      * according to the repository layout.      *       * @deprecated use {@link RepositoryRequest#toArtifactReference(String)} instead.      */
 specifier|public
 name|boolean
 name|isValidPath
@@ -91,7 +157,7 @@ name|String
 name|path
 parameter_list|)
 function_decl|;
-comment|/**      * Given an ArchivaArtifact, return the relative path to the artifact.      *      * @param artifact the artifact to use.      * @return the relative path to the artifact.      */
+comment|/**      * Given an ArchivaArtifact, return the relative path to the artifact.      *      * @param artifact the artifact to use.      * @return the relative path to the artifact.      *       * @deprecated use {@link ManagedRepositoryContent#toPath(ArchivaArtifact)} instead.      */
 specifier|public
 name|String
 name|toPath
@@ -100,7 +166,7 @@ name|ArchivaArtifact
 name|artifact
 parameter_list|)
 function_decl|;
-comment|/**      * Given an ArtifactReference, return the relative path to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
+comment|/**      * Given an ArtifactReference, return the relative path to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      *       * @deprecated use {@link ManagedRepositoryContent#toPath(ArtifactReference))} or       *                 {@link RemoteRepositoryContent#toPath(ArtifactReference)} instead.      */
 specifier|public
 name|String
 name|toPath
@@ -109,7 +175,7 @@ name|ArtifactReference
 name|reference
 parameter_list|)
 function_decl|;
-comment|/**      * Given a repository relative path to a filename, return the {@link ArchivaArtifact} object suitable for the path.      *      * @param path the path relative to the repository base dir for the artifact.      * @return the {@link ArchivaArtifact} representing the path. (or null if path cannot be converted to      *         an {@link ArchivaArtifact})      * @throws LayoutException if there was a problem converting the path to an artifact.      */
+comment|/**      * Given a repository relative path to a filename, return the {@link ArchivaArtifact} object suitable for the path.      *      * @param path the path relative to the repository base dir for the artifact.      * @return the {@link ArchivaArtifact} representing the path. (or null if path cannot be converted to      *         an {@link ArchivaArtifact})      * @throws LayoutException if there was a problem converting the path to an artifact.      *       * @deprecated use {@link ManagedRepositoryContent#toArtifactReference(String))} or       *                 {@link RemoteRepositoryContent#toArtifactReference(String)} instead.      */
 specifier|public
 name|ArchivaArtifact
 name|toArtifact
@@ -120,7 +186,7 @@ parameter_list|)
 throws|throws
 name|LayoutException
 function_decl|;
-comment|/**      * Given a repository relative path to a filename, return the {@link VersionedReference} object suitable for the path.      *      * @param path the path relative to the repository base dir for the artifact.      * @return the {@link ArtifactReference} representing the path.  (or null if path cannot be converted to      *         a {@link ArtifactReference})      * @throws LayoutException if there was a problem converting the path to an artifact.      */
+comment|/**      * Given a repository relative path to a filename, return the {@link VersionedReference} object suitable for the path.      *      * @param path the path relative to the repository base dir for the artifact.      * @return the {@link ArtifactReference} representing the path.  (or null if path cannot be converted to      *         a {@link ArtifactReference})      * @throws LayoutException if there was a problem converting the path to an artifact.      *       * @deprecated use {@link ManagedRepositoryContent#toArtifactReference(String))} or       *                 {@link RemoteRepositoryContent#toArtifactReference(String)} instead.      */
 specifier|public
 name|ArtifactReference
 name|toArtifactReference

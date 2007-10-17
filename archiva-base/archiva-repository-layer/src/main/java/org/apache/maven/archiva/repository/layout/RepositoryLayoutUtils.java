@@ -51,8 +51,56 @@ name|VersionUtil
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|ManagedRepositoryContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|RemoteRepositoryContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|RepositoryContentFactory
+import|;
+end_import
+
 begin_comment
-comment|/**  * RepositoryLayoutUtils - utility methods common for most BidirectionalRepositoryLayout implementation.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * RepositoryLayoutUtils - utility methods common for most BidirectionalRepositoryLayout implementation.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @deprecated use {@link RepositoryContentFactory} and {@link ManagedRepositoryContent}   *             or {@link RemoteRepositoryContent} instead.  */
 end_comment
 
 begin_class
@@ -104,7 +152,7 @@ name|CLASSIFIER
 init|=
 literal|3
 decl_stmt|;
-comment|/**      * Split the provided filename into 4 String parts. Simply delegate to       * splitFilename( filename, possibleArtifactId, possibleVersion ) with no possibleVersion      * proposal.      *      * @param filename the filename to split.      * @param possibleArtifactId the optional artifactId to aide in splitting the filename.      *                  (null to allow algorithm to calculate one)      * @return the parts of the filename.      * @throws LayoutException      */
+comment|/**      * Split the provided filename into 4 String parts. Simply delegate to       * splitFilename( filename, possibleArtifactId, possibleVersion ) with no possibleVersion      * proposal.      *      * @param filename the filename to split.      * @param possibleArtifactId the optional artifactId to aide in splitting the filename.      *                  (null to allow algorithm to calculate one)      * @return the parts of the filename.      * @throws LayoutException      * @deprecated to not use directly. Use {@link ManagedRepositoryContent} or {@link RemoteRepositoryContent} instead.      */
 specifier|public
 specifier|static
 name|FilenameParts
@@ -130,7 +178,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Split the provided filename into 4 String parts.      *      *<pre>      * String part[] = splitFilename( filename );      * artifactId = part[0];      * version = part[1];      * classifier = part[2];      * extension = part[3];      *</pre>      *      * @param filename the filename to split.      * @param possibleArtifactId the optional artifactId to aide in splitting the filename.      *                  (null to allow algorithm to calculate one)      * @param possibleVersion the optional version to aide in splitting the filename.      *                  (null to allow algorithm to calculate one)      * @return the parts of the filename.      * @throws LayoutException      */
+comment|/**      * Split the provided filename into 4 String parts.      *      *<pre>      * String part[] = splitFilename( filename );      * artifactId = part[0];      * version = part[1];      * classifier = part[2];      * extension = part[3];      *</pre>      *      * @param filename the filename to split.      * @param possibleArtifactId the optional artifactId to aide in splitting the filename.      *                  (null to allow algorithm to calculate one)      * @param possibleVersion the optional version to aide in splitting the filename.      *                  (null to allow algorithm to calculate one)      * @return the parts of the filename.      * @throws LayoutException      * @deprecated to not use directly. Use {@link ManagedRepositoryContent} or {@link RemoteRepositoryContent} instead.      */
 specifier|public
 specifier|static
 name|FilenameParts

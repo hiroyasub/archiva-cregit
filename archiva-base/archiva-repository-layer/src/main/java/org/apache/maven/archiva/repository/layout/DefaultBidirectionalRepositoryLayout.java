@@ -95,6 +95,38 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|ManagedRepositoryContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|RemoteRepositoryContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|content
 operator|.
 name|ArtifactExtensionMapping
@@ -102,7 +134,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultBidirectionalRepositoryLayout - the layout mechanism for use by Maven 2.x repositories.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role-hint="default"  */
+comment|/**  * DefaultBidirectionalRepositoryLayout - the layout mechanism for use by Maven 2.x repositories.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role-hint="default"  * @deprecated to not use directly. Use {@link ManagedRepositoryContent} or {@link RemoteRepositoryContent} instead.  */
 end_comment
 
 begin_class

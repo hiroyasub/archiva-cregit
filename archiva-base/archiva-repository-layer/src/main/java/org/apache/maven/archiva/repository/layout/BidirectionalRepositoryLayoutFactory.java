@@ -101,6 +101,40 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|RepositoryContentFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|RepositoryRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -210,7 +244,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * BidirectionalRepositoryLayoutFactory  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.repository.layout.BidirectionalRepositoryLayoutFactory"  */
+comment|/**  * BidirectionalRepositoryLayoutFactory  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @deprecated use {@link RepositoryContentFactory} instead.  *   * @plexus.component role="org.apache.maven.archiva.repository.layout.BidirectionalRepositoryLayoutFactory"  */
 end_comment
 
 begin_class
@@ -242,6 +276,7 @@ operator|new
 name|HashMap
 argument_list|()
 decl_stmt|;
+comment|/**      * @deprecated use {@link RepositoryContentFactory#getManagedRepositoryContent(String)} or       *                 {@link RepositoryContentFactory#getRemoteRepositoryContent(String)} instead.      */
 specifier|public
 name|BidirectionalRepositoryLayout
 name|getLayout
@@ -296,6 +331,7 @@ name|type
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated use {@link RepositoryRequest#toArtifactReference(String)} instead.      */
 specifier|public
 name|BidirectionalRepositoryLayout
 name|getLayoutForPath
@@ -364,6 +400,7 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+comment|/**      * @deprecated use {@link RepositoryContentFactory#getManagedRepositoryContent(String)} or       *                 {@link RepositoryContentFactory#getRemoteRepositoryContent(String)} instead.      */
 specifier|public
 name|BidirectionalRepositoryLayout
 name|getLayout
