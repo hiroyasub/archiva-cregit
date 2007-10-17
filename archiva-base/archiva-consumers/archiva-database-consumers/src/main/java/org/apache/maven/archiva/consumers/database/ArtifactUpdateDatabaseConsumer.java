@@ -189,11 +189,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|repository
+name|model
 operator|.
-name|layout
-operator|.
-name|BidirectionalRepositoryLayout
+name|ArtifactReference
 import|;
 end_import
 
@@ -209,9 +207,39 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|layout
+name|ManagedRepositoryContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|BidirectionalRepositoryLayoutFactory
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|RepositoryContentFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|RepositoryException
 import|;
 end_import
 
@@ -370,7 +398,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactUpdateDatabaseConsumer - Take an artifact off of disk and put it into the repository.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="update-db-artifact"  * instantiation-strategy="per-lookup"  */
+comment|/**  * ArtifactUpdateDatabaseConsumer - Take an artifact off of disk and put it into the repository.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *                   role-hint="update-db-artifact"  *                   instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -408,7 +436,7 @@ specifier|final
 name|String
 name|CHECKSUM_CALCULATION
 init|=
-literal|null
+literal|"checksum-calc"
 decl_stmt|;
 comment|/**      * @plexus.configuration default-value="update-db-artifact"      */
 specifier|private
@@ -437,8 +465,8 @@ name|filetypes
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
-name|BidirectionalRepositoryLayoutFactory
-name|layoutFactory
+name|RepositoryContentFactory
+name|repositoryFactory
 decl_stmt|;
 comment|/**      * @plexus.requirement role-hint="sha1"      */
 specifier|private
@@ -451,16 +479,12 @@ name|Digester
 name|digestMd5
 decl_stmt|;
 specifier|private
-name|ManagedRepositoryConfiguration
+name|ManagedRepositoryContent
 name|repository
 decl_stmt|;
 specifier|private
 name|File
 name|repositoryDir
-decl_stmt|;
-specifier|private
-name|BidirectionalRepositoryLayout
-name|layout
 decl_stmt|;
 specifier|private
 name|List
@@ -538,16 +562,26 @@ name|void
 name|beginScan
 parameter_list|(
 name|ManagedRepositoryConfiguration
-name|repository
+name|repo
 parameter_list|)
 throws|throws
 name|ConsumerException
+block|{
+try|try
 block|{
 name|this
 operator|.
 name|repository
 operator|=
-name|repository
+name|repositoryFactory
+operator|.
+name|getManagedRepositoryContent
+argument_list|(
+name|repo
+operator|.
+name|getId
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -558,30 +592,14 @@ name|File
 argument_list|(
 name|repository
 operator|.
-name|getLocation
-argument_list|()
-argument_list|)
-expr_stmt|;
-try|try
-block|{
-name|this
-operator|.
-name|layout
-operator|=
-name|layoutFactory
-operator|.
-name|getLayout
-argument_list|(
-name|repository
-operator|.
-name|getLayout
+name|getRepoRoot
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|LayoutException
+name|RepositoryException
 name|e
 parameter_list|)
 block|{
@@ -589,6 +607,8 @@ throw|throw
 operator|new
 name|ConsumerException
 argument_list|(
+literal|"Unable to start ArtifactUpdateDatabaseConsumer: "
+operator|+
 name|e
 operator|.
 name|getMessage
@@ -813,12 +833,12 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|ArchivaArtifact
+name|ArtifactReference
 name|artifact
 init|=
-name|layout
+name|repository
 operator|.
-name|toArtifact
+name|toArtifactReference
 argument_list|(
 name|path
 argument_list|)
