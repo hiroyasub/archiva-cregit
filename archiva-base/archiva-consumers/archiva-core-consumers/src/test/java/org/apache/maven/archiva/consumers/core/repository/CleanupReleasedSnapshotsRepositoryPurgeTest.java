@@ -378,7 +378,17 @@ argument_list|,
 name|metadataXml
 argument_list|)
 expr_stmt|;
-comment|// FIXME [MRM-535]: XMLAssert.assertXpathEvaluatesTo( "20070315032817", "//metadata/versioning/lastUpdated", metadataXml );
+name|XMLAssert
+operator|.
+name|assertXpathEvaluatesTo
+argument_list|(
+literal|"20070315032817"
+argument_list|,
+literal|"//metadata/versioning/lastUpdated"
+argument_list|,
+name|metadataXml
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|void
@@ -565,7 +575,17 @@ argument_list|,
 name|metadataXml
 argument_list|)
 expr_stmt|;
-comment|// FIXME [MRM-535]: XMLAssert.assertXpathEvaluatesTo( "20070427033345", "//metadata/versioning/lastUpdated", metadataXml );
+name|XMLAssert
+operator|.
+name|assertXpathEvaluatesTo
+argument_list|(
+literal|"20070427033345"
+argument_list|,
+literal|"//metadata/versioning/lastUpdated"
+argument_list|,
+name|metadataXml
+argument_list|)
+expr_stmt|;
 block|}
 specifier|private
 name|void
