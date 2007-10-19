@@ -317,6 +317,7 @@ name|InvalidRepositoryContentConsumer
 argument_list|>
 name|availableInvalidConsumers
 decl_stmt|;
+comment|/**      *<p>      * Get the list of Ids associated with those {@link KnownRepositoryContentConsumer} that have      * been selected in the configuration to execute.      *</p>      *       *<p>      * NOTE: This list can be larger and contain entries that might not exist or be available      * in the classpath, or as a component.      *</p>      *       * @return the list of consumer ids that have been selected by the configuration.      */
 specifier|public
 name|List
 argument_list|<
@@ -343,6 +344,7 @@ name|getKnownContentConsumers
 argument_list|()
 return|;
 block|}
+comment|/**      *<p>      * Get the list of Ids associated with those {@link InvalidRepositoryContentConsumer} that have      * been selected in the configuration to execute.      *</p>      *       *<p>      * NOTE: This list can be larger and contain entries that might not exist or be available      * in the classpath, or as a component.      *</p>      *       * @return the list of consumer ids that have been selected by the configuration.      */
 specifier|public
 name|List
 argument_list|<
@@ -369,6 +371,7 @@ name|getInvalidContentConsumers
 argument_list|()
 return|;
 block|}
+comment|/**      * Get the map of {@link String} ids to {@link KnownRepositoryContentConsumer} implementations,      * for those consumers that have been selected according to the active configuration.       *       * @return the map of String ids to {@link KnownRepositoryContentConsumer} objects.      */
 specifier|public
 name|Map
 argument_list|<
@@ -449,6 +452,7 @@ return|return
 name|consumerMap
 return|;
 block|}
+comment|/**      * Get the map of {@link String} ids to {@link InvalidRepositoryContentConsumer} implementations,      * for those consumers that have been selected according to the active configuration.       *       * @return the map of String ids to {@link InvalidRepositoryContentConsumer} objects.      */
 specifier|public
 name|Map
 argument_list|<
@@ -529,6 +533,7 @@ return|return
 name|consumerMap
 return|;
 block|}
+comment|/**      * Get the list of {@link KnownRepositoryContentConsumer} objects that are      * selected according to the active configuration.      *       * @return the list of {@link KnownRepositoryContentConsumer} that have been selected      *         by the active configuration.      */
 specifier|public
 name|List
 argument_list|<
@@ -598,6 +603,7 @@ return|return
 name|ret
 return|;
 block|}
+comment|/**      * Get the list of {@link InvalidRepositoryContentConsumer} objects that are      * selected according to the active configuration.      *       * @return the list of {@link InvalidRepositoryContentConsumer} that have been selected      *         by the active configuration.      */
 specifier|public
 name|List
 argument_list|<
@@ -667,6 +673,7 @@ return|return
 name|ret
 return|;
 block|}
+comment|/**      * Get the list of {@link KnownRepositoryContentConsumer} objects that are      * available and present in the classpath and as components in the IoC.      *       * @return the list of all available {@link KnownRepositoryContentConsumer} present in the classpath       *         and as a component in the IoC.      */
 specifier|public
 name|List
 argument_list|<
@@ -679,6 +686,7 @@ return|return
 name|availableKnownConsumers
 return|;
 block|}
+comment|/**      * Get the list of {@link InvalidRepositoryContentConsumer} objects that are      * available and present in the classpath and as components in the IoC.      *       * @return the list of all available {@link InvalidRepositoryContentConsumer} present in the classpath       *         and as a component in the IoC.      */
 specifier|public
 name|List
 argument_list|<
@@ -691,6 +699,7 @@ return|return
 name|availableInvalidConsumers
 return|;
 block|}
+comment|/**      * Set the list of {@link KnownRepositoryContentConsumer} objects that are      * available.      *       * NOTE: This is an override for the base functionality as a component, this      * is used by archiva-cli and the unit testing framework.      *       * @return the list of available {@link KnownRepositoryContentConsumer}.      */
 specifier|public
 name|void
 name|setAvailableKnownConsumers
@@ -709,6 +718,7 @@ operator|=
 name|availableKnownConsumers
 expr_stmt|;
 block|}
+comment|/**      * Set the list of {@link InvalidRepositoryContentConsumer} objects that are      * available.      *       * NOTE: This is an override for the base functionality as a component, this      * is used by archiva-cli and the unit testing framework.      *       * @return the list of available {@link InvalidRepositoryContentConsumer}.      */
 specifier|public
 name|void
 name|setAvailableInvalidConsumers
@@ -727,6 +737,7 @@ operator|=
 name|availableInvalidConsumers
 expr_stmt|;
 block|}
+comment|/**      * A convienence method to execute all of the active selected consumers for a       * particular arbitrary file.      *       * @param repository the repository configuration to use.      * @param localFile the local file to execute the consumers against.      */
 specifier|public
 name|void
 name|executeConsumers
