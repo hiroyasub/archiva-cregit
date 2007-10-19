@@ -556,7 +556,7 @@ name|String
 argument_list|>
 name|knownSelected
 init|=
-name|getSelectedInvalidConsumerIds
+name|getSelectedKnownConsumerIds
 argument_list|()
 decl_stmt|;
 for|for
