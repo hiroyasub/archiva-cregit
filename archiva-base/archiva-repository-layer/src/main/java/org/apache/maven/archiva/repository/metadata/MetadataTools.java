@@ -733,12 +733,12 @@ literal|'9'
 block|}
 decl_stmt|;
 specifier|private
-specifier|static
-specifier|final
 name|SimpleDateFormat
 name|lastUpdatedFormat
 decl_stmt|;
-static|static
+specifier|public
+name|MetadataTools
+parameter_list|()
 block|{
 name|lastUpdatedFormat
 operator|=
