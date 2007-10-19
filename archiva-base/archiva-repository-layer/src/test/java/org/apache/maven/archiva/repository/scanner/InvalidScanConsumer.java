@@ -106,6 +106,13 @@ name|AbstractMonitoredConsumer
 implements|implements
 name|InvalidRepositoryContentConsumer
 block|{
+comment|/**      * @plexus.configuration default-value="unset-id"      */
+specifier|private
+name|String
+name|id
+init|=
+literal|"unset-id"
+decl_stmt|;
 specifier|private
 name|int
 name|processCount
@@ -178,7 +185,7 @@ name|getId
 parameter_list|()
 block|{
 return|return
-literal|"test-invalid-consumer"
+name|id
 return|;
 block|}
 specifier|public

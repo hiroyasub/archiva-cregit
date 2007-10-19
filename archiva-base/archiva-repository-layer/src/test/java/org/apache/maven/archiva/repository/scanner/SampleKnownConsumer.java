@@ -106,6 +106,13 @@ name|AbstractMonitoredConsumer
 implements|implements
 name|KnownRepositoryContentConsumer
 block|{
+comment|/**      * @plexus.configuration default-value="unset-id"      */
+specifier|private
+name|String
+name|id
+init|=
+literal|"unset-id"
+decl_stmt|;
 specifier|public
 name|void
 name|beginScan
@@ -170,7 +177,7 @@ name|getId
 parameter_list|()
 block|{
 return|return
-literal|"sample-known"
+name|id
 return|;
 block|}
 specifier|public
