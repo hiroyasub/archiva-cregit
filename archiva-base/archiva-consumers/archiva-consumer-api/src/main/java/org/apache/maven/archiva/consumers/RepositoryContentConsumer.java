@@ -100,6 +100,11 @@ name|void
 name|completeScan
 parameter_list|()
 function_decl|;
+comment|/**      * Whether the consumer should process files that have not been modified since the time passed in to the scan      * method.      * @return whether to process the unmodified files      */
+name|boolean
+name|isProcessUnmodified
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

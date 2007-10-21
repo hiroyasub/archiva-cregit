@@ -478,15 +478,10 @@ name|invalidContentConsumers
 argument_list|,
 name|getLogger
 argument_list|()
-argument_list|)
-decl_stmt|;
-name|scannerInstance
-operator|.
-name|setOnlyModifiedAfterTimestamp
-argument_list|(
+argument_list|,
 name|changesSince
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|dirWalker
 operator|.
 name|addDirectoryWalkListener

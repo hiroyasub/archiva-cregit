@@ -785,6 +785,16 @@ name|initIncludes
 argument_list|()
 expr_stmt|;
 block|}
+specifier|public
+name|boolean
+name|isProcessUnmodified
+parameter_list|()
+block|{
+comment|// we need to check all files for deletion, especially if not modified
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_class
 

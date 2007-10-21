@@ -305,6 +305,15 @@ comment|/* discard error */
 block|}
 block|}
 block|}
+specifier|public
+name|boolean
+name|isProcessUnmodified
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 
