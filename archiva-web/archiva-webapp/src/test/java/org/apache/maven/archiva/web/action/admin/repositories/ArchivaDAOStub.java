@@ -95,6 +95,22 @@ name|archiva
 operator|.
 name|database
 operator|.
+name|RepositoryContentStatisticsDAO
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|database
+operator|.
 name|RepositoryProblemDAO
 import|;
 end_import
@@ -293,7 +309,7 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"query not implemented for stub"
+literal|"method not implemented for stub"
 argument_list|)
 throw|;
 block|}
@@ -306,7 +322,7 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"query not implemented for stub"
+literal|"method not implemented for stub"
 argument_list|)
 throw|;
 block|}
@@ -319,7 +335,20 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"query not implemented for stub"
+literal|"method not implemented for stub"
+argument_list|)
+throw|;
+block|}
+specifier|public
+name|RepositoryContentStatisticsDAO
+name|getRepositoryContentStatisticsDAO
+parameter_list|()
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"method not implemented for stub"
 argument_list|)
 throw|;
 block|}
