@@ -473,9 +473,6 @@ block|{
 name|RepositoryContentStatistics
 name|lastStats
 init|=
-operator|(
-name|RepositoryContentStatistics
-operator|)
 name|results
 operator|.
 name|get
