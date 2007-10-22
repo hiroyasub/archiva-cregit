@@ -713,6 +713,15 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|registry
+operator|.
+name|removeSubset
+argument_list|(
+name|KEY
+operator|+
+literal|".repositories"
+argument_list|)
+expr_stmt|;
 block|}
 comment|// Normalize the order fields in the proxy connectors.
 if|if
