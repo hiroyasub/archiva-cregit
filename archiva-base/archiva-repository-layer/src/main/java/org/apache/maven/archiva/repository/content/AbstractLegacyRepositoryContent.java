@@ -174,6 +174,17 @@ name|typeToDirectoryMap
 operator|.
 name|put
 argument_list|(
+name|ArtifactExtensionMapping
+operator|.
+name|MAVEN_PLUGIN
+argument_list|,
+literal|"plugin"
+argument_list|)
+expr_stmt|;
+name|typeToDirectoryMap
+operator|.
+name|put
+argument_list|(
 literal|"distribution-tgz"
 argument_list|,
 literal|"distribution"

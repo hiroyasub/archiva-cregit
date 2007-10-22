@@ -86,13 +86,13 @@ specifier|private
 specifier|static
 specifier|final
 name|Pattern
-name|specialCases
+name|mavenPluginPattern
 init|=
 name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"(maven-.*-plugin)|(maven-plugin)"
+literal|"(maven-.*-plugin)|(.*-maven-plugin)"
 argument_list|)
 decl_stmt|;
 specifier|private
@@ -445,7 +445,7 @@ comment|// Any text upto the end of a special case is considered non-version.
 name|Matcher
 name|specialMat
 init|=
-name|specialCases
+name|mavenPluginPattern
 operator|.
 name|matcher
 argument_list|(

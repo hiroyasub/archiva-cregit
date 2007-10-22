@@ -431,6 +431,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|// Set Type
 name|artifact
 operator|.
 name|setType
@@ -467,6 +468,44 @@ literal|"no extension found."
 argument_list|)
 throw|;
 block|}
+comment|// Special Case with Maven Plugins
+if|if
+condition|(
+name|StringUtils
+operator|.
+name|equals
+argument_list|(
+literal|"jar"
+argument_list|,
+name|artifact
+operator|.
+name|getType
+argument_list|()
+argument_list|)
+operator|&&
+name|StringUtils
+operator|.
+name|equals
+argument_list|(
+literal|"plugins"
+argument_list|,
+name|expectedType
+argument_list|)
+condition|)
+block|{
+name|artifact
+operator|.
+name|setType
+argument_list|(
+name|ArtifactExtensionMapping
+operator|.
+name|MAVEN_PLUGIN
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// Sanity Check: does extension match pathType on path?
 name|String
 name|trimPathType
 init|=
@@ -484,7 +523,6 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
-comment|// Sanity Check: does extension match pathType on path?
 name|String
 name|expectedExtension
 init|=
@@ -539,6 +577,7 @@ operator|+
 literal|"]"
 argument_list|)
 throw|;
+block|}
 block|}
 return|return
 name|artifact
