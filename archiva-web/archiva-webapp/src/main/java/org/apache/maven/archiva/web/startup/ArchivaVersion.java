@@ -261,8 +261,6 @@ operator|=
 name|version
 expr_stmt|;
 return|return
-name|this
-operator|.
 name|version
 return|;
 block|}
