@@ -303,6 +303,24 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
+name|util
+operator|.
+name|xml
+operator|.
+name|pull
+operator|.
+name|XmlPullParserException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
 name|webdav
 operator|.
 name|AbstractDavServerComponent
@@ -1455,6 +1473,17 @@ argument_list|(
 name|pomReference
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|pom
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 try|try
 block|{
 name|Model
@@ -1580,11 +1609,19 @@ comment|// Artifact has no POM in repo : ignore
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|IOException
 name|e
 parameter_list|)
 block|{
-comment|// invalid POM : ignore
+comment|// Unable to read POM : ignore.
+block|}
+catch|catch
+parameter_list|(
+name|XmlPullParserException
+name|e
+parameter_list|)
+block|{
+comment|// Invalid POM : ignore
 block|}
 block|}
 specifier|public
