@@ -151,6 +151,22 @@ name|archiva
 operator|.
 name|model
 operator|.
+name|Keys
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|model
+operator|.
 name|ProjectReference
 import|;
 end_import
@@ -923,6 +939,8 @@ argument_list|(
 name|artifact
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|File
 name|downloadedFile
 init|=
@@ -952,7 +970,7 @@ argument_list|()
 operator|.
 name|debug
 argument_list|(
-literal|"Successfully transfered: "
+literal|"Successfully transferred: "
 operator|+
 name|downloadedFile
 operator|.
@@ -965,6 +983,92 @@ name|downloadedFile
 return|;
 block|}
 block|}
+catch|catch
+parameter_list|(
+name|NotFoundException
+name|e
+parameter_list|)
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Artifact "
+operator|+
+name|Keys
+operator|.
+name|toKey
+argument_list|(
+name|artifact
+argument_list|)
+operator|+
+literal|" not found on repository \""
+operator|+
+name|targetRepository
+operator|.
+name|getRepository
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|"\"."
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NotModifiedException
+name|e
+parameter_list|)
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Artifact "
+operator|+
+name|Keys
+operator|.
+name|toKey
+argument_list|(
+name|artifact
+argument_list|)
+operator|+
+literal|" not updated on repository \""
+operator|+
+name|targetRepository
+operator|.
+name|getRepository
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|"\"."
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Exhausted all target repositories, artifact "
+operator|+
+name|Keys
+operator|.
+name|toKey
+argument_list|(
+name|artifact
+argument_list|)
+operator|+
+literal|" not found."
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
@@ -1070,6 +1174,8 @@ argument_list|(
 name|localRepoFile
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|transferFile
 argument_list|(
 name|connector
@@ -1096,6 +1202,75 @@ block|{
 name|metadataNeedsUpdating
 operator|=
 literal|true
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|NotFoundException
+name|e
+parameter_list|)
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Versioned Metadata "
+operator|+
+name|Keys
+operator|.
+name|toKey
+argument_list|(
+name|metadata
+argument_list|)
+operator|+
+literal|" not found on remote repository \""
+operator|+
+name|targetRepository
+operator|.
+name|getRepository
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|"\"."
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NotModifiedException
+name|e
+parameter_list|)
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Versioned Metadata "
+operator|+
+name|Keys
+operator|.
+name|toKey
+argument_list|(
+name|metadata
+argument_list|)
+operator|+
+literal|" not updated on remote repository \""
+operator|+
+name|targetRepository
+operator|.
+name|getRepository
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|"\"."
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1346,7 +1521,7 @@ name|originalLastModified
 operator|)
 return|;
 block|}
-comment|/**      * Fetch from the proxies a metadata.xml file for the groupId:artifactId metadata contents.      *      * @return the (local) metadata file that was fetched/merged/updated, or null if no metadata file exists.      */
+comment|/**      * Fetch from the proxies a metadata.xml file for the groupId:artifactId metadata contents.      *      * @return the (local) metadata file that was fetched/merged/updated, or null if no metadata file exists.      * @throws ProxyException if there was a problem fetching the metadata file.      */
 specifier|public
 name|File
 name|fetchFromProxies
@@ -1358,6 +1533,10 @@ name|ProjectReference
 name|metadata
 parameter_list|)
 throws|throws
+name|NotFoundException
+throws|,
+name|NotModifiedException
+throws|,
 name|ProxyException
 block|{
 name|File
@@ -1447,6 +1626,8 @@ argument_list|(
 name|localRepoFile
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|transferFile
 argument_list|(
 name|connector
@@ -1473,6 +1654,75 @@ block|{
 name|metadataNeedsUpdating
 operator|=
 literal|true
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|NotFoundException
+name|e
+parameter_list|)
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Project Metadata "
+operator|+
+name|Keys
+operator|.
+name|toKey
+argument_list|(
+name|metadata
+argument_list|)
+operator|+
+literal|" not found on remote repository \""
+operator|+
+name|targetRepository
+operator|.
+name|getRepository
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|"\"."
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NotModifiedException
+name|e
+parameter_list|)
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Project Metadata "
+operator|+
+name|Keys
+operator|.
+name|toKey
+argument_list|(
+name|metadata
+argument_list|)
+operator|+
+literal|" not updated on remote repository \""
+operator|+
+name|targetRepository
+operator|.
+name|getRepository
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|"\"."
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1857,7 +2107,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Perform the transfer of the file.      *      * @param connector         the connector configuration to use.      * @param remoteRepository  the remote repository get the resource from.      * @param remotePath        the path in the remote repository to the resource to get.      * @param localFile         the local file to place the downloaded resource into      * @param requestProperties the request properties to utilize for policy handling.      * @return the local file that was downloaded, or null if not downloaded.      * @throws ProxyException if transfer was unsuccessful.      */
+comment|/**      * Perform the transfer of the file.      *      * @param connector         the connector configuration to use.      * @param remoteRepository  the remote repository get the resource from.      * @param remotePath        the path in the remote repository to the resource to get.      * @param localFile         the local file to place the downloaded resource into      * @param requestProperties the request properties to utilize for policy handling.      * @return the local file that was downloaded, or null if not downloaded.      * @throws NotFoundException if the file was not found on the remote repository.      * @throws NotModifiedException if the localFile was present, and the resource was present on remote repository,      *                              but the remote resource is not newer than the local File.      * @throws ProxyException if transfer was unsuccessful.      */
 specifier|private
 name|File
 name|transferFile
@@ -1878,6 +2128,10 @@ name|Properties
 name|requestProperties
 parameter_list|)
 throws|throws
+name|NotFoundException
+throws|,
+name|NotModifiedException
+throws|,
 name|ProxyException
 block|{
 name|String
@@ -2140,18 +2394,29 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|ResourceDoesNotExistException
+name|NotFoundException
 name|e
 parameter_list|)
 block|{
 comment|// Do not cache url here.
-return|return
-literal|null
-return|;
+throw|throw
+name|e
+throw|;
 block|}
 catch|catch
 parameter_list|(
-name|WagonException
+name|NotModifiedException
+name|e
+parameter_list|)
+block|{
+comment|// Do not cache url here.
+throw|throw
+name|e
+throw|;
+block|}
+catch|catch
+parameter_list|(
+name|ProxyException
 name|e
 parameter_list|)
 block|{
@@ -2162,9 +2427,9 @@ argument_list|(
 name|url
 argument_list|)
 expr_stmt|;
-return|return
-literal|null
-return|;
+throw|throw
+name|e
+throw|;
 block|}
 finally|finally
 block|{
@@ -2273,7 +2538,7 @@ return|return
 name|localFile
 return|;
 block|}
-comment|/**      * Quietly transfer the checksum file from the remote repository to the local file.      *<p/>      * NOTE: This will not throw a WagonException if the checksum is unable to be downloaded.      *      * @param wagon            the wagon instance (should already be connected) to use.      * @param remoteRepository the remote repository to transfer from.      * @param remotePath       the remote path to the resource to get.      * @param localFile        the local file that should contain the downloaded contents      * @param type             the type of checksum to transfer (example: ".md5" or ".sha1")      * @throws ProxyException if copying the downloaded file into place did not succeed.      */
+comment|/**      *<p>      * Quietly transfer the checksum file from the remote repository to the local file.      *</p>      *      * @param wagon            the wagon instance (should already be connected) to use.      * @param remoteRepository the remote repository to transfer from.      * @param remotePath       the remote path to the resource to get.      * @param localFile        the local file that should contain the downloaded contents      * @param type             the type of checksum to transfer (example: ".md5" or ".sha1")      * @throws ProxyException if copying the downloaded file into place did not succeed.      */
 specifier|private
 name|void
 name|transferChecksum
@@ -2370,7 +2635,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ResourceDoesNotExistException
+name|NotFoundException
 name|e
 parameter_list|)
 block|{
@@ -2379,22 +2644,34 @@ argument_list|()
 operator|.
 name|debug
 argument_list|(
-literal|"Checksum"
+literal|"Transfer failed, checksum not found: "
 operator|+
-name|type
-operator|+
-literal|" Not Download: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
+name|url
 argument_list|)
 expr_stmt|;
+comment|// Consume it, do not pass this on.
 block|}
 catch|catch
 parameter_list|(
-name|WagonException
+name|NotModifiedException
+name|e
+parameter_list|)
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Transfer skipped, checksum not modified: "
+operator|+
+name|url
+argument_list|)
+expr_stmt|;
+comment|// Consume it, do not pass this on.
+block|}
+catch|catch
+parameter_list|(
+name|ProxyException
 name|e
 parameter_list|)
 block|{
@@ -2426,6 +2703,10 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+comment|// Critical issue, pass it on.
+throw|throw
+name|e
+throw|;
 block|}
 block|}
 comment|/**      * Perform the transfer of the remote file to the local file specified.      *      * @param wagon            the wagon instance to use.      * @param remoteRepository the remote repository to use      * @param remotePath       the remote path to attempt to get      * @param localFile        the local file to save to      * @return The local file that was transfered.      * @throws ProxyException if there was a problem moving the downloaded file into place.      * @throws WagonException if there was a problem tranfering the file.      */
@@ -2446,9 +2727,11 @@ name|File
 name|localFile
 parameter_list|)
 throws|throws
-name|ProxyException
+name|NotFoundException
 throws|,
-name|WagonException
+name|NotModifiedException
+throws|,
+name|ProxyException
 block|{
 assert|assert
 operator|(
@@ -2485,6 +2768,7 @@ literal|false
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|localFile
 operator|.
 name|exists
@@ -2596,10 +2880,9 @@ operator|!
 name|success
 condition|)
 block|{
-name|getLogger
-argument_list|()
-operator|.
-name|debug
+throw|throw
+operator|new
+name|NotModifiedException
 argument_list|(
 literal|"Not downloaded, as local file is newer than remote side: "
 operator|+
@@ -2608,9 +2891,9 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
-if|else if
+if|if
 condition|(
 name|temp
 operator|.
@@ -2645,10 +2928,9 @@ name|ResourceDoesNotExistException
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
-operator|.
-name|debug
+throw|throw
+operator|new
+name|NotFoundException
 argument_list|(
 literal|"Resource ["
 operator|+
@@ -2667,10 +2949,9 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|)
-expr_stmt|;
-throw|throw
+argument_list|,
 name|e
+argument_list|)
 throw|;
 block|}
 catch|catch
@@ -2679,10 +2960,9 @@ name|WagonException
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
-operator|.
-name|warn
+throw|throw
+operator|new
+name|ProxyException
 argument_list|(
 literal|"Download failure on resource ["
 operator|+
@@ -2704,9 +2984,6 @@ argument_list|()
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
-throw|throw
-name|e
 throw|;
 block|}
 finally|finally

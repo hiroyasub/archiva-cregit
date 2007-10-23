@@ -423,11 +423,6 @@ argument_list|(
 name|requestedResource
 argument_list|)
 expr_stmt|;
-name|setupTestableManagedRepository
-argument_list|(
-name|requestedResource
-argument_list|)
-expr_stmt|;
 comment|// Configure Connector (usually done within archiva.xml configuration)
 name|saveConnector
 argument_list|(
@@ -561,11 +556,6 @@ name|requestedResource
 init|=
 literal|"org/apache/maven/test/get-bogus-artifact/maven-metadata.xml"
 decl_stmt|;
-name|setupTestableManagedRepository
-argument_list|(
-name|requestedResource
-argument_list|)
-expr_stmt|;
 name|setupTestableManagedRepository
 argument_list|(
 name|requestedResource
