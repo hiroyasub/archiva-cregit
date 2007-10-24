@@ -416,6 +416,22 @@ argument_list|,
 literal|"pom"
 argument_list|)
 expr_stmt|;
+comment|// Starting slash should not prevent detection.
+name|assertValid
+argument_list|(
+literal|"/org.apache.derby/poms/derby-10.2.2.0.pom"
+argument_list|,
+literal|"org.apache.derby"
+argument_list|,
+literal|"derby"
+argument_list|,
+literal|"10.2.2.0"
+argument_list|,
+literal|null
+argument_list|,
+literal|"pom"
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|void
