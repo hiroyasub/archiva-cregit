@@ -101,7 +101,24 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unable to create ArchivaArtifact with empty groupId."
+literal|"Unable to create ArchivaArtifact with empty groupId ["
+operator|+
+name|Keys
+operator|.
+name|toKey
+argument_list|(
+name|groupId
+argument_list|,
+name|artifactId
+argument_list|,
+name|version
+argument_list|,
+name|classifier
+argument_list|,
+name|type
+argument_list|)
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -117,7 +134,24 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unable to create ArchivaArtifact with empty artifactId."
+literal|"Unable to create ArchivaArtifact with empty artifactId ["
+operator|+
+name|Keys
+operator|.
+name|toKey
+argument_list|(
+name|groupId
+argument_list|,
+name|artifactId
+argument_list|,
+name|version
+argument_list|,
+name|classifier
+argument_list|,
+name|type
+argument_list|)
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -133,7 +167,24 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unable to create ArchivaArtifact with empty version."
+literal|"Unable to create ArchivaArtifact with empty version ["
+operator|+
+name|Keys
+operator|.
+name|toKey
+argument_list|(
+name|groupId
+argument_list|,
+name|artifactId
+argument_list|,
+name|version
+argument_list|,
+name|classifier
+argument_list|,
+name|type
+argument_list|)
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -149,7 +200,24 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unable to create ArchivaArtifact with empty type."
+literal|"Unable to create ArchivaArtifact with empty type ["
+operator|+
+name|Keys
+operator|.
+name|toKey
+argument_list|(
+name|groupId
+argument_list|,
+name|artifactId
+argument_list|,
+name|version
+argument_list|,
+name|classifier
+argument_list|,
+name|type
+argument_list|)
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
