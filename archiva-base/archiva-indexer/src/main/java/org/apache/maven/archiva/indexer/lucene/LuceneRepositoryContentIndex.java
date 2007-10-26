@@ -380,6 +380,11 @@ parameter_list|)
 throws|throws
 name|RepositoryIndexException
 block|{
+synchronized|synchronized
+init|(
+name|repository
+init|)
+block|{
 name|IndexModifier
 name|indexModifier
 init|=
@@ -527,6 +532,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 specifier|public
 name|void
 name|modifyRecord
@@ -536,6 +542,11 @@ name|record
 parameter_list|)
 throws|throws
 name|RepositoryIndexException
+block|{
+synchronized|synchronized
+init|(
+name|repository
+init|)
 block|{
 name|IndexModifier
 name|indexModifier
@@ -655,6 +666,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 specifier|private
 name|void
 name|addRecords
@@ -664,6 +676,11 @@ name|records
 parameter_list|)
 throws|throws
 name|RepositoryIndexException
+block|{
+synchronized|synchronized
+init|(
+name|repository
+init|)
 block|{
 name|IndexWriter
 name|indexWriter
@@ -801,6 +818,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 specifier|public
 name|void
 name|deleteRecords
@@ -810,6 +828,11 @@ name|records
 parameter_list|)
 throws|throws
 name|RepositoryIndexException
+block|{
+synchronized|synchronized
+init|(
+name|repository
+init|)
 block|{
 if|if
 condition|(
@@ -925,6 +948,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
 specifier|public
 name|Collection
 name|getAllRecordKeys
@@ -950,6 +974,11 @@ name|fieldName
 parameter_list|)
 throws|throws
 name|RepositoryIndexException
+block|{
+synchronized|synchronized
+init|(
+name|repository
+init|)
 block|{
 name|List
 name|keys
@@ -1080,6 +1109,7 @@ block|}
 return|return
 name|keys
 return|;
+block|}
 block|}
 specifier|public
 name|Searchable

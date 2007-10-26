@@ -83,6 +83,22 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|indexer
+operator|.
+name|RepositoryContentIndex
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
 name|model
 operator|.
 name|ArtifactReference
@@ -257,6 +273,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  *<p>  * This will look in a single managed repository, and purge any snapshots that are present  * that have a corresponding released version on the same repository.  *</p>  *   *<p>  * So, if you have the following (presented in the m2/default layout form) ...  *<pre>  *   /com/foo/foo-tool/1.0-SNAPSHOT/foo-tool-1.0-SNAPSHOT.jar  *   /com/foo/foo-tool/1.1-SNAPSHOT/foo-tool-1.1-SNAPSHOT.jar  *   /com/foo/foo-tool/1.2.1-SNAPSHOT/foo-tool-1.2.1-SNAPSHOT.jar  *   /com/foo/foo-tool/1.2.1/foo-tool-1.2.1.jar  *   /com/foo/foo-tool/2.0-SNAPSHOT/foo-tool-2.0-SNAPSHOT.jar  *   /com/foo/foo-tool/2.0/foo-tool-2.0.jar  *   /com/foo/foo-tool/2.1-SNAPSHOT/foo-tool-2.1-SNAPSHOT.jar  *</pre>  * then the current highest ranked released (non-snapshot) version is 2.0, which means  * the snapshots from 1.0-SNAPSHOT, 1.1-SNAPSHOT, 1.2.1-SNAPSHOT, and 2.0-SNAPSHOT can  * be purged.  Leaving 2.1-SNAPSHOT in alone.  *</p>  *  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version $Id$  */
 end_comment
@@ -283,6 +309,14 @@ name|artifactDao
 parameter_list|,
 name|MetadataTools
 name|metadataTools
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|RepositoryContentIndex
+argument_list|>
+name|indices
 parameter_list|)
 block|{
 name|super
@@ -290,6 +324,8 @@ argument_list|(
 name|repository
 argument_list|,
 name|artifactDao
+argument_list|,
+name|indices
 argument_list|)
 expr_stmt|;
 name|this
