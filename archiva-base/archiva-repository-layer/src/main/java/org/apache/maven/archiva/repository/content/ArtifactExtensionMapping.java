@@ -272,6 +272,13 @@ block|}
 comment|// Return type
 return|return
 name|type
+operator|.
+name|replace
+argument_list|(
+literal|'-'
+argument_list|,
+literal|'.'
+argument_list|)
 return|;
 block|}
 specifier|public
