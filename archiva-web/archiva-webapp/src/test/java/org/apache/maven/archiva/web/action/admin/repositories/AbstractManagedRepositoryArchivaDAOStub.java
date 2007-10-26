@@ -140,13 +140,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DeleteManagedRepositoryArchivaDAOStub  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  * AbstractManagedRepositoryArchivaDAOStub  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|DeleteManagedRepositoryArchivaDAOStub
+name|AbstractManagedRepositoryArchivaDAOStub
 implements|implements
 name|ArchivaDAO
 block|{
