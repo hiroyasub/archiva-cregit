@@ -604,6 +604,7 @@ argument_list|(
 name|bytecodeRecord
 argument_list|)
 expr_stmt|;
+comment|// TODO: this needs to be logged
 name|artifactFile
 operator|.
 name|delete
@@ -747,7 +748,7 @@ operator|.
 name|delete
 argument_list|()
 expr_stmt|;
-comment|// TODO: log that it was deleted?
+comment|// TODO: log that it was deleted
 block|}
 block|}
 block|}
