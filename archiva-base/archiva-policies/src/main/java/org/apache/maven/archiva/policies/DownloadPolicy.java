@@ -102,9 +102,9 @@ name|String
 name|getId
 parameter_list|()
 function_decl|;
-comment|/**      * Apply the download policy.      *       * @param policySetting the policy setting.      * @param request the list of request properties that the policy might use.      * @param localFile      *       * @return true if the policy passes.      */
+comment|/**      * Apply the download policy.      *       * @param policySetting the policy setting.      * @param request the list of request properties that the policy might use.      * @param localFile      *       * @throws PolicyViolationException if the policy has been violated.      */
 specifier|public
-name|boolean
+name|void
 name|applyPolicy
 parameter_list|(
 name|String
@@ -116,6 +116,10 @@ parameter_list|,
 name|File
 name|localFile
 parameter_list|)
+throws|throws
+name|PolicyViolationException
+throws|,
+name|PolicyConfigurationException
 function_decl|;
 block|}
 end_interface

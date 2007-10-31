@@ -23,6 +23,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|archiva
@@ -90,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ChecksumPolicy   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.policies.PostDownloadPolicy"  *                   role-hint="checksum"  */
+comment|/**  * ChecksumPolicy - a policy applied after the download to see if the file has been downloaded  * successfully and completely (or not).  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.policies.PostDownloadPolicy"  *                   role-hint="checksum"  */
 end_comment
 
 begin_class
@@ -166,7 +180,7 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|public
-name|boolean
+name|void
 name|applyPolicy
 parameter_list|(
 name|String
@@ -178,6 +192,10 @@ parameter_list|,
 name|File
 name|localFile
 parameter_list|)
+throws|throws
+name|PolicyViolationException
+throws|,
+name|PolicyConfigurationException
 block|{
 if|if
 condition|(
@@ -190,22 +208,32 @@ name|policySetting
 argument_list|)
 condition|)
 block|{
-comment|// No valid code? false it is then.
-name|getLogger
-argument_list|()
-operator|.
-name|error
+comment|// Not a valid code.
+throw|throw
+operator|new
+name|PolicyConfigurationException
 argument_list|(
-literal|"Unknown checksum policyCode ["
+literal|"Unknown checksum policy setting ["
 operator|+
 name|policySetting
 operator|+
+literal|"], valid settings are ["
+operator|+
+name|StringUtils
+operator|.
+name|join
+argument_list|(
+name|options
+operator|.
+name|iterator
+argument_list|()
+argument_list|,
+literal|","
+argument_list|)
+operator|+
 literal|"]"
 argument_list|)
-expr_stmt|;
-return|return
-literal|false
-return|;
+throw|;
 block|}
 if|if
 condition|(
@@ -218,9 +246,7 @@ argument_list|)
 condition|)
 block|{
 comment|// Ignore.
-return|return
-literal|true
-return|;
+return|return;
 block|}
 if|if
 condition|(
@@ -232,24 +258,20 @@ argument_list|()
 condition|)
 block|{
 comment|// Local File does not exist.
-name|getLogger
-argument_list|()
-operator|.
-name|debug
+throw|throw
+operator|new
+name|PolicyViolationException
 argument_list|(
-literal|"Local file "
+literal|"Checksum policy failure, local file "
 operator|+
 name|localFile
 operator|.
 name|getAbsolutePath
 argument_list|()
 operator|+
-literal|" does not exist."
+literal|" does not exist to check."
 argument_list|)
-expr_stmt|;
-return|return
-literal|false
-return|;
+throw|;
 block|}
 if|if
 condition|(
@@ -261,22 +283,18 @@ name|policySetting
 argument_list|)
 condition|)
 block|{
-name|boolean
-name|checksPass
-init|=
+if|if
+condition|(
 name|checksums
 operator|.
 name|check
 argument_list|(
 name|localFile
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|checksPass
 condition|)
 block|{
+return|return;
+block|}
 name|File
 name|sha1File
 init|=
@@ -339,10 +357,22 @@ operator|.
 name|delete
 argument_list|()
 expr_stmt|;
-block|}
-return|return
-name|checksPass
-return|;
+throw|throw
+operator|new
+name|PolicyViolationException
+argument_list|(
+literal|"Checksums do not match, policy set to FAIL, "
+operator|+
+literal|"deleting checksum files and local file "
+operator|+
+name|localFile
+operator|.
+name|getAbsolutePath
+argument_list|()
+operator|+
+literal|"."
+argument_list|)
+throw|;
 block|}
 if|if
 condition|(
@@ -354,30 +384,49 @@ name|policySetting
 argument_list|)
 condition|)
 block|{
-return|return
+if|if
+condition|(
 name|checksums
 operator|.
 name|update
 argument_list|(
 name|localFile
 argument_list|)
-return|;
+condition|)
+block|{
+return|return;
 block|}
-name|getLogger
-argument_list|()
-operator|.
-name|error
+else|else
+block|{
+throw|throw
+operator|new
+name|PolicyViolationException
 argument_list|(
-literal|"Unhandled policyCode ["
+literal|"Checksum policy set to FIX, "
+operator|+
+literal|"yet unable to update checksums for local file "
+operator|+
+name|localFile
+operator|.
+name|getAbsolutePath
+argument_list|()
+operator|+
+literal|"."
+argument_list|)
+throw|;
+block|}
+block|}
+throw|throw
+operator|new
+name|PolicyConfigurationException
+argument_list|(
+literal|"Unable to process checksum policy of ["
 operator|+
 name|policySetting
 operator|+
-literal|"]"
+literal|"], please file a bug report."
 argument_list|)
-expr_stmt|;
-return|return
-literal|false
-return|;
+throw|;
 block|}
 specifier|public
 name|String

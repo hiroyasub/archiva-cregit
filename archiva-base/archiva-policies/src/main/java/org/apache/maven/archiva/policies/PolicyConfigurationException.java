@@ -19,56 +19,64 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|maven
 operator|.
-name|util
+name|archiva
 operator|.
-name|Properties
+name|common
+operator|.
+name|ArchivaException
 import|;
 end_import
 
 begin_comment
-comment|/**  * Policy to apply before the download is attempted.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * PolicyConfigurationException is thrown when a policy cannot be executed due to a   * configuration issue.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
-begin_interface
+begin_class
 specifier|public
-interface|interface
-name|PreDownloadPolicy
+class|class
+name|PolicyConfigurationException
 extends|extends
-name|DownloadPolicy
+name|ArchivaException
 block|{
-comment|/**      * Apply the download policy.      *       * A true result lets the download occur.  A false result prevents the download      * from occuring.       *       * @param policySetting the policy setting.      * @param request the list of request properties that the policy might use.      * @param localFile the local file that this policy affects      *       * @throws PolicyViolationException if the policy has been violated.      */
 specifier|public
-name|void
-name|applyPolicy
+name|PolicyConfigurationException
 parameter_list|(
 name|String
-name|policySetting
+name|message
 parameter_list|,
-name|Properties
-name|request
-parameter_list|,
-name|File
-name|localFile
+name|Throwable
+name|cause
 parameter_list|)
-throws|throws
-name|PolicyViolationException
-throws|,
-name|PolicyConfigurationException
-function_decl|;
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
 block|}
-end_interface
+specifier|public
+name|PolicyConfigurationException
+parameter_list|(
+name|String
+name|message
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+end_class
 
 end_unit
 

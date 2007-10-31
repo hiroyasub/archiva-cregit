@@ -194,8 +194,6 @@ argument_list|,
 literal|"http://a.bad.hostname.maven.org/path/to/resource.txt"
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
 name|policy
 operator|.
 name|applyPolicy
@@ -207,7 +205,6 @@ argument_list|,
 name|request
 argument_list|,
 name|localFile
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -245,8 +242,6 @@ argument_list|,
 literal|"http://a.bad.hostname.maven.org/path/to/resource.txt"
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
 name|policy
 operator|.
 name|applyPolicy
@@ -258,7 +253,6 @@ argument_list|,
 name|request
 argument_list|,
 name|localFile
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -314,8 +308,8 @@ argument_list|,
 name|url
 argument_list|)
 expr_stmt|;
-name|assertFalse
-argument_list|(
+try|try
+block|{
 name|policy
 operator|.
 name|applyPolicy
@@ -328,8 +322,21 @@ name|request
 argument_list|,
 name|localFile
 argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected a PolicyViolationException."
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|PolicyViolationException
+name|e
+parameter_list|)
+block|{
+comment|// expected path.
+block|}
 block|}
 block|}
 end_class

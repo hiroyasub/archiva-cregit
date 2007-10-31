@@ -165,10 +165,16 @@ literal|"once"
 decl_stmt|;
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|options
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|public
@@ -225,6 +231,9 @@ parameter_list|()
 function_decl|;
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getOptions
 parameter_list|()
 block|{
@@ -233,7 +242,7 @@ name|options
 return|;
 block|}
 specifier|public
-name|boolean
+name|void
 name|applyPolicy
 parameter_list|(
 name|String
@@ -245,7 +254,32 @@ parameter_list|,
 name|File
 name|localFile
 parameter_list|)
+throws|throws
+name|PolicyViolationException
+throws|,
+name|PolicyConfigurationException
 block|{
+if|if
+condition|(
+operator|!
+name|StringUtils
+operator|.
+name|equals
+argument_list|(
+name|request
+operator|.
+name|getProperty
+argument_list|(
+literal|"filetype"
+argument_list|)
+argument_list|,
+literal|"artifact"
+argument_list|)
+condition|)
+block|{
+comment|// Only process artifact file types.
+return|return;
+block|}
 name|String
 name|version
 init|=
@@ -294,22 +328,37 @@ name|policySetting
 argument_list|)
 condition|)
 block|{
-comment|// No valid code? false it is then.
-name|getLogger
-argument_list|()
-operator|.
-name|error
+comment|// Not a valid code.
+throw|throw
+operator|new
+name|PolicyConfigurationException
 argument_list|(
-literal|"Unknown artifact-update policyCode ["
+literal|"Unknown "
+operator|+
+name|getUpdateMode
+argument_list|()
+operator|+
+literal|" policy setting ["
 operator|+
 name|policySetting
 operator|+
+literal|"], valid settings are ["
+operator|+
+name|StringUtils
+operator|.
+name|join
+argument_list|(
+name|options
+operator|.
+name|iterator
+argument_list|()
+argument_list|,
+literal|","
+argument_list|)
+operator|+
 literal|"]"
 argument_list|)
-expr_stmt|;
-return|return
-literal|false
-return|;
+throw|;
 block|}
 if|if
 condition|(
@@ -335,9 +384,7 @@ operator|+
 literal|" policy set to IGNORED."
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
+return|return;
 block|}
 comment|// Test for mismatches.
 if|if
@@ -357,9 +404,7 @@ argument_list|(
 literal|"OK to update, snapshot policy does not apply for non-snapshot versions."
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
+return|return;
 block|}
 if|if
 condition|(
@@ -378,9 +423,7 @@ argument_list|(
 literal|"OK to update, release policy does not apply for snapshot versions."
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
+return|return;
 block|}
 if|if
 condition|(
@@ -393,10 +436,9 @@ argument_list|)
 condition|)
 block|{
 comment|// Disabled means no.
-name|getLogger
-argument_list|()
-operator|.
-name|debug
+throw|throw
+operator|new
+name|PolicyViolationException
 argument_list|(
 literal|"NO to update, "
 operator|+
@@ -405,10 +447,7 @@ argument_list|()
 operator|+
 literal|" policy set to DISABLED."
 argument_list|)
-expr_stmt|;
-return|return
-literal|false
-return|;
+throw|;
 block|}
 if|if
 condition|(
@@ -433,9 +472,7 @@ operator|+
 literal|", local file does not exist."
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
+return|return;
 block|}
 if|if
 condition|(
@@ -448,22 +485,18 @@ argument_list|)
 condition|)
 block|{
 comment|// File exists, but policy is once.
-name|getLogger
-argument_list|()
-operator|.
-name|debug
+throw|throw
+operator|new
+name|PolicyViolationException
 argument_list|(
-literal|"NO to update"
+literal|"NO to update "
 operator|+
 name|getUpdateMode
 argument_list|()
 operator|+
-literal|", local file exist (and policy is ONCE)."
+literal|", policy is ONCE, and local file exist."
 argument_list|)
-expr_stmt|;
-return|return
-literal|false
-return|;
+throw|;
 block|}
 if|if
 condition|(
@@ -513,14 +546,34 @@ name|lastModified
 argument_list|()
 argument_list|)
 expr_stmt|;
-return|return
+if|if
+condition|(
 name|cal
 operator|.
 name|after
 argument_list|(
 name|fileCal
 argument_list|)
-return|;
+condition|)
+block|{
+comment|// Its ok.
+return|return;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|PolicyViolationException
+argument_list|(
+literal|"NO to update "
+operator|+
+name|getUpdateMode
+argument_list|()
+operator|+
+literal|", policy is DAILY, local file exist, and has been updated within the last day."
+argument_list|)
+throw|;
+block|}
 block|}
 if|if
 condition|(
@@ -570,30 +623,51 @@ name|lastModified
 argument_list|()
 argument_list|)
 expr_stmt|;
-return|return
+if|if
+condition|(
 name|cal
 operator|.
 name|after
 argument_list|(
 name|fileCal
 argument_list|)
-return|;
+condition|)
+block|{
+comment|// Its ok.
+return|return;
 block|}
-name|getLogger
-argument_list|()
-operator|.
-name|error
+else|else
+block|{
+throw|throw
+operator|new
+name|PolicyViolationException
 argument_list|(
-literal|"Unhandled policyCode ["
+literal|"NO to update "
+operator|+
+name|getUpdateMode
+argument_list|()
+operator|+
+literal|", policy is HOURLY, local file exist, and has been updated within the last hour."
+argument_list|)
+throw|;
+block|}
+block|}
+throw|throw
+operator|new
+name|PolicyConfigurationException
+argument_list|(
+literal|"Unable to process "
+operator|+
+name|getUpdateMode
+argument_list|()
+operator|+
+literal|" policy of ["
 operator|+
 name|policySetting
 operator|+
-literal|"]"
+literal|"], please file a bug report."
 argument_list|)
-expr_stmt|;
-return|return
-literal|false
-return|;
+throw|;
 block|}
 block|}
 end_class

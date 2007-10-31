@@ -48,9 +48,9 @@ name|PostDownloadPolicy
 extends|extends
 name|DownloadPolicy
 block|{
-comment|/**      * Apply the download policy.      *       * A true result allows the download to succeed.  false indicates that the       * download is a failure.      *       * @param policySetting the policy setting.      * @param request the list of request properties that the policy might use.      * @param localFile the local file that this policy affects      *       * @return true if the policy passes. false if not.      */
+comment|/**      * Apply the download policy.      *       * A true result allows the download to succeed.  false indicates that the       * download is a failure.      *       * @param policySetting the policy setting.      * @param request the list of request properties that the policy might use.      * @param localFile the local file that this policy affects      *       * @throws PolicyViolationException if the policy has been violated.      */
 specifier|public
-name|boolean
+name|void
 name|applyPolicy
 parameter_list|(
 name|String
@@ -62,6 +62,10 @@ parameter_list|,
 name|File
 name|localFile
 parameter_list|)
+throws|throws
+name|PolicyViolationException
+throws|,
+name|PolicyConfigurationException
 function_decl|;
 block|}
 end_interface

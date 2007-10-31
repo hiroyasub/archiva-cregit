@@ -132,10 +132,16 @@ name|urlFailureCache
 decl_stmt|;
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|options
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|public
@@ -158,7 +164,7 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|public
-name|boolean
+name|void
 name|applyPolicy
 parameter_list|(
 name|String
@@ -170,6 +176,10 @@ parameter_list|,
 name|File
 name|localFile
 parameter_list|)
+throws|throws
+name|PolicyViolationException
+throws|,
+name|PolicyConfigurationException
 block|{
 if|if
 condition|(
@@ -182,22 +192,32 @@ name|policySetting
 argument_list|)
 condition|)
 block|{
-comment|// No valid code? false it is then.
-name|getLogger
-argument_list|()
-operator|.
-name|error
+comment|// Not a valid code.
+throw|throw
+operator|new
+name|PolicyConfigurationException
 argument_list|(
-literal|"Unknown check-failures policyCode ["
+literal|"Unknown cache-failues policy setting ["
 operator|+
 name|policySetting
 operator|+
+literal|"], valid settings are ["
+operator|+
+name|StringUtils
+operator|.
+name|join
+argument_list|(
+name|options
+operator|.
+name|iterator
+argument_list|()
+argument_list|,
+literal|","
+argument_list|)
+operator|+
 literal|"]"
 argument_list|)
-expr_stmt|;
-return|return
-literal|false
-return|;
+throw|;
 block|}
 if|if
 condition|(
@@ -218,9 +238,7 @@ argument_list|(
 literal|"OK to fetch, check-failures policy set to IGNORED."
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
+return|return;
 block|}
 name|String
 name|url
@@ -252,19 +270,15 @@ name|url
 argument_list|)
 condition|)
 block|{
-name|getLogger
-argument_list|()
-operator|.
-name|debug
+throw|throw
+operator|new
+name|PolicyViolationException
 argument_list|(
 literal|"NO to fetch, check-failures detected previous failure on url: "
 operator|+
 name|url
 argument_list|)
-expr_stmt|;
-return|return
-literal|false
-return|;
+throw|;
 block|}
 block|}
 name|getLogger
@@ -275,9 +289,6 @@ argument_list|(
 literal|"OK to fetch, check-failures detected no issues."
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
 block|}
 specifier|public
 name|String
@@ -299,6 +310,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getOptions
 parameter_list|()
 block|{
