@@ -189,6 +189,16 @@ parameter_list|)
 throws|throws
 name|RepositoryIndexException
 function_decl|;
+comment|/**      * Delete a record from the index. Simply ignore the request any did not exist.      *      * @param record the record to be deleted      * @throws RepositoryIndexException if there is a problem removing the record      */
+name|void
+name|deleteRecord
+parameter_list|(
+name|LuceneRepositoryContentRecord
+name|record
+parameter_list|)
+throws|throws
+name|RepositoryIndexException
+function_decl|;
 comment|/**      * Retrieve all primary keys of records in the index.      *      * @return the keys      * @throws RepositoryIndexException if there was an error searching the index      */
 name|Collection
 name|getAllRecordKeys

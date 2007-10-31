@@ -11,9 +11,7 @@ name|archiva
 operator|.
 name|consumers
 operator|.
-name|core
-operator|.
-name|repository
+name|lucene
 operator|.
 name|stubs
 package|;
@@ -372,7 +370,44 @@ parameter_list|)
 throws|throws
 name|RepositoryIndexException
 block|{
-comment|// TODO Auto-generated method stub
+name|Assert
+operator|.
+name|assertNotNull
+argument_list|(
+name|record
+argument_list|)
+expr_stmt|;
+comment|// fail since the record to be deleted should only be the deleted-artifact-1.0.jar
+comment|// according to the tests
+if|if
+condition|(
+name|record
+operator|.
+name|getPrimaryKey
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"org/apache/maven/archiva/archiva-lucene-cleanup/1.0/archiva-lucene-cleanup-1.0.jar"
+argument_list|)
+operator|&&
+name|record
+operator|.
+name|getPrimaryKey
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"org.apache.maven.archiva:archiva-lucene-cleanup:1.0:jar"
+argument_list|)
+condition|)
+block|{
+name|Assert
+operator|.
+name|fail
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
