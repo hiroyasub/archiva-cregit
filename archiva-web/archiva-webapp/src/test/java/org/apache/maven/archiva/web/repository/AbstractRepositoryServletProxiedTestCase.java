@@ -305,8 +305,7 @@ name|ONE_SECOND
 init|=
 operator|(
 literal|1000
-operator|*
-literal|60
+comment|/* milliseconds */
 operator|)
 decl_stmt|;
 specifier|protected
