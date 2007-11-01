@@ -116,6 +116,15 @@ name|AbstractLogEnabled
 implements|implements
 name|PostDownloadPolicy
 block|{
+comment|/**      * The IGNORE policy indicates that if the checksum policy is ignored, and      * the state of, contents of, or validity of the checksum files are not      * checked.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|IGNORE
+init|=
+literal|"ignore"
+decl_stmt|;
 comment|/**      * The FAIL policy indicates that if the checksum does not match the      * downloaded file, then remove the downloaded artifact, and checksum      * files, and fail the transfer to the client side.      */
 specifier|public
 specifier|static
@@ -175,7 +184,7 @@ name|options
 operator|.
 name|add
 argument_list|(
-name|IGNORED
+name|IGNORE
 argument_list|)
 expr_stmt|;
 block|}
@@ -237,7 +246,7 @@ throw|;
 block|}
 if|if
 condition|(
-name|IGNORED
+name|IGNORE
 operator|.
 name|equals
 argument_list|(
@@ -246,6 +255,14 @@ argument_list|)
 condition|)
 block|{
 comment|// Ignore.
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Checksum policy set to IGNORE."
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 if|if
@@ -394,6 +411,14 @@ name|localFile
 argument_list|)
 condition|)
 block|{
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Checksum policy set to FIX, checksum files have been updated."
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 else|else

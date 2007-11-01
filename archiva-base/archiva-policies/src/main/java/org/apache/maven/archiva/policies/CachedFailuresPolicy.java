@@ -116,14 +116,23 @@ name|AbstractLogEnabled
 implements|implements
 name|PreDownloadPolicy
 block|{
-comment|/**      * The CACHED policy indicates that if the URL provided exists in the      * cached failures pool, then the policy fails, and the download isn't even      * attempted.      */
+comment|/**      * The NO policy setting means that the the existence of old failures is<strong>not</strong> checked.      * All resource requests are allowed thru to the remote repo.      */
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|CACHED
+name|NO
 init|=
-literal|"cached"
+literal|"no"
+decl_stmt|;
+comment|/**      * The YES policy setting means that the existence of old failures is checked, and will      * prevent the request from being performed against the remote repo.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|YES
+init|=
+literal|"yes"
 decl_stmt|;
 comment|/**      * @plexus.requirement role-hint="default"      */
 specifier|private
@@ -152,14 +161,14 @@ name|options
 operator|.
 name|add
 argument_list|(
-name|IGNORED
+name|NO
 argument_list|)
 expr_stmt|;
 name|options
 operator|.
 name|add
 argument_list|(
-name|CACHED
+name|YES
 argument_list|)
 expr_stmt|;
 block|}
@@ -221,7 +230,7 @@ throw|;
 block|}
 if|if
 condition|(
-name|IGNORED
+name|NO
 operator|.
 name|equals
 argument_list|(
@@ -229,13 +238,13 @@ name|policySetting
 argument_list|)
 condition|)
 block|{
-comment|// Ignore.
+comment|// Skip.
 name|getLogger
 argument_list|()
 operator|.
 name|debug
 argument_list|(
-literal|"OK to fetch, check-failures policy set to IGNORED."
+literal|"OK to fetch, check-failures policy set to NO."
 argument_list|)
 expr_stmt|;
 return|return;
@@ -296,7 +305,7 @@ name|getDefaultOption
 parameter_list|()
 block|{
 return|return
-name|IGNORED
+name|NO
 return|;
 block|}
 specifier|public

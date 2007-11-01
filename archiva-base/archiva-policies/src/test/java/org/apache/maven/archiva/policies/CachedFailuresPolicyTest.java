@@ -162,7 +162,7 @@ return|;
 block|}
 specifier|public
 name|void
-name|testIgnored
+name|testPolicyNo
 parameter_list|()
 throws|throws
 name|Exception
@@ -200,7 +200,7 @@ name|applyPolicy
 argument_list|(
 name|CachedFailuresPolicy
 operator|.
-name|IGNORED
+name|NO
 argument_list|,
 name|request
 argument_list|,
@@ -210,7 +210,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|testCachedNotInCache
+name|testPolicyYesNotInCache
 parameter_list|()
 throws|throws
 name|Exception
@@ -248,7 +248,7 @@ name|applyPolicy
 argument_list|(
 name|CachedFailuresPolicy
 operator|.
-name|CACHED
+name|YES
 argument_list|,
 name|request
 argument_list|,
@@ -258,7 +258,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|testCachedInCache
+name|testPolicyYesInCache
 parameter_list|()
 throws|throws
 name|Exception
@@ -316,7 +316,7 @@ name|applyPolicy
 argument_list|(
 name|CachedFailuresPolicy
 operator|.
-name|CACHED
+name|YES
 argument_list|,
 name|request
 argument_list|,

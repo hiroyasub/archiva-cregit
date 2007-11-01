@@ -566,7 +566,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|testSnapshotPolicyDisabledProjectMetadata
+name|testSnapshotPolicyRejectProjectMetadata
 parameter_list|()
 throws|throws
 name|Exception
@@ -576,7 +576,7 @@ name|assertSnapshotPolicy
 argument_list|(
 name|SnapshotsPolicy
 operator|.
-name|DISABLED
+name|NEVER
 argument_list|,
 name|PATH_PROJECT_METADATA
 argument_list|,
@@ -587,7 +587,7 @@ name|assertSnapshotPolicy
 argument_list|(
 name|SnapshotsPolicy
 operator|.
-name|DISABLED
+name|NEVER
 argument_list|,
 name|PATH_PROJECT_METADATA
 argument_list|,
@@ -597,7 +597,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|testSnapshotPolicyDisabledReleaseArtifact
+name|testSnapshotPolicyRejectReleaseArtifact
 parameter_list|()
 throws|throws
 name|Exception
@@ -606,7 +606,7 @@ name|assertSnapshotPolicy
 argument_list|(
 name|SnapshotsPolicy
 operator|.
-name|DISABLED
+name|NEVER
 argument_list|,
 name|PATH_RELEASE_ARTIFACT
 argument_list|,
@@ -617,7 +617,7 @@ name|assertSnapshotPolicy
 argument_list|(
 name|SnapshotsPolicy
 operator|.
-name|DISABLED
+name|NEVER
 argument_list|,
 name|PATH_RELEASE_ARTIFACT
 argument_list|,
@@ -627,7 +627,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|testSnapshotPolicyDisabledSnapshotArtifact
+name|testSnapshotPolicyRejectSnapshotArtifact
 parameter_list|()
 throws|throws
 name|Exception
@@ -636,7 +636,7 @@ name|assertSnapshotPolicyViolation
 argument_list|(
 name|SnapshotsPolicy
 operator|.
-name|DISABLED
+name|NEVER
 argument_list|,
 name|PATH_SNAPSHOT_ARTIFACT
 argument_list|,
@@ -647,7 +647,7 @@ name|assertSnapshotPolicyViolation
 argument_list|(
 name|SnapshotsPolicy
 operator|.
-name|DISABLED
+name|NEVER
 argument_list|,
 name|PATH_SNAPSHOT_ARTIFACT
 argument_list|,
@@ -657,7 +657,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|testSnapshotPolicyDisabledVersionedMetadata
+name|testSnapshotPolicyRejectVersionedMetadata
 parameter_list|()
 throws|throws
 name|Exception
@@ -667,7 +667,7 @@ name|assertSnapshotPolicy
 argument_list|(
 name|SnapshotsPolicy
 operator|.
-name|DISABLED
+name|NEVER
 argument_list|,
 name|PATH_VERSION_METADATA
 argument_list|,
@@ -678,7 +678,7 @@ name|assertSnapshotPolicy
 argument_list|(
 name|SnapshotsPolicy
 operator|.
-name|DISABLED
+name|NEVER
 argument_list|,
 name|PATH_VERSION_METADATA
 argument_list|,
@@ -1034,7 +1034,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|testSnapshotPolicyIgnoredProjectMetadata
+name|testSnapshotPolicyAlwaysProjectMetadata
 parameter_list|()
 throws|throws
 name|Exception
@@ -1044,7 +1044,7 @@ name|assertSnapshotPolicy
 argument_list|(
 name|SnapshotsPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|,
 name|PATH_PROJECT_METADATA
 argument_list|,
@@ -1055,7 +1055,7 @@ name|assertSnapshotPolicy
 argument_list|(
 name|SnapshotsPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|,
 name|PATH_PROJECT_METADATA
 argument_list|,
@@ -1065,7 +1065,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|testSnapshotPolicyIgnoredReleaseArtifact
+name|testSnapshotPolicyAlwaysReleaseArtifact
 parameter_list|()
 throws|throws
 name|Exception
@@ -1074,7 +1074,7 @@ name|assertSnapshotPolicy
 argument_list|(
 name|SnapshotsPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|,
 name|PATH_RELEASE_ARTIFACT
 argument_list|,
@@ -1085,7 +1085,7 @@ name|assertSnapshotPolicy
 argument_list|(
 name|SnapshotsPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|,
 name|PATH_RELEASE_ARTIFACT
 argument_list|,
@@ -1095,7 +1095,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|testSnapshotPolicyIgnoredSnapshotArtifact
+name|testSnapshotPolicyAlwaysSnapshotArtifact
 parameter_list|()
 throws|throws
 name|Exception
@@ -1104,7 +1104,7 @@ name|assertSnapshotPolicy
 argument_list|(
 name|SnapshotsPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|,
 name|PATH_SNAPSHOT_ARTIFACT
 argument_list|,
@@ -1115,7 +1115,7 @@ name|assertSnapshotPolicy
 argument_list|(
 name|SnapshotsPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|,
 name|PATH_SNAPSHOT_ARTIFACT
 argument_list|,
@@ -1125,7 +1125,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|testSnapshotPolicyIgnoredVersionedMetadata
+name|testSnapshotPolicyAlwaysVersionedMetadata
 parameter_list|()
 throws|throws
 name|Exception
@@ -1135,7 +1135,7 @@ name|assertSnapshotPolicy
 argument_list|(
 name|SnapshotsPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|,
 name|PATH_VERSION_METADATA
 argument_list|,
@@ -1146,7 +1146,7 @@ name|assertSnapshotPolicy
 argument_list|(
 name|SnapshotsPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|,
 name|PATH_VERSION_METADATA
 argument_list|,

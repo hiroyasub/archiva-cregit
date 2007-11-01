@@ -117,7 +117,7 @@ name|EXPECT_MANAGED_CONTENTS
 argument_list|,
 name|SnapshotsPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|,
 name|HAS_MANAGED_COPY
 argument_list|,
@@ -142,7 +142,7 @@ name|EXPECT_REMOTE_CONTENTS
 argument_list|,
 name|SnapshotsPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|,
 name|HAS_MANAGED_COPY
 argument_list|,
@@ -167,7 +167,7 @@ name|EXPECT_REMOTE_CONTENTS
 argument_list|,
 name|SnapshotsPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|,
 name|NO_MANAGED_COPY
 argument_list|)
@@ -244,7 +244,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|testGetProxiedSnapshotsArtifactPolicyDisabledFail
+name|testGetProxiedSnapshotsArtifactPolicyRejectFail
 parameter_list|()
 throws|throws
 name|Exception
@@ -255,7 +255,7 @@ name|EXPECT_MANAGED_CONTENTS
 argument_list|,
 name|SnapshotsPolicy
 operator|.
-name|DISABLED
+name|NEVER
 argument_list|,
 name|HAS_MANAGED_COPY
 argument_list|)
@@ -263,7 +263,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|testGetProxiedSnapshotsArtifactPolicyDisabledNoManagedContentFail
+name|testGetProxiedSnapshotsArtifactPolicyRejectNoManagedContentFail
 parameter_list|()
 throws|throws
 name|Exception
@@ -274,7 +274,7 @@ name|EXPECT_NOT_FOUND
 argument_list|,
 name|SnapshotsPolicy
 operator|.
-name|DISABLED
+name|NEVER
 argument_list|,
 name|NO_MANAGED_COPY
 argument_list|)
@@ -282,7 +282,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|testGetProxiedSnapshotsArtifactPolicyDisabledPass
+name|testGetProxiedSnapshotsArtifactPolicyRejectPass
 parameter_list|()
 throws|throws
 name|Exception
@@ -293,7 +293,7 @@ name|EXPECT_MANAGED_CONTENTS
 argument_list|,
 name|SnapshotsPolicy
 operator|.
-name|DISABLED
+name|NEVER
 argument_list|,
 name|HAS_MANAGED_COPY
 argument_list|)

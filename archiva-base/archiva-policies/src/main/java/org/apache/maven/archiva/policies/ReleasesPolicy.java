@@ -30,6 +30,7 @@ name|AbstractUpdatePolicy
 implements|implements
 name|PreDownloadPolicy
 block|{
+comment|/**      * Defaults to {@link AbstractUpdatePolicy#HOURLY}      */
 specifier|public
 name|String
 name|getDefaultOption
@@ -38,7 +39,7 @@ block|{
 return|return
 name|AbstractUpdatePolicy
 operator|.
-name|IGNORED
+name|HOURLY
 return|;
 block|}
 specifier|protected

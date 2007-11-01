@@ -847,7 +847,7 @@ name|POLICY_CHECKSUM
 argument_list|,
 name|ChecksumPolicy
 operator|.
-name|IGNORED
+name|IGNORE
 argument_list|)
 expr_stmt|;
 name|connector
@@ -860,7 +860,7 @@ name|POLICY_CACHE_FAILURES
 argument_list|,
 name|CachedFailuresPolicy
 operator|.
-name|IGNORED
+name|NO
 argument_list|)
 expr_stmt|;
 name|archivaConfiguration
@@ -1051,11 +1051,11 @@ name|remoteRepo
 argument_list|,
 name|ReleasesPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|,
 name|SnapshotsPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|)
 expr_stmt|;
 block|}
@@ -1083,7 +1083,7 @@ name|releasePolicy
 argument_list|,
 name|SnapshotsPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|)
 expr_stmt|;
 block|}
@@ -1109,7 +1109,7 @@ name|remoteRepo
 argument_list|,
 name|ReleasesPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|,
 name|snapshotsPolicy
 argument_list|)

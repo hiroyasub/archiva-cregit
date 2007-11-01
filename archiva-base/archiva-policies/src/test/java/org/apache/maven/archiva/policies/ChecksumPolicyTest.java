@@ -418,7 +418,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|testIgnored
+name|testIgnore
 parameter_list|()
 throws|throws
 name|Exception
@@ -451,7 +451,7 @@ name|applyPolicy
 argument_list|(
 name|ChecksumPolicy
 operator|.
-name|IGNORED
+name|IGNORE
 argument_list|,
 name|request
 argument_list|,

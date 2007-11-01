@@ -225,7 +225,7 @@ name|ONCE
 argument_list|,
 name|CachedFailuresPolicy
 operator|.
-name|IGNORED
+name|NO
 argument_list|)
 expr_stmt|;
 comment|// Attempt the proxy fetch.
@@ -335,7 +335,7 @@ name|ONCE
 argument_list|,
 name|CachedFailuresPolicy
 operator|.
-name|IGNORED
+name|NO
 argument_list|)
 expr_stmt|;
 comment|// Attempt the proxy fetch.
@@ -453,15 +453,15 @@ name|FIX
 argument_list|,
 name|ReleasesPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|,
 name|SnapshotsPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|,
 name|CachedFailuresPolicy
 operator|.
-name|IGNORED
+name|NO
 argument_list|)
 expr_stmt|;
 comment|// Attempt the proxy fetch.
@@ -574,15 +574,15 @@ name|FIX
 argument_list|,
 name|ReleasesPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|,
 name|SnapshotsPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|,
 name|CachedFailuresPolicy
 operator|.
-name|IGNORED
+name|NO
 argument_list|)
 expr_stmt|;
 comment|// Attempt the proxy fetch.
@@ -703,7 +703,7 @@ name|DAILY
 argument_list|,
 name|CachedFailuresPolicy
 operator|.
-name|IGNORED
+name|NO
 argument_list|)
 expr_stmt|;
 comment|// Attempt the proxy fetch.

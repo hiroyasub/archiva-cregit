@@ -56,31 +56,6 @@ specifier|public
 interface|interface
 name|DownloadPolicy
 block|{
-comment|/**      * The IGNORED policy means that the policy is ignored.      */
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|IGNORED
-init|=
-literal|"ignored"
-decl_stmt|;
-specifier|public
-specifier|static
-specifier|final
-name|boolean
-name|PASS
-init|=
-literal|true
-decl_stmt|;
-specifier|public
-specifier|static
-specifier|final
-name|boolean
-name|FAIL
-init|=
-literal|false
-decl_stmt|;
 comment|/**      * Get the list of options for this policy.      *       * @return the list of options for this policy.      */
 specifier|public
 name|List

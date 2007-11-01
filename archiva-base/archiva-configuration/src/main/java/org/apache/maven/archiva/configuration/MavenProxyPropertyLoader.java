@@ -555,7 +555,7 @@ name|POLICY_RELEASES
 argument_list|,
 name|ReleasesPolicy
 operator|.
-name|IGNORED
+name|ALWAYS
 argument_list|)
 expr_stmt|;
 name|configuration

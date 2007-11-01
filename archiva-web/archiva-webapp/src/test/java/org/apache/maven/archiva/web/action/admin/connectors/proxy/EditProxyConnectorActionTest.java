@@ -1813,6 +1813,7 @@ argument_list|(
 name|TEST_TARGET_ID
 argument_list|)
 expr_stmt|;
+comment|// TODO: Set these options programatically via list of available policies.
 name|connector
 operator|.
 name|getPolicies
@@ -1822,9 +1823,12 @@ name|put
 argument_list|(
 literal|"releases"
 argument_list|,
+operator|new
 name|ReleasesPolicy
+argument_list|()
 operator|.
-name|IGNORED
+name|getDefaultOption
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|connector
@@ -1836,9 +1840,12 @@ name|put
 argument_list|(
 literal|"snapshots"
 argument_list|,
+operator|new
 name|SnapshotsPolicy
+argument_list|()
 operator|.
-name|DISABLED
+name|getDefaultOption
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|connector
@@ -1850,9 +1857,12 @@ name|put
 argument_list|(
 literal|"checksum"
 argument_list|,
+operator|new
 name|ChecksumPolicy
+argument_list|()
 operator|.
-name|FIX
+name|getDefaultOption
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|connector
@@ -1864,9 +1874,12 @@ name|put
 argument_list|(
 literal|"cache-failures"
 argument_list|,
+operator|new
 name|CachedFailuresPolicy
+argument_list|()
 operator|.
-name|IGNORED
+name|getDefaultOption
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|config

@@ -127,14 +127,23 @@ name|AbstractLogEnabled
 implements|implements
 name|PreDownloadPolicy
 block|{
-comment|/**      * The DISABLED policy means that the artifact retrieval isn't even attempted,      * let alone updated locally.      */
+comment|/**      * The ALWAYS policy setting means that the artifact is always uipdated from the remote repo.      */
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|DISABLED
+name|ALWAYS
 init|=
-literal|"disabled"
+literal|"always"
+decl_stmt|;
+comment|/**      * The NEVER policy setting means that the artifact is never updated from the remote repo.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NEVER
+init|=
+literal|"never"
 decl_stmt|;
 comment|/**      *<p>      * The DAILY policy means that the artifact retrieval occurs only if one of      * the following conditions are met...      *</p>      *<ul>      *<li>The local artifact is not present.</li>      *<li>The local artifact has a last modified timestamp older than (now - 1 day).</li>      *</ul>      */
 specifier|public
@@ -185,21 +194,7 @@ name|options
 operator|.
 name|add
 argument_list|(
-name|IGNORED
-argument_list|)
-expr_stmt|;
-name|options
-operator|.
-name|add
-argument_list|(
-name|DISABLED
-argument_list|)
-expr_stmt|;
-name|options
-operator|.
-name|add
-argument_list|(
-name|DAILY
+name|ALWAYS
 argument_list|)
 expr_stmt|;
 name|options
@@ -213,7 +208,21 @@ name|options
 operator|.
 name|add
 argument_list|(
+name|DAILY
+argument_list|)
+expr_stmt|;
+name|options
+operator|.
+name|add
+argument_list|(
 name|ONCE
+argument_list|)
+expr_stmt|;
+name|options
+operator|.
+name|add
+argument_list|(
+name|NEVER
 argument_list|)
 expr_stmt|;
 block|}
@@ -362,7 +371,7 @@ throw|;
 block|}
 if|if
 condition|(
-name|IGNORED
+name|ALWAYS
 operator|.
 name|equals
 argument_list|(
@@ -370,7 +379,7 @@ name|policySetting
 argument_list|)
 condition|)
 block|{
-comment|// Ignored means ok to update.
+comment|// Skip means ok to update.
 name|getLogger
 argument_list|()
 operator|.
@@ -381,7 +390,7 @@ operator|+
 name|getUpdateMode
 argument_list|()
 operator|+
-literal|" policy set to IGNORED."
+literal|" policy set to ALWAYS."
 argument_list|)
 expr_stmt|;
 return|return;
@@ -427,7 +436,7 @@ return|return;
 block|}
 if|if
 condition|(
-name|DISABLED
+name|NEVER
 operator|.
 name|equals
 argument_list|(
@@ -435,7 +444,7 @@ name|policySetting
 argument_list|)
 condition|)
 block|{
-comment|// Disabled means no.
+comment|// Reject means no.
 throw|throw
 operator|new
 name|PolicyViolationException
@@ -445,7 +454,7 @@ operator|+
 name|getUpdateMode
 argument_list|()
 operator|+
-literal|" policy set to DISABLED."
+literal|" policy set to NEVER."
 argument_list|)
 throw|;
 block|}
