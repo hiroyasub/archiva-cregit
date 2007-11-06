@@ -217,6 +217,16 @@ throws|throws
 name|RepositoryIndexException
 block|{
 comment|// TODO Auto-generated method stub
+if|if
+condition|(
+name|records
+operator|.
+name|size
+argument_list|()
+operator|!=
+literal|0
+condition|)
+block|{
 name|Assert
 operator|.
 name|assertEquals
@@ -229,6 +239,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 specifier|public
 name|boolean

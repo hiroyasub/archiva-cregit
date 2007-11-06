@@ -620,6 +620,11 @@ operator|.
 name|getDaysOlder
 argument_list|()
 argument_list|,
+name|repository
+operator|.
+name|getRetentionCount
+argument_list|()
+argument_list|,
 name|indices
 argument_list|)
 expr_stmt|;
