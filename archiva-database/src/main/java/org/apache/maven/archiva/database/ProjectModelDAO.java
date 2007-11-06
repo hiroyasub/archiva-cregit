@@ -87,7 +87,9 @@ name|ArchivaDatabaseException
 function_decl|;
 specifier|public
 name|List
-comment|/*<ArchivaProjectModel>*/
+argument_list|<
+name|ArchivaProjectModel
+argument_list|>
 name|queryProjectModels
 parameter_list|(
 name|Constraint

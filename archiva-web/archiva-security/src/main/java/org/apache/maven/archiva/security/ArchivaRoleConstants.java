@@ -79,6 +79,15 @@ name|GUEST_ROLE
 init|=
 literal|"Guest"
 decl_stmt|;
+comment|// principals
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|PRINCIPAL_GUEST
+init|=
+literal|"guest"
+decl_stmt|;
 comment|// dynamic role prefixes
 specifier|public
 specifier|static
@@ -202,6 +211,47 @@ name|TEMPLATE_REPOSITORY_OBSERVER
 init|=
 literal|"archiva-repository-observer"
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TEMPLATE_GLOBAL_REPOSITORY_OBSERVER
+init|=
+literal|"archiva-global-repository-observer"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TEMPLATE_SYSTEM_ADMIN
+init|=
+literal|"archiva-system-administrator"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TEMPLATE_GUEST
+init|=
+literal|"archiva-guest"
+decl_stmt|;
+specifier|public
+specifier|static
+name|String
+name|toRepositoryObserverRoleName
+parameter_list|(
+name|String
+name|repoId
+parameter_list|)
+block|{
+return|return
+name|REPOSITORY_OBSERVER_ROLE_PREFIX
+operator|+
+literal|" - "
+operator|+
+name|repoId
+return|;
+block|}
 block|}
 end_class
 

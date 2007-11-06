@@ -275,6 +275,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|ArchivaProjectModel
+argument_list|>
 name|queryProjectModels
 parameter_list|(
 name|Constraint
