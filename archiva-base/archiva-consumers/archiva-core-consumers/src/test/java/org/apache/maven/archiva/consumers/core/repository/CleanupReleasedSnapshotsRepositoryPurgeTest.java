@@ -530,50 +530,50 @@ name|repoRoot
 operator|+
 literal|"/org/apache/maven/plugins/maven-source-plugin"
 decl_stmt|;
-comment|// check if the snapshot was removed
-name|assertDeleted
+comment|// check if the snapshot was not removed
+name|assertExists
 argument_list|(
 name|projectRoot
 operator|+
 literal|"/2.0.3-SNAPSHOT"
 argument_list|)
 expr_stmt|;
-name|assertDeleted
+name|assertExists
 argument_list|(
 name|projectRoot
 operator|+
 literal|"/2.0.3-SNAPSHOT/maven-source-plugin-2.0.3-SNAPSHOT.jar"
 argument_list|)
 expr_stmt|;
-name|assertDeleted
+name|assertExists
 argument_list|(
 name|projectRoot
 operator|+
 literal|"/2.0.3-SNAPSHOT/maven-source-plugin-2.0.3-SNAPSHOT.jar.md5"
 argument_list|)
 expr_stmt|;
-name|assertDeleted
+name|assertExists
 argument_list|(
 name|projectRoot
 operator|+
 literal|"/2.0.3-SNAPSHOT/maven-source-plugin-2.0.3-SNAPSHOT.jar.sha1"
 argument_list|)
 expr_stmt|;
-name|assertDeleted
+name|assertExists
 argument_list|(
 name|projectRoot
 operator|+
 literal|"/2.0.3-SNAPSHOT/maven-source-plugin-2.0.3-SNAPSHOT.pom"
 argument_list|)
 expr_stmt|;
-name|assertDeleted
+name|assertExists
 argument_list|(
 name|projectRoot
 operator|+
 literal|"/2.0.3-SNAPSHOT/maven-source-plugin-2.0.3-SNAPSHOT.pom.md5"
 argument_list|)
 expr_stmt|;
-name|assertDeleted
+name|assertExists
 argument_list|(
 name|projectRoot
 operator|+
@@ -630,7 +630,7 @@ operator|+
 literal|"/2.0.4-SNAPSHOT/maven-source-plugin-2.0.4-SNAPSHOT.pom.sha1"
 argument_list|)
 expr_stmt|;
-comment|// check if metadata file was updated
+comment|// check if metadata file was not updated (because nothing was removed)
 name|File
 name|artifactMetadataFile
 init|=
@@ -657,7 +657,7 @@ decl_stmt|;
 name|String
 name|expectedVersions
 init|=
-literal|"<expected><versions><version>2.0.2</version>"
+literal|"<expected><versions><version>2.0.3-SNAPSHOT</version>"
 operator|+
 literal|"<version>2.0.4-SNAPSHOT</version></versions></expected>"
 decl_stmt|;
