@@ -257,14 +257,14 @@ argument_list|)
 expr_stmt|;
 name|action
 operator|.
-name|setSourceId
+name|setSource
 argument_list|(
 name|TEST_SOURCE_ID
 argument_list|)
 expr_stmt|;
 name|action
 operator|.
-name|setTargetId
+name|setTarget
 argument_list|(
 name|TEST_TARGET_ID
 argument_list|)
@@ -318,7 +318,7 @@ argument_list|)
 expr_stmt|;
 name|action
 operator|.
-name|setSourceId
+name|setSource
 argument_list|(
 literal|"bad-source"
 argument_list|)
@@ -326,7 +326,7 @@ expr_stmt|;
 comment|// id doesn't exist.
 name|action
 operator|.
-name|setTargetId
+name|setTarget
 argument_list|(
 literal|"bad-target"
 argument_list|)
@@ -362,7 +362,7 @@ argument_list|)
 expr_stmt|;
 name|action
 operator|.
-name|setSourceId
+name|setSource
 argument_list|(
 literal|"bad"
 argument_list|)
@@ -370,7 +370,7 @@ expr_stmt|;
 comment|// Bad doesn't exist.
 name|action
 operator|.
-name|setTargetId
+name|setTarget
 argument_list|(
 name|TEST_TARGET_ID
 argument_list|)
@@ -404,14 +404,14 @@ argument_list|)
 expr_stmt|;
 name|action
 operator|.
-name|setSourceId
+name|setSource
 argument_list|(
 name|TEST_SOURCE_ID
 argument_list|)
 expr_stmt|;
 name|action
 operator|.
-name|setTargetId
+name|setTarget
 argument_list|(
 literal|"bad"
 argument_list|)
@@ -466,7 +466,7 @@ argument_list|)
 expr_stmt|;
 name|action
 operator|.
-name|setSourceId
+name|setSource
 argument_list|(
 literal|null
 argument_list|)
@@ -474,7 +474,7 @@ expr_stmt|;
 comment|// No source Id.
 name|action
 operator|.
-name|setTargetId
+name|setTarget
 argument_list|(
 literal|null
 argument_list|)
@@ -510,14 +510,14 @@ argument_list|)
 expr_stmt|;
 name|action
 operator|.
-name|setSourceId
+name|setSource
 argument_list|(
 name|TEST_SOURCE_ID
 argument_list|)
 expr_stmt|;
 name|action
 operator|.
-name|setTargetId
+name|setTarget
 argument_list|(
 literal|null
 argument_list|)
@@ -552,7 +552,7 @@ argument_list|)
 expr_stmt|;
 name|action
 operator|.
-name|setSourceId
+name|setSource
 argument_list|(
 literal|null
 argument_list|)
@@ -560,7 +560,7 @@ expr_stmt|;
 comment|// No source Id.
 name|action
 operator|.
-name|setTargetId
+name|setTarget
 argument_list|(
 name|TEST_TARGET_ID
 argument_list|)
@@ -613,14 +613,14 @@ argument_list|)
 expr_stmt|;
 name|action
 operator|.
-name|setSourceId
+name|setSource
 argument_list|(
 name|TEST_SOURCE_ID
 argument_list|)
 expr_stmt|;
 name|action
 operator|.
-name|setTargetId
+name|setTarget
 argument_list|(
 name|TEST_TARGET_ID
 argument_list|)

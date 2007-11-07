@@ -54,11 +54,11 @@ name|AbstractProxyConnectorAction
 block|{
 specifier|private
 name|String
-name|sourceId
+name|source
 decl_stmt|;
 specifier|private
 name|String
-name|targetId
+name|target
 decl_stmt|;
 specifier|private
 name|ProxyConnectorConfiguration
@@ -75,9 +75,9 @@ name|proxyConfig
 operator|=
 name|findProxyConnector
 argument_list|(
-name|sourceId
+name|source
 argument_list|,
-name|targetId
+name|target
 argument_list|)
 expr_stmt|;
 comment|// Not set? Then there is nothing to delete.
@@ -94,11 +94,11 @@ name|addActionError
 argument_list|(
 literal|"Unable to delete proxy configuration, configuration with source ["
 operator|+
-name|sourceId
+name|source
 operator|+
 literal|"], and target ["
 operator|+
-name|targetId
+name|target
 operator|+
 literal|"] does not exist."
 argument_list|)
@@ -122,9 +122,9 @@ name|proxyConfig
 operator|=
 name|findProxyConnector
 argument_list|(
-name|sourceId
+name|source
 argument_list|,
-name|targetId
+name|target
 argument_list|)
 expr_stmt|;
 comment|// Not set? Then there is nothing to delete.
@@ -141,11 +141,11 @@ name|addActionError
 argument_list|(
 literal|"Unable to delete proxy configuration, configuration with source ["
 operator|+
-name|sourceId
+name|source
 operator|+
 literal|"], and target ["
 operator|+
-name|targetId
+name|target
 operator|+
 literal|"] does not exist."
 argument_list|)
@@ -173,21 +173,21 @@ name|addActionMessage
 argument_list|(
 literal|"Successfully removed proxy connector ["
 operator|+
-name|sourceId
+name|source
 operator|+
 literal|" , "
 operator|+
-name|targetId
+name|target
 operator|+
 literal|" ]"
 argument_list|)
 expr_stmt|;
-name|setSourceId
+name|setSource
 argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-name|setTargetId
+name|setTarget
 argument_list|(
 literal|null
 argument_list|)
@@ -199,50 +199,50 @@ return|;
 block|}
 specifier|public
 name|String
-name|getSourceId
+name|getSource
 parameter_list|()
 block|{
 return|return
-name|sourceId
+name|source
 return|;
 block|}
 specifier|public
 name|void
-name|setSourceId
+name|setSource
 parameter_list|(
 name|String
-name|sourceId
+name|id
 parameter_list|)
 block|{
 name|this
 operator|.
-name|sourceId
+name|source
 operator|=
-name|sourceId
+name|id
 expr_stmt|;
 block|}
 specifier|public
 name|String
-name|getTargetId
+name|getTarget
 parameter_list|()
 block|{
 return|return
-name|targetId
+name|target
 return|;
 block|}
 specifier|public
 name|void
-name|setTargetId
+name|setTarget
 parameter_list|(
 name|String
-name|targetId
+name|id
 parameter_list|)
 block|{
 name|this
 operator|.
-name|targetId
+name|target
 operator|=
-name|targetId
+name|id
 expr_stmt|;
 block|}
 specifier|public
