@@ -739,8 +739,48 @@ name|isDirectory
 argument_list|()
 condition|)
 block|{
-comment|// TODO: [MRM-440] - If webdav URL lacks a trailing /, navigating to all links in the listing return 404.
-comment|// TODO: Issue redirect with proper pathing.
+name|String
+name|requestURL
+init|=
+name|request
+operator|.
+name|getRequest
+argument_list|()
+operator|.
+name|getRequestURL
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
+comment|// [MRM-440] - If webdav URL lacks a trailing /, navigating to all links in the listing return 404.
+if|if
+condition|(
+operator|!
+name|requestURL
+operator|.
+name|endsWith
+argument_list|(
+literal|"/"
+argument_list|)
+condition|)
+block|{
+name|String
+name|redirectToLocation
+init|=
+name|requestURL
+operator|+
+literal|"/"
+decl_stmt|;
+name|response
+operator|.
+name|sendRedirect
+argument_list|(
+name|redirectToLocation
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|// Process the request.
 name|davServer
 operator|.
