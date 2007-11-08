@@ -147,7 +147,9 @@ literal|"filecontent"
 argument_list|,
 operator|new
 name|LuceneRepositoryContentIndexStub
-argument_list|()
+argument_list|(
+literal|2
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|map
@@ -158,7 +160,9 @@ literal|"hashcodes"
 argument_list|,
 operator|new
 name|LuceneRepositoryContentIndexStub
-argument_list|()
+argument_list|(
+literal|2
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|map
@@ -169,7 +173,9 @@ literal|"bytecode"
 argument_list|,
 operator|new
 name|LuceneRepositoryContentIndexStub
-argument_list|()
+argument_list|(
+literal|2
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|repoPurge

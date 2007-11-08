@@ -922,6 +922,21 @@ return|return
 literal|true
 return|;
 block|}
+specifier|public
+name|void
+name|setRepositoryContentIndexFactory
+parameter_list|(
+name|RepositoryContentIndexFactory
+name|indexFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|indexFactory
+operator|=
+name|indexFactory
+expr_stmt|;
+block|}
 block|}
 end_class
 

@@ -307,7 +307,7 @@ specifier|final
 name|String
 name|PATH_TO_BY_DAYS_OLD_ARTIFACT
 init|=
-literal|"org/apache/maven/plugins/maven-install-plugin/2.2-SNAPSHOT/maven-install-plugin-2.2-SNAPSHOT.jar"
+literal|"org/apache/maven/plugins/maven-install-plugin/2.2-SNAPSHOT/maven-install-plugin-2.2-20061118.060401-2.jar"
 decl_stmt|;
 specifier|public
 specifier|static

@@ -447,6 +447,19 @@ argument_list|>
 name|references
 parameter_list|)
 block|{
+if|if
+condition|(
+name|references
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|references
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|List
 argument_list|<
 name|LuceneRepositoryContentRecord
@@ -669,6 +682,7 @@ name|e
 parameter_list|)
 block|{
 comment|// Ignore
+block|}
 block|}
 block|}
 comment|/**      *<p>      * This find support files for the artifactFile and deletes them.      *</p>      *<p>      * Support Files are things like ".sha1", ".md5", ".asc", etc.      *</p>      *       * @param artifactFile the file to base off of.      */
