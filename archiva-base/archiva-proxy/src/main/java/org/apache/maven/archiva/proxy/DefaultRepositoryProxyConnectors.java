@@ -761,7 +761,9 @@ name|java
 operator|.
 name|util
 operator|.
-name|Properties
+name|Map
+operator|.
+name|Entry
 import|;
 end_import
 
@@ -771,9 +773,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
-operator|.
-name|Entry
+name|Properties
 import|;
 end_import
 
@@ -902,8 +902,6 @@ parameter_list|,
 name|ArtifactReference
 name|artifact
 parameter_list|)
-throws|throws
-name|ProxyException
 block|{
 name|File
 name|localFile
@@ -1092,6 +1090,55 @@ literal|"\"."
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|ProxyException
+name|e
+parameter_list|)
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|warn
+argument_list|(
+literal|"Transfer error from repository \""
+operator|+
+name|targetRepository
+operator|.
+name|getRepository
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|"\" for artifact "
+operator|+
+name|Keys
+operator|.
+name|toKey
+argument_list|(
+name|artifact
+argument_list|)
+operator|+
+literal|", continuing to next repository. Error message: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Full stack trace"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|getLogger
 argument_list|()
@@ -1125,8 +1172,6 @@ parameter_list|,
 name|VersionedReference
 name|metadata
 parameter_list|)
-throws|throws
-name|ProxyException
 block|{
 name|File
 name|localFile
@@ -1320,6 +1365,55 @@ name|getId
 argument_list|()
 operator|+
 literal|"\"."
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ProxyException
+name|e
+parameter_list|)
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|warn
+argument_list|(
+literal|"Transfer error from repository \""
+operator|+
+name|targetRepository
+operator|.
+name|getRepository
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|"\" for versioned Metadata "
+operator|+
+name|Keys
+operator|.
+name|toKey
+argument_list|(
+name|metadata
+argument_list|)
+operator|+
+literal|", continuing to next repository. Error message: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Full stack trace"
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1582,12 +1676,6 @@ parameter_list|,
 name|ProjectReference
 name|metadata
 parameter_list|)
-throws|throws
-name|NotFoundException
-throws|,
-name|NotModifiedException
-throws|,
-name|ProxyException
 block|{
 name|File
 name|localFile
@@ -1781,6 +1869,55 @@ name|getId
 argument_list|()
 operator|+
 literal|"\"."
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ProxyException
+name|e
+parameter_list|)
+block|{
+name|getLogger
+argument_list|()
+operator|.
+name|warn
+argument_list|(
+literal|"Transfer error from repository \""
+operator|+
+name|targetRepository
+operator|.
+name|getRepository
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|"\" for project metadata "
+operator|+
+name|Keys
+operator|.
+name|toKey
+argument_list|(
+name|metadata
+argument_list|)
+operator|+
+literal|", continuing to next repository. Error message: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|getLogger
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Full stack trace"
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2032,8 +2169,6 @@ parameter_list|,
 name|ArtifactReference
 name|artifact
 parameter_list|)
-throws|throws
-name|ProxyException
 block|{
 return|return
 name|repository
@@ -2054,8 +2189,6 @@ parameter_list|,
 name|ProjectReference
 name|metadata
 parameter_list|)
-throws|throws
-name|ProxyException
 block|{
 name|String
 name|sourcePath
@@ -2090,8 +2223,6 @@ parameter_list|,
 name|VersionedReference
 name|metadata
 parameter_list|)
-throws|throws
-name|ProxyException
 block|{
 name|String
 name|sourcePath
@@ -2187,11 +2318,9 @@ name|Properties
 name|requestProperties
 parameter_list|)
 throws|throws
-name|NotFoundException
+name|ProxyException
 throws|,
 name|NotModifiedException
-throws|,
-name|ProxyException
 block|{
 name|String
 name|url
@@ -2819,10 +2948,6 @@ name|File
 name|localFile
 parameter_list|)
 throws|throws
-name|NotFoundException
-throws|,
-name|NotModifiedException
-throws|,
 name|ProxyException
 block|{
 assert|assert

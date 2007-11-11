@@ -168,6 +168,8 @@ name|CacheFailuresTransferTest
 extends|extends
 name|AbstractProxyTestCase
 block|{
+comment|// TODO: test some hard failures (eg TransferFailedException)
+comment|// TODO: test the various combinations of fetchFrom* (note: need only test when caching is enabled)
 specifier|public
 name|void
 name|testGetWithCacheFailuresOn
@@ -337,6 +339,7 @@ argument_list|,
 name|artifact
 argument_list|)
 decl_stmt|;
+comment|// TODO: test failure is cached!
 name|wagonMockControl
 operator|.
 name|verify
@@ -522,15 +525,16 @@ argument_list|,
 name|artifact
 argument_list|)
 decl_stmt|;
-name|assertNotDownloaded
-argument_list|(
-name|downloadedFile
-argument_list|)
-expr_stmt|;
+comment|// TODO: test failure is not cached!
 name|wagonMockControl
 operator|.
 name|verify
 argument_list|()
+expr_stmt|;
+name|assertNotDownloaded
+argument_list|(
+name|downloadedFile
+argument_list|)
 expr_stmt|;
 name|assertNoTempFiles
 argument_list|(

@@ -253,6 +253,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|wagon
+operator|.
+name|TransferFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|custommonkey
 operator|.
 name|xmlunit
@@ -304,7 +318,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MetadataTransferTest - Tests the various fetching / merging concepts surrounding the maven-metadata.xml files  * present in the repository.  *  * Test Case Naming is as follows.  *   *<code>  * public void testGet[Release|Snapshot|Project]Metadata[Not]Proxied[Not|On]Local[Not|On|Multiple]Remote  *</code>  *   *<pre>  * Which should leave the following matrix of test cases.  *    *   Metadata  | Proxied  | Local | Remote  *   ----------+----------+-------+---------  *   Release   | Not      | Not   | n/a (1)  *   Release   | Not      | On    | n/a (1)  *   Release   |          | Not   | Not  *   Release   |          | Not   | On  *   Release   |          | Not   | Multiple  *   Release   |          | On    | Not  *   Release   |          | On    | On  *   Release   |          | On    | Multiple  *   Snapshot  | Not      | Not   | n/a (1)  *   Snapshot  | Not      | On    | n/a (1)  *   Snapshot  |          | Not   | Not  *   Snapshot  |          | Not   | On  *   Snapshot  |          | Not   | Multiple  *   Snapshot  |          | On    | Not  *   Snapshot  |          | On    | On  *   Snapshot  |          | On    | Multiple  *   Project   | Not      | Not   | n/a (1)  *   Project   | Not      | On    | n/a (1)  *   Project   |          | Not   | Not  *   Project   |          | Not   | On  *   Project   |          | Not   | Multiple  *   Project   |          | On    | Not  *   Project   |          | On    | On  *   Project   |          | On    | Multiple  *     * (1) If it isn't proxied, no point in having a remote.  *</pre>  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * MetadataTransferTest - Tests the various fetching / merging concepts surrounding the maven-metadata.xml files  * present in the repository.  *  * Test Case Naming is as follows.  *  *<code>  * public void testGet[Release|Snapshot|Project]Metadata[Not]Proxied[Not|On]Local[Not|On|Multiple]Remote  *</code>  *  *<pre>  * Which should leave the following matrix of test cases.  *  *   Metadata  | Proxied  | Local | Remote  *   ----------+----------+-------+---------  *   Release   | Not      | Not   | n/a (1)  *   Release   | Not      | On    | n/a (1)  *   Release   |          | Not   | Not  *   Release   |          | Not   | On  *   Release   |          | Not   | Multiple  *   Release   |          | On    | Not  *   Release   |          | On    | On  *   Release   |          | On    | Multiple  *   Snapshot  | Not      | Not   | n/a (1)  *   Snapshot  | Not      | On    | n/a (1)  *   Snapshot  |          | Not   | Not  *   Snapshot  |          | Not   | On  *   Snapshot  |          | Not   | Multiple  *   Snapshot  |          | On    | Not  *   Snapshot  |          | On    | On  *   Snapshot  |          | On    | Multiple  *   Project   | Not      | Not   | n/a (1)  *   Project   | Not      | On    | n/a (1)  *   Project   |          | Not   | Not  *   Project   |          | Not   | On  *   Project   |          | Not   | Multiple  *   Project   |          | On    | Not  *   Project   |          | On    | On  *   Project   |          | On    | Multiple  *  * (1) If it isn't proxied, no point in having a remote.  *</pre>  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -319,7 +333,212 @@ specifier|private
 name|MetadataTools
 name|metadataTools
 decl_stmt|;
-comment|/**      * Attempt to get the project metadata for non-existant artifact.      *       * Expected result: the maven-metadata.xml file is not created on the managed repository, nor returned      *                  to the requesting client.      */
+comment|// TODO: same test for other fetch* methods
+specifier|public
+name|void
+name|testFetchFromTwoProxiesWhenFirstConnectionFails
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// Project metadata that does not exist locally, but has multiple versions in remote repos
+name|String
+name|requestedResource
+init|=
+literal|"org/apache/maven/test/get-default-layout/maven-metadata.xml"
+decl_stmt|;
+name|setupTestableManagedRepository
+argument_list|(
+name|requestedResource
+argument_list|)
+expr_stmt|;
+name|saveRemoteRepositoryConfig
+argument_list|(
+literal|"badproxied1"
+argument_list|,
+literal|"Bad Proxied 1"
+argument_list|,
+literal|"test://bad.machine.com/repo/"
+argument_list|,
+literal|"default"
+argument_list|)
+expr_stmt|;
+comment|// Configure Connector (usually done within archiva.xml configuration)
+name|saveConnector
+argument_list|(
+name|ID_DEFAULT_MANAGED
+argument_list|,
+literal|"badproxied1"
+argument_list|,
+name|ChecksumPolicy
+operator|.
+name|FIX
+argument_list|,
+name|ReleasesPolicy
+operator|.
+name|ALWAYS
+argument_list|,
+name|SnapshotsPolicy
+operator|.
+name|ALWAYS
+argument_list|,
+name|CachedFailuresPolicy
+operator|.
+name|NO
+argument_list|)
+expr_stmt|;
+name|saveConnector
+argument_list|(
+name|ID_DEFAULT_MANAGED
+argument_list|,
+name|ID_PROXIED2
+argument_list|,
+name|ChecksumPolicy
+operator|.
+name|FIX
+argument_list|,
+name|ReleasesPolicy
+operator|.
+name|ALWAYS
+argument_list|,
+name|SnapshotsPolicy
+operator|.
+name|ALWAYS
+argument_list|,
+name|CachedFailuresPolicy
+operator|.
+name|NO
+argument_list|)
+expr_stmt|;
+name|assertResourceNotFound
+argument_list|(
+name|requestedResource
+argument_list|)
+expr_stmt|;
+name|assertNoRepoMetadata
+argument_list|(
+literal|"badproxied1"
+argument_list|,
+name|requestedResource
+argument_list|)
+expr_stmt|;
+name|assertNoRepoMetadata
+argument_list|(
+name|ID_PROXIED2
+argument_list|,
+name|requestedResource
+argument_list|)
+expr_stmt|;
+comment|// ensure that a hard failure in the first proxy connector is skipped and the second repository checked
+name|File
+name|expectedFile
+init|=
+operator|new
+name|File
+argument_list|(
+name|managedDefaultDir
+operator|.
+name|getAbsoluteFile
+argument_list|()
+argument_list|,
+name|metadataTools
+operator|.
+name|getRepositorySpecificName
+argument_list|(
+literal|"badproxied1"
+argument_list|,
+name|requestedResource
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|wagonMock
+operator|.
+name|get
+argument_list|(
+name|requestedResource
+argument_list|,
+operator|new
+name|File
+argument_list|(
+name|expectedFile
+operator|.
+name|getParentFile
+argument_list|()
+argument_list|,
+name|expectedFile
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|".tmp"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|wagonMockControl
+operator|.
+name|setThrowable
+argument_list|(
+operator|new
+name|TransferFailedException
+argument_list|(
+literal|"can't connect"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|wagonMockControl
+operator|.
+name|replay
+argument_list|()
+expr_stmt|;
+name|assertFetchProject
+argument_list|(
+name|requestedResource
+argument_list|)
+expr_stmt|;
+name|wagonMockControl
+operator|.
+name|verify
+argument_list|()
+expr_stmt|;
+name|assertProjectMetadataContents
+argument_list|(
+name|requestedResource
+argument_list|,
+operator|new
+name|String
+index|[]
+block|{
+literal|"1.0.1"
+block|}
+argument_list|,
+literal|"1.0.1"
+argument_list|,
+literal|"1.0.1"
+argument_list|)
+expr_stmt|;
+name|assertNoRepoMetadata
+argument_list|(
+literal|"badproxied1"
+argument_list|,
+name|requestedResource
+argument_list|)
+expr_stmt|;
+name|assertRepoProjectMetadata
+argument_list|(
+name|ID_PROXIED2
+argument_list|,
+name|requestedResource
+argument_list|,
+operator|new
+name|String
+index|[]
+block|{
+literal|"1.0.1"
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Attempt to get the project metadata for non-existant artifact.      *      * Expected result: the maven-metadata.xml file is not created on the managed repository, nor returned      *                  to the requesting client.      */
 specifier|public
 name|void
 name|testGetProjectMetadataNotProxiedNotLocal
@@ -1147,7 +1366,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A request for a release maven-metadata.xml file that does not exist locally, and the managed      * repository has no proxied repositories set up.      *       * Expected result: the maven-metadata.xml file is not created on the managed repository, nor returned      *                  to the requesting client.      */
+comment|/**      * A request for a release maven-metadata.xml file that does not exist locally, and the managed      * repository has no proxied repositories set up.      *      * Expected result: the maven-metadata.xml file is not created on the managed repository, nor returned      *                  to the requesting client.      */
 specifier|public
 name|void
 name|testGetReleaseMetadataNotProxiedNotLocal
@@ -1184,7 +1403,7 @@ name|requestedResource
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A request for a maven-metadata.xml file that does exist locally, and the managed      * repository has no proxied repositories set up.      *       * Expected result: the maven-metadata.xml file is updated locally, based off of the managed repository      *                  information, and then returned to the client.      */
+comment|/**      * A request for a maven-metadata.xml file that does exist locally, and the managed      * repository has no proxied repositories set up.      *      * Expected result: the maven-metadata.xml file is updated locally, based off of the managed repository      *                  information, and then returned to the client.      */
 specifier|public
 name|void
 name|testGetReleaseMetadataNotProxiedOnLocal
@@ -1218,7 +1437,7 @@ name|requestedResource
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A request for a release maven-metadata.xml file that does not exist on the managed repository, but      * exists on multiple remote repositories.      *       * Expected result: the maven-metadata.xml file is downloaded from the remote into the repository specific      *                  file location on the managed repository, a merge of the contents to the requested      *                  maven-metadata.xml is performed, and then the merged maven-metadata.xml file is      *                  returned to the client.      */
+comment|/**      * A request for a release maven-metadata.xml file that does not exist on the managed repository, but      * exists on multiple remote repositories.      *      * Expected result: the maven-metadata.xml file is downloaded from the remote into the repository specific      *                  file location on the managed repository, a merge of the contents to the requested      *                  maven-metadata.xml is performed, and then the merged maven-metadata.xml file is      *                  returned to the client.      */
 specifier|public
 name|void
 name|testGetReleaseMetadataProxiedNotLocalMultipleRemotes
@@ -1327,7 +1546,7 @@ name|requestedResource
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A request for a maven-metadata.xml file that does not exist locally, nor does it exist in a remote      * proxied repository.      *       * Expected result: the maven-metadata.xml file is created locally, based off of managed repository      *                  information, and then return to the client.      */
+comment|/**      * A request for a maven-metadata.xml file that does not exist locally, nor does it exist in a remote      * proxied repository.      *      * Expected result: the maven-metadata.xml file is created locally, based off of managed repository      *                  information, and then return to the client.      */
 specifier|public
 name|void
 name|testGetReleaseMetadataProxiedNotLocalNotRemote
@@ -1392,7 +1611,7 @@ name|requestedResource
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A request for a maven-metadata.xml file that does not exist on the managed repository, but      * exists on 1 remote repository.      *       * Expected result: the maven-metadata.xml file is downloaded from the remote into the repository specific      *                  file location on the managed repository, a merge of the contents to the requested      *                  maven-metadata.xml is performed, and then the merged maven-metadata.xml file is      *                  returned to the client.      */
+comment|/**      * A request for a maven-metadata.xml file that does not exist on the managed repository, but      * exists on 1 remote repository.      *      * Expected result: the maven-metadata.xml file is downloaded from the remote into the repository specific      *                  file location on the managed repository, a merge of the contents to the requested      *                  maven-metadata.xml is performed, and then the merged maven-metadata.xml file is      *                  returned to the client.      */
 specifier|public
 name|void
 name|testGetReleaseMetadataProxiedNotLocalOnRemote
@@ -1459,7 +1678,7 @@ name|requestedResource
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A request for a maven-metadata.xml file that exists in the managed repository, but      * not on any remote repository.      *       * Expected result: the maven-metadata.xml file does not exist on the remote proxied repository and      *                  is not downloaded.  There is no repository specific metadata file on the managed      *                  repository.  The managed repository maven-metadata.xml is returned to the      *                  client as-is.      */
+comment|/**      * A request for a maven-metadata.xml file that exists in the managed repository, but      * not on any remote repository.      *      * Expected result: the maven-metadata.xml file does not exist on the remote proxied repository and      *                  is not downloaded.  There is no repository specific metadata file on the managed      *                  repository.  The managed repository maven-metadata.xml is returned to the      *                  client as-is.      */
 specifier|public
 name|void
 name|testGetReleaseMetadataProxiedOnLocalNotRemote
@@ -1524,7 +1743,7 @@ name|requestedResource
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A request for a maven-metadata.xml file that exists in the managed repository, and on multiple      * remote repositories.      *       * Expected result: the maven-metadata.xml file on the remote proxied repository is downloaded      *                  and merged into the contents of the existing managed repository copy of      *                  the maven-metadata.xml file.      */
+comment|/**      * A request for a maven-metadata.xml file that exists in the managed repository, and on multiple      * remote repositories.      *      * Expected result: the maven-metadata.xml file on the remote proxied repository is downloaded      *                  and merged into the contents of the existing managed repository copy of      *                  the maven-metadata.xml file.      */
 specifier|public
 name|void
 name|testGetReleaseMetadataProxiedOnLocalMultipleRemote
@@ -1633,7 +1852,7 @@ name|requestedResource
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A request for a maven-metadata.xml file that exists in the managed repository, and on one      * remote repository.      *       * Expected result: the maven-metadata.xml file on the remote proxied repository is downloaded      *                  and merged into the contents of the existing managed repository copy of      *                  the maven-metadata.xml file.      */
+comment|/**      * A request for a maven-metadata.xml file that exists in the managed repository, and on one      * remote repository.      *      * Expected result: the maven-metadata.xml file on the remote proxied repository is downloaded      *                  and merged into the contents of the existing managed repository copy of      *                  the maven-metadata.xml file.      */
 specifier|public
 name|void
 name|testGetReleaseMetadataProxiedOnLocalOnRemote
@@ -2398,7 +2617,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Transfer the metadata file.      *       * @param requestedResource the requested resource      * @throws Exception       */
+comment|/**      * Transfer the metadata file.      *      * @param requestedResource the requested resource      * @throws Exception      */
 specifier|private
 name|void
 name|assertFetchProject
@@ -2472,7 +2691,7 @@ name|path
 argument_list|)
 return|;
 block|}
-comment|/**      * Transfer the metadata file, not expected to succeed.      *       * @param requestedResource the requested resource      * @throws Exception       */
+comment|/**      * Transfer the metadata file, not expected to succeed.      *      * @param requestedResource the requested resource      * @throws Exception      */
 specifier|private
 name|void
 name|assertFetchProjectFailed
@@ -2525,7 +2744,7 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Transfer the metadata file.      *       * @param requestedResource the requested resource      * @throws Exception       */
+comment|/**      * Transfer the metadata file.      *      * @param requestedResource the requested resource      * @throws Exception      */
 specifier|private
 name|void
 name|assertFetchVersioned
@@ -2599,7 +2818,7 @@ name|path
 argument_list|)
 return|;
 block|}
-comment|/**      * Transfer the metadata file, not expected to succeed.      *       * @param requestedResource the requested resource      * @throws Exception       */
+comment|/**      * Transfer the metadata file, not expected to succeed.      *      * @param requestedResource the requested resource      * @throws Exception      */
 specifier|private
 name|void
 name|assertFetchVersionedFailed
@@ -2652,7 +2871,7 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test for the existance of the requestedResource in the default managed repository.      *       * @param requestedResource the requested resource      * @throws Exception       */
+comment|/**      * Test for the existance of the requestedResource in the default managed repository.      *      * @param requestedResource the requested resource      * @throws Exception      */
 specifier|private
 name|void
 name|assertResourceExists
@@ -2780,7 +2999,7 @@ expr_stmt|;
 block|}
 comment|// assertEquals( "Check file contents.", expectedMetadataXml, actualContents );
 block|}
-comment|/**      * Ensures that the requested resource is not present in the managed repository.      *       * @param requestedResource the requested resource      * @throws Exception       */
+comment|/**      * Ensures that the requested resource is not present in the managed repository.      *      * @param requestedResource the requested resource      * @throws Exception      */
 specifier|private
 name|void
 name|assertNoMetadata
@@ -2815,7 +3034,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Ensures that the proxied repository specific maven metadata file does NOT exist in the       * managed repository.      * @param proxiedRepoId the proxied repository id to validate with.      * @param requestedResource the resource requested.      */
+comment|/**      * Ensures that the proxied repository specific maven metadata file does NOT exist in the      * managed repository.      * @param proxiedRepoId the proxied repository id to validate with.      * @param requestedResource the resource requested.      */
 specifier|private
 name|void
 name|assertNoRepoMetadata
@@ -2863,7 +3082,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test for the existance of the requestedResource in the default managed repository, and if it exists,      * does it contain the specified list of expected versions?      *       * @param requestedResource the requested resource      * @throws Exception       */
+comment|/**      * Test for the existance of the requestedResource in the default managed repository, and if it exists,      * does it contain the specified list of expected versions?      *      * @param requestedResource the requested resource      * @throws Exception      */
 specifier|private
 name|void
 name|assertProjectMetadataContents
@@ -3011,7 +3230,7 @@ name|actualFile
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test for the existance of the requestedResource in the default managed repository, and if it exists,      * does it contain the expected release maven-metadata.xml contents?      *       * @param requestedResource the requested resource      * @throws Exception       */
+comment|/**      * Test for the existance of the requestedResource in the default managed repository, and if it exists,      * does it contain the expected release maven-metadata.xml contents?      *      * @param requestedResource the requested resource      * @throws Exception      */
 specifier|private
 name|void
 name|assertReleaseMetadataContents
@@ -3126,7 +3345,7 @@ name|actualFile
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test for the existance of the snapshot metadata in the default managed repository, and if it exists,      * does it contain the expected release maven-metadata.xml contents?      *       * @param requestedResource the requested resource      * @param expectedDate the date in "yyyyMMdd" format      * @param expectedTime the time in "hhmmss" format      * @param expectedBuildnumber the build number      *       * @throws Exception       */
+comment|/**      * Test for the existance of the snapshot metadata in the default managed repository, and if it exists,      * does it contain the expected release maven-metadata.xml contents?      *      * @param requestedResource the requested resource      * @param expectedDate the date in "yyyyMMdd" format      * @param expectedTime the time in "hhmmss" format      * @param expectedBuildnumber the build number      *      * @throws Exception      */
 specifier|private
 name|void
 name|assertSnapshotMetadataContents
@@ -3191,7 +3410,7 @@ name|expectedBuildnumber
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test for the existance of the proxied repository specific snapshot metadata in the default managed       * repository, and if it exists, does it contain the expected release maven-metadata.xml contents?      *       * @param proxiedRepoId the repository id of the proxied repository.      * @param requestedResource the requested resource      * @param expectedDate the date in "yyyyMMdd" format      * @param expectedTime the time in "hhmmss" format      * @param expectedBuildnumber the build number      *       * @throws Exception       */
+comment|/**      * Test for the existance of the proxied repository specific snapshot metadata in the default managed      * repository, and if it exists, does it contain the expected release maven-metadata.xml contents?      *      * @param proxiedRepoId the repository id of the proxied repository.      * @param requestedResource the requested resource      * @param expectedDate the date in "yyyyMMdd" format      * @param expectedTime the time in "hhmmss" format      * @param expectedBuildnumber the build number      *      * @throws Exception      */
 specifier|private
 name|void
 name|assertRepoSnapshotMetadataContents
@@ -3576,7 +3795,7 @@ name|actualFile
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Ensures that the repository specific maven metadata file exists, and contains the appropriate      * list of expected versions within.      *       * @param proxiedRepoId      * @param requestedResource      */
+comment|/**      * Ensures that the repository specific maven metadata file exists, and contains the appropriate      * list of expected versions within.      *      * @param proxiedRepoId      * @param requestedResource      */
 specifier|private
 name|void
 name|assertRepoReleaseMetadataContents
@@ -3706,7 +3925,7 @@ name|actualFile
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test for the non-existance of the requestedResource in the default managed repository.      *       * @param requestedResource the requested resource      * @throws Exception       */
+comment|/**      * Test for the non-existance of the requestedResource in the default managed repository.      *      * @param requestedResource the requested resource      * @throws Exception      */
 specifier|private
 name|void
 name|assertResourceNotFound
