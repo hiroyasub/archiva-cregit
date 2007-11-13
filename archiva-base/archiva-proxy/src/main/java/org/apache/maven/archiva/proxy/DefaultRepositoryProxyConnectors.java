@@ -2404,7 +2404,17 @@ literal|"Path ["
 operator|+
 name|remotePath
 operator|+
-literal|"] is not part of defined whitelist (skipping transfer)."
+literal|"] is not part of defined whitelist (skipping transfer from repository ["
+operator|+
+name|remoteRepository
+operator|.
+name|getRepository
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"])."
 argument_list|)
 expr_stmt|;
 return|return
@@ -2435,7 +2445,17 @@ literal|"Path ["
 operator|+
 name|remotePath
 operator|+
-literal|"] is part of blacklist (skipping transfer)."
+literal|"] is part of blacklist (skipping transfer from repository ["
+operator|+
+name|remoteRepository
+operator|.
+name|getRepository
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"])."
 argument_list|)
 expr_stmt|;
 return|return
