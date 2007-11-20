@@ -190,11 +190,13 @@ name|artifactId
 argument_list|,
 name|version
 argument_list|,
+literal|null
+argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**       * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws LayoutException       */
+comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws LayoutException      */
 specifier|public
 name|void
 name|testGoodButOddVersionSpecJavaxComm
@@ -237,11 +239,13 @@ name|artifactId
 argument_list|,
 name|version
 argument_list|,
+literal|null
+argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**       * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws LayoutException       */
+comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws LayoutException      */
 specifier|public
 name|void
 name|testGoodButOddVersionSpecJavaxPersistence
@@ -274,7 +278,7 @@ name|path
 init|=
 literal|"javax.persistence/jars/ejb-3.0-public_review.jar"
 decl_stmt|;
-comment|/*           * The version id of "public_review" can cause problems. is it part of          * the version spec? or the classifier?          */
+comment|/*          * The version id of "public_review" can cause problems. is it part of          * the version spec? or the classifier?          */
 name|assertLayout
 argument_list|(
 name|path
@@ -284,6 +288,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+literal|null
 argument_list|,
 name|type
 argument_list|)
@@ -331,6 +337,8 @@ name|artifactId
 argument_list|,
 name|version
 argument_list|,
+literal|null
+argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
@@ -377,13 +385,15 @@ name|artifactId
 argument_list|,
 name|version
 argument_list|,
+literal|null
+argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test the ejb-client type spec.      * Type specs are not a 1 to 1 map to the extension.       * This tests that effect.      * @throws LayoutException       */
-comment|/* TODO: Re-enabled in the future.      public void testGoodFooEjbClient()         throws LayoutException     {         String groupId = "com.foo";         String artifactId = "foo-client";         String version = "1.0";         String type = "ejb"; // oddball type-spec (should result in jar extension)         String path = "com.foo/ejbs/foo-client-1.0.jar";          assertLayout( path, groupId, artifactId, version, classifier, type );     }     */
-comment|/**      * Test the classifier.      * @throws LayoutException       */
+comment|/**      * Test the ejb-client type spec.      * Type specs are not a 1 to 1 map to the extension.      * This tests that effect.      * @throws LayoutException      */
+comment|/* TODO: Re-enabled in the future.     public void testGoodFooEjbClient()         throws LayoutException     {         String groupId = "com.foo";         String artifactId = "foo-client";         String version = "1.0";         String type = "ejb"; // oddball type-spec (should result in jar extension)         String path = "com.foo/ejbs/foo-client-1.0.jar";          assertLayout( path, groupId, artifactId, version, classifier, type );     }     */
+comment|/**      * Test the classifier.      * @throws LayoutException      */
 specifier|public
 name|void
 name|testGoodFooLibJavadoc
@@ -404,7 +414,7 @@ decl_stmt|;
 name|String
 name|version
 init|=
-literal|"2.1-alpha-1-javadoc"
+literal|"2.1-alpha-1"
 decl_stmt|;
 name|String
 name|type
@@ -412,9 +422,14 @@ init|=
 literal|"javadoc"
 decl_stmt|;
 name|String
+name|classifier
+init|=
+literal|"javadoc"
+decl_stmt|;
+name|String
 name|path
 init|=
-literal|"com.foo.lib/javadocs/foo-lib-2.1-alpha-1-javadoc.jar"
+literal|"com.foo.lib/javadoc.jars/foo-lib-2.1-alpha-1-javadoc.jar"
 decl_stmt|;
 name|assertLayout
 argument_list|(
@@ -426,11 +441,13 @@ name|artifactId
 argument_list|,
 name|version
 argument_list|,
+name|classifier
+argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test the classifier, and java-source type spec.      * @throws LayoutException       */
+comment|/**      * Test the classifier, and java-source type spec.      * @throws LayoutException      */
 specifier|public
 name|void
 name|testGoodFooLibSources
@@ -451,7 +468,7 @@ decl_stmt|;
 name|String
 name|version
 init|=
-literal|"2.1-alpha-1-sources"
+literal|"2.1-alpha-1"
 decl_stmt|;
 name|String
 name|type
@@ -459,6 +476,11 @@ init|=
 literal|"java-source"
 decl_stmt|;
 comment|// oddball type-spec (should result in jar extension)
+name|String
+name|classifier
+init|=
+literal|"sources"
+decl_stmt|;
 name|String
 name|path
 init|=
@@ -473,6 +495,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|classifier
 argument_list|,
 name|type
 argument_list|)
@@ -520,6 +544,8 @@ name|artifactId
 argument_list|,
 name|version
 argument_list|,
+literal|null
+argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
@@ -565,6 +591,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+literal|null
 argument_list|,
 name|type
 argument_list|)
@@ -612,11 +640,13 @@ name|artifactId
 argument_list|,
 name|version
 argument_list|,
+literal|null
+argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A timestamped versioned artifact, should reside in a SNAPSHOT baseversion directory.      * @throws LayoutException       */
+comment|/**      * A timestamped versioned artifact, should reside in a SNAPSHOT baseversion directory.      * @throws LayoutException      */
 specifier|public
 name|void
 name|testGoodSnapshotMavenTest
@@ -658,6 +688,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+literal|null
 argument_list|,
 name|type
 argument_list|)
@@ -706,6 +738,8 @@ name|artifactId
 argument_list|,
 name|version
 argument_list|,
+literal|null
+argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
@@ -752,6 +786,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+literal|null
 argument_list|,
 name|type
 argument_list|)
@@ -800,6 +836,8 @@ name|artifactId
 argument_list|,
 name|version
 argument_list|,
+literal|null
+argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
@@ -846,6 +884,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+literal|null
 argument_list|,
 name|type
 argument_list|)
@@ -894,11 +934,13 @@ name|artifactId
 argument_list|,
 name|version
 argument_list|,
+literal|null
+argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Perform a roundtrip through the layout routines to determine success.      */
+comment|/**      * Perform a roundtrip through the layout routines to determine success.      * @param classifier TODO      */
 specifier|private
 name|void
 name|assertLayout
@@ -916,6 +958,9 @@ name|String
 name|version
 parameter_list|,
 name|String
+name|classifier
+parameter_list|,
+name|String
 name|type
 parameter_list|)
 throws|throws
@@ -931,6 +976,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|classifier
 argument_list|,
 name|type
 argument_list|)
@@ -973,6 +1020,8 @@ name|artifactId
 argument_list|,
 name|version
 argument_list|,
+name|classifier
+argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
@@ -1009,6 +1058,9 @@ name|artifactId
 parameter_list|,
 name|String
 name|version
+parameter_list|,
+name|String
+name|classifier
 parameter_list|,
 name|String
 name|type
@@ -1088,6 +1140,20 @@ name|assertEquals
 argument_list|(
 name|expectedId
 operator|+
+literal|" - classifier"
+argument_list|,
+name|classifier
+argument_list|,
+name|actualReference
+operator|.
+name|getClassifier
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|expectedId
+operator|+
 literal|" - Type"
 argument_list|,
 name|type
@@ -1095,19 +1161,6 @@ argument_list|,
 name|actualReference
 operator|.
 name|getType
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// legacy has no classifier.
-name|assertNull
-argument_list|(
-name|expectedId
-operator|+
-literal|" - classifier"
-argument_list|,
-name|actualReference
-operator|.
-name|getClassifier
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1124,6 +1177,9 @@ name|artifactId
 parameter_list|,
 name|String
 name|version
+parameter_list|,
+name|String
+name|classifier
 parameter_list|,
 name|String
 name|type
@@ -1155,6 +1211,13 @@ operator|.
 name|setVersion
 argument_list|(
 name|version
+argument_list|)
+expr_stmt|;
+name|artifact
+operator|.
+name|setClassifier
+argument_list|(
+name|classifier
 argument_list|)
 expr_stmt|;
 name|artifact

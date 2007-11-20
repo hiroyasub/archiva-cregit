@@ -110,7 +110,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryRequestTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * RepositoryRequestTest  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -357,15 +357,15 @@ name|Exception
 block|{
 name|assertValid
 argument_list|(
-literal|"commons-lang/jars/commons-lang-2.1-javadoc.jar"
+literal|"commons-lang/javadoc.jars/commons-lang-2.1-javadoc.jar"
 argument_list|,
 literal|"commons-lang"
 argument_list|,
 literal|"commons-lang"
 argument_list|,
-literal|"2.1-javadoc"
+literal|"2.1"
 argument_list|,
-literal|null
+literal|"javadoc"
 argument_list|,
 literal|"javadoc"
 argument_list|)

@@ -186,7 +186,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ManagedLegacyRepositoryContentTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ManagedLegacyRepositoryContentTest  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -219,10 +219,8 @@ index|[]
 block|{
 literal|"UNKNOWN"
 block|,
-literal|"1.0-javadoc"
-block|,
-literal|"1.0-sources"
-block|,
+comment|//            "1.0-javadoc",
+comment|//            "1.0-sources",
 literal|"1.0"
 block|,
 literal|"1.0-20050611.112233-1"
@@ -249,10 +247,8 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"1.0-javadoc"
-block|,
-literal|"1.0-sources"
-block|,
+comment|//            "1.0-javadoc",
+comment|//            "1.0-sources",
 literal|"1.0"
 block|,
 literal|"1.0-20050611.112233-1"
@@ -576,6 +572,8 @@ literal|"testing"
 argument_list|,
 literal|"1.0"
 argument_list|,
+literal|null
+argument_list|,
 literal|"jar"
 argument_list|)
 decl_stmt|;
@@ -613,7 +611,7 @@ literal|"org.apache.maven/jars/testing-1.0-20050611.112233-1.jar"
 block|,
 literal|"org.apache.maven/poms/testing-1.0.pom"
 block|,
-literal|"org.apache.maven/javadocs/testing-1.0-javadoc.jar"
+literal|"org.apache.maven/javadoc.jars/testing-1.0-javadoc.jar"
 block|}
 decl_stmt|;
 name|StringBuffer
