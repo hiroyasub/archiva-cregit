@@ -21,6 +21,108 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|FileNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|FileReader
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|PrintWriter
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|servlet
+operator|.
+name|ServletConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|servlet
+operator|.
+name|ServletException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|servlet
+operator|.
+name|http
+operator|.
+name|HttpServletResponse
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -489,110 +591,8 @@ name|WebdavMethodUtil
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|FileNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|FileReader
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|PrintWriter
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|servlet
-operator|.
-name|ServletConfig
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|servlet
-operator|.
-name|ServletException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|servlet
-operator|.
-name|http
-operator|.
-name|HttpServletResponse
-import|;
-end_import
-
 begin_comment
-comment|/**  * ProxiedDavServer  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.codehaus.plexus.webdav.DavServerComponent"  * role-hint="proxied" instantiation-strategy="per-lookup"  */
+comment|/**  * ProxiedDavServer  *   * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.codehaus.plexus.webdav.DavServerComponent"  * role-hint="proxied" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -883,7 +883,8 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-comment|// [MRM-440] - If webdav URL lacks a trailing /, navigating to all links in the listing return 404.
+comment|// [MRM-440] - If webdav URL lacks a trailing /, navigating to
+comment|// all links in the listing return 404.
 if|if
 condition|(
 operator|!
@@ -924,10 +925,22 @@ expr_stmt|;
 comment|// All done.
 return|return;
 block|}
-comment|// At this point the incoming request can either be in default or legacy layout format.
+comment|// At this point the incoming request can either be in default or
+comment|// legacy layout format.
 try|try
 block|{
-comment|// Perform an adjustment of the resource to the managed repository expected path.
+name|boolean
+name|fromProxy
+init|=
+name|fetchContentFromProxies
+argument_list|(
+name|request
+argument_list|,
+name|resource
+argument_list|)
+decl_stmt|;
+comment|// Perform an adjustment of the resource to the managed
+comment|// repository expected path.
 name|resource
 operator|=
 name|repositoryRequest
@@ -955,13 +968,11 @@ argument_list|,
 name|resource
 argument_list|)
 expr_stmt|;
-comment|// Adjust the pathInfo resource to be in the format that the dav server impl expects.
+comment|// Adjust the pathInfo resource to be in the format that the dav
+comment|// server impl expects.
 name|request
 operator|.
-name|getRequest
-argument_list|()
-operator|.
-name|setPathInfo
+name|setLogicalResource
 argument_list|(
 name|resource
 argument_list|)
@@ -977,12 +988,7 @@ decl_stmt|;
 comment|// Attempt to fetch the resource from any defined proxy.
 if|if
 condition|(
-name|fetchContentFromProxies
-argument_list|(
-name|request
-argument_list|,
-name|resource
-argument_list|)
+name|fromProxy
 condition|)
 block|{
 name|processAuditEvents
@@ -1027,7 +1033,8 @@ name|exists
 argument_list|()
 condition|)
 block|{
-comment|// [MRM-503] - Metadata file need Pragma:no-cache response header.
+comment|// [MRM-503] - Metadata file need Pragma:no-cache response
+comment|// header.
 if|if
 condition|(
 name|request
@@ -1060,7 +1067,8 @@ literal|"no-cache"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: [MRM-524] determine http caching options for other types of files (artifacts, sha1, md5, snapshots)
+comment|// TODO: [MRM-524] determine http caching options for other
+comment|// types of files (artifacts, sha1, md5, snapshots)
 name|davServer
 operator|.
 name|process
@@ -1089,7 +1097,7 @@ condition|(
 name|isPut
 condition|)
 block|{
-comment|/* Create parent directories that don't exist when writing a file              * This actually makes this implementation not compliant to the              * WebDAV RFC - but we have enough knowledge              * about how the collection is being used to do this reasonably and              * some versions of Maven's WebDAV don't              * correctly create the collections themselves.              */
+comment|/*              * Create parent directories that don't exist when writing a file              * This actually makes this implementation not compliant to the              * WebDAV RFC - but we have enough knowledge about how the              * collection is being used to do this reasonably and some versions              * of Maven's WebDAV don't correctly create the collections              * themselves.              */
 name|File
 name|rootDirectory
 init|=
@@ -1562,13 +1570,11 @@ argument_list|,
 name|artifact
 argument_list|)
 decl_stmt|;
-comment|// Set the path to the resource using managed repository specific layout format.
+comment|// Set the path to the resource using managed repository
+comment|// specific layout format.
 name|request
 operator|.
-name|getRequest
-argument_list|()
-operator|.
-name|setPathInfo
+name|setLogicalResource
 argument_list|(
 name|managedRepository
 operator|.
