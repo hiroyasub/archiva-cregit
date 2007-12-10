@@ -70,7 +70,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractLegacyRepositoryContentTestCase   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * AbstractLegacyRepositoryContentTestCase  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -147,7 +147,7 @@ literal|"wrong package extension"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**       * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws LayoutException       */
+comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws LayoutException      */
 specifier|public
 name|void
 name|testGoodButOddVersionSpecGanymedSsh2

@@ -442,7 +442,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Determine if a given artifact Id conforms to the naming scheme for a maven plugin.      *       * @param artifactId the artifactId to test.      * @return true if this artifactId conforms to the naming scheme for a maven plugin.      */
+comment|/**      * Determine if a given artifact Id conforms to the naming scheme for a maven plugin.      *      * @param artifactId the artifactId to test.      * @return true if this artifactId conforms to the naming scheme for a maven plugin.      */
 specifier|public
 specifier|static
 name|boolean

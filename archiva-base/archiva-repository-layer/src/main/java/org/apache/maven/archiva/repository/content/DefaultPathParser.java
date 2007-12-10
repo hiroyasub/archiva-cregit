@@ -86,13 +86,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultPathParser is a parser for maven 2 (default layout) paths to ArtifactReference.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.repository.content.DefaultPathParser"  */
+comment|/**  * DefaultPathParser is a parser for maven 2 (default layout) paths to ArtifactReference.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *  * @plexus.component role="org.apache.maven.archiva.repository.content.PathParser" role-hint="default"  */
 end_comment
 
 begin_class
 specifier|public
 class|class
 name|DefaultPathParser
+implements|implements
+name|PathParser
 block|{
 specifier|private
 specifier|static
@@ -102,9 +104,8 @@ name|INVALID_ARTIFACT_PATH
 init|=
 literal|"Invalid path to Artifact: "
 decl_stmt|;
-comment|/**      * Convert a path to an ArtifactReference.       *       * @param path      * @return      * @throws LayoutException      */
-specifier|protected
-specifier|static
+comment|/**      * {@inheritDoc}      * @see org.apache.maven.archiva.repository.content.PathParser#toArtifactReference(java.lang.String)      */
+specifier|public
 name|ArtifactReference
 name|toArtifactReference
 parameter_list|(

@@ -246,7 +246,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryRequest is used to determine the type of request that is incoming, and convert it to an appropriate  * ArtifactReference.    *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component   *      role="org.apache.maven.archiva.repository.content.RepositoryRequest"  */
+comment|/**  * RepositoryRequest is used to determine the type of request that is incoming, and convert it to an appropriate  * ArtifactReference.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *  * @plexus.component  *      role="org.apache.maven.archiva.repository.content.RepositoryRequest"  */
 end_comment
 
 begin_class
@@ -268,6 +268,16 @@ specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
+comment|/**      * @plexus.requirement role-hint="default"      */
+specifier|private
+name|PathParser
+name|defaultPathParser
+decl_stmt|;
+comment|/**      * @plexus.requirement role-hint="legacy"      */
+specifier|private
+name|PathParser
+name|legacyPathParser
+decl_stmt|;
 specifier|private
 name|List
 argument_list|<
@@ -275,7 +285,7 @@ name|String
 argument_list|>
 name|artifactPatterns
 decl_stmt|;
-comment|/**      * Test path to see if it is an artifact being requested (or not).      *       * @param requestedPath the path to test.      * @return true if it is an artifact being requested.      */
+comment|/**      * Test path to see if it is an artifact being requested (or not).      *      * @param requestedPath the path to test.      * @return true if it is an artifact being requested.      */
 specifier|public
 name|boolean
 name|isArtifact
@@ -351,7 +361,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Takes an incoming requested path (in "/" format) and gleans the layout      * and ArtifactReference appropriate for that content.      *       * @param requestedPath the relative path to the content.      * @return the ArtifactReference for the requestedPath.      * @throws LayoutException if the request path is not layout valid.       */
+comment|/**      * Takes an incoming requested path (in "/" format) and gleans the layout      * and ArtifactReference appropriate for that content.      *      * @param requestedPath the relative path to the content.      * @return the ArtifactReference for the requestedPath.      * @throws LayoutException if the request path is not layout valid.      */
 specifier|public
 name|ArtifactReference
 name|toArtifactReference
@@ -433,7 +443,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|DefaultPathParser
+name|defaultPathParser
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -450,7 +460,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|LegacyPathParser
+name|legacyPathParser
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -469,7 +479,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      *<p>      * Tests the path to see if it conforms to the expectations of a metadata request.      *</p>      *<p>      * NOTE: This does a cursory check on the path's last element.  A result of true      * from this method is not a guarantee that the metadata is in a valid format, or      * that it even contains data.      *</p>       *       * @param requestedPath the path to test.      * @return true if the requestedPath is likely a metadata request.      */
+comment|/**      *<p>      * Tests the path to see if it conforms to the expectations of a metadata request.      *</p>      *<p>      * NOTE: This does a cursory check on the path's last element.  A result of true      * from this method is not a guarantee that the metadata is in a valid format, or      * that it even contains data.      *</p>      *      * @param requestedPath the path to test.      * @return true if the requestedPath is likely a metadata request.      */
 specifier|public
 name|boolean
 name|isMetadata
@@ -491,7 +501,7 @@ name|MAVEN_METADATA
 argument_list|)
 return|;
 block|}
-comment|/**      *<p>      * Tests the path to see if it conforms to the expectations of a support file request.      *</p>      *<p>      * Tests for<code>.sha1</code>,<code>.md5</code>,<code>.asc</code>, and<code>.php</code>.      *</p>      *<p>      * NOTE: This does a cursory check on the path's extension only.  A result of true      * from this method is not a guarantee that the support resource is in a valid format, or      * that it even contains data.      *</p>       *       * @param requestedPath the path to test.      * @return true if the requestedPath is likely that of a support file request.      */
+comment|/**      *<p>      * Tests the path to see if it conforms to the expectations of a support file request.      *</p>      *<p>      * Tests for<code>.sha1</code>,<code>.md5</code>,<code>.asc</code>, and<code>.php</code>.      *</p>      *<p>      * NOTE: This does a cursory check on the path's extension only.  A result of true      * from this method is not a guarantee that the support resource is in a valid format, or      * that it even contains data.      *</p>      *      * @param requestedPath the path to test.      * @return true if the requestedPath is likely that of a support file request.      */
 specifier|public
 name|boolean
 name|isSupportFile
@@ -563,7 +573,7 @@ argument_list|)
 operator|)
 return|;
 block|}
-comment|/**      *<p>      * Tests the path to see if it conforms to the expectations of a default layout request.      *</p>      *<p>      * NOTE: This does a cursory check on the count of path elements only.  A result of      * true from this method is not a guarantee that the path sections are valid and      * can be resolved to an artifact reference.  use {@link #toArtifactReference(String)}       * if you want a more complete analysis of the validity of the path.      *</p>      *       * @param requestedPath the path to test.      * @return true if the requestedPath is likely that of a default layout request.      */
+comment|/**      *<p>      * Tests the path to see if it conforms to the expectations of a default layout request.      *</p>      *<p>      * NOTE: This does a cursory check on the count of path elements only.  A result of      * true from this method is not a guarantee that the path sections are valid and      * can be resolved to an artifact reference.  use {@link #toArtifactReference(String)}      * if you want a more complete analysis of the validity of the path.      *</p>      *      * @param requestedPath the path to test.      * @return true if the requestedPath is likely that of a default layout request.      */
 specifier|public
 name|boolean
 name|isDefault
@@ -607,7 +617,7 @@ operator|>
 literal|3
 return|;
 block|}
-comment|/**      *<p>      * Tests the path to see if it conforms to the expectations of a legacy layout request.      *</p>      *<p>      * NOTE: This does a cursory check on the count of path elements only.  A result of      * true from this method is not a guarantee that the path sections are valid and      * can be resolved to an artifact reference.  use {@link #toArtifactReference(String)}       * if you want a more complete analysis of the validity of the path.      *</p>      *       * @param requestedPath the path to test.      * @return true if the requestedPath is likely that of a legacy layout request.      */
+comment|/**      *<p>      * Tests the path to see if it conforms to the expectations of a legacy layout request.      *</p>      *<p>      * NOTE: This does a cursory check on the count of path elements only.  A result of      * true from this method is not a guarantee that the path sections are valid and      * can be resolved to an artifact reference.  use {@link #toArtifactReference(String)}      * if you want a more complete analysis of the validity of the path.      *</p>      *      * @param requestedPath the path to test.      * @return true if the requestedPath is likely that of a legacy layout request.      */
 specifier|public
 name|boolean
 name|isLegacy
@@ -651,7 +661,7 @@ operator|==
 literal|3
 return|;
 block|}
-comment|/**      * Adjust the requestedPath to conform to the native layout of the provided {@link ManagedRepositoryContent}.      *       * @param requestedPath the incoming requested path.      * @param repository the repository to adjust to.      * @return the adjusted (to native) path.      * @throws LayoutException if the path cannot be parsed.       */
+comment|/**      * Adjust the requestedPath to conform to the native layout of the provided {@link ManagedRepositoryContent}.      *      * @param requestedPath the incoming requested path.      * @param repository the repository to adjust to.      * @return the adjusted (to native) path.      * @throws LayoutException if the path cannot be parsed.      */
 specifier|public
 name|String
 name|toNativePath

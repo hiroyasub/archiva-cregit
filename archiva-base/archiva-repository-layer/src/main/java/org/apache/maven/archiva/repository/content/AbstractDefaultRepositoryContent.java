@@ -134,7 +134,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractDefaultRepositoryContent - common methods for working with default (maven 2) layout.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * AbstractDefaultRepositoryContent - common methods for working with default (maven 2) layout.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -175,6 +175,11 @@ name|ARTIFACT_SEPARATOR
 init|=
 literal|'-'
 decl_stmt|;
+comment|/**      * @plexus.requirement role-hint="default"      */
+specifier|private
+name|PathParser
+name|defaultPathParser
+decl_stmt|;
 specifier|public
 name|ArtifactReference
 name|toArtifactReference
@@ -186,7 +191,7 @@ throws|throws
 name|LayoutException
 block|{
 return|return
-name|DefaultPathParser
+name|defaultPathParser
 operator|.
 name|toArtifactReference
 argument_list|(

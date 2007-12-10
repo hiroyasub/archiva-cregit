@@ -80,7 +80,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultPathParserTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * DefaultPathParserTest  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -90,6 +90,14 @@ name|DefaultPathParserTest
 extends|extends
 name|AbstractRepositoryLayerTestCase
 block|{
+specifier|private
+name|PathParser
+name|parser
+init|=
+operator|new
+name|DefaultPathParser
+argument_list|()
+decl_stmt|;
 specifier|public
 name|void
 name|testBadPathMissingType
@@ -181,7 +189,7 @@ literal|"wrong artifact id"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**       * [MRM-481] Artifact requests with a .xml.zip extension fail with a 404 Error       */
+comment|/**      * [MRM-481] Artifact requests with a .xml.zip extension fail with a 404 Error      */
 specifier|public
 name|void
 name|testGoodButDualExtensions
@@ -235,7 +243,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**       * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws LayoutException       */
+comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws LayoutException      */
 specifier|public
 name|void
 name|testGoodButOddVersionSpecGanymedSsh2
@@ -289,7 +297,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**       * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws LayoutException       */
+comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws LayoutException      */
 specifier|public
 name|void
 name|testGoodButOddVersionSpecJavaxComm
@@ -343,9 +351,9 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test the ejb-client type spec.      * Type specs are not a 1 to 1 map to the extension.       * This tests that effect.      * @throws LayoutException       */
-comment|/* TODO: Re-enabled in the future.      public void testGoodFooEjbClient()         throws LayoutException     {         String groupId = "com.foo";         String artifactId = "foo-client";         String version = "1.0";         String classifier = null;         String type = "ejb-client"; // oddball type-spec (should result in jar extension)         String path = "com/foo/foo-client/1.0/foo-client-1.0.jar";          assertLayout( path, groupId, artifactId, version, classifier, type );     }     */
-comment|/**       * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws LayoutException       */
+comment|/**      * Test the ejb-client type spec.      * Type specs are not a 1 to 1 map to the extension.      * This tests that effect.      * @throws LayoutException      */
+comment|/* TODO: Re-enabled in the future.     public void testGoodFooEjbClient()         throws LayoutException     {         String groupId = "com.foo";         String artifactId = "foo-client";         String version = "1.0";         String classifier = null;         String type = "ejb-client"; // oddball type-spec (should result in jar extension)         String path = "com/foo/foo-client/1.0/foo-client-1.0.jar";          assertLayout( path, groupId, artifactId, version, classifier, type );     }     */
+comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws LayoutException      */
 specifier|public
 name|void
 name|testGoodButOddVersionSpecJavaxPersistence
@@ -383,7 +391,7 @@ name|path
 init|=
 literal|"javax/persistence/ejb/3.0-public_review/ejb-3.0-public_review.jar"
 decl_stmt|;
-comment|/*           * The version id of "public_review" can cause problems. is it part of          * the version spec? or the classifier?          * Since the path spec below shows it in the path, then it is really          * part of the version spec.           */
+comment|/*          * The version id of "public_review" can cause problems. is it part of          * the version spec? or the classifier?          * Since the path spec below shows it in the path, then it is really          * part of the version spec.          */
 name|assertLayout
 argument_list|(
 name|path
@@ -668,7 +676,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test the classifier, and java-source type spec.      * @throws LayoutException       */
+comment|/**      * Test the classifier, and java-source type spec.      * @throws LayoutException      */
 specifier|public
 name|void
 name|testGoodFooLibSources
@@ -723,7 +731,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A timestamped versioned artifact, should reside in a SNAPSHOT baseversion directory.      * @throws LayoutException       */
+comment|/**      * A timestamped versioned artifact, should reside in a SNAPSHOT baseversion directory.      * @throws LayoutException      */
 specifier|public
 name|void
 name|testGoodSnapshotMavenTest
@@ -946,7 +954,7 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|DefaultPathParser
+name|parser
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -975,7 +983,7 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|DefaultPathParser
+name|parser
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -1004,7 +1012,7 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|DefaultPathParser
+name|parser
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -1033,7 +1041,7 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|DefaultPathParser
+name|parser
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -1055,7 +1063,7 @@ block|{
 comment|/* expected path */
 block|}
 block|}
-comment|/**      * Perform a path to artifact reference lookup, and verify the results.       */
+comment|/**      * Perform a path to artifact reference lookup, and verify the results.      */
 specifier|private
 name|void
 name|assertLayout
@@ -1085,7 +1093,7 @@ comment|// Path to Artifact Reference.
 name|ArtifactReference
 name|testReference
 init|=
-name|DefaultPathParser
+name|parser
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -1258,7 +1266,7 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|DefaultPathParser
+name|parser
 operator|.
 name|toArtifactReference
 argument_list|(

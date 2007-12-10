@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractLegacyRepositoryContent   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * AbstractLegacyRepositoryContent  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -193,6 +193,11 @@ literal|"javadoc.jar"
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @plexus.requirement role-hint="legacy"      */
+specifier|private
+name|PathParser
+name|legacyPathParser
+decl_stmt|;
 specifier|public
 name|ArtifactReference
 name|toArtifactReference
@@ -204,7 +209,7 @@ throws|throws
 name|LayoutException
 block|{
 return|return
-name|LegacyPathParser
+name|legacyPathParser
 operator|.
 name|toArtifactReference
 argument_list|(
