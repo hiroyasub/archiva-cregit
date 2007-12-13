@@ -128,7 +128,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Delete a LegacyArtifactPath to archiva configuration  *  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="deleteLegacyArtifactPathAction"  */
+comment|/**  * Delete a LegacyArtifactPath to archiva configuration  *  *  * @since 1.1  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="deleteLegacyArtifactPathAction"  */
 end_comment
 
 begin_class

@@ -76,7 +76,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactExtensionMapping  *  */
+comment|/**  * ArtifactExtensionMapping  *  * @since 1.1  */
 end_comment
 
 begin_class

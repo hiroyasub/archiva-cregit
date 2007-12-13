@@ -176,7 +176,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Add a LegacyArtifactPath to archiva configuration  *  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="addLegacyArtifactPathAction"  */
+comment|/**  * Add a LegacyArtifactPath to archiva configuration  *  * @since 1.1  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="addLegacyArtifactPathAction"  */
 end_comment
 
 begin_class

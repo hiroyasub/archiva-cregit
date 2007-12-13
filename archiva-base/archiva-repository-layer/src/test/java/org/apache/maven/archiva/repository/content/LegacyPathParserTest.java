@@ -1108,7 +1108,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * [MRM-594] add some hook in LegacyPathParser to allow exceptions in artifact resolution      */
+comment|/**      * [MRM-594] add some hook in LegacyPathParser to allow exceptions in artifact resolution 	 * @since 1.1      */
 specifier|public
 name|void
 name|testCustomExceptionsInArtifactResolution

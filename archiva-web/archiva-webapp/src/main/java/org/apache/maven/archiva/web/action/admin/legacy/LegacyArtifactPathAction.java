@@ -250,7 +250,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Shows the LegacyArtifactPath Tab for the administrator.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="legacyArtifactPathAction"  */
+comment|/**  * Shows the LegacyArtifactPath Tab for the administrator.  *  * @since 1.1  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="legacyArtifactPathAction"  */
 end_comment
 
 begin_class

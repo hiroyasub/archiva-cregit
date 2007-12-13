@@ -44,7 +44,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Test the generated LegacyArtifactPath class from Modello. This is primarily to test the hand coded methods.  */
+comment|/**  * Test the generated LegacyArtifactPath class from Modello. This is primarily to test the hand coded methods.  * @since 1.1  */
 end_comment
 
 begin_class
