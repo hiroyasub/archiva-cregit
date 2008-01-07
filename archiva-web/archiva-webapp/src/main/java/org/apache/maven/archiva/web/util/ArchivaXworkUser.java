@@ -210,9 +210,9 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|SecuritySystemConstants
+name|SecuritySession
 operator|.
-name|SECURITY_SESSION_KEY
+name|ROLE
 argument_list|)
 return|;
 block|}
