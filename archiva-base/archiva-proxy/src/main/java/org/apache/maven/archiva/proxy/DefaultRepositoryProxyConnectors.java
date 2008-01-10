@@ -2536,6 +2536,24 @@ return|return
 literal|null
 return|;
 block|}
+if|if
+condition|(
+name|urlFailureCache
+operator|.
+name|hasFailedBefore
+argument_list|(
+name|url
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|NotFoundException
+argument_list|(
+literal|"Url has failed before and cache-failure is enabled on this connector"
+argument_list|)
+throw|;
+block|}
 name|Wagon
 name|wagon
 init|=
@@ -2652,7 +2670,16 @@ name|NotFoundException
 name|e
 parameter_list|)
 block|{
-comment|// Do not cache url here.
+comment|// public repositories may be slow to access, and many request will fail when
+comment|// muliple repositories are "merged" by archiva via proxies.
+comment|// so caching "not found" is usefull here to enhance archiva response-time
+name|urlFailureCache
+operator|.
+name|cacheFailure
+argument_list|(
+name|url
+argument_list|)
+expr_stmt|;
 throw|throw
 name|e
 throw|;
