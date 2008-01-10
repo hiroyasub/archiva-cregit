@@ -673,7 +673,7 @@ block|{
 name|getLogger
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Adding project model to database - "
 operator|+

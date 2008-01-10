@@ -851,7 +851,7 @@ expr_stmt|;
 name|getLogger
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Updated metadata: "
 operator|+
@@ -1079,7 +1079,7 @@ expr_stmt|;
 name|getLogger
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Updated metadata: "
 operator|+
