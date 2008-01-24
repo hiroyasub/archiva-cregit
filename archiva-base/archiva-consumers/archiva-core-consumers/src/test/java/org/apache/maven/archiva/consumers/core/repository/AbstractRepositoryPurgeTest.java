@@ -349,6 +349,14 @@ name|PATH_TO_HIGHER_SNAPSHOT_EXISTS
 init|=
 literal|"org/apache/maven/plugins/maven-source-plugin/2.0.3-SNAPSHOT/maven-source-plugin-2.0.3-SNAPSHOT.jar"
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|PATH_TO_TEST_ORDER_OF_DELETION
+init|=
+literal|"org/apache/maven/plugins/maven-assembly-plugin/1.1.2-SNAPSHOT/maven-assembly-plugin-1.1.2-20070615.105019-3.jar"
+decl_stmt|;
 specifier|private
 name|ManagedRepositoryConfiguration
 name|config
