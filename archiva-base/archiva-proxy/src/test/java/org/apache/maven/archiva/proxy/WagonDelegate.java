@@ -489,6 +489,25 @@ argument_list|()
 return|;
 block|}
 specifier|public
+name|void
+name|setTimeout
+parameter_list|(
+name|int
+name|val
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+specifier|public
+name|int
+name|getTimeout
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
+specifier|public
 name|Repository
 name|getRepository
 parameter_list|()
