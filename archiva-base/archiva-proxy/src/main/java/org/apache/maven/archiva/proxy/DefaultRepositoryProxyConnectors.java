@@ -2686,7 +2686,13 @@ name|NotFoundException
 name|e
 parameter_list|)
 block|{
-comment|// Do not cache url here.
+name|urlFailureCache
+operator|.
+name|cacheFailure
+argument_list|(
+name|url
+argument_list|)
+expr_stmt|;
 throw|throw
 name|e
 throw|;
