@@ -30,7 +30,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FilenameParserTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * FilenameParserTest  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -611,6 +611,41 @@ argument_list|,
 name|parser
 operator|.
 name|remaining
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+specifier|public
+name|void
+name|testLongExtension
+parameter_list|()
+block|{
+name|FilenameParser
+name|parser
+init|=
+operator|new
+name|FilenameParser
+argument_list|(
+literal|"libfobs4jmf-0.4.1.4-20080217.211715-4.jnilib"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"libfobs4jmf-0.4.1.4-20080217.211715-4"
+argument_list|,
+name|parser
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"jnilib"
+argument_list|,
+name|parser
+operator|.
+name|getExtension
 argument_list|()
 argument_list|)
 expr_stmt|;
