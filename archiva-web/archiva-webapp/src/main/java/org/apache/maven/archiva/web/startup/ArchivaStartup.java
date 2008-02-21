@@ -59,20 +59,6 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|logging
-operator|.
-name|AbstractLogEnabled
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
 name|personality
 operator|.
 name|plexus
@@ -105,6 +91,26 @@ name|InitializationException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * ArchivaStartup - the startup of all archiva features in a deterministic order.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component   *              role="org.apache.maven.archiva.web.startup.ArchivaStartup"  *              role-hint="default"  */
 end_comment
@@ -113,8 +119,6 @@ begin_class
 specifier|public
 class|class
 name|ArchivaStartup
-extends|extends
-name|AbstractLogEnabled
 implements|implements
 name|Initializable
 block|{
@@ -144,9 +148,6 @@ name|Banner
 operator|.
 name|display
 argument_list|(
-name|getLogger
-argument_list|()
-argument_list|,
 name|ArchivaVersion
 operator|.
 name|determineVersion

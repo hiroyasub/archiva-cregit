@@ -19,15 +19,11 @@ end_comment
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|codehaus
+name|util
 operator|.
-name|plexus
-operator|.
-name|logging
-operator|.
-name|AbstractLogEnabled
+name|List
 import|;
 end_import
 
@@ -67,11 +63,21 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|slf4j
 operator|.
-name|List
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
 import|;
 end_import
 
@@ -83,11 +89,22 @@ begin_class
 specifier|public
 class|class
 name|ArchivaStandardRolesCheck
-extends|extends
-name|AbstractLogEnabled
 implements|implements
 name|EnvironmentCheck
 block|{
+specifier|private
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|ArchivaStandardRolesCheck
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * @plexus.requirement role-hint="cached"      */
 specifier|private
 name|RBACManager
@@ -152,8 +169,7 @@ operator|.
 name|USER_ADMINISTRATOR_ROLE
 block|}
 decl_stmt|;
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(
@@ -247,8 +263,7 @@ block|,
 literal|"archiva-guest"
 block|}
 decl_stmt|;
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(

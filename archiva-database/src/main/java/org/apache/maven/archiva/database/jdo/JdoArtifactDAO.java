@@ -135,20 +135,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|logging
-operator|.
-name|AbstractLogEnabled
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -185,8 +171,6 @@ begin_class
 specifier|public
 class|class
 name|JdoArtifactDAO
-extends|extends
-name|AbstractLogEnabled
 implements|implements
 name|ArtifactDAO
 block|{

@@ -293,20 +293,6 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|logging
-operator|.
-name|AbstractLogEnabled
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
 name|personality
 operator|.
 name|plexus
@@ -378,6 +364,26 @@ operator|.
 name|registry
 operator|.
 name|RegistryListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
 import|;
 end_import
 
@@ -511,8 +517,6 @@ begin_class
 specifier|public
 class|class
 name|DefaultArchivaConfiguration
-extends|extends
-name|AbstractLogEnabled
 implements|implements
 name|ArchivaConfiguration
 implements|,
@@ -520,6 +524,19 @@ name|RegistryListener
 implements|,
 name|Initializable
 block|{
+specifier|private
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|DefaultArchivaConfiguration
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * Plexus registry to read the configuration from.      *      * @plexus.requirement role-hint="commons-configuration"      */
 specifier|private
 name|Registry
@@ -1286,8 +1303,7 @@ block|}
 else|else
 block|{
 comment|// Policy key doesn't exist. Don't add it to golden version.
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1419,8 +1435,7 @@ name|prePolicies
 argument_list|)
 condition|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|error
 argument_list|(
@@ -1441,8 +1456,7 @@ name|postPolicies
 argument_list|)
 condition|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|error
 argument_list|(
@@ -1518,8 +1532,7 @@ name|prePolicies
 argument_list|)
 condition|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|error
 argument_list|(
@@ -1540,8 +1553,7 @@ name|postPolicies
 argument_list|)
 condition|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|error
 argument_list|(
@@ -2101,8 +2113,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|error
 argument_list|(
@@ -2166,8 +2177,7 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(

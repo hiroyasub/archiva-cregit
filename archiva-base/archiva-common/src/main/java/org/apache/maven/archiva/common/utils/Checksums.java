@@ -121,10 +121,8 @@ class|class
 name|Checksums
 block|{
 specifier|private
-specifier|static
-specifier|final
 name|Logger
-name|LOG
+name|log
 init|=
 name|LoggerFactory
 operator|.
@@ -195,7 +193,7 @@ name|exists
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -234,7 +232,7 @@ literal|"sha1"
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -272,7 +270,7 @@ literal|"md5"
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -437,7 +435,7 @@ name|DigesterException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -468,7 +466,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -581,7 +579,7 @@ name|hashFile
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -599,7 +597,7 @@ return|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -627,7 +625,7 @@ name|FileNotFoundException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -655,7 +653,7 @@ name|DigesterException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -683,7 +681,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -776,7 +774,7 @@ condition|(
 name|validity
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -791,7 +789,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -814,7 +812,7 @@ name|FileNotFoundException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -842,7 +840,7 @@ name|DigesterException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -870,7 +868,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(

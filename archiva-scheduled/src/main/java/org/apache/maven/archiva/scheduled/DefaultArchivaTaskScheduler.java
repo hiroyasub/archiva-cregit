@@ -19,6 +19,26 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|text
+operator|.
+name|ParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -148,20 +168,6 @@ operator|.
 name|tasks
 operator|.
 name|RepositoryTaskSelectionPredicate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|logging
-operator|.
-name|AbstractLogEnabled
 import|;
 end_import
 
@@ -381,21 +387,21 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|text
+name|slf4j
 operator|.
-name|ParseException
+name|Logger
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|slf4j
 operator|.
-name|List
+name|LoggerFactory
 import|;
 end_import
 
@@ -407,8 +413,6 @@ begin_class
 specifier|public
 class|class
 name|DefaultArchivaTaskScheduler
-extends|extends
-name|AbstractLogEnabled
 implements|implements
 name|ArchivaTaskScheduler
 implements|,
@@ -416,6 +420,19 @@ name|Startable
 implements|,
 name|RegistryListener
 block|{
+specifier|private
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|DefaultArchivaTaskScheduler
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
 name|Scheduler
@@ -617,8 +634,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -659,8 +675,7 @@ name|cronString
 argument_list|)
 condition|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -796,8 +811,7 @@ name|ParseException
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|error
 argument_list|(
@@ -898,8 +912,7 @@ name|cronString
 argument_list|)
 condition|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -946,8 +959,7 @@ name|ParseException
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|error
 argument_list|(
@@ -1039,8 +1051,7 @@ name|propertyName
 argument_list|)
 condition|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1070,8 +1081,7 @@ name|SchedulerException
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|error
 argument_list|(
@@ -1156,8 +1166,7 @@ name|SchedulerException
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|error
 argument_list|(
