@@ -21,6 +21,36 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -371,31 +401,21 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|slf4j
 operator|.
-name|File
+name|Logger
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|slf4j
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
+name|LoggerFactory
 import|;
 end_import
 
@@ -412,6 +432,19 @@ name|AbstractMonitoredConsumer
 implements|implements
 name|DatabaseUnprocessedArtifactConsumer
 block|{
+specifier|private
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|ProjectModelToDatabaseConsumer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * @plexus.configuration default-value="update-db-project"      */
 specifier|private
 name|String
@@ -670,8 +703,7 @@ name|artifact
 argument_list|)
 condition|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -698,8 +730,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -721,8 +752,7 @@ name|ProjectModelException
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -763,8 +793,7 @@ name|ArchivaDatabaseException
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -790,8 +819,7 @@ name|t
 parameter_list|)
 block|{
 comment|// Catch the other errors in the process to allow the rest of the process to complete.
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|error
 argument_list|(
@@ -1074,8 +1102,7 @@ name|getArtifactId
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1201,8 +1228,7 @@ name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1438,8 +1464,7 @@ operator|.
 name|getMessage
 argument_list|()
 decl_stmt|;
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(

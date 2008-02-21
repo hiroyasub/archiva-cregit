@@ -73,13 +73,19 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|logging
+name|slf4j
 operator|.
 name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
 import|;
 end_import
 
@@ -95,29 +101,22 @@ implements|implements
 name|Closure
 block|{
 specifier|private
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|ConsumerProcessFileClosure
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+specifier|private
 name|BaseFile
 name|basefile
 decl_stmt|;
-specifier|private
-name|Logger
-name|logger
-decl_stmt|;
-specifier|public
-name|ConsumerProcessFileClosure
-parameter_list|(
-name|Logger
-name|logger
-parameter_list|)
-block|{
-comment|// Lame. I know, but seeing as plexus doesn't like to cleanup after
-comment|// application loaded/lookup'd components, this is the best I can do.
-name|this
-operator|.
-name|logger
-operator|=
-name|logger
-expr_stmt|;
-block|}
 specifier|public
 name|void
 name|execute
@@ -143,7 +142,7 @@ name|input
 decl_stmt|;
 try|try
 block|{
-name|logger
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -173,7 +172,7 @@ name|e
 parameter_list|)
 block|{
 comment|/* Intentionally Catch all exceptions.                  * So that the discoverer processing can continue.                  */
-name|logger
+name|log
 operator|.
 name|error
 argument_list|(
@@ -234,7 +233,7 @@ name|getLogger
 parameter_list|()
 block|{
 return|return
-name|logger
+name|log
 return|;
 block|}
 specifier|public
@@ -247,7 +246,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|logger
+name|log
 operator|=
 name|logger
 expr_stmt|;

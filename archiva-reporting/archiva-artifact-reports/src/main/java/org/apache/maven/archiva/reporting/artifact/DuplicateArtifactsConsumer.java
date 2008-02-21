@@ -21,6 +21,26 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -345,21 +365,21 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|slf4j
 operator|.
-name|ArrayList
+name|Logger
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|slf4j
 operator|.
-name|List
+name|LoggerFactory
 import|;
 end_import
 
@@ -380,6 +400,19 @@ name|RegistryListener
 implements|,
 name|Initializable
 block|{
+specifier|private
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|DuplicateArtifactsConsumer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * @plexus.configuration default-value="duplicate-artifacts"      */
 specifier|private
 name|String
@@ -535,8 +568,7 @@ name|ObjectNotFoundException
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -553,8 +585,7 @@ name|ArchivaDatabaseException
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -586,8 +617,7 @@ literal|1
 condition|)
 block|{
 comment|// No duplicates detected.
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -711,8 +741,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -748,8 +777,7 @@ operator|.
 name|getMessage
 argument_list|()
 decl_stmt|;
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -817,8 +845,7 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(

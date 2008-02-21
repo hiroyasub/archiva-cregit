@@ -19,6 +19,26 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -83,21 +103,21 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|slf4j
 operator|.
-name|ArrayList
+name|Logger
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|slf4j
 operator|.
-name|List
+name|LoggerFactory
 import|;
 end_import
 
@@ -114,6 +134,19 @@ name|AbstractMonitoredConsumer
 implements|implements
 name|DatabaseUnprocessedArtifactConsumer
 block|{
+specifier|private
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|TestDatabaseUnprocessedConsumer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 name|int
 name|countBegin
@@ -208,8 +241,7 @@ parameter_list|)
 throws|throws
 name|ConsumerException
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(

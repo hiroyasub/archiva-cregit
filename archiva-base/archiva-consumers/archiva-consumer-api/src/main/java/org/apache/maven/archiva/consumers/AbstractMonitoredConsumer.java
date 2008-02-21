@@ -19,20 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|logging
-operator|.
-name|AbstractLogEnabled
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -70,8 +56,6 @@ specifier|public
 specifier|abstract
 class|class
 name|AbstractMonitoredConsumer
-extends|extends
-name|AbstractLogEnabled
 implements|implements
 name|BaseConsumer
 block|{
