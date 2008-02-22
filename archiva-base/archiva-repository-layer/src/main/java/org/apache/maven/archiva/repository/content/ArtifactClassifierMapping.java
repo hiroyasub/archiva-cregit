@@ -21,30 +21,6 @@ end_comment
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -60,18 +36,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Pattern
 import|;
 end_import
 
@@ -112,7 +76,7 @@ name|typeToClassifierMap
 operator|.
 name|put
 argument_list|(
-literal|"java-source"
+literal|"java-sources"
 argument_list|,
 literal|"sources"
 argument_list|)
@@ -121,7 +85,7 @@ name|typeToClassifierMap
 operator|.
 name|put
 argument_list|(
-literal|"javadoc.jar"
+literal|"javadoc.jars"
 argument_list|,
 literal|"javadoc"
 argument_list|)
@@ -130,7 +94,7 @@ name|typeToClassifierMap
 operator|.
 name|put
 argument_list|(
-literal|"javadoc"
+literal|"javadocs"
 argument_list|,
 literal|"javadoc"
 argument_list|)
