@@ -25,6 +25,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|FileUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|archiva
@@ -80,20 +94,6 @@ operator|.
 name|consumers
 operator|.
 name|KnownRepositoryContentConsumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|util
-operator|.
-name|FileUtils
 import|;
 end_import
 
@@ -501,9 +501,10 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+comment|// Rename the file.
 name|FileUtils
 operator|.
-name|rename
+name|moveFile
 argument_list|(
 name|file
 argument_list|,
