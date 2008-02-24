@@ -21,11 +21,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|commons
 operator|.
-name|PlexusTestCase
+name|io
+operator|.
+name|FileUtils
 import|;
 end_import
 
@@ -37,9 +39,7 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|util
-operator|.
-name|FileUtils
+name|PlexusTestCase
 import|;
 end_import
 
@@ -1411,12 +1411,9 @@ argument_list|()
 expr_stmt|;
 name|FileUtils
 operator|.
-name|fileWrite
+name|writeStringToFile
 argument_list|(
 name|localFile
-operator|.
-name|getAbsolutePath
-argument_list|()
 argument_list|,
 literal|"random-junk"
 argument_list|)
