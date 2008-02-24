@@ -23,11 +23,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|commons
 operator|.
-name|PlexusTestCase
+name|io
+operator|.
+name|FileUtils
 import|;
 end_import
 
@@ -39,9 +41,7 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|util
-operator|.
-name|FileUtils
+name|PlexusTestCase
 import|;
 end_import
 
