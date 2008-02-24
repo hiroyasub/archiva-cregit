@@ -1091,11 +1091,13 @@ block|}
 comment|// Even if the checksums for the POM are invalid we should still convert the POM
 name|contents
 operator|=
-name|AsciiFileUtil
+name|FileUtils
 operator|.
-name|readFile
+name|readFileToString
 argument_list|(
 name|file
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -1163,11 +1165,13 @@ block|{
 name|String
 name|targetContents
 init|=
-name|AsciiFileUtil
+name|FileUtils
 operator|.
-name|readFile
+name|readFileToString
 argument_list|(
 name|targetFile
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|matching
@@ -1723,11 +1727,13 @@ block|{
 name|String
 name|checksum
 init|=
-name|AsciiFileUtil
+name|FileUtils
 operator|.
-name|readFile
+name|readFileToString
 argument_list|(
 name|checksumFile
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 try|try
