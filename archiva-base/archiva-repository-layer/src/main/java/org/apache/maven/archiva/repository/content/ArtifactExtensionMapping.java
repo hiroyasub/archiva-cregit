@@ -337,11 +337,11 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|extension
+literal|"tar.gz"
 operator|.
 name|equals
 argument_list|(
-literal|"tar.gz"
+name|extension
 argument_list|)
 condition|)
 block|{
@@ -351,11 +351,11 @@ return|;
 block|}
 if|else  if
 condition|(
-name|extension
+literal|"tar.bz2"
 operator|.
 name|equals
 argument_list|(
-literal|"tar.bz2"
+name|extension
 argument_list|)
 condition|)
 block|{
@@ -365,11 +365,11 @@ return|;
 block|}
 if|else  if
 condition|(
-name|extension
+literal|"zip"
 operator|.
 name|equals
 argument_list|(
-literal|"zip"
+name|extension
 argument_list|)
 condition|)
 block|{
