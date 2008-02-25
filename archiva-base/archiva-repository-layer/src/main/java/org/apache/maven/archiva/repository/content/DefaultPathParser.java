@@ -549,10 +549,9 @@ case|case
 literal|0
 case|:
 comment|// End of the filename, only a simple extension left. - Set the type.
-name|artifact
-operator|.
-name|setType
-argument_list|(
+name|String
+name|type
+init|=
 name|ArtifactExtensionMapping
 operator|.
 name|mapExtensionToType
@@ -562,6 +561,27 @@ operator|.
 name|getExtension
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|type
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|LayoutException
+argument_list|(
+literal|"Invalid artifact: no type was specified"
+argument_list|)
+throw|;
+block|}
+name|artifact
+operator|.
+name|setType
+argument_list|(
+name|type
 argument_list|)
 expr_stmt|;
 break|break;
