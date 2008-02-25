@@ -21,16 +21,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -315,6 +305,16 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * ArchivaRepositoryScanningTaskExecutor   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component  *   role="org.codehaus.plexus.taskqueue.execution.TaskExecutor"  *   role-hint="repository-scanning"  */
 end_comment
@@ -448,6 +448,26 @@ name|getRepositoryId
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|arepo
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|TaskExecutionException
+argument_list|(
+literal|"Unable to execute RepositoryTask with invalid repository id: "
+operator|+
+name|repoTask
+operator|.
+name|getRepositoryId
+argument_list|()
+argument_list|)
+throw|;
+block|}
 name|long
 name|sinceWhen
 init|=
