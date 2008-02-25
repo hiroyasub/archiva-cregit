@@ -277,6 +277,18 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+name|assertEquals
+argument_list|(
+literal|"Check index size"
+argument_list|,
+literal|1
+argument_list|,
+name|reader
+operator|.
+name|numDocs
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Document
 name|document
 init|=
@@ -292,18 +304,6 @@ argument_list|(
 name|record
 argument_list|,
 name|document
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Check index size"
-argument_list|,
-literal|1
-argument_list|,
-name|reader
-operator|.
-name|numDocs
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -363,6 +363,18 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+name|assertEquals
+argument_list|(
+literal|"Check index size"
+argument_list|,
+literal|1
+argument_list|,
+name|reader
+operator|.
+name|numDocs
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Document
 name|document
 init|=
@@ -378,18 +390,6 @@ argument_list|(
 name|record
 argument_list|,
 name|document
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Check index size"
-argument_list|,
-literal|1
-argument_list|,
-name|reader
-operator|.
-name|numDocs
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -467,6 +467,18 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+name|assertEquals
+argument_list|(
+literal|"Check index size"
+argument_list|,
+literal|1
+argument_list|,
+name|reader
+operator|.
+name|numDocs
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Document
 name|document
 init|=
@@ -482,18 +494,6 @@ argument_list|(
 name|record
 argument_list|,
 name|document
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Check index size"
-argument_list|,
-literal|1
-argument_list|,
-name|reader
-operator|.
-name|numDocs
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
