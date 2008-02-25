@@ -21,6 +21,16 @@ end_comment
 
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|AssertionFailedError
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -133,36 +143,6 @@ name|ArrayList
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|AssertionFailedError
-import|;
-end_import
-
 begin_comment
 comment|/**  * BytecodeRecordLoader - Utility method for loading dump files into BytecordRecords.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
@@ -172,15 +152,7 @@ specifier|public
 class|class
 name|BytecodeRecordLoader
 block|{
-specifier|private
-specifier|static
-name|Map
-name|cache
-init|=
-operator|new
-name|HashMap
-argument_list|()
-decl_stmt|;
+comment|//    private static Map cache = new HashMap();
 specifier|public
 specifier|static
 name|BytecodeRecord
@@ -195,28 +167,12 @@ parameter_list|)
 block|{
 name|BytecodeRecord
 name|record
-init|=
-operator|(
-name|BytecodeRecord
-operator|)
-name|cache
-operator|.
-name|get
-argument_list|(
-name|artifact
-argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|record
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|record
-return|;
-block|}
+comment|//        record = (BytecodeRecord) cache.get( artifact );
+comment|//        if ( record != null )
+comment|//        {
+comment|//            return record;
+comment|//        }
 name|record
 operator|=
 operator|new
@@ -686,15 +642,7 @@ name|freader
 argument_list|)
 expr_stmt|;
 block|}
-name|cache
-operator|.
-name|put
-argument_list|(
-name|artifact
-argument_list|,
-name|record
-argument_list|)
-expr_stmt|;
+comment|//        cache.put( artifact, record );
 return|return
 name|record
 return|;
