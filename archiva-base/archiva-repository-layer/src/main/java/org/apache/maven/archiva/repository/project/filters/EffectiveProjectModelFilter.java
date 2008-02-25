@@ -401,6 +401,25 @@ argument_list|(
 name|effectiveProject
 argument_list|)
 expr_stmt|;
+comment|// Do not add project into cache if it contains no groupId and
+comment|// version information
+if|if
+condition|(
+name|project
+operator|.
+name|getGroupId
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|project
+operator|.
+name|getVersion
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 synchronized|synchronized
 init|(
 name|effectiveProjectCache
@@ -422,6 +441,7 @@ argument_list|,
 name|effectiveProject
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// Return what we got.
 return|return
