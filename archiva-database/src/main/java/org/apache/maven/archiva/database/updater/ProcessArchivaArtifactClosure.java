@@ -102,7 +102,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProcessArchivaArtifactClosure   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.commons.collections.Closure"   *                   role-hint="process-artifact"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * ProcessArchivaArtifactClosure   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -183,6 +183,8 @@ name|getId
 argument_list|()
 operator|+
 literal|"]"
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
