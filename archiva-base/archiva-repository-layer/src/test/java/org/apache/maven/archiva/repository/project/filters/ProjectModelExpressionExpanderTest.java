@@ -578,6 +578,11 @@ name|filteredModel
 argument_list|)
 decl_stmt|;
 comment|// Test xml buffer for the existance of an unevaluated expression.
+name|boolean
+name|foundUnevaluated
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|evaluatedModelText
@@ -604,9 +609,19 @@ operator|+
 name|evaluatedModelText
 argument_list|)
 expr_stmt|;
+name|foundUnevaluated
+operator|=
+literal|true
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|foundUnevaluated
+condition|)
+block|{
 name|fail
 argument_list|(
-literal|"Found Unevaluated Expression. (see System.err)"
+literal|"Found Unevaluated Expression. (see System.err for details)"
 argument_list|)
 expr_stmt|;
 block|}
