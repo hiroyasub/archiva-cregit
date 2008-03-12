@@ -65,6 +65,22 @@ parameter_list|)
 throws|throws
 name|ArchivaSecurityException
 function_decl|;
+comment|/**      * Check if user is authorized to upload artifacts in the repository.      *       * @param principal      * @param repoId      * @return      * @throws PrincipalNotFoundException      * @throws ArchivaSecurityException      */
+specifier|public
+name|boolean
+name|isAuthorizedToUploadArtifacts
+parameter_list|(
+name|String
+name|principal
+parameter_list|,
+name|String
+name|repoId
+parameter_list|)
+throws|throws
+name|PrincipalNotFoundException
+throws|,
+name|ArchivaSecurityException
+function_decl|;
 block|}
 end_interface
 
