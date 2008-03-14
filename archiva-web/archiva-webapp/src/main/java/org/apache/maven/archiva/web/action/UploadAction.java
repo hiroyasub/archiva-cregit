@@ -49,6 +49,24 @@ name|common
 operator|.
 name|utils
 operator|.
+name|Checksums
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|common
+operator|.
+name|utils
+operator|.
 name|VersionComparator
 import|;
 end_import
@@ -588,6 +606,11 @@ comment|/**      * @plexus.requirement role-hint="model400"      */
 specifier|private
 name|ProjectModelWriter
 name|pomWriter
+decl_stmt|;
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|Checksums
+name|checksums
 decl_stmt|;
 specifier|public
 name|void
@@ -1528,10 +1551,6 @@ name|latestVersion
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO:
-comment|// what about the metadata checksums? re-calculate or
-comment|// just leave it to the consumers to fix it? or just delete it
-comment|// and let the consumers create a new checksum file?
 block|}
 else|else
 block|{
@@ -1609,6 +1628,13 @@ name|write
 argument_list|(
 name|metadata
 argument_list|,
+name|metadataFile
+argument_list|)
+expr_stmt|;
+name|checksums
+operator|.
+name|update
+argument_list|(
 name|metadataFile
 argument_list|)
 expr_stmt|;
