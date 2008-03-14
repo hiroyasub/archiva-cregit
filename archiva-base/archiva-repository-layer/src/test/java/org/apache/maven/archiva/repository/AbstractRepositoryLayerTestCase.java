@@ -57,7 +57,9 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|PlexusTestCase
+name|spring
+operator|.
+name|PlexusInSpringTestCase
 import|;
 end_import
 
@@ -72,7 +74,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractRepositoryLayerTestCase   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * AbstractRepositoryLayerTestCase  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -81,8 +83,22 @@ specifier|abstract
 class|class
 name|AbstractRepositoryLayerTestCase
 extends|extends
-name|PlexusTestCase
+name|PlexusInSpringTestCase
 block|{
+comment|/**      * {@inheritDoc}      * @see org.codehaus.plexus.spring.PlexusInSpringTestCase#getSpringConfigLocation()      */
+annotation|@
+name|Override
+specifier|protected
+name|String
+name|getSpringConfigLocation
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+literal|"org/apache/maven/archiva/repository/spring-context.xml"
+return|;
+block|}
 specifier|protected
 name|ManagedRepositoryConfiguration
 name|createRepository

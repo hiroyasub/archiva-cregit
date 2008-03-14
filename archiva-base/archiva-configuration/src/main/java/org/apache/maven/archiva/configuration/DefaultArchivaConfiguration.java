@@ -547,7 +547,7 @@ specifier|private
 name|Configuration
 name|configuration
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.archiva.policies.PreDownloadPolicy"      */
+comment|/**      * @plexus.requirement role="org.apache.maven.archiva.policies.PreDownloadPolicy"      * @todo these don't strictly belong in here      */
 specifier|private
 name|Map
 argument_list|<
@@ -557,7 +557,7 @@ name|PreDownloadPolicy
 argument_list|>
 name|prePolicies
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.archiva.policies.PostDownloadPolicy"      */
+comment|/**      * @plexus.requirement role="org.apache.maven.archiva.policies.PostDownloadPolicy"      * @todo these don't strictly belong in here      */
 specifier|private
 name|Map
 argument_list|<

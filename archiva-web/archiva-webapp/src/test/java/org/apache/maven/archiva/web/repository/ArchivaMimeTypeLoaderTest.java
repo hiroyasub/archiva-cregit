@@ -23,11 +23,17 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|maven
 operator|.
-name|PlexusTestCase
+name|archiva
+operator|.
+name|webdav
+operator|.
+name|util
+operator|.
+name|MimeTypes
 import|;
 end_import
 
@@ -39,11 +45,7 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|webdav
-operator|.
-name|util
-operator|.
-name|MimeTypes
+name|PlexusTestCase
 import|;
 end_import
 

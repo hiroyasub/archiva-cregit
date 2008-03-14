@@ -139,7 +139,9 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|PlexusTestCase
+name|registry
+operator|.
+name|RegistryException
 import|;
 end_import
 
@@ -151,9 +153,9 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|registry
+name|spring
 operator|.
-name|RegistryException
+name|PlexusInSpringTestCase
 import|;
 end_import
 
@@ -186,7 +188,7 @@ specifier|public
 class|class
 name|DeleteRemoteRepositoryActionTest
 extends|extends
-name|PlexusTestCase
+name|PlexusInSpringTestCase
 block|{
 specifier|private
 specifier|static

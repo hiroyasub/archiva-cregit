@@ -67,18 +67,6 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|PlexusTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
 name|redback
 operator|.
 name|xwork
@@ -107,6 +95,20 @@ name|SecureActionException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|spring
+operator|.
+name|PlexusInSpringTestCase
+import|;
+end_import
+
 begin_comment
 comment|/**  * Test the repositories action returns the correct data.  */
 end_comment
@@ -116,7 +118,7 @@ specifier|public
 class|class
 name|RepositoriesActionTest
 extends|extends
-name|PlexusTestCase
+name|PlexusInSpringTestCase
 block|{
 specifier|private
 name|RepositoriesAction

@@ -151,7 +151,7 @@ name|YES
 init|=
 literal|"yes"
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="default"      */
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|UrlFailureCache
 name|urlFailureCache

@@ -139,7 +139,9 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|PlexusTestCase
+name|i18n
+operator|.
+name|I18N
 import|;
 end_import
 
@@ -151,9 +153,9 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|i18n
+name|spring
 operator|.
-name|I18N
+name|PlexusInSpringTestCase
 import|;
 end_import
 
@@ -206,7 +208,7 @@ specifier|public
 class|class
 name|RepositoryConverterTest
 extends|extends
-name|PlexusTestCase
+name|PlexusInSpringTestCase
 block|{
 specifier|private
 name|ArtifactRepository

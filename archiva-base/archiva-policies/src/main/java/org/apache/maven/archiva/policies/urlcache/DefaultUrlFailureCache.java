@@ -44,7 +44,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultUrlFailureCache   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.policies.urlcache.UrlFailureCache"  *                   role-hint="default"  */
+comment|/**  * DefaultUrlFailureCache   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -54,11 +54,25 @@ name|DefaultUrlFailureCache
 implements|implements
 name|UrlFailureCache
 block|{
-comment|/**      * @plexus.requirement role-hint="url-failures-cache"      */
+comment|/**      * @todo spring cache instead      */
 specifier|private
 name|Cache
 name|urlCache
 decl_stmt|;
+specifier|public
+name|DefaultUrlFailureCache
+parameter_list|(
+name|Cache
+name|urlCache
+parameter_list|)
+block|{
+name|this
+operator|.
+name|urlCache
+operator|=
+name|urlCache
+expr_stmt|;
+block|}
 specifier|public
 name|void
 name|cacheFailure

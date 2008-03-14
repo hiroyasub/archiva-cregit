@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utility class to aide IDE developers.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Utility class to aide IDE developers.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -100,15 +100,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|suite
-operator|.
-name|addTestSuite
-argument_list|(
-name|MavenProjectInfoReportsPluginDependencyGraphTest
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
+comment|//        suite.addTestSuite( MavenProjectInfoReportsPluginDependencyGraphTest.class );
 name|suite
 operator|.
 name|addTestSuite

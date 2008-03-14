@@ -19,32 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|io
-operator|.
-name|FileUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|PlexusTestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -83,8 +57,36 @@ name|Properties
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|FileUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|spring
+operator|.
+name|PlexusInSpringTestCase
+import|;
+end_import
+
 begin_comment
-comment|/**  * ChecksumPolicyTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ChecksumPolicyTest  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -92,7 +94,7 @@ specifier|public
 class|class
 name|ChecksumPolicyTest
 extends|extends
-name|PlexusTestCase
+name|PlexusInSpringTestCase
 block|{
 specifier|private
 specifier|static

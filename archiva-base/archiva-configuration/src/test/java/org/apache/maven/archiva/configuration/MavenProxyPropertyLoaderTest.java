@@ -19,18 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|PlexusTestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -79,6 +67,20 @@ name|Properties
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|spring
+operator|.
+name|PlexusInSpringTestCase
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Edwin Punzalan  */
 end_comment
@@ -88,12 +90,24 @@ specifier|public
 class|class
 name|MavenProxyPropertyLoaderTest
 extends|extends
-name|PlexusTestCase
+name|PlexusInSpringTestCase
 block|{
 specifier|private
 name|MavenProxyPropertyLoader
 name|loader
 decl_stmt|;
+comment|/**      * {@inheritDoc}      * @see org.codehaus.plexus.spring.PlexusInSpringTestCase#getSpringConfigLocation()      */
+specifier|protected
+name|String
+name|getSpringConfigLocation
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+literal|"org/apache/maven/archiva/configuration/spring-context.xml"
+return|;
+block|}
 specifier|public
 name|void
 name|testLoadValidMavenProxyConfiguration

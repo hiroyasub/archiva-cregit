@@ -53,7 +53,9 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|PlexusTestCase
+name|spring
+operator|.
+name|PlexusInSpringTestCase
 import|;
 end_import
 
@@ -99,7 +101,7 @@ specifier|abstract
 class|class
 name|AbstractWebworkTestCase
 extends|extends
-name|PlexusTestCase
+name|PlexusInSpringTestCase
 block|{
 comment|/**      * This is a conveinence method for mimicking how the webwork interceptors      * operate on an action, before the request is processed.      *       * Call this before each major request to the action to be sure you mimic the webwork process correctly.       */
 specifier|protected

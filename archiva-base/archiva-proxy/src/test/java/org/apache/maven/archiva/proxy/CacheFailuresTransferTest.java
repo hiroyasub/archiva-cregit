@@ -790,6 +790,35 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+specifier|protected
+name|UrlFailureCache
+name|lookupUrlFailureCache
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|UrlFailureCache
+name|urlFailureCache
+init|=
+operator|(
+name|UrlFailureCache
+operator|)
+name|lookup
+argument_list|(
+literal|"urlFailureCache"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"URL Failure Cache cannot be null."
+argument_list|,
+name|urlFailureCache
+argument_list|)
+expr_stmt|;
+return|return
+name|urlFailureCache
+return|;
+block|}
 block|}
 end_class
 

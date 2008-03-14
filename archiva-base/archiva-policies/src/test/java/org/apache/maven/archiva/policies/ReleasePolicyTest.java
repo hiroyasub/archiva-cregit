@@ -39,7 +39,9 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|PlexusTestCase
+name|spring
+operator|.
+name|PlexusInSpringTestCase
 import|;
 end_import
 
@@ -64,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ReleasePolicyTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ReleasePolicyTest  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -72,7 +74,7 @@ specifier|public
 class|class
 name|ReleasePolicyTest
 extends|extends
-name|PlexusTestCase
+name|PlexusInSpringTestCase
 block|{
 specifier|private
 specifier|static
