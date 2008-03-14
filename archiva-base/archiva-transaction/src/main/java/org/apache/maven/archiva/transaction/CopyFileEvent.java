@@ -21,13 +21,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|commons
 operator|.
-name|digest
+name|io
 operator|.
-name|Digester
+name|FileUtils
 import|;
 end_import
 
@@ -39,9 +39,9 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|util
+name|digest
 operator|.
-name|FileUtils
+name|Digester
 import|;
 end_import
 

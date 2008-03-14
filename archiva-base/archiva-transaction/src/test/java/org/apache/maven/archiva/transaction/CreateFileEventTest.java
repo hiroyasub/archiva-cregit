@@ -33,13 +33,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
+name|commons
 operator|.
-name|archiva
+name|io
 operator|.
-name|transaction
-operator|.
-name|CreateFileEvent
+name|FileUtils
 import|;
 end_import
 
@@ -52,20 +50,6 @@ operator|.
 name|plexus
 operator|.
 name|PlexusTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|util
-operator|.
-name|FileUtils
 import|;
 end_import
 
