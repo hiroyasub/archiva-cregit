@@ -791,6 +791,16 @@ argument_list|(
 literal|"FileSystem"
 argument_list|)
 expr_stmt|;
+name|artifact
+operator|.
+name|getModel
+argument_list|()
+operator|.
+name|setWhenProcessed
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 name|dao
 operator|.
 name|getArtifactDAO
