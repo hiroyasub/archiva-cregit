@@ -492,7 +492,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Upload an artifact using Jakarta file upload in webwork. If set by the user  * a pom will also be generated. Metadata will also be updated if one exists,   * otherwise it would be created.  *   * @author<a href="mailto:wsmoak@apache.org">Wendy Smoak</a>  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  *   * @plexus.component role="com.opensymphony.xwork.Action" role-hint="uploadAction"  */
+comment|/**  * Upload an artifact using Jakarta file upload in webwork. If set by the user a pom will also be generated. Metadata  * will also be updated if one exists, otherwise it would be created.  *   * @author<a href="mailto:wsmoak@apache.org">Wendy Smoak</a>  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="uploadAction"  */
 end_comment
 
 begin_class
@@ -860,10 +860,9 @@ expr_stmt|;
 block|}
 specifier|public
 name|String
-name|upload
+name|input
 parameter_list|()
 block|{
-comment|// TODO form validation
 return|return
 name|INPUT
 return|;
@@ -1105,6 +1104,27 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|addActionMessage
+argument_list|(
+literal|"Artifact \'"
+operator|+
+name|groupId
+operator|+
+literal|":"
+operator|+
+name|artifactId
+operator|+
+literal|":"
+operator|+
+name|version
+operator|+
+literal|"\' was successfully deployed to repository \'"
+operator|+
+name|repositoryId
+operator|+
+literal|"\'!"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1510,7 +1530,8 @@ expr_stmt|;
 block|}
 comment|// TODO:
 comment|// what about the metadata checksums? re-calculate or
-comment|//      just leave it to the consumers to fix it?
+comment|// just leave it to the consumers to fix it? or just delete it
+comment|// and let the consumers create a new checksum file?
 block|}
 else|else
 block|{
@@ -1622,8 +1643,43 @@ name|repositoryId
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO fix validation
-comment|/*             if ( file == null || file.length() == 0 )             {                 addActionError( "Please add a file to upload." );             }              if ( !VersionUtil.isVersion( version ) )             {                 addActionError( "Invalid version." );             }             */
+if|if
+condition|(
+name|file
+operator|==
+literal|null
+operator|||
+name|file
+operator|.
+name|length
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+name|addActionError
+argument_list|(
+literal|"Please add a file to upload."
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|VersionUtil
+operator|.
+name|isVersion
+argument_list|(
+name|version
+argument_list|)
+condition|)
+block|{
+name|addActionError
+argument_list|(
+literal|"Invalid version."
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
