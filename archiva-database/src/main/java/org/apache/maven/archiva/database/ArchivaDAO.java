@@ -37,22 +37,6 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|model
-operator|.
-name|RepositoryContentStatistics
-import|;
-end_import
-
 begin_comment
 comment|/**  * ArchivaDAO - The interface for all content within the database.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment

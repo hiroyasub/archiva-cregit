@@ -25,20 +25,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|maven
 operator|.
 name|archiva
@@ -268,16 +254,6 @@ operator|.
 name|util
 operator|.
 name|Properties
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jdo
-operator|.
-name|JDOHelper
 import|;
 end_import
 

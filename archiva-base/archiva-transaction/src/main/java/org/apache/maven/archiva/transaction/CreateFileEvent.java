@@ -19,20 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|digest
-operator|.
-name|Digester
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io

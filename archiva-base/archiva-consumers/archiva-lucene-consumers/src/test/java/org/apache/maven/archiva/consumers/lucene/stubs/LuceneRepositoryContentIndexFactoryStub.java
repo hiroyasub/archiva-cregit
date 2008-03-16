@@ -69,24 +69,6 @@ name|RepositoryContentIndexFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|indexer
-operator|.
-name|lucene
-operator|.
-name|LuceneRepositoryContentIndex
-import|;
-end_import
-
 begin_comment
 comment|/**  * LuceneRepositoryContenIndexFactoryStub  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
 end_comment

@@ -37,24 +37,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|indexer
-operator|.
-name|bytecode
-operator|.
-name|BytecodeKeys
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
