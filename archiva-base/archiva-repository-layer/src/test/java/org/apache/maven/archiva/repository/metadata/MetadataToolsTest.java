@@ -329,6 +329,18 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|parsers
+operator|.
+name|ParserConfigurationException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -384,18 +396,6 @@ operator|.
 name|util
 operator|.
 name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|parsers
-operator|.
-name|ParserConfigurationException
 import|;
 end_import
 
@@ -589,37 +589,20 @@ name|convertedName
 argument_list|)
 expr_stmt|;
 block|}
-specifier|public
-name|void
-name|testUpdateProjectBadArtifact
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-try|try
-block|{
-name|assertUpdatedProjectMetadata
-argument_list|(
-literal|"bad_artifact"
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown an IOException on a bad artifact."
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// Expected path
-block|}
-block|}
+comment|// TODO: replace with group tests
+comment|//    public void testUpdateProjectBadArtifact()
+comment|//        throws Exception
+comment|//    {
+comment|//        try
+comment|//        {
+comment|//            assertUpdatedProjectMetadata( "bad_artifact", null );
+comment|//            fail( "Should have thrown an IOException on a bad artifact." );
+comment|//        }
+comment|//        catch ( IOException e )
+comment|//        {
+comment|//            // Expected path
+comment|//        }
+comment|//    }
 specifier|public
 name|void
 name|testUpdateProjectMissingMultipleVersions
