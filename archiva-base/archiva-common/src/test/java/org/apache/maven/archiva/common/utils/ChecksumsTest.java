@@ -76,7 +76,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ChecksumsTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ChecksumsTest  *   * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -932,15 +932,6 @@ throws|throws
 name|Exception
 block|{
 name|File
-name|sourceDir
-init|=
-operator|new
-name|File
-argument_list|(
-literal|"src/test/resources/checksums/"
-argument_list|)
-decl_stmt|;
-name|File
 name|destDir
 init|=
 operator|new
@@ -958,12 +949,11 @@ name|FileUtils
 operator|.
 name|copyFileToDirectory
 argument_list|(
-operator|new
-name|File
+name|ResourceUtils
+operator|.
+name|getResource
 argument_list|(
-name|sourceDir
-argument_list|,
-literal|"artifact.jar"
+literal|"/checksums/artifact.jar"
 argument_list|)
 argument_list|,
 name|destDir
@@ -979,12 +969,11 @@ block|{
 name|File
 name|md5File
 init|=
-operator|new
-name|File
+name|ResourceUtils
+operator|.
+name|getResource
 argument_list|(
-name|sourceDir
-argument_list|,
-literal|"artifact.jar.md5-"
+literal|"/checksums/artifact.jar.md5-"
 operator|+
 name|md5State
 argument_list|)
@@ -1042,12 +1031,11 @@ block|{
 name|File
 name|sha1File
 init|=
-operator|new
-name|File
+name|ResourceUtils
+operator|.
+name|getResource
 argument_list|(
-name|sourceDir
-argument_list|,
-literal|"artifact.jar.sha1-"
+literal|"/checksums/artifact.jar.sha1-"
 operator|+
 name|sha1State
 argument_list|)
@@ -1118,7 +1106,7 @@ throws|throws
 name|Exception
 block|{
 name|Checksums
-name|policy
+name|checksums
 init|=
 operator|(
 name|Checksums
@@ -1132,11 +1120,11 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-name|policy
+name|checksums
 argument_list|)
 expr_stmt|;
 return|return
-name|policy
+name|checksums
 return|;
 block|}
 block|}
