@@ -692,6 +692,23 @@ name|getExtension
 argument_list|()
 decl_stmt|;
 comment|// Set Type
+name|String
+name|defaultExtension
+init|=
+name|expectedType
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|expectedType
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+decl_stmt|;
 name|artifact
 operator|.
 name|setType
@@ -703,6 +720,8 @@ argument_list|(
 name|classifier
 argument_list|,
 name|extension
+argument_list|,
+name|defaultExtension
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -739,10 +758,7 @@ name|equals
 argument_list|(
 literal|"jar"
 argument_list|,
-name|artifact
-operator|.
-name|getType
-argument_list|()
+name|extension
 argument_list|)
 operator|&&
 name|StringUtils
@@ -769,30 +785,16 @@ else|else
 block|{
 comment|// Sanity Check: does extension match pathType on path?
 name|String
-name|trimPathType
-init|=
-name|expectedType
-operator|.
-name|substring
-argument_list|(
-literal|0
-argument_list|,
-name|expectedType
-operator|.
-name|length
-argument_list|()
-operator|-
-literal|1
-argument_list|)
-decl_stmt|;
-name|String
 name|expectedExtension
 init|=
 name|ArtifactExtensionMapping
 operator|.
 name|getExtension
 argument_list|(
-name|trimPathType
+name|artifact
+operator|.
+name|getType
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -818,7 +820,10 @@ name|extension
 operator|+
 literal|"] and layout specified type ["
 operator|+
-name|expectedType
+name|artifact
+operator|.
+name|getType
+argument_list|()
 operator|+
 literal|"] (which maps to extension: ["
 operator|+
