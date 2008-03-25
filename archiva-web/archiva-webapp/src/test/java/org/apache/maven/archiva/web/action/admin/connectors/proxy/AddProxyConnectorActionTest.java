@@ -587,6 +587,24 @@ argument_list|(
 name|connector
 argument_list|)
 expr_stmt|;
+comment|// forms will use an array
+name|connector
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|put
+argument_list|(
+literal|"eat-a"
+argument_list|,
+operator|new
+name|String
+index|[]
+block|{
+literal|"gramov-a-bits"
+block|}
+argument_list|)
+expr_stmt|;
 comment|// Create the input screen.
 name|assertRequestStatus
 argument_list|(
@@ -676,6 +694,21 @@ name|actualConnector
 operator|.
 name|getTargetRepoId
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"gramov-a-bits"
+argument_list|,
+name|actualConnector
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"eat-a"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
