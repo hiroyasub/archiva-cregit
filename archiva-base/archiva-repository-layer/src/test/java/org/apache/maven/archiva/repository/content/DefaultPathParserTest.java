@@ -224,7 +224,7 @@ decl_stmt|;
 name|String
 name|type
 init|=
-literal|"xml-zip"
+literal|"xml.zip"
 decl_stmt|;
 name|String
 name|path

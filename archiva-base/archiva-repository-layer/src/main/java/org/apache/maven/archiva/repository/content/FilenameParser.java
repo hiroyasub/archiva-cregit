@@ -105,7 +105,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"(\\.tar\\.gz$)|(\\.tar\\.bz2$)|(\\.[a-z0-9]*$)"
+literal|"(\\.tar\\.gz$)|(\\.tar\\.bz2$)|(\\.[\\-a-z0-9]*$)"
 argument_list|,
 name|Pattern
 operator|.

@@ -535,13 +535,6 @@ operator|.
 name|setType
 argument_list|(
 name|extension
-operator|.
-name|replace
-argument_list|(
-literal|'.'
-argument_list|,
-literal|'-'
-argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;

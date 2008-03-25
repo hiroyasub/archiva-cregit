@@ -248,13 +248,6 @@ block|}
 comment|// Return type
 return|return
 name|type
-operator|.
-name|replace
-argument_list|(
-literal|'-'
-argument_list|,
-literal|'.'
-argument_list|)
 return|;
 block|}
 comment|/**      * Determine if a given artifact Id conforms to the naming scheme for a maven plugin.      *      * @param artifactId the artifactId to test.      * @return true if this artifactId conforms to the naming scheme for a maven plugin.      */
