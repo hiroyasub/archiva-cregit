@@ -84,6 +84,7 @@ specifier|public
 name|ArtifactCountConsumer
 parameter_list|()
 block|{
+comment|// TODO: shouldn't this use filetypes?
 name|includes
 operator|=
 operator|new

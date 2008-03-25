@@ -537,6 +537,7 @@ operator|new
 name|HashMap
 argument_list|()
 decl_stmt|;
+comment|// TODO: why is this not used? If it should be, what about excludes?
 specifier|private
 name|List
 argument_list|<

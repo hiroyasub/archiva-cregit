@@ -693,7 +693,8 @@ name|getExcludes
 parameter_list|()
 block|{
 return|return
-literal|null
+name|getDefaultArtifactExclusions
+argument_list|()
 return|;
 block|}
 specifier|public
