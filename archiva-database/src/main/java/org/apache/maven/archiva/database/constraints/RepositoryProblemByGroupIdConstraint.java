@@ -129,7 +129,7 @@ name|getSortColumn
 parameter_list|()
 block|{
 return|return
-literal|"artifactId"
+literal|"repositoryId"
 return|;
 block|}
 specifier|public

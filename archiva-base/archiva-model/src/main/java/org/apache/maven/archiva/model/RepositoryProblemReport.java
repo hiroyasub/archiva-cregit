@@ -111,6 +111,14 @@ name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|setRepositoryId
+argument_list|(
+name|repositoryProblem
+operator|.
+name|getRepositoryId
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|void
