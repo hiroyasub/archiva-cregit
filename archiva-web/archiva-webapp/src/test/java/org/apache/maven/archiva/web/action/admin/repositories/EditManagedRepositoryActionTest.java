@@ -189,6 +189,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collections
@@ -949,6 +959,8 @@ specifier|private
 name|ManagedRepositoryConfiguration
 name|createRepository
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|ManagedRepositoryConfiguration
 name|r
@@ -980,6 +992,8 @@ parameter_list|(
 name|ManagedRepositoryConfiguration
 name|repository
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|repository
 operator|.
@@ -1001,7 +1015,7 @@ name|setLocation
 argument_list|(
 name|location
 operator|.
-name|getAbsolutePath
+name|getCanonicalPath
 argument_list|()
 argument_list|)
 expr_stmt|;
