@@ -114,7 +114,7 @@ return|return
 name|version
 return|;
 block|}
-comment|/* This is the search order of modules to find the version.          */
+comment|/* This is the search order of modules to find the version.           @todo is this really necessary? Just use webapp?          */
 name|String
 index|[]
 name|modules
