@@ -254,6 +254,25 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+literal|""
+operator|.
+name|equals
+argument_list|(
+name|path
+argument_list|)
+condition|)
+block|{
+comment|// if JEE 5 spec is correctly implemented, the "/*" pattern implies an empty string in servletpath
+name|path
+operator|=
+name|httpServletRequest
+operator|.
+name|getPathInfo
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|path
 operator|.
 name|startsWith
