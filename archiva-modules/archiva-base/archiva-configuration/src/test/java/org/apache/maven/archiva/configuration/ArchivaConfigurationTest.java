@@ -3348,6 +3348,7 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+specifier|final
 name|ArchivaConfiguration
 name|archivaConfiguration
 init|=
@@ -3394,7 +3395,7 @@ name|assertEquals
 argument_list|(
 literal|"check cron expression"
 argument_list|,
-literal|"0 0,30 * * ?"
+literal|"0 0,30 * * * ?"
 argument_list|,
 name|repository
 operator|.
@@ -3413,6 +3414,79 @@ operator|.
 name|setCronExpression
 argument_list|(
 literal|"0 0,15 0 * * ?"
+argument_list|)
+expr_stmt|;
+comment|// add a test listener to confirm it doesn't see the escaped format. We don't need to test the number of calls,
+comment|// etc. as it's done in other tests
+name|archivaConfiguration
+operator|.
+name|addListener
+argument_list|(
+operator|new
+name|ConfigurationListener
+argument_list|()
+block|{
+specifier|public
+name|void
+name|configurationEvent
+parameter_list|(
+name|ConfigurationEvent
+name|event
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+name|ConfigurationEvent
+operator|.
+name|SAVED
+argument_list|,
+name|event
+operator|.
+name|getType
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|Configuration
+name|configuration
+init|=
+name|archivaConfiguration
+operator|.
+name|getConfiguration
+argument_list|()
+decl_stmt|;
+name|ManagedRepositoryConfiguration
+name|repository
+init|=
+operator|(
+name|ManagedRepositoryConfiguration
+operator|)
+name|configuration
+operator|.
+name|getManagedRepositories
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"check cron expression"
+argument_list|,
+literal|"0 0,15 0 * * ?"
+argument_list|,
+name|configuration
+operator|.
+name|getDatabaseScanning
+argument_list|()
+operator|.
+name|getCronExpression
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 name|archivaConfiguration
