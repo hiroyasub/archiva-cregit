@@ -1004,6 +1004,19 @@ if|if
 condition|(
 name|filetypes
 operator|.
+name|matchesDefaultExclusions
+argument_list|(
+name|relativePath
+argument_list|)
+condition|)
+block|{
+comment|// Skip it, it's metadata or similar
+continue|continue;
+block|}
+if|if
+condition|(
+name|filetypes
+operator|.
 name|matchesArtifactPattern
 argument_list|(
 name|relativePath
