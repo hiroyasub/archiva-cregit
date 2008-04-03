@@ -487,6 +487,15 @@ literal|"checksum"
 return|;
 block|}
 specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+literal|"Checksum"
+return|;
+block|}
+specifier|public
 name|List
 argument_list|<
 name|String

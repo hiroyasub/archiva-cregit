@@ -69,6 +69,15 @@ return|return
 literal|"releases"
 return|;
 block|}
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+literal|"Releases"
+return|;
+block|}
 block|}
 end_class
 

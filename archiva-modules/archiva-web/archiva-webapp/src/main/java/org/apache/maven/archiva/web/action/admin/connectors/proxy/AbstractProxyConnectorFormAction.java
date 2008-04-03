@@ -79,7 +79,23 @@ name|archiva
 operator|.
 name|policies
 operator|.
-name|DownloadPolicy
+name|DownloadErrorPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|policies
+operator|.
+name|Policy
 import|;
 end_import
 
@@ -199,6 +215,16 @@ name|PostDownloadPolicy
 argument_list|>
 name|postDownloadPolicyMap
 decl_stmt|;
+comment|/**      * @plexus.requirement role="org.apache.maven.archiva.policies.DownloadErrorPolicy"      */
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|DownloadErrorPolicy
+argument_list|>
+name|downloadErrorPolicyMap
+decl_stmt|;
 comment|/**      * The list of network proxy ids that are available.      */
 specifier|private
 name|List
@@ -229,7 +255,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|DownloadPolicy
+name|Policy
 argument_list|>
 name|policyMap
 decl_stmt|;
@@ -501,7 +527,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|DownloadPolicy
+name|Policy
 argument_list|>
 name|getPolicyMap
 parameter_list|()
@@ -913,7 +939,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|DownloadPolicy
+name|Policy
 argument_list|>
 name|policyMap
 parameter_list|)
@@ -1083,7 +1109,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|DownloadPolicy
+name|Policy
 argument_list|>
 name|createPolicyMap
 parameter_list|()
@@ -1092,7 +1118,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|DownloadPolicy
+name|Policy
 argument_list|>
 name|policyMap
 init|=
@@ -1101,7 +1127,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|DownloadPolicy
+name|Policy
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1117,6 +1143,13 @@ operator|.
 name|putAll
 argument_list|(
 name|postDownloadPolicyMap
+argument_list|)
+expr_stmt|;
+name|policyMap
+operator|.
+name|putAll
+argument_list|(
+name|downloadErrorPolicyMap
 argument_list|)
 expr_stmt|;
 return|return
@@ -1181,7 +1214,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|DownloadPolicy
+name|Policy
 argument_list|>
 name|entry
 range|:
@@ -1195,20 +1228,14 @@ block|{
 name|String
 name|policyId
 init|=
-operator|(
-name|String
-operator|)
 name|entry
 operator|.
 name|getKey
 argument_list|()
 decl_stmt|;
-name|DownloadPolicy
+name|Policy
 name|policy
 init|=
-operator|(
-name|DownloadPolicy
-operator|)
 name|entry
 operator|.
 name|getValue

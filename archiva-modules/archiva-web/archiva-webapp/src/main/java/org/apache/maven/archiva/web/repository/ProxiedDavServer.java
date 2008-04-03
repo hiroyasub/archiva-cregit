@@ -95,9 +95,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|proxy
+name|policies
 operator|.
-name|ProxyException
+name|ProxyDownloadException
 import|;
 end_import
 
@@ -1615,7 +1615,7 @@ comment|/* eat it */
 block|}
 catch|catch
 parameter_list|(
-name|ProxyException
+name|ProxyDownloadException
 name|e
 parameter_list|)
 block|{
@@ -1692,22 +1692,6 @@ parameter_list|)
 block|{
 comment|/* eat it */
 block|}
-catch|catch
-parameter_list|(
-name|ProxyException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|ServletException
-argument_list|(
-literal|"Unable to fetch versioned metadata resource."
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
 try|try
 block|{
 name|project
@@ -1748,22 +1732,6 @@ parameter_list|)
 block|{
 comment|/* eat it */
 block|}
-catch|catch
-parameter_list|(
-name|ProxyException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|ServletException
-argument_list|(
-literal|"Unable to fetch project metadata resource."
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
 return|return
 literal|false
 return|;
@@ -1777,7 +1745,7 @@ name|ArtifactReference
 name|artifact
 parameter_list|)
 throws|throws
-name|ProxyException
+name|ProxyDownloadException
 block|{
 if|if
 condition|(

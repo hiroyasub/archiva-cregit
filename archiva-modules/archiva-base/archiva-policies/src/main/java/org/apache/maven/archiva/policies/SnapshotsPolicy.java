@@ -69,6 +69,15 @@ return|return
 literal|"snapshots"
 return|;
 block|}
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+literal|"Snapshots"
+return|;
+block|}
 block|}
 end_class
 

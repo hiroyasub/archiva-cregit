@@ -75,6 +75,22 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|policies
+operator|.
+name|ProxyDownloadException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
 name|repository
 operator|.
 name|ManagedRepositoryContent
@@ -110,7 +126,7 @@ specifier|public
 interface|interface
 name|RepositoryProxyConnectors
 block|{
-comment|/**      * Performs the artifact fetch operation against the target repositories      * of the provided source repository.      *       * If the artifact is found, it is downloaded and placed into the source repository      * filesystem.      *       * @param repository the source repository to use. (must be a managed repository)      * @param artifact the artifact to fetch.      * @return true if the fetch operation succeeded in obtaining content, false if no content was obtained.      * @throws ProxyException if there was a problem fetching the content from the target repositories.      */
+comment|/**      * Performs the artifact fetch operation against the target repositories      * of the provided source repository.      *       * If the artifact is found, it is downloaded and placed into the source repository      * filesystem.      *       * @param repository the source repository to use. (must be a managed repository)      * @param artifact the artifact to fetch.      * @return true if the fetch operation succeeded in obtaining content, false if no content was obtained.      * @throws ProxyDownloadException if there was a problem fetching the content from the target repositories.      */
 specifier|public
 name|File
 name|fetchFromProxies
@@ -122,9 +138,9 @@ name|ArtifactReference
 name|artifact
 parameter_list|)
 throws|throws
-name|ProxyException
+name|ProxyDownloadException
 function_decl|;
-comment|/**      * Performs the metadata fetch operation against the target repositories      * of the provided source repository.      *       * If the metadata is found, it is downloaded and placed into the source repository      * filesystem.      *       * @param repository the source repository to use. (must be a managed repository)      * @param metadata the metadata to fetch.      * @return true if the fetch operation succeeded in obtaining content, false if no content was obtained.      * @throws ProxyException if there was a problem fetching the content from the target repositories.      */
+comment|/**      * Performs the metadata fetch operation against the target repositories      * of the provided source repository.      *       * If the metadata is found, it is downloaded and placed into the source repository      * filesystem.      *       * @param repository the source repository to use. (must be a managed repository)      * @param metadata the metadata to fetch.      * @return true if the fetch operation succeeded in obtaining content, false if no content was obtained.      */
 specifier|public
 name|File
 name|fetchFromProxies
@@ -135,10 +151,8 @@ parameter_list|,
 name|VersionedReference
 name|metadata
 parameter_list|)
-throws|throws
-name|ProxyException
 function_decl|;
-comment|/**      * Performs the metadata fetch operation against the target repositories      * of the provided source repository.      *       * If the metadata is found, it is downloaded and placed into the source repository      * filesystem.      *       * @param repository the source repository to use. (must be a managed repository)      * @param metadata the metadata to fetch.      * @return true if the fetch operation succeeded in obtaining content, false if no content was obtained.      * @throws ProxyException if there was a problem fetching the content from the target repositories.      */
+comment|/**      * Performs the metadata fetch operation against the target repositories      * of the provided source repository.      *       * If the metadata is found, it is downloaded and placed into the source repository      * filesystem.      *       * @param repository the source repository to use. (must be a managed repository)      * @param metadata the metadata to fetch.      * @return true if the fetch operation succeeded in obtaining content, false if no content was obtained.      */
 specifier|public
 name|File
 name|fetchFromProxies
@@ -149,8 +163,6 @@ parameter_list|,
 name|ProjectReference
 name|metadata
 parameter_list|)
-throws|throws
-name|ProxyException
 function_decl|;
 comment|/**      * Get the List of {@link ProxyConnector} objects of the source repository.      *       * @param repository the source repository to look for.      * @return the List of {@link ProxyConnector} objects.      */
 specifier|public

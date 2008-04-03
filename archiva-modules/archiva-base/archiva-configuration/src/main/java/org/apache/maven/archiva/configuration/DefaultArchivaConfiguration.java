@@ -191,7 +191,7 @@ name|archiva
 operator|.
 name|policies
 operator|.
-name|DownloadPolicy
+name|Policy
 import|;
 end_import
 
@@ -1259,7 +1259,7 @@ name|policyId
 argument_list|)
 condition|)
 block|{
-name|DownloadPolicy
+name|Policy
 name|policy
 init|=
 name|findPolicy
@@ -1418,7 +1418,7 @@ name|config
 return|;
 block|}
 specifier|private
-name|DownloadPolicy
+name|Policy
 name|findPolicy
 parameter_list|(
 name|String
@@ -1467,7 +1467,7 @@ return|return
 literal|null
 return|;
 block|}
-name|DownloadPolicy
+name|Policy
 name|policy
 decl_stmt|;
 name|policy
