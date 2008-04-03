@@ -5,11 +5,7 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
-operator|.
-name|common
 operator|.
 name|rss
 package|;
@@ -234,7 +230,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generates RSS feeds.  *   * @plexus.component role="org.apache.maven.archiva.common.rss.RssFeedGenerator"  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  * Generates RSS feeds.  *   * @plexus.component role="org.apache.archiva.rss.RssFeedGenerator"  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
 end_comment
 
 begin_class
