@@ -19,6 +19,36 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -61,7 +91,7 @@ name|archiva
 operator|.
 name|consumers
 operator|.
-name|RepositoryContentConsumer
+name|KnownRepositoryContentConsumer
 import|;
 end_import
 
@@ -137,38 +167,8 @@ name|ProjectModel400Reader
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
-comment|/**  * ProjectReaderConsumer   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.RepositoryContentConsumer"  *                   role-hint="read-poms"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * ProjectReaderConsumer   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *                   role-hint="read-poms"  *                   instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -178,7 +178,7 @@ name|ProjectReaderConsumer
 extends|extends
 name|AbstractProgressConsumer
 implements|implements
-name|RepositoryContentConsumer
+name|KnownRepositoryContentConsumer
 block|{
 comment|/**      * @plexus.configuration default-value="read-poms"      */
 specifier|private
