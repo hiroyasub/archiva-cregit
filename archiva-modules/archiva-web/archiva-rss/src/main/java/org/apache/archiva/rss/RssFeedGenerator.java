@@ -258,7 +258,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generates RSS feeds.  *   * @plexus.component role="org.apache.archiva.rss.RssFeedGenerator"  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  * Generates RSS feeds.  *   * @plexus.component role="org.apache.archiva.rss.RssFeedGenerator"   *      instantiation-strategy="per-lookup"  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
 end_comment
 
 begin_class
@@ -294,7 +294,7 @@ name|DEFAULT_LANGUAGE
 init|=
 literal|"en-us"
 decl_stmt|;
-comment|/**      * @plexus.configuration default-value="${appserver.base}/data/rss"      */
+comment|/**      * @plexus.configuration default-value="./apps/archiva/rss/"      */
 specifier|private
 name|String
 name|rssDirectory
@@ -459,14 +459,6 @@ argument_list|(
 name|DEFAULT_LANGUAGE
 argument_list|)
 expr_stmt|;
-block|}
-name|feed
-operator|.
-name|setFeedType
-argument_list|(
-name|DEFAULT_FEEDTYPE
-argument_list|)
-expr_stmt|;
 name|feed
 operator|.
 name|setPublishedDate
@@ -478,6 +470,14 @@ argument_list|()
 operator|.
 name|getTime
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|feed
+operator|.
+name|setFeedType
+argument_list|(
+name|DEFAULT_FEEDTYPE
 argument_list|)
 expr_stmt|;
 name|feed
@@ -523,6 +523,18 @@ name|writer
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Finished writing feed to "
+operator|+
+name|outputFile
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch

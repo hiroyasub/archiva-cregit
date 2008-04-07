@@ -492,7 +492,7 @@ name|File
 argument_list|(
 name|rssDirectory
 argument_list|,
-literal|"new_versions_test-repo_org.apache.archiva:artifact-one.xml"
+literal|"new_versions_org.apache.archiva:artifact-one.xml"
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -510,7 +510,7 @@ name|File
 argument_list|(
 name|rssDirectory
 argument_list|,
-literal|"new_versions_test-repo_org.apache.archiva:artifact-two.xml"
+literal|"new_versions_org.apache.archiva:artifact-two.xml"
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -528,7 +528,7 @@ name|File
 argument_list|(
 name|rssDirectory
 argument_list|,
-literal|"new_versions_test-repo_org.apache.archiva:artifact-three.xml"
+literal|"new_versions_org.apache.archiva:artifact-three.xml"
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -546,7 +546,7 @@ name|File
 argument_list|(
 name|rssDirectory
 argument_list|,
-literal|"new_versions_test-repo_org.apache.archiva:artifact-four.xml"
+literal|"new_versions_org.apache.archiva:artifact-four.xml"
 argument_list|)
 expr_stmt|;
 name|assertTrue

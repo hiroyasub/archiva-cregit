@@ -135,6 +135,26 @@ name|ArchivaArtifact
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Process new artifacts in the repository and generate RSS feeds.  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  * @plexus.component role="org.apache.archiva.rss.processor.RssFeedProcessor" role-hint="new-artifacts"  */
 end_comment
@@ -167,6 +187,19 @@ specifier|private
 name|RssFeedGenerator
 name|generator
 decl_stmt|;
+specifier|private
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|NewArtifactsRssFeedProcessor
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * Process the newly discovered artifacts in the repository. Generate feeds for new artifacts in the repository and      * new versions of artifact.      */
 specifier|public
 name|void
@@ -179,6 +212,13 @@ argument_list|>
 name|data
 parameter_list|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Process new artifacts into rss feeds."
+argument_list|)
+expr_stmt|;
 name|processNewArtifactsInRepo
 argument_list|(
 name|data
@@ -246,9 +286,11 @@ operator|.
 name|getTime
 argument_list|()
 argument_list|,
-literal|"http://localhost:8080/archiva/repository/"
+literal|"http://localhost:8080/archiva/rss/new_artifacts_"
 operator|+
 name|repoId
+operator|+
+literal|".xml"
 argument_list|)
 decl_stmt|;
 name|String
@@ -281,7 +323,7 @@ operator|.
 name|toString
 argument_list|()
 operator|+
-literal|"\n"
+literal|" | "
 expr_stmt|;
 block|}
 name|entry
@@ -314,9 +356,11 @@ name|repoId
 operator|+
 literal|"\'"
 argument_list|,
-literal|"http://localhost:8080/archiva/repository/"
+literal|"http://localhost:8080/archiva/repository/rss/new_artifacts_"
 operator|+
 name|repoId
+operator|+
+literal|".xml"
 argument_list|,
 literal|"New artifacts found in repository "
 operator|+
@@ -427,14 +471,6 @@ name|RssFeedEntry
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|String
-name|artifactPath
-init|=
-name|getArtifactPath
-argument_list|(
-name|key
-argument_list|)
-decl_stmt|;
 name|RssFeedEntry
 name|entry
 init|=
@@ -459,13 +495,11 @@ operator|.
 name|getTime
 argument_list|()
 argument_list|,
-literal|"http://localhost:8080/archiva/repository/"
+literal|"http://localhost:8080/archiva/rss/new_versions_"
 operator|+
-name|repoId
+name|key
 operator|+
-literal|"/"
-operator|+
-name|artifactPath
+literal|".xml"
 argument_list|)
 decl_stmt|;
 name|String
@@ -481,10 +515,6 @@ literal|"\'"
 operator|+
 literal|" in the repository: \n"
 operator|+
-name|StringUtils
-operator|.
-name|replace
-argument_list|(
 operator|(
 operator|(
 name|String
@@ -496,11 +526,6 @@ argument_list|(
 name|key
 argument_list|)
 operator|)
-argument_list|,
-literal|"|"
-argument_list|,
-literal|"\n"
-argument_list|)
 decl_stmt|;
 name|entry
 operator|.
@@ -520,10 +545,6 @@ name|generateFeed
 argument_list|(
 literal|"new_versions_"
 operator|+
-name|repoId
-operator|+
-literal|"_"
-operator|+
 name|key
 operator|+
 literal|".xml"
@@ -536,13 +557,11 @@ name|key
 operator|+
 literal|"\'"
 argument_list|,
-literal|"http://localhost:8080/archiva/repository/"
+literal|"http://localhost:8080/archiva/rss/new_versions_"
 operator|+
-name|repoId
+name|key
 operator|+
-literal|"/"
-operator|+
-name|artifactPath
+literal|".xml"
 argument_list|,
 literal|"New versions of artifact "
 operator|+
@@ -753,7 +772,7 @@ name|value
 operator|=
 name|value
 operator|+
-literal|"|"
+literal|" | "
 operator|+
 name|id
 expr_stmt|;
@@ -777,36 +796,6 @@ expr_stmt|;
 block|}
 return|return
 name|artifactsMap
-return|;
-block|}
-specifier|private
-name|String
-name|getArtifactPath
-parameter_list|(
-name|String
-name|key
-parameter_list|)
-block|{
-return|return
-name|StringUtils
-operator|.
-name|replace
-argument_list|(
-name|StringUtils
-operator|.
-name|replace
-argument_list|(
-name|key
-argument_list|,
-literal|"."
-argument_list|,
-literal|"/"
-argument_list|)
-argument_list|,
-literal|":"
-argument_list|,
-literal|"/"
-argument_list|)
 return|;
 block|}
 specifier|public
