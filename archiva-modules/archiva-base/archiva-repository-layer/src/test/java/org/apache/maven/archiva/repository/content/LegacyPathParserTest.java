@@ -1022,7 +1022,7 @@ decl_stmt|;
 name|String
 name|type
 init|=
-literal|"maven-plugin"
+literal|"maven-one-plugin"
 decl_stmt|;
 name|String
 name|path
@@ -1071,7 +1071,7 @@ decl_stmt|;
 name|String
 name|type
 init|=
-literal|"maven-plugin"
+literal|"maven-one-plugin"
 decl_stmt|;
 name|String
 name|path
@@ -1120,7 +1120,7 @@ decl_stmt|;
 name|String
 name|type
 init|=
-literal|"maven-plugin"
+literal|"maven-one-plugin"
 decl_stmt|;
 name|String
 name|path
@@ -1169,7 +1169,7 @@ decl_stmt|;
 name|String
 name|type
 init|=
-literal|"maven-plugin"
+literal|"maven-one-plugin"
 decl_stmt|;
 name|String
 name|path

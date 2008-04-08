@@ -777,7 +777,7 @@ name|setType
 argument_list|(
 name|ArtifactExtensionMapping
 operator|.
-name|MAVEN_PLUGIN
+name|MAVEN_ONE_PLUGIN
 argument_list|)
 expr_stmt|;
 block|}
