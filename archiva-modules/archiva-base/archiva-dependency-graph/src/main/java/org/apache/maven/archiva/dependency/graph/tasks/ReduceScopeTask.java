@@ -98,7 +98,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ReduceScopeTask   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component   *      role="org.apache.maven.archiva.dependency.graph.GraphTask"  *      role-hint="reduce-scope"  *      instantiation-strategy="per-lookup"  */
+comment|/**  * ReduceScopeTask   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

@@ -460,7 +460,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProjectModel400Writer for Maven 2 project model v4.0.0 pom files.    *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component   *      role="org.apache.maven.archiva.repository.project.ProjectModelWriter"  *      role-hint="model400"  */
+comment|/**  * ProjectModel400Writer for Maven 2 project model v4.0.0 pom files.    *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

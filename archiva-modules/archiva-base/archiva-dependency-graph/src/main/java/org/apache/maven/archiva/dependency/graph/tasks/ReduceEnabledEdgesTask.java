@@ -114,7 +114,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ReduceEnabledEdgesTask   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component   *      role="org.apache.maven.archiva.dependency.graph.GraphTask"  *      role-hint="reduce-enabled-edges"  *      instantiation-strategy="per-lookup"  */
+comment|/**  * ReduceEnabledEdgesTask   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

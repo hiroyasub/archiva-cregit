@@ -134,7 +134,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryRequest is used to determine the type of request that is incoming, and convert it to an appropriate  * ArtifactReference.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *  * @plexus.component  *      role="org.apache.maven.archiva.repository.content.RepositoryRequest"  */
+comment|/**  * RepositoryRequest is used to determine the type of request that is incoming, and convert it to an appropriate  * ArtifactReference.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *  * @todo no need to be a component once legacy path parser is not  *  * @plexus.component  *      role="org.apache.maven.archiva.repository.content.RepositoryRequest"  */
 end_comment
 
 begin_class
@@ -142,20 +142,13 @@ specifier|public
 class|class
 name|RepositoryRequest
 block|{
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|FileTypes
-name|filetypes
-decl_stmt|;
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|ArchivaConfiguration
-name|archivaConfiguration
-decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="default"      */
 specifier|private
 name|PathParser
 name|defaultPathParser
+init|=
+operator|new
+name|DefaultPathParser
+argument_list|()
 decl_stmt|;
 comment|/**      * @plexus.requirement role-hint="legacy"      */
 specifier|private

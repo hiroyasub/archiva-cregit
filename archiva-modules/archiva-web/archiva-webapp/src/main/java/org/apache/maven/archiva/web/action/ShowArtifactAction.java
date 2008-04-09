@@ -21,13 +21,21 @@ end_comment
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|opensymphony
+name|util
 operator|.
-name|xwork
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|Validateable
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -155,22 +163,6 @@ name|archiva
 operator|.
 name|security
 operator|.
-name|ArchivaUser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|security
-operator|.
 name|PrincipalNotFoundException
 import|;
 end_import
@@ -195,6 +187,24 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|web
+operator|.
+name|util
+operator|.
+name|ArchivaXworkUser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -209,21 +219,13 @@ end_import
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|util
+name|opensymphony
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|xwork
 operator|.
-name|util
-operator|.
-name|List
+name|Validateable
 import|;
 end_import
 
@@ -250,11 +252,6 @@ comment|/**      * @plexus.requirement      */
 specifier|private
 name|UserRepositories
 name|userRepositories
-decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="xwork"      */
-specifier|private
-name|ArchivaUser
-name|archivaUser
 decl_stmt|;
 comment|/* .\ Input Parameters \.________________________________________ */
 specifier|private
@@ -583,7 +580,7 @@ name|getPrincipal
 parameter_list|()
 block|{
 return|return
-name|archivaUser
+name|ArchivaXworkUser
 operator|.
 name|getActivePrincipal
 argument_list|()

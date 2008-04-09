@@ -138,7 +138,7 @@ name|INVALID_ARTIFACT_PATH
 init|=
 literal|"Invalid path to Artifact: "
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * @todo pass these in on construction instead, since this can't be long lived (no config listener), then no need to be a component      * @plexus.requirement      */
 specifier|protected
 name|ArchivaConfiguration
 name|configuration

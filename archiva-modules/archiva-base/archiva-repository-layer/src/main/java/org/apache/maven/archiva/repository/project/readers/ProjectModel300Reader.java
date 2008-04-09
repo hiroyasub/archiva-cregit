@@ -324,7 +324,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProjectModel300Reader   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component   *      role="org.apache.maven.archiva.repository.project.ProjectModelReader"  *      role-hint="model300"  */
+comment|/**  * ProjectModel300Reader   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

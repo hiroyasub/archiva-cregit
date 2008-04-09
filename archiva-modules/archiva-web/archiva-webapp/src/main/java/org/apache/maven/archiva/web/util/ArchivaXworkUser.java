@@ -21,13 +21,21 @@ end_comment
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|opensymphony
+name|util
 operator|.
-name|xwork
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|ActionContext
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -44,22 +52,6 @@ operator|.
 name|security
 operator|.
 name|ArchivaRoleConstants
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|security
-operator|.
-name|ArchivaUser
 import|;
 end_import
 
@@ -113,36 +105,27 @@ end_import
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|util
+name|opensymphony
 operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|xwork
 operator|.
-name|util
-operator|.
-name|Map
+name|ActionContext
 import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaXworkUser   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.security.ArchivaUser"  *                   role-hint="xwork"  */
+comment|/**  * ArchivaXworkUser   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
 specifier|public
 class|class
 name|ArchivaXworkUser
-implements|implements
-name|ArchivaUser
 block|{
 specifier|private
+specifier|static
 name|Map
 argument_list|<
 name|String
@@ -197,6 +180,7 @@ name|sessionMap
 return|;
 block|}
 specifier|private
+specifier|static
 name|SecuritySession
 name|getSecuritySession
 parameter_list|()
@@ -245,6 +229,7 @@ name|securitySession
 return|;
 block|}
 specifier|public
+specifier|static
 name|String
 name|getActivePrincipal
 parameter_list|()

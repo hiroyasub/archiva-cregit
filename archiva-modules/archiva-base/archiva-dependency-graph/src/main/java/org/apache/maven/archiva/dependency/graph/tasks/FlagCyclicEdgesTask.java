@@ -98,7 +98,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FlagCyclicEdgesTask   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component   *      role="org.apache.maven.archiva.dependency.graph.GraphTask"  *      role-hint="flag-cyclic-edges"  *      instantiation-strategy="per-lookup"  */
+comment|/**  * FlagCyclicEdgesTask   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class

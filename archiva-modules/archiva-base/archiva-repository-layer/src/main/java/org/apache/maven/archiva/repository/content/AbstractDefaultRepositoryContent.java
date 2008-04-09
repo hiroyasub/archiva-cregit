@@ -175,10 +175,13 @@ name|ARTIFACT_SEPARATOR
 init|=
 literal|'-'
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="default"      */
 specifier|private
 name|PathParser
 name|defaultPathParser
+init|=
+operator|new
+name|DefaultPathParser
+argument_list|()
 decl_stmt|;
 specifier|public
 name|ArtifactReference
