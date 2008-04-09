@@ -1746,7 +1746,7 @@ block|{
 name|String
 name|legacyPath
 init|=
-literal|"org.apache.maven.test/plugins/example-maven-plugin-0.42.jar"
+literal|"org.apache.maven.test/maven-plugins/example-maven-plugin-0.42.jar"
 decl_stmt|;
 name|String
 name|path
