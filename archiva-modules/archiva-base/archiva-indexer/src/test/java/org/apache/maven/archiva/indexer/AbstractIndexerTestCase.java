@@ -151,7 +151,9 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|PlexusTestCase
+name|spring
+operator|.
+name|PlexusInSpringTestCase
 import|;
 end_import
 
@@ -245,7 +247,7 @@ specifier|abstract
 class|class
 name|AbstractIndexerTestCase
 extends|extends
-name|PlexusTestCase
+name|PlexusInSpringTestCase
 block|{
 specifier|protected
 name|RepositoryContentIndex
