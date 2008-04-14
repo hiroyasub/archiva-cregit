@@ -21,6 +21,16 @@ end_comment
 
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -111,18 +121,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|PlexusTestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -189,8 +187,6 @@ begin_class
 specifier|public
 class|class
 name|GraphvizDotTool
-extends|extends
-name|PlexusTestCase
 implements|implements
 name|GraphListener
 block|{
@@ -221,6 +217,8 @@ argument_list|,
 literal|':'
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"Versioned Reference ["
@@ -360,6 +358,8 @@ name|rootRef
 argument_list|)
 decl_stmt|;
 comment|// Test the results.
+name|Assert
+operator|.
 name|assertNotNull
 argument_list|(
 literal|"Graph shouldn't be null."

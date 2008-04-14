@@ -43,7 +43,9 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|PlexusTestCase
+name|spring
+operator|.
+name|PlexusInSpringTestCase
 import|;
 end_import
 
@@ -78,7 +80,7 @@ specifier|public
 class|class
 name|WrappedRepositoryRequestTest
 extends|extends
-name|PlexusTestCase
+name|PlexusInSpringTestCase
 block|{
 specifier|private
 name|HttpServletRequest

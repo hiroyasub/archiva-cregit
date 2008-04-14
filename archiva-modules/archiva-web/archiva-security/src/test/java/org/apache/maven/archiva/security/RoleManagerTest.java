@@ -25,7 +25,9 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|PlexusTestCase
+name|spring
+operator|.
+name|PlexusInSpringTestCase
 import|;
 end_import
 
@@ -54,7 +56,7 @@ specifier|public
 class|class
 name|RoleManagerTest
 extends|extends
-name|PlexusTestCase
+name|PlexusInSpringTestCase
 block|{
 comment|/**      * @plexus.requirement role-hint="default"      */
 name|RoleManager

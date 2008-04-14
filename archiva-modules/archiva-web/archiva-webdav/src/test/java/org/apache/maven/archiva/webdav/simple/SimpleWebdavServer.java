@@ -69,11 +69,6 @@ argument_list|()
 decl_stmt|;
 name|server
 operator|.
-name|init
-argument_list|()
-expr_stmt|;
-name|server
-operator|.
 name|startServer
 argument_list|()
 expr_stmt|;

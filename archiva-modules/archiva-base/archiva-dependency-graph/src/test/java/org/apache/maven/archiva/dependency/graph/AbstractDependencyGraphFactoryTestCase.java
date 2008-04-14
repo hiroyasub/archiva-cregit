@@ -265,7 +265,9 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|PlexusTestCase
+name|spring
+operator|.
+name|PlexusInSpringTestCase
 import|;
 end_import
 
@@ -319,7 +321,7 @@ specifier|abstract
 class|class
 name|AbstractDependencyGraphFactoryTestCase
 extends|extends
-name|PlexusTestCase
+name|PlexusInSpringTestCase
 block|{
 specifier|public
 class|class
