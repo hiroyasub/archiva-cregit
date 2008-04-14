@@ -41,18 +41,6 @@ name|FileUtils
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|PlexusTestCase
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author Edwin Punzalan  */
 end_comment
@@ -71,8 +59,6 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|PlexusTestCase
-operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
@@ -177,8 +163,6 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-name|PlexusTestCase
-operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
@@ -407,8 +391,6 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-name|PlexusTestCase
-operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
