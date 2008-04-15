@@ -362,7 +362,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Of any checksum files present, validate that the reference file conforms      * the to the checksum.         *       * @param algorithms the algorithms to check for.      * @return true if the checksums report that the the reference file is valid.      * @throws IOException if unable to validate the checksums.      */
+comment|/**      * Of any checksum files present, validate that the reference file conforms      * the to the checksum.         *       * @param algorithms the algorithms to check for.      * @return true if the checksums report that the the reference file is valid, false if invalid.      */
 specifier|public
 name|boolean
 name|isValidChecksums
@@ -371,8 +371,6 @@ name|ChecksumAlgorithm
 name|algorithms
 index|[]
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|FileInputStream
 name|fis
@@ -442,12 +440,14 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// No checksum objects, no checksum files, default to is valid.
+comment|// No checksum objects, no checksum files, default to is invalid.
 return|return
-literal|true
+literal|false
 return|;
 block|}
 comment|// Parse file once, for all checksums.
+try|try
+block|{
 name|fis
 operator|=
 operator|new
@@ -465,12 +465,37 @@ argument_list|,
 name|fis
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Unable to update checksum:"
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 name|boolean
 name|valid
 init|=
 literal|true
 decl_stmt|;
 comment|// check the checksum files
+try|try
+block|{
 for|for
 control|(
 name|Checksum
@@ -542,6 +567,29 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Unable to read / parse checksum: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
 block|}
 return|return
 name|valid

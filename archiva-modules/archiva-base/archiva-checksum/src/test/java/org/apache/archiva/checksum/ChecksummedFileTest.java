@@ -718,7 +718,7 @@ argument_list|(
 name|jarFile
 argument_list|)
 decl_stmt|;
-name|assertTrue
+name|assertFalse
 argument_list|(
 literal|"ChecksummedFile.isValid(SHA1,MD5)"
 argument_list|,
