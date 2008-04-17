@@ -661,6 +661,26 @@ name|invalidContentConsumers
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|scannerInstance
+operator|.
+name|getNewFiles
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|scannerInstance
+operator|.
+name|getNewFiles
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 comment|// generate RSS feeds
 name|List
 argument_list|<
@@ -688,6 +708,7 @@ argument_list|(
 name|newArtifacts
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|stats
 return|;

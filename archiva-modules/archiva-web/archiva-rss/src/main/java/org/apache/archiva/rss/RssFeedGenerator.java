@@ -459,6 +459,7 @@ argument_list|(
 name|DEFAULT_LANGUAGE
 argument_list|)
 expr_stmt|;
+block|}
 name|feed
 operator|.
 name|setPublishedDate
@@ -472,7 +473,6 @@ name|getTime
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|feed
 operator|.
 name|setFeedType
@@ -648,16 +648,6 @@ argument_list|(
 name|dataEntry
 operator|.
 name|getTitle
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|entry
-operator|.
-name|setLink
-argument_list|(
-name|dataEntry
-operator|.
-name|getLink
 argument_list|()
 argument_list|)
 expr_stmt|;
