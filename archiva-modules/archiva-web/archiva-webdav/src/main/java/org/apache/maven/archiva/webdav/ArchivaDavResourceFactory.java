@@ -1475,18 +1475,7 @@ name|RepositoryMetadataException
 name|e
 parameter_list|)
 block|{
-name|log
-operator|.
-name|error
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
+comment|/* eat it */
 block|}
 try|try
 block|{
@@ -1529,18 +1518,7 @@ name|RepositoryMetadataException
 name|e
 parameter_list|)
 block|{
-name|log
-operator|.
-name|error
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
+comment|/* eat it */
 block|}
 return|return
 literal|false
