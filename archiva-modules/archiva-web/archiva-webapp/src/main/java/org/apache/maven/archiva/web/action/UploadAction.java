@@ -493,9 +493,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|web
-operator|.
-name|util
+name|security
 operator|.
 name|ArchivaXworkUser
 import|;
@@ -514,6 +512,18 @@ operator|.
 name|action
 operator|.
 name|PlexusActionSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|opensymphony
+operator|.
+name|xwork
+operator|.
+name|ActionContext
 import|;
 end_import
 
@@ -1247,7 +1257,15 @@ return|return
 name|ArchivaXworkUser
 operator|.
 name|getActivePrincipal
+argument_list|(
+name|ActionContext
+operator|.
+name|getContext
 argument_list|()
+operator|.
+name|getSession
+argument_list|()
+argument_list|)
 return|;
 block|}
 specifier|private
