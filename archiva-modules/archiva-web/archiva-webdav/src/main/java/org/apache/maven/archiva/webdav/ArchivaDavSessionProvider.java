@@ -513,9 +513,9 @@ decl_stmt|;
 if|if
 condition|(
 name|result
-operator|==
+operator|!=
 literal|null
-operator|||
+operator|&&
 operator|!
 name|result
 operator|.
@@ -523,16 +523,15 @@ name|isAuthenticated
 argument_list|()
 condition|)
 block|{
-comment|//Unfortunatly, the DavSessionProvider does not pass in the response
-name|httpAuth
-operator|.
-name|authenticate
+throw|throw
+operator|new
+name|UnauthorizedDavException
 argument_list|(
-name|request
+name|repositoryId
 argument_list|,
-literal|null
+literal|"User Credentials Invalid"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 catch|catch
@@ -715,11 +714,9 @@ expr_stmt|;
 block|}
 throw|throw
 operator|new
-name|DavException
+name|UnauthorizedDavException
 argument_list|(
-name|HttpServletResponse
-operator|.
-name|SC_UNAUTHORIZED
+name|repositoryId
 argument_list|,
 literal|"Access denied for repository "
 operator|+

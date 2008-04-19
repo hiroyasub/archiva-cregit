@@ -665,11 +665,36 @@ operator|.
 name|SC_UNAUTHORIZED
 condition|)
 block|{
+specifier|final
+name|String
+name|msg
+init|=
+literal|"Should throw "
+operator|+
+name|UnauthorizedDavException
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
 name|log
 operator|.
 name|error
 argument_list|(
-literal|"Should throw UnauthorizedDavException"
+name|msg
+argument_list|)
+expr_stmt|;
+name|webdavResponse
+operator|.
+name|sendError
+argument_list|(
+name|e
+operator|.
+name|getErrorCode
+argument_list|()
+argument_list|,
+name|msg
 argument_list|)
 expr_stmt|;
 block|}
