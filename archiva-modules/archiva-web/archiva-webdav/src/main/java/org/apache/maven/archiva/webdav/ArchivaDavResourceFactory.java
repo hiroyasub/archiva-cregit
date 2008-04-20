@@ -943,8 +943,6 @@ condition|)
 block|{
 comment|// At this point the incoming request can either be in default or
 comment|// legacy layout format.
-try|try
-block|{
 name|boolean
 name|fromProxy
 init|=
@@ -957,6 +955,16 @@ argument_list|,
 name|logicalResource
 argument_list|)
 decl_stmt|;
+name|boolean
+name|previouslyExisted
+init|=
+name|resourceFile
+operator|.
+name|exists
+argument_list|()
+decl_stmt|;
+try|try
+block|{
 comment|// Perform an adjustment of the resource to the managed
 comment|// repository expected path.
 name|String
@@ -987,14 +995,34 @@ argument_list|,
 name|localResourcePath
 argument_list|)
 expr_stmt|;
-name|boolean
+block|}
+catch|catch
+parameter_list|(
+name|LayoutException
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
 name|previouslyExisted
-init|=
-name|resourceFile
+condition|)
+block|{
+return|return
+name|resource
+return|;
+block|}
+throw|throw
+operator|new
+name|DavException
+argument_list|(
+name|HttpServletResponse
 operator|.
-name|exists
-argument_list|()
-decl_stmt|;
+name|SC_NOT_FOUND
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 comment|// Attempt to fetch the resource from any defined proxy.
 if|if
 condition|(
@@ -1047,25 +1075,6 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|LayoutException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|DavException
-argument_list|(
-name|HttpServletResponse
-operator|.
-name|SC_NOT_FOUND
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 return|return
 name|resource
