@@ -514,38 +514,31 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
-try|try
-block|{
+name|WebResponse
+name|response
+init|=
 name|sc
 operator|.
 name|getResponse
 argument_list|(
 name|request
 argument_list|)
-expr_stmt|;
-name|fail
+decl_stmt|;
+name|assertResponseNotFound
 argument_list|(
-literal|"should have been not found"
+name|response
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|HttpNotFoundException
-name|e
-parameter_list|)
-block|{
 name|assertEquals
 argument_list|(
-literal|"Error on HTTP request: 404 Invalid path to Artifact: legacy paths should have an expected type ending in [s] in the second part of the path. [http://machine.com/repository/internal/.index/filecontent/foo.bar]"
+literal|"Invalid path to Artifact: legacy paths should have an expected type ending in [s] in the second part of the path."
 argument_list|,
-name|e
+name|response
 operator|.
-name|getMessage
+name|getResponseMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class
