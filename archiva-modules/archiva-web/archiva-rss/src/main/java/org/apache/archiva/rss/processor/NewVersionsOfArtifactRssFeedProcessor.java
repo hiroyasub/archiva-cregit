@@ -125,9 +125,25 @@ name|archiva
 operator|.
 name|database
 operator|.
+name|ObjectNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|database
+operator|.
 name|constraints
 operator|.
-name|ArtifactsByRepositoryConstraint
+name|ArtifactVersionsConstraint
 import|;
 end_import
 
@@ -184,13 +200,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Retrieve and process all artifacts of a repository from the database and generate a rss feed.  * The artifacts will be grouped by the date when the artifacts were gathered.   * Each group will appear as one entry in the feed.  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  * @plexus.component role="org.apache.archiva.rss.processor.RssFeedProcessor" role-hint="new-artifacts"  */
+comment|/**  * Retrieve and process new versions of an artifact from the database and  * generate a rss feed. The versions will be grouped by the date when the artifact   * was gathered. Each group will appear as one entry in the feed.  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  * @plexus.component role="org.apache.archiva.rss.processor.RssFeedProcessor" role-hint="new-versions"  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|NewArtifactsRssFeedProcessor
+name|NewVersionsOfArtifactRssFeedProcessor
 extends|extends
 name|AbstractArtifactsRssFeedProcessor
 block|{
@@ -198,13 +214,13 @@ specifier|private
 name|String
 name|title
 init|=
-literal|"New Artifacts in Repository "
+literal|"New Versions of Artifact "
 decl_stmt|;
 specifier|private
 name|String
 name|desc
 init|=
-literal|"New Versions of Artifact "
+literal|"These are the new artifacts found in the repository "
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
@@ -229,7 +245,7 @@ specifier|private
 name|ArtifactDAO
 name|artifactDAO
 decl_stmt|;
-comment|/**      * Process the newly discovered artifacts in the repository. Generate feeds for new artifacts in the repository and      * new versions of artifact.      */
+comment|/**      * Process all versions of the artifact which had a rss feed request.      */
 specifier|public
 name|SyndFeed
 name|process
@@ -243,13 +259,6 @@ argument_list|>
 name|reqParams
 parameter_list|)
 block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Process new artifacts into rss feeds."
-argument_list|)
-expr_stmt|;
 name|String
 name|repoId
 init|=
@@ -262,17 +271,53 @@ operator|.
 name|KEY_REPO_ID
 argument_list|)
 decl_stmt|;
+name|String
+name|groupId
+init|=
+name|reqParams
+operator|.
+name|get
+argument_list|(
+name|RssFeedProcessor
+operator|.
+name|KEY_GROUP_ID
+argument_list|)
+decl_stmt|;
+name|String
+name|artifactId
+init|=
+name|reqParams
+operator|.
+name|get
+argument_list|(
+name|RssFeedProcessor
+operator|.
+name|KEY_ARTIFACT_ID
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|repoId
 operator|!=
 literal|null
+operator|&&
+name|groupId
+operator|!=
+literal|null
+operator|&&
+name|artifactId
+operator|!=
+literal|null
 condition|)
 block|{
 return|return
-name|processNewArtifactsInRepo
+name|processNewVersionsOfArtifact
 argument_list|(
 name|repoId
+argument_list|,
+name|groupId
+argument_list|,
+name|artifactId
 argument_list|)
 return|;
 block|}
@@ -282,21 +327,31 @@ return|;
 block|}
 specifier|private
 name|SyndFeed
-name|processNewArtifactsInRepo
+name|processNewVersionsOfArtifact
 parameter_list|(
 name|String
 name|repoId
+parameter_list|,
+name|String
+name|groupId
+parameter_list|,
+name|String
+name|artifactId
 parameter_list|)
 block|{
 try|try
 block|{
 name|Constraint
-name|artifactsByRepo
+name|artifactVersions
 init|=
 operator|new
-name|ArtifactsByRepositoryConstraint
+name|ArtifactVersionsConstraint
 argument_list|(
 name|repoId
+argument_list|,
+name|groupId
+argument_list|,
+name|artifactId
 argument_list|,
 literal|"whenGathered"
 argument_list|)
@@ -311,7 +366,7 @@ name|artifactDAO
 operator|.
 name|queryArtifacts
 argument_list|(
-name|artifactsByRepo
+name|artifactVersions
 argument_list|)
 decl_stmt|;
 name|List
@@ -324,8 +379,17 @@ name|processData
 argument_list|(
 name|artifacts
 argument_list|,
-literal|true
+literal|false
 argument_list|)
+decl_stmt|;
+name|String
+name|key
+init|=
+name|groupId
+operator|+
+literal|":"
+operator|+
+name|artifactId
 decl_stmt|;
 return|return
 name|generator
@@ -337,11 +401,17 @@ argument_list|()
 operator|+
 literal|"\'"
 operator|+
-name|repoId
+name|key
 operator|+
 literal|"\'"
 argument_list|,
-literal|"New artifacts found in repository "
+literal|"New versions of artifact "
+operator|+
+literal|"\'"
+operator|+
+name|key
+operator|+
+literal|"\' found in repository "
 operator|+
 literal|"\'"
 operator|+
@@ -353,9 +423,9 @@ literal|" during repository scan."
 argument_list|,
 name|entries
 argument_list|,
-literal|"new_artifacts_"
+literal|"new_versions_"
 operator|+
-name|repoId
+name|key
 operator|+
 literal|".xml"
 argument_list|)
@@ -363,10 +433,37 @@ return|;
 block|}
 catch|catch
 parameter_list|(
+name|ObjectNotFoundException
+name|oe
+parameter_list|)
+block|{
+name|oe
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
+name|log
+operator|.
+name|error
+argument_list|(
+name|oe
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
 name|ArchivaDatabaseException
 name|ae
 parameter_list|)
 block|{
+name|ae
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
 name|log
 operator|.
 name|error

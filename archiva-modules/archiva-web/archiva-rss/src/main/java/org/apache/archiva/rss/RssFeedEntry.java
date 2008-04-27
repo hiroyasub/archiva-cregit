@@ -70,9 +70,6 @@ name|RssFeedEntry
 parameter_list|(
 name|String
 name|title
-parameter_list|,
-name|String
-name|link
 parameter_list|)
 block|{
 name|this
@@ -80,12 +77,6 @@ operator|.
 name|title
 operator|=
 name|title
-expr_stmt|;
-name|this
-operator|.
-name|link
-operator|=
-name|link
 expr_stmt|;
 block|}
 specifier|public
