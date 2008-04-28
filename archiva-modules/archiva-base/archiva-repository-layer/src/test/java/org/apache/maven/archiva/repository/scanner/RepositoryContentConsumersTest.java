@@ -995,6 +995,8 @@ operator|.
 name|beginScan
 argument_list|(
 name|repo
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|selectedKnownConsumer
@@ -1049,6 +1051,8 @@ operator|.
 name|beginScan
 argument_list|(
 name|repo
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 comment|//        invalidConsumer.completeScan();
@@ -1099,6 +1103,8 @@ operator|.
 name|beginScan
 argument_list|(
 name|repo
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|selectedKnownConsumer
@@ -1143,6 +1149,8 @@ operator|.
 name|beginScan
 argument_list|(
 name|repo
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|selectedInvalidConsumer
@@ -1215,6 +1223,8 @@ operator|.
 name|beginScan
 argument_list|(
 name|repo
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|selectedKnownConsumer
@@ -1245,6 +1255,8 @@ operator|.
 name|beginScan
 argument_list|(
 name|repo
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|selectedInvalidConsumer

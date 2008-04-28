@@ -36,13 +36,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactsByRepositoryConstraint  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  * ArtifactVersionsConstraint  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|ArtifactsByRepositoryConstraint
+name|ArtifactVersionsConstraint
 extends|extends
 name|AbstractDeclarativeConstraint
 implements|implements
@@ -56,18 +56,24 @@ specifier|private
 name|String
 name|sortColumn
 init|=
-literal|"groupId"
+literal|"repositoryId"
 decl_stmt|;
 specifier|public
-name|ArtifactsByRepositoryConstraint
+name|ArtifactVersionsConstraint
 parameter_list|(
 name|String
 name|repoId
+parameter_list|,
+name|String
+name|groupId
+parameter_list|,
+name|String
+name|artifactId
 parameter_list|)
 block|{
 name|whereClause
 operator|=
-literal|"repositoryId == repoId"
+literal|"repositoryId == repoId&& groupId == groupId&& artifactId == artifactId"
 expr_stmt|;
 name|declParams
 operator|=
@@ -76,6 +82,10 @@ name|String
 index|[]
 block|{
 literal|"String repoId"
+block|,
+literal|"String groupId"
+block|,
+literal|"String artifactId"
 block|}
 expr_stmt|;
 name|params
@@ -85,14 +95,24 @@ name|Object
 index|[]
 block|{
 name|repoId
+block|,
+name|groupId
+block|,
+name|artifactId
 block|}
 expr_stmt|;
 block|}
 specifier|public
-name|ArtifactsByRepositoryConstraint
+name|ArtifactVersionsConstraint
 parameter_list|(
 name|String
 name|repoId
+parameter_list|,
+name|String
+name|groupId
+parameter_list|,
+name|String
+name|artifactId
 parameter_list|,
 name|String
 name|sortColumn
@@ -101,6 +121,10 @@ block|{
 name|this
 argument_list|(
 name|repoId
+argument_list|,
+name|groupId
+argument_list|,
+name|artifactId
 argument_list|)
 expr_stmt|;
 name|this

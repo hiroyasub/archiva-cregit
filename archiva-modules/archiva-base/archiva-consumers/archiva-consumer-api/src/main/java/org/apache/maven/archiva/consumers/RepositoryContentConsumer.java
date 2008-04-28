@@ -39,6 +39,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -72,13 +82,16 @@ argument_list|>
 name|getExcludes
 parameter_list|()
 function_decl|;
-comment|/**      *<p>      * Event that triggers at the beginning of a scan.      *</p>      *       *<p>      * NOTE: This would be a good place to initialize the consumer, to lock any resources, and to      * generally start tracking the scan as a whole.      *</p>      *       * @param repository the repository that this consumer is being used for.      * @throws ConsumerException if there was a problem with using the provided repository with the consumer.      */
+comment|/**      *<p>      * Event that triggers at the beginning of a scan.      *</p>      *       *<p>      * NOTE: This would be a good place to initialize the consumer, to lock any resources, and to      * generally start tracking the scan as a whole.      *</p>      *       * @param repository the repository that this consumer is being used for.      * @param whenGathered the start of the repository scan      * @throws ConsumerException if there was a problem with using the provided repository with the consumer.      */
 specifier|public
 name|void
 name|beginScan
 parameter_list|(
 name|ManagedRepositoryConfiguration
 name|repository
+parameter_list|,
+name|Date
+name|whenGathered
 parameter_list|)
 throws|throws
 name|ConsumerException

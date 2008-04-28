@@ -299,6 +299,8 @@ operator|.
 name|beginScan
 argument_list|(
 name|repository
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|String
@@ -369,6 +371,8 @@ operator|.
 name|beginScan
 argument_list|(
 name|repository
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|String
@@ -463,6 +467,8 @@ operator|.
 name|beginScan
 argument_list|(
 name|repository
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|String

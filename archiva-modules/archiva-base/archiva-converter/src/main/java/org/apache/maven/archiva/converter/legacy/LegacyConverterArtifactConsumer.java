@@ -35,6 +35,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -363,6 +373,9 @@ name|beginScan
 parameter_list|(
 name|ManagedRepositoryConfiguration
 name|repository
+parameter_list|,
+name|Date
+name|whenGathered
 parameter_list|)
 throws|throws
 name|ConsumerException
