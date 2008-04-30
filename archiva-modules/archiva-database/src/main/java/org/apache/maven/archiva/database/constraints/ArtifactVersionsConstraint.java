@@ -82,14 +82,7 @@ condition|)
 block|{
 name|whereClause
 operator|=
-literal|"repositoryId == repoId&& "
-expr_stmt|;
-block|}
-name|whereClause
-operator|=
-name|whereClause
-operator|+
-literal|"groupId == groupId&& artifactId == artifactId"
+literal|"repositoryId.equals(selectedRepoId)&& groupId.equals(selectedGroupId)&& artifactId.equals(selectedArtifactId)"
 expr_stmt|;
 name|declParams
 operator|=
@@ -97,11 +90,11 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"String repoId"
+literal|"String selectedRepoId"
 block|,
-literal|"String groupId"
+literal|"String selectedGroupId"
 block|,
-literal|"String artifactId"
+literal|"String selectedArtifactId"
 block|}
 expr_stmt|;
 name|params
@@ -117,6 +110,36 @@ block|,
 name|artifactId
 block|}
 expr_stmt|;
+block|}
+else|else
+block|{
+name|whereClause
+operator|=
+literal|"groupId.equals(selectedGroupId)&& artifactId.equals(selectedArtifactId)"
+expr_stmt|;
+name|declParams
+operator|=
+operator|new
+name|String
+index|[]
+block|{
+literal|"String selectedGroupId"
+block|,
+literal|"String selectedArtifactId"
+block|}
+expr_stmt|;
+name|params
+operator|=
+operator|new
+name|Object
+index|[]
+block|{
+name|groupId
+block|,
+name|artifactId
+block|}
+expr_stmt|;
+block|}
 block|}
 specifier|public
 name|ArtifactVersionsConstraint

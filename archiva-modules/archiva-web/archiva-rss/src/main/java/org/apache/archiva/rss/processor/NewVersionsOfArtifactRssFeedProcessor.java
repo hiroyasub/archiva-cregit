@@ -235,7 +235,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|NewArtifactsRssFeedProcessor
+name|NewVersionsOfArtifactRssFeedProcessor
 operator|.
 name|class
 argument_list|)
@@ -365,18 +365,6 @@ argument_list|(
 name|artifactVersions
 argument_list|)
 decl_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Queried artifacts size :: "
-operator|+
-name|artifacts
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|List
 argument_list|<
 name|RssFeedEntry
