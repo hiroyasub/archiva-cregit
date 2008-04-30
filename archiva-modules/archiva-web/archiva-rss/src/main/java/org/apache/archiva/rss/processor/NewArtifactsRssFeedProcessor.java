@@ -204,7 +204,7 @@ specifier|private
 name|String
 name|desc
 init|=
-literal|"New Versions of Artifact "
+literal|"These are the new artifacts found in the repository "
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
@@ -353,11 +353,9 @@ literal|" during repository scan."
 argument_list|,
 name|entries
 argument_list|,
-literal|"new_artifacts_"
+literal|"rss_feeds?repoId="
 operator|+
 name|repoId
-operator|+
-literal|".xml"
 argument_list|)
 return|;
 block|}

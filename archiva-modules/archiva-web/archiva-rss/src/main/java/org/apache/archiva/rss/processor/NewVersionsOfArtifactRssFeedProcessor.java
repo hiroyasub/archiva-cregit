@@ -220,7 +220,7 @@ specifier|private
 name|String
 name|desc
 init|=
-literal|"These are the new artifacts found in the repository "
+literal|"These are the new versions of artifact "
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
@@ -297,10 +297,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|repoId
-operator|!=
-literal|null
-operator|&&
 name|groupId
 operator|!=
 literal|null
@@ -369,6 +365,18 @@ argument_list|(
 name|artifactVersions
 argument_list|)
 decl_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Queried artifacts size :: "
+operator|+
+name|artifacts
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|List
 argument_list|<
 name|RssFeedEntry
@@ -423,11 +431,13 @@ literal|" during repository scan."
 argument_list|,
 name|entries
 argument_list|,
-literal|"new_versions_"
+literal|"rss_feeds?groupId="
 operator|+
-name|key
+name|groupId
 operator|+
-literal|".xml"
+literal|"&artifactId="
+operator|+
+name|artifactId
 argument_list|)
 return|;
 block|}

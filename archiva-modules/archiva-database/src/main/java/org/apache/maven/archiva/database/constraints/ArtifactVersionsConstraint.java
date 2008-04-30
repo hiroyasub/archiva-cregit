@@ -51,6 +51,8 @@ block|{
 specifier|private
 name|String
 name|whereClause
+init|=
+literal|""
 decl_stmt|;
 specifier|private
 name|String
@@ -71,9 +73,23 @@ name|String
 name|artifactId
 parameter_list|)
 block|{
+if|if
+condition|(
+name|repoId
+operator|!=
+literal|null
+condition|)
+block|{
 name|whereClause
 operator|=
-literal|"repositoryId == repoId&& groupId == groupId&& artifactId == artifactId"
+literal|"repositoryId == repoId&& "
+expr_stmt|;
+block|}
+name|whereClause
+operator|=
+name|whereClause
+operator|+
+literal|"groupId == groupId&& artifactId == artifactId"
 expr_stmt|;
 name|declParams
 operator|=

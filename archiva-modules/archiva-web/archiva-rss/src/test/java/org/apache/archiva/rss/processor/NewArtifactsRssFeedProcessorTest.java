@@ -687,7 +687,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"http://localhost:8080/archiva/rss/new_artifacts_test-repo.xml"
+literal|"http://localhost:8080/archiva/rss/rss_feeds?repoId=test-repo"
 argument_list|)
 argument_list|)
 expr_stmt|;

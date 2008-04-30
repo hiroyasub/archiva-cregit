@@ -873,8 +873,6 @@ specifier|protected
 name|String
 name|getPlexusConfigLocation
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
 literal|"org/apache/maven/archiva/web/repository/RepositoryServletTest.xml"

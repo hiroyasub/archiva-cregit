@@ -2157,8 +2157,6 @@ specifier|protected
 name|String
 name|getSpringConfigLocation
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
 literal|"org/apache/maven/archiva/proxy/spring-context.xml"
