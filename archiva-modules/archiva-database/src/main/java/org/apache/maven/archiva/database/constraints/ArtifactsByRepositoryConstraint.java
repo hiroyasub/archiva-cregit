@@ -21,6 +21,16 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -94,14 +104,38 @@ parameter_list|(
 name|String
 name|repoId
 parameter_list|,
+name|Date
+name|whenGathered
+parameter_list|,
 name|String
 name|sortColumn
 parameter_list|)
 block|{
-name|this
-argument_list|(
+name|whereClause
+operator|=
+literal|"repositoryId == repoId&& whenGathered>= whenGathered"
+expr_stmt|;
+name|declParams
+operator|=
+operator|new
+name|String
+index|[]
+block|{
+literal|"String repoId"
+block|,
+literal|"Date whenGathered"
+block|}
+expr_stmt|;
+name|params
+operator|=
+operator|new
+name|Object
+index|[]
+block|{
 name|repoId
-argument_list|)
+block|,
+name|whenGathered
+block|}
 expr_stmt|;
 name|this
 operator|.
