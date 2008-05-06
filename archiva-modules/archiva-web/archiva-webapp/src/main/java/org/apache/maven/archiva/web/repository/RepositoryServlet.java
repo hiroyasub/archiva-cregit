@@ -446,7 +446,7 @@ name|servletConfig
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Service the given request.      *      * @param request      * @param response      * @throws ServletException      * @throws java.io.IOException      */
+comment|/**      * Service the given request.      * This method has been overridden and copy/pasted to allow better exception handling      * and to support different realms      *      * @param request      * @param response      * @throws ServletException      * @throws java.io.IOException      */
 annotation|@
 name|Override
 specifier|protected
@@ -1160,9 +1160,7 @@ block|{
 throw|throw
 operator|new
 name|UnsupportedOperationException
-argument_list|(
-literal|""
-argument_list|)
+argument_list|()
 throw|;
 block|}
 specifier|public

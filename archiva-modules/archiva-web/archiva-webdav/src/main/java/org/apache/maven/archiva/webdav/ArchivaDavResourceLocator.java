@@ -69,6 +69,8 @@ class|class
 name|ArchivaDavResourceLocator
 implements|implements
 name|DavResourceLocator
+implements|,
+name|RepositoryLocator
 block|{
 specifier|private
 name|String
@@ -84,7 +86,7 @@ name|href
 decl_stmt|;
 specifier|private
 name|String
-name|workspaceName
+name|repositoryId
 decl_stmt|;
 specifier|private
 name|DavLocatorFactory
@@ -100,7 +102,7 @@ name|String
 name|resourcePath
 parameter_list|,
 name|String
-name|workspaceName
+name|repositoryId
 parameter_list|,
 name|DavLocatorFactory
 name|davLocatorFactory
@@ -114,9 +116,9 @@ name|prefix
 expr_stmt|;
 name|this
 operator|.
-name|workspaceName
+name|repositoryId
 operator|=
-name|workspaceName
+name|repositoryId
 expr_stmt|;
 name|this
 operator|.
@@ -180,6 +182,15 @@ expr_stmt|;
 block|}
 specifier|public
 name|String
+name|getRepositoryId
+parameter_list|()
+block|{
+return|return
+name|repositoryId
+return|;
+block|}
+specifier|public
+name|String
 name|getPrefix
 parameter_list|()
 block|{
@@ -211,7 +222,7 @@ name|getWorkspaceName
 parameter_list|()
 block|{
 return|return
-name|workspaceName
+literal|""
 return|;
 block|}
 specifier|public

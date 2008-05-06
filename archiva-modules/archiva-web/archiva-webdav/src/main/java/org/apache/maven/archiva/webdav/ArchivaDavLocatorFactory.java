@@ -221,7 +221,7 @@ expr_stmt|;
 block|}
 specifier|final
 name|String
-name|workspaceName
+name|repository
 init|=
 name|RepositoryPathUtil
 operator|.
@@ -246,7 +246,7 @@ argument_list|(
 name|href
 argument_list|)
 argument_list|,
-name|workspaceName
+name|repository
 argument_list|,
 name|this
 argument_list|)
