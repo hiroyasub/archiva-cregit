@@ -77,7 +77,7 @@ decl_stmt|;
 name|String
 name|href
 init|=
-literal|"repository/internal"
+literal|"/repository/internal"
 decl_stmt|;
 name|ArchivaDavResourceLocator
 name|locator
@@ -160,7 +160,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"repository/internal"
+literal|"/repository/internal"
 argument_list|,
 name|locator
 operator|.
@@ -170,7 +170,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"repository/internal"
+literal|"/repository/internal"
 argument_list|,
 name|locator
 operator|.
@@ -370,7 +370,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"http://myproxy//"
+literal|"http://myproxy/"
 argument_list|,
 name|locator
 operator|.
@@ -382,7 +382,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"http://myproxy//"
+literal|"http://myproxy/"
 argument_list|,
 name|locator
 operator|.
