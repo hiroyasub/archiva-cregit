@@ -996,7 +996,15 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Supplied checksum does not match checksum pattern"
+literal|"Supplied checksum file '"
+operator|+
+name|filename
+operator|+
+literal|"' does not match expected file: '"
+operator|+
+name|expectedPath
+operator|+
+literal|"'"
 argument_list|)
 throw|;
 block|}
@@ -1060,7 +1068,15 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Supplied checksum does not match checksum pattern"
+literal|"Supplied checksum file '"
+operator|+
+name|filename
+operator|+
+literal|"' does not match expected file: '"
+operator|+
+name|expectedPath
+operator|+
+literal|"'"
 argument_list|)
 throw|;
 block|}
