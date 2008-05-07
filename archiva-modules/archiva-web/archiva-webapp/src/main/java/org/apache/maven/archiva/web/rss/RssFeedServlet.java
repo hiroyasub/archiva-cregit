@@ -666,18 +666,6 @@ name|ServletException
 throws|,
 name|IOException
 block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Request URL: "
-operator|+
-name|req
-operator|.
-name|getRequestURL
-argument_list|()
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|Map
@@ -734,17 +722,17 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|repoId
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
 name|isAuthorized
 argument_list|(
 name|req
 argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|repoId
+operator|!=
+literal|null
 condition|)
 block|{
 comment|// new artifacts in repo feed request
@@ -784,22 +772,6 @@ name|repoId
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-name|res
-operator|.
-name|sendError
-argument_list|(
-name|HttpServletResponse
-operator|.
-name|SC_UNAUTHORIZED
-argument_list|,
-literal|"Request is not authorized."
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-block|}
 if|else if
 condition|(
 operator|(
@@ -813,14 +785,6 @@ name|artifactId
 operator|!=
 literal|null
 operator|)
-condition|)
-block|{
-if|if
-condition|(
-name|isAuthorized
-argument_list|(
-name|req
-argument_list|)
 condition|)
 block|{
 comment|// new versions of artifact feed request
@@ -879,9 +843,9 @@ name|sendError
 argument_list|(
 name|HttpServletResponse
 operator|.
-name|SC_UNAUTHORIZED
+name|SC_BAD_REQUEST
 argument_list|,
-literal|"Request is not authorized."
+literal|"Required fields not found in request."
 argument_list|)
 expr_stmt|;
 return|return;
@@ -895,9 +859,9 @@ name|sendError
 argument_list|(
 name|HttpServletResponse
 operator|.
-name|SC_BAD_REQUEST
+name|SC_UNAUTHORIZED
 argument_list|,
-literal|"Required fields not found in request."
+literal|"Request is not authorized."
 argument_list|)
 expr_stmt|;
 return|return;
@@ -918,6 +882,62 @@ argument_list|(
 name|MIME_TYPE
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|repoId
+operator|!=
+literal|null
+condition|)
+block|{
+name|feed
+operator|.
+name|setLink
+argument_list|(
+name|req
+operator|.
+name|getRequestURL
+argument_list|()
+operator|+
+literal|"?repoId="
+operator|+
+name|repoId
+argument_list|)
+expr_stmt|;
+block|}
+if|else if
+condition|(
+operator|(
+name|groupId
+operator|!=
+literal|null
+operator|)
+operator|&&
+operator|(
+name|artifactId
+operator|!=
+literal|null
+operator|)
+condition|)
+block|{
+name|feed
+operator|.
+name|setLink
+argument_list|(
+name|req
+operator|.
+name|getRequestURL
+argument_list|()
+operator|+
+literal|"?groupId="
+operator|+
+name|groupId
+operator|+
+literal|"&artifactId="
+operator|+
+name|artifactId
+argument_list|)
+expr_stmt|;
+block|}
 name|SyndFeedOutput
 name|output
 init|=

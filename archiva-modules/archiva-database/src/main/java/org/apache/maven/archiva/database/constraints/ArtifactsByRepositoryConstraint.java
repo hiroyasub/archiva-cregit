@@ -105,15 +105,24 @@ name|String
 name|repoId
 parameter_list|,
 name|Date
-name|whenGathered
+name|targetWhenGathered
 parameter_list|,
 name|String
 name|sortColumn
 parameter_list|)
 block|{
+name|declImports
+operator|=
+operator|new
+name|String
+index|[]
+block|{
+literal|"import java.util.Date"
+block|}
+expr_stmt|;
 name|whereClause
 operator|=
-literal|"repositoryId == repoId&& whenGathered>= whenGathered"
+literal|"this.repositoryId == repoId&& this.whenGathered>= targetWhenGathered"
 expr_stmt|;
 name|declParams
 operator|=
@@ -123,7 +132,7 @@ index|[]
 block|{
 literal|"String repoId"
 block|,
-literal|"Date whenGathered"
+literal|"Date targetWhenGathered"
 block|}
 expr_stmt|;
 name|params
@@ -134,7 +143,7 @@ index|[]
 block|{
 name|repoId
 block|,
-name|whenGathered
+name|targetWhenGathered
 block|}
 expr_stmt|;
 name|this
