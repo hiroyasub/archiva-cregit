@@ -63,6 +63,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|security
+operator|.
+name|ArchivaRoleConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -521,7 +537,6 @@ parameter_list|)
 throws|throws
 name|AuthorizationException
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|null
 return|;
@@ -542,9 +557,21 @@ parameter_list|)
 throws|throws
 name|AuthorizationException
 block|{
-comment|// TODO Auto-generated method stub
-return|return
+name|AuthorizationResult
+name|result
+init|=
+operator|new
+name|AuthorizationResult
+argument_list|(
+literal|true
+argument_list|,
+name|arg1
+argument_list|,
 literal|null
+argument_list|)
+decl_stmt|;
+return|return
+name|result
 return|;
 block|}
 specifier|public
