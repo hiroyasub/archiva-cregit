@@ -1236,7 +1236,7 @@ name|req
 operator|.
 name|getParameter
 argument_list|(
-literal|"version"
+literal|"groupId"
 argument_list|)
 operator|!=
 literal|null
