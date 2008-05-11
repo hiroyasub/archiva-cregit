@@ -55,6 +55,22 @@ name|plexus
 operator|.
 name|redback
 operator|.
+name|authentication
+operator|.
+name|AuthenticationResult
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|redback
+operator|.
 name|authorization
 operator|.
 name|AuthorizationException
@@ -93,8 +109,24 @@ name|MustChangePasswordException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|redback
+operator|.
+name|system
+operator|.
+name|SecuritySession
+import|;
+end_import
+
 begin_comment
-comment|/**  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version   */
+comment|/**  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
 end_comment
 
 begin_interface
@@ -108,6 +140,9 @@ name|isAuthenticated
 parameter_list|(
 name|HttpServletRequest
 name|request
+parameter_list|,
+name|AuthenticationResult
+name|result
 parameter_list|,
 name|String
 name|repositoryId
@@ -125,6 +160,9 @@ name|isAuthorized
 parameter_list|(
 name|HttpServletRequest
 name|request
+parameter_list|,
+name|SecuritySession
+name|securitySession
 parameter_list|,
 name|String
 name|repositoryId
