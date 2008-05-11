@@ -119,6 +119,22 @@ name|plexus
 operator|.
 name|redback
 operator|.
+name|authorization
+operator|.
+name|UnauthorizedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|redback
+operator|.
 name|policy
 operator|.
 name|AccountLockedException
@@ -217,7 +233,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * @plexus.requirement       */
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|SecuritySystem
 name|securitySystem
@@ -285,6 +301,8 @@ name|isWriteRequest
 parameter_list|)
 throws|throws
 name|AuthorizationException
+throws|,
+name|UnauthorizedException
 block|{
 name|String
 name|permission
@@ -372,10 +390,23 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-return|return
-literal|false
-return|;
+throw|throw
+operator|new
+name|UnauthorizedException
+argument_list|(
+literal|"Access denied for repository "
+operator|+
+name|repositoryId
+argument_list|)
+throw|;
 block|}
+throw|throw
+operator|new
+name|UnauthorizedException
+argument_list|(
+literal|"User account is locked"
+argument_list|)
+throw|;
 block|}
 return|return
 literal|true
