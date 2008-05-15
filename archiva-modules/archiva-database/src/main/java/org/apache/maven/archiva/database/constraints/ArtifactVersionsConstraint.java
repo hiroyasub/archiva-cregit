@@ -82,7 +82,9 @@ condition|)
 block|{
 name|whereClause
 operator|=
-literal|"repositoryId.equals(selectedRepoId)&& groupId.equals(selectedGroupId)&& artifactId.equals(selectedArtifactId)"
+literal|"repositoryId.equals(selectedRepoId)&& groupId.equals(selectedGroupId)&& artifactId.equals(selectedArtifactId) "
+operator|+
+literal|"&& whenGathered != null"
 expr_stmt|;
 name|declParams
 operator|=
@@ -115,7 +117,7 @@ else|else
 block|{
 name|whereClause
 operator|=
-literal|"groupId.equals(selectedGroupId)&& artifactId.equals(selectedArtifactId)"
+literal|"groupId.equals(selectedGroupId)&& artifactId.equals(selectedArtifactId)&& this.whenGathered != null"
 expr_stmt|;
 name|declParams
 operator|=
