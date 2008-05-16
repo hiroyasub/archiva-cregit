@@ -1526,8 +1526,6 @@ argument_list|(
 name|req
 argument_list|,
 name|result
-argument_list|,
-name|repoId
 argument_list|)
 operator|&&
 name|servletAuth

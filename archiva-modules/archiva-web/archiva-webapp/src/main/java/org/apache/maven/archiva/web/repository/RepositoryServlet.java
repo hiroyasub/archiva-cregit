@@ -962,6 +962,7 @@ name|DavResource
 name|davResource
 parameter_list|)
 block|{
+comment|// check for read or write access to the resource when resource-based permission is implemented
 return|return
 literal|true
 return|;

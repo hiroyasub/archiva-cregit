@@ -247,9 +247,6 @@ name|request
 parameter_list|,
 name|AuthenticationResult
 name|result
-parameter_list|,
-name|String
-name|repositoryId
 parameter_list|)
 throws|throws
 name|AuthenticationException
@@ -304,6 +301,7 @@ name|AuthorizationException
 throws|,
 name|UnauthorizedException
 block|{
+comment|// also check for permission to proxy the resource when MRM-579 is implemented
 name|String
 name|permission
 init|=

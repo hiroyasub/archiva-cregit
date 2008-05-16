@@ -159,9 +159,6 @@ name|request
 parameter_list|,
 name|AuthenticationResult
 name|result
-parameter_list|,
-name|String
-name|repositoryId
 parameter_list|)
 throws|throws
 name|AuthenticationException
