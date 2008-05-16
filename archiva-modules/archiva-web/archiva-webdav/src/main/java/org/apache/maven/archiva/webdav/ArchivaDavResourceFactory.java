@@ -1000,7 +1000,7 @@ argument_list|,
 name|response
 argument_list|)
 expr_stmt|;
-comment|//compatibility with MRM-440 to ensure browsing the repository works ok
+comment|// compatibility with MRM-440 to ensure browsing the repository works ok
 if|if
 condition|(
 name|resource
@@ -1393,7 +1393,7 @@ parameter_list|)
 throws|throws
 name|DavException
 block|{
-comment|/*          * Create parent directories that don't exist when writing a file          * This actually makes this implementation not compliant to the          * WebDAV RFC - but we have enough knowledge about how the          * collection is being used to do this reasonably and some versions          * of Maven's WebDAV don't correctly create the collections          * themselves.          */
+comment|/*          * Create parent directories that don't exist when writing a file This actually makes this implementation not          * compliant to the WebDAV RFC - but we have enough knowledge about how the collection is being used to do this          * reasonably and some versions of Maven's WebDAV don't correctly create the collections themselves.          */
 name|File
 name|rootDirectory
 init|=
@@ -1825,7 +1825,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * A relocation capable client will request the POM prior to the artifact,      * and will then read meta-data and do client side relocation. A simplier      * client (like maven 1) will only request the artifact and not use the      * metadatas.      *<p>      * For such clients, archiva does server-side relocation by reading itself      * the&lt;relocation&gt; element in metadatas and serving the expected      * artifact.      */
+comment|/**      * A relocation capable client will request the POM prior to the artifact, and will then read meta-data and do      * client side relocation. A simplier client (like maven 1) will only request the artifact and not use the      * metadatas.      *<p>      * For such clients, archiva does server-side relocation by reading itself the&lt;relocation&gt; element in      * metadatas and serving the expected artifact.      */
 specifier|protected
 name|void
 name|applyServerSideRelocation

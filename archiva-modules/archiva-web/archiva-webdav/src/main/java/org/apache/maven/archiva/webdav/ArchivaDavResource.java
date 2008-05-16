@@ -256,7 +256,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author<a href="mailto:james@atlassian.com">James William Dumay</a>  * Portions from the Apache Jackrabbit Project  */
+comment|/**  * @author<a href="mailto:james@atlassian.com">James William Dumay</a> Portions from the Apache Jackrabbit Project  */
 end_comment
 
 begin_class
@@ -589,7 +589,7 @@ name|getContentType
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//Write content to stream
+comment|// Write content to stream
 name|is
 operator|=
 operator|new
@@ -882,7 +882,7 @@ operator|.
 name|hasStream
 argument_list|()
 condition|)
-comment|//New File
+comment|// New File
 block|{
 name|boolean
 name|deleteFile
@@ -1011,7 +1011,7 @@ operator|&&
 name|isCollection
 argument_list|()
 condition|)
-comment|//New directory
+comment|// New directory
 block|{
 name|localFile
 operator|.
@@ -1152,7 +1152,7 @@ name|DavException
 name|e
 parameter_list|)
 block|{
-comment|//Should not occur
+comment|// Should not occur
 block|}
 block|}
 block|}
@@ -1750,7 +1750,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//Need to get the ISO8601 date for properties
+comment|// Need to get the ISO8601 date for properties
 name|DateTime
 name|dt
 init|=

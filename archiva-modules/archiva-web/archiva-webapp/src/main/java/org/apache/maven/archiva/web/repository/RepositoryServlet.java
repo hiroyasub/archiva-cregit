@@ -268,7 +268,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryServlet  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * RepositoryServlet  *   * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
@@ -354,7 +354,7 @@ name|servletConfig
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Service the given request.      * This method has been overridden and copy/pasted to allow better exception handling      * and to support different realms      *      * @param request      * @param response      * @throws ServletException      * @throws java.io.IOException      */
+comment|/**      * Service the given request. This method has been overridden and copy/pasted to allow better exception handling and      * to support different realms      *       * @param request      * @param response      * @throws ServletException      * @throws java.io.IOException      */
 annotation|@
 name|Override
 specifier|protected
