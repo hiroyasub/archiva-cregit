@@ -1310,8 +1310,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|addActionMessage
-argument_list|(
+name|String
+name|msg
+init|=
 literal|"Artifact \'"
 operator|+
 name|groupId
@@ -1328,7 +1329,26 @@ literal|"\' was successfully deployed to repository \'"
 operator|+
 name|repositoryId
 operator|+
-literal|"\'!"
+literal|"\'"
+decl_stmt|;
+comment|//TODO: MRM-810 (this writes to archiva.log, should be audit.log)
+name|getLogger
+argument_list|()
+operator|.
+name|info
+argument_list|(
+name|msg
+operator|+
+literal|" by "
+operator|+
+name|getPrincipal
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|//TODO: MRM-785 (success message does not display on web page)
+name|addActionMessage
+argument_list|(
+name|msg
 argument_list|)
 expr_stmt|;
 return|return
