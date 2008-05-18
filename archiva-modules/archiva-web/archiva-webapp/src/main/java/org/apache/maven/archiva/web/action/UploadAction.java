@@ -319,6 +319,24 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|scanner
+operator|.
+name|RepositoryContentConsumers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|metadata
 operator|.
 name|MetadataTools
@@ -566,6 +584,11 @@ name|Validateable
 implements|,
 name|Preparable
 block|{
+comment|/**       * @plexus.requirement       */
+specifier|private
+name|RepositoryContentConsumers
+name|consumers
+decl_stmt|;
 comment|/**      * The groupId of the artifact to be deployed.      */
 specifier|private
 name|String
@@ -1349,6 +1372,20 @@ comment|//TODO: MRM-785 (success message does not display on web page)
 name|addActionMessage
 argument_list|(
 name|msg
+argument_list|)
+expr_stmt|;
+name|consumers
+operator|.
+name|executeConsumers
+argument_list|(
+name|repoConfig
+argument_list|,
+name|repository
+operator|.
+name|toFile
+argument_list|(
+name|artifactReference
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
