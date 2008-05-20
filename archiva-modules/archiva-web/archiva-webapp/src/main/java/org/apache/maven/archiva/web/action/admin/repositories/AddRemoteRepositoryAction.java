@@ -161,6 +161,20 @@ operator|.
 name|getConfiguration
 argument_list|()
 decl_stmt|;
+comment|//MRM-752 - url needs trimming
+name|repository
+operator|.
+name|setUrl
+argument_list|(
+name|repository
+operator|.
+name|getUrl
+argument_list|()
+operator|.
+name|trim
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// Save the repository configuration.
 name|String
 name|result

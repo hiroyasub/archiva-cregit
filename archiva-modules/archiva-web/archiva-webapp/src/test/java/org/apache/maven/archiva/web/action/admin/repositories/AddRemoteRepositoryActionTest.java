@@ -429,6 +429,16 @@ argument_list|(
 name|repository
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"url "
+argument_list|,
+name|repository
+operator|.
+name|getUrl
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|String
 name|status
 init|=
@@ -458,6 +468,16 @@ argument_list|,
 name|configuration
 operator|.
 name|getRemoteRepositories
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"url"
+argument_list|,
+name|repository
+operator|.
+name|getUrl
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -493,7 +513,7 @@ name|repository
 operator|.
 name|setUrl
 argument_list|(
-literal|"url"
+literal|"url "
 argument_list|)
 expr_stmt|;
 name|repository
