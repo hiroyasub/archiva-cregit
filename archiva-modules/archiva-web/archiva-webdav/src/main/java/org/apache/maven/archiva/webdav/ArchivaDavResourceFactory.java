@@ -968,6 +968,8 @@ block|{
 return|return
 name|getResource
 argument_list|(
+name|request
+argument_list|,
 name|repositories
 argument_list|,
 name|archivaLocator
@@ -2974,6 +2976,9 @@ specifier|private
 name|DavResource
 name|getResource
 parameter_list|(
+name|DavServletRequest
+name|request
+parameter_list|,
 name|List
 argument_list|<
 name|String
@@ -3063,6 +3068,16 @@ throw|;
 block|}
 if|if
 condition|(
+name|isAuthorized
+argument_list|(
+name|request
+argument_list|,
+name|repository
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
 operator|!
 name|locator
 operator|.
@@ -3116,6 +3131,7 @@ argument_list|(
 name|resourceFile
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

@@ -632,13 +632,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Collections
-operator|.
-name|sort
-argument_list|(
-name|files
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|File
@@ -698,6 +691,13 @@ name|uniqueChildFiles
 operator|.
 name|values
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|Collections
+operator|.
+name|sort
+argument_list|(
+name|uniqueChildFilesInList
 argument_list|)
 expr_stmt|;
 for|for
