@@ -832,7 +832,7 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
-name|assertResponseBadRequest
+name|assertResponseMethodNotAllowed
 argument_list|(
 name|response
 argument_list|)
@@ -890,7 +890,7 @@ expr_stmt|;
 block|}
 specifier|protected
 name|void
-name|assertResponseBadRequest
+name|assertResponseMethodNotAllowed
 parameter_list|(
 name|WebResponse
 name|response
@@ -905,11 +905,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Should have been an 400/Bad Request response code."
+literal|"Should have been an 405/Method Not Allowed response code."
 argument_list|,
 name|HttpServletResponse
 operator|.
-name|SC_BAD_REQUEST
+name|SC_METHOD_NOT_ALLOWED
 argument_list|,
 name|response
 operator|.

@@ -959,16 +959,9 @@ name|DavException
 argument_list|(
 name|HttpServletResponse
 operator|.
-name|SC_BAD_REQUEST
+name|SC_METHOD_NOT_ALLOWED
 argument_list|,
-literal|"Bad request to repository group<"
-operator|+
-name|repoGroupConfig
-operator|.
-name|getId
-argument_list|()
-operator|+
-literal|">"
+literal|"Write method not allowed for repository groups."
 argument_list|)
 throw|;
 block|}
