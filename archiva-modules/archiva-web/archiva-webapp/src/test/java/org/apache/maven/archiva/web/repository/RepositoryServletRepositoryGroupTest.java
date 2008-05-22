@@ -873,9 +873,18 @@ argument_list|,
 name|response
 argument_list|)
 expr_stmt|;
-name|assertResponseOK
+name|assertEquals
 argument_list|(
+literal|"Should have been an 401 response code."
+argument_list|,
+name|HttpServletResponse
+operator|.
+name|SC_UNAUTHORIZED
+argument_list|,
 name|response
+operator|.
+name|getResponseCode
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

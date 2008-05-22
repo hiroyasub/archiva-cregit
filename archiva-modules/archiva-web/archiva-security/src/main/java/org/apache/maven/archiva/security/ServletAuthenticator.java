@@ -188,6 +188,19 @@ name|AuthorizationException
 throws|,
 name|UnauthorizedException
 function_decl|;
+specifier|public
+name|boolean
+name|isAuthorizedToAccessVirtualRepository
+parameter_list|(
+name|String
+name|principal
+parameter_list|,
+name|String
+name|repoId
+parameter_list|)
+throws|throws
+name|UnauthorizedException
+function_decl|;
 block|}
 end_interface
 
