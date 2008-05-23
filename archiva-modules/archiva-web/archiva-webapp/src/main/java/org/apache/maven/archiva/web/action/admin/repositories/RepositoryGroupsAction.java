@@ -387,7 +387,59 @@ literal|"Unable to add new repository group with id ["
 operator|+
 name|repoGroupId
 operator|+
-literal|"], that id already exists."
+literal|"], that id already exists as a repository group."
+argument_list|)
+expr_stmt|;
+return|return
+name|ERROR
+return|;
+block|}
+if|else if
+condition|(
+name|configuration
+operator|.
+name|getManagedRepositoriesAsMap
+argument_list|()
+operator|.
+name|containsKey
+argument_list|(
+name|repoGroupId
+argument_list|)
+condition|)
+block|{
+name|addActionError
+argument_list|(
+literal|"Unable to add new repository group with id ["
+operator|+
+name|repoGroupId
+operator|+
+literal|"], that id already exists as a managed repository."
+argument_list|)
+expr_stmt|;
+return|return
+name|ERROR
+return|;
+block|}
+if|else if
+condition|(
+name|configuration
+operator|.
+name|getRemoteRepositoriesAsMap
+argument_list|()
+operator|.
+name|containsKey
+argument_list|(
+name|repoGroupId
+argument_list|)
+condition|)
+block|{
+name|addActionError
+argument_list|(
+literal|"Unable to add new repository group with id ["
+operator|+
+name|repoGroupId
+operator|+
+literal|"], that id already exists as a remote repository."
 argument_list|)
 expr_stmt|;
 return|return

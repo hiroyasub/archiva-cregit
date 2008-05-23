@@ -362,6 +362,31 @@ literal|"], that id already exists as a remote repository."
 argument_list|)
 expr_stmt|;
 block|}
+if|else if
+condition|(
+name|config
+operator|.
+name|getRepositoryGroupsAsMap
+argument_list|()
+operator|.
+name|containsKey
+argument_list|(
+name|repoId
+argument_list|)
+condition|)
+block|{
+name|addFieldError
+argument_list|(
+literal|"repository.id"
+argument_list|,
+literal|"Unable to add new repository with id ["
+operator|+
+name|repoId
+operator|+
+literal|"], that id already exists as a repository group."
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
