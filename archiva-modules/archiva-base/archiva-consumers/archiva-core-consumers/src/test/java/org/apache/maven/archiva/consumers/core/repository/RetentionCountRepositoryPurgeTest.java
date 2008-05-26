@@ -189,7 +189,11 @@ argument_list|,
 name|dao
 argument_list|,
 name|getRepoConfiguration
-argument_list|()
+argument_list|(
+name|TEST_REPO_ID
+argument_list|,
+name|TEST_REPO_NAME
+argument_list|)
 operator|.
 name|getRetentionCount
 argument_list|()
@@ -212,7 +216,7 @@ expr_stmt|;
 name|String
 name|repoRoot
 init|=
-name|prepareTestRepo
+name|prepareTestRepos
 argument_list|()
 decl_stmt|;
 name|repoPurge
@@ -414,7 +418,7 @@ expr_stmt|;
 name|String
 name|repoRoot
 init|=
-name|prepareTestRepo
+name|prepareTestRepos
 argument_list|()
 decl_stmt|;
 name|repoPurge
@@ -615,7 +619,7 @@ expr_stmt|;
 name|String
 name|repoRoot
 init|=
-name|prepareTestRepo
+name|prepareTestRepos
 argument_list|()
 decl_stmt|;
 name|repoPurge

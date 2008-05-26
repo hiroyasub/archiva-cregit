@@ -681,6 +681,10 @@ argument_list|,
 name|metadataTools
 argument_list|,
 name|indices
+argument_list|,
+name|configuration
+argument_list|,
+name|repositoryFactory
 argument_list|)
 expr_stmt|;
 name|deleteReleasedSnapshots
