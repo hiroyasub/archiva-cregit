@@ -446,6 +446,29 @@ return|return
 name|ERROR
 return|;
 block|}
+if|if
+condition|(
+name|repoGroupId
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|100
+condition|)
+block|{
+name|addActionError
+argument_list|(
+literal|"Identifier ["
+operator|+
+name|repoGroupId
+operator|+
+literal|"] is over the maximum limit of 100 characters"
+argument_list|)
+expr_stmt|;
+return|return
+name|ERROR
+return|;
+block|}
 name|configuration
 operator|.
 name|addRepositoryGroup
