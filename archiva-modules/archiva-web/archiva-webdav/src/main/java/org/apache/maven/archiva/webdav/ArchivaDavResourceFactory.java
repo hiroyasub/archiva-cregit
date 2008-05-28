@@ -1199,7 +1199,7 @@ name|HttpServletResponse
 operator|.
 name|SC_NOT_FOUND
 argument_list|,
-literal|"Repository does not exist"
+literal|"Resource does not exist"
 argument_list|)
 expr_stmt|;
 block|}
