@@ -9,9 +9,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|web
-operator|.
-name|repository
+name|webdav
 package|;
 end_package
 
@@ -94,13 +92,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryServlet Tests, Proxied, Get of Timestamped Snapshot Artifacts, with varying policy settings.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * RepositoryServlet Tests, Proxied, Get of Snapshot Artifacts, with varying policy settings.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|RepositoryServletProxiedTimestampedSnapshotPolicyTest
+name|RepositoryServletProxiedSnapshotPolicyTest
 extends|extends
 name|AbstractRepositoryServletProxiedTestCase
 block|{
@@ -482,12 +480,12 @@ expr_stmt|;
 name|String
 name|resourcePath
 init|=
-literal|"org/apache/archiva/test/3.0-SNAPSHOT/test-3.0-20070822.033400-42.jar"
+literal|"org/apache/archiva/test/2.0-SNAPSHOT/test-2.0-SNAPSHOT.jar"
 decl_stmt|;
 name|String
 name|expectedRemoteContents
 init|=
-literal|"archiva-test-3.0-20070822.033400-42|jar-remote-contents"
+literal|"archiva-test-2.0-SNAPSHOT|jar-remote-contents"
 decl_stmt|;
 name|String
 name|expectedManagedContents
@@ -513,7 +511,7 @@ condition|)
 block|{
 name|expectedManagedContents
 operator|=
-literal|"archiva-test-3.0-20070822.033400-42|jar-managed-contents"
+literal|"archiva-test-2.0-SNAPSHOT|jar-managed-contents"
 expr_stmt|;
 name|File
 name|managedFile

@@ -9,9 +9,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|web
-operator|.
-name|repository
+name|webdav
 package|;
 end_package
 
@@ -80,22 +78,6 @@ operator|.
 name|configuration
 operator|.
 name|ManagedRepositoryConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|webdav
-operator|.
-name|*
 import|;
 end_import
 

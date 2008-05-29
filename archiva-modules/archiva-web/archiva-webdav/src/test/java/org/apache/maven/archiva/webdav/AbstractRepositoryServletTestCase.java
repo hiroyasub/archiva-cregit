@@ -9,9 +9,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|web
-operator|.
-name|repository
+name|webdav
 package|;
 end_package
 
@@ -161,6 +159,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|webdav
+operator|.
+name|RepositoryServlet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -200,6 +214,16 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -421,6 +445,8 @@ argument_list|,
 name|response
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"Should have been an OK response code."
@@ -451,6 +477,8 @@ argument_list|,
 name|response
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"Should have been an 404/Not Found response code."
@@ -841,7 +869,7 @@ name|ServletRunner
 argument_list|(
 name|getTestFile
 argument_list|(
-literal|"src/test/webapp/WEB-INF/web.xml"
+literal|"src/test/resources/WEB-INF/web.xml"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -875,7 +903,7 @@ name|getPlexusConfigLocation
 parameter_list|()
 block|{
 return|return
-literal|"org/apache/maven/archiva/web/repository/RepositoryServletTest.xml"
+literal|"org/apache/maven/archiva/webdav/RepositoryServletTest.xml"
 return|;
 block|}
 annotation|@
@@ -911,6 +939,22 @@ name|sr
 operator|.
 name|shutDown
 argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|repoRootInternal
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+name|FileUtils
+operator|.
+name|deleteDirectory
+argument_list|(
+name|repoRootInternal
+argument_list|)
 expr_stmt|;
 block|}
 name|super

@@ -9,9 +9,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|web
-operator|.
-name|repository
+name|webdav
 package|;
 end_package
 
@@ -69,6 +67,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|webdav
+operator|.
+name|RepositoryServlet
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|meterware
@@ -76,30 +90,6 @@ operator|.
 name|httpunit
 operator|.
 name|GetMethodWebRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|meterware
-operator|.
-name|httpunit
-operator|.
-name|HttpNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|meterware
-operator|.
-name|httpunit
-operator|.
-name|HttpUnitOptions
 import|;
 end_import
 

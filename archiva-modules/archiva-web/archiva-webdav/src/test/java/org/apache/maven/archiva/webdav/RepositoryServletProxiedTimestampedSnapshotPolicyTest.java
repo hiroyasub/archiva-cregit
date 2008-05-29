@@ -9,9 +9,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|web
-operator|.
-name|repository
+name|webdav
 package|;
 end_package
 
@@ -100,7 +98,7 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|RepositoryServletProxiedPluginSnapshotPolicyTest
+name|RepositoryServletProxiedTimestampedSnapshotPolicyTest
 extends|extends
 name|AbstractRepositoryServletProxiedTestCase
 block|{
@@ -482,12 +480,12 @@ expr_stmt|;
 name|String
 name|resourcePath
 init|=
-literal|"org/apache/archiva/archivatest-maven-plugin/4.0-alpha-1-SNAPSHOT/archivatest-maven-plugin-4.0-alpha-1-20070822.033400-42.jar"
+literal|"org/apache/archiva/test/3.0-SNAPSHOT/test-3.0-20070822.033400-42.jar"
 decl_stmt|;
 name|String
 name|expectedRemoteContents
 init|=
-literal|"archivatest-maven-plugin-4.0-alpha-1-20070822.033400-42|jar-remote-contents"
+literal|"archiva-test-3.0-20070822.033400-42|jar-remote-contents"
 decl_stmt|;
 name|String
 name|expectedManagedContents
@@ -513,7 +511,7 @@ condition|)
 block|{
 name|expectedManagedContents
 operator|=
-literal|"archivatest-maven-plugin-4.0-alpha-1-20070822.033400-42|jar-managed-contents"
+literal|"archiva-test-3.0-20070822.033400-42|jar-managed-contents"
 expr_stmt|;
 name|File
 name|managedFile
