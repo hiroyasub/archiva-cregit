@@ -360,6 +360,16 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
+comment|//Create a dav session
+name|request
+operator|.
+name|setDavSession
+argument_list|(
+operator|new
+name|ArchivaDavSession
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|servletAuth
 operator|.
@@ -425,9 +435,28 @@ name|void
 name|releaseSession
 parameter_list|(
 name|WebdavRequest
-name|webdavRequest
+name|request
 parameter_list|)
 block|{
+comment|//Remove DavSession
+if|if
+condition|(
+name|request
+operator|.
+name|getDavSession
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|request
+operator|.
+name|setDavSession
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 specifier|private
 name|String
