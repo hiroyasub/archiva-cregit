@@ -277,7 +277,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"repository/internal"
+literal|"/repository/internal"
 argument_list|,
 name|locator
 operator|.
@@ -287,7 +287,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"repository/internal"
+literal|"/repository/internal"
 argument_list|,
 name|locator
 operator|.
