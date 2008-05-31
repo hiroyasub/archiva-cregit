@@ -239,18 +239,6 @@ name|PlexusToSpringUtils
 import|;
 end_import
 
-begin_import
-import|import
-name|quicktime
-operator|.
-name|std
-operator|.
-name|qtcomponents
-operator|.
-name|SCInfo
-import|;
-end_import
-
 begin_class
 specifier|public
 class|class
