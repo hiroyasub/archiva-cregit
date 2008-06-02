@@ -259,10 +259,6 @@ name|ArchivaDavResourceLocator
 name|resourceLocator
 decl_stmt|;
 specifier|private
-name|ArchivaDavResourceFactory
-name|factory
-decl_stmt|;
-specifier|private
 name|File
 name|baseDir
 decl_stmt|;
@@ -271,7 +267,7 @@ specifier|final
 name|String
 name|REPOPATH
 init|=
-literal|"/myresource.jar"
+literal|"myresource.jar"
 decl_stmt|;
 specifier|private
 name|File
@@ -347,10 +343,20 @@ argument_list|,
 literal|"myresource.jar"
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Could not create "
+operator|+
+name|myResource
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|,
 name|myResource
 operator|.
 name|createNewFile
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|resourceLocator
 operator|=
