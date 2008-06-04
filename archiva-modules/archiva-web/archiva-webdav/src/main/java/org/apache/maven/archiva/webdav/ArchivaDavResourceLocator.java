@@ -202,6 +202,12 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+name|href
+operator|=
+name|hrefPrefix
+operator|+
+name|escapedPath
+expr_stmt|;
 comment|//Remove trailing slashes otherwise Text.getRelativeParent fails
 if|if
 condition|(
@@ -239,12 +245,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|href
-operator|=
-name|hrefPrefix
-operator|+
-name|escapedPath
-expr_stmt|;
 block|}
 specifier|public
 name|String
@@ -345,6 +345,14 @@ operator|&&
 operator|!
 name|isRootLocation
 argument_list|()
+operator|&&
+operator|!
+name|href
+operator|.
+name|endsWith
+argument_list|(
+literal|"/"
+argument_list|)
 operator|)
 condition|?
 literal|"/"

@@ -1276,8 +1276,10 @@ operator|.
 name|getLocator
 argument_list|()
 operator|.
-name|getResourcePath
-argument_list|()
+name|getHref
+argument_list|(
+literal|true
+argument_list|)
 operator|.
 name|endsWith
 argument_list|(
