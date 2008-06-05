@@ -644,6 +644,13 @@ argument_list|(
 name|configuration
 argument_list|)
 expr_stmt|;
+name|archivaConfigurationControl
+operator|.
+name|setReturnValue
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
 name|archivaConfiguration
 operator|.
 name|save

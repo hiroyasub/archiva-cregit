@@ -155,6 +155,14 @@ name|RoleManager
 name|roleManager
 decl_stmt|;
 specifier|public
+specifier|static
+specifier|final
+name|String
+name|CONFIRM
+init|=
+literal|"confirm"
+decl_stmt|;
+specifier|public
 name|RoleManager
 name|getRoleManager
 parameter_list|()
