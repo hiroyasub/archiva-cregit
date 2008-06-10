@@ -389,6 +389,13 @@ name|writer
 operator|.
 name|println
 argument_list|(
+literal|"<body>"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|println
+argument_list|(
 literal|"<h3>Collection: "
 operator|+
 name|logicalResource
