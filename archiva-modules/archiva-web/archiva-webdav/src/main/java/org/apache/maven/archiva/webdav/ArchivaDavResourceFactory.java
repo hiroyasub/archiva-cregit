@@ -1271,15 +1271,10 @@ name|isCollection
 argument_list|()
 operator|&&
 operator|!
-name|resource
+name|request
 operator|.
-name|getLocator
+name|getRequestURI
 argument_list|()
-operator|.
-name|getHref
-argument_list|(
-literal|true
-argument_list|)
 operator|.
 name|endsWith
 argument_list|(
