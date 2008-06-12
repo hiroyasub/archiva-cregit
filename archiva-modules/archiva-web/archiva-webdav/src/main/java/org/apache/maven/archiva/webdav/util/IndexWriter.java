@@ -581,8 +581,6 @@ name|file
 operator|.
 name|isDirectory
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -735,8 +733,6 @@ operator|)
 operator|.
 name|isDirectory
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -754,9 +750,6 @@ name|resourceName
 parameter_list|,
 name|boolean
 name|directory
-parameter_list|,
-name|boolean
-name|isBrowse
 parameter_list|)
 block|{
 if|if
