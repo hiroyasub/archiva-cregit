@@ -3364,12 +3364,9 @@ name|isCollection
 argument_list|()
 operator|&&
 operator|!
-name|resource
+name|request
 operator|.
-name|getLocator
-argument_list|()
-operator|.
-name|getResourcePath
+name|getRequestURI
 argument_list|()
 operator|.
 name|endsWith
