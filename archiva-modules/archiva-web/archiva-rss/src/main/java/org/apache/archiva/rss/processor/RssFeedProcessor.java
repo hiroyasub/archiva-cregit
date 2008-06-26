@@ -29,6 +29,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|database
+operator|.
+name|ArchivaDatabaseException
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|sun
@@ -87,6 +103,8 @@ name|String
 argument_list|>
 name|reqParams
 parameter_list|)
+throws|throws
+name|ArchivaDatabaseException
 function_decl|;
 block|}
 end_interface

@@ -188,12 +188,7 @@ name|DEFAULT_LANGUAGE
 init|=
 literal|"en-us"
 decl_stmt|;
-specifier|private
-name|String
-name|DEFAULT_LINK
-init|=
-literal|"http://localhost:8080/archiva/rss/"
-decl_stmt|;
+comment|//private String DEFAULT_LINK = "http://localhost:8080/archiva/rss/";
 specifier|public
 name|SyndFeed
 name|generateFeed
@@ -209,9 +204,6 @@ argument_list|<
 name|RssFeedEntry
 argument_list|>
 name|dataEntries
-parameter_list|,
-name|String
-name|queryString
 parameter_list|)
 block|{
 name|SyndFeed
@@ -228,15 +220,7 @@ argument_list|(
 name|title
 argument_list|)
 expr_stmt|;
-name|feed
-operator|.
-name|setLink
-argument_list|(
-name|DEFAULT_LINK
-operator|+
-name|queryString
-argument_list|)
-expr_stmt|;
+comment|//feed.setLink( DEFAULT_LINK + queryString );
 name|feed
 operator|.
 name|setDescription

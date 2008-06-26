@@ -263,8 +263,6 @@ argument_list|,
 literal|"The test feed from Archiva."
 argument_list|,
 name|entries
-argument_list|,
-literal|"generated-rss2.0-feed.xml"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -277,16 +275,7 @@ name|getTitle
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"http://localhost:8080/archiva/rss/generated-rss2.0-feed.xml"
-argument_list|,
-name|feed
-operator|.
-name|getLink
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//assertEquals( "http://localhost:8080/archiva/rss/generated-rss2.0-feed.xml", feed.getLink() );
 name|assertEquals
 argument_list|(
 literal|"The test feed from Archiva."
