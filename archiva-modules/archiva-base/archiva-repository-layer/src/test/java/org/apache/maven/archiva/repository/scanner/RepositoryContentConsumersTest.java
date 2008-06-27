@@ -1106,6 +1106,13 @@ name|currentTimeMillis
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|startTime
+operator|.
+name|setTime
+argument_list|(
+literal|12345678
+argument_list|)
+expr_stmt|;
 name|selectedKnownConsumer
 operator|.
 name|beginScan
@@ -1176,13 +1183,6 @@ name|invalidControl
 operator|.
 name|replay
 argument_list|()
-expr_stmt|;
-name|consumers
-operator|.
-name|setStartTime
-argument_list|(
-name|startTime
-argument_list|)
 expr_stmt|;
 name|consumers
 operator|.
