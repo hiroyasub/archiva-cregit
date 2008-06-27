@@ -671,7 +671,6 @@ literal|"New Artifacts in Repository 'test-repo'"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//assertTrue( feed.getLink().equals( "http://localhost:8080/archiva/rss/rss_feeds?repoId=test-repo" ) );
 name|assertTrue
 argument_list|(
 name|feed

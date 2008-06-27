@@ -275,7 +275,6 @@ name|getTitle
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//assertEquals( "http://localhost:8080/archiva/rss/generated-rss2.0-feed.xml", feed.getLink() );
 name|assertEquals
 argument_list|(
 literal|"The test feed from Archiva."
