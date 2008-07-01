@@ -2994,6 +2994,15 @@ name|NotFoundException
 name|e
 parameter_list|)
 block|{
+name|urlFailureCache
+operator|.
+name|cacheFailure
+argument_list|(
+name|url
+operator|+
+name|type
+argument_list|)
+expr_stmt|;
 name|log
 operator|.
 name|debug
