@@ -635,6 +635,20 @@ name|Validateable
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|FilenameUtils
+import|;
+end_import
+
 begin_comment
 comment|/**  * Upload an artifact using Jakarta file upload in webwork. If set by the user a pom will also be generated. Metadata  * will also be updated if one exists, otherwise it would be created.  *   * @author<a href="mailto:wsmoak@apache.org">Wendy Smoak</a>  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="uploadAction"  */
 end_comment
@@ -1768,6 +1782,17 @@ argument_list|(
 name|packaging
 argument_list|)
 expr_stmt|;
+name|filename
+operator|=
+name|FilenameUtils
+operator|.
+name|removeExtension
+argument_list|(
+name|filename
+argument_list|)
+operator|+
+literal|".pom"
+expr_stmt|;
 name|File
 name|pomFile
 init|=
@@ -1777,13 +1802,6 @@ argument_list|(
 name|targetPath
 argument_list|,
 name|filename
-operator|.
-name|replaceAll
-argument_list|(
-name|packaging
-argument_list|,
-literal|"pom"
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|pomWriter
