@@ -68,6 +68,14 @@ name|MODIFY_FILE
 init|=
 literal|"Modify File"
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|UPLOAD_FILE
+init|=
+literal|"Uploaded File"
+decl_stmt|;
 specifier|private
 name|String
 name|repositoryId
