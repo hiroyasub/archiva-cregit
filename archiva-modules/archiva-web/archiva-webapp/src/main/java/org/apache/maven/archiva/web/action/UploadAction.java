@@ -1729,7 +1729,9 @@ name|targetPath
 operator|.
 name|lastIndexOf
 argument_list|(
-literal|'/'
+name|File
+operator|.
+name|separatorChar
 argument_list|)
 argument_list|)
 decl_stmt|;
