@@ -446,8 +446,6 @@ expr_stmt|;
 name|String
 name|existingTestDefaultArchivaConfigFile
 init|=
-literal|"<configuration>"
-operator|+
 name|FileUtils
 operator|.
 name|readFileToString
@@ -457,8 +455,6 @@ argument_list|(
 literal|"target/test-classes/org/apache/maven/archiva/configuration/test-default-archiva.xml"
 argument_list|)
 argument_list|)
-operator|+
-literal|"</configuration>"
 decl_stmt|;
 name|existingTestDefaultArchivaConfigFile
 operator|=
