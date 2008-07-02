@@ -211,18 +211,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|context
-operator|.
-name|ApplicationContext
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author<a href="mailto:james@atlassian.com">James William Dumay</a>  */
 end_comment
