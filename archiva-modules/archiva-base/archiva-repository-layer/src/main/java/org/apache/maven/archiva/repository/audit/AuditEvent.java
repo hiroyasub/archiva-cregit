@@ -66,7 +66,39 @@ specifier|final
 name|String
 name|MODIFY_FILE
 init|=
-literal|"Modify File"
+literal|"Modified File"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MOVE_FILE
+init|=
+literal|"Moved File"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MOVE_DIRECTORY
+init|=
+literal|"Moved Directory"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|COPY_DIRECTORY
+init|=
+literal|"Copied Directory"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|COPY_FILE
+init|=
+literal|"Copied File"
 decl_stmt|;
 specifier|public
 specifier|static
