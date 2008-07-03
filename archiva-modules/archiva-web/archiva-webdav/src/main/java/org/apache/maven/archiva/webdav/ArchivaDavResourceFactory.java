@@ -1430,9 +1430,11 @@ else|else
 block|{
 name|setHeaders
 argument_list|(
+name|response
+argument_list|,
 name|locator
 argument_list|,
-name|response
+name|resource
 argument_list|)
 expr_stmt|;
 comment|// compatibility with MRM-440 to ensure browsing the repository works ok
@@ -2735,11 +2737,14 @@ specifier|private
 name|void
 name|setHeaders
 parameter_list|(
+name|DavServletResponse
+name|response
+parameter_list|,
 name|DavResourceLocator
 name|locator
 parameter_list|,
-name|DavServletResponse
-name|response
+name|DavResource
+name|resource
 parameter_list|)
 block|{
 comment|// [MRM-503] - Metadata file need Pragma:no-cache response
@@ -2776,6 +2781,19 @@ literal|"no-cache"
 argument_list|)
 expr_stmt|;
 block|}
+comment|//We need to specify this so connecting wagons can work correctly
+name|response
+operator|.
+name|addDateHeader
+argument_list|(
+literal|"last-modified"
+argument_list|,
+name|resource
+operator|.
+name|getModificationTime
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// TODO: [MRM-524] determine http caching options for other types of files (artifacts, sha1, md5, snapshots)
 block|}
 specifier|private
