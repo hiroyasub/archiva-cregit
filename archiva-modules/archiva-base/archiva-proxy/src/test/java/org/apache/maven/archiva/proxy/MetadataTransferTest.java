@@ -492,6 +492,13 @@ argument_list|)
 expr_stmt|;
 name|wagonMockControl
 operator|.
+name|setMatcher
+argument_list|(
+name|customWagonGetMatcher
+argument_list|)
+expr_stmt|;
+name|wagonMockControl
+operator|.
 name|setThrowable
 argument_list|(
 operator|new

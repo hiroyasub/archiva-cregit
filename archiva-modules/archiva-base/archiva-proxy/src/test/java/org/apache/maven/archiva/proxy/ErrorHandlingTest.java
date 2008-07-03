@@ -2335,6 +2335,13 @@ argument_list|)
 expr_stmt|;
 name|wagonMockControl
 operator|.
+name|setMatcher
+argument_list|(
+name|customWagonGetMatcher
+argument_list|)
+expr_stmt|;
+name|wagonMockControl
+operator|.
 name|setThrowable
 argument_list|(
 name|throwable
@@ -2378,6 +2385,13 @@ name|expectedFile
 operator|.
 name|lastModified
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|wagonMockControl
+operator|.
+name|setMatcher
+argument_list|(
+name|customWagonGetIfNewerMatcher
 argument_list|)
 expr_stmt|;
 name|wagonMockControl
