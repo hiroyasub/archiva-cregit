@@ -375,7 +375,7 @@ literal|"<title>Collection: "
 operator|+
 name|logicalResource
 operator|+
-literal|"<title>"
+literal|"</title>"
 argument_list|)
 expr_stmt|;
 name|writer
