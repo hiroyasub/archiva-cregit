@@ -603,6 +603,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|outputContext
+operator|.
+name|hasStream
+argument_list|()
+condition|)
+block|{
 name|Collections
 operator|.
 name|sort
@@ -668,6 +676,7 @@ argument_list|(
 name|outputContext
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 specifier|public
 name|void

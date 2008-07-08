@@ -1023,13 +1023,6 @@ name|isCollection
 argument_list|()
 condition|)
 block|{
-name|FileInputStream
-name|is
-init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
 name|outputContext
 operator|.
 name|setContentLength
@@ -1055,6 +1048,26 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|isCollection
+argument_list|()
+operator|&&
+name|outputContext
+operator|.
+name|hasStream
+argument_list|()
+condition|)
+block|{
+name|FileInputStream
+name|is
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
 comment|// Write content to stream
 name|is
 operator|=
@@ -1088,7 +1101,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-else|else
+if|else if
+condition|(
+name|outputContext
+operator|.
+name|hasStream
+argument_list|()
+condition|)
 block|{
 name|IndexWriter
 name|writer
