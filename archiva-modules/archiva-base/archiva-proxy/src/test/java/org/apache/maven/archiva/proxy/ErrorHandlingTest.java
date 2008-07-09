@@ -2416,10 +2416,7 @@ return|return
 operator|new
 name|File
 argument_list|(
-name|expectedFile
-operator|.
-name|getParentFile
-argument_list|()
+name|managedDefaultDir
 argument_list|,
 name|expectedFile
 operator|.

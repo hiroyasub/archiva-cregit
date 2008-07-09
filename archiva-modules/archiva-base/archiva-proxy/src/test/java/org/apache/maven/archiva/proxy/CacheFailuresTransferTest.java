@@ -663,6 +663,11 @@ name|path
 init|=
 literal|"org/apache/maven/test/get-in-second-proxy/1.0/get-in-second-proxy-1.0.jar"
 decl_stmt|;
+name|setupTestableManagedRepository
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
 name|File
 name|expectedFile
 init|=

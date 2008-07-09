@@ -2782,6 +2782,12 @@ name|destDir
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Make the destination dir.
+name|destDir
+operator|.
+name|mkdirs
+argument_list|()
+expr_stmt|;
 comment|// Test the source dir.
 if|if
 condition|(
@@ -2824,12 +2830,6 @@ name|sourceDir
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Make the destination dir.
-name|destDir
-operator|.
-name|mkdirs
-argument_list|()
-expr_stmt|;
 comment|// Copy directory structure.
 name|copyDirectoryStructure
 argument_list|(

@@ -1103,6 +1103,8 @@ name|targetRepository
 argument_list|,
 name|targetPath
 argument_list|,
+name|repository
+argument_list|,
 name|localFile
 argument_list|,
 name|requestProperties
@@ -1387,6 +1389,8 @@ argument_list|,
 name|targetRepository
 argument_list|,
 name|targetPath
+argument_list|,
+name|repository
 argument_list|,
 name|localRepoFile
 argument_list|,
@@ -1883,6 +1887,8 @@ argument_list|,
 name|targetRepository
 argument_list|,
 name|targetPath
+argument_list|,
+name|repository
 argument_list|,
 name|localRepoFile
 argument_list|,
@@ -2390,7 +2396,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Perform the transfer of the file.      *      * @param connector         the connector configuration to use.      * @param remoteRepository  the remote repository get the resource from.      * @param remotePath        the path in the remote repository to the resource to get.      * @param localFile         the local file to place the downloaded resource into      * @param requestProperties the request properties to utilize for policy handling.      * @return the local file that was downloaded, or null if not downloaded.      * @throws NotFoundException    if the file was not found on the remote repository.      * @throws NotModifiedException if the localFile was present, and the resource was present on remote repository,      *                              but the remote resource is not newer than the local File.      * @throws ProxyException       if transfer was unsuccessful.      */
+comment|/**      * Perform the transfer of the file.      *      * @param connector         the connector configuration to use.      * @param remoteRepository  the remote repository get the resource from.      * @param remotePath        the path in the remote repository to the resource to get.      * @param repository        the managed repository that will hold the file      * @param localFile         the local file to place the downloaded resource into      * @param requestProperties the request properties to utilize for policy handling.      * @return the local file that was downloaded, or null if not downloaded.      * @throws NotFoundException    if the file was not found on the remote repository.      * @throws NotModifiedException if the localFile was present, and the resource was present on remote repository,      *                              but the remote resource is not newer than the local File.      * @throws ProxyException       if transfer was unsuccessful.      */
 specifier|private
 name|File
 name|transferFile
@@ -2403,6 +2409,9 @@ name|remoteRepository
 parameter_list|,
 name|String
 name|remotePath
+parameter_list|,
+name|ManagedRepositoryContent
+name|repository
 parameter_list|,
 name|File
 name|localFile
@@ -2704,6 +2713,8 @@ name|remoteRepository
 argument_list|,
 name|remotePath
 argument_list|,
+name|repository
+argument_list|,
 name|localFile
 argument_list|)
 expr_stmt|;
@@ -2714,6 +2725,8 @@ argument_list|,
 name|remoteRepository
 argument_list|,
 name|remotePath
+argument_list|,
+name|repository
 argument_list|,
 name|localFile
 argument_list|,
@@ -2727,6 +2740,8 @@ argument_list|,
 name|remoteRepository
 argument_list|,
 name|remotePath
+argument_list|,
+name|repository
 argument_list|,
 name|localFile
 argument_list|,
@@ -2894,7 +2909,7 @@ return|return
 name|localFile
 return|;
 block|}
-comment|/**      *<p>      * Quietly transfer the checksum file from the remote repository to the local file.      *</p>      *      * @param wagon            the wagon instance (should already be connected) to use.      * @param remoteRepository the remote repository to transfer from.      * @param remotePath       the remote path to the resource to get.      * @param localFile        the local file that should contain the downloaded contents      * @param type             the type of checksum to transfer (example: ".md5" or ".sha1")      * @throws ProxyException if copying the downloaded file into place did not succeed.      */
+comment|/**      *<p>      * Quietly transfer the checksum file from the remote repository to the local file.      *</p>      *      * @param wagon            the wagon instance (should already be connected) to use.      * @param remoteRepository the remote repository to transfer from.      * @param remotePath       the remote path to the resource to get.      * @param repository       the managed repository that will hold the file      * @param localFile        the local file that should contain the downloaded contents      * @param type             the type of checksum to transfer (example: ".md5" or ".sha1")      * @throws ProxyException if copying the downloaded file into place did not succeed.      */
 specifier|private
 name|void
 name|transferChecksum
@@ -2907,6 +2922,9 @@ name|remoteRepository
 parameter_list|,
 name|String
 name|remotePath
+parameter_list|,
+name|ManagedRepositoryContent
+name|repository
 parameter_list|,
 name|File
 name|localFile
@@ -2970,6 +2988,8 @@ argument_list|,
 name|remotePath
 operator|+
 name|type
+argument_list|,
+name|repository
 argument_list|,
 name|hashFile
 argument_list|)
@@ -3070,7 +3090,7 @@ name|e
 throw|;
 block|}
 block|}
-comment|/**      * Perform the transfer of the remote file to the local file specified.      *      * @param wagon            the wagon instance to use.      * @param remoteRepository the remote repository to use      * @param remotePath       the remote path to attempt to get      * @param localFile        the local file to save to      * @return The local file that was transfered.      * @throws ProxyException if there was a problem moving the downloaded file into place.      * @throws WagonException if there was a problem tranfering the file.      */
+comment|/**      * Perform the transfer of the remote file to the local file specified.      *      * @param wagon            the wagon instance to use.      * @param remoteRepository the remote repository to use      * @param remotePath       the remote path to attempt to get      * @param repository       the managed repository that will hold the file      * @param localFile        the local file to save to      * @return The local file that was transfered.      * @throws ProxyException if there was a problem moving the downloaded file into place.      * @throws WagonException if there was a problem tranfering the file.      */
 specifier|private
 name|File
 name|transferSimpleFile
@@ -3083,6 +3103,9 @@ name|remoteRepository
 parameter_list|,
 name|String
 name|remotePath
+parameter_list|,
+name|ManagedRepositoryContent
+name|repository
 parameter_list|,
 name|File
 name|localFile
@@ -3105,14 +3128,6 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-name|localFile
-operator|.
-name|getParentFile
-argument_list|()
-operator|.
-name|mkdirs
-argument_list|()
-expr_stmt|;
 name|temp
 operator|=
 name|File
@@ -3128,10 +3143,14 @@ literal|"."
 argument_list|,
 literal|null
 argument_list|,
-name|localFile
+operator|new
+name|File
+argument_list|(
+name|repository
 operator|.
-name|getParentFile
+name|getRepoRoot
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -3834,6 +3853,14 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+name|target
+operator|.
+name|getParentFile
+argument_list|()
+operator|.
+name|mkdirs
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 operator|!
