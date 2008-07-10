@@ -532,6 +532,16 @@ argument_list|()
 expr_stmt|;
 name|hit
 operator|.
+name|setRepositoryId
+argument_list|(
+name|filecontent
+operator|.
+name|getRepositoryId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|hit
+operator|.
 name|setUrl
 argument_list|(
 name|filecontent
