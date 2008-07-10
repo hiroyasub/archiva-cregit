@@ -135,6 +135,10 @@ name|getPrimaryKey
 parameter_list|()
 block|{
 return|return
+name|repositoryId
+operator|+
+literal|":"
+operator|+
 name|filename
 return|;
 block|}

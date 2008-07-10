@@ -1142,7 +1142,7 @@ init|=
 literal|0
 init|;
 name|i
-operator|<=
+operator|<
 name|fetchCount
 condition|;
 name|i
