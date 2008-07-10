@@ -1493,6 +1493,9 @@ argument_list|)
 condition|)
 block|{
 comment|// TODO MRM-872 : must merge all available metadatas
+comment|// use RepositoryMetadataMerge for the merging of the versions
+comment|//
+comment|// Deng: I'll continue this tomorrow, everything is getting blurry now
 block|}
 name|DavResource
 name|resource
