@@ -1188,14 +1188,6 @@ specifier|private
 name|Digester
 name|digestMd5
 decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|mergedMetadataFilename
-init|=
-literal|"/merged-maven-metadata.xml"
-decl_stmt|;
 specifier|public
 name|DavResource
 name|createResource
@@ -1789,7 +1781,14 @@ name|filePath
 operator|=
 name|filePath
 operator|+
-name|mergedMetadataFilename
+literal|"/maven-metadata-"
+operator|+
+name|repoGroupConfig
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|".xml"
 expr_stmt|;
 comment|// for MRM-872 handle checksums of the merged metadata files
 if|if

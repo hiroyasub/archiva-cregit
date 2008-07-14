@@ -1247,7 +1247,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"d2321a573e0488bca571b624f891104009408dd8  merged-maven-metadata.xml"
+literal|"d2321a573e0488bca571b624f891104009408dd8  maven-metadata-group-with-valid-repos.xml"
 argument_list|,
 name|response
 operator|.
@@ -1286,7 +1286,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"79d271fbe8bd1d17b23273937750d407  merged-maven-metadata.xml"
+literal|"79d271fbe8bd1d17b23273937750d407  maven-metadata-group-with-valid-repos.xml"
 argument_list|,
 name|response
 operator|.
