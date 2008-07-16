@@ -59,6 +59,33 @@ name|SearchResultLimits
 name|limits
 parameter_list|)
 function_decl|;
+comment|/**      * Search for a specific term from the previous search results.      *       * @param principal the user doing the search.      * @param selectedRepos the repositories to search from.      * @param term the term to search for.      * @param limits the limits to apply to the search results.      * @param previousSearchTerms the list of the previous search terms.      * @return the results      */
+specifier|public
+name|SearchResults
+name|searchForTerm
+parameter_list|(
+name|String
+name|principal
+parameter_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|selectedRepos
+parameter_list|,
+name|String
+name|term
+parameter_list|,
+name|SearchResultLimits
+name|limits
+parameter_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|previousSearchTerms
+parameter_list|)
+function_decl|;
 comment|/**      * Search for the specific bytecode across all repositories.      *       * @param term the term to search for.      * @param limits the limits to apply to the search results.      * @return the results.      */
 specifier|public
 name|SearchResults
