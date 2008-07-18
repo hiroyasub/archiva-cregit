@@ -2767,10 +2767,27 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// Checksums are fetched with artifact / metadata.
-comment|// Need to adjust the path for the checksum resource.
+name|File
+name|proxiedFile
+init|=
+name|connectors
+operator|.
+name|fetchFromProxies
+argument_list|(
+name|managedRepository
+argument_list|,
+name|resource
+operator|.
+name|getPath
+argument_list|()
+argument_list|)
+decl_stmt|;
 return|return
-literal|false
+operator|(
+name|proxiedFile
+operator|!=
+literal|null
+operator|)
 return|;
 block|}
 comment|// Is it a Metadata resource?
