@@ -1107,6 +1107,8 @@ argument_list|,
 name|localFile
 argument_list|,
 name|requestProperties
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -1296,6 +1298,19 @@ argument_list|,
 name|path
 argument_list|)
 decl_stmt|;
+comment|// no update policies for these paths
+if|if
+condition|(
+name|localFile
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 name|Properties
 name|requestProperties
 init|=
@@ -1386,6 +1401,8 @@ argument_list|,
 name|localFile
 argument_list|,
 name|requestProperties
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
@@ -1649,6 +1666,8 @@ argument_list|,
 name|localRepoFile
 argument_list|,
 name|requestProperties
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 if|if
@@ -2146,6 +2165,8 @@ argument_list|,
 name|localRepoFile
 argument_list|,
 name|requestProperties
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 if|if
@@ -2649,7 +2670,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Perform the transfer of the file.      *      * @param connector         the connector configuration to use.      * @param remoteRepository  the remote repository get the resource from.      * @param remotePath        the path in the remote repository to the resource to get.      * @param repository        the managed repository that will hold the file      * @param localFile         the local file to place the downloaded resource into      * @param requestProperties the request properties to utilize for policy handling.      * @return the local file that was downloaded, or null if not downloaded.      * @throws NotFoundException    if the file was not found on the remote repository.      * @throws NotModifiedException if the localFile was present, and the resource was present on remote repository,      *                              but the remote resource is not newer than the local File.      * @throws ProxyException       if transfer was unsuccessful.      */
+comment|/**      * Perform the transfer of the file.      *      * @param connector         the connector configuration to use.      * @param remoteRepository  the remote repository get the resource from.      * @param remotePath        the path in the remote repository to the resource to get.      * @param repository        the managed repository that will hold the file      * @param localFile         the local file to place the downloaded resource into      * @param requestProperties the request properties to utilize for policy handling.      * @param executeConsumers  whether to execute the consumers after proxying      * @return the local file that was downloaded, or null if not downloaded.      * @throws NotFoundException    if the file was not found on the remote repository.      * @throws NotModifiedException if the localFile was present, and the resource was present on remote repository,      *                              but the remote resource is not newer than the local File.      * @throws ProxyException       if transfer was unsuccessful.      */
 specifier|private
 name|File
 name|transferFile
@@ -2671,6 +2692,9 @@ name|localFile
 parameter_list|,
 name|Properties
 name|requestProperties
+parameter_list|,
+name|boolean
+name|executeConsumers
 parameter_list|)
 throws|throws
 name|ProxyException
@@ -2971,6 +2995,8 @@ argument_list|,
 name|localFile
 argument_list|)
 expr_stmt|;
+comment|// TODO: these should be used to validate the download based on the policies, not always downloaded to
+comment|//   save on connections since md5 is rarely used
 name|transferChecksum
 argument_list|(
 name|wagon
@@ -3141,6 +3167,11 @@ return|return
 literal|null
 return|;
 block|}
+if|if
+condition|(
+name|executeConsumers
+condition|)
+block|{
 comment|// Just-in-time update of the index and database by executing the consumers for this artifact
 name|consumers
 operator|.
@@ -3157,6 +3188,7 @@ argument_list|,
 name|localFile
 argument_list|)
 expr_stmt|;
+block|}
 comment|// Everything passes.
 return|return
 name|localFile
