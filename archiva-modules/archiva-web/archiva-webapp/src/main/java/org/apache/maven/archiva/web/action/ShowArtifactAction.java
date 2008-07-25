@@ -240,7 +240,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Browse the repository.  *  * TODO change name to ShowVersionedAction to conform to terminology.  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="showArtifactAction"  */
+comment|/**  * Browse the repository.   *   * TODO change name to ShowVersionedAction to conform to terminology.  *   * @plexus.component role="com.opensymphony.xwork.Action" role-hint="showArtifactAction"  */
 end_comment
 
 begin_class
@@ -276,6 +276,10 @@ specifier|private
 name|String
 name|version
 decl_stmt|;
+specifier|private
+name|String
+name|repositoryId
+decl_stmt|;
 comment|/* .\ Exposed Output Objects \.__________________________________ */
 comment|/**      * The model of this versioned project.      */
 specifier|private
@@ -300,7 +304,7 @@ specifier|private
 name|List
 name|dependencies
 decl_stmt|;
-comment|/**      * Show the versioned project information tab.      *       * TODO: Change name to 'project'      */
+comment|/**      * Show the versioned project information tab. TODO: Change name to 'project'      */
 specifier|public
 name|String
 name|artifact
@@ -319,6 +323,27 @@ operator|=
 name|repoBrowsing
 operator|.
 name|selectVersion
+argument_list|(
+name|getPrincipal
+argument_list|()
+argument_list|,
+name|getObservableRepos
+argument_list|()
+argument_list|,
+name|groupId
+argument_list|,
+name|artifactId
+argument_list|,
+name|version
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|repositoryId
+operator|=
+name|repoBrowsing
+operator|.
+name|getRepositoryId
 argument_list|(
 name|getPrincipal
 argument_list|()
@@ -472,7 +497,8 @@ argument_list|(
 literal|"#### In reports."
 argument_list|)
 expr_stmt|;
-comment|// TODO: hook up reports on project - this.reports = artifactsDatabase.findArtifactResults( groupId, artifactId, version );
+comment|// TODO: hook up reports on project - this.reports = artifactsDatabase.findArtifactResults( groupId, artifactId,
+comment|// version );
 name|System
 operator|.
 name|out
@@ -862,6 +888,30 @@ block|{
 return|return
 name|dependees
 return|;
+block|}
+specifier|public
+name|String
+name|getRepositoryId
+parameter_list|()
+block|{
+return|return
+name|repositoryId
+return|;
+block|}
+specifier|public
+name|void
+name|setRepositoryId
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|repositoryId
+operator|=
+name|repositoryId
+expr_stmt|;
 block|}
 block|}
 end_class
