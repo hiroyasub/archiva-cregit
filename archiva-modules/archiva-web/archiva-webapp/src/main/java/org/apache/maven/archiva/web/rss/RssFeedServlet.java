@@ -969,6 +969,26 @@ argument_list|(
 name|map
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|feed
+operator|==
+literal|null
+condition|)
+block|{
+name|res
+operator|.
+name|sendError
+argument_list|(
+name|HttpServletResponse
+operator|.
+name|SC_NO_CONTENT
+argument_list|,
+literal|"No information available."
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|res
 operator|.
 name|setContentType

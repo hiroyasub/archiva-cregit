@@ -380,6 +380,46 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+specifier|public
+name|void
+name|testNoDataEntries
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|List
+argument_list|<
+name|RssFeedEntry
+argument_list|>
+name|entries
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|RssFeedEntry
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|SyndFeed
+name|feed
+init|=
+name|generator
+operator|.
+name|generateFeed
+argument_list|(
+literal|"Test Feed"
+argument_list|,
+literal|"The test feed from Archiva."
+argument_list|,
+name|entries
+argument_list|)
+decl_stmt|;
+name|assertNull
+argument_list|(
+name|feed
+argument_list|)
+expr_stmt|;
+block|}
 comment|/*      * this test might need to be removed since      * no updates are happening in the feeds anymore since everything's processed from the db.      *      public void testUpdateFeed()         throws Exception     {         generator.setRssDirectory( getBasedir() + "/target/test-classes/rss-feeds/" );          List<RssFeedEntry> entries = new ArrayList<RssFeedEntry>();         RssFeedEntry entry = new RssFeedEntry( "Item 1" );          entry.setDescription( "RSS 2.0 feed item 1." );         entries.add( entry );          entry = new RssFeedEntry( "Item 2" );         entry.setDescription( "RSS 2.0 feed item 2." );         entries.add( entry );          generator.generateFeed( "Test Feed", "The test feed from Archiva.", entries,                                 "generated-test-update-rss2.0-feed.xml" );          File outputFile = new File( getBasedir(), "/target/test-classes/rss-feeds/generated-test-update-rss2.0-feed.xml" );         String generatedContent = FileUtils.readFileToString( outputFile );          XMLAssert.assertXpathEvaluatesTo( "Test Feed", "//channel/title", generatedContent );         XMLAssert.assertXpathEvaluatesTo( "http://localhost:8080/archiva/rss/generated-test-update-rss2.0-feed.xml", "//channel/link", generatedContent );         XMLAssert.assertXpathEvaluatesTo( "The test feed from Archiva.", "//channel/description", generatedContent );         XMLAssert.assertXpathEvaluatesTo( "en-us", "//channel/language", generatedContent );          String expectedItem1 =             "<channel><item><title>Item 1</title></item><item><title>Item 2</title></item></channel>";                  XMLAssert.assertXpathsEqual( "//channel/item/title", expectedItem1, "//channel/item/title", generatedContent );          //update existing rss feed         entries = new ArrayList<RssFeedEntry>();         entry = new RssFeedEntry( "Item 3" );          entry.setDescription( "RSS 2.0 feed item 3." );         entries.add( entry );          entry = new RssFeedEntry( "Item 4" );         entry.setDescription( "RSS 2.0 feed item 4." );         entries.add( entry );          generator.generateFeed( "Test Feed", "The test feed from Archiva.", entries,                                 "generated-test-update-rss2.0-feed.xml" );                  outputFile = new File( getBasedir(), "/target/test-classes/rss-feeds/generated-test-update-rss2.0-feed.xml" );                 generatedContent = FileUtils.readFileToString( outputFile );                         XMLAssert.assertXpathEvaluatesTo( "Test Feed", "//channel/title", generatedContent );         XMLAssert.assertXpathEvaluatesTo( "http://localhost:8080/archiva/rss/generated-test-update-rss2.0-feed.xml", "//channel/link", generatedContent );         XMLAssert.assertXpathEvaluatesTo( "The test feed from Archiva.", "//channel/description", generatedContent );         XMLAssert.assertXpathEvaluatesTo( "en-us", "//channel/language", generatedContent );          expectedItem1 =             "<channel><item><title>Item 1</title></item><item><title>Item 2</title></item>"             + "<item><title>Item 3</title></item><item><title>Item 4</title></item></channel>";         XMLAssert.assertXpathsEqual( "//channel/item/title", expectedItem1, "//channel/item/title", generatedContent );                  outputFile.deleteOnExit();     }      */
 block|}
 end_class
