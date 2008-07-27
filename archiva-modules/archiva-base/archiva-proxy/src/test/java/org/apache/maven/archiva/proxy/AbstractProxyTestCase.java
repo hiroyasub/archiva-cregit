@@ -2810,8 +2810,9 @@ operator|+
 name|sourceDir
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
+else|else
+block|{
 comment|// Test that the source is a dir.
 if|if
 condition|(
@@ -2838,6 +2839,7 @@ argument_list|,
 name|destDir
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 specifier|protected
 name|void
