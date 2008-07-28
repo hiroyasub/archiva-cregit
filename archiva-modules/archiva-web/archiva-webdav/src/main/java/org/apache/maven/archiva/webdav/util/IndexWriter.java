@@ -25,6 +25,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|jackrabbit
 operator|.
 name|webdav
@@ -444,6 +458,20 @@ operator|.
 name|getParent
 argument_list|()
 decl_stmt|;
+comment|//convert to unix path in case archiva is hosted on windows
+name|parentName
+operator|=
+name|StringUtils
+operator|.
+name|replace
+argument_list|(
+name|parentName
+argument_list|,
+literal|"\\"
+argument_list|,
+literal|"/"
+argument_list|)
+expr_stmt|;
 name|writer
 operator|.
 name|println
@@ -761,7 +789,7 @@ name|writer
 operator|.
 name|println
 argument_list|(
-literal|"<li><a href=\"./"
+literal|"<li><a href=\""
 operator|+
 name|resourceName
 operator|+
@@ -779,7 +807,7 @@ name|writer
 operator|.
 name|println
 argument_list|(
-literal|"<li><a href=\"./"
+literal|"<li><a href=\""
 operator|+
 name|resourceName
 operator|+

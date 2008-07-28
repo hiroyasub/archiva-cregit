@@ -206,11 +206,11 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"./commons-lang/"
+literal|"commons-lang/"
 block|,
-literal|"./net/"
+literal|"net/"
 block|,
-literal|"./org/"
+literal|"org/"
 block|}
 decl_stmt|;
 name|assertLinks
@@ -274,9 +274,9 @@ index|[]
 block|{
 literal|"../"
 block|,
-literal|"./apache/"
+literal|"apache/"
 block|,
-literal|"./codehaus/"
+literal|"codehaus/"
 block|}
 decl_stmt|;
 name|assertLinks
