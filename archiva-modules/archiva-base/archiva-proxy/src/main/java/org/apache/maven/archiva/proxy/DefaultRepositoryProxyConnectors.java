@@ -3773,10 +3773,10 @@ name|WagonException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|ProxyException
-argument_list|(
+comment|// TODO: shouldn't have to drill into the cause, but TransferFailedException is often not descriptive enough
+name|String
+name|msg
+init|=
 literal|"Download failure on resource ["
 operator|+
 name|remoteRepository
@@ -3794,6 +3794,34 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|msg
+operator|+=
+literal|" (cause: "
+operator|+
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|+
+literal|")"
+expr_stmt|;
+block|}
+throw|throw
+operator|new
+name|ProxyException
+argument_list|(
+name|msg
 argument_list|,
 name|e
 argument_list|)
