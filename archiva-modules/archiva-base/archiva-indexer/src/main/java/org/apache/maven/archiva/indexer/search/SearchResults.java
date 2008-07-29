@@ -322,6 +322,16 @@ expr_stmt|;
 block|}
 name|hit
 operator|.
+name|setRepositoryId
+argument_list|(
+name|bytecode
+operator|.
+name|getRepositoryId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|hit
+operator|.
 name|addArtifact
 argument_list|(
 name|bytecode

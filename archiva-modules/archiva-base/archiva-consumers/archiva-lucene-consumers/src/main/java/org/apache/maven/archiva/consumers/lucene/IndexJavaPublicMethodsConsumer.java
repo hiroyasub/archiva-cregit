@@ -791,12 +791,9 @@ name|bytecodeRecord
 operator|.
 name|setRepositoryId
 argument_list|(
-name|artifact
+name|repoContent
 operator|.
-name|getModel
-argument_list|()
-operator|.
-name|getRepositoryId
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
