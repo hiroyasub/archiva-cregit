@@ -885,15 +885,7 @@ argument_list|(
 name|ArchivaVersion
 operator|.
 name|determineVersion
-argument_list|(
-name|this
-operator|.
-name|getClass
 argument_list|()
-operator|.
-name|getClassLoader
-argument_list|()
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|LoggerFactory
