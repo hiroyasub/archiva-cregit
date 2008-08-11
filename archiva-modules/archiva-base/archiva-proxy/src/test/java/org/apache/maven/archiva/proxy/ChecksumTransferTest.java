@@ -2428,9 +2428,9 @@ name|assertChecksums
 argument_list|(
 name|expectedFile
 argument_list|,
-literal|null
+literal|"invalid checksum file"
 argument_list|,
-literal|null
+literal|"invalid checksum file"
 argument_list|)
 expr_stmt|;
 block|}
