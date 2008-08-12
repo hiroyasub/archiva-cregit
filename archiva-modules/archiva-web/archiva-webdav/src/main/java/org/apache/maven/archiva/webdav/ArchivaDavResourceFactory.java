@@ -2327,6 +2327,37 @@ name|getPath
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|//MRM-893, dont send back a file when user intentionally wants a directory
+if|if
+condition|(
+name|locator
+operator|.
+name|getHref
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|endsWith
+argument_list|(
+literal|"/"
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|resourceFile
+operator|.
+name|isDirectory
+argument_list|()
+condition|)
+block|{
+comment|//force a resource not found
+return|return
+literal|null
+return|;
+block|}
+block|}
 name|ArchivaDavResource
 name|resource
 init|=
