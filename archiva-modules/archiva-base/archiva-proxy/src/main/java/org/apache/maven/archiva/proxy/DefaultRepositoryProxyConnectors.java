@@ -1788,6 +1788,12 @@ block|}
 if|if
 condition|(
 name|metadataNeedsUpdating
+operator|||
+operator|!
+name|localFile
+operator|.
+name|exists
+argument_list|()
 condition|)
 block|{
 try|try
