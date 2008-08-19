@@ -4676,6 +4676,16 @@ name|getOrder
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|connector
+operator|.
+name|setDisabled
+argument_list|(
+name|proxyConfig
+operator|.
+name|isDisabled
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// Copy any blacklist patterns.
 name|List
 argument_list|<

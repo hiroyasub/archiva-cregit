@@ -163,6 +163,8 @@ argument_list|(
 name|ID_LEGACY_MANAGED
 argument_list|,
 name|ID_PROXIED1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File
@@ -282,6 +284,8 @@ argument_list|,
 name|CachedFailuresPolicy
 operator|.
 name|NO
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File
@@ -356,6 +360,8 @@ argument_list|(
 name|ID_LEGACY_MANAGED
 argument_list|,
 name|ID_LEGACY_PROXIED
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File
@@ -454,6 +460,8 @@ argument_list|(
 name|ID_LEGACY_MANAGED
 argument_list|,
 name|ID_LEGACY_PROXIED
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File
@@ -531,6 +539,8 @@ argument_list|(
 name|ID_LEGACY_MANAGED
 argument_list|,
 name|ID_LEGACY_PROXIED
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File
@@ -604,6 +614,8 @@ argument_list|(
 name|ID_LEGACY_MANAGED
 argument_list|,
 name|ID_PROXIED1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File
@@ -674,6 +686,8 @@ argument_list|(
 name|ID_LEGACY_MANAGED
 argument_list|,
 name|ID_LEGACY_PROXIED
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File
@@ -744,6 +758,8 @@ argument_list|(
 name|ID_LEGACY_MANAGED
 argument_list|,
 name|ID_PROXIED1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File

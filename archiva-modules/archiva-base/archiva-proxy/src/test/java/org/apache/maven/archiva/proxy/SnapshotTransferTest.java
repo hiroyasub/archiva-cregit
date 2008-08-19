@@ -175,6 +175,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File
@@ -257,6 +259,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File
@@ -360,6 +364,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File
@@ -462,6 +468,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// Attempt to download.
@@ -565,6 +573,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File
@@ -664,6 +674,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File
@@ -769,6 +781,8 @@ argument_list|,
 name|CachedFailuresPolicy
 operator|.
 name|YES
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|saveConnector
@@ -792,6 +806,8 @@ argument_list|,
 name|CachedFailuresPolicy
 operator|.
 name|YES
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File
@@ -889,6 +905,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File
@@ -994,6 +1012,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File

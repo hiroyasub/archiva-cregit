@@ -296,6 +296,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED2
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|simulateGetError
@@ -411,6 +413,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|createMockedProxyConnector
@@ -470,6 +474,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED2
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|simulateGetError
@@ -528,6 +534,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED2
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|simulateGetError
@@ -573,6 +581,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|createMockedProxyConnector
@@ -849,6 +859,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED2
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|simulateGetError
@@ -907,6 +919,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED2
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|simulateGetError
@@ -954,6 +968,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|createMockedProxyConnector
@@ -2169,6 +2185,8 @@ operator|.
 name|NO
 argument_list|,
 name|errorPolicy
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -2225,6 +2243,8 @@ argument_list|,
 name|errorPolicy
 argument_list|,
 name|errorOnUpdatePolicy
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

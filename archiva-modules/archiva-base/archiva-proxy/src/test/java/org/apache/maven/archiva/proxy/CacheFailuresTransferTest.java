@@ -261,6 +261,8 @@ argument_list|,
 name|CachedFailuresPolicy
 operator|.
 name|YES
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|saveConnector
@@ -284,6 +286,8 @@ argument_list|,
 name|CachedFailuresPolicy
 operator|.
 name|YES
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|wagonMock
@@ -480,6 +484,8 @@ argument_list|,
 name|CachedFailuresPolicy
 operator|.
 name|NO
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|saveConnector
@@ -503,6 +509,8 @@ argument_list|,
 name|CachedFailuresPolicy
 operator|.
 name|NO
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|wagonMock
@@ -752,6 +760,8 @@ argument_list|,
 name|CachedFailuresPolicy
 operator|.
 name|YES
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|saveConnector
@@ -775,6 +785,8 @@ argument_list|,
 name|CachedFailuresPolicy
 operator|.
 name|YES
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File
