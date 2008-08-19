@@ -96,6 +96,19 @@ argument_list|>
 name|getWhitelist
 parameter_list|()
 function_decl|;
+specifier|public
+name|boolean
+name|isDisabled
+parameter_list|()
+function_decl|;
+specifier|public
+name|void
+name|setDisabled
+parameter_list|(
+name|boolean
+name|disabled
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
