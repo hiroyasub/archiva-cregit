@@ -162,6 +162,97 @@ name|AbstractProxyTestCase
 block|{
 specifier|public
 name|void
+name|testGetDefaultLayoutNotPresentConnectorOffline
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|path
+init|=
+literal|"org/apache/maven/test/get-default-layout/1.0/get-default-layout-1.0.jar"
+decl_stmt|;
+name|setupTestableManagedRepository
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
+name|File
+name|expectedFile
+init|=
+operator|new
+name|File
+argument_list|(
+name|managedDefaultDir
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|ArtifactReference
+name|artifact
+init|=
+name|managedDefaultRepository
+operator|.
+name|toArtifactReference
+argument_list|(
+name|path
+argument_list|)
+decl_stmt|;
+comment|// Ensure file isn't present first.
+name|assertNotExistsInManagedDefaultRepo
+argument_list|(
+name|expectedFile
+argument_list|)
+expr_stmt|;
+comment|// Configure Connector (usually done within archiva.xml configuration)
+name|saveConnector
+argument_list|(
+name|ID_DEFAULT_MANAGED
+argument_list|,
+name|ID_PROXIED1
+argument_list|,
+name|ChecksumPolicy
+operator|.
+name|FIX
+argument_list|,
+name|ReleasesPolicy
+operator|.
+name|ONCE
+argument_list|,
+name|SnapshotsPolicy
+operator|.
+name|ONCE
+argument_list|,
+name|CachedFailuresPolicy
+operator|.
+name|NO
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// Attempt the proxy fetch.
+name|File
+name|downloadedFile
+init|=
+name|proxyHandler
+operator|.
+name|fetchFromProxies
+argument_list|(
+name|managedDefaultRepository
+argument_list|,
+name|artifact
+argument_list|)
+decl_stmt|;
+name|assertNull
+argument_list|(
+literal|"File should not have been downloaded"
+argument_list|,
+name|downloadedFile
+argument_list|)
+expr_stmt|;
+block|}
+specifier|public
+name|void
 name|testGetDefaultLayoutNotPresent
 parameter_list|()
 throws|throws
@@ -226,6 +317,8 @@ argument_list|,
 name|CachedFailuresPolicy
 operator|.
 name|NO
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// Attempt the proxy fetch.
@@ -323,6 +416,8 @@ argument_list|,
 name|CachedFailuresPolicy
 operator|.
 name|NO
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// Attempt the proxy fetch.
@@ -499,6 +594,8 @@ argument_list|,
 name|CachedFailuresPolicy
 operator|.
 name|NO
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// Attempt the proxy fetch.
@@ -615,6 +712,8 @@ argument_list|,
 name|CachedFailuresPolicy
 operator|.
 name|NO
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// Attempt the proxy fetch.
@@ -744,6 +843,8 @@ argument_list|,
 name|CachedFailuresPolicy
 operator|.
 name|NO
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// Attempt the proxy fetch.
@@ -865,6 +966,8 @@ argument_list|,
 name|CachedFailuresPolicy
 operator|.
 name|NO
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// Attempt the proxy fetch.
@@ -986,6 +1089,8 @@ argument_list|,
 name|CachedFailuresPolicy
 operator|.
 name|NO
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// Attempt the proxy fetch.
@@ -1076,6 +1181,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|saveConnector
@@ -1083,6 +1190,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED2
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// Attempt the proxy fetch.
@@ -1223,6 +1332,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|saveConnector
@@ -1230,6 +1341,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED2
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// Attempt the proxy fetch.
@@ -1320,6 +1433,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|saveConnector
@@ -1327,6 +1442,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED2
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|saveConnector
@@ -1334,6 +1451,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_LEGACY_PROXIED
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// Attempt the proxy fetch.
@@ -1468,6 +1587,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 literal|"badproxied"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|saveConnector
@@ -1475,6 +1596,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_PROXIED2
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// Attempt the proxy fetch.
@@ -1596,6 +1719,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 literal|"badproxied1"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|saveConnector
@@ -1603,6 +1728,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 literal|"badproxied2"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File
@@ -1797,6 +1924,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_LEGACY_PROXIED
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File
@@ -1905,6 +2034,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_LEGACY_PROXIED
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File
@@ -1999,6 +2130,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_LEGACY_PROXIED
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File
@@ -2093,6 +2226,8 @@ argument_list|(
 name|ID_DEFAULT_MANAGED
 argument_list|,
 name|ID_LEGACY_PROXIED
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|File

@@ -1608,6 +1608,9 @@ name|sourceRepoId
 parameter_list|,
 name|String
 name|targetRepoId
+parameter_list|,
+name|boolean
+name|disabled
 parameter_list|)
 block|{
 name|saveConnector
@@ -1631,6 +1634,8 @@ argument_list|,
 name|CachedFailuresPolicy
 operator|.
 name|NO
+argument_list|,
+name|disabled
 argument_list|)
 expr_stmt|;
 block|}
@@ -1655,6 +1660,9 @@ name|snapshotPolicy
 parameter_list|,
 name|String
 name|cacheFailuresPolicy
+parameter_list|,
+name|boolean
+name|disabled
 parameter_list|)
 block|{
 name|saveConnector
@@ -1674,6 +1682,8 @@ argument_list|,
 name|PropagateErrorsDownloadPolicy
 operator|.
 name|QUEUE
+argument_list|,
+name|disabled
 argument_list|)
 expr_stmt|;
 block|}
@@ -1701,6 +1711,9 @@ name|cacheFailuresPolicy
 parameter_list|,
 name|String
 name|errorPolicy
+parameter_list|,
+name|boolean
+name|disabled
 parameter_list|)
 block|{
 name|saveConnector
@@ -1722,6 +1735,8 @@ argument_list|,
 name|PropagateErrorsOnUpdateDownloadPolicy
 operator|.
 name|NOT_PRESENT
+argument_list|,
+name|disabled
 argument_list|)
 expr_stmt|;
 block|}
@@ -1752,6 +1767,9 @@ name|errorPolicy
 parameter_list|,
 name|String
 name|errorOnUpdatePolicy
+parameter_list|,
+name|boolean
+name|disabled
 parameter_list|)
 block|{
 name|ProxyConnectorConfiguration
@@ -1839,6 +1857,13 @@ operator|.
 name|POLICY_PROPAGATE_ERRORS_ON_UPDATE
 argument_list|,
 name|errorOnUpdatePolicy
+argument_list|)
+expr_stmt|;
+name|connectorConfig
+operator|.
+name|setDisabled
+argument_list|(
+name|disabled
 argument_list|)
 expr_stmt|;
 name|int
