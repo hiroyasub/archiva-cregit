@@ -229,7 +229,7 @@ name|client
 operator|.
 name|newInvocation
 argument_list|(
-literal|"http://localhost/rss/rss_feeds?repoId=test-repo"
+literal|"http://localhost/feeds/test-repo"
 argument_list|)
 operator|.
 name|getServlet
@@ -258,7 +258,7 @@ name|client
 operator|.
 name|newInvocation
 argument_list|(
-literal|"http://localhost/rss/rss_feeds?repoId=test-repo"
+literal|"http://localhost/feeds/test-repo"
 argument_list|)
 operator|.
 name|getServlet
@@ -275,7 +275,7 @@ init|=
 operator|new
 name|GetMethodWebRequest
 argument_list|(
-literal|"http://localhost/rss/rss_feeds?repoId=test-repo"
+literal|"http://localhost/feeds/test-repo"
 argument_list|)
 decl_stmt|;
 name|BASE64Encoder
@@ -377,7 +377,7 @@ name|client
 operator|.
 name|newInvocation
 argument_list|(
-literal|"http://localhost/rss/rss_feeds?groupId=org.apache.archiva&artifactId=artifact-two"
+literal|"http://localhost/feeds/org/apache/archiva/artifact-two"
 argument_list|)
 operator|.
 name|getServlet
@@ -394,7 +394,7 @@ init|=
 operator|new
 name|GetMethodWebRequest
 argument_list|(
-literal|"http://localhost/rss/rss_feeds?groupId=org.apache.archiva&artifactId=artifact-two"
+literal|"http://localhost/feeds/org/apache/archiva/artifact-two"
 argument_list|)
 decl_stmt|;
 name|BASE64Encoder
@@ -496,7 +496,7 @@ name|client
 operator|.
 name|newInvocation
 argument_list|(
-literal|"http://localhost/rss/rss_feeds?invalid_param=xxx"
+literal|"http://localhost/feeds?invalid_param=xxx"
 argument_list|)
 operator|.
 name|getServlet
@@ -516,7 +516,7 @@ name|client
 operator|.
 name|getResponse
 argument_list|(
-literal|"http://localhost/rss/rss_feeds?invalid_param=xxx"
+literal|"http://localhost/feeds?invalid_param=xxx"
 argument_list|)
 decl_stmt|;
 block|}
@@ -559,7 +559,7 @@ name|client
 operator|.
 name|newInvocation
 argument_list|(
-literal|"http://localhost/rss/rss_feeds?repoId=unauthorized-repo"
+literal|"http://localhost/feeds/unauthorized-repo"
 argument_list|)
 operator|.
 name|getServlet
@@ -576,7 +576,7 @@ init|=
 operator|new
 name|GetMethodWebRequest
 argument_list|(
-literal|"http://localhost/rss/rss_feeds?repoId=unauthorized-repo"
+literal|"http://localhost/feeds/unauthorized-repo"
 argument_list|)
 decl_stmt|;
 name|Encoder
@@ -675,7 +675,7 @@ name|client
 operator|.
 name|newInvocation
 argument_list|(
-literal|"http://localhost/rss/rss_feeds?repoId=unauthorized-repo"
+literal|"http://localhost/feeds/unauthorized-repo"
 argument_list|)
 operator|.
 name|getServlet
@@ -692,7 +692,7 @@ init|=
 operator|new
 name|GetMethodWebRequest
 argument_list|(
-literal|"http://localhost/rss/rss_feeds?repoId=unauthorized-repo"
+literal|"http://localhost/feeds/unauthorized-repo"
 argument_list|)
 decl_stmt|;
 name|BASE64Encoder
