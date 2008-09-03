@@ -263,6 +263,11 @@ specifier|private
 name|UserRepositories
 name|userRepositories
 decl_stmt|;
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|ArchivaXworkUser
+name|archivaXworkUser
+decl_stmt|;
 comment|/* .\ Input Parameters \.________________________________________ */
 specifier|private
 name|String
@@ -616,7 +621,7 @@ name|getPrincipal
 parameter_list|()
 block|{
 return|return
-name|ArchivaXworkUser
+name|archivaXworkUser
 operator|.
 name|getActivePrincipal
 argument_list|(

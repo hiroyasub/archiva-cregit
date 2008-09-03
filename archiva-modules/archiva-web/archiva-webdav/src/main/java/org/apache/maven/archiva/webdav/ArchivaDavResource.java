@@ -719,6 +719,10 @@ name|AuditListener
 argument_list|>
 name|auditListeners
 decl_stmt|;
+specifier|private
+name|ArchivaXworkUser
+name|archivaXworkUser
+decl_stmt|;
 specifier|public
 name|ArchivaDavResource
 parameter_list|(
@@ -751,6 +755,9 @@ name|auditListeners
 parameter_list|,
 name|RepositoryContentConsumers
 name|consumers
+parameter_list|,
+name|ArchivaXworkUser
+name|archivaXworkUser
 parameter_list|)
 block|{
 name|this
@@ -786,6 +793,12 @@ operator|.
 name|session
 operator|=
 name|session
+expr_stmt|;
+name|this
+operator|.
+name|archivaXworkUser
+operator|=
+name|archivaXworkUser
 expr_stmt|;
 comment|// TODO: push into locator as well as moving any references out of the resource factory
 name|this
@@ -849,6 +862,9 @@ name|auditListeners
 parameter_list|,
 name|RepositoryContentConsumers
 name|consumers
+parameter_list|,
+name|ArchivaXworkUser
+name|archivaXworkUser
 parameter_list|)
 block|{
 name|this
@@ -870,6 +886,8 @@ argument_list|,
 name|auditListeners
 argument_list|,
 name|consumers
+argument_list|,
+name|archivaXworkUser
 argument_list|)
 expr_stmt|;
 name|this
@@ -2808,7 +2826,7 @@ block|{
 name|String
 name|activePrincipal
 init|=
-name|ArchivaXworkUser
+name|archivaXworkUser
 operator|.
 name|getActivePrincipal
 argument_list|(

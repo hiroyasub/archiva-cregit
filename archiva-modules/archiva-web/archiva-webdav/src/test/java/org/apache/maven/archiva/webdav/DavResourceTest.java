@@ -29,16 +29,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -273,9 +263,9 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|audit
+name|scanner
 operator|.
-name|AuditListener
+name|RepositoryContentConsumers
 import|;
 end_import
 
@@ -289,11 +279,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|repository
+name|security
 operator|.
-name|scanner
-operator|.
-name|RepositoryContentConsumers
+name|ArchivaXworkUser
 import|;
 end_import
 
@@ -340,16 +328,6 @@ operator|.
 name|spring
 operator|.
 name|PlexusToSpringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|easymock
-operator|.
-name|MockControl
 import|;
 end_import
 
@@ -428,6 +406,10 @@ init|=
 operator|new
 name|ManagedRepositoryConfiguration
 argument_list|()
+decl_stmt|;
+specifier|private
+name|ArchivaXworkUser
+name|archivaXworkUser
 decl_stmt|;
 annotation|@
 name|Override
@@ -561,6 +543,26 @@ operator|new
 name|RepositoryContentConsumers
 argument_list|()
 expr_stmt|;
+name|archivaXworkUser
+operator|=
+operator|(
+name|ArchivaXworkUser
+operator|)
+name|getApplicationContext
+argument_list|()
+operator|.
+name|getBean
+argument_list|(
+name|PlexusToSpringUtils
+operator|.
+name|buildSpringId
+argument_list|(
+name|ArchivaXworkUser
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -627,6 +629,8 @@ name|emptyList
 argument_list|()
 argument_list|,
 name|consumers
+argument_list|,
+name|archivaXworkUser
 argument_list|)
 return|;
 block|}
@@ -1595,6 +1599,8 @@ name|emptyList
 argument_list|()
 argument_list|,
 name|consumers
+argument_list|,
+name|archivaXworkUser
 argument_list|)
 return|;
 block|}

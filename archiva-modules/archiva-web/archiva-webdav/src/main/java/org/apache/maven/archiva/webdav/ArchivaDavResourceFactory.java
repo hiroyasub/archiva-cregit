@@ -1188,6 +1188,11 @@ specifier|private
 name|Digester
 name|digestMd5
 decl_stmt|;
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|ArchivaXworkUser
+name|archivaXworkUser
+decl_stmt|;
 specifier|public
 name|DavResource
 name|createResource
@@ -1883,6 +1888,8 @@ argument_list|,
 name|auditListeners
 argument_list|,
 name|consumers
+argument_list|,
+name|archivaXworkUser
 argument_list|)
 decl_stmt|;
 name|availableResources
@@ -2032,6 +2039,8 @@ argument_list|,
 name|auditListeners
 argument_list|,
 name|consumers
+argument_list|,
+name|archivaXworkUser
 argument_list|)
 decl_stmt|;
 name|availableResources
@@ -2277,6 +2286,8 @@ argument_list|,
 name|auditListeners
 argument_list|,
 name|consumers
+argument_list|,
+name|archivaXworkUser
 argument_list|)
 expr_stmt|;
 block|}
@@ -2398,6 +2409,8 @@ argument_list|,
 name|auditListeners
 argument_list|,
 name|consumers
+argument_list|,
+name|archivaXworkUser
 argument_list|)
 decl_stmt|;
 if|if
@@ -2595,6 +2608,8 @@ argument_list|,
 name|auditListeners
 argument_list|,
 name|consumers
+argument_list|,
+name|archivaXworkUser
 argument_list|)
 expr_stmt|;
 block|}
@@ -2766,6 +2781,8 @@ argument_list|,
 name|auditListeners
 argument_list|,
 name|consumers
+argument_list|,
+name|archivaXworkUser
 argument_list|)
 return|;
 block|}
@@ -3234,7 +3251,7 @@ block|{
 name|String
 name|activePrincipal
 init|=
-name|ArchivaXworkUser
+name|archivaXworkUser
 operator|.
 name|getActivePrincipal
 argument_list|(
@@ -3812,7 +3829,7 @@ block|}
 name|String
 name|activePrincipal
 init|=
-name|ArchivaXworkUser
+name|archivaXworkUser
 operator|.
 name|getActivePrincipal
 argument_list|(

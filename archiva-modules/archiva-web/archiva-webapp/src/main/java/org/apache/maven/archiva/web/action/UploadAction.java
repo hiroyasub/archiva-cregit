@@ -741,6 +741,11 @@ specifier|private
 name|RepositoryContentConsumers
 name|consumers
 decl_stmt|;
+comment|/**       * @plexus.requirement       */
+specifier|private
+name|ArchivaXworkUser
+name|archivaXworkUser
+decl_stmt|;
 comment|/**      * The groupId of the artifact to be deployed.      */
 specifier|private
 name|String
@@ -1881,7 +1886,7 @@ name|getPrincipal
 parameter_list|()
 block|{
 return|return
-name|ArchivaXworkUser
+name|archivaXworkUser
 operator|.
 name|getActivePrincipal
 argument_list|(
