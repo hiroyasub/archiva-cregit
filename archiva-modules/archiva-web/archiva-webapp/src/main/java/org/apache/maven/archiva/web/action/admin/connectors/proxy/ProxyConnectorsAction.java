@@ -137,6 +137,13 @@ name|AbstractRepositoryConfiguration
 argument_list|>
 name|repoMap
 decl_stmt|;
+comment|/**      * boolean to indicate that remote repo is present. Used for Add Link      */
+specifier|private
+name|boolean
+name|remoteRepoExists
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Map of Proxy Connectors.      */
 specifier|private
 name|Map
@@ -199,6 +206,18 @@ operator|=
 name|createProxyConnectorMap
 argument_list|()
 expr_stmt|;
+name|remoteRepoExists
+operator|=
+name|config
+operator|.
+name|getRemoteRepositories
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+expr_stmt|;
 block|}
 specifier|public
 name|Map
@@ -229,6 +248,15 @@ parameter_list|()
 block|{
 return|return
 name|proxyConnectorMap
+return|;
+block|}
+specifier|public
+name|boolean
+name|getRemoteRepoExists
+parameter_list|()
+block|{
+return|return
+name|remoteRepoExists
 return|;
 block|}
 block|}
