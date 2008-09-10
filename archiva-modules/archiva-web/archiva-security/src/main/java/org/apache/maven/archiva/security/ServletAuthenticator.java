@@ -190,7 +190,7 @@ name|UnauthorizedException
 function_decl|;
 specifier|public
 name|boolean
-name|isAuthorizedToAccessVirtualRepository
+name|isAuthorized
 parameter_list|(
 name|String
 name|principal

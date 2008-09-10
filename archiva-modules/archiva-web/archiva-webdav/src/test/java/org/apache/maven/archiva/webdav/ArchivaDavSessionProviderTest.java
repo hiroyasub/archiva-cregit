@@ -428,6 +428,8 @@ argument_list|,
 operator|new
 name|HttpAuthenticatorMock
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|request
@@ -1320,7 +1322,7 @@ return|;
 block|}
 specifier|public
 name|boolean
-name|isAuthorizedToAccessVirtualRepository
+name|isAuthorized
 parameter_list|(
 name|String
 name|arg0

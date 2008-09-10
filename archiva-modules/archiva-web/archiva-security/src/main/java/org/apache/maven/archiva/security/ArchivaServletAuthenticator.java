@@ -460,7 +460,7 @@ return|;
 block|}
 specifier|public
 name|boolean
-name|isAuthorizedToAccessVirtualRepository
+name|isAuthorized
 parameter_list|(
 name|String
 name|principal
