@@ -128,6 +128,36 @@ name|SearchResultLimits
 name|limits
 parameter_list|)
 function_decl|;
+comment|/**      * Search for a specific artifact matching the given field values. The search is performed on the bytecode      * index/indices.      *       * @param principal      * @param selectedRepos repository to be searched      * @param groupId groupId to be matched      * @param artifactId artifactId to be matched      * @param version version to be matched      * @param className Java class or package name to be matched      * @param limits the limits to apply to the search results      * @return      */
+specifier|public
+name|SearchResults
+name|executeFilteredSearch
+parameter_list|(
+name|String
+name|principal
+parameter_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|selectedRepos
+parameter_list|,
+name|String
+name|groupId
+parameter_list|,
+name|String
+name|artifactId
+parameter_list|,
+name|String
+name|version
+parameter_list|,
+name|String
+name|className
+parameter_list|,
+name|SearchResultLimits
+name|limits
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
