@@ -256,7 +256,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"unable to add repository - can not create the root directory: "
+literal|"Unable to add repository - no write access, can not create the root directory: "
 operator|+
 name|file
 argument_list|)
