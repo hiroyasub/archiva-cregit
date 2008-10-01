@@ -369,6 +369,8 @@ name|getTime
 argument_list|()
 argument_list|,
 literal|"whenGathered"
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|List
