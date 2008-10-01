@@ -81,7 +81,7 @@ name|plexus
 operator|.
 name|redback
 operator|.
-name|xwork
+name|struts2
 operator|.
 name|interceptor
 operator|.
@@ -99,7 +99,7 @@ name|plexus
 operator|.
 name|redback
 operator|.
-name|xwork
+name|struts2
 operator|.
 name|interceptor
 operator|.
@@ -137,7 +137,7 @@ name|com
 operator|.
 name|opensymphony
 operator|.
-name|xwork
+name|xwork2
 operator|.
 name|Action
 import|;

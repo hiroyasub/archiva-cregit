@@ -21,23 +21,23 @@ end_comment
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|opensymphony
+name|apache
 operator|.
-name|webwork
+name|struts2
 operator|.
-name|WebWorkException
+name|StrutsException
 import|;
 end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|opensymphony
+name|apache
 operator|.
-name|webwork
+name|struts2
 operator|.
 name|components
 operator|.
@@ -51,11 +51,25 @@ name|com
 operator|.
 name|opensymphony
 operator|.
-name|xwork
+name|xwork2
 operator|.
 name|util
 operator|.
 name|OgnlValueStack
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|opensymphony
+operator|.
+name|xwork2
+operator|.
+name|util
+operator|.
+name|ValueStack
 import|;
 end_import
 
@@ -344,7 +358,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DownloadArtifact  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="com.opensymphony.webwork.components.Component" role-hint="download-artifact"  * instantiation-strategy="per-lookup"  */
+comment|/**  * DownloadArtifact  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.struts2.components.Component" role-hint="download-artifact"  * instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -402,7 +416,7 @@ decl_stmt|;
 specifier|public
 name|DownloadArtifact
 parameter_list|(
-name|OgnlValueStack
+name|ValueStack
 name|stack
 parameter_list|,
 name|PageContext
@@ -503,6 +517,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|end
@@ -710,7 +726,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|WebWorkException
+name|StrutsException
 argument_list|(
 literal|"IOError: "
 operator|+

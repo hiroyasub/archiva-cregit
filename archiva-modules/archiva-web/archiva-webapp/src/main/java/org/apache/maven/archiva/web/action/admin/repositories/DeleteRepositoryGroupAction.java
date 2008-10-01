@@ -29,7 +29,7 @@ name|com
 operator|.
 name|opensymphony
 operator|.
-name|xwork
+name|xwork2
 operator|.
 name|Preparable
 import|;
@@ -82,7 +82,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DeleteRepositoryGroupAction  *   * @author  * @version  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="deleteRepositoryGroupAction"  */
+comment|/**  * DeleteRepositoryGroupAction  *   * @author  * @version  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteRepositoryGroupAction"  */
 end_comment
 
 begin_class

@@ -631,25 +631,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
-operator|.
-name|xwork
-operator|.
-name|action
-operator|.
-name|PlexusActionSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|opensymphony
-operator|.
-name|webwork
+name|struts2
 operator|.
 name|ServletActionContext
 import|;
@@ -661,7 +645,7 @@ name|com
 operator|.
 name|opensymphony
 operator|.
-name|xwork
+name|xwork2
 operator|.
 name|ActionContext
 import|;
@@ -673,7 +657,7 @@ name|com
 operator|.
 name|opensymphony
 operator|.
-name|xwork
+name|xwork2
 operator|.
 name|Preparable
 import|;
@@ -685,7 +669,7 @@ name|com
 operator|.
 name|opensymphony
 operator|.
-name|xwork
+name|xwork2
 operator|.
 name|Validateable
 import|;
@@ -720,7 +704,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Upload an artifact using Jakarta file upload in webwork. If set by the user a pom will also be generated. Metadata  * will also be updated if one exists, otherwise it would be created.  *   * @author<a href="mailto:wsmoak@apache.org">Wendy Smoak</a>  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="uploadAction"  */
+comment|/**  * Upload an artifact using Jakarta file upload in webwork. If set by the user a pom will also be generated. Metadata  * will also be updated if one exists, otherwise it would be created.  *   * @author<a href="mailto:wsmoak@apache.org">Wendy Smoak</a>  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="uploadAction"  */
 end_comment
 
 begin_class

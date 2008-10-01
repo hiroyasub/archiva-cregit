@@ -347,27 +347,11 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|xwork
-operator|.
-name|action
-operator|.
-name|PlexusActionSupport
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|opensymphony
 operator|.
-name|xwork
+name|xwork2
 operator|.
 name|ActionContext
 import|;
@@ -379,14 +363,14 @@ name|com
 operator|.
 name|opensymphony
 operator|.
-name|xwork
+name|xwork2
 operator|.
 name|Preparable
 import|;
 end_import
 
 begin_comment
-comment|/**  * Search all indexed fields by the given criteria.  *  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="searchAction"  */
+comment|/**  * Search all indexed fields by the given criteria.  *  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="searchAction"  */
 end_comment
 
 begin_class
@@ -1121,8 +1105,6 @@ return|return
 name|RESULTS
 return|;
 block|}
-annotation|@
-name|Override
 specifier|public
 name|String
 name|doInput

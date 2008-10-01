@@ -101,13 +101,17 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|maven
 operator|.
-name|registry
+name|archiva
 operator|.
-name|RegistryException
+name|web
+operator|.
+name|action
+operator|.
+name|PlexusActionSupport
 import|;
 end_import
 
@@ -119,16 +123,14 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|xwork
+name|registry
 operator|.
-name|action
-operator|.
-name|PlexusActionSupport
+name|RegistryException
 import|;
 end_import
 
 begin_comment
-comment|/**  * Delete a LegacyArtifactPath to archiva configuration  *  *  * @since 1.1  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="deleteLegacyArtifactPathAction"  */
+comment|/**  * Delete a LegacyArtifactPath to archiva configuration  *  *  * @since 1.1  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteLegacyArtifactPathAction"  */
 end_comment
 
 begin_class

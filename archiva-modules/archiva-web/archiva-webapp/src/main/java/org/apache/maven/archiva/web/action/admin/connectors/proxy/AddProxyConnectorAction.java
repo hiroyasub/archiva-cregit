@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AddProxyConnectorAction   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork.Action" role-hint="addProxyConnectorAction"  */
+comment|/**  * AddProxyConnectorAction   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="addProxyConnectorAction"  */
 end_comment
 
 begin_class

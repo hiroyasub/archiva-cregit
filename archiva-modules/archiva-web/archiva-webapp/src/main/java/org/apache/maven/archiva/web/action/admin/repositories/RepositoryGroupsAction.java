@@ -81,11 +81,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|opensymphony
+name|apache
 operator|.
-name|webwork
+name|struts2
 operator|.
 name|interceptor
 operator|.
@@ -99,7 +99,7 @@ name|com
 operator|.
 name|opensymphony
 operator|.
-name|xwork
+name|xwork2
 operator|.
 name|Preparable
 import|;
@@ -186,7 +186,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryGroupsAction  *   * @author  * @version  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="repositoryGroupsAction"  */
+comment|/**  * RepositoryGroupsAction  *   * @author  * @version  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="repositoryGroupsAction"  */
 end_comment
 
 begin_class

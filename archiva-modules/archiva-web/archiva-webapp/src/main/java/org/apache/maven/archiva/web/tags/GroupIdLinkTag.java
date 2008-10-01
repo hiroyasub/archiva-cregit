@@ -21,11 +21,11 @@ end_comment
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|opensymphony
+name|apache
 operator|.
-name|webwork
+name|struts2
 operator|.
 name|views
 operator|.
@@ -112,6 +112,8 @@ name|includeTop
 init|=
 literal|false
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|release
@@ -135,6 +137,8 @@ name|release
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|doEndTag

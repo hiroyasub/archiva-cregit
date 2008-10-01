@@ -201,27 +201,11 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|xwork
-operator|.
-name|action
-operator|.
-name|PlexusActionSupport
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|opensymphony
 operator|.
-name|xwork
+name|xwork2
 operator|.
 name|ActionContext
 import|;
@@ -233,14 +217,14 @@ name|com
 operator|.
 name|opensymphony
 operator|.
-name|xwork
+name|xwork2
 operator|.
 name|Validateable
 import|;
 end_import
 
 begin_comment
-comment|/**  * Browse the repository.   *   * TODO change name to ShowVersionedAction to conform to terminology.  *   * @plexus.component role="com.opensymphony.xwork.Action" role-hint="showArtifactAction"  */
+comment|/**  * Browse the repository.   *   * TODO change name to ShowVersionedAction to conform to terminology.  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="showArtifactAction"  */
 end_comment
 
 begin_class

@@ -73,29 +73,31 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|codehaus
+name|opensymphony
 operator|.
-name|plexus
+name|xwork2
 operator|.
-name|xwork
-operator|.
-name|action
-operator|.
-name|PlexusActionSupport
+name|Preparable
 import|;
 end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|opensymphony
+name|apache
 operator|.
-name|xwork
+name|maven
 operator|.
-name|Preparable
+name|archiva
+operator|.
+name|web
+operator|.
+name|action
+operator|.
+name|PlexusActionSupport
 import|;
 end_import
 

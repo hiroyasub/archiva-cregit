@@ -135,13 +135,27 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|opensymphony
+operator|.
+name|xwork2
+operator|.
+name|Preparable
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|maven
 operator|.
-name|xwork
+name|archiva
+operator|.
+name|web
 operator|.
 name|action
 operator|.
@@ -149,34 +163,8 @@ name|PlexusActionSupport
 import|;
 end_import
 
-begin_import
-import|import
-name|com
-operator|.
-name|opensymphony
-operator|.
-name|webwork
-operator|.
-name|components
-operator|.
-name|ActionError
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|opensymphony
-operator|.
-name|xwork
-operator|.
-name|Preparable
-import|;
-end_import
-
 begin_comment
-comment|/**  * Add a LegacyArtifactPath to archiva configuration  *  * @since 1.1  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="addLegacyArtifactPathAction"  */
+comment|/**  * Add a LegacyArtifactPath to archiva configuration  *  * @since 1.1  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="addLegacyArtifactPathAction"  */
 end_comment
 
 begin_class

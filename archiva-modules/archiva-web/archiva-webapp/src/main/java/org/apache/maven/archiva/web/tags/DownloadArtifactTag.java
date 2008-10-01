@@ -21,11 +21,11 @@ end_comment
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|opensymphony
+name|apache
 operator|.
-name|webwork
+name|struts2
 operator|.
 name|views
 operator|.
