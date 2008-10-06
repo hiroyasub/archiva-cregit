@@ -283,6 +283,19 @@ return|return
 name|guest
 return|;
 block|}
+specifier|public
+name|void
+name|setGuest
+parameter_list|(
+name|String
+name|guesT
+parameter_list|)
+block|{
+name|guest
+operator|=
+name|guesT
+expr_stmt|;
+block|}
 block|}
 end_class
 
