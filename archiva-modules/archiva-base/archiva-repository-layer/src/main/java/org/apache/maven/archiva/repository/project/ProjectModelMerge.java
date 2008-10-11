@@ -391,6 +391,16 @@ decl_stmt|;
 comment|// Unmerged.
 name|merged
 operator|.
+name|setParentProject
+argument_list|(
+name|mainProject
+operator|.
+name|getParentProject
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|merged
+operator|.
 name|setArtifactId
 argument_list|(
 name|mainProject
@@ -1793,6 +1803,13 @@ operator|new
 name|Properties
 argument_list|()
 decl_stmt|;
+name|merged
+operator|.
+name|putAll
+argument_list|(
+name|mainProperties
+argument_list|)
+expr_stmt|;
 name|Enumeration
 name|keys
 init|=

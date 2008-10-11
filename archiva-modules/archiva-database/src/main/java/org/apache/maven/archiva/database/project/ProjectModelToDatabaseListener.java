@@ -89,6 +89,22 @@ name|archiva
 operator|.
 name|model
 operator|.
+name|ArchivaModelCloner
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|model
+operator|.
 name|ArchivaProjectModel
 import|;
 end_import
@@ -497,11 +513,15 @@ block|{
 comment|// Nothing to do. skip it.
 return|return;
 block|}
+comment|// Clone model, since DAO while detachingCopy resets contents of the model
+comment|// this changes behaviour of EffectiveProjectModelFilter
 name|model
+operator|=
+name|ArchivaModelCloner
 operator|.
-name|setOrigin
+name|clone
 argument_list|(
-literal|"filesystem"
+name|model
 argument_list|)
 expr_stmt|;
 try|try

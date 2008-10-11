@@ -369,11 +369,9 @@ block|}
 else|else
 block|{
 return|return
-name|version
-operator|.
-name|endsWith
+name|isGenericSnapshot
 argument_list|(
-name|SNAPSHOT
+name|version
 argument_list|)
 return|;
 block|}
