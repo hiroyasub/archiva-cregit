@@ -197,6 +197,8 @@ name|TOGGLE
 init|=
 literal|"toggle"
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|release
@@ -212,6 +214,8 @@ name|release
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|doEndTag
