@@ -566,6 +566,13 @@ name|xml
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|model
+operator|.
+name|setOrigin
+argument_list|(
+literal|"filesystem"
+argument_list|)
+expr_stmt|;
 comment|/* Following are not valid for<pomVersion>3</pomVersion> / Maven 1 pom files.              *               * model.setDependencyManagement()              * model.setPlugins()              * model.setParentProject()              * model.setPackaging()              * model.setCiManagement()              * model.setBuildExtensions()              * model.setRelocation()              */
 return|return
 name|model

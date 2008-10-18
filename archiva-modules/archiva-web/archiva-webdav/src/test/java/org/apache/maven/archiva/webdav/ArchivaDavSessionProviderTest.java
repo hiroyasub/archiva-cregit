@@ -1329,6 +1329,9 @@ name|arg0
 parameter_list|,
 name|String
 name|arg1
+parameter_list|,
+name|boolean
+name|isWriteRequest
 parameter_list|)
 throws|throws
 name|UnauthorizedException

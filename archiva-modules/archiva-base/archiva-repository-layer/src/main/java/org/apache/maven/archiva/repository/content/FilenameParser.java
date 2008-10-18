@@ -348,6 +348,10 @@ literal|9
 decl_stmt|;
 if|if
 condition|(
+name|leadingLength
+operator|>
+literal|0
+operator|&&
 name|version
 operator|.
 name|startsWith

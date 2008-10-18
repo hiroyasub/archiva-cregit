@@ -88,6 +88,14 @@ name|int
 index|[]
 name|range
 decl_stmt|;
+specifier|protected
+name|String
+name|sortDirection
+init|=
+name|Constraint
+operator|.
+name|ASCENDING
+decl_stmt|;
 specifier|public
 name|String
 name|getFilter
@@ -142,9 +150,7 @@ name|getSortDirection
 parameter_list|()
 block|{
 return|return
-name|Constraint
-operator|.
-name|ASCENDING
+name|sortDirection
 return|;
 block|}
 specifier|public

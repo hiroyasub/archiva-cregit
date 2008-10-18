@@ -205,6 +205,22 @@ name|archiva
 operator|.
 name|model
 operator|.
+name|ArchivaModelCloner
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|model
+operator|.
 name|ArchivaProjectModel
 import|;
 end_import
@@ -340,24 +356,6 @@ operator|.
 name|project
 operator|.
 name|ProjectModelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|project
-operator|.
-name|ProjectModelFilter
 import|;
 end_import
 
@@ -518,11 +516,6 @@ comment|/**      * @plexus.requirement      */
 specifier|private
 name|RepositoryContentFactory
 name|repositoryFactory
-decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="expression"      */
-specifier|private
-name|ProjectModelFilter
-name|expressionModelFilter
 decl_stmt|;
 comment|/**      * @plexus.requirement role="org.apache.maven.archiva.repository.project.ProjectModelFilter"      * role-hint="effective"      */
 specifier|private
@@ -715,13 +708,6 @@ argument_list|(
 name|artifactFile
 argument_list|)
 expr_stmt|;
-name|model
-operator|.
-name|setOrigin
-argument_list|(
-literal|"filesystem"
-argument_list|)
-expr_stmt|;
 comment|// The version should be updated to the artifact/filename version if it is a unique snapshot
 if|if
 condition|(
@@ -747,17 +733,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Filter the model
-name|model
-operator|=
-name|expressionModelFilter
-operator|.
-name|filter
-argument_list|(
-name|model
-argument_list|)
-expr_stmt|;
-comment|// Resolve the project model
+comment|// Resolve the project model (build effective model, resolve expressions)
 name|model
 operator|=
 name|effectiveModelFilter
@@ -791,6 +767,17 @@ name|toKey
 argument_list|(
 name|model
 argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Clone model, since DAO while detachingCopy resets its contents
+comment|// This changes contents of the cache in EffectiveProjectModelFilter
+name|model
+operator|=
+name|ArchivaModelCloner
+operator|.
+name|clone
+argument_list|(
+name|model
 argument_list|)
 expr_stmt|;
 name|dao

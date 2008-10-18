@@ -843,6 +843,20 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * A timestamped versioned artifact but without release version part. Like on axiom trunk.       */
+specifier|public
+name|void
+name|testBadSnapshotWithoutReleasePart
+parameter_list|()
+block|{
+name|assertBadPath
+argument_list|(
+literal|"org/apache/ws/commons/axiom/axiom/SNAPSHOT/axiom-20070912.093446-2.pom"
+argument_list|,
+literal|"snapshot version without release part"
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * A timestamped versioned artifact, should reside in a SNAPSHOT baseversion directory.      * @throws LayoutException      */
 specifier|public
 name|void

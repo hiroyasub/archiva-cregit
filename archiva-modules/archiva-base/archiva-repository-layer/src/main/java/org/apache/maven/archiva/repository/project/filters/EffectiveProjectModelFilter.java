@@ -370,16 +370,6 @@ argument_list|(
 name|project
 argument_list|)
 expr_stmt|;
-comment|// Setup Expression Evaluation pieces.
-name|effectiveProject
-operator|=
-name|expressionFilter
-operator|.
-name|filter
-argument_list|(
-name|effectiveProject
-argument_list|)
-expr_stmt|;
 name|DEBUG
 argument_list|(
 literal|"Starting build of effective with: "
@@ -395,8 +385,26 @@ argument_list|(
 name|effectiveProject
 argument_list|)
 expr_stmt|;
+comment|// Setup Expression Evaluation pieces.
+name|effectiveProject
+operator|=
+name|expressionFilter
+operator|.
+name|filter
+argument_list|(
+name|effectiveProject
+argument_list|)
+expr_stmt|;
 comment|// Resolve dependency versions from dependency management.
 name|applyDependencyManagement
+argument_list|(
+name|effectiveProject
+argument_list|)
+expr_stmt|;
+comment|// groupId or version could be updated by parent or expressions
+name|projectKey
+operator|=
+name|toProjectKey
 argument_list|(
 name|effectiveProject
 argument_list|)
@@ -405,14 +413,14 @@ comment|// Do not add project into cache if it contains no groupId and
 comment|// version information
 if|if
 condition|(
-name|project
+name|effectiveProject
 operator|.
 name|getGroupId
 argument_list|()
 operator|!=
 literal|null
 operator|&&
-name|project
+name|effectiveProject
 operator|.
 name|getVersion
 argument_list|()
@@ -731,16 +739,16 @@ block|{
 comment|// Merge the pom with the parent pom.
 name|parentProject
 operator|=
-name|expressionFilter
-operator|.
-name|filter
+name|mergeParent
 argument_list|(
 name|parentProject
 argument_list|)
 expr_stmt|;
 name|parentProject
 operator|=
-name|mergeParent
+name|expressionFilter
+operator|.
+name|filter
 argument_list|(
 name|parentProject
 argument_list|)

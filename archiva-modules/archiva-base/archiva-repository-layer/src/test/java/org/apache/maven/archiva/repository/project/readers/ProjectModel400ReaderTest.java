@@ -492,7 +492,7 @@ name|assertEquals
 argument_list|(
 literal|"Dependencies.size"
 argument_list|,
-literal|6
+literal|8
 argument_list|,
 name|project
 operator|.
