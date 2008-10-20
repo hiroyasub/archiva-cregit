@@ -71,6 +71,9 @@ name|groupId
 parameter_list|,
 name|String
 name|artifactId
+parameter_list|,
+name|boolean
+name|includeWhenGathered
 parameter_list|)
 block|{
 if|if
@@ -84,7 +87,13 @@ name|whereClause
 operator|=
 literal|"repositoryId.equals(selectedRepoId)&& groupId.equals(selectedGroupId)&& artifactId.equals(selectedArtifactId) "
 operator|+
+operator|(
+name|includeWhenGathered
+condition|?
 literal|"&& whenGathered != null"
+else|:
+literal|""
+operator|)
 expr_stmt|;
 name|declParams
 operator|=
@@ -117,7 +126,15 @@ else|else
 block|{
 name|whereClause
 operator|=
-literal|"groupId.equals(selectedGroupId)&& artifactId.equals(selectedArtifactId)&& this.whenGathered != null"
+literal|"groupId.equals(selectedGroupId)&& artifactId.equals(selectedArtifactId) "
+operator|+
+operator|(
+name|includeWhenGathered
+condition|?
+literal|"&& whenGathered != null"
+else|:
+literal|""
+operator|)
 expr_stmt|;
 name|declParams
 operator|=
@@ -166,6 +183,8 @@ argument_list|,
 name|groupId
 argument_list|,
 name|artifactId
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|this

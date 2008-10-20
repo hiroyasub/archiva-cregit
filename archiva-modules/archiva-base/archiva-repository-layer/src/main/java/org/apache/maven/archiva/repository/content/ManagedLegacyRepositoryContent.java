@@ -1760,6 +1760,21 @@ block|}
 block|}
 block|}
 block|}
+specifier|public
+name|void
+name|setFileTypes
+parameter_list|(
+name|FileTypes
+name|fileTypes
+parameter_list|)
+block|{
+name|this
+operator|.
+name|filetypes
+operator|=
+name|fileTypes
+expr_stmt|;
+block|}
 block|}
 end_class
 

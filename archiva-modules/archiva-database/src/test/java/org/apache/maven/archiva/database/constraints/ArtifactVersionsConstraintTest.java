@@ -402,6 +402,8 @@ argument_list|,
 literal|"org.apache.archiva"
 argument_list|,
 literal|"artifact-one"
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -430,6 +432,8 @@ argument_list|,
 literal|"org.apache.archiva"
 argument_list|,
 literal|"artifact-one"
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

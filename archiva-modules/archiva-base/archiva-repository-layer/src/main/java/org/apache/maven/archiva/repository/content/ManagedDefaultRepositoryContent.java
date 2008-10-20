@@ -329,6 +329,16 @@ block|{
 comment|// TODO: log this somewhere?
 block|}
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ContentNotFoundException
+argument_list|(
+literal|"Unable to delete non-existing project directory."
+argument_list|)
+throw|;
+block|}
 block|}
 specifier|public
 name|String

@@ -506,6 +506,21 @@ operator|+
 literal|"s"
 return|;
 block|}
+specifier|public
+name|void
+name|setLegacyPathParser
+parameter_list|(
+name|PathParser
+name|parser
+parameter_list|)
+block|{
+name|this
+operator|.
+name|legacyPathParser
+operator|=
+name|parser
+expr_stmt|;
+block|}
 block|}
 end_class
 
