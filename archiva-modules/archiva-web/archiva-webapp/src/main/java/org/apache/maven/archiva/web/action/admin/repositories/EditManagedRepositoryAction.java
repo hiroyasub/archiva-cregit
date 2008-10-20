@@ -29,7 +29,7 @@ name|com
 operator|.
 name|opensymphony
 operator|.
-name|xwork
+name|xwork2
 operator|.
 name|Preparable
 import|;
@@ -41,7 +41,7 @@ name|com
 operator|.
 name|opensymphony
 operator|.
-name|xwork
+name|xwork2
 operator|.
 name|Validateable
 import|;
@@ -144,7 +144,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AddManagedRepositoryAction   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork.Action" role-hint="editManagedRepositoryAction"  */
+comment|/**  * AddManagedRepositoryAction   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="editManagedRepositoryAction"  */
 end_comment
 
 begin_class

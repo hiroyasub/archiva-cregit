@@ -129,7 +129,7 @@ name|plexus
 operator|.
 name|redback
 operator|.
-name|xwork
+name|struts2
 operator|.
 name|interceptor
 operator|.
@@ -147,7 +147,7 @@ name|plexus
 operator|.
 name|redback
 operator|.
-name|xwork
+name|struts2
 operator|.
 name|interceptor
 operator|.
@@ -165,7 +165,7 @@ name|plexus
 operator|.
 name|redback
 operator|.
-name|xwork
+name|struts2
 operator|.
 name|interceptor
 operator|.
@@ -189,22 +189,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|xwork
-operator|.
-name|action
-operator|.
-name|PlexusActionSupport
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -220,6 +204,24 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|web
+operator|.
+name|action
+operator|.
+name|PlexusActionSupport
 import|;
 end_import
 

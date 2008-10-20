@@ -29,7 +29,7 @@ name|com
 operator|.
 name|opensymphony
 operator|.
-name|xwork
+name|xwork2
 operator|.
 name|Preparable
 import|;
@@ -71,6 +71,24 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|web
+operator|.
+name|action
+operator|.
+name|PlexusActionSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -93,7 +111,7 @@ name|plexus
 operator|.
 name|redback
 operator|.
-name|xwork
+name|struts2
 operator|.
 name|interceptor
 operator|.
@@ -111,7 +129,7 @@ name|plexus
 operator|.
 name|redback
 operator|.
-name|xwork
+name|struts2
 operator|.
 name|interceptor
 operator|.
@@ -129,27 +147,11 @@ name|plexus
 operator|.
 name|redback
 operator|.
-name|xwork
+name|struts2
 operator|.
 name|interceptor
 operator|.
 name|SecureActionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|xwork
-operator|.
-name|action
-operator|.
-name|PlexusActionSupport
 import|;
 end_import
 
@@ -164,7 +166,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * NetworkProxiesAction   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork.Action" role-hint="networkProxiesAction"  */
+comment|/**  * NetworkProxiesAction   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="networkProxiesAction"  */
 end_comment
 
 begin_class

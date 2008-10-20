@@ -163,7 +163,7 @@ name|plexus
 operator|.
 name|redback
 operator|.
-name|xwork
+name|struts2
 operator|.
 name|interceptor
 operator|.
@@ -181,7 +181,7 @@ name|plexus
 operator|.
 name|redback
 operator|.
-name|xwork
+name|struts2
 operator|.
 name|interceptor
 operator|.
@@ -199,7 +199,7 @@ name|plexus
 operator|.
 name|redback
 operator|.
-name|xwork
+name|struts2
 operator|.
 name|interceptor
 operator|.
@@ -211,25 +211,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
-operator|.
-name|xwork
-operator|.
-name|action
-operator|.
-name|PlexusActionSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|opensymphony
-operator|.
-name|webwork
+name|struts2
 operator|.
 name|interceptor
 operator|.
@@ -243,14 +227,32 @@ name|com
 operator|.
 name|opensymphony
 operator|.
-name|xwork
+name|xwork2
 operator|.
 name|Preparable
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|web
+operator|.
+name|action
+operator|.
+name|PlexusActionSupport
+import|;
+end_import
+
 begin_comment
-comment|/**  * Shows the LegacyArtifactPath Tab for the administrator.  *  * @since 1.1  * @plexus.component role="com.opensymphony.xwork.Action" role-hint="legacyArtifactPathAction"  */
+comment|/**  * Shows the LegacyArtifactPath Tab for the administrator.  *  * @since 1.1  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="legacyArtifactPathAction"  */
 end_comment
 
 begin_class

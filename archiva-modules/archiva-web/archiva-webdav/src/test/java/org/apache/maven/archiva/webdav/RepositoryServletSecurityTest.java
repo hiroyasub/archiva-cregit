@@ -283,7 +283,7 @@ name|plexus
 operator|.
 name|redback
 operator|.
-name|xwork
+name|struts2
 operator|.
 name|filter
 operator|.
@@ -303,7 +303,7 @@ name|plexus
 operator|.
 name|redback
 operator|.
-name|xwork
+name|struts2
 operator|.
 name|filter
 operator|.

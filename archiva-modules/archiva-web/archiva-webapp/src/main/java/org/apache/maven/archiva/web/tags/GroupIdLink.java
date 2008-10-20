@@ -21,23 +21,23 @@ end_comment
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|opensymphony
+name|apache
 operator|.
-name|webwork
+name|struts2
 operator|.
-name|WebWorkException
+name|StrutsException
 import|;
 end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|opensymphony
+name|apache
 operator|.
-name|webwork
+name|struts2
 operator|.
 name|components
 operator|.
@@ -51,11 +51,11 @@ name|com
 operator|.
 name|opensymphony
 operator|.
-name|xwork
+name|xwork2
 operator|.
 name|util
 operator|.
-name|OgnlValueStack
+name|ValueStack
 import|;
 end_import
 
@@ -185,7 +185,7 @@ decl_stmt|;
 specifier|public
 name|GroupIdLink
 parameter_list|(
-name|OgnlValueStack
+name|ValueStack
 name|stack
 parameter_list|,
 name|HttpServletRequest
@@ -213,6 +213,8 @@ operator|=
 name|res
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|end
@@ -383,7 +385,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|WebWorkException
+name|StrutsException
 argument_list|(
 literal|"IOError: "
 operator|+
@@ -436,7 +438,9 @@ name|includeContext
 argument_list|,
 name|encode
 argument_list|,
-literal|true
+literal|false
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -481,7 +485,9 @@ name|includeContext
 argument_list|,
 name|encode
 argument_list|,
-literal|true
+literal|false
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
