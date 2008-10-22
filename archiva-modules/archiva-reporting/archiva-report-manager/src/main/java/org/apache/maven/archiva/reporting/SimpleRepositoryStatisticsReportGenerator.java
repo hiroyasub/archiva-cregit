@@ -297,7 +297,7 @@ name|end
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      *       * @see org.apache.maven.archiva.reporting.RepositoryStatisticsReportGenerator#generateReport(java.util.List      *      repoContentStats, java.util.String repository, java.util.Date startDate, java.util.Date endDate)      */
+comment|/**      * {@inheritDoc}      *       * @see org.apache.maven.archiva.reporting.RepositoryStatisticsReportGenerator#generateReport(java.util.List      *      repoContentStats, java.util.String repository, java.util.Date startDate, java.util.Date endDate, boolean firstStatsOnly)      */
 specifier|public
 name|List
 argument_list|<
@@ -319,9 +319,34 @@ name|startDate
 parameter_list|,
 name|Date
 name|endDate
+parameter_list|,
+name|boolean
+name|firstStatsOnly
 parameter_list|)
 throws|throws
 name|ArchivaReportException
+block|{
+if|if
+condition|(
+name|firstStatsOnly
+condition|)
+block|{
+return|return
+name|constructRepositoryStatistics
+argument_list|(
+name|repoContentStats
+argument_list|,
+name|repository
+argument_list|,
+name|endDate
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+return|;
+block|}
+else|else
 block|{
 return|return
 name|constructRepositoryStatistics
@@ -342,6 +367,7 @@ operator|-
 literal|1
 argument_list|)
 return|;
+block|}
 block|}
 specifier|private
 name|List

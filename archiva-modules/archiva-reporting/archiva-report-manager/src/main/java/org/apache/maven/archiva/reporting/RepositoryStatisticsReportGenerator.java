@@ -102,6 +102,7 @@ name|ARCHETYPE
 init|=
 literal|"archetype"
 decl_stmt|;
+comment|/**      * Generate report with limits. Used for pagination.      *       * @param repoContentStats      * @param repository      * @param startDate      * @param endDate      * @param limits      * @return      * @throws ArchivaReportException      */
 specifier|public
 name|List
 argument_list|<
@@ -130,6 +131,7 @@ parameter_list|)
 throws|throws
 name|ArchivaReportException
 function_decl|;
+comment|/**      * Generate report without limits. Used for exporting the report.      *       * @param repoContentStats      * @param repository      * @param startDate      * @param endDate      * @param firstStatsOnly TODO      * @return      * @throws ArchivaReportException      */
 specifier|public
 name|List
 argument_list|<
@@ -151,6 +153,9 @@ name|startDate
 parameter_list|,
 name|Date
 name|endDate
+parameter_list|,
+name|boolean
+name|firstStatsOnly
 parameter_list|)
 throws|throws
 name|ArchivaReportException
