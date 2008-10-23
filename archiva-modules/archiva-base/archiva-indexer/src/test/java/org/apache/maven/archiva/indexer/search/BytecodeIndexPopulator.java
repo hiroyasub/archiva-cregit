@@ -329,6 +329,27 @@ literal|"jar"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// a-common5
+name|dumps
+operator|.
+name|put
+argument_list|(
+literal|"a-common5"
+argument_list|,
+name|createArchivaArtifact
+argument_list|(
+literal|"a"
+argument_list|,
+literal|"a-common5"
+argument_list|,
+literal|"1.0"
+argument_list|,
+literal|""
+argument_list|,
+literal|"jar"
+argument_list|)
+argument_list|)
+expr_stmt|;
 return|return
 name|dumps
 return|;
