@@ -295,44 +295,14 @@ name|prefix
 operator|.
 name|append
 argument_list|(
-literal|"<a href=\"#\" onclick=\"Effect.toggle('repoPom"
+literal|"<a href=\"#\" class=\"expand\">Show POM Snippet</a><br/>"
 argument_list|)
 expr_stmt|;
 name|prefix
 operator|.
 name|append
 argument_list|(
-name|repo
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"','slide'); return false;\">Show POM Snippet</a><br/>"
-argument_list|)
-expr_stmt|;
-name|prefix
-operator|.
-name|append
-argument_list|(
-literal|"<pre class=\"pom\" style=\"display: none;\" id=\"repoPom"
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|repo
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|prefix
-operator|.
-name|append
-argument_list|(
-literal|"\"><code>"
+literal|"<pre class=\"pom\"><code>"
 argument_list|)
 expr_stmt|;
 name|suffix
