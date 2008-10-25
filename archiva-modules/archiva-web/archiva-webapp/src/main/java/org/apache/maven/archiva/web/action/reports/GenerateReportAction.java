@@ -917,6 +917,14 @@ block|,
 literal|"dd/MM/yyyy"
 block|,
 literal|"yyyy/MM/dd"
+block|,
+literal|"yyyy-MM-dd"
+block|,
+literal|"yyyy-dd-MM"
+block|,
+literal|"MM-dd-yyyy"
+block|,
+literal|"MM-dd-yy"
 block|}
 decl_stmt|;
 specifier|public
