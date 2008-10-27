@@ -267,13 +267,6 @@ literal|"repository-scanning"
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Banner
-name|banner
-init|=
-operator|new
-name|Banner
-argument_list|()
-decl_stmt|;
 try|try
 block|{
 name|securitySync
@@ -291,7 +284,7 @@ operator|.
 name|startup
 argument_list|()
 expr_stmt|;
-name|banner
+name|Banner
 operator|.
 name|display
 argument_list|()
