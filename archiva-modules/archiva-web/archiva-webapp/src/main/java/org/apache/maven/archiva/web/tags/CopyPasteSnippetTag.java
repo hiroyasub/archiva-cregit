@@ -572,7 +572,7 @@ name|snippet
 operator|.
 name|append
 argument_list|(
-literal|"<url>dav:"
+literal|"<url>"
 argument_list|)
 operator|.
 name|append
