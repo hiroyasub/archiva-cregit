@@ -62,7 +62,7 @@ specifier|public
 interface|interface
 name|RepositoryContentConsumer
 extends|extends
-name|BaseConsumer
+name|Consumer
 block|{
 comment|/**      * Get the list of included file patterns for this consumer.      *       * @return the list of {@link String} patterns. (example:<code>"**<span />/*.pom"</code>)      */
 specifier|public

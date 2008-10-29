@@ -83,7 +83,7 @@ specifier|abstract
 class|class
 name|AbstractMonitoredConsumer
 implements|implements
-name|BaseConsumer
+name|Consumer
 block|{
 specifier|private
 name|Set

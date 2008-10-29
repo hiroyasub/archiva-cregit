@@ -45,7 +45,7 @@ name|archiva
 operator|.
 name|consumers
 operator|.
-name|BaseConsumer
+name|Consumer
 import|;
 end_import
 
@@ -77,14 +77,14 @@ if|if
 condition|(
 name|object
 operator|instanceof
-name|BaseConsumer
+name|Consumer
 condition|)
 block|{
-name|BaseConsumer
+name|Consumer
 name|consumer
 init|=
 operator|(
-name|BaseConsumer
+name|Consumer
 operator|)
 name|object
 decl_stmt|;

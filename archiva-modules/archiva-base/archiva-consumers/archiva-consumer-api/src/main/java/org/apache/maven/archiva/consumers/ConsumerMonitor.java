@@ -31,7 +31,7 @@ specifier|public
 name|void
 name|consumerError
 parameter_list|(
-name|BaseConsumer
+name|Consumer
 name|consumer
 parameter_list|,
 name|String
@@ -46,7 +46,7 @@ specifier|public
 name|void
 name|consumerWarning
 parameter_list|(
-name|BaseConsumer
+name|Consumer
 name|consumer
 parameter_list|,
 name|String
@@ -61,7 +61,7 @@ specifier|public
 name|void
 name|consumerInfo
 parameter_list|(
-name|BaseConsumer
+name|Consumer
 name|consumer
 parameter_list|,
 name|String

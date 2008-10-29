@@ -18,14 +18,14 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * BaseConsumer - the base set of methods for a consumer.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Consumer - the base set of methods for a consumer.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
 end_comment
 
 begin_interface
 specifier|public
 specifier|abstract
 interface|interface
-name|BaseConsumer
+name|Consumer
 block|{
 comment|/**      * This is the id for the consumer.      *       * @return the consumer id.      */
 specifier|public

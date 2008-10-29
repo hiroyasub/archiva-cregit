@@ -52,7 +52,7 @@ specifier|public
 interface|interface
 name|ArchivaArtifactConsumer
 extends|extends
-name|BaseConsumer
+name|Consumer
 block|{
 comment|/**      * Get the list of included file patterns for this consumer.      *       * @return the list of ({@link String}) artifact types to process.      */
 specifier|public
