@@ -164,6 +164,45 @@ argument_list|<
 name|String
 argument_list|>
 argument_list|()
+block|{
+block|{
+name|add
+argument_list|(
+literal|"SearchService.quickSearch"
+argument_list|)
+expr_stmt|;
+name|add
+argument_list|(
+literal|"SearchService.getArtifactByChecksum"
+argument_list|)
+expr_stmt|;
+name|add
+argument_list|(
+literal|"SearchService.getArtifactVersions"
+argument_list|)
+expr_stmt|;
+name|add
+argument_list|(
+literal|"SearchService.queryArtifactVersionsByDate"
+argument_list|)
+expr_stmt|;
+name|add
+argument_list|(
+literal|" SearchService.getDirectDependencies"
+argument_list|)
+expr_stmt|;
+name|add
+argument_list|(
+literal|" SearchService.getDirectDependencyTree"
+argument_list|)
+expr_stmt|;
+name|add
+argument_list|(
+literal|" SearchService.getDependees"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 decl_stmt|;
 specifier|public
 specifier|static

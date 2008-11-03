@@ -424,6 +424,8 @@ operator|new
 name|XmlRpcAuthenticator
 argument_list|(
 name|securitySystem
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -619,6 +621,8 @@ name|getMethodName
 argument_list|()
 argument_list|,
 literal|"AdministrationService.getAllManagedRepositories"
+argument_list|,
+literal|2
 argument_list|)
 expr_stmt|;
 name|xmlRpcRequestControl
@@ -766,6 +770,8 @@ name|getMethodName
 argument_list|()
 argument_list|,
 literal|"AdministrationService.getAllManagedRepositories"
+argument_list|,
+literal|2
 argument_list|)
 expr_stmt|;
 name|xmlRpcRequestControl
@@ -895,6 +901,8 @@ name|getMethodName
 argument_list|()
 argument_list|,
 literal|"AdministrationService.getAllManagedRepositories"
+argument_list|,
+literal|2
 argument_list|)
 expr_stmt|;
 name|xmlRpcRequestControl
