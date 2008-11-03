@@ -159,13 +159,9 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|redback
+name|registry
 operator|.
-name|struts2
-operator|.
-name|interceptor
-operator|.
-name|SecureActionBundle
+name|RegistryException
 import|;
 end_import
 
@@ -175,11 +171,13 @@ name|org
 operator|.
 name|codehaus
 operator|.
-name|plexus
+name|redback
 operator|.
-name|registry
+name|integration
 operator|.
-name|RegistryException
+name|interceptor
+operator|.
+name|SecureActionBundle
 import|;
 end_import
 

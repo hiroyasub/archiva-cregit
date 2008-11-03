@@ -365,15 +365,9 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|redback
+name|spring
 operator|.
-name|struts2
-operator|.
-name|filter
-operator|.
-name|authentication
-operator|.
-name|HttpAuthenticator
+name|PlexusToSpringUtils
 import|;
 end_import
 
@@ -383,11 +377,15 @@ name|org
 operator|.
 name|codehaus
 operator|.
-name|plexus
+name|redback
 operator|.
-name|spring
+name|integration
 operator|.
-name|PlexusToSpringUtils
+name|filter
+operator|.
+name|authentication
+operator|.
+name|HttpAuthenticator
 import|;
 end_import
 

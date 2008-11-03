@@ -121,11 +121,9 @@ name|org
 operator|.
 name|codehaus
 operator|.
-name|plexus
-operator|.
 name|redback
 operator|.
-name|struts2
+name|integration
 operator|.
 name|interceptor
 operator|.
@@ -139,11 +137,9 @@ name|org
 operator|.
 name|codehaus
 operator|.
-name|plexus
-operator|.
 name|redback
 operator|.
-name|struts2
+name|integration
 operator|.
 name|interceptor
 operator|.
