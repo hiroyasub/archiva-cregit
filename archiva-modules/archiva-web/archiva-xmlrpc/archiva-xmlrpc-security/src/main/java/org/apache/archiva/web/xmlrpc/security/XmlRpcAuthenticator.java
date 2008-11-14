@@ -316,22 +316,6 @@ parameter_list|)
 throws|throws
 name|XmlRpcException
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"authenticator is called for request '"
-operator|+
-name|pRequest
-operator|.
-name|getMethodName
-argument_list|()
-operator|+
-literal|"'"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|pRequest
