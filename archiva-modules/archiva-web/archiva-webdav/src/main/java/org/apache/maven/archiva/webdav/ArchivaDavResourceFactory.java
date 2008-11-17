@@ -3074,6 +3074,16 @@ return|return;
 block|}
 try|try
 block|{
+comment|// MavenXpp3Reader leaves the file open, so we need to close it ourselves.
+name|FileReader
+name|reader
+init|=
+operator|new
+name|FileReader
+argument_list|(
+name|pom
+argument_list|)
+decl_stmt|;
 name|Model
 name|model
 init|=
@@ -3083,13 +3093,14 @@ argument_list|()
 operator|.
 name|read
 argument_list|(
-operator|new
-name|FileReader
-argument_list|(
-name|pom
-argument_list|)
+name|reader
 argument_list|)
 decl_stmt|;
+name|reader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|DistributionManagement
 name|dist
 init|=
