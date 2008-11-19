@@ -52,7 +52,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The database update component.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * The database update component.   *  * @version $Id$  */
 end_comment
 
 begin_interface

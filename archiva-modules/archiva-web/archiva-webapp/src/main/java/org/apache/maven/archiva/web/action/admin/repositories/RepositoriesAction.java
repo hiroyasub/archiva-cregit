@@ -360,7 +360,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Shows the Repositories Tab for the administrator.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="repositoriesAction"  */
+comment|/**  * Shows the Repositories Tab for the administrator.  *  * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="repositoriesAction"  */
 end_comment
 
 begin_class

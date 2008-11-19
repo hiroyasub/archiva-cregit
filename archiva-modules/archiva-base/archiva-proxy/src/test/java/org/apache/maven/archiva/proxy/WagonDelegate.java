@@ -266,7 +266,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A dummy wagon implementation  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * A dummy wagon implementation  *  */
 end_comment
 
 begin_class

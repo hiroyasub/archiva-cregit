@@ -182,7 +182,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractProxyConnectorFormAction - generic fields and methods for either add or edit actions related with the   * Proxy Connector.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * AbstractProxyConnectorFormAction - generic fields and methods for either add or edit actions related with the   * Proxy Connector.   *  * @version $Id$  */
 end_comment
 
 begin_class

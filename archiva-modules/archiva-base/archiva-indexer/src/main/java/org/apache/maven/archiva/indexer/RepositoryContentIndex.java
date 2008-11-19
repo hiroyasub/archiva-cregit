@@ -132,7 +132,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Common access methods for a Repository Content index.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * Common access methods for a Repository Content index.  *  */
 end_comment
 
 begin_interface

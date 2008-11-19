@@ -472,7 +472,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProjectModelToDatabaseConsumer  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.DatabaseUnprocessedArtifactConsumer"  * role-hint="update-db-project"  * instantiation-strategy="per-lookup"  */
+comment|/**  * ProjectModelToDatabaseConsumer  *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.DatabaseUnprocessedArtifactConsumer"  * role-hint="update-db-project"  * instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

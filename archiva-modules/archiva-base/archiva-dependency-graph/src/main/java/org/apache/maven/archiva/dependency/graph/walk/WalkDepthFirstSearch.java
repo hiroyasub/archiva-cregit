@@ -172,7 +172,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Perform a walk of the graph using the DepthFirstSearch algorithm.  *   * NOTE: Default edgePredicate is to NOT traverse disabled edges.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Perform a walk of the graph using the DepthFirstSearch algorithm.  *   * NOTE: Default edgePredicate is to NOT traverse disabled edges.  *  * @version $Id$  */
 end_comment
 
 begin_class

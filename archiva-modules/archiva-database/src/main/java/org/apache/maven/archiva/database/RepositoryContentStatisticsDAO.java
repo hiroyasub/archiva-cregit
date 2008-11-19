@@ -44,7 +44,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryContentStatisticsDAO   *  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  * RepositoryContentStatisticsDAO   *  * @version  */
 end_comment
 
 begin_interface

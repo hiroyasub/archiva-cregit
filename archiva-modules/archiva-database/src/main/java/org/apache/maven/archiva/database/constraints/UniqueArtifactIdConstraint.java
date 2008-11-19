@@ -62,7 +62,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Obtain a set of unique ArtifactIds for the specified groupId.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Obtain a set of unique ArtifactIds for the specified groupId.  *  * @version $Id$  */
 end_comment
 
 begin_class

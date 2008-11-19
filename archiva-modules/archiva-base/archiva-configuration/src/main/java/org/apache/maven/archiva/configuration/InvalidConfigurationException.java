@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * An error in the configuration.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * An error in the configuration.  *  */
 end_comment
 
 begin_class

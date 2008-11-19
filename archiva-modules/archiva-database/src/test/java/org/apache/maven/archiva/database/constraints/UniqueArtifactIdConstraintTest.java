@@ -170,7 +170,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * UniqueArtifactIdConstraintTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * UniqueArtifactIdConstraintTest   *  * @version $Id$  */
 end_comment
 
 begin_class

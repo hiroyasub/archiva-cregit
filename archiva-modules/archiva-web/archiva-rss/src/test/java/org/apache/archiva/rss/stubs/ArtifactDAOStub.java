@@ -108,7 +108,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactDAO stub.  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version *   */
+comment|/**  * ArtifactDAO stub.  *   * @version *   */
 end_comment
 
 begin_class

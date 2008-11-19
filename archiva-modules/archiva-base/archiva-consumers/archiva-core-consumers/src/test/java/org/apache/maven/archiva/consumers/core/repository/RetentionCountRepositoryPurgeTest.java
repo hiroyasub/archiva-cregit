@@ -32,7 +32,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Test RetentionsCountRepositoryPurgeTest  *  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  */
+comment|/**  * Test RetentionsCountRepositoryPurgeTest  *  */
 end_comment
 
 begin_class

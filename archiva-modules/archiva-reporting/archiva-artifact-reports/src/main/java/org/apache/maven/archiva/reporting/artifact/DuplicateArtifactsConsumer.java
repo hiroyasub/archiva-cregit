@@ -384,7 +384,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Search the database of known SHA1 Checksums for potential duplicate artifacts.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.ArchivaArtifactConsumer"  *                   role-hint="duplicate-artifacts"  */
+comment|/**  * Search the database of known SHA1 Checksums for potential duplicate artifacts.  *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.ArchivaArtifactConsumer"  *                   role-hint="duplicate-artifacts"  */
 end_comment
 
 begin_class

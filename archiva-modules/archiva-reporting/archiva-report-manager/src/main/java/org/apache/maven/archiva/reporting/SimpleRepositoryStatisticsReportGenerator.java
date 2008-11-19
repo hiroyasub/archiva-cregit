@@ -150,7 +150,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SimpleRepositoryStatisticsReportGenerator  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version $Id: SimpleRepositoryStatisticsReportGenerator.java  *   * @plexus.component role="org.apache.maven.archiva.reporting.RepositoryStatisticsReportGenerator" role-hint="simple"  */
+comment|/**  * SimpleRepositoryStatisticsReportGenerator  *   * @version $Id: SimpleRepositoryStatisticsReportGenerator.java  *   * @plexus.component role="org.apache.maven.archiva.reporting.RepositoryStatisticsReportGenerator" role-hint="simple"  */
 end_comment
 
 begin_class

@@ -64,7 +64,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ChecksummedFileTest  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ChecksummedFileTest  *  * @version $Id$  */
 end_comment
 
 begin_class

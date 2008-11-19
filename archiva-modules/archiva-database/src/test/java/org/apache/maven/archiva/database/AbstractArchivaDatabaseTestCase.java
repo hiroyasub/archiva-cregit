@@ -274,7 +274,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractArchivaDatabaseTestCase   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * AbstractArchivaDatabaseTestCase   *  * @version $Id$  */
 end_comment
 
 begin_class

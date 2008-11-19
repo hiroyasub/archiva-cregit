@@ -128,7 +128,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for all repository purge tasks.  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  */
+comment|/**  * Base class for all repository purge tasks.  *   */
 end_comment
 
 begin_class

@@ -120,7 +120,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LegacyPathParser is a parser for maven 1 (legacy layout) paths to  * ArtifactReference.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.repository.content.PathParser"  * role-hint="legacy"  */
+comment|/**  * LegacyPathParser is a parser for maven 1 (legacy layout) paths to  * ArtifactReference.  *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.repository.content.PathParser"  * role-hint="legacy"  */
 end_comment
 
 begin_class

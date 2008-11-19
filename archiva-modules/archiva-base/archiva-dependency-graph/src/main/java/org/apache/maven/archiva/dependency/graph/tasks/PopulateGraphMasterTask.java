@@ -152,7 +152,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PopulateGraphMasterTask - will perform a resolve / depman apply loop until the graph is fully populated.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * PopulateGraphMasterTask - will perform a resolve / depman apply loop until the graph is fully populated.   *  * @version $Id$  */
 end_comment
 
 begin_class

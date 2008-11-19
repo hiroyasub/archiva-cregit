@@ -208,7 +208,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Purge the repository by retention count. Retain only the specified number of snapshots.  *  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  */
+comment|/**  * Purge the repository by retention count. Retain only the specified number of snapshots.  *  */
 end_comment
 
 begin_class

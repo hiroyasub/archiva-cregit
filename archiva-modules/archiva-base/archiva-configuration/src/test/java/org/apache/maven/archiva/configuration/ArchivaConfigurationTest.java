@@ -126,7 +126,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test the configuration store.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * Test the configuration store.  *  */
 end_comment
 
 begin_class

@@ -252,7 +252,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SecurityStartup   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.security.SecurityStartup"  */
+comment|/**  * SecurityStartup   *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.security.SecurityStartup"  */
 end_comment
 
 begin_class

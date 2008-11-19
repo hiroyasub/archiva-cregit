@@ -102,7 +102,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LegacyPathParserTest  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * LegacyPathParserTest  *  * @version $Id$  */
 end_comment
 
 begin_class

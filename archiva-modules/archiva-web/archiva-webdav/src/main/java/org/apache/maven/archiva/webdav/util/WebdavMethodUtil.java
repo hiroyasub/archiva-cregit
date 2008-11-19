@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * WebdavMethodUtil   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id: WebdavMethodUtil.java 5412 2007-01-13 01:18:47Z joakime $  */
+comment|/**  * WebdavMethodUtil   *  * @version $Id: WebdavMethodUtil.java 5412 2007-01-13 01:18:47Z joakime $  */
 end_comment
 
 begin_class

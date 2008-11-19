@@ -168,7 +168,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractSecurityTest   *  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version $Id: AbstractSecurityTest  */
+comment|/**  * AbstractSecurityTest   *  * @version $Id: AbstractSecurityTest  */
 end_comment
 
 begin_class

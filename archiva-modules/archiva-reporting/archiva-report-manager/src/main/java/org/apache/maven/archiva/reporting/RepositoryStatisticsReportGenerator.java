@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryStatisticsReportGenerator  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version $Id: RepositoryStatisticsReportGenerator.java  */
+comment|/**  * RepositoryStatisticsReportGenerator  *   * @version $Id: RepositoryStatisticsReportGenerator.java  */
 end_comment
 
 begin_interface

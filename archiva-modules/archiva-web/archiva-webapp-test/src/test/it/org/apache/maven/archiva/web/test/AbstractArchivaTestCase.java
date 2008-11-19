@@ -38,7 +38,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Edwin Punzalan  */
+comment|/**  */
 end_comment
 
 begin_class

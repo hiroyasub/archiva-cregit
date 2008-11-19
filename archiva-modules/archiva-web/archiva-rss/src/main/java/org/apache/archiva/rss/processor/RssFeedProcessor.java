@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Retrieve and process the data that will be fed into the RssFeedGenerator.  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  * Retrieve and process the data that will be fed into the RssFeedGenerator.  *   * @version  */
 end_comment
 
 begin_interface

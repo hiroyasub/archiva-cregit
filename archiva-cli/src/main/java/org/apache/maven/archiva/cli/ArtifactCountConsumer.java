@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactCountConsumer   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *                   role-hint="count-artifacts"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * ArtifactCountConsumer   *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *                   role-hint="count-artifacts"  *                   instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * UserRepositories stub used for testing.   *  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version $Id$  */
+comment|/**  * UserRepositories stub used for testing.   *  * @version $Id$  */
 end_comment
 
 begin_class

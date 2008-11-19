@@ -86,7 +86,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Event to copy a file.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @author<a href="mailto:carlos@apache.org">Carlos Sanchez</a>  * @version $Id$  */
+comment|/**  * Event to copy a file.  *  * @version $Id$  */
 end_comment
 
 begin_class

@@ -452,7 +452,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MetadataUpdaterConsumer will create and update the metadata present within the repository.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="metadata-updater"  * instantiation-strategy="per-lookup"  */
+comment|/**  * MetadataUpdaterConsumer will create and update the metadata present within the repository.  *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="metadata-updater"  * instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

@@ -20,7 +20,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Archiva's webapp UI test for browsing the indexed repository.  *   * @author<a href="mailto:nramirez@exist.com">Napoleon Esmundo C. Ramirez</a>  */
+comment|/**  * Archiva's webapp UI test for browsing the indexed repository.  *   */
 end_comment
 
 begin_class

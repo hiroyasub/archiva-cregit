@@ -46,7 +46,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * RepositoryContentStatisticsByRepositoryConstraint  *  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  * RepositoryContentStatisticsByRepositoryConstraint  *  * @version  */
 end_comment
 
 begin_class

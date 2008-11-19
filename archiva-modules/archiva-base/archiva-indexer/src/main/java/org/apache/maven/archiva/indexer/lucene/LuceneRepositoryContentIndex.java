@@ -270,7 +270,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Lucene implementation of a repository index.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * Lucene implementation of a repository index.  *  */
 end_comment
 
 begin_class

@@ -44,7 +44,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SqlBuilder - common sql building mechanisms.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * SqlBuilder - common sql building mechanisms.   *  * @version $Id$  */
 end_comment
 
 begin_class

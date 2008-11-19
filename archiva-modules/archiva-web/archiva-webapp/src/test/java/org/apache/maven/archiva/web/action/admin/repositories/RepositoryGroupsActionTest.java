@@ -190,7 +190,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryGroupsActionTest  *   * @author  * @version  */
+comment|/**  * RepositoryGroupsActionTest  *   * @version  */
 end_comment
 
 begin_class

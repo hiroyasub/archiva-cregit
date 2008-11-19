@@ -58,7 +58,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Version utility methods.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Version utility methods.   *  * @version $Id$  */
 end_comment
 
 begin_class

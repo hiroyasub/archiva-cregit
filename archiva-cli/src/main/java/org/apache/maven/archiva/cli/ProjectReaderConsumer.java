@@ -178,7 +178,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProjectReaderConsumer   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *                   role-hint="read-poms"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * ProjectReaderConsumer   *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *                   role-hint="read-poms"  *                   instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

@@ -116,7 +116,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Update the scopes of the edges to what their parent node says.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Update the scopes of the edges to what their parent node says.  *  * @version $Id$  */
 end_comment
 
 begin_class

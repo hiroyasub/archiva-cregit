@@ -154,7 +154,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * UniqueVersionConstraintTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * UniqueVersionConstraintTest   *  * @version $Id$  */
 end_comment
 
 begin_class

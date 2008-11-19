@@ -238,7 +238,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test maven connection to archiva  *  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  */
+comment|/**  * Test maven connection to archiva  *  */
 end_comment
 
 begin_class

@@ -276,7 +276,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Purge from repository all snapshots older than the specified days in the repository configuration.  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  */
+comment|/**  * Purge from repository all snapshots older than the specified days in the repository configuration.  *   */
 end_comment
 
 begin_class

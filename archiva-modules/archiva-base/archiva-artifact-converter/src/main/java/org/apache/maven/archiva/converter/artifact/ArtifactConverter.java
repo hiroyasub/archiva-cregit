@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactConverter   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ArtifactConverter   *  * @version $Id$  */
 end_comment
 
 begin_interface

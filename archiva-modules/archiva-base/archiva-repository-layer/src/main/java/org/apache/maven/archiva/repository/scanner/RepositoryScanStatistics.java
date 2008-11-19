@@ -86,7 +86,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryScanStatistics - extension to the RepositoryContentStatistics model.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * RepositoryScanStatistics - extension to the RepositoryContentStatistics model.  *  * @version $Id$  */
 end_comment
 
 begin_class

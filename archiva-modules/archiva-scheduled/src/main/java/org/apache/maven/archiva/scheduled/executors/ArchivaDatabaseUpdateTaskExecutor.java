@@ -178,7 +178,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaDatabaseTaskExecutor   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component  *   role="org.codehaus.plexus.taskqueue.execution.TaskExecutor"  *   role-hint="database-update"  */
+comment|/**  * ArchivaDatabaseTaskExecutor   *  * @version $Id$  *   * @plexus.component  *   role="org.codehaus.plexus.taskqueue.execution.TaskExecutor"  *   role-hint="database-update"  */
 end_comment
 
 begin_class

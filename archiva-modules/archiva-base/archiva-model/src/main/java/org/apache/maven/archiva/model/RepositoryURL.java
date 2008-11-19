@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * RepositoryURL - Mutable (and protocol forgiving) URL object.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * RepositoryURL - Mutable (and protocol forgiving) URL object.  *  * @version $Id$  */
 end_comment
 
 begin_class

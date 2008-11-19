@@ -118,7 +118,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract TestCase for RepositoryServlet Tests, Proxied, Get of Metadata.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Abstract TestCase for RepositoryServlet Tests, Proxied, Get of Metadata.   *  * @version $Id$  */
 end_comment
 
 begin_class

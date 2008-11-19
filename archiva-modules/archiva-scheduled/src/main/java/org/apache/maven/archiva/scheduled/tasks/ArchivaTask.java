@@ -34,7 +34,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A repository task.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * A repository task.  *  */
 end_comment
 
 begin_interface

@@ -158,7 +158,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CacheFailuresTransferTest  *  * @author Brett Porter  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * CacheFailuresTransferTest  *  * @version $Id$  */
 end_comment
 
 begin_class

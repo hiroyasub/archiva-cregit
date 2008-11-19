@@ -202,7 +202,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ErrorHandlingTest  *  * @author Brett Porter  * @version $Id$  */
+comment|/**  * ErrorHandlingTest  *  * @version $Id$  */
 end_comment
 
 begin_class

@@ -34,7 +34,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MimeTypesTest   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id: MimeTypesTest.java 6556 2007-06-20 20:44:46Z joakime $  */
+comment|/**  * MimeTypesTest   *  * @version $Id: MimeTypesTest.java 6556 2007-06-20 20:44:46Z joakime $  */
 end_comment
 
 begin_class

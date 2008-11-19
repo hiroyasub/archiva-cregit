@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Slf4JPlexusLogger - temporary logger to provide an Slf4j Logger to those components  * outside of the archiva codebase that require a plexus logger.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Slf4JPlexusLogger - temporary logger to provide an Slf4j Logger to those components  * outside of the archiva codebase that require a plexus logger.  *  * @version $Id$  */
 end_comment
 
 begin_class

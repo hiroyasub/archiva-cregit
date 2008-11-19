@@ -184,7 +184,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Perform a transitive reduction of the graph.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Perform a transitive reduction of the graph.   *  * @version $Id$  */
 end_comment
 
 begin_class

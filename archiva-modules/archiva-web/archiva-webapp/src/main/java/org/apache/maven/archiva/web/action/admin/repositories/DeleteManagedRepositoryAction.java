@@ -292,7 +292,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DeleteManagedRepositoryAction  *   * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteManagedRepositoryAction"  */
+comment|/**  * DeleteManagedRepositoryAction  *   * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteManagedRepositoryAction"  */
 end_comment
 
 begin_class

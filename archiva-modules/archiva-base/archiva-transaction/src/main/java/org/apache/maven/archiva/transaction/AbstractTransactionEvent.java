@@ -140,7 +140,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract class for the TransactionEvents  *  * @author Edwin Punzalan  * @author<a href="mailto:carlos@apache.org">Carlos Sanchez</a>  * @version $Id$  */
+comment|/**  * Abstract class for the TransactionEvents  *  * @version $Id$  */
 end_comment
 
 begin_class

@@ -344,7 +344,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DownloadArtifact  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.struts2.components.Component" role-hint="download-artifact"  * instantiation-strategy="per-lookup"  */
+comment|/**  * DownloadArtifact  *  * @version $Id$  * @plexus.component role="org.apache.struts2.components.Component" role-hint="download-artifact"  * instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

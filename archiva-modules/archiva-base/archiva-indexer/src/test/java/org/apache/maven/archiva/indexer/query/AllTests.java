@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AllTests - conveinence test suite for IDE users.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * AllTests - conveinence test suite for IDE users.   *  * @version $Id$  */
 end_comment
 
 begin_class

@@ -760,7 +760,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultRepositoryProxyConnectors  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @todo exception handling needs work - "not modified" is not really an exceptional case, and it has more layers than your average brown onion  * @plexus.component role-hint="default"  */
+comment|/**  * DefaultRepositoryProxyConnectors  *  * @version $Id$  * @todo exception handling needs work - "not modified" is not really an exceptional case, and it has more layers than your average brown onion  * @plexus.component role-hint="default"  */
 end_comment
 
 begin_class

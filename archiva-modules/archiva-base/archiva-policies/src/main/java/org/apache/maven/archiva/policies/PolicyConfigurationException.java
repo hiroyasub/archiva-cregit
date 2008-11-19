@@ -34,7 +34,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PolicyConfigurationException is thrown when a policy cannot be executed due to a   * configuration issue.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * PolicyConfigurationException is thrown when a policy cannot be executed due to a   * configuration issue.   *  * @version $Id$  */
 end_comment
 
 begin_class

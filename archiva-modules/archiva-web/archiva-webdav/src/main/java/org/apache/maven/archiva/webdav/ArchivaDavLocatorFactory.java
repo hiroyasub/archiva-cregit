@@ -106,7 +106,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author<a href="mailto:james@atlassian.com">James William Dumay</a>  */
+comment|/**  */
 end_comment
 
 begin_class

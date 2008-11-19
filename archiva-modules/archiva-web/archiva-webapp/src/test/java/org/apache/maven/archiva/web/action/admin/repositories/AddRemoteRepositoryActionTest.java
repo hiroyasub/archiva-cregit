@@ -150,7 +150,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AddRemoteRepositoryActionTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * AddRemoteRepositoryActionTest   *  * @version $Id$  */
 end_comment
 
 begin_class

@@ -30,7 +30,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Search across repositories in lucene indexes.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @todo add security to not perform search in repositories you don't have access to.  */
+comment|/**  * Search across repositories in lucene indexes.   *  * @version $Id$  * @todo add security to not perform search in repositories you don't have access to.  */
 end_comment
 
 begin_interface

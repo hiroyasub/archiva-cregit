@@ -84,7 +84,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RemoteRepositoryContent interface for interacting with a remote repository in an abstract way,   * without the need for processing based on URLs, or working with the database.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * RemoteRepositoryContent interface for interacting with a remote repository in an abstract way,   * without the need for processing based on URLs, or working with the database.   *  * @version $Id$  */
 end_comment
 
 begin_interface

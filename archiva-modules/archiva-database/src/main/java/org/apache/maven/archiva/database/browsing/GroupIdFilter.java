@@ -70,7 +70,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * GroupIdFilter - utility methods for filtering groupIds.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * GroupIdFilter - utility methods for filtering groupIds.   *  * @version $Id$  */
 end_comment
 
 begin_class

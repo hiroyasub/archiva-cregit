@@ -138,7 +138,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract ManagedRepositories Action.  *   * Place for all generic methods used in Managed Repository Administration.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Abstract ManagedRepositories Action.  *   * Place for all generic methods used in Managed Repository Administration.  *  * @version $Id$  */
 end_comment
 
 begin_class

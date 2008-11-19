@@ -354,7 +354,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultRepositoryBrowsing  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.database.browsing.RepositoryBrowsing"  */
+comment|/**  * DefaultRepositoryBrowsing  *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.database.browsing.RepositoryBrowsing"  */
 end_comment
 
 begin_class

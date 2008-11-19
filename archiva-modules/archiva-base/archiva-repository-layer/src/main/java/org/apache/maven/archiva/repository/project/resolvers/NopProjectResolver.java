@@ -90,7 +90,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A No-op Project Resolver, perform no lookup, just returns the requested  * information in the form of a simple ArchviaProjectModel.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * A No-op Project Resolver, perform no lookup, just returns the requested  * information in the form of a simple ArchviaProjectModel.  *  * @version $Id$  */
 end_comment
 
 begin_class

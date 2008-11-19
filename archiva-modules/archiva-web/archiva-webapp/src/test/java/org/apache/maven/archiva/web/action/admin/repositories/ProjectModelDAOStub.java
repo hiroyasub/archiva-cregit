@@ -114,7 +114,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProjectModelDAOStub  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  * ProjectModelDAOStub  *   * @version  */
 end_comment
 
 begin_class

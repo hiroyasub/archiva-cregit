@@ -184,7 +184,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractMemoryRepository   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * AbstractMemoryRepository   *  * @version $Id$  */
 end_comment
 
 begin_class

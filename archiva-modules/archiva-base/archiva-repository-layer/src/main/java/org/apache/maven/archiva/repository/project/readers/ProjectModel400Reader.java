@@ -388,7 +388,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProjectModel400Reader - read in modelVersion 4.0.0 pom files into archiva-model structures.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ProjectModel400Reader - read in modelVersion 4.0.0 pom files into archiva-model structures.  *  * @version $Id$  */
 end_comment
 
 begin_class

@@ -86,7 +86,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RemoteLegacyRepositoryContentTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * RemoteLegacyRepositoryContentTest   *  * @version $Id$  */
 end_comment
 
 begin_class

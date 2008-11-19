@@ -240,7 +240,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProjectModelExpressionExpanderTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ProjectModelExpressionExpanderTest   *  * @version $Id$  */
 end_comment
 
 begin_class

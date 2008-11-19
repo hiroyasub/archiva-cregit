@@ -74,7 +74,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AddAdminRepoConsumerClosure   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * AddAdminRepoConsumerClosure   *  * @version $Id$  */
 end_comment
 
 begin_class

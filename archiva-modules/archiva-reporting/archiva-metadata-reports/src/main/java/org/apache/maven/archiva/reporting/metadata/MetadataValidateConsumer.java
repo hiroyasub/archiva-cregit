@@ -20,7 +20,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * MetadataValidateConsumer   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * TODO: whoops, how do we consumer metadata?    */
+comment|/**  * MetadataValidateConsumer   *  * @version $Id$  *   * TODO: whoops, how do we consumer metadata?    */
 end_comment
 
 begin_class

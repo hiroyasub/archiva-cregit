@@ -82,7 +82,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DeleteRepositoryGroupAction  *   * @author  * @version  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteRepositoryGroupAction"  */
+comment|/**  * DeleteRepositoryGroupAction  *   * @version  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteRepositoryGroupAction"  */
 end_comment
 
 begin_class

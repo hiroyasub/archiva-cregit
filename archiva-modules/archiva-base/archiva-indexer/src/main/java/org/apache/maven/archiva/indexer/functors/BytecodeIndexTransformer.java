@@ -66,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * BytecodeIndexTransformer   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.commons.collections.Transformer" role-hint="bytecode"  */
+comment|/**  * BytecodeIndexTransformer   *  * @version $Id$  *   * @plexus.component role="org.apache.commons.collections.Transformer" role-hint="bytecode"  */
 end_comment
 
 begin_class

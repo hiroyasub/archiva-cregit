@@ -376,7 +376,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaCli  *   * @todo add back reading of archiva.xml from a given location  * @author Jason van Zyl  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ArchivaCli  *   * @todo add back reading of archiva.xml from a given location  * @version $Id$  */
 end_comment
 
 begin_class

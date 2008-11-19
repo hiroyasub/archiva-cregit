@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PathParser interface.  *   * @author<a href="mailto:nicolas@apache.org">nicolas de loof</a>  * @version $Id$  */
+comment|/**  * PathParser interface.  *   * @version $Id$  */
 end_comment
 
 begin_interface

@@ -152,7 +152,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ChecksummedFile  *  *<dl>  *<lh>Terminology:</lh>  *<dt>Checksum File</dt>  *<dd>The file that contains the previously calculated checksum value for the reference file.  *       This is a text file with the extension ".sha1" or ".md5", and contains a single entry  *       consisting of an optional reference filename, and a checksum string.  *</dd>  *<dt>Reference File</dt>  *<dd>The file that is being referenced in the checksum file.</dd>  *</dl>  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ChecksummedFile  *  *<dl>  *<lh>Terminology:</lh>  *<dt>Checksum File</dt>  *<dd>The file that contains the previously calculated checksum value for the reference file.  *       This is a text file with the extension ".sha1" or ".md5", and contains a single entry  *       consisting of an optional reference filename, and a checksum string.  *</dd>  *<dt>Reference File</dt>  *<dd>The file that is being referenced in the checksum file.</dd>  *</dl>  *  * @version $Id$  */
 end_comment
 
 begin_class

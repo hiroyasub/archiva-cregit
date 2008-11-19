@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Create a Wagon instance for the given protocol. Implementation will be provided by a Spring service locator.  *   * @author Brett Porter  */
+comment|/**  * Create a Wagon instance for the given protocol. Implementation will be provided by a Spring service locator.  *   */
 end_comment
 
 begin_interface

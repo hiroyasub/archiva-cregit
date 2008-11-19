@@ -110,7 +110,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JdoRepositoryContentStatisticsDAO   *  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  *   * @plexus.component role-hint="jdo"  */
+comment|/**  * JdoRepositoryContentStatisticsDAO   *  * @version  *   * @plexus.component role-hint="jdo"  */
 end_comment
 
 begin_class

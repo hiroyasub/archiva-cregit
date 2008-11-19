@@ -192,7 +192,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProxyConnectorsActionTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ProxyConnectorsActionTest   *  * @version $Id$  */
 end_comment
 
 begin_class

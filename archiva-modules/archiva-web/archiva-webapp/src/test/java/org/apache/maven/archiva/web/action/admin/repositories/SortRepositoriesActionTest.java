@@ -140,7 +140,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SortRepositoriesActionTest  *   * @author  * @version  */
+comment|/**  * SortRepositoriesActionTest  *   * @version  */
 end_comment
 
 begin_class

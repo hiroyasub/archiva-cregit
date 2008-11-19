@@ -52,7 +52,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utility methods for working with java platform specific ArchivaArtifacts.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Utility methods for working with java platform specific ArchivaArtifacts.   *  * @version $Id$  */
 end_comment
 
 begin_class

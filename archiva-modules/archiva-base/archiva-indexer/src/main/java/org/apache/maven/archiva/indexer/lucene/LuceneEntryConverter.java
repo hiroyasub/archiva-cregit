@@ -44,7 +44,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A converter for {@link LuceneRepositoryContentRecord} to Lucene {@link Document} objects and back.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * A converter for {@link LuceneRepositoryContentRecord} to Lucene {@link Document} objects and back.  *  */
 end_comment
 
 begin_interface

@@ -146,7 +146,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryMetadataReader - read maven-metadata.xml files.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * RepositoryMetadataReader - read maven-metadata.xml files.  *  * @version $Id$  */
 end_comment
 
 begin_class

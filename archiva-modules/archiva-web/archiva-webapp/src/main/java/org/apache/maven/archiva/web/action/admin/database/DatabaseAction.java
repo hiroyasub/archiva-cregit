@@ -286,7 +286,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DatabaseAction  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="databaseAction"  */
+comment|/**  * DatabaseAction  *  * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="databaseAction"  */
 end_comment
 
 begin_class

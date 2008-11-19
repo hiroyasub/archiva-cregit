@@ -22,7 +22,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Tag for RepositoryProjectResolver's to indicate that it is basing  * it's resolution from the Filesystem.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Tag for RepositoryProjectResolver's to indicate that it is basing  * it's resolution from the Filesystem.  *  * @version $Id$  */
 end_comment
 
 begin_interface

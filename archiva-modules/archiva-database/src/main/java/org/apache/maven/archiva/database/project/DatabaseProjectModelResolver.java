@@ -136,7 +136,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Resolves a project model from the database.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.repository.project.ProjectModelResolver"  *                   role-hint="database"  */
+comment|/**  * Resolves a project model from the database.   *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.repository.project.ProjectModelResolver"  *                   role-hint="database"  */
 end_comment
 
 begin_class

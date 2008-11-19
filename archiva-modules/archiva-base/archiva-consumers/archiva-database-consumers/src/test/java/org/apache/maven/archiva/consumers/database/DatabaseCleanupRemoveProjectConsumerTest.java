@@ -92,7 +92,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test for DatabaseCleanupRemoveProjectConsumer  *  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  */
+comment|/**  * Test for DatabaseCleanupRemoveProjectConsumer  *  */
 end_comment
 
 begin_class

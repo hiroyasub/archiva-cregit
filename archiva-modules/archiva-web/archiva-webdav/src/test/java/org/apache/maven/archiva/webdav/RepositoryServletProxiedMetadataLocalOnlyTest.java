@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * RepositoryServlet Tests, Proxied, Get of Metadata, exists on local managed repository only.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * RepositoryServlet Tests, Proxied, Get of Metadata, exists on local managed repository only.   *  * @version $Id$  */
 end_comment
 
 begin_class

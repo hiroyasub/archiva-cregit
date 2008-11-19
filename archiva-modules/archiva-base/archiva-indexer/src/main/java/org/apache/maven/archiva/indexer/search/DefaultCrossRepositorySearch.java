@@ -578,7 +578,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultCrossRepositorySearch  *   * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.indexer.search.CrossRepositorySearch" role-hint="default"  */
+comment|/**  * DefaultCrossRepositorySearch  *   * @version $Id$  * @plexus.component role="org.apache.maven.archiva.indexer.search.CrossRepositorySearch" role-hint="default"  */
 end_comment
 
 begin_class

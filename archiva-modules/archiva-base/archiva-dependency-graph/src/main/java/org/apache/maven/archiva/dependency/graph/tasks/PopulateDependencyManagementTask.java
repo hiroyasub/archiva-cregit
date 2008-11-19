@@ -116,7 +116,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PopulateDependencyManagementTask   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * PopulateDependencyManagementTask   *  * @version $Id$  */
 end_comment
 
 begin_class

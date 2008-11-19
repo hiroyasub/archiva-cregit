@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * ContentNotFoundException is thrown in response for requests for content that is not the repository.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ContentNotFoundException is thrown in response for requests for content that is not the repository.   *  * @version $Id$  */
 end_comment
 
 begin_class

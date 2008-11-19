@@ -50,7 +50,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Messages   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Messages   *  * @version $Id$  */
 end_comment
 
 begin_class

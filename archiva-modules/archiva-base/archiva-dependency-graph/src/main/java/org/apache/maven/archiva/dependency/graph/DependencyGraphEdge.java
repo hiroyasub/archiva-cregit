@@ -52,7 +52,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DependencyGraphEdge   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * DependencyGraphEdge   *  * @version $Id$  */
 end_comment
 
 begin_class

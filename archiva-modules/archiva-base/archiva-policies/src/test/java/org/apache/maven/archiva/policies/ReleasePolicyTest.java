@@ -66,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ReleasePolicyTest  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ReleasePolicyTest  *  * @version $Id$  */
 end_comment
 
 begin_class

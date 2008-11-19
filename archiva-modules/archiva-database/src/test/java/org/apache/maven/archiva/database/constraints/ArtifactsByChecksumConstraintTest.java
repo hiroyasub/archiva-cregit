@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactsByChecksumConstraintTest  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  * ArtifactsByChecksumConstraintTest  *  * @version  */
 end_comment
 
 begin_class

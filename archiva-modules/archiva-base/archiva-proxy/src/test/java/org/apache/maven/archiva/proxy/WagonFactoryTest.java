@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test the WagonFactory works through Spring to be bound into the RepositoryProxyConnectors implementation.  *   * @author Brett Porter  */
+comment|/**  * Test the WagonFactory works through Spring to be bound into the RepositoryProxyConnectors implementation.  *   */
 end_comment
 
 begin_class

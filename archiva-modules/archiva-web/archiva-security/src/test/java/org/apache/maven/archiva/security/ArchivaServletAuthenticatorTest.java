@@ -152,7 +152,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaServletAuthenticatorTest  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  * ArchivaServletAuthenticatorTest  *   * @version  */
 end_comment
 
 begin_class

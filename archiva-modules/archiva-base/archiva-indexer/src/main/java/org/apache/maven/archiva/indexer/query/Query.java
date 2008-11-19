@@ -20,7 +20,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Interface to label the query classes  *  * @author Edwin Punzalan  */
+comment|/**  * Interface to label the query classes  *  */
 end_comment
 
 begin_interface

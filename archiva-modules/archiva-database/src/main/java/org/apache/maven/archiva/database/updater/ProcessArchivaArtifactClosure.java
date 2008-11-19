@@ -102,7 +102,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProcessArchivaArtifactClosure   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ProcessArchivaArtifactClosure   *  * @version $Id$  */
 end_comment
 
 begin_class

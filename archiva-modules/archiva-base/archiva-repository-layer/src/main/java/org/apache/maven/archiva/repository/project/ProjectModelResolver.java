@@ -52,7 +52,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Interface for ProjectModel resolution.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Interface for ProjectModel resolution.   *  * @version $Id$  */
 end_comment
 
 begin_interface

@@ -200,7 +200,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test the repository converter.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @todo what about deletions from the source repository?  * @todo use artifact-test instead  * @todo should reject if dependencies are missing - rely on reporting?  * @todo group metadata  */
+comment|/**  * Test the repository converter.  *  * @todo what about deletions from the source repository?  * @todo use artifact-test instead  * @todo should reject if dependencies are missing - rely on reporting?  * @todo group metadata  */
 end_comment
 
 begin_class

@@ -262,7 +262,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test for ProjectModelToDatabaseConsumerTest  *   * @author<a href="mailto:michal.stochmialek@eurobank.pl">Michal Stochmialek</a>  */
+comment|/**  * Test for ProjectModelToDatabaseConsumerTest  *   */
 end_comment
 
 begin_class

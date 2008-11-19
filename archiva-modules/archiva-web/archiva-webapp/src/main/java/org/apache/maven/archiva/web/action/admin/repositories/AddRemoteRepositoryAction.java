@@ -106,7 +106,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AddRemoteRepositoryAction   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="addRemoteRepositoryAction"  */
+comment|/**  * AddRemoteRepositoryAction   *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="addRemoteRepositoryAction"  */
 end_comment
 
 begin_class

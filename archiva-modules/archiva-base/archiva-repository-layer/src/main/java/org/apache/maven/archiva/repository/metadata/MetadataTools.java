@@ -662,7 +662,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MetadataTools  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.repository.metadata.MetadataTools"  */
+comment|/**  * MetadataTools  *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.repository.metadata.MetadataTools"  */
 end_comment
 
 begin_class

@@ -70,7 +70,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FiletypeToMapClosure   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * FiletypeToMapClosure   *  * @version $Id$  */
 end_comment
 
 begin_class

@@ -112,7 +112,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Map alternate URLs to specific actions. Used for the repository browser and the proxy.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * Map alternate URLs to specific actions. Used for the repository browser and the proxy.  *  */
 end_comment
 
 begin_class

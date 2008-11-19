@@ -98,7 +98,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ReduceScopeTask   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ReduceScopeTask   *  * @version $Id$  */
 end_comment
 
 begin_class

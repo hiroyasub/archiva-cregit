@@ -100,7 +100,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The component that takes care of scheduling in the application.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * The component that takes care of scheduling in the application.  *  */
 end_comment
 
 begin_interface

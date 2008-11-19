@@ -230,7 +230,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultUserRepositories  *   * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.security.UserRepositories" role-hint="default"  */
+comment|/**  * DefaultUserRepositories  *   * @version $Id$  * @plexus.component role="org.apache.maven.archiva.security.UserRepositories" role-hint="default"  */
 end_comment
 
 begin_class

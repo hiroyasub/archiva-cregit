@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class to hold multiple SinglePhraseQueries and/or other CompoundQueries.  *  * @author Edwin Punzalan  */
+comment|/**  * Class to hold multiple SinglePhraseQueries and/or other CompoundQueries.  *  */
 end_comment
 
 begin_class

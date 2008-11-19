@@ -50,7 +50,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Selects Consumers that are flaged as 'permanent'.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Selects Consumers that are flaged as 'permanent'.   *  * @version $Id$  */
 end_comment
 
 begin_class

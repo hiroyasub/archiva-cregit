@@ -106,7 +106,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Checksum - simple checksum hashing routines.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Checksum - simple checksum hashing routines.   *  * @version $Id$  */
 end_comment
 
 begin_class

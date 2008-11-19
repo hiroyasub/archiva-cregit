@@ -42,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MkColMethodWebRequest  * See RFC-2518 Section 8.3  * @author<a href="mailto:james@atlassian.com">James William Dumay</a>  */
+comment|/**  * MkColMethodWebRequest  * See RFC-2518 Section 8.3  */
 end_comment
 
 begin_class

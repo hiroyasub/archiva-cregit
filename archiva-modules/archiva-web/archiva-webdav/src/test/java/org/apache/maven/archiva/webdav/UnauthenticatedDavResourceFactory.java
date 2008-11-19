@@ -62,7 +62,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * UnauthenticatedDavResourceFactory  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version $Id:   */
+comment|/**  * UnauthenticatedDavResourceFactory  *   * @version $Id:   */
 end_comment
 
 begin_class

@@ -136,7 +136,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * HashcodesIndexTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * HashcodesIndexTest   *  * @version $Id$  */
 end_comment
 
 begin_class

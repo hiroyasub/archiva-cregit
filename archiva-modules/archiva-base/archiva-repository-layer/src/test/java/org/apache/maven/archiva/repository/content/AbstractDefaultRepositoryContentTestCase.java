@@ -84,7 +84,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractDefaultRepositoryContentTestCase   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * AbstractDefaultRepositoryContentTestCase   *  * @version $Id$  */
 end_comment
 
 begin_class

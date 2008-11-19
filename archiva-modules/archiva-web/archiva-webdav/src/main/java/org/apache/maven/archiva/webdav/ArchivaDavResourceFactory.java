@@ -1044,7 +1044,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author<a href="mailto:james@atlassian.com">James William Dumay</a>  * @plexus.component role="org.apache.maven.archiva.webdav.ArchivaDavResourceFactory"  */
+comment|/**  * @plexus.component role="org.apache.maven.archiva.webdav.ArchivaDavResourceFactory"  */
 end_comment
 
 begin_class

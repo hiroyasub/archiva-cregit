@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Enumeration of available ChecksumAlgorithm techniques.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Enumeration of available ChecksumAlgorithm techniques.  *  * @version $Id$  */
 end_comment
 
 begin_enum

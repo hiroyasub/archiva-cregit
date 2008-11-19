@@ -132,7 +132,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaStartup - the startup of all archiva features in a deterministic order.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ArchivaStartup - the startup of all archiva features in a deterministic order.   *  * @version $Id$  */
 end_comment
 
 begin_class

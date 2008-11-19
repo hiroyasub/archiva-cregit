@@ -210,7 +210,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Retrieve and process all artifacts of a repository from the database and generate a rss feed.  * The artifacts will be grouped by the date when the artifacts were gathered.   * Each group will appear as one entry in the feed.  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  * @plexus.component role="org.apache.archiva.rss.processor.RssFeedProcessor" role-hint="new-artifacts"  */
+comment|/**  * Retrieve and process all artifacts of a repository from the database and generate a rss feed.  * The artifacts will be grouped by the date when the artifacts were gathered.   * Each group will appear as one entry in the feed.  *   * @version  * @plexus.component role="org.apache.archiva.rss.processor.RssFeedProcessor" role-hint="new-artifacts"  */
 end_comment
 
 begin_class

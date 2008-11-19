@@ -640,7 +640,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author<a href="mailto:james@atlassian.com">James William Dumay</a> Portions from the Apache Jackrabbit Project  */
+comment|/**  */
 end_comment
 
 begin_class

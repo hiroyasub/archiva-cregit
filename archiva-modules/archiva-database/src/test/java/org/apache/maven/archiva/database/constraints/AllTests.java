@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * IDE Provided Utility Class for all tests.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * IDE Provided Utility Class for all tests.   *  * @version $Id$  */
 end_comment
 
 begin_class

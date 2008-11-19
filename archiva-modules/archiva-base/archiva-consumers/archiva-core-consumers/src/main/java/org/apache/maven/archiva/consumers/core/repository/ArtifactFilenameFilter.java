@@ -42,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Filename filter for getting all the files related to a specific artifact.  *  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  */
+comment|/**  * Filename filter for getting all the files related to a specific artifact.  *  */
 end_comment
 
 begin_class

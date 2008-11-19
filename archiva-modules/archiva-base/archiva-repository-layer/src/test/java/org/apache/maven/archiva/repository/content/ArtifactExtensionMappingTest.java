@@ -36,7 +36,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactExtensionMappingTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ArtifactExtensionMappingTest   *  * @version $Id$  */
 end_comment
 
 begin_class

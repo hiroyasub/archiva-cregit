@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *   * @author<a href="mailto:carlos@apache.org">Carlos Sanchez</a>  * @version $Id$  */
+comment|/**  *   * @version $Id$  */
 end_comment
 
 begin_class

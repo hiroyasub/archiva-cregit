@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PathUtil - simple utility methods for path manipulation.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * PathUtil - simple utility methods for path manipulation.   *  * @version $Id$  */
 end_comment
 
 begin_class

@@ -114,7 +114,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactVersionsConstraintTest  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  * ArtifactVersionsConstraintTest  *   * @version  */
 end_comment
 
 begin_class

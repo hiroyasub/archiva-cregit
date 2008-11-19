@@ -102,7 +102,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RemoteLegacyRepositoryContent   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @todo no need to be a component once legacy path parser is not  *   * @plexus.component   *      role="org.apache.maven.archiva.repository.RemoteRepositoryContent"  *      role-hint="legacy"  *      instantiation-strategy="per-lookup"  */
+comment|/**  * RemoteLegacyRepositoryContent   *  * @version $Id$  *   * @todo no need to be a component once legacy path parser is not  *   * @plexus.component   *      role="org.apache.maven.archiva.repository.RemoteRepositoryContent"  *      role-hint="legacy"  *      instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

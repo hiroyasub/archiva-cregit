@@ -162,7 +162,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Loop through the unresolved nodes and resolve them, until there  * are no more unresolved nodes.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Loop through the unresolved nodes and resolve them, until there  * are no more unresolved nodes.  *  * @version $Id$  */
 end_comment
 
 begin_class

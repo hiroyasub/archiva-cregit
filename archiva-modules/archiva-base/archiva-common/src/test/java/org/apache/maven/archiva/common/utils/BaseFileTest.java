@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * BaseFileTest  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * BaseFileTest  *  * @version $Id$  */
 end_comment
 
 begin_class

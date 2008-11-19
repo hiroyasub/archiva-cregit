@@ -68,7 +68,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implement commit/rollback semantics for a set of files.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * Implement commit/rollback semantics for a set of files.  *  */
 end_comment
 
 begin_class

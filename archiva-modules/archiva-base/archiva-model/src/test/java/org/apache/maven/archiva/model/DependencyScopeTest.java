@@ -28,7 +28,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DependencyScopeTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * DependencyScopeTest   *  * @version $Id$  */
 end_comment
 
 begin_class

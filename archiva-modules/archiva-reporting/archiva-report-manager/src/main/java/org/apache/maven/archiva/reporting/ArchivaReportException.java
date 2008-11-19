@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * ArchivaReportException  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version $Id: ArchivaReportException.java  */
+comment|/**  * ArchivaReportException  *   * @version $Id: ArchivaReportException.java  */
 end_comment
 
 begin_class

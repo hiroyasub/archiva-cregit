@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Exception occuring during repository conversion.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * Exception occuring during repository conversion.  *  */
 end_comment
 
 begin_class

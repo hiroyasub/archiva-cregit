@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Limits on how much data should be returned by the report sources.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Limits on how much data should be returned by the report sources.  *  * @version $Id$  */
 end_comment
 
 begin_class

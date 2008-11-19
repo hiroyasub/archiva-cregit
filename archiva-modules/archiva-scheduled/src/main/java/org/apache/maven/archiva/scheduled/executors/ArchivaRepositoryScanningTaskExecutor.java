@@ -436,7 +436,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaRepositoryScanningTaskExecutor   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component  *   role="org.codehaus.plexus.taskqueue.execution.TaskExecutor"  *   role-hint="repository-scanning"  */
+comment|/**  * ArchivaRepositoryScanningTaskExecutor   *  * @version $Id$  *   * @plexus.component  *   role="org.codehaus.plexus.taskqueue.execution.TaskExecutor"  *   role-hint="repository-scanning"  */
 end_comment
 
 begin_class

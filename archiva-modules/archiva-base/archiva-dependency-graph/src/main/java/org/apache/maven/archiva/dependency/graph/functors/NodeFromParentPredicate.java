@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Predicate for nodes that are flagged as from parent pom reference.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Predicate for nodes that are flagged as from parent pom reference.   *  * @version $Id$  */
 end_comment
 
 begin_class

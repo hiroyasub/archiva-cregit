@@ -114,7 +114,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProjectModel400ReaderTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ProjectModel400ReaderTest   *  * @version $Id$  */
 end_comment
 
 begin_class

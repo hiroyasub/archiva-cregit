@@ -266,7 +266,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryContentRequest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component   *      role="org.apache.maven.archiva.repository.RepositoryContentFactory"  */
+comment|/**  * RepositoryContentRequest   *  * @version $Id$  *   * @plexus.component   *      role="org.apache.maven.archiva.repository.RepositoryContentFactory"  */
 end_comment
 
 begin_class

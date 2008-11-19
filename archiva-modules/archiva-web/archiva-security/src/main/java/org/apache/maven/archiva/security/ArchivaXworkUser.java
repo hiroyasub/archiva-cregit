@@ -106,7 +106,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaXworkUser   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.security.ArchivaXworkUser"  */
+comment|/**  * ArchivaXworkUser   *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.security.ArchivaXworkUser"  */
 end_comment
 
 begin_class

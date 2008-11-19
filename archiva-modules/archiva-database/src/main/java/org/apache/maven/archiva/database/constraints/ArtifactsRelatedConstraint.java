@@ -36,7 +36,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactsRelatedConstraint   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ArtifactsRelatedConstraint   *  * @version $Id$  */
 end_comment
 
 begin_class

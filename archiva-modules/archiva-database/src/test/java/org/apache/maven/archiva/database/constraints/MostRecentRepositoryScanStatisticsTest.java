@@ -62,7 +62,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MostRecentRepositoryScanStatisticsTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * MostRecentRepositoryScanStatisticsTest   *  * @version $Id$  */
 end_comment
 
 begin_class

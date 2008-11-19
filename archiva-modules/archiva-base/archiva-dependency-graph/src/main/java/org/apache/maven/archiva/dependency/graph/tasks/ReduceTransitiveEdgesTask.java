@@ -98,7 +98,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ReduceTransitiveEdgesTask   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ReduceTransitiveEdgesTask   *  * @version $Id$  */
 end_comment
 
 begin_class

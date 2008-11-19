@@ -150,7 +150,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Resolve Project from managed repository.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Resolve Project from managed repository.   *  * @version $Id$  */
 end_comment
 
 begin_class

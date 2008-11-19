@@ -160,7 +160,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * NetworkProxiesAction   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="networkProxiesAction"  */
+comment|/**  * NetworkProxiesAction   *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="networkProxiesAction"  */
 end_comment
 
 begin_class

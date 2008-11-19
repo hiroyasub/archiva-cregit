@@ -34,7 +34,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Obtain an index instance.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * Obtain an index instance.  *  */
 end_comment
 
 begin_interface

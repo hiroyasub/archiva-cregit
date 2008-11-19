@@ -566,7 +566,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LegacyToDefaultConverter   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.converter.artifact.ArtifactConverter"   *      role-hint="legacy-to-default"  */
+comment|/**  * LegacyToDefaultConverter   *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.converter.artifact.ArtifactConverter"   *      role-hint="legacy-to-default"  */
 end_comment
 
 begin_class

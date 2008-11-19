@@ -492,7 +492,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of a scheduling component for archiva.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @author<a href="mailto:jmcconnell@apache.org">Jesse McConnell</a>  * @plexus.component role="org.apache.maven.archiva.scheduled.ArchivaTaskScheduler" role-hint="default"  */
+comment|/**  * Default implementation of a scheduling component for archiva.  *  * @plexus.component role="org.apache.maven.archiva.scheduled.ArchivaTaskScheduler" role-hint="default"  */
 end_comment
 
 begin_class

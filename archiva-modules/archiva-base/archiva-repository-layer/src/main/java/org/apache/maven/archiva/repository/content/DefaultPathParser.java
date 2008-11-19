@@ -86,7 +86,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultPathParser is a parser for maven 2 (default layout) paths to ArtifactReference.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * DefaultPathParser is a parser for maven 2 (default layout) paths to ArtifactReference.  *  * @version $Id$  */
 end_comment
 
 begin_class

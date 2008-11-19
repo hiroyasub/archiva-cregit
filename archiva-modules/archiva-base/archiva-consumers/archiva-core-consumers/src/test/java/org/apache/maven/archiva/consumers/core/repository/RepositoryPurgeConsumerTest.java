@@ -192,7 +192,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  */
+comment|/**  */
 end_comment
 
 begin_class

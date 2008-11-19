@@ -352,7 +352,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * IndexJavaPublicMethodsConsumer   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  *<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.DatabaseUnprocessedArtifactConsumer"  *                   role-hint="index-public-methods"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * IndexJavaPublicMethodsConsumer   *  *<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.DatabaseUnprocessedArtifactConsumer"  *                   role-hint="index-public-methods"  *                   instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

@@ -394,7 +394,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JdoAccess   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.database.jdo.JdoAccess" role-hint="archiva"  */
+comment|/**  * JdoAccess   *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.database.jdo.JdoAccess" role-hint="archiva"  */
 end_comment
 
 begin_class

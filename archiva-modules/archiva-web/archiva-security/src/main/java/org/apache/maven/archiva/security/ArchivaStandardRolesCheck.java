@@ -82,7 +82,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaStandardRolesCheck tests for the existance of expected / standard roles and permissions.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.codehaus.plexus.redback.system.check.EnvironmentCheck"  *                   role-hint="required-roles"  */
+comment|/**  * ArchivaStandardRolesCheck tests for the existance of expected / standard roles and permissions.   *  * @version $Id$  *   * @plexus.component role="org.codehaus.plexus.redback.system.check.EnvironmentCheck"  *                   role-hint="required-roles"  */
 end_comment
 
 begin_class

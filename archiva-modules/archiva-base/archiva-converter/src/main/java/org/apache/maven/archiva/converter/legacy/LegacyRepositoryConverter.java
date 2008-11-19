@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Convert an entire repository.  *   * @author Jason van Zyl  */
+comment|/**  * Convert an entire repository.  *   */
 end_comment
 
 begin_interface

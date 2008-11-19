@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactsByRepositoryConstraint  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  * ArtifactsByRepositoryConstraint  *   * @version  */
 end_comment
 
 begin_class

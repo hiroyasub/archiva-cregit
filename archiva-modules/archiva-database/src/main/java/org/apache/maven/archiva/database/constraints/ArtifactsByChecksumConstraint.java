@@ -50,7 +50,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Constraint for retrieving artifacts whose sha1 or md5 checksum matches the  * specified value.  *  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  */
+comment|/**  * Constraint for retrieving artifacts whose sha1 or md5 checksum matches the  * specified value.  *  */
 end_comment
 
 begin_class

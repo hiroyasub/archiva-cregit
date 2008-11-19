@@ -166,7 +166,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @version $Id: ConfigurationAction.java 480950 2006-11-30 14:58:35Z evenisse $  *   * @plexus.component role="com.opensymphony.xwork2.Action"  *                   role-hint="editOrganisationInfo"  */
+comment|/**  * @version $Id: ConfigurationAction.java 480950 2006-11-30 14:58:35Z evenisse $  *   * @plexus.component role="com.opensymphony.xwork2.Action"  *                   role-hint="editOrganisationInfo"  */
 end_comment
 
 begin_class

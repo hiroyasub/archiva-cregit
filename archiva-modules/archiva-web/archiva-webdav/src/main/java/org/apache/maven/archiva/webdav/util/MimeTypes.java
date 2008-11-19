@@ -212,7 +212,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MimeTypes   *  * @author<a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>  * @version $Id: MimeTypes.java 7010 2007-10-25 23:35:02Z joakime $  *   * @plexus.component role="org.apache.maven.archiva.webdav.util.MimeTypes"  */
+comment|/**  * MimeTypes   *  * @version $Id: MimeTypes.java 7010 2007-10-25 23:35:02Z joakime $  *   * @plexus.component role="org.apache.maven.archiva.webdav.util.MimeTypes"  */
 end_comment
 
 begin_class

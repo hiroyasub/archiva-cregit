@@ -144,7 +144,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DuplicateArtifactReport   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.reporting.DynamicReportSource"   *                   role-hint="duplicate-artifacts"  */
+comment|/**  * DuplicateArtifactReport   *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.reporting.DynamicReportSource"   *                   role-hint="duplicate-artifacts"  */
 end_comment
 
 begin_class

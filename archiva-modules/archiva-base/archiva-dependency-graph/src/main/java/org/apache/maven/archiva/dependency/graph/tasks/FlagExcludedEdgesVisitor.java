@@ -170,7 +170,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FlagExcludedEdgesVisitor   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * FlagExcludedEdgesVisitor   *  * @version $Id$  */
 end_comment
 
 begin_class

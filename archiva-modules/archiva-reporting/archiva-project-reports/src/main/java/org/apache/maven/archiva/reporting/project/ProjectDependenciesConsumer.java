@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProjectDependenciesConsumer   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.ArchivaArtifactConsumer"  *                   role-hint="missing-dependencies"  */
+comment|/**  * ProjectDependenciesConsumer   *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.ArchivaArtifactConsumer"  *                   role-hint="missing-dependencies"  */
 end_comment
 
 begin_class

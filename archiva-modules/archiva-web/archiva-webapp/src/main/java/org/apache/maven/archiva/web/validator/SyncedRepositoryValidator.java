@@ -64,7 +64,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Validator for synced repository form. The values to be validated depends on the  * selected sync method to be used.  *  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  */
+comment|/**  * Validator for synced repository form. The values to be validated depends on the  * selected sync method to be used.  *  */
 end_comment
 
 begin_class

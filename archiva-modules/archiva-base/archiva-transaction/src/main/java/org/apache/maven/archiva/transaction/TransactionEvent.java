@@ -28,7 +28,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Interface for individual events in a transaction.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * Interface for individual events in a transaction.  *  */
 end_comment
 
 begin_interface

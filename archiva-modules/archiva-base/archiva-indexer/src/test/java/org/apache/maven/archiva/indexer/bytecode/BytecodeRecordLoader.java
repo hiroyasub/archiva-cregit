@@ -144,7 +144,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * BytecodeRecordLoader - Utility method for loading dump files into BytecordRecords.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * BytecodeRecordLoader - Utility method for loading dump files into BytecordRecords.   *  * @version $Id$  */
 end_comment
 
 begin_class

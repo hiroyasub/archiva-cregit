@@ -20,7 +20,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Query for a single term.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * Query for a single term.  *  */
 end_comment
 
 begin_class

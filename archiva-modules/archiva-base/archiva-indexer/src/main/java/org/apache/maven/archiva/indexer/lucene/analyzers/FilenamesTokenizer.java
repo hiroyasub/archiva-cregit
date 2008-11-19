@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Lucene Tokenizer for {@link BytecodeKeys#FILES} fields.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Lucene Tokenizer for {@link BytecodeKeys#FILES} fields.   *  * @version $Id$  */
 end_comment
 
 begin_class

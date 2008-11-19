@@ -162,7 +162,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory for Lucene repository content index instances.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @plexus.component role="org.apache.maven.archiva.indexer.RepositoryContentIndexFactory" role-hint="lucene"  */
+comment|/**  * Factory for Lucene repository content index instances.  *  * @plexus.component role="org.apache.maven.archiva.indexer.RepositoryContentIndexFactory" role-hint="lucene"  */
 end_comment
 
 begin_class

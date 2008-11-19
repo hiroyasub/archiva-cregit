@@ -64,7 +64,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Lucene Record for Bytecode information.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Lucene Record for Bytecode information.  *  * @version $Id$  */
 end_comment
 
 begin_class

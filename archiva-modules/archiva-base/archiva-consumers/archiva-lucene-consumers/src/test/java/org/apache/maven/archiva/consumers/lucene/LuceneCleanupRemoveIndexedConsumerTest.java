@@ -82,7 +82,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LuceneCleanupRemoveIndexedConsumerTest  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  * LuceneCleanupRemoveIndexedConsumerTest  *   * @version  */
 end_comment
 
 begin_class

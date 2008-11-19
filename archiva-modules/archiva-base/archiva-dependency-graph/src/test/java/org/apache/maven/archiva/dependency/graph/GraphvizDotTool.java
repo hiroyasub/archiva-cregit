@@ -180,7 +180,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * GraphvizDotTool - testing utility to help understand the graph.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * GraphvizDotTool - testing utility to help understand the graph.   *  * @version $Id$  */
 end_comment
 
 begin_class

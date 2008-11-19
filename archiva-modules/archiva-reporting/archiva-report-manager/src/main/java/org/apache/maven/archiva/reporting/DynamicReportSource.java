@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DynamicReportSource   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * DynamicReportSource   *  * @version $Id$  */
 end_comment
 
 begin_interface

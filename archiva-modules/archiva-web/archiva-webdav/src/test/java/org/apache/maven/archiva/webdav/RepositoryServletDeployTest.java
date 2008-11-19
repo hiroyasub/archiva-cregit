@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Deploy / Put Test cases for RepositoryServlet.    *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Deploy / Put Test cases for RepositoryServlet.    *  * @version $Id$  */
 end_comment
 
 begin_class

@@ -302,7 +302,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ConfigurationSynchronization  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.web.startup.SecuritySynchronization"  * role-hint="default"  */
+comment|/**  * ConfigurationSynchronization  *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.web.startup.SecuritySynchronization"  * role-hint="default"  */
 end_comment
 
 begin_class

@@ -20,7 +20,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * A repository content index record.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * A repository content index record.  *  */
 end_comment
 
 begin_interface

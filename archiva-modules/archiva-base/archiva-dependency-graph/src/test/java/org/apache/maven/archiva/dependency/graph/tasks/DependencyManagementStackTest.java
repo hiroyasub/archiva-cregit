@@ -118,7 +118,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DependencyManagementStackTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * DependencyManagementStackTest   *  * @version $Id$  */
 end_comment
 
 begin_class

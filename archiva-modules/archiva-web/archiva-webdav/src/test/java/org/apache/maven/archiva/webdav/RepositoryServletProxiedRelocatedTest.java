@@ -82,7 +82,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryServlet Tests, Proxied, Get of Release Artifacts, with varying policy settings.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id: RepositoryServletProxiedReleasePolicyTest.java 590908 2007-11-01 06:21:26Z joakime $  */
+comment|/**  * RepositoryServlet Tests, Proxied, Get of Release Artifacts, with varying policy settings.  *  * @version $Id: RepositoryServletProxiedReleasePolicyTest.java 590908 2007-11-01 06:21:26Z joakime $  */
 end_comment
 
 begin_class

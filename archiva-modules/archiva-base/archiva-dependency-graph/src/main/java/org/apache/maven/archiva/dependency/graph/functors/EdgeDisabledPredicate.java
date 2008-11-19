@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * EdgeDisabledPredicate   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * EdgeDisabledPredicate   *  * @version $Id$  */
 end_comment
 
 begin_class

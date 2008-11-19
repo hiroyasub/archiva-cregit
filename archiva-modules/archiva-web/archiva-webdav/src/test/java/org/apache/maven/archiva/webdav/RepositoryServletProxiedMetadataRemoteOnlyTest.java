@@ -28,7 +28,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryServlet Tests, Proxied, Get of Metadata, exists on remote repository only.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * RepositoryServlet Tests, Proxied, Get of Metadata, exists on remote repository only.   *  * @version $Id$  */
 end_comment
 
 begin_class

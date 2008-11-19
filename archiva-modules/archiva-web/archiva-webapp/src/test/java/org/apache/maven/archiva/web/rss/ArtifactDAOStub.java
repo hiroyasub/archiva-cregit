@@ -140,7 +140,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Stub used for RssFeedServlet unit test.  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  * Stub used for RssFeedServlet unit test.  *   * @version  */
 end_comment
 
 begin_class

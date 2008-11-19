@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AuditLog - Audit Log.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.repository.audit.AuditListener"  *                   role-hint="logging"  */
+comment|/**  * AuditLog - Audit Log.   *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.repository.audit.AuditListener"  *                   role-hint="logging"  */
 end_comment
 
 begin_class

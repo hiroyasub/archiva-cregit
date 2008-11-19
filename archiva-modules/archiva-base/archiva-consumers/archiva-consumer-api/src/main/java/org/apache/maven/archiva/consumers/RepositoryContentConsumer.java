@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A consumer of content (files) in the repository.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * A consumer of content (files) in the repository.   *  * @version $Id$  */
 end_comment
 
 begin_interface

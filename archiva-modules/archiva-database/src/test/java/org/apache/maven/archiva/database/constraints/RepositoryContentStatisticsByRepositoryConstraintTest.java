@@ -78,7 +78,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryContentStatisticsByRepositoryConstraintTest  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  * RepositoryContentStatisticsByRepositoryConstraintTest  *   * @version  */
 end_comment
 
 begin_class

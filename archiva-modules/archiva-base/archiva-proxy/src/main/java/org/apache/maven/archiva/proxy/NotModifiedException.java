@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  *<p>  * NotModifiedException - thrown when the resource requested was found on the remote repository, but  * the remote repository reported that the copy we have in our managed repository is newer than  * the one present on the remote repository.  *</p>  *<p>  * Similar in scope to the<code>HTTP 304 Not Modified</code> response code.  *</p>   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  *<p>  * NotModifiedException - thrown when the resource requested was found on the remote repository, but  * the remote repository reported that the copy we have in our managed repository is newer than  * the one present on the remote repository.  *</p>  *<p>  * Similar in scope to the<code>HTTP 304 Not Modified</code> response code.  *</p>   *  * @version $Id$  */
 end_comment
 
 begin_class

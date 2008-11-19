@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractLegacyRepositoryContent  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * AbstractLegacyRepositoryContent  *  * @version $Id$  */
 end_comment
 
 begin_class

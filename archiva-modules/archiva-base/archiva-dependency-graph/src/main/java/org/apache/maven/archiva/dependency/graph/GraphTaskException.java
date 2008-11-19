@@ -36,7 +36,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * GraphTaskException   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * GraphTaskException   *  * @version $Id$  */
 end_comment
 
 begin_class

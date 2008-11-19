@@ -92,7 +92,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryServlet Tests, Proxied, Get of Release Artifacts, with varying policy settings.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * RepositoryServlet Tests, Proxied, Get of Release Artifacts, with varying policy settings.   *  * @version $Id$  */
 end_comment
 
 begin_class

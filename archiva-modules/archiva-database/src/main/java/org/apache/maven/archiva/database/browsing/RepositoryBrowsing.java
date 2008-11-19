@@ -78,7 +78,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Repository Browsing component   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Repository Browsing component   *  * @version $Id$  */
 end_comment
 
 begin_interface

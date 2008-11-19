@@ -86,7 +86,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Handler for potential repository proxy connectors.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Handler for potential repository proxy connectors.  *  * @version $Id$  */
 end_comment
 
 begin_interface

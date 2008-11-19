@@ -66,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FileContentIndexTransformer   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  *   * @plexus.component role="org.apache.commons.collections.Transformer" role-hint="filecontent"  */
+comment|/**  * FileContentIndexTransformer   *  * @version $Id$  *   * @plexus.component role="org.apache.commons.collections.Transformer" role-hint="filecontent"  */
 end_comment
 
 begin_class

@@ -146,7 +146,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TestClient  *   * Test client for Archiva Web Services.   * To execute:  *   * 1. set the<arguments> in the exec-maven-plugin config in the pom.xml in the following order:  *    - url  *    - username  *    - password  * 2. execute 'mvn exec:java' from the command-line  *   * @author   * @version $Id$  */
+comment|/**  * TestClient  *   * Test client for Archiva Web Services.   * To execute:  *   * 1. set the<arguments> in the exec-maven-plugin config in the pom.xml in the following order:  *    - url  *    - username  *    - password  * 2. execute 'mvn exec:java' from the command-line  *   * @version $Id$  */
 end_comment
 
 begin_class

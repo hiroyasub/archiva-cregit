@@ -326,7 +326,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Searcher used for testing purposes only.  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  * Searcher used for testing purposes only.  *   * @version  */
 end_comment
 
 begin_class

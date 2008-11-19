@@ -134,7 +134,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a stack of {@link ProjectModelResolver} resolvers for  * finding/resolving an ArchivaProjectModel from multiple sources.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * Represents a stack of {@link ProjectModelResolver} resolvers for  * finding/resolving an ArchivaProjectModel from multiple sources.   *  * @version $Id$  */
 end_comment
 
 begin_class

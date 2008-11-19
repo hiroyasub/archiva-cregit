@@ -44,7 +44,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProjectModelDAO   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ProjectModelDAO   *  * @version $Id$  */
 end_comment
 
 begin_interface

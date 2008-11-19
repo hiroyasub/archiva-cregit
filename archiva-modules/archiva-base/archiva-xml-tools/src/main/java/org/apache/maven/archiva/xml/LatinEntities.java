@@ -38,7 +38,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LatinEntities - simple utility class to handle latin entity conversion.   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * LatinEntities - simple utility class to handle latin entity conversion.   *  * @version $Id$  */
 end_comment
 
 begin_class

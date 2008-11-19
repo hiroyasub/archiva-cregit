@@ -350,7 +350,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Consumer for removing old snapshots in the repository based on the criteria  * specified by the user.  *  * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  *   * @plexus.component   *      role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *      role-hint="repository-purge"  *      instantiation-strategy="per-lookup"  */
+comment|/**  * Consumer for removing old snapshots in the repository based on the criteria  * specified by the user.  *  *   * @plexus.component   *      role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *      role-hint="repository-purge"  *      instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

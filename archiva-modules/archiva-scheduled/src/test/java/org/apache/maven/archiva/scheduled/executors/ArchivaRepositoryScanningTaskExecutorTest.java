@@ -268,7 +268,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaRepositoryScanningTaskExecutorTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ArchivaRepositoryScanningTaskExecutorTest   *  * @version $Id$  */
 end_comment
 
 begin_class

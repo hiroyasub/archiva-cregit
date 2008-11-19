@@ -98,7 +98,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FlagExcludedEdgesTask   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * FlagExcludedEdgesTask   *  * @version $Id$  */
 end_comment
 
 begin_class

@@ -464,7 +464,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DavResource for virtual repositories  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  */
+comment|/**  * DavResource for virtual repositories  *   */
 end_comment
 
 begin_class

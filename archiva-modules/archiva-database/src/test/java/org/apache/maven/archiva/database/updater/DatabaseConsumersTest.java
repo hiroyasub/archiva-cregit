@@ -58,7 +58,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DatabaseConsumersTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * DatabaseConsumersTest   *  * @version $Id$  */
 end_comment
 
 begin_class

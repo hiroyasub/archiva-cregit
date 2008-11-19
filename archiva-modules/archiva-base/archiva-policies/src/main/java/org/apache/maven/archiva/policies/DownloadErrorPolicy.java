@@ -48,7 +48,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Policy to apply after the download has completed, but before the  * resource is made available to the calling client.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  * @version $Id$  */
+comment|/**  * Policy to apply after the download has completed, but before the  * resource is made available to the calling client.  *  * @version $Id$  */
 end_comment
 
 begin_interface

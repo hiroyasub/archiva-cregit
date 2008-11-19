@@ -26,7 +26,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Holds the data for the SyndEntry in the RSS feed.  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  * Holds the data for the SyndEntry in the RSS feed.  *   * @version  */
 end_comment
 
 begin_class

@@ -194,7 +194,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JdoProjectModelDAOTest   *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * JdoProjectModelDAOTest   *  * @version $Id$  */
 end_comment
 
 begin_class

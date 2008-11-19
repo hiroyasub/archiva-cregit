@@ -20,7 +20,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Class to hold a single field search condition  *  * @author Edwin Punzalan  */
+comment|/**  * Class to hold a single field search condition  *  */
 end_comment
 
 begin_class

@@ -152,7 +152,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generates RSS feeds.  *   * @plexus.component role="org.apache.archiva.rss.RssFeedGenerator"   *      instantiation-strategy="per-lookup"  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  * Generates RSS feeds.  *   * @plexus.component role="org.apache.archiva.rss.RssFeedGenerator"   *      instantiation-strategy="per-lookup"  *   * @version  */
 end_comment
 
 begin_class

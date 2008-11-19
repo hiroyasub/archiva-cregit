@@ -38,7 +38,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A holder for a lucene query to pass to the indexer API.  *  * @author<a href="mailto:brett@apache.org">Brett Porter</a>  */
+comment|/**  * A holder for a lucene query to pass to the indexer API.  *  */
 end_comment
 
 begin_class

@@ -50,7 +50,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaArtifact - Mutable artifact object.  *  * @author<a href="mailto:joakime@apache.org">Joakim Erdfelt</a>  * @version $Id$  */
+comment|/**  * ArchivaArtifact - Mutable artifact object.  *  * @version $Id$  */
 end_comment
 
 begin_class

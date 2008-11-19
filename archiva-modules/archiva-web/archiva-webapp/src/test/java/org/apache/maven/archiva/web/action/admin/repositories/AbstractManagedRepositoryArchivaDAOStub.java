@@ -140,7 +140,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractManagedRepositoryArchivaDAOStub  *   * @author<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version  */
+comment|/**  * AbstractManagedRepositoryArchivaDAOStub  *   * @version  */
 end_comment
 
 begin_class
