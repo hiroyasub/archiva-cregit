@@ -539,9 +539,16 @@ argument_list|)
 expr_stmt|;
 name|consumers
 operator|=
-operator|new
+operator|(
 name|RepositoryContentConsumers
+operator|)
+name|getApplicationContext
 argument_list|()
+operator|.
+name|getBean
+argument_list|(
+literal|"repositoryContentConsumers"
+argument_list|)
 expr_stmt|;
 name|archivaXworkUser
 operator|=

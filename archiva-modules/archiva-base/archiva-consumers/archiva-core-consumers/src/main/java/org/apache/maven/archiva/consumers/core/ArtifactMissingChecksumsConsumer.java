@@ -25,34 +25,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
-operator|.
-name|collections
-operator|.
-name|CollectionUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|maven
 operator|.
 name|archiva
@@ -320,7 +292,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactMissingChecksumsConsumer - Create missing checksums for the artifact.  *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="create-missing-checksums"  * instantiation-strategy="per-lookup"  */
+comment|/**  * ArtifactMissingChecksumsConsumer - Create missing checksums for the artifact.  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -336,37 +308,30 @@ name|RegistryListener
 implements|,
 name|Initializable
 block|{
-comment|/**      * @plexus.configuration default-value="create-missing-checksums"      */
 specifier|private
 name|String
 name|id
 decl_stmt|;
-comment|/**      * @plexus.configuration default-value="Create Missing Checksums (.sha1& .md5)"      */
 specifier|private
 name|String
 name|description
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
 specifier|private
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
 specifier|private
 name|FileTypes
 name|filetypes
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="sha1"      */
 specifier|private
 name|Digester
 name|digestSha1
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="md5";      */
 specifier|private
 name|Digester
 name|digestMd5
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
 specifier|private
 name|ChecksumFile
 name|checksum
@@ -413,6 +378,74 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+specifier|public
+name|ArtifactMissingChecksumsConsumer
+parameter_list|(
+name|String
+name|id
+parameter_list|,
+name|String
+name|description
+parameter_list|,
+name|ArchivaConfiguration
+name|configuration
+parameter_list|,
+name|FileTypes
+name|filetypes
+parameter_list|,
+name|Digester
+name|digestSha1
+parameter_list|,
+name|Digester
+name|digestMd5
+parameter_list|,
+name|ChecksumFile
+name|checksum
+parameter_list|)
+block|{
+name|this
+operator|.
+name|id
+operator|=
+name|id
+expr_stmt|;
+name|this
+operator|.
+name|description
+operator|=
+name|description
+expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
+name|this
+operator|.
+name|filetypes
+operator|=
+name|filetypes
+expr_stmt|;
+name|this
+operator|.
+name|digestSha1
+operator|=
+name|digestSha1
+expr_stmt|;
+name|this
+operator|.
+name|digestMd5
+operator|=
+name|digestMd5
+expr_stmt|;
+name|this
+operator|.
+name|checksum
+operator|=
+name|checksum
+expr_stmt|;
+block|}
 specifier|public
 name|String
 name|getId
