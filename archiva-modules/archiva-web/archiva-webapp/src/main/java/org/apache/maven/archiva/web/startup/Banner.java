@@ -76,6 +76,19 @@ specifier|public
 class|class
 name|Banner
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|eol
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"line.separator"
+argument_list|)
+decl_stmt|;
 specifier|public
 specifier|static
 name|String
@@ -85,6 +98,25 @@ name|String
 name|raw
 parameter_list|)
 block|{
+comment|// Canonicalize line ends to make them easier to process
+name|raw
+operator|=
+name|raw
+operator|.
+name|replace
+argument_list|(
+literal|"\r\n"
+argument_list|,
+literal|"\n"
+argument_list|)
+operator|.
+name|replace
+argument_list|(
+literal|"\r"
+argument_list|,
+literal|"\n"
+argument_list|)
+expr_stmt|;
 name|StringBuffer
 name|encoded
 init|=
@@ -465,7 +497,7 @@ name|decoded
 operator|.
 name|append
 argument_list|(
-literal|'\n'
+name|eol
 argument_list|)
 expr_stmt|;
 name|i
@@ -828,7 +860,7 @@ name|encodedBanner
 init|=
 literal|"$26 $34_$n$15 /$._$7 /$34 $.$n$14 /`/@),$4 |  Ba"
 operator|+
-literal|" orunys bs nyy bs gur nycnpn'f  |$n$14 |  (~'  __| gbvyvat njnl ba "
+literal|" orunys bs nyy bs gur nycnpnf   |$n$14 |  (~'  __| gbvyvat njnl ba "
 operator|+
 literal|"gur Ncnpur Nepuvin |$n$6 _,--.$3_/  |$4 $.$5  cebwrpg grnz, V jbhyq y"
 operator|+
@@ -889,7 +921,7 @@ argument_list|,
 literal|25
 argument_list|)
 operator|+
-literal|"\n"
+name|eol
 operator|+
 name|banner
 argument_list|)

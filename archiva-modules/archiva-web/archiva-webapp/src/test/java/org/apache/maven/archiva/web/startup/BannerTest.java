@@ -97,6 +97,19 @@ extends|extends
 name|TestCase
 block|{
 specifier|private
+specifier|static
+specifier|final
+name|String
+name|eol
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"line.separator"
+argument_list|)
+decl_stmt|;
+specifier|private
 name|void
 name|assertEncodeDecode
 parameter_list|(
@@ -152,7 +165,11 @@ name|assertEncodeDecode
 argument_list|(
 literal|"$$$5_$n$5_"
 argument_list|,
-literal|"$_____\n_____"
+literal|"$_____"
+operator|+
+name|eol
+operator|+
+literal|"_____"
 argument_list|)
 expr_stmt|;
 name|assertEncodeDecode
@@ -198,13 +215,13 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Archiva:\n ( 1.0-alpha-1  )"
+literal|"Archiva:\"+eol+\" ( 1.0-alpha-1  )"
 argument_list|,
 name|Banner
 operator|.
 name|injectVersion
 argument_list|(
-literal|"Archiva:\n (##############)"
+literal|"Archiva:\"+eol+\" (##############)"
 argument_list|,
 literal|"1.0-alpha-1"
 argument_list|)
