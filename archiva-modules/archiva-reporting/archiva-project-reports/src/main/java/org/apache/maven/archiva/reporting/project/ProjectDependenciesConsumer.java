@@ -47,7 +47,7 @@ name|archiva
 operator|.
 name|consumers
 operator|.
-name|ArchivaArtifactConsumer
+name|ConsumerException
 import|;
 end_import
 
@@ -61,9 +61,11 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|consumers
+name|database
 operator|.
-name|ConsumerException
+name|updater
+operator|.
+name|ArchivaArtifactConsumer
 import|;
 end_import
 

@@ -75,9 +75,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|consumers
+name|database
 operator|.
-name|ArchivaArtifactConsumer
+name|ArtifactDAO
 import|;
 end_import
 
@@ -93,7 +93,9 @@ name|archiva
 operator|.
 name|database
 operator|.
-name|ArtifactDAO
+name|updater
+operator|.
+name|ArchivaArtifactConsumer
 import|;
 end_import
 

@@ -59,7 +59,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|consumers
+name|database
+operator|.
+name|updater
 operator|.
 name|DatabaseCleanupConsumer
 import|;

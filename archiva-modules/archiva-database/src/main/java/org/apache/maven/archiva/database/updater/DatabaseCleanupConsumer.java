@@ -9,7 +9,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|consumers
+name|database
+operator|.
+name|updater
 package|;
 end_package
 
@@ -18,13 +20,13 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * DatabaseUnprocessedArtifactConsumer   *  * @version $Id$  */
+comment|/**  * DatabaseCleanupConsumer   *  * @version $Id$  */
 end_comment
 
 begin_interface
 specifier|public
 interface|interface
-name|DatabaseUnprocessedArtifactConsumer
+name|DatabaseCleanupConsumer
 extends|extends
 name|ArchivaArtifactConsumer
 block|{  }
