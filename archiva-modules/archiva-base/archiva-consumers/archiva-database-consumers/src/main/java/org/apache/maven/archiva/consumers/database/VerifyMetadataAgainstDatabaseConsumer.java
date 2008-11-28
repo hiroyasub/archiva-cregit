@@ -96,7 +96,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * VerifyMetadataAgainstDatabaseConsumer   *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.DatabaseUnprocessedArtifactConsumer"  *                   role-hint="validate-repository-metadata"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * VerifyMetadataAgainstDatabaseConsumer   *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.database.updater.DatabaseUnprocessedArtifactConsumer"  *                   role-hint="validate-repository-metadata"  *                   instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

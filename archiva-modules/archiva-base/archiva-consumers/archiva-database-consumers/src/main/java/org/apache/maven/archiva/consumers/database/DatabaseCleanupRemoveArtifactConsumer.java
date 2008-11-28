@@ -252,7 +252,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Consumer for cleaning up the database of artifacts that are no longer existing in the repository.   *  *<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.DatabaseCleanupConsumer"  *                   role-hint="not-present-remove-db-artifact"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * Consumer for cleaning up the database of artifacts that are no longer existing in the repository.   *  *<a href="mailto:oching@apache.org">Maria Odea Ching</a>  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.database.updater.DatabaseCleanupConsumer"  *                   role-hint="not-present-remove-db-artifact"  *                   instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

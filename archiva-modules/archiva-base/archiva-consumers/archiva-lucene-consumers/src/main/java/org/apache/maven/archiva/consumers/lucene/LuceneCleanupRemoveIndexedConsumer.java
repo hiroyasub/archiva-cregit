@@ -256,7 +256,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LuceneCleanupRemoveIndexedConsumer  *   * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.DatabaseCleanupConsumer"  *                   role-hint="not-present-remove-indexed" instantiation-strategy="per-lookup"  */
+comment|/**  * LuceneCleanupRemoveIndexedConsumer  *   * @version $Id$  * @plexus.component role="org.apache.maven.archiva.database.updater.DatabaseCleanupConsumer"  *                   role-hint="not-present-remove-indexed" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

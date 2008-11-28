@@ -199,12 +199,12 @@ specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.archiva.consumers.DatabaseUnprocessedArtifactConsumer"      */
+comment|/**      * @plexus.requirement role="org.apache.maven.archiva.database.updater.DatabaseUnprocessedArtifactConsumer"      */
 specifier|private
 name|List
 name|availableUnprocessedConsumers
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.archiva.consumers.DatabaseCleanupConsumer"      */
+comment|/**      * @plexus.requirement role="org.apache.maven.archiva.database.updater.DatabaseCleanupConsumer"      */
 specifier|private
 name|List
 name|availableCleanupConsumers
