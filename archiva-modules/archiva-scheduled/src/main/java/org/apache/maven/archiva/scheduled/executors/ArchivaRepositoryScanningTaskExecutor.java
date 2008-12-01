@@ -461,7 +461,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="jdo"      */
+comment|/**      * TODO: just for stats, remove this and use the main stats module      *       * @plexus.requirement role-hint="jdo"      */
 specifier|private
 name|ArchivaDAO
 name|dao
