@@ -5,13 +5,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|consumers
 operator|.
-name|core
+name|metadata
 package|;
 end_package
 
@@ -297,38 +295,6 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|RepositoryContentFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|RepositoryException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
 name|layout
 operator|.
 name|LayoutException
@@ -404,7 +370,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactUpdateDatabaseConsumer - Take an artifact off of disk and put it into the repository.  *   * @version $Id: ArtifactUpdateDatabaseConsumer.java 718864 2008-11-19 06:33:35Z brett $  * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *                   role-hint="create-archiva-metadata" instantiation-strategy="per-lookup"  */
+comment|/**  * Take an artifact off of disk and put it into the metadata repository.  *   * @version $Id: ArtifactUpdateDatabaseConsumer.java 718864 2008-11-19 06:33:35Z brett $  * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *                   role-hint="create-archiva-metadata" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -440,15 +406,11 @@ specifier|private
 name|FileTypes
 name|filetypes
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|RepositoryContentFactory
-name|repositoryFactory
-decl_stmt|;
 specifier|private
 name|Date
 name|whenGathered
 decl_stmt|;
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|ManagedRepositoryContent
 name|repository
@@ -542,20 +504,13 @@ parameter_list|)
 throws|throws
 name|ConsumerException
 block|{
-try|try
-block|{
 name|this
 operator|.
 name|repository
-operator|=
-name|repositoryFactory
 operator|.
-name|getManagedRepositoryContent
+name|setRepository
 argument_list|(
 name|repo
-operator|.
-name|getId
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -583,28 +538,6 @@ name|whenGathered
 operator|=
 name|whenGathered
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RepositoryException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|ConsumerException
-argument_list|(
-literal|"Unable to start ArtifactUpdateDatabaseConsumer: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 specifier|public
 name|void
