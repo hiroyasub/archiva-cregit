@@ -60,14 +60,6 @@ specifier|public
 interface|interface
 name|DatabaseUpdater
 block|{
-comment|/**      * Execute the {@link #updateAllUnprocessed()} and {@link #updateAllProcessed()}      * tasks in one go.      *       * @throws ArchivaDatabaseException      */
-specifier|public
-name|void
-name|update
-parameter_list|()
-throws|throws
-name|ArchivaDatabaseException
-function_decl|;
 comment|/**      * Update all unprocessed content.      *       * @throws ArchivaDatabaseException if there was a fatal error with the database.      */
 specifier|public
 name|void
@@ -80,25 +72,6 @@ comment|/**      * Update specific unprocessed content.      *       * @throws A
 specifier|public
 name|void
 name|updateUnprocessed
-parameter_list|(
-name|ArchivaArtifact
-name|artifact
-parameter_list|)
-throws|throws
-name|ArchivaDatabaseException
-function_decl|;
-comment|/**      * Update all previously processed content.      *       * This is done to allow archiva to remove content from the database that       * may have been removed from the filesystem too.      *       * @throws ArchivaDatabaseException if there was a fatal error with the database.      */
-specifier|public
-name|void
-name|updateAllProcessed
-parameter_list|()
-throws|throws
-name|ArchivaDatabaseException
-function_decl|;
-comment|/**      * Update specific processed content.      *       * Example: This is done to allow a specific artifact to be removed from the      * database if it no longer exists on the filesystem.      *       * @throws ArchivaDatabaseException if there was a fatal error with the database.      */
-specifier|public
-name|void
-name|updateProcessed
 parameter_list|(
 name|ArchivaArtifact
 name|artifact
