@@ -300,6 +300,7 @@ name|LuceneIndexHandlers
 name|indexHandlers
 decl_stmt|;
 specifier|private
+specifier|final
 name|ManagedRepositoryConfiguration
 name|repository
 decl_stmt|;
