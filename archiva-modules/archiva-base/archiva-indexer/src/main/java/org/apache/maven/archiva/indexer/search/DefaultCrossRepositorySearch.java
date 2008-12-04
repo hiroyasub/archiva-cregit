@@ -616,6 +616,7 @@ name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|ManagedRepositoryConfiguration
