@@ -1037,13 +1037,6 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Processing snapshots."
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|String
