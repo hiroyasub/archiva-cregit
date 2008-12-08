@@ -724,6 +724,14 @@ name|ArchivaXworkUser
 name|archivaXworkUser
 decl_stmt|;
 specifier|public
+specifier|static
+specifier|final
+name|String
+name|COMPLIANCE_CLASS
+init|=
+literal|"1, 2"
+decl_stmt|;
+specifier|public
 name|ArchivaDavResource
 parameter_list|(
 name|String
