@@ -1018,13 +1018,6 @@ argument_list|)
 expr_stmt|;
 name|record
 operator|.
-name|setContents
-argument_list|(
-literal|"org.apache.archiva:archiva-test:1.0:jar org.apache.archiva.test.MyClassName"
-argument_list|)
-expr_stmt|;
-name|record
-operator|.
 name|setFilename
 argument_list|(
 literal|"archiva-test-1.0.jar"
@@ -1277,13 +1270,6 @@ operator|.
 name|setArtifact
 argument_list|(
 name|artifact
-argument_list|)
-expr_stmt|;
-name|record
-operator|.
-name|setContents
-argument_list|(
-literal|"org.apache.archiva:archiva-test:1.0:jar"
 argument_list|)
 expr_stmt|;
 name|record

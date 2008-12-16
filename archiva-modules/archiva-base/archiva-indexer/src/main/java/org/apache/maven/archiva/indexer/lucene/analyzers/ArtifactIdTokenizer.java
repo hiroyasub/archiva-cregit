@@ -11,7 +11,9 @@ name|archiva
 operator|.
 name|indexer
 operator|.
-name|filecontent
+name|lucene
+operator|.
+name|analyzers
 package|;
 end_package
 
@@ -21,47 +23,71 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Reader
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
 operator|.
-name|maven
+name|lucene
 operator|.
-name|archiva
+name|analysis
 operator|.
-name|indexer
-operator|.
-name|ArtifactKeys
+name|CharTokenizer
 import|;
 end_import
 
 begin_comment
-comment|/**  * Lucene Index Keys for the various fields in the FileContent index.   *  * @version $Id$  */
+comment|/**  * Lucene Tokenizer for {@link ArtifactKeys#ARTIFACTID} fields.  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|FileContentKeys
+name|ArtifactIdTokenizer
 extends|extends
-name|ArtifactKeys
+name|CharTokenizer
 block|{
 specifier|public
-specifier|static
-specifier|final
-name|String
-name|ID
-init|=
-literal|"filecontent"
-decl_stmt|;
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|FILENAME
-init|=
-literal|"filename"
-decl_stmt|;
+name|ArtifactIdTokenizer
+parameter_list|(
+name|Reader
+name|reader
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|reader
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Break on "-" for "atlassian-plugins-core"      * @param c      * @return      */
+annotation|@
+name|Override
+specifier|protected
+name|boolean
+name|isTokenChar
+parameter_list|(
+name|char
+name|c
+parameter_list|)
+block|{
+return|return
+operator|(
+name|c
+operator|!=
+literal|'-'
+operator|)
+return|;
+block|}
 block|}
 end_class
 

@@ -180,6 +180,11 @@ argument_list|()
 decl_stmt|;
 specifier|private
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|SearchResultHit
+argument_list|>
 name|hits
 init|=
 operator|new
@@ -332,7 +337,7 @@ argument_list|)
 expr_stmt|;
 name|hit
 operator|.
-name|addArtifact
+name|setArtifact
 argument_list|(
 name|bytecode
 operator|.
@@ -510,7 +515,7 @@ expr_stmt|;
 block|}
 name|hit
 operator|.
-name|addArtifact
+name|setArtifact
 argument_list|(
 name|hashcodes
 operator|.
@@ -526,8 +531,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 comment|// TODO: provide context on why this is a valuable hit.
-name|this
-operator|.
 name|hits
 operator|.
 name|put
@@ -546,6 +549,7 @@ name|FileContentRecord
 name|filecontent
 parameter_list|)
 block|{
+specifier|final
 name|String
 name|key
 init|=
@@ -557,11 +561,6 @@ decl_stmt|;
 name|SearchResultHit
 name|hit
 init|=
-operator|(
-name|SearchResultHit
-operator|)
-name|this
-operator|.
 name|hits
 operator|.
 name|get
@@ -631,7 +630,7 @@ condition|)
 block|{
 name|hit
 operator|.
-name|addArtifact
+name|setArtifact
 argument_list|(
 name|filecontent
 operator|.
@@ -656,6 +655,9 @@ block|}
 comment|/**      * Get the list of {@link SearchResultHit} objects.      *       * @return the list of {@link SearchResultHit} objects.      */
 specifier|public
 name|List
+argument_list|<
+name|SearchResultHit
+argument_list|>
 name|getHits
 parameter_list|()
 block|{
