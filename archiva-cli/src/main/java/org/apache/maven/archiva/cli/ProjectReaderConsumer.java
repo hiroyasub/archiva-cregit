@@ -281,6 +281,8 @@ return|return
 name|includes
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|beginScan
@@ -310,6 +312,8 @@ operator|=
 name|repository
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|processFile
