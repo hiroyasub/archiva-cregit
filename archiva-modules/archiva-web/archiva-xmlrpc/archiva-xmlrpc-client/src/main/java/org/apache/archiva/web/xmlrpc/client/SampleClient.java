@@ -71,6 +71,44 @@ name|xmlrpc
 operator|.
 name|api
 operator|.
+name|SearchService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|web
+operator|.
+name|xmlrpc
+operator|.
+name|api
+operator|.
+name|beans
+operator|.
+name|Artifact
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|web
+operator|.
+name|xmlrpc
+operator|.
+name|api
+operator|.
 name|beans
 operator|.
 name|ManagedRepository
@@ -624,6 +662,8 @@ argument_list|)
 expr_stmt|;
 comment|/* delete artifact */
 comment|/*               * NOTE: before enabling& invoking deleteArtifact, make sure that the repository and artifact exists first!              *                                   success = adminService.deleteArtifact( "internal", "javax.activation", "activation", "1.1" );             System.out.println( "\nDeleted artifact 'javax.activation:activation:1.1' from repository 'internal' : " +                 ( (Boolean) success ).booleanValue() );             */
+comment|/* quick search */
+comment|/*              * NOTE: before enabling& invoking search service, make sure that the artifacts you're searching              *      for has been indexed already in order to get results              *                     SearchService searchService = binder.bind( SearchService.class, new URL( args[0] ), authnInfo );             List<Artifact> artifacts = searchService.quickSearch( "org" );                          System.out.println( "\n************ Search Results for 'org' *************" );             for( Artifact artifact : artifacts )             {                 System.out.println( "Artifact: " + artifact.getGroupId() + ":" + artifact.getArtifactId() +                                     ":" + artifact.getVersion() );             }                          */
 block|}
 catch|catch
 parameter_list|(
