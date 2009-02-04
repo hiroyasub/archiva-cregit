@@ -111,6 +111,26 @@ return|return
 name|qString
 return|;
 block|}
+specifier|public
+specifier|static
+name|String
+name|getHitId
+parameter_list|(
+name|String
+name|groupId
+parameter_list|,
+name|String
+name|artifactId
+parameter_list|)
+block|{
+return|return
+name|groupId
+operator|+
+literal|":"
+operator|+
+name|artifactId
+return|;
+block|}
 block|}
 end_class
 
