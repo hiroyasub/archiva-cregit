@@ -851,7 +851,7 @@ argument_list|,
 name|selectedRepos
 argument_list|)
 decl_stmt|;
-comment|// TODO: add packaging in the list of fields for advanced search (UI)
+comment|// TODO: add packaging in the list of fields for advanced search (UI)?
 try|try
 block|{
 name|results
