@@ -2151,6 +2151,7 @@ name|RepositorySearch
 name|getNexusSearch
 parameter_list|()
 block|{
+comment|// no need to do this when wiring is already in spring
 if|if
 condition|(
 name|nexusSearch
