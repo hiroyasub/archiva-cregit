@@ -772,6 +772,11 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"jar"
+argument_list|,
+name|repo
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|sqlArtifact
@@ -839,6 +844,11 @@ argument_list|,
 literal|null
 argument_list|,
 literal|"jar"
+argument_list|,
+name|repo
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertNotNull

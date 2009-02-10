@@ -127,6 +127,11 @@ name|artifact
 operator|.
 name|getType
 argument_list|()
+argument_list|,
+name|repository
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|artifactDAO
@@ -145,7 +150,6 @@ parameter_list|)
 block|{
 comment|// ignored
 block|}
-comment|// TODO [MRM-37]: re-run the database consumers to clean up
 block|}
 block|}
 end_class

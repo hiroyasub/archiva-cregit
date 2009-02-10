@@ -73,6 +73,22 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|indexer
+operator|.
+name|util
+operator|.
+name|SearchUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|web
 operator|.
 name|xmlrpc
@@ -255,9 +271,9 @@ name|archiva
 operator|.
 name|indexer
 operator|.
-name|filecontent
+name|search
 operator|.
-name|FileContentRecord
+name|SearchResultHit
 import|;
 end_import
 
@@ -420,6 +436,8 @@ specifier|private
 name|RepositoryBrowsing
 name|repoBrowsing
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setUp
@@ -549,525 +567,95 @@ expr_stmt|;
 block|}
 comment|/*      * quick/general text search which returns a list of artifacts      * query for an artifact based on a checksum      * query for all available versions of an artifact, sorted in version significance order      * query for all available versions of an artifact since a given date      * query for an artifact's direct dependencies      * query for an artifact's dependency tree (as with mvn dependency:tree - no duplicates should be included)      * query for all artifacts that depend on a given artifact      */
 comment|/* quick search */
-specifier|public
-name|void
-name|testQuickSearchArtifactBytecodeSearch
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// 1. check whether bytecode search or ordinary search
-comment|// 2. get observable repos
-comment|// 3. convert results to a list of Artifact objects
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|observableRepoIds
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|String
-argument_list|>
-argument_list|()
-decl_stmt|;
-name|observableRepoIds
-operator|.
-name|add
-argument_list|(
-literal|"repo1.mirror"
-argument_list|)
-expr_stmt|;
-name|observableRepoIds
-operator|.
-name|add
-argument_list|(
-literal|"public.releases"
-argument_list|)
-expr_stmt|;
-name|userReposControl
-operator|.
-name|expectAndReturn
-argument_list|(
-name|userRepos
-operator|.
-name|getObservableRepositories
-argument_list|()
-argument_list|,
-name|observableRepoIds
-argument_list|)
-expr_stmt|;
-name|Date
-name|whenGathered
-init|=
-operator|new
-name|Date
-argument_list|()
-decl_stmt|;
-name|SearchResults
-name|results
-init|=
-operator|new
-name|SearchResults
-argument_list|()
-decl_stmt|;
-name|ArchivaArtifact
-name|artifact
-init|=
-operator|new
-name|ArchivaArtifact
-argument_list|(
-literal|"org.apache.archiva"
-argument_list|,
-literal|"archiva-test"
-argument_list|,
-literal|"1.0"
-argument_list|,
-literal|""
-argument_list|,
-literal|"jar"
-argument_list|)
-decl_stmt|;
-name|artifact
-operator|.
-name|getModel
-argument_list|()
-operator|.
-name|setWhenGathered
-argument_list|(
-name|whenGathered
-argument_list|)
-expr_stmt|;
-name|FileContentRecord
-name|record
-init|=
-operator|new
-name|FileContentRecord
-argument_list|()
-decl_stmt|;
-name|record
-operator|.
-name|setRepositoryId
-argument_list|(
-literal|"repo1.mirror"
-argument_list|)
-expr_stmt|;
-name|record
-operator|.
-name|setArtifact
-argument_list|(
-name|artifact
-argument_list|)
-expr_stmt|;
-name|record
-operator|.
-name|setFilename
-argument_list|(
-literal|"archiva-test-1.0.jar"
-argument_list|)
-expr_stmt|;
-name|results
-operator|.
-name|addHit
-argument_list|(
-name|record
-argument_list|)
-expr_stmt|;
-name|SearchResultLimits
-name|limits
-init|=
-operator|new
-name|SearchResultLimits
-argument_list|(
-name|SearchResultLimits
-operator|.
-name|ALL_PAGES
-argument_list|)
-decl_stmt|;
-name|searchControl
-operator|.
-name|expectAndDefaultReturn
-argument_list|(
-name|search
-operator|.
-name|search
-argument_list|(
-literal|""
-argument_list|,
-name|observableRepoIds
-argument_list|,
-literal|"MyClassName"
-argument_list|,
-name|limits
-argument_list|,
-literal|null
-argument_list|)
-argument_list|,
-name|results
-argument_list|)
-expr_stmt|;
-name|archivaDAOControl
-operator|.
-name|expectAndReturn
-argument_list|(
-name|archivaDAO
-operator|.
-name|getArtifactDAO
-argument_list|()
-argument_list|,
-name|artifactDAO
-argument_list|)
-expr_stmt|;
-name|artifactDAOControl
-operator|.
-name|expectAndReturn
-argument_list|(
-name|artifactDAO
-operator|.
-name|getArtifact
-argument_list|(
-literal|"org.apache.archiva"
-argument_list|,
-literal|"archiva-test"
-argument_list|,
-literal|"1.0"
-argument_list|,
-literal|""
-argument_list|,
-literal|"pom"
-argument_list|)
-argument_list|,
-name|artifact
-argument_list|)
-expr_stmt|;
-name|userReposControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|searchControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|archivaDAOControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|artifactDAOControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|List
-argument_list|<
-name|Artifact
-argument_list|>
-name|artifacts
-init|=
-name|searchService
-operator|.
-name|quickSearch
-argument_list|(
-literal|"bytecode:MyClassName"
-argument_list|)
-decl_stmt|;
-name|userReposControl
-operator|.
-name|verify
-argument_list|()
-expr_stmt|;
-name|searchControl
-operator|.
-name|verify
-argument_list|()
-expr_stmt|;
-name|archivaDAOControl
-operator|.
-name|verify
-argument_list|()
-expr_stmt|;
-name|artifactDAOControl
-operator|.
-name|verify
-argument_list|()
-expr_stmt|;
-name|assertNotNull
-argument_list|(
-name|artifacts
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
-name|artifacts
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-specifier|public
-name|void
-name|testQuickSearchArtifactRegularSearch
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|observableRepoIds
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|String
-argument_list|>
-argument_list|()
-decl_stmt|;
-name|observableRepoIds
-operator|.
-name|add
-argument_list|(
-literal|"repo1.mirror"
-argument_list|)
-expr_stmt|;
-name|observableRepoIds
-operator|.
-name|add
-argument_list|(
-literal|"public.releases"
-argument_list|)
-expr_stmt|;
-name|userReposControl
-operator|.
-name|expectAndReturn
-argument_list|(
-name|userRepos
-operator|.
-name|getObservableRepositories
-argument_list|()
-argument_list|,
-name|observableRepoIds
-argument_list|)
-expr_stmt|;
-name|Date
-name|whenGathered
-init|=
-operator|new
-name|Date
-argument_list|()
-decl_stmt|;
-name|SearchResults
-name|results
-init|=
-operator|new
-name|SearchResults
-argument_list|()
-decl_stmt|;
-name|ArchivaArtifact
-name|artifact
-init|=
-operator|new
-name|ArchivaArtifact
-argument_list|(
-literal|"org.apache.archiva"
-argument_list|,
-literal|"archiva-test"
-argument_list|,
-literal|"1.0"
-argument_list|,
-literal|""
-argument_list|,
-literal|"jar"
-argument_list|)
-decl_stmt|;
-name|artifact
-operator|.
-name|getModel
-argument_list|()
-operator|.
-name|setWhenGathered
-argument_list|(
-name|whenGathered
-argument_list|)
-expr_stmt|;
-name|FileContentRecord
-name|record
-init|=
-operator|new
-name|FileContentRecord
-argument_list|()
-decl_stmt|;
-name|record
-operator|.
-name|setRepositoryId
-argument_list|(
-literal|"repo1.mirror"
-argument_list|)
-expr_stmt|;
-name|record
-operator|.
-name|setArtifact
-argument_list|(
-name|artifact
-argument_list|)
-expr_stmt|;
-name|record
-operator|.
-name|setFilename
-argument_list|(
-literal|"archiva-test-1.0.jar"
-argument_list|)
-expr_stmt|;
-name|results
-operator|.
-name|addHit
-argument_list|(
-name|record
-argument_list|)
-expr_stmt|;
-name|SearchResultLimits
-name|limits
-init|=
-operator|new
-name|SearchResultLimits
-argument_list|(
-name|SearchResultLimits
-operator|.
-name|ALL_PAGES
-argument_list|)
-decl_stmt|;
-name|searchControl
-operator|.
-name|expectAndDefaultReturn
-argument_list|(
-name|search
-operator|.
-name|search
-argument_list|(
-literal|""
-argument_list|,
-name|observableRepoIds
-argument_list|,
-literal|"archiva"
-argument_list|,
-name|limits
-argument_list|,
-literal|null
-argument_list|)
-argument_list|,
-name|results
-argument_list|)
-expr_stmt|;
-name|archivaDAOControl
-operator|.
-name|expectAndReturn
-argument_list|(
-name|archivaDAO
-operator|.
-name|getArtifactDAO
-argument_list|()
-argument_list|,
-name|artifactDAO
-argument_list|)
-expr_stmt|;
-name|artifactDAOControl
-operator|.
-name|expectAndReturn
-argument_list|(
-name|artifactDAO
-operator|.
-name|getArtifact
-argument_list|(
-literal|"org.apache.archiva"
-argument_list|,
-literal|"archiva-test"
-argument_list|,
-literal|"1.0"
-argument_list|,
-literal|""
-argument_list|,
-literal|"pom"
-argument_list|)
-argument_list|,
-name|artifact
-argument_list|)
-expr_stmt|;
-name|userReposControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|searchControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|archivaDAOControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|artifactDAOControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|List
-argument_list|<
-name|Artifact
-argument_list|>
-name|artifacts
-init|=
-name|searchService
-operator|.
-name|quickSearch
-argument_list|(
-literal|"archiva"
-argument_list|)
-decl_stmt|;
-name|userReposControl
-operator|.
-name|verify
-argument_list|()
-expr_stmt|;
-name|searchControl
-operator|.
-name|verify
-argument_list|()
-expr_stmt|;
-name|archivaDAOControl
-operator|.
-name|verify
-argument_list|()
-expr_stmt|;
-name|artifactDAOControl
-operator|.
-name|verify
-argument_list|()
-expr_stmt|;
-name|assertNotNull
-argument_list|(
-name|artifacts
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
-name|artifacts
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+comment|//    public void testQuickSearchArtifactBytecodeSearch()
+comment|//        throws Exception
+comment|//    {
+comment|//        // 1. check whether bytecode search or ordinary search
+comment|//        // 2. get observable repos
+comment|//        // 3. convert results to a list of Artifact objects
+comment|//
+comment|//        List<String> observableRepoIds = new ArrayList<String>();
+comment|//        observableRepoIds.add( "repo1.mirror" );
+comment|//        observableRepoIds.add( "public.releases" );
+comment|//
+comment|//        userReposControl.expectAndReturn( userRepos.getObservableRepositories(), observableRepoIds );
+comment|//
+comment|//        Date whenGathered = new Date();
+comment|//        SearchResults results = new SearchResults();
+comment|//        ArchivaArtifact artifact = new ArchivaArtifact( "org.apache.archiva", "archiva-test", "1.0", "", "jar", "public.releases" );
+comment|//        artifact.getModel().setWhenGathered( whenGathered );
+comment|//
+comment|//        SearchResultHit resultHit = new SearchResultHit();
+comment|//        resultHit.setArtifact(artifact);
+comment|//        resultHit.setRepositoryId("repo1.mirror");
+comment|//
+comment|//        results.addHit(SearchUtil.getHitId(artifact.getGroupId(), artifact.getArtifactId()), resultHit);
+comment|//
+comment|//        SearchResultLimits limits = new SearchResultLimits( SearchResultLimits.ALL_PAGES );
+comment|//
+comment|//        searchControl.expectAndDefaultReturn( search.search( "", observableRepoIds, "MyClassName", limits, null ), results );
+comment|//
+comment|//        archivaDAOControl.expectAndReturn( archivaDAO.getArtifactDAO(), artifactDAO );
+comment|//        artifactDAOControl.expectAndReturn( artifactDAO.getArtifact( "org.apache.archiva", "archiva-test", "1.0", "", "pom", "public.releases" ), artifact );
+comment|//
+comment|//        userReposControl.replay();
+comment|//        searchControl.replay();
+comment|//        archivaDAOControl.replay();
+comment|//        artifactDAOControl.replay();
+comment|//
+comment|//        List<Artifact> artifacts = searchService.quickSearch( "bytecode:MyClassName" );
+comment|//
+comment|//        userReposControl.verify();
+comment|//        searchControl.verify();
+comment|//        archivaDAOControl.verify();
+comment|//        artifactDAOControl.verify();
+comment|//
+comment|//        assertNotNull( artifacts );
+comment|//        assertEquals( 1, artifacts.size() );
+comment|//    }
+comment|//
+comment|//    public void testQuickSearchArtifactRegularSearch()
+comment|//        throws Exception
+comment|//    {
+comment|//        List<String> observableRepoIds = new ArrayList<String>();
+comment|//        observableRepoIds.add( "repo1.mirror" );
+comment|//        observableRepoIds.add( "public.releases" );
+comment|//
+comment|//        userReposControl.expectAndReturn( userRepos.getObservableRepositories(), observableRepoIds );
+comment|//
+comment|//        Date whenGathered = new Date();
+comment|//        SearchResults results = new SearchResults();
+comment|//        ArchivaArtifact artifact = new ArchivaArtifact( "org.apache.archiva", "archiva-test", "1.0", "", "jar", "public.releases" );
+comment|//        artifact.getModel().setWhenGathered( whenGathered );
+comment|//
+comment|//
+comment|//        SearchResultHit resultHit = new SearchResultHit();
+comment|//        resultHit.setArtifact(artifact);
+comment|//        resultHit.setRepositoryId("repo1.mirror");
+comment|//        results.addHit(SearchUtil.getHitId(artifact.getGroupId(), artifact.getArtifactId()), resultHit);
+comment|//
+comment|//        SearchResultLimits limits = new SearchResultLimits( SearchResultLimits.ALL_PAGES );
+comment|//
+comment|//        searchControl.expectAndDefaultReturn( search.search( "", observableRepoIds, "archiva", limits, null ), results );
+comment|//
+comment|//        archivaDAOControl.expectAndReturn( archivaDAO.getArtifactDAO(), artifactDAO );
+comment|//        artifactDAOControl.expectAndReturn( artifactDAO.getArtifact( "org.apache.archiva", "archiva-test", "1.0", "", "pom", "public.releases" ), artifact );
+comment|//
+comment|//        userReposControl.replay();
+comment|//        searchControl.replay();
+comment|//        archivaDAOControl.replay();
+comment|//        artifactDAOControl.replay();
+comment|//
+comment|//        List<Artifact> artifacts = searchService.quickSearch( "archiva" );
+comment|//
+comment|//        userReposControl.verify();
+comment|//        searchControl.verify();
+comment|//        archivaDAOControl.verify();
+comment|//        artifactDAOControl.verify();
+comment|//
+comment|//        assertNotNull( artifacts );
+comment|//        assertEquals( 1, artifacts.size() );
+comment|//    }
 comment|/* query artifact by checksum */
 specifier|public
 name|void
@@ -1120,6 +708,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"jar"
+argument_list|,
+literal|"test-repo"
 argument_list|)
 decl_stmt|;
 name|artifact
@@ -1378,6 +968,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"pom"
+argument_list|,
+literal|"repo1.mirror"
 argument_list|)
 decl_stmt|;
 name|archivaArtifact
@@ -1416,6 +1008,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"pom"
+argument_list|,
+literal|"public.releases"
 argument_list|)
 expr_stmt|;
 name|archivaArtifact
@@ -1454,6 +1048,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"pom"
+argument_list|,
+literal|"repo1.mirror"
 argument_list|)
 expr_stmt|;
 name|archivaArtifact
@@ -1492,6 +1088,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"pom"
+argument_list|,
+literal|"public.releases"
 argument_list|)
 expr_stmt|;
 name|archivaArtifact
@@ -1530,6 +1128,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"pom"
+argument_list|,
+literal|"repo1.mirror"
 argument_list|)
 expr_stmt|;
 name|archivaArtifact
@@ -1568,6 +1168,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"pom"
+argument_list|,
+literal|"public.releases"
 argument_list|)
 expr_stmt|;
 name|archivaArtifact
@@ -1653,6 +1255,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"pom"
+argument_list|,
+literal|"repo1.mirror"
 argument_list|)
 argument_list|,
 name|archivaArtifacts
@@ -1685,6 +1289,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"pom"
+argument_list|,
+literal|"public.releases"
 argument_list|)
 argument_list|,
 name|archivaArtifacts
@@ -1717,6 +1323,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"pom"
+argument_list|,
+literal|"repo1.mirror"
 argument_list|)
 argument_list|,
 name|archivaArtifacts
@@ -1749,6 +1357,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"pom"
+argument_list|,
+literal|"public.releases"
 argument_list|)
 argument_list|,
 name|archivaArtifacts
@@ -1781,6 +1391,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"pom"
+argument_list|,
+literal|"repo1.mirror"
 argument_list|)
 argument_list|,
 name|archivaArtifacts
@@ -1813,6 +1425,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"pom"
+argument_list|,
+literal|"public.releases"
 argument_list|)
 argument_list|,
 name|archivaArtifacts

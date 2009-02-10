@@ -136,6 +136,8 @@ name|TEST_REPO
 init|=
 literal|"test-repo"
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setUp
@@ -201,6 +203,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|"jar"
+argument_list|,
+name|TEST_REPO
 argument_list|)
 decl_stmt|;
 name|artifact

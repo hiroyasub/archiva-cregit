@@ -134,6 +134,8 @@ specifier|private
 name|ArtifactDAO
 name|artifactDao
 decl_stmt|;
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|setUp
@@ -199,6 +201,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"jar"
+argument_list|,
+literal|"testable_repo"
 argument_list|)
 decl_stmt|;
 name|Calendar

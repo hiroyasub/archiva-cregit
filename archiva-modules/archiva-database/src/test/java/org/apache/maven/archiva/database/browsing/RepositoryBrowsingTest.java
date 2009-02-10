@@ -201,6 +201,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"jar"
+argument_list|,
+literal|"central"
 argument_list|)
 decl_stmt|;
 name|artifact
@@ -651,6 +653,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|setUp

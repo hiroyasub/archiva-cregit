@@ -541,6 +541,11 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"pom"
+argument_list|,
+name|hit
+operator|.
+name|getRepositoryId
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -761,6 +766,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+specifier|final
 name|List
 argument_list|<
 name|Artifact
@@ -774,6 +780,7 @@ name|Artifact
 argument_list|>
 argument_list|()
 decl_stmt|;
+specifier|final
 name|List
 argument_list|<
 name|String
@@ -785,6 +792,7 @@ operator|.
 name|getObservableRepositories
 argument_list|()
 decl_stmt|;
+specifier|final
 name|BrowsingResults
 name|results
 init|=
@@ -801,6 +809,7 @@ argument_list|,
 name|artifactId
 argument_list|)
 decl_stmt|;
+specifier|final
 name|ArtifactDAO
 name|artifactDAO
 init|=
@@ -811,6 +820,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
+specifier|final
 name|String
 name|version
 range|:
@@ -820,24 +830,7 @@ name|getVersions
 argument_list|()
 control|)
 block|{
-name|ArchivaArtifact
-name|pomArtifact
-init|=
-name|artifactDAO
-operator|.
-name|getArtifact
-argument_list|(
-name|groupId
-argument_list|,
-name|artifactId
-argument_list|,
-name|version
-argument_list|,
-literal|""
-argument_list|,
-literal|"pom"
-argument_list|)
-decl_stmt|;
+specifier|final
 name|Artifact
 name|artifact
 init|=
@@ -852,12 +845,11 @@ name|artifactId
 argument_list|,
 name|version
 argument_list|,
-name|pomArtifact
-operator|.
-name|getType
-argument_list|()
+literal|"pom"
 argument_list|)
 decl_stmt|;
+comment|//ArchivaArtifact pomArtifact = artifactDAO.getArtifact( groupId, artifactId, version, "", "pom",  );
+comment|//Artifact artifact = new Artifact( "", groupId, artifactId, version, pomArtifact.getType() );
 comment|//pomArtifact.getModel().getWhenGathered() );
 name|artifacts
 operator|.

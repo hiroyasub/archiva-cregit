@@ -227,6 +227,11 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"pom"
+argument_list|,
+name|repository
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|File

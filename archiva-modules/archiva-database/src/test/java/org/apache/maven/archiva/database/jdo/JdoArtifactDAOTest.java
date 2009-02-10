@@ -173,7 +173,7 @@ name|ArchivaArtifactModel
 operator|.
 name|class
 argument_list|,
-literal|"foo:bar:1.0::jar"
+literal|"foo:bar:1.0::jar:testrepo"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -254,6 +254,15 @@ operator|.
 name|type
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"testrepo"
+argument_list|,
+name|key
+operator|.
+name|repositoryId
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|void
@@ -287,6 +296,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"jar"
+argument_list|,
+literal|"testrepo"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -351,7 +362,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"org.apache.maven.archiva:archiva-test-module:1.0::jar"
+literal|"org.apache.maven.archiva:archiva-test-module:1.0::jar:testrepo"
 argument_list|,
 name|savedKeyId
 argument_list|)
@@ -502,6 +513,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|"jar"
+argument_list|,
+literal|"testrepo"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

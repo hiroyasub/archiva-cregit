@@ -176,10 +176,6 @@ specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-specifier|private
-name|MockControl
-name|listenerControl
-decl_stmt|;
 specifier|public
 specifier|static
 specifier|final
@@ -204,10 +200,8 @@ name|PATH_TO_RELEASED_SNAPSHOT_IN_SAME_REPO
 init|=
 literal|"org/apache/maven/plugins/maven-plugin-plugin/2.3-SNAPSHOT/maven-plugin-plugin-2.3-SNAPSHOT.jar"
 decl_stmt|;
-specifier|private
-name|RepositoryListener
-name|listener
-decl_stmt|;
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|setUp

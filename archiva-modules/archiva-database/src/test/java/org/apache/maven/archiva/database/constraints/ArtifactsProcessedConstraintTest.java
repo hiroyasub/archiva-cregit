@@ -146,6 +146,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"jar"
+argument_list|,
+literal|"testrepo"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -369,6 +371,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|setUp

@@ -210,6 +210,8 @@ argument_list|,
 name|classifier
 argument_list|,
 name|type
+argument_list|,
+literal|"testable_repo"
 argument_list|)
 decl_stmt|;
 name|Calendar

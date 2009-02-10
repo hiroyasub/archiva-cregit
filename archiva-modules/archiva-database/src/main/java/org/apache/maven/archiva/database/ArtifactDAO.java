@@ -71,6 +71,9 @@ name|classifier
 parameter_list|,
 name|String
 name|type
+parameter_list|,
+name|String
+name|repositoryId
 parameter_list|)
 function_decl|;
 specifier|public
@@ -91,6 +94,9 @@ name|classifier
 parameter_list|,
 name|String
 name|type
+parameter_list|,
+name|String
+name|repositoryId
 parameter_list|)
 throws|throws
 name|ObjectNotFoundException

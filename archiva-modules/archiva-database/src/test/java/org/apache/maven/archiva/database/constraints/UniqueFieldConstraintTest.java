@@ -279,6 +279,8 @@ argument_list|,
 literal|"classifier"
 argument_list|,
 literal|"jar"
+argument_list|,
+literal|"testrepo"
 argument_list|)
 decl_stmt|;
 name|artifact

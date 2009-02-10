@@ -562,7 +562,6 @@ name|indexDir
 argument_list|)
 condition|)
 block|{
-comment|//indexDirectory = new File( managedRepository, repository.getIndexDir() );
 name|indexDirectory
 operator|=
 operator|new

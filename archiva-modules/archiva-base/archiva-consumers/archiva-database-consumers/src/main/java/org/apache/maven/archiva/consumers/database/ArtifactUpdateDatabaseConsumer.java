@@ -926,6 +926,11 @@ name|artifact
 operator|.
 name|getType
 argument_list|()
+argument_list|,
+name|repository
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

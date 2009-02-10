@@ -198,6 +198,9 @@ name|classifier
 parameter_list|,
 name|String
 name|type
+parameter_list|,
+name|String
+name|repositoryId
 parameter_list|)
 block|{
 name|ArchivaArtifact
@@ -218,6 +221,8 @@ argument_list|,
 name|classifier
 argument_list|,
 name|type
+argument_list|,
+name|repositoryId
 argument_list|)
 expr_stmt|;
 block|}
@@ -241,6 +246,8 @@ argument_list|,
 name|classifier
 argument_list|,
 name|type
+argument_list|,
+name|repositoryId
 argument_list|)
 expr_stmt|;
 block|}
@@ -266,6 +273,9 @@ name|classifier
 parameter_list|,
 name|String
 name|type
+parameter_list|,
+name|String
+name|repositoryId
 parameter_list|)
 throws|throws
 name|ObjectNotFoundException
@@ -312,6 +322,13 @@ operator|.
 name|setType
 argument_list|(
 name|type
+argument_list|)
+expr_stmt|;
+name|key
+operator|.
+name|setRepositoryId
+argument_list|(
+name|repositoryId
 argument_list|)
 expr_stmt|;
 name|ArchivaArtifactModel

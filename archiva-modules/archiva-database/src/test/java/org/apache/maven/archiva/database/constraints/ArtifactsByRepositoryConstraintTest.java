@@ -196,6 +196,8 @@ argument_list|,
 literal|null
 argument_list|,
 name|type
+argument_list|,
+literal|"test-repo"
 argument_list|)
 decl_stmt|;
 name|artifact

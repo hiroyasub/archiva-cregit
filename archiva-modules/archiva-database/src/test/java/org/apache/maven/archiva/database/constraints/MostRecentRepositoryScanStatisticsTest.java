@@ -143,6 +143,8 @@ return|return
 name|stats
 return|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|setUp

@@ -301,6 +301,8 @@ specifier|protected
 name|ArchivaDAO
 name|dao
 decl_stmt|;
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|setUp
@@ -967,13 +969,13 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Should have 5 parts ["
+literal|"Should have 6 parts ["
 operator|+
 name|id
 operator|+
 literal|"]"
 argument_list|,
-literal|5
+literal|6
 argument_list|,
 name|parts
 operator|.

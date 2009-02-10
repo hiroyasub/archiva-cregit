@@ -234,6 +234,8 @@ specifier|private
 name|ArtifactDAO
 name|artifactDao
 decl_stmt|;
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|setUp
@@ -359,6 +361,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"jar"
+argument_list|,
+name|TESTABLE_REPO
 argument_list|)
 decl_stmt|;
 name|artifact
@@ -371,16 +375,6 @@ argument_list|(
 operator|new
 name|Date
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|artifact
-operator|.
-name|getModel
-argument_list|()
-operator|.
-name|setRepositoryId
-argument_list|(
-name|TESTABLE_REPO
 argument_list|)
 expr_stmt|;
 return|return
