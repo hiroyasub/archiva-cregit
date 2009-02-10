@@ -734,6 +734,17 @@ parameter_list|)
 throws|throws
 name|ConsumerException
 block|{
+comment|//Ignore paths like .indexer etc
+if|if
+condition|(
+name|path
+operator|.
+name|startsWith
+argument_list|(
+literal|"."
+argument_list|)
+condition|)
+return|return;
 try|try
 block|{
 name|ArtifactReference
