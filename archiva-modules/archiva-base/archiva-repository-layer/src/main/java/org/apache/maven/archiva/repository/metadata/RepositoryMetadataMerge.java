@@ -886,16 +886,6 @@ argument_list|)
 expr_stmt|;
 name|clonedPlugin
 operator|.
-name|setModelEncoding
-argument_list|(
-name|plugin
-operator|.
-name|getModelEncoding
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|clonedPlugin
-operator|.
 name|setName
 argument_list|(
 name|plugin
