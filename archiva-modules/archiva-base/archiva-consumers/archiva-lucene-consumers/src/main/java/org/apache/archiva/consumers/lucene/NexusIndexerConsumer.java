@@ -406,17 +406,14 @@ name|class
 argument_list|)
 decl_stmt|;
 specifier|private
-specifier|final
 name|NexusIndexer
 name|indexer
 decl_stmt|;
 specifier|private
-specifier|final
 name|ArtifactContextProducer
 name|artifactContextProducer
 decl_stmt|;
 specifier|private
-specifier|final
 name|IndexPacker
 name|indexPacker
 decl_stmt|;

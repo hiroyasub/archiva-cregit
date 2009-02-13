@@ -2351,6 +2351,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: add test when an existing index already exists
 block|}
 end_class
 
