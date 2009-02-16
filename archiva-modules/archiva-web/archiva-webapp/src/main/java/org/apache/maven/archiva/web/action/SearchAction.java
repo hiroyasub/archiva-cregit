@@ -810,15 +810,6 @@ argument_list|,
 literal|"Class/Package Name"
 argument_list|)
 expr_stmt|;
-name|searchFields
-operator|.
-name|put
-argument_list|(
-literal|"repositoryId"
-argument_list|,
-literal|"Repository"
-argument_list|)
-expr_stmt|;
 name|super
 operator|.
 name|clearErrorsAndMessages
