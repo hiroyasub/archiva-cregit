@@ -810,6 +810,15 @@ argument_list|,
 literal|"Class/Package Name"
 argument_list|)
 expr_stmt|;
+name|searchFields
+operator|.
+name|put
+argument_list|(
+literal|"rowCount"
+argument_list|,
+literal|"Row Count"
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|clearErrorsAndMessages
@@ -844,6 +853,10 @@ name|className
 operator|=
 literal|""
 expr_stmt|;
+name|rowCount
+operator|=
+literal|30
+expr_stmt|;
 name|currentPage
 operator|=
 literal|0
@@ -861,10 +874,6 @@ name|RepositoryIndexException
 throws|,
 name|RepositoryIndexSearchException
 block|{
-comment|// TODO:
-comment|// - repositories must be provided as a select box instead of as a textfield!
-comment|// - what about the row count?
-comment|// - remove advancedSearch.jsp
 if|if
 condition|(
 operator|(
