@@ -959,15 +959,6 @@ argument_list|,
 name|scanCompletedClosure
 argument_list|)
 expr_stmt|;
-name|CollectionUtils
-operator|.
-name|forAllDo
-argument_list|(
-name|selectedKnownConsumers
-argument_list|,
-name|scanCompletedClosure
-argument_list|)
-expr_stmt|;
 block|}
 finally|finally
 block|{
