@@ -927,13 +927,13 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * @see RepositoryBrowsing#getTimestampedSnapshots(List, String, String, String)      */
+comment|/**      * @see RepositoryBrowsing#getOtherSnapshotVersions(List, String, String, String)      */
 specifier|public
 name|List
 argument_list|<
 name|String
 argument_list|>
-name|getTimestampedSnapshots
+name|getOtherSnapshotVersions
 parameter_list|(
 name|List
 argument_list|<
@@ -1019,6 +1019,23 @@ operator|.
 name|equals
 argument_list|(
 name|version
+argument_list|)
+operator|||
+name|VersionUtil
+operator|.
+name|getBaseVersion
+argument_list|(
+name|uniqueVersion
+argument_list|)
+operator|.
+name|equals
+argument_list|(
+name|VersionUtil
+operator|.
+name|getBaseVersion
+argument_list|(
+name|version
+argument_list|)
 argument_list|)
 condition|)
 block|{

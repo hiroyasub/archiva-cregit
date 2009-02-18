@@ -367,7 +367,7 @@ name|snapshotVersions
 operator|=
 name|repoBrowsing
 operator|.
-name|getTimestampedSnapshots
+name|getOtherSnapshotVersions
 argument_list|(
 name|getObservableRepos
 argument_list|()

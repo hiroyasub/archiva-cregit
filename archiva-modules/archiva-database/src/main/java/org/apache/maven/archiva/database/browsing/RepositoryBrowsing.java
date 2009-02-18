@@ -224,13 +224,13 @@ name|ObjectNotFoundException
 throws|,
 name|ArchivaDatabaseException
 function_decl|;
-comment|/**      * Get the timestamped versions or versions with build numbers of the given SNAPSHOT artifact.      *       * @param observableRepositoryIds      * @param groupId      * @param artifactId      * @param version      * @return      * @throws ObjectNotFoundException      * @throws ArchivaDatabaseException      */
+comment|/**      * Get the other versions of the given SNAPSHOT version.      *       * @param observableRepositoryIds      * @param groupId      * @param artifactId      * @param version      * @return      * @throws ObjectNotFoundException      * @throws ArchivaDatabaseException      */
 specifier|public
 name|List
 argument_list|<
 name|String
 argument_list|>
-name|getTimestampedSnapshots
+name|getOtherSnapshotVersions
 parameter_list|(
 name|List
 argument_list|<
