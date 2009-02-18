@@ -1490,6 +1490,8 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+name|model
+operator|=
 name|dao
 operator|.
 name|getProjectModelDAO
