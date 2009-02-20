@@ -5,8 +5,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|indexer
@@ -20,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * SearchResultLimits - used to provide the search some limits on how the results are returned.  * This can provide paging for the   *  * @version $Id$  */
+comment|/**  * SearchResultLimits - used to provide the search some limits on how the results are returned.  * This can provide paging for the   *  * @version $Id: SearchResultLimits.java 718864 2008-11-19 06:33:35Z brett $  */
 end_comment
 
 begin_class

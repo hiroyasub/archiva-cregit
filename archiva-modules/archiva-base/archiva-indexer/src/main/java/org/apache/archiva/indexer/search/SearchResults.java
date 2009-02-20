@@ -5,8 +5,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|indexer
@@ -60,7 +58,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SearchResults   *  * @version $Id$  */
+comment|/**  * SearchResults   *  * @version $Id: SearchResults.java 742859 2009-02-10 05:35:05Z jdumay $  */
 end_comment
 
 begin_class
