@@ -264,7 +264,7 @@ return|return
 name|artifactPath
 return|;
 block|}
-comment|/**      * Purge the repo. Update db and index of removed artifacts.      *       * @param artifactFiles      * @throws RepositoryIndexException      */
+comment|/**      * Purge the repo. Update db and index of removed artifacts.      *       * @param references      */
 specifier|protected
 name|void
 name|purge
