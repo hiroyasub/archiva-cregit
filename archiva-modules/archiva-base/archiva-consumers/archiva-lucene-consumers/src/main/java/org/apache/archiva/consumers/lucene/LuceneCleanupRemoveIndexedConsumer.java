@@ -343,22 +343,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|sonatype
-operator|.
-name|nexus
-operator|.
-name|index
-operator|.
-name|creator
-operator|.
-name|IndexerEngine
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -428,10 +412,6 @@ name|ArtifactContextProducer
 name|artifactContextProducer
 decl_stmt|;
 specifier|private
-name|IndexerEngine
-name|indexerEngine
-decl_stmt|;
-specifier|private
 name|IndexingContext
 name|context
 decl_stmt|;
@@ -443,9 +423,6 @@ name|repoFactory
 parameter_list|,
 name|NexusIndexer
 name|indexer
-parameter_list|,
-name|IndexerEngine
-name|indexerEngine
 parameter_list|)
 block|{
 name|this
@@ -462,12 +439,6 @@ name|indexer
 expr_stmt|;
 name|this
 operator|.
-name|indexerEngine
-operator|=
-name|indexerEngine
-expr_stmt|;
-name|this
-operator|.
 name|artifactContextProducer
 operator|=
 operator|new
@@ -480,7 +451,6 @@ name|void
 name|beginScan
 parameter_list|()
 block|{
-comment|// TODO Auto-generated method stub
 block|}
 specifier|public
 name|void
@@ -705,20 +675,6 @@ name|artifact
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"artifactFile :: "
-operator|+
-name|artifactFile
-operator|.
-name|getAbsolutePath
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -748,7 +704,7 @@ literal|null
 condition|)
 block|{
 comment|//indexerEngine.remove( context, artifactContext );
-comment|// hack for deleting documents - indexer engine's isn't working for me
+comment|// hack for deleting documents - indexer engine's remove(...) isn't working for me
 name|removeDocuments
 argument_list|(
 name|artifactContext
@@ -1012,6 +968,21 @@ operator|.
 name|repoFactory
 operator|=
 name|repoFactory
+expr_stmt|;
+block|}
+specifier|public
+name|void
+name|setArtifactContextProducer
+parameter_list|(
+name|ArtifactContextProducer
+name|artifactContextProducer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|artifactContextProducer
+operator|=
+name|artifactContextProducer
 expr_stmt|;
 block|}
 block|}
