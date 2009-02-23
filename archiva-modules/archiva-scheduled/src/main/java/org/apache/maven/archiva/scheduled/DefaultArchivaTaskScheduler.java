@@ -977,6 +977,29 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+if|if
+condition|(
+operator|!
+name|repoConfig
+operator|.
+name|isScanned
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Skipping job, repository scannable has been disabled for "
+operator|+
+name|repoConfig
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|// get the cron string for these database scanning jobs
 name|String
 name|cronString
