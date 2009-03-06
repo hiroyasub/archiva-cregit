@@ -379,6 +379,21 @@ decl_stmt|;
 if|if
 condition|(
 name|user
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ArchivaSecurityException
+argument_list|(
+literal|"The security system had an internal error - please check your system logs"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|user
 operator|.
 name|isLocked
 argument_list|()
@@ -648,6 +663,21 @@ argument_list|(
 name|principal
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|user
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ArchivaSecurityException
+argument_list|(
+literal|"The security system had an internal error - please check your system logs"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|user
