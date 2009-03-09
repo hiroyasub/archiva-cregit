@@ -1546,7 +1546,7 @@ try|try
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Retrieving artifact with version "
 operator|+
@@ -1579,13 +1579,13 @@ break|break;
 block|}
 catch|catch
 parameter_list|(
-name|ArchivaDatabaseException
+name|ObjectNotFoundException
 name|e
 parameter_list|)
 block|{
 name|log
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"Artifact '"
 operator|+
