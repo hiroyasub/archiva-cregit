@@ -794,6 +794,16 @@ parameter_list|)
 throws|throws
 name|ConsumerException
 block|{
+if|if
+condition|(
+name|context
+operator|==
+literal|null
+condition|)
+block|{
+comment|// didn't start correctly, so skip
+return|return;
+block|}
 name|File
 name|artifactFile
 init|=
