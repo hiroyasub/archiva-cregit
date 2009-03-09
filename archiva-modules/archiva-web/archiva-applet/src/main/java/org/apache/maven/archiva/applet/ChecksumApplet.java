@@ -281,7 +281,7 @@ name|e
 parameter_list|)
 block|{
 return|return
-literal|"Couldn't find the file. "
+literal|"Couldn't find the file: "
 operator|+
 name|e
 operator|.
@@ -337,14 +337,19 @@ argument_list|(
 literal|"MD5"
 argument_list|)
 decl_stmt|;
-name|long
-name|total
+name|File
+name|f
 init|=
 operator|new
 name|File
 argument_list|(
 name|file
 argument_list|)
+decl_stmt|;
+name|long
+name|total
+init|=
+name|f
 operator|.
 name|length
 argument_list|()
@@ -355,7 +360,7 @@ init|=
 operator|new
 name|FileInputStream
 argument_list|(
-name|file
+name|f
 argument_list|)
 decl_stmt|;
 try|try
