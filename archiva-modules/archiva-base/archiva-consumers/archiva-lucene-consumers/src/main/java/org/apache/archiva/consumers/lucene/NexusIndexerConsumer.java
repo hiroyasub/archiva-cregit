@@ -746,9 +746,9 @@ name|UnsupportedExistingLuceneIndexException
 name|e
 parameter_list|)
 block|{
-name|log
-operator|.
-name|error
+throw|throw
+operator|new
+name|ConsumerException
 argument_list|(
 literal|"Could not create index at "
 operator|+
@@ -759,7 +759,7 @@ argument_list|()
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 catch|catch
 parameter_list|(
@@ -767,9 +767,9 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|log
-operator|.
-name|error
+throw|throw
+operator|new
+name|ConsumerException
 argument_list|(
 literal|"Could not create index at "
 operator|+
@@ -780,7 +780,7 @@ argument_list|()
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 block|}
