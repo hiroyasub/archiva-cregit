@@ -362,7 +362,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryScanningAction  *  * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="repositoryScanningAction"  */
+comment|/**  * RepositoryScanningAction  *  * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="repositoryScanningAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

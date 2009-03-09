@@ -160,7 +160,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * NetworkProxiesAction   *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="networkProxiesAction"  */
+comment|/**  * NetworkProxiesAction   *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="networkProxiesAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

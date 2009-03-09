@@ -704,7 +704,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Upload an artifact using Jakarta file upload in webwork. If set by the user a pom will also be generated. Metadata  * will also be updated if one exists, otherwise it would be created.  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="uploadAction"  */
+comment|/**  * Upload an artifact using Jakarta file upload in webwork. If set by the user a pom will also be generated. Metadata  * will also be updated if one exists, otherwise it would be created.  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="uploadAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

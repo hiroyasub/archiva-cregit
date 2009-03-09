@@ -274,7 +274,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ConfigureNetworkProxyAction  *  * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="configureNetworkProxyAction"  */
+comment|/**  * ConfigureNetworkProxyAction  *  * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="configureNetworkProxyAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

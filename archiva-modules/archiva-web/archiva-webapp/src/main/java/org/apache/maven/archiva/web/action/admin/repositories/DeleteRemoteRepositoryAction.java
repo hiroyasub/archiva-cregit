@@ -108,7 +108,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DeleteRemoteRepositoryAction   *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteRemoteRepositoryAction"  */
+comment|/**  * DeleteRemoteRepositoryAction   *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteRemoteRepositoryAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

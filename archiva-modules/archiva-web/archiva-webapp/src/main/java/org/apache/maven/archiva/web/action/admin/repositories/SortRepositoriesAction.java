@@ -80,7 +80,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SortRepositoriesAction  *   * @version  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="sortRepositoriesAction"  */
+comment|/**  * SortRepositoriesAction  *   * @version  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="sortRepositoriesAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

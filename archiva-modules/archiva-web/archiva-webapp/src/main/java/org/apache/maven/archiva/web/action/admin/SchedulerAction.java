@@ -250,7 +250,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Configures the application.  *  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="schedulerAction"  */
+comment|/**  * Configures the application.  *  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="schedulerAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

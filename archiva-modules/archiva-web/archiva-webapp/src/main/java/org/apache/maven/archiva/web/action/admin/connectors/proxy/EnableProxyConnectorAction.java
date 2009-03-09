@@ -42,7 +42,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * EnableProxyConnectorAction   *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="enableProxyConnectorAction"  */
+comment|/**  * EnableProxyConnectorAction   *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="enableProxyConnectorAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

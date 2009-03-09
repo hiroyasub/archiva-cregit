@@ -286,7 +286,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DatabaseAction  *  * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="databaseAction"  */
+comment|/**  * DatabaseAction  *  * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="databaseAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

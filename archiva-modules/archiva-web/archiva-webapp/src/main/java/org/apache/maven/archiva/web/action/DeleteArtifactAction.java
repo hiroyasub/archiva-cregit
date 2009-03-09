@@ -624,7 +624,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Delete an artifact. Metadata will be updated if one exists, otherwise it would be created.  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteArtifactAction"  */
+comment|/**  * Delete an artifact. Metadata will be updated if one exists, otherwise it would be created.  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteArtifactAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

@@ -242,7 +242,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Browse the repository.   *   * TODO change name to ShowVersionedAction to conform to terminology.  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="showArtifactAction"  */
+comment|/**  * Browse the repository.   *   * TODO change name to ShowVersionedAction to conform to terminology.  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="showArtifactAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

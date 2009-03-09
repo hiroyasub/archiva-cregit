@@ -42,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * EditProxyConnectorAction   *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="editProxyConnectorAction"  */
+comment|/**  * EditProxyConnectorAction   *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="editProxyConnectorAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

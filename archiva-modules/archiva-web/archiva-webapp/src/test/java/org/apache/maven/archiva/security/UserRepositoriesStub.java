@@ -9,9 +9,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|web
-operator|.
-name|rss
+name|security
 package|;
 end_package
 

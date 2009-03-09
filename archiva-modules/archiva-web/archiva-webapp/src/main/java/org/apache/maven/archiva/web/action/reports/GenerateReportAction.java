@@ -658,7 +658,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="generateReport"  */
+comment|/**  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="generateReport" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

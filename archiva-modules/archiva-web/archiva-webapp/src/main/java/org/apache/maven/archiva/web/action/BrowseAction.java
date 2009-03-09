@@ -180,7 +180,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Browse the repository.  *  * @todo cache browsing results.  * @todo implement repository selectors (all or specific repository)  * @todo implement security around browse (based on repository id at first)  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="browseAction"  */
+comment|/**  * Browse the repository.  *  * @todo cache browsing results.  * @todo implement repository selectors (all or specific repository)  * @todo implement security around browse (based on repository id at first)  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="browseAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

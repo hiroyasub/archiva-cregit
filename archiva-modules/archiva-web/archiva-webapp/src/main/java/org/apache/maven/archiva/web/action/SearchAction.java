@@ -484,7 +484,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Search all indexed fields by the given criteria.  *  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="searchAction"  */
+comment|/**  * Search all indexed fields by the given criteria.  *  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="searchAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

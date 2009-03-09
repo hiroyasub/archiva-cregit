@@ -66,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SortProxyConnectorsAction -    *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="sortProxyConnectorsAction"  */
+comment|/**  * SortProxyConnectorsAction -    *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="sortProxyConnectorsAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
