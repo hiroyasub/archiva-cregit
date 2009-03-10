@@ -23,6 +23,16 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -67,7 +77,7 @@ name|repository
 operator|.
 name|project
 operator|.
-name|ProjectModelException
+name|ProjectModelReader
 import|;
 end_import
 
@@ -81,11 +91,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|repository
+name|xml
 operator|.
-name|project
-operator|.
-name|ProjectModelReader
+name|XMLException
 import|;
 end_import
 
@@ -100,16 +108,6 @@ operator|.
 name|spring
 operator|.
 name|PlexusInSpringTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
 import|;
 end_import
 
@@ -129,7 +127,7 @@ name|void
 name|testLoadSimple
 parameter_list|()
 throws|throws
-name|ProjectModelException
+name|XMLException
 block|{
 name|File
 name|defaultRepoDir
@@ -319,7 +317,7 @@ name|void
 name|testLoadWithNamespace
 parameter_list|()
 throws|throws
-name|ProjectModelException
+name|XMLException
 block|{
 name|File
 name|defaultRepoDir

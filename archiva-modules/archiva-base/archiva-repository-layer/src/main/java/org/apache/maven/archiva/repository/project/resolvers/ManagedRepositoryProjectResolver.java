@@ -23,6 +23,16 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -141,11 +151,17 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|File
+name|maven
+operator|.
+name|archiva
+operator|.
+name|xml
+operator|.
+name|XMLException
 import|;
 end_import
 
@@ -244,6 +260,8 @@ argument_list|(
 name|artifact
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 return|return
 name|reader
 operator|.
@@ -252,6 +270,26 @@ argument_list|(
 name|repoFile
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|XMLException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ProjectModelException
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class
