@@ -99,6 +99,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|zip
+operator|.
+name|ZipException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -905,6 +917,24 @@ name|artifactContext
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|ZipException
+name|e
+parameter_list|)
+block|{
+comment|// invalid JAR file
+name|log
+operator|.
+name|info
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
