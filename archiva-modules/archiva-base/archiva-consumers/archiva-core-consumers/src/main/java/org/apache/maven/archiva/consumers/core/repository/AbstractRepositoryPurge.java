@@ -127,6 +127,26 @@ name|RepositoryListener
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for all repository purge tasks.  *   */
 end_comment
@@ -139,6 +159,19 @@ name|AbstractRepositoryPurge
 implements|implements
 name|RepositoryPurge
 block|{
+specifier|protected
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|AbstractRepositoryPurge
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|protected
 specifier|final
 name|ManagedRepositoryContent

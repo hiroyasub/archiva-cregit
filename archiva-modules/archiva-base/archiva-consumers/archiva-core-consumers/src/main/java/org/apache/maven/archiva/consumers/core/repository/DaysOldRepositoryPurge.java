@@ -668,25 +668,6 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|LayoutException
-name|le
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RepositoryPurgeException
-argument_list|(
-name|le
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|le
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
 name|ContentNotFoundException
 name|e
 parameter_list|)
@@ -703,6 +684,25 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
+catch|catch
+parameter_list|(
+name|LayoutException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Not processing file that is not an artifact: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 specifier|private
@@ -845,8 +845,6 @@ parameter_list|(
 name|ArtifactReference
 name|reference
 parameter_list|)
-throws|throws
-name|LayoutException
 block|{
 try|try
 block|{
@@ -875,8 +873,19 @@ name|ContentNotFoundException
 name|e
 parameter_list|)
 block|{
-comment|// Nothing to do here.
-comment|// TODO: Log this?
+comment|// Nothing to do here - it means the repository would have been constructed incorrectly
+name|log
+operator|.
+name|debug
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

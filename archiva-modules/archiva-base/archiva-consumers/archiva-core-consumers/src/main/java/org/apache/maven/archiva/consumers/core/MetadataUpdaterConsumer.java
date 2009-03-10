@@ -734,9 +734,10 @@ parameter_list|)
 throws|throws
 name|ConsumerException
 block|{
-comment|//Ignore paths like .indexer etc
+comment|// Ignore paths like .indexer etc
 if|if
 condition|(
+operator|!
 name|path
 operator|.
 name|startsWith
@@ -744,7 +745,7 @@ argument_list|(
 literal|"."
 argument_list|)
 condition|)
-return|return;
+block|{
 try|try
 block|{
 name|ArtifactReference
@@ -778,17 +779,25 @@ name|LayoutException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|ConsumerException
+name|log
+operator|.
+name|info
 argument_list|(
-literal|"Unable to convert to artifact reference: "
+literal|"Not processing path that is not an artifact: "
 operator|+
 name|path
-argument_list|,
+operator|+
+literal|" ("
+operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|")"
 argument_list|)
-throw|;
+expr_stmt|;
+block|}
 block|}
 block|}
 specifier|private

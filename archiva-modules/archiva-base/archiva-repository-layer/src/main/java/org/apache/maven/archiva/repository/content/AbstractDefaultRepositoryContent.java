@@ -133,6 +133,26 @@ name|LayoutException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * AbstractDefaultRepositoryContent - common methods for working with default (maven 2) layout.  *  * @version $Id$  */
 end_comment
@@ -143,6 +163,19 @@ specifier|abstract
 class|class
 name|AbstractDefaultRepositoryContent
 block|{
+specifier|protected
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|AbstractDefaultRepositoryContent
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|public
 specifier|static
 specifier|final

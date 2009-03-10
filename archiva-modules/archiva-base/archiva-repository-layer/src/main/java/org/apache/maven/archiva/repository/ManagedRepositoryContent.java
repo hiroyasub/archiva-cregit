@@ -174,8 +174,6 @@ name|reference
 parameter_list|)
 throws|throws
 name|ContentNotFoundException
-throws|,
-name|LayoutException
 function_decl|;
 comment|/**      *<p>      * Convenience method to get the repository (on disk) root directory.      *</p>      *       *<p>      * Equivalent to calling<code>.getRepository().getLocation()</code>      *</p>      *       * @return the repository (on disk) root directory.      */
 specifier|public
@@ -218,8 +216,6 @@ name|reference
 parameter_list|)
 throws|throws
 name|ContentNotFoundException
-throws|,
-name|LayoutException
 function_decl|;
 comment|/**      * Determines if the artifact referenced exists in the repository.      *       * @param reference the artifact reference to check for.      * @return true if the artifact referenced exists.      */
 specifier|public
