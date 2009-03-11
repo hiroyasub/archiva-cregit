@@ -86,6 +86,24 @@ name|AccessDeniedException
 throws|,
 name|ArchivaSecurityException
 function_decl|;
+comment|/**      * Get the list of writable repository ids for the user specified.      *       * @param principal the principle to obtain the observable repository ids from.      * @return the list of observable repository ids.      * @throws PrincipalNotFoundException      * @throws AccessDeniedException      * @throws ArchivaSecurityException      */
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getManagableRepositoryIds
+parameter_list|(
+name|String
+name|principal
+parameter_list|)
+throws|throws
+name|PrincipalNotFoundException
+throws|,
+name|AccessDeniedException
+throws|,
+name|ArchivaSecurityException
+function_decl|;
 comment|/**      * Create any missing repository roles for the provided repository id.      *       * @param repoId the repository id to work off of.      * @throws ArchivaSecurityException if there was a problem creating the repository roles.      */
 specifier|public
 name|void

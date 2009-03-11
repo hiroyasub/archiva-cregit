@@ -236,6 +236,28 @@ return|return
 literal|false
 return|;
 block|}
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getManagableRepositoryIds
+parameter_list|(
+name|String
+name|principal
+parameter_list|)
+throws|throws
+name|PrincipalNotFoundException
+throws|,
+name|AccessDeniedException
+throws|,
+name|ArchivaSecurityException
+block|{
+comment|// TODO Auto-generated method stub
+return|return
+literal|null
+return|;
+block|}
 block|}
 end_class
 
