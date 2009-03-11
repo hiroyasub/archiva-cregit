@@ -252,7 +252,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SecurityStartup   *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.security.SecurityStartup"  */
+comment|/**  * SecurityStartup  *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.security.SecurityStartup"  */
 end_comment
 
 begin_class
@@ -299,6 +299,11 @@ comment|/**      * @plexus.requirement      */
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
+decl_stmt|;
+comment|/**      * @plexus.requirement      */
+specifier|private
+name|ArchivaXworkUser
+name|archivaXworkUser
 decl_stmt|;
 specifier|public
 name|void
@@ -364,11 +369,13 @@ operator|.
 name|getId
 argument_list|()
 decl_stmt|;
-comment|// TODO: Use the Redback / UserConfiguration..getString( "redback.default.guest" ) to get the right name.
 name|String
 name|principal
 init|=
-literal|"guest"
+name|archivaXworkUser
+operator|.
+name|getGuest
+argument_list|()
 decl_stmt|;
 try|try
 block|{

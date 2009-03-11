@@ -79,15 +79,6 @@ name|GUEST_ROLE
 init|=
 literal|"Guest"
 decl_stmt|;
-comment|// principals
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PRINCIPAL_GUEST
-init|=
-literal|"guest"
-decl_stmt|;
 comment|// dynamic role prefixes
 specifier|public
 specifier|static
