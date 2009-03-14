@@ -560,8 +560,7 @@ name|RegistryException
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|error
 argument_list|(

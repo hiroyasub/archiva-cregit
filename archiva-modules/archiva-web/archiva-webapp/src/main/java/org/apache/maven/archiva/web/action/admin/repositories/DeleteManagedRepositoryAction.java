@@ -761,8 +761,7 @@ range|:
 name|artifacts
 control|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(
@@ -828,8 +827,7 @@ name|ObjectNotFoundException
 name|oe
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(
@@ -849,8 +847,7 @@ name|ArchivaDatabaseException
 name|ae
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(

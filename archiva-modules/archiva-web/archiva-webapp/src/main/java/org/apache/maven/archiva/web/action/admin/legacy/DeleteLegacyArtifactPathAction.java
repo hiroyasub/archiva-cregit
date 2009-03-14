@@ -154,8 +154,7 @@ name|String
 name|delete
 parameter_list|()
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(

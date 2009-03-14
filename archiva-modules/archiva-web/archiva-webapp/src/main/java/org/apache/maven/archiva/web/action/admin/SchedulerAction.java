@@ -608,8 +608,7 @@ argument_list|(
 name|aMessage
 argument_list|)
 expr_stmt|;
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(
@@ -636,8 +635,7 @@ argument_list|(
 name|anErrorMessage
 argument_list|)
 expr_stmt|;
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(

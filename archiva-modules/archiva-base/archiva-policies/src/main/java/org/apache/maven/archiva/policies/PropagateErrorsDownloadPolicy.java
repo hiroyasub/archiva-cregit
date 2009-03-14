@@ -47,6 +47,26 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -103,11 +123,22 @@ begin_class
 specifier|public
 class|class
 name|PropagateErrorsDownloadPolicy
-extends|extends
-name|AbstractLogEnabled
 implements|implements
 name|DownloadErrorPolicy
 block|{
+specifier|private
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|PropagateErrorsDownloadPolicy
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * Signifies any error should stop searching for other proxies.      */
 specifier|public
 specifier|static
@@ -251,8 +282,7 @@ argument_list|)
 condition|)
 block|{
 comment|// Ignore.
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|debug
 argument_list|(

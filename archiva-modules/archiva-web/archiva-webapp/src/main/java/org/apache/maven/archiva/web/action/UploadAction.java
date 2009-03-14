@@ -2592,8 +2592,7 @@ name|PrincipalNotFoundException
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2612,8 +2611,7 @@ name|AccessDeniedException
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2633,8 +2631,7 @@ name|ArchivaSecurityException
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(

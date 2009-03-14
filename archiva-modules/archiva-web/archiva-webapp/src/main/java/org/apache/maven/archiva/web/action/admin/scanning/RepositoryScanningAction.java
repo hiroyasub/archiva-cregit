@@ -439,8 +439,7 @@ argument_list|(
 name|anErrorMessage
 argument_list|)
 expr_stmt|;
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -465,8 +464,7 @@ argument_list|(
 name|aMessage
 argument_list|)
 expr_stmt|;
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(
@@ -481,8 +479,7 @@ name|String
 name|addFiletypePattern
 parameter_list|()
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(
@@ -862,8 +859,7 @@ name|String
 name|removeFiletypePattern
 parameter_list|()
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(
