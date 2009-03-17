@@ -149,26 +149,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|sun
@@ -214,19 +194,6 @@ comment|/**      * @plexus.requirement      */
 specifier|private
 name|RssFeedGenerator
 name|generator
-decl_stmt|;
-specifier|private
-name|Logger
-name|log
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|NewVersionsOfArtifactRssFeedProcessor
-operator|.
-name|class
-argument_list|)
 decl_stmt|;
 comment|/**      * @plexus.requirement role-hint="jdo"      */
 specifier|private

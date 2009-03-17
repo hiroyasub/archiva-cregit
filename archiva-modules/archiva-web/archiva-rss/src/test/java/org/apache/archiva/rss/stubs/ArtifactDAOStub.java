@@ -199,6 +199,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|ArchivaArtifact
+argument_list|>
 name|queryArtifacts
 parameter_list|(
 name|Constraint
