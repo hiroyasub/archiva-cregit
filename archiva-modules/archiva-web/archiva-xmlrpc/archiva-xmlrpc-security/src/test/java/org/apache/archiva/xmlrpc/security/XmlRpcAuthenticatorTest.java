@@ -790,6 +790,11 @@ argument_list|(
 name|xmlRpcRequest
 argument_list|)
 decl_stmt|;
+name|assertTrue
+argument_list|(
+name|isAuthorized
+argument_list|)
+expr_stmt|;
 name|xmlRpcRequestControl
 operator|.
 name|verify

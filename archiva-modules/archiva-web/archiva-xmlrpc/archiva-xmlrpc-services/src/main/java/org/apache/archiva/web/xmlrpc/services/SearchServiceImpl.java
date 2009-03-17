@@ -803,15 +803,6 @@ argument_list|,
 name|artifactId
 argument_list|)
 decl_stmt|;
-specifier|final
-name|ArtifactDAO
-name|artifactDAO
-init|=
-name|archivaDAO
-operator|.
-name|getArtifactDAO
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 specifier|final
