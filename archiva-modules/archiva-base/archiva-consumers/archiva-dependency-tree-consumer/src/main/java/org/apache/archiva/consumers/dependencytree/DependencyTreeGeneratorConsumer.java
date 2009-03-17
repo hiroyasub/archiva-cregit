@@ -870,6 +870,9 @@ block|{
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getExcludes
 parameter_list|()
 block|{
@@ -879,6 +882,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getIncludes
 parameter_list|()
 block|{
@@ -1301,6 +1307,11 @@ name|projectBuilder
 argument_list|,
 operator|new
 name|HashMap
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1312,6 +1323,11 @@ name|projectBuilder
 argument_list|,
 operator|new
 name|HashMap
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 argument_list|)
 expr_stmt|;
