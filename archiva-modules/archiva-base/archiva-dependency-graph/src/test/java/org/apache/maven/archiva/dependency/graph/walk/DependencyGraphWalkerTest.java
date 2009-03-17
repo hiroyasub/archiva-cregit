@@ -825,6 +825,9 @@ index|[]
 name|expectedPath
 parameter_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|collectedPath
 parameter_list|)
 block|{
@@ -872,9 +875,6 @@ index|[
 name|i
 index|]
 argument_list|,
-operator|(
-name|String
-operator|)
 name|collectedPath
 operator|.
 name|get

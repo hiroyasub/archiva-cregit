@@ -119,10 +119,16 @@ name|DependencyGraphVisitor
 block|{
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|walkPath
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -250,6 +256,9 @@ expr_stmt|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getCollectedPath
 parameter_list|()
 block|{

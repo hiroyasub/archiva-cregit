@@ -172,6 +172,9 @@ name|DependencyGraphVisitor
 block|{
 specifier|private
 name|Stack
+argument_list|<
+name|String
+argument_list|>
 name|scopeStack
 decl_stmt|;
 specifier|private
@@ -186,6 +189,9 @@ name|scopeStack
 operator|=
 operator|new
 name|Stack
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 expr_stmt|;
 comment|// Default setting.

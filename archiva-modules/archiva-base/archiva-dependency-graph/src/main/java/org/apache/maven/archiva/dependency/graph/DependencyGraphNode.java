@@ -124,19 +124,31 @@ decl_stmt|;
 comment|/**      * The project level dependency management section for this artifact.      */
 specifier|private
 name|List
+argument_list|<
+name|Dependency
+argument_list|>
 name|dependencyManagement
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Dependency
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|/**      * The list of excluded groupId:artifactId for this node's sub-nodes.       */
 specifier|private
 name|Set
+argument_list|<
+name|String
+argument_list|>
 name|excludes
 init|=
 operator|new
 name|HashSet
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|/**      * Flag indicating that this node has been resolved from disk.      * Initially this is set to false, when the node is added due to a dependency entry in the      * project's pom.      * When the resolver comes through and reads the model for this node, it sets this to true.      */
@@ -307,6 +319,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|Dependency
+argument_list|>
 name|getDependencyManagement
 parameter_list|()
 block|{
@@ -316,6 +331,9 @@ return|;
 block|}
 specifier|public
 name|Set
+argument_list|<
+name|String
+argument_list|>
 name|getExcludes
 parameter_list|()
 block|{
@@ -435,6 +453,9 @@ name|void
 name|setDependencyManagement
 parameter_list|(
 name|List
+argument_list|<
+name|Dependency
+argument_list|>
 name|dependencyManagement
 parameter_list|)
 block|{
@@ -450,6 +471,9 @@ name|void
 name|setExcludes
 parameter_list|(
 name|Set
+argument_list|<
+name|String
+argument_list|>
 name|excludes
 parameter_list|)
 block|{
