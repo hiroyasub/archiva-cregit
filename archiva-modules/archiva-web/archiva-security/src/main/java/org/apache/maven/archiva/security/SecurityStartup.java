@@ -316,11 +316,6 @@ specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|ArchivaXworkUser
-name|archivaXworkUser
-decl_stmt|;
 specifier|public
 name|void
 name|afterConfigurationChange
