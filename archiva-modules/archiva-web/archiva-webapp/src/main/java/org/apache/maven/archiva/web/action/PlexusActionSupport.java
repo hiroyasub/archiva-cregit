@@ -91,6 +91,11 @@ name|SessionAware
 block|{
 specifier|protected
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|session
 decl_stmt|;
 specifier|protected
@@ -105,6 +110,11 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|void
 name|setSession
@@ -113,7 +123,6 @@ name|Map
 name|map
 parameter_list|)
 block|{
-comment|//noinspection AssignmentToCollectionOrArrayFieldFromParameter
 name|this
 operator|.
 name|session

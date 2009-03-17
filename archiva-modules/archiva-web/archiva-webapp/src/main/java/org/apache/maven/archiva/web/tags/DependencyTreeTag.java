@@ -244,6 +244,11 @@ specifier|private
 name|String
 name|artifactId
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
 specifier|private
 name|String
 name|version
@@ -254,6 +259,9 @@ name|nodevar
 decl_stmt|;
 specifier|private
 name|Iterator
+argument_list|<
+name|TreeEntry
+argument_list|>
 name|treeIterator
 decl_stmt|;
 specifier|private
@@ -359,6 +367,11 @@ name|unExposeVariables
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|int
 name|doStartTag

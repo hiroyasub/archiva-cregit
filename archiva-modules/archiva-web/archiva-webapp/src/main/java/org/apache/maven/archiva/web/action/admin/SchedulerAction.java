@@ -262,22 +262,6 @@ name|PlexusActionSupport
 implements|implements
 name|SecureAction
 block|{
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|REPO_SUCCESS
-init|=
-literal|"repoSucces"
-decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|DB_SUCCESS
-init|=
-literal|"dbSuccess"
-decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
 name|ArchivaTaskScheduler

@@ -185,6 +185,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests the action to ensure that it has NO errors.      *       * NOTE: Don't forget to run {@link #preRequest(ActionSupport)} before each request to your action!      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|protected
 name|void
 name|assertNoErrors
@@ -270,6 +275,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|protected
 name|void
 name|assertRequestStatus

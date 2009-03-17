@@ -25,13 +25,21 @@ end_comment
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|opensymphony
+name|util
 operator|.
-name|xwork2
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|Preparable
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -161,28 +169,6 @@ name|web
 operator|.
 name|action
 operator|.
-name|admin
-operator|.
-name|scanning
-operator|.
-name|AdminRepositoryConsumerComparator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|web
-operator|.
-name|action
-operator|.
 name|PlexusActionSupport
 import|;
 end_import
@@ -214,26 +200,6 @@ operator|.
 name|registry
 operator|.
 name|RegistryException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -285,6 +251,18 @@ name|SecureActionException
 import|;
 end_import
 
+begin_import
+import|import
+name|com
+operator|.
+name|opensymphony
+operator|.
+name|xwork2
+operator|.
+name|Preparable
+import|;
+end_import
+
 begin_comment
 comment|/**  * DatabaseAction  *  * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="databaseAction" instantiation-strategy="per-lookup"  */
 end_comment
@@ -317,21 +295,33 @@ decl_stmt|;
 comment|/**      * List of available {@link AdminDatabaseConsumer} objects for unprocessed artifacts.      */
 specifier|private
 name|List
+argument_list|<
+name|AdminDatabaseConsumer
+argument_list|>
 name|unprocessedConsumers
 decl_stmt|;
 comment|/**      * List of enabled {@link AdminDatabaseConsumer} objects for unprocessed artifacts.      */
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|enabledUnprocessedConsumers
 decl_stmt|;
 comment|/**      * List of {@link AdminDatabaseConsumer} objects for "to cleanup" artifacts.      */
 specifier|private
 name|List
+argument_list|<
+name|AdminDatabaseConsumer
+argument_list|>
 name|cleanupConsumers
 decl_stmt|;
 comment|/**      * List of enabled {@link AdminDatabaseConsumer} objects for "to cleanup" artifacts.      */
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|enabledCleanupConsumers
 decl_stmt|;
 specifier|public
@@ -409,7 +399,7 @@ name|this
 operator|.
 name|unprocessedConsumers
 argument_list|,
-name|AdminRepositoryConsumerComparator
+name|AdminDatabaseConsumerComparator
 operator|.
 name|getInstance
 argument_list|()
@@ -455,7 +445,7 @@ name|this
 operator|.
 name|cleanupConsumers
 argument_list|,
-name|AdminRepositoryConsumerComparator
+name|AdminDatabaseConsumerComparator
 operator|.
 name|getInstance
 argument_list|()
@@ -667,6 +657,9 @@ expr_stmt|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|AdminDatabaseConsumer
+argument_list|>
 name|getCleanupConsumers
 parameter_list|()
 block|{
@@ -676,6 +669,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|AdminDatabaseConsumer
+argument_list|>
 name|getUnprocessedConsumers
 parameter_list|()
 block|{
@@ -685,6 +681,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getEnabledUnprocessedConsumers
 parameter_list|()
 block|{
@@ -697,6 +696,9 @@ name|void
 name|setEnabledUnprocessedConsumers
 parameter_list|(
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|enabledUnprocessedConsumers
 parameter_list|)
 block|{
@@ -709,6 +711,9 @@ expr_stmt|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getEnabledCleanupConsumers
 parameter_list|()
 block|{
@@ -721,6 +726,9 @@ name|void
 name|setEnabledCleanupConsumers
 parameter_list|(
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|enabledCleanupConsumers
 parameter_list|)
 block|{

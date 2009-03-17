@@ -249,12 +249,6 @@ name|class
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|TaskQueueExecutor
-name|databaseUpdateQueue
-init|=
-operator|(
-name|TaskQueueExecutor
-operator|)
 name|wac
 operator|.
 name|getBean
@@ -270,13 +264,7 @@ argument_list|,
 literal|"database-update"
 argument_list|)
 argument_list|)
-decl_stmt|;
-name|TaskQueueExecutor
-name|repositoryScanningQueue
-init|=
-operator|(
-name|TaskQueueExecutor
-operator|)
+expr_stmt|;
 name|wac
 operator|.
 name|getBean
@@ -292,7 +280,7 @@ argument_list|,
 literal|"repository-scanning"
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 try|try
 block|{
 name|securitySync

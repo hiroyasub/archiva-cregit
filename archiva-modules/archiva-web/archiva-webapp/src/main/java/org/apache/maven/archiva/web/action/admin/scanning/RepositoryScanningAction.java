@@ -390,30 +390,50 @@ name|repoconsumerUtil
 decl_stmt|;
 specifier|private
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|FileType
+argument_list|>
 name|fileTypeMap
 decl_stmt|;
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|fileTypeIds
 decl_stmt|;
 comment|/**      * List of {@link AdminRepositoryConsumer} objects for consumers of known content.      */
 specifier|private
 name|List
+argument_list|<
+name|AdminRepositoryConsumer
+argument_list|>
 name|knownContentConsumers
 decl_stmt|;
 comment|/**      * List of enabled {@link AdminRepositoryConsumer} objects for consumers of known content.      */
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|enabledKnownContentConsumers
 decl_stmt|;
 comment|/**      * List of {@link AdminRepositoryConsumer} objects for consumers of invalid/unknown content.      */
 specifier|private
 name|List
+argument_list|<
+name|AdminRepositoryConsumer
+argument_list|>
 name|invalidContentConsumers
 decl_stmt|;
 comment|/**      * List of enabled {@link AdminRepositoryConsumer} objects for consumers of invalid/unknown content.      */
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|enabledInvalidContentConsumers
 decl_stmt|;
 specifier|private
@@ -609,6 +629,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getFileTypeIds
 parameter_list|()
 block|{
@@ -618,6 +641,11 @@ return|;
 block|}
 specifier|public
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|FileType
+argument_list|>
 name|getFileTypeMap
 parameter_list|()
 block|{
@@ -627,6 +655,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|AdminRepositoryConsumer
+argument_list|>
 name|getInvalidContentConsumers
 parameter_list|()
 block|{
@@ -636,6 +667,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|AdminRepositoryConsumer
+argument_list|>
 name|getKnownContentConsumers
 parameter_list|()
 block|{
@@ -834,6 +868,9 @@ name|fileTypeIds
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|fileTypeIds
@@ -1166,6 +1203,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getEnabledInvalidContentConsumers
 parameter_list|()
 block|{
@@ -1178,6 +1218,9 @@ name|void
 name|setEnabledInvalidContentConsumers
 parameter_list|(
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|enabledInvalidContentConsumers
 parameter_list|)
 block|{
@@ -1190,6 +1233,9 @@ expr_stmt|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getEnabledKnownContentConsumers
 parameter_list|()
 block|{
@@ -1202,6 +1248,9 @@ name|void
 name|setEnabledKnownContentConsumers
 parameter_list|(
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|enabledKnownContentConsumers
 parameter_list|)
 block|{

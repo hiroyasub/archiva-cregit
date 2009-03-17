@@ -176,6 +176,9 @@ decl_stmt|;
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|LegacyArtifactPath
+argument_list|>
 name|iterator
 init|=
 name|configuration

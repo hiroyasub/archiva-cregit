@@ -21,16 +21,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|servlet
@@ -509,16 +499,18 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|WebResponse
-name|response
-init|=
 name|client
 operator|.
 name|getResponse
 argument_list|(
 literal|"http://localhost/feeds?invalid_param=xxx"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected exception"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -625,16 +617,18 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|WebResponse
-name|response
-init|=
 name|client
 operator|.
 name|getResponse
 argument_list|(
 name|request
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected exception"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -733,16 +727,18 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|WebResponse
-name|response
-init|=
 name|client
 operator|.
 name|getResponse
 argument_list|(
 name|request
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected exception"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

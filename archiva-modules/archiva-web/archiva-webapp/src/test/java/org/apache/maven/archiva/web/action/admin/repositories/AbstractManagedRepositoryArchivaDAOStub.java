@@ -139,6 +139,22 @@ name|SimpleConstraint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|model
+operator|.
+name|RepositoryContentStatistics
+import|;
+end_import
+
 begin_comment
 comment|/**  * AbstractManagedRepositoryArchivaDAOStub  *   * @version  */
 end_comment
@@ -167,6 +183,9 @@ name|repoContentStatisticsDAO
 decl_stmt|;
 specifier|public
 name|List
+argument_list|<
+name|RepositoryContentStatistics
+argument_list|>
 name|query
 parameter_list|(
 name|SimpleConstraint

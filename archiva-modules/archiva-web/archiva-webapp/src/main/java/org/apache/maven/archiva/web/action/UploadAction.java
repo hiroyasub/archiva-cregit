@@ -776,30 +776,10 @@ specifier|private
 name|File
 name|artifactFile
 decl_stmt|;
-comment|/**      * The content type of the artifact to be deployed.      */
-specifier|private
-name|String
-name|artifactContentType
-decl_stmt|;
-comment|/**      * The original filename of the uploaded artifact file.      */
-specifier|private
-name|String
-name|artifactFilename
-decl_stmt|;
 comment|/**      * The temporary file representing the pom to be deployed alongside the artifact.      */
 specifier|private
 name|File
 name|pomFile
-decl_stmt|;
-comment|/**      * The content type of the pom file.      */
-specifier|private
-name|String
-name|pomContentType
-decl_stmt|;
-comment|/**      * The original filename of the uploaded pom file.      */
-specifier|private
-name|String
-name|pomFilename
 decl_stmt|;
 comment|/**      * The repository where the artifact is to be deployed.      */
 specifier|private
@@ -898,10 +878,6 @@ name|String
 name|contentType
 parameter_list|)
 block|{
-name|this
-operator|.
-name|artifactContentType
-operator|=
 name|StringUtils
 operator|.
 name|trim
@@ -918,10 +894,6 @@ name|String
 name|filename
 parameter_list|)
 block|{
-name|this
-operator|.
-name|artifactFilename
-operator|=
 name|StringUtils
 operator|.
 name|trim
@@ -953,10 +925,6 @@ name|String
 name|contentType
 parameter_list|)
 block|{
-name|this
-operator|.
-name|pomContentType
-operator|=
 name|StringUtils
 operator|.
 name|trim
@@ -973,10 +941,6 @@ name|String
 name|filename
 parameter_list|)
 block|{
-name|this
-operator|.
-name|pomFilename
-operator|=
 name|StringUtils
 operator|.
 name|trim
@@ -1259,25 +1223,9 @@ name|artifactFile
 operator|=
 literal|null
 expr_stmt|;
-name|artifactContentType
-operator|=
-literal|""
-expr_stmt|;
-name|artifactFilename
-operator|=
-literal|""
-expr_stmt|;
 name|pomFile
 operator|=
 literal|null
-expr_stmt|;
-name|pomContentType
-operator|=
-literal|""
-expr_stmt|;
-name|pomFilename
-operator|=
-literal|""
 expr_stmt|;
 name|repositoryId
 operator|=
@@ -1910,6 +1858,11 @@ name|ERROR
 return|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|private
 name|String
 name|getPrincipal

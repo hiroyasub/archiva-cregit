@@ -108,7 +108,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|?
 argument_list|>
 name|sessionMap
 parameter_list|)
