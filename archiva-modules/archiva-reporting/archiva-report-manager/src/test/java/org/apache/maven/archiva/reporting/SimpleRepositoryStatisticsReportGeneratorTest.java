@@ -2709,12 +2709,6 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|List
-argument_list|<
-name|RepositoryStatistics
-argument_list|>
-name|data
-init|=
 name|generator
 operator|.
 name|generateReport
@@ -2729,7 +2723,7 @@ name|endDate
 argument_list|,
 name|limits
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"An ArchivaReportException should have been thrown."

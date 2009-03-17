@@ -125,6 +125,22 @@ name|archiva
 operator|.
 name|model
 operator|.
+name|ArchivaArtifact
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|model
+operator|.
 name|RepositoryContentStatistics
 import|;
 end_import
@@ -523,6 +539,9 @@ try|try
 block|{
 comment|//TODO use the repo content stats whenGathered date instead of endDate for single repo reports
 name|List
+argument_list|<
+name|ArchivaArtifact
+argument_list|>
 name|types
 init|=
 name|artifactDao

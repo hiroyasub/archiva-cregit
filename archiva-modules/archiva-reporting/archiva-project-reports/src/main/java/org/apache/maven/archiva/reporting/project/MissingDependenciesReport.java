@@ -169,6 +169,9 @@ class|class
 name|MissingDependenciesReport
 implements|implements
 name|DynamicReportSource
+argument_list|<
+name|RepositoryProblem
+argument_list|>
 block|{
 specifier|public
 specifier|static

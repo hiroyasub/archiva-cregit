@@ -38,6 +38,9 @@ name|ReportingManager
 block|{
 specifier|public
 name|DynamicReportSource
+argument_list|<
+name|?
+argument_list|>
 name|getReport
 parameter_list|(
 name|String
@@ -46,7 +49,14 @@ parameter_list|)
 function_decl|;
 specifier|public
 name|Map
-comment|/*<String,DynamicReportSource>*/
+argument_list|<
+name|String
+argument_list|,
+name|DynamicReportSource
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
 name|getAvailableReports
 parameter_list|()
 function_decl|;

@@ -153,6 +153,9 @@ class|class
 name|OldSnapshotArtifactReport
 implements|implements
 name|DynamicReportSource
+argument_list|<
+name|ArchivaArtifact
+argument_list|>
 block|{
 comment|/**      * @plexus.configuration default-value="Old Snapshots Report"      */
 specifier|private

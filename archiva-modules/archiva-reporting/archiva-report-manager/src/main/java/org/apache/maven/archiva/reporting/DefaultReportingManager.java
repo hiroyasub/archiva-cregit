@@ -41,10 +41,21 @@ block|{
 comment|/**      * @plexus.requirement role="org.apache.maven.archiva.reporting.DynamicReportSource"      */
 specifier|private
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|DynamicReportSource
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
 name|reportSourceMap
 decl_stmt|;
 specifier|public
 name|DynamicReportSource
+argument_list|<
+name|?
+argument_list|>
 name|getReport
 parameter_list|(
 name|String
@@ -52,9 +63,6 @@ name|id
 parameter_list|)
 block|{
 return|return
-operator|(
-name|DynamicReportSource
-operator|)
 name|reportSourceMap
 operator|.
 name|get
@@ -65,6 +73,14 @@ return|;
 block|}
 specifier|public
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|DynamicReportSource
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
 name|getAvailableReports
 parameter_list|()
 block|{
