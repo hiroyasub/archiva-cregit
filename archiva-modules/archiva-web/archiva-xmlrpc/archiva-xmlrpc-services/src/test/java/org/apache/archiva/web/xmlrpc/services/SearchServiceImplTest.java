@@ -1377,11 +1377,6 @@ operator|.
 name|replay
 argument_list|()
 expr_stmt|;
-name|archivaDAOControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
 name|artifactDAOControl
 operator|.
 name|replay
@@ -1408,11 +1403,6 @@ name|verify
 argument_list|()
 expr_stmt|;
 name|repoBrowsingControl
-operator|.
-name|verify
-argument_list|()
-expr_stmt|;
-name|archivaDAOControl
 operator|.
 name|verify
 argument_list|()
