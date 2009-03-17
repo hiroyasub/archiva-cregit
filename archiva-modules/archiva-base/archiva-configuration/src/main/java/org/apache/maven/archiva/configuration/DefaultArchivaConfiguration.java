@@ -675,6 +675,11 @@ return|return
 name|configuration
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|private
 name|Configuration
 name|load
@@ -1661,6 +1666,11 @@ name|KEY
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 specifier|synchronized
 name|void

@@ -3633,22 +3633,6 @@ operator|.
 name|getConfiguration
 argument_list|()
 decl_stmt|;
-name|ManagedRepositoryConfiguration
-name|repository
-init|=
-operator|(
-name|ManagedRepositoryConfiguration
-operator|)
-name|configuration
-operator|.
-name|getManagedRepositories
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"check cron expression"

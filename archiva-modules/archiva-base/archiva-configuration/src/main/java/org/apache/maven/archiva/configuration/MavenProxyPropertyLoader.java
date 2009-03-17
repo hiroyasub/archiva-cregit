@@ -444,23 +444,7 @@ argument_list|(
 literal|"proxy"
 argument_list|)
 decl_stmt|;
-name|int
-name|cachePeriod
-init|=
-name|Integer
-operator|.
-name|parseInt
-argument_list|(
-name|repoProps
-operator|.
-name|getProperty
-argument_list|(
-literal|"cache.period"
-argument_list|,
-literal|"60"
-argument_list|)
-argument_list|)
-decl_stmt|;
+comment|//            int cachePeriod = Integer.parseInt( repoProps.getProperty( "cache.period", "60" ) );
 name|RemoteRepositoryConfiguration
 name|repository
 init|=
