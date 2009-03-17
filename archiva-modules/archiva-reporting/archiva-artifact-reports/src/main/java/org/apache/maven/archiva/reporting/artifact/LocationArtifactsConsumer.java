@@ -533,10 +533,20 @@ name|repositoryFactory
 decl_stmt|;
 specifier|private
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|ManagedRepositoryConfiguration
+argument_list|>
 name|repositoryMap
 init|=
 operator|new
 name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|ManagedRepositoryConfiguration
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// TODO: why is this not used? If it should be, what about excludes?
@@ -597,6 +607,9 @@ comment|/* do nothing */
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getIncludedTypes
 parameter_list|()
 block|{
@@ -900,6 +913,9 @@ return|;
 block|}
 comment|/* Expected Entry not found, look for alternate that might             * indicate that the artifact is, indeed located in the wrong place.             */
 name|List
+argument_list|<
+name|JarEntry
+argument_list|>
 name|actualPomXmls
 init|=
 name|findJarEntryPattern
@@ -1187,78 +1203,26 @@ name|File
 name|artifactFile
 parameter_list|)
 block|{
-name|File
-name|pomFile
-init|=
-name|createPomFileReference
-argument_list|(
-name|artifactFile
-argument_list|)
-decl_stmt|;
+comment|//        File pomFile = createPomFileReference( artifactFile );
 comment|// TODO: read and resolve model here.
 return|return
 literal|null
 return|;
 block|}
-specifier|private
-name|File
-name|createPomFileReference
-parameter_list|(
-name|File
-name|artifactFile
-parameter_list|)
-block|{
-name|String
-name|pomFilename
-init|=
-name|artifactFile
-operator|.
-name|getAbsolutePath
-argument_list|()
-decl_stmt|;
-name|int
-name|pos
-init|=
-name|pomFilename
-operator|.
-name|lastIndexOf
-argument_list|(
-literal|'.'
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|pos
-operator|<=
-literal|0
-condition|)
-block|{
-comment|// Invalid filename.
-return|return
-literal|null
-return|;
-block|}
-name|pomFilename
-operator|=
-name|pomFilename
-operator|.
-name|substring
-argument_list|(
-literal|0
-argument_list|,
-name|pos
-argument_list|)
-operator|+
-literal|".pom"
-expr_stmt|;
-return|return
-operator|new
-name|File
-argument_list|(
-name|pomFilename
-argument_list|)
-return|;
-block|}
+comment|//    private File createPomFileReference( File artifactFile )
+comment|//    {
+comment|//        String pomFilename = artifactFile.getAbsolutePath();
+comment|//
+comment|//        int pos = pomFilename.lastIndexOf( '.' );
+comment|//        if ( pos<= 0 )
+comment|//        {
+comment|//            // Invalid filename.
+comment|//            return null;
+comment|//        }
+comment|//
+comment|//        pomFilename = pomFilename.substring( 0, pos ) + ".pom";
+comment|//        return new File( pomFilename );
+comment|//    }
 specifier|private
 name|ManagedRepositoryConfiguration
 name|findRepository

@@ -105,7 +105,9 @@ name|ArchivaDatabaseException
 function_decl|;
 specifier|public
 name|List
-comment|/*<ArchivaArtifact>*/
+argument_list|<
+name|ArchivaArtifact
+argument_list|>
 name|queryArtifacts
 parameter_list|(
 name|Constraint

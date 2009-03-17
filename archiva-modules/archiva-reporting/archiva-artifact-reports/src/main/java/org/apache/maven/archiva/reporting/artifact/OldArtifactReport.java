@@ -21,6 +21,16 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -95,6 +105,22 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|model
+operator|.
+name|ArchivaArtifact
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
 name|reporting
 operator|.
 name|DataLimits
@@ -114,16 +140,6 @@ operator|.
 name|reporting
 operator|.
 name|DynamicReportSource
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -155,6 +171,9 @@ name|cutoffDays
 decl_stmt|;
 specifier|public
 name|List
+argument_list|<
+name|ArchivaArtifact
+argument_list|>
 name|getData
 parameter_list|()
 throws|throws
@@ -180,6 +199,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|ArchivaArtifact
+argument_list|>
 name|getData
 parameter_list|(
 name|DataLimits

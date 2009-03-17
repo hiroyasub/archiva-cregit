@@ -159,22 +159,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|security
-operator|.
-name|ArchivaXworkUser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -381,11 +365,6 @@ comment|/**      * @plexus.requirement      */
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
-decl_stmt|;
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|ArchivaXworkUser
-name|archivaXworkUser
 decl_stmt|;
 specifier|public
 name|void
