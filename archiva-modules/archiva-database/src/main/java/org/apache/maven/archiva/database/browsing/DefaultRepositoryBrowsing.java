@@ -394,6 +394,11 @@ name|DatabaseUpdater
 name|dbUpdater
 decl_stmt|;
 comment|/**      * @see RepositoryBrowsing#getRoot(String, List)      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|BrowsingResults
 name|getRoot
@@ -434,6 +439,12 @@ name|String
 argument_list|>
 name|groups
 init|=
+operator|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+operator|)
 name|dao
 operator|.
 name|query
@@ -470,6 +481,11 @@ name|results
 return|;
 block|}
 comment|/**      * @see RepositoryBrowsing#selectArtifactId(String, List, String, String)      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|BrowsingResults
 name|selectArtifactId
@@ -522,6 +538,12 @@ name|String
 argument_list|>
 name|versions
 init|=
+operator|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+operator|)
 name|dao
 operator|.
 name|query
@@ -560,6 +582,11 @@ name|results
 return|;
 block|}
 comment|/**      * @see RepositoryBrowsing#selectGroupId(String, List, String)      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|BrowsingResults
 name|selectGroupId
@@ -606,6 +633,12 @@ name|String
 argument_list|>
 name|groups
 init|=
+operator|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+operator|)
 name|dao
 operator|.
 name|query
@@ -626,6 +659,12 @@ name|String
 argument_list|>
 name|artifacts
 init|=
+operator|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+operator|)
 name|dao
 operator|.
 name|query
@@ -896,6 +935,11 @@ return|;
 block|}
 block|}
 comment|/**      * @see RepositoryBrowsing#getOtherSnapshotVersions(List, String, String, String)      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|List
 argument_list|<
@@ -952,6 +996,12 @@ name|String
 argument_list|>
 name|versions
 init|=
+operator|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+operator|)
 name|dao
 operator|.
 name|query
@@ -1316,7 +1366,8 @@ comment|// defensive. to honor contract as specified. never null.
 return|return
 name|Collections
 operator|.
-name|EMPTY_LIST
+name|emptyList
+argument_list|()
 return|;
 block|}
 return|return
@@ -1415,6 +1466,11 @@ name|cleansedVersions
 return|;
 block|}
 comment|/**      * Handles querying of generic (*-SNAPSHOT) snapshot version. Process: - Get all the timestamped/unique versions of      * the artifact from the db - Sort the queried project models - Reverse the list of queried project models to get      * the latest timestamp version - Loop through the list and get the first one to match the generic (*-SNAPHOT)      * version      *       * @param groupId      * @param artifactId      * @param version      * @param pomArtifact      * @throws ArchivaDatabaseException      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|private
 name|ArchivaArtifact
 name|handleGenericSnapshots
@@ -1460,6 +1516,12 @@ name|String
 argument_list|>
 name|versions
 init|=
+operator|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+operator|)
 name|dao
 operator|.
 name|query

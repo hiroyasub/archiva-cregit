@@ -113,6 +113,9 @@ name|lookupDbConsumers
 argument_list|()
 decl_stmt|;
 name|List
+argument_list|<
+name|DatabaseCleanupConsumer
+argument_list|>
 name|available
 init|=
 name|dbconsumers
@@ -154,6 +157,9 @@ name|lookupDbConsumers
 argument_list|()
 decl_stmt|;
 name|List
+argument_list|<
+name|DatabaseUnprocessedArtifactConsumer
+argument_list|>
 name|available
 init|=
 name|dbconsumers
@@ -195,6 +201,9 @@ name|lookupDbConsumers
 argument_list|()
 decl_stmt|;
 name|List
+argument_list|<
+name|ArchivaArtifactConsumer
+argument_list|>
 name|available
 init|=
 name|dbconsumers
@@ -236,6 +245,9 @@ name|lookupDbConsumers
 argument_list|()
 decl_stmt|;
 name|List
+argument_list|<
+name|ArchivaArtifactConsumer
+argument_list|>
 name|available
 init|=
 name|dbconsumers

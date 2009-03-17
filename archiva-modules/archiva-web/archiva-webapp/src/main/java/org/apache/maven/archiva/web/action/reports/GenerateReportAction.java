@@ -933,6 +933,11 @@ specifier|private
 name|InputStream
 name|inputStream
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|void
 name|prepare
@@ -959,6 +964,12 @@ name|repositoryIds
 operator|.
 name|addAll
 argument_list|(
+operator|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+operator|)
 name|dao
 operator|.
 name|query
@@ -2025,6 +2036,9 @@ block|{
 try|try
 block|{
 name|List
+argument_list|<
+name|RepositoryContentStatistics
+argument_list|>
 name|contentStats
 init|=
 name|repoContentStatsDao

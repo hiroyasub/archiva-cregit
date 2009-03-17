@@ -526,6 +526,9 @@ throws|throws
 name|Exception
 block|{
 name|List
+argument_list|<
+name|ArchivaProjectModel
+argument_list|>
 name|results
 init|=
 name|dao

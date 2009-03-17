@@ -487,6 +487,11 @@ return|return
 name|bundle
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|void
 name|prepare
@@ -582,6 +587,12 @@ name|RepositoryContentStatistics
 argument_list|>
 name|results
 init|=
+operator|(
+name|List
+argument_list|<
+name|RepositoryContentStatistics
+argument_list|>
+operator|)
 name|dao
 operator|.
 name|query

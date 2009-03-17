@@ -99,6 +99,9 @@ name|VersionedReference
 name|projectRef
 parameter_list|,
 name|List
+argument_list|<
+name|ProjectModelResolver
+argument_list|>
 name|resolverList
 parameter_list|)
 function_decl|;
@@ -165,6 +168,9 @@ name|VersionedReference
 name|projectRef
 parameter_list|,
 name|List
+argument_list|<
+name|ProjectModelResolver
+argument_list|>
 name|resolverList
 parameter_list|)
 function_decl|;

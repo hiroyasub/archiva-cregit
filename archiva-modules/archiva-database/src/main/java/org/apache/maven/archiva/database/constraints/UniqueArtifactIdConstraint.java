@@ -84,6 +84,9 @@ argument_list|()
 decl_stmt|;
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultClass
 decl_stmt|;
 comment|/**      * Obtain a set of unique ArtifactIds for the specified groupId.      *       * @param groupId the groupId to search for artifactIds within.      */

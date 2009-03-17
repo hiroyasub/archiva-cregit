@@ -457,6 +457,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|private
 name|void
 name|assertConstraint
@@ -480,6 +485,12 @@ name|String
 argument_list|>
 name|results
 init|=
+operator|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+operator|)
 name|dao
 operator|.
 name|query

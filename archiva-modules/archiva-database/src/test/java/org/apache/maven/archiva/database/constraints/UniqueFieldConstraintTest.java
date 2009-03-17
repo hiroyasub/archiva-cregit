@@ -546,6 +546,9 @@ throws|throws
 name|Exception
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|results
 init|=
 name|archivaDao

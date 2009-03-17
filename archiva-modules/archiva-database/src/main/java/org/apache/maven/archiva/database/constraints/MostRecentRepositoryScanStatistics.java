@@ -88,6 +88,9 @@ expr_stmt|;
 block|}
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getResultClass
 parameter_list|()
 block|{

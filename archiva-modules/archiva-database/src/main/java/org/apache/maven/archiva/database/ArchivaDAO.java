@@ -61,6 +61,9 @@ argument_list|()
 decl_stmt|;
 comment|/**      * Perform a simple query against the database.      *       * @param constraint the constraint to use.      * @return the List of results.      */
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|query
 parameter_list|(
 name|SimpleConstraint

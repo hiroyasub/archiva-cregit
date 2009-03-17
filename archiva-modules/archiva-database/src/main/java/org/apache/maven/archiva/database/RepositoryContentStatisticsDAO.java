@@ -54,6 +54,9 @@ name|RepositoryContentStatisticsDAO
 block|{
 specifier|public
 name|List
+argument_list|<
+name|RepositoryContentStatistics
+argument_list|>
 name|queryRepositoryContentStatistics
 parameter_list|(
 name|Constraint
