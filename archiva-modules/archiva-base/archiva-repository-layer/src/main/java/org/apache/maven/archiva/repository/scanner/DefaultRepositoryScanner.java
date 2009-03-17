@@ -173,26 +173,6 @@ name|DirectoryWalker
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * DefaultRepositoryScanner  *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.repository.scanner.RepositoryScanner"  */
 end_comment
@@ -204,19 +184,6 @@ name|DefaultRepositoryScanner
 implements|implements
 name|RepositoryScanner
 block|{
-specifier|private
-name|Logger
-name|log
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|DefaultRepositoryScanner
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
 name|FileTypes

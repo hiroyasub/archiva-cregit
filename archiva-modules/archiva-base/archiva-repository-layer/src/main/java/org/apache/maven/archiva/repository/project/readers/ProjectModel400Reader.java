@@ -374,6 +374,11 @@ comment|/**  * ProjectModel400Reader - read in modelVersion 4.0.0 pom files into
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 class|class
 name|ProjectModel400Reader

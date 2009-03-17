@@ -147,6 +147,9 @@ comment|/* nothing to do */
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getExcludes
 parameter_list|()
 block|{
@@ -156,6 +159,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getIncludes
 parameter_list|()
 block|{

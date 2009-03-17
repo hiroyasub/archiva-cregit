@@ -144,10 +144,16 @@ literal|0
 decl_stmt|;
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|includes
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -158,6 +164,9 @@ literal|false
 decl_stmt|;
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getExcludes
 parameter_list|()
 block|{
@@ -198,6 +207,9 @@ expr_stmt|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getIncludes
 parameter_list|()
 block|{

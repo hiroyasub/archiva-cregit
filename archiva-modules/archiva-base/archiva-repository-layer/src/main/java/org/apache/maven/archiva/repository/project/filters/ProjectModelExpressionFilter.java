@@ -467,6 +467,11 @@ name|DefaultExpressionEvaluator
 argument_list|()
 decl_stmt|;
 comment|/**      * Find and Evaluate the Expressions present in the model.      *       * @param model the model to correct.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|ArchivaProjectModel
 name|filter

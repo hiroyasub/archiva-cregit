@@ -2632,6 +2632,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Fix the default namespace on all elements recursively.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|private
 name|void
 name|fixDefaultNamespace

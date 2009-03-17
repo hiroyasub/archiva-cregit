@@ -732,6 +732,11 @@ name|selectedInvalidConsumers
 return|;
 block|}
 comment|/**      * Get the list of {@link KnownRepositoryContentConsumer} objects that are available and present in the classpath      * and as components in the IoC.      *       * @return the list of all available {@link KnownRepositoryContentConsumer} present in the classpath and as a      *         component in the IoC.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|List
 argument_list|<
@@ -743,6 +748,9 @@ block|{
 return|return
 operator|new
 name|ArrayList
+argument_list|<
+name|KnownRepositoryContentConsumer
+argument_list|>
 argument_list|(
 name|applicationContext
 operator|.
@@ -759,6 +767,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Get the list of {@link InvalidRepositoryContentConsumer} objects that are available and present in the classpath      * and as components in the IoC.      *       * @return the list of all available {@link InvalidRepositoryContentConsumer} present in the classpath and as a      *         component in the IoC.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|List
 argument_list|<
@@ -770,6 +783,9 @@ block|{
 return|return
 operator|new
 name|ArrayList
+argument_list|<
+name|InvalidRepositoryContentConsumer
+argument_list|>
 argument_list|(
 name|applicationContext
 operator|.
