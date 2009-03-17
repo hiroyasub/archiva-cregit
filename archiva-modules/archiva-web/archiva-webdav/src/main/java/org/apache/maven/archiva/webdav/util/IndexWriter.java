@@ -164,11 +164,6 @@ name|IndexWriter
 block|{
 specifier|private
 specifier|final
-name|DavResource
-name|resource
-decl_stmt|;
-specifier|private
-specifier|final
 name|String
 name|logicalResource
 decl_stmt|;
@@ -198,12 +193,6 @@ name|String
 name|logicalResource
 parameter_list|)
 block|{
-name|this
-operator|.
-name|resource
-operator|=
-name|resource
-expr_stmt|;
 name|this
 operator|.
 name|localResources
@@ -253,12 +242,6 @@ name|String
 name|logicalResource
 parameter_list|)
 block|{
-name|this
-operator|.
-name|resource
-operator|=
-name|resource
-expr_stmt|;
 name|this
 operator|.
 name|logicalResource

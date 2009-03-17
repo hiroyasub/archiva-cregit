@@ -491,10 +491,6 @@ init|=
 literal|"1"
 decl_stmt|;
 specifier|private
-name|MimeTypes
-name|mimeTypes
-decl_stmt|;
-specifier|private
 name|ArchivaDavResourceLocator
 name|locator
 decl_stmt|;
@@ -565,12 +561,6 @@ operator|.
 name|logicalResource
 operator|=
 name|logicalResource
-expr_stmt|;
-name|this
-operator|.
-name|mimeTypes
-operator|=
-name|mimeTypes
 expr_stmt|;
 name|this
 operator|.
@@ -701,6 +691,11 @@ throws|throws
 name|DavException
 block|{
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|MultiStatusResponse
 name|alterProperties

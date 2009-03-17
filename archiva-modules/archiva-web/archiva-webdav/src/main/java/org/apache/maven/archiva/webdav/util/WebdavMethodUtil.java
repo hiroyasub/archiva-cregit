@@ -66,6 +66,9 @@ specifier|private
 specifier|static
 specifier|final
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|READ_METHODS
 decl_stmt|;
 static|static
@@ -74,6 +77,9 @@ name|READ_METHODS
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|READ_METHODS
