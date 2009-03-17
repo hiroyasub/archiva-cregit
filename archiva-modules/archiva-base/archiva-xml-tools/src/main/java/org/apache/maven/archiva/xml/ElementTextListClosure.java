@@ -74,10 +74,16 @@ name|Closure
 block|{
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|list
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|public
@@ -117,6 +123,9 @@ block|}
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getList
 parameter_list|()
 block|{

@@ -872,6 +872,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Remove namespaces from element recursively.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|void
 name|removeNamespaces
@@ -1159,6 +1164,11 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|List
 argument_list|<
