@@ -605,38 +605,12 @@ operator|-
 literal|1
 return|;
 block|}
-name|String
-name|version1
-init|=
-name|o1
-operator|.
-name|artifact
-operator|.
-name|getVersion
-argument_list|()
-decl_stmt|;
-name|String
-name|version2
-init|=
-name|o2
-operator|.
-name|artifact
-operator|.
-name|getVersion
-argument_list|()
-decl_stmt|;
+comment|//            String version1 = o1.artifact.getVersion();
+comment|//            String version2 = o2.artifact.getVersion();
+comment|//
+comment|//            VersionComparator.getInstance().compare( version1, version2 );
 return|return
-name|VersionComparator
-operator|.
-name|getInstance
-argument_list|()
-operator|.
-name|compare
-argument_list|(
-name|version1
-argument_list|,
-name|version2
-argument_list|)
+literal|0
 return|;
 block|}
 block|}
