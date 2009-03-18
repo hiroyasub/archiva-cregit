@@ -19,38 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|redback
-operator|.
-name|rbac
-operator|.
-name|RbacObjectNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|redback
-operator|.
-name|rbac
-operator|.
-name|RbacManagerException
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -131,7 +99,7 @@ name|PrincipalNotFoundException
 throws|,
 name|ArchivaSecurityException
 function_decl|;
-comment|/**      * Check if user is authorized to delete artifacts in the repository.      *       * @param principal      * @param repoId      * @return      * @throws RbacManagerException      * @throws RbacObjectNotFoundException      */
+comment|/**      * Check if user is authorized to delete artifacts in the repository.      *       * @param principal      * @param repoId      * @return      * @throws ArchivaSecurityException       * @throws AccessDeniedException       */
 specifier|public
 name|boolean
 name|isAuthorizedToDeleteArtifacts
@@ -143,9 +111,9 @@ name|String
 name|repoId
 parameter_list|)
 throws|throws
-name|RbacManagerException
+name|AccessDeniedException
 throws|,
-name|RbacObjectNotFoundException
+name|ArchivaSecurityException
 function_decl|;
 block|}
 end_interface

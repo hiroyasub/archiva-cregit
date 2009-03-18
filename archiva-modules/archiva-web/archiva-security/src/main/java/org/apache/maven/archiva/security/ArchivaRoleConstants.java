@@ -185,6 +185,14 @@ name|OPERATION_REPOSITORY_UPLOAD
 init|=
 literal|"archiva-upload-repository"
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OPERATION_REPOSITORY_DELETE
+init|=
+literal|"archiva-delete-artifact"
+decl_stmt|;
 comment|// Role templates
 specifier|public
 specifier|static
