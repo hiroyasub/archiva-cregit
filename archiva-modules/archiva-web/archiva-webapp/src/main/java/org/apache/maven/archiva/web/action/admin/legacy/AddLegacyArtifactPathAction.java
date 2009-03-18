@@ -258,13 +258,13 @@ literal|":"
 operator|+
 name|this
 operator|.
-name|classifier
+name|version
 operator|+
 literal|":"
 operator|+
 name|this
 operator|.
-name|version
+name|classifier
 operator|+
 literal|":"
 operator|+
