@@ -1261,9 +1261,9 @@ name|RepositoryPathUtil
 operator|.
 name|getLogicalResource
 argument_list|(
-name|locator
+name|archivaLocator
 operator|.
-name|getResourcePath
+name|getOrigResourcePath
 argument_list|()
 argument_list|)
 operator|.
