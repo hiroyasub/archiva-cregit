@@ -474,14 +474,6 @@ name|ArchivaVirtualDavResource
 implements|implements
 name|DavResource
 block|{
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|HIDDEN_PATH_PREFIX
-init|=
-literal|"."
-decl_stmt|;
 specifier|private
 specifier|static
 specifier|final

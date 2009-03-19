@@ -68,8 +68,8 @@ parameter_list|,
 name|String
 name|repoId
 parameter_list|,
-name|boolean
-name|isWriteRequest
+name|String
+name|permission
 parameter_list|)
 throws|throws
 name|UnauthorizedException

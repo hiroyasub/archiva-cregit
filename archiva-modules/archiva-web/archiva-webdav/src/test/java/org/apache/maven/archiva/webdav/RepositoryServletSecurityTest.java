@@ -159,6 +159,22 @@ name|archiva
 operator|.
 name|security
 operator|.
+name|ArchivaRoleConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|security
+operator|.
 name|ArchivaXworkUser
 import|;
 end_import
@@ -448,7 +464,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryServletSecurityTest  *   * Test the flow of the authentication and authorization checks. This does not necessarily  * perform redback security checking.  *   * @version $Id$  */
+comment|/**  * RepositoryServletSecurityTest Test the flow of the authentication and authorization checks. This does not necessarily  * perform redback security checking.  *   * @version $Id$  */
 end_comment
 
 begin_class
@@ -1073,7 +1089,9 @@ literal|"guest"
 argument_list|,
 literal|"internal"
 argument_list|,
-literal|true
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_UPLOAD
 argument_list|)
 expr_stmt|;
 name|servletAuthControl
@@ -1131,7 +1149,7 @@ operator|.
 name|verify
 argument_list|()
 expr_stmt|;
-comment|//assertEquals(HttpServletResponse.SC_UNAUTHORIZED, response.getResponseCode());
+comment|// assertEquals(HttpServletResponse.SC_UNAUTHORIZED, response.getResponseCode());
 block|}
 comment|// test deploy with invalid user, but guest has write access to repo
 specifier|public
@@ -1292,7 +1310,9 @@ literal|"guest"
 argument_list|,
 literal|"internal"
 argument_list|,
-literal|true
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_UPLOAD
 argument_list|)
 expr_stmt|;
 name|servletAuthControl
@@ -1406,7 +1426,9 @@ literal|"guest"
 argument_list|,
 literal|"internal"
 argument_list|,
-literal|true
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_UPLOAD
 argument_list|)
 expr_stmt|;
 name|servletAuthControl
@@ -1655,6 +1677,28 @@ argument_list|,
 name|session
 argument_list|)
 expr_stmt|;
+name|httpAuthControl
+operator|.
+name|expectAndReturn
+argument_list|(
+name|httpAuth
+operator|.
+name|getSessionUser
+argument_list|(
+name|ic
+operator|.
+name|getRequest
+argument_list|()
+operator|.
+name|getSession
+argument_list|()
+argument_list|)
+argument_list|,
+operator|new
+name|SimpleUser
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|servletAuthControl
 operator|.
 name|expectAndReturn
@@ -1685,7 +1729,9 @@ name|session
 argument_list|,
 literal|"internal"
 argument_list|,
-literal|true
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_UPLOAD
 argument_list|)
 argument_list|,
 operator|new
@@ -1985,7 +2031,9 @@ name|session
 argument_list|,
 literal|"internal"
 argument_list|,
-literal|true
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_UPLOAD
 argument_list|)
 argument_list|,
 literal|true
@@ -2201,7 +2249,9 @@ literal|"guest"
 argument_list|,
 literal|"internal"
 argument_list|,
-literal|false
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_ACCESS
 argument_list|)
 argument_list|,
 literal|true
@@ -2303,7 +2353,9 @@ name|session
 argument_list|,
 literal|"internal"
 argument_list|,
-literal|true
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_UPLOAD
 argument_list|)
 argument_list|,
 literal|true
@@ -2505,7 +2557,9 @@ literal|"guest"
 argument_list|,
 literal|"internal"
 argument_list|,
-literal|false
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_ACCESS
 argument_list|)
 argument_list|,
 literal|false
@@ -2809,7 +2863,9 @@ name|session
 argument_list|,
 literal|"internal"
 argument_list|,
-literal|true
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_UPLOAD
 argument_list|)
 argument_list|,
 literal|true
@@ -3073,6 +3129,28 @@ argument_list|,
 name|session
 argument_list|)
 expr_stmt|;
+name|httpAuthControl
+operator|.
+name|expectAndReturn
+argument_list|(
+name|httpAuth
+operator|.
+name|getSessionUser
+argument_list|(
+name|ic
+operator|.
+name|getRequest
+argument_list|()
+operator|.
+name|getSession
+argument_list|()
+argument_list|)
+argument_list|,
+operator|new
+name|SimpleUser
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|servletAuthControl
 operator|.
 name|expectAndReturn
@@ -3103,7 +3181,9 @@ name|session
 argument_list|,
 literal|"internal"
 argument_list|,
-literal|true
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_UPLOAD
 argument_list|)
 argument_list|,
 operator|new

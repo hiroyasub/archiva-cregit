@@ -818,7 +818,7 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
-name|assertResponseNotFound
+name|assertResponseInternalServerError
 argument_list|(
 name|response
 argument_list|)

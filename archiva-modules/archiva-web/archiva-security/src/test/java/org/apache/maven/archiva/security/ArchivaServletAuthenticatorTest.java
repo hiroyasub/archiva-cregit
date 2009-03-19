@@ -436,7 +436,9 @@ name|session
 argument_list|,
 literal|"corporate"
 argument_list|,
-literal|true
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_UPLOAD
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -537,7 +539,9 @@ name|session
 argument_list|,
 literal|"corporate"
 argument_list|,
-literal|true
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_UPLOAD
 argument_list|)
 expr_stmt|;
 name|fail
@@ -645,7 +649,9 @@ name|session
 argument_list|,
 literal|"corporate"
 argument_list|,
-literal|false
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_ACCESS
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -722,7 +728,9 @@ name|session
 argument_list|,
 literal|"corporate"
 argument_list|,
-literal|false
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_ACCESS
 argument_list|)
 expr_stmt|;
 name|fail
@@ -774,7 +782,9 @@ name|USER_GUEST
 argument_list|,
 literal|"corporate"
 argument_list|,
-literal|true
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_UPLOAD
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -808,7 +818,9 @@ name|USER_GUEST
 argument_list|,
 literal|"corporate"
 argument_list|,
-literal|true
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_UPLOAD
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -842,7 +854,9 @@ name|USER_GUEST
 argument_list|,
 literal|"corporate"
 argument_list|,
-literal|false
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_ACCESS
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -869,7 +883,9 @@ name|USER_GUEST
 argument_list|,
 literal|"corporate"
 argument_list|,
-literal|false
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_ACCESS
 argument_list|)
 decl_stmt|;
 name|assertFalse

@@ -365,19 +365,6 @@ name|AuthenticationException
 name|e
 parameter_list|)
 block|{
-name|boolean
-name|isPut
-init|=
-name|WebdavMethodUtil
-operator|.
-name|isWriteMethod
-argument_list|(
-name|request
-operator|.
-name|getMethod
-argument_list|()
-argument_list|)
-decl_stmt|;
 comment|// safety check for MRM-911
 name|String
 name|guest
@@ -409,7 +396,15 @@ operator|.
 name|getRepositoryId
 argument_list|()
 argument_list|,
-name|isPut
+name|WebdavMethodUtil
+operator|.
+name|getMethodPermission
+argument_list|(
+name|request
+operator|.
+name|getMethod
+argument_list|()
+argument_list|)
 argument_list|)
 condition|)
 block|{
