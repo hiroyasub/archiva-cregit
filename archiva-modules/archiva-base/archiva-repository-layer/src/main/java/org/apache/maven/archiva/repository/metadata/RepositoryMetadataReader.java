@@ -179,6 +179,12 @@ argument_list|,
 name|metadataFile
 argument_list|)
 decl_stmt|;
+comment|// invoke this to remove namespaces, see MRM-1136
+name|xml
+operator|.
+name|removeNamespaces
+argument_list|()
+expr_stmt|;
 name|ArchivaRepositoryMetadata
 name|metadata
 init|=
