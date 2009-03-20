@@ -81,6 +81,24 @@ name|RepositoryGroupConfiguration
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|audit
+operator|.
+name|AuditEvent
+import|;
+end_import
+
 begin_comment
 comment|/**  * DeleteRepositoryGroupAction  *   * @version  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteRepositoryGroupAction" instantiation-strategy="per-lookup"  */
 end_comment
@@ -205,6 +223,17 @@ operator|.
 name|removeRepositoryGroup
 argument_list|(
 name|group
+argument_list|)
+expr_stmt|;
+name|triggerAuditEvent
+argument_list|(
+name|AuditEvent
+operator|.
+name|DELETE_REPO_GROUP
+operator|+
+literal|" "
+operator|+
+name|repoGroupId
 argument_list|)
 expr_stmt|;
 return|return

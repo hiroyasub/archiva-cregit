@@ -92,15 +92,23 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaXworkUser  *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.security.ArchivaXworkUser"  */
+comment|/**  * ArchivaXworkUser  *  * @version $Id$  */
 end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|ArchivaXworkUser
 block|{
+specifier|private
+name|ArchivaXworkUser
+parameter_list|()
+block|{
+comment|// no touchy
+block|}
 specifier|public
+specifier|static
 name|String
 name|getActivePrincipal
 parameter_list|(
