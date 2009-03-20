@@ -426,8 +426,6 @@ argument_list|,
 operator|new
 name|HttpAuthenticatorMock
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|request
