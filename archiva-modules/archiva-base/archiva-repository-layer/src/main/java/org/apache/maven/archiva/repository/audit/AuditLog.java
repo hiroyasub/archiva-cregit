@@ -132,10 +132,13 @@ name|msg
 operator|.
 name|append
 argument_list|(
+name|checkNull
+argument_list|(
 name|event
 operator|.
 name|getRemoteIP
 argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|append
