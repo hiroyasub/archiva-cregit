@@ -2317,6 +2317,10 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|version
+operator|==
+literal|null
+operator|||
 operator|!
 name|VersionUtil
 operator|.
