@@ -147,6 +147,16 @@ throws|throws
 name|ArchivaException
 function_decl|;
 specifier|public
+name|boolean
+name|isProcessingRepositoryTaskWithName
+parameter_list|(
+name|String
+name|taskName
+parameter_list|)
+throws|throws
+name|ArchivaException
+function_decl|;
+specifier|public
 name|void
 name|queueDatabaseTask
 parameter_list|(

@@ -801,7 +801,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * A convienence method to execute all of the active selected consumers for a particular arbitrary file.      *       * @param repository the repository configuration to use.      * @param localFile the local file to execute the consumers against.      */
+comment|/**      * A convenience method to execute all of the active selected consumers for a particular arbitrary file.      * NOTE: Make sure that there is no repository scanning task executing before invoking this so as to prevent      * the index writer/reader of the current index-content consumer executing from getting closed. For an example,      * see ArchivaDavResource#executeConsumers( File ).       *       * @param repository the repository configuration to use.      * @param localFile the local file to execute the consumers against.      */
 specifier|public
 name|void
 name|executeConsumers

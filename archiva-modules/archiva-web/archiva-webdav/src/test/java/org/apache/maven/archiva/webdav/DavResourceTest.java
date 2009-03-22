@@ -609,6 +609,10 @@ name|emptyList
 argument_list|()
 argument_list|,
 name|consumers
+argument_list|,
+literal|null
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
@@ -943,7 +947,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|//Simple lock manager will die
+comment|// Simple lock manager will die
 block|}
 name|assertEquals
 argument_list|(
@@ -1007,7 +1011,7 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-comment|//Lock should exist
+comment|// Lock should exist
 name|assertNotNull
 argument_list|(
 name|resource
@@ -1024,7 +1028,7 @@ name|EXCLUSIVE
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//Lock should not exist
+comment|// Lock should not exist
 name|assertNull
 argument_list|(
 name|resource
@@ -1580,6 +1584,10 @@ name|emptyList
 argument_list|()
 argument_list|,
 name|consumers
+argument_list|,
+literal|null
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
