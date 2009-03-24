@@ -1631,6 +1631,7 @@ name|stream
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: a bad deployment shouldn't delete an existing file - do we need to write to a temporary location first?
 if|if
 condition|(
 name|inputContext
