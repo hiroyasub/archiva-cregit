@@ -262,6 +262,18 @@ name|matches
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|i
+operator|==
+literal|0
+condition|)
+comment|// loosen rule to return true if first token matches
+block|{
+return|return
+literal|true
+return|;
+block|}
 name|countValidParts
 operator|++
 expr_stmt|;
