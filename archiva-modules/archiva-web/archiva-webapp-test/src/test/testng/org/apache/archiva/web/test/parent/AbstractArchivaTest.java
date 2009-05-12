@@ -34,7 +34,7 @@ parameter_list|()
 block|{
 name|assertPage
 argument_list|(
-literal|"Create Admin User"
+literal|"Apache Archiva \\ Create Admin User"
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -118,7 +118,7 @@ argument_list|)
 expr_stmt|;
 name|setFieldValue
 argument_list|(
-literal|"user.emaim"
+literal|"user.email"
 argument_list|,
 name|email
 argument_list|)
