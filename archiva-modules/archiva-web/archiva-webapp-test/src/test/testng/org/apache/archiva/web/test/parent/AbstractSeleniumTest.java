@@ -556,7 +556,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|assertLinkNotPresenu
+name|assertLinkNotPresent
 parameter_list|(
 name|String
 name|text
