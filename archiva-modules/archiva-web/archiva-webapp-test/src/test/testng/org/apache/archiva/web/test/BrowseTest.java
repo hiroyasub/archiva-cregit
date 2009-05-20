@@ -60,7 +60,7 @@ argument_list|,
 name|dependsOnMethods
 operator|=
 block|{
-literal|"testWithCorrectUsernamePassword"
+literal|"testAddArtifactNullValues"
 block|}
 argument_list|)
 specifier|public
