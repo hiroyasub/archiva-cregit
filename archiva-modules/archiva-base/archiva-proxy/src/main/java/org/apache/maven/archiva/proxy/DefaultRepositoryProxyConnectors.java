@@ -2264,7 +2264,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 name|emsg
 operator|+
@@ -2277,7 +2277,7 @@ return|;
 block|}
 name|log
 operator|.
-name|info
+name|warn
 argument_list|(
 name|emsg
 argument_list|)
@@ -2561,7 +2561,7 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|info
+name|warn
 argument_list|(
 literal|"Transfer invalidated from "
 operator|+
