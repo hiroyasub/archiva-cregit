@@ -257,8 +257,6 @@ name|nexus
 operator|.
 name|index
 operator|.
-name|creator
-operator|.
 name|IndexerEngine
 import|;
 end_import
@@ -356,13 +354,12 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+comment|//nexusIndexerConsumer = new NexusIndexerConsumer( nexusIndexer, indexPacker, indexerEngine );
 name|nexusIndexerConsumer
 operator|=
 operator|new
 name|NexusIndexerConsumer
 argument_list|(
-name|nexusIndexer
-argument_list|,
 name|indexPacker
 argument_list|,
 name|indexerEngine
@@ -939,10 +936,10 @@ name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// should return only 1 hit - artifact should have just been updated and not added as a separate doc
+comment|// should return 2 hits - this will be filtered out by the NexusRespositorySearch when it returns the results!
 name|assertEquals
 argument_list|(
-literal|1
+literal|2
 argument_list|,
 name|topDocs
 operator|.

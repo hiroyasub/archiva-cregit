@@ -343,6 +343,22 @@ name|PlexusToSpringUtils
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|taskqueue
+operator|.
+name|execution
+operator|.
+name|TaskQueueExecutor
+import|;
+end_import
+
 begin_class
 specifier|public
 class|class
@@ -400,6 +416,10 @@ init|=
 operator|new
 name|ManagedRepositoryConfiguration
 argument_list|()
+decl_stmt|;
+specifier|private
+name|TaskQueueExecutor
+name|repoScanningTaskQueueExecutor
 decl_stmt|;
 annotation|@
 name|Override
@@ -607,10 +627,6 @@ name|AuditListener
 operator|>
 name|emptyList
 argument_list|()
-argument_list|,
-name|consumers
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|)
@@ -1582,10 +1598,6 @@ name|AuditListener
 operator|>
 name|emptyList
 argument_list|()
-argument_list|,
-name|consumers
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|)

@@ -197,6 +197,22 @@ name|index
 operator|.
 name|context
 operator|.
+name|DefaultIndexingContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|sonatype
+operator|.
+name|nexus
+operator|.
+name|index
+operator|.
+name|context
+operator|.
 name|IndexingContext
 import|;
 end_import
@@ -226,8 +242,6 @@ operator|.
 name|nexus
 operator|.
 name|index
-operator|.
-name|creator
 operator|.
 name|IndexerEngine
 import|;
@@ -605,9 +619,8 @@ name|UnsupportedExistingLuceneIndexException
 block|{
 name|context
 operator|=
-name|indexer
-operator|.
-name|addIndexingContext
+operator|new
+name|DefaultIndexingContext
 argument_list|(
 name|repository
 argument_list|,
@@ -644,8 +657,13 @@ argument_list|,
 name|NexusIndexer
 operator|.
 name|FULL_INDEX
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
+comment|//indexer.addIndexingContext( repository, repository, new File( getBasedir(), "/target/test-classes/" +
+comment|//    repository ), new File( getBasedir(), "/target/test-classes/" + repository + "/.indexer" ), null, null,
+comment|//                            NexusIndexer.FULL_INDEX );
 name|context
 operator|.
 name|setSearchable
@@ -653,13 +671,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|indexerEngine
-operator|.
-name|beginIndexing
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
+comment|//indexerEngine.beginIndexing( context );
 for|for
 control|(
 name|File
@@ -690,22 +702,15 @@ name|ac
 argument_list|)
 expr_stmt|;
 block|}
-name|indexerEngine
-operator|.
-name|endIndexing
-argument_list|(
 name|context
-argument_list|)
-expr_stmt|;
-name|indexer
 operator|.
-name|removeIndexingContext
+name|close
 argument_list|(
-name|context
-argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|//indexerEngine.endIndexing( context );
+comment|//indexer.removeIndexingContext( context, false );
 name|assertTrue
 argument_list|(
 operator|new

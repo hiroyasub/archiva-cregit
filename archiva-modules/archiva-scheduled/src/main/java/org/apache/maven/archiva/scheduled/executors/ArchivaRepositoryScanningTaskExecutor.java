@@ -592,18 +592,6 @@ literal|"Unable to execute RepositoryTask with blank repository Id."
 argument_list|)
 throw|;
 block|}
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Executing task from queue with job name: "
-operator|+
-name|repoTask
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|ManagedRepositoryConfiguration
 name|arepo
 init|=
@@ -631,6 +619,18 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Executing task from queue with job name: "
+operator|+
+name|repoTask
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|consumers
 operator|.
 name|executeConsumers
@@ -646,6 +646,18 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Executing task from queue with job name: "
+operator|+
+name|repoTask
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// otherwise, execute consumers on whole repository
 try|try
 block|{
