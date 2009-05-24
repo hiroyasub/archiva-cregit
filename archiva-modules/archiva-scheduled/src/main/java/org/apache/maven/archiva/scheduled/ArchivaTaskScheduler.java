@@ -47,6 +47,24 @@ name|scheduled
 operator|.
 name|tasks
 operator|.
+name|ArtifactIndexingTask
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|scheduled
+operator|.
+name|tasks
+operator|.
 name|DatabaseTask
 import|;
 end_import
@@ -122,6 +140,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
+comment|/**      * Checks if there is any repository scanning task queued.      *       * @return      * @throws ArchivaException      */
 specifier|public
 name|boolean
 name|isProcessingAnyRepositoryTask
@@ -129,6 +148,7 @@ parameter_list|()
 throws|throws
 name|ArchivaException
 function_decl|;
+comment|/**      * Checks if there is any database scanning task queued.      *       * @return      * @throws ArchivaException      */
 specifier|public
 name|boolean
 name|isProcessingDatabaseTask
@@ -136,6 +156,7 @@ parameter_list|()
 throws|throws
 name|ArchivaException
 function_decl|;
+comment|/**      * Checks if a repository scanning task for the specified repository is queuedd.      *       * @param repositoryId      * @return      * @throws ArchivaException      */
 specifier|public
 name|boolean
 name|isProcessingRepositoryTask
@@ -146,6 +167,7 @@ parameter_list|)
 throws|throws
 name|ArchivaException
 function_decl|;
+comment|/**      * Checks if a repository scanning task with the specified name is queued.      *       * @param taskName      * @return      * @throws ArchivaException      */
 specifier|public
 name|boolean
 name|isProcessingRepositoryTaskWithName
@@ -156,6 +178,18 @@ parameter_list|)
 throws|throws
 name|ArchivaException
 function_decl|;
+comment|/**      * Checks is an indexing task with the specified name is queued.      *       * @param taskName      * @return      * @throws ArchivaException      */
+specifier|public
+name|boolean
+name|isProcessingIndexingTaskWithName
+parameter_list|(
+name|String
+name|taskName
+parameter_list|)
+throws|throws
+name|ArchivaException
+function_decl|;
+comment|/**      * Adds the database task to the database scanning queue.      *       * @param task      * @throws TaskQueueException      */
 specifier|public
 name|void
 name|queueDatabaseTask
@@ -166,6 +200,7 @@ parameter_list|)
 throws|throws
 name|TaskQueueException
 function_decl|;
+comment|/**      * Adds the repository task to the repo scanning queue.      *       * @param task      * @throws TaskQueueException      */
 specifier|public
 name|void
 name|queueRepositoryTask
@@ -176,6 +211,18 @@ parameter_list|)
 throws|throws
 name|TaskQueueException
 function_decl|;
+comment|/**      * Adds the indexing task to the indexing queue.      *       * @param task      * @throws TaskQueueException      */
+specifier|public
+name|void
+name|queueIndexingTask
+parameter_list|(
+name|ArtifactIndexingTask
+name|task
+parameter_list|)
+throws|throws
+name|TaskQueueException
+function_decl|;
+comment|/**      * Schedules the database tasks using the set cron expression.      *       * @throws TaskExecutionException      */
 specifier|public
 name|void
 name|scheduleDatabaseTasks

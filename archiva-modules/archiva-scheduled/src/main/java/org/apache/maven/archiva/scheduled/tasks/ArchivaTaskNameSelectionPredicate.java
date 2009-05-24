@@ -50,7 +50,7 @@ end_import
 begin_class
 specifier|public
 class|class
-name|RepositoryTaskNameSelectionPredicate
+name|ArchivaTaskNameSelectionPredicate
 implements|implements
 name|Predicate
 block|{
@@ -59,7 +59,7 @@ name|String
 name|taskName
 decl_stmt|;
 specifier|public
-name|RepositoryTaskNameSelectionPredicate
+name|ArchivaTaskNameSelectionPredicate
 parameter_list|(
 name|String
 name|taskName
@@ -89,14 +89,14 @@ if|if
 condition|(
 name|object
 operator|instanceof
-name|RepositoryTask
+name|ArchivaTask
 condition|)
 block|{
-name|RepositoryTask
+name|ArchivaTask
 name|task
 init|=
 operator|(
-name|RepositoryTask
+name|ArchivaTask
 operator|)
 name|object
 decl_stmt|;

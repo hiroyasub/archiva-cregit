@@ -360,6 +360,17 @@ argument_list|(
 name|selectedRepos
 argument_list|)
 expr_stmt|;
+comment|// since upgrade to nexus 2.0.0, query has changed from g:[QUERIED TERM]* to g:*[QUERIED TERM]*
+comment|//      resulting to more wildcard searches so we need to increase max clause count
+name|BooleanQuery
+operator|.
+name|setMaxClauseCount
+argument_list|(
+name|Integer
+operator|.
+name|MAX_VALUE
+argument_list|)
+expr_stmt|;
 name|BooleanQuery
 name|q
 init|=
