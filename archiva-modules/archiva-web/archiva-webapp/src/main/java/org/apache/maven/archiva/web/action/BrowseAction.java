@@ -635,7 +635,7 @@ operator|.
 name|getIssueManagement
 argument_list|()
 operator|.
-name|getUrl
+name|getIssueManagementUrl
 argument_list|()
 argument_list|,
 name|model
@@ -643,7 +643,7 @@ operator|.
 name|getIssueManagement
 argument_list|()
 operator|.
-name|getUrl
+name|getIssueManagementUrl
 argument_list|()
 argument_list|)
 condition|)
@@ -682,7 +682,7 @@ operator|.
 name|getCiManagement
 argument_list|()
 operator|.
-name|getUrl
+name|getCiUrl
 argument_list|()
 argument_list|,
 name|model
@@ -690,7 +690,7 @@ operator|.
 name|getCiManagement
 argument_list|()
 operator|.
-name|getUrl
+name|getCiUrl
 argument_list|()
 argument_list|)
 condition|)
@@ -729,7 +729,7 @@ operator|.
 name|getOrganization
 argument_list|()
 operator|.
-name|getName
+name|getOrganizationName
 argument_list|()
 argument_list|,
 name|model
@@ -737,7 +737,7 @@ operator|.
 name|getOrganization
 argument_list|()
 operator|.
-name|getName
+name|getOrganizationName
 argument_list|()
 argument_list|)
 condition|)
