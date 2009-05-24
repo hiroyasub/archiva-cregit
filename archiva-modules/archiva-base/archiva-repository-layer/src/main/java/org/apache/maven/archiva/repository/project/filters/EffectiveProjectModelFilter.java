@@ -386,54 +386,6 @@ argument_list|(
 name|project
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"++++[EFFECTIVE Project] effectiveProject --> "
-operator|+
-name|effectiveProject
-argument_list|)
-expr_stmt|;
-name|IssueManagement
-name|iM
-init|=
-name|effectiveProject
-operator|.
-name|getIssueManagement
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|iM
-operator|!=
-literal|null
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"++++[EFFECTIVE Project] issue mgnt URL --> "
-operator|+
-name|iM
-operator|.
-name|getUrl
-argument_list|()
-operator|+
-literal|" $$ "
-operator|+
-name|iM
-operator|.
-name|getIssueManagementUrl
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 name|DEBUG
 argument_list|(
 literal|"Starting build of effective with: "
