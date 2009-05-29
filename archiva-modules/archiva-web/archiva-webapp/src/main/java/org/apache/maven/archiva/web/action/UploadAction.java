@@ -21,6 +21,30 @@ end_comment
 
 begin_import
 import|import
+name|com
+operator|.
+name|opensymphony
+operator|.
+name|xwork2
+operator|.
+name|Preparable
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|opensymphony
+operator|.
+name|xwork2
+operator|.
+name|Validateable
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -105,7 +129,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Date
+name|Collections
 import|;
 end_import
 
@@ -115,7 +139,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
+name|Date
 import|;
 end_import
 
@@ -164,6 +188,34 @@ operator|.
 name|checksum
 operator|.
 name|ChecksummedFile
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|FilenameUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
 import|;
 end_import
 
@@ -375,24 +427,6 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|scanner
-operator|.
-name|RepositoryContentConsumers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
 name|audit
 operator|.
 name|AuditEvent
@@ -555,6 +589,24 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|repository
+operator|.
+name|scanner
+operator|.
+name|RepositoryContentConsumers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
 name|scheduled
 operator|.
 name|ArchivaTaskScheduler
@@ -663,58 +715,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|opensymphony
-operator|.
-name|xwork2
-operator|.
-name|Preparable
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|opensymphony
-operator|.
-name|xwork2
-operator|.
-name|Validateable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|io
-operator|.
-name|FilenameUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|codehaus
@@ -728,7 +728,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Upload an artifact using Jakarta file upload in webwork. If set by the user a pom will also be generated. Metadata  * will also be updated if one exists, otherwise it would be created.  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="uploadAction" instantiation-strategy="per-lookup"  */
+comment|/**  * Upload an artifact using Jakarta file upload in webwork. If set by the user a pom will also be generated. Metadata  * will also be updated if one exists, otherwise it would be created.  *  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="uploadAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -744,7 +744,7 @@ name|Preparable
 implements|,
 name|Auditable
 block|{
-comment|/**       * @plexus.requirement       */
+comment|/**      * @plexus.requirement      */
 specifier|private
 name|RepositoryContentConsumers
 name|consumers
@@ -1885,8 +1885,6 @@ name|targetFilename
 argument_list|)
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|FileInputStream
 name|input
 init|=
@@ -1896,10 +1894,10 @@ argument_list|(
 name|sourceFile
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|int
 name|i
-init|=
-literal|0
 decl_stmt|;
 while|while
 condition|(
@@ -1933,6 +1931,11 @@ block|}
 finally|finally
 block|{
 name|out
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|input
 operator|.
 name|close
 argument_list|()
@@ -2091,7 +2094,7 @@ return|return
 name|metadata
 return|;
 block|}
-comment|/**      * Update artifact level metadata. If it does not exist, create the metadata.      *       * @param metadata      */
+comment|/**      * Update artifact level metadata. If it does not exist, create the metadata.      *      * @param metadata      */
 specifier|private
 name|void
 name|updateMetadata

@@ -21,20 +21,6 @@ end_comment
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|io
-operator|.
-name|IOUtils
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -77,6 +63,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|IOUtils
+import|;
+end_import
+
+begin_import
+import|import
 name|junit
 operator|.
 name|framework
@@ -86,7 +86,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * BannerTest   *  * @version $Id$  */
+comment|/**  * BannerTest  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -271,7 +271,7 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
-comment|/* Want to make a new banner?          * Steps to do it.          * 1) Edit the src/test/resources/banner.gz file.          * 2) Save it compressed.          * 3) Add (to this test method) ...          *    System.out.println( "\"" + Banner.encode( getRawBanner() ) + "\"" );          * 4) Run the test          * 5) Copy / Paste the encoded form into the Banner.getBanner() method.          */
+comment|/* Want to make a new banner?         * Steps to do it.         * 1) Edit the src/test/resources/banner.gz file.         * 2) Save it compressed.         * 3) Add (to this test method) ...         *    System.out.println( "\"" + Banner.encode( getRawBanner() ) + "\"" );         * 4) Run the test         * 5) Copy / Paste the encoded form into the Banner.getBanner() method.         */
 block|}
 specifier|public
 name|String
@@ -324,13 +324,25 @@ argument_list|(
 name|fis
 argument_list|)
 decl_stmt|;
-return|return
+name|String
+name|str
+init|=
 name|IOUtils
 operator|.
 name|toString
 argument_list|(
 name|gzis
 argument_list|)
+decl_stmt|;
+name|IOUtils
+operator|.
+name|closeQuietly
+argument_list|(
+name|gzis
+argument_list|)
+expr_stmt|;
+return|return
+name|str
 return|;
 block|}
 block|}
