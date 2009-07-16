@@ -449,7 +449,44 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"Should have been an OK response code."
+literal|"Should have been an OK response code"
+argument_list|,
+name|HttpServletResponse
+operator|.
+name|SC_OK
+argument_list|,
+name|response
+operator|.
+name|getResponseCode
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+specifier|protected
+name|void
+name|assertResponseOK
+parameter_list|(
+name|WebResponse
+name|response
+parameter_list|,
+name|String
+name|path
+parameter_list|)
+block|{
+name|assertNotNull
+argument_list|(
+literal|"Should have recieved a response"
+argument_list|,
+name|response
+argument_list|)
+expr_stmt|;
+name|Assert
+operator|.
+name|assertEquals
+argument_list|(
+literal|"Should have been an OK response code for path: "
+operator|+
+name|path
 argument_list|,
 name|HttpServletResponse
 operator|.

@@ -368,7 +368,7 @@ name|writer
 operator|.
 name|println
 argument_list|(
-literal|"<title>Collection: "
+literal|"<title>Collection: /"
 operator|+
 name|logicalResource
 operator|+
@@ -393,7 +393,7 @@ name|writer
 operator|.
 name|println
 argument_list|(
-literal|"<h3>Collection: "
+literal|"<h3>Collection: /"
 operator|+
 name|logicalResource
 operator|+
@@ -403,13 +403,12 @@ expr_stmt|;
 comment|//Check if not root
 if|if
 condition|(
-operator|!
-literal|"/"
-operator|.
-name|equals
-argument_list|(
 name|logicalResource
-argument_list|)
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 name|File
@@ -428,11 +427,8 @@ name|file
 operator|.
 name|getParent
 argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|""
-argument_list|)
+operator|==
+literal|null
 condition|?
 literal|"/"
 else|:

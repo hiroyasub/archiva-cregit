@@ -506,6 +506,8 @@ case|:
 name|assertResponseOK
 argument_list|(
 name|response
+argument_list|,
+name|path
 argument_list|)
 expr_stmt|;
 name|assertEquals
