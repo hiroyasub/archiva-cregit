@@ -334,7 +334,7 @@ literal|"Unable to scan a repository, directory "
 operator|+
 name|repositoryBase
 operator|.
-name|getAbsolutePath
+name|getPath
 argument_list|()
 operator|+
 literal|" does not exist."
@@ -358,7 +358,7 @@ literal|"Unable to scan a repository, path "
 operator|+
 name|repositoryBase
 operator|.
-name|getAbsolutePath
+name|getPath
 argument_list|()
 operator|+
 literal|" is not a directory."
