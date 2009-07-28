@@ -158,6 +158,9 @@ name|taskNameSuffix
 parameter_list|,
 name|File
 name|resourceFile
+parameter_list|,
+name|boolean
+name|updateRelatedArtifacts
 parameter_list|)
 block|{
 name|RepositoryTask
@@ -175,6 +178,13 @@ operator|.
 name|setResourceFile
 argument_list|(
 name|resourceFile
+argument_list|)
+expr_stmt|;
+name|task
+operator|.
+name|setUpdateRelatedArtifacts
+argument_list|(
+name|updateRelatedArtifacts
 argument_list|)
 expr_stmt|;
 return|return

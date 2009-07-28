@@ -641,6 +641,11 @@ name|repoTask
 operator|.
 name|getResourceFile
 argument_list|()
+argument_list|,
+name|repoTask
+operator|.
+name|isUpdateRelatedArtifacts
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -2652,6 +2652,8 @@ name|getName
 argument_list|()
 argument_list|,
 name|localFile
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 try|try

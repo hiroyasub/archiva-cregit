@@ -1346,6 +1346,8 @@ argument_list|(
 name|repo
 argument_list|,
 name|testFile
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|knownControl
@@ -1466,6 +1468,8 @@ argument_list|(
 name|repo
 argument_list|,
 name|notIncludedTestFile
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|knownControl
@@ -1572,6 +1576,8 @@ argument_list|(
 name|repo
 argument_list|,
 name|excludedTestFile
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|knownControl
