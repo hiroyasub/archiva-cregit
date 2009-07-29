@@ -679,7 +679,7 @@ expr_stmt|;
 name|String
 name|userRoles
 init|=
-literal|"Guest,Registered User,System Administrator,User Administrator,Global Repository Observer,Global Repository Manager,Repository Observer,Repository Manager,internal,snapshots"
+literal|"Guest,Registered User,System Administrator,User Administrator,Global Repository Observer,Global Repository Manager,Repository Observer,Repository Manager,internal"
 decl_stmt|;
 name|String
 index|[]
@@ -801,15 +801,7 @@ name|boolean
 name|valid
 parameter_list|)
 block|{
-name|login
-argument_list|(
-name|getAdminUsername
-argument_list|()
-argument_list|,
-name|getAdminPassword
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//login( getAdminUsername() , getAdminPassword() );
 name|clickLinkWithText
 argument_list|(
 literal|"User Management"

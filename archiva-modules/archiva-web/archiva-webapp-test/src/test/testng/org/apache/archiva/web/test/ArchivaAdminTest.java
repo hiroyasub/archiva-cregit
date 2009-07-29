@@ -359,7 +359,7 @@ annotation|@
 name|BeforeSuite
 specifier|public
 name|void
-name|initializeContinuum
+name|initializeArchiva
 parameter_list|()
 throws|throws
 name|Exception

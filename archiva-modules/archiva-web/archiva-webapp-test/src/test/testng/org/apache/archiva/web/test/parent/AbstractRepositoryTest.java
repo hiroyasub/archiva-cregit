@@ -15,6 +15,16 @@ name|parent
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
 begin_class
 specifier|public
 specifier|abstract
@@ -640,7 +650,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|addNetworkProxyWithAccount
+name|addNetworkProxy
 parameter_list|(
 name|String
 name|identifier
@@ -661,9 +671,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|goToNetworkProxiesPage
-argument_list|()
-expr_stmt|;
+comment|//goToNetworkProxiesPage();
 name|clickLinkWithText
 argument_list|(
 literal|"Add Network Proxy"
@@ -731,9 +739,7 @@ name|String
 name|value
 parameter_list|)
 block|{
-name|goToNetworkProxiesPage
-argument_list|()
-expr_stmt|;
+comment|//goToNetworkProxiesPage();
 name|clickLinkWithText
 argument_list|(
 literal|"Edit Network Proxy"
@@ -757,9 +763,7 @@ name|void
 name|deleteNetworkProxy
 parameter_list|()
 block|{
-name|goToNetworkProxiesPage
-argument_list|()
-expr_stmt|;
+comment|//goToNetworkProxiesPage();
 name|clickLinkWithText
 argument_list|(
 literal|"Delete Network Proxy"
@@ -768,6 +772,11 @@ expr_stmt|;
 name|assertPage
 argument_list|(
 literal|"Apache Archiva \\ Admin: Delete Network Proxy"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"WARNING: This operation can not be undone."
 argument_list|)
 expr_stmt|;
 name|clickButtonWithValue
@@ -949,14 +958,7 @@ name|String
 name|type
 parameter_list|)
 block|{
-name|goToRepositoriesPage
-argument_list|()
-expr_stmt|;
-name|clickLinkWithXPath
-argument_list|(
-literal|"//div[@id='contentArea']/div/div[4]/a"
-argument_list|)
-expr_stmt|;
+comment|//goToRepositoriesPage();
 name|assertAddRemoteRepository
 argument_list|()
 expr_stmt|;
@@ -1099,14 +1101,8 @@ name|String
 name|retentionCount
 parameter_list|)
 block|{
-name|goToRepositoriesPage
-argument_list|()
-expr_stmt|;
-name|clickLinkWithText
-argument_list|(
-literal|"Add"
-argument_list|)
-expr_stmt|;
+comment|//goToRepositoriesPage();
+comment|//clickLinkWithText( "Add" );
 name|setFieldValue
 argument_list|(
 literal|"repository.id"
@@ -1181,12 +1177,10 @@ name|String
 name|value
 parameter_list|)
 block|{
-name|goToRepositoriesPage
-argument_list|()
-expr_stmt|;
+comment|//goToRepositoriesPage();
 name|clickLinkWithXPath
 argument_list|(
-literal|"//div[@id='contentArea']/div/div[4]/div[1]/a[1]/img"
+literal|"//div[@id='contentArea']/div/div[5]/div[1]/a[1]/img"
 argument_list|)
 expr_stmt|;
 name|assertPage
@@ -1213,12 +1207,9 @@ name|void
 name|deleteManagedRepository
 parameter_list|()
 block|{
-name|goToRepositoriesPage
-argument_list|()
-expr_stmt|;
 name|clickLinkWithXPath
 argument_list|(
-literal|"//div[@id='contentArea']/div/div[4]/div[1]/a[2]"
+literal|"//div[@id='contentArea']/div/div[5]/div[1]/a[2]"
 argument_list|)
 expr_stmt|;
 name|assertPage
@@ -1231,6 +1222,34 @@ argument_list|(
 literal|"Delete Configuration Only"
 argument_list|)
 expr_stmt|;
+block|}
+specifier|public
+name|String
+name|getRepositoryDir
+parameter_list|()
+block|{
+name|File
+name|f
+init|=
+operator|new
+name|File
+argument_list|(
+literal|""
+argument_list|)
+decl_stmt|;
+name|String
+name|artifactFilePath
+init|=
+name|f
+operator|.
+name|getAbsolutePath
+argument_list|()
+decl_stmt|;
+return|return
+name|artifactFilePath
+operator|+
+literal|"/target/"
+return|;
 block|}
 block|}
 end_class
