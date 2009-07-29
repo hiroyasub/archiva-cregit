@@ -1228,6 +1228,24 @@ literal|"Write method not allowed for repository groups."
 argument_list|)
 throw|;
 block|}
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Repository group '"
+operator|+
+name|repoGroupConfig
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|"' accessed by '"
+operator|+
+name|activePrincipal
+operator|+
+literal|"'"
+argument_list|)
+expr_stmt|;
 comment|// handle browse requests for virtual repos
 if|if
 condition|(
@@ -1346,6 +1364,24 @@ name|e
 argument_list|)
 throw|;
 block|}
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Managed repository '"
+operator|+
+name|managedRepository
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|"' accessed by '"
+operator|+
+name|activePrincipal
+operator|+
+literal|"'"
+argument_list|)
+expr_stmt|;
 name|resource
 operator|=
 name|processRepository
@@ -2449,6 +2485,31 @@ operator|)
 operator|+
 name|PROXIED_SUFFIX
 decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Proxied artifact '"
+operator|+
+name|resourceFile
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"' in repository '"
+operator|+
+name|managedRepository
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|"' (current user '"
+operator|+
+name|activePrincipal
+operator|+
+literal|"')"
+argument_list|)
+expr_stmt|;
 name|triggerAuditEvent
 argument_list|(
 name|request
@@ -2568,6 +2629,24 @@ argument_list|,
 name|destDir
 argument_list|)
 decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Creating destination directory '"
+operator|+
+name|destDir
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"' (current user '"
+operator|+
+name|activePrincipal
+operator|+
+literal|"')"
+argument_list|)
+expr_stmt|;
 name|triggerAuditEvent
 argument_list|(
 name|request
@@ -2902,6 +2981,34 @@ name|toPath
 argument_list|(
 name|artifact
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Proxied artifact '"
+operator|+
+name|artifact
+operator|.
+name|getGroupId
+argument_list|()
+operator|+
+literal|":"
+operator|+
+name|artifact
+operator|.
+name|getArtifactId
+argument_list|()
+operator|+
+literal|":"
+operator|+
+name|artifact
+operator|.
+name|getVersion
+argument_list|()
+operator|+
+literal|"'"
 argument_list|)
 expr_stmt|;
 return|return
@@ -4012,6 +4119,21 @@ argument_list|(
 name|resourceFile
 argument_list|)
 expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Repository '"
+operator|+
+name|repository
+operator|+
+literal|"' accessed by '"
+operator|+
+name|activePrincipal
+operator|+
+literal|"'"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 catch|catch
@@ -4075,6 +4197,21 @@ operator|.
 name|add
 argument_list|(
 name|resourceFile
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Repository '"
+operator|+
+name|repository
+operator|+
+literal|"' accessed by '"
+operator|+
+name|activePrincipal
+operator|+
+literal|"'"
 argument_list|)
 expr_stmt|;
 block|}

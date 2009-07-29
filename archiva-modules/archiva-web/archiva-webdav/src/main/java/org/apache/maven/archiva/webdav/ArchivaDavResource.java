@@ -1557,6 +1557,34 @@ argument_list|(
 name|localFile
 argument_list|)
 expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"File '"
+operator|+
+name|resource
+operator|.
+name|getDisplayName
+argument_list|()
+operator|+
+operator|(
+name|exists
+condition|?
+literal|"' modified "
+else|:
+literal|"' created "
+operator|)
+operator|+
+literal|"(current user '"
+operator|+
+name|this
+operator|.
+name|principal
+operator|+
+literal|"')"
+argument_list|)
+expr_stmt|;
 name|triggerAuditEvent
 argument_list|(
 name|resource
@@ -1590,6 +1618,26 @@ name|localFile
 operator|.
 name|mkdir
 argument_list|()
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Directory '"
+operator|+
+name|resource
+operator|.
+name|getDisplayName
+argument_list|()
+operator|+
+literal|"' (current user '"
+operator|+
+name|this
+operator|.
+name|principal
+operator|+
+literal|"')"
+argument_list|)
 expr_stmt|;
 name|triggerAuditEvent
 argument_list|(
@@ -1734,6 +1782,23 @@ name|resource
 argument_list|)
 expr_stmt|;
 block|}
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Resource '"
+operator|+
+name|item
+operator|+
+literal|"' retrieved by '"
+operator|+
+name|this
+operator|.
+name|principal
+operator|+
+literal|"'"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 catch|catch
@@ -1839,6 +1904,35 @@ name|REMOVE_FILE
 argument_list|)
 expr_stmt|;
 block|}
+name|log
+operator|.
+name|debug
+argument_list|(
+operator|(
+name|resource
+operator|.
+name|isDirectory
+argument_list|()
+condition|?
+literal|"Directory '"
+else|:
+literal|"File '"
+operator|)
+operator|+
+name|member
+operator|.
+name|getDisplayName
+argument_list|()
+operator|+
+literal|"' removed (current user '"
+operator|+
+name|this
+operator|.
+name|principal
+operator|+
+literal|"')"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -2022,6 +2116,38 @@ name|MOVE_FILE
 argument_list|)
 expr_stmt|;
 block|}
+name|log
+operator|.
+name|debug
+argument_list|(
+operator|(
+name|isCollection
+argument_list|()
+condition|?
+literal|"Directory '"
+else|:
+literal|"File '"
+operator|)
+operator|+
+name|getLocalResource
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"' moved to '"
+operator|+
+name|destination
+operator|+
+literal|"' (current user '"
+operator|+
+name|this
+operator|.
+name|principal
+operator|+
+literal|"')"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -2172,6 +2298,38 @@ name|COPY_FILE
 argument_list|)
 expr_stmt|;
 block|}
+name|log
+operator|.
+name|debug
+argument_list|(
+operator|(
+name|isCollection
+argument_list|()
+condition|?
+literal|"Directory '"
+else|:
+literal|"File '"
+operator|)
+operator|+
+name|getLocalResource
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"' copied to '"
+operator|+
+name|destination
+operator|+
+literal|"' (current user '"
+operator|+
+name|this
+operator|.
+name|principal
+operator|+
+literal|"')"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
