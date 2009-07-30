@@ -1445,7 +1445,7 @@ name|Argument
 argument_list|(
 name|description
 operator|=
-literal|"The properties file for the converstion"
+literal|"The properties file for the conversion"
 argument_list|,
 name|value
 operator|=
