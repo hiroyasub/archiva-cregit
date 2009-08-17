@@ -127,6 +127,24 @@ name|repository
 operator|.
 name|project
 operator|.
+name|ProjectModelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|project
+operator|.
 name|readers
 operator|.
 name|ProjectModel400Reader
@@ -348,11 +366,25 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|e
+operator|instanceof
+name|ProjectModelException
+condition|)
+block|{
 name|fail
 argument_list|(
-literal|"The latest timestamp should have been found!"
+literal|"A ProjectModelException should not have occurred. Instead, the latest timestamp should have been found!"
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 block|}
 specifier|public
@@ -563,7 +595,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"An exception should have been thrown."
+literal|"A ProjectModelException should have been thrown."
 argument_list|)
 expr_stmt|;
 block|}
@@ -575,7 +607,9 @@ parameter_list|)
 block|{
 name|assertTrue
 argument_list|(
-literal|true
+name|e
+operator|instanceof
+name|ProjectModelException
 argument_list|)
 expr_stmt|;
 block|}
