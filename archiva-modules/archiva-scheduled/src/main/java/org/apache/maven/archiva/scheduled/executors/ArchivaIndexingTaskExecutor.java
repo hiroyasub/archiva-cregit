@@ -388,7 +388,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaIndexingTaskExecutor  *   * Executes all indexing tasks. Adding, updating and removing artifacts from the index are all performed by  * this executor. Add and update artifact in index tasks are added in the indexing task queue by the NexusIndexerConsumer while  * remove artifact from index tasks are added by the LuceneCleanupRemoveIndexedConsumer.  *   * @plexus.component role="org.codehaus.plexus.taskqueue.execution.TaskExecutor" role-hint="indexing"  */
+comment|/**  * ArchivaIndexingTaskExecutor Executes all indexing tasks. Adding, updating and removing artifacts from the index are  * all performed by this executor. Add and update artifact in index tasks are added in the indexing task queue by the  * NexusIndexerConsumer while remove artifact from index tasks are added by the LuceneCleanupRemoveIndexedConsumer.  *   * @plexus.component role="org.codehaus.plexus.taskqueue.execution.TaskExecutor" role-hint="indexing"  *                   instantiation-strategy="singleton"  */
 end_comment
 
 begin_class
@@ -741,6 +741,11 @@ argument_list|,
 name|ac
 argument_list|)
 expr_stmt|;
+name|context
+operator|.
+name|optimize
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -767,6 +772,11 @@ argument_list|,
 name|ac
 argument_list|)
 expr_stmt|;
+name|context
+operator|.
+name|optimize
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 else|else
@@ -775,7 +785,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"removing artifact '"
+literal|"Removing artifact '"
 operator|+
 name|ac
 operator|.
@@ -793,6 +803,11 @@ name|context
 argument_list|,
 name|ac
 argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|optimize
+argument_list|()
 expr_stmt|;
 block|}
 specifier|final
@@ -825,6 +840,20 @@ argument_list|(
 name|request
 argument_list|)
 expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Index file packaged at '"
+operator|+
+name|indexLocation
+operator|.
+name|getPath
+argument_list|()
+operator|+
+literal|"'."
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 catch|catch
@@ -833,6 +862,20 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Error occurred while executing indexing task '"
+operator|+
+name|indexingTask
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"'"
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|TaskExecutionException
@@ -854,6 +897,18 @@ name|UnsupportedExistingLuceneIndexException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Unsupported Lucene index format: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|TaskExecutionException
@@ -892,6 +947,18 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Error occurred while closing context: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|TaskExecutionException
