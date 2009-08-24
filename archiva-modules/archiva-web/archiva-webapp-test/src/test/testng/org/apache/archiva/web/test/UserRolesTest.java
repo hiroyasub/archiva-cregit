@@ -76,8 +76,6 @@ parameter_list|()
 block|{
 name|username
 operator|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"GUEST_USERNAME"
@@ -85,8 +83,6 @@ argument_list|)
 expr_stmt|;
 name|fullname
 operator|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"GUEST_FULLNAME"
@@ -148,8 +144,6 @@ parameter_list|()
 block|{
 name|username
 operator|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"GUEST_USERNAME"
@@ -157,8 +151,6 @@ argument_list|)
 expr_stmt|;
 name|fullname
 operator|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"GUEST_FULLNAME"
@@ -278,8 +270,6 @@ parameter_list|()
 block|{
 name|username
 operator|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"REGISTERED_USERNAME"
@@ -287,8 +277,6 @@ argument_list|)
 expr_stmt|;
 name|fullname
 operator|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"REGISTERED_FULLNAME"
@@ -408,8 +396,6 @@ parameter_list|()
 block|{
 name|username
 operator|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"SYSAD_USERNAME"
@@ -417,8 +403,6 @@ argument_list|)
 expr_stmt|;
 name|fullname
 operator|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"SYSAD_FULLNAME"
@@ -538,8 +522,6 @@ parameter_list|()
 block|{
 name|username
 operator|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"USERADMIN_USERNAME"
@@ -547,8 +529,6 @@ argument_list|)
 expr_stmt|;
 name|fullname
 operator|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"USERADMIN_FULLNAME"
@@ -668,8 +648,6 @@ parameter_list|()
 block|{
 name|username
 operator|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"GLOBALREPOMANAGER_USERNAME"
@@ -677,8 +655,6 @@ argument_list|)
 expr_stmt|;
 name|fullname
 operator|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"GLOBALREPOMANAGER_FULLNAME"
@@ -798,8 +774,6 @@ parameter_list|()
 block|{
 name|username
 operator|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"GLOBALREPOOBSERVER_USERNAME"
@@ -807,8 +781,6 @@ argument_list|)
 expr_stmt|;
 name|fullname
 operator|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"GLOBALREPOOBSERVER_FULLNAME"
@@ -928,8 +900,6 @@ parameter_list|()
 block|{
 name|username
 operator|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"REPOMANAGER_INTERNAL_USERNAME"
@@ -937,8 +907,6 @@ argument_list|)
 expr_stmt|;
 name|fullname
 operator|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"REPOMANAGER_INTERNAL_FULLNAME"
@@ -1042,7 +1010,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*@Test (dependsOnMethods = { "testUserWithRepoManagerInternalRole" } ) 	public void testUserWithRepoManagerSnapshotsRole() 	{ 		username = p.getProperty("REPOMANAGER_SNAPSHOTS_USERNAME"); 		fullname = p.getProperty("REPOMANAGER_SNAPSHOTS_FULLNAME"); 		 		createUser(username, fullname, getUserEmail(), getUserRolePassword(), true); 		clickLinkWithText( username ); 		clickLinkWithText( "Edit Roles" ); 		checkResourceRoleWithValue( fullname ); 		clickButtonWithValue( "Submit" ); 		 		clickLinkWithText("Logout"); 		login(username, getUserRolePassword()); 		changePassword( getUserRolePassword(), getUserRoleNewPassword()); 		 		// this section will be removed if issue from redback after changing password will be fixed. 		getSelenium().goBack(); 		clickLinkWithText("Logout"); 		//assertTextPresent("You are already logged in."); 		 		login(username, getUserRoleNewPassword()); 		assertLeftNavMenuWithRole( fullname ); 		clickLinkWithText("Logout"); 		login( getAdminUsername() , getAdminPassword() ); 	}*/
+comment|/*@Test (dependsOnMethods = { "testUserWithRepoManagerInternalRole" } ) 	public void testUserWithRepoManagerSnapshotsRole() 	{ 		username = getProperty("REPOMANAGER_SNAPSHOTS_USERNAME"); 		fullname = getProperty("REPOMANAGER_SNAPSHOTS_FULLNAME"); 		 		createUser(username, fullname, getUserEmail(), getUserRolePassword(), true); 		clickLinkWithText( username ); 		clickLinkWithText( "Edit Roles" ); 		checkResourceRoleWithValue( fullname ); 		clickButtonWithValue( "Submit" ); 		 		clickLinkWithText("Logout"); 		login(username, getUserRolePassword()); 		changePassword( getUserRolePassword(), getUserRoleNewPassword()); 		 		// this section will be removed if issue from redback after changing password will be fixed. 		getSelenium().goBack(); 		clickLinkWithText("Logout"); 		//assertTextPresent("You are already logged in."); 		 		login(username, getUserRoleNewPassword()); 		assertLeftNavMenuWithRole( fullname ); 		clickLinkWithText("Logout"); 		login( getAdminUsername() , getAdminPassword() ); 	}*/
 annotation|@
 name|Test
 argument_list|(
@@ -1059,8 +1027,6 @@ parameter_list|()
 block|{
 name|username
 operator|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"REPOOBSERVER_INTERNAL_USERNAME"
@@ -1068,8 +1034,6 @@ argument_list|)
 expr_stmt|;
 name|fullname
 operator|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"REPOOBSERVER_INTERNAL_FULLNAME"
@@ -1173,7 +1137,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*@Test (dependsOnMethods = { "testUserWithRepoObserverInternalRole" } ) 	public void testUserWithRepoObserverSnapshotsRole() 	{ 		username = p.getProperty( "REPOOBSERVER_SNAPSHOTS_USERNAME" ); 		fullname = p.getProperty( "REPOOBSERVER_SNAPSHOTS_FULLNAME" ); 		 		createUser(username, fullname, getUserEmail(), getUserRolePassword(), true); 		clickLinkWithText( username ); 		clickLinkWithText( "Edit Roles" ); 		checkResourceRoleWithValue( fullname ); 		clickButtonWithValue( "Submit" ); 		 		clickLinkWithText("Logout"); 		login(username, getUserRolePassword()); 		changePassword( getUserRolePassword(), getUserRoleNewPassword()); 		 		// this section will be removed if issue from redback after changing password will be fixed. 		getSelenium().goBack(); 		clickLinkWithText("Logout"); 		//assertTextPresent("You are already logged in."); 		 		login(username, getUserRoleNewPassword()); 		assertLeftNavMenuWithRole( fullname ); 		clickLinkWithText("Logout"); 		login( getAdminUsername() , getAdminPassword() ); 	}*/
+comment|/*@Test (dependsOnMethods = { "testUserWithRepoObserverInternalRole" } ) 	public void testUserWithRepoObserverSnapshotsRole() 	{ 		username = getProperty( "REPOOBSERVER_SNAPSHOTS_USERNAME" ); 		fullname = getProperty( "REPOOBSERVER_SNAPSHOTS_FULLNAME" ); 		 		createUser(username, fullname, getUserEmail(), getUserRolePassword(), true); 		clickLinkWithText( username ); 		clickLinkWithText( "Edit Roles" ); 		checkResourceRoleWithValue( fullname ); 		clickButtonWithValue( "Submit" ); 		 		clickLinkWithText("Logout"); 		login(username, getUserRolePassword()); 		changePassword( getUserRolePassword(), getUserRoleNewPassword()); 		 		// this section will be removed if issue from redback after changing password will be fixed. 		getSelenium().goBack(); 		clickLinkWithText("Logout"); 		//assertTextPresent("You are already logged in."); 		 		login(username, getUserRoleNewPassword()); 		assertLeftNavMenuWithRole( fullname ); 		clickLinkWithText("Logout"); 		login( getAdminUsername() , getAdminPassword() ); 	}*/
 block|}
 end_class
 

@@ -54,7 +54,7 @@ argument_list|(
 name|groups
 operator|=
 block|{
-literal|"userroles"
+literal|"artifactmanagement"
 block|}
 argument_list|,
 name|dependsOnMethods
@@ -393,8 +393,6 @@ block|{
 name|String
 name|groupId
 init|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"GROUPID1"
@@ -403,8 +401,6 @@ decl_stmt|;
 name|String
 name|artifactId
 init|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"ARTIFACTID1"
@@ -413,8 +409,6 @@ decl_stmt|;
 name|String
 name|version
 init|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"VERSION1"
@@ -423,8 +417,6 @@ decl_stmt|;
 name|String
 name|packaging
 init|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"PACKAGING1"
@@ -433,8 +425,6 @@ decl_stmt|;
 name|String
 name|repositoryId
 init|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"REPOSITORYID1"

@@ -107,8 +107,6 @@ block|{
 name|String
 name|repositoryName
 init|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"REPOSITORY_NAME"
@@ -145,8 +143,6 @@ block|{
 name|String
 name|repositoryName
 init|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"REPOSITORY_NAME"
@@ -155,8 +151,6 @@ decl_stmt|;
 name|String
 name|startDate
 init|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"END_DATE"
@@ -165,8 +159,6 @@ decl_stmt|;
 name|String
 name|endDate
 init|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"START_DATE"
@@ -212,8 +204,6 @@ block|{
 name|String
 name|repositoryName
 init|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"REPOSITORY_NAME"
@@ -222,8 +212,6 @@ decl_stmt|;
 name|String
 name|startDate
 init|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"START_DATE"
@@ -232,8 +220,6 @@ decl_stmt|;
 name|String
 name|endDate
 init|=
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"END_DATE"
@@ -254,7 +240,7 @@ comment|//assertTextPresent( "Statistics for Repository '" + repositoryName + "'
 comment|//assertPage( "Apache Archiva \\ Reports" );
 comment|//assertTextPresent( "Statistics Report" );
 block|}
-comment|/* @Test( dependsOnMethods = { "testRepositoryStatistics" } ) 	public void testRepositoriesStatisticComparisonReport() 	{ 		//goToReportsPage(); 		clickButtonWithValue( "-->>" , false ); 		clickButtonWithValue( "View Statistics" ); 		assertTextPresent( "Statistics Report" ); 	} 	 	@Test(dependsOnMethods = { "testAddArtifactValidValues" } ) 	public void testRepositoryHealthWithoutDefect() 	{ 		goToReportsPage(); 		String groupId = p.getProperty( "ARTIFACT_GROUPID" ); 		getSelenium().type( "generateReport_groupId" , groupId ); 		clickButtonWithValue( "Show Report" ); 		assertPage( "Apache Archiva \\ Reports" ); 		assertTextPresent( "The operation generated an empty report." ); 	} 	 	@Test(dependsOnMethods = { "testAddArtifactValidValues" } ) 	public void testRepositoryHealthWithoutGroupId() 	{ 		goToReportsPage(); 		clickButtonWithValue( "Show Report" ); 		assertPage( "Apache Archiva \\ Reports" ); 		assertTextPresent( "The operation generated an empty report." ); 		 		//TODO As of the creation of the tests, GroupId is not a required field in showing the reports of repository health. GroupId should be required I think. 	}*/
+comment|/* @Test( dependsOnMethods = { "testRepositoryStatistics" } ) 	public void testRepositoriesStatisticComparisonReport() 	{ 		//goToReportsPage(); 		clickButtonWithValue( "-->>" , false ); 		clickButtonWithValue( "View Statistics" ); 		assertTextPresent( "Statistics Report" ); 	} 	 	@Test(dependsOnMethods = { "testAddArtifactValidValues" } ) 	public void testRepositoryHealthWithoutDefect() 	{ 		goToReportsPage(); 		String groupId = getProperty( "ARTIFACT_GROUPID" ); 		getSelenium().type( "generateReport_groupId" , groupId ); 		clickButtonWithValue( "Show Report" ); 		assertPage( "Apache Archiva \\ Reports" ); 		assertTextPresent( "The operation generated an empty report." ); 	} 	 	@Test(dependsOnMethods = { "testAddArtifactValidValues" } ) 	public void testRepositoryHealthWithoutGroupId() 	{ 		goToReportsPage(); 		clickButtonWithValue( "Show Report" ); 		assertPage( "Apache Archiva \\ Reports" ); 		assertTextPresent( "The operation generated an empty report." ); 		 		//TODO As of the creation of the tests, GroupId is not a required field in showing the reports of repository health. GroupId should be required I think. 	}*/
 block|}
 end_class
 

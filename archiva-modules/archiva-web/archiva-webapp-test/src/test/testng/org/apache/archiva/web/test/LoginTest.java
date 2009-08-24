@@ -163,8 +163,6 @@ name|type
 argument_list|(
 literal|"loginForm_username"
 argument_list|,
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"ADMIN_USERNAME"
@@ -284,8 +282,6 @@ name|type
 argument_list|(
 literal|"loginForm_username"
 argument_list|,
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"ADMIN_USERNAME"
@@ -348,8 +344,6 @@ name|type
 argument_list|(
 literal|"loginForm_username"
 argument_list|,
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"ADMIN_USERNAME"
@@ -363,8 +357,6 @@ name|type
 argument_list|(
 literal|"loginForm_password"
 argument_list|,
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"ADMIN_PASSWORD"
@@ -399,8 +391,6 @@ argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"ADMIN_USERNAME"

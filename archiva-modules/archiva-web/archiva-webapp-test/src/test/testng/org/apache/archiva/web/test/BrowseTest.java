@@ -94,8 +94,6 @@ argument_list|()
 expr_stmt|;
 name|clickLinkWithText
 argument_list|(
-name|p
-operator|.
 name|getProperty
 argument_list|(
 literal|"ARTIFACT_ARTIFACTID"
