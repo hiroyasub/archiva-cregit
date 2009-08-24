@@ -62,6 +62,10 @@ operator|=
 block|{
 literal|"testWithCorrectUsernamePassword"
 block|}
+argument_list|,
+name|sequential
+operator|=
+literal|true
 argument_list|)
 specifier|public
 class|class
@@ -129,9 +133,7 @@ name|void
 name|testAddManagedRepoInvalidValues
 parameter_list|()
 block|{
-name|goToRepositoriesPage
-argument_list|()
-expr_stmt|;
+comment|//goToRepositoriesPage();
 name|clickLinkWithText
 argument_list|(
 literal|"Add"
