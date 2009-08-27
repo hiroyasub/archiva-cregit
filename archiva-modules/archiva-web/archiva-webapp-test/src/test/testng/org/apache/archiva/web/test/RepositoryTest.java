@@ -73,6 +73,15 @@ name|RepositoryTest
 extends|extends
 name|AbstractRepositoryTest
 block|{
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testWithCorrectUsernamePassword"
+block|}
+argument_list|)
 specifier|public
 name|void
 name|testAddManagedRepoValidValues
