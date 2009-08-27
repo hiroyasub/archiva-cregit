@@ -4804,6 +4804,21 @@ operator|=
 name|repositoryRequest
 expr_stmt|;
 block|}
+specifier|public
+name|void
+name|setConnectors
+parameter_list|(
+name|RepositoryProxyConnectors
+name|connectors
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectors
+operator|=
+name|connectors
+expr_stmt|;
+block|}
 block|}
 end_class
 
