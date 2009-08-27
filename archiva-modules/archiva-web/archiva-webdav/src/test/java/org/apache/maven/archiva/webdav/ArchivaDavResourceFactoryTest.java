@@ -1797,9 +1797,6 @@ name|ArchivaDavLocatorFactory
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|//DavResourceLocator locator =
-comment|//    new ArchivaDavResourceLocator( "", "/repository/" + INTERNAL_REPO + "/eclipse/jdtcore/extra/maven-metadata.xml",
-comment|//                                   INTERNAL_REPO, new ArchivaDavLocatorFactory() );
 name|ManagedRepositoryContent
 name|internalRepo
 init|=
