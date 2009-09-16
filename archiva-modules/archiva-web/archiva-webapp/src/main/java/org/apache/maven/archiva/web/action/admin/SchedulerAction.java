@@ -402,13 +402,6 @@ condition|)
 block|{
 try|try
 block|{
-name|taskScheduler
-operator|.
-name|queueRepositoryTask
-argument_list|(
-name|task
-argument_list|)
-expr_stmt|;
 name|addActionMessage
 argument_list|(
 literal|"Your request to have repository ["
@@ -416,6 +409,13 @@ operator|+
 name|repoid
 operator|+
 literal|"] be indexed has been queued."
+argument_list|)
+expr_stmt|;
+name|taskScheduler
+operator|.
+name|queueRepositoryTask
+argument_list|(
+name|task
 argument_list|)
 expr_stmt|;
 block|}
