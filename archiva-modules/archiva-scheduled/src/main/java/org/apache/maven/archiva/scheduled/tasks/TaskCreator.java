@@ -78,6 +78,9 @@ name|repositoryId
 parameter_list|,
 name|String
 name|taskNameSuffix
+parameter_list|,
+name|boolean
+name|scanAll
 parameter_list|)
 block|{
 name|String
@@ -141,6 +144,13 @@ operator|.
 name|QUEUE_POLICY_WAIT
 argument_list|)
 expr_stmt|;
+name|task
+operator|.
+name|setScanAll
+argument_list|(
+name|scanAll
+argument_list|)
+expr_stmt|;
 return|return
 name|task
 return|;
@@ -161,6 +171,9 @@ name|resourceFile
 parameter_list|,
 name|boolean
 name|updateRelatedArtifacts
+parameter_list|,
+name|boolean
+name|scanAll
 parameter_list|)
 block|{
 name|RepositoryTask
@@ -171,6 +184,8 @@ argument_list|(
 name|repositoryId
 argument_list|,
 name|taskNameSuffix
+argument_list|,
+name|scanAll
 argument_list|)
 decl_stmt|;
 name|task

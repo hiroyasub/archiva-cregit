@@ -739,6 +739,15 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|repoTask
+operator|.
+name|isScanAll
+argument_list|()
+condition|)
+block|{
 name|sinceWhen
 operator|=
 name|lastStats
@@ -754,6 +763,7 @@ operator|.
 name|getDuration
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 name|RepositoryScanStatistics
 name|stats

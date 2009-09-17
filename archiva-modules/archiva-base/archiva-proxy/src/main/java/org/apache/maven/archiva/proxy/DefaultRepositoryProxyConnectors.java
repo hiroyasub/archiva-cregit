@@ -2758,6 +2758,8 @@ argument_list|,
 name|localFile
 argument_list|,
 literal|true
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 try|try

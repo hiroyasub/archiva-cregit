@@ -253,6 +253,8 @@ name|TASK_REPOSITORY
 argument_list|)
 argument_list|,
 literal|""
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|task
