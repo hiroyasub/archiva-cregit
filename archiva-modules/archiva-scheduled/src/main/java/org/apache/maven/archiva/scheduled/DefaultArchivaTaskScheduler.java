@@ -1656,8 +1656,6 @@ argument_list|(
 name|repoId
 argument_list|,
 literal|"initial-scan"
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 if|if
