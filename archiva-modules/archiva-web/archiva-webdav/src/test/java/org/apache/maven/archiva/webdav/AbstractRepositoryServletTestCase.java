@@ -1026,6 +1026,11 @@ name|repoRootInternal
 argument_list|)
 expr_stmt|;
 block|}
+name|release
+argument_list|(
+name|archivaConfiguration
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|tearDown
