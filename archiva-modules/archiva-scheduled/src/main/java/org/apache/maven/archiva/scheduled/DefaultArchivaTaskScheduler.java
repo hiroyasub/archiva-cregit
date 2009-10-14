@@ -609,7 +609,7 @@ specifier|final
 name|String
 name|DATABASE_SCAN_GROUP
 init|=
-literal|"database-group"
+literal|"dbg"
 decl_stmt|;
 specifier|public
 specifier|static
@@ -617,7 +617,7 @@ specifier|final
 name|String
 name|DATABASE_JOB
 init|=
-literal|"database-job"
+literal|"dbj"
 decl_stmt|;
 specifier|public
 specifier|static
@@ -625,7 +625,7 @@ specifier|final
 name|String
 name|DATABASE_JOB_TRIGGER
 init|=
-literal|"database-job-trigger"
+literal|"dbt"
 decl_stmt|;
 specifier|public
 specifier|static
@@ -633,7 +633,7 @@ specifier|final
 name|String
 name|REPOSITORY_SCAN_GROUP
 init|=
-literal|"repository-group"
+literal|"rg"
 decl_stmt|;
 specifier|public
 specifier|static
@@ -641,7 +641,7 @@ specifier|final
 name|String
 name|REPOSITORY_JOB
 init|=
-literal|"repository-job"
+literal|"rj"
 decl_stmt|;
 specifier|public
 specifier|static
@@ -649,7 +649,7 @@ specifier|final
 name|String
 name|REPOSITORY_JOB_TRIGGER
 init|=
-literal|"repository-job-trigger"
+literal|"rjt"
 decl_stmt|;
 specifier|public
 specifier|static
@@ -657,7 +657,7 @@ specifier|final
 name|String
 name|INDEXING_JOB
 init|=
-literal|"indexing-job"
+literal|"ij"
 decl_stmt|;
 specifier|public
 specifier|static
