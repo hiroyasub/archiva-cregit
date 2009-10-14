@@ -256,9 +256,6 @@ argument_list|(
 literal|"Executing task from queue with job name: "
 operator|+
 name|dbtask
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|long

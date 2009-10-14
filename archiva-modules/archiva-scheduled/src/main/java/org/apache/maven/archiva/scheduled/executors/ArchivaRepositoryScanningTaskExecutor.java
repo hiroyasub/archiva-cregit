@@ -626,9 +626,6 @@ argument_list|(
 literal|"Executing task from queue with job name: "
 operator|+
 name|repoTask
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|consumers
@@ -658,9 +655,6 @@ argument_list|(
 literal|"Executing task from queue with job name: "
 operator|+
 name|repoTask
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// otherwise, execute consumers on whole repository

@@ -140,21 +140,11 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Checks if there is any repository scanning task queued.      *       * @return      * @throws ArchivaException      */
-specifier|public
-name|boolean
-name|isProcessingAnyRepositoryTask
-parameter_list|()
-throws|throws
-name|ArchivaException
-function_decl|;
 comment|/**      * Checks if there is any database scanning task queued.      *       * @return      * @throws ArchivaException      */
 specifier|public
 name|boolean
 name|isProcessingDatabaseTask
 parameter_list|()
-throws|throws
-name|ArchivaException
 function_decl|;
 comment|/**      * Checks if a repository scanning task for the specified repository is queuedd.      *       * @param repositoryId      * @return      * @throws ArchivaException      */
 specifier|public
@@ -164,30 +154,6 @@ parameter_list|(
 name|String
 name|repositoryId
 parameter_list|)
-throws|throws
-name|ArchivaException
-function_decl|;
-comment|/**      * Checks if a repository scanning task with the specified name is queued.      *       * @param taskName      * @return      * @throws ArchivaException      */
-specifier|public
-name|boolean
-name|isProcessingRepositoryTaskWithName
-parameter_list|(
-name|String
-name|taskName
-parameter_list|)
-throws|throws
-name|ArchivaException
-function_decl|;
-comment|/**      * Checks is an indexing task with the specified name is queued.      *       * @param taskName      * @return      * @throws ArchivaException      */
-specifier|public
-name|boolean
-name|isProcessingIndexingTaskWithName
-parameter_list|(
-name|String
-name|taskName
-parameter_list|)
-throws|throws
-name|ArchivaException
 function_decl|;
 comment|/**      * Adds the database task to the database scanning queue.      *       * @param task      * @throws TaskQueueException      */
 specifier|public

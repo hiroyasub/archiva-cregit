@@ -3092,11 +3092,6 @@ name|getId
 argument_list|()
 argument_list|,
 name|localFile
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-name|localFile
 argument_list|,
 literal|false
 argument_list|,

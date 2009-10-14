@@ -907,13 +907,6 @@ operator|new
 name|DatabaseTask
 argument_list|()
 decl_stmt|;
-name|dataTask
-operator|.
-name|setName
-argument_list|(
-literal|"testDataTask"
-argument_list|)
-expr_stmt|;
 name|taskExecutor
 operator|.
 name|executeTask

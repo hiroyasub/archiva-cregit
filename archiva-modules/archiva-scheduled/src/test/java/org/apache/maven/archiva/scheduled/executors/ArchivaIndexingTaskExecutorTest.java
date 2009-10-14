@@ -729,6 +729,8 @@ name|artifactFile
 argument_list|,
 name|ArtifactIndexingTask
 operator|.
+name|Action
+operator|.
 name|ADD
 argument_list|)
 decl_stmt|;
@@ -1014,6 +1016,8 @@ name|artifactFile
 argument_list|,
 name|ArtifactIndexingTask
 operator|.
+name|Action
+operator|.
 name|ADD
 argument_list|)
 decl_stmt|;
@@ -1212,6 +1216,8 @@ name|artifactFile
 argument_list|,
 name|ArtifactIndexingTask
 operator|.
+name|Action
+operator|.
 name|ADD
 argument_list|)
 decl_stmt|;
@@ -1256,6 +1262,8 @@ argument_list|,
 name|artifactFile
 argument_list|,
 name|ArtifactIndexingTask
+operator|.
+name|Action
 operator|.
 name|FINISH
 argument_list|)
@@ -1402,6 +1410,8 @@ argument_list|,
 name|artifactFile
 argument_list|,
 name|ArtifactIndexingTask
+operator|.
+name|Action
 operator|.
 name|DELETE
 argument_list|)
@@ -1573,6 +1583,8 @@ name|artifactFile
 argument_list|,
 name|ArtifactIndexingTask
 operator|.
+name|Action
+operator|.
 name|ADD
 argument_list|)
 decl_stmt|;
@@ -1624,6 +1636,8 @@ argument_list|,
 name|artifactFile
 argument_list|,
 name|ArtifactIndexingTask
+operator|.
+name|Action
 operator|.
 name|FINISH
 argument_list|)

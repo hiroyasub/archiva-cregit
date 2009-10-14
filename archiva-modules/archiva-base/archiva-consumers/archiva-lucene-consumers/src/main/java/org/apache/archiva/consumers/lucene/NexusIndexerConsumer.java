@@ -205,6 +205,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|scheduled
+operator|.
+name|tasks
+operator|.
+name|ArtifactIndexingTask
+operator|.
+name|Action
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -393,6 +413,8 @@ name|artifactFile
 argument_list|,
 name|ArtifactIndexingTask
 operator|.
+name|Action
+operator|.
 name|ADD
 argument_list|)
 decl_stmt|;
@@ -405,9 +427,6 @@ argument_list|(
 literal|"Queueing indexing task + '"
 operator|+
 name|task
-operator|.
-name|getName
-argument_list|()
 operator|+
 literal|"' to add or update the artifact in the index."
 argument_list|)
@@ -461,6 +480,8 @@ literal|null
 argument_list|,
 name|ArtifactIndexingTask
 operator|.
+name|Action
+operator|.
 name|FINISH
 argument_list|)
 decl_stmt|;
@@ -473,9 +494,6 @@ argument_list|(
 literal|"Queueing indexing task + '"
 operator|+
 name|task
-operator|.
-name|getName
-argument_list|()
 operator|+
 literal|"' to finish indexing."
 argument_list|)
@@ -501,9 +519,6 @@ argument_list|(
 literal|"Error queueing task: "
 operator|+
 name|task
-operator|.
-name|getName
-argument_list|()
 operator|+
 literal|": "
 operator|+

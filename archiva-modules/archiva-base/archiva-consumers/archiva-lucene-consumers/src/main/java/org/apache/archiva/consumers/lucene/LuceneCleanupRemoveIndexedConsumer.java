@@ -19,6 +19,26 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -233,26 +253,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
 comment|/**  * LuceneCleanupRemoveIndexedConsumer  *   * Clean up the index of artifacts that are no longer existing in the file system (managed repositories).    *   * @version $Id$  */
 end_comment
@@ -442,6 +442,8 @@ name|artifactFile
 argument_list|,
 name|ArtifactIndexingTask
 operator|.
+name|Action
+operator|.
 name|DELETE
 argument_list|)
 decl_stmt|;
@@ -452,9 +454,6 @@ argument_list|(
 literal|"Queueing indexing task '"
 operator|+
 name|task
-operator|.
-name|getName
-argument_list|()
 operator|+
 literal|"' to remove the artifact from the index."
 argument_list|)
@@ -483,6 +482,8 @@ name|artifactFile
 argument_list|,
 name|ArtifactIndexingTask
 operator|.
+name|Action
+operator|.
 name|FINISH
 argument_list|)
 expr_stmt|;
@@ -493,9 +494,6 @@ argument_list|(
 literal|"Queueing indexing task + '"
 operator|+
 name|task
-operator|.
-name|getName
-argument_list|()
 operator|+
 literal|"' to finish indexing."
 argument_list|)

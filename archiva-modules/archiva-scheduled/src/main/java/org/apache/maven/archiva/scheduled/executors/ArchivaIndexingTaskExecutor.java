@@ -587,6 +587,8 @@ if|if
 condition|(
 name|ArtifactIndexingTask
 operator|.
+name|Action
+operator|.
 name|FINISH
 operator|.
 name|equals
@@ -682,6 +684,8 @@ operator|.
 name|equals
 argument_list|(
 name|ArtifactIndexingTask
+operator|.
+name|Action
 operator|.
 name|ADD
 argument_list|)
@@ -888,9 +892,6 @@ argument_list|(
 literal|"Error occurred while executing indexing task '"
 operator|+
 name|indexingTask
-operator|.
-name|getName
-argument_list|()
 operator|+
 literal|"'"
 argument_list|)
@@ -902,9 +903,6 @@ argument_list|(
 literal|"Error occurred while executing indexing task '"
 operator|+
 name|indexingTask
-operator|.
-name|getName
-argument_list|()
 operator|+
 literal|"'"
 argument_list|)
