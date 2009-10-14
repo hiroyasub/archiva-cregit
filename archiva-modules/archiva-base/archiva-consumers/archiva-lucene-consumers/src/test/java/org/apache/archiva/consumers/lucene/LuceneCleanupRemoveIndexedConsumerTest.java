@@ -570,9 +570,6 @@ operator|.
 name|createIndexingTask
 argument_list|(
 name|repositoryConfig
-operator|.
-name|getId
-argument_list|()
 argument_list|,
 name|artifactFile
 argument_list|,
@@ -581,6 +578,8 @@ operator|.
 name|Action
 operator|.
 name|DELETE
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -602,9 +601,6 @@ operator|.
 name|createIndexingTask
 argument_list|(
 name|repositoryConfig
-operator|.
-name|getId
-argument_list|()
 argument_list|,
 name|artifactFile
 argument_list|,
@@ -613,6 +609,8 @@ operator|.
 name|Action
 operator|.
 name|FINISH
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertEquals
