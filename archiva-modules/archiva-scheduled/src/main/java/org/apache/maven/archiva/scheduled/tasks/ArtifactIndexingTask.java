@@ -66,6 +66,14 @@ name|DELETE
 init|=
 literal|"delete"
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|FINISH
+init|=
+literal|"finish"
+decl_stmt|;
 name|String
 name|repositoryId
 decl_stmt|;

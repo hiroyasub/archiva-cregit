@@ -466,6 +466,47 @@ argument_list|(
 name|task
 argument_list|)
 expr_stmt|;
+comment|// note we finish immediately here since it isn't done repo-by-repo. It might be nice to ensure that is
+comment|// the case for optimisation though
+name|task
+operator|=
+name|TaskCreator
+operator|.
+name|createIndexingTask
+argument_list|(
+name|repository
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|artifactFile
+argument_list|,
+name|ArtifactIndexingTask
+operator|.
+name|FINISH
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Queueing indexing task + '"
+operator|+
+name|task
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"' to finish indexing."
+argument_list|)
+expr_stmt|;
+name|scheduler
+operator|.
+name|queueIndexingTask
+argument_list|(
+name|task
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 catch|catch

@@ -353,6 +353,8 @@ argument_list|(
 name|repository
 argument_list|)
 expr_stmt|;
+comment|// TODO: investigate whether it is reasonable to create the indexing context here rather than file-by-file
+comment|//  we may want to be able to "flush" it after every file without closing it though, if necessary
 block|}
 specifier|public
 name|void
@@ -443,6 +445,77 @@ name|void
 name|completeScan
 parameter_list|()
 block|{
+name|ArtifactIndexingTask
+name|task
+init|=
+name|TaskCreator
+operator|.
+name|createIndexingTask
+argument_list|(
+name|repositoryContent
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+literal|null
+argument_list|,
+name|ArtifactIndexingTask
+operator|.
+name|FINISH
+argument_list|)
+decl_stmt|;
+try|try
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Queueing indexing task + '"
+operator|+
+name|task
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"' to finish indexing."
+argument_list|)
+expr_stmt|;
+name|scheduler
+operator|.
+name|queueIndexingTask
+argument_list|(
+name|task
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|TaskQueueException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Error queueing task: "
+operator|+
+name|task
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 specifier|public
 name|List

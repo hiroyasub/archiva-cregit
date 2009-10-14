@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TaskCreator  *   * Convenience class for creating Archiva tasks.  */
+comment|/**  * TaskCreator Convenience class for creating Archiva tasks.  */
 end_comment
 
 begin_class
@@ -302,10 +302,9 @@ argument_list|(
 name|repositoryId
 argument_list|)
 expr_stmt|;
-name|task
-operator|.
-name|setName
-argument_list|(
+name|String
+name|name
+init|=
 name|DefaultArchivaTaskScheduler
 operator|.
 name|INDEXING_JOB
@@ -313,6 +312,17 @@ operator|+
 literal|":"
 operator|+
 name|repositoryId
+decl_stmt|;
+if|if
+condition|(
+name|resource
+operator|!=
+literal|null
+condition|)
+block|{
+name|name
+operator|=
+name|name
 operator|+
 literal|":"
 operator|+
@@ -320,10 +330,21 @@ name|resource
 operator|.
 name|getName
 argument_list|()
+expr_stmt|;
+block|}
+name|name
+operator|=
+name|name
 operator|+
 literal|":"
 operator|+
 name|action
+expr_stmt|;
+name|task
+operator|.
+name|setName
+argument_list|(
+name|name
 argument_list|)
 expr_stmt|;
 name|task
