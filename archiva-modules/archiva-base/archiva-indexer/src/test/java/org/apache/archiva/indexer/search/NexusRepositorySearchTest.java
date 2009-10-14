@@ -2632,9 +2632,6 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|SearchResults
-name|results
-init|=
 name|search
 operator|.
 name|search
@@ -2645,7 +2642,7 @@ name|searchFields
 argument_list|,
 literal|null
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"A RepositorySearchExcecption should have been thrown."
@@ -2732,9 +2729,6 @@ operator|.
 name|replay
 argument_list|()
 expr_stmt|;
-name|SearchResults
-name|results
-init|=
 name|search
 operator|.
 name|search
@@ -2745,7 +2739,7 @@ name|searchFields
 argument_list|,
 literal|null
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|archivaConfigControl
 operator|.
 name|verify
@@ -2872,9 +2866,6 @@ operator|.
 name|replay
 argument_list|()
 expr_stmt|;
-name|SearchResults
-name|results
-init|=
 name|search
 operator|.
 name|search
@@ -2885,7 +2876,7 @@ name|searchFields
 argument_list|,
 literal|null
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|archivaConfigControl
 operator|.
 name|verify
