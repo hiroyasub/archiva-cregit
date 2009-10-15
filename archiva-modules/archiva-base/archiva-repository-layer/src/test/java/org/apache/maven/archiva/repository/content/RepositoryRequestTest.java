@@ -922,7 +922,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|testIsMetadataSupprotFile
+name|testIsMetadataSupportFile
 parameter_list|()
 block|{
 name|assertFalse
