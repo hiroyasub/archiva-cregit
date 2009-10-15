@@ -407,7 +407,9 @@ literal|"**/*.md5"
 argument_list|,
 literal|"**/*.pgp"
 argument_list|,
-literal|"**/.index/*.*"
+literal|"**/.index/**"
+argument_list|,
+literal|"**/.indexer/**"
 argument_list|)
 decl_stmt|;
 specifier|public
