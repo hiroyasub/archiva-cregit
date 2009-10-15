@@ -569,6 +569,24 @@ block|}
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|context
+operator|.
+name|getIndexDirectory
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|TaskExecutionException
+argument_list|(
+literal|"Trying to index an artifact but the context is already closed"
+argument_list|)
+throw|;
+block|}
 try|try
 block|{
 name|File
