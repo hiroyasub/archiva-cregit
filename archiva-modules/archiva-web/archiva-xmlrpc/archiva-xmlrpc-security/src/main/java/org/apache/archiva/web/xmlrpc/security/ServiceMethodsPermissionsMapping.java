@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ServiceMethodsPermissionsMapping  *   * Used by the XmlRpcAuthenticationHandler to check the permissions specific to the requested service method.  * New methods in exposed services must be registered in the appropriate operation below.   *   * @version $Id: ServiceMethodsPermissionsMapping.java  */
+comment|/**  * ServiceMethodsPermissionsMapping  *  * Used by the XmlRpcAuthenticationHandler to check the permissions specific to the requested service method.  * New methods in exposed services must be registered in the appropriate operation below.  *  * @version $Id: ServiceMethodsPermissionsMapping.java  */
 end_comment
 
 begin_class
@@ -183,22 +183,22 @@ argument_list|)
 expr_stmt|;
 name|add
 argument_list|(
-literal|"SearchService.queryArtifactVersionsByDate"
+literal|"SearchService.getArtifactVersionsByDate"
 argument_list|)
 expr_stmt|;
 name|add
 argument_list|(
-literal|" SearchService.getDirectDependencies"
+literal|"SearchService.getDependencies"
 argument_list|)
 expr_stmt|;
 name|add
 argument_list|(
-literal|" SearchService.getDirectDependencyTree"
+literal|"SearchService.getDependencyTree"
 argument_list|)
 expr_stmt|;
 name|add
 argument_list|(
-literal|" SearchService.getDependees"
+literal|"SearchService.getDependees"
 argument_list|)
 expr_stmt|;
 block|}
