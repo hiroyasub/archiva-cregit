@@ -21,6 +21,16 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -111,9 +121,7 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|repository
-operator|.
-name|scanner
+name|consumers
 operator|.
 name|functors
 operator|.
@@ -132,16 +140,6 @@ operator|.
 name|spring
 operator|.
 name|PlexusInSpringTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
 import|;
 end_import
 

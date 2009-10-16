@@ -297,37 +297,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-try|try
-block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Task: Updating processed artifacts"
-argument_list|)
-expr_stmt|;
-name|databaseUpdater
-operator|.
-name|updateAllProcessed
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ArchivaDatabaseException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|TaskExecutionException
-argument_list|(
-literal|"Error running processed updater"
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
 name|time
 operator|=
 name|System
