@@ -130,6 +130,9 @@ name|description
 decl_stmt|;
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|includes
 decl_stmt|;
 specifier|public
@@ -142,6 +145,9 @@ name|includes
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|this
@@ -197,6 +203,9 @@ comment|/* do nothing */
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getIncludedTypes
 parameter_list|()
 block|{

@@ -45,6 +45,9 @@ function_decl|;
 comment|/**      * For simple Constraints the results class must be specified.      *       * @return the result class.      */
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getResultClass
 parameter_list|()
 function_decl|;

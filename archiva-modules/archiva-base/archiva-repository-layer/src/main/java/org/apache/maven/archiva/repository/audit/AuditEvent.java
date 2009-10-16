@@ -20,7 +20,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * AuditEvent   *  * @version $Id$  */
+comment|/**  * AuditEvent  *   * @version $Id$  */
 end_comment
 
 begin_class
@@ -108,6 +108,183 @@ name|UPLOAD_FILE
 init|=
 literal|"Uploaded File"
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ADD_LEGACY_PATH
+init|=
+literal|"Added Legacy Artifact Path"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|REMOVE_LEGACY_PATH
+init|=
+literal|"Removed Legacy Artifact Path"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|PURGE_ARTIFACT
+init|=
+literal|"Purged Artifact"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|PURGE_FILE
+init|=
+literal|"Purged Support File"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|REMOVE_SCANNED
+init|=
+literal|"Removed in Filesystem"
+decl_stmt|;
+comment|// configuration events
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ADD_MANAGED_REPO
+init|=
+literal|"Added Managed Repository"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MODIFY_MANAGED_REPO
+init|=
+literal|"Updated Managed Repository"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DELETE_MANAGED_REPO
+init|=
+literal|"Deleted Managed Repository"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ADD_REMOTE_REPO
+init|=
+literal|"Added Remote Repository"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MODIFY_REMOTE_REPO
+init|=
+literal|"Updated Remote Repository"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DELETE_REMOTE_REPO
+init|=
+literal|"Deleted Remote Repository"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ADD_REPO_GROUP
+init|=
+literal|"Added Repository Group"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DELETE_REPO_GROUP
+init|=
+literal|"Deleted Repository Group"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ADD_REPO_TO_GROUP
+init|=
+literal|"Added Repository to Group"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DELETE_REPO_FROM_GROUP
+init|=
+literal|"Deleted Repository from Group"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ENABLE_REPO_CONSUMER
+init|=
+literal|"Enabled Content Consumer"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DISABLE_REPO_CONSUMER
+init|=
+literal|"Disabled Content Consumer"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ENABLE_DB_CONSUMER
+init|=
+literal|"Enabled Database Consumer"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DISABLE_DB_CONSUMER
+init|=
+literal|"Disabled Database Consumer"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ADD_PATTERN
+init|=
+literal|"Added File Type Pattern"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|REMOVE_PATTERN
+init|=
+literal|"Removed File Type Pattern"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DB_SCHEDULE
+init|=
+literal|"Modified Scanning Schedule"
+decl_stmt|;
 specifier|private
 name|String
 name|repositoryId
@@ -173,6 +350,51 @@ operator|.
 name|action
 operator|=
 name|action
+expr_stmt|;
+block|}
+specifier|public
+name|AuditEvent
+parameter_list|(
+name|String
+name|user
+parameter_list|,
+name|String
+name|resource
+parameter_list|,
+name|String
+name|action
+parameter_list|)
+block|{
+name|this
+argument_list|(
+literal|null
+argument_list|,
+name|user
+argument_list|,
+name|resource
+argument_list|,
+name|action
+argument_list|)
+expr_stmt|;
+block|}
+specifier|public
+name|AuditEvent
+parameter_list|(
+name|String
+name|principal
+parameter_list|,
+name|String
+name|action2
+parameter_list|)
+block|{
+name|this
+argument_list|(
+literal|null
+argument_list|,
+name|principal
+argument_list|,
+name|action2
+argument_list|)
 expr_stmt|;
 block|}
 specifier|public

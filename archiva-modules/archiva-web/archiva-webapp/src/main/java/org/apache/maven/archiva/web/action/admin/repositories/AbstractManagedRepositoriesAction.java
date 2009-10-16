@@ -477,8 +477,7 @@ name|repoId
 argument_list|)
 expr_stmt|;
 block|}
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|debug
 argument_list|(

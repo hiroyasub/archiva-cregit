@@ -259,9 +259,6 @@ name|result
 init|=
 literal|17
 decl_stmt|;
-name|long
-name|tmp
-decl_stmt|;
 name|result
 operator|=
 literal|37

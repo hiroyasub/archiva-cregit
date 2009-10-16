@@ -182,8 +182,8 @@ parameter_list|,
 name|String
 name|repositoryId
 parameter_list|,
-name|boolean
-name|isWriteRequest
+name|String
+name|permission
 parameter_list|)
 throws|throws
 name|AuthorizationException
@@ -201,8 +201,8 @@ parameter_list|,
 name|String
 name|repoId
 parameter_list|,
-name|boolean
-name|isWriteRequest
+name|String
+name|permission
 parameter_list|)
 throws|throws
 name|UnauthorizedException

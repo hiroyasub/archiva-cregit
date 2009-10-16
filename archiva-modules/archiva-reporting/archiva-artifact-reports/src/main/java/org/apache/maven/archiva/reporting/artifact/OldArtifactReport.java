@@ -21,6 +21,16 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -95,6 +105,22 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|model
+operator|.
+name|ArchivaArtifact
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
 name|reporting
 operator|.
 name|DataLimits
@@ -117,16 +143,6 @@ name|DynamicReportSource
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
 comment|/**  * OldArtifactReport   *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.reporting.DynamicReportSource"   *                   role-hint="old-artifacts"  */
 end_comment
@@ -137,6 +153,9 @@ class|class
 name|OldArtifactReport
 implements|implements
 name|DynamicReportSource
+argument_list|<
+name|ArchivaArtifact
+argument_list|>
 block|{
 comment|/**      * @plexus.configuration default-value="Old Artifacts Report"      */
 specifier|private
@@ -155,6 +174,9 @@ name|cutoffDays
 decl_stmt|;
 specifier|public
 name|List
+argument_list|<
+name|ArchivaArtifact
+argument_list|>
 name|getData
 parameter_list|()
 throws|throws
@@ -180,6 +202,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|ArchivaArtifact
+argument_list|>
 name|getData
 parameter_list|(
 name|DataLimits

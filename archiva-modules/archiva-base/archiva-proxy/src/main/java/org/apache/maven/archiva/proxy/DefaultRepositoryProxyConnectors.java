@@ -125,22 +125,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|scanner
-operator|.
-name|RepositoryContentConsumers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|commons
 operator|.
 name|collections
@@ -543,6 +527,58 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|archiva
+operator|.
+name|scheduled
+operator|.
+name|ArchivaTaskScheduler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|scheduled
+operator|.
+name|tasks
+operator|.
+name|RepositoryTask
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|scheduled
+operator|.
+name|tasks
+operator|.
+name|TaskCreator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
 name|wagon
 operator|.
 name|ConnectionException
@@ -731,6 +767,20 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
+name|taskqueue
+operator|.
+name|TaskQueueException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
 name|util
 operator|.
 name|SelectorUtils
@@ -758,7 +808,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultRepositoryProxyConnectors  *  * @version $Id$  * @todo exception handling needs work - "not modified" is not really an exceptional case, and it has more layers than your average brown onion  * @plexus.component role-hint="default"  */
+comment|/**  * DefaultRepositoryProxyConnectors  *   * @version $Id$  * @todo exception handling needs work - "not modified" is not really an exceptional case, and it has more layers than  *       your average brown onion  * @plexus.component role-hint="default"  */
 end_comment
 
 begin_class
@@ -879,13 +929,13 @@ argument_list|()
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
-name|RepositoryContentConsumers
-name|consumers
+name|WagonFactory
+name|wagonFactory
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
-name|WagonFactory
-name|wagonFactory
+name|ArchivaTaskScheduler
+name|scheduler
 decl_stmt|;
 specifier|public
 name|File
@@ -899,16 +949,6 @@ name|artifact
 parameter_list|)
 throws|throws
 name|ProxyDownloadException
-block|{
-name|File
-name|workingDirectory
-init|=
-name|createWorkingDirectory
-argument_list|(
-name|repository
-argument_list|)
-decl_stmt|;
-try|try
 block|{
 name|File
 name|localFile
@@ -1050,8 +1090,6 @@ argument_list|,
 name|targetPath
 argument_list|,
 name|repository
-argument_list|,
-name|workingDirectory
 argument_list|,
 name|localFile
 argument_list|,
@@ -1218,17 +1256,6 @@ operator|+
 literal|" not found."
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-name|FileUtils
-operator|.
-name|deleteQuietly
-argument_list|(
-name|workingDirectory
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 literal|null
 return|;
@@ -1243,16 +1270,6 @@ parameter_list|,
 name|String
 name|path
 parameter_list|)
-block|{
-name|File
-name|workingDir
-init|=
-name|createWorkingDirectory
-argument_list|(
-name|repository
-argument_list|)
-decl_stmt|;
-try|try
 block|{
 name|File
 name|localFile
@@ -1377,8 +1394,6 @@ argument_list|,
 name|targetPath
 argument_list|,
 name|repository
-argument_list|,
-name|workingDir
 argument_list|,
 name|localFile
 argument_list|,
@@ -1522,17 +1537,6 @@ operator|+
 literal|" not found."
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-name|FileUtils
-operator|.
-name|deleteQuietly
-argument_list|(
-name|workingDir
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 literal|null
 return|;
@@ -1547,16 +1551,6 @@ parameter_list|,
 name|String
 name|logicalPath
 parameter_list|)
-block|{
-name|File
-name|workingDir
-init|=
-name|createWorkingDirectory
-argument_list|(
-name|repository
-argument_list|)
-decl_stmt|;
-try|try
 block|{
 name|File
 name|localFile
@@ -1669,8 +1663,6 @@ argument_list|,
 name|logicalPath
 argument_list|,
 name|repository
-argument_list|,
-name|workingDir
 argument_list|,
 name|localRepoFile
 argument_list|,
@@ -1877,17 +1869,6 @@ return|return
 name|localFile
 return|;
 block|}
-block|}
-finally|finally
-block|{
-name|FileUtils
-operator|.
-name|deleteQuietly
-argument_list|(
-name|workingDir
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 literal|null
 return|;
@@ -2062,7 +2043,7 @@ name|artifact
 argument_list|)
 return|;
 block|}
-comment|/**      * Simple method to test if the file exists on the local disk.      *      * @param file the file to test. (may be null)      * @return true if file exists. false if the file param is null, doesn't exist, or is not of type File.      */
+comment|/**      * Simple method to test if the file exists on the local disk.      *       * @param file the file to test. (may be null)      * @return true if file exists. false if the file param is null, doesn't exist, or is not of type File.      */
 specifier|private
 name|boolean
 name|fileExists
@@ -2112,7 +2093,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Perform the transfer of the file.      *      * @param connector         the connector configuration to use.      * @param remoteRepository  the remote repository get the resource from.      * @param remotePath        the path in the remote repository to the resource to get.      * @param repository        the managed repository that will hold the file      * @param resource          the local file to place the downloaded resource into      * @param requestProperties the request properties to utilize for policy handling.      * @param executeConsumers  whether to execute the consumers after proxying      * @return the local file that was downloaded, or null if not downloaded.      * @throws NotFoundException    if the file was not found on the remote repository.      * @throws NotModifiedException if the localFile was present, and the resource was present on remote repository,      *                              but the remote resource is not newer than the local File.      * @throws ProxyException       if transfer was unsuccessful.      */
+comment|/**      * Perform the transfer of the file.      *       * @param connector the connector configuration to use.      * @param remoteRepository the remote repository get the resource from.      * @param remotePath the path in the remote repository to the resource to get.      * @param repository the managed repository that will hold the file      * @param resource the local file to place the downloaded resource into      * @param requestProperties the request properties to utilize for policy handling.      * @param executeConsumers whether to execute the consumers after proxying      * @return the local file that was downloaded, or null if not downloaded.      * @throws NotFoundException if the file was not found on the remote repository.      * @throws NotModifiedException if the localFile was present, and the resource was present on remote repository, but      *             the remote resource is not newer than the local File.      * @throws ProxyException if transfer was unsuccessful.      */
 specifier|private
 name|File
 name|transferFile
@@ -2128,9 +2109,6 @@ name|remotePath
 parameter_list|,
 name|ManagedRepositoryContent
 name|repository
-parameter_list|,
-name|File
-name|workingDirectory
 parameter_list|,
 name|File
 name|resource
@@ -2334,7 +2312,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 name|emsg
 operator|+
@@ -2347,7 +2325,7 @@ return|;
 block|}
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 name|emsg
 argument_list|)
@@ -2356,37 +2334,6 @@ return|return
 literal|null
 return|;
 block|}
-comment|// MRM-631 - the lightweight wagon does not reset these - remove if we switch to httpclient based wagon
-name|String
-name|previousHttpProxyHost
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"http.proxyHost"
-argument_list|)
-decl_stmt|;
-name|String
-name|previousHttpProxyPort
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"http.proxyPort"
-argument_list|)
-decl_stmt|;
-name|String
-name|previousProxyExclusions
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"http.nonProxyHosts"
-argument_list|)
-decl_stmt|;
 name|File
 name|tmpMd5
 init|=
@@ -2402,6 +2349,16 @@ name|tmpResource
 init|=
 literal|null
 decl_stmt|;
+name|File
+name|workingDirectory
+init|=
+name|createWorkingDirectory
+argument_list|(
+name|repository
+argument_list|)
+decl_stmt|;
+try|try
+block|{
 name|Wagon
 name|wagon
 init|=
@@ -2475,6 +2432,17 @@ condition|)
 block|{
 name|tmpResource
 operator|=
+operator|new
+name|File
+argument_list|(
+name|workingDirectory
+argument_list|,
+name|resource
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|transferSimpleFile
 argument_list|(
 name|wagon
@@ -2485,13 +2453,14 @@ name|remotePath
 argument_list|,
 name|repository
 argument_list|,
-name|workingDirectory
-argument_list|,
 name|resource
+argument_list|,
+name|tmpResource
 argument_list|)
 expr_stmt|;
-comment|// TODO: these should be used to validate the download based on the policies, not always downloaded to
-comment|//   save on connections since md5 is rarely used
+comment|// TODO: these should be used to validate the download based on the policies, not always downloaded
+comment|// to
+comment|// save on connections since md5 is rarely used
 name|tmpSha1
 operator|=
 name|transferChecksum
@@ -2504,9 +2473,9 @@ name|remotePath
 argument_list|,
 name|repository
 argument_list|,
-name|workingDirectory
-argument_list|,
 name|resource
+argument_list|,
+name|workingDirectory
 argument_list|,
 literal|".sha1"
 argument_list|)
@@ -2523,9 +2492,9 @@ name|remotePath
 argument_list|,
 name|repository
 argument_list|,
-name|workingDirectory
-argument_list|,
 name|resource
+argument_list|,
+name|workingDirectory
 argument_list|,
 literal|".md5"
 argument_list|)
@@ -2593,97 +2562,6 @@ operator|.
 name|disconnect
 argument_list|()
 expr_stmt|;
-comment|// MRM-631 - the lightweight wagon does not reset these - remove if we switch to httpclient based wagon
-if|if
-condition|(
-name|previousHttpProxyHost
-operator|!=
-literal|null
-condition|)
-block|{
-name|System
-operator|.
-name|setProperty
-argument_list|(
-literal|"http.proxyHost"
-argument_list|,
-name|previousHttpProxyHost
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|System
-operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|remove
-argument_list|(
-literal|"http.proxyHost"
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|previousHttpProxyPort
-operator|!=
-literal|null
-condition|)
-block|{
-name|System
-operator|.
-name|setProperty
-argument_list|(
-literal|"http.proxyPort"
-argument_list|,
-name|previousHttpProxyPort
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|System
-operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|remove
-argument_list|(
-literal|"http.proxyPort"
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|previousProxyExclusions
-operator|!=
-literal|null
-condition|)
-block|{
-name|System
-operator|.
-name|setProperty
-argument_list|(
-literal|"http.nonProxyHosts"
-argument_list|,
-name|previousProxyExclusions
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|System
-operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|remove
-argument_list|(
-literal|"http.nonProxyHosts"
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -2731,7 +2609,7 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|info
+name|warn
 argument_list|(
 literal|"Transfer invalidated from "
 operator|+
@@ -2813,15 +2691,25 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+finally|finally
+block|{
+name|FileUtils
+operator|.
+name|deleteQuietly
+argument_list|(
+name|workingDirectory
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|executeConsumers
 condition|)
 block|{
 comment|// Just-in-time update of the index and database by executing the consumers for this artifact
-name|consumers
-operator|.
-name|executeConsumers
+comment|//consumers.executeConsumers( connector.getSourceRepository().getRepository(), resource );
+name|queueRepositoryTask
 argument_list|(
 name|connector
 operator|.
@@ -2829,6 +2717,9 @@ name|getSourceRepository
 argument_list|()
 operator|.
 name|getRepository
+argument_list|()
+operator|.
+name|getId
 argument_list|()
 argument_list|,
 name|resource
@@ -2838,6 +2729,65 @@ block|}
 return|return
 name|resource
 return|;
+block|}
+specifier|private
+name|void
+name|queueRepositoryTask
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|,
+name|File
+name|localFile
+parameter_list|)
+block|{
+name|RepositoryTask
+name|task
+init|=
+name|TaskCreator
+operator|.
+name|createRepositoryTask
+argument_list|(
+name|repositoryId
+argument_list|,
+name|localFile
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+try|try
+block|{
+name|scheduler
+operator|.
+name|queueRepositoryTask
+argument_list|(
+name|task
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|TaskQueueException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Unable to queue repository task to execute consumers on resource file ['"
+operator|+
+name|localFile
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"']."
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Moves the file into repository location if it exists      *       * @param fileToMove this could be either the main artifact, sha1 or md5 checksum file.      * @param directory directory to write files to      */
 specifier|private
@@ -2888,7 +2838,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      *<p>      * Quietly transfer the checksum file from the remote repository to the local file.      *</p>      *      * @param wagon            the wagon instance (should already be connected) to use.      * @param remoteRepository the remote repository to transfer from.      * @param remotePath       the remote path to the resource to get.      * @param repository       the managed repository that will hold the file      * @param localFile        the local file that should contain the downloaded contents      * @param type             the type of checksum to transfer (example: ".md5" or ".sha1")      * @throws ProxyException if copying the downloaded file into place did not succeed.      */
+comment|/**      *<p>      * Quietly transfer the checksum file from the remote repository to the local file.      *</p>      *       * @param wagon the wagon instance (should already be connected) to use.      * @param remoteRepository the remote repository to transfer from.      * @param remotePath the remote path to the resource to get.      * @param repository the managed repository that will hold the file      * @param localFile the local file that should contain the downloaded contents      * @param type the type of checksum to transfer (example: ".md5" or ".sha1")      * @throws ProxyException if copying the downloaded file into place did not succeed.      */
 specifier|private
 name|File
 name|transferChecksum
@@ -2906,45 +2856,17 @@ name|ManagedRepositoryContent
 name|repository
 parameter_list|,
 name|File
-name|workingDirectory
+name|resource
 parameter_list|,
 name|File
-name|localFile
+name|tmpDirectory
 parameter_list|,
 name|String
-name|type
+name|ext
 parameter_list|)
 throws|throws
 name|ProxyException
 block|{
-name|File
-name|hashFile
-init|=
-operator|new
-name|File
-argument_list|(
-name|localFile
-operator|.
-name|getAbsolutePath
-argument_list|()
-operator|+
-name|type
-argument_list|)
-decl_stmt|;
-name|File
-name|tmpChecksum
-init|=
-operator|new
-name|File
-argument_list|(
-name|workingDirectory
-argument_list|,
-name|hashFile
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-decl_stmt|;
 name|String
 name|url
 init|=
@@ -2957,6 +2879,8 @@ name|getUrl
 argument_list|()
 operator|+
 name|remotePath
+operator|+
+name|ext
 decl_stmt|;
 comment|// Transfer checksum does not use the policy.
 if|if
@@ -2966,8 +2890,6 @@ operator|.
 name|hasFailedBefore
 argument_list|(
 name|url
-operator|+
-name|type
 argument_list|)
 condition|)
 block|{
@@ -2975,6 +2897,22 @@ return|return
 literal|null
 return|;
 block|}
+name|File
+name|destFile
+init|=
+operator|new
+name|File
+argument_list|(
+name|tmpDirectory
+argument_list|,
+name|resource
+operator|.
+name|getName
+argument_list|()
+operator|+
+name|ext
+argument_list|)
+decl_stmt|;
 try|try
 block|{
 name|transferSimpleFile
@@ -2985,26 +2923,30 @@ name|remoteRepository
 argument_list|,
 name|remotePath
 operator|+
-name|type
+name|ext
 argument_list|,
 name|repository
 argument_list|,
-name|workingDirectory
+name|resource
 argument_list|,
-name|hashFile
+name|destFile
 argument_list|)
 expr_stmt|;
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Checksum"
+literal|"Checksum "
 operator|+
-name|type
+name|url
 operator|+
 literal|" Downloaded: "
 operator|+
-name|hashFile
+name|destFile
+operator|+
+literal|" to move to "
+operator|+
+name|resource
 argument_list|)
 expr_stmt|;
 block|}
@@ -3019,8 +2961,6 @@ operator|.
 name|cacheFailure
 argument_list|(
 name|url
-operator|+
-name|type
 argument_list|)
 expr_stmt|;
 name|log
@@ -3062,8 +3002,6 @@ operator|.
 name|cacheFailure
 argument_list|(
 name|url
-operator|+
-name|type
 argument_list|)
 expr_stmt|;
 name|log
@@ -3090,12 +3028,12 @@ name|e
 throw|;
 block|}
 return|return
-name|tmpChecksum
+name|destFile
 return|;
 block|}
-comment|/**      * Perform the transfer of the remote file to the local file specified.      *      * @param wagon            the wagon instance to use.      * @param remoteRepository the remote repository to use      * @param remotePath       the remote path to attempt to get      * @param repository       the managed repository that will hold the file      * @param localFile        the local file to save to      * @return The local file that was transfered.      * @throws ProxyException if there was a problem moving the downloaded file into place.      * @throws WagonException if there was a problem tranfering the file.      */
+comment|/**      * Perform the transfer of the remote file to the local file specified.      *       * @param wagon the wagon instance to use.      * @param remoteRepository the remote repository to use      * @param remotePath the remote path to attempt to get      * @param repository the managed repository that will hold the file      * @param origFile the local file to save to      * @return The local file that was transfered.      * @throws ProxyException if there was a problem moving the downloaded file into place.      * @throws WagonException if there was a problem tranfering the file.      */
 specifier|private
-name|File
+name|void
 name|transferSimpleFile
 parameter_list|(
 name|Wagon
@@ -3111,10 +3049,10 @@ name|ManagedRepositoryContent
 name|repository
 parameter_list|,
 name|File
-name|workingDirectory
+name|origFile
 parameter_list|,
 name|File
-name|localFile
+name|destFile
 parameter_list|)
 throws|throws
 name|ProxyException
@@ -3127,26 +3065,8 @@ literal|null
 operator|)
 assert|;
 comment|// Transfer the file.
-name|File
-name|temp
-init|=
-literal|null
-decl_stmt|;
 try|try
 block|{
-name|temp
-operator|=
-operator|new
-name|File
-argument_list|(
-name|workingDirectory
-argument_list|,
-name|localFile
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|boolean
 name|success
 init|=
@@ -3155,7 +3075,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|localFile
+name|origFile
 operator|.
 name|exists
 argument_list|()
@@ -3186,7 +3106,7 @@ name|get
 argument_list|(
 name|remotePath
 argument_list|,
-name|temp
+name|destFile
 argument_list|)
 expr_stmt|;
 name|success
@@ -3233,9 +3153,9 @@ name|getIfNewer
 argument_list|(
 name|remotePath
 argument_list|,
-name|temp
+name|destFile
 argument_list|,
-name|localFile
+name|origFile
 operator|.
 name|lastModified
 argument_list|()
@@ -3253,7 +3173,7 @@ name|NotModifiedException
 argument_list|(
 literal|"Not downloaded, as local file is newer than remote side: "
 operator|+
-name|localFile
+name|origFile
 operator|.
 name|getAbsolutePath
 argument_list|()
@@ -3262,7 +3182,7 @@ throw|;
 block|}
 if|if
 condition|(
-name|temp
+name|destFile
 operator|.
 name|exists
 argument_list|()
@@ -3277,9 +3197,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|return
-name|temp
-return|;
 block|}
 catch|catch
 parameter_list|(
@@ -3374,7 +3291,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Apply the policies.      *      * @param policies  the map of policies to execute. (Map of String policy keys, to {@link DownloadPolicy} objects)      * @param settings  the map of settings for the policies to execute. (Map of String policy keys, to String policy setting)      * @param request   the request properties (utilized by the {@link DownloadPolicy#applyPolicy(String,Properties,File)})      * @param localFile the local file (utilized by the {@link DownloadPolicy#applyPolicy(String,Properties,File)})      */
+comment|/**      * Apply the policies.      *       * @param policies the map of policies to execute. (Map of String policy keys, to {@link DownloadPolicy} objects)      * @param settings the map of settings for the policies to execute. (Map of String policy keys, to String policy      *            setting)      * @param request the request properties (utilized by the {@link DownloadPolicy#applyPolicy(String,Properties,File)}      *            )      * @param localFile the local file (utilized by the {@link DownloadPolicy#applyPolicy(String,Properties,File)})      */
 specifier|private
 name|void
 name|validatePolicies
@@ -3780,7 +3697,7 @@ name|exception
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a working directory in the repository root for this request      * @param repository      * @return file location of working directory      */
+comment|/**      * Creates a working directory in the repository root for this request      *       * @param repository      * @return file location of working directory      * @throws IOException      */
 specifier|private
 name|File
 name|createWorkingDirectory
@@ -3789,7 +3706,7 @@ name|ManagedRepositoryContent
 name|repository
 parameter_list|)
 block|{
-comment|//TODO: This is ugly - lets actually clean this up when we get the new repository api
+comment|// TODO: This is ugly - lets actually clean this up when we get the new repository api
 try|try
 block|{
 name|File
@@ -3844,7 +3761,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Used to move the temporary file to its real destination.  This is patterned from the way WagonManager handles      * its downloaded files.      *      * @param temp   The completed download file      * @param target The final location of the downloaded file      * @throws ProxyException when the temp file cannot replace the target file      */
+comment|/**      * Used to move the temporary file to its real destination. This is patterned from the way WagonManager handles its      * downloaded files.      *       * @param temp The completed download file      * @param target The final location of the downloaded file      * @throws ProxyException when the temp file cannot replace the target file      */
 specifier|private
 name|void
 name|moveTempToTarget
@@ -3991,7 +3908,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Using wagon, connect to the remote repository.      *      * @param connector        the connector configuration to utilize (for obtaining network proxy configuration from)      * @param wagon            the wagon instance to establish the connection on.      * @param remoteRepository the remote repository to connect to.      * @return true if the connection was successful. false if not connected.      */
+comment|/**      * Using wagon, connect to the remote repository.      *       * @param connector the connector configuration to utilize (for obtaining network proxy configuration from)      * @param wagon the wagon instance to establish the connection on.      * @param remoteRepository the remote repository to connect to.      * @return true if the connection was successful. false if not connected.      */
 specifier|private
 name|boolean
 name|connectToRepository
@@ -4213,7 +4130,7 @@ name|password
 argument_list|)
 expr_stmt|;
 block|}
-comment|//Convert seconds to milliseconds
+comment|// Convert seconds to milliseconds
 name|int
 name|timeoutInMilliseconds
 init|=
@@ -4227,7 +4144,7 @@ argument_list|()
 operator|*
 literal|1000
 decl_stmt|;
-comment|//Set timeout
+comment|// Set timeout
 name|wagon
 operator|.
 name|setTimeout
@@ -4343,7 +4260,7 @@ return|return
 name|connected
 return|;
 block|}
-comment|/**      * Tests whitelist and blacklist patterns against path.      *      * @param path     the path to test.      * @param patterns the list of patterns to check.      * @return true if the path matches at least 1 pattern in the provided patterns list.      */
+comment|/**      * Tests whitelist and blacklist patterns against path.      *       * @param path the path to test.      * @param patterns the list of patterns to check.      * @return true if the path matches at least 1 pattern in the provided patterns list.      */
 specifier|private
 name|boolean
 name|matchesPattern
@@ -4372,6 +4289,24 @@ return|return
 literal|false
 return|;
 block|}
+if|if
+condition|(
+operator|!
+name|path
+operator|.
+name|startsWith
+argument_list|(
+literal|"/"
+argument_list|)
+condition|)
+block|{
+name|path
+operator|=
+literal|"/"
+operator|+
+name|path
+expr_stmt|;
+block|}
 for|for
 control|(
 name|String
@@ -4380,6 +4315,24 @@ range|:
 name|patterns
 control|)
 block|{
+if|if
+condition|(
+operator|!
+name|pattern
+operator|.
+name|startsWith
+argument_list|(
+literal|"/"
+argument_list|)
+condition|)
+block|{
+name|pattern
+operator|=
+literal|"/"
+operator|+
+name|pattern
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|SelectorUtils

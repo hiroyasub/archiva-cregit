@@ -85,6 +85,24 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|audit
+operator|.
+name|AuditEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -108,7 +126,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * EditRemoteRepositoryAction   *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="editRemoteRepositoryAction"   */
+comment|/**  * EditRemoteRepositoryAction   *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="editRemoteRepositoryAction" instantiation-strategy="per-lookup"   */
 end_comment
 
 begin_class
@@ -229,6 +247,20 @@ argument_list|(
 name|repository
 argument_list|,
 name|configuration
+argument_list|)
+expr_stmt|;
+name|triggerAuditEvent
+argument_list|(
+name|repository
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+literal|null
+argument_list|,
+name|AuditEvent
+operator|.
+name|MODIFY_REMOTE_REPO
 argument_list|)
 expr_stmt|;
 name|result

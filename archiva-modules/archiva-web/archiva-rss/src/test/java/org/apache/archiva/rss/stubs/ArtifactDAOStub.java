@@ -143,6 +143,9 @@ name|classifier
 parameter_list|,
 name|String
 name|type
+parameter_list|,
+name|String
+name|repositoryId
 parameter_list|)
 block|{
 comment|// TODO Auto-generated method stub
@@ -180,6 +183,9 @@ name|classifier
 parameter_list|,
 name|String
 name|type
+parameter_list|,
+name|String
+name|repositoryId
 parameter_list|)
 throws|throws
 name|ObjectNotFoundException
@@ -193,6 +199,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|ArchivaArtifact
+argument_list|>
 name|queryArtifacts
 parameter_list|(
 name|Constraint

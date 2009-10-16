@@ -625,8 +625,6 @@ name|reference
 parameter_list|)
 throws|throws
 name|ContentNotFoundException
-throws|,
-name|LayoutException
 block|{
 name|File
 name|artifactFile

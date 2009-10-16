@@ -19,16 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|javax
-operator|.
-name|swing
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|applet
@@ -43,7 +33,7 @@ name|java
 operator|.
 name|awt
 operator|.
-name|*
+name|BorderLayout
 import|;
 end_import
 
@@ -134,6 +124,26 @@ operator|.
 name|security
 operator|.
 name|PrivilegedAction
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|swing
+operator|.
+name|JLabel
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|swing
+operator|.
+name|JProgressBar
 import|;
 end_import
 
@@ -234,19 +244,20 @@ name|IOException
 throws|,
 name|NoSuchAlgorithmException
 block|{
-name|Object
-name|o
-init|=
+return|return
 name|AccessController
 operator|.
 name|doPrivileged
 argument_list|(
 operator|new
 name|PrivilegedAction
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 block|{
 specifier|public
-name|Object
+name|String
 name|run
 parameter_list|()
 block|{
@@ -281,7 +292,7 @@ name|e
 parameter_list|)
 block|{
 return|return
-literal|"Couldn't find the file. "
+literal|"Couldn't find the file: "
 operator|+
 name|e
 operator|.
@@ -307,12 +318,6 @@ block|}
 block|}
 block|}
 argument_list|)
-decl_stmt|;
-return|return
-operator|(
-name|String
-operator|)
-name|o
 return|;
 block|}
 specifier|protected
@@ -337,14 +342,19 @@ argument_list|(
 literal|"MD5"
 argument_list|)
 decl_stmt|;
-name|long
-name|total
+name|File
+name|f
 init|=
 operator|new
 name|File
 argument_list|(
 name|file
 argument_list|)
+decl_stmt|;
+name|long
+name|total
+init|=
+name|f
 operator|.
 name|length
 argument_list|()
@@ -355,7 +365,7 @@ init|=
 operator|new
 name|FileInputStream
 argument_list|(
-name|file
+name|f
 argument_list|)
 decl_stmt|;
 try|try

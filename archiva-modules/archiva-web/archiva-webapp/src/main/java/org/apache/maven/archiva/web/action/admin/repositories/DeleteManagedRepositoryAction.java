@@ -239,6 +239,24 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|repository
+operator|.
+name|audit
+operator|.
+name|AuditEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
 name|configuration
 operator|.
 name|ProxyConnectorConfiguration
@@ -292,7 +310,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DeleteManagedRepositoryAction  *   * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteManagedRepositoryAction"  */
+comment|/**  * DeleteManagedRepositoryAction  *   * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteManagedRepositoryAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -454,6 +472,17 @@ argument_list|(
 name|repoid
 argument_list|,
 name|configuration
+argument_list|)
+expr_stmt|;
+name|triggerAuditEvent
+argument_list|(
+name|repoid
+argument_list|,
+literal|null
+argument_list|,
+name|AuditEvent
+operator|.
+name|DELETE_MANAGED_REPO
 argument_list|)
 expr_stmt|;
 name|result
@@ -761,8 +790,7 @@ range|:
 name|artifacts
 control|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(
@@ -828,8 +856,7 @@ name|ObjectNotFoundException
 name|oe
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(
@@ -849,8 +876,7 @@ name|ArchivaDatabaseException
 name|ae
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(

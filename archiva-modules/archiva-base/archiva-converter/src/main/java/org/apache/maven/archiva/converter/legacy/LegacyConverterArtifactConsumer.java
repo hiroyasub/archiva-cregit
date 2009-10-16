@@ -329,10 +329,16 @@ name|destinationRepository
 decl_stmt|;
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|includes
 decl_stmt|;
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|excludes
 decl_stmt|;
 specifier|public
@@ -343,6 +349,9 @@ name|includes
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|includes
@@ -406,6 +415,9 @@ block|{
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getExcludes
 parameter_list|()
 block|{
@@ -415,6 +427,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getIncludes
 parameter_list|()
 block|{
@@ -570,6 +585,9 @@ name|void
 name|setExcludes
 parameter_list|(
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|excludes
 parameter_list|)
 block|{
@@ -585,6 +603,9 @@ name|void
 name|setIncludes
 parameter_list|(
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|includes
 parameter_list|)
 block|{

@@ -78,6 +78,9 @@ name|description
 decl_stmt|;
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|includes
 decl_stmt|;
 specifier|public
@@ -89,6 +92,9 @@ name|includes
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|includes
@@ -205,6 +211,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getExcludes
 parameter_list|()
 block|{
@@ -214,6 +223,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getIncludes
 parameter_list|()
 block|{

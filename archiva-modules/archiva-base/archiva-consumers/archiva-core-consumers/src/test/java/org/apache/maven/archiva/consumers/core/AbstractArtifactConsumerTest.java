@@ -111,7 +111,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|consumers
+name|repository
+operator|.
+name|scanner
 operator|.
 name|functors
 operator|.

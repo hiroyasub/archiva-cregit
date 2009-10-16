@@ -196,6 +196,8 @@ argument_list|,
 literal|null
 argument_list|,
 name|type
+argument_list|,
+literal|"test-repo"
 argument_list|)
 decl_stmt|;
 name|artifact
@@ -965,6 +967,9 @@ throws|throws
 name|Exception
 block|{
 name|List
+argument_list|<
+name|ArchivaArtifact
+argument_list|>
 name|results
 init|=
 name|artifactDao

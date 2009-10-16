@@ -55,7 +55,9 @@ block|{
 comment|/* NOTE TO ARCHIVA DEVELOPERS.      *       * Please keep this interface clean and lean.      * We don't want a repeat of the Continuum Store.      * You should have the following methods per object type ...      *       *   (Required Methods)      *       *    List           .queryDatabaseObject( Constraint )       throws ObjectNotFoundException, DatabaseException;      *    DatabaseObject .saveDatabaseObject( DatabaseObject )    throws DatabaseException;      *          *   (Optional Methods)      *         *    DatabaseObject .createDatabaseObject( Required Params ) ;      *    DatabaseObject .getDatabaseObject( Id )                 throws ObjectNotFoundException, DatabaseException;      *    List           .getDatabaseObjects()                    throws ObjectNotFoundException, DatabaseException;      *    void           .deleteDatabaseObject( DatabaseObject )  throws DatabaseException;      *          * This is the only list of options created in this DAO.      */
 specifier|public
 name|List
-comment|/*<RepositoryProblem>*/
+argument_list|<
+name|RepositoryProblem
+argument_list|>
 name|queryRepositoryProblems
 parameter_list|(
 name|Constraint

@@ -42,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * EditProxyConnectorAction   *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="editProxyConnectorAction"  */
+comment|/**  * EditProxyConnectorAction   *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="editProxyConnectorAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -112,6 +112,41 @@ expr_stmt|;
 return|return
 name|ERROR
 return|;
+block|}
+if|if
+condition|(
+name|connector
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// MRM-1135
+name|connector
+operator|.
+name|setBlackListPatterns
+argument_list|(
+name|escapePatterns
+argument_list|(
+name|connector
+operator|.
+name|getBlackListPatterns
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|connector
+operator|.
+name|setWhiteListPatterns
+argument_list|(
+name|escapePatterns
+argument_list|(
+name|connector
+operator|.
+name|getWhiteListPatterns
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|INPUT
@@ -185,6 +220,33 @@ return|return
 name|INPUT
 return|;
 block|}
+comment|// MRM-1135
+name|connector
+operator|.
+name|setBlackListPatterns
+argument_list|(
+name|unescapePatterns
+argument_list|(
+name|connector
+operator|.
+name|getBlackListPatterns
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|connector
+operator|.
+name|setWhiteListPatterns
+argument_list|(
+name|unescapePatterns
+argument_list|(
+name|connector
+operator|.
+name|getWhiteListPatterns
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|addProxyConnector
 argument_list|(
 name|connector

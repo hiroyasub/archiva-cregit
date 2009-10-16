@@ -130,6 +130,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"jar"
+argument_list|,
+literal|"testrepo"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -186,6 +188,8 @@ return|return
 name|artifact
 return|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|setUp
@@ -362,6 +366,8 @@ argument_list|,
 name|classifier
 argument_list|,
 name|type
+argument_list|,
+literal|"testrepo"
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -405,6 +411,8 @@ argument_list|,
 name|classifier
 argument_list|,
 name|type
+argument_list|,
+literal|"testrepo"
 argument_list|)
 decl_stmt|;
 name|assertTrue

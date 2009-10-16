@@ -120,6 +120,8 @@ index|]
 expr_stmt|;
 block|}
 comment|/**      * Get the String representation of this object. - Required by JPOX.      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -142,6 +144,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Get the hashcode for this object's values - Required by JPOX.      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|hashCode
@@ -208,6 +212,8 @@ name|result
 return|;
 block|}
 comment|/**      * Get the equals for this object's values - Required by JPOX.      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|equals

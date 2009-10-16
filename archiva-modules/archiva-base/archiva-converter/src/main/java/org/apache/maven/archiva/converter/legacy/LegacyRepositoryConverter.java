@@ -85,6 +85,9 @@ name|File
 name|destinationRepositoryDirectory
 parameter_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|fileExclusionPatterns
 parameter_list|)
 throws|throws

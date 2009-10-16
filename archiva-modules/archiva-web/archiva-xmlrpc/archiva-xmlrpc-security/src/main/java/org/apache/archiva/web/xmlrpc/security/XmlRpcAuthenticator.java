@@ -207,7 +207,7 @@ name|redback
 operator|.
 name|policy
 operator|.
-name|AccountLockedException
+name|PolicyViolationException
 import|;
 end_import
 
@@ -419,7 +419,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|AccountLockedException
+name|PolicyViolationException
 name|e
 parameter_list|)
 block|{

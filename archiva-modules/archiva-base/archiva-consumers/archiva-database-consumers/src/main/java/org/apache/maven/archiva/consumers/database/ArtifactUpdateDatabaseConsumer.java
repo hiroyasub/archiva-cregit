@@ -662,6 +662,19 @@ return|return;
 block|}
 try|try
 block|{
+if|if
+condition|(
+name|artifact
+operator|.
+name|getModel
+argument_list|()
+operator|.
+name|getRepositoryId
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
 name|artifact
 operator|.
 name|getModel
@@ -677,6 +690,7 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 comment|// Calculate the hashcodes.
 name|File
 name|artifactFile
@@ -925,6 +939,11 @@ argument_list|,
 name|artifact
 operator|.
 name|getType
+argument_list|()
+argument_list|,
+name|repository
+operator|.
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;

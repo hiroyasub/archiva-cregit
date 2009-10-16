@@ -61,6 +61,22 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|configuration
+operator|.
+name|NetworkProxyConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
 name|security
 operator|.
 name|ArchivaRoleConstants
@@ -160,7 +176,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * NetworkProxiesAction   *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="networkProxiesAction"  */
+comment|/**  * NetworkProxiesAction   *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="networkProxiesAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -181,6 +197,9 @@ name|configuration
 decl_stmt|;
 specifier|private
 name|List
+argument_list|<
+name|NetworkProxyConfiguration
+argument_list|>
 name|networkProxies
 decl_stmt|;
 specifier|public
@@ -241,6 +260,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|NetworkProxyConfiguration
+argument_list|>
 name|getNetworkProxies
 parameter_list|()
 block|{
@@ -253,6 +275,9 @@ name|void
 name|setNetworkProxies
 parameter_list|(
 name|List
+argument_list|<
+name|NetworkProxyConfiguration
+argument_list|>
 name|networkProxies
 parameter_list|)
 block|{

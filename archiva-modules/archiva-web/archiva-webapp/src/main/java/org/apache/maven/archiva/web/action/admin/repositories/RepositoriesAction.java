@@ -360,7 +360,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Shows the Repositories Tab for the administrator.  *  * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="repositoriesAction"  */
+comment|/**  * Shows the Repositories Tab for the administrator.  *  * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="repositoriesAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -487,6 +487,11 @@ return|return
 name|bundle
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|void
 name|prepare
@@ -582,6 +587,12 @@ name|RepositoryContentStatistics
 argument_list|>
 name|results
 init|=
+operator|(
+name|List
+argument_list|<
+name|RepositoryContentStatistics
+argument_list|>
+operator|)
 name|dao
 operator|.
 name|query

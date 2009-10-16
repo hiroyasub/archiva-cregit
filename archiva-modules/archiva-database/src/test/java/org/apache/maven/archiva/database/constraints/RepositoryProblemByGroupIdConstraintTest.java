@@ -21,6 +21,16 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -96,16 +106,6 @@ operator|.
 name|model
 operator|.
 name|RepositoryProblem
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -392,6 +392,9 @@ throws|throws
 name|Exception
 block|{
 name|List
+argument_list|<
+name|RepositoryProblem
+argument_list|>
 name|results
 init|=
 name|repoProblemDao

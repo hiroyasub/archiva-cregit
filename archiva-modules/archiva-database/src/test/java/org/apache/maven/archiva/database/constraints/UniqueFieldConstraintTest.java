@@ -279,6 +279,8 @@ argument_list|,
 literal|"classifier"
 argument_list|,
 literal|"jar"
+argument_list|,
+literal|"testrepo"
 argument_list|)
 decl_stmt|;
 name|artifact
@@ -544,6 +546,9 @@ throws|throws
 name|Exception
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|results
 init|=
 name|archivaDao

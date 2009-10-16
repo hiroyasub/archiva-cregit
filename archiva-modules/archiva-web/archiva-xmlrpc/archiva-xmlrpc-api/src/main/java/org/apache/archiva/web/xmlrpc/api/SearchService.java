@@ -95,7 +95,7 @@ begin_interface
 annotation|@
 name|ServiceObject
 argument_list|(
-literal|"Search"
+literal|"SearchService"
 argument_list|)
 specifier|public
 interface|interface

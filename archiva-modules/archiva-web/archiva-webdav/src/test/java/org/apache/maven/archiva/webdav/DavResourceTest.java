@@ -29,17 +29,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|scanner
-operator|.
-name|RepositoryContentConsumers
+name|Collections
 import|;
 end_import
 
@@ -277,9 +271,29 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|security
+name|repository
 operator|.
-name|ArchivaXworkUser
+name|audit
+operator|.
+name|AuditListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|scanner
+operator|.
+name|RepositoryContentConsumers
 import|;
 end_import
 
@@ -331,19 +345,17 @@ end_import
 
 begin_import
 import|import
-name|edu
+name|org
 operator|.
-name|emory
+name|codehaus
 operator|.
-name|mathcs
+name|plexus
 operator|.
-name|backport
+name|taskqueue
 operator|.
-name|java
+name|execution
 operator|.
-name|util
-operator|.
-name|Collections
+name|TaskQueueExecutor
 import|;
 end_import
 
@@ -394,20 +406,12 @@ name|LockManager
 name|lockManager
 decl_stmt|;
 specifier|private
-name|RepositoryContentConsumers
-name|consumers
-decl_stmt|;
-specifier|private
 name|ManagedRepositoryConfiguration
 name|repository
 init|=
 operator|new
 name|ManagedRepositoryConfiguration
 argument_list|()
-decl_stmt|;
-specifier|private
-name|ArchivaXworkUser
-name|archivaXworkUser
 decl_stmt|;
 annotation|@
 name|Override
@@ -535,39 +539,6 @@ argument_list|(
 name|lockManager
 argument_list|)
 expr_stmt|;
-name|consumers
-operator|=
-operator|(
-name|RepositoryContentConsumers
-operator|)
-name|getApplicationContext
-argument_list|()
-operator|.
-name|getBean
-argument_list|(
-literal|"repositoryContentConsumers"
-argument_list|)
-expr_stmt|;
-name|archivaXworkUser
-operator|=
-operator|(
-name|ArchivaXworkUser
-operator|)
-name|getApplicationContext
-argument_list|()
-operator|.
-name|getBean
-argument_list|(
-name|PlexusToSpringUtils
-operator|.
-name|buildSpringId
-argument_list|(
-name|ArchivaXworkUser
-operator|.
-name|class
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -630,12 +601,13 @@ name|mimeTypes
 argument_list|,
 name|Collections
 operator|.
+expr|<
+name|AuditListener
+operator|>
 name|emptyList
 argument_list|()
 argument_list|,
-name|consumers
-argument_list|,
-name|archivaXworkUser
+literal|null
 argument_list|)
 return|;
 block|}
@@ -970,7 +942,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|//Simple lock manager will die
+comment|// Simple lock manager will die
 block|}
 name|assertEquals
 argument_list|(
@@ -1034,7 +1006,7 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-comment|//Lock should exist
+comment|// Lock should exist
 name|assertNotNull
 argument_list|(
 name|resource
@@ -1051,7 +1023,7 @@ name|EXCLUSIVE
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//Lock should not exist
+comment|// Lock should not exist
 name|assertNull
 argument_list|(
 name|resource
@@ -1600,12 +1572,13 @@ name|mimeTypes
 argument_list|,
 name|Collections
 operator|.
+expr|<
+name|AuditListener
+operator|>
 name|emptyList
 argument_list|()
 argument_list|,
-name|consumers
-argument_list|,
-name|archivaXworkUser
+literal|null
 argument_list|)
 return|;
 block|}

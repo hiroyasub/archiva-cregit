@@ -159,6 +159,8 @@ return|return
 name|stats
 return|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|setUp
@@ -273,6 +275,9 @@ literal|"internal"
 argument_list|)
 decl_stmt|;
 name|List
+argument_list|<
+name|RepositoryContentStatistics
+argument_list|>
 name|results
 init|=
 name|dao
@@ -412,6 +417,9 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|List
+argument_list|<
+name|RepositoryContentStatistics
+argument_list|>
 name|results
 init|=
 name|dao

@@ -180,6 +180,9 @@ argument_list|)
 expr_stmt|;
 comment|// query
 name|List
+argument_list|<
+name|RepositoryContentStatistics
+argument_list|>
 name|results
 init|=
 name|repoContentStatisticsDAO

@@ -184,10 +184,16 @@ init|=
 literal|"org.apache.maven.continuum:continuum-store:1.1-SNAPSHOT"
 decl_stmt|;
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|expectedNodes
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// Check for all nodes, regardless of scope.

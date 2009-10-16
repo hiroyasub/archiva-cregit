@@ -19,6 +19,16 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -46,16 +56,6 @@ operator|.
 name|database
 operator|.
 name|ObjectNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -67,6 +67,9 @@ begin_interface
 specifier|public
 interface|interface
 name|DynamicReportSource
+parameter_list|<
+name|T
+parameter_list|>
 block|{
 comment|/**      * The human readable name of this report.      *       * @return the name of the report.      */
 specifier|public
@@ -77,6 +80,9 @@ function_decl|;
 comment|/**      * Get the entire list of values for this report.      *       * @return the complete List of objects for this report.      * @throws ArchivaDatabaseException if there was a fundamental issue with accessing the database.      * @throws ObjectNotFoundException  if no records were found.      */
 specifier|public
 name|List
+argument_list|<
+name|T
+argument_list|>
 name|getData
 parameter_list|()
 throws|throws
@@ -87,6 +93,9 @@ function_decl|;
 comment|/**      * Get the entire list of values for this report.      *       * @param limits the limits on the data to fetch. (NOTE: This object is       * updated by the underlying implementation of this interface with      * the current values appropriate for the limits object).      * @return the complete List of objects for this report.      * @throws ArchivaDatabaseException if there was a fundamental issue with accessing the database.      * @throws ObjectNotFoundException  if no records were found.      */
 specifier|public
 name|List
+argument_list|<
+name|T
+argument_list|>
 name|getData
 parameter_list|(
 name|DataLimits

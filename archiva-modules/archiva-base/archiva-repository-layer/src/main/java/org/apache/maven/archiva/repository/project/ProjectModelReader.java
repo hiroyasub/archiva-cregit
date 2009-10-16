@@ -37,6 +37,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|xml
+operator|.
+name|XMLException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -62,7 +78,7 @@ name|File
 name|pomFile
 parameter_list|)
 throws|throws
-name|ProjectModelException
+name|XMLException
 function_decl|;
 block|}
 end_interface

@@ -658,7 +658,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="generateReport"  */
+comment|/**  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="generateReport" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -933,6 +933,11 @@ specifier|private
 name|InputStream
 name|inputStream
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|void
 name|prepare
@@ -959,6 +964,12 @@ name|repositoryIds
 operator|.
 name|addAll
 argument_list|(
+operator|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+operator|)
 name|dao
 operator|.
 name|query
@@ -1164,6 +1175,27 @@ return|return
 name|ERROR
 return|;
 block|}
+if|if
+condition|(
+name|startDateInDF
+operator|.
+name|after
+argument_list|(
+name|endDateInDF
+argument_list|)
+condition|)
+block|{
+name|addFieldError
+argument_list|(
+literal|"startDate"
+argument_list|,
+literal|"Start Date must be earlier than the End Date"
+argument_list|)
+expr_stmt|;
+return|return
+name|INPUT
+return|;
+block|}
 comment|// multiple repos
 name|generateReportForMultipleRepos
 argument_list|(
@@ -1224,6 +1256,27 @@ operator|=
 name|getEndDateInDateFormat
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|startDateInDF
+operator|.
+name|after
+argument_list|(
+name|endDateInDF
+argument_list|)
+condition|)
+block|{
+name|addFieldError
+argument_list|(
+literal|"startDate"
+argument_list|,
+literal|"Start Date must be earlier than the End Date"
+argument_list|)
+expr_stmt|;
+return|return
+name|INPUT
+return|;
+block|}
 name|List
 argument_list|<
 name|RepositoryContentStatistics
@@ -1522,6 +1575,27 @@ return|return
 name|ERROR
 return|;
 block|}
+if|if
+condition|(
+name|startDateInDF
+operator|.
+name|after
+argument_list|(
+name|endDateInDF
+argument_list|)
+condition|)
+block|{
+name|addFieldError
+argument_list|(
+literal|"startDate"
+argument_list|,
+literal|"Start Date must be earlier than the End Date"
+argument_list|)
+expr_stmt|;
+return|return
+name|INPUT
+return|;
+block|}
 comment|// multiple repos
 name|generateReportForMultipleRepos
 argument_list|(
@@ -1566,6 +1640,27 @@ operator|=
 name|getEndDateInDateFormat
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|startDateInDF
+operator|.
+name|after
+argument_list|(
+name|endDateInDF
+argument_list|)
+condition|)
+block|{
+name|addFieldError
+argument_list|(
+literal|"startDate"
+argument_list|,
+literal|"Start Date must be earlier than the End Date"
+argument_list|)
+expr_stmt|;
+return|return
+name|INPUT
+return|;
+block|}
 name|List
 argument_list|<
 name|RepositoryContentStatistics
@@ -1941,6 +2036,9 @@ block|{
 try|try
 block|{
 name|List
+argument_list|<
+name|RepositoryContentStatistics
+argument_list|>
 name|contentStats
 init|=
 name|repoContentStatsDao

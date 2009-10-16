@@ -468,6 +468,9 @@ name|VersionedReference
 name|projectRef
 parameter_list|,
 name|List
+argument_list|<
+name|ProjectModelResolver
+argument_list|>
 name|resolverList
 parameter_list|)
 block|{
@@ -481,6 +484,9 @@ name|VersionedReference
 name|projectRef
 parameter_list|,
 name|List
+argument_list|<
+name|ProjectModelResolver
+argument_list|>
 name|resolverList
 parameter_list|)
 block|{

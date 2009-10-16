@@ -97,6 +97,13 @@ specifier|final
 name|DavLocatorFactory
 name|davLocatorFactory
 decl_stmt|;
+comment|// retains the trailing '/' at the end of the path, which is used to determine if it is a
+comment|//      virtual repo browse request
+specifier|private
+specifier|final
+name|String
+name|origResourcePath
+decl_stmt|;
 specifier|public
 name|ArchivaDavResourceLocator
 parameter_list|(
@@ -209,6 +216,12 @@ operator|=
 name|hrefPrefix
 operator|+
 name|escapedPath
+expr_stmt|;
+name|this
+operator|.
+name|origResourcePath
+operator|=
+name|path
 expr_stmt|;
 comment|//Remove trailing slashes otherwise Text.getRelativeParent fails
 if|if
@@ -453,6 +466,15 @@ return|;
 block|}
 return|return
 literal|false
+return|;
+block|}
+specifier|public
+name|String
+name|getOrigResourcePath
+parameter_list|()
+block|{
+return|return
+name|origResourcePath
 return|;
 block|}
 block|}

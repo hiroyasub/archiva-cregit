@@ -172,10 +172,16 @@ name|walker
 decl_stmt|;
 specifier|private
 name|Set
+argument_list|<
+name|DependencyGraphEdge
+argument_list|>
 name|cyclicEdges
 init|=
 operator|new
 name|HashSet
+argument_list|<
+name|DependencyGraphEdge
+argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|public
@@ -258,6 +264,9 @@ block|}
 block|}
 specifier|public
 name|Set
+argument_list|<
+name|DependencyGraphEdge
+argument_list|>
 name|getCyclicEdges
 parameter_list|()
 block|{

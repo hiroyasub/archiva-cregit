@@ -444,6 +444,11 @@ literal|false
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|private
 name|String
 name|determineBrowseGroupActionUrl

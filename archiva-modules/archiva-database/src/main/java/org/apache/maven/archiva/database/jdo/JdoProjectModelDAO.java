@@ -273,6 +273,11 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|List
 argument_list|<
@@ -289,6 +294,12 @@ throws|,
 name|ArchivaDatabaseException
 block|{
 return|return
+operator|(
+name|List
+argument_list|<
+name|ArchivaProjectModel
+argument_list|>
+operator|)
 name|jdo
 operator|.
 name|queryObjects

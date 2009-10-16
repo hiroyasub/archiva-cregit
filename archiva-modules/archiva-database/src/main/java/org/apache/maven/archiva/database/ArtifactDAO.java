@@ -71,6 +71,9 @@ name|classifier
 parameter_list|,
 name|String
 name|type
+parameter_list|,
+name|String
+name|repositoryId
 parameter_list|)
 function_decl|;
 specifier|public
@@ -91,6 +94,9 @@ name|classifier
 parameter_list|,
 name|String
 name|type
+parameter_list|,
+name|String
+name|repositoryId
 parameter_list|)
 throws|throws
 name|ObjectNotFoundException
@@ -99,7 +105,9 @@ name|ArchivaDatabaseException
 function_decl|;
 specifier|public
 name|List
-comment|/*<ArchivaArtifact>*/
+argument_list|<
+name|ArchivaArtifact
+argument_list|>
 name|queryArtifacts
 parameter_list|(
 name|Constraint

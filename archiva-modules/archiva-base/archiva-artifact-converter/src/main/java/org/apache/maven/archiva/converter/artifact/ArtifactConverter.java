@@ -55,6 +55,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -96,6 +106,14 @@ name|ArtifactConversionException
 function_decl|;
 comment|/**      * Get the map of accumulated warnings for the conversion.      *       * @return the {@link Map}&lt;{@link Artifact}, {@link String}&gt; warning messages.      */
 name|Map
+argument_list|<
+name|Artifact
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
 name|getWarnings
 parameter_list|()
 function_decl|;

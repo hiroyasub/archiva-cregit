@@ -243,7 +243,7 @@ name|archiva
 operator|.
 name|security
 operator|.
-name|ArchivaSecurityException
+name|ArchivaRoleConstants
 import|;
 end_import
 
@@ -259,7 +259,7 @@ name|archiva
 operator|.
 name|security
 operator|.
-name|ArchivaXworkUser
+name|ArchivaSecurityException
 import|;
 end_import
 
@@ -420,6 +420,22 @@ operator|.
 name|system
 operator|.
 name|SecuritySession
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|redback
+operator|.
+name|users
+operator|.
+name|UserManager
 import|;
 end_import
 
@@ -641,10 +657,6 @@ specifier|private
 name|HttpAuthenticator
 name|httpAuth
 decl_stmt|;
-specifier|private
-name|ArchivaXworkUser
-name|archivaXworkUser
-decl_stmt|;
 specifier|public
 name|void
 name|init
@@ -740,25 +752,6 @@ operator|.
 name|ROLE
 argument_list|,
 literal|"basic"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|archivaXworkUser
-operator|=
-operator|(
-name|ArchivaXworkUser
-operator|)
-name|wac
-operator|.
-name|getBean
-argument_list|(
-name|PlexusToSpringUtils
-operator|.
-name|buildSpringId
-argument_list|(
-name|ArchivaXworkUser
-operator|.
-name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1584,10 +1577,9 @@ name|repoIds
 operator|=
 name|getObservableRepos
 argument_list|(
-name|archivaXworkUser
+name|UserManager
 operator|.
-name|getGuest
-argument_list|()
+name|GUEST_USERNAME
 argument_list|)
 expr_stmt|;
 block|}
@@ -1622,10 +1614,9 @@ name|repoIds
 operator|=
 name|getObservableRepos
 argument_list|(
-name|archivaXworkUser
+name|UserManager
 operator|.
-name|getGuest
-argument_list|()
+name|GUEST_USERNAME
 argument_list|)
 expr_stmt|;
 block|}
@@ -1694,7 +1685,9 @@ name|securitySession
 argument_list|,
 name|repoId
 argument_list|,
-literal|false
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_ACCESS
 argument_list|)
 condition|)
 block|{

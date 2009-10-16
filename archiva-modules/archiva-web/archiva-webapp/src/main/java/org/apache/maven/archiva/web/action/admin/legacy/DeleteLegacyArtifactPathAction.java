@@ -130,7 +130,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Delete a LegacyArtifactPath to archiva configuration  *  *  * @since 1.1  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteLegacyArtifactPathAction"  */
+comment|/**  * Delete a LegacyArtifactPath to archiva configuration  *  *  * @since 1.1  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteLegacyArtifactPathAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -154,8 +154,7 @@ name|String
 name|delete
 parameter_list|()
 block|{
-name|getLogger
-argument_list|()
+name|log
 operator|.
 name|info
 argument_list|(
@@ -177,6 +176,9 @@ decl_stmt|;
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|LegacyArtifactPath
+argument_list|>
 name|iterator
 init|=
 name|configuration

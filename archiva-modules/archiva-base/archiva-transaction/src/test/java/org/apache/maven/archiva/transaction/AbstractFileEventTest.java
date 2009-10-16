@@ -117,8 +117,16 @@ name|PlexusInSpringTestCase
 block|{
 specifier|protected
 name|List
+argument_list|<
+name|Digester
+argument_list|>
 name|digesters
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|void
 name|setUp

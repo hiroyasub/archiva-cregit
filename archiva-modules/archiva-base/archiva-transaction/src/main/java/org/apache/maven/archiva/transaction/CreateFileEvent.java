@@ -47,6 +47,20 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|digest
+operator|.
+name|Digester
+import|;
+end_import
+
 begin_comment
 comment|/**  * Event for creating a file from a string content.  *  * @version $Id$  */
 end_comment
@@ -79,6 +93,9 @@ name|File
 name|destination
 parameter_list|,
 name|List
+argument_list|<
+name|Digester
+argument_list|>
 name|digesters
 parameter_list|)
 block|{

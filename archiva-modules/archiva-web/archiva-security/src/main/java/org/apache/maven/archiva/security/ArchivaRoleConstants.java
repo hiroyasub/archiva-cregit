@@ -79,15 +79,6 @@ name|GUEST_ROLE
 init|=
 literal|"Guest"
 decl_stmt|;
-comment|// principals
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PRINCIPAL_GUEST
-init|=
-literal|"guest"
-decl_stmt|;
 comment|// dynamic role prefixes
 specifier|public
 specifier|static
@@ -193,6 +184,14 @@ name|String
 name|OPERATION_REPOSITORY_UPLOAD
 init|=
 literal|"archiva-upload-repository"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OPERATION_REPOSITORY_DELETE
+init|=
+literal|"archiva-delete-artifact"
 decl_stmt|;
 comment|// Role templates
 specifier|public

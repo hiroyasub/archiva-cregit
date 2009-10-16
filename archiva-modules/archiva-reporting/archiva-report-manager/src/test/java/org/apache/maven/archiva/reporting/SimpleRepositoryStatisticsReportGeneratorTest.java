@@ -214,6 +214,8 @@ name|REPO
 init|=
 literal|"test-repo"
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setUp
@@ -514,6 +516,8 @@ argument_list|,
 literal|null
 argument_list|,
 name|type
+argument_list|,
+name|repoId
 argument_list|)
 decl_stmt|;
 name|artifact
@@ -526,16 +530,6 @@ argument_list|(
 operator|new
 name|Date
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|artifact
-operator|.
-name|getModel
-argument_list|()
-operator|.
-name|setRepositoryId
-argument_list|(
-name|repoId
 argument_list|)
 expr_stmt|;
 return|return
@@ -2715,12 +2709,6 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|List
-argument_list|<
-name|RepositoryStatistics
-argument_list|>
-name|data
-init|=
 name|generator
 operator|.
 name|generateReport
@@ -2735,7 +2723,7 @@ name|endDate
 argument_list|,
 name|limits
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"An ArchivaReportException should have been thrown."

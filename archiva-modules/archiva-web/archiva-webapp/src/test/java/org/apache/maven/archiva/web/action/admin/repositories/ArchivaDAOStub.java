@@ -208,6 +208,9 @@ name|configuration
 decl_stmt|;
 specifier|public
 name|List
+argument_list|<
+name|RepositoryContentStatistics
+argument_list|>
 name|query
 parameter_list|(
 name|SimpleConstraint

@@ -19,34 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|logging
-operator|.
-name|AbstractLogEnabled
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -95,6 +67,20 @@ name|Properties
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
+import|;
+end_import
+
 begin_comment
 comment|/**  * PropagateErrorsPolicy - a policy applied on error to determine how to treat the error.  *  * @plexus.component role="org.apache.maven.archiva.policies.DownloadErrorPolicy"  *                   role-hint="propagate-errors-on-update"  */
 end_comment
@@ -103,8 +89,6 @@ begin_class
 specifier|public
 class|class
 name|PropagateErrorsOnUpdateDownloadPolicy
-extends|extends
-name|AbstractLogEnabled
 implements|implements
 name|DownloadErrorPolicy
 block|{

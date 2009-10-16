@@ -199,6 +199,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"jar"
+argument_list|,
+literal|"testable_repo"
 argument_list|)
 decl_stmt|;
 name|Calendar
@@ -459,6 +461,9 @@ throws|throws
 name|Exception
 block|{
 name|List
+argument_list|<
+name|ArchivaArtifact
+argument_list|>
 name|results
 init|=
 name|artifactDao

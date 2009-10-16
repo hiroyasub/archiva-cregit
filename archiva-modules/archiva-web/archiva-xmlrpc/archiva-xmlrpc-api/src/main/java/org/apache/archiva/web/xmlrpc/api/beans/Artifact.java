@@ -33,16 +33,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|atlassian
@@ -94,10 +84,7 @@ specifier|private
 name|String
 name|type
 decl_stmt|;
-specifier|private
-name|Date
-name|whenGathered
-decl_stmt|;
+comment|//private Date whenGathered;
 specifier|public
 name|Artifact
 parameter_list|()
@@ -120,10 +107,8 @@ name|version
 parameter_list|,
 name|String
 name|type
-parameter_list|,
-name|Date
-name|whenGathered
 parameter_list|)
+comment|//                     String type, Date whenGathered )
 block|{
 name|this
 operator|.
@@ -155,12 +140,7 @@ name|type
 operator|=
 name|type
 expr_stmt|;
-name|this
-operator|.
-name|whenGathered
-operator|=
-name|whenGathered
-expr_stmt|;
+comment|//this.whenGathered = whenGathered;
 block|}
 specifier|public
 name|String
@@ -198,15 +178,7 @@ return|return
 name|type
 return|;
 block|}
-specifier|public
-name|Date
-name|getWhenGathered
-parameter_list|()
-block|{
-return|return
-name|whenGathered
-return|;
-block|}
+comment|/*public Date getWhenGathered()     {         return whenGathered;     }*/
 annotation|@
 name|ServiceBeanField
 argument_list|(
@@ -287,26 +259,7 @@ operator|=
 name|type
 expr_stmt|;
 block|}
-annotation|@
-name|ServiceBeanField
-argument_list|(
-literal|"whenGathered"
-argument_list|)
-specifier|public
-name|void
-name|setWhenGathered
-parameter_list|(
-name|Date
-name|whenGathered
-parameter_list|)
-block|{
-name|this
-operator|.
-name|whenGathered
-operator|=
-name|whenGathered
-expr_stmt|;
-block|}
+comment|/*@ServiceBeanField( "whenGathered" )     public void setWhenGathered( Date whenGathered )     {         this.whenGathered = whenGathered;     }*/
 specifier|public
 name|String
 name|getRepositoryId

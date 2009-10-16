@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AuditLog - Audit Log.   *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.repository.audit.AuditListener"  *                   role-hint="logging"  */
+comment|/**  * AuditLog - Audit Log.  *   * @version $Id$  * @plexus.component role="org.apache.maven.archiva.repository.audit.AuditListener" role-hint="logging"  */
 end_comment
 
 begin_class
@@ -66,12 +66,20 @@ decl_stmt|;
 specifier|private
 specifier|static
 specifier|final
+name|String
+name|NONE
+init|=
+literal|"-"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
 name|char
 name|DELIM
 init|=
 literal|' '
 decl_stmt|;
-comment|/**      * Creates a log message in the following format ...      *       * "{repository_id} {user_id} {remote_ip} \"{resource}\" \"{action}\""      */
+comment|/**      * Creates a log message in the following format ...      * "{repository_id} {user_id} {remote_ip} \"{resource}\" \"{action}\""      */
 specifier|public
 name|void
 name|auditEvent
@@ -91,10 +99,13 @@ name|msg
 operator|.
 name|append
 argument_list|(
+name|checkNull
+argument_list|(
 name|event
 operator|.
 name|getRepositoryId
 argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|append
@@ -121,10 +132,13 @@ name|msg
 operator|.
 name|append
 argument_list|(
+name|checkNull
+argument_list|(
 name|event
 operator|.
 name|getRemoteIP
 argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|append
@@ -141,10 +155,13 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
+name|checkNull
+argument_list|(
 name|event
 operator|.
 name|getResource
 argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|append
@@ -187,6 +204,24 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+specifier|private
+name|String
+name|checkNull
+parameter_list|(
+name|String
+name|s
+parameter_list|)
+block|{
+return|return
+name|s
+operator|!=
+literal|null
+condition|?
+name|s
+else|:
+name|NONE
+return|;
 block|}
 block|}
 end_class

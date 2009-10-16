@@ -162,6 +162,8 @@ name|ProjectsByArtifactUsageConstraintTest
 extends|extends
 name|AbstractArchivaDatabaseTestCase
 block|{
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|setUp
@@ -407,6 +409,8 @@ name|ref
 operator|.
 name|getType
 argument_list|()
+argument_list|,
+literal|"testable_repo"
 argument_list|)
 decl_stmt|;
 name|artifact
@@ -450,7 +454,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"org.codehaus.plexus:plexus-digest:1.0::jar"
+literal|"org.codehaus.plexus:plexus-digest:1.0::jar:"
 block|}
 argument_list|)
 expr_stmt|;
@@ -462,9 +466,9 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"org.codehaus.plexus:plexus-digest:1.0::jar"
+literal|"org.codehaus.plexus:plexus-digest:1.0::jar:"
 block|,
-literal|"junit:junit:3.8.1::jar"
+literal|"junit:junit:3.8.1::jar:"
 block|}
 argument_list|)
 expr_stmt|;
@@ -475,7 +479,7 @@ name|artifact
 operator|=
 name|toArtifact
 argument_list|(
-literal|"org.foo:bar:4.0::jar"
+literal|"org.foo:bar:4.0::jar:"
 argument_list|)
 expr_stmt|;
 name|assertConstraint
@@ -493,7 +497,7 @@ name|artifact
 operator|=
 name|toArtifact
 argument_list|(
-literal|"org.codehaus.plexus:plexus-digest:1.0::jar"
+literal|"org.codehaus.plexus:plexus-digest:1.0::jar:testable_repo"
 argument_list|)
 expr_stmt|;
 name|assertConstraint
@@ -522,6 +526,9 @@ throws|throws
 name|Exception
 block|{
 name|List
+argument_list|<
+name|ArchivaProjectModel
+argument_list|>
 name|results
 init|=
 name|dao

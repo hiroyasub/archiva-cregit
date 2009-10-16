@@ -210,10 +210,16 @@ name|rootNode
 decl_stmt|;
 specifier|private
 name|Set
+argument_list|<
+name|DependencyGraphEdge
+argument_list|>
 name|edges
 init|=
 operator|new
 name|HashSet
+argument_list|<
+name|DependencyGraphEdge
+argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -306,6 +312,9 @@ expr_stmt|;
 block|}
 specifier|public
 name|Collection
+argument_list|<
+name|DependencyGraphEdge
+argument_list|>
 name|getEdges
 parameter_list|()
 block|{
@@ -313,8 +322,16 @@ return|return
 name|edges
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|Collection
+argument_list|<
+name|DependencyGraphNode
+argument_list|>
 name|getNodes
 parameter_list|()
 block|{
@@ -620,6 +637,9 @@ block|}
 comment|/**      * Get the list of edges from the provided node.      *       * @param node the node to use as the 'from' side of an edge.      * @return the edges from the provided node.      */
 specifier|public
 name|List
+argument_list|<
+name|DependencyGraphEdge
+argument_list|>
 name|getEdgesFrom
 parameter_list|(
 name|DependencyGraphNode
@@ -627,10 +647,16 @@ name|node
 parameter_list|)
 block|{
 name|List
+argument_list|<
+name|DependencyGraphEdge
+argument_list|>
 name|ret
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|DependencyGraphEdge
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|CollectionUtils
@@ -660,6 +686,9 @@ block|}
 comment|/**      * Get the list of edges to the provided node.      *       * @param node the node to use as the 'to' side of an edge.      * @return the edges to the provided node.      */
 specifier|public
 name|List
+argument_list|<
+name|DependencyGraphEdge
+argument_list|>
 name|getEdgesTo
 parameter_list|(
 name|DependencyGraphNode
@@ -667,10 +696,16 @@ name|node
 parameter_list|)
 block|{
 name|List
+argument_list|<
+name|DependencyGraphEdge
+argument_list|>
 name|ret
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|DependencyGraphEdge
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|CollectionUtils
@@ -747,6 +782,9 @@ name|node
 parameter_list|)
 block|{
 name|List
+argument_list|<
+name|DependencyGraphEdge
+argument_list|>
 name|edges
 init|=
 name|getEdgesFrom

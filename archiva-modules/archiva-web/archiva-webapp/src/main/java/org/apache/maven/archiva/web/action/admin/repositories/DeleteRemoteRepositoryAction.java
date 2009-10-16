@@ -99,6 +99,24 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|audit
+operator|.
+name|AuditEvent
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -108,7 +126,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DeleteRemoteRepositoryAction   *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteRemoteRepositoryAction"  */
+comment|/**  * DeleteRemoteRepositoryAction   *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteRemoteRepositoryAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -231,6 +249,17 @@ argument_list|(
 name|repoid
 argument_list|,
 name|configuration
+argument_list|)
+expr_stmt|;
+name|triggerAuditEvent
+argument_list|(
+name|repoid
+argument_list|,
+literal|null
+argument_list|,
+name|AuditEvent
+operator|.
+name|DELETE_REMOTE_REPO
 argument_list|)
 expr_stmt|;
 name|result

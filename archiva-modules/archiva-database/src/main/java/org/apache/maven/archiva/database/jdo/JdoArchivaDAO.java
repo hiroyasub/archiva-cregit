@@ -173,6 +173,9 @@ name|repositoryContentStatisticsDAO
 decl_stmt|;
 specifier|public
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|query
 parameter_list|(
 name|SimpleConstraint

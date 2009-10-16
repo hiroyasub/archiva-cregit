@@ -224,6 +224,34 @@ name|ObjectNotFoundException
 throws|,
 name|ArchivaDatabaseException
 function_decl|;
+comment|/**      * Get the other versions of the given SNAPSHOT version.      *       * @param observableRepositoryIds      * @param groupId      * @param artifactId      * @param version      * @return      * @throws ObjectNotFoundException      * @throws ArchivaDatabaseException      */
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getOtherSnapshotVersions
+parameter_list|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|observableRepositoryIds
+parameter_list|,
+name|String
+name|groupId
+parameter_list|,
+name|String
+name|artifactId
+parameter_list|,
+name|String
+name|version
+parameter_list|)
+throws|throws
+name|ObjectNotFoundException
+throws|,
+name|ArchivaDatabaseException
+function_decl|;
 block|}
 end_interface
 
