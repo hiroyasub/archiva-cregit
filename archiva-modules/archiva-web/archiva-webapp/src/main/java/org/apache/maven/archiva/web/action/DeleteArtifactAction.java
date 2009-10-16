@@ -685,7 +685,7 @@ specifier|private
 name|DatabaseConsumers
 name|databaseConsumers
 decl_stmt|;
-comment|/** @plexus.requirement */
+comment|/** @plexus.requirement role="org.apache.maven.archiva.repository.events.RepositoryListener" */
 specifier|private
 name|List
 argument_list|<
@@ -1796,6 +1796,18 @@ name|Collections
 operator|.
 name|emptyList
 argument_list|()
+return|;
+block|}
+specifier|public
+name|List
+argument_list|<
+name|RepositoryListener
+argument_list|>
+name|getListeners
+parameter_list|()
+block|{
+return|return
+name|listeners
 return|;
 block|}
 block|}
