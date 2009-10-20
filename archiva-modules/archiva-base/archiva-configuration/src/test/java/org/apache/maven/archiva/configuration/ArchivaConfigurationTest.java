@@ -3054,7 +3054,11 @@ name|configuration
 argument_list|)
 expr_stmt|;
 comment|// Release existing
-comment|//      FIXME spring equivalent ?  release( archivaConfiguration );
+name|release
+argument_list|(
+name|archivaConfiguration
+argument_list|)
+expr_stmt|;
 comment|// Reload.
 name|archivaConfiguration
 operator|=
