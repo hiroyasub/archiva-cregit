@@ -536,15 +536,28 @@ name|String
 name|title
 parameter_list|)
 block|{
-name|Assert
-operator|.
-name|assertEquals
-argument_list|(
+comment|// Collapse spaces
+name|String
+name|actualTitle
+init|=
 name|getSelenium
 argument_list|()
 operator|.
 name|getTitle
 argument_list|()
+operator|.
+name|replaceAll
+argument_list|(
+literal|"[ \n\r]+"
+argument_list|,
+literal|" "
+argument_list|)
+decl_stmt|;
+name|Assert
+operator|.
+name|assertEquals
+argument_list|(
+name|actualTitle
 argument_list|,
 name|title
 argument_list|)
