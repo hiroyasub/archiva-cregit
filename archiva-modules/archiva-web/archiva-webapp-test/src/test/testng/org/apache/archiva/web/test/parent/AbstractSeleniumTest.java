@@ -301,6 +301,13 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+name|s
+operator|.
+name|setTimeout
+argument_list|(
+name|maxWaitTimeInMs
+argument_list|)
+expr_stmt|;
 name|selenium
 operator|.
 name|set
