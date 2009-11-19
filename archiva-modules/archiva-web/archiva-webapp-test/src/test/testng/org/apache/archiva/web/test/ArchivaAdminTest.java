@@ -239,9 +239,9 @@ if|if
 condition|(
 name|title
 operator|.
-name|equals
+name|endsWith
 argument_list|(
-literal|"Apache Archiva \\ Create Admin User"
+literal|"Create Admin User"
 argument_list|)
 condition|)
 block|{
