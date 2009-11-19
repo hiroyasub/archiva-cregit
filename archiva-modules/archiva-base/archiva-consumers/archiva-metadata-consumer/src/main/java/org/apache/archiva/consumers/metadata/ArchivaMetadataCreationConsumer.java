@@ -513,7 +513,7 @@ argument_list|(
 name|repo
 argument_list|)
 expr_stmt|;
-comment|// TODO: remove hardcoding
+comment|// FIXME: remove hardcoding
 name|this
 operator|.
 name|metadataRepository

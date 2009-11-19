@@ -349,6 +349,24 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|repository
+operator|.
+name|events
+operator|.
+name|RepositoryListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
 name|scheduled
 operator|.
 name|tasks
@@ -464,7 +482,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaRepositoryScanningTaskExecutor   *  * @version $Id$  *   * @plexus.component  *   role="org.codehaus.plexus.taskqueue.execution.TaskExecutor"  *   role-hint="repository-scanning"  */
+comment|/**  * ArchivaRepositoryScanningTaskExecutor  *  * @version $Id$  *  * @plexus.component  *   role="org.codehaus.plexus.taskqueue.execution.TaskExecutor"  *   role-hint="repository-scanning"  */
 end_comment
 
 begin_class
@@ -489,7 +507,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * TODO: just for stats, remove this and use the main stats module      *       * @plexus.requirement role-hint="jdo"      */
+comment|/**      * TODO: just for stats, remove this and use the main stats module      *      * @plexus.requirement role-hint="jdo"      */
 specifier|private
 name|ArchivaDAO
 name|dao
@@ -499,10 +517,18 @@ specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * The repository scanner component.      *       * @plexus.requirement      */
+comment|/**      * The repository scanner component.      *      * @plexus.requirement      */
 specifier|private
 name|RepositoryScanner
 name|repoScanner
+decl_stmt|;
+comment|/**      * @plexus.requirement role="org.apache.maven.archiva.repository.events.RepositoryListener"      */
+specifier|private
+name|List
+argument_list|<
+name|RepositoryListener
+argument_list|>
+name|repositoryListeners
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
@@ -551,6 +577,13 @@ parameter_list|)
 throws|throws
 name|TaskExecutionException
 block|{
+comment|// TODO: replace this whole class with the prescribed content scanning service/action
+comment|// - scan repository for artifacts that do not have corresponding metadata or have been updated and
+comment|// send events for each
+comment|// - scan metadata for artifacts that have been removed and send events for each
+comment|// - scan metadata for missing plugin data
+comment|// - store information so that it can restart upon failure (publish event on the server recovery
+comment|// queue, remove it on successful completion)
 name|this
 operator|.
 name|task
@@ -769,7 +802,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Finished repository task: "
+literal|"Finished first scan: "
 operator|+
 name|stats
 operator|.
@@ -801,6 +834,21 @@ operator|.
 name|saveRepositoryContentStatistics
 argument_list|(
 name|dbstats
+argument_list|)
+expr_stmt|;
+comment|//                log.info( "Scanning for removed repository content" );
+comment|// FIXME: remove hardcoding
+comment|//                MetadataRepository metadataRepository =
+comment|//                    new FileMetadataRepository( new File( arepo.getLocation(), ".metadata" ) );
+comment|//                metadataRepository.findAllProjects();
+comment|// FIXME: do something
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Finished repository task: "
+operator|+
+name|repoTask
 argument_list|)
 expr_stmt|;
 name|this
