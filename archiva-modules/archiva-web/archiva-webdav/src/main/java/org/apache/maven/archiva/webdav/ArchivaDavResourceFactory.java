@@ -95,6 +95,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|scheduler
+operator|.
+name|repository
+operator|.
+name|RepositoryArchivaTaskScheduler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|io
@@ -633,22 +649,6 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|scheduled
-operator|.
-name|ArchivaTaskScheduler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
 name|security
 operator|.
 name|ServletAuthenticator
@@ -1133,9 +1133,9 @@ specifier|private
 name|Digester
 name|digestMd5
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role="org.apache.archiva.scheduler.ArchivaTaskScheduler" role-hint="repository"      */
 specifier|private
-name|ArchivaTaskScheduler
+name|RepositoryArchivaTaskScheduler
 name|scheduler
 decl_stmt|;
 specifier|public
@@ -4875,7 +4875,7 @@ specifier|public
 name|void
 name|setScheduler
 parameter_list|(
-name|ArchivaTaskScheduler
+name|RepositoryArchivaTaskScheduler
 name|scheduler
 parameter_list|)
 block|{

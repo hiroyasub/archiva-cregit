@@ -45,13 +45,43 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
+name|archiva
+operator|.
+name|scheduler
+operator|.
+name|ArchivaTaskScheduler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
 operator|.
 name|archiva
 operator|.
-name|common
+name|scheduler
 operator|.
-name|ArchivaException
+name|database
+operator|.
+name|DatabaseArchivaTaskScheduler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|scheduler
+operator|.
+name|repository
+operator|.
+name|RepositoryArchivaTaskScheduler
 import|;
 end_import
 
@@ -65,9 +95,9 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|scheduled
+name|common
 operator|.
-name|ArchivaTaskScheduler
+name|ArchivaException
 import|;
 end_import
 
@@ -158,7 +188,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaStartup - the startup of all archiva features in a deterministic order.   *  * @version $Id$  */
+comment|/**  * ArchivaStartup - the startup of all archiva features in a deterministic order.  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -229,11 +259,11 @@ name|class
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|ArchivaTaskScheduler
-name|taskScheduler
+name|DatabaseArchivaTaskScheduler
+name|databaseTaskScheduler
 init|=
 operator|(
-name|ArchivaTaskScheduler
+name|DatabaseArchivaTaskScheduler
 operator|)
 name|wac
 operator|.
@@ -246,6 +276,30 @@ argument_list|(
 name|ArchivaTaskScheduler
 operator|.
 name|class
+argument_list|,
+literal|"database"
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|RepositoryArchivaTaskScheduler
+name|repositoryTaskScheduler
+init|=
+operator|(
+name|RepositoryArchivaTaskScheduler
+operator|)
+name|wac
+operator|.
+name|getBean
+argument_list|(
+name|PlexusToSpringUtils
+operator|.
+name|buildSpringId
+argument_list|(
+name|ArchivaTaskScheduler
+operator|.
+name|class
+argument_list|,
+literal|"repository"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -309,7 +363,12 @@ operator|.
 name|startup
 argument_list|()
 expr_stmt|;
-name|taskScheduler
+name|databaseTaskScheduler
+operator|.
+name|startup
+argument_list|()
+expr_stmt|;
+name|repositoryTaskScheduler
 operator|.
 name|startup
 argument_list|()
