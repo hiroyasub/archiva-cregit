@@ -2838,7 +2838,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      *<p>      * Quietly transfer the checksum file from the remote repository to the local file.      *</p>      *       * @param wagon the wagon instance (should already be connected) to use.      * @param remoteRepository the remote repository to transfer from.      * @param remotePath the remote path to the resource to get.      * @param repository the managed repository that will hold the file      * @param localFile the local file that should contain the downloaded contents      * @param type the type of checksum to transfer (example: ".md5" or ".sha1")      * @throws ProxyException if copying the downloaded file into place did not succeed.      */
+comment|/**      *<p>      * Quietly transfer the checksum file from the remote repository to the local file.      *</p>      *       * @param wagon the wagon instance (should already be connected) to use.      * @param remoteRepository the remote repository to transfer from.      * @param remotePath the remote path to the resource to get.      * @param repository the managed repository that will hold the file      * @param resource the local file that should contain the downloaded contents      * @param tmpDirectory the temporary directory to download to      * @param ext the type of checksum to transfer (example: ".md5" or ".sha1")      * @throws ProxyException if copying the downloaded file into place did not succeed.      */
 specifier|private
 name|File
 name|transferChecksum
