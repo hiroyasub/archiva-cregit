@@ -90,9 +90,9 @@ block|{
 name|goToRepositoriesPage
 argument_list|()
 expr_stmt|;
-name|clickLinkWithText
+name|clickLinkWithLocator
 argument_list|(
-literal|"Add"
+literal|"//div[@id='contentArea']/div/div/a[@href='/archiva/admin/addRepository.action']"
 argument_list|)
 expr_stmt|;
 name|addManagedRepository
@@ -127,6 +127,9 @@ argument_list|(
 literal|"Managed Repository Sample 1"
 argument_list|)
 expr_stmt|;
+name|assertRepositoriesPage
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -142,10 +145,12 @@ name|void
 name|testAddManagedRepoInvalidValues
 parameter_list|()
 block|{
-comment|//goToRepositoriesPage();
-name|clickLinkWithText
+name|assertRepositoriesPage
+argument_list|()
+expr_stmt|;
+name|clickLinkWithLocator
 argument_list|(
-literal|"Add"
+literal|"//div[@id='contentArea']/div/div/a[@href='/archiva/admin/addRepository.action']"
 argument_list|)
 expr_stmt|;
 name|addManagedRepository
@@ -202,7 +207,6 @@ name|void
 name|testAddManagedRepoNoIdentifier
 parameter_list|()
 block|{
-comment|//goToRepositoriesPage();
 name|addManagedRepository
 argument_list|(
 literal|""
@@ -454,7 +458,7 @@ argument_list|(
 name|dependsOnMethods
 operator|=
 block|{
-literal|"testAddManagedRepoValidValues"
+literal|"testAddRemoteRepoValidValues"
 block|}
 argument_list|)
 specifier|public
@@ -462,10 +466,9 @@ name|void
 name|testAddRemoteRepoNullValues
 parameter_list|()
 block|{
-comment|//goToRepositoriesPage();
 name|clickLinkWithLocator
 argument_list|(
-literal|"//div[@id='contentArea']/div/div[5]/a"
+literal|"//div[@id='contentArea']/div/div/a[@href='/archiva/admin/addRemoteRepository.action']"
 argument_list|)
 expr_stmt|;
 name|addRemoteRepository
@@ -618,7 +621,7 @@ argument_list|(
 name|dependsOnMethods
 operator|=
 block|{
-literal|"testAddManagedRepoValidValues"
+literal|"testDeleteManageRepo"
 block|}
 argument_list|)
 specifier|public
@@ -626,12 +629,9 @@ name|void
 name|testAddRemoteRepoValidValues
 parameter_list|()
 block|{
-name|goToRepositoriesPage
-argument_list|()
-expr_stmt|;
 name|clickLinkWithLocator
 argument_list|(
-literal|"//div[@id='contentArea']/div/div[5]/a"
+literal|"//div[@id='contentArea']/div/div/a[@href='/archiva/admin/addRemoteRepository.action']"
 argument_list|)
 expr_stmt|;
 name|addRemoteRepository
