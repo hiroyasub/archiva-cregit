@@ -1221,12 +1221,7 @@ condition|)
 block|{
 name|pomArtifact
 operator|=
-name|artifacts
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
+name|artifact
 expr_stmt|;
 break|break;
 block|}
