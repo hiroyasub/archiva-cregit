@@ -41,6 +41,18 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|opensymphony
+operator|.
+name|xwork2
+operator|.
+name|Validateable
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -233,18 +245,6 @@ name|UserRepositories
 import|;
 end_import
 
-begin_import
-import|import
-name|com
-operator|.
-name|opensymphony
-operator|.
-name|xwork2
-operator|.
-name|Validateable
-import|;
-end_import
-
 begin_comment
 comment|/**  * Browse the repository.   *   * TODO change name to ShowVersionedAction to conform to terminology.  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="showArtifactAction" instantiation-strategy="per-lookup"  */
 end_comment
@@ -269,6 +269,7 @@ specifier|private
 name|UserRepositories
 name|userRepositories
 decl_stmt|;
+comment|/* .\ Exposed Output Objects \.__________________________________ */
 specifier|private
 name|String
 name|groupId
@@ -285,7 +286,6 @@ specifier|private
 name|String
 name|repositoryId
 decl_stmt|;
-comment|/* .\ Exposed Output Objects \.__________________________________ */
 comment|/**      * The model of this versioned project.      */
 specifier|private
 name|ArchivaProjectModel
