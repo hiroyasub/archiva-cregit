@@ -141,7 +141,6 @@ argument_list|,
 literal|"/src/test/it-resources/snapshots/org/apache/maven/archiva/web/test/foo-bar/1.0-SNAPSHOT/foo-bar-1.0-SNAPSHOT.jar"
 argument_list|)
 decl_stmt|;
-comment|//"src/test/it-resources/foo-bar-1.0-20091110.181459-4.jar" );
 name|String
 name|releasesRepo
 init|=
