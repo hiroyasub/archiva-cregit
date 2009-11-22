@@ -122,6 +122,14 @@ argument_list|,
 literal|"SearchService.getDependees"
 argument_list|)
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|PING
+init|=
+literal|"PingService.ping"
+decl_stmt|;
 block|}
 end_class
 
