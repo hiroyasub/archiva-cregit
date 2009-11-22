@@ -607,6 +607,9 @@ name|name
 parameter_list|,
 name|File
 name|location
+parameter_list|,
+name|boolean
+name|blockRedeployments
 parameter_list|)
 block|{
 name|ManagedRepositoryConfiguration
@@ -638,6 +641,13 @@ name|location
 operator|.
 name|getAbsolutePath
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|repo
+operator|.
+name|setBlockRedeployments
+argument_list|(
+name|blockRedeployments
 argument_list|)
 expr_stmt|;
 return|return
@@ -938,6 +948,8 @@ argument_list|,
 literal|"Internal Test Repo"
 argument_list|,
 name|repoRootInternal
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

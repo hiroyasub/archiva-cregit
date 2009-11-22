@@ -357,6 +357,8 @@ argument_list|,
 literal|"First Test Repo"
 argument_list|,
 name|repoRootFirst
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -371,6 +373,8 @@ argument_list|,
 literal|"Last Test Repo"
 argument_list|,
 name|repoRootLast
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -436,6 +440,8 @@ argument_list|,
 literal|"Invalid Test Repo"
 argument_list|,
 name|repoRootInvalid
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|configuration
@@ -449,6 +455,8 @@ argument_list|,
 literal|"First Test Repo"
 argument_list|,
 name|repoRootFirst
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -470,6 +478,8 @@ argument_list|,
 literal|"Last Test Repo"
 argument_list|,
 name|repoRootLast
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
