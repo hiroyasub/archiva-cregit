@@ -584,7 +584,7 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-comment|// send request #2 and verify it's blocked
+comment|// send request #2 and verify if it's still successful
 name|is
 operator|=
 name|getClass
