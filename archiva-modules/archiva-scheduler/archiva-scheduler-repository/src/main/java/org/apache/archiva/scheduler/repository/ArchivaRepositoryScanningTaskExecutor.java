@@ -817,9 +817,6 @@ name|dbstats
 argument_list|)
 expr_stmt|;
 comment|//                log.info( "Scanning for removed repository content" );
-comment|// FIXME: remove hardcoding
-comment|//                MetadataRepository metadataRepository =
-comment|//                    new FileMetadataRepository( new File( arepo.getLocation(), ".metadata" ) );
 comment|//                metadataRepository.findAllProjects();
 comment|// FIXME: do something
 name|log
