@@ -2380,7 +2380,7 @@ name|TestMetadataResolver
 operator|)
 name|action
 operator|.
-name|getMetadataRepository
+name|getMetadataResolver
 argument_list|()
 expr_stmt|;
 block|}

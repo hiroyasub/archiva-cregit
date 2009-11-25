@@ -1534,7 +1534,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|MetadataResolver
-name|getMetadataRepository
+name|getMetadataResolver
 parameter_list|()
 block|{
 return|return

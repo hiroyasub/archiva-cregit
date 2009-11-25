@@ -2631,7 +2631,7 @@ name|getPath
 argument_list|()
 decl_stmt|;
 comment|// check if target repo is enabled for releases
-comment|// we suppose that release-artifacts can deployed only to repos enabled for releases
+comment|// we suppose that release-artifacts can be deployed only to repos enabled for releases
 if|if
 condition|(
 name|managedRepository
@@ -2689,7 +2689,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// check if artifact already exists
+comment|// check if artifact already exists and if artifact re-deployment to the repository is allowed
 if|if
 condition|(
 name|managedRepository
@@ -2698,13 +2698,28 @@ name|hasContent
 argument_list|(
 name|artifact
 argument_list|)
+operator|&&
+name|managedRepository
+operator|.
+name|getRepository
+argument_list|()
+operator|.
+name|isBlockRedeployments
+argument_list|()
 condition|)
 block|{
 name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Overwriting released artifacts is not allowed."
+literal|"Overwriting released artifacts in repository '"
+operator|+
+name|managedRepository
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|"' is not allowed."
 argument_list|)
 expr_stmt|;
 throw|throw

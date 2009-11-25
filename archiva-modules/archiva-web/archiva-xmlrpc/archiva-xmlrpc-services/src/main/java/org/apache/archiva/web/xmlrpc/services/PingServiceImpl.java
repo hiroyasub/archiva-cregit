@@ -33,7 +33,7 @@ name|xmlrpc
 operator|.
 name|api
 operator|.
-name|TestService
+name|PingService
 import|;
 end_import
 
@@ -42,7 +42,7 @@ specifier|public
 class|class
 name|PingServiceImpl
 implements|implements
-name|TestService
+name|PingService
 block|{
 specifier|public
 name|String

@@ -111,7 +111,15 @@ literal|"testing"
 argument_list|)
 expr_stmt|;
 block|}
-comment|//@Test(dependsOnMethods = { "testAddRepositoryValidValue" } )
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testAddRepositoryGroupValidValue"
+block|}
+argument_list|)
 specifier|public
 name|void
 name|testAddRepositoryToRepositoryGroup
@@ -159,6 +167,9 @@ argument_list|(
 literal|"No Repository Groups Defined."
 argument_list|)
 expr_stmt|;
+name|waitPage
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -174,6 +185,9 @@ name|void
 name|testDeleteRepositoryGroup
 parameter_list|()
 block|{
+name|assertRepositoryGroupsPage
+argument_list|()
+expr_stmt|;
 name|deleteRepositoryGroup
 argument_list|(
 literal|"testing"

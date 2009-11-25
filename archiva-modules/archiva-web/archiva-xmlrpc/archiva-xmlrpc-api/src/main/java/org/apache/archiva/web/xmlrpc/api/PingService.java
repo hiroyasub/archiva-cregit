@@ -35,11 +35,11 @@ begin_interface
 annotation|@
 name|ServiceObject
 argument_list|(
-literal|"Test"
+literal|"PingService"
 argument_list|)
 specifier|public
 interface|interface
-name|TestService
+name|PingService
 block|{
 specifier|public
 name|String

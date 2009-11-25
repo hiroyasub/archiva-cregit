@@ -178,6 +178,15 @@ return|return
 name|type
 return|;
 block|}
+specifier|public
+name|String
+name|getRepositoryId
+parameter_list|()
+block|{
+return|return
+name|repositoryId
+return|;
+block|}
 comment|/*public Date getWhenGathered()     {         return whenGathered;     }*/
 annotation|@
 name|ServiceBeanField
@@ -259,16 +268,11 @@ operator|=
 name|type
 expr_stmt|;
 block|}
-comment|/*@ServiceBeanField( "whenGathered" )     public void setWhenGathered( Date whenGathered )     {         this.whenGathered = whenGathered;     }*/
-specifier|public
-name|String
-name|getRepositoryId
-parameter_list|()
-block|{
-return|return
-name|repositoryId
-return|;
-block|}
+annotation|@
+name|ServiceBeanField
+argument_list|(
+literal|"repositoryId"
+argument_list|)
 specifier|public
 name|void
 name|setRepositoryId
@@ -284,6 +288,7 @@ operator|=
 name|repositoryId
 expr_stmt|;
 block|}
+comment|/*@ServiceBeanField( "whenGathered" )     public void setWhenGathered( Date whenGathered )     {         this.whenGathered = whenGathered;     }*/
 block|}
 end_class
 
