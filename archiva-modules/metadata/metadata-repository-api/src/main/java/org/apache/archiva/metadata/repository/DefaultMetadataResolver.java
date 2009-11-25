@@ -75,7 +75,7 @@ specifier|private
 name|MetadataRepository
 name|metadataRepository
 decl_stmt|;
-comment|/**      * FIXME: this needs to be configurable based on storage type, and availability of proxy module      *        ... could be a different type since we need methods to modify the storage metadata      * @plexus.requirement role-hint="maven2"      */
+comment|/**      * FIXME: this needs to be configurable based on storage type, and availability of proxy module      * ... could be a different type since we need methods to modify the storage metadata      *      * @plexus.requirement role-hint="maven2"      */
 specifier|private
 name|MetadataResolver
 name|storageResolver
@@ -167,6 +167,13 @@ argument_list|,
 name|projectVersion
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|metadata
+operator|!=
+literal|null
+condition|)
+block|{
 name|metadataRepository
 operator|.
 name|updateProjectVersion
@@ -180,6 +187,7 @@ argument_list|,
 name|metadata
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|metadata
