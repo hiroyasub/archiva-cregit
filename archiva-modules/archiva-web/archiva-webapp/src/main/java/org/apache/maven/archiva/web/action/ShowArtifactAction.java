@@ -89,7 +89,7 @@ name|metadata
 operator|.
 name|repository
 operator|.
-name|MetadataRepository
+name|MetadataResolver
 import|;
 end_import
 
@@ -411,8 +411,8 @@ name|userRepositories
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
 specifier|private
-name|MetadataRepository
-name|metadataRepository
+name|MetadataResolver
+name|metadataResolver
 decl_stmt|;
 comment|/* .\ Exposed Output Objects \.__________________________________ */
 specifier|private
@@ -503,12 +503,11 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// TODO: we don't really want the implementation being that intelligent - so another resolver to do
-comment|//  the "just-in-time" nature of picking up the metadata (if appropriate for the repository type) if not
-comment|//  found in the content repository is needed here
+comment|// we don't really want the implementation being that intelligent - so another resolver to do the
+comment|// "just-in-time" nature of picking up the metadata (if appropriate for the repository type) is used
 name|build
 operator|=
-name|metadataRepository
+name|metadataResolver
 operator|.
 name|getProjectBuild
 argument_list|(
@@ -538,7 +537,7 @@ name|snapshotVersions
 operator|.
 name|addAll
 argument_list|(
-name|metadataRepository
+name|metadataResolver
 operator|.
 name|getArtifactVersions
 argument_list|(
@@ -1528,12 +1527,12 @@ name|snapshotVersions
 expr_stmt|;
 block|}
 specifier|public
-name|MetadataRepository
+name|MetadataResolver
 name|getMetadataRepository
 parameter_list|()
 block|{
 return|return
-name|metadataRepository
+name|metadataResolver
 return|;
 block|}
 block|}

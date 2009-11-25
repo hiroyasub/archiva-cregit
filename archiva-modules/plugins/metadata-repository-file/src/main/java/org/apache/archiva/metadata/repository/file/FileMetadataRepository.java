@@ -208,7 +208,7 @@ name|FileMetadataRepository
 implements|implements
 name|MetadataRepository
 block|{
-comment|/**      * @plexus.configuration      */
+comment|/**      * TODO: this isn't suitable for production use      * @plexus.configuration      */
 specifier|private
 name|File
 name|directory

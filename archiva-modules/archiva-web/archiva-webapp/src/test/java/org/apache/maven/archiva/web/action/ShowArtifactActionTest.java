@@ -171,7 +171,7 @@ name|repository
 operator|.
 name|memory
 operator|.
-name|MemoryMetadataRepository
+name|TestMetadataResolver
 import|;
 end_import
 
@@ -533,8 +533,8 @@ name|ShowArtifactAction
 name|action
 decl_stmt|;
 specifier|private
-name|MemoryMetadataRepository
-name|metadataRepository
+name|TestMetadataResolver
+name|metadataResolver
 decl_stmt|;
 specifier|public
 name|void
@@ -561,7 +561,7 @@ name|void
 name|testGetArtifactUniqueRelease
 parameter_list|()
 block|{
-name|metadataRepository
+name|metadataResolver
 operator|.
 name|setProjectBuild
 argument_list|(
@@ -664,7 +664,7 @@ name|void
 name|testGetArtifactUniqueSnapshot
 parameter_list|()
 block|{
-name|metadataRepository
+name|metadataResolver
 operator|.
 name|setProjectBuild
 argument_list|(
@@ -680,7 +680,7 @@ name|TEST_SNAPSHOT_VERSION
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|metadataRepository
+name|metadataResolver
 operator|.
 name|setArtifactVersions
 argument_list|(
@@ -826,7 +826,7 @@ name|void
 name|testGetArtifactUniqueSnapshotTimestamped
 parameter_list|()
 block|{
-name|metadataRepository
+name|metadataResolver
 operator|.
 name|setProjectBuild
 argument_list|(
@@ -842,7 +842,7 @@ name|TEST_TS_SNAPSHOT_VERSION
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|metadataRepository
+name|metadataResolver
 operator|.
 name|setArtifactVersions
 argument_list|(
@@ -1077,7 +1077,7 @@ name|void
 name|testGetArtifactNotInObservableRepos
 parameter_list|()
 block|{
-name|metadataRepository
+name|metadataResolver
 operator|.
 name|setProjectBuild
 argument_list|(
@@ -1135,7 +1135,7 @@ name|TEST_REPO
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|metadataRepository
+name|metadataResolver
 operator|.
 name|setProjectBuild
 argument_list|(
@@ -1250,7 +1250,7 @@ name|OTHER_TEST_REPO
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|metadataRepository
+name|metadataResolver
 operator|.
 name|setProjectBuild
 argument_list|(
@@ -1266,7 +1266,7 @@ name|TEST_VERSION
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|metadataRepository
+name|metadataResolver
 operator|.
 name|setProjectBuild
 argument_list|(
@@ -1379,7 +1379,7 @@ name|TEST_REPO
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|metadataRepository
+name|metadataResolver
 operator|.
 name|setProjectBuild
 argument_list|(
@@ -1395,7 +1395,7 @@ name|TEST_VERSION
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|metadataRepository
+name|metadataResolver
 operator|.
 name|setProjectBuild
 argument_list|(
@@ -2373,10 +2373,10 @@ argument_list|,
 name|ACTION_HINT
 argument_list|)
 expr_stmt|;
-name|metadataRepository
+name|metadataResolver
 operator|=
 operator|(
-name|MemoryMetadataRepository
+name|TestMetadataResolver
 operator|)
 name|action
 operator|.
