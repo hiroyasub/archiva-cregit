@@ -497,7 +497,6 @@ name|projectVersion
 argument_list|)
 condition|)
 block|{
-comment|// TODO: need much error handling here for incorrect metadata
 name|File
 name|metadataFile
 init|=
@@ -528,6 +527,24 @@ argument_list|(
 name|metadataFile
 argument_list|)
 decl_stmt|;
+comment|// re-adjust to timestamp if present, otherwise retain the original -SNAPSHOT filename
+name|MavenRepositoryMetadata
+operator|.
+name|Snapshot
+name|snapshotVersion
+init|=
+name|metadata
+operator|.
+name|getSnapshotVersion
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|snapshotVersion
+operator|!=
+literal|null
+condition|)
+block|{
 name|artifactVersion
 operator|=
 name|artifactVersion
@@ -545,16 +562,6 @@ literal|8
 argument_list|)
 expr_stmt|;
 comment|// remove SNAPSHOT from end
-name|MavenRepositoryMetadata
-operator|.
-name|Snapshot
-name|snapshotVersion
-init|=
-name|metadata
-operator|.
-name|getSnapshotVersion
-argument_list|()
-decl_stmt|;
 name|artifactVersion
 operator|=
 name|artifactVersion
@@ -571,6 +578,7 @@ operator|.
 name|getBuildNumber
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -621,6 +629,20 @@ operator|+
 literal|".pom"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|file
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+comment|// metadata could not be resolved
+return|return
+literal|null
+return|;
+block|}
 name|ModelBuildingRequest
 name|req
 init|=
