@@ -39,7 +39,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|ProjectVersionMetadata
+name|ProjectMetadata
 import|;
 end_import
 
@@ -55,7 +55,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|ProjectMetadata
+name|ProjectVersionMetadata
 import|;
 end_import
 
@@ -75,7 +75,7 @@ specifier|private
 name|MetadataRepository
 name|metadataRepository
 decl_stmt|;
-comment|/**      * TODO: this needs to be configurable based on storage type, and availability of proxy module      * TODO: could be a different type since we need methods to modify the storage metadata      * @plexus.requirement role-hint="maven2"      */
+comment|/**      * FIXME: this needs to be configurable based on storage type, and availability of proxy module      *        ... could be a different type since we need methods to modify the storage metadata      * @plexus.requirement role-hint="maven2"      */
 specifier|private
 name|MetadataResolver
 name|storageResolver
