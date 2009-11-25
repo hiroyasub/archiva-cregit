@@ -105,6 +105,22 @@ name|metadata
 operator|.
 name|repository
 operator|.
+name|MetadataResolverException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
 name|storage
 operator|.
 name|maven2
@@ -508,6 +524,8 @@ comment|//   again by mapping it to /1.0-SNAPSHOT/? Currently, the individual ve
 comment|//   are only displaying the project's single version.
 comment|// we don't want the implementation being that intelligent - so another resolver to do the
 comment|// "just-in-time" nature of picking up the metadata (if appropriate for the repository type) is used
+try|try
+block|{
 name|versionMetadata
 operator|=
 name|metadataResolver
@@ -523,6 +541,27 @@ argument_list|,
 name|version
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataResolverException
+name|e
+parameter_list|)
+block|{
+name|addActionError
+argument_list|(
+literal|"Error occurred resolving metadata for project: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|ERROR
+return|;
+block|}
 if|if
 condition|(
 name|versionMetadata

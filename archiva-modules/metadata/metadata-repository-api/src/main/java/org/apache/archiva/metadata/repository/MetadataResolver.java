@@ -39,7 +39,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|ProjectVersionMetadata
+name|ProjectMetadata
 import|;
 end_import
 
@@ -55,7 +55,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|ProjectMetadata
+name|ProjectVersionMetadata
 import|;
 end_import
 
@@ -92,6 +92,8 @@ parameter_list|,
 name|String
 name|projectVersion
 parameter_list|)
+throws|throws
+name|MetadataResolverException
 function_decl|;
 name|Collection
 argument_list|<

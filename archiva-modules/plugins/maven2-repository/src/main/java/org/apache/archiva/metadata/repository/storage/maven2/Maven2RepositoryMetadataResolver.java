@@ -121,6 +121,22 @@ name|metadata
 operator|.
 name|repository
 operator|.
+name|MetadataResolverException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
 name|storage
 operator|.
 name|RepositoryPathTranslator
@@ -341,6 +357,26 @@ name|ModelBuildingRequest
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * @plexus.component role="org.apache.archiva.metadata.repository.MetadataResolver" role-hint="maven2"  */
 end_comment
@@ -366,6 +402,21 @@ comment|/**      * @plexus.requirement role-hint="maven2"      */
 specifier|private
 name|RepositoryPathTranslator
 name|pathTranslator
+decl_stmt|;
+specifier|private
+specifier|final
+specifier|static
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|Maven2RepositoryMetadataResolver
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 specifier|public
 name|ProjectMetadata
@@ -403,6 +454,8 @@ parameter_list|,
 name|String
 name|projectVersion
 parameter_list|)
+throws|throws
+name|MetadataResolverException
 block|{
 name|ManagedRepositoryConfiguration
 name|repositoryConfiguration
@@ -445,15 +498,9 @@ argument_list|)
 condition|)
 block|{
 comment|// TODO: need much error handling here for incorrect metadata
-try|try
-block|{
-name|MavenRepositoryMetadata
-name|metadata
+name|File
+name|metadataFile
 init|=
-name|MavenRepositoryMetadataReader
-operator|.
-name|read
-argument_list|(
 name|pathTranslator
 operator|.
 name|toFile
@@ -468,6 +515,17 @@ name|projectVersion
 argument_list|,
 literal|"maven-metadata.xml"
 argument_list|)
+decl_stmt|;
+try|try
+block|{
+name|MavenRepositoryMetadata
+name|metadata
+init|=
+name|MavenRepositoryMetadataReader
+operator|.
+name|read
+argument_list|(
+name|metadataFile
 argument_list|)
 decl_stmt|;
 name|artifactVersion
@@ -520,13 +578,23 @@ name|XMLException
 name|e
 parameter_list|)
 block|{
-comment|// TODO: handle it
+comment|// unable to parse metadata - log it, and continue with the version as the original SNAPSHOT version
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Invalid metadata: "
+operator|+
+name|metadataFile
+operator|+
+literal|" - "
+operator|+
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|()
+argument_list|)
 expr_stmt|;
-comment|//To change body of catch statement use File | Settings | File Templates.
 block|}
 block|}
 name|File
@@ -611,11 +679,17 @@ name|ModelBuildingException
 name|e
 parameter_list|)
 block|{
-comment|// TODO: handle it
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataResolverException
 argument_list|(
+literal|"Unable to build Maven POM to derive metadata from: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
