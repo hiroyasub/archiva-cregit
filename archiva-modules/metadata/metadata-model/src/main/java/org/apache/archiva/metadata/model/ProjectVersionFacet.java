@@ -20,7 +20,7 @@ end_comment
 begin_interface
 specifier|public
 interface|interface
-name|ProjectBuildFacet
+name|ProjectVersionFacet
 block|{
 name|String
 name|getFacetId

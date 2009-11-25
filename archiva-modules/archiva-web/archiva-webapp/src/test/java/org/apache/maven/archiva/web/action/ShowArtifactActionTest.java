@@ -137,7 +137,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|ProjectBuildMetadata
+name|ProjectVersionMetadata
 import|;
 end_import
 
@@ -563,7 +563,7 @@ parameter_list|()
 block|{
 name|metadataResolver
 operator|.
-name|setProjectBuild
+name|setProjectVersion
 argument_list|(
 name|TEST_REPO
 argument_list|,
@@ -666,7 +666,7 @@ parameter_list|()
 block|{
 name|metadataResolver
 operator|.
-name|setProjectBuild
+name|setProjectVersion
 argument_list|(
 name|TEST_REPO
 argument_list|,
@@ -828,7 +828,7 @@ parameter_list|()
 block|{
 name|metadataResolver
 operator|.
-name|setProjectBuild
+name|setProjectVersion
 argument_list|(
 name|TEST_REPO
 argument_list|,
@@ -1079,7 +1079,7 @@ parameter_list|()
 block|{
 name|metadataResolver
 operator|.
-name|setProjectBuild
+name|setProjectVersion
 argument_list|(
 name|OTHER_TEST_REPO
 argument_list|,
@@ -1137,7 +1137,7 @@ argument_list|)
 expr_stmt|;
 name|metadataResolver
 operator|.
-name|setProjectBuild
+name|setProjectVersion
 argument_list|(
 name|TEST_REPO
 argument_list|,
@@ -1252,7 +1252,7 @@ argument_list|)
 expr_stmt|;
 name|metadataResolver
 operator|.
-name|setProjectBuild
+name|setProjectVersion
 argument_list|(
 name|TEST_REPO
 argument_list|,
@@ -1268,7 +1268,7 @@ argument_list|)
 expr_stmt|;
 name|metadataResolver
 operator|.
-name|setProjectBuild
+name|setProjectVersion
 argument_list|(
 name|OTHER_TEST_REPO
 argument_list|,
@@ -1381,7 +1381,7 @@ argument_list|)
 expr_stmt|;
 name|metadataResolver
 operator|.
-name|setProjectBuild
+name|setProjectVersion
 argument_list|(
 name|OTHER_TEST_REPO
 argument_list|,
@@ -1397,7 +1397,7 @@ argument_list|)
 expr_stmt|;
 name|metadataResolver
 operator|.
-name|setProjectBuild
+name|setProjectVersion
 argument_list|(
 name|TEST_REPO
 argument_list|,
@@ -2057,18 +2057,18 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|private
-name|ProjectBuildMetadata
+name|ProjectVersionMetadata
 name|createProjectModel
 parameter_list|(
 name|String
 name|version
 parameter_list|)
 block|{
-name|ProjectBuildMetadata
+name|ProjectVersionMetadata
 name|model
 init|=
 operator|new
-name|ProjectBuildMetadata
+name|ProjectVersionMetadata
 argument_list|()
 decl_stmt|;
 name|model

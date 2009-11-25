@@ -33,7 +33,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|ProjectBuildFacet
+name|ProjectVersionFacet
 import|;
 end_import
 
@@ -42,7 +42,7 @@ specifier|public
 class|class
 name|MavenProjectFacet
 implements|implements
-name|ProjectBuildFacet
+name|ProjectVersionFacet
 block|{
 specifier|private
 name|String

@@ -85,7 +85,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|ProjectBuildMetadata
+name|ProjectVersionMetadata
 import|;
 end_import
 
@@ -591,14 +591,14 @@ name|getArtifactId
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ProjectBuildMetadata
-name|build
+name|ProjectVersionMetadata
+name|versionMetadata
 init|=
 operator|new
-name|ProjectBuildMetadata
+name|ProjectVersionMetadata
 argument_list|()
 decl_stmt|;
-name|build
+name|versionMetadata
 operator|.
 name|setId
 argument_list|(
@@ -679,7 +679,7 @@ operator|.
 name|getId
 argument_list|()
 argument_list|,
-name|build
+name|versionMetadata
 operator|.
 name|getId
 argument_list|()
@@ -689,7 +689,7 @@ argument_list|)
 expr_stmt|;
 name|metadataRepository
 operator|.
-name|updateBuild
+name|updateProjectVersion
 argument_list|(
 name|repository
 operator|.
@@ -706,7 +706,7 @@ operator|.
 name|getId
 argument_list|()
 argument_list|,
-name|build
+name|versionMetadata
 argument_list|)
 expr_stmt|;
 name|metadataRepository

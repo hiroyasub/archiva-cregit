@@ -33,7 +33,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|ProjectBuildMetadata
+name|ProjectVersionMetadata
 import|;
 end_import
 
@@ -221,15 +221,15 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|testGetProjectBuildMetadata
+name|testGetProjectVersionMetadata
 parameter_list|()
 block|{
-name|ProjectBuildMetadata
+name|ProjectVersionMetadata
 name|metadata
 init|=
 name|resolver
 operator|.
-name|getProjectBuild
+name|getProjectVersion
 argument_list|(
 name|TEST_REPO_ID
 argument_list|,
@@ -277,6 +277,15 @@ argument_list|)
 expr_stmt|;
 comment|// TODO: more testing
 block|}
+comment|//    public void testGetProjectVersionMetadataForTimestampedSnapshot()
+comment|//    {
+comment|//        ProjectVersionMetadata metadata =
+comment|//            resolver.getProjectVersion( TEST_REPO_ID, "org.apache", "apache", "5-SNAPSHOT" );
+comment|//        MavenProjectFacet facet = (MavenProjectFacet) metadata.getFacet( MavenProjectFacet.FACET_ID );
+comment|//        assertEquals( "jar", facet.getPackaging() );
+comment|//        assertEquals( "http://www.apache.org/", metadata.getUrl() );
+comment|//        // TODO: more testing
+comment|//    }
 block|}
 end_class
 

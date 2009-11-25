@@ -73,7 +73,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|ProjectBuildMetadata
+name|ProjectVersionMetadata
 import|;
 end_import
 
@@ -465,7 +465,7 @@ name|String
 argument_list|>
 name|snapshotVersions
 decl_stmt|;
-comment|/**      * Show the versioned project information tab. TODO: Change name to 'project'      */
+comment|/**      * Show the versioned project information tab.      * TODO: Change name to 'project' - we are showing project versions here, not specific artifact information (though      * that is rendered in the download box).      */
 specifier|public
 name|String
 name|artifact
@@ -473,8 +473,8 @@ parameter_list|()
 block|{
 comment|// In the future, this should be replaced by the repository grouping mechanism, so that we are only making
 comment|// simple resource requests here and letting the resolver take care of it
-name|ProjectBuildMetadata
-name|build
+name|ProjectVersionMetadata
+name|versionMetadata
 init|=
 literal|null
 decl_stmt|;
@@ -498,18 +498,21 @@ control|)
 block|{
 if|if
 condition|(
-name|build
+name|versionMetadata
 operator|==
 literal|null
 condition|)
 block|{
-comment|// we don't really want the implementation being that intelligent - so another resolver to do the
+comment|// TODO: though we have a simple mapping now, do we want to support paths like /1.0-20090111.123456-1/
+comment|//   again by mapping it to /1.0-SNAPSHOT/? Currently, the individual versions are not supported as we
+comment|//   are only displaying the project's single version.
+comment|// we don't want the implementation being that intelligent - so another resolver to do the
 comment|// "just-in-time" nature of picking up the metadata (if appropriate for the repository type) is used
-name|build
+name|versionMetadata
 operator|=
 name|metadataResolver
 operator|.
-name|getProjectBuild
+name|getProjectVersion
 argument_list|(
 name|repoId
 argument_list|,
@@ -522,7 +525,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|build
+name|versionMetadata
 operator|!=
 literal|null
 condition|)
@@ -531,8 +534,6 @@ name|repositoryId
 operator|=
 name|repoId
 expr_stmt|;
-block|}
-block|}
 name|snapshotVersions
 operator|.
 name|addAll
@@ -547,7 +548,10 @@ name|groupId
 argument_list|,
 name|artifactId
 argument_list|,
-name|version
+name|versionMetadata
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -559,9 +563,11 @@ name|version
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
 if|if
 condition|(
-name|build
+name|versionMetadata
 operator|==
 literal|null
 condition|)
@@ -588,7 +594,7 @@ init|=
 operator|(
 name|MavenProjectFacet
 operator|)
-name|build
+name|versionMetadata
 operator|.
 name|getFacet
 argument_list|(
@@ -695,7 +701,7 @@ name|model
 operator|.
 name|setVersion
 argument_list|(
-name|build
+name|versionMetadata
 operator|.
 name|getId
 argument_list|()
@@ -705,7 +711,7 @@ name|model
 operator|.
 name|setDescription
 argument_list|(
-name|build
+name|versionMetadata
 operator|.
 name|getDescription
 argument_list|()
@@ -715,7 +721,7 @@ name|model
 operator|.
 name|setName
 argument_list|(
-name|build
+name|versionMetadata
 operator|.
 name|getName
 argument_list|()
@@ -725,7 +731,7 @@ name|model
 operator|.
 name|setUrl
 argument_list|(
-name|build
+name|versionMetadata
 operator|.
 name|getUrl
 argument_list|()
@@ -733,7 +739,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|build
+name|versionMetadata
 operator|.
 name|getOrganization
 argument_list|()
@@ -752,7 +758,7 @@ name|organization
 operator|.
 name|setName
 argument_list|(
-name|build
+name|versionMetadata
 operator|.
 name|getOrganization
 argument_list|()
@@ -765,7 +771,7 @@ name|organization
 operator|.
 name|setUrl
 argument_list|(
-name|build
+name|versionMetadata
 operator|.
 name|getOrganization
 argument_list|()
@@ -784,7 +790,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|build
+name|versionMetadata
 operator|.
 name|getCiManagement
 argument_list|()
@@ -803,7 +809,7 @@ name|ci
 operator|.
 name|setSystem
 argument_list|(
-name|build
+name|versionMetadata
 operator|.
 name|getCiManagement
 argument_list|()
@@ -816,7 +822,7 @@ name|ci
 operator|.
 name|setUrl
 argument_list|(
-name|build
+name|versionMetadata
 operator|.
 name|getCiManagement
 argument_list|()
@@ -835,7 +841,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|build
+name|versionMetadata
 operator|.
 name|getIssueManagement
 argument_list|()
@@ -854,7 +860,7 @@ name|issueManagement
 operator|.
 name|setSystem
 argument_list|(
-name|build
+name|versionMetadata
 operator|.
 name|getIssueManagement
 argument_list|()
@@ -867,7 +873,7 @@ name|issueManagement
 operator|.
 name|setUrl
 argument_list|(
-name|build
+name|versionMetadata
 operator|.
 name|getIssueManagement
 argument_list|()
@@ -886,7 +892,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|build
+name|versionMetadata
 operator|.
 name|getScm
 argument_list|()
@@ -905,7 +911,7 @@ name|scm
 operator|.
 name|setConnection
 argument_list|(
-name|build
+name|versionMetadata
 operator|.
 name|getScm
 argument_list|()
@@ -918,7 +924,7 @@ name|scm
 operator|.
 name|setDeveloperConnection
 argument_list|(
-name|build
+name|versionMetadata
 operator|.
 name|getScm
 argument_list|()
@@ -931,7 +937,7 @@ name|scm
 operator|.
 name|setUrl
 argument_list|(
-name|build
+name|versionMetadata
 operator|.
 name|getScm
 argument_list|()
@@ -950,7 +956,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|build
+name|versionMetadata
 operator|.
 name|getLicenses
 argument_list|()
@@ -973,7 +979,7 @@ operator|.
 name|License
 name|l
 range|:
-name|build
+name|versionMetadata
 operator|.
 name|getLicenses
 argument_list|()

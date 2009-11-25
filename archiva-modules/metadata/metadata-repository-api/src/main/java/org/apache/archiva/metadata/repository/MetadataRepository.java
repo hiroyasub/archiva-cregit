@@ -45,7 +45,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|ProjectBuildMetadata
+name|ProjectMetadata
 import|;
 end_import
 
@@ -61,7 +61,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|ProjectMetadata
+name|ProjectVersionMetadata
 import|;
 end_import
 
@@ -72,7 +72,7 @@ name|MetadataRepository
 extends|extends
 name|MetadataResolver
 block|{
-comment|/**      * Update metadata for a particular project in the metadata repository, or create it if it does not already exist.      * @param project the project metadata to create or update      */
+comment|/**      * Update metadata for a particular project in the metadata repository, or create it if it does not already exist.      *      * @param project the project metadata to create or update      */
 name|void
 name|updateProject
 parameter_list|(
@@ -96,14 +96,14 @@ name|String
 name|projectId
 parameter_list|,
 name|String
-name|buildId
+name|projectVersion
 parameter_list|,
 name|ArtifactMetadata
 name|artifactMeta
 parameter_list|)
 function_decl|;
 name|void
-name|updateBuild
+name|updateProjectVersion
 parameter_list|(
 name|String
 name|repoId
@@ -114,8 +114,8 @@ parameter_list|,
 name|String
 name|projectId
 parameter_list|,
-name|ProjectBuildMetadata
-name|build
+name|ProjectVersionMetadata
+name|versionMetadata
 parameter_list|)
 function_decl|;
 block|}

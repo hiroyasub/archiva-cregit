@@ -147,7 +147,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|ProjectBuildMetadata
+name|ProjectMetadata
 import|;
 end_import
 
@@ -163,7 +163,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|ProjectMetadata
+name|ProjectVersionMetadata
 import|;
 end_import
 
@@ -208,7 +208,7 @@ name|FileMetadataRepository
 implements|implements
 name|MetadataRepository
 block|{
-comment|/**      * TODO: this isn't suitable for production use      * @plexus.configuration      */
+comment|/**      * TODO: this isn't suitable for production use      *      * @plexus.configuration      */
 specifier|private
 name|File
 name|directory
@@ -322,7 +322,7 @@ block|}
 block|}
 specifier|public
 name|void
-name|updateBuild
+name|updateProjectVersion
 parameter_list|(
 name|String
 name|repoId
@@ -333,8 +333,8 @@ parameter_list|,
 name|String
 name|projectId
 parameter_list|,
-name|ProjectBuildMetadata
-name|build
+name|ProjectVersionMetadata
+name|versionMetadata
 parameter_list|)
 block|{
 name|File
@@ -371,7 +371,7 @@ name|setProperty
 argument_list|(
 literal|"id"
 argument_list|,
-name|build
+name|versionMetadata
 operator|.
 name|getId
 argument_list|()
@@ -388,7 +388,7 @@ name|File
 argument_list|(
 name|directory
 argument_list|,
-name|build
+name|versionMetadata
 operator|.
 name|getId
 argument_list|()
@@ -425,7 +425,7 @@ name|String
 name|projectId
 parameter_list|,
 name|String
-name|buildId
+name|projectVersion
 parameter_list|,
 name|ArtifactMetadata
 name|artifact
@@ -453,7 +453,7 @@ name|projectId
 operator|+
 literal|"/"
 operator|+
-name|buildId
+name|projectVersion
 argument_list|)
 decl_stmt|;
 name|Properties
@@ -708,8 +708,8 @@ name|project
 return|;
 block|}
 specifier|public
-name|ProjectBuildMetadata
-name|getProjectBuild
+name|ProjectVersionMetadata
+name|getProjectVersion
 parameter_list|(
 name|String
 name|repoId
@@ -721,7 +721,7 @@ name|String
 name|projectId
 parameter_list|,
 name|String
-name|buildId
+name|projectVersion
 parameter_list|)
 block|{
 name|File
@@ -742,7 +742,7 @@ name|projectId
 operator|+
 literal|"/"
 operator|+
-name|buildId
+name|projectVersion
 argument_list|)
 decl_stmt|;
 name|Properties
@@ -753,14 +753,14 @@ argument_list|(
 name|directory
 argument_list|)
 decl_stmt|;
-name|ProjectBuildMetadata
-name|build
+name|ProjectVersionMetadata
+name|versionMetadata
 init|=
 operator|new
-name|ProjectBuildMetadata
+name|ProjectVersionMetadata
 argument_list|()
 decl_stmt|;
-name|build
+name|versionMetadata
 operator|.
 name|setId
 argument_list|(
@@ -773,7 +773,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-name|build
+name|versionMetadata
 return|;
 block|}
 specifier|public
@@ -793,7 +793,7 @@ name|String
 name|projectId
 parameter_list|,
 name|String
-name|buildId
+name|projectVersion
 parameter_list|)
 block|{
 name|File
@@ -814,7 +814,7 @@ name|projectId
 operator|+
 literal|"/"
 operator|+
-name|buildId
+name|projectVersion
 argument_list|)
 decl_stmt|;
 name|Properties

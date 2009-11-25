@@ -53,7 +53,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|ProjectBuildMetadata
+name|ProjectVersionMetadata
 import|;
 end_import
 
@@ -264,8 +264,8 @@ argument_list|()
 throw|;
 block|}
 specifier|public
-name|ProjectBuildMetadata
-name|getProjectBuild
+name|ProjectVersionMetadata
+name|getProjectVersion
 parameter_list|(
 name|String
 name|repoId
@@ -277,9 +277,10 @@ name|String
 name|projectId
 parameter_list|,
 name|String
-name|buildId
+name|projectVersion
 parameter_list|)
 block|{
+comment|// TODO: artifactVersion translation
 name|ManagedRepositoryConfiguration
 name|repositoryConfiguration
 init|=
@@ -318,13 +319,13 @@ name|namespace
 argument_list|,
 name|projectId
 argument_list|,
-name|buildId
+name|projectVersion
 argument_list|,
 name|projectId
 operator|+
 literal|"-"
 operator|+
-name|buildId
+name|projectVersion
 operator|+
 literal|".pom"
 argument_list|)
@@ -512,11 +513,11 @@ name|parent
 argument_list|)
 expr_stmt|;
 block|}
-name|ProjectBuildMetadata
+name|ProjectVersionMetadata
 name|metadata
 init|=
 operator|new
-name|ProjectBuildMetadata
+name|ProjectVersionMetadata
 argument_list|()
 decl_stmt|;
 name|metadata
@@ -558,7 +559,7 @@ name|String
 name|projectId
 parameter_list|,
 name|String
-name|buildId
+name|projectVersion
 parameter_list|)
 block|{
 throw|throw

@@ -39,7 +39,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|ProjectBuildMetadata
+name|ProjectVersionMetadata
 import|;
 end_import
 
@@ -109,8 +109,8 @@ argument_list|)
 return|;
 block|}
 specifier|public
-name|ProjectBuildMetadata
-name|getProjectBuild
+name|ProjectVersionMetadata
+name|getProjectVersion
 parameter_list|(
 name|String
 name|repoId
@@ -122,15 +122,15 @@ name|String
 name|projectId
 parameter_list|,
 name|String
-name|buildId
+name|projectVersion
 parameter_list|)
 block|{
-name|ProjectBuildMetadata
+name|ProjectVersionMetadata
 name|metadata
 init|=
 name|metadataRepository
 operator|.
-name|getProjectBuild
+name|getProjectVersion
 argument_list|(
 name|repoId
 argument_list|,
@@ -138,10 +138,10 @@ name|namespace
 argument_list|,
 name|projectId
 argument_list|,
-name|buildId
+name|projectVersion
 argument_list|)
 decl_stmt|;
-comment|// TODO: do we want to detect changes as well by comparing timestamps? isProjectBuildNewerThan(updated)
+comment|// TODO: do we want to detect changes as well by comparing timestamps? isProjectVersionNewerThan(updated)
 comment|//       in such cases we might also remove/update stale metadata, including adjusting plugin-based facets
 if|if
 condition|(
@@ -154,7 +154,7 @@ name|metadata
 operator|=
 name|storageResolver
 operator|.
-name|getProjectBuild
+name|getProjectVersion
 argument_list|(
 name|repoId
 argument_list|,
@@ -162,12 +162,12 @@ name|namespace
 argument_list|,
 name|projectId
 argument_list|,
-name|buildId
+name|projectVersion
 argument_list|)
 expr_stmt|;
 name|metadataRepository
 operator|.
-name|updateBuild
+name|updateProjectVersion
 argument_list|(
 name|repoId
 argument_list|,
@@ -200,7 +200,7 @@ name|String
 name|projectId
 parameter_list|,
 name|String
-name|buildId
+name|projectVersion
 parameter_list|)
 block|{
 comment|// TODO: intercept
@@ -215,7 +215,7 @@ name|namespace
 argument_list|,
 name|projectId
 argument_list|,
-name|buildId
+name|projectVersion
 argument_list|)
 return|;
 block|}

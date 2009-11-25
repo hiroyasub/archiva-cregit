@@ -90,7 +90,7 @@ name|String
 name|projectId
 parameter_list|,
 name|String
-name|buildId
+name|projectVersion
 parameter_list|,
 name|String
 name|filename
@@ -108,7 +108,7 @@ name|namespace
 argument_list|,
 name|projectId
 argument_list|,
-name|buildId
+name|projectVersion
 argument_list|,
 name|filename
 argument_list|)
@@ -126,7 +126,7 @@ name|String
 name|projectId
 parameter_list|,
 name|String
-name|buildId
+name|projectVersion
 parameter_list|,
 name|String
 name|filename
@@ -170,7 +170,7 @@ name|path
 operator|.
 name|append
 argument_list|(
-name|buildId
+name|projectVersion
 argument_list|)
 operator|.
 name|append

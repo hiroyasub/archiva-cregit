@@ -47,7 +47,7 @@ name|String
 name|projectId
 parameter_list|,
 name|String
-name|buildId
+name|projectVersion
 parameter_list|,
 name|String
 name|filename
@@ -63,7 +63,7 @@ name|String
 name|projectId
 parameter_list|,
 name|String
-name|buildId
+name|projectVersion
 parameter_list|,
 name|String
 name|filename

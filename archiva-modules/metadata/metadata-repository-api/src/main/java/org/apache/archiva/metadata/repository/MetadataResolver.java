@@ -39,7 +39,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|ProjectBuildMetadata
+name|ProjectVersionMetadata
 import|;
 end_import
 
@@ -77,8 +77,8 @@ name|String
 name|projectId
 parameter_list|)
 function_decl|;
-name|ProjectBuildMetadata
-name|getProjectBuild
+name|ProjectVersionMetadata
+name|getProjectVersion
 parameter_list|(
 name|String
 name|repoId
@@ -90,7 +90,7 @@ name|String
 name|projectId
 parameter_list|,
 name|String
-name|buildId
+name|projectVersion
 parameter_list|)
 function_decl|;
 name|Collection
@@ -109,7 +109,7 @@ name|String
 name|projectId
 parameter_list|,
 name|String
-name|buildId
+name|projectVersion
 parameter_list|)
 function_decl|;
 block|}

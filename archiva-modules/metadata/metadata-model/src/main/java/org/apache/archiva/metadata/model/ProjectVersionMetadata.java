@@ -60,7 +60,7 @@ end_import
 begin_class
 specifier|public
 class|class
-name|ProjectBuildMetadata
+name|ProjectVersionMetadata
 block|{
 specifier|private
 name|String
@@ -106,7 +106,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ProjectBuildFacet
+name|ProjectVersionFacet
 argument_list|>
 name|facets
 decl_stmt|;
@@ -375,7 +375,7 @@ specifier|public
 name|void
 name|addFacet
 parameter_list|(
-name|ProjectBuildFacet
+name|ProjectVersionFacet
 name|mavenProjectFacet
 parameter_list|)
 block|{
@@ -397,7 +397,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|ProjectBuildFacet
+name|ProjectVersionFacet
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -418,7 +418,7 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|public
-name|ProjectBuildFacet
+name|ProjectVersionFacet
 name|getFacet
 parameter_list|(
 name|String
