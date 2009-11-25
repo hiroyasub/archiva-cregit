@@ -642,6 +642,13 @@ operator|.
 name|FACET_ID
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|projectFacet
+operator|!=
+literal|null
+condition|)
+block|{
 name|model
 operator|.
 name|setGroupId
@@ -735,6 +742,7 @@ argument_list|(
 name|parent
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|model
 operator|.
