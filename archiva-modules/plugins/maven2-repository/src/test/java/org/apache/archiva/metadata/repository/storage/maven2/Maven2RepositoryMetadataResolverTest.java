@@ -277,15 +277,64 @@ argument_list|)
 expr_stmt|;
 comment|// TODO: more testing
 block|}
-comment|//    public void testGetProjectVersionMetadataForTimestampedSnapshot()
-comment|//    {
-comment|//        ProjectVersionMetadata metadata =
-comment|//            resolver.getProjectVersion( TEST_REPO_ID, "org.apache", "apache", "5-SNAPSHOT" );
-comment|//        MavenProjectFacet facet = (MavenProjectFacet) metadata.getFacet( MavenProjectFacet.FACET_ID );
-comment|//        assertEquals( "jar", facet.getPackaging() );
-comment|//        assertEquals( "http://www.apache.org/", metadata.getUrl() );
-comment|//        // TODO: more testing
-comment|//    }
+specifier|public
+name|void
+name|testGetProjectVersionMetadataForTimestampedSnapshot
+parameter_list|()
+block|{
+name|ProjectVersionMetadata
+name|metadata
+init|=
+name|resolver
+operator|.
+name|getProjectVersion
+argument_list|(
+name|TEST_REPO_ID
+argument_list|,
+literal|"org.apache"
+argument_list|,
+literal|"apache"
+argument_list|,
+literal|"5-SNAPSHOT"
+argument_list|)
+decl_stmt|;
+name|MavenProjectFacet
+name|facet
+init|=
+operator|(
+name|MavenProjectFacet
+operator|)
+name|metadata
+operator|.
+name|getFacet
+argument_list|(
+name|MavenProjectFacet
+operator|.
+name|FACET_ID
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"pom"
+argument_list|,
+name|facet
+operator|.
+name|getPackaging
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"http://www.apache.org/"
+argument_list|,
+name|metadata
+operator|.
+name|getUrl
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// TODO: more testing
+block|}
 block|}
 end_class
 
