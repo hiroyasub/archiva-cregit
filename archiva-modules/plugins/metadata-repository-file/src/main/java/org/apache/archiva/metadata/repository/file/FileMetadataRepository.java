@@ -591,7 +591,7 @@ argument_list|)
 expr_stmt|;
 name|properties
 operator|.
-name|load
+name|loadFromXML
 argument_list|(
 name|in
 argument_list|)
