@@ -1426,29 +1426,11 @@ name|ObjectNotFoundException
 throws|,
 name|ArchivaDatabaseException
 block|{
-name|this
-operator|.
-name|model
-operator|=
-name|repoBrowsing
-operator|.
-name|selectVersion
-argument_list|(
-name|getPrincipal
-argument_list|()
-argument_list|,
-name|getObservableRepos
-argument_list|()
-argument_list|,
-name|groupId
-argument_list|,
-name|artifactId
-argument_list|,
-name|version
-argument_list|)
-expr_stmt|;
+comment|// temporarily use this as we only need the model for the tag to perform, but we should be resolving the
+comment|// graph here instead
 return|return
-name|SUCCESS
+name|artifact
+argument_list|()
 return|;
 block|}
 specifier|private
