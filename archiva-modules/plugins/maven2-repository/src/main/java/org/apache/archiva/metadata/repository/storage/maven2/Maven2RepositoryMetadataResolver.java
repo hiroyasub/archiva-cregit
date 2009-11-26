@@ -677,6 +677,15 @@ name|pathTranslator
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|req
+operator|.
+name|setValidationLevel
+argument_list|(
+name|ModelBuildingRequest
+operator|.
+name|VALIDATION_LEVEL_MINIMAL
+argument_list|)
+expr_stmt|;
 name|Model
 name|model
 decl_stmt|;
