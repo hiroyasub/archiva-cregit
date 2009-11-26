@@ -75,7 +75,7 @@ specifier|private
 name|MetadataRepository
 name|metadataRepository
 decl_stmt|;
-comment|/**      * FIXME: this needs to be configurable based on storage type, and availability of proxy module      * ... could be a different type since we need methods to modify the storage metadata      *      * @plexus.requirement role-hint="maven2"      */
+comment|/**      * FIXME: this needs to be configurable based on storage type, and availability of proxy module      * ... could be a different type since we need methods to modify the storage metadata, which would also allow more      *     appropriate methods to pass in the already determined repository configuration, for example, instead of the ID      *      * @plexus.requirement role-hint="maven2"      */
 specifier|private
 name|MetadataResolver
 name|storageResolver
