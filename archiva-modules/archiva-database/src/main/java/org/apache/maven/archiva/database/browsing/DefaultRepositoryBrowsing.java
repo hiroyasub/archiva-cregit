@@ -707,6 +707,13 @@ argument_list|)
 expr_stmt|;
 name|results
 operator|.
+name|setSelectedRepositoryIds
+argument_list|(
+name|observableRepositoryIds
+argument_list|)
+expr_stmt|;
+name|results
+operator|.
 name|setGroupIds
 argument_list|(
 name|groups
