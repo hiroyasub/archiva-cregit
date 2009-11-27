@@ -1262,7 +1262,7 @@ name|join
 argument_list|(
 name|versionMetadata
 operator|.
-name|getAllFacetIds
+name|getFacetIds
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1274,7 +1274,7 @@ name|facet
 range|:
 name|versionMetadata
 operator|.
-name|getAllFacets
+name|getFacetList
 argument_list|()
 control|)
 block|{
@@ -2217,14 +2217,14 @@ name|issueManagement
 operator|.
 name|setSystem
 argument_list|(
-name|ciSystem
+name|issueSystem
 argument_list|)
 expr_stmt|;
 name|issueManagement
 operator|.
 name|setUrl
 argument_list|(
-name|ciUrl
+name|issueUrl
 argument_list|)
 expr_stmt|;
 name|versionMetadata
@@ -2868,7 +2868,7 @@ name|facet
 range|:
 name|versionMetadata
 operator|.
-name|getAllFacets
+name|getFacetList
 argument_list|()
 control|)
 block|{
