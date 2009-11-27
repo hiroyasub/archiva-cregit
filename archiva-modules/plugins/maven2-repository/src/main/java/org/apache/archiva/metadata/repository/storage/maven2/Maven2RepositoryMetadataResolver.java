@@ -1837,6 +1837,7 @@ return|return
 name|ci
 return|;
 block|}
+comment|// TODO: evidence that storage and resolver != repository API - split the interface up
 specifier|public
 name|Collection
 argument_list|<
@@ -1938,6 +1939,29 @@ name|repoId
 parameter_list|,
 name|String
 name|namespace
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
+block|}
+specifier|public
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|getProjectVersions
+parameter_list|(
+name|String
+name|repoId
+parameter_list|,
+name|String
+name|namespace
+parameter_list|,
+name|String
+name|projectId
 parameter_list|)
 block|{
 throw|throw

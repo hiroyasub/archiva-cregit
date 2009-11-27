@@ -186,6 +186,22 @@ name|String
 name|namespace
 parameter_list|)
 function_decl|;
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|getProjectVersions
+parameter_list|(
+name|String
+name|repoId
+parameter_list|,
+name|String
+name|namespace
+parameter_list|,
+name|String
+name|projectId
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

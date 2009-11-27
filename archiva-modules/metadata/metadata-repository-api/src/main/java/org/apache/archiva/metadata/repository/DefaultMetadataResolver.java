@@ -464,6 +464,38 @@ name|namespace
 argument_list|)
 return|;
 block|}
+specifier|public
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|getProjectVersions
+parameter_list|(
+name|String
+name|repoId
+parameter_list|,
+name|String
+name|namespace
+parameter_list|,
+name|String
+name|projectId
+parameter_list|)
+block|{
+comment|// TODO: is this assumption correct? could a storage mech. actually know all references in a non-Maven scenario?
+comment|// not passed to the storage mechanism as resolving references would require iterating all versions
+return|return
+name|metadataRepository
+operator|.
+name|getProjectVersions
+argument_list|(
+name|repoId
+argument_list|,
+name|namespace
+argument_list|,
+name|projectId
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
