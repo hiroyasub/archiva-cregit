@@ -201,6 +201,8 @@ parameter_list|,
 name|String
 name|projectId
 parameter_list|)
+throws|throws
+name|MetadataResolverException
 function_decl|;
 block|}
 end_interface

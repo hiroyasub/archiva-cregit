@@ -88,7 +88,7 @@ name|MetadataRepository
 extends|extends
 name|MetadataResolver
 block|{
-comment|/**      * Update metadata for a particular project in the metadata repository, or create it if it does not already exist.      *      * @param project the project metadata to create or update      */
+comment|/**      * Update metadata for a particular project in the metadata repository, or create it if it does not already exist.      *      * @param repoId the repository the project is in      * @param project the project metadata to create or update      */
 name|void
 name|updateProject
 parameter_list|(
@@ -151,6 +151,16 @@ name|projectVersion
 parameter_list|,
 name|ProjectVersionReference
 name|reference
+parameter_list|)
+function_decl|;
+name|void
+name|updateNamespace
+parameter_list|(
+name|String
+name|repoId
+parameter_list|,
+name|String
+name|namespace
 parameter_list|)
 function_decl|;
 block|}

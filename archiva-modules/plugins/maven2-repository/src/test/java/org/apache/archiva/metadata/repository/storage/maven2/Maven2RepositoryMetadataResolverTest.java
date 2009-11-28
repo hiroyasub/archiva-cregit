@@ -137,7 +137,7 @@ name|metadata
 operator|.
 name|repository
 operator|.
-name|MetadataResolver
+name|MetadataResolverException
 import|;
 end_import
 
@@ -153,7 +153,9 @@ name|metadata
 operator|.
 name|repository
 operator|.
-name|MetadataResolverException
+name|storage
+operator|.
+name|StorageMetadataResolver
 import|;
 end_import
 
@@ -339,7 +341,7 @@ name|Maven2RepositoryMetadataResolver
 operator|)
 name|lookup
 argument_list|(
-name|MetadataResolver
+name|StorageMetadataResolver
 operator|.
 name|class
 argument_list|,
