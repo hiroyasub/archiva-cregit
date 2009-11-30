@@ -1078,7 +1078,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// returned model is null!
 specifier|public
 name|void
 name|testQuickSearchDefaultPackagingIsUsed
@@ -1981,7 +1980,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* query artifact by checksum */
 specifier|public
 name|void
 name|testGetArtifactByChecksum
@@ -2829,6 +2827,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// TODO
 block|}
 specifier|public
 name|void
@@ -2837,6 +2836,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// TODO
 block|}
 specifier|public
 name|void
