@@ -1735,7 +1735,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO: test with restricted observable repos
-comment|//       not currently relevant since it is controlled at the DefaultRepositoryBrowsing level
 comment|// TODO: current behaviour is to ignore values that differ between models - instead, pick the latest and use that.
 comment|//       Need to update the tests to verify this as models are currently the same
 specifier|private

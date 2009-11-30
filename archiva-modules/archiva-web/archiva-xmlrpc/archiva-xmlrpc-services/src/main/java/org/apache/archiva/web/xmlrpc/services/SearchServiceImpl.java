@@ -1122,7 +1122,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// 1. get observable repositories
-comment|// 2. use RepositoryBrowsing method to query uniqueVersions? (but with date)
+comment|// 2. use metadata repository to query uniqueVersions? (but with date)
 return|return
 name|artifacts
 return|;
