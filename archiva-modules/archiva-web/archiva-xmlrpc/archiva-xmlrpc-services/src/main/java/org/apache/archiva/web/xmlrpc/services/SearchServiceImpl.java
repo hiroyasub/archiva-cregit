@@ -343,24 +343,6 @@ name|database
 operator|.
 name|browsing
 operator|.
-name|BrowsingResults
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|database
-operator|.
-name|browsing
-operator|.
 name|RepositoryBrowsing
 import|;
 end_import
@@ -1106,7 +1088,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-specifier|final
 name|List
 argument_list|<
 name|Artifact
@@ -1120,7 +1101,6 @@ name|Artifact
 argument_list|>
 argument_list|()
 decl_stmt|;
-specifier|final
 name|List
 argument_list|<
 name|String
@@ -1132,17 +1112,25 @@ operator|.
 name|getObservableRepositories
 argument_list|()
 decl_stmt|;
-specifier|final
-name|BrowsingResults
+for|for
+control|(
+name|String
+name|repoId
+range|:
+name|observableRepos
+control|)
+block|{
+name|Collection
+argument_list|<
+name|String
+argument_list|>
 name|results
 init|=
-name|repoBrowsing
+name|metadataResolver
 operator|.
-name|selectArtifactId
+name|getProjectVersions
 argument_list|(
-literal|""
-argument_list|,
-name|observableRepos
+name|repoId
 argument_list|,
 name|groupId
 argument_list|,
@@ -1156,9 +1144,6 @@ name|String
 name|version
 range|:
 name|results
-operator|.
-name|getVersions
-argument_list|()
 control|)
 block|{
 specifier|final
@@ -1168,7 +1153,7 @@ init|=
 operator|new
 name|Artifact
 argument_list|(
-literal|""
+name|repoId
 argument_list|,
 name|groupId
 argument_list|,
@@ -1179,9 +1164,6 @@ argument_list|,
 literal|"pom"
 argument_list|)
 decl_stmt|;
-comment|//ArchivaArtifact pomArtifact = artifactDAO.getArtifact( groupId, artifactId, version, "", "pom",  );
-comment|//Artifact artifact = new Artifact( "", groupId, artifactId, version, pomArtifact.getType() );
-comment|//pomArtifact.getModel().getWhenGathered() );
 name|artifacts
 operator|.
 name|add
@@ -1190,8 +1172,7 @@ name|artifact
 argument_list|)
 expr_stmt|;
 block|}
-comment|// 1. get observable repositories
-comment|// 2. use RepositoryBrowsing method to query uniqueVersions?
+block|}
 return|return
 name|artifacts
 return|;
@@ -1444,7 +1425,6 @@ return|return
 name|a
 return|;
 block|}
-comment|//get artifacts that depend on a given artifact
 specifier|public
 name|List
 argument_list|<

@@ -308,6 +308,49 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Artifact{"
+operator|+
+literal|"repositoryId='"
+operator|+
+name|repositoryId
+operator|+
+literal|'\''
+operator|+
+literal|", groupId='"
+operator|+
+name|groupId
+operator|+
+literal|'\''
+operator|+
+literal|", artifactId='"
+operator|+
+name|artifactId
+operator|+
+literal|'\''
+operator|+
+literal|", version='"
+operator|+
+name|version
+operator|+
+literal|'\''
+operator|+
+literal|", type='"
+operator|+
+name|type
+operator|+
+literal|'\''
+operator|+
+literal|'}'
+return|;
+block|}
 specifier|public
 name|Artifact
 parameter_list|(
