@@ -394,7 +394,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SearchServiceImplTest  *   * @version $Id: SearchServiceImplTest.java  */
+comment|/**  * SearchServiceImplTest  *  * @version $Id: SearchServiceImplTest.java  */
 end_comment
 
 begin_class
@@ -1374,7 +1374,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * quick/general text search which returns a list of artifacts      * query for an artifact based on a checksum      * query for all available versions of an artifact, sorted in version significance order      * query for all available versions of an artifact since a given date      * query for an artifact's direct dependencies      * query for an artifact's dependency tree (as with mvn dependency:tree - no duplicates should be included)      * query for all artifacts that depend on a given artifact      */
+comment|/*     * quick/general text search which returns a list of artifacts     * query for an artifact based on a checksum     * query for all available versions of an artifact, sorted in version significance order     * query for all available versions of an artifact since a given date     * query for an artifact's direct dependencies     * query for an artifact's dependency tree (as with mvn dependency:tree - no duplicates should be included)     * query for all artifacts that depend on a given artifact     */
 comment|/* quick search */
 comment|//    public void testQuickSearchArtifactBytecodeSearch()
 comment|//        throws Exception
@@ -1834,7 +1834,7 @@ block|}
 specifier|public
 name|void
 name|testQuickSearchNoResults
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{

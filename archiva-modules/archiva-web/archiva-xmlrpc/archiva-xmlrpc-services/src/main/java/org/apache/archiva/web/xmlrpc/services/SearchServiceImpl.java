@@ -396,7 +396,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SearchServiceImpl  *   * quick/general text search which returns a list of artifacts  * query for an artifact based on a checksum  * query for all available versions of an artifact, sorted in version significance order  * query for all available versions of an artifact since a given date  * query for an artifact's direct dependencies  * query for an artifact's dependency tree (as with mvn dependency:tree - no duplicates should be included)  * query for all artifacts that depend on a given artifact   *   * @version $Id: SearchServiceImpl.java  */
+comment|/**  * SearchServiceImpl  *  * quick/general text search which returns a list of artifacts  * query for an artifact based on a checksum  * query for all available versions of an artifact, sorted in version significance order  * query for all available versions of an artifact since a given date  * query for an artifact's direct dependencies  * query for an artifact's dependency tree (as with mvn dependency:tree - no duplicates should be included)  * query for all artifacts that depend on a given artifact  *  * @version $Id: SearchServiceImpl.java  */
 end_comment
 
 begin_class
