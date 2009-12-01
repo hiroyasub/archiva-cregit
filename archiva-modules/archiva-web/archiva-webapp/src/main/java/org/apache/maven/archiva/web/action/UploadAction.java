@@ -2218,7 +2218,7 @@ return|return
 name|metadata
 return|;
 block|}
-comment|/**      * Update artifact level metadata. If it does not exist, create the metadata and       * fix checksums if necessary.      */
+comment|/**      * Update artifact level metadata. If it does not exist, create the metadata and      * fix checksums if necessary.      */
 specifier|private
 name|void
 name|updateMetadata
