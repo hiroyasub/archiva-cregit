@@ -68,15 +68,6 @@ name|suite
 operator|.
 name|addTestSuite
 argument_list|(
-name|ArtifactsProcessedConstraintTest
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|suite
-operator|.
-name|addTestSuite
-argument_list|(
 name|ArtifactsByChecksumConstraintTest
 operator|.
 name|class

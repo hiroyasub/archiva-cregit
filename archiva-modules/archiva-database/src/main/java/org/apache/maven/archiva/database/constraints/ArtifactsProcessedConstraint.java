@@ -21,6 +21,16 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -32,16 +42,6 @@ operator|.
 name|database
 operator|.
 name|Constraint
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
 import|;
 end_import
 
@@ -62,31 +62,6 @@ specifier|private
 name|String
 name|whereClause
 decl_stmt|;
-specifier|public
-name|ArtifactsProcessedConstraint
-parameter_list|(
-name|boolean
-name|isProcessed
-parameter_list|)
-block|{
-if|if
-condition|(
-name|isProcessed
-condition|)
-block|{
-name|whereClause
-operator|=
-literal|"whenProcessed != null"
-expr_stmt|;
-block|}
-else|else
-block|{
-name|whereClause
-operator|=
-literal|"whenProcessed == null"
-expr_stmt|;
-block|}
-block|}
 comment|/**      * A Constraint showing artifacts processed since date provided.      * @param since      */
 specifier|public
 name|ArtifactsProcessedConstraint
