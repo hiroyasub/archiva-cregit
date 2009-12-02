@@ -21,6 +21,26 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -48,22 +68,6 @@ operator|.
 name|database
 operator|.
 name|ArtifactDAO
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|database
-operator|.
-name|ProjectModelDAO
 import|;
 end_import
 
@@ -115,26 +119,6 @@ name|SimpleConstraint
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
 comment|/**  * JdoArchivaDAO   *  * @version $Id$  *   * @plexus.component role-hint="jdo"  */
 end_comment
@@ -158,11 +142,6 @@ name|artifactDAO
 decl_stmt|;
 comment|/**      * @plexus.requirement role-hint="jdo"      */
 specifier|private
-name|ProjectModelDAO
-name|projectModelDAO
-decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="jdo"      */
-specifier|private
 name|RepositoryProblemDAO
 name|repositoryProblemDAO
 decl_stmt|;
@@ -171,6 +150,15 @@ specifier|private
 name|RepositoryContentStatisticsDAO
 name|repositoryContentStatisticsDAO
 decl_stmt|;
+specifier|public
+name|JdoArchivaDAO
+parameter_list|()
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+comment|//To change body of overridden methods use File | Settings | File Templates.
+block|}
 specifier|public
 name|List
 argument_list|<
@@ -215,15 +203,6 @@ parameter_list|()
 block|{
 return|return
 name|artifactDAO
-return|;
-block|}
-specifier|public
-name|ProjectModelDAO
-name|getProjectModelDAO
-parameter_list|()
-block|{
-return|return
-name|projectModelDAO
 return|;
 block|}
 specifier|public

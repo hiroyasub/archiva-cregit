@@ -87,22 +87,6 @@ name|archiva
 operator|.
 name|database
 operator|.
-name|ProjectModelDAO
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|database
-operator|.
 name|RepositoryContentStatisticsDAO
 import|;
 end_import
@@ -168,11 +152,6 @@ name|ArchivaDAO
 block|{
 comment|/**      * @plexus.requirement role-hint="jdo"      */
 specifier|private
-name|ProjectModelDAO
-name|projectModelDAO
-decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="jdo"      */
-specifier|private
 name|ArtifactDAO
 name|artifactDAO
 decl_stmt|;
@@ -219,15 +198,6 @@ parameter_list|()
 block|{
 return|return
 name|artifactDAO
-return|;
-block|}
-specifier|public
-name|ProjectModelDAO
-name|getProjectModelDAO
-parameter_list|()
-block|{
-return|return
-name|projectModelDAO
 return|;
 block|}
 specifier|public

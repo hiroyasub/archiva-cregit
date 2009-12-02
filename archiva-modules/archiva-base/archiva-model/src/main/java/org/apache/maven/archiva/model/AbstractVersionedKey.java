@@ -19,6 +19,16 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -31,18 +41,8 @@ name|StringUtils
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
 begin_comment
-comment|/**  *<p>  * AbstractVersionedKey - a versioned reference to a Project.  * This refers to all artifacts of a specific version of a project.  * This type of reference is typically used by {@link ArchivaProjectModel} objects.   *</p>  *   *<p>  *   If you require things like "Version" or "Type", consider the other keys below.  *</p>  *   *<table border="1" cellpadding="3">  *<tr>  *<th>Key Type</th>  *<th>Group ID</th>  *<th>Artifact ID</th>  *<th>Version</th>  *<th>Classifier</th>  *<th>Type</th>  *</tr>  *<tr>  *<td>{@link AbstractProjectKey}</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *<td>&nbsp;</td>  *<td>&nbsp;</td>  *<td>&nbsp;</td>  *</tr>  *<tr>  *<td>{@link AbstractVersionedKey}</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *<td>&nbsp;</td>  *<td>&nbsp;</td>  *</tr>  *<tr>  *<td>{@link AbstractArtifactKey}</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *</tr>  *</table>  *   *<p>  * NOTE: This is a jpox required compound key handler class.  *</p>  *  * @version $Id$  */
+comment|/**  *<p>  * AbstractVersionedKey - a versioned reference to a Project.  * This refers to all artifacts of a specific version of a project.  * This type of reference is typically used by {@link ArchivaProjectModel} objects.   *</p>  *   *<p>  *   If you require things like "Version" or "Type", consider the other keys below.  *</p>  *   *<table border="1" cellpadding="3">  *<tr>  *<th>Key Type</th>  *<th>Group ID</th>  *<th>Artifact ID</th>  *<th>Version</th>  *<th>Classifier</th>  *<th>Type</th>  *</tr>  *<tr>  *<td>{@link AbstractVersionedKey}</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *<td>&nbsp;</td>  *<td>&nbsp;</td>  *</tr>  *<tr>  *<td>{@link AbstractArtifactKey}</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *<td align="center">Yes</td>  *</tr>  *</table>  *   *<p>  * NOTE: This is a jpox required compound key handler class.  *</p>  *  * @version $Id$  */
 end_comment
 
 begin_class

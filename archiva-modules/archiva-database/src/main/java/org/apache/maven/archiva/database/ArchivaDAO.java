@@ -82,10 +82,6 @@ name|ArtifactDAO
 name|getArtifactDAO
 parameter_list|()
 function_decl|;
-name|ProjectModelDAO
-name|getProjectModelDAO
-parameter_list|()
-function_decl|;
 name|RepositoryProblemDAO
 name|getRepositoryProblemDAO
 parameter_list|()

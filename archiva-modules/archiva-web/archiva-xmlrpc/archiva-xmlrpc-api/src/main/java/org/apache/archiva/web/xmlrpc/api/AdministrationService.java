@@ -31,6 +31,18 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|atlassian
+operator|.
+name|xmlrpc
+operator|.
+name|ServiceObject
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -69,18 +81,6 @@ name|RemoteRepository
 import|;
 end_import
 
-begin_import
-import|import
-name|com
-operator|.
-name|atlassian
-operator|.
-name|xmlrpc
-operator|.
-name|ServiceObject
-import|;
-end_import
-
 begin_interface
 annotation|@
 name|ServiceObject
@@ -98,37 +98,6 @@ name|executeRepositoryScanner
 parameter_list|(
 name|String
 name|repoId
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Executes the database scanner.      *       * @return      * @throws Exception      */
-specifier|public
-name|Boolean
-name|executeDatabaseScanner
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Gets all available database consumers.      * @return      */
-specifier|public
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|getAllDatabaseConsumers
-parameter_list|()
-function_decl|;
-comment|/**      * Configures (enable or disable) database consumer.      *       * @param consumerId id of the database consumer      * @param enable flag whether to enable or disable the specified consumer      * @return      * @throws Exception      */
-specifier|public
-name|Boolean
-name|configureDatabaseConsumer
-parameter_list|(
-name|String
-name|consumerId
-parameter_list|,
-name|boolean
-name|enable
 parameter_list|)
 throws|throws
 name|Exception

@@ -83,22 +83,6 @@ name|archiva
 operator|.
 name|database
 operator|.
-name|ProjectModelDAO
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|database
-operator|.
 name|RepositoryContentStatisticsDAO
 import|;
 end_import
@@ -149,16 +133,6 @@ block|{
 specifier|public
 name|ArtifactDAO
 name|getArtifactDAO
-parameter_list|()
-block|{
-comment|// TODO Auto-generated method stub
-return|return
-literal|null
-return|;
-block|}
-specifier|public
-name|ProjectModelDAO
-name|getProjectModelDAO
 parameter_list|()
 block|{
 comment|// TODO Auto-generated method stub

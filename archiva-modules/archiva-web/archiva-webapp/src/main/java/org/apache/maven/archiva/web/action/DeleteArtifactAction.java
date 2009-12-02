@@ -289,24 +289,6 @@ name|maven
 operator|.
 name|archiva
 operator|.
-name|database
-operator|.
-name|updater
-operator|.
-name|DatabaseConsumers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
 name|model
 operator|.
 name|ArchivaArtifact
@@ -679,11 +661,6 @@ comment|/**      * @plexus.requirement role-hint="jdo"      */
 specifier|private
 name|ArtifactDAO
 name|artifactDAO
-decl_stmt|;
-comment|/**      * @plexus.requirement       */
-specifier|private
-name|DatabaseConsumers
-name|databaseConsumers
 decl_stmt|;
 comment|/** @plexus.requirement role="org.apache.maven.archiva.repository.events.RepositoryListener" */
 specifier|private
