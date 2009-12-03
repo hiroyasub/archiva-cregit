@@ -599,6 +599,7 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// TODO: delete all content for a repository from the content API?
 name|List
 argument_list|<
 name|ProxyConnectorConfiguration
