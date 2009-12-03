@@ -499,7 +499,12 @@ literal|"Error occurred while executing indexing task '"
 operator|+
 name|indexingTask
 operator|+
-literal|"'"
+literal|"': "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -511,6 +516,8 @@ operator|+
 name|indexingTask
 operator|+
 literal|"'"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -843,7 +850,12 @@ literal|"Error occurred while executing indexing task '"
 operator|+
 name|indexingTask
 operator|+
-literal|"'"
+literal|"': "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -855,6 +867,8 @@ operator|+
 name|indexingTask
 operator|+
 literal|"'"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
