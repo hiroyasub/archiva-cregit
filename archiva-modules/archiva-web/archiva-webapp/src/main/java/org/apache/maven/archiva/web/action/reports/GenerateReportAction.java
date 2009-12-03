@@ -1051,7 +1051,7 @@ return|return
 name|repositoryIds
 return|;
 block|}
-comment|/**      * Generate the statistics report.      *       * check whether single repo report or comparison report      * 1. if it is a single repository, get all the statistics for the repository on the specified date      *    - if no date is specified, get only the latest       *          (total page = 1 --> no pagination since only the most recent stats will be displayed)      *    - otherwise, get everything within the date range (total pages = repo stats / rows per page)      *       - required params: repository, startDate, endDate      *             * 2. if multiple repositories, get the latest statistics on each repository on the specified date      *    - if no date is specified, use the current date endDate      *       - required params: repositories, endDate      *    - total pages = repositories / rows per page      *       * @return      */
+comment|/**      * Generate the statistics report.      *      * check whether single repo report or comparison report      * 1. if it is a single repository, get all the statistics for the repository on the specified date      * - if no date is specified, get only the latest      * (total page = 1 --> no pagination since only the most recent stats will be displayed)      * - otherwise, get everything within the date range (total pages = repo stats / rows per page)      * - required params: repository, startDate, endDate      *      * 2. if multiple repositories, get the latest statistics on each repository on the specified date      * - if no date is specified, use the current date endDate      * - required params: repositories, endDate      * - total pages = repositories / rows per page      *      * @return      */
 specifier|public
 name|String
 name|generateStatistics
@@ -1493,7 +1493,7 @@ return|return
 name|SUCCESS
 return|;
 block|}
-comment|/**      * Export report to CSV.      *       * @return      */
+comment|/**      * Export report to CSV.      *      * @return      */
 specifier|public
 name|String
 name|downloadStatisticsReport
