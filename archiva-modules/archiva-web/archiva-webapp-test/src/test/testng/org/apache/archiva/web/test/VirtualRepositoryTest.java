@@ -154,6 +154,9 @@ name|void
 name|testDeleteRepositoryOfRepositoryGroup
 parameter_list|()
 block|{
+name|goToRepositoryGroupsPage
+argument_list|()
+expr_stmt|;
 name|deleteRepositoryInRepositoryGroups
 argument_list|()
 expr_stmt|;
