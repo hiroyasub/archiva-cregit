@@ -989,7 +989,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// total repo size
+comment|// total repo size -- TODO: needs to exclude ignored files (eg .svn)
 name|long
 name|size
 init|=

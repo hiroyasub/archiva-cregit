@@ -854,6 +854,45 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+for|for
+control|(
+name|String
+name|dir
+range|:
+operator|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+operator|)
+name|FileUtils
+operator|.
+name|getDirectoryNames
+argument_list|(
+name|repoDir
+argument_list|,
+literal|"**/.svn"
+argument_list|,
+literal|null
+argument_list|,
+literal|false
+argument_list|)
+control|)
+block|{
+name|FileUtils
+operator|.
+name|deleteDirectory
+argument_list|(
+operator|new
+name|File
+argument_list|(
+name|repoDir
+argument_list|,
+name|dir
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|assertTrue
 argument_list|(
 literal|"Default Test Repository should exist."
@@ -1191,7 +1230,7 @@ comment|//        assertEquals( 3, newStats.getTotalGroupCount() );
 comment|//        assertEquals( 5, newStats.getTotalProjectCount() );
 name|assertEquals
 argument_list|(
-literal|38545
+literal|14159
 argument_list|,
 name|newStats
 operator|.
@@ -1380,7 +1419,7 @@ comment|//        assertEquals( 3, newStats.getTotalGroupCount() );
 comment|//        assertEquals( 5, newStats.getTotalProjectCount() );
 name|assertEquals
 argument_list|(
-literal|43687
+literal|19301
 argument_list|,
 name|updatedStats
 operator|.
@@ -1619,7 +1658,7 @@ comment|//        assertEquals( 3, newStats.getTotalGroupCount() );
 comment|//        assertEquals( 5, newStats.getTotalProjectCount() );
 name|assertEquals
 argument_list|(
-literal|43687
+literal|19301
 argument_list|,
 name|newStats
 operator|.
@@ -1858,7 +1897,7 @@ comment|//        assertEquals( 3, newStats.getTotalGroupCount() );
 comment|//        assertEquals( 5, newStats.getTotalProjectCount() );
 name|assertEquals
 argument_list|(
-literal|43687
+literal|19301
 argument_list|,
 name|newStats
 operator|.
@@ -1932,7 +1971,7 @@ name|stats
 operator|.
 name|setTotalSize
 argument_list|(
-literal|38545
+literal|14159
 argument_list|)
 expr_stmt|;
 name|stats
