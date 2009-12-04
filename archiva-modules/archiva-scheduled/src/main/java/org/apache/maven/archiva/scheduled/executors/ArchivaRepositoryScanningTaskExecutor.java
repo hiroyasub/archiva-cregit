@@ -21,6 +21,36 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -439,38 +469,8 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
-comment|/**  * ArchivaRepositoryScanningTaskExecutor   *  * @version $Id$  *   * @plexus.component  *   role="org.codehaus.plexus.taskqueue.execution.TaskExecutor"  *   role-hint="repository-scanning"  */
+comment|/**  * ArchivaRepositoryScanningTaskExecutor  *  * @version $Id$  * @plexus.component role="org.codehaus.plexus.taskqueue.execution.TaskExecutor"  * role-hint="repository-scanning"  */
 end_comment
 
 begin_class
@@ -505,7 +505,7 @@ specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * The repository scanner component.      *       * @plexus.requirement      */
+comment|/**      * The repository scanner component.      *      * @plexus.requirement      */
 specifier|private
 name|RepositoryScanner
 name|repoScanner
@@ -751,11 +751,6 @@ argument_list|()
 operator|.
 name|getTime
 argument_list|()
-operator|+
-name|lastStats
-operator|.
-name|getDuration
-argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -791,10 +786,6 @@ init|=
 name|constructRepositoryStatistics
 argument_list|(
 name|arepo
-argument_list|,
-name|sinceWhen
-argument_list|,
-name|results
 argument_list|,
 name|stats
 argument_list|)
@@ -845,15 +836,6 @@ name|constructRepositoryStatistics
 parameter_list|(
 name|ManagedRepositoryConfiguration
 name|arepo
-parameter_list|,
-name|long
-name|sinceWhen
-parameter_list|,
-name|List
-argument_list|<
-name|RepositoryContentStatistics
-argument_list|>
-name|results
 parameter_list|,
 name|RepositoryScanStatistics
 name|stats
