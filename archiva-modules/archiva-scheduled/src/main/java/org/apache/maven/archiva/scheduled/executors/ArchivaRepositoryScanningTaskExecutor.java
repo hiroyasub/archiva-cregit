@@ -751,6 +751,11 @@ argument_list|()
 operator|.
 name|getTime
 argument_list|()
+operator|-
+name|lastStats
+operator|.
+name|getDuration
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -902,6 +907,7 @@ expr_stmt|;
 comment|// total artifact count
 try|try
 block|{
+comment|// note that when gathered is the end of the scan, so we look for all those before that time
 name|List
 argument_list|<
 name|ArchivaArtifact
