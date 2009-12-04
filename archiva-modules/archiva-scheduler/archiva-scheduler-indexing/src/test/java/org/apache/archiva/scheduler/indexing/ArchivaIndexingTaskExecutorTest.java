@@ -1193,6 +1193,11 @@ argument_list|,
 literal|10
 argument_list|)
 decl_stmt|;
+name|searcher
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|assertTrue
 argument_list|(
 operator|new
