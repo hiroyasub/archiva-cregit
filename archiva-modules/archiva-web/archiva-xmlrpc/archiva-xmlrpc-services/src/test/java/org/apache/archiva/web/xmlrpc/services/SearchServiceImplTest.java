@@ -1368,9 +1368,9 @@ name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertEquals
 argument_list|(
-literal|"Repository should be null since the model was not found in the database!"
+literal|"public.releases"
 argument_list|,
 name|artifact
 operator|.
