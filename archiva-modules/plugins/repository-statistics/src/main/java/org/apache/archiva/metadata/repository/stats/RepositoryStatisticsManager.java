@@ -41,6 +41,13 @@ name|RepositoryStatistics
 name|repositoryStatistics
 parameter_list|)
 function_decl|;
+name|void
+name|deleteStatistics
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

@@ -231,6 +231,16 @@ name|MetadataFacet
 name|metadataFacet
 parameter_list|)
 function_decl|;
+name|void
+name|removeMetadataFacets
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|,
+name|String
+name|facetId
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

@@ -453,6 +453,19 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+specifier|public
+name|void
+name|removeMetadataFacets
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|,
+name|String
+name|facetId
+parameter_list|)
+block|{
+comment|//To change body of implemented methods use File | Settings | File Templates.
+block|}
 block|}
 end_class
 
