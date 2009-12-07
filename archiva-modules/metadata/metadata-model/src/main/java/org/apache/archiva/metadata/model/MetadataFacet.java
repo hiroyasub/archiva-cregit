@@ -30,7 +30,7 @@ end_import
 begin_interface
 specifier|public
 interface|interface
-name|ProjectVersionFacet
+name|MetadataFacet
 block|{
 name|String
 name|getFacetId

@@ -53,7 +53,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|ProjectVersionFacet
+name|MetadataFacet
 import|;
 end_import
 
@@ -62,7 +62,7 @@ specifier|public
 class|class
 name|MavenProjectFacet
 implements|implements
-name|ProjectVersionFacet
+name|MetadataFacet
 block|{
 specifier|private
 name|String

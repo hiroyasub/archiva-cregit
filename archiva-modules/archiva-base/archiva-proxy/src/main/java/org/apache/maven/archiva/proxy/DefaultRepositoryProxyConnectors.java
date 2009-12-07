@@ -129,9 +129,7 @@ name|archiva
 operator|.
 name|scheduler
 operator|.
-name|repository
-operator|.
-name|RepositoryArchivaTaskScheduler
+name|ArchivaTaskScheduler
 import|;
 end_import
 
@@ -914,7 +912,7 @@ name|wagonFactory
 decl_stmt|;
 comment|/**      * @plexus.requirement role="org.apache.archiva.scheduler.ArchivaTaskScheduler" role-hint="repository"      */
 specifier|private
-name|RepositoryArchivaTaskScheduler
+name|ArchivaTaskScheduler
 name|scheduler
 decl_stmt|;
 specifier|public

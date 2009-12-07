@@ -140,27 +140,6 @@ name|newFileCount
 init|=
 literal|0
 decl_stmt|;
-comment|/**      * Field totalProjectCount      */
-specifier|private
-name|long
-name|totalProjectCount
-init|=
-literal|0
-decl_stmt|;
-comment|/**      * Field totalGroupCount      */
-specifier|private
-name|long
-name|totalGroupCount
-init|=
-literal|0
-decl_stmt|;
-comment|/**      * Field totalArtifactCount      */
-specifier|private
-name|long
-name|totalArtifactCount
-init|=
-literal|0
-decl_stmt|;
 comment|/**      * Field totalSize      */
 specifier|private
 name|long
@@ -734,33 +713,6 @@ parameter_list|()
 block|{
 return|return
 name|newFileCount
-return|;
-block|}
-specifier|public
-name|long
-name|getTotalProjectCount
-parameter_list|()
-block|{
-return|return
-name|totalProjectCount
-return|;
-block|}
-specifier|public
-name|long
-name|getTotalGroupCount
-parameter_list|()
-block|{
-return|return
-name|totalGroupCount
-return|;
-block|}
-specifier|public
-name|long
-name|getTotalArtifactCount
-parameter_list|()
-block|{
-return|return
-name|totalArtifactCount
 return|;
 block|}
 specifier|public

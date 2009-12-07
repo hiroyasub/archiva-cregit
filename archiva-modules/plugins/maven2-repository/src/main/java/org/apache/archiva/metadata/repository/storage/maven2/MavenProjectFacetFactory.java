@@ -33,7 +33,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|MetadataFacetFactory
+name|MetadataFacet
 import|;
 end_import
 
@@ -49,7 +49,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|ProjectVersionFacet
+name|MetadataFacetFactory
 import|;
 end_import
 
@@ -65,8 +65,8 @@ implements|implements
 name|MetadataFacetFactory
 block|{
 specifier|public
-name|ProjectVersionFacet
-name|createProjectVersionFacet
+name|MetadataFacet
+name|createMetadataFacet
 parameter_list|()
 block|{
 return|return

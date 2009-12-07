@@ -123,7 +123,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ProjectVersionFacet
+name|MetadataFacet
 argument_list|>
 name|facets
 init|=
@@ -132,7 +132,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|ProjectVersionFacet
+name|MetadataFacet
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -417,8 +417,8 @@ specifier|public
 name|void
 name|addFacet
 parameter_list|(
-name|ProjectVersionFacet
-name|projectVersionFacet
+name|MetadataFacet
+name|metadataFacet
 parameter_list|)
 block|{
 name|this
@@ -427,17 +427,17 @@ name|facets
 operator|.
 name|put
 argument_list|(
-name|projectVersionFacet
+name|metadataFacet
 operator|.
 name|getFacetId
 argument_list|()
 argument_list|,
-name|projectVersionFacet
+name|metadataFacet
 argument_list|)
 expr_stmt|;
 block|}
 specifier|public
-name|ProjectVersionFacet
+name|MetadataFacet
 name|getFacet
 parameter_list|(
 name|String
@@ -460,7 +460,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ProjectVersionFacet
+name|MetadataFacet
 argument_list|>
 name|getFacets
 parameter_list|()
@@ -472,7 +472,7 @@ block|}
 specifier|public
 name|Collection
 argument_list|<
-name|ProjectVersionFacet
+name|MetadataFacet
 argument_list|>
 name|getFacetList
 parameter_list|()

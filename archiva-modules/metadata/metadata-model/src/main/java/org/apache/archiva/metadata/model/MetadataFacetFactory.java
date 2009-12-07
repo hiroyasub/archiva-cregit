@@ -22,8 +22,8 @@ specifier|public
 interface|interface
 name|MetadataFacetFactory
 block|{
-name|ProjectVersionFacet
-name|createProjectVersionFacet
+name|MetadataFacet
+name|createMetadataFacet
 parameter_list|()
 function_decl|;
 block|}
