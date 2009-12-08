@@ -21,16 +21,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|List
@@ -68,14 +58,6 @@ name|query
 parameter_list|(
 name|SimpleConstraint
 name|constraint
-parameter_list|)
-function_decl|;
-comment|/**      * Perform a simple save of a peristable object to the database.      *       * @param o the serializable (persistable) object to save.      * @return the post-serialized object.      */
-name|Object
-name|save
-parameter_list|(
-name|Serializable
-name|obj
 parameter_list|)
 function_decl|;
 name|ArtifactDAO
