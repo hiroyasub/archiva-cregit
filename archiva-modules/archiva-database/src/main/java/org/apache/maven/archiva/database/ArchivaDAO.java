@@ -86,10 +86,6 @@ name|RepositoryProblemDAO
 name|getRepositoryProblemDAO
 parameter_list|()
 function_decl|;
-name|RepositoryContentStatisticsDAO
-name|getRepositoryContentStatisticsDAO
-parameter_list|()
-function_decl|;
 block|}
 end_interface
 
