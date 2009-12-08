@@ -145,6 +145,9 @@ name|void
 name|testAddManagedRepoInvalidValues
 parameter_list|()
 block|{
+name|goToRepositoriesPage
+argument_list|()
+expr_stmt|;
 name|assertRepositoriesPage
 argument_list|()
 expr_stmt|;

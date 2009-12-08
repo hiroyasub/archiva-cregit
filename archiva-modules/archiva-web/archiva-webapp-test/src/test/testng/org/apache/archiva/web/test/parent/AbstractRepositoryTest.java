@@ -1307,7 +1307,7 @@ argument_list|)
 expr_stmt|;
 name|assertElementPresent
 argument_list|(
-literal|"cron"
+literal|"database_cron"
 argument_list|)
 expr_stmt|;
 name|assertButtonWithValuePresent

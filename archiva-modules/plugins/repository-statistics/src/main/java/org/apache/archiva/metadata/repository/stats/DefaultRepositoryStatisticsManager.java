@@ -399,6 +399,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|(
+name|startTime
+operator|==
+literal|null
+operator|||
 operator|!
 name|date
 operator|.
@@ -406,7 +411,13 @@ name|before
 argument_list|(
 name|startTime
 argument_list|)
+operator|)
 operator|&&
+operator|(
+name|endTime
+operator|==
+literal|null
+operator|||
 operator|!
 name|date
 operator|.
@@ -414,6 +425,7 @@ name|after
 argument_list|(
 name|endTime
 argument_list|)
+operator|)
 condition|)
 block|{
 name|RepositoryStatistics
