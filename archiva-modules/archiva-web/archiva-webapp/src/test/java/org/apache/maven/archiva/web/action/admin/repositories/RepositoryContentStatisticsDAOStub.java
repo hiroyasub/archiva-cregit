@@ -39,6 +39,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -152,7 +162,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryContentStatisticsDAOStub  *   * @version  */
+comment|/**  * RepositoryContentStatisticsDAOStub  */
 end_comment
 
 begin_class
@@ -162,6 +172,23 @@ name|RepositoryContentStatisticsDAOStub
 implements|implements
 name|RepositoryContentStatisticsDAO
 block|{
+specifier|private
+name|List
+argument_list|<
+name|RepositoryContentStatistics
+argument_list|>
+name|stats
+decl_stmt|;
+specifier|public
+name|RepositoryContentStatisticsDAOStub
+parameter_list|()
+block|{
+name|stats
+operator|=
+name|createDefaultStats
+argument_list|()
+expr_stmt|;
+block|}
 specifier|public
 name|void
 name|deleteRepositoryContentStatistics
@@ -209,6 +236,19 @@ operator|instanceof
 name|RepositoryContentStatisticsByRepositoryConstraint
 argument_list|)
 expr_stmt|;
+comment|// TODO: need to honour criteria?
+return|return
+name|stats
+return|;
+block|}
+specifier|private
+name|List
+argument_list|<
+name|RepositoryContentStatistics
+argument_list|>
+name|createDefaultStats
+parameter_list|()
+block|{
 name|List
 argument_list|<
 name|RepositoryContentStatistics
@@ -236,6 +276,15 @@ argument_list|(
 literal|"repo-ident"
 argument_list|)
 expr_stmt|;
+name|statistics
+operator|.
+name|setWhenGathered
+argument_list|(
+operator|new
+name|Date
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|stats
 operator|.
 name|add
@@ -258,6 +307,24 @@ block|{
 return|return
 literal|null
 return|;
+block|}
+specifier|public
+name|void
+name|setStats
+parameter_list|(
+name|List
+argument_list|<
+name|RepositoryContentStatistics
+argument_list|>
+name|stats
+parameter_list|)
+block|{
+name|this
+operator|.
+name|stats
+operator|=
+name|stats
+expr_stmt|;
 block|}
 block|}
 end_class
