@@ -4204,7 +4204,7 @@ name|name
 operator|.
 name|startsWith
 argument_list|(
-literal|"version:"
+literal|"artifact:version:"
 argument_list|)
 condition|)
 block|{
