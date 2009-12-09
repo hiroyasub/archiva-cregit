@@ -29,22 +29,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|database
-operator|.
-name|ArchivaDatabaseException
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|sun
@@ -59,8 +43,24 @@ name|SyndFeed
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|MetadataResolverException
+import|;
+end_import
+
 begin_comment
-comment|/**  * Retrieve and process the data that will be fed into the RssFeedGenerator.  *   * @version  */
+comment|/**  * Retrieve and process the data that will be fed into the RssFeedGenerator.  */
 end_comment
 
 begin_interface
@@ -104,7 +104,7 @@ argument_list|>
 name|reqParams
 parameter_list|)
 throws|throws
-name|ArchivaDatabaseException
+name|MetadataResolverException
 function_decl|;
 block|}
 end_interface
