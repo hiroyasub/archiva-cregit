@@ -92,6 +92,22 @@ name|String
 name|namespace
 parameter_list|)
 function_decl|;
+name|File
+name|toFile
+parameter_list|(
+name|File
+name|basedir
+parameter_list|,
+name|String
+name|namespace
+parameter_list|,
+name|String
+name|projectId
+parameter_list|,
+name|String
+name|projectVersion
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

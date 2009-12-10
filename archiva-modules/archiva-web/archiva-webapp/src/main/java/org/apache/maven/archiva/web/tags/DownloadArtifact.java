@@ -187,7 +187,7 @@ name|metadata
 operator|.
 name|repository
 operator|.
-name|MetadataRepository
+name|MetadataResolver
 import|;
 end_import
 
@@ -429,8 +429,8 @@ name|RepositoryContentFactory
 name|repositoryFactory
 decl_stmt|;
 specifier|private
-name|MetadataRepository
-name|metadataRepository
+name|MetadataResolver
+name|metadataResolver
 decl_stmt|;
 specifier|private
 name|HttpServletRequest
@@ -576,10 +576,10 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
-name|metadataRepository
+name|metadataResolver
 operator|=
 operator|(
-name|MetadataRepository
+name|MetadataResolver
 operator|)
 name|PlexusTagUtil
 operator|.
@@ -587,7 +587,7 @@ name|lookup
 argument_list|(
 name|pageContext
 argument_list|,
-name|MetadataRepository
+name|MetadataResolver
 operator|.
 name|class
 argument_list|)
@@ -693,7 +693,7 @@ name|artifacts
 operator|.
 name|addAll
 argument_list|(
-name|metadataRepository
+name|metadataResolver
 operator|.
 name|getArtifacts
 argument_list|(

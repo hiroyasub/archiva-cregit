@@ -284,26 +284,6 @@ argument_list|>
 name|getRepositories
 parameter_list|()
 function_decl|;
-specifier|public
-name|Collection
-argument_list|<
-name|ArtifactMetadata
-argument_list|>
-name|getArtifacts
-parameter_list|(
-name|String
-name|repoId
-parameter_list|,
-name|String
-name|namespace
-parameter_list|,
-name|String
-name|projectId
-parameter_list|,
-name|String
-name|projectVersion
-parameter_list|)
-function_decl|;
 block|}
 end_interface
 
