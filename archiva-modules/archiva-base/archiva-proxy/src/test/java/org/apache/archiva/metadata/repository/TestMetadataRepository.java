@@ -512,6 +512,25 @@ return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
+name|List
+argument_list|<
+name|ArtifactMetadata
+argument_list|>
+name|getArtifactsByChecksum
+parameter_list|(
+name|String
+name|repoId
+parameter_list|,
+name|String
+name|checksum
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+comment|//To change body of implemented methods use File | Settings | File Templates.
+block|}
+specifier|public
 name|Collection
 argument_list|<
 name|ArtifactMetadata

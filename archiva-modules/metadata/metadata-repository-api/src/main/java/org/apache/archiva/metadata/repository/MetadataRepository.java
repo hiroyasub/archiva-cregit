@@ -284,6 +284,19 @@ argument_list|>
 name|getRepositories
 parameter_list|()
 function_decl|;
+name|List
+argument_list|<
+name|ArtifactMetadata
+argument_list|>
+name|getArtifactsByChecksum
+parameter_list|(
+name|String
+name|repoId
+parameter_list|,
+name|String
+name|checksum
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
