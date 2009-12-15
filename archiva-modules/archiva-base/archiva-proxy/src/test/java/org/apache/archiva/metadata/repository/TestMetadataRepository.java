@@ -454,9 +454,6 @@ parameter_list|,
 name|String
 name|facetId
 parameter_list|,
-name|String
-name|name
-parameter_list|,
 name|MetadataFacet
 name|metadataFacet
 parameter_list|)
@@ -472,6 +469,22 @@ name|repositoryId
 parameter_list|,
 name|String
 name|facetId
+parameter_list|)
+block|{
+comment|//To change body of implemented methods use File | Settings | File Templates.
+block|}
+specifier|public
+name|void
+name|removeMetadataFacet
+parameter_list|(
+name|String
+name|repoId
+parameter_list|,
+name|String
+name|facetId
+parameter_list|,
+name|String
+name|name
 parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.

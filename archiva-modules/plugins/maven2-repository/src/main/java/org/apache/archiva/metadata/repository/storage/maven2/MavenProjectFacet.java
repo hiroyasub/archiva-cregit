@@ -194,6 +194,16 @@ name|FACET_ID
 return|;
 block|}
 specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+comment|// TODO: not needed, perhaps version metadata facet should be separate interface?
+return|return
+literal|null
+return|;
+block|}
+specifier|public
 name|Map
 argument_list|<
 name|String

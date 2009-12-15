@@ -61,16 +61,6 @@ name|getArtifactDAO
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"Repository Problem DAO"
-argument_list|,
-name|dao
-operator|.
-name|getRepositoryProblemDAO
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class
