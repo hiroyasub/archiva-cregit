@@ -1406,16 +1406,13 @@ name|hasFieldErrors
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        assertEquals(
-comment|//            "Date of Scan,Total File Count,Total Size,Artifact Count,Group Count,Project Count,Plugins,Archetypes,Jars,Wars,Deployments,Downloads\n" +
-comment|//                date + ",0,0,0,0,0,1,0,1,1,0,0\n", IOUtils.toString( action.getInputStream() ) );
 name|assertEquals
 argument_list|(
-literal|"Date of Scan,Total File Count,Total Size,Artifact Count,Group Count,Project Count,Plugins,Archetypes,Jars,Wars,Deployments,Downloads\n"
+literal|"Date of Scan,Total File Count,Total Size,Artifact Count,Group Count,Project Count,Plugins,Archetypes,Jars,Wars\n"
 operator|+
 name|date
 operator|+
-literal|",0,0,0,0,0\n"
+literal|",0,0,0,0,0,0,0,0,0\n"
 argument_list|,
 name|IOUtils
 operator|.
@@ -3361,16 +3358,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|//        assertEquals(
-comment|//            "Repository,Total File Count,Total Size,Artifact Count,Group Count,Project Count,Plugins,Archetypes,Jars,Wars,Deployments,Downloads\n" +
-comment|//                "snapshots,0,0,0,0,0,1,0,1,1,0,0\n" + "internal,0,0,0,0,0,1,0,1,1,0,0\n",
 name|assertEquals
 argument_list|(
-literal|"Repository,Total File Count,Total Size,Artifact Count,Group Count,Project Count,Plugins,Archetypes,Jars,Wars,Deployments,Downloads\n"
+literal|"Repository,Total File Count,Total Size,Artifact Count,Group Count,Project Count,Plugins,Archetypes,Jars,Wars\n"
 operator|+
-literal|"snapshots,0,0,0,0,0\n"
+literal|"snapshots,0,0,0,0,0,0,0,0,0\n"
 operator|+
-literal|"internal,0,0,0,0,0\n"
+literal|"internal,0,0,0,0,0,0,0,0,0\n"
 argument_list|,
 name|IOUtils
 operator|.

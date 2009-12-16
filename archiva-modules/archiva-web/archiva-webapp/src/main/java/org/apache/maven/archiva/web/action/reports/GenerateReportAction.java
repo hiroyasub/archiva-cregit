@@ -1236,9 +1236,9 @@ operator|=
 operator|new
 name|StringBuffer
 argument_list|(
-literal|"Repository,Total File Count,Total Size,Artifact Count,Group Count,Project Count,"
+literal|"Repository,Total File Count,Total Size,Artifact Count,Group Count,Project Count,Plugins,Archetypes,"
 operator|+
-literal|"Plugins,Archetypes,Jars,Wars,Deployments,Downloads\n"
+literal|"Jars,Wars\n"
 argument_list|)
 expr_stmt|;
 comment|// multiple repos
@@ -1388,15 +1388,75 @@ operator|.
 name|getTotalProjectCount
 argument_list|()
 argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|","
+argument_list|)
 expr_stmt|;
-comment|//.append( "," );
-comment|// TODO
-comment|//                input.append( repositoryStats.getPluginCount() ).append( "," );
-comment|//                input.append( repositoryStats.getArchetypeCount() ).append( "," );
-comment|//                input.append( repositoryStats.getJarCount() ).append( "," );
-comment|//                input.append( repositoryStats.getWarCount() ).append( "," );
-comment|//                input.append( repositoryStats.getDeploymentCount() ).append( "," );
-comment|//                input.append( repositoryStats.getDownloadCount() ).append( "\n" );
+name|input
+operator|.
+name|append
+argument_list|(
+name|repositoryStats
+operator|.
+name|getTotalCountForType
+argument_list|(
+literal|"maven-plugin"
+argument_list|)
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|","
+argument_list|)
+expr_stmt|;
+name|input
+operator|.
+name|append
+argument_list|(
+name|repositoryStats
+operator|.
+name|getTotalCountForType
+argument_list|(
+literal|"maven-archetype"
+argument_list|)
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|","
+argument_list|)
+expr_stmt|;
+name|input
+operator|.
+name|append
+argument_list|(
+name|repositoryStats
+operator|.
+name|getTotalCountForType
+argument_list|(
+literal|"jar"
+argument_list|)
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|","
+argument_list|)
+expr_stmt|;
+name|input
+operator|.
+name|append
+argument_list|(
+name|repositoryStats
+operator|.
+name|getTotalCountForType
+argument_list|(
+literal|"war"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|input
 operator|.
 name|append
@@ -1505,9 +1565,9 @@ operator|=
 operator|new
 name|StringBuffer
 argument_list|(
-literal|"Date of Scan,Total File Count,Total Size,Artifact Count,Group Count,Project Count,"
+literal|"Date of Scan,Total File Count,Total Size,Artifact Count,Group Count,Project Count,Plugins,"
 operator|+
-literal|"Plugins,Archetypes,Jars,Wars,Deployments,Downloads\n"
+literal|"Archetypes,Jars,Wars\n"
 argument_list|)
 expr_stmt|;
 for|for
@@ -1602,15 +1662,75 @@ operator|.
 name|getTotalProjectCount
 argument_list|()
 argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|","
+argument_list|)
 expr_stmt|;
-comment|//.append( "," );
-comment|// TODO
-comment|//                input.append( repositoryStats.getPluginCount() ).append( "," );
-comment|//                input.append( repositoryStats.getArchetypeCount() ).append( "," );
-comment|//                input.append( repositoryStats.getJarCount() ).append( "," );
-comment|//                input.append( repositoryStats.getWarCount() ).append( "," );
-comment|//                input.append( repositoryStats.getDeploymentCount() ).append( "," );
-comment|//                input.append( repositoryStats.getDownloadCount() );
+name|input
+operator|.
+name|append
+argument_list|(
+name|repositoryStats
+operator|.
+name|getTotalCountForType
+argument_list|(
+literal|"maven-plugin"
+argument_list|)
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|","
+argument_list|)
+expr_stmt|;
+name|input
+operator|.
+name|append
+argument_list|(
+name|repositoryStats
+operator|.
+name|getTotalCountForType
+argument_list|(
+literal|"maven-archetype"
+argument_list|)
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|","
+argument_list|)
+expr_stmt|;
+name|input
+operator|.
+name|append
+argument_list|(
+name|repositoryStats
+operator|.
+name|getTotalCountForType
+argument_list|(
+literal|"jar"
+argument_list|)
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|","
+argument_list|)
+expr_stmt|;
+name|input
+operator|.
+name|append
+argument_list|(
+name|repositoryStats
+operator|.
+name|getTotalCountForType
+argument_list|(
+literal|"war"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|input
 operator|.
 name|append
