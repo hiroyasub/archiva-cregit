@@ -682,8 +682,6 @@ name|addMetadataFacet
 argument_list|(
 name|TEST_REPO_ID
 argument_list|,
-name|TEST_FACET_ID
-argument_list|,
 operator|new
 name|TestMetadataFacet
 argument_list|(
@@ -743,8 +741,6 @@ name|addMetadataFacet
 argument_list|(
 name|TEST_REPO_ID
 argument_list|,
-name|TEST_FACET_ID
-argument_list|,
 operator|new
 name|TestMetadataFacet
 argument_list|(
@@ -777,8 +773,6 @@ operator|.
 name|addMetadataFacet
 argument_list|(
 name|TEST_REPO_ID
-argument_list|,
-name|TEST_FACET_ID
 argument_list|,
 operator|new
 name|TestMetadataFacet
@@ -813,21 +807,6 @@ name|void
 name|testGetMetadataFacetWhenUnknownFacetId
 parameter_list|()
 block|{
-name|repository
-operator|.
-name|addMetadataFacet
-argument_list|(
-name|TEST_REPO_ID
-argument_list|,
-name|UNKNOWN
-argument_list|,
-operator|new
-name|TestMetadataFacet
-argument_list|(
-name|TEST_VALUE
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|assertNull
 argument_list|(
 name|repository
@@ -853,8 +832,6 @@ operator|.
 name|addMetadataFacet
 argument_list|(
 name|TEST_REPO_ID
-argument_list|,
-name|TEST_FACET_ID
 argument_list|,
 operator|new
 name|TestMetadataFacet
@@ -922,8 +899,6 @@ operator|.
 name|addMetadataFacet
 argument_list|(
 name|TEST_REPO_ID
-argument_list|,
-name|TEST_FACET_ID
 argument_list|,
 operator|new
 name|TestMetadataFacet
@@ -1075,8 +1050,6 @@ operator|.
 name|addMetadataFacet
 argument_list|(
 name|TEST_REPO_ID
-argument_list|,
-name|TEST_FACET_ID
 argument_list|,
 name|metadataFacet
 argument_list|)
@@ -1595,8 +1568,6 @@ name|addMetadataFacet
 argument_list|(
 name|TEST_REPO_ID
 argument_list|,
-name|TEST_FACET_ID
-argument_list|,
 operator|new
 name|TestMetadataFacet
 argument_list|(
@@ -1609,8 +1580,6 @@ operator|.
 name|addMetadataFacet
 argument_list|(
 name|OTHER_REPO
-argument_list|,
-name|TEST_FACET_ID
 argument_list|,
 operator|new
 name|TestMetadataFacet

@@ -216,7 +216,7 @@ argument_list|>
 name|getMetadataFacets
 parameter_list|(
 name|String
-name|repodId
+name|repoId
 parameter_list|,
 name|String
 name|facetId
@@ -240,9 +240,6 @@ name|addMetadataFacet
 parameter_list|(
 name|String
 name|repositoryId
-parameter_list|,
-name|String
-name|facetId
 parameter_list|,
 name|MetadataFacet
 name|metadataFacet

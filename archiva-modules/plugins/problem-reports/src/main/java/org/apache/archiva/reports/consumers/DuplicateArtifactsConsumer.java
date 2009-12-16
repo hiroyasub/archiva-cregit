@@ -996,10 +996,6 @@ name|addMetadataFacet
 argument_list|(
 name|repoId
 argument_list|,
-name|RepositoryProblemFacet
-operator|.
-name|FACET_ID
-argument_list|,
 name|problem
 argument_list|)
 expr_stmt|;

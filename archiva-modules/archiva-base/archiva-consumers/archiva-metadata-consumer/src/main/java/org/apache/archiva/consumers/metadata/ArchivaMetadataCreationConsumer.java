@@ -721,6 +721,19 @@ name|getArtifactId
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|String
+name|projectVersion
+init|=
+name|VersionUtil
+operator|.
+name|getBaseVersion
+argument_list|(
+name|artifact
+operator|.
+name|getVersion
+argument_list|()
+argument_list|)
+decl_stmt|;
 comment|// TODO: maybe not too efficient since it may have already been read and stored for this artifact
 name|ProjectVersionMetadata
 name|versionMetadata
@@ -748,15 +761,7 @@ operator|.
 name|getArtifactId
 argument_list|()
 argument_list|,
-name|VersionUtil
-operator|.
-name|getBaseVersion
-argument_list|(
-name|artifact
-operator|.
-name|getVersion
-argument_list|()
-argument_list|)
+name|projectVersion
 argument_list|)
 expr_stmt|;
 block|}
@@ -786,15 +791,30 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|ConsumerException
+name|log
+operator|.
+name|warn
 argument_list|(
-literal|"Unable to read metadata for artifact: "
+literal|"Missing POM for artifact: "
 operator|+
 name|artifact
+operator|+
+literal|"; creating empty metadata"
 argument_list|)
-throw|;
+expr_stmt|;
+name|versionMetadata
+operator|=
+operator|new
+name|ProjectVersionMetadata
+argument_list|()
+expr_stmt|;
+name|versionMetadata
+operator|.
+name|setId
+argument_list|(
+name|projectVersion
+argument_list|)
+expr_stmt|;
 block|}
 name|ArtifactMetadata
 name|artifactMeta
@@ -990,10 +1010,7 @@ operator|.
 name|getId
 argument_list|()
 argument_list|,
-name|versionMetadata
-operator|.
-name|getId
-argument_list|()
+name|projectVersion
 argument_list|,
 name|artifactMeta
 argument_list|)

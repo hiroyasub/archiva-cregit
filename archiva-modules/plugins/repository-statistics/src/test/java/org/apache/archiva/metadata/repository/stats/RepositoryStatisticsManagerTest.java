@@ -604,10 +604,6 @@ name|addMetadataFacet
 argument_list|(
 name|TEST_REPO_ID
 argument_list|,
-name|RepositoryStatistics
-operator|.
-name|FACET_ID
-argument_list|,
 name|stats
 argument_list|)
 expr_stmt|;
@@ -833,10 +829,6 @@ name|addMetadataFacet
 argument_list|(
 name|TEST_REPO_ID
 argument_list|,
-name|RepositoryStatistics
-operator|.
-name|FACET_ID
-argument_list|,
 name|stats1
 argument_list|)
 expr_stmt|;
@@ -869,10 +861,6 @@ operator|.
 name|addMetadataFacet
 argument_list|(
 name|TEST_REPO_ID
-argument_list|,
-name|RepositoryStatistics
-operator|.
-name|FACET_ID
 argument_list|,
 name|stats2
 argument_list|)
@@ -2528,10 +2516,6 @@ operator|.
 name|addMetadataFacet
 argument_list|(
 name|TEST_REPO_ID
-argument_list|,
-name|RepositoryStatistics
-operator|.
-name|FACET_ID
 argument_list|,
 name|stats
 argument_list|)

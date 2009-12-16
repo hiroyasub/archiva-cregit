@@ -746,9 +746,6 @@ parameter_list|(
 name|String
 name|repositoryId
 parameter_list|,
-name|String
-name|facetId
-parameter_list|,
 name|MetadataFacet
 name|metadataFacet
 parameter_list|)

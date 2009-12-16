@@ -249,10 +249,6 @@ name|addMetadataFacet
 argument_list|(
 name|repositoryId
 argument_list|,
-name|RepositoryStatistics
-operator|.
-name|FACET_ID
-argument_list|,
 name|repositoryStatistics
 argument_list|)
 expr_stmt|;
