@@ -827,6 +827,38 @@ return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
+name|void
+name|deleteArtifact
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|,
+name|String
+name|namespace
+parameter_list|,
+name|String
+name|project
+parameter_list|,
+name|String
+name|version
+parameter_list|,
+name|String
+name|id
+parameter_list|)
+block|{
+comment|//To change body of implemented methods use File | Settings | File Templates.
+block|}
+specifier|public
+name|void
+name|deleteRepository
+parameter_list|(
+name|String
+name|repoId
+parameter_list|)
+block|{
+comment|//To change body of implemented methods use File | Settings | File Templates.
+block|}
+specifier|public
 name|Collection
 argument_list|<
 name|ArtifactMetadata
