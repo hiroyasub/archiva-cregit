@@ -89,22 +89,6 @@ name|metadata
 operator|.
 name|repository
 operator|.
-name|MetadataResolverException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
 name|memory
 operator|.
 name|TestMetadataResolver
@@ -408,8 +392,6 @@ specifier|public
 name|void
 name|testBrowseArtifactNoObservableRepos
 parameter_list|()
-throws|throws
-name|MetadataResolverException
 block|{
 name|setObservableRepos
 argument_list|(
@@ -1078,8 +1060,6 @@ specifier|public
 name|void
 name|testBrowseArtifactNoGroupId
 parameter_list|()
-throws|throws
-name|MetadataResolverException
 block|{
 name|String
 name|selectedArtifactId
@@ -1169,8 +1149,6 @@ specifier|public
 name|void
 name|testBrowseArtifactNoArtifactId
 parameter_list|()
-throws|throws
-name|MetadataResolverException
 block|{
 name|String
 name|selectedGroupId
@@ -1260,8 +1238,6 @@ specifier|public
 name|void
 name|testBrowseArtifact
 parameter_list|()
-throws|throws
-name|MetadataResolverException
 block|{
 name|String
 name|selectedGroupId
@@ -1477,8 +1453,6 @@ specifier|public
 name|void
 name|testBrowseArtifactWithSnapshots
 parameter_list|()
-throws|throws
-name|MetadataResolverException
 block|{
 name|String
 name|selectedGroupId

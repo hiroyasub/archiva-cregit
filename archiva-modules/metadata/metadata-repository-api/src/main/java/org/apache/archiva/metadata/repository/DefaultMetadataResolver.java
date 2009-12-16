@@ -218,8 +218,6 @@ parameter_list|,
 name|String
 name|projectVersion
 parameter_list|)
-throws|throws
-name|MetadataResolverException
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -864,8 +862,6 @@ parameter_list|,
 name|String
 name|projectId
 parameter_list|)
-throws|throws
-name|MetadataResolverException
 block|{
 name|Collection
 argument_list|<

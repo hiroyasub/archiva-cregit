@@ -179,22 +179,6 @@ name|metadata
 operator|.
 name|repository
 operator|.
-name|MetadataResolverException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
 name|filter
 operator|.
 name|ExcludesFilter
@@ -470,8 +454,6 @@ specifier|public
 name|void
 name|testGetProjectVersionMetadata
 parameter_list|()
-throws|throws
-name|MetadataResolverException
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -1138,8 +1120,6 @@ specifier|public
 name|void
 name|testGetProjectVersionMetadataForTimestampedSnapshot
 parameter_list|()
-throws|throws
-name|MetadataResolverException
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -1398,8 +1378,6 @@ specifier|public
 name|void
 name|testGetProjectVersionMetadataForTimestampedSnapshotMissingMetadata
 parameter_list|()
-throws|throws
-name|MetadataResolverException
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -1427,8 +1405,6 @@ specifier|public
 name|void
 name|testGetProjectVersionMetadataForTimestampedSnapshotMalformedMetadata
 parameter_list|()
-throws|throws
-name|MetadataResolverException
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -1456,8 +1432,6 @@ specifier|public
 name|void
 name|testGetProjectVersionMetadataForTimestampedSnapshotIncompleteMetadata
 parameter_list|()
-throws|throws
-name|MetadataResolverException
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -1485,8 +1459,6 @@ specifier|public
 name|void
 name|testGetProjectVersionMetadataForInvalidPom
 parameter_list|()
-throws|throws
-name|MetadataResolverException
 block|{
 name|assertTrue
 argument_list|(
@@ -1577,8 +1549,6 @@ specifier|public
 name|void
 name|testGetProjectVersionMetadataForMislocatedPom
 parameter_list|()
-throws|throws
-name|MetadataResolverException
 block|{
 name|assertTrue
 argument_list|(
@@ -1669,8 +1639,6 @@ specifier|public
 name|void
 name|testGetProjectVersionMetadataForMissingPom
 parameter_list|()
-throws|throws
-name|MetadataResolverException
 block|{
 name|assertTrue
 argument_list|(

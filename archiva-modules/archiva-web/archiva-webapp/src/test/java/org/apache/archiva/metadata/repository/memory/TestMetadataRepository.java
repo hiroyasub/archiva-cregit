@@ -165,22 +165,6 @@ name|MetadataRepository
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
-name|MetadataResolverException
-import|;
-end_import
-
 begin_class
 specifier|public
 class|class
@@ -448,8 +432,6 @@ parameter_list|,
 name|String
 name|projectVersion
 parameter_list|)
-throws|throws
-name|MetadataResolverException
 block|{
 throw|throw
 operator|new
@@ -582,8 +564,6 @@ parameter_list|,
 name|String
 name|projectId
 parameter_list|)
-throws|throws
-name|MetadataResolverException
 block|{
 return|return
 name|versions

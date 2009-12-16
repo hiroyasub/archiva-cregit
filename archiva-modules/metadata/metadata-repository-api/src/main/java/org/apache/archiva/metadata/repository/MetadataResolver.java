@@ -124,8 +124,6 @@ parameter_list|,
 name|String
 name|projectVersion
 parameter_list|)
-throws|throws
-name|MetadataResolverException
 function_decl|;
 name|Collection
 argument_list|<
@@ -217,8 +215,6 @@ parameter_list|,
 name|String
 name|projectId
 parameter_list|)
-throws|throws
-name|MetadataResolverException
 function_decl|;
 name|Collection
 argument_list|<

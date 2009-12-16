@@ -43,22 +43,6 @@ name|SyndFeed
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
-name|MetadataResolverException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Retrieve and process the data that will be fed into the RssFeedGenerator.  */
 end_comment
@@ -103,8 +87,6 @@ name|String
 argument_list|>
 name|reqParams
 parameter_list|)
-throws|throws
-name|MetadataResolverException
 function_decl|;
 block|}
 end_interface

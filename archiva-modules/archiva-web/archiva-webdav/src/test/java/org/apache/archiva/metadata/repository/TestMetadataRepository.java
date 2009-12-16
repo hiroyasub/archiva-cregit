@@ -179,8 +179,6 @@ parameter_list|,
 name|String
 name|projectVersion
 parameter_list|)
-throws|throws
-name|MetadataResolverException
 block|{
 return|return
 literal|null
@@ -307,8 +305,6 @@ parameter_list|,
 name|String
 name|projectId
 parameter_list|)
-throws|throws
-name|MetadataResolverException
 block|{
 return|return
 literal|null
