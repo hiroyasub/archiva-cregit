@@ -757,7 +757,7 @@ name|warn
 argument_list|(
 literal|"Missing POM for artifact: "
 operator|+
-name|artifact
+name|path
 operator|+
 literal|"; creating empty metadata"
 argument_list|)
