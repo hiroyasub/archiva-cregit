@@ -246,7 +246,7 @@ specifier|final
 name|String
 name|FIRST_TEST_SCAN
 init|=
-literal|"20091201.123456.789"
+literal|"2009/12/01/123456.789"
 decl_stmt|;
 specifier|private
 specifier|static
@@ -254,7 +254,7 @@ specifier|final
 name|String
 name|SECOND_TEST_SCAN
 init|=
-literal|"20091202.012345.678"
+literal|"2009/12/02/012345.678"
 decl_stmt|;
 specifier|private
 name|Map

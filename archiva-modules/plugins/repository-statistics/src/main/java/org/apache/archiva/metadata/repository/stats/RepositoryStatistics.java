@@ -139,7 +139,7 @@ init|=
 operator|new
 name|SimpleDateFormat
 argument_list|(
-literal|"yyyyMMdd.HHmmss.SSS"
+literal|"yyyy/MM/dd/HHmmss.SSS"
 argument_list|)
 decl_stmt|;
 specifier|private
