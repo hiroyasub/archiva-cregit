@@ -2040,19 +2040,6 @@ name|assertEquals
 argument_list|(
 name|artifact
 operator|.
-name|getSize
-argument_list|()
-argument_list|,
-name|actual
-operator|.
-name|getSize
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-name|artifact
-operator|.
 name|getVersion
 argument_list|()
 argument_list|,
@@ -2074,7 +2061,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|TEST_SIZE
+literal|"12.06 K"
 argument_list|,
 name|actual
 operator|.
