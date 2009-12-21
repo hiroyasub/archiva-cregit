@@ -3155,22 +3155,6 @@ literal|8
 argument_list|)
 decl_stmt|;
 comment|// 8 is length of "SNAPSHOT"
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|file
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|" "
-operator|+
-name|mainVersion
-argument_list|)
-expr_stmt|;
 name|Matcher
 name|m
 init|=
