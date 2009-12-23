@@ -301,6 +301,24 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Resolved project version metadata from storage: "
+operator|+
+name|metadata
+argument_list|)
+expr_stmt|;
+block|}
 comment|// FIXME: make this a more generic post-processing that plugins can take advantage of
 comment|//       eg. maven projects should be able to process parent here
 if|if
