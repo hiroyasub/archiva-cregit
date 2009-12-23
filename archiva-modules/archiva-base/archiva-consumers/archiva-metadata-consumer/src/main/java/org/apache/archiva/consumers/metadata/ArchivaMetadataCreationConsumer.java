@@ -760,7 +760,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Missing POM for artifact: "
+literal|"Missing or invalid POM for artifact: "
 operator|+
 name|path
 operator|+
