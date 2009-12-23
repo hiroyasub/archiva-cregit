@@ -744,6 +744,11 @@ argument_list|,
 name|projectVersion
 argument_list|)
 decl_stmt|;
+name|boolean
+name|createVersionMetadata
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|versionMetadata
@@ -774,6 +779,10 @@ name|setId
 argument_list|(
 name|projectVersion
 argument_list|)
+expr_stmt|;
+name|createVersionMetadata
+operator|=
+literal|true
 expr_stmt|;
 block|}
 name|ArtifactMetadata
@@ -975,6 +984,11 @@ argument_list|,
 name|artifactMeta
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|createVersionMetadata
+condition|)
+block|{
 name|metadataRepository
 operator|.
 name|updateProjectVersion
@@ -997,6 +1011,7 @@ argument_list|,
 name|versionMetadata
 argument_list|)
 expr_stmt|;
+block|}
 name|metadataRepository
 operator|.
 name|updateProject
