@@ -253,6 +253,8 @@ parameter_list|,
 name|String
 name|projectVersion
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -1052,6 +1054,8 @@ range|:
 name|storageProjectVersions
 control|)
 block|{
+try|try
+block|{
 name|ProjectVersionMetadata
 name|versionMetadata
 init|=
@@ -1086,6 +1090,26 @@ argument_list|,
 name|projectId
 argument_list|,
 name|versionMetadata
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|MetadataResolutionException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Not update project in metadata repository due to an error resolving it from storage: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

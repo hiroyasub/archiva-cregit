@@ -203,6 +203,22 @@ name|metadata
 operator|.
 name|repository
 operator|.
+name|MetadataResolutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
 name|MetadataResolver
 import|;
 end_import
@@ -441,6 +457,11 @@ argument_list|()
 decl_stmt|;
 comment|// In the future, this should be replaced by the repository grouping mechanism, so that we are only making
 comment|// simple resource requests here and letting the resolver take care of it
+name|String
+name|errorMsg
+init|=
+literal|null
+decl_stmt|;
 for|for
 control|(
 name|String
@@ -458,6 +479,8 @@ condition|)
 block|{
 comment|// we don't want the implementation being that intelligent - so another resolver to do the
 comment|// "just-in-time" nature of picking up the metadata (if appropriate for the repository type) is used
+try|try
+block|{
 name|versionMetadata
 operator|=
 name|metadataResolver
@@ -473,6 +496,21 @@ argument_list|,
 name|version
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataResolutionException
+name|e
+parameter_list|)
+block|{
+name|errorMsg
+operator|=
+name|e
+operator|.
+name|getMessage
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|versionMetadata
@@ -666,6 +704,12 @@ condition|)
 block|{
 name|addActionError
 argument_list|(
+name|errorMsg
+operator|!=
+literal|null
+condition|?
+name|errorMsg
+else|:
 literal|"Artifact not found"
 argument_list|)
 expr_stmt|;
