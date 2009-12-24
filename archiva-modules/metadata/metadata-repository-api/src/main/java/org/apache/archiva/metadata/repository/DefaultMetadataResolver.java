@@ -274,11 +274,19 @@ argument_list|)
 decl_stmt|;
 comment|// TODO: do we want to detect changes as well by comparing timestamps? isProjectVersionNewerThan(updated)
 comment|//       in such cases we might also remove/update stale metadata, including adjusting plugin-based facets
+comment|//       This would also be better than checking for completeness - we can then refresh only when fixed (though
+comment|//       sometimes this has an additional dependency - such as a parent - requesting the user to force an update
+comment|//       may then work here and be more efficient than always trying again)
 if|if
 condition|(
 name|metadata
 operator|==
 literal|null
+operator|||
+name|metadata
+operator|.
+name|isIncomplete
+argument_list|()
 condition|)
 block|{
 name|metadata

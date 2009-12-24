@@ -503,12 +503,22 @@ name|MetadataResolutionException
 name|e
 parameter_list|)
 block|{
-name|errorMsg
-operator|=
-name|e
-operator|.
-name|getMessage
+name|addIncompleteModelWarning
 argument_list|()
+expr_stmt|;
+comment|// TODO: need a consistent way to construct this - same in ArchivaMetadataCreationConsumer
+name|versionMetadata
+operator|=
+operator|new
+name|ProjectVersionMetadata
+argument_list|()
+expr_stmt|;
+name|versionMetadata
+operator|.
+name|setId
+argument_list|(
+name|version
+argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -717,6 +727,18 @@ return|return
 name|ERROR
 return|;
 block|}
+if|if
+condition|(
+name|versionMetadata
+operator|.
+name|isIncomplete
+argument_list|()
+condition|)
+block|{
+name|addIncompleteModelWarning
+argument_list|()
+expr_stmt|;
+block|}
 name|model
 operator|=
 name|versionMetadata
@@ -724,6 +746,17 @@ expr_stmt|;
 return|return
 name|SUCCESS
 return|;
+block|}
+specifier|private
+name|void
+name|addIncompleteModelWarning
+parameter_list|()
+block|{
+name|addActionMessage
+argument_list|(
+literal|"The model may be incomplete due to a previous error in resolving information. Refer to the repository problem reports for more information."
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Show the artifact information tab.      */
 specifier|public

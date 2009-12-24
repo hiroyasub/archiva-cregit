@@ -826,6 +826,13 @@ argument_list|(
 name|projectVersion
 argument_list|)
 expr_stmt|;
+name|versionMetadata
+operator|.
+name|setIncomplete
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|createVersionMetadata
 operator|=
 literal|true
