@@ -1887,15 +1887,7 @@ name|triggerAuditEvent
 argument_list|(
 name|repositoryId
 argument_list|,
-name|groupId
-operator|+
-literal|":"
-operator|+
-name|artifactId
-operator|+
-literal|":"
-operator|+
-name|version
+name|artifactPath
 argument_list|,
 name|AuditEvent
 operator|.

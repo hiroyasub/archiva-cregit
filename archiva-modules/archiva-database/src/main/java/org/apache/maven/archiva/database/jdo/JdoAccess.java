@@ -1824,13 +1824,20 @@ index|]
 argument_list|)
 return|;
 default|default:
-throw|throw
-operator|new
-name|JDOException
+return|return
+operator|(
+name|List
+argument_list|<
+name|?
+argument_list|>
+operator|)
+name|query
+operator|.
+name|executeWithArray
 argument_list|(
-literal|"Unable to use more than 3 parameters."
+name|parameters
 argument_list|)
-throw|;
+return|;
 block|}
 block|}
 specifier|public

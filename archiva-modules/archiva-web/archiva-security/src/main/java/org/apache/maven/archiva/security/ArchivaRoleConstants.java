@@ -193,6 +193,14 @@ name|OPERATION_REPOSITORY_DELETE
 init|=
 literal|"archiva-delete-artifact"
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OPERATION_VIEW_AUDIT_LOG
+init|=
+literal|"archiva-view-audit-logs"
+decl_stmt|;
 comment|// Role templates
 specifier|public
 specifier|static
