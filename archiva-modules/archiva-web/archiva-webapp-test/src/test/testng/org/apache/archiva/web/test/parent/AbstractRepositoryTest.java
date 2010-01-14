@@ -309,6 +309,9 @@ name|void
 name|deleteRepositoryInRepositoryGroups
 parameter_list|()
 block|{
+name|goToRepositoryGroupsPage
+argument_list|()
+expr_stmt|;
 name|getSelenium
 argument_list|()
 operator|.
@@ -316,6 +319,9 @@ name|click
 argument_list|(
 literal|"xpath=//div[@id='contentArea']/div[2]/div/div[3]/div[1]/a/img"
 argument_list|)
+expr_stmt|;
+name|waitPage
+argument_list|()
 expr_stmt|;
 block|}
 specifier|public
@@ -326,7 +332,6 @@ name|String
 name|repositoryName
 parameter_list|)
 block|{
-comment|//goToRepositoryGroupsPage();
 name|getSelenium
 argument_list|()
 operator|.

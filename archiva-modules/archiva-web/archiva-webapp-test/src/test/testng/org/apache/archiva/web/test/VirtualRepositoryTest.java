@@ -47,6 +47,16 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|testng
+operator|.
+name|Assert
+import|;
+end_import
+
 begin_class
 annotation|@
 name|Test
@@ -105,8 +115,18 @@ literal|"testing"
 argument_list|)
 expr_stmt|;
 comment|//assertAddedRepositoryLink( "testing" );
-name|assertTextPresent
+name|Assert
+operator|.
+name|assertEquals
 argument_list|(
+name|getSelenium
+argument_list|()
+operator|.
+name|getText
+argument_list|(
+literal|"//div[@id='contentArea']/div[2]/div/div[1]/p[1]"
+argument_list|)
+argument_list|,
 literal|"testing"
 argument_list|)
 expr_stmt|;
@@ -132,8 +152,18 @@ argument_list|,
 literal|"internal"
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
+name|Assert
+operator|.
+name|assertEquals
 argument_list|(
+name|getSelenium
+argument_list|()
+operator|.
+name|getText
+argument_list|(
+literal|"//div[@id='contentArea']/div[2]/div/div[3]/div[2]/p[1]"
+argument_list|)
+argument_list|,
 literal|"internal"
 argument_list|)
 expr_stmt|;
@@ -167,8 +197,18 @@ argument_list|(
 literal|"No Repository Groups Defined."
 argument_list|)
 expr_stmt|;
-name|waitPage
+name|Assert
+operator|.
+name|assertFalse
+argument_list|(
+name|getSelenium
 argument_list|()
+operator|.
+name|isElementPresent
+argument_list|(
+literal|"//div[@id='contentArea']/div[2]/div/div[3]/div[2]/p[1]"
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
