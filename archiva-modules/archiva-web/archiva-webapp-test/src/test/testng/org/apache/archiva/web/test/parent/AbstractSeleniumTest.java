@@ -543,10 +543,24 @@ name|String
 name|title
 parameter_list|)
 block|{
-comment|// Collapse spaces
+name|Assert
+operator|.
+name|assertEquals
+argument_list|(
+name|getTitle
+argument_list|()
+argument_list|,
+name|title
+argument_list|)
+expr_stmt|;
+block|}
+specifier|public
 name|String
-name|actualTitle
-init|=
+name|getTitle
+parameter_list|()
+block|{
+comment|// Collapse spaces
+return|return
 name|getSelenium
 argument_list|()
 operator|.
@@ -559,28 +573,6 @@ literal|"[ \n\r]+"
 argument_list|,
 literal|" "
 argument_list|)
-decl_stmt|;
-name|Assert
-operator|.
-name|assertEquals
-argument_list|(
-name|actualTitle
-argument_list|,
-name|title
-argument_list|)
-expr_stmt|;
-block|}
-specifier|public
-name|String
-name|getTitle
-parameter_list|()
-block|{
-return|return
-name|getSelenium
-argument_list|()
-operator|.
-name|getTitle
-argument_list|()
 return|;
 block|}
 specifier|public

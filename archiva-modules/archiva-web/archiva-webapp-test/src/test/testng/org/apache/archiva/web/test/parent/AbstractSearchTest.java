@@ -40,9 +40,6 @@ literal|"Apache Archiva \\ Quick Search"
 operator|.
 name|equals
 argument_list|(
-name|getSelenium
-argument_list|()
-operator|.
 name|getTitle
 argument_list|()
 argument_list|)
