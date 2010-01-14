@@ -203,6 +203,7 @@ argument_list|(
 literal|"SNAPSHOTS_REPOSITORY"
 argument_list|)
 decl_stmt|;
+comment|// TODO: do this differently as uploading doesn't work on browsers other than *chrome (below as well)
 comment|// upload a snapshot artifact to repository 'releases'
 name|addArtifact
 argument_list|(
