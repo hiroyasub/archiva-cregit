@@ -358,6 +358,7 @@ name|void
 name|testAddArtifactValidValues
 parameter_list|()
 block|{
+comment|// TODO: disable test on non *chrome browsers, there is no way to do file uploads (SEL-63)
 name|addArtifact
 argument_list|(
 name|getGroupId
@@ -400,6 +401,7 @@ name|void
 name|testAddArtifactBlockRedeployments
 parameter_list|()
 block|{
+comment|// TODO: disable test on non *chrome browsers, there is no way to do file uploads (SEL-63)
 name|addArtifact
 argument_list|(
 name|getGroupId
@@ -478,6 +480,7 @@ argument_list|(
 literal|"REPOSITORYID1"
 argument_list|)
 decl_stmt|;
+comment|// TODO: do this differently as it only works in Firefox's chrome mode
 name|addArtifact
 argument_list|(
 name|groupId
