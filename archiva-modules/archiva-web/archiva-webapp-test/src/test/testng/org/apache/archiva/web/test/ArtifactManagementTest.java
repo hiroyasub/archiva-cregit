@@ -434,9 +434,10 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|testAddArtifactValidValues1
+name|testDeleteArtifact
 parameter_list|()
 block|{
+comment|//prep
 name|String
 name|groupId
 init|=
@@ -498,21 +499,6 @@ argument_list|(
 literal|"Artifact 'delete:delete:1.0' was successfully deployed to repository 'internal'"
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Test
-argument_list|(
-name|dependsOnMethods
-operator|=
-block|{
-literal|"testAddArtifactValidValues1"
-block|}
-argument_list|)
-specifier|public
-name|void
-name|testDeleteArtifact
-parameter_list|()
-block|{
 name|deleteArtifact
 argument_list|(
 literal|"delete"
