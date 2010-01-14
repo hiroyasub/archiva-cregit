@@ -19,6 +19,16 @@ end_comment
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -308,18 +318,9 @@ literal|"test"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|dependsOnMethods
-operator|=
-block|{
-literal|"testAddManagedRepoValidValues"
-block|}
-argument_list|)
 specifier|public
 name|void
-name|testSearchExistingArtifactUsingAdvancedSearchNoAccessToRepository
+name|testSearchExistingArtifactUsingAdvancedSearchNotInRepository
 parameter_list|()
 block|{
 name|searchForArtifactAdvancedSearch
@@ -333,7 +334,7 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-literal|"managedrepo1"
+literal|"snapshots"
 argument_list|,
 literal|null
 argument_list|,
