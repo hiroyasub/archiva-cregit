@@ -124,6 +124,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// MRM-1278
+annotation|@
+name|Test
+argument_list|(
+name|enabled
+operator|=
+literal|false
+argument_list|)
 specifier|public
 name|void
 name|testCorrectRepositoryInBrowse

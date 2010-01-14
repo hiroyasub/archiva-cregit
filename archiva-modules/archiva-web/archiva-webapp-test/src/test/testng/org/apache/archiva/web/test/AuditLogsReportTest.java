@@ -203,6 +203,8 @@ literal|"No audit logs found."
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: add test for adding via WebDAV
+comment|// TODO: disable if not running on *chrome
 annotation|@
 name|Test
 argument_list|(
@@ -211,6 +213,10 @@ operator|=
 block|{
 literal|"testAddArtifactValidValues"
 block|}
+argument_list|,
+name|enabled
+operator|=
+literal|false
 argument_list|)
 specifier|public
 name|void
@@ -274,14 +280,20 @@ literal|"admin"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: add test for adding via WebDAV
+comment|// TODO: disable if not running on *chrome
 annotation|@
 name|Test
 argument_list|(
 name|dependsOnMethods
 operator|=
 block|{
-literal|"testViewAuditLogsDataFound"
+literal|"testAddArtifactValidValues"
 block|}
+argument_list|,
+name|enabled
+operator|=
+literal|false
 argument_list|)
 specifier|public
 name|void
@@ -345,14 +357,20 @@ literal|"admin"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: add test for adding via WebDAV
+comment|// TODO: disable if not running on *chrome
 annotation|@
 name|Test
 argument_list|(
 name|dependsOnMethods
 operator|=
 block|{
-literal|"testViewAuditLogsOnlyArtifactIdIsSpecified"
+literal|"testAddArtifactValidValues"
 block|}
+argument_list|,
+name|enabled
+operator|=
+literal|false
 argument_list|)
 specifier|public
 name|void
