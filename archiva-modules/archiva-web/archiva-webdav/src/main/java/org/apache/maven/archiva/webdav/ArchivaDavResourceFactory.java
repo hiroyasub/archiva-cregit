@@ -2839,9 +2839,9 @@ operator|.
 name|getRemoteAddr
 argument_list|()
 argument_list|,
-name|logicalResource
+name|managedRepository
 operator|.
-name|getPath
+name|getId
 argument_list|()
 argument_list|,
 name|relPath

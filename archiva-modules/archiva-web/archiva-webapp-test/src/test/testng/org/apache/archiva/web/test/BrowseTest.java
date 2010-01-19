@@ -124,6 +124,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// MRM-1278
+annotation|@
+name|Test
+argument_list|(
+name|enabled
+operator|=
+literal|false
+argument_list|)
 specifier|public
 name|void
 name|testCorrectRepositoryInBrowse
@@ -203,6 +210,7 @@ argument_list|(
 literal|"SNAPSHOTS_REPOSITORY"
 argument_list|)
 decl_stmt|;
+comment|// TODO: do this differently as uploading doesn't work on browsers other than *chrome (below as well)
 comment|// upload a snapshot artifact to repository 'releases'
 name|addArtifact
 argument_list|(

@@ -60,7 +60,7 @@ name|artifactId
 init|=
 name|getProperty
 argument_list|(
-literal|"GROUPID"
+literal|"ARTIFACTID"
 argument_list|)
 decl_stmt|;
 return|return

@@ -69,6 +69,23 @@ name|RepositoryProblemFacet
 argument_list|()
 return|;
 block|}
+specifier|public
+name|MetadataFacet
+name|createMetadataFacet
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|,
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+operator|new
+name|RepositoryProblemFacet
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

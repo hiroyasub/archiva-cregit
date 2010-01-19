@@ -26,6 +26,16 @@ name|MetadataFacet
 name|createMetadataFacet
 parameter_list|()
 function_decl|;
+name|MetadataFacet
+name|createMetadataFacet
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|,
+name|String
+name|name
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

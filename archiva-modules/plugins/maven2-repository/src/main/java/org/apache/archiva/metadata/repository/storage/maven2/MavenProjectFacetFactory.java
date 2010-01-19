@@ -75,6 +75,25 @@ name|MavenProjectFacet
 argument_list|()
 return|;
 block|}
+specifier|public
+name|MetadataFacet
+name|createMetadataFacet
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|,
+name|String
+name|name
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"There is no valid name for project version facets"
+argument_list|)
+throw|;
+block|}
 block|}
 end_class
 

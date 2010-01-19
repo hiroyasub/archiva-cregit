@@ -398,6 +398,8 @@ init|=
 operator|new
 name|AuditEvent
 argument_list|(
+literal|null
+argument_list|,
 name|getPrincipal
 argument_list|()
 argument_list|,
@@ -445,8 +447,12 @@ init|=
 operator|new
 name|AuditEvent
 argument_list|(
+literal|null
+argument_list|,
 name|getPrincipal
 argument_list|()
+argument_list|,
+literal|null
 argument_list|,
 name|action
 argument_list|)

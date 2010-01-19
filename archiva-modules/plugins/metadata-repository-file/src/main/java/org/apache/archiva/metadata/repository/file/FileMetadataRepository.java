@@ -1925,7 +1925,11 @@ operator|=
 name|metadataFacetFactory
 operator|.
 name|createMetadataFacet
-argument_list|()
+argument_list|(
+name|repositoryId
+argument_list|,
+name|name
+argument_list|)
 expr_stmt|;
 name|Map
 argument_list|<

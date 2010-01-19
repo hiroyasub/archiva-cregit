@@ -327,14 +327,6 @@ extends|extends
 name|PlexusInSpringTestCase
 block|{
 specifier|private
-name|ArchivaTaskScheduler
-name|scheduler
-decl_stmt|;
-specifier|private
-name|MockControl
-name|schedulerControl
-decl_stmt|;
-specifier|private
 name|UploadAction
 name|uploadAction
 decl_stmt|;
@@ -378,8 +370,9 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+name|MockControl
 name|schedulerControl
-operator|=
+init|=
 name|MockControl
 operator|.
 name|createControl
@@ -388,9 +381,10 @@ name|ArchivaTaskScheduler
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+name|ArchivaTaskScheduler
 name|scheduler
-operator|=
+init|=
 operator|(
 name|ArchivaTaskScheduler
 operator|)
@@ -398,7 +392,7 @@ name|schedulerControl
 operator|.
 name|getMock
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|archivaConfigControl
 operator|=
 name|MockControl
