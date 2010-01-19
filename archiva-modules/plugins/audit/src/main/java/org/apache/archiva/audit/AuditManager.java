@@ -95,6 +95,7 @@ name|String
 name|repositoryId
 parameter_list|)
 function_decl|;
+comment|/**      * Get all audit events from the given repositories that match a certain range      *      * @param repositoryIds the repositories to retrieve events for      * @param startTime     find events only after this time      * @param endTime       find events only before this time      * @return the list of events found      */
 name|List
 argument_list|<
 name|AuditEvent
@@ -106,6 +107,29 @@ argument_list|<
 name|String
 argument_list|>
 name|repositoryIds
+parameter_list|,
+name|Date
+name|startTime
+parameter_list|,
+name|Date
+name|endTime
+parameter_list|)
+function_decl|;
+comment|/**      * Get all audit events from the given repositories that match a certain range and resource pattern      *      * @param repositoryIds   the repositories to retrieve events for      * @param resourcePattern find all events whose resources start with this string      * @param startTime       find events only after this time      * @param endTime         find events only before this time      * @return the list of events found      */
+name|List
+argument_list|<
+name|AuditEvent
+argument_list|>
+name|getAuditEventsInRange
+parameter_list|(
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|repositoryIds
+parameter_list|,
+name|String
+name|resourcePattern
 parameter_list|,
 name|Date
 name|startTime
