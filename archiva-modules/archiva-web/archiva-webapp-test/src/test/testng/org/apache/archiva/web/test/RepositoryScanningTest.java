@@ -41,9 +41,7 @@ name|org
 operator|.
 name|testng
 operator|.
-name|annotations
-operator|.
-name|Test
+name|Assert
 import|;
 end_import
 
@@ -53,7 +51,9 @@ name|org
 operator|.
 name|testng
 operator|.
-name|Assert
+name|annotations
+operator|.
+name|Test
 import|;
 end_import
 
@@ -850,14 +850,6 @@ operator|.
 name|uncheck
 argument_list|(
 literal|"//input[@name='enabledKnownContentConsumers' and @value='repository-purge']"
-argument_list|)
-expr_stmt|;
-name|getSelenium
-argument_list|()
-operator|.
-name|uncheck
-argument_list|(
-literal|"//input[@name='enabledKnownContentConsumers' and @value='update-db-artifact']"
 argument_list|)
 expr_stmt|;
 name|getSelenium

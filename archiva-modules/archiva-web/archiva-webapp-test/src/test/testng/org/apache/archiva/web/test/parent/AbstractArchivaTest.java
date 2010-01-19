@@ -1577,7 +1577,7 @@ expr_stmt|;
 name|String
 name|navMenu
 init|=
-literal|"Find Artifact,Browse,Reports,User Management,User Roles,Appearance,Upload Artifact,Delete Artifact,Repository Groups,Repositories,Proxy Connectors,Legacy Support,Network Proxies,Repository Scanning,Database"
+literal|"Find Artifact,Browse,Reports,User Management,User Roles,Appearance,Upload Artifact,Delete Artifact,Repository Groups,Repositories,Proxy Connectors,Legacy Support,Network Proxies,Repository Scanning"
 decl_stmt|;
 name|String
 index|[]
