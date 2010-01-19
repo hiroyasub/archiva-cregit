@@ -89,6 +89,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|FileUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|archiva
@@ -220,7 +234,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * EditManagedRepositoryActionTest   *  * @version $Id$  */
+comment|/**  * EditManagedRepositoryActionTest  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -683,6 +697,42 @@ argument_list|(
 literal|"new repo name"
 argument_list|)
 expr_stmt|;
+name|MockControl
+name|repositoryStatisticsManagerControl
+init|=
+name|MockControl
+operator|.
+name|createControl
+argument_list|(
+name|RepositoryStatisticsManager
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|RepositoryStatisticsManager
+name|repositoryStatisticsManager
+init|=
+operator|(
+name|RepositoryStatisticsManager
+operator|)
+name|repositoryStatisticsManagerControl
+operator|.
+name|getMock
+argument_list|()
+decl_stmt|;
+name|action
+operator|.
+name|setRepositoryStatisticsManager
+argument_list|(
+name|repositoryStatisticsManager
+argument_list|)
+expr_stmt|;
+comment|// no deletion
+name|repositoryStatisticsManagerControl
+operator|.
+name|replay
+argument_list|()
+expr_stmt|;
 name|String
 name|status
 init|=
@@ -741,6 +791,11 @@ name|verify
 argument_list|()
 expr_stmt|;
 name|archivaConfigurationControl
+operator|.
+name|verify
+argument_list|()
+expr_stmt|;
+name|repositoryStatisticsManagerControl
 operator|.
 name|verify
 argument_list|()
@@ -949,15 +1004,26 @@ argument_list|(
 name|repository
 argument_list|)
 expr_stmt|;
+name|File
+name|testFile
+init|=
+name|getTestFile
+argument_list|(
+literal|"target/test/location/new"
+argument_list|)
+decl_stmt|;
+name|FileUtils
+operator|.
+name|deleteDirectory
+argument_list|(
+name|testFile
+argument_list|)
+expr_stmt|;
 name|repository
 operator|.
 name|setLocation
 argument_list|(
-operator|new
-name|File
-argument_list|(
-literal|"target/test/location/new"
-argument_list|)
+name|testFile
 operator|.
 name|getCanonicalPath
 argument_list|()
