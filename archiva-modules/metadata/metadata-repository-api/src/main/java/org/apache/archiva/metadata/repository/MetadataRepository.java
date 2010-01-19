@@ -323,6 +323,7 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
+comment|/**      * Delete a repository's metadata. This includes all associated metadata facets.      * @param repoId the repository to delete      */
 name|void
 name|deleteRepository
 parameter_list|(
