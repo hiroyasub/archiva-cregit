@@ -1991,11 +1991,24 @@ name|void
 name|goToRepositoriesPage
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|getTitle
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"Apache Archiva \\ Administration - Repositories"
+argument_list|)
+condition|)
+block|{
 name|clickLinkWithText
 argument_list|(
 literal|"Repositories"
 argument_list|)
 expr_stmt|;
+block|}
 name|assertRepositoriesPage
 argument_list|()
 expr_stmt|;
