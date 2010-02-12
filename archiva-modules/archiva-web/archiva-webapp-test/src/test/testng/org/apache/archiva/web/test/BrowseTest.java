@@ -138,18 +138,6 @@ name|void
 name|testCorrectRepositoryInBrowse
 parameter_list|()
 block|{
-name|File
-name|artifact
-init|=
-operator|new
-name|File
-argument_list|(
-name|getBasedir
-argument_list|()
-argument_list|,
-literal|"/src/test/it-resources/snapshots/org/apache/maven/archiva/web/test/foo-bar/1.0-SNAPSHOT/foo-bar-1.0-SNAPSHOT.jar"
-argument_list|)
-decl_stmt|;
 name|String
 name|releasesRepo
 init|=
@@ -212,6 +200,11 @@ argument_list|(
 literal|"SNAPSHOTS_REPOSITORY"
 argument_list|)
 decl_stmt|;
+name|String
+name|path
+init|=
+literal|"src/test/it-resources/snapshots/org/apache/maven/archiva/web/test/foo-bar/1.0-SNAPSHOT/foo-bar-1.0-SNAPSHOT.jar"
+decl_stmt|;
 comment|// TODO: do this differently as uploading doesn't work on browsers other than *chrome (below as well)
 comment|// upload a snapshot artifact to repository 'releases'
 name|addArtifact
@@ -224,10 +217,7 @@ literal|"1.0-SNAPSHOT"
 argument_list|,
 literal|"jar"
 argument_list|,
-name|artifact
-operator|.
-name|getPath
-argument_list|()
+name|path
 argument_list|,
 name|releasesRepo
 argument_list|)
@@ -283,10 +273,7 @@ literal|"1.0-SNAPSHOT"
 argument_list|,
 literal|"jar"
 argument_list|,
-name|artifact
-operator|.
-name|getPath
-argument_list|()
+name|path
 argument_list|,
 name|snapshotsRepo
 argument_list|)
