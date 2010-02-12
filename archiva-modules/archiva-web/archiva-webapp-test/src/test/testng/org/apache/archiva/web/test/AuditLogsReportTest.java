@@ -260,7 +260,7 @@ argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
-literal|"test-1.0.jar"
+literal|"testAddArtifactValidValues-1.0.jar"
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -336,7 +336,7 @@ argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
-literal|"test-1.0.jar"
+literal|"testAddArtifactValidValues-1.0.jar"
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -405,7 +405,7 @@ argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
-literal|"test-1.0.jar"
+literal|"testAddArtifactValidValues-1.0.jar"
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -535,7 +535,7 @@ argument_list|(
 literal|"REPOMANAGER_INTERNAL_USERNAME"
 argument_list|)
 argument_list|,
-name|getUserRolePassword
+name|getUserRoleNewPassword
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -570,7 +570,7 @@ argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
-literal|"test-1.0.jar"
+literal|"testAddArtifactValidValues-1.0.jar"
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
