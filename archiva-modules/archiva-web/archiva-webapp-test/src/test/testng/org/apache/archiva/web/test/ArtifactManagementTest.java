@@ -365,7 +365,6 @@ name|void
 name|testAddArtifactValidValues
 parameter_list|()
 block|{
-comment|// TODO: disable test on non *chrome browsers, there is no way to do file uploads (SEL-63)
 name|addArtifact
 argument_list|(
 name|getGroupId
@@ -405,7 +404,6 @@ name|void
 name|testAddArtifactBlockRedeployments
 parameter_list|()
 block|{
-comment|// TODO: disable test on non *chrome browsers, there is no way to do file uploads (SEL-63)
 name|addArtifact
 argument_list|(
 name|getGroupId

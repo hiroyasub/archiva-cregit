@@ -204,7 +204,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO: add test for adding via WebDAV
-comment|// TODO: disable if not running on *chrome
 annotation|@
 name|Test
 argument_list|(
@@ -281,7 +280,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO: add test for adding via WebDAV
-comment|// TODO: disable if not running on *chrome
 annotation|@
 name|Test
 argument_list|(
@@ -358,7 +356,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO: add test for adding via WebDAV
-comment|// TODO: disable if not running on *chrome
 annotation|@
 name|Test
 argument_list|(
