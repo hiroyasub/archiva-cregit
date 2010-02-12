@@ -122,6 +122,15 @@ name|assertRepositoriesPage
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testAddManagedRepoValidValues"
+block|}
+argument_list|)
 specifier|public
 name|void
 name|testAddManagedRepoInvalidValues

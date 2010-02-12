@@ -53,11 +53,24 @@ name|void
 name|goToRepositoryGroupsPage
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|getTitle
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"Apache Archiva \\ Administration - Repository Groups"
+argument_list|)
+condition|)
+block|{
 name|clickLinkWithText
 argument_list|(
 literal|"Repository Groups"
 argument_list|)
 expr_stmt|;
+block|}
 name|assertRepositoryGroupsPage
 argument_list|()
 expr_stmt|;
@@ -1058,7 +1071,9 @@ name|String
 name|value
 parameter_list|)
 block|{
-comment|//goToRepositoriesPage();
+name|goToRepositoriesPage
+argument_list|()
+expr_stmt|;
 name|clickLinkWithXPath
 argument_list|(
 literal|"//div[@id='contentArea']/div/div[5]/div[1]/a[1]/img"
