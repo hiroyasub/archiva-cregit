@@ -122,6 +122,19 @@ name|void
 name|goToDeleteArtifactPage
 parameter_list|()
 block|{
+name|login
+argument_list|(
+name|getProperty
+argument_list|(
+literal|"ADMIN_USERNAME"
+argument_list|)
+argument_list|,
+name|getProperty
+argument_list|(
+literal|"ADMIN_PASSWORD"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|clickLinkWithText
 argument_list|(
 literal|"Delete Artifact"
