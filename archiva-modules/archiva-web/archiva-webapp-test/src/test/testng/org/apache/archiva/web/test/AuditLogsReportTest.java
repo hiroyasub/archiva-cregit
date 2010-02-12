@@ -204,7 +204,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO: add test for adding via WebDAV
-comment|// TODO: disable if not running on *chrome
 annotation|@
 name|Test
 argument_list|(
@@ -214,9 +213,9 @@ block|{
 literal|"testAddArtifactValidValues"
 block|}
 argument_list|,
-name|enabled
+name|groups
 operator|=
-literal|false
+literal|"requiresUpload"
 argument_list|)
 specifier|public
 name|void
@@ -281,7 +280,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO: add test for adding via WebDAV
-comment|// TODO: disable if not running on *chrome
 annotation|@
 name|Test
 argument_list|(
@@ -291,9 +289,9 @@ block|{
 literal|"testAddArtifactValidValues"
 block|}
 argument_list|,
-name|enabled
+name|groups
 operator|=
-literal|false
+literal|"requiresUpload"
 argument_list|)
 specifier|public
 name|void
@@ -358,7 +356,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO: add test for adding via WebDAV
-comment|// TODO: disable if not running on *chrome
 annotation|@
 name|Test
 argument_list|(
@@ -368,9 +365,9 @@ block|{
 literal|"testAddArtifactValidValues"
 block|}
 argument_list|,
-name|enabled
+name|groups
 operator|=
-literal|false
+literal|"requiresUpload"
 argument_list|)
 specifier|public
 name|void
@@ -438,9 +435,9 @@ block|,
 literal|"testUserWithRepoManagerInternalRole"
 block|}
 argument_list|,
-name|enabled
+name|groups
 operator|=
-literal|false
+literal|"requiresUpload"
 argument_list|)
 specifier|public
 name|void

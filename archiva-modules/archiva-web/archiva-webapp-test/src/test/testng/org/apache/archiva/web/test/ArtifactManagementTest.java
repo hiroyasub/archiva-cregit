@@ -356,16 +356,15 @@ block|}
 annotation|@
 name|Test
 argument_list|(
-name|enabled
+name|groups
 operator|=
-literal|false
+literal|"requiresUpload"
 argument_list|)
 specifier|public
 name|void
 name|testAddArtifactValidValues
 parameter_list|()
 block|{
-comment|// TODO: disable test on non *chrome browsers, there is no way to do file uploads (SEL-63)
 name|addArtifact
 argument_list|(
 name|getGroupId
@@ -388,7 +387,7 @@ argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
-literal|"Artifact 'test:test:1.0' was successfully deployed to repository 'internal'"
+literal|"Artifact 'test:testAddArtifactValidValues:1.0' was successfully deployed to repository 'internal'"
 argument_list|)
 expr_stmt|;
 block|}
@@ -396,16 +395,15 @@ comment|//MRM-747
 annotation|@
 name|Test
 argument_list|(
-name|enabled
+name|groups
 operator|=
-literal|false
+literal|"requiresUpload"
 argument_list|)
 specifier|public
 name|void
 name|testAddArtifactBlockRedeployments
 parameter_list|()
 block|{
-comment|// TODO: disable test on non *chrome browsers, there is no way to do file uploads (SEL-63)
 name|addArtifact
 argument_list|(
 name|getGroupId
@@ -441,9 +439,9 @@ block|}
 annotation|@
 name|Test
 argument_list|(
-name|enabled
+name|groups
 operator|=
-literal|false
+literal|"requiresUpload"
 argument_list|)
 specifier|public
 name|void
