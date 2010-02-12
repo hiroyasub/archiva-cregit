@@ -430,7 +430,7 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 argument_list|,
-literal|""
+literal|"background=#FFFFFF"
 argument_list|)
 expr_stmt|;
 block|}
