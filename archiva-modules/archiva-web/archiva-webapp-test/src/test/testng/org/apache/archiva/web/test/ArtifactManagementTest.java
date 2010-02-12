@@ -387,7 +387,7 @@ argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
-literal|"Artifact 'test:test:1.0' was successfully deployed to repository 'internal'"
+literal|"Artifact 'test:testAddArtifactValidValues:1.0' was successfully deployed to repository 'internal'"
 argument_list|)
 expr_stmt|;
 block|}
