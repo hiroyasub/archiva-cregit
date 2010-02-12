@@ -214,9 +214,9 @@ block|{
 literal|"testAddArtifactValidValues"
 block|}
 argument_list|,
-name|enabled
+name|groups
 operator|=
-literal|false
+literal|"requiresUpload"
 argument_list|)
 specifier|public
 name|void
@@ -291,9 +291,9 @@ block|{
 literal|"testAddArtifactValidValues"
 block|}
 argument_list|,
-name|enabled
+name|groups
 operator|=
-literal|false
+literal|"requiresUpload"
 argument_list|)
 specifier|public
 name|void
@@ -368,9 +368,9 @@ block|{
 literal|"testAddArtifactValidValues"
 block|}
 argument_list|,
-name|enabled
+name|groups
 operator|=
-literal|false
+literal|"requiresUpload"
 argument_list|)
 specifier|public
 name|void
@@ -438,9 +438,9 @@ block|,
 literal|"testUserWithRepoManagerInternalRole"
 block|}
 argument_list|,
-name|enabled
+name|groups
 operator|=
-literal|false
+literal|"requiresUpload"
 argument_list|)
 specifier|public
 name|void

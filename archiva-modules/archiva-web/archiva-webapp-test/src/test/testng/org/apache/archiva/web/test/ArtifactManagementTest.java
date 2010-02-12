@@ -356,9 +356,9 @@ block|}
 annotation|@
 name|Test
 argument_list|(
-name|enabled
+name|groups
 operator|=
-literal|false
+literal|"requiresUpload"
 argument_list|)
 specifier|public
 name|void
@@ -396,9 +396,9 @@ comment|//MRM-747
 annotation|@
 name|Test
 argument_list|(
-name|enabled
+name|groups
 operator|=
-literal|false
+literal|"requiresUpload"
 argument_list|)
 specifier|public
 name|void
@@ -441,9 +441,9 @@ block|}
 annotation|@
 name|Test
 argument_list|(
-name|enabled
+name|groups
 operator|=
-literal|false
+literal|"requiresUpload"
 argument_list|)
 specifier|public
 name|void

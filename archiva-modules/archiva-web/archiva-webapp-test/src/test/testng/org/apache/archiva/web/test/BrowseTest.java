@@ -127,9 +127,11 @@ comment|// MRM-1278
 annotation|@
 name|Test
 argument_list|(
-name|enabled
+name|groups
 operator|=
-literal|false
+block|{
+literal|"requiresUpload"
+block|}
 argument_list|)
 specifier|public
 name|void
