@@ -403,6 +403,17 @@ argument_list|(
 literal|"UTC"
 argument_list|)
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|TS_LENGTH
+init|=
+name|TIMESTAMP_FORMAT
+operator|.
+name|length
+argument_list|()
+decl_stmt|;
 specifier|public
 name|AuditEvent
 parameter_list|()
@@ -419,6 +430,18 @@ name|String
 name|repositoryId
 parameter_list|)
 block|{
+name|String
+name|ts
+init|=
+name|name
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|TS_LENGTH
+argument_list|)
+decl_stmt|;
 try|try
 block|{
 name|timestamp
@@ -428,7 +451,7 @@ argument_list|()
 operator|.
 name|parse
 argument_list|(
-name|name
+name|ts
 argument_list|)
 expr_stmt|;
 block|}
@@ -444,9 +467,42 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Improperly formatted timestamp for audit log event: "
 operator|+
+name|ts
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|name
+operator|.
+name|length
+argument_list|()
+operator|>
+name|TS_LENGTH
+condition|)
+block|{
+if|if
+condition|(
+name|name
+operator|.
+name|charAt
+argument_list|(
+name|TS_LENGTH
+argument_list|)
+operator|!=
+literal|'/'
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Improperly formatted name for audit log event, no / separator between timestamp and resource: "
+operator|+
 name|name
 argument_list|)
 throw|;
+block|}
 block|}
 name|this
 operator|.
@@ -666,6 +722,8 @@ name|String
 name|getName
 parameter_list|()
 block|{
+comment|// use the hashCode here to make it unique if multiple events occur at a certain timestamp. None of the other
+comment|// fields is unique on its own
 return|return
 name|createNameFormat
 argument_list|()
@@ -674,7 +732,19 @@ name|format
 argument_list|(
 name|timestamp
 argument_list|)
+operator|+
+literal|"/"
+operator|+
+name|Integer
+operator|.
+name|toHexString
+argument_list|(
+name|hashCode
+argument_list|()
+argument_list|)
 return|;
+comment|// TODO: a simple incremental counter might be better since it will retain ordering, but then we need to do a
+comment|//  bit of locking...
 block|}
 specifier|private
 specifier|static

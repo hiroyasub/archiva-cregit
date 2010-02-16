@@ -251,7 +251,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|timestamps
+name|names
 init|=
 name|metadataRepository
 operator|.
@@ -267,9 +267,9 @@ decl_stmt|;
 for|for
 control|(
 name|String
-name|timestamp
+name|name
 range|:
-name|timestamps
+name|names
 control|)
 block|{
 name|records
@@ -281,7 +281,7 @@ name|AuditRecord
 argument_list|(
 name|repositoryId
 argument_list|,
-name|timestamp
+name|name
 argument_list|)
 argument_list|)
 expr_stmt|;
