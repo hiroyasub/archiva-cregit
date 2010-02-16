@@ -284,6 +284,7 @@ name|Date
 name|endTime
 parameter_list|)
 function_decl|;
+comment|// TODO: remove from API, just use configuration
 name|Collection
 argument_list|<
 name|String
