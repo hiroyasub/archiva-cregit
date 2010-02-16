@@ -828,6 +828,10 @@ argument_list|(
 literal|"If you specify an artifact ID, you must specify a group ID"
 argument_list|)
 expr_stmt|;
+name|auditLogs
+operator|=
+literal|null
+expr_stmt|;
 return|return
 name|INPUT
 return|;
