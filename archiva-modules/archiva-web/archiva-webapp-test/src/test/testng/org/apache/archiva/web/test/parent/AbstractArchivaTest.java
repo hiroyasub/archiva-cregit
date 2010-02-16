@@ -381,7 +381,7 @@ condition|(
 name|success
 condition|)
 block|{
-name|assertAuthenticatedPage
+name|assertUserLoggedIn
 argument_list|(
 name|username
 argument_list|)
@@ -462,40 +462,6 @@ expr_stmt|;
 name|assertTextPresent
 argument_list|(
 literal|"Forgot your Password? Request a password reset."
-argument_list|)
-expr_stmt|;
-block|}
-specifier|public
-name|void
-name|assertAuthenticatedPage
-parameter_list|(
-name|String
-name|username
-parameter_list|)
-block|{
-name|assertTextPresent
-argument_list|(
-literal|"Current User"
-argument_list|)
-expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"Edit Details"
-argument_list|)
-expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"Logout"
-argument_list|)
-expr_stmt|;
-name|assertTextNotPresent
-argument_list|(
-literal|"Login"
-argument_list|)
-expr_stmt|;
-name|assertTextPresent
-argument_list|(
-name|username
 argument_list|)
 expr_stmt|;
 block|}
@@ -1046,6 +1012,17 @@ name|assertReturnPage
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|valid
+condition|)
+block|{
+name|assertUserLoggedIn
+argument_list|(
+name|username
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 specifier|public
 name|void
@@ -1158,24 +1135,9 @@ condition|(
 name|validUsernamePassword
 condition|)
 block|{
-name|assertTextPresent
-argument_list|(
-literal|"Current User:"
-argument_list|)
-expr_stmt|;
-name|assertTextPresent
+name|assertUserLoggedIn
 argument_list|(
 name|username
-argument_list|)
-expr_stmt|;
-name|assertLinkPresent
-argument_list|(
-literal|"Edit Details"
-argument_list|)
-expr_stmt|;
-name|assertLinkPresent
-argument_list|(
-literal|"Logout"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1204,6 +1166,40 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+specifier|protected
+name|void
+name|assertUserLoggedIn
+parameter_list|(
+name|String
+name|username
+parameter_list|)
+block|{
+name|assertTextPresent
+argument_list|(
+literal|"Current User:"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+name|username
+argument_list|)
+expr_stmt|;
+name|assertLinkPresent
+argument_list|(
+literal|"Edit Details"
+argument_list|)
+expr_stmt|;
+name|assertLinkPresent
+argument_list|(
+literal|"Logout"
+argument_list|)
+expr_stmt|;
+name|assertTextNotPresent
+argument_list|(
+literal|"Login"
+argument_list|)
+expr_stmt|;
 block|}
 comment|// User Roles
 specifier|public
@@ -2201,6 +2197,37 @@ comment|//TODO
 name|clickButtonWithValue
 argument_list|(
 literal|"Add Repository"
+argument_list|)
+expr_stmt|;
+block|}
+specifier|protected
+name|void
+name|logout
+parameter_list|()
+block|{
+name|clickLinkWithText
+argument_list|(
+literal|"Logout"
+argument_list|)
+expr_stmt|;
+name|assertTextNotPresent
+argument_list|(
+literal|"Current User:"
+argument_list|)
+expr_stmt|;
+name|assertLinkNotPresent
+argument_list|(
+literal|"Edit Details"
+argument_list|)
+expr_stmt|;
+name|assertLinkNotPresent
+argument_list|(
+literal|"Logout"
+argument_list|)
+expr_stmt|;
+name|assertLinkPresent
+argument_list|(
+literal|"Login"
 argument_list|)
 expr_stmt|;
 block|}
