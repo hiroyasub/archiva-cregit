@@ -222,27 +222,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-comment|// TODO: purely to quiet logging - shouldn't be needed
-name|String
-name|appserverBase
-init|=
-name|getTestFile
-argument_list|(
-literal|"target/appserver-base"
-argument_list|)
-operator|.
-name|getAbsolutePath
-argument_list|()
-decl_stmt|;
-name|System
-operator|.
-name|setProperty
-argument_list|(
-literal|"appserver.base"
-argument_list|,
-name|appserverBase
-argument_list|)
-expr_stmt|;
 name|action
 operator|=
 operator|(
