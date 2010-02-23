@@ -95,6 +95,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|scheduler
+operator|.
+name|repository
+operator|.
+name|RepositoryArchivaTaskScheduler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|io
@@ -312,22 +328,6 @@ operator|.
 name|configuration
 operator|.
 name|RepositoryGroupConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|database
-operator|.
-name|ArchivaAuditLogsDao
 import|;
 end_import
 
@@ -636,22 +636,6 @@ operator|.
 name|metadata
 operator|.
 name|RepositoryMetadataWriter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|scheduled
-operator|.
-name|ArchivaTaskScheduler
 import|;
 end_import
 
@@ -1149,15 +1133,10 @@ specifier|private
 name|Digester
 name|digestMd5
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * @plexus.requirement role="org.apache.archiva.scheduler.ArchivaTaskScheduler" role-hint="repository"      */
 specifier|private
-name|ArchivaTaskScheduler
+name|RepositoryArchivaTaskScheduler
 name|scheduler
-decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="jdo"      */
-specifier|private
-name|ArchivaAuditLogsDao
-name|auditLogsDao
 decl_stmt|;
 specifier|public
 name|DavResource
@@ -1679,8 +1658,6 @@ argument_list|,
 name|auditListeners
 argument_list|,
 name|scheduler
-argument_list|,
-name|auditLogsDao
 argument_list|)
 expr_stmt|;
 block|}
@@ -1836,8 +1813,6 @@ argument_list|,
 name|auditListeners
 argument_list|,
 name|scheduler
-argument_list|,
-name|auditLogsDao
 argument_list|)
 expr_stmt|;
 block|}
@@ -2353,8 +2328,6 @@ argument_list|,
 name|auditListeners
 argument_list|,
 name|scheduler
-argument_list|,
-name|auditLogsDao
 argument_list|)
 expr_stmt|;
 if|if
@@ -2511,8 +2484,6 @@ argument_list|,
 name|auditListeners
 argument_list|,
 name|scheduler
-argument_list|,
-name|auditLogsDao
 argument_list|)
 expr_stmt|;
 block|}
@@ -3047,8 +3018,6 @@ argument_list|,
 name|auditListeners
 argument_list|,
 name|scheduler
-argument_list|,
-name|auditLogsDao
 argument_list|)
 decl_stmt|;
 name|resource
@@ -4921,7 +4890,7 @@ specifier|public
 name|void
 name|setScheduler
 parameter_list|(
-name|ArchivaTaskScheduler
+name|RepositoryArchivaTaskScheduler
 name|scheduler
 parameter_list|)
 block|{
@@ -4990,21 +4959,6 @@ operator|.
 name|connectors
 operator|=
 name|connectors
-expr_stmt|;
-block|}
-specifier|public
-name|void
-name|setAuditLogsDao
-parameter_list|(
-name|ArchivaAuditLogsDao
-name|auditLogsDao
-parameter_list|)
-block|{
-name|this
-operator|.
-name|auditLogsDao
-operator|=
-name|auditLogsDao
 expr_stmt|;
 block|}
 block|}

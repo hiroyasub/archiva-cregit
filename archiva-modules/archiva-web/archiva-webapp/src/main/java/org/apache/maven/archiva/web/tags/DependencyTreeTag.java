@@ -312,9 +312,6 @@ condition|)
 block|{
 name|currentTreeEntry
 operator|=
-operator|(
-name|TreeEntry
-operator|)
 name|treeIterator
 operator|.
 name|next
@@ -475,10 +472,6 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|modelVersion
-argument_list|,
-name|nodevar
-argument_list|,
-name|pageContext
 argument_list|)
 expr_stmt|;
 if|if
@@ -506,9 +499,6 @@ argument_list|()
 expr_stmt|;
 name|currentTreeEntry
 operator|=
-operator|(
-name|TreeEntry
-operator|)
 name|treeIterator
 operator|.
 name|next

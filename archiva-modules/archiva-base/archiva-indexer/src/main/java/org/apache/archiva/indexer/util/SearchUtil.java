@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * SearchUtil - utility class for search.  *   * @version  */
+comment|/**  * SearchUtil - utility class for search.  */
 end_comment
 
 begin_class

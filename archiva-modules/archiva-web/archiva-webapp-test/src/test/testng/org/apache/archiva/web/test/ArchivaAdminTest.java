@@ -289,7 +289,7 @@ argument_list|,
 name|password
 argument_list|)
 expr_stmt|;
-name|assertAuthenticatedPage
+name|assertUserLoggedIn
 argument_list|(
 name|username
 argument_list|)

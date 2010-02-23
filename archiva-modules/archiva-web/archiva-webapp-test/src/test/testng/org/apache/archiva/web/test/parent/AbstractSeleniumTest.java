@@ -95,7 +95,9 @@ name|java
 operator|.
 name|util
 operator|.
-name|Properties
+name|Map
+operator|.
+name|Entry
 import|;
 end_import
 
@@ -105,33 +107,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
-operator|.
-name|Entry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|io
-operator|.
-name|IOUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|Assert
+name|Properties
 import|;
 end_import
 
@@ -156,6 +132,30 @@ operator|.
 name|selenium
 operator|.
 name|Selenium
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|IOUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|testng
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -717,7 +717,7 @@ literal|"The link '"
 operator|+
 name|text
 operator|+
-literal|"' isÃ®'t present."
+literal|"' isn't present."
 argument_list|)
 expr_stmt|;
 block|}

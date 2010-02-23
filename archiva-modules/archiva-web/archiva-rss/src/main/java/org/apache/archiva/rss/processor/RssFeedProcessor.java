@@ -29,22 +29,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|database
-operator|.
-name|ArchivaDatabaseException
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|sun
@@ -60,7 +44,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Retrieve and process the data that will be fed into the RssFeedGenerator.  *   * @version  */
+comment|/**  * Retrieve and process the data that will be fed into the RssFeedGenerator.  */
 end_comment
 
 begin_interface
@@ -103,8 +87,6 @@ name|String
 argument_list|>
 name|reqParams
 parameter_list|)
-throws|throws
-name|ArchivaDatabaseException
 function_decl|;
 block|}
 end_interface

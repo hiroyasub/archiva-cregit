@@ -326,6 +326,11 @@ argument_list|()
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
+literal|"If you specify an artifact ID, you must specify a group ID"
+argument_list|)
+expr_stmt|;
+name|assertTextNotPresent
+argument_list|(
 literal|"Results"
 argument_list|)
 expr_stmt|;
@@ -334,24 +339,14 @@ argument_list|(
 literal|"No audit logs found."
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
+name|assertTextNotPresent
 argument_list|(
 literal|"testAddArtifactValidValues-1.0.jar"
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
+name|assertTextNotPresent
 argument_list|(
 literal|"Uploaded File"
-argument_list|)
-expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"internal"
-argument_list|)
-expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"admin"
 argument_list|)
 expr_stmt|;
 block|}
