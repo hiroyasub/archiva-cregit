@@ -1585,12 +1585,7 @@ operator|.
 name|getId
 argument_list|()
 argument_list|,
-name|repository
-operator|.
-name|toFile
-argument_list|(
-name|artifactReference
-argument_list|)
+name|targetFile
 argument_list|)
 expr_stmt|;
 block|}
