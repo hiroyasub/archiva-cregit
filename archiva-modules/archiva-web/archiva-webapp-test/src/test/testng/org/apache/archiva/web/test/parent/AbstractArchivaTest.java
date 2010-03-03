@@ -1645,11 +1645,6 @@ argument_list|(
 literal|"Search for:"
 argument_list|)
 expr_stmt|;
-name|assertElementPresent
-argument_list|(
-literal|"f"
-argument_list|)
-expr_stmt|;
 name|assertTextPresent
 argument_list|(
 literal|"Checksum:"
@@ -1663,11 +1658,6 @@ expr_stmt|;
 name|assertButtonWithValuePresent
 argument_list|(
 literal|"Search"
-argument_list|)
-expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"This allows you to search the repository using the checksum of an artifact that you are trying to identify. You can either specify the checksum to look for directly, or scan a local artifact file."
 argument_list|)
 expr_stmt|;
 block|}

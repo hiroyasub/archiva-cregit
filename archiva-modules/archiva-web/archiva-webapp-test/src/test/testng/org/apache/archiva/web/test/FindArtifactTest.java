@@ -112,6 +112,7 @@ literal|"No results found"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: test using file upload on Firefox versions that support getAsBinary (ie, no applet)
 block|}
 end_class
 
