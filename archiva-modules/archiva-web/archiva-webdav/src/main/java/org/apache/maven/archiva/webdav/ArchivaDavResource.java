@@ -1502,42 +1502,44 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO: a bad deployment shouldn't delete an existing file - do we need to write to a temporary location first?
-if|if
-condition|(
+name|long
+name|expectedContentLength
+init|=
 name|inputContext
 operator|.
 name|getContentLength
 argument_list|()
-operator|!=
+decl_stmt|;
+name|long
+name|actualContentLength
+init|=
 name|localFile
 operator|.
 name|length
 argument_list|()
+decl_stmt|;
+comment|// length of -1 is given for a chunked request or unknown length, in which case we accept what was uploaded
+if|if
+condition|(
+name|expectedContentLength
+operator|>=
+literal|0
+operator|&&
+name|expectedContentLength
+operator|!=
+name|actualContentLength
 condition|)
 block|{
-name|FileUtils
-operator|.
-name|deleteQuietly
-argument_list|(
-name|localFile
-argument_list|)
-expr_stmt|;
 name|String
 name|msg
 init|=
 literal|"Content Header length was "
 operator|+
-name|inputContext
-operator|.
-name|getContentLength
-argument_list|()
+name|expectedContentLength
 operator|+
 literal|" but was "
 operator|+
-name|localFile
-operator|.
-name|length
-argument_list|()
+name|actualContentLength
 decl_stmt|;
 name|log
 operator|.
@@ -1546,6 +1548,13 @@ argument_list|(
 literal|"Upload failed: "
 operator|+
 name|msg
+argument_list|)
+expr_stmt|;
+name|FileUtils
+operator|.
+name|deleteQuietly
+argument_list|(
+name|localFile
 argument_list|)
 expr_stmt|;
 throw|throw
