@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactExtensionMapping  *  * @since 1.1  */
+comment|/**  * @since 1.1  */
 end_comment
 
 begin_class
@@ -121,9 +121,6 @@ argument_list|)
 condition|)
 block|{
 return|return
-operator|(
-name|String
-operator|)
 name|typeToClassifierMap
 operator|.
 name|get
