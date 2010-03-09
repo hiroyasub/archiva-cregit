@@ -5,13 +5,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
-name|repository
+name|web
 operator|.
-name|events
+name|spring
 package|;
 end_package
 
@@ -21,11 +19,17 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|List
+name|archiva
+operator|.
+name|repository
+operator|.
+name|events
+operator|.
+name|RepositoryListener
 import|;
 end_import
 
@@ -76,6 +80,16 @@ operator|.
 name|context
 operator|.
 name|ApplicationContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
