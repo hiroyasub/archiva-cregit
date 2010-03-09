@@ -365,12 +365,27 @@ name|void
 name|testAddArtifactValidValues
 parameter_list|()
 block|{
+name|String
+name|groupId
+init|=
+name|getProperty
+argument_list|(
+literal|"VALIDARTIFACT_GROUPID"
+argument_list|)
+decl_stmt|;
+name|String
+name|artifactId
+init|=
+name|getProperty
+argument_list|(
+literal|"VALIDARTIFACT_ARTIFACTID"
+argument_list|)
+decl_stmt|;
 name|addArtifact
 argument_list|(
-name|getGroupId
-argument_list|()
+name|groupId
 argument_list|,
-literal|"testAddArtifactValidValues"
+name|artifactId
 argument_list|,
 name|getVersion
 argument_list|()
@@ -387,7 +402,20 @@ argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
-literal|"Artifact 'test:testAddArtifactValidValues:1.0' was successfully deployed to repository 'internal'"
+literal|"Artifact '"
+operator|+
+name|groupId
+operator|+
+literal|":"
+operator|+
+name|artifactId
+operator|+
+literal|":"
+operator|+
+name|getVersion
+argument_list|()
+operator|+
+literal|"' was successfully deployed to repository 'internal'"
 argument_list|)
 expr_stmt|;
 block|}

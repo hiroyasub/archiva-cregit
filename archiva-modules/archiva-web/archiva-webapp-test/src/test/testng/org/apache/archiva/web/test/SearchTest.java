@@ -100,6 +100,7 @@ literal|"No results found"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: make search tests more robust especially when comparing/asserting number of hits
 specifier|public
 name|void
 name|testSearchExistingArtifact
