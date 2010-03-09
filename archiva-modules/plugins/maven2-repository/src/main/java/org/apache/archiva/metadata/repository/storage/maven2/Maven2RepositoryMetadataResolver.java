@@ -915,6 +915,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// TODO: won't work well with some other layouts, might need to convert artifact parts to ID by path translator
 name|String
 name|id
 init|=

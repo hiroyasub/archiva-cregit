@@ -31,6 +31,8 @@ begin_class
 specifier|public
 class|class
 name|ArtifactMetadata
+extends|extends
+name|FacetedMetadata
 block|{
 specifier|private
 name|String
