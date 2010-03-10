@@ -21,16 +21,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -76,6 +66,16 @@ operator|.
 name|filter
 operator|.
 name|Filter
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
 import|;
 end_import
 
@@ -185,6 +185,17 @@ argument_list|<
 name|String
 argument_list|>
 name|filter
+parameter_list|)
+function_decl|;
+comment|// TODO: reconsider this API, do we want to expose storage format in the form of a path?
+name|ArtifactMetadata
+name|getArtifactForPath
+parameter_list|(
+name|String
+name|repoId
+parameter_list|,
+name|String
+name|path
 parameter_list|)
 function_decl|;
 block|}
