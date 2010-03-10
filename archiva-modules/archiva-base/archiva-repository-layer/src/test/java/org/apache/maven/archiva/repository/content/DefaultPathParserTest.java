@@ -107,6 +107,7 @@ name|void
 name|testBadPathMissingType
 parameter_list|()
 block|{
+comment|// TODO: should we allow this instead?
 name|assertBadPath
 argument_list|(
 literal|"invalid/invalid/1/invalid-1"

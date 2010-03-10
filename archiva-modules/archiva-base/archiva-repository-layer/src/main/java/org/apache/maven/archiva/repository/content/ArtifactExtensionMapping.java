@@ -79,18 +79,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Pattern
-import|;
-end_import
-
 begin_comment
 comment|/**  * ArtifactExtensionMapping  *  * @version $Id$  */
 end_comment
@@ -134,19 +122,6 @@ argument_list|,
 name|String
 argument_list|>
 name|typeToExtensionMap
-decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|Pattern
-name|mavenPluginPattern
-init|=
-name|Pattern
-operator|.
-name|compile
-argument_list|(
-literal|"^(maven-.*-plugin)|(.*-maven-plugin)$"
-argument_list|)
 decl_stmt|;
 comment|// TODO: won't support extensions - need to refactor away this class
 specifier|private
@@ -323,28 +298,6 @@ block|}
 comment|// Return type
 return|return
 name|type
-return|;
-block|}
-comment|/**      * Determine if a given artifact Id conforms to the naming scheme for a maven plugin.      *      * @param artifactId the artifactId to test.      * @return true if this artifactId conforms to the naming scheme for a maven plugin.      */
-specifier|public
-specifier|static
-name|boolean
-name|isMavenPlugin
-parameter_list|(
-name|String
-name|artifactId
-parameter_list|)
-block|{
-return|return
-name|mavenPluginPattern
-operator|.
-name|matcher
-argument_list|(
-name|artifactId
-argument_list|)
-operator|.
-name|matches
-argument_list|()
 return|;
 block|}
 specifier|public
