@@ -17,6 +17,10 @@ name|maven2
 package|;
 end_package
 
+begin_comment
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *   http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+end_comment
+
 begin_import
 import|import
 name|org
@@ -85,6 +89,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|regex
 operator|.
 name|Matcher
@@ -102,10 +116,6 @@ operator|.
 name|Pattern
 import|;
 end_import
-
-begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *   http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
-end_comment
 
 begin_comment
 comment|/**  * @plexus.component role="org.apache.archiva.metadata.repository.storage.RepositoryPathTranslator" role-hint="maven2"  */
@@ -146,6 +156,14 @@ name|compile
 argument_list|(
 literal|"([0-9]{8}.[0-9]{6})-([0-9]+).*"
 argument_list|)
+decl_stmt|;
+comment|/**      * @plexus.requirement role="org.apache.archiva.metadata.repository.storage.maven2.ArtifactMappingProvider"      */
+specifier|private
+name|List
+argument_list|<
+name|ArtifactMappingProvider
+argument_list|>
+name|artifactMappingProviders
 decl_stmt|;
 specifier|public
 name|File
@@ -883,6 +901,25 @@ argument_list|(
 literal|2
 argument_list|)
 decl_stmt|;
+name|facet
+operator|.
+name|setTimestamp
+argument_list|(
+name|timestamp
+argument_list|)
+expr_stmt|;
+name|facet
+operator|.
+name|setBuildNumber
+argument_list|(
+name|Integer
+operator|.
+name|valueOf
+argument_list|(
+name|buildNumber
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|version
 operator|=
 name|idSubStrFromVersion
@@ -1154,8 +1191,59 @@ argument_list|(
 name|classifier
 argument_list|)
 expr_stmt|;
-comment|// TODO: migrate here from ArtifactExtensionMapping and make extensible
-comment|//        facet.setType(  );
+comment|// we use our own provider here instead of directly accessing Maven's artifact handlers as it has no way
+comment|// to select the correct order to apply multiple extensions mappings to a preferred type
+comment|// TODO: this won't allow the user to decide order to apply them if there are conflicts or desired changes -
+comment|//       perhaps the plugins could register missing entries in configuration, then we just use configuration
+comment|//       here?
+name|String
+name|type
+init|=
+literal|null
+decl_stmt|;
+for|for
+control|(
+name|ArtifactMappingProvider
+name|mapping
+range|:
+name|artifactMappingProviders
+control|)
+block|{
+name|type
+operator|=
+name|mapping
+operator|.
+name|mapClassifierAndExtensionToType
+argument_list|(
+name|classifier
+argument_list|,
+name|ext
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|type
+operator|!=
+literal|null
+condition|)
+block|{
+break|break;
+block|}
+block|}
+comment|// use extension as default
+name|facet
+operator|.
+name|setType
+argument_list|(
+name|type
+operator|!=
+literal|null
+condition|?
+name|type
+else|:
+name|ext
+argument_list|)
+expr_stmt|;
 name|metadata
 operator|.
 name|addFacet
