@@ -436,7 +436,7 @@ name|setLocation
 argument_list|(
 name|getTestPath
 argument_list|(
-literal|"src/test/repositories/test"
+literal|"target/test-repository"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2390,6 +2390,8 @@ argument_list|,
 literal|"mislocated-pom"
 argument_list|,
 literal|"missing-metadata"
+argument_list|,
+literal|"test-artifact"
 argument_list|)
 argument_list|,
 name|resolver

@@ -21,16 +21,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -203,6 +193,16 @@ name|MockControl
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
 begin_class
 specifier|public
 class|class
@@ -304,7 +304,7 @@ name|setLocation
 argument_list|(
 name|getTestPath
 argument_list|(
-literal|"src/test/repositories/test"
+literal|"target/test-repository"
 argument_list|)
 argument_list|)
 expr_stmt|;
