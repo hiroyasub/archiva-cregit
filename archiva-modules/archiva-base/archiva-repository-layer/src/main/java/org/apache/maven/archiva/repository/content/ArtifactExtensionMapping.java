@@ -76,7 +76,7 @@ name|MAVEN_ONE_PLUGIN
 init|=
 literal|"maven-one-plugin"
 decl_stmt|;
-comment|// TODO: won't support extensions - need to refactor away this class
+comment|// TODO: now only used in Maven 1, we should be using M1 specific mappings
 specifier|private
 specifier|static
 specifier|final

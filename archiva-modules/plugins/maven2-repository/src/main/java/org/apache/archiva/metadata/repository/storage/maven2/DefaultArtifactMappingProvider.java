@@ -200,7 +200,8 @@ argument_list|,
 literal|"jar"
 argument_list|)
 expr_stmt|;
-comment|// TODO: move to maven 1 plugin
+comment|// TODO: move to maven 1 plugin - but note that it won't have the interface type and might need to reproduce the
+comment|//       same thing
 name|typeToExtensionMap
 operator|.
 name|put
