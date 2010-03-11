@@ -1528,7 +1528,8 @@ name|String
 name|message
 parameter_list|)
 block|{
-comment|// TODO: an event mechanism would remove coupling to the problem reporting plugin
+comment|// TODO: an event mechanism would remove coupling to the problem reporting plugin and allow other plugins to
+comment|//       generate metadata on the fly if appropriately checked for missing facets in the resolver
 name|RepositoryProblemFacet
 name|problem
 init|=
