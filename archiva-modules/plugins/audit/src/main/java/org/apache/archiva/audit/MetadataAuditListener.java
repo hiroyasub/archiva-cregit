@@ -16,7 +16,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * @plexus.component role="org.apache.maven.archiva.repository.audit.AuditListener" role-hint="metadata"  */
+comment|/**  * @plexus.component role="org.apache.archiva.audit.AuditListener" role-hint="metadata"  */
 end_comment
 
 begin_class
