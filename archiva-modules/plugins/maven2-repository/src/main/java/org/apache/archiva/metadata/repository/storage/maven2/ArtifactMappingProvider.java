@@ -36,6 +36,13 @@ name|String
 name|ext
 parameter_list|)
 function_decl|;
+name|String
+name|mapTypeToExtension
+parameter_list|(
+name|String
+name|type
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

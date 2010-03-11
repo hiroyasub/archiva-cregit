@@ -1387,6 +1387,7 @@ argument_list|(
 literal|"default"
 argument_list|)
 decl_stmt|;
+comment|// TODO: this is a good test case for maven 1 -> maven 2 link, since m2 doesn't support the distribution-zip type
 comment|// Test (artifact) legacy to default - dual extension
 comment|// NOTE: The detection of a dual extension is flawed.
 name|assertEquals

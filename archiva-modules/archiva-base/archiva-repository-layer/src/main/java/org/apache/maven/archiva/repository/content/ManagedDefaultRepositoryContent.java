@@ -25,6 +25,26 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|storage
+operator|.
+name|maven2
+operator|.
+name|DefaultArtifactMappingProvider
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|io
@@ -223,6 +243,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashSet
 import|;
 end_import
@@ -238,7 +268,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ManagedDefaultRepositoryContent   *  * @version $Id$  *   * @todo no need to be a component when filetypes is not  *   * @plexus.component   *      role="org.apache.maven.archiva.repository.ManagedRepositoryContent"  *      role-hint="default"  *      instantiation-strategy="per-lookup"  */
+comment|/**  * ManagedDefaultRepositoryContent   *  * @version $Id$  *   * @plexus.component   *      role="org.apache.maven.archiva.repository.ManagedRepositoryContent"  *      role-hint="default"  *      instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -259,6 +289,25 @@ specifier|private
 name|ManagedRepositoryConfiguration
 name|repository
 decl_stmt|;
+specifier|public
+name|ManagedDefaultRepositoryContent
+parameter_list|()
+block|{
+comment|// default to use if there are none supplied as components
+name|this
+operator|.
+name|artifactMappingProviders
+operator|=
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
+operator|new
+name|DefaultArtifactMappingProvider
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 specifier|public
 name|void
 name|deleteVersion
