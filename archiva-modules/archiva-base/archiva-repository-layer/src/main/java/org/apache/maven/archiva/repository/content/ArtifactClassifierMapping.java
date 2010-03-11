@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @since 1.1  */
+comment|/**  * Maven 1.x request type to classifier mapping for translating to a Maven 2.x storage  *  * @todo reuse mappings for other repositories  *  * @since 1.1  */
 end_comment
 
 begin_class
@@ -61,6 +61,7 @@ name|typeToClassifierMap
 decl_stmt|;
 static|static
 block|{
+comment|// note additional 's' on type as these are maven 1.x directory components
 name|typeToClassifierMap
 operator|=
 operator|new
