@@ -47,24 +47,6 @@ name|MetadataFacetFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|audit
-operator|.
-name|AuditEvent
-import|;
-end_import
-
 begin_comment
 comment|/**  * @plexus.component role="org.apache.archiva.metadata.model.MetadataFacetFactory" role-hint="org.apache.archiva.audit"  */
 end_comment

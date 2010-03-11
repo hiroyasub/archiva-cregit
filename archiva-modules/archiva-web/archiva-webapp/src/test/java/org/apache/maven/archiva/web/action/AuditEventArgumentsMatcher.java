@@ -21,25 +21,11 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
-operator|.
-name|repository
 operator|.
 name|audit
 operator|.
@@ -54,6 +40,16 @@ operator|.
 name|easymock
 operator|.
 name|ArgumentsMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
 import|;
 end_import
 

@@ -23,11 +23,7 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
-operator|.
-name|repository
 operator|.
 name|audit
 operator|.
@@ -41,11 +37,7 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
-operator|.
-name|repository
 operator|.
 name|audit
 operator|.

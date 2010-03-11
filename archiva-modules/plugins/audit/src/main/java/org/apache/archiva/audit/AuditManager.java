@@ -45,24 +45,6 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|audit
-operator|.
-name|AuditEvent
-import|;
-end_import
-
 begin_interface
 specifier|public
 interface|interface
