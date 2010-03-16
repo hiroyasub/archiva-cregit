@@ -2806,6 +2806,13 @@ argument_list|)
 expr_stmt|;
 name|metadata
 operator|.
+name|setProjectVersion
+argument_list|(
+name|projectVersion
+argument_list|)
+expr_stmt|;
+name|metadata
+operator|.
 name|setVersion
 argument_list|(
 name|projectVersion

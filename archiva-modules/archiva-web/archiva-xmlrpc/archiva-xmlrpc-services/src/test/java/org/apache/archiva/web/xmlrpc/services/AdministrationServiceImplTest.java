@@ -3929,6 +3929,13 @@ argument_list|)
 expr_stmt|;
 name|artifact
 operator|.
+name|setProjectVersion
+argument_list|(
+literal|"1.0"
+argument_list|)
+expr_stmt|;
+name|artifact
+operator|.
 name|setNamespace
 argument_list|(
 literal|"org.apache.archiva"

@@ -27,15 +27,21 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *   http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
+begin_comment
+comment|/**  * Information about the available mailing lists for communicating with the project.  *  * @todo considering moving this to a facet - avoid referring to it externally  */
+end_comment
+
 begin_class
 specifier|public
 class|class
 name|MailingList
 block|{
+comment|/**      * The primary archive URL for this mailing list.      */
 specifier|private
 name|String
 name|mainArchiveUrl
 decl_stmt|;
+comment|/**      * A list of other URLs to archives of the mailing list.      */
 specifier|private
 name|List
 argument_list|<
@@ -43,18 +49,22 @@ name|String
 argument_list|>
 name|otherArchives
 decl_stmt|;
+comment|/**      * The name of the mailing list, eg.<i>Archiva Developers List</i>.      */
 specifier|private
 name|String
 name|name
 decl_stmt|;
+comment|/**      * The email address to post a new message to the mailing list, if applicable.      */
 specifier|private
 name|String
 name|postAddress
 decl_stmt|;
+comment|/**      * The email address to send a message to to subscribe to the mailing list, if applicable.      */
 specifier|private
 name|String
 name|subscribeAddress
 decl_stmt|;
+comment|/**      * The email address to send a message to to unsubscribe from the mailing list, if applicable.      */
 specifier|private
 name|String
 name|unsubscribeAddress

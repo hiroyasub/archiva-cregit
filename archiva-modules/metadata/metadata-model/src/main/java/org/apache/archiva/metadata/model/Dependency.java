@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * TODO: review what is appropriate for the base here - rest should be in a maven dependency facet  */
+comment|/**  * Information about a dependency that this project has on another project or artifact.  *  * @todo will be reviewing what is appropriate for the base here - rest should be in a maven dependency facet - avoid details on it externally  */
 end_comment
 
 begin_class
@@ -26,34 +26,42 @@ specifier|public
 class|class
 name|Dependency
 block|{
+comment|/**      * The Maven classifier of the dependency.      */
 specifier|private
 name|String
 name|classifier
 decl_stmt|;
+comment|/**      * Whether the dependency is optional or required.      */
 specifier|private
 name|boolean
 name|optional
 decl_stmt|;
+comment|/**      * The Maven scope of the dependency -<tt>compile</tt> (default),<tt>runtime</tt>, etc.      */
 specifier|private
 name|String
 name|scope
 decl_stmt|;
+comment|/**      * The system path of the file of the dependency artifact to use.      */
 specifier|private
 name|String
 name|systemPath
 decl_stmt|;
+comment|/**      * The Maven type of the dependency.      */
 specifier|private
 name|String
 name|type
 decl_stmt|;
+comment|/**      * The Maven artifact ID of the dependency.      */
 specifier|private
 name|String
 name|artifactId
 decl_stmt|;
+comment|/**      * The Maven group ID of the dependency.      */
 specifier|private
 name|String
 name|groupId
 decl_stmt|;
+comment|/**      * The version of the artifact to depend on. If this refers to a project version then the repository implementation      * may choose the most appropriate artifact version to use.      */
 specifier|private
 name|String
 name|version

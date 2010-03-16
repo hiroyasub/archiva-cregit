@@ -1082,6 +1082,13 @@ argument_list|)
 expr_stmt|;
 name|artifact
 operator|.
+name|setProjectVersion
+argument_list|(
+name|version
+argument_list|)
+expr_stmt|;
+name|artifact
+operator|.
 name|setVersion
 argument_list|(
 name|version

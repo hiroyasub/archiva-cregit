@@ -3781,6 +3781,13 @@ argument_list|)
 expr_stmt|;
 name|artifact
 operator|.
+name|setProjectVersion
+argument_list|(
+name|TEST_PROJECT_VERSION
+argument_list|)
+expr_stmt|;
+name|artifact
+operator|.
 name|setMd5
 argument_list|(
 name|TEST_MD5

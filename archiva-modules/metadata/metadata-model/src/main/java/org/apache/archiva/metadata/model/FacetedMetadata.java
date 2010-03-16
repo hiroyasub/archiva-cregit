@@ -47,11 +47,17 @@ name|Map
 import|;
 end_import
 
+begin_comment
+comment|/**  * Base class for metadata that is contains facets for storing extensions by various plugins.  */
+end_comment
+
 begin_class
 specifier|public
+specifier|abstract
 class|class
 name|FacetedMetadata
 block|{
+comment|/**      * The facets to store, keyed by the {@linkplain MetadataFacet#getFacetId() Facet ID} of the metadata.      */
 specifier|private
 name|Map
 argument_list|<
@@ -70,6 +76,7 @@ name|MetadataFacet
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|/**      * Add a new facet to the metadata. If it already exists, it will be replaced.      *      * @param metadataFacet the facet to add      */
 specifier|public
 name|void
 name|addFacet
@@ -93,6 +100,7 @@ name|metadataFacet
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Get a particular facet of metadata.      *      * @param facetId the facet ID      * @return the facet of the metadata.      */
 specifier|public
 name|MetadataFacet
 name|getFacet
@@ -112,20 +120,7 @@ name|facetId
 argument_list|)
 return|;
 block|}
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|MetadataFacet
-argument_list|>
-name|getFacets
-parameter_list|()
-block|{
-return|return
-name|facets
-return|;
-block|}
+comment|/**      * Get all the facets available on this metadata.      *      * @return the facets of the metadata      */
 specifier|public
 name|Collection
 argument_list|<
@@ -143,6 +138,7 @@ name|values
 argument_list|()
 return|;
 block|}
+comment|/**      * Get all the keys of the facets available on this metadata.      *      * @return the collection of facet IDs.      */
 specifier|public
 name|Collection
 argument_list|<

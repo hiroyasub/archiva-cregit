@@ -3045,6 +3045,13 @@ argument_list|)
 expr_stmt|;
 name|artifactMetadata
 operator|.
+name|setProjectVersion
+argument_list|(
+name|version
+argument_list|)
+expr_stmt|;
+name|artifactMetadata
+operator|.
 name|setId
 argument_list|(
 name|ARCHIVA_TEST_ARTIFACT_ID

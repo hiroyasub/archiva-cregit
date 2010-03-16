@@ -27,6 +27,10 @@ name|Date
 import|;
 end_import
 
+begin_comment
+comment|/**  * Metadata stored in the content repository for a particular artifact. Information that is shared between different  * artifacts of a given project version can be found in the  * {@link org.apache.archiva.metadata.model.ProjectVersionMetadata} class. The metadata is faceted to store information  * about particular types of artifacts, for example Maven 2.x artifact specific information.  * For more information, see the  *<a href="{@docRoot}/../metadata-content-model.html" target="_top">Metadata Content Model</a>.  */
+end_comment
+
 begin_class
 specifier|public
 class|class
@@ -34,45 +38,60 @@ name|ArtifactMetadata
 extends|extends
 name|FacetedMetadata
 block|{
+comment|/**      * The artifact ID uniquely identifies an artifact within a given namespace, project and project version. For      * example,<tt>archiva-1.4-20100201.345612-2.jar</tt>      */
 specifier|private
 name|String
 name|id
 decl_stmt|;
-specifier|private
-name|long
-name|size
-decl_stmt|;
+comment|/**      * The repository that the artifact is stored in within the content repository.      */
 specifier|private
 name|String
-name|version
+name|repositoryId
 decl_stmt|;
-specifier|private
-name|Date
-name|fileLastModified
-decl_stmt|;
-specifier|private
-name|Date
-name|whenGathered
-decl_stmt|;
-specifier|private
-name|String
-name|md5
-decl_stmt|;
-specifier|private
-name|String
-name|sha1
-decl_stmt|;
+comment|/**      * The namespace of the project within the repository.      *      * @see org.apache.archiva.metadata.model.ProjectMetadata#namespace      */
 specifier|private
 name|String
 name|namespace
 decl_stmt|;
+comment|/**      * The identifier of the project within the repository and namespace.      *      * @see org.apache.archiva.metadata.model.ProjectMetadata#id      */
 specifier|private
 name|String
 name|project
 decl_stmt|;
+comment|/**      * The version of the project. This may be more generalised than @{link #version}.      *      * @see org.apache.archiva.metadata.model.ProjectVersionMetadata#id      */
 specifier|private
 name|String
-name|repositoryId
+name|projectVersion
+decl_stmt|;
+comment|/**      * The artifact version, if different from the project version. Note that the metadata does not do any calculation      * of this based on the project version - the calling code must be sure to set and check it appropriately if      *<tt>null</tt>.      */
+specifier|private
+name|String
+name|version
+decl_stmt|;
+comment|/**      * The last modified date of the artifact file, if known.      */
+specifier|private
+name|Date
+name|fileLastModified
+decl_stmt|;
+comment|/**      * The file size of the artifact, if known.      */
+specifier|private
+name|long
+name|size
+decl_stmt|;
+comment|/**      * The MD5 checksum of the artifact, if calculated.      */
+specifier|private
+name|String
+name|md5
+decl_stmt|;
+comment|/**      * The SHA-1 checksum of the artifact, if calculated.      */
+specifier|private
+name|String
+name|sha1
+decl_stmt|;
+comment|/**      * When the artifact was found in the repository storage and added to the metadata content repository.      */
+specifier|private
+name|Date
+name|whenGathered
 decl_stmt|;
 specifier|public
 name|String
@@ -144,6 +163,30 @@ operator|.
 name|version
 operator|=
 name|version
+expr_stmt|;
+block|}
+specifier|public
+name|String
+name|getProjectVersion
+parameter_list|()
+block|{
+return|return
+name|projectVersion
+return|;
+block|}
+specifier|public
+name|void
+name|setProjectVersion
+parameter_list|(
+name|String
+name|projectVersion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|projectVersion
+operator|=
+name|projectVersion
 expr_stmt|;
 block|}
 specifier|public
@@ -381,6 +424,10 @@ return|;
 block|}
 if|if
 condition|(
+name|fileLastModified
+operator|!=
+literal|null
+condition|?
 operator|!
 name|fileLastModified
 operator|.
@@ -390,6 +437,12 @@ name|that
 operator|.
 name|fileLastModified
 argument_list|)
+else|:
+name|that
+operator|.
+name|fileLastModified
+operator|!=
+literal|null
 condition|)
 block|{
 return|return
@@ -496,10 +549,33 @@ return|;
 block|}
 if|if
 condition|(
-name|repositoryId
+name|projectVersion
 operator|!=
 literal|null
 condition|?
+operator|!
+name|projectVersion
+operator|.
+name|equals
+argument_list|(
+name|that
+operator|.
+name|projectVersion
+argument_list|)
+else|:
+name|that
+operator|.
+name|projectVersion
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+if|if
+condition|(
 operator|!
 name|repositoryId
 operator|.
@@ -509,12 +585,6 @@ name|that
 operator|.
 name|repositoryId
 argument_list|)
-else|:
-name|that
-operator|.
-name|repositoryId
-operator|!=
-literal|null
 condition|)
 block|{
 return|return
@@ -550,6 +620,10 @@ return|;
 block|}
 if|if
 condition|(
+name|version
+operator|!=
+literal|null
+condition|?
 operator|!
 name|version
 operator|.
@@ -559,6 +633,12 @@ name|that
 operator|.
 name|version
 argument_list|)
+else|:
+name|that
+operator|.
+name|version
+operator|!=
+literal|null
 condition|)
 block|{
 return|return
@@ -567,6 +647,10 @@ return|;
 block|}
 if|if
 condition|(
+name|whenGathered
+operator|!=
+literal|null
+condition|?
 operator|!
 name|whenGathered
 operator|.
@@ -576,6 +660,12 @@ name|that
 operator|.
 name|whenGathered
 argument_list|)
+else|:
+name|that
+operator|.
+name|whenGathered
+operator|!=
+literal|null
 condition|)
 block|{
 return|return
@@ -641,6 +731,12 @@ operator|+
 literal|", project='"
 operator|+
 name|project
+operator|+
+literal|'\''
+operator|+
+literal|", projectVersion='"
+operator|+
+name|projectVersion
 operator|+
 literal|'\''
 operator|+
