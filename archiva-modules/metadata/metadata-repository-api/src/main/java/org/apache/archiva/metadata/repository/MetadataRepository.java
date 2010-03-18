@@ -19,36 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -127,6 +97,36 @@ name|ProjectVersionReference
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_interface
 specifier|public
 interface|interface
@@ -134,12 +134,12 @@ name|MetadataRepository
 extends|extends
 name|MetadataResolver
 block|{
-comment|/**      * Update metadata for a particular project in the metadata repository, or create it if it does not already exist.      *      * @param repoId  the repository the project is in      * @param project the project metadata to create or update      */
+comment|/**      * Update metadata for a particular project in the metadata repository, or create it if it does not already exist.      *      * @param repositoryId  the repository the project is in      * @param project the project metadata to create or update      */
 name|void
 name|updateProject
 parameter_list|(
 name|String
-name|repoId
+name|repositoryId
 parameter_list|,
 name|ProjectMetadata
 name|project
@@ -149,7 +149,7 @@ name|void
 name|updateArtifact
 parameter_list|(
 name|String
-name|repoId
+name|repositoryId
 parameter_list|,
 name|String
 name|namespace
@@ -168,7 +168,7 @@ name|void
 name|updateProjectVersion
 parameter_list|(
 name|String
-name|repoId
+name|repositoryId
 parameter_list|,
 name|String
 name|namespace
@@ -184,7 +184,7 @@ name|void
 name|updateProjectReference
 parameter_list|(
 name|String
-name|repoId
+name|repositoryId
 parameter_list|,
 name|String
 name|namespace
@@ -203,7 +203,7 @@ name|void
 name|updateNamespace
 parameter_list|(
 name|String
-name|repoId
+name|repositoryId
 parameter_list|,
 name|String
 name|namespace
@@ -216,7 +216,7 @@ argument_list|>
 name|getMetadataFacets
 parameter_list|(
 name|String
-name|repoId
+name|repositoryId
 parameter_list|,
 name|String
 name|facetId
@@ -259,7 +259,7 @@ name|void
 name|removeMetadataFacet
 parameter_list|(
 name|String
-name|repoId
+name|repositoryId
 parameter_list|,
 name|String
 name|facetId
@@ -275,7 +275,7 @@ argument_list|>
 name|getArtifactsByDateRange
 parameter_list|(
 name|String
-name|repoId
+name|repositoryId
 parameter_list|,
 name|Date
 name|startTime
@@ -299,7 +299,7 @@ argument_list|>
 name|getArtifactsByChecksum
 parameter_list|(
 name|String
-name|repoId
+name|repositoryId
 parameter_list|,
 name|String
 name|checksum
@@ -324,12 +324,12 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
-comment|/**      * Delete a repository's metadata. This includes all associated metadata facets.      * @param repoId the repository to delete      */
+comment|/**      * Delete a repository's metadata. This includes all associated metadata facets.      * @param repositoryId the repository to delete      */
 name|void
 name|deleteRepository
 parameter_list|(
 name|String
-name|repoId
+name|repositoryId
 parameter_list|)
 function_decl|;
 block|}
