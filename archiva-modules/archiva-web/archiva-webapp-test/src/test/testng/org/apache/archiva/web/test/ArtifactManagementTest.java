@@ -433,10 +433,9 @@ parameter_list|()
 block|{
 name|addArtifact
 argument_list|(
-name|getGroupId
-argument_list|()
+literal|"dotNetTypes"
 argument_list|,
-literal|"testDotNetTypes"
+literal|"dotNetTypes"
 argument_list|,
 name|getVersion
 argument_list|()
@@ -452,7 +451,7 @@ argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
-literal|"Artifact 'test:testDotNetTypes:1.0' was successfully deployed to repository 'internal'"
+literal|"Artifact 'dotNetTypes:dotNetTypes:1.0' was successfully deployed to repository 'internal'"
 argument_list|)
 expr_stmt|;
 name|getSelenium
@@ -464,10 +463,9 @@ name|baseUrl
 operator|+
 literal|"/browse/"
 operator|+
-name|getGroupId
-argument_list|()
+literal|"dotNetTypes"
 operator|+
-literal|"/testDotNetTypes/"
+literal|"/dotNetTypes/"
 operator|+
 name|getVersion
 argument_list|()
@@ -486,15 +484,14 @@ name|basePath
 init|=
 literal|"/archiva/repository/internal/"
 operator|+
-name|getGroupId
-argument_list|()
+literal|"dotNetTypes"
 operator|+
-literal|"/testDotNetTypes/"
+literal|"/dotNetTypes/"
 operator|+
 name|getVersion
 argument_list|()
 operator|+
-literal|"/testDotNetTypes-"
+literal|"/dotNetTypes-"
 operator|+
 name|getVersion
 argument_list|()

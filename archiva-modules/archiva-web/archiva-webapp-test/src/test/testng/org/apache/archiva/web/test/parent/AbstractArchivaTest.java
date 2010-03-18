@@ -2030,7 +2030,7 @@ argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
-name|setFieldValue
+name|selectValue
 argument_list|(
 literal|"repositoryId"
 argument_list|,

@@ -210,8 +210,11 @@ argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
-literal|"ID: "
-operator|+
+literal|"ID:"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
 name|repositoryName
 argument_list|)
 expr_stmt|;
