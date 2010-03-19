@@ -536,7 +536,11 @@ operator|+
 name|getVersion
 argument_list|()
 operator|+
-literal|"/dotNetTypes-"
+literal|"/"
+operator|+
+name|artifactId
+operator|+
+literal|"-"
 operator|+
 name|getVersion
 argument_list|()
