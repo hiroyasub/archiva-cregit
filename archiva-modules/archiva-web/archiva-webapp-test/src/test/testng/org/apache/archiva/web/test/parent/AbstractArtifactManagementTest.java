@@ -97,7 +97,7 @@ name|getArtifactFilePath
 parameter_list|()
 block|{
 return|return
-literal|"src/test/it-resources/snapshots/org/apache/maven/archiva/web/test/foo-bar/1.0-SNAPSHOT/foo-bar-1.0-SNAPSHOT.jar"
+literal|"src/test/resources/snapshots/org/apache/maven/archiva/web/test/foo-bar/1.0-SNAPSHOT/foo-bar-1.0-SNAPSHOT.jar"
 return|;
 block|}
 specifier|public

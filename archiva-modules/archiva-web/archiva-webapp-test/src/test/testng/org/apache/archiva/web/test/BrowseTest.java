@@ -203,7 +203,7 @@ decl_stmt|;
 name|String
 name|path
 init|=
-literal|"src/test/it-resources/snapshots/org/apache/maven/archiva/web/test/foo-bar/1.0-SNAPSHOT/foo-bar-1.0-SNAPSHOT.jar"
+literal|"src/test/resources/snapshots/org/apache/maven/archiva/web/test/foo-bar/1.0-SNAPSHOT/foo-bar-1.0-SNAPSHOT.jar"
 decl_stmt|;
 comment|// TODO: do this differently as uploading doesn't work on browsers other than *chrome (below as well)
 comment|// upload a snapshot artifact to repository 'releases'
