@@ -27,7 +27,7 @@ name|AbstractSearchTest
 extends|extends
 name|AbstractArchivaTest
 block|{
-comment|//Search
+comment|// Search
 specifier|public
 name|void
 name|goToSearchPage
@@ -90,13 +90,13 @@ argument_list|(
 literal|"Search"
 argument_list|)
 expr_stmt|;
-comment|//assertLinkPresent( "Advanced Search" );
+comment|// assertLinkPresent( "Advanced Search" );
 name|assertTextPresent
 argument_list|(
 literal|"Enter your search terms. A variety of data will be searched for your keywords."
 argument_list|)
 expr_stmt|;
-comment|//assertButtonWithDivIdPresent( "searchHint" );
+comment|// assertButtonWithDivIdPresent( "searchHint" );
 block|}
 specifier|public
 name|void

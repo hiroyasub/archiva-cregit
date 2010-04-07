@@ -308,7 +308,7 @@ name|submit
 argument_list|()
 expr_stmt|;
 block|}
-comment|//Go to Login Page
+comment|// Go to Login Page
 specifier|public
 name|void
 name|goToLoginPage
@@ -465,7 +465,7 @@ literal|"Forgot your Password? Request a password reset."
 argument_list|)
 expr_stmt|;
 block|}
-comment|//User Management
+comment|// User Management
 specifier|public
 name|void
 name|goToUserManagementPage
@@ -616,7 +616,7 @@ literal|"Roles Matrix"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*	//User Role 	public void goToUserRolesPage() 	{ 		clickLinkWithText( "User Roles" ); 		assertUserRolesPage(); 	}*/
+comment|/*      * //User Role public void goToUserRolesPage() { clickLinkWithText( "User Roles" ); assertUserRolesPage(); }      */
 specifier|public
 name|void
 name|assertUserRolesPage
@@ -684,7 +684,7 @@ argument_list|(
 literal|"Apache Archiva \\ [Admin] User Delete"
 argument_list|)
 expr_stmt|;
-comment|//TODO
+comment|// TODO
 name|assertTextPresent
 argument_list|(
 literal|"[Admin] User Delete"
@@ -767,7 +767,7 @@ name|boolean
 name|valid
 parameter_list|)
 block|{
-comment|//login( getAdminUsername() , getAdminPassword() );
+comment|// login( getAdminUsername() , getAdminPassword() );
 name|clickLinkWithText
 argument_list|(
 literal|"User Management"
@@ -820,7 +820,7 @@ name|submit
 argument_list|()
 expr_stmt|;
 name|assertUserRolesPage
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|clickButtonWithValue
 argument_list|(
@@ -922,7 +922,7 @@ block|,
 name|emailAd
 block|}
 decl_stmt|;
-comment|//clickLinkWithText( "userlist" );
+comment|// clickLinkWithText( "userlist" );
 name|clickLinkWithXPath
 argument_list|(
 literal|"//table[@id='ec_table']/tbody[2]/tr[3]/td[7]/a/img"
@@ -1610,7 +1610,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|//Find Artifact
+comment|// Find Artifact
 specifier|public
 name|void
 name|goToFindArtifactPage
@@ -1661,7 +1661,7 @@ literal|"Search"
 argument_list|)
 expr_stmt|;
 block|}
-comment|//Appearance
+comment|// Appearance
 specifier|public
 name|void
 name|goToAppearancePage
@@ -2125,8 +2125,8 @@ name|String
 name|retentionCount
 parameter_list|)
 block|{
-comment|//goToRepositoriesPage();
-comment|//clickLinkWithText( "Add" );
+comment|// goToRepositoriesPage();
+comment|// clickLinkWithText( "Add" );
 name|setFieldValue
 argument_list|(
 literal|"repository.id"
@@ -2183,7 +2183,7 @@ argument_list|,
 name|retentionCount
 argument_list|)
 expr_stmt|;
-comment|//TODO
+comment|// TODO
 name|clickButtonWithValue
 argument_list|(
 literal|"Add Repository"

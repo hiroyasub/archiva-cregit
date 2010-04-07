@@ -238,7 +238,7 @@ literal|"testng.properties"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//baseUrl = getProperty( "BASE_URL" );
+comment|// baseUrl = getProperty( "BASE_URL" );
 name|maxWaitTimeInMs
 operator|=
 name|getProperty

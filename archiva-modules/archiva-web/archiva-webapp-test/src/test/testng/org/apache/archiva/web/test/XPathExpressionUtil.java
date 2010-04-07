@@ -234,7 +234,7 @@ return|return
 name|xpathExpression
 return|;
 block|}
-comment|/**      * expression for acquiring an element in one of the table columns      *      * @param element      the node element      * @param elementIndex column index of the element, used for skipping      * @param columnValues the values to be matched in each column, element column is included      * @return      */
+comment|/**      * expression for acquiring an element in one of the table columns      *       * @param element the node element      * @param elementIndex column index of the element, used for skipping      * @param columnValues the values to be matched in each column, element column is included      * @return      */
 specifier|public
 specifier|static
 name|String
@@ -264,7 +264,7 @@ name|columnValues
 argument_list|)
 return|;
 block|}
-comment|/**      * expression for acquiring an element in one of the table columns      *      * @param element      the node element      * @param elementIndex column index of the element, used for skipping      * @param elementValue the matched element value      * @param columnValues the values to be matched in each column, element column is included      * @return      */
+comment|/**      * expression for acquiring an element in one of the table columns      *       * @param element the node element      * @param elementIndex column index of the element, used for skipping      * @param elementValue the matched element value      * @param columnValues the values to be matched in each column, element column is included      * @return      */
 specifier|public
 specifier|static
 name|String
@@ -299,7 +299,7 @@ name|columnValues
 argument_list|)
 return|;
 block|}
-comment|/**      * expression for acquiring an element in one of the table columns      *      * @param element      the node element      * @param elementIndex column index of the element, used for skipping      * @param imageName the matched image name      * @param columnValues the values to be matched in each column, element column is included      * @return      */
+comment|/**      * expression for acquiring an element in one of the table columns      *       * @param element the node element      * @param elementIndex column index of the element, used for skipping      * @param imageName the matched image name      * @param columnValues the values to be matched in each column, element column is included      * @return      */
 specifier|public
 specifier|static
 name|String
@@ -334,7 +334,7 @@ name|columnValues
 argument_list|)
 return|;
 block|}
-comment|/**      * expression for acquiring an element in one of the table columns      *      * @param element      the node element      * @param elementIndex column index of the element, used for skipping      * @param imageName the matched image name      * @param columnValues the values to be matched in each column, element column is included      * @return      */
+comment|/**      * expression for acquiring an element in one of the table columns      *       * @param element the node element      * @param elementIndex column index of the element, used for skipping      * @param imageName the matched image name      * @param columnValues the values to be matched in each column, element column is included      * @return      */
 specifier|private
 specifier|static
 name|String
@@ -469,7 +469,7 @@ return|return
 name|xpathExpression
 return|;
 block|}
-comment|/**      * expression for acquiring the table row that matches all column values with the same order      * as the list      *      * @param columnValues the matched list of columnValues      * @return      */
+comment|/**      * expression for acquiring the table row that matches all column values with the same order as the list      *       * @param columnValues the matched list of columnValues      * @return      */
 specifier|public
 specifier|static
 name|String

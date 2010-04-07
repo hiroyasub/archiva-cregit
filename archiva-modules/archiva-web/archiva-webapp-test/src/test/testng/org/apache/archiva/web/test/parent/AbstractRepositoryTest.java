@@ -298,7 +298,7 @@ argument_list|(
 literal|"Add Group"
 argument_list|)
 expr_stmt|;
-comment|//assertAddedRepositoryLink( repositoryGroupName );
+comment|// assertAddedRepositoryLink( repositoryGroupName );
 name|selectValue
 argument_list|(
 literal|"addRepositoryToGroup_repoId"
@@ -319,7 +319,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|//assertAddedRepositoryLink( repositoryGroupName );
+comment|// assertAddedRepositoryLink( repositoryGroupName );
 name|selectValue
 argument_list|(
 literal|"addRepositoryToGroup_repoId"
@@ -384,9 +384,9 @@ literal|"Confirm"
 argument_list|)
 expr_stmt|;
 block|}
-comment|///////////////////////////////
+comment|// /////////////////////////////
 comment|// proxy connectors
-comment|///////////////////////////////
+comment|// /////////////////////////////
 specifier|public
 name|void
 name|goToProxyConnectorsPage
@@ -490,7 +490,7 @@ argument_list|(
 name|arrayproxy
 argument_list|)
 expr_stmt|;
-comment|/*String proxyElements = "addProxyConnector_connector_proxyId,addProxyConnector_connector_sourceRepoId,addProxyConnector_connector_targetRepoId,policy_propagate-errors-on-update,policy_propagate-errors,policy_releases,policy_snapshots,policy_checksum,policy_cache-failures,propertiesEntry,propertiesValue,blackListEntry,whiteListEntry"; 		String[] arrayProxyElements = proxyElements.split( "," ); 		for ( String arrayproxyelements : arrayProxyElements ) 			assertTextPresent( arrayproxyelements );*/
+comment|/*          * String proxyElements =          * "addProxyConnector_connector_proxyId,addProxyConnector_connector_sourceRepoId,addProxyConnector_connector_targetRepoId,policy_propagate-errors-on-update,policy_propagate-errors,policy_releases,policy_snapshots,policy_checksum,policy_cache-failures,propertiesEntry,propertiesValue,blackListEntry,whiteListEntry"          * ; String[] arrayProxyElements = proxyElements.split( "," ); for ( String arrayproxyelements :          * arrayProxyElements ) assertTextPresent( arrayproxyelements );          */
 name|assertButtonWithValuePresent
 argument_list|(
 literal|"Add Property"
@@ -584,9 +584,9 @@ literal|"Apache Archiva \\ Administration - Proxy Connectors"
 argument_list|)
 expr_stmt|;
 block|}
-comment|///////////////////////////////
+comment|// /////////////////////////////
 comment|// network proxies
-comment|///////////////////////////////
+comment|// /////////////////////////////
 specifier|public
 name|void
 name|goToNetworkProxiesPage
@@ -706,7 +706,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-comment|//goToNetworkProxiesPage();
+comment|// goToNetworkProxiesPage();
 name|clickLinkWithText
 argument_list|(
 literal|"Add Network Proxy"
@@ -774,7 +774,7 @@ name|String
 name|value
 parameter_list|)
 block|{
-comment|//goToNetworkProxiesPage();
+comment|// goToNetworkProxiesPage();
 name|clickLinkWithText
 argument_list|(
 literal|"Edit Network Proxy"
@@ -798,7 +798,7 @@ name|void
 name|deleteNetworkProxy
 parameter_list|()
 block|{
-comment|//goToNetworkProxiesPage();
+comment|// goToNetworkProxiesPage();
 name|clickLinkWithText
 argument_list|(
 literal|"Delete Network Proxy"
@@ -950,7 +950,7 @@ name|String
 name|type
 parameter_list|)
 block|{
-comment|//goToRepositoriesPage();
+comment|// goToRepositoriesPage();
 name|assertAddRemoteRepository
 argument_list|()
 expr_stmt|;
@@ -1094,7 +1094,7 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-comment|//TODO
+comment|// TODO
 name|clickButtonWithValue
 argument_list|(
 literal|"Update Repository"
@@ -1150,9 +1150,9 @@ operator|+
 literal|"/target/"
 return|;
 block|}
-comment|/////////////////////////////////////////////
+comment|// ///////////////////////////////////////////
 comment|// Repository Scanning
-comment|/////////////////////////////////////////////
+comment|// ///////////////////////////////////////////
 specifier|public
 name|void
 name|goToRepositoryScanningPage
@@ -1404,9 +1404,9 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-comment|/////////////////////////////////////////////
+comment|// ///////////////////////////////////////////
 comment|// Database
-comment|/////////////////////////////////////////////
+comment|// ///////////////////////////////////////////
 specifier|public
 name|void
 name|goToDatabasePage

@@ -569,7 +569,7 @@ literal|".pom']"
 argument_list|)
 expr_stmt|;
 block|}
-comment|//MRM-747
+comment|// MRM-747
 annotation|@
 name|Test
 argument_list|(
@@ -626,7 +626,7 @@ name|void
 name|testDeleteArtifact
 parameter_list|()
 block|{
-comment|//prep
+comment|// prep
 name|String
 name|groupId
 init|=

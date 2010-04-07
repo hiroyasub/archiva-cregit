@@ -27,7 +27,7 @@ name|AbstractBrowseTest
 extends|extends
 name|AbstractArchivaTest
 block|{
-comment|//Browse
+comment|// Browse
 specifier|public
 name|void
 name|goToBrowsePage

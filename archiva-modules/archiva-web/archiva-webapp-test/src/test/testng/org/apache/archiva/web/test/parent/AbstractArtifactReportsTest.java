@@ -27,7 +27,7 @@ name|AbstractArtifactReportsTest
 extends|extends
 name|AbstractArchivaTest
 block|{
-comment|//Reports
+comment|// Reports
 specifier|public
 name|void
 name|goToReportsPage
@@ -242,8 +242,8 @@ argument_list|,
 name|startDate
 argument_list|)
 expr_stmt|;
-comment|//clickLinkWithLocator( "1" , false );
-comment|//getSelenium().click( "endDate" );
+comment|// clickLinkWithLocator( "1" , false );
+comment|// getSelenium().click( "endDate" );
 name|getSelenium
 argument_list|()
 operator|.
@@ -254,7 +254,7 @@ argument_list|,
 name|endDate
 argument_list|)
 expr_stmt|;
-comment|//clickLinkWithLocator( "30" , false );
+comment|// clickLinkWithLocator( "30" , false );
 name|clickButtonWithValue
 argument_list|(
 literal|"View Statistics"

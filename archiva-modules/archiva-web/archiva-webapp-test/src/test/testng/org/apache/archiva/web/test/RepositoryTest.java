@@ -404,7 +404,7 @@ literal|"Managed Repository Sample"
 argument_list|)
 expr_stmt|;
 block|}
-comment|//TODO
+comment|// TODO
 annotation|@
 name|Test
 argument_list|(
@@ -432,7 +432,7 @@ literal|"Managed Repository Sample"
 argument_list|)
 expr_stmt|;
 block|}
-comment|//TODO
+comment|// TODO
 annotation|@
 name|Test
 argument_list|(
@@ -450,7 +450,7 @@ block|{
 name|deleteManagedRepository
 argument_list|()
 expr_stmt|;
-comment|//assertTextNotPresent( "managedrepo" );
+comment|// assertTextNotPresent( "managedrepo" );
 block|}
 annotation|@
 name|Test

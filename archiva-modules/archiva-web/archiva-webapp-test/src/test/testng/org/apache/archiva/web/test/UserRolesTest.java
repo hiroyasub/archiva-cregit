@@ -219,7 +219,7 @@ expr_stmt|;
 name|logout
 argument_list|()
 expr_stmt|;
-comment|//assertTextPresent("You are already logged in.");
+comment|// assertTextPresent("You are already logged in.");
 name|login
 argument_list|(
 name|username
@@ -339,7 +339,7 @@ expr_stmt|;
 name|logout
 argument_list|()
 expr_stmt|;
-comment|//assertTextPresent("You are already logged in.");
+comment|// assertTextPresent("You are already logged in.");
 name|login
 argument_list|(
 name|username
@@ -459,7 +459,7 @@ expr_stmt|;
 name|logout
 argument_list|()
 expr_stmt|;
-comment|//assertTextPresent("You are already logged in.");
+comment|// assertTextPresent("You are already logged in.");
 name|login
 argument_list|(
 name|username
@@ -579,7 +579,7 @@ expr_stmt|;
 name|logout
 argument_list|()
 expr_stmt|;
-comment|//assertTextPresent("You are already logged in.");
+comment|// assertTextPresent("You are already logged in.");
 name|login
 argument_list|(
 name|username
@@ -699,7 +699,7 @@ expr_stmt|;
 name|logout
 argument_list|()
 expr_stmt|;
-comment|//assertTextPresent("You are already logged in.");
+comment|// assertTextPresent("You are already logged in.");
 name|login
 argument_list|(
 name|username
@@ -819,7 +819,7 @@ expr_stmt|;
 name|logout
 argument_list|()
 expr_stmt|;
-comment|//assertTextPresent("You are already logged in.");
+comment|// assertTextPresent("You are already logged in.");
 name|login
 argument_list|(
 name|username
@@ -939,7 +939,7 @@ expr_stmt|;
 name|logout
 argument_list|()
 expr_stmt|;
-comment|//assertTextPresent("You are already logged in.");
+comment|// assertTextPresent("You are already logged in.");
 name|login
 argument_list|(
 name|username
@@ -966,7 +966,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*@Test (dependsOnMethods = { "testUserWithRepoManagerInternalRole" } ) 	public void testUserWithRepoManagerSnapshotsRole() 	{ 		username = getProperty("REPOMANAGER_SNAPSHOTS_USERNAME"); 		fullname = getProperty("REPOMANAGER_SNAPSHOTS_FULLNAME"); 		 		createUser(username, fullname, getUserEmail(), getUserRolePassword(), true); 		clickLinkWithText( username ); 		clickLinkWithText( "Edit Roles" ); 		checkResourceRoleWithValue( fullname ); 		clickButtonWithValue( "Submit" ); 		 		clickLinkWithText("Logout"); 		login(username, getUserRolePassword()); 		changePassword( getUserRolePassword(), getUserRoleNewPassword()); 		 		// this section will be removed if issue from redback after changing password will be fixed. 		getSelenium().goBack(); 		clickLinkWithText("Logout"); 		//assertTextPresent("You are already logged in."); 		 		login(username, getUserRoleNewPassword()); 		assertLeftNavMenuWithRole( fullname ); 		clickLinkWithText("Logout"); 		login( getAdminUsername() , getAdminPassword() ); 	}*/
+comment|/*      * @Test (dependsOnMethods = { "testUserWithRepoManagerInternalRole" } ) public void      * testUserWithRepoManagerSnapshotsRole() { username = getProperty("REPOMANAGER_SNAPSHOTS_USERNAME"); fullname =      * getProperty("REPOMANAGER_SNAPSHOTS_FULLNAME"); createUser(username, fullname, getUserEmail(),      * getUserRolePassword(), true); clickLinkWithText( username ); clickLinkWithText( "Edit Roles" );      * checkResourceRoleWithValue( fullname ); clickButtonWithValue( "Submit" ); clickLinkWithText("Logout");      * login(username, getUserRolePassword()); changePassword( getUserRolePassword(), getUserRoleNewPassword()); // this      * section will be removed if issue from redback after changing password will be fixed. getSelenium().goBack();      * clickLinkWithText("Logout"); //assertTextPresent("You are already logged in."); login(username,      * getUserRoleNewPassword()); assertLeftNavMenuWithRole( fullname ); clickLinkWithText("Logout"); login(      * getAdminUsername() , getAdminPassword() ); }      */
 annotation|@
 name|Test
 argument_list|(
@@ -1060,7 +1060,7 @@ expr_stmt|;
 name|logout
 argument_list|()
 expr_stmt|;
-comment|//assertTextPresent("You are already logged in.");
+comment|// assertTextPresent("You are already logged in.");
 name|login
 argument_list|(
 name|username
@@ -1087,7 +1087,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*@Test (dependsOnMethods = { "testUserWithRepoObserverInternalRole" } )      public void testUserWithRepoObserverSnapshotsRole()      {          username = getProperty( "REPOOBSERVER_SNAPSHOTS_USERNAME" );          fullname = getProperty( "REPOOBSERVER_SNAPSHOTS_FULLNAME" );           createUser(username, fullname, getUserEmail(), getUserRolePassword(), true);          clickLinkWithText( username );          clickLinkWithText( "Edit Roles" );          checkResourceRoleWithValue( fullname );          clickButtonWithValue( "Submit" );           clickLinkWithText("Logout");          login(username, getUserRolePassword());          changePassword( getUserRolePassword(), getUserRoleNewPassword());           // this section will be removed if issue from redback after changing password will be fixed.          getSelenium().goBack();          clickLinkWithText("Logout");          //assertTextPresent("You are already logged in.");           login(username, getUserRoleNewPassword());          assertLeftNavMenuWithRole( fullname );          clickLinkWithText("Logout");          login( getAdminUsername() , getAdminPassword() );      }*/
+comment|/*      * @Test (dependsOnMethods = { "testUserWithRepoObserverInternalRole" } ) public void      * testUserWithRepoObserverSnapshotsRole() { username = getProperty( "REPOOBSERVER_SNAPSHOTS_USERNAME" ); fullname =      * getProperty( "REPOOBSERVER_SNAPSHOTS_FULLNAME" ); createUser(username, fullname, getUserEmail(),      * getUserRolePassword(), true); clickLinkWithText( username ); clickLinkWithText( "Edit Roles" );      * checkResourceRoleWithValue( fullname ); clickButtonWithValue( "Submit" ); clickLinkWithText("Logout");      * login(username, getUserRolePassword()); changePassword( getUserRolePassword(), getUserRoleNewPassword()); // this      * section will be removed if issue from redback after changing password will be fixed. getSelenium().goBack();      * clickLinkWithText("Logout"); //assertTextPresent("You are already logged in."); login(username,      * getUserRoleNewPassword()); assertLeftNavMenuWithRole( fullname ); clickLinkWithText("Logout"); login(      * getAdminUsername() , getAdminPassword() ); }      */
 block|}
 end_class
 
