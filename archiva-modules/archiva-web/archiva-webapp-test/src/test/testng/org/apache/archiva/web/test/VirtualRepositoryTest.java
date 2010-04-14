@@ -114,7 +114,6 @@ argument_list|(
 literal|"testing"
 argument_list|)
 expr_stmt|;
-comment|// assertAddedRepositoryLink( "testing" );
 name|Assert
 operator|.
 name|assertEquals
@@ -167,8 +166,6 @@ argument_list|,
 literal|"internal"
 argument_list|)
 expr_stmt|;
-comment|// clickLinkWithXPath( "/html/body/div[4]/div/div/div[2]/div/div/p[2]/a" );
-comment|// getSelenium().goBack();
 block|}
 annotation|@
 name|Test
@@ -239,7 +236,6 @@ literal|"No Repository Groups Defined."
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * @Test(dependsOnMethods = { "testAddRepositoryToRepositoryGroup" } ) public void testCheckRepositoryGroup() {      * clickLinkWithXPath( "/html/body/div[4]/div/div/div[2]/div/div/p[2]/a" ); getSelenium().goBack(); }      */
 block|}
 end_class
 

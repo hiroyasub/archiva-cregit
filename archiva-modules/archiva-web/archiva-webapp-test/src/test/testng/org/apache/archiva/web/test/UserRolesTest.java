@@ -209,23 +209,9 @@ name|getUserRoleNewPassword
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// this section will be removed if issue from redback after changing password will be fixed.
-name|getSelenium
-argument_list|()
-operator|.
-name|goBack
-argument_list|()
-expr_stmt|;
-name|logout
-argument_list|()
-expr_stmt|;
-comment|// assertTextPresent("You are already logged in.");
-name|login
+name|assertTextPresent
 argument_list|(
-name|username
-argument_list|,
-name|getUserRoleNewPassword
-argument_list|()
+literal|"Password successfully changed"
 argument_list|)
 expr_stmt|;
 name|assertLeftNavMenuWithRole
@@ -329,23 +315,9 @@ name|getUserRoleNewPassword
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// this section will be removed if issue from redback after changing password will be fixed.
-name|getSelenium
-argument_list|()
-operator|.
-name|goBack
-argument_list|()
-expr_stmt|;
-name|logout
-argument_list|()
-expr_stmt|;
-comment|// assertTextPresent("You are already logged in.");
-name|login
+name|assertTextPresent
 argument_list|(
-name|username
-argument_list|,
-name|getUserRoleNewPassword
-argument_list|()
+literal|"Password successfully changed"
 argument_list|)
 expr_stmt|;
 name|assertLeftNavMenuWithRole
@@ -449,23 +421,9 @@ name|getUserRoleNewPassword
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// this section will be removed if issue from redback after changing password will be fixed.
-name|getSelenium
-argument_list|()
-operator|.
-name|goBack
-argument_list|()
-expr_stmt|;
-name|logout
-argument_list|()
-expr_stmt|;
-comment|// assertTextPresent("You are already logged in.");
-name|login
+name|assertTextPresent
 argument_list|(
-name|username
-argument_list|,
-name|getUserRoleNewPassword
-argument_list|()
+literal|"Password successfully changed"
 argument_list|)
 expr_stmt|;
 name|assertLeftNavMenuWithRole
@@ -569,23 +527,9 @@ name|getUserRoleNewPassword
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// this section will be removed if issue from redback after changing password will be fixed.
-name|getSelenium
-argument_list|()
-operator|.
-name|goBack
-argument_list|()
-expr_stmt|;
-name|logout
-argument_list|()
-expr_stmt|;
-comment|// assertTextPresent("You are already logged in.");
-name|login
+name|assertTextPresent
 argument_list|(
-name|username
-argument_list|,
-name|getUserRoleNewPassword
-argument_list|()
+literal|"Password successfully changed"
 argument_list|)
 expr_stmt|;
 name|assertLeftNavMenuWithRole
@@ -689,23 +633,9 @@ name|getUserRoleNewPassword
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// this section will be removed if issue from redback after changing password will be fixed.
-name|getSelenium
-argument_list|()
-operator|.
-name|goBack
-argument_list|()
-expr_stmt|;
-name|logout
-argument_list|()
-expr_stmt|;
-comment|// assertTextPresent("You are already logged in.");
-name|login
+name|assertTextPresent
 argument_list|(
-name|username
-argument_list|,
-name|getUserRoleNewPassword
-argument_list|()
+literal|"Password successfully changed"
 argument_list|)
 expr_stmt|;
 name|assertLeftNavMenuWithRole
@@ -809,23 +739,9 @@ name|getUserRoleNewPassword
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// this section will be removed if issue from redback after changing password will be fixed.
-name|getSelenium
-argument_list|()
-operator|.
-name|goBack
-argument_list|()
-expr_stmt|;
-name|logout
-argument_list|()
-expr_stmt|;
-comment|// assertTextPresent("You are already logged in.");
-name|login
+name|assertTextPresent
 argument_list|(
-name|username
-argument_list|,
-name|getUserRoleNewPassword
-argument_list|()
+literal|"Password successfully changed"
 argument_list|)
 expr_stmt|;
 name|assertLeftNavMenuWithRole
@@ -929,23 +845,9 @@ name|getUserRoleNewPassword
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// this section will be removed if issue from redback after changing password will be fixed.
-name|getSelenium
-argument_list|()
-operator|.
-name|goBack
-argument_list|()
-expr_stmt|;
-name|logout
-argument_list|()
-expr_stmt|;
-comment|// assertTextPresent("You are already logged in.");
-name|login
+name|assertTextPresent
 argument_list|(
-name|username
-argument_list|,
-name|getUserRoleNewPassword
-argument_list|()
+literal|"Password successfully changed"
 argument_list|)
 expr_stmt|;
 name|assertLeftNavMenuWithRole
