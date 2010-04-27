@@ -5474,6 +5474,13 @@ literal|"<\\?xml .+\\?>"
 argument_list|,
 literal|""
 argument_list|)
+operator|.
+name|replaceAll
+argument_list|(
+literal|"^\\s+"
+argument_list|,
+literal|""
+argument_list|)
 return|;
 block|}
 specifier|private
