@@ -1804,7 +1804,7 @@ name|ERROR
 return|;
 block|}
 block|}
-comment|// explicitly update only if versionMetadata-updater consumer is not enabled!
+comment|// explicitly update only if metadata-updater consumer is not enabled!
 if|if
 condition|(
 operator|!
@@ -1818,7 +1818,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"versionMetadata-updater"
+literal|"metadata-updater"
 argument_list|)
 condition|)
 block|{
