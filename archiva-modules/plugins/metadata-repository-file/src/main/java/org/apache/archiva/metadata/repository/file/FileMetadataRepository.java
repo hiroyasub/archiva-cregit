@@ -3632,6 +3632,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|ids
+operator|!=
+literal|null
+operator|&&
 operator|!
 name|ids
 operator|.
