@@ -395,18 +395,8 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|TreeMap
-import|;
-end_import
-
 begin_comment
-comment|/**  * Browse the repository.  *  * TODO change name to ShowVersionedAction to conform to terminology.  *  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="showArtifactAction" instantiation-strategy="per-lookup"  */
+comment|/**  * Browse the repository.   *   * TODO change name to ShowVersionedAction to conform to terminology.  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="showArtifactAction"  *                   instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -525,7 +515,7 @@ specifier|private
 name|String
 name|propertyValue
 decl_stmt|;
-comment|/**      * Show the versioned project information tab.      * TODO: Change name to 'project' - we are showing project versions here, not specific artifact information (though      * that is rendered in the download box).      */
+comment|/**      * Show the versioned project information tab. TODO: Change name to 'project' - we are showing project versions      * here, not specific artifact information (though that is rendered in the download box).      */
 specifier|public
 name|String
 name|artifact
@@ -741,7 +731,7 @@ parameter_list|)
 block|{
 comment|// sort by version (reverse), then ID
 comment|// TODO: move version sorting into repository handling (maven2 specific), and perhaps add a
-comment|//       way to get latest instead
+comment|// way to get latest instead
 name|int
 name|result
 init|=
@@ -993,7 +983,8 @@ name|dependees
 operator|=
 name|references
 expr_stmt|;
-comment|// TODO: may need to note on the page that references will be incomplete if the other artifacts are not yet stored in the content repository
+comment|// TODO: may need to note on the page that references will be incomplete if the other artifacts are not yet
+comment|// stored in the content repository
 comment|// (especially in the case of pre-population import)
 return|return
 name|artifact
@@ -1008,7 +999,8 @@ parameter_list|()
 block|{
 comment|// temporarily use this as we only need the model for the tag to perform, but we should be resolving the
 comment|// graph here instead
-comment|// TODO: may need to note on the page that tree will be incomplete if the other artifacts are not yet stored in the content repository
+comment|// TODO: may need to note on the page that tree will be incomplete if the other artifacts are not yet stored in
+comment|// the content repository
 comment|// (especially in the case of pre-population import)
 comment|// TODO: a bit ugly, should really be mapping all these results differently now
 name|this
@@ -2086,7 +2078,7 @@ name|getRepositoryId
 argument_list|()
 expr_stmt|;
 comment|// TODO: use metadata resolver capability instead - maybe the storage path could be stored in the metadata
-comment|//       though keep in mind the request may not necessarily need to reflect the storage
+comment|// though keep in mind the request may not necessarily need to reflect the storage
 name|ManagedRepositoryContent
 name|repo
 decl_stmt|;
@@ -2186,7 +2178,7 @@ name|getId
 argument_list|()
 expr_stmt|;
 comment|// TODO: need to accommodate Maven 1 layout too. Non-maven repository formats will need to generate this
-comment|//       facet (perhaps on the fly) if wanting to display the Maven 2 elements on the Archiva pages
+comment|// facet (perhaps on the fly) if wanting to display the Maven 2 elements on the Archiva pages
 name|String
 name|type
 init|=
