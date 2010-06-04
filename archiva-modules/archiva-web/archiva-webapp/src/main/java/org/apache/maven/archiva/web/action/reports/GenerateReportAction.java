@@ -1849,7 +1849,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|pasedSelectedRepos
+name|parsedSelectedRepos
 init|=
 operator|new
 name|ArrayList
@@ -1896,7 +1896,7 @@ range|:
 name|tokens
 control|)
 block|{
-name|pasedSelectedRepos
+name|parsedSelectedRepos
 operator|.
 name|add
 argument_list|(
@@ -1924,7 +1924,7 @@ block|}
 block|}
 else|else
 block|{
-name|pasedSelectedRepos
+name|parsedSelectedRepos
 operator|.
 name|add
 argument_list|(
@@ -1951,7 +1951,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|pasedSelectedRepos
+name|parsedSelectedRepos
 return|;
 block|}
 specifier|private
