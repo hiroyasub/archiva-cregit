@@ -50,7 +50,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @plexus.component role="org.apache.archiva.metadata.model.MetadataFacetFactory" role-hint="org.apache.archiva.metadata.generic"  */
+comment|/**  * @plexus.component role="org.apache.archiva.metadata.model.MetadataFacetFactory"  *                   role-hint="org.apache.archiva.metadata.generic"  */
 end_comment
 
 begin_class
