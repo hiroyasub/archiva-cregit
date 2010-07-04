@@ -33,9 +33,12 @@ name|void
 name|goToBrowsePage
 parameter_list|()
 block|{
-name|clickLinkWithText
+name|getSelenium
+argument_list|()
+operator|.
+name|open
 argument_list|(
-literal|"Browse"
+literal|"/archiva/browse"
 argument_list|)
 expr_stmt|;
 name|assertBrowsePage

@@ -65,9 +65,12 @@ literal|"Apache Archiva \\ Administration - Repository Groups"
 argument_list|)
 condition|)
 block|{
-name|clickLinkWithText
+name|getSelenium
+argument_list|()
+operator|.
+name|open
 argument_list|(
-literal|"Repository Groups"
+literal|"/archiva/admin/repositoryGroups.action"
 argument_list|)
 expr_stmt|;
 block|}

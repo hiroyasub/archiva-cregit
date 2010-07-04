@@ -33,9 +33,12 @@ name|void
 name|goToReportsPage
 parameter_list|()
 block|{
-name|clickLinkWithText
+name|getSelenium
+argument_list|()
+operator|.
+name|open
 argument_list|(
-literal|"Reports"
+literal|"/archiva/report/pickReport.action"
 argument_list|)
 expr_stmt|;
 name|assertReportsPage

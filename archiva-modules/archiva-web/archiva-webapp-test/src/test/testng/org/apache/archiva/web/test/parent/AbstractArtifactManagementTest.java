@@ -139,9 +139,12 @@ literal|"ADMIN_PASSWORD"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|clickLinkWithText
+name|getSelenium
+argument_list|()
+operator|.
+name|open
 argument_list|(
-literal|"Delete Artifact"
+literal|"/archiva/deleteArtifact.action"
 argument_list|)
 expr_stmt|;
 name|assertDeleteArtifactPage
@@ -269,9 +272,12 @@ name|void
 name|goToLegacySupportPage
 parameter_list|()
 block|{
-name|clickLinkWithText
+name|getSelenium
+argument_list|()
+operator|.
+name|open
 argument_list|(
-literal|"Legacy Support"
+literal|"/archiva/admin/legacyArtifactPath.action"
 argument_list|)
 expr_stmt|;
 name|assertLegacySupportPage

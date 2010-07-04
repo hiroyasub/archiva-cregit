@@ -471,9 +471,12 @@ name|void
 name|goToUserManagementPage
 parameter_list|()
 block|{
-name|clickLinkWithText
+name|getSelenium
+argument_list|()
+operator|.
+name|open
 argument_list|(
-literal|"User Management"
+literal|"/archiva/security/userlist.action"
 argument_list|)
 expr_stmt|;
 name|assertUserManagementPage
@@ -768,9 +771,12 @@ name|valid
 parameter_list|)
 block|{
 comment|// login( getAdminUsername() , getAdminPassword() );
-name|clickLinkWithText
+name|getSelenium
+argument_list|()
+operator|.
+name|open
 argument_list|(
-literal|"User Management"
+literal|"/archiva/security/userlist.action"
 argument_list|)
 expr_stmt|;
 name|clickButtonWithValue
@@ -1616,9 +1622,12 @@ name|void
 name|goToFindArtifactPage
 parameter_list|()
 block|{
-name|clickLinkWithText
+name|getSelenium
+argument_list|()
+operator|.
+name|open
 argument_list|(
-literal|"Find Artifact"
+literal|"/archiva/findArtifact.action"
 argument_list|)
 expr_stmt|;
 name|assertFindArtifactPage
@@ -1667,9 +1676,12 @@ name|void
 name|goToAppearancePage
 parameter_list|()
 block|{
-name|clickLinkWithText
+name|getSelenium
+argument_list|()
+operator|.
+name|open
 argument_list|(
-literal|"Appearance"
+literal|"/archiva/admin/configureAppearance.action"
 argument_list|)
 expr_stmt|;
 name|assertAppearancePage
@@ -1772,9 +1784,12 @@ name|void
 name|goToAddArtifactPage
 parameter_list|()
 block|{
-name|clickLinkWithText
+name|getSelenium
+argument_list|()
+operator|.
+name|open
 argument_list|(
-literal|"Upload Artifact"
+literal|"/archiva/upload.action"
 argument_list|)
 expr_stmt|;
 name|assertAddArtifactPage
@@ -2060,9 +2075,12 @@ literal|"Apache Archiva \\ Administration - Repositories"
 argument_list|)
 condition|)
 block|{
-name|clickLinkWithText
+name|getSelenium
+argument_list|()
+operator|.
+name|open
 argument_list|(
-literal|"Repositories"
+literal|"/archiva/admin/repositories.action"
 argument_list|)
 expr_stmt|;
 block|}

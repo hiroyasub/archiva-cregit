@@ -74,9 +74,12 @@ name|void
 name|goToAuditLogReports
 parameter_list|()
 block|{
-name|clickLinkWithText
+name|getSelenium
+argument_list|()
+operator|.
+name|open
 argument_list|(
-literal|"Audit Log Report"
+literal|"/archiva/report/queryAuditLogReport.action"
 argument_list|)
 expr_stmt|;
 block|}
