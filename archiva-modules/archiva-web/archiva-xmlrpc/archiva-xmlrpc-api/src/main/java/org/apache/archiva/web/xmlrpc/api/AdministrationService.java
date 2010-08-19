@@ -81,6 +81,22 @@ name|RemoteRepository
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
+name|ManagedRepositoryConfiguration
+import|;
+end_import
+
 begin_interface
 annotation|@
 name|ServiceObject
@@ -91,7 +107,7 @@ specifier|public
 interface|interface
 name|AdministrationService
 block|{
-comment|/**      * Executes repository scanner on the given repository.      *        * @param repoId id of the repository to be scanned      * @return      * @throws Exception      */
+comment|/**      * Executes repository scanner on the given repository.      *       * @param repoId id of the repository to be scanned      * @return      * @throws Exception      */
 specifier|public
 name|Boolean
 name|executeRepositoryScanner
@@ -167,7 +183,61 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|//TODO
+comment|/**      * Create a new managed repository with the given parameters.      *       * @param repoId      * @param layout      * @param name      * @param location      * @param blockRedeployments      * @param releasesIncluded      * @param snapshotsIncluded      * @param cronExpression      * @return      * @throws Exception      */
+specifier|public
+name|Boolean
+name|addManagedRepository
+parameter_list|(
+name|String
+name|repoId
+parameter_list|,
+name|String
+name|layout
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|String
+name|location
+parameter_list|,
+name|boolean
+name|blockRedeployments
+parameter_list|,
+name|boolean
+name|releasesIncluded
+parameter_list|,
+name|boolean
+name|snapshotsIncluded
+parameter_list|,
+name|String
+name|cronExpression
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Deletes a managed repository with the given repository id.      *       * @param repoId      * @return      */
+specifier|public
+name|Boolean
+name|deleteManagedRepository
+parameter_list|(
+name|String
+name|repoId
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Get a managed repository with the given repository id.      * @param repoId      * @return      * @throws Exception      */
+specifier|public
+name|ManagedRepository
+name|getManagedRepository
+parameter_list|(
+name|String
+name|repoId
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|// TODO
 comment|// consider the following as additional services:
 comment|// - getAllConfiguredRepositoryConsumers( String repoId ) - list all enabled consumers for the repo
 comment|// - getAllConfiguredDatabaseConsumers() - list all enabled db consumers

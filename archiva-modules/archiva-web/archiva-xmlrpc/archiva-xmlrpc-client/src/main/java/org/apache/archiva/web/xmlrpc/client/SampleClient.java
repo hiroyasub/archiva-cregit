@@ -583,6 +583,8 @@ name|booleanValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|/** add, get and delete managed repo **/
+comment|/*              * NOTE: change the location of the repository to be added depending on your platform!              *             success = adminService.addManagedRepository( "test", "default", "Test Repo",                                                "/tmp/archiva-repo/test/", true, true, false, "0 0 * * * ?" );             System.out.println( "\nSuccessfully added managed repository 'test'" );              ManagedRepository repo = adminService.getManagedRepository( "test" );             System.out.println( "****** managed repo info ******" );             System.out.println( "ID: " + repo.getId() );             System.out.println( "NAME: " + repo.getName() );             System.out.println( "LAYOUT: " + repo.getLayout() );             System.out.println( "URL: " + repo.getUrl() );              success = adminService.deleteManagedRepository( "test" );             System.out.println( "\nSuccessfully deleted managed repository 'test'" );             */
 comment|/* delete artifact */
 comment|/*               * NOTE: before enabling& invoking deleteArtifact, make sure that the repository and artifact exists first!              *                                   success = adminService.deleteArtifact( "internal", "javax.activation", "activation", "1.1" );             System.out.println( "\nDeleted artifact 'javax.activation:activation:1.1' from repository 'internal' : " +                 ( (Boolean) success ).booleanValue() );             */
 comment|/* quick search */

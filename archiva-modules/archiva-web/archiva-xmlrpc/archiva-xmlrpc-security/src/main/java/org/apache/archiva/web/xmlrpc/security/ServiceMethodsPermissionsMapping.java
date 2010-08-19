@@ -76,6 +76,12 @@ argument_list|,
 literal|"AdministrationService.getAllRepositoryConsumers"
 argument_list|,
 literal|"AdministrationService.deleteArtifact"
+argument_list|,
+literal|"AdministrationService.addManagedRepository"
+argument_list|,
+literal|"AdministrationService.deleteManagedRepository"
+argument_list|,
+literal|"AdministrationService.getManagedRepository"
 argument_list|)
 decl_stmt|;
 specifier|public
