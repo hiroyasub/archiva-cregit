@@ -889,6 +889,21 @@ return|return
 name|artifacts
 return|;
 block|}
+specifier|public
+name|List
+argument_list|<
+name|ArtifactMetadata
+argument_list|>
+name|getArtifacts
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|)
+block|{
+return|return
+name|artifacts
+return|;
+block|}
 block|}
 end_class
 

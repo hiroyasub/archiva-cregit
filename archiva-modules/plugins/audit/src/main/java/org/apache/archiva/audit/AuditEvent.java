@@ -240,6 +240,14 @@ name|REMOVE_SCANNED
 init|=
 literal|"Removed in Filesystem"
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MERGING_REPOSITORIES
+init|=
+literal|"Merged Artifact"
+decl_stmt|;
 comment|// configuration events
 specifier|public
 specifier|static

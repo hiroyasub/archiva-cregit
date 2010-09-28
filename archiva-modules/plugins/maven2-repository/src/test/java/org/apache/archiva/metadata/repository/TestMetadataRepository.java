@@ -467,6 +467,21 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+specifier|public
+name|List
+argument_list|<
+name|ArtifactMetadata
+argument_list|>
+name|getArtifacts
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 end_class
 

@@ -332,6 +332,16 @@ name|String
 name|repositoryId
 parameter_list|)
 function_decl|;
+name|List
+argument_list|<
+name|ArtifactMetadata
+argument_list|>
+name|getArtifacts
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
