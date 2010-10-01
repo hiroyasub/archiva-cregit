@@ -1585,7 +1585,7 @@ name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
-name|getConflictsartifacts
+name|getConflictingArtifacts
 parameter_list|(
 name|String
 name|sourceRepo

@@ -81,22 +81,6 @@ name|RemoteRepository
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|ManagedRepositoryConfiguration
-import|;
-end_import
-
 begin_interface
 annotation|@
 name|ServiceObject
@@ -241,6 +225,20 @@ comment|// TODO
 comment|// consider the following as additional services:
 comment|// - getAllConfiguredRepositoryConsumers( String repoId ) - list all enabled consumers for the repo
 comment|// - getAllConfiguredDatabaseConsumers() - list all enabled db consumers
+comment|/**      * Merge staging repository with the managed repository and skips if there are conflicts      * @param repoId      * @param skipConflicts      * @return      * @throws Exception      */
+specifier|public
+name|boolean
+name|merge
+parameter_list|(
+name|String
+name|repoId
+parameter_list|,
+name|boolean
+name|skipConflicts
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 block|}
 end_interface
 

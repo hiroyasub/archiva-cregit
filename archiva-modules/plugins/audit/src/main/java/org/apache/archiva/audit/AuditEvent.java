@@ -361,6 +361,14 @@ name|REMOVE_PATTERN
 init|=
 literal|"Removed File Type Pattern"
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MERGE_REPO_REMOTE
+init|=
+literal|"Merged Staging Repository Triggered Remotely"
+decl_stmt|;
 specifier|private
 name|String
 name|repositoryId

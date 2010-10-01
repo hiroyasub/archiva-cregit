@@ -853,7 +853,7 @@ literal|1
 argument_list|,
 name|repositoryMerger
 operator|.
-name|getConflictsartifacts
+name|getConflictingArtifacts
 argument_list|(
 name|sourceRepoId
 argument_list|,

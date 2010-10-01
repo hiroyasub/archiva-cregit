@@ -674,7 +674,7 @@ name|conflictSourceArtifacts
 operator|=
 name|repositoryMerger
 operator|.
-name|getConflictsartifacts
+name|getConflictingArtifacts
 argument_list|(
 name|sourceRepoId
 argument_list|,
@@ -755,7 +755,7 @@ name|conflictSourceArtifacts
 operator|=
 name|repositoryMerger
 operator|.
-name|getConflictsartifacts
+name|getConflictingArtifacts
 argument_list|(
 name|sourceRepoId
 argument_list|,
