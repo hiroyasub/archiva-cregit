@@ -193,6 +193,9 @@ parameter_list|,
 name|boolean
 name|snapshotsIncluded
 parameter_list|,
+name|boolean
+name|stageRepoNeeded
+parameter_list|,
 name|String
 name|cronExpression
 parameter_list|)
