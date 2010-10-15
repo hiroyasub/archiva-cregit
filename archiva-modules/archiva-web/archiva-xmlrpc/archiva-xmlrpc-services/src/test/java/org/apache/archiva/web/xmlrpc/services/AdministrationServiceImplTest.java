@@ -3757,15 +3757,6 @@ argument_list|)
 expr_stmt|;
 name|repositoryMergerControl
 operator|.
-name|setMatcher
-argument_list|(
-name|MockControl
-operator|.
-name|ALWAYS_MATCHER
-argument_list|)
-expr_stmt|;
-name|repositoryMergerControl
-operator|.
 name|setVoidCallable
 argument_list|()
 expr_stmt|;
