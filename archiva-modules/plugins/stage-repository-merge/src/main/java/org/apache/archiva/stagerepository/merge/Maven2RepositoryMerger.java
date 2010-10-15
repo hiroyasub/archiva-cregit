@@ -982,6 +982,14 @@ argument_list|,
 name|METADATA_FILENAME
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|versionMetaDataFileInSourceRepo
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
 name|String
 name|relativePathToVersionMetadataFile
 init|=
@@ -1038,6 +1046,7 @@ name|lastUpdatedTimestamp
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 comment|// updating project meta data file
 name|String
 name|projectDirectoryInSourceRepo
@@ -1065,6 +1074,14 @@ argument_list|,
 name|METADATA_FILENAME
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|projectMetadataFileInSourceRepo
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
 name|String
 name|relativePathToProjectMetadataFile
 init|=
@@ -1103,7 +1120,7 @@ condition|)
 block|{
 name|copyFile
 argument_list|(
-name|versionMetaDataFileInSourceRepo
+name|projectMetadataFileInSourceRepo
 argument_list|,
 name|projectMetadataFileInSourceRepo
 argument_list|)
@@ -1122,6 +1139,7 @@ argument_list|,
 name|timestamp
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
