@@ -96,6 +96,23 @@ parameter_list|)
 throws|throws
 name|ConsumerException
 function_decl|;
+comment|/**      *<p>      * Event that triggers at the beginning of a scan, where you can also indicate whether the consumers will be      * executed on an entire repository or on a specific resource.      *</p>      *      * @see RepositoryContentConsumer#beginScan(org.apache.maven.archiva.configuration.ManagedRepositoryConfiguration, java.util.Date )      *      * @param repository the repository that this consumer is being used for.      * @param whenGathered the start of the repository scan      * @param executeOnEntireRepo flags whether the consumer will be executed on an entire repository or just on a specific resource      * @throws ConsumerException if there was a problem with using the provided repository with the consumer.      */
+specifier|public
+name|void
+name|beginScan
+parameter_list|(
+name|ManagedRepositoryConfiguration
+name|repository
+parameter_list|,
+name|Date
+name|whenGathered
+parameter_list|,
+name|boolean
+name|executeOnEntireRepo
+parameter_list|)
+throws|throws
+name|ConsumerException
+function_decl|;
 comment|/**      *<p>      * Event indicating a file is to be processed by this consumer.      *</p>       *       *<p>      * NOTE: The consumer does not need to process the file immediately, can can opt to queue and/or track      * the files to be processed in batch.  Just be sure to complete the processing by the {@link #completeScan()}       * event.      *</p>      *       * @param path the relative file path (in the repository) to process.      * @throws ConsumerException if there was a problem processing this file.      */
 specifier|public
 name|void
@@ -107,11 +124,34 @@ parameter_list|)
 throws|throws
 name|ConsumerException
 function_decl|;
+comment|/**      *      * @param path      * @param executeOnEntireRepo      * @throws Exception      */
+specifier|public
+name|void
+name|processFile
+parameter_list|(
+name|String
+name|path
+parameter_list|,
+name|boolean
+name|executeOnEntireRepo
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      *<p>      * Event that triggers on the completion of a scan.      *</p>      *       *<p>      * NOTE: If the consumer opted to batch up processing requests in the {@link #processFile(String)} event      * this would be the last opportunity to drain any processing queue's.      *</p>      */
 specifier|public
 name|void
 name|completeScan
 parameter_list|()
+function_decl|;
+comment|/**      *       * @param executeOnEntireRepo      * @throws Exception      */
+specifier|public
+name|void
+name|completeScan
+parameter_list|(
+name|boolean
+name|executeOnEntireRepo
+parameter_list|)
 function_decl|;
 comment|/**      * Whether the consumer should process files that have not been modified since the time passed in to the scan      * method.      * @return whether to process the unmodified files      */
 name|boolean

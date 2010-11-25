@@ -811,6 +811,8 @@ name|repository
 argument_list|,
 name|getStartTime
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|List
@@ -949,6 +951,13 @@ argument_list|(
 name|baseFile
 argument_list|)
 expr_stmt|;
+name|predicate
+operator|.
+name|setCaseSensitive
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|ConsumerProcessFileClosure
 name|closure
 init|=
@@ -963,9 +972,9 @@ argument_list|(
 name|baseFile
 argument_list|)
 expr_stmt|;
-name|predicate
+name|closure
 operator|.
-name|setCaseSensitive
+name|setExecuteOnEntireRepo
 argument_list|(
 literal|false
 argument_list|)
@@ -1019,6 +1028,8 @@ operator|new
 name|TriggerScanCompletedClosure
 argument_list|(
 name|repository
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|CollectionUtils

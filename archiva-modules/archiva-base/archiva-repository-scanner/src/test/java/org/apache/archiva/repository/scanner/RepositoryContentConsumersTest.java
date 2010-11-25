@@ -1394,6 +1394,8 @@ argument_list|(
 name|repo
 argument_list|,
 name|startTime
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|selectedKnownConsumer
@@ -1435,6 +1437,8 @@ name|_OS
 argument_list|(
 literal|"path/to/test-file.txt"
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|//        knownConsumer.completeScan();
@@ -1450,6 +1454,8 @@ argument_list|(
 name|repo
 argument_list|,
 name|startTime
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|//        invalidConsumer.completeScan();
@@ -1504,6 +1510,8 @@ argument_list|(
 name|repo
 argument_list|,
 name|startTime
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|selectedKnownConsumer
@@ -1550,6 +1558,8 @@ argument_list|(
 name|repo
 argument_list|,
 name|startTime
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|selectedInvalidConsumer
@@ -1560,6 +1570,8 @@ name|_OS
 argument_list|(
 literal|"path/to/test-file.xml"
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|selectedInvalidConsumer
@@ -1626,6 +1638,8 @@ argument_list|(
 name|repo
 argument_list|,
 name|startTime
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|selectedKnownConsumer
@@ -1658,6 +1672,8 @@ argument_list|(
 name|repo
 argument_list|,
 name|startTime
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|selectedInvalidConsumer
@@ -1668,6 +1684,8 @@ name|_OS
 argument_list|(
 literal|"path/to/test-file.txt"
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|selectedInvalidConsumer

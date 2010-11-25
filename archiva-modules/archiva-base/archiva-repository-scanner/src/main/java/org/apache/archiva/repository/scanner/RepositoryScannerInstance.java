@@ -424,6 +424,8 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|CollectionUtils
@@ -619,6 +621,13 @@ argument_list|(
 name|basefile
 argument_list|)
 expr_stmt|;
+name|consumerProcessFile
+operator|.
+name|setExecuteOnEntireRepo
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|consumerWantsFile
 operator|.
 name|setBasefile
@@ -685,6 +694,8 @@ operator|new
 name|TriggerScanCompletedClosure
 argument_list|(
 name|repository
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|CollectionUtils
