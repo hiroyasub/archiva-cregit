@@ -366,8 +366,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|Override
 specifier|public
 name|void
 name|beginScan
@@ -457,8 +455,6 @@ throw|;
 block|}
 block|}
 block|}
-annotation|@
-name|Override
 specifier|public
 name|void
 name|processFile
@@ -484,8 +480,6 @@ name|completeScan
 parameter_list|()
 block|{
 block|}
-annotation|@
-name|Override
 specifier|public
 name|void
 name|completeScan

@@ -381,8 +381,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 specifier|public
 name|void
 name|beginScan
@@ -414,8 +412,6 @@ parameter_list|()
 block|{
 comment|/* nothing to do */
 block|}
-annotation|@
-name|Override
 specifier|public
 name|void
 name|completeScan
@@ -555,8 +551,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
 specifier|public
 name|void
 name|processFile

@@ -248,8 +248,6 @@ name|ConsumerException
 block|{
 comment|/* do nothing */
 block|}
-annotation|@
-name|Override
 specifier|public
 name|void
 name|beginScan
@@ -290,8 +288,6 @@ name|processCount
 operator|++
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 specifier|public
 name|void
 name|processFile
@@ -318,8 +314,6 @@ parameter_list|()
 block|{
 comment|/* do nothing */
 block|}
-annotation|@
-name|Override
 specifier|public
 name|void
 name|completeScan

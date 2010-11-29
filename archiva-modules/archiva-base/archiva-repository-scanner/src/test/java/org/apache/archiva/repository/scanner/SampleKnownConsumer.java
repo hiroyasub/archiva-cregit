@@ -136,8 +136,6 @@ name|ConsumerException
 block|{
 comment|/* nothing to do */
 block|}
-annotation|@
-name|Override
 specifier|public
 name|void
 name|beginScan
@@ -169,8 +167,6 @@ parameter_list|()
 block|{
 comment|/* nothing to do */
 block|}
-annotation|@
-name|Override
 specifier|public
 name|void
 name|completeScan
@@ -219,8 +215,6 @@ name|ConsumerException
 block|{
 comment|/* nothing to do */
 block|}
-annotation|@
-name|Override
 specifier|public
 name|void
 name|processFile

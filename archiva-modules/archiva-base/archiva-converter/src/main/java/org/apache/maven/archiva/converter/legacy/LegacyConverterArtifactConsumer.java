@@ -407,8 +407,6 @@ name|repository
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 specifier|public
 name|void
 name|beginScan
@@ -439,8 +437,6 @@ name|completeScan
 parameter_list|()
 block|{
 block|}
-annotation|@
-name|Override
 specifier|public
 name|void
 name|completeScan
@@ -593,8 +589,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
 specifier|public
 name|void
 name|processFile

@@ -581,8 +581,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|Override
 specifier|public
 name|void
 name|beginScan
@@ -714,8 +712,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|Override
 specifier|public
 name|void
 name|processFile
@@ -892,8 +888,6 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 specifier|public
 name|void
 name|completeScan
