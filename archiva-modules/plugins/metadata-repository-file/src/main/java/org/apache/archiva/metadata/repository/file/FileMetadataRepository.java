@@ -1729,7 +1729,7 @@ name|i
 init|=
 name|Integer
 operator|.
-name|valueOf
+name|parseInt
 argument_list|(
 name|properties
 operator|.
@@ -2863,7 +2863,7 @@ name|setFileLastModified
 argument_list|(
 name|Long
 operator|.
-name|valueOf
+name|parseLong
 argument_list|(
 name|value
 argument_list|)
@@ -2912,7 +2912,7 @@ name|Date
 argument_list|(
 name|Long
 operator|.
-name|valueOf
+name|parseLong
 argument_list|(
 name|value
 argument_list|)
@@ -5499,7 +5499,7 @@ name|numberOfRefs
 init|=
 name|Integer
 operator|.
-name|valueOf
+name|parseInt
 argument_list|(
 name|properties
 operator|.

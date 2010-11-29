@@ -638,7 +638,7 @@ name|Date
 argument_list|(
 name|Long
 operator|.
-name|valueOf
+name|parseLong
 argument_list|(
 name|properties
 operator|.
@@ -656,7 +656,7 @@ name|Date
 argument_list|(
 name|Long
 operator|.
-name|valueOf
+name|parseLong
 argument_list|(
 name|properties
 operator|.
@@ -671,7 +671,7 @@ name|totalArtifactCount
 operator|=
 name|Long
 operator|.
-name|valueOf
+name|parseLong
 argument_list|(
 name|properties
 operator|.
@@ -685,7 +685,7 @@ name|totalArtifactFileSize
 operator|=
 name|Long
 operator|.
-name|valueOf
+name|parseLong
 argument_list|(
 name|properties
 operator|.
@@ -699,7 +699,7 @@ name|totalFileCount
 operator|=
 name|Long
 operator|.
-name|valueOf
+name|parseLong
 argument_list|(
 name|properties
 operator|.
@@ -713,7 +713,7 @@ name|totalGroupCount
 operator|=
 name|Long
 operator|.
-name|valueOf
+name|parseLong
 argument_list|(
 name|properties
 operator|.
@@ -727,7 +727,7 @@ name|totalProjectCount
 operator|=
 name|Long
 operator|.
-name|valueOf
+name|parseLong
 argument_list|(
 name|properties
 operator|.
@@ -741,7 +741,7 @@ name|newFileCount
 operator|=
 name|Long
 operator|.
-name|valueOf
+name|parseLong
 argument_list|(
 name|properties
 operator|.

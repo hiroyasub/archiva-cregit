@@ -862,7 +862,7 @@ name|setBuildNumber
 argument_list|(
 name|Integer
 operator|.
-name|valueOf
+name|parseInt
 argument_list|(
 name|matcher
 operator|.
@@ -871,9 +871,6 @@ argument_list|(
 literal|3
 argument_list|)
 argument_list|)
-operator|.
-name|intValue
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|snapshot
@@ -2686,7 +2683,7 @@ name|build
 init|=
 name|Integer
 operator|.
-name|valueOf
+name|parseInt
 argument_list|(
 name|matcher
 operator|.
@@ -2695,9 +2692,6 @@ argument_list|(
 literal|3
 argument_list|)
 argument_list|)
-operator|.
-name|intValue
-argument_list|()
 decl_stmt|;
 name|String
 name|ts
