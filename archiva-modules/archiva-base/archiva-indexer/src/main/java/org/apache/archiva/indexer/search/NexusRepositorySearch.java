@@ -902,23 +902,22 @@ operator|.
 name|getIndexingContexts
 argument_list|()
 decl_stmt|;
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|keys
-init|=
-name|indexingContexts
-operator|.
-name|keySet
-argument_list|()
-decl_stmt|;
 for|for
 control|(
+name|Map
+operator|.
+name|Entry
+argument_list|<
 name|String
-name|key
+argument_list|,
+name|IndexingContext
+argument_list|>
+name|entry
 range|:
-name|keys
+name|indexingContexts
+operator|.
+name|entrySet
+argument_list|()
 control|)
 block|{
 try|try
@@ -927,12 +926,10 @@ name|indexer
 operator|.
 name|removeIndexingContext
 argument_list|(
-name|indexingContexts
+name|entry
 operator|.
-name|get
-argument_list|(
-name|key
-argument_list|)
+name|getValue
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -943,7 +940,10 @@ name|debug
 argument_list|(
 literal|"Indexing context '"
 operator|+
-name|key
+name|entry
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|"' removed from search."
 argument_list|)
@@ -961,7 +961,10 @@ name|warn
 argument_list|(
 literal|"IOException occurred while removing indexing content '"
 operator|+
-name|key
+name|entry
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|"'."
 argument_list|)
