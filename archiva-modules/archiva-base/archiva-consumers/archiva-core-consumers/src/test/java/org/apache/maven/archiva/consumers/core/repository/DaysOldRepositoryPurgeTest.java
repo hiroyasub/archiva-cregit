@@ -89,6 +89,14 @@ extends|extends
 name|AbstractRepositoryPurgeTest
 block|{
 specifier|private
+specifier|static
+specifier|final
+name|int
+name|OLD_TIMESTAMP
+init|=
+literal|1179382029
+decl_stmt|;
+specifier|private
 name|void
 name|setLastModified
 parameter_list|(
@@ -196,7 +204,7 @@ name|projectRoot
 operator|+
 literal|"/2.2-SNAPSHOT/"
 argument_list|,
-literal|1179382029
+name|OLD_TIMESTAMP
 argument_list|)
 expr_stmt|;
 comment|// test listeners for the correct artifacts
@@ -525,7 +533,7 @@ name|projectRoot
 operator|+
 literal|"/1.1.2-SNAPSHOT/"
 argument_list|,
-literal|1179382029
+name|OLD_TIMESTAMP
 argument_list|)
 expr_stmt|;
 comment|// test listeners for the correct artifacts
@@ -822,6 +830,9 @@ name|i
 operator|++
 control|)
 block|{
+name|File
+name|jarFile
+init|=
 operator|new
 name|File
 argument_list|(
@@ -837,10 +848,15 @@ name|i
 operator|+
 literal|".jar"
 argument_list|)
+decl_stmt|;
+name|jarFile
 operator|.
 name|createNewFile
 argument_list|()
 expr_stmt|;
+name|File
+name|pomFile
+init|=
 operator|new
 name|File
 argument_list|(
@@ -856,10 +872,35 @@ name|i
 operator|+
 literal|".pom"
 argument_list|)
+decl_stmt|;
+name|pomFile
 operator|.
 name|createNewFile
 argument_list|()
 expr_stmt|;
+comment|// set timestamp to older than 100 days for the first build, but ensure the filename timestamp is honoured instead
+if|if
+condition|(
+name|i
+operator|==
+literal|5
+condition|)
+block|{
+name|jarFile
+operator|.
+name|setLastModified
+argument_list|(
+name|OLD_TIMESTAMP
+argument_list|)
+expr_stmt|;
+name|pomFile
+operator|.
+name|setLastModified
+argument_list|(
+name|OLD_TIMESTAMP
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// test listeners for the correct artifacts
 name|listener

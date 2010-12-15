@@ -642,25 +642,6 @@ name|newArtifactReference
 argument_list|)
 expr_stmt|;
 block|}
-if|else if
-condition|(
-name|newArtifactFile
-operator|.
-name|lastModified
-argument_list|()
-operator|<
-name|olderThanThisDate
-operator|.
-name|getTimeInMillis
-argument_list|()
-condition|)
-block|{
-name|doPurgeAllRelated
-argument_list|(
-name|newArtifactReference
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 block|}
