@@ -898,18 +898,18 @@ name|LayoutException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|RepositoryPurgeException
+name|log
+operator|.
+name|debug
 argument_list|(
+literal|"Not processing file that is not an artifact: "
+operator|+
 name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-name|e
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
