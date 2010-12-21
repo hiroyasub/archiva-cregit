@@ -338,6 +338,14 @@ extends|extends
 name|PlexusInSpringTestCase
 block|{
 specifier|protected
+specifier|static
+specifier|final
+name|String
+name|OTHER_REPO_ID
+init|=
+literal|"other-repo"
+decl_stmt|;
+specifier|protected
 name|MetadataRepository
 name|repository
 decl_stmt|;
@@ -2107,7 +2115,7 @@ name|repository
 operator|.
 name|updateNamespace
 argument_list|(
-literal|"other-repo"
+name|OTHER_REPO_ID
 argument_list|,
 literal|"namespace"
 argument_list|)
@@ -2120,7 +2128,7 @@ name|asList
 argument_list|(
 name|TEST_REPO_ID
 argument_list|,
-literal|"other-repo"
+name|OTHER_REPO_ID
 argument_list|)
 argument_list|,
 operator|new
