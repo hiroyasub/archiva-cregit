@@ -293,20 +293,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|jackrabbit
-operator|.
-name|core
-operator|.
-name|TransientRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -320,16 +306,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
 import|;
 end_import
 
@@ -673,8 +649,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|/**      * @plexus.requirement      */
 specifier|private
-specifier|static
 name|Repository
 name|repository
 decl_stmt|;
@@ -686,36 +662,15 @@ specifier|public
 name|JcrMetadataRepository
 parameter_list|()
 block|{
+block|}
+specifier|public
+name|void
+name|login
+parameter_list|()
+block|{
 comment|// TODO: need to close this at the end - do we need to add it in the API?
 try|try
 block|{
-comment|// TODO: push this in from the test, and make it possible from the webapp
-if|if
-condition|(
-name|repository
-operator|==
-literal|null
-condition|)
-block|{
-name|repository
-operator|=
-operator|new
-name|TransientRepository
-argument_list|(
-operator|new
-name|File
-argument_list|(
-literal|"src/test/repository.xml"
-argument_list|)
-argument_list|,
-operator|new
-name|File
-argument_list|(
-literal|"target/jcr"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 comment|// TODO: shouldn't do this in constructor since it's a singleton
 name|session
 operator|=
@@ -735,7 +690,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// TODO: try moving this into the repo instantiation
 name|Workspace
 name|workspace
 init|=
