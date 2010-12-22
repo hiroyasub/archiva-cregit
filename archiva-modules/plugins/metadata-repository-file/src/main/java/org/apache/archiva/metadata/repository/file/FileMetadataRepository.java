@@ -3355,7 +3355,7 @@ return|;
 block|}
 specifier|public
 name|void
-name|deleteArtifact
+name|removeArtifact
 parameter_list|(
 name|String
 name|repoId
@@ -3551,7 +3551,7 @@ block|}
 block|}
 specifier|public
 name|void
-name|deleteRepository
+name|removeRepository
 parameter_list|(
 name|String
 name|repoId

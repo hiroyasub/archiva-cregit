@@ -1101,7 +1101,7 @@ condition|)
 block|{
 name|metadataRepository
 operator|.
-name|deleteArtifact
+name|removeArtifact
 argument_list|(
 name|artifact
 operator|.

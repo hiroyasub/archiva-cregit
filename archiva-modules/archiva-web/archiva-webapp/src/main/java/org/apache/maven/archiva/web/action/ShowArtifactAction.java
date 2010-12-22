@@ -629,7 +629,7 @@ name|versionMetadata
 operator|=
 name|metadataResolver
 operator|.
-name|getProjectVersion
+name|resolveProjectVersion
 argument_list|(
 name|repoId
 argument_list|,
@@ -694,7 +694,7 @@ argument_list|>
 argument_list|(
 name|metadataResolver
 operator|.
-name|getArtifacts
+name|resolveArtifacts
 argument_list|(
 name|repoId
 argument_list|,
@@ -985,7 +985,7 @@ name|addAll
 argument_list|(
 name|metadataResolver
 operator|.
-name|getProjectReferences
+name|resolveProjectReferences
 argument_list|(
 name|repoId
 argument_list|,

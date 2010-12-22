@@ -776,7 +776,7 @@ name|expectAndReturn
 argument_list|(
 name|metadataResolver
 operator|.
-name|getProjectVersion
+name|resolveProjectVersion
 argument_list|(
 literal|"repo1.mirror"
 argument_list|,
@@ -1092,7 +1092,7 @@ name|expectAndReturn
 argument_list|(
 name|metadataResolver
 operator|.
-name|getProjectVersion
+name|resolveProjectVersion
 argument_list|(
 literal|"repo1.mirror"
 argument_list|,
@@ -1126,7 +1126,7 @@ name|expectAndReturn
 argument_list|(
 name|metadataResolver
 operator|.
-name|getProjectVersion
+name|resolveProjectVersion
 argument_list|(
 literal|"public.releases"
 argument_list|,
@@ -1473,7 +1473,7 @@ name|expectAndReturn
 argument_list|(
 name|metadataResolver
 operator|.
-name|getProjectVersion
+name|resolveProjectVersion
 argument_list|(
 literal|"repo1.mirror"
 argument_list|,
@@ -1982,7 +1982,7 @@ name|expectAndReturn
 argument_list|(
 name|metadataResolver
 operator|.
-name|getProjectVersions
+name|resolveProjectVersions
 argument_list|(
 literal|"repo1.mirror"
 argument_list|,
@@ -2009,7 +2009,7 @@ name|expectAndReturn
 argument_list|(
 name|metadataResolver
 operator|.
-name|getProjectVersions
+name|resolveProjectVersions
 argument_list|(
 literal|"public.releases"
 argument_list|,
@@ -2398,7 +2398,7 @@ name|expectAndReturn
 argument_list|(
 name|metadataResolver
 operator|.
-name|getProjectVersion
+name|resolveProjectVersion
 argument_list|(
 name|repoId
 argument_list|,
@@ -2552,7 +2552,7 @@ name|expectAndReturn
 argument_list|(
 name|metadataResolver
 operator|.
-name|getProjectVersion
+name|resolveProjectVersion
 argument_list|(
 name|repoId
 argument_list|,
@@ -2773,7 +2773,7 @@ name|expectAndReturn
 argument_list|(
 name|metadataResolver
 operator|.
-name|getProjectReferences
+name|resolveProjectReferences
 argument_list|(
 name|repoId
 argument_list|,
@@ -2942,7 +2942,7 @@ name|expectAndReturn
 argument_list|(
 name|metadataResolver
 operator|.
-name|getProjectReferences
+name|resolveProjectReferences
 argument_list|(
 literal|"repo1.mirror"
 argument_list|,
@@ -2968,7 +2968,7 @@ name|expectAndReturn
 argument_list|(
 name|metadataResolver
 operator|.
-name|getProjectReferences
+name|resolveProjectReferences
 argument_list|(
 literal|"public.releases"
 argument_list|,

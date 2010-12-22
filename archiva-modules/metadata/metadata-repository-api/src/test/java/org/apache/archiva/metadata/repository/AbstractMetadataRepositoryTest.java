@@ -5390,7 +5390,7 @@ argument_list|)
 expr_stmt|;
 name|repository
 operator|.
-name|deleteArtifact
+name|removeArtifact
 argument_list|(
 name|TEST_REPO_ID
 argument_list|,
@@ -5628,7 +5628,7 @@ argument_list|)
 expr_stmt|;
 name|repository
 operator|.
-name|deleteRepository
+name|removeRepository
 argument_list|(
 name|TEST_REPO_ID
 argument_list|)

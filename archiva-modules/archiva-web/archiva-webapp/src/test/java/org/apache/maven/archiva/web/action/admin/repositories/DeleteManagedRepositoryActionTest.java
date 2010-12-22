@@ -586,7 +586,7 @@ argument_list|()
 decl_stmt|;
 name|metadataRepository
 operator|.
-name|deleteRepository
+name|removeRepository
 argument_list|(
 name|REPO_ID
 argument_list|)
@@ -946,7 +946,7 @@ argument_list|()
 decl_stmt|;
 name|metadataRepository
 operator|.
-name|deleteRepository
+name|removeRepository
 argument_list|(
 name|REPO_ID
 argument_list|)

@@ -303,7 +303,7 @@ name|addAll
 argument_list|(
 name|metadataResolver
 operator|.
-name|getRootNamespaces
+name|resolveRootNamespaces
 argument_list|(
 name|repoId
 argument_list|)
@@ -388,7 +388,7 @@ name|addAll
 argument_list|(
 name|metadataResolver
 operator|.
-name|getNamespaces
+name|resolveNamespaces
 argument_list|(
 name|repoId
 argument_list|,
@@ -449,7 +449,7 @@ name|projects
 init|=
 name|metadataResolver
 operator|.
-name|getProjects
+name|resolveProjects
 argument_list|(
 name|repoId
 argument_list|,
@@ -604,7 +604,7 @@ name|addAll
 argument_list|(
 name|metadataResolver
 operator|.
-name|getNamespaces
+name|resolveNamespaces
 argument_list|(
 name|repoId
 argument_list|,
@@ -618,7 +618,7 @@ name|addAll
 argument_list|(
 name|metadataResolver
 operator|.
-name|getProjects
+name|resolveProjects
 argument_list|(
 name|repoId
 argument_list|,
@@ -830,7 +830,7 @@ name|addAll
 argument_list|(
 name|metadataResolver
 operator|.
-name|getProjectVersions
+name|resolveProjectVersions
 argument_list|(
 name|repoId
 argument_list|,
@@ -956,7 +956,7 @@ name|versionMetadata
 operator|=
 name|metadataResolver
 operator|.
-name|getProjectVersion
+name|resolveProjectVersion
 argument_list|(
 name|repoId
 argument_list|,

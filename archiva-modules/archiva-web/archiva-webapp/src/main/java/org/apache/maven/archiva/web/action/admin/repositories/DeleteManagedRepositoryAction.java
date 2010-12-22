@@ -736,7 +736,7 @@ name|MetadataRepositoryException
 block|{
 name|metadataRepository
 operator|.
-name|deleteRepository
+name|removeRepository
 argument_list|(
 name|repoId
 argument_list|)

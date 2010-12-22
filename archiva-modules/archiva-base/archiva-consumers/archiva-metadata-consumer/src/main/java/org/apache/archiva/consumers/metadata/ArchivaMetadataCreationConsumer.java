@@ -127,7 +127,7 @@ name|repository
 operator|.
 name|storage
 operator|.
-name|StorageMetadataResolver
+name|RepositoryStorage
 import|;
 end_import
 
@@ -441,8 +441,8 @@ name|metadataRepository
 decl_stmt|;
 comment|/**      * FIXME: this needs to be configurable based on storage type      *      * @plexus.requirement role-hint="maven2"      */
 specifier|private
-name|StorageMetadataResolver
-name|storageResolver
+name|RepositoryStorage
+name|repositoryStorage
 decl_stmt|;
 specifier|private
 specifier|static
@@ -588,9 +588,9 @@ comment|// or picked up by subsequent scans
 name|ArtifactMetadata
 name|artifact
 init|=
-name|storageResolver
+name|repositoryStorage
 operator|.
-name|getArtifactForPath
+name|readArtifactMetadataFromPath
 argument_list|(
 name|repoId
 argument_list|,
@@ -647,9 +647,9 @@ try|try
 block|{
 name|versionMetadata
 operator|=
-name|storageResolver
+name|repositoryStorage
 operator|.
-name|getProjectVersion
+name|readProjectVersionMetadata
 argument_list|(
 name|repoId
 argument_list|,

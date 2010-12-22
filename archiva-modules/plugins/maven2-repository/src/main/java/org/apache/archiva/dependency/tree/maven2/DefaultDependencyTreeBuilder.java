@@ -2319,7 +2319,7 @@ name|projectVersions
 operator|=
 name|metadataResolver
 operator|.
-name|getProjectVersions
+name|resolveProjectVersions
 argument_list|(
 name|repoId
 argument_list|,

@@ -530,7 +530,7 @@ name|model
 init|=
 name|metadataResolver
 operator|.
-name|getProjectVersion
+name|resolveProjectVersion
 argument_list|(
 name|repoId
 argument_list|,
@@ -821,7 +821,7 @@ name|results
 init|=
 name|metadataResolver
 operator|.
-name|getProjectVersions
+name|resolveProjectVersions
 argument_list|(
 name|repoId
 argument_list|,
@@ -947,7 +947,7 @@ name|model
 init|=
 name|metadataResolver
 operator|.
-name|getProjectVersion
+name|resolveProjectVersion
 argument_list|(
 name|repoId
 argument_list|,
@@ -1163,7 +1163,7 @@ name|refs
 init|=
 name|metadataResolver
 operator|.
-name|getProjectReferences
+name|resolveProjectReferences
 argument_list|(
 name|repoId
 argument_list|,

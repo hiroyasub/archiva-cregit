@@ -658,7 +658,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AdministrationServiceImpl  *   * @version $Id: AdministrationServiceImpl.java  */
+comment|/**  * AdministrationServiceImpl  *  * @version $Id: AdministrationServiceImpl.java  */
 end_comment
 
 begin_class
@@ -1147,7 +1147,7 @@ condition|)
 block|{
 name|metadataRepository
 operator|.
-name|deleteArtifact
+name|removeArtifact
 argument_list|(
 name|artifact
 operator|.
@@ -1949,7 +1949,7 @@ throw|;
 block|}
 name|metadataRepository
 operator|.
-name|deleteRepository
+name|removeRepository
 argument_list|(
 name|repository
 operator|.

@@ -835,7 +835,7 @@ comment|//To change body of implemented methods use File | Settings | File Templ
 block|}
 specifier|public
 name|void
-name|deleteArtifact
+name|removeArtifact
 parameter_list|(
 name|String
 name|repositoryId
@@ -857,7 +857,7 @@ comment|//To change body of implemented methods use File | Settings | File Templ
 block|}
 specifier|public
 name|void
-name|deleteRepository
+name|removeRepository
 parameter_list|(
 name|String
 name|repoId
