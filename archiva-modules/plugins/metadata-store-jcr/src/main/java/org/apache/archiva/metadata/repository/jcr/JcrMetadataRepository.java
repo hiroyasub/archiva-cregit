@@ -668,10 +668,10 @@ name|void
 name|login
 parameter_list|()
 block|{
-comment|// TODO: need to close this at the end - do we need to add it in the API?
+comment|// FIXME: need to close this at the end - do we need to add it in the API?
 try|try
 block|{
-comment|// TODO: shouldn't do this in constructor since it's a singleton
+comment|// FIXME: shouldn't do this in constructor since it's a singleton
 name|session
 operator|=
 name|repository
@@ -739,7 +739,7 @@ name|LoginException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
+comment|// FIXME
 throw|throw
 operator|new
 name|RuntimeException
@@ -754,7 +754,7 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
+comment|// FIXME
 throw|throw
 operator|new
 name|RuntimeException
@@ -1142,7 +1142,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// TODO: need some context around this so it can be done only when needed
+comment|// FIXME: need some context around this so it can be done only when needed
 name|session
 operator|.
 name|save
@@ -1264,7 +1264,7 @@ name|isIncomplete
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO: decide how to treat these in the content repo
+comment|// FIXME: decide how to treat these in the content repo
 if|if
 condition|(
 name|versionMetadata
@@ -3730,7 +3730,7 @@ name|getBoolean
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO: decide how to treat these in the content repo
+comment|// FIXME: decide how to treat these in the content repo
 name|String
 name|scmConnection
 init|=
@@ -5272,7 +5272,7 @@ parameter_list|()
 block|{
 try|try
 block|{
-comment|// TODO: this shouldn't be here! Repository may need a context
+comment|// FIXME: this shouldn't be here! Repository may need a context
 name|session
 operator|.
 name|save
@@ -5285,7 +5285,7 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
+comment|// FIXME
 throw|throw
 operator|new
 name|RuntimeException
@@ -5319,8 +5319,8 @@ name|metadataFacetFactories
 operator|=
 name|metadataFacetFactories
 expr_stmt|;
-comment|// TODO: check if actually called by normal injection
 comment|// TODO: consider using namespaces for facets instead of the current approach:
+comment|// (if used, check if actually called by normal injection)
 comment|//        for ( String facetId : metadataFacetFactories.keySet() )
 comment|//        {
 comment|//            session.getWorkspace().getNamespaceRegistry().registerNamespace( facetId, facetId );

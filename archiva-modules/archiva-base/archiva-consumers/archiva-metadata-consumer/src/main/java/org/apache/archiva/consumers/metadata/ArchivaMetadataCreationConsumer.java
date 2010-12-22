@@ -439,7 +439,7 @@ specifier|private
 name|MetadataRepository
 name|metadataRepository
 decl_stmt|;
-comment|/**      * FIXME: this needs to be configurable based on storage type      *      * @plexus.requirement role-hint="maven2"      */
+comment|/**      * FIXME: this needs to be configurable based on storage type - and could also be instantiated per repo. Change to a      * factory.      *      * @plexus.requirement role-hint="maven2"      */
 specifier|private
 name|RepositoryStorage
 name|repositoryStorage
@@ -637,7 +637,7 @@ name|getVersion
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// TODO: maybe not too efficient since it may have already been read and stored for this artifact
+comment|// FIXME: maybe not too efficient since it may have already been read and stored for this artifact
 name|ProjectVersionMetadata
 name|versionMetadata
 init|=
@@ -740,7 +740,7 @@ expr_stmt|;
 block|}
 try|try
 block|{
-comment|// TODO: transaction
+comment|// FIXME: transaction
 comment|// read the metadata and update it if it is newer or doesn't exist
 name|artifact
 operator|.

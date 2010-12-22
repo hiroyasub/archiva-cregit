@@ -733,7 +733,7 @@ name|getTotalFileCount
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO: can't test these as they weren't stored in the database, move to tests for RepositoryStatisticsManager implementation
+comment|// FIXME: can't test these as they weren't stored in the database, move to tests for RepositoryStatisticsManager implementation
 comment|//        assertEquals( 8, newStats.getTotalArtifactCount() );
 comment|//        assertEquals( 3, newStats.getTotalGroupCount() );
 comment|//        assertEquals( 5, newStats.getTotalProjectCount() );
@@ -878,7 +878,7 @@ name|getTotalFileCount
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO: can't test these as they weren't stored in the database, move to tests for RepositoryStatisticsManager implementation
+comment|// FIXME: can't test these as they weren't stored in the database, move to tests for RepositoryStatisticsManager implementation
 comment|//        assertEquals( 8, newStats.getTotalArtifactCount() );
 comment|//        assertEquals( 3, newStats.getTotalGroupCount() );
 comment|//        assertEquals( 5, newStats.getTotalProjectCount() );
@@ -1061,7 +1061,7 @@ name|getTotalFileCount
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO: can't test these as they weren't stored in the database, move to tests for RepositoryStatisticsManager implementation
+comment|// FIXME: can't test these as they weren't stored in the database, move to tests for RepositoryStatisticsManager implementation
 comment|//        assertEquals( 8, newStats.getTotalArtifactCount() );
 comment|//        assertEquals( 3, newStats.getTotalGroupCount() );
 comment|//        assertEquals( 5, newStats.getTotalProjectCount() );
@@ -1244,7 +1244,7 @@ name|getTotalFileCount
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO: can't test these as they weren't stored in the database, move to tests for RepositoryStatisticsManager implementation
+comment|// FIXME: can't test these as they weren't stored in the database, move to tests for RepositoryStatisticsManager implementation
 comment|//        assertEquals( 8, newStats.getTotalArtifactCount() );
 comment|//        assertEquals( 3, newStats.getTotalGroupCount() );
 comment|//        assertEquals( 5, newStats.getTotalProjectCount() );

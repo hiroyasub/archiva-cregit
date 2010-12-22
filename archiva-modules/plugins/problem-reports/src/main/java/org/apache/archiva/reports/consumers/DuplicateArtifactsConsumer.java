@@ -904,9 +904,9 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
-comment|// TODO: need to get the right storage resolver for the repository the dupe artifact is in, it might be
+comment|// FIXME: need to get the right storage resolver for the repository the dupe artifact is in, it might be
 comment|//       a different type
-comment|// TODO: we need the project version here, not the artifact version
+comment|// FIXME: we need the project version here, not the artifact version
 name|problem
 operator|.
 name|setMessage

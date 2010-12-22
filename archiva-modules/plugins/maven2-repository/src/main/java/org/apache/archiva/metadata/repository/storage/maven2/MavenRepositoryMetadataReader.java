@@ -23,16 +23,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -89,8 +79,18 @@ name|Element
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
 begin_comment
-comment|/**  * RepositoryMetadataReader - read maven-metadata.xml files.  *  * TODO: we should improve on this, ideally using the Maven standard libraries (which are unfortunately baked into  * maven-core now)  */
+comment|/**  * RepositoryMetadataReader - read maven-metadata.xml files.  *  * TODO: we should improve on this, ideally using the Maven standard library  */
 end_comment
 
 begin_class
@@ -104,7 +104,7 @@ name|MavenRepositoryMetadataReader
 parameter_list|()
 block|{
 block|}
-comment|/**      * Read and return the {@link MavenRepositoryMetadata} object from the provided xml file.      *      * @param metadataFile the maven-metadata.xml file to read.      * @return the archiva repository metadata object that represents the provided file contents.      * @throws org.apache.maven.archiva.xml.XMLException      */
+comment|/**      * Read and return the {@link MavenRepositoryMetadata} object from the provided xml file.      *      * @param metadataFile the maven-metadata.xml file to read.      * @return the archiva repository metadata object that represents the provided file contents.      * @throws org.apache.maven.archiva.xml.XMLException      *      */
 specifier|public
 specifier|static
 name|MavenRepositoryMetadata

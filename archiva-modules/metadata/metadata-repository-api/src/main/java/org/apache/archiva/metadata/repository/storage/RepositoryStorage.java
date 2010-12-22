@@ -111,6 +111,10 @@ name|Collection
 import|;
 end_import
 
+begin_comment
+comment|// FIXME: we should drop the repoId parameters and attach this to an instance of a repository storage
+end_comment
+
 begin_interface
 specifier|public
 interface|interface
@@ -250,7 +254,7 @@ argument_list|>
 name|filter
 parameter_list|)
 function_decl|;
-comment|// TODO: reconsider this API, do we want to expose storage format in the form of a path?
+comment|// FIXME: reconsider this API, do we want to expose storage format in the form of a path?
 name|ArtifactMetadata
 name|readArtifactMetadataFromPath
 parameter_list|(

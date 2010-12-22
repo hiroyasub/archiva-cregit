@@ -38,7 +38,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * UserRepositories stub used for testing.   *  * @version $Id$  */
+comment|/**  * UserRepositories stub used for testing.  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -72,7 +72,6 @@ parameter_list|)
 throws|throws
 name|ArchivaSecurityException
 block|{
-comment|// TODO Auto-generated method stub
 block|}
 specifier|public
 name|List
@@ -85,10 +84,6 @@ name|String
 name|principal
 parameter_list|)
 throws|throws
-name|PrincipalNotFoundException
-throws|,
-name|AccessDeniedException
-throws|,
 name|ArchivaSecurityException
 block|{
 return|return
@@ -124,11 +119,8 @@ name|String
 name|repoId
 parameter_list|)
 throws|throws
-name|PrincipalNotFoundException
-throws|,
 name|ArchivaSecurityException
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|false
 return|;
@@ -159,13 +151,8 @@ name|String
 name|principal
 parameter_list|)
 throws|throws
-name|PrincipalNotFoundException
-throws|,
-name|AccessDeniedException
-throws|,
 name|ArchivaSecurityException
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|null
 return|;

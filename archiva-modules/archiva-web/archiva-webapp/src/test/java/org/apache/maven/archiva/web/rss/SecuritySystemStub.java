@@ -21,46 +21,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|codehaus
@@ -301,8 +261,48 @@ name|JdoUser
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
-comment|/**  * SecuritySystem stub used for testing.   *  * @version $Id$  */
+comment|/**  * SecuritySystem stub used for testing.  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -563,7 +563,6 @@ name|String
 name|getAuthenticatorId
 parameter_list|()
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|null
 return|;
@@ -573,7 +572,6 @@ name|String
 name|getAuthorizerId
 parameter_list|()
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|null
 return|;
@@ -583,7 +581,6 @@ name|KeyManager
 name|getKeyManager
 parameter_list|()
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|null
 return|;
@@ -593,7 +590,6 @@ name|UserSecurityPolicy
 name|getPolicy
 parameter_list|()
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|null
 return|;
@@ -603,7 +599,6 @@ name|String
 name|getUserManagementId
 parameter_list|()
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|null
 return|;
@@ -613,7 +608,6 @@ name|UserManager
 name|getUserManager
 parameter_list|()
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|null
 return|;
@@ -632,7 +626,6 @@ name|UserNotFoundException
 throws|,
 name|AccountLockedException
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|false
 return|;
@@ -650,7 +643,6 @@ parameter_list|)
 throws|throws
 name|AuthorizationException
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|false
 return|;

@@ -144,7 +144,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for all repository purge tasks.  *   */
+comment|/**  * Base class for all repository purge tasks.  */
 end_comment
 
 begin_class
@@ -226,7 +226,7 @@ operator|=
 name|listeners
 expr_stmt|;
 block|}
-comment|/**      * Purge the repo. Update db and index of removed artifacts.      *       * @param references      */
+comment|/**      * Purge the repo. Update db and index of removed artifacts.      *      * @param references      */
 specifier|protected
 name|void
 name|purge
@@ -269,7 +269,7 @@ argument_list|(
 name|reference
 argument_list|)
 decl_stmt|;
-comment|// TODO: looks incomplete, might not delete related metadata?
+comment|// FIXME: looks incomplete, might not delete related metadata?
 for|for
 control|(
 name|RepositoryListener
@@ -345,7 +345,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      *<p>      * This find support files for the artifactFile and deletes them.      *</p>      *<p>      * Support Files are things like ".sha1", ".md5", ".asc", etc.      *</p>      *       * @param artifactFile the file to base off of.      */
+comment|/**      *<p>      * This find support files for the artifactFile and deletes them.      *</p>      *<p>      * Support Files are things like ".sha1", ".md5", ".asc", etc.      *</p>      *      * @param artifactFile the file to base off of.      */
 specifier|private
 name|void
 name|purgeSupportFiles
