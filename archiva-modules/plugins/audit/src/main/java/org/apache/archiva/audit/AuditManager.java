@@ -17,6 +17,22 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|MetadataRepositoryException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -62,6 +78,8 @@ name|String
 argument_list|>
 name|repositoryIds
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|void
 name|addAuditEvent
@@ -69,6 +87,8 @@ parameter_list|(
 name|AuditEvent
 name|event
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|void
 name|deleteAuditEvents
@@ -76,6 +96,8 @@ parameter_list|(
 name|String
 name|repositoryId
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 comment|/**      * Get all audit events from the given repositories that match a certain range      *      * @param repositoryIds the repositories to retrieve events for      * @param startTime     find events only after this time      * @param endTime       find events only before this time      * @return the list of events found      */
 name|List
@@ -96,6 +118,8 @@ parameter_list|,
 name|Date
 name|endTime
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 comment|/**      * Get all audit events from the given repositories that match a certain range and resource pattern      *      * @param repositoryIds   the repositories to retrieve events for      * @param resourcePattern find all events whose resources start with this string      * @param startTime       find events only after this time      * @param endTime         find events only before this time      * @return the list of events found      */
 name|List
@@ -119,6 +143,8 @@ parameter_list|,
 name|Date
 name|endTime
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 block|}
 end_interface

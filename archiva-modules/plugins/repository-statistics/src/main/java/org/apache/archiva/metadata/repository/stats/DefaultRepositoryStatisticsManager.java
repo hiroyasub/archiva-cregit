@@ -63,6 +63,38 @@ name|metadata
 operator|.
 name|repository
 operator|.
+name|MetadataRepositoryException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|MetadataResolutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
 name|storage
 operator|.
 name|maven2
@@ -222,6 +254,8 @@ parameter_list|(
 name|String
 name|repositoryId
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 comment|// TODO: consider a more efficient implementation that directly gets the last one from the content repository
 name|List
@@ -310,6 +344,8 @@ parameter_list|,
 name|String
 name|ns
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 block|{
 for|for
 control|(
@@ -533,6 +569,8 @@ parameter_list|,
 name|long
 name|newFiles
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 name|RepositoryStatistics
 name|repositoryStatistics
@@ -585,6 +623,8 @@ decl_stmt|;
 comment|// TODO: we can probably get a more efficient implementation directly from the metadata repository, but for now
 comment|//       we just walk it. Alternatively, we could build an index, or store the aggregate information and update
 comment|//       it on the fly
+try|try
+block|{
 for|for
 control|(
 name|String
@@ -607,6 +647,26 @@ argument_list|,
 name|ns
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|MetadataResolutionException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|MetadataRepositoryException
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 name|log
 operator|.
@@ -643,6 +703,8 @@ parameter_list|(
 name|String
 name|repositoryId
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 name|metadataRepository
 operator|.
@@ -672,6 +734,8 @@ parameter_list|,
 name|Date
 name|endTime
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 name|List
 argument_list|<

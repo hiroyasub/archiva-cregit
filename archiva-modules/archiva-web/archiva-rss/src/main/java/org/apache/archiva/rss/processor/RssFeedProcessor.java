@@ -19,16 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|sun
@@ -40,6 +30,30 @@ operator|.
 name|synd
 operator|.
 name|SyndFeed
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|sun
+operator|.
+name|syndication
+operator|.
+name|io
+operator|.
+name|FeedException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -87,6 +101,8 @@ name|String
 argument_list|>
 name|reqParams
 parameter_list|)
+throws|throws
+name|FeedException
 function_decl|;
 block|}
 end_interface

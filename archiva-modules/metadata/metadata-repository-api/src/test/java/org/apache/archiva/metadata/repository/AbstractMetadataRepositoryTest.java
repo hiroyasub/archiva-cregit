@@ -568,6 +568,8 @@ specifier|public
 name|void
 name|testRootNamespaceWithNoMetadataRepository
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|Collection
 argument_list|<
@@ -600,6 +602,8 @@ specifier|public
 name|void
 name|testGetNamespaceOnly
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|assertEquals
 argument_list|(
@@ -647,6 +651,8 @@ specifier|public
 name|void
 name|testGetProjectOnly
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|assertNull
 argument_list|(
@@ -764,7 +770,7 @@ name|void
 name|testGetProjectVersionOnly
 parameter_list|()
 throws|throws
-name|MetadataResolutionException
+name|Exception
 block|{
 name|assertNull
 argument_list|(
@@ -924,7 +930,7 @@ name|void
 name|testGetArtifactOnly
 parameter_list|()
 throws|throws
-name|MetadataResolutionException
+name|Exception
 block|{
 name|assertEquals
 argument_list|(
@@ -1148,7 +1154,7 @@ name|void
 name|testUpdateProjectVersionMetadataWithNoOtherArchives
 parameter_list|()
 throws|throws
-name|MetadataResolutionException
+name|Exception
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -1298,7 +1304,7 @@ name|void
 name|testUpdateProjectVersionMetadataWithAllElements
 parameter_list|()
 throws|throws
-name|MetadataResolutionException
+name|Exception
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -1956,6 +1962,8 @@ specifier|public
 name|void
 name|testUpdateProjectReference
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ProjectVersionReference
 name|reference
@@ -2099,6 +2107,8 @@ specifier|public
 name|void
 name|testGetRepositories
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// currently set up this way so the behaviour of both the test and the mock config return the same repository
 comment|// set as the File implementation just uses the config rather than the content
@@ -2150,7 +2160,7 @@ name|void
 name|testUpdateProjectVersionMetadataIncomplete
 parameter_list|()
 throws|throws
-name|MetadataResolutionException
+name|Exception
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -2318,7 +2328,7 @@ name|void
 name|testUpdateProjectVersionMetadataWithExistingFacets
 parameter_list|()
 throws|throws
-name|MetadataResolutionException
+name|Exception
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -2478,7 +2488,7 @@ name|void
 name|testUpdateProjectVersionMetadataWithNoExistingFacets
 parameter_list|()
 throws|throws
-name|MetadataResolutionException
+name|Exception
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -2615,7 +2625,7 @@ name|void
 name|testUpdateProjectVersionMetadataWithExistingFacetsFacetPropertyWasRemoved
 parameter_list|()
 throws|throws
-name|MetadataResolutionException
+name|Exception
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -2862,7 +2872,7 @@ name|void
 name|testUpdateArtifactMetadataWithExistingFacetsFacetPropertyWasRemoved
 parameter_list|()
 throws|throws
-name|MetadataResolutionException
+name|Exception
 block|{
 name|ArtifactMetadata
 name|metadata
@@ -3116,6 +3126,8 @@ specifier|public
 name|void
 name|testUpdateArtifactMetadataWithExistingFacets
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ArtifactMetadata
 name|metadata
@@ -3274,6 +3286,8 @@ specifier|public
 name|void
 name|testUpdateArtifactMetadataWithNoExistingFacets
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ArtifactMetadata
 name|metadata
@@ -3409,6 +3423,8 @@ specifier|public
 name|void
 name|testGetMetadataFacet
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|repository
 operator|.
@@ -3448,6 +3464,8 @@ specifier|public
 name|void
 name|testGetMetadataFacetWhenEmpty
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|assertNull
 argument_list|(
@@ -3468,6 +3486,8 @@ specifier|public
 name|void
 name|testGetMetadataFacetWhenUnknownName
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|repository
 operator|.
@@ -3501,6 +3521,8 @@ specifier|public
 name|void
 name|testGetMetadataFacetWhenDefaultValue
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|repository
 operator|.
@@ -3540,6 +3562,8 @@ specifier|public
 name|void
 name|testGetMetadataFacetWhenUnknownFacetId
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|assertNull
 argument_list|(
@@ -3560,6 +3584,8 @@ specifier|public
 name|void
 name|testGetMetadataFacets
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|repository
 operator|.
@@ -3598,6 +3624,8 @@ specifier|public
 name|void
 name|testGetMetadataFacetsWhenEmpty
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|List
 argument_list|<
@@ -3627,6 +3655,8 @@ specifier|public
 name|void
 name|testRemoveFacets
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|repository
 operator|.
@@ -3697,6 +3727,8 @@ specifier|public
 name|void
 name|testRemoveFacetsWhenEmpty
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|List
 argument_list|<
@@ -3754,6 +3786,8 @@ specifier|public
 name|void
 name|testRemoveFacetsWhenUnknown
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// testing no exception
 name|repository
@@ -3770,6 +3804,8 @@ specifier|public
 name|void
 name|testRemoveFacetWhenUnknown
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// testing no exception
 name|repository
@@ -3788,6 +3824,8 @@ specifier|public
 name|void
 name|testRemoveFacet
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|TestMetadataFacet
 name|metadataFacet
@@ -3895,6 +3933,8 @@ specifier|public
 name|void
 name|testRemoveFacetWhenEmpty
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|List
 argument_list|<
@@ -3982,6 +4022,8 @@ specifier|public
 name|void
 name|testGetArtifacts
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ArtifactMetadata
 name|artifact1
@@ -4122,6 +4164,8 @@ specifier|public
 name|void
 name|testGetArtifactVersions
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ArtifactMetadata
 name|artifact1
@@ -4273,6 +4317,8 @@ specifier|public
 name|void
 name|testGetArtifactVersionsMultipleArtifactsSingleVersion
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ArtifactMetadata
 name|artifact1
@@ -4370,6 +4416,8 @@ specifier|public
 name|void
 name|testGetArtifactsByDateRangeOpen
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -4418,6 +4466,8 @@ specifier|public
 name|void
 name|testGetArtifactsByDateRangeSparseNamespace
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|String
 name|namespace
@@ -4478,6 +4528,8 @@ specifier|public
 name|void
 name|testGetArtifactsByDateRangeLowerBound
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -4543,6 +4595,8 @@ specifier|public
 name|void
 name|testGetArtifactsByDateRangeLowerBoundOutOfRange
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -4604,6 +4658,8 @@ specifier|public
 name|void
 name|testGetArtifactsByDateRangeLowerAndUpperBound
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -4686,6 +4742,8 @@ specifier|public
 name|void
 name|testGetArtifactsByDateRangeUpperBound
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -4751,6 +4809,8 @@ specifier|public
 name|void
 name|testGetArtifactsByDateRangeUpperBoundOutOfRange
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -4812,6 +4872,8 @@ specifier|public
 name|void
 name|testGetArtifactsByRepoId
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -4856,6 +4918,8 @@ specifier|public
 name|void
 name|testGetNamespacesWithSparseDepth
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|repository
 operator|.
@@ -4945,6 +5009,8 @@ specifier|public
 name|void
 name|testGetArtifactsByChecksumSingleResultMd5
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -4991,6 +5057,8 @@ specifier|public
 name|void
 name|testGetArtifactsByChecksumSingleResultSha1
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -5037,6 +5105,8 @@ specifier|public
 name|void
 name|testGetArtifactsByChecksumDeepNamespace
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -5095,6 +5165,8 @@ specifier|public
 name|void
 name|testGetArtifactsByChecksumMultipleResult
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ArtifactMetadata
 name|artifact1
@@ -5202,6 +5274,8 @@ specifier|public
 name|void
 name|testGetArtifactsByChecksumNoResult
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -5249,6 +5323,8 @@ specifier|public
 name|void
 name|testDeleteArtifact
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -5354,6 +5430,8 @@ specifier|public
 name|void
 name|testDeleteRepository
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|repository
 operator|.

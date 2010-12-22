@@ -255,6 +255,22 @@ name|metadata
 operator|.
 name|repository
 operator|.
+name|MetadataRepositoryException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
 name|MetadataResolutionException
 import|;
 end_import
@@ -586,7 +602,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @plexus.component role="org.apache.archiva.metadata.repository.MetadataRepository"  * @todo below: exception handling  * @todo below: revise storage format for project version metadata  * @todo revise reference storage  */
+comment|/**  * @plexus.component role="org.apache.archiva.metadata.repository.MetadataRepository"  * @todo below: revise storage format for project version metadata  * @todo revise reference storage  */
 end_comment
 
 begin_class
@@ -719,6 +735,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// TODO: try moving this into the repo instantiation
 name|Workspace
 name|workspace
 init|=
@@ -849,6 +866,8 @@ parameter_list|,
 name|ProjectMetadata
 name|project
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 name|updateProject
 argument_list|(
@@ -879,6 +898,8 @@ parameter_list|,
 name|String
 name|projectId
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 name|updateNamespace
 argument_list|(
@@ -905,11 +926,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataRepositoryException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -934,6 +959,8 @@ parameter_list|,
 name|ArtifactMetadata
 name|artifactMeta
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 name|updateNamespace
 argument_list|(
@@ -1174,11 +1201,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataRepositoryException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -1200,6 +1231,8 @@ parameter_list|,
 name|ProjectVersionMetadata
 name|versionMetadata
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 name|updateProject
 argument_list|(
@@ -1862,11 +1895,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataRepositoryException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -1891,6 +1928,8 @@ parameter_list|,
 name|ProjectVersionReference
 name|reference
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 comment|// not using weak references, since they still need to exist upfront to be referred to
 try|try
@@ -2011,11 +2050,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataRepositoryException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -2031,6 +2074,8 @@ parameter_list|,
 name|String
 name|namespace
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 try|try
 block|{
@@ -2060,11 +2105,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataRepositoryException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -2083,6 +2132,8 @@ parameter_list|,
 name|String
 name|facetId
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 name|List
 argument_list|<
@@ -2145,11 +2196,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataRepositoryException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -2251,6 +2306,8 @@ parameter_list|,
 name|String
 name|name
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 name|MetadataFacet
 name|metadataFacet
@@ -2398,11 +2455,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataRepositoryException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -2421,6 +2482,8 @@ parameter_list|,
 name|MetadataFacet
 name|metadataFacet
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 try|try
 block|{
@@ -2521,11 +2584,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataRepositoryException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -2541,6 +2608,8 @@ parameter_list|,
 name|String
 name|facetId
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 try|try
 block|{
@@ -2590,11 +2659,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataRepositoryException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -2613,6 +2686,8 @@ parameter_list|,
 name|String
 name|name
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 try|try
 block|{
@@ -2694,11 +2769,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataRepositoryException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -2720,6 +2799,8 @@ parameter_list|,
 name|Date
 name|endTime
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 name|List
 argument_list|<
@@ -2899,11 +2980,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataRepositoryException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -2919,6 +3004,8 @@ name|String
 argument_list|>
 name|getRepositories
 parameter_list|()
+throws|throws
+name|MetadataRepositoryException
 block|{
 name|List
 argument_list|<
@@ -3018,11 +3105,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataRepositoryException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -3044,6 +3135,8 @@ parameter_list|,
 name|String
 name|checksum
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 name|List
 argument_list|<
@@ -3152,11 +3245,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataRepositoryException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -3184,6 +3281,8 @@ parameter_list|,
 name|String
 name|id
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 try|try
 block|{
@@ -3239,11 +3338,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataRepositoryException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -3256,6 +3359,8 @@ parameter_list|(
 name|String
 name|repositoryId
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 try|try
 block|{
@@ -3303,11 +3408,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataRepositoryException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -3323,6 +3432,8 @@ parameter_list|(
 name|String
 name|repositoryId
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 name|List
 argument_list|<
@@ -3407,11 +3518,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataRepositoryException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -3433,6 +3548,8 @@ parameter_list|,
 name|String
 name|projectId
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 block|{
 name|ProjectMetadata
 name|metadata
@@ -3500,11 +3617,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataResolutionException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -4542,11 +4663,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataResolutionException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -4574,6 +4699,8 @@ parameter_list|,
 name|String
 name|projectVersion
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 block|{
 name|Set
 argument_list|<
@@ -4654,7 +4781,6 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore repo not found for now
-comment|// TODO: throw specific exception if repo doesn't exist
 block|}
 catch|catch
 parameter_list|(
@@ -4662,11 +4788,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataResolutionException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -4694,6 +4824,8 @@ parameter_list|,
 name|String
 name|projectVersion
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 block|{
 name|List
 argument_list|<
@@ -4908,11 +5040,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataResolutionException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -4931,6 +5067,8 @@ parameter_list|(
 name|String
 name|repositoryId
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 block|{
 return|return
 name|getNamespaces
@@ -4954,6 +5092,8 @@ parameter_list|,
 name|String
 name|baseNamespace
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 block|{
 name|String
 name|path
@@ -4994,6 +5134,8 @@ parameter_list|,
 name|String
 name|namespace
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 block|{
 return|return
 name|getNodeNames
@@ -5023,6 +5165,8 @@ parameter_list|,
 name|String
 name|projectId
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 block|{
 return|return
 name|getNodeNames
@@ -5057,6 +5201,8 @@ parameter_list|,
 name|String
 name|projectVersion
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 block|{
 name|List
 argument_list|<
@@ -5149,11 +5295,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataResolutionException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -5683,6 +5833,8 @@ parameter_list|(
 name|String
 name|path
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 block|{
 name|List
 argument_list|<
@@ -5760,7 +5912,6 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore repo not found for now
-comment|// TODO: throw specific exception if repo doesn't exist
 block|}
 catch|catch
 parameter_list|(
@@ -5768,11 +5919,15 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// TODO
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataResolutionException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;

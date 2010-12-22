@@ -21,6 +21,22 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|MetadataRepositoryException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -50,6 +66,8 @@ parameter_list|(
 name|String
 name|repositoryId
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|void
 name|addStatisticsAfterScan
@@ -69,6 +87,8 @@ parameter_list|,
 name|long
 name|newFiles
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|void
 name|deleteStatistics
@@ -76,6 +96,8 @@ parameter_list|(
 name|String
 name|repositoryId
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|List
 argument_list|<
@@ -92,6 +114,8 @@ parameter_list|,
 name|Date
 name|endTime
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 block|}
 end_interface

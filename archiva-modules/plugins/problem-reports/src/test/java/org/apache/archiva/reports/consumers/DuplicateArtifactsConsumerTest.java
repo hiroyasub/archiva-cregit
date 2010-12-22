@@ -416,7 +416,7 @@ name|void
 name|testConsumerArtifactNotDuplicated
 parameter_list|()
 throws|throws
-name|ConsumerException
+name|Exception
 block|{
 name|when
 argument_list|(
@@ -506,7 +506,7 @@ name|void
 name|testConsumerArtifactDuplicated
 parameter_list|()
 throws|throws
-name|ConsumerException
+name|Exception
 block|{
 name|when
 argument_list|(
@@ -610,7 +610,7 @@ name|void
 name|testConsumerArtifactDuplicatedButSelfNotInMetadataRepository
 parameter_list|()
 throws|throws
-name|ConsumerException
+name|Exception
 block|{
 name|when
 argument_list|(
@@ -712,7 +712,7 @@ name|void
 name|testConsumerArtifactFileNotExist
 parameter_list|()
 throws|throws
-name|ConsumerException
+name|Exception
 block|{
 name|consumer
 operator|.
@@ -795,7 +795,7 @@ name|void
 name|testConsumerArtifactNotAnArtifactPathNoResults
 parameter_list|()
 throws|throws
-name|ConsumerException
+name|Exception
 block|{
 name|consumer
 operator|.
@@ -851,7 +851,7 @@ name|void
 name|testConsumerArtifactNotAnArtifactPathResults
 parameter_list|()
 throws|throws
-name|ConsumerException
+name|Exception
 block|{
 name|when
 argument_list|(

@@ -93,6 +93,22 @@ name|metadata
 operator|.
 name|repository
 operator|.
+name|MetadataRepositoryException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
 name|MetadataResolutionException
 import|;
 end_import
@@ -722,6 +738,8 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+try|try
+block|{
 comment|// TODO: transaction
 comment|// read the metadata and update it if it is newer or doesn't exist
 name|artifact
@@ -786,6 +804,32 @@ argument_list|,
 name|project
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataRepositoryException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Error occurred persisting metadata for artifact: "
+operator|+
+name|path
+operator|+
+literal|"; message: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 specifier|public
 name|void

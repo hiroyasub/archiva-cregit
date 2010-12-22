@@ -19,11 +19,17 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Date
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|MetadataRepositoryException
 import|;
 end_import
 
@@ -279,6 +285,16 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
 begin_comment
 comment|/**  * ArchivaRepositoryScanningTaskExecutor  *  * @version $Id$  * @plexus.component role="org.codehaus.plexus.taskqueue.execution.TaskExecutor"  * role-hint="repository-scanning"  */
 end_comment
@@ -477,8 +493,6 @@ name|repoTask
 argument_list|)
 expr_stmt|;
 comment|// otherwise, execute consumers on whole repository
-try|try
-block|{
 if|if
 condition|(
 name|arepo
@@ -519,14 +533,40 @@ condition|)
 block|{
 name|RepositoryStatistics
 name|previousStats
-init|=
+decl_stmt|;
+try|try
+block|{
+name|previousStats
+operator|=
 name|repositoryStatisticsManager
 operator|.
 name|getLastStatistics
 argument_list|(
 name|repoId
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataRepositoryException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|TaskExecutionException
+argument_list|(
+literal|"Unable to get previous statistics: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|previousStats
@@ -555,7 +595,11 @@ block|}
 block|}
 name|RepositoryScanStatistics
 name|stats
-init|=
+decl_stmt|;
+try|try
+block|{
+name|stats
+operator|=
 name|repoScanner
 operator|.
 name|scan
@@ -564,7 +608,24 @@ name|arepo
 argument_list|,
 name|sinceWhen
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RepositoryScannerException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|TaskExecutionException
+argument_list|(
+literal|"Repository error when executing repository job."
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 name|log
 operator|.
 name|info
@@ -600,6 +661,8 @@ name|getDuration
 argument_list|()
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|repositoryStatisticsManager
 operator|.
 name|addStatisticsAfterScan
@@ -626,6 +689,28 @@ operator|-
 name|previousFileCount
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataRepositoryException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|TaskExecutionException
+argument_list|(
+literal|"Unable to store updated statistics: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 comment|//                log.info( "Scanning for removed repository content" );
 comment|//                metadataRepository.findAllProjects();
 comment|// FIXME: do something
@@ -644,23 +729,6 @@ name|task
 operator|=
 literal|null
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RepositoryScannerException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|TaskExecutionException
-argument_list|(
-literal|"Repository error when executing repository job."
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 block|}
 specifier|public

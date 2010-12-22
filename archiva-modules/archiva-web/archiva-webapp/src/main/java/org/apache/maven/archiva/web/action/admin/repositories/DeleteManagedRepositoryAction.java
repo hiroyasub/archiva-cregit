@@ -77,6 +77,22 @@ name|metadata
 operator|.
 name|repository
 operator|.
+name|MetadataRepositoryException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
 name|stats
 operator|.
 name|RepositoryStatisticsManager
@@ -192,7 +208,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DeleteManagedRepositoryAction  *   * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteManagedRepositoryAction" instantiation-strategy="per-lookup"  */
+comment|/**  * DeleteManagedRepositoryAction  *  * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteManagedRepositoryAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -372,29 +388,6 @@ operator|.
 name|getConfiguration
 argument_list|()
 decl_stmt|;
-name|cleanupRepositoryData
-argument_list|(
-name|existingRepository
-argument_list|)
-expr_stmt|;
-name|removeRepository
-argument_list|(
-name|repoid
-argument_list|,
-name|configuration
-argument_list|)
-expr_stmt|;
-name|triggerAuditEvent
-argument_list|(
-name|repoid
-argument_list|,
-literal|null
-argument_list|,
-name|AuditEvent
-operator|.
-name|DELETE_MANAGED_REPO
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|attachedStagingRepo
@@ -430,6 +423,29 @@ name|DELETE_MANAGED_REPO
 argument_list|)
 expr_stmt|;
 block|}
+name|cleanupRepositoryData
+argument_list|(
+name|existingRepository
+argument_list|)
+expr_stmt|;
+name|removeRepository
+argument_list|(
+name|repoid
+argument_list|,
+name|configuration
+argument_list|)
+expr_stmt|;
+name|triggerAuditEvent
+argument_list|(
+name|repoid
+argument_list|,
+literal|null
+argument_list|,
+name|AuditEvent
+operator|.
+name|DELETE_MANAGED_REPO
+argument_list|)
+expr_stmt|;
 name|result
 operator|=
 name|saveConfiguration
@@ -481,7 +497,7 @@ parameter_list|)
 block|{
 name|addActionError
 argument_list|(
-literal|"Unable to delete repository: "
+literal|"Unable to delete repository, content may already be partially removed: "
 operator|+
 name|e
 operator|.
@@ -502,7 +518,28 @@ parameter_list|)
 block|{
 name|addActionError
 argument_list|(
-literal|"Unable to delete repository: "
+literal|"Unable to delete repository, content may already be partially removed: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|result
+operator|=
+name|ERROR
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataRepositoryException
+name|e
+parameter_list|)
+block|{
+name|addActionError
+argument_list|(
+literal|"Unable to delete repository, content may already be partially removed: "
 operator|+
 name|e
 operator|.
@@ -528,6 +565,8 @@ name|cleanupRepository
 parameter_list|)
 throws|throws
 name|RoleManagerException
+throws|,
+name|MetadataRepositoryException
 block|{
 name|removeRepositoryRoles
 argument_list|(
@@ -692,6 +731,8 @@ parameter_list|(
 name|String
 name|repoId
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 name|metadataRepository
 operator|.

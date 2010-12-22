@@ -37,6 +37,24 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+specifier|public
+name|MetadataResolutionException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|Throwable
+name|throwable
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|,
+name|throwable
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

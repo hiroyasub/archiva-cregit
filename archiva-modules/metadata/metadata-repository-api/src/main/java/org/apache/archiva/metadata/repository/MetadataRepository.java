@@ -134,7 +134,7 @@ name|MetadataRepository
 extends|extends
 name|MetadataResolver
 block|{
-comment|/**      * Update metadata for a particular project in the metadata repository, or create it if it does not already exist.      *      * @param repositoryId  the repository the project is in      * @param project the project metadata to create or update      */
+comment|/**      * Update metadata for a particular project in the metadata repository, or create it if it does not already exist.      *      * @param repositoryId the repository the project is in      * @param project      the project metadata to create or update      */
 name|void
 name|updateProject
 parameter_list|(
@@ -144,6 +144,8 @@ parameter_list|,
 name|ProjectMetadata
 name|project
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|void
 name|updateArtifact
@@ -163,6 +165,8 @@ parameter_list|,
 name|ArtifactMetadata
 name|artifactMeta
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|void
 name|updateProjectVersion
@@ -179,6 +183,8 @@ parameter_list|,
 name|ProjectVersionMetadata
 name|versionMetadata
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|void
 name|updateProjectReference
@@ -198,6 +204,8 @@ parameter_list|,
 name|ProjectVersionReference
 name|reference
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|void
 name|updateNamespace
@@ -208,6 +216,8 @@ parameter_list|,
 name|String
 name|namespace
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|List
 argument_list|<
@@ -221,6 +231,8 @@ parameter_list|,
 name|String
 name|facetId
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|MetadataFacet
 name|getMetadataFacet
@@ -234,6 +246,8 @@ parameter_list|,
 name|String
 name|name
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|void
 name|addMetadataFacet
@@ -244,6 +258,8 @@ parameter_list|,
 name|MetadataFacet
 name|metadataFacet
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|void
 name|removeMetadataFacets
@@ -254,6 +270,8 @@ parameter_list|,
 name|String
 name|facetId
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|void
 name|removeMetadataFacet
@@ -267,6 +285,8 @@ parameter_list|,
 name|String
 name|name
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|List
 argument_list|<
@@ -283,6 +303,8 @@ parameter_list|,
 name|Date
 name|endTime
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 comment|// TODO: remove from API, just use configuration
 name|Collection
@@ -291,6 +313,8 @@ name|String
 argument_list|>
 name|getRepositories
 parameter_list|()
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|List
 argument_list|<
@@ -304,6 +328,8 @@ parameter_list|,
 name|String
 name|checksum
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|void
 name|deleteArtifact
@@ -323,14 +349,18 @@ parameter_list|,
 name|String
 name|id
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
-comment|/**      * Delete a repository's metadata. This includes all associated metadata facets.      * @param repositoryId the repository to delete      */
+comment|/**      * Delete a repository's metadata. This includes all associated metadata facets.      *      * @param repositoryId the repository to delete      */
 name|void
 name|deleteRepository
 parameter_list|(
 name|String
 name|repositoryId
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|List
 argument_list|<
@@ -341,6 +371,8 @@ parameter_list|(
 name|String
 name|repositoryId
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 block|}
 end_interface

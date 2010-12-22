@@ -19,16 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -91,6 +81,16 @@ name|ProjectVersionReference
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
 begin_interface
 specifier|public
 interface|interface
@@ -108,6 +108,8 @@ parameter_list|,
 name|String
 name|projectId
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 function_decl|;
 name|ProjectVersionMetadata
 name|getProjectVersion
@@ -145,6 +147,8 @@ parameter_list|,
 name|String
 name|projectVersion
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 function_decl|;
 comment|/**      * Retrieve project references from the metadata repository. Note that this is not built into the content model for      * a project version as a reference may be present (due to reverse-lookup of dependencies) before the actual      * project is, and we want to avoid adding a stub model to the content repository.      *      * @param repoId         the repository ID to look within      * @param namespace      the namespace of the project to get references to      * @param projectId      the identifier of the project to get references to      * @param projectVersion the version of the project to get references to      * @return a list of project references      */
 name|Collection
@@ -165,6 +169,8 @@ parameter_list|,
 name|String
 name|projectVersion
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 function_decl|;
 name|Collection
 argument_list|<
@@ -175,6 +181,8 @@ parameter_list|(
 name|String
 name|repoId
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 function_decl|;
 name|Collection
 argument_list|<
@@ -188,6 +196,8 @@ parameter_list|,
 name|String
 name|namespace
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 function_decl|;
 name|Collection
 argument_list|<
@@ -201,6 +211,8 @@ parameter_list|,
 name|String
 name|namespace
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 function_decl|;
 name|Collection
 argument_list|<
@@ -217,6 +229,8 @@ parameter_list|,
 name|String
 name|projectId
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 function_decl|;
 name|Collection
 argument_list|<
@@ -236,6 +250,8 @@ parameter_list|,
 name|String
 name|projectVersion
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 function_decl|;
 block|}
 end_interface

@@ -155,6 +155,22 @@ name|metadata
 operator|.
 name|repository
 operator|.
+name|MetadataRepositoryException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
 name|MetadataResolutionException
 import|;
 end_import
@@ -380,7 +396,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Browse the repository.   *   * TODO change name to ShowVersionedAction to conform to terminology.  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="showArtifactAction"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * Browse the repository.  *  * TODO change name to ShowVersionedAction to conform to terminology.  *  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="showArtifactAction"  * instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -665,7 +681,11 @@ argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifacts
-init|=
+decl_stmt|;
+try|try
+block|{
+name|artifacts
+operator|=
 operator|new
 name|ArrayList
 argument_list|<
@@ -685,7 +705,25 @@ argument_list|,
 name|version
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataResolutionException
+name|e
+parameter_list|)
+block|{
+name|addIncompleteModelWarning
+argument_list|()
+expr_stmt|;
+name|artifacts
+operator|=
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+expr_stmt|;
+block|}
 name|Collections
 operator|.
 name|sort
@@ -914,6 +952,8 @@ specifier|public
 name|String
 name|dependees
 parameter_list|()
+throws|throws
+name|MetadataResolutionException
 block|{
 name|List
 argument_list|<
@@ -1198,11 +1238,43 @@ argument_list|,
 name|propertyValue
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|updateProjectMetadata
 argument_list|(
 name|projectMetadata
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataRepositoryException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Unable to persist modified project metadata after adding entry: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+name|addActionError
+argument_list|(
+literal|"Unable to add metadata item to underlying content storage - consult application logs."
+argument_list|)
+expr_stmt|;
+return|return
+name|ERROR
+return|;
+block|}
 name|projectMetadata
 operator|=
 name|getProjectVersionMetadata
@@ -1263,12 +1335,6 @@ condition|)
 block|{
 name|addActionError
 argument_list|(
-name|errorMsg
-operator|!=
-literal|null
-condition|?
-name|errorMsg
-else|:
 literal|"Artifact not found"
 argument_list|)
 expr_stmt|;
@@ -1322,11 +1388,43 @@ argument_list|(
 name|deleteItem
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|updateProjectMetadata
 argument_list|(
 name|projectMetadata
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataRepositoryException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Unable to persist modified project metadata after removing entry: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+name|addActionError
+argument_list|(
+literal|"Unable to remove metadata item to underlying content storage - consult application logs."
+argument_list|)
+expr_stmt|;
+return|return
+name|ERROR
+return|;
+block|}
 name|projectMetadata
 operator|=
 name|getProjectVersionMetadata
@@ -1365,12 +1463,6 @@ else|else
 block|{
 name|addActionError
 argument_list|(
-name|errorMsg
-operator|!=
-literal|null
-condition|?
-name|errorMsg
-else|:
 literal|"No generic metadata facet for this artifact."
 argument_list|)
 expr_stmt|;
@@ -1389,6 +1481,8 @@ parameter_list|(
 name|ProjectVersionMetadata
 name|projectMetadata
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 name|GenericMetadataFacet
 name|genericMetadataFacet

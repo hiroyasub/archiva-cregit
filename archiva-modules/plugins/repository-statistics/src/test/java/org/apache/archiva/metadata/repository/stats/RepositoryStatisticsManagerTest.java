@@ -97,16 +97,6 @@ name|java
 operator|.
 name|text
 operator|.
-name|ParseException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|text
-operator|.
 name|SimpleDateFormat
 import|;
 end_import
@@ -348,7 +338,7 @@ name|void
 name|testGetLatestStats
 parameter_list|()
 throws|throws
-name|ParseException
+name|Exception
 block|{
 name|Date
 name|startTime
@@ -606,6 +596,8 @@ specifier|public
 name|void
 name|testGetLatestStatsWhenEmpty
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|metadataRepositoryControl
 operator|.
@@ -658,6 +650,8 @@ specifier|public
 name|void
 name|testAddNewStats
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|Date
 name|current
@@ -885,6 +879,8 @@ specifier|public
 name|void
 name|testDeleteStats
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|walkRepository
 argument_list|(
@@ -1137,6 +1133,8 @@ specifier|public
 name|void
 name|testDeleteStatsWhenEmpty
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|metadataRepositoryControl
 operator|.
@@ -1214,6 +1212,8 @@ specifier|public
 name|void
 name|testGetStatsRangeInside
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|walkRepository
 argument_list|(
@@ -1482,6 +1482,8 @@ specifier|public
 name|void
 name|testGetStatsRangeUpperOutside
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|walkRepository
 argument_list|(
@@ -1798,6 +1800,8 @@ specifier|public
 name|void
 name|testGetStatsRangeLowerOutside
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|walkRepository
 argument_list|(
@@ -2123,6 +2127,8 @@ specifier|public
 name|void
 name|testGetStatsRangeLowerAndUpperOutside
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|walkRepository
 argument_list|(
@@ -2497,6 +2503,8 @@ specifier|public
 name|void
 name|testGetStatsRangeNotInside
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|walkRepository
 argument_list|(
@@ -2711,6 +2719,8 @@ parameter_list|,
 name|Date
 name|endTime
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|RepositoryStatistics
 name|stats
@@ -2955,6 +2965,8 @@ parameter_list|(
 name|int
 name|count
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 for|for
 control|(

@@ -373,7 +373,7 @@ name|void
 name|testGetMostRecentEvents
 parameter_list|()
 throws|throws
-name|ParseException
+name|Exception
 block|{
 name|int
 name|numEvents
@@ -590,7 +590,7 @@ name|void
 name|testGetMostRecentEventsLessThan10
 parameter_list|()
 throws|throws
-name|ParseException
+name|Exception
 block|{
 name|int
 name|numEvents
@@ -790,7 +790,7 @@ name|void
 name|testGetMostRecentEventsInterleavedRepositories
 parameter_list|()
 throws|throws
-name|ParseException
+name|Exception
 block|{
 name|int
 name|numEvents
@@ -1136,6 +1136,8 @@ specifier|public
 name|void
 name|testGetMostRecentEventsWhenEmpty
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|metadataRepositoryControl
 operator|.
@@ -1192,7 +1194,7 @@ name|void
 name|testAddAuditEvent
 parameter_list|()
 throws|throws
-name|ParseException
+name|Exception
 block|{
 name|AuditEvent
 name|event
@@ -1236,7 +1238,7 @@ name|void
 name|testAddAuditEventNoRepositoryId
 parameter_list|()
 throws|throws
-name|ParseException
+name|Exception
 block|{
 name|AuditEvent
 name|event
@@ -1278,6 +1280,8 @@ specifier|public
 name|void
 name|testDeleteStats
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|metadataRepository
 operator|.
@@ -1313,7 +1317,7 @@ name|void
 name|testGetEventsRangeInside
 parameter_list|()
 throws|throws
-name|ParseException
+name|Exception
 block|{
 name|Date
 name|current
@@ -1526,7 +1530,7 @@ name|void
 name|testGetEventsRangeUpperOutside
 parameter_list|()
 throws|throws
-name|ParseException
+name|Exception
 block|{
 name|Date
 name|current
@@ -1779,7 +1783,7 @@ name|void
 name|testGetEventsRangeLowerOutside
 parameter_list|()
 throws|throws
-name|ParseException
+name|Exception
 block|{
 name|Date
 name|current
@@ -2041,7 +2045,7 @@ name|void
 name|testGetEventsRangeLowerAndUpperOutside
 parameter_list|()
 throws|throws
-name|ParseException
+name|Exception
 block|{
 name|Date
 name|current
@@ -2344,7 +2348,7 @@ name|void
 name|testGetEventsWithResource
 parameter_list|()
 throws|throws
-name|ParseException
+name|Exception
 block|{
 name|Date
 name|current
@@ -2634,7 +2638,7 @@ name|void
 name|testGetEventsWithNonExistantResource
 parameter_list|()
 throws|throws
-name|ParseException
+name|Exception
 block|{
 name|Date
 name|current
@@ -2870,7 +2874,7 @@ name|void
 name|testGetEventsRangeMultipleRepositories
 parameter_list|()
 throws|throws
-name|ParseException
+name|Exception
 block|{
 name|Date
 name|current
@@ -3209,7 +3213,7 @@ name|void
 name|testGetEventsRangeNotInside
 parameter_list|()
 throws|throws
-name|ParseException
+name|Exception
 block|{
 name|Date
 name|current

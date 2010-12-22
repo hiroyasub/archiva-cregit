@@ -35,6 +35,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|MetadataRepositoryException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -206,6 +222,8 @@ name|String
 argument_list|>
 name|repositoryIds
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 comment|// TODO: consider a more efficient implementation that directly gets the last ten from the content repository
 name|List
@@ -367,6 +385,8 @@ parameter_list|(
 name|AuditEvent
 name|event
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 comment|// ignore those with no repository - they will still be logged to the textual audit log
 if|if
@@ -400,6 +420,8 @@ parameter_list|(
 name|String
 name|repositoryId
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 name|metadataRepository
 operator|.
@@ -432,6 +454,8 @@ parameter_list|,
 name|Date
 name|endTime
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 return|return
 name|getAuditEventsInRange
@@ -468,6 +492,8 @@ parameter_list|,
 name|Date
 name|endTime
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 block|{
 name|List
 argument_list|<
