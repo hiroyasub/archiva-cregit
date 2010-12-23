@@ -21,33 +21,21 @@ end_comment
 
 begin_import
 import|import
+name|edu
+operator|.
+name|emory
+operator|.
+name|mathcs
+operator|.
+name|backport
+operator|.
 name|java
 operator|.
-name|lang
+name|util
 operator|.
-name|reflect
+name|concurrent
 operator|.
-name|Field
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|servlet
-operator|.
-name|ServletContextEvent
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|servlet
-operator|.
-name|ServletContextListener
+name|ExecutorService
 import|;
 end_import
 
@@ -251,21 +239,33 @@ end_import
 
 begin_import
 import|import
-name|edu
-operator|.
-name|emory
-operator|.
-name|mathcs
-operator|.
-name|backport
-operator|.
 name|java
 operator|.
-name|util
+name|lang
 operator|.
-name|concurrent
+name|reflect
 operator|.
-name|ExecutorService
+name|Field
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|servlet
+operator|.
+name|ServletContextEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|servlet
+operator|.
+name|ServletContextListener
 import|;
 end_import
 
@@ -538,7 +538,6 @@ name|printStackTrace
 argument_list|()
 expr_stmt|;
 block|}
-block|}
 try|try
 block|{
 comment|// shutdown the scheduler, otherwise Quartz scheduler and Threads still exists
@@ -592,6 +591,7 @@ operator|.
 name|printStackTrace
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 comment|// close the application context
 operator|(
