@@ -137,6 +137,10 @@ name|List
 import|;
 end_import
 
+begin_comment
+comment|// TODO: remove - it does nothing
+end_comment
+
 begin_class
 specifier|public
 class|class
@@ -591,6 +595,27 @@ block|{
 return|return
 literal|null
 return|;
+comment|//To change body of implemented methods use File | Settings | File Templates.
+block|}
+specifier|public
+name|void
+name|save
+parameter_list|()
+block|{
+comment|//To change body of implemented methods use File | Settings | File Templates.
+block|}
+specifier|public
+name|void
+name|close
+parameter_list|()
+block|{
+comment|//To change body of implemented methods use File | Settings | File Templates.
+block|}
+specifier|public
+name|void
+name|revert
+parameter_list|()
+block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public

@@ -425,7 +425,7 @@ name|javax
 operator|.
 name|jcr
 operator|.
-name|LoginException
+name|NamespaceRegistry
 import|;
 end_import
 
@@ -578,7 +578,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @plexus.component role="org.apache.archiva.metadata.repository.MetadataRepository"  * @todo below: revise storage format for project version metadata  * @todo revise reference storage  */
+comment|/**  * @todo below: revise storage format for project version metadata  * @todo revise reference storage  */
 end_comment
 
 begin_class
@@ -596,7 +596,6 @@ name|JCR_LAST_MODIFIED
 init|=
 literal|"jcr:lastModified"
 decl_stmt|;
-specifier|private
 specifier|static
 specifier|final
 name|String
@@ -604,7 +603,6 @@ name|ARTIFACT_NODE_TYPE
 init|=
 literal|"archiva:artifact"
 decl_stmt|;
-specifier|private
 specifier|static
 specifier|final
 name|String
@@ -624,8 +622,8 @@ name|ARTIFACT_NODE_TYPE
 operator|+
 literal|"]"
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.archiva.metadata.model.MetadataFacetFactory"      */
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -649,7 +647,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
 specifier|private
 name|Repository
 name|repository
@@ -660,18 +657,33 @@ name|session
 decl_stmt|;
 specifier|public
 name|JcrMetadataRepository
-parameter_list|()
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|MetadataFacetFactory
+argument_list|>
+name|metadataFacetFactories
+parameter_list|,
+name|Repository
+name|repository
+parameter_list|)
+throws|throws
+name|RepositoryException
 block|{
-block|}
-specifier|public
-name|void
-name|login
-parameter_list|()
-block|{
-comment|// FIXME: need to close this at the end - do we need to add it in the API?
-try|try
-block|{
-comment|// FIXME: shouldn't do this in constructor since it's a singleton
+name|this
+operator|.
+name|metadataFacetFactories
+operator|=
+name|metadataFacetFactories
+expr_stmt|;
+name|this
+operator|.
+name|repository
+operator|=
+name|repository
+expr_stmt|;
 name|session
 operator|=
 name|repository
@@ -690,6 +702,23 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+specifier|static
+name|void
+name|initialize
+parameter_list|(
+name|Session
+name|session
+parameter_list|)
+throws|throws
+name|RepositoryException
+block|{
+comment|// TODO: consider using namespaces for facets instead of the current approach:
+comment|// (if used, check if actually called by normal injection)
+comment|//        for ( String facetId : metadataFacetFactories.keySet() )
+comment|//        {
+comment|//            session.getWorkspace().getNamespaceRegistry().registerNamespace( facetId, facetId );
+comment|//        }
 name|Workspace
 name|workspace
 init|=
@@ -698,10 +727,34 @@ operator|.
 name|getWorkspace
 argument_list|()
 decl_stmt|;
+name|NamespaceRegistry
+name|registry
+init|=
 name|workspace
 operator|.
 name|getNamespaceRegistry
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|registry
+operator|.
+name|getPrefixes
+argument_list|()
+argument_list|)
+operator|.
+name|contains
+argument_list|(
+literal|"archiva"
+argument_list|)
+condition|)
+block|{
+name|registry
 operator|.
 name|registerNamespace
 argument_list|(
@@ -710,6 +763,7 @@ argument_list|,
 literal|"http://archiva.apache.org/jcr/"
 argument_list|)
 expr_stmt|;
+block|}
 name|NodeTypeManager
 name|nodeTypeManager
 init|=
@@ -722,6 +776,8 @@ name|registerMixinNodeType
 argument_list|(
 name|nodeTypeManager
 argument_list|,
+name|JcrMetadataRepository
+operator|.
 name|ARTIFACT_NODE_TYPE
 argument_list|)
 expr_stmt|;
@@ -729,40 +785,11 @@ name|registerMixinNodeType
 argument_list|(
 name|nodeTypeManager
 argument_list|,
+name|JcrMetadataRepository
+operator|.
 name|FACET_NODE_TYPE
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|LoginException
-name|e
-parameter_list|)
-block|{
-comment|// FIXME
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
-name|RepositoryException
-name|e
-parameter_list|)
-block|{
-comment|// FIXME
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 specifier|private
 specifier|static
@@ -800,6 +827,19 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+comment|// for now just don't re-create - but in future if we change the definition, make sure to remove first as an
+comment|// upgrade path
+if|if
+condition|(
+operator|!
+name|nodeTypeManager
+operator|.
+name|hasNodeType
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
 name|nodeTypeManager
 operator|.
 name|registerNodeType
@@ -809,6 +849,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 specifier|public
 name|void
@@ -5266,13 +5307,15 @@ return|return
 name|artifacts
 return|;
 block|}
+specifier|public
 name|void
-name|close
+name|save
 parameter_list|()
+throws|throws
+name|MetadataRepositoryException
 block|{
 try|try
 block|{
-comment|// FIXME: this shouldn't be here! Repository may need a context
 name|session
 operator|.
 name|save
@@ -5285,46 +5328,67 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-comment|// FIXME
 throw|throw
 operator|new
-name|RuntimeException
+name|MetadataRepositoryException
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
 block|}
+block|}
+specifier|public
+name|void
+name|revert
+parameter_list|()
+throws|throws
+name|MetadataRepositoryException
+block|{
+try|try
+block|{
+name|session
+operator|.
+name|refresh
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RepositoryException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|MetadataRepositoryException
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+specifier|public
+name|void
+name|close
+parameter_list|()
+block|{
 name|session
 operator|.
 name|logout
 argument_list|()
 expr_stmt|;
-block|}
-specifier|public
-name|void
-name|setMetadataFacetFactories
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|MetadataFacetFactory
-argument_list|>
-name|metadataFacetFactories
-parameter_list|)
-block|{
-name|this
-operator|.
-name|metadataFacetFactories
-operator|=
-name|metadataFacetFactories
-expr_stmt|;
-comment|// TODO: consider using namespaces for facets instead of the current approach:
-comment|// (if used, check if actually called by normal injection)
-comment|//        for ( String facetId : metadataFacetFactories.keySet() )
-comment|//        {
-comment|//            session.getWorkspace().getNamespaceRegistry().registerNamespace( facetId, facetId );
-comment|//        }
 block|}
 specifier|private
 name|ArtifactMetadata
