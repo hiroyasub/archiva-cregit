@@ -741,6 +741,10 @@ argument_list|,
 name|projectVersion
 argument_list|)
 expr_stmt|;
+name|createVersionMetadata
+operator|=
+literal|true
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
