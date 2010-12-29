@@ -83,6 +83,9 @@ block|{
 name|ProjectVersionMetadata
 name|resolveProjectVersion
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
@@ -105,6 +108,9 @@ name|ProjectVersionReference
 argument_list|>
 name|resolveProjectReferences
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
@@ -126,6 +132,9 @@ name|String
 argument_list|>
 name|resolveRootNamespaces
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repoId
 parameter_list|)
@@ -138,6 +147,9 @@ name|String
 argument_list|>
 name|resolveNamespaces
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
@@ -153,6 +165,9 @@ name|String
 argument_list|>
 name|resolveProjects
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
@@ -168,6 +183,9 @@ name|String
 argument_list|>
 name|resolveProjectVersions
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
@@ -186,6 +204,9 @@ name|ArtifactMetadata
 argument_list|>
 name|resolveArtifacts
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,

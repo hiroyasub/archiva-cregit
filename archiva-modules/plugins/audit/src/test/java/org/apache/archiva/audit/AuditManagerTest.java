@@ -339,13 +339,6 @@ operator|.
 name|getMock
 argument_list|()
 expr_stmt|;
-name|auditManager
-operator|.
-name|setMetadataRepository
-argument_list|(
-name|metadataRepository
-argument_list|)
-expr_stmt|;
 name|ManagedRepositoryConfiguration
 name|repository
 init|=
@@ -511,6 +504,8 @@ name|auditManager
 operator|.
 name|getMostRecentAuditEvents
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|Collections
 operator|.
 name|singletonList
@@ -713,6 +708,8 @@ name|auditManager
 operator|.
 name|getMostRecentAuditEvents
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|Collections
 operator|.
 name|singletonList
@@ -1041,6 +1038,8 @@ name|auditManager
 operator|.
 name|getMostRecentAuditEvents
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -1171,6 +1170,8 @@ name|auditManager
 operator|.
 name|getMostRecentAuditEvents
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|Collections
 operator|.
 name|singletonList
@@ -1224,6 +1225,8 @@ name|auditManager
 operator|.
 name|addAuditEvent
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|event
 argument_list|)
 expr_stmt|;
@@ -1267,6 +1270,8 @@ name|auditManager
 operator|.
 name|addAuditEvent
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|event
 argument_list|)
 expr_stmt|;
@@ -1303,6 +1308,8 @@ name|auditManager
 operator|.
 name|deleteAuditEvents
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 expr_stmt|;
@@ -1457,6 +1464,8 @@ name|auditManager
 operator|.
 name|getAuditEventsInRange
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|Collections
 operator|.
 name|singletonList
@@ -1697,6 +1706,8 @@ name|auditManager
 operator|.
 name|getAuditEventsInRange
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|Collections
 operator|.
 name|singletonList
@@ -1950,6 +1961,8 @@ name|auditManager
 operator|.
 name|getAuditEventsInRange
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|Collections
 operator|.
 name|singletonList
@@ -2240,6 +2253,8 @@ name|auditManager
 operator|.
 name|getAuditEventsInRange
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|Collections
 operator|.
 name|singletonList
@@ -2550,6 +2565,8 @@ name|auditManager
 operator|.
 name|getAuditEventsInRange
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|Collections
 operator|.
 name|singletonList
@@ -2830,6 +2847,8 @@ name|auditManager
 operator|.
 name|getAuditEventsInRange
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|Collections
 operator|.
 name|singletonList
@@ -3097,6 +3116,8 @@ name|auditManager
 operator|.
 name|getAuditEventsInRange
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -3329,6 +3350,8 @@ name|auditManager
 operator|.
 name|getAuditEventsInRange
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|Collections
 operator|.
 name|singletonList

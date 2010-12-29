@@ -272,13 +272,6 @@ operator|.
 name|getMock
 argument_list|()
 expr_stmt|;
-name|newVersionsProcessor
-operator|.
-name|setMetadataRepository
-argument_list|(
-name|metadataRepository
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|SuppressWarnings
@@ -511,6 +504,8 @@ operator|.
 name|process
 argument_list|(
 name|reqParams
+argument_list|,
+name|metadataRepository
 argument_list|)
 decl_stmt|;
 name|assertEquals

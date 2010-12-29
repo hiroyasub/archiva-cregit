@@ -17,6 +17,42 @@ name|repository
 package|;
 end_package
 
+begin_comment
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+end_comment
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|events
+operator|.
+name|RepositoryListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
+name|ManagedRepositoryConfiguration
+import|;
+end_import
+
 begin_import
 import|import
 name|java
@@ -27,12 +63,18 @@ name|Collections
 import|;
 end_import
 
-begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *   http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
-end_comment
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
 
 begin_comment
-comment|/**  * Test RetentionsCountRepositoryPurgeTest  *  */
+comment|/**  * Test RetentionsCountRepositoryPurgeTest  */
 end_comment
 
 begin_class
@@ -54,6 +96,29 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+name|ManagedRepositoryConfiguration
+name|repoConfiguration
+init|=
+name|getRepoConfiguration
+argument_list|(
+name|TEST_REPO_ID
+argument_list|,
+name|TEST_REPO_NAME
+argument_list|)
+decl_stmt|;
+name|List
+argument_list|<
+name|RepositoryListener
+argument_list|>
+name|listeners
+init|=
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
+name|listener
+argument_list|)
+decl_stmt|;
 name|repoPurge
 operator|=
 operator|new
@@ -62,22 +127,14 @@ argument_list|(
 name|getRepository
 argument_list|()
 argument_list|,
-name|getRepoConfiguration
-argument_list|(
-name|TEST_REPO_ID
-argument_list|,
-name|TEST_REPO_NAME
-argument_list|)
+name|repoConfiguration
 operator|.
 name|getRetentionCount
 argument_list|()
 argument_list|,
-name|Collections
-operator|.
-name|singletonList
-argument_list|(
-name|listener
-argument_list|)
+name|repositorySession
+argument_list|,
+name|listeners
 argument_list|)
 expr_stmt|;
 block|}
@@ -100,6 +157,8 @@ name|listener
 operator|.
 name|deleteArtifact
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|getRepository
 argument_list|()
 operator|.
@@ -119,6 +178,8 @@ name|listener
 operator|.
 name|deleteArtifact
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|getRepository
 argument_list|()
 operator|.
@@ -138,6 +199,8 @@ name|listener
 operator|.
 name|deleteArtifact
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|getRepository
 argument_list|()
 operator|.
@@ -157,6 +220,8 @@ name|listener
 operator|.
 name|deleteArtifact
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|getRepository
 argument_list|()
 operator|.
@@ -386,6 +451,8 @@ name|listener
 operator|.
 name|deleteArtifact
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|getRepository
 argument_list|()
 operator|.
@@ -405,6 +472,8 @@ name|listener
 operator|.
 name|deleteArtifact
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|getRepository
 argument_list|()
 operator|.
@@ -633,6 +702,8 @@ name|listener
 operator|.
 name|deleteArtifact
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|getRepository
 argument_list|()
 operator|.
@@ -652,6 +723,8 @@ name|listener
 operator|.
 name|deleteArtifact
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|getRepository
 argument_list|()
 operator|.

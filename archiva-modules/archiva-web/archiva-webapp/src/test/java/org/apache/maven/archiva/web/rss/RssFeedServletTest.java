@@ -21,18 +21,6 @@ end_comment
 
 begin_import
 import|import
-name|javax
-operator|.
-name|servlet
-operator|.
-name|http
-operator|.
-name|HttpServletResponse
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|meterware
@@ -154,6 +142,18 @@ operator|.
 name|misc
 operator|.
 name|BASE64Encoder
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|servlet
+operator|.
+name|http
+operator|.
+name|HttpServletResponse
 import|;
 end_import
 

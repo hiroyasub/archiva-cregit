@@ -29,6 +29,22 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|RepositorySession
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|repository
 operator|.
 name|events
@@ -206,7 +222,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Purge the repository by retention count. Retain only the specified number of snapshots.  *  */
+comment|/**  * Purge the repository by retention count. Retain only the specified number of snapshots.  */
 end_comment
 
 begin_class
@@ -229,6 +245,9 @@ parameter_list|,
 name|int
 name|retentionCount
 parameter_list|,
+name|RepositorySession
+name|repositorySession
+parameter_list|,
 name|List
 argument_list|<
 name|RepositoryListener
@@ -239,6 +258,8 @@ block|{
 name|super
 argument_list|(
 name|repository
+argument_list|,
+name|repositorySession
 argument_list|,
 name|listeners
 argument_list|)

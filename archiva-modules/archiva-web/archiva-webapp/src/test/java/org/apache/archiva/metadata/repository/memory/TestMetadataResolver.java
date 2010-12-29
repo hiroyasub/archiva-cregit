@@ -85,6 +85,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|RepositorySession
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -302,6 +318,9 @@ specifier|public
 name|ProjectVersionMetadata
 name|resolveProjectVersion
 parameter_list|(
+name|RepositorySession
+name|repositorySession
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
@@ -340,6 +359,9 @@ name|ProjectVersionReference
 argument_list|>
 name|resolveProjectReferences
 parameter_list|(
+name|RepositorySession
+name|repositorySession
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
@@ -378,6 +400,9 @@ name|String
 argument_list|>
 name|resolveRootNamespaces
 parameter_list|(
+name|RepositorySession
+name|repositorySession
+parameter_list|,
 name|String
 name|repoId
 parameter_list|)
@@ -385,6 +410,8 @@ block|{
 return|return
 name|resolveNamespaces
 argument_list|(
+name|repositorySession
+argument_list|,
 name|repoId
 argument_list|,
 literal|null
@@ -398,6 +425,9 @@ name|String
 argument_list|>
 name|resolveNamespaces
 parameter_list|(
+name|RepositorySession
+name|repositorySession
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
@@ -527,6 +557,9 @@ name|String
 argument_list|>
 name|resolveProjects
 parameter_list|(
+name|RepositorySession
+name|repositorySession
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
@@ -570,6 +603,9 @@ name|String
 argument_list|>
 name|resolveProjectVersions
 parameter_list|(
+name|RepositorySession
+name|repositorySession
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
@@ -620,6 +656,9 @@ name|ArtifactMetadata
 argument_list|>
 name|resolveArtifacts
 parameter_list|(
+name|RepositorySession
+name|repositorySession
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,

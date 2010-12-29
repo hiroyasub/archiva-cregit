@@ -327,13 +327,6 @@ operator|new
 name|MetadataRepositoryMock
 argument_list|()
 expr_stmt|;
-name|newArtifactsProcessor
-operator|.
-name|setMetadataRepository
-argument_list|(
-name|metadataRepository
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|SuppressWarnings
@@ -526,6 +519,8 @@ operator|.
 name|process
 argument_list|(
 name|reqParams
+argument_list|,
+name|metadataRepository
 argument_list|)
 decl_stmt|;
 comment|// check that the date used in the call is close to the one passed (5 seconds difference at most)

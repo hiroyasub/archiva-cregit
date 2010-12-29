@@ -325,13 +325,6 @@ operator|.
 name|getMock
 argument_list|()
 expr_stmt|;
-name|repositoryStatisticsManager
-operator|.
-name|setMetadataRepository
-argument_list|(
-name|metadataRepository
-argument_list|)
-expr_stmt|;
 block|}
 specifier|public
 name|void
@@ -483,6 +476,8 @@ name|repositoryStatisticsManager
 operator|.
 name|getLastStatistics
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 expr_stmt|;
@@ -632,6 +627,8 @@ name|repositoryStatisticsManager
 operator|.
 name|getLastStatistics
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 decl_stmt|;
@@ -756,6 +753,8 @@ name|repositoryStatisticsManager
 operator|.
 name|addStatisticsAfterScan
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|startTime
@@ -773,6 +772,8 @@ name|repositoryStatisticsManager
 operator|.
 name|getLastStatistics
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 expr_stmt|;
@@ -1064,6 +1065,8 @@ name|repositoryStatisticsManager
 operator|.
 name|addStatisticsAfterScan
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|startTime1
@@ -1082,6 +1085,8 @@ name|repositoryStatisticsManager
 operator|.
 name|addStatisticsAfterScan
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|startTime2
@@ -1102,6 +1107,8 @@ name|repositoryStatisticsManager
 operator|.
 name|getLastStatistics
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 argument_list|)
@@ -1110,6 +1117,8 @@ name|repositoryStatisticsManager
 operator|.
 name|deleteStatistics
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 expr_stmt|;
@@ -1119,6 +1128,8 @@ name|repositoryStatisticsManager
 operator|.
 name|getLastStatistics
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 argument_list|)
@@ -1181,6 +1192,8 @@ name|repositoryStatisticsManager
 operator|.
 name|getLastStatistics
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 argument_list|)
@@ -1189,6 +1202,8 @@ name|repositoryStatisticsManager
 operator|.
 name|deleteStatistics
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 expr_stmt|;
@@ -1198,6 +1213,8 @@ name|repositoryStatisticsManager
 operator|.
 name|getLastStatistics
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 argument_list|)
@@ -1385,6 +1402,8 @@ name|repositoryStatisticsManager
 operator|.
 name|addStatisticsAfterScan
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|stats
@@ -1413,6 +1432,8 @@ name|repositoryStatisticsManager
 operator|.
 name|getStatisticsInRange
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 operator|new
@@ -1688,6 +1709,8 @@ name|repositoryStatisticsManager
 operator|.
 name|addStatisticsAfterScan
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|stats
@@ -1716,6 +1739,8 @@ name|repositoryStatisticsManager
 operator|.
 name|getStatisticsInRange
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 operator|new
@@ -2006,6 +2031,8 @@ name|repositoryStatisticsManager
 operator|.
 name|addStatisticsAfterScan
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|stats
@@ -2034,6 +2061,8 @@ name|repositoryStatisticsManager
 operator|.
 name|getStatisticsInRange
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 operator|new
@@ -2367,6 +2396,8 @@ name|repositoryStatisticsManager
 operator|.
 name|addStatisticsAfterScan
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|stats
@@ -2395,6 +2426,8 @@ name|repositoryStatisticsManager
 operator|.
 name|getStatisticsInRange
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 operator|new
@@ -2640,6 +2673,8 @@ name|repositoryStatisticsManager
 operator|.
 name|addStatisticsAfterScan
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|stats
@@ -2668,6 +2703,8 @@ name|repositoryStatisticsManager
 operator|.
 name|getStatisticsInRange
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 operator|new

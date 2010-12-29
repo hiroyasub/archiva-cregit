@@ -159,6 +159,16 @@ name|Collections
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -283,6 +293,19 @@ operator|.
 name|getMock
 argument_list|()
 expr_stmt|;
+name|List
+argument_list|<
+name|RepositoryListener
+argument_list|>
+name|listeners
+init|=
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
+name|listener
+argument_list|)
+decl_stmt|;
 name|repoPurge
 operator|=
 operator|new
@@ -297,12 +320,9 @@ name|archivaConfiguration
 argument_list|,
 name|factory
 argument_list|,
-name|Collections
-operator|.
-name|singletonList
-argument_list|(
-name|listener
-argument_list|)
+name|repositorySession
+argument_list|,
+name|listeners
 argument_list|)
 expr_stmt|;
 block|}
@@ -356,6 +376,8 @@ name|listener
 operator|.
 name|deleteArtifact
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|getRepository
 argument_list|()
 operator|.
@@ -752,6 +774,8 @@ name|listener
 operator|.
 name|deleteArtifact
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|getRepository
 argument_list|()
 operator|.

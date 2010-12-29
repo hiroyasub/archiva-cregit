@@ -29,6 +29,22 @@ name|metadata
 operator|.
 name|repository
 operator|.
+name|MetadataRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
 name|MetadataRepositoryException
 import|;
 end_import
@@ -227,6 +243,18 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|mock
+import|;
+end_import
+
 begin_comment
 comment|/**  * ArchivaRepositoryScanningTaskExecutorTest  *  * @version $Id$  */
 end_comment
@@ -262,6 +290,10 @@ specifier|private
 name|TestConsumer
 name|testConsumer
 decl_stmt|;
+specifier|private
+name|MetadataRepository
+name|metadataRepository
+decl_stmt|;
 specifier|protected
 name|void
 name|setUp
@@ -274,6 +306,8 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|taskExecutor
 operator|=
 operator|(
@@ -288,6 +322,23 @@ argument_list|,
 literal|"test-repository-scanning"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// TODO: handle cleanup in plexus-spring lookup method instead
+name|applicationContext
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
 name|File
 name|sourceRepoDir
 init|=
@@ -549,6 +600,15 @@ argument_list|,
 literal|"test-consumer"
 argument_list|)
 expr_stmt|;
+name|metadataRepository
+operator|=
+name|mock
+argument_list|(
+name|MetadataRepository
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 specifier|protected
 name|void
@@ -710,6 +770,8 @@ name|repositoryStatisticsManager
 operator|.
 name|getLastStatistics
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 decl_stmt|;
@@ -855,6 +917,8 @@ name|repositoryStatisticsManager
 operator|.
 name|getLastStatistics
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 decl_stmt|;
@@ -1038,6 +1102,8 @@ name|repositoryStatisticsManager
 operator|.
 name|getLastStatistics
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 decl_stmt|;
@@ -1221,6 +1287,8 @@ name|repositoryStatisticsManager
 operator|.
 name|getLastStatistics
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 decl_stmt|;
@@ -1293,6 +1361,8 @@ name|repositoryStatisticsManager
 operator|.
 name|addStatisticsAfterScan
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 operator|new
@@ -1443,6 +1513,8 @@ name|repositoryStatisticsManager
 operator|.
 name|addStatisticsAfterScan
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 operator|new

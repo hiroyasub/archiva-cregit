@@ -27,6 +27,22 @@ name|metadata
 operator|.
 name|repository
 operator|.
+name|MetadataRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
 name|MetadataRepositoryException
 import|;
 end_import
@@ -72,6 +88,9 @@ name|AuditEvent
 argument_list|>
 name|getMostRecentAuditEvents
 parameter_list|(
+name|MetadataRepository
+name|metadataRepository
+parameter_list|,
 name|List
 argument_list|<
 name|String
@@ -84,6 +103,9 @@ function_decl|;
 name|void
 name|addAuditEvent
 parameter_list|(
+name|MetadataRepository
+name|repository
+parameter_list|,
 name|AuditEvent
 name|event
 parameter_list|)
@@ -93,19 +115,25 @@ function_decl|;
 name|void
 name|deleteAuditEvents
 parameter_list|(
+name|MetadataRepository
+name|metadataRepository
+parameter_list|,
 name|String
 name|repositoryId
 parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-comment|/**      * Get all audit events from the given repositories that match a certain range      *      * @param repositoryIds the repositories to retrieve events for      * @param startTime     find events only after this time      * @param endTime       find events only before this time      * @return the list of events found      */
+comment|/**      * Get all audit events from the given repositories that match a certain range      *      * @param metadataRepository      * @param repositoryIds      the repositories to retrieve events for      * @param startTime          find events only after this time      * @param endTime            find events only before this time      * @return the list of events found      */
 name|List
 argument_list|<
 name|AuditEvent
 argument_list|>
 name|getAuditEventsInRange
 parameter_list|(
+name|MetadataRepository
+name|metadataRepository
+parameter_list|,
 name|Collection
 argument_list|<
 name|String
@@ -121,13 +149,16 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-comment|/**      * Get all audit events from the given repositories that match a certain range and resource pattern      *      * @param repositoryIds   the repositories to retrieve events for      * @param resourcePattern find all events whose resources start with this string      * @param startTime       find events only after this time      * @param endTime         find events only before this time      * @return the list of events found      */
+comment|/**      * Get all audit events from the given repositories that match a certain range and resource pattern      *      * @param metadataRepository      * @param repositoryIds      the repositories to retrieve events for      * @param resourcePattern    find all events whose resources start with this string      * @param startTime          find events only after this time      * @param endTime            find events only before this time      * @return the list of events found      */
 name|List
 argument_list|<
 name|AuditEvent
 argument_list|>
 name|getAuditEventsInRange
 parameter_list|(
+name|MetadataRepository
+name|metadataRepository
+parameter_list|,
 name|Collection
 argument_list|<
 name|String

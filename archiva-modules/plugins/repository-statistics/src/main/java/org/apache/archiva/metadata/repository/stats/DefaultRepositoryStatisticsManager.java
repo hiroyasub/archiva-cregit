@@ -229,11 +229,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
-specifier|private
-name|MetadataRepository
-name|metadataRepository
-decl_stmt|;
 specifier|private
 specifier|static
 specifier|final
@@ -251,6 +246,9 @@ specifier|public
 name|RepositoryStatistics
 name|getLastStatistics
 parameter_list|(
+name|MetadataRepository
+name|metadataRepository
+parameter_list|,
 name|String
 name|repositoryId
 parameter_list|)
@@ -335,6 +333,9 @@ specifier|private
 name|void
 name|walkRepository
 parameter_list|(
+name|MetadataRepository
+name|metadataRepository
+parameter_list|,
 name|RepositoryStatistics
 name|stats
 parameter_list|,
@@ -364,6 +365,8 @@ control|)
 block|{
 name|walkRepository
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|stats
 argument_list|,
 name|repositoryId
@@ -554,6 +557,9 @@ specifier|public
 name|void
 name|addStatisticsAfterScan
 parameter_list|(
+name|MetadataRepository
+name|metadataRepository
+parameter_list|,
 name|String
 name|repositoryId
 parameter_list|,
@@ -640,6 +646,8 @@ control|)
 block|{
 name|walkRepository
 argument_list|(
+name|metadataRepository
+argument_list|,
 name|repositoryStatistics
 argument_list|,
 name|repositoryId
@@ -700,6 +708,9 @@ specifier|public
 name|void
 name|deleteStatistics
 parameter_list|(
+name|MetadataRepository
+name|metadataRepository
+parameter_list|,
 name|String
 name|repositoryId
 parameter_list|)
@@ -725,6 +736,9 @@ name|RepositoryStatistics
 argument_list|>
 name|getStatisticsInRange
 parameter_list|(
+name|MetadataRepository
+name|metadataRepository
+parameter_list|,
 name|String
 name|repositoryId
 parameter_list|,
@@ -911,21 +925,6 @@ expr_stmt|;
 return|return
 name|fmt
 return|;
-block|}
-specifier|public
-name|void
-name|setMetadataRepository
-parameter_list|(
-name|MetadataRepository
-name|metadataRepository
-parameter_list|)
-block|{
-name|this
-operator|.
-name|metadataRepository
-operator|=
-name|metadataRepository
-expr_stmt|;
 block|}
 block|}
 end_class

@@ -75,6 +75,10 @@ name|Collection
 import|;
 end_import
 
+begin_comment
+comment|// FIXME: remove - this is useless, better to mock it or avoid needing it
+end_comment
+
 begin_class
 specifier|public
 class|class
@@ -86,6 +90,9 @@ specifier|public
 name|ProjectVersionMetadata
 name|resolveProjectVersion
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
@@ -98,6 +105,8 @@ parameter_list|,
 name|String
 name|projectVersion
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 block|{
 return|return
 literal|null
@@ -111,6 +120,9 @@ name|ProjectVersionReference
 argument_list|>
 name|resolveProjectReferences
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
@@ -123,6 +135,8 @@ parameter_list|,
 name|String
 name|projectVersion
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 block|{
 return|return
 literal|null
@@ -136,9 +150,14 @@ name|String
 argument_list|>
 name|resolveRootNamespaces
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repoId
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 block|{
 return|return
 literal|null
@@ -152,12 +171,17 @@ name|String
 argument_list|>
 name|resolveNamespaces
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
 name|String
 name|namespace
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 block|{
 return|return
 literal|null
@@ -171,12 +195,17 @@ name|String
 argument_list|>
 name|resolveProjects
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
 name|String
 name|namespace
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 block|{
 return|return
 literal|null
@@ -190,6 +219,9 @@ name|String
 argument_list|>
 name|resolveProjectVersions
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
@@ -199,6 +231,8 @@ parameter_list|,
 name|String
 name|projectId
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 block|{
 return|return
 literal|null
@@ -212,6 +246,9 @@ name|ArtifactMetadata
 argument_list|>
 name|resolveArtifacts
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
@@ -224,6 +261,8 @@ parameter_list|,
 name|String
 name|projectVersion
 parameter_list|)
+throws|throws
+name|MetadataResolutionException
 block|{
 return|return
 literal|null
