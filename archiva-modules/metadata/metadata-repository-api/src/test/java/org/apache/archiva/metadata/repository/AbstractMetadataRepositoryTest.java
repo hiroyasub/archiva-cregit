@@ -2940,6 +2940,11 @@ argument_list|,
 name|artifactMetadata
 argument_list|)
 expr_stmt|;
+name|repository
+operator|.
+name|save
+argument_list|()
+expr_stmt|;
 name|Collection
 argument_list|<
 name|ArtifactMetadata
@@ -4704,6 +4709,11 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
+name|repository
+operator|.
+name|save
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|Collections
@@ -4766,6 +4776,11 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
+name|repository
+operator|.
+name|save
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|Collections
@@ -4815,6 +4830,11 @@ name|TEST_PROJECT_VERSION
 argument_list|,
 name|artifact
 argument_list|)
+expr_stmt|;
+name|repository
+operator|.
+name|save
+argument_list|()
 expr_stmt|;
 name|Date
 name|date
@@ -4946,6 +4966,11 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
+name|repository
+operator|.
+name|save
+argument_list|()
+expr_stmt|;
 name|Date
 name|lower
 init|=
@@ -5030,6 +5055,11 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
+name|repository
+operator|.
+name|save
+argument_list|()
+expr_stmt|;
 name|Date
 name|upper
 init|=
@@ -5097,6 +5127,11 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
+name|repository
+operator|.
+name|save
+argument_list|()
+expr_stmt|;
 name|Date
 name|upper
 init|=
@@ -5159,6 +5194,11 @@ name|TEST_PROJECT_VERSION
 argument_list|,
 name|artifact
 argument_list|)
+expr_stmt|;
+name|repository
+operator|.
+name|save
+argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -5233,6 +5273,11 @@ name|TEST_PROJECT_VERSION
 argument_list|,
 name|secondArtifact
 argument_list|)
+expr_stmt|;
+name|repository
+operator|.
+name|save
+argument_list|()
 expr_stmt|;
 comment|// test it restricts to the appropriate repository
 name|assertEquals
@@ -5325,6 +5370,11 @@ name|TEST_PROJECT_VERSION
 argument_list|,
 name|secondArtifact
 argument_list|)
+expr_stmt|;
+name|repository
+operator|.
+name|save
+argument_list|()
 expr_stmt|;
 comment|// test it restricts to the appropriate repository
 name|assertEquals
@@ -5425,6 +5475,11 @@ name|TEST_PROJECT_VERSION
 argument_list|,
 name|secondArtifact
 argument_list|)
+expr_stmt|;
+name|repository
+operator|.
+name|save
+argument_list|()
 expr_stmt|;
 comment|// test it restricts to the appropriate repository
 name|assertEquals
@@ -5623,6 +5678,11 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
+name|repository
+operator|.
+name|save
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|Collections
@@ -5670,6 +5730,11 @@ name|TEST_PROJECT_VERSION
 argument_list|,
 name|artifact
 argument_list|)
+expr_stmt|;
+name|repository
+operator|.
+name|save
+argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -5730,6 +5795,11 @@ name|TEST_PROJECT_VERSION
 argument_list|,
 name|artifact
 argument_list|)
+expr_stmt|;
+name|repository
+operator|.
+name|save
+argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -5830,6 +5900,11 @@ name|TEST_PROJECT_VERSION
 argument_list|,
 name|artifact2
 argument_list|)
+expr_stmt|;
+name|repository
+operator|.
+name|save
+argument_list|()
 expr_stmt|;
 name|List
 argument_list|<
@@ -5950,6 +6025,21 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
+name|List
+argument_list|<
+name|ArtifactMetadata
+argument_list|>
+name|artifactsByChecksum
+init|=
+name|repository
+operator|.
+name|getArtifactsByChecksum
+argument_list|(
+name|TEST_REPO_ID
+argument_list|,
+literal|"not checksum"
+argument_list|)
+decl_stmt|;
 name|assertEquals
 argument_list|(
 name|Collections
@@ -5960,14 +6050,7 @@ operator|>
 name|emptyList
 argument_list|()
 argument_list|,
-name|repository
-operator|.
-name|getArtifactsByChecksum
-argument_list|(
-name|TEST_REPO_ID
-argument_list|,
-literal|"not checksum"
-argument_list|)
+name|artifactsByChecksum
 argument_list|)
 expr_stmt|;
 block|}
@@ -6209,6 +6292,11 @@ name|TEST_PROJECT_VERSION
 argument_list|,
 name|artifact2
 argument_list|)
+expr_stmt|;
+name|repository
+operator|.
+name|save
+argument_list|()
 expr_stmt|;
 name|List
 argument_list|<
