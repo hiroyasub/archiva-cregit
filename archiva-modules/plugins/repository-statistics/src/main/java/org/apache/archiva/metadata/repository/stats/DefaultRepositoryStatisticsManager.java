@@ -848,14 +848,20 @@ operator|.
 name|getQueryManager
 argument_list|()
 decl_stmt|;
+comment|// TODO: JCR-SQL2 query will not complete on a large repo in Jackrabbit 2.2.0 - see JCR-2835
+comment|//    Using the JCR-SQL2 variants gives
+comment|//      "org.apache.lucene.search.BooleanQuery$TooManyClauses: maxClauseCount is set to 1024"
+comment|//            String whereClause = "WHERE ISDESCENDANTNODE([/repositories/" + repositoryId + "/content])";
+comment|//            Query query = queryManager.createQuery( "SELECT size FROM [archiva:artifact] " + whereClause,
+comment|//                                                    Query.JCR_SQL2 );
 name|String
 name|whereClause
 init|=
-literal|"WHERE ISDESCENDANTNODE([/repositories/"
+literal|"WHERE jcr:path LIKE '/repositories/"
 operator|+
 name|repositoryId
 operator|+
-literal|"/content])"
+literal|"/content/%'"
 decl_stmt|;
 name|Query
 name|query
@@ -864,13 +870,13 @@ name|queryManager
 operator|.
 name|createQuery
 argument_list|(
-literal|"SELECT size FROM [archiva:artifact] "
+literal|"SELECT size FROM archiva:artifact "
 operator|+
 name|whereClause
 argument_list|,
 name|Query
 operator|.
-name|JCR_SQL2
+name|SQL
 argument_list|)
 decl_stmt|;
 name|QueryResult
@@ -928,8 +934,6 @@ operator|.
 name|getNode
 argument_list|()
 decl_stmt|;
-comment|//                if ( n.getPath().startsWith( "/repositories/" + repositoryId + "/content/" ) )
-block|{
 name|totalSize
 operator|+=
 name|row
@@ -1020,7 +1024,6 @@ name|totalArtifacts
 operator|++
 expr_stmt|;
 block|}
-block|}
 name|repositoryStatistics
 operator|.
 name|setTotalArtifactCount
@@ -1069,19 +1072,23 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// The query ordering is a trick to ensure that the size is correct, otherwise due to lazy init it will be -1
+comment|//            query = queryManager.createQuery( "SELECT * FROM [archiva:project] " + whereClause, Query.JCR_SQL2 );
 name|query
 operator|=
 name|queryManager
 operator|.
 name|createQuery
 argument_list|(
-literal|"SELECT * FROM [archiva:project] "
+literal|"SELECT * FROM archiva:project "
 operator|+
 name|whereClause
+operator|+
+literal|" ORDER BY jcr:score"
 argument_list|,
 name|Query
 operator|.
-name|JCR_SQL2
+name|SQL
 argument_list|)
 expr_stmt|;
 name|repositoryStatistics
@@ -1100,21 +1107,23 @@ name|getSize
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|//            query = queryManager.createQuery(
+comment|//                "SELECT * FROM [archiva:namespace] " + whereClause + " AND namespace IS NOT NULL", Query.JCR_SQL2 );
 name|query
 operator|=
 name|queryManager
 operator|.
 name|createQuery
 argument_list|(
-literal|"SELECT * FROM [archiva:namespace] "
+literal|"SELECT * FROM archiva:namespace "
 operator|+
 name|whereClause
 operator|+
-literal|" AND namespace IS NOT NULL"
+literal|" AND namespace IS NOT NULL ORDER BY jcr:score"
 argument_list|,
 name|Query
 operator|.
-name|JCR_SQL2
+name|SQL
 argument_list|)
 expr_stmt|;
 name|repositoryStatistics
