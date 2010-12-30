@@ -619,6 +619,38 @@ block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
+name|boolean
+name|canObtainAccess
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|aClass
+parameter_list|)
+block|{
+return|return
+literal|false
+return|;
+comment|//To change body of implemented methods use File | Settings | File Templates.
+block|}
+specifier|public
+name|Object
+name|obtainAccess
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|aClass
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+comment|//To change body of implemented methods use File | Settings | File Templates.
+block|}
+specifier|public
 name|List
 argument_list|<
 name|ArtifactMetadata
