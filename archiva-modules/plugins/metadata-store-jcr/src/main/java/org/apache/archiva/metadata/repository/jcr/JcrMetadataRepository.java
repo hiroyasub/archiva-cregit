@@ -611,18 +611,6 @@ init|=
 literal|"archiva:facet"
 decl_stmt|;
 specifier|private
-specifier|static
-specifier|final
-name|String
-name|QUERY_ARTIFACTS
-init|=
-literal|"SELECT * FROM ["
-operator|+
-name|ARTIFACT_NODE_TYPE
-operator|+
-literal|"] AS artifact"
-decl_stmt|;
-specifier|private
 specifier|final
 name|Map
 argument_list|<
@@ -2806,12 +2794,10 @@ decl_stmt|;
 name|String
 name|q
 init|=
-name|QUERY_ARTIFACTS
-decl_stmt|;
-name|String
-name|clause
-init|=
-literal|" WHERE"
+name|getArtifactQuery
+argument_list|(
+name|repoId
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -2822,13 +2808,7 @@ condition|)
 block|{
 name|q
 operator|+=
-name|clause
-operator|+
-literal|" [whenGathered]>= $start"
-expr_stmt|;
-name|clause
-operator|=
-literal|" AND"
+literal|" AND [whenGathered]>= $start"
 expr_stmt|;
 block|}
 if|if
@@ -2840,9 +2820,7 @@ condition|)
 block|{
 name|q
 operator|+=
-name|clause
-operator|+
-literal|" [whenGathered]<= $end"
+literal|" AND [whenGathered]<= $end"
 expr_stmt|;
 block|}
 try|try
@@ -3142,9 +3120,12 @@ decl_stmt|;
 name|String
 name|q
 init|=
-name|QUERY_ARTIFACTS
+name|getArtifactQuery
+argument_list|(
+name|repositoryId
+argument_list|)
 operator|+
-literal|" WHERE [sha1] = $checksum OR [md5] = $checksum"
+literal|" AND ([sha1] = $checksum OR [md5] = $checksum)"
 decl_stmt|;
 try|try
 block|{
@@ -3439,16 +3420,10 @@ decl_stmt|;
 name|String
 name|q
 init|=
-name|QUERY_ARTIFACTS
-operator|+
-literal|" WHERE ISDESCENDANTNODE(artifact,'/"
-operator|+
-name|getRepositoryContentPath
+name|getArtifactQuery
 argument_list|(
 name|repositoryId
 argument_list|)
-operator|+
-literal|"')"
 decl_stmt|;
 try|try
 block|{
@@ -3548,6 +3523,30 @@ throw|;
 block|}
 return|return
 name|artifacts
+return|;
+block|}
+specifier|private
+specifier|static
+name|String
+name|getArtifactQuery
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|)
+block|{
+return|return
+literal|"SELECT * FROM ["
+operator|+
+name|ARTIFACT_NODE_TYPE
+operator|+
+literal|"] AS artifact WHERE ISDESCENDANTNODE(artifact,'/"
+operator|+
+name|getRepositoryContentPath
+argument_list|(
+name|repositoryId
+argument_list|)
+operator|+
+literal|"')"
 return|;
 block|}
 specifier|public
