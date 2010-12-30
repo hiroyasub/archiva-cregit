@@ -1327,6 +1327,11 @@ argument_list|,
 name|metadataRepository
 argument_list|)
 expr_stmt|;
+name|repositorySession
+operator|.
+name|save
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1505,6 +1510,11 @@ name|projectMetadata
 argument_list|,
 name|metadataRepository
 argument_list|)
+expr_stmt|;
+name|repositorySession
+operator|.
+name|save
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch
