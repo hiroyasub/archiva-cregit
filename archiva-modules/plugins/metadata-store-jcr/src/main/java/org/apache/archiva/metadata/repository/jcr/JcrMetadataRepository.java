@@ -620,7 +620,7 @@ literal|"SELECT * FROM ["
 operator|+
 name|ARTIFACT_NODE_TYPE
 operator|+
-literal|"]"
+literal|"] AS artifact"
 decl_stmt|;
 specifier|private
 specifier|final
@@ -3440,6 +3440,15 @@ name|String
 name|q
 init|=
 name|QUERY_ARTIFACTS
+operator|+
+literal|" WHERE ISDESCENDANTNODE(artifact,'/"
+operator|+
+name|getRepositoryContentPath
+argument_list|(
+name|repositoryId
+argument_list|)
+operator|+
+literal|"')"
 decl_stmt|;
 try|try
 block|{
