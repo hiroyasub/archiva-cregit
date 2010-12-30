@@ -848,6 +848,15 @@ operator|.
 name|getQueryManager
 argument_list|()
 decl_stmt|;
+name|String
+name|whereClause
+init|=
+literal|"WHERE ISDESCENDANTNODE([/repositories/"
+operator|+
+name|repositoryId
+operator|+
+literal|"/content])"
+decl_stmt|;
 name|Query
 name|query
 init|=
@@ -855,7 +864,9 @@ name|queryManager
 operator|.
 name|createQuery
 argument_list|(
-literal|"SELECT size FROM [archiva:artifact]"
+literal|"SELECT size FROM [archiva:artifact] "
+operator|+
+name|whereClause
 argument_list|,
 name|Query
 operator|.
@@ -917,22 +928,7 @@ operator|.
 name|getNode
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|n
-operator|.
-name|getPath
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"/repositories/"
-operator|+
-name|repositoryId
-operator|+
-literal|"/content/"
-argument_list|)
-condition|)
+comment|//                if ( n.getPath().startsWith( "/repositories/" + repositoryId + "/content/" ) )
 block|{
 name|totalSize
 operator|+=
@@ -1079,7 +1075,9 @@ name|queryManager
 operator|.
 name|createQuery
 argument_list|(
-literal|"SELECT * FROM [archiva:project]"
+literal|"SELECT * FROM [archiva:project] "
+operator|+
+name|whereClause
 argument_list|,
 name|Query
 operator|.
@@ -1108,7 +1106,11 @@ name|queryManager
 operator|.
 name|createQuery
 argument_list|(
-literal|"SELECT * FROM [archiva:namespace] WHERE namespace IS NOT NULL"
+literal|"SELECT * FROM [archiva:namespace] "
+operator|+
+name|whereClause
+operator|+
+literal|" AND namespace IS NOT NULL"
 argument_list|,
 name|Query
 operator|.
