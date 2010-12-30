@@ -545,6 +545,26 @@ parameter_list|()
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+name|boolean
+name|canObtainAccess
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|aClass
+parameter_list|)
+function_decl|;
+name|Object
+name|obtainAccess
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|aClass
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
