@@ -171,6 +171,8 @@ literal|"baseUrl"
 block|,
 literal|"browser"
 block|,
+literal|"maxWaitTimeInMs"
+block|,
 literal|"seleniumHost"
 block|,
 literal|"seleniumPort"
@@ -185,6 +187,9 @@ name|baseUrl
 parameter_list|,
 name|String
 name|browser
+parameter_list|,
+name|int
+name|maxWaitTimeInMs
 parameter_list|,
 annotation|@
 name|Optional
@@ -216,6 +221,13 @@ argument_list|,
 name|seleniumHost
 argument_list|,
 name|seleniumPort
+argument_list|,
+name|Integer
+operator|.
+name|toString
+argument_list|(
+name|maxWaitTimeInMs
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getSelenium
