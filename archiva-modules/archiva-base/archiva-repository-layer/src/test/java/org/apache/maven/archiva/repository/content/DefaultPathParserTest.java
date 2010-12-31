@@ -84,7 +84,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultPathParserTest  *  * @version $Id$  */
+comment|/**  * DefaultPathParserTest  *  * TODO: move to path translator tests  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -248,7 +248,168 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws LayoutException      */
+specifier|public
+name|void
+name|testGoodButDualExtensionsWithClassifier
+parameter_list|()
+throws|throws
+name|LayoutException
+block|{
+name|String
+name|groupId
+init|=
+literal|"org.project"
+decl_stmt|;
+name|String
+name|artifactId
+init|=
+literal|"example-presentation"
+decl_stmt|;
+name|String
+name|version
+init|=
+literal|"3.2"
+decl_stmt|;
+name|String
+name|classifier
+init|=
+literal|"extras"
+decl_stmt|;
+name|String
+name|type
+init|=
+literal|"xml.zip"
+decl_stmt|;
+name|String
+name|path
+init|=
+literal|"org/project/example-presentation/3.2/example-presentation-3.2-extras.xml.zip"
+decl_stmt|;
+name|assertLayout
+argument_list|(
+name|path
+argument_list|,
+name|groupId
+argument_list|,
+name|artifactId
+argument_list|,
+name|version
+argument_list|,
+name|classifier
+argument_list|,
+name|type
+argument_list|)
+expr_stmt|;
+block|}
+specifier|public
+name|void
+name|testGoodButDualExtensionsTarGz
+parameter_list|()
+throws|throws
+name|LayoutException
+block|{
+name|String
+name|groupId
+init|=
+literal|"org.project"
+decl_stmt|;
+name|String
+name|artifactId
+init|=
+literal|"example-distribution"
+decl_stmt|;
+name|String
+name|version
+init|=
+literal|"1.3"
+decl_stmt|;
+name|String
+name|classifier
+init|=
+literal|null
+decl_stmt|;
+name|String
+name|type
+init|=
+literal|"tar.gz"
+decl_stmt|;
+comment|// no longer using distribution-tgz / distribution-zip in maven 2
+name|String
+name|path
+init|=
+literal|"org/project/example-distribution/1.3/example-distribution-1.3.tar.gz"
+decl_stmt|;
+name|assertLayout
+argument_list|(
+name|path
+argument_list|,
+name|groupId
+argument_list|,
+name|artifactId
+argument_list|,
+name|version
+argument_list|,
+name|classifier
+argument_list|,
+name|type
+argument_list|)
+expr_stmt|;
+block|}
+specifier|public
+name|void
+name|testGoodButDualExtensionsTarGzAndClassifier
+parameter_list|()
+throws|throws
+name|LayoutException
+block|{
+name|String
+name|groupId
+init|=
+literal|"org.project"
+decl_stmt|;
+name|String
+name|artifactId
+init|=
+literal|"example-distribution"
+decl_stmt|;
+name|String
+name|version
+init|=
+literal|"1.3"
+decl_stmt|;
+name|String
+name|classifier
+init|=
+literal|"bin"
+decl_stmt|;
+name|String
+name|type
+init|=
+literal|"tar.gz"
+decl_stmt|;
+comment|// no longer using distribution-tgz / distribution-zip in maven 2
+name|String
+name|path
+init|=
+literal|"org/project/example-distribution/1.3/example-distribution-1.3-bin.tar.gz"
+decl_stmt|;
+name|assertLayout
+argument_list|(
+name|path
+argument_list|,
+name|groupId
+argument_list|,
+name|artifactId
+argument_list|,
+name|version
+argument_list|,
+name|classifier
+argument_list|,
+name|type
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      *      * @throws LayoutException      */
 specifier|public
 name|void
 name|testGoodButOddVersionSpecGanymedSsh2
@@ -302,7 +463,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws LayoutException      */
+comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      *      * @throws LayoutException      */
 specifier|public
 name|void
 name|testGoodButOddVersionSpecJavaxComm
@@ -358,7 +519,7 @@ expr_stmt|;
 block|}
 comment|/**      * Test the ejb-client type spec.      * Type specs are not a 1 to 1 map to the extension.      * This tests that effect.      * @throws LayoutException      */
 comment|/* TODO: Re-enabled in the future.     public void testGoodFooEjbClient()         throws LayoutException     {         String groupId = "com.foo";         String artifactId = "foo-client";         String version = "1.0";         String classifier = null;         String type = "ejb-client"; // oddball type-spec (should result in jar extension)         String path = "com/foo/foo-client/1.0/foo-client-1.0.jar";          assertLayout( path, groupId, artifactId, version, classifier, type );     }     */
-comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws LayoutException      */
+comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      *      * @throws LayoutException      */
 specifier|public
 name|void
 name|testGoodButOddVersionSpecJavaxPersistence
@@ -734,7 +895,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test the classifier, and java-source type spec.      * @throws LayoutException      */
+comment|/**      * Test the classifier, and java-source type spec.      *      * @throws LayoutException      */
 specifier|public
 name|void
 name|testGoodFooLibSources
@@ -789,7 +950,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A timestamped versioned artifact, should reside in a SNAPSHOT baseversion directory.      * @throws LayoutException      */
+comment|/**      * A timestamped versioned artifact, should reside in a SNAPSHOT baseversion directory.      *      * @throws LayoutException      */
 specifier|public
 name|void
 name|testGoodSnapshotMavenTest
@@ -843,7 +1004,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A timestamped versioned artifact, should reside in a SNAPSHOT baseversion directory.      * @throws LayoutException      */
+comment|/**      * A timestamped versioned artifact, should reside in a SNAPSHOT baseversion directory.      *      * @throws LayoutException      */
 specifier|public
 name|void
 name|testGoodLongSnapshotMavenTest
@@ -897,7 +1058,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A timestamped versioned artifact but without release version part. Like on axiom trunk.       */
+comment|/**      * A timestamped versioned artifact but without release version part. Like on axiom trunk.      */
 specifier|public
 name|void
 name|testBadSnapshotWithoutReleasePart
@@ -911,7 +1072,7 @@ literal|"snapshot version without release part"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A timestamped versioned artifact, should reside in a SNAPSHOT baseversion directory.      * @throws LayoutException      */
+comment|/**      * A timestamped versioned artifact, should reside in a SNAPSHOT baseversion directory.      *      * @throws LayoutException      */
 specifier|public
 name|void
 name|testClassifiedSnapshotMavenTest

@@ -1054,22 +1054,24 @@ operator|==
 literal|'-'
 condition|)
 block|{
-comment|// classifier up until last '.'
+comment|// classifier up until '.'
 name|int
 name|extIndex
 init|=
 name|id
 operator|.
-name|lastIndexOf
+name|indexOf
 argument_list|(
 literal|'.'
+argument_list|,
+name|index
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
 name|extIndex
-operator|>
-name|index
+operator|>=
+literal|0
 condition|)
 block|{
 name|classifier

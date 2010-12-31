@@ -192,7 +192,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultPathParser is a parser for maven 2 (default layout) paths to ArtifactReference.  *  * TODO: remove in favour of path translator, this is just delegating for the most part  *  * @version $Id$  */
+comment|/**  * DefaultPathParser is a parser for maven 2 (default layout) paths to ArtifactReference.  *  * TODO: remove in favour of path translator, this is just delegating for the most part, but won't accommodate other  * extensions like NPanday  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -230,7 +230,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|/**      * {@inheritDoc}      * @see org.apache.maven.archiva.repository.content.PathParser#toArtifactReference(java.lang.String)      */
+comment|/**      * {@inheritDoc}      *      * @see org.apache.maven.archiva.repository.content.PathParser#toArtifactReference(java.lang.String)      */
 specifier|public
 name|ArtifactReference
 name|toArtifactReference
