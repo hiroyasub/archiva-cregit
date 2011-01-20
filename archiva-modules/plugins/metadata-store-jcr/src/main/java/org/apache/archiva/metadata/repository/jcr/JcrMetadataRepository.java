@@ -702,9 +702,9 @@ argument_list|(
 operator|new
 name|SimpleCredentials
 argument_list|(
-literal|"username"
+literal|"admin"
 argument_list|,
-literal|"password"
+literal|"admin"
 operator|.
 name|toCharArray
 argument_list|()
