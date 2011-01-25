@@ -1645,7 +1645,7 @@ decl_stmt|;
 for|for
 control|(
 name|ArtifactMetadata
-name|targerArtifact
+name|targetArtifact
 range|:
 name|targetArtifacts
 control|)
@@ -1662,7 +1662,7 @@ if|if
 condition|(
 name|isEquals
 argument_list|(
-name|targerArtifact
+name|targetArtifact
 argument_list|,
 name|sourceArtifact
 argument_list|)
