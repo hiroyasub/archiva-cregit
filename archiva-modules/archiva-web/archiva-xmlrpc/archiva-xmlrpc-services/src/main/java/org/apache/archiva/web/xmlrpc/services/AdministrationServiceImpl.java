@@ -2559,7 +2559,7 @@ name|stagingId
 argument_list|,
 name|repoId
 argument_list|,
-literal|null
+name|metadataRepository
 argument_list|)
 expr_stmt|;
 block|}
@@ -2585,7 +2585,7 @@ name|stagingId
 argument_list|,
 name|repoId
 argument_list|,
-literal|null
+name|metadataRepository
 argument_list|)
 expr_stmt|;
 block|}
