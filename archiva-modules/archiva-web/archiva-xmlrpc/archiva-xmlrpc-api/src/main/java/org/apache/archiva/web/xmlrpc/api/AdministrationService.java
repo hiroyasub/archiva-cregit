@@ -213,6 +213,17 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Deletes a managed repository content with the given repository id      *       * @param repoId      * @return      * @throws Exception      */
+specifier|public
+name|Boolean
+name|deleteManagedRepositoryContent
+parameter_list|(
+name|String
+name|repoId
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Get a managed repository with the given repository id.      * @param repoId      * @return      * @throws Exception      */
 specifier|public
 name|ManagedRepository

@@ -84,6 +84,8 @@ argument_list|,
 literal|"AdministrationService.getManagedRepository"
 argument_list|,
 literal|"AdministrationService.merge"
+argument_list|,
+literal|"AdministrationService.deleteManagedRepositoryContent"
 argument_list|)
 decl_stmt|;
 specifier|public
