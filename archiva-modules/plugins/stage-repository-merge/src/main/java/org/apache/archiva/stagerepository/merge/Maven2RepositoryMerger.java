@@ -1175,6 +1175,8 @@ name|sourceFile
 argument_list|)
 decl_stmt|;
 comment|// IOUtils internally buffers the streams
+try|try
+block|{
 name|IOUtils
 operator|.
 name|copy
@@ -1184,6 +1186,20 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|out
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|input
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 specifier|private
 name|void
