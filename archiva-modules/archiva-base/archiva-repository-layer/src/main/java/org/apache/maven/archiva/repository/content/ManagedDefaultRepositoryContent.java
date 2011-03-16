@@ -359,24 +359,13 @@ name|isDirectory
 argument_list|()
 condition|)
 block|{
-try|try
-block|{
 name|FileUtils
 operator|.
-name|deleteDirectory
+name|deleteQuietly
 argument_list|(
 name|projectDir
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// TODO: log this somewhere?
-block|}
 block|}
 else|else
 block|{

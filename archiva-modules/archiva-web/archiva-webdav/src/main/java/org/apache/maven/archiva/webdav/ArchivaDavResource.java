@@ -1881,13 +1881,25 @@ name|isDirectory
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+operator|!
 name|FileUtils
 operator|.
-name|deleteDirectory
+name|deleteQuietly
 argument_list|(
 name|resource
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Could not remove directory"
+argument_list|)
+throw|;
+block|}
 name|triggerAuditEvent
 argument_list|(
 name|member
