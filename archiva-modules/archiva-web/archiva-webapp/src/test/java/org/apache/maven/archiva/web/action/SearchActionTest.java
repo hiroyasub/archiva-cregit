@@ -338,7 +338,7 @@ specifier|public
 class|class
 name|SearchActionTest
 extends|extends
-name|PlexusInSpringTestCase
+name|AbstractActionTestCase
 block|{
 specifier|private
 name|SearchAction

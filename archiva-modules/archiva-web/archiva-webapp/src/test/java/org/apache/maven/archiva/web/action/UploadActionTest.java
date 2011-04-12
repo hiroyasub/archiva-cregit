@@ -462,7 +462,7 @@ specifier|public
 class|class
 name|UploadActionTest
 extends|extends
-name|PlexusInSpringTestCase
+name|AbstractActionTestCase
 block|{
 specifier|private
 name|UploadAction
