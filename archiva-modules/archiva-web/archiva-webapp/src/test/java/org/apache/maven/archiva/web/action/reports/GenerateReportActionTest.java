@@ -183,13 +183,17 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|maven
 operator|.
-name|spring
+name|archiva
 operator|.
-name|PlexusInSpringTestCase
+name|web
+operator|.
+name|action
+operator|.
+name|AbstractActionTestCase
 import|;
 end_import
 
@@ -296,7 +300,7 @@ specifier|public
 class|class
 name|GenerateReportActionTest
 extends|extends
-name|PlexusInSpringTestCase
+name|AbstractActionTestCase
 block|{
 specifier|private
 name|GenerateReportAction
