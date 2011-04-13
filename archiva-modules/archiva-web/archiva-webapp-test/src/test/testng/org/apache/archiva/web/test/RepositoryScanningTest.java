@@ -179,7 +179,7 @@ argument_list|()
 operator|.
 name|getText
 argument_list|(
-literal|"//span[@class='errorMessage']"
+literal|"//ul[@class='errorMessage']/li/span"
 argument_list|)
 argument_list|,
 literal|"Not adding pattern \"**/*.zip\" to filetype artifacts as it already exists."
