@@ -369,6 +369,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|dir
+operator|.
+name|exists
+argument_list|()
+operator|&&
 operator|!
 name|FileUtils
 operator|.
