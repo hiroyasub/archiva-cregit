@@ -174,6 +174,20 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
+name|getErrorMessageText
+argument_list|()
+argument_list|,
+literal|"Not adding pattern \"**/*.zip\" to filetype artifacts as it already exists."
+argument_list|)
+expr_stmt|;
+block|}
+specifier|private
+specifier|static
+name|String
+name|getErrorMessageText
+parameter_list|()
+block|{
+return|return
 name|getSelenium
 argument_list|()
 operator|.
@@ -181,10 +195,7 @@ name|getText
 argument_list|(
 literal|"//ul[@class='errorMessage']/li/span"
 argument_list|)
-argument_list|,
-literal|"Not adding pattern \"**/*.zip\" to filetype artifacts as it already exists."
-argument_list|)
-expr_stmt|;
+return|;
 block|}
 annotation|@
 name|Test
@@ -298,13 +309,8 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|getSelenium
+name|getErrorMessageText
 argument_list|()
-operator|.
-name|getText
-argument_list|(
-literal|"//span[@class='errorMessage']"
-argument_list|)
 argument_list|,
 literal|"Not adding pattern \"**/*-\" to filetype auto-remove as it already exists."
 argument_list|)
@@ -432,13 +438,8 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|getSelenium
+name|getErrorMessageText
 argument_list|()
-operator|.
-name|getText
-argument_list|(
-literal|"//span[@class='errorMessage']"
-argument_list|)
 argument_list|,
 literal|"Unable to process blank pattern."
 argument_list|)
@@ -474,13 +475,8 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|getSelenium
+name|getErrorMessageText
 argument_list|()
-operator|.
-name|getText
-argument_list|(
-literal|"//span[@class='errorMessage']"
-argument_list|)
 argument_list|,
 literal|"Not adding pattern \"**/*.sh\" to filetype ignored as it already exists."
 argument_list|)
@@ -609,13 +605,8 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|getSelenium
+name|getErrorMessageText
 argument_list|()
-operator|.
-name|getText
-argument_list|(
-literal|"//span[@class='errorMessage']"
-argument_list|)
 argument_list|,
 literal|"Unable to process blank pattern."
 argument_list|)
@@ -651,13 +642,8 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|getSelenium
+name|getErrorMessageText
 argument_list|()
-operator|.
-name|getText
-argument_list|(
-literal|"//span[@class='errorMessage']"
-argument_list|)
 argument_list|,
 literal|"Not adding pattern \"**/*.xml\" to filetype indexable-content as it already exists."
 argument_list|)
