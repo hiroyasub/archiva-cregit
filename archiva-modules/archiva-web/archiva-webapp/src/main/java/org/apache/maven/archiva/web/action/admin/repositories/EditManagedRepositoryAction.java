@@ -381,6 +381,19 @@ init|=
 literal|false
 decl_stmt|;
 comment|// check if the location was changed
+name|repository
+operator|.
+name|setLocation
+argument_list|(
+name|removeExpressions
+argument_list|(
+name|repository
+operator|.
+name|getLocation
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
