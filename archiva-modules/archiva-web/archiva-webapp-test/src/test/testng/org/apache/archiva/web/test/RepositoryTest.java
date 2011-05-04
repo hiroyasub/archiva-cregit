@@ -150,6 +150,322 @@ argument_list|(
 literal|"/archiva/admin/addRepository.action"
 argument_list|)
 expr_stmt|;
+empty_stmt|;
+name|addManagedRepository
+argument_list|(
+literal|"<> \\/~+[ ]'\""
+argument_list|,
+literal|"<>\\~+[]'\""
+argument_list|,
+literal|"<> ~+[ ]'\""
+argument_list|,
+literal|"<> ~+[ ]'\""
+argument_list|,
+literal|"Maven 2.x Repository"
+argument_list|,
+literal|""
+argument_list|,
+literal|"-1"
+argument_list|,
+literal|"101"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Identifier must only contain alphanumeric characters, underscores(_), dots(.), and dashes(-)."
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Directory must only contain alphanumeric characters, equals(=), question-marks(?), exclamation-points(!), ampersands(&), forward-slashes(/), back-slashes(\\), underscores(_), dots(.), colons(:), tildes(~), and dashes(-)."
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Repository Name must only contain alphanumeric characters, white-spaces(' '), forward-slashes(/), open-parenthesis('('), close-parenthesis(')'), underscores(_), dots(.), and dashes(-)."
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Index directory must only contain alphanumeric characters, equals(=), question-marks(?), exclamation-points(!), ampersands(&), forward-slashes(/), back-slashes(\\), underscores(_), dots(.), colons(:), tildes(~), and dashes(-)."
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Repository Purge By Retention Count needs to be between 1 and 100."
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Repository Purge By Days Older Than needs to be larger than 0."
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Invalid cron expression."
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testAddManagedRepoInvalidValues"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testAddManagedRepoInvalidIdentifier
+parameter_list|()
+block|{
+name|addManagedRepository
+argument_list|(
+literal|"<> \\/~+[ ]'\""
+argument_list|,
+literal|"name"
+argument_list|,
+literal|"/home"
+argument_list|,
+literal|"/.index"
+argument_list|,
+literal|"Maven 2.x Repository"
+argument_list|,
+literal|"0 0 * * * ?"
+argument_list|,
+literal|"1"
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Identifier must only contain alphanumeric characters, underscores(_), dots(.), and dashes(-)."
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testAddManagedRepoInvalidIdentifier"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testAddManagedRepoInvalidRepoName
+parameter_list|()
+block|{
+name|addManagedRepository
+argument_list|(
+literal|"identifier"
+argument_list|,
+literal|"<>\\~+[]'\""
+argument_list|,
+literal|"/home"
+argument_list|,
+literal|"/.index"
+argument_list|,
+literal|"Maven 2.x Repository"
+argument_list|,
+literal|"0 0 * * * ?"
+argument_list|,
+literal|"1"
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Repository Name must only contain alphanumeric characters, white-spaces(' '), forward-slashes(/), open-parenthesis('('), close-parenthesis(')'), underscores(_), dots(.), and dashes(-)."
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testAddManagedRepoInvalidRepoName"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testAddManagedRepoInvalidDirectory
+parameter_list|()
+block|{
+name|addManagedRepository
+argument_list|(
+literal|"identifier"
+argument_list|,
+literal|"name"
+argument_list|,
+literal|"<> ~+[ ]'\""
+argument_list|,
+literal|"/.index"
+argument_list|,
+literal|"Maven 2.x Repository"
+argument_list|,
+literal|"0 0 * * * ?"
+argument_list|,
+literal|"1"
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Directory must only contain alphanumeric characters, equals(=), question-marks(?), exclamation-points(!), ampersands(&), forward-slashes(/), back-slashes(\\), underscores(_), dots(.), colons(:), tildes(~), and dashes(-)."
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testAddManagedRepoInvalidDirectory"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testAddManagedRepoInvalidIndexDir
+parameter_list|()
+block|{
+name|addManagedRepository
+argument_list|(
+literal|"identifier"
+argument_list|,
+literal|"name"
+argument_list|,
+literal|"/home"
+argument_list|,
+literal|"<> ~+[ ]'\""
+argument_list|,
+literal|"Maven 2.x Repository"
+argument_list|,
+literal|"0 0 * * * ?"
+argument_list|,
+literal|"1"
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Index directory must only contain alphanumeric characters, equals(=), question-marks(?), exclamation-points(!), ampersands(&), forward-slashes(/), back-slashes(\\), underscores(_), dots(.), colons(:), tildes(~), and dashes(-)."
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testAddManagedRepoInvalidIndexDir"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testAddManagedRepoInvalidRetentionCount
+parameter_list|()
+block|{
+name|addManagedRepository
+argument_list|(
+literal|"identifier"
+argument_list|,
+literal|"name"
+argument_list|,
+literal|"/home"
+argument_list|,
+literal|"/.index"
+argument_list|,
+literal|"Maven 2.x Repository"
+argument_list|,
+literal|"0 0 * * * ?"
+argument_list|,
+literal|"1"
+argument_list|,
+literal|"101"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Repository Purge By Retention Count needs to be between 1 and 100."
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testAddManagedRepoInvalidRetentionCount"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testAddManagedRepoInvalidDaysOlder
+parameter_list|()
+block|{
+name|addManagedRepository
+argument_list|(
+literal|"identifier"
+argument_list|,
+literal|"name"
+argument_list|,
+literal|"/home"
+argument_list|,
+literal|"/.index"
+argument_list|,
+literal|"Maven 2.x Repository"
+argument_list|,
+literal|"0 0 * * * ?"
+argument_list|,
+literal|"-1"
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Repository Purge By Days Older Than needs to be larger than 0."
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testAddManagedRepoInvalidDaysOlder"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testAddManagedRepoBlankValues
+parameter_list|()
+block|{
+name|goToRepositoriesPage
+argument_list|()
+expr_stmt|;
+name|getSelenium
+argument_list|()
+operator|.
+name|open
+argument_list|(
+literal|"/archiva/admin/addRepository.action"
+argument_list|)
+expr_stmt|;
+empty_stmt|;
 name|addManagedRepository
 argument_list|(
 literal|""
@@ -196,7 +512,7 @@ argument_list|(
 name|dependsOnMethods
 operator|=
 block|{
-literal|"testAddManagedRepoInvalidValues"
+literal|"testAddManagedRepoBlankValues"
 block|}
 argument_list|)
 specifier|public
@@ -404,7 +720,6 @@ literal|"Managed Repository Sample"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO
 annotation|@
 name|Test
 argument_list|(
@@ -412,6 +727,291 @@ name|dependsOnMethods
 operator|=
 block|{
 literal|"testAddManagedRepoForEdit"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testEditManagedRepoInvalidValues
+parameter_list|()
+block|{
+name|editManagedRepository
+argument_list|(
+literal|"<>\\~+[]'\""
+argument_list|,
+literal|"<> ~+[ ]'\""
+argument_list|,
+literal|"<> ~+[ ]'\""
+argument_list|,
+literal|"Maven 2.x Repository"
+argument_list|,
+literal|""
+argument_list|,
+literal|"-1"
+argument_list|,
+literal|"101"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Directory must only contain alphanumeric characters, equals(=), question-marks(?), exclamation-points(!), ampersands(&), forward-slashes(/), back-slashes(\\), underscores(_), dots(.), colons(:), tildes(~), and dashes(-)."
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Repository Name must only contain alphanumeric characters, white-spaces(' '), forward-slashes(/), open-parenthesis('('), close-parenthesis(')'), underscores(_), dots(.), and dashes(-)."
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Index directory must only contain alphanumeric characters, equals(=), question-marks(?), exclamation-points(!), ampersands(&), forward-slashes(/), back-slashes(\\), underscores(_), dots(.), colons(:), tildes(~), and dashes(-)."
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Repository Purge By Retention Count needs to be between 1 and 100."
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Repository Purge By Days Older Than needs to be larger than 0."
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Invalid cron expression."
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testEditManagedRepoInvalidValues"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testEditManagedRepoInvalidRepoName
+parameter_list|()
+block|{
+name|editManagedRepository
+argument_list|(
+literal|"<>\\~+[]'\""
+argument_list|,
+literal|"/home"
+argument_list|,
+literal|"/.index"
+argument_list|,
+literal|"Maven 2.x Repository"
+argument_list|,
+literal|"0 0 * * * ?"
+argument_list|,
+literal|"1"
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Repository Name must only contain alphanumeric characters, white-spaces(' '), forward-slashes(/), open-parenthesis('('), close-parenthesis(')'), underscores(_), dots(.), and dashes(-)."
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testEditManagedRepoInvalidRepoName"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testEditManagedRepoInvalidDirectory
+parameter_list|()
+block|{
+name|editManagedRepository
+argument_list|(
+literal|"name"
+argument_list|,
+literal|"<> ~+[ ]'\""
+argument_list|,
+literal|"/.index"
+argument_list|,
+literal|"Maven 2.x Repository"
+argument_list|,
+literal|"0 0 * * * ?"
+argument_list|,
+literal|"1"
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Directory must only contain alphanumeric characters, equals(=), question-marks(?), exclamation-points(!), ampersands(&), forward-slashes(/), back-slashes(\\), underscores(_), dots(.), colons(:), tildes(~), and dashes(-)."
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testEditManagedRepoInvalidDirectory"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testEditManagedRepoInvalidIndexDir
+parameter_list|()
+block|{
+name|editManagedRepository
+argument_list|(
+literal|"name"
+argument_list|,
+literal|"/home"
+argument_list|,
+literal|"<> ~+[ ]'\""
+argument_list|,
+literal|"Maven 2.x Repository"
+argument_list|,
+literal|"0 0 * * * ?"
+argument_list|,
+literal|"1"
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Index directory must only contain alphanumeric characters, equals(=), question-marks(?), exclamation-points(!), ampersands(&), forward-slashes(/), back-slashes(\\), underscores(_), dots(.), colons(:), tildes(~), and dashes(-)."
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testEditManagedRepoInvalidIndexDir"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testEditManagedRepoInvalidCron
+parameter_list|()
+block|{
+name|editManagedRepository
+argument_list|(
+literal|"name"
+argument_list|,
+literal|"/home"
+argument_list|,
+literal|"/.index"
+argument_list|,
+literal|"Maven 2.x Repository"
+argument_list|,
+literal|""
+argument_list|,
+literal|"1"
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Invalid cron expression."
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testEditManagedRepoInvalidCron"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testEditManagedRepoInvalidRetentionCount
+parameter_list|()
+block|{
+name|editManagedRepository
+argument_list|(
+literal|"name"
+argument_list|,
+literal|"/home"
+argument_list|,
+literal|"/.index"
+argument_list|,
+literal|"Maven 2.x Repository"
+argument_list|,
+literal|"0 0 * * * ?"
+argument_list|,
+literal|"1"
+argument_list|,
+literal|"101"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Repository Purge By Retention Count needs to be between 1 and 100."
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testEditManagedRepoInvalidRetentionCount"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testEditManagedRepoInvalidDaysOlder
+parameter_list|()
+block|{
+name|editManagedRepository
+argument_list|(
+literal|"name"
+argument_list|,
+literal|"/home"
+argument_list|,
+literal|"/.index"
+argument_list|,
+literal|"Maven 2.x Repository"
+argument_list|,
+literal|"0 0 * * * ?"
+argument_list|,
+literal|"-1"
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Repository Purge By Days Older Than needs to be larger than 0."
+argument_list|)
+expr_stmt|;
+block|}
+comment|// TODO
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testEditManagedRepoInvalidDaysOlder"
 block|}
 argument_list|)
 specifier|public

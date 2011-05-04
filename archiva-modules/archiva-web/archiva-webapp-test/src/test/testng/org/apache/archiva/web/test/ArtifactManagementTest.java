@@ -799,6 +799,83 @@ literal|"Invalid version."
 argument_list|)
 expr_stmt|;
 block|}
+comment|// HTML select should have the proper value, else it will cause a selenium error: Option with label 'customValue' not found
+specifier|public
+name|void
+name|testDeleteArtifactInvalidValues
+parameter_list|()
+block|{
+name|deleteArtifact
+argument_list|(
+literal|"<> \\/~+[ ]'\""
+argument_list|,
+literal|"<> \\/~+[ ]'\""
+argument_list|,
+literal|"<>"
+argument_list|,
+literal|"internal"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Invalid version."
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Group id must only contain alphanumeric characters, underscores(_), dots(.), and dashes(-)."
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Artifact id must only contain alphanumeric characters, underscores(_), dots(.), and dashes(-)."
+argument_list|)
+expr_stmt|;
+block|}
+specifier|public
+name|void
+name|testDeleteArtifactInvalidGroupId
+parameter_list|()
+block|{
+name|deleteArtifact
+argument_list|(
+literal|"<> \\/~+[ ]'\""
+argument_list|,
+literal|"delete"
+argument_list|,
+literal|"1.0"
+argument_list|,
+literal|"internal"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Group id must only contain alphanumeric characters, underscores(_), dots(.), and dashes(-)."
+argument_list|)
+expr_stmt|;
+block|}
+specifier|public
+name|void
+name|testDeleteArtifactInvalidArtifactId
+parameter_list|()
+block|{
+name|deleteArtifact
+argument_list|(
+literal|"delete"
+argument_list|,
+literal|"<> \\/~+[ ]'\""
+argument_list|,
+literal|"1.0"
+argument_list|,
+literal|"internal"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Artifact id must only contain alphanumeric characters, underscores(_), dots(.), and dashes(-)."
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

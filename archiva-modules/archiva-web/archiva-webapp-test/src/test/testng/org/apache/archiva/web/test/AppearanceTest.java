@@ -75,7 +75,7 @@ name|AbstractArchivaTest
 block|{
 specifier|public
 name|void
-name|testAddAppearanceNullValues
+name|testAddAppearanceEmptyValues
 parameter_list|()
 block|{
 name|goToAppearancePage
@@ -107,7 +107,149 @@ argument_list|(
 name|dependsOnMethods
 operator|=
 block|{
-literal|"testAddAppearanceNullValues"
+literal|"testAddAppearanceEmptyValues"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testAddAppearanceInvalidValues
+parameter_list|()
+block|{
+name|addEditAppearance
+argument_list|(
+literal|"<>~+[ ]'\""
+argument_list|,
+literal|"/home/user/abcXYZ0129._/\\~:?!&=-<> ~+[ ]'\""
+argument_list|,
+literal|"/home/user/abcXYZ0129._/\\~:?!&=-<> ~+[ ]'\""
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Organisation name must only contain alphanumeric characters, white-spaces(' '), equals(=), question-marks(?), exclamation-points(!), ampersands(&), forward-slashes(/), back-slashes(\\), underscores(_), dots(.), colons(:), tildes(~), and dashes(-)."
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"You must enter a URL"
+argument_list|)
+expr_stmt|;
+name|assertXpathCount
+argument_list|(
+literal|"//span[@class='errorMessage' and text()='You must enter a URL']"
+argument_list|,
+literal|2
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testAddAppearanceInvalidValues"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testAddAppearanceInvalidOrganisationName
+parameter_list|()
+block|{
+name|addEditAppearance
+argument_list|(
+literal|"<>~+[ ]'\""
+argument_list|,
+literal|"http://www.apache.org/"
+argument_list|,
+literal|"http://www.apache.org/images/asf_logo_wide.gifs"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Organisation name must only contain alphanumeric characters, white-spaces(' '), equals(=), question-marks(?), exclamation-points(!), ampersands(&), forward-slashes(/), back-slashes(\\), underscores(_), dots(.), colons(:), tildes(~), and dashes(-)."
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testAddAppearanceInvalidOrganisationName"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testAddAppearanceInvalidOrganisationUrl
+parameter_list|()
+block|{
+name|addEditAppearance
+argument_list|(
+literal|"The Apache Software Foundation"
+argument_list|,
+literal|"/home/user/abcXYZ0129._/\\~:?!&=-<> ~+[ ]'\""
+argument_list|,
+literal|"http://www.apache.org/images/asf_logo_wide.gifs"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"You must enter a URL"
+argument_list|)
+expr_stmt|;
+name|assertXpathCount
+argument_list|(
+literal|"//span[@class='errorMessage' and text()='You must enter a URL']"
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testAddAppearanceInvalidOrganisationUrl"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testAddAppearanceInvalidOrganisationLogo
+parameter_list|()
+block|{
+name|addEditAppearance
+argument_list|(
+literal|"The Apache Software Foundation"
+argument_list|,
+literal|"http://www.apache.org/"
+argument_list|,
+literal|"/home/user/abcXYZ0129._/\\~:?!&=-<> ~+[ ]'\""
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"You must enter a URL"
+argument_list|)
+expr_stmt|;
+name|assertXpathCount
+argument_list|(
+literal|"//span[@class='errorMessage' and text()='You must enter a URL']"
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testAddAppearanceInvalidOrganisationLogo"
 block|}
 argument_list|)
 specifier|public
