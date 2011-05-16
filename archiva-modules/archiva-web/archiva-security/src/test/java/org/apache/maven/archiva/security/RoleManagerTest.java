@@ -83,7 +83,10 @@ name|lookup
 argument_list|(
 name|RoleManager
 operator|.
-name|ROLE
+name|class
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 literal|"default"
 argument_list|)
