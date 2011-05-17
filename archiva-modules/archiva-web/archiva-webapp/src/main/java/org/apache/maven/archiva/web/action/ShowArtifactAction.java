@@ -2303,9 +2303,8 @@ name|DecimalFormat
 argument_list|(
 literal|"#,###.##"
 argument_list|,
+operator|new
 name|DecimalFormatSymbols
-operator|.
-name|getInstance
 argument_list|(
 name|Locale
 operator|.
