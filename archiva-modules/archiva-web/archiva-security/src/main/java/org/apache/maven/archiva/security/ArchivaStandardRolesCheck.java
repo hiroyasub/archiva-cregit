@@ -81,11 +81,48 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
 begin_comment
 comment|/**  * ArchivaStandardRolesCheck tests for the existance of expected / standard roles and permissions.   *  * @version $Id$  *   * @plexus.component role="org.codehaus.plexus.redback.system.check.EnvironmentCheck"  *                   role-hint="required-roles"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"environmentCheck#required-roles"
+argument_list|)
 specifier|public
 class|class
 name|ArchivaStandardRolesCheck
@@ -106,6 +143,15 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|/**      * @plexus.requirement role-hint="cached"      */
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"rBACManager#cached"
+argument_list|)
 specifier|private
 name|RBACManager
 name|rbacManager

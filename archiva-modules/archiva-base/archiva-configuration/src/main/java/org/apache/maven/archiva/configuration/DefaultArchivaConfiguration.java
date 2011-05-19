@@ -293,46 +293,6 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|personality
-operator|.
-name|plexus
-operator|.
-name|lifecycle
-operator|.
-name|phase
-operator|.
-name|Initializable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|personality
-operator|.
-name|plexus
-operator|.
-name|lifecycle
-operator|.
-name|phase
-operator|.
-name|InitializationException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
 name|registry
 operator|.
 name|Registry
@@ -371,6 +331,24 @@ begin_import
 import|import
 name|org
 operator|.
+name|codehaus
+operator|.
+name|redback
+operator|.
+name|components
+operator|.
+name|registry
+operator|.
+name|commons
+operator|.
+name|CommonsConfigurationRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -384,6 +362,38 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|PostConstruct
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
 import|;
 end_import
 
@@ -510,10 +520,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>  * Implementation of configuration holder that retrieves it from the registry.  *</p>  *<p>  * The registry layers and merges the 2 configuration files: user, and application server.  *</p>  *<p>  * Instead of relying on the model defaults, if the registry is empty a default configuration file is loaded and  * applied from a resource. The defaults are not loaded into the registry as the lists (eg repositories) could no longer  * be removed if that was the case.  *</p>  *<p>  * When saving the configuration, it is saved to the location it was read from. If it was read from the defaults, it  * will be saved to the user location.  * However, if the configuration contains information from both sources, an exception is raised as this is currently  * unsupported. The reason for this is that it is not possible to identify where to re-save elements, and can result  * in list configurations (eg repositories) becoming inconsistent.  *</p>  *<p>  * If the configuration is outdated, it will be upgraded when it is loaded. This is done by checking the version flag  * before reading it from the registry.  *</p>  *  * @plexus.component role="org.apache.maven.archiva.configuration.ArchivaConfiguration"  */
+comment|/**  *<p>  * Implementation of configuration holder that retrieves it from the registry.  *</p>  *<p>  * The registry layers and merges the 2 configuration files: user, and application server.  *</p>  *<p>  * Instead of relying on the model defaults, if the registry is empty a default configuration file is loaded and  * applied from a resource. The defaults are not loaded into the registry as the lists (eg repositories) could no longer  * be removed if that was the case.  *</p>  *<p>  * When saving the configuration, it is saved to the location it was read from. If it was read from the defaults, it  * will be saved to the user location.  * However, if the configuration contains information from both sources, an exception is raised as this is currently  * unsupported. The reason for this is that it is not possible to identify where to re-save elements, and can result  * in list configurations (eg repositories) becoming inconsistent.  *</p>  *<p>  * If the configuration is outdated, it will be upgraded when it is loaded. This is done by checking the version flag  * before reading it from the registry.  *</p>  *  * plexus.component role="org.apache.maven.archiva.configuration.ArchivaConfiguration"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"archivaConfiguration"
+argument_list|)
 specifier|public
 class|class
 name|DefaultArchivaConfiguration
@@ -521,8 +536,7 @@ implements|implements
 name|ArchivaConfiguration
 implements|,
 name|RegistryListener
-implements|,
-name|Initializable
+comment|//, Initializable
 block|{
 specifier|private
 name|Logger
@@ -537,7 +551,9 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Plexus registry to read the configuration from.      *      * @plexus.requirement role-hint="commons-configuration"      */
+comment|/**      * Plexus registry to read the configuration from.      *      * plexus.requirement role-hint="commons-configuration"      */
+annotation|@
+name|Inject
 specifier|private
 name|Registry
 name|registry
@@ -547,7 +563,7 @@ specifier|private
 name|Configuration
 name|configuration
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.archiva.policies.PreDownloadPolicy"      * @todo these don't strictly belong in here      */
+comment|/**      * plexus.requirement role="org.apache.maven.archiva.policies.PreDownloadPolicy"      * @todo these don't strictly belong in here      */
 specifier|private
 name|Map
 argument_list|<
@@ -557,7 +573,7 @@ name|PreDownloadPolicy
 argument_list|>
 name|prePolicies
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.archiva.policies.PostDownloadPolicy"      * @todo these don't strictly belong in here      */
+comment|/**      * plexus.requirement role="org.apache.maven.archiva.policies.PostDownloadPolicy"      * @todo these don't strictly belong in here      */
 specifier|private
 name|Map
 argument_list|<
@@ -567,12 +583,12 @@ name|PostDownloadPolicy
 argument_list|>
 name|postPolicies
 decl_stmt|;
-comment|/**      * @plexus.configuration default-value="${user.home}/.m2/archiva.xml"      */
+comment|/**      * TODO take about default value with spring      * plexus.configuration default-value="${user.home}/.m2/archiva.xml"      */
 specifier|private
 name|String
 name|userConfigFilename
 decl_stmt|;
-comment|/**      * @plexus.configuration default-value="${appserver.base}/conf/archiva.xml"      */
+comment|/**      * * TODO take about default value with spring      * plexus.configuration default-value="${appserver.base}/conf/archiva.xml"      */
 specifier|private
 name|String
 name|altConfigFilename
@@ -1670,9 +1686,9 @@ name|Configuration
 name|configuration
 parameter_list|)
 throws|throws
-name|RegistryException
-throws|,
 name|IndeterminateConfigurationException
+throws|,
+name|RegistryException
 block|{
 name|Registry
 name|section
@@ -2254,11 +2270,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-try|try
-block|{
 operator|(
 operator|(
-name|Initializable
+name|CommonsConfigurationRegistry
 operator|)
 name|registry
 operator|)
@@ -2279,28 +2293,6 @@ argument_list|(
 name|regListener
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|InitializationException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RegistryException
-argument_list|(
-literal|"Unable to reinitialize configuration: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-throw|;
 block|}
 name|triggerEvent
 argument_list|(
@@ -2603,12 +2595,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|PostConstruct
 specifier|public
 name|void
 name|initialize
 parameter_list|()
-throws|throws
-name|InitializationException
 block|{
 comment|// Resolve expressions in the userConfigFilename and altConfigFilename
 try|try
@@ -2659,7 +2651,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|InitializationException
+name|RuntimeException
 argument_list|(
 literal|"Unable to evaluate expressions found in "
 operator|+

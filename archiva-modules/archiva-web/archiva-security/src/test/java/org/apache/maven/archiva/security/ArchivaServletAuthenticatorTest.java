@@ -21,6 +21,16 @@ begin_import
 import|import
 name|javax
 operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
 name|servlet
 operator|.
 name|http
@@ -151,6 +161,26 @@ name|MockControl
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * ArchivaServletAuthenticatorTest  *   * @version  */
 end_comment
@@ -162,6 +192,8 @@ name|ArchivaServletAuthenticatorTest
 extends|extends
 name|AbstractSecurityTest
 block|{
+annotation|@
+name|Inject
 specifier|private
 name|ServletAuthenticator
 name|servletAuth
@@ -175,7 +207,7 @@ name|HttpServletRequest
 name|request
 decl_stmt|;
 annotation|@
-name|Override
+name|Before
 specifier|public
 name|void
 name|setUp
@@ -187,20 +219,6 @@ name|super
 operator|.
 name|setUp
 argument_list|()
-expr_stmt|;
-name|servletAuth
-operator|=
-operator|(
-name|ServletAuthenticator
-operator|)
-name|lookup
-argument_list|(
-name|ServletAuthenticator
-operator|.
-name|class
-argument_list|,
-literal|"default"
-argument_list|)
 expr_stmt|;
 name|httpServletRequestControl
 operator|=
@@ -229,8 +247,6 @@ literal|"corporate"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 specifier|protected
 name|String
 name|getPlexusConfigLocation
@@ -267,6 +283,8 @@ name|principal
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIsAuthenticatedUserExists
@@ -305,6 +323,8 @@ name|isAuthenticated
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIsAuthenticatedUserDoesNotExist
@@ -360,6 +380,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIsAuthorizedUserHasWriteAccess
@@ -447,6 +469,8 @@ name|isAuthorized
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIsAuthorizedUserHasNoWriteAccess
@@ -573,6 +597,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIsAuthorizedUserHasReadAccess
@@ -660,6 +686,8 @@ name|isAuthorized
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIsAuthorizedUserHasNoReadAccess
@@ -757,6 +785,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIsAuthorizedGuestUserHasWriteAccess
@@ -793,6 +823,8 @@ name|isAuthorized
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIsAuthorizedGuestUserHasNoWriteAccess
@@ -829,6 +861,8 @@ name|isAuthorized
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIsAuthorizedGuestUserHasReadAccess
@@ -865,6 +899,8 @@ name|isAuthorized
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIsAuthorizedGuestUserHasNoReadAccess

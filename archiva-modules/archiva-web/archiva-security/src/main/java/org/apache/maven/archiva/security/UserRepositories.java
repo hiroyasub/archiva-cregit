@@ -37,7 +37,6 @@ interface|interface
 name|UserRepositories
 block|{
 comment|/**      * Get the list of observable repository ids for the user specified.      *       * @param principal the principle to obtain the observable repository ids from.      * @return the list of observable repository ids.      * @throws PrincipalNotFoundException      * @throws AccessDeniedException      * @throws ArchivaSecurityException      */
-specifier|public
 name|List
 argument_list|<
 name|String
@@ -55,7 +54,6 @@ throws|,
 name|ArchivaSecurityException
 function_decl|;
 comment|/**      * Get the list of writable repository ids for the user specified.      *       * @param principal the principle to obtain the observable repository ids from.      * @return the list of observable repository ids.      * @throws PrincipalNotFoundException      * @throws AccessDeniedException      * @throws ArchivaSecurityException      */
-specifier|public
 name|List
 argument_list|<
 name|String
@@ -73,7 +71,6 @@ throws|,
 name|ArchivaSecurityException
 function_decl|;
 comment|/**      * Create any missing repository roles for the provided repository id.      *       * @param repoId the repository id to work off of.      * @throws ArchivaSecurityException if there was a problem creating the repository roles.      */
-specifier|public
 name|void
 name|createMissingRepositoryRoles
 parameter_list|(
@@ -84,7 +81,6 @@ throws|throws
 name|ArchivaSecurityException
 function_decl|;
 comment|/**      * Check if user is authorized to upload artifacts in the repository.      *       * @param principal      * @param repoId      * @return      * @throws PrincipalNotFoundException      * @throws ArchivaSecurityException      */
-specifier|public
 name|boolean
 name|isAuthorizedToUploadArtifacts
 parameter_list|(
@@ -100,7 +96,6 @@ throws|,
 name|ArchivaSecurityException
 function_decl|;
 comment|/**      * Check if user is authorized to delete artifacts in the repository.      *       * @param principal      * @param repoId      * @return      * @throws ArchivaSecurityException       * @throws AccessDeniedException       */
-specifier|public
 name|boolean
 name|isAuthorizedToDeleteArtifacts
 parameter_list|(

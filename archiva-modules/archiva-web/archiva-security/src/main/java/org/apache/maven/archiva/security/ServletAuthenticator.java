@@ -151,7 +151,6 @@ interface|interface
 name|ServletAuthenticator
 block|{
 comment|/**      * Authentication check for users.      *       * @param request      * @param result      * @return      * @throws AuthenticationException      * @throws AccountLockedException      * @throws MustChangePasswordException      */
-specifier|public
 name|boolean
 name|isAuthenticated
 parameter_list|(
@@ -169,7 +168,6 @@ throws|,
 name|MustChangePasswordException
 function_decl|;
 comment|/**      * Authorization check for valid users.      *       * @param request      * @param securitySession      * @param repositoryId      * @param isWriteRequest      * @return      * @throws AuthorizationException      * @throws UnauthorizedException      */
-specifier|public
 name|boolean
 name|isAuthorized
 parameter_list|(
@@ -191,7 +189,6 @@ throws|,
 name|UnauthorizedException
 function_decl|;
 comment|/**      * Authorization check specific for user guest, which doesn't go through       * HttpBasicAuthentication#getAuthenticationResult( HttpServletRequest request, HttpServletResponse response )      * since no credentials are attached to the request.       *       * See also MRM-911      *       * @param principal      * @param repoId      * @param isWriteRequest      * @return      * @throws UnauthorizedException      */
-specifier|public
 name|boolean
 name|isAuthorized
 parameter_list|(

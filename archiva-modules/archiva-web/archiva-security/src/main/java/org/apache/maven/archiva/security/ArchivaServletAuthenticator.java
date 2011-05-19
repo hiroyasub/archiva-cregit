@@ -21,6 +21,16 @@ begin_import
 import|import
 name|javax
 operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
 name|servlet
 operator|.
 name|http
@@ -241,11 +251,28 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version  * @plexus.component role="org.apache.maven.archiva.security.ServletAuthenticator" role-hint="default"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"servletAuthenticator"
+argument_list|)
 specifier|public
 class|class
 name|ArchivaServletAuthenticator
@@ -266,6 +293,8 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|SecuritySystem
 name|securitySystem

@@ -41,6 +41,16 @@ name|StringUtils
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * DefaultUserRepositoriesTest   *  * @version $Id$  */
 end_comment
@@ -52,8 +62,6 @@ name|DefaultUserRepositoriesTest
 extends|extends
 name|AbstractSecurityTest
 block|{
-annotation|@
-name|Override
 specifier|protected
 name|String
 name|getPlexusConfigLocation
@@ -63,6 +71,8 @@ return|return
 literal|"org/apache/maven/archiva/security/DefaultUserRepositoriesTest.xml"
 return|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetObservableRepositoryIds
