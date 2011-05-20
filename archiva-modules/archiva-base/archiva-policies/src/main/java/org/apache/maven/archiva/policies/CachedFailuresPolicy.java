@@ -109,11 +109,38 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
 begin_comment
 comment|/**  * {@link PreDownloadPolicy} to check if the requested url has failed before.  *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.policies.PreDownloadPolicy"  * role-hint="cache-failures"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"preDownloadPolicy#cache-failures"
+argument_list|)
 specifier|public
 class|class
 name|CachedFailuresPolicy
@@ -152,6 +179,8 @@ init|=
 literal|"yes"
 decl_stmt|;
 comment|/**      * @plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|UrlFailureCache
 name|urlFailureCache

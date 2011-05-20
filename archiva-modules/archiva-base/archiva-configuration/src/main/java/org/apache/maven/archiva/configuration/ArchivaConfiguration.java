@@ -110,6 +110,11 @@ name|RegistryListener
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * reload configuration from file included registry      * @since 1.4-M1      */
+name|void
+name|reload
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

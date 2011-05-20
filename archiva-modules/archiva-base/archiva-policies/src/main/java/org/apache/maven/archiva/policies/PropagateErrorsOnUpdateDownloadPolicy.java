@@ -81,11 +81,28 @@ name|StringUtils
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
 begin_comment
 comment|/**  * PropagateErrorsPolicy - a policy applied on error to determine how to treat the error.  *  * @plexus.component role="org.apache.maven.archiva.policies.DownloadErrorPolicy"  *                   role-hint="propagate-errors-on-update"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"downloadErrorPolicy#propagate-errors-on-update"
+argument_list|)
 specifier|public
 class|class
 name|PropagateErrorsOnUpdateDownloadPolicy

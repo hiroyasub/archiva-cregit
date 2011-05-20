@@ -29,7 +29,6 @@ interface|interface
 name|UrlFailureCache
 block|{
 comment|/**      * Store a URL in the cache as failed.      *       * @param url the url to store.       */
-specifier|public
 name|void
 name|cacheFailure
 parameter_list|(
@@ -38,7 +37,6 @@ name|url
 parameter_list|)
 function_decl|;
 comment|/**      * Test if a specified URL has failed before.      *       * NOTE: If the provided URL has failed, then making this call       * should refresh the expiration time on that URL entry.      *       * @param url the URL to test.      * @return true if it has failed before, false if not.      */
-specifier|public
 name|boolean
 name|hasFailedBefore
 parameter_list|(

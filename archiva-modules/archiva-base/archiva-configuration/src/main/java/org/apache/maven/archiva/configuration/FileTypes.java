@@ -205,6 +205,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|lang
@@ -276,7 +286,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FileTypes   *  * @version $Id$  *   * plexus.component role="org.apache.maven.archiva.configuration.FileTypes"  */
+comment|/**  * FileTypes  *  * @version $Id$  *<p/>  *          plexus.component role="org.apache.maven.archiva.configuration.FileTypes"  */
 end_comment
 
 begin_class
@@ -326,6 +336,13 @@ decl_stmt|;
 comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"archivaConfiguration#default"
+argument_list|)
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
@@ -408,7 +425,7 @@ operator|=
 name|archivaConfiguration
 expr_stmt|;
 block|}
-comment|/**      *<p>      * Get the list of patterns for a specified filetype.      *</p>      *      *<p>      * You will always get a list.  In this order.      *<ul>      *<li>The Configured List</li>      *<li>The Default List</li>      *<li>A single item list of<code>"**<span>/</span>*"</code></li>      *</ul>      *</p>      *      * @param id the id to lookup.      * @return the list of patterns.      */
+comment|/**      *<p>      * Get the list of patterns for a specified filetype.      *</p>      *<p/>      *<p>      * You will always get a list.  In this order.      *<ul>      *<li>The Configured List</li>      *<li>The Default List</li>      *<li>A single item list of<code>"**<span>/</span>*"</code></li>      *</ul>      *</p>      *      * @param id the id to lookup.      * @return the list of patterns.      */
 specifier|public
 name|List
 argument_list|<

@@ -119,11 +119,28 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
 begin_comment
 comment|/**  * ChecksumPolicy - a policy applied after the download to see if the file has been downloaded  * successfully and completely (or not).  *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.policies.PostDownloadPolicy"  *                   role-hint="checksum"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"postDownloadPolicy#checksum"
+argument_list|)
 specifier|public
 class|class
 name|ChecksumPolicy
