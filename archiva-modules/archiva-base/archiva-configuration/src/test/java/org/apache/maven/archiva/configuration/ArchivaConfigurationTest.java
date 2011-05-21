@@ -1739,7 +1739,7 @@ name|ArchivaConfiguration
 operator|.
 name|class
 argument_list|,
-literal|"test-save-user"
+literal|"test-save-user-defaults"
 argument_list|)
 decl_stmt|;
 name|archivaConfiguration
@@ -1826,12 +1826,11 @@ name|SAVED
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// once from default creation, and again from manual call to save
 name|control
 operator|.
 name|setVoidCallable
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
 name|control
@@ -2044,7 +2043,7 @@ name|ArchivaConfiguration
 operator|.
 name|class
 argument_list|,
-literal|"test-save-user"
+literal|"test-save-user-fallback"
 argument_list|)
 decl_stmt|;
 name|archivaConfiguration
@@ -4043,6 +4042,11 @@ argument_list|,
 literal|"test-remove-central"
 argument_list|)
 decl_stmt|;
+name|archivaConfiguration
+operator|.
+name|reload
+argument_list|()
+expr_stmt|;
 name|Configuration
 name|configuration
 init|=

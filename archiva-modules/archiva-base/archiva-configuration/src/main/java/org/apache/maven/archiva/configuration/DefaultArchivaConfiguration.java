@@ -2324,6 +2324,11 @@ name|contents
 init|=
 literal|"<configuration />"
 decl_stmt|;
+name|String
+name|fileLocation
+init|=
+name|userConfigFilename
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -2337,6 +2342,10 @@ name|contents
 argument_list|)
 condition|)
 block|{
+name|fileLocation
+operator|=
+name|altConfigFilename
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -2367,6 +2376,17 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|// olamy hackish I know :-)
+name|contents
+operator|=
+literal|"<configuration><xml fileName=\""
+operator|+
+name|fileLocation
+operator|+
+literal|"\" config-forceCreate=\"true\" config-name=\"org.apache.maven.archiva.user\"/>"
+operator|+
+literal|"</configuration>"
+expr_stmt|;
 operator|(
 operator|(
 name|CommonsConfigurationRegistry
