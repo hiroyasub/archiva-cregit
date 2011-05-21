@@ -132,7 +132,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ChecksumPolicy - a policy applied after the download to see if the file has been downloaded  * successfully and completely (or not).  *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.policies.PostDownloadPolicy"  *                   role-hint="checksum"  */
+comment|/**  * ChecksumPolicy - a policy applied after the download to see if the file has been downloaded  * successfully and completely (or not).  *  * @version $Id$  *   * plexus.component role="org.apache.maven.archiva.policies.PostDownloadPolicy"  *                   role-hint="checksum"  */
 end_comment
 
 begin_class

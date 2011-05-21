@@ -102,7 +102,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SampleKnownConsumer   *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *                   role-hint="sample-known"  */
+comment|/**  * SampleKnownConsumer   *  * @version $Id$  *   * plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *                   role-hint="sample-known"  */
 end_comment
 
 begin_class
@@ -114,7 +114,7 @@ name|AbstractMonitoredConsumer
 implements|implements
 name|KnownRepositoryContentConsumer
 block|{
-comment|/**      * @plexus.configuration default-value="unset-id"      */
+comment|/**      * plexus.configuration default-value="unset-id"      */
 specifier|private
 name|String
 name|id
@@ -260,6 +260,21 @@ block|{
 return|return
 literal|false
 return|;
+block|}
+specifier|public
+name|void
+name|setId
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|this
+operator|.
+name|id
+operator|=
+name|id
+expr_stmt|;
 block|}
 block|}
 end_class

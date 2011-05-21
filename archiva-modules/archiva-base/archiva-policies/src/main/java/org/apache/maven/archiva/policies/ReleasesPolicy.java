@@ -30,7 +30,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link PreDownloadPolicy} to apply for released versions.  *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.policies.PreDownloadPolicy"  *                   role-hint="releases"  */
+comment|/**  * {@link PreDownloadPolicy} to apply for released versions.  *  * @version $Id$  *   * plexus.component role="org.apache.maven.archiva.policies.PreDownloadPolicy"  *                   role-hint="releases"  */
 end_comment
 
 begin_class

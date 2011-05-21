@@ -114,7 +114,7 @@ name|AbstractMonitoredConsumer
 implements|implements
 name|InvalidRepositoryContentConsumer
 block|{
-comment|/**      * @plexus.configuration default-value="unset-id"      */
+comment|/**      * plexus.configuration default-value="unset-id"      */
 specifier|private
 name|String
 name|id
@@ -291,6 +291,21 @@ operator|.
 name|processCount
 operator|=
 name|processCount
+expr_stmt|;
+block|}
+specifier|public
+name|void
+name|setId
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|this
+operator|.
+name|id
+operator|=
+name|id
 expr_stmt|;
 block|}
 block|}

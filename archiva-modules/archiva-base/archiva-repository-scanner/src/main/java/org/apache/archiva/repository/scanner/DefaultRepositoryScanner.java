@@ -177,6 +177,28 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|swing
@@ -186,22 +208,31 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultRepositoryScanner  *  * @version $Id$  * @plexus.component role="org.apache.archiva.repository.scanner.RepositoryScanner"  */
+comment|/**  * DefaultRepositoryScanner  *  * @version $Id$  * plexus.component role="org.apache.archiva.repository.scanner.RepositoryScanner"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"repositoryScanner#default"
+argument_list|)
 specifier|public
 class|class
 name|DefaultRepositoryScanner
 implements|implements
 name|RepositoryScanner
 block|{
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|FileTypes
 name|filetypes
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|RepositoryContentConsumers
 name|consumerUtil

@@ -94,7 +94,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PropagateErrorsPolicy - a policy applied on error to determine how to treat the error.  *  * @plexus.component role="org.apache.maven.archiva.policies.DownloadErrorPolicy"  *                   role-hint="propagate-errors-on-update"  */
+comment|/**  * PropagateErrorsPolicy - a policy applied on error to determine how to treat the error.  *  * plexus.component role="org.apache.maven.archiva.policies.DownloadErrorPolicy"  *                   role-hint="propagate-errors-on-update"  */
 end_comment
 
 begin_class

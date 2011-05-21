@@ -19,66 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -327,8 +267,68 @@ name|ApplicationContextAware
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
-comment|/**  * RepositoryContentConsumerUtil   *  * @version $Id$  */
+comment|/**  * RepositoryContentConsumerUtil  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -391,7 +391,7 @@ operator|=
 name|applicationContext
 expr_stmt|;
 block|}
-comment|/**      *<p>      * Get the list of Ids associated with those {@link KnownRepositoryContentConsumer} that have      * been selected in the configuration to execute.      *</p>      *       *<p>      * NOTE: This list can be larger and contain entries that might not exist or be available      * in the classpath, or as a component.      *</p>      *       * @return the list of consumer ids that have been selected by the configuration.      */
+comment|/**      *<p>      * Get the list of Ids associated with those {@link KnownRepositoryContentConsumer} that have      * been selected in the configuration to execute.      *</p>      *<p/>      *<p>      * NOTE: This list can be larger and contain entries that might not exist or be available      * in the classpath, or as a component.      *</p>      *      * @return the list of consumer ids that have been selected by the configuration.      */
 specifier|public
 name|List
 argument_list|<
@@ -418,7 +418,7 @@ name|getKnownContentConsumers
 argument_list|()
 return|;
 block|}
-comment|/**      *<p>      * Get the list of Ids associated with those {@link InvalidRepositoryContentConsumer} that have      * been selected in the configuration to execute.      *</p>      *       *<p>      * NOTE: This list can be larger and contain entries that might not exist or be available      * in the classpath, or as a component.      *</p>      *       * @return the list of consumer ids that have been selected by the configuration.      */
+comment|/**      *<p>      * Get the list of Ids associated with those {@link InvalidRepositoryContentConsumer} that have      * been selected in the configuration to execute.      *</p>      *<p/>      *<p>      * NOTE: This list can be larger and contain entries that might not exist or be available      * in the classpath, or as a component.      *</p>      *      * @return the list of consumer ids that have been selected by the configuration.      */
 specifier|public
 name|List
 argument_list|<
@@ -445,7 +445,7 @@ name|getInvalidContentConsumers
 argument_list|()
 return|;
 block|}
-comment|/**      * Get the map of {@link String} ids to {@link KnownRepositoryContentConsumer} implementations,      * for those consumers that have been selected according to the active configuration.       *       * @return the map of String ids to {@link KnownRepositoryContentConsumer} objects.      */
+comment|/**      * Get the map of {@link String} ids to {@link KnownRepositoryContentConsumer} implementations,      * for those consumers that have been selected according to the active configuration.      *      * @return the map of String ids to {@link KnownRepositoryContentConsumer} objects.      */
 specifier|public
 name|Map
 argument_list|<
@@ -499,7 +499,7 @@ return|return
 name|consumerMap
 return|;
 block|}
-comment|/**      * Get the map of {@link String} ids to {@link InvalidRepositoryContentConsumer} implementations,      * for those consumers that have been selected according to the active configuration.       *       * @return the map of String ids to {@link InvalidRepositoryContentConsumer} objects.      */
+comment|/**      * Get the map of {@link String} ids to {@link InvalidRepositoryContentConsumer} implementations,      * for those consumers that have been selected according to the active configuration.      *      * @return the map of String ids to {@link InvalidRepositoryContentConsumer} objects.      */
 specifier|public
 name|Map
 argument_list|<
@@ -553,7 +553,7 @@ return|return
 name|consumerMap
 return|;
 block|}
-comment|/**      * Get the list of {@link KnownRepositoryContentConsumer} objects that are      * selected according to the active configuration.      *       * @return the list of {@link KnownRepositoryContentConsumer} that have been selected      *         by the active configuration.      */
+comment|/**      * Get the list of {@link KnownRepositoryContentConsumer} objects that are      * selected according to the active configuration.      *      * @return the list of {@link KnownRepositoryContentConsumer} that have been selected      *         by the active configuration.      */
 specifier|public
 specifier|synchronized
 name|List
@@ -639,7 +639,7 @@ return|return
 name|selectedKnownConsumers
 return|;
 block|}
-comment|/**      * Get the list of {@link InvalidRepositoryContentConsumer} objects that are      * selected according to the active configuration.      *       * @return the list of {@link InvalidRepositoryContentConsumer} that have been selected      *         by the active configuration.      */
+comment|/**      * Get the list of {@link InvalidRepositoryContentConsumer} objects that are      * selected according to the active configuration.      *      * @return the list of {@link InvalidRepositoryContentConsumer} that have been selected      *         by the active configuration.      */
 specifier|public
 specifier|synchronized
 name|List
@@ -723,7 +723,7 @@ return|return
 name|selectedInvalidConsumers
 return|;
 block|}
-comment|/**      * Get the list of {@link KnownRepositoryContentConsumer} objects that are      * available and present in the classpath and as components in the IoC.      *       * @return the list of all available {@link KnownRepositoryContentConsumer} present in the classpath       *         and as a component in the IoC.      */
+comment|/**      * Get the list of {@link KnownRepositoryContentConsumer} objects that are      * available and present in the classpath and as components in the IoC.      *      * @return the list of all available {@link KnownRepositoryContentConsumer} present in the classpath      *         and as a component in the IoC.      */
 specifier|public
 name|List
 argument_list|<
@@ -753,7 +753,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the list of {@link InvalidRepositoryContentConsumer} objects that are      * available and present in the classpath and as components in the IoC.      *       * @return the list of all available {@link InvalidRepositoryContentConsumer} present in the classpath       *         and as a component in the IoC.      */
+comment|/**      * Get the list of {@link InvalidRepositoryContentConsumer} objects that are      * available and present in the classpath and as components in the IoC.      *      * @return the list of all available {@link InvalidRepositoryContentConsumer} present in the classpath      *         and as a component in the IoC.      */
 specifier|public
 name|List
 argument_list|<
@@ -783,7 +783,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * A convienence method to execute all of the active selected consumers for a       * particular arbitrary file.      * NOTE: Make sure that there is no repository scanning task executing before invoking this so as to prevent      * the index writer/reader of the current index-content consumer executing from getting closed. For an example,      * see ArchivaDavResource#executeConsumers( File ).      *       * @param repository the repository configuration to use.      * @param localFile the local file to execute the consumers against.      * @param updateRelatedArtifacts TODO      */
+comment|/**      * A convienence method to execute all of the active selected consumers for a      * particular arbitrary file.      * NOTE: Make sure that there is no repository scanning task executing before invoking this so as to prevent      * the index writer/reader of the current index-content consumer executing from getting closed. For an example,      * see ArchivaDavResource#executeConsumers( File ).      *      * @param repository             the repository configuration to use.      * @param localFile              the local file to execute the consumers against.      * @param updateRelatedArtifacts TODO      */
 specifier|public
 name|void
 name|executeConsumers

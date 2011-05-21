@@ -132,7 +132,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link PreDownloadPolicy} to check if the requested url has failed before.  *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.policies.PreDownloadPolicy"  * role-hint="cache-failures"  */
+comment|/**  * {@link PreDownloadPolicy} to check if the requested url has failed before.  *  * @version $Id$  * plexus.component role="org.apache.maven.archiva.policies.PreDownloadPolicy"  * role-hint="cache-failures"  */
 end_comment
 
 begin_class
@@ -178,7 +178,7 @@ name|YES
 init|=
 literal|"yes"
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private
