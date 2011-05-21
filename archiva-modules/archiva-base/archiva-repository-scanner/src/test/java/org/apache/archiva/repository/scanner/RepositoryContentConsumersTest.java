@@ -1605,7 +1605,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/test-repo/path/to/test-file.xml"
+literal|"target/test-repo/path/to/test-file.xml"
 argument_list|)
 decl_stmt|;
 name|selectedKnownConsumer
