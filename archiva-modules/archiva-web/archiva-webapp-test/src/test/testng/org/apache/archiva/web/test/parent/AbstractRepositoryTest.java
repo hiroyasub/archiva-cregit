@@ -557,6 +557,11 @@ argument_list|,
 name|remoteRepo
 argument_list|)
 expr_stmt|;
+name|clickButtonWithValue
+argument_list|(
+literal|"Add Proxy Connector"
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|void
