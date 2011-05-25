@@ -69,6 +69,20 @@ name|apache
 operator|.
 name|commons
 operator|.
+name|io
+operator|.
+name|FileUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
 name|lang
 operator|.
 name|StringUtils
@@ -395,46 +409,6 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|personality
-operator|.
-name|plexus
-operator|.
-name|lifecycle
-operator|.
-name|phase
-operator|.
-name|Initializable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|personality
-operator|.
-name|plexus
-operator|.
-name|lifecycle
-operator|.
-name|phase
-operator|.
-name|InitializationException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
 name|registry
 operator|.
 name|Registry
@@ -472,6 +446,48 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|PostConstruct
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
 import|;
 end_import
 
@@ -647,35 +663,23 @@ name|Matcher
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|io
-operator|.
-name|FileUtils
-import|;
-end_import
-
 begin_comment
-comment|/**  * MetadataTools  *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.repository.metadata.MetadataTools"  */
+comment|/**  * MetadataTools  *  * @version $Id$  *<p/>  *          plexus.component role="org.apache.maven.archiva.repository.metadata.MetadataTools"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"metadataTools#default"
+argument_list|)
 specifier|public
 class|class
 name|MetadataTools
 implements|implements
 name|RegistryListener
-implements|,
-name|Initializable
 block|{
 specifier|private
-specifier|static
 name|Logger
 name|log
 init|=
@@ -683,9 +687,8 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|MetadataTools
-operator|.
-name|class
+name|getClass
+argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|public
@@ -712,12 +715,23 @@ name|GROUP_SEPARATOR
 init|=
 literal|'.'
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"archivaConfiguration#default"
+argument_list|)
 specifier|private
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|FileTypes
 name|filetypes
@@ -862,7 +876,7 @@ parameter_list|)
 block|{
 comment|/* nothing to do */
 block|}
-comment|/**      * Gather the set of snapshot versions found in a particular versioned reference.      *      * @return the Set of snapshot artifact versions found.      * @throws LayoutException      * @throws ContentNotFoundException       */
+comment|/**      * Gather the set of snapshot versions found in a particular versioned reference.      *      * @return the Set of snapshot artifact versions found.      * @throws LayoutException      * @throws ContentNotFoundException      */
 specifier|public
 name|Set
 argument_list|<
@@ -1729,12 +1743,12 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|PostConstruct
 specifier|public
 name|void
 name|initialize
 parameter_list|()
-throws|throws
-name|InitializationException
 block|{
 name|this
 operator|.
@@ -2261,7 +2275,7 @@ name|algorithms
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Skims the parent directory of a metadata in vain hope of finding       * subdirectories that contain poms.      *       * @param metadataParentDirectory      * @return origional set plus newley found versions      */
+comment|/**      * Skims the parent directory of a metadata in vain hope of finding      * subdirectories that contain poms.      *      * @param metadataParentDirectory      * @return origional set plus newley found versions      */
 specifier|private
 name|Set
 argument_list|<
@@ -2525,7 +2539,7 @@ return|return
 name|metadatas
 return|;
 block|}
-comment|/**      * Update the metadata to represent the all versions/plugins of      * the provided groupId:artifactId project or group reference,      * based off of information present in the repository,      * the maven-metadata.xml files, and the proxy/repository specific      * metadata file contents.      *      * We must treat this as a group or a project metadata file as there is no way to know in advance      *      * @deprecated       * @param managedRepository the managed repository where the metadata is kept.      * @param reference         the reference to update.      * @throws LayoutException      * @throws RepositoryMetadataException      * @throws IOException      * @throws ContentNotFoundException       */
+comment|/**      * Update the metadata to represent the all versions/plugins of      * the provided groupId:artifactId project or group reference,      * based off of information present in the repository,      * the maven-metadata.xml files, and the proxy/repository specific      * metadata file contents.      *<p/>      * We must treat this as a group or a project metadata file as there is no way to know in advance      *      * @param managedRepository the managed repository where the metadata is kept.      * @param reference         the reference to update.      * @throws LayoutException      * @throws RepositoryMetadataException      * @throws IOException      * @throws ContentNotFoundException      * @deprecated      */
 specifier|public
 name|void
 name|updateMetadata
@@ -3299,7 +3313,7 @@ literal|0
 return|;
 block|}
 block|}
-comment|/**      * Update the metadata based on the following rules.      *<p/>      * 1) If this is a SNAPSHOT reference, then utilize the proxy/repository specific      * metadata files to represent the current / latest SNAPSHOT available.      * 2) If this is a RELEASE reference, and the metadata file does not exist, then      * create the metadata file with contents required of the VersionedReference      *      * @deprecated      * @param managedRepository the managed repository where the metadata is kept.      * @param reference         the versioned reference to update      * @throws LayoutException      * @throws RepositoryMetadataException      * @throws IOException      * @throws ContentNotFoundException       */
+comment|/**      * Update the metadata based on the following rules.      *<p/>      * 1) If this is a SNAPSHOT reference, then utilize the proxy/repository specific      * metadata files to represent the current / latest SNAPSHOT available.      * 2) If this is a RELEASE reference, and the metadata file does not exist, then      * create the metadata file with contents required of the VersionedReference      *      * @param managedRepository the managed repository where the metadata is kept.      * @param reference         the versioned reference to update      * @throws LayoutException      * @throws RepositoryMetadataException      * @throws IOException      * @throws ContentNotFoundException      * @deprecated      */
 specifier|public
 name|void
 name|updateMetadata
@@ -4074,6 +4088,54 @@ comment|// No artifact was found.
 return|return
 literal|null
 return|;
+block|}
+specifier|public
+name|ArchivaConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
+return|;
+block|}
+specifier|public
+name|void
+name|setConfiguration
+parameter_list|(
+name|ArchivaConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
+block|}
+specifier|public
+name|FileTypes
+name|getFiletypes
+parameter_list|()
+block|{
+return|return
+name|filetypes
+return|;
+block|}
+specifier|public
+name|void
+name|setFiletypes
+parameter_list|(
+name|FileTypes
+name|filetypes
+parameter_list|)
+block|{
+name|this
+operator|.
+name|filetypes
+operator|=
+name|filetypes
+expr_stmt|;
 block|}
 block|}
 end_class

@@ -219,6 +219,42 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -268,10 +304,20 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ManagedDefaultRepositoryContent   *  * @version $Id$  *   * @plexus.component   *      role="org.apache.maven.archiva.repository.ManagedRepositoryContent"  *      role-hint="default"  *      instantiation-strategy="per-lookup"  */
+comment|/**  * ManagedDefaultRepositoryContent   *  * @version $Id$  *   * plexus.component  *      role="org.apache.maven.archiva.repository.ManagedRepositoryContent"  *      role-hint="default"  *      instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"managedRepositoryContent#default"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|ManagedDefaultRepositoryContent
@@ -280,7 +326,8 @@ name|AbstractDefaultRepositoryContent
 implements|implements
 name|ManagedRepositoryContent
 block|{
-comment|/**      * @plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|FileTypes
 name|filetypes
@@ -1391,7 +1438,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the first Artifact found in the provided VersionedReference location.      *      * @param managedRepository the repository to search within.      * @param reference         the reference to the versioned reference to search within      * @return the ArtifactReference to the first artifact located within the versioned reference. or null if      *         no artifact was found within the versioned reference.      * @throws IOException     if the versioned reference is invalid (example: doesn't exist, or isn't a directory)      * @throws LayoutException      */
+comment|/**      * Get the first Artifact found in the provided VersionedReference location.      *      * @param reference         the reference to the versioned reference to search within      * @return the ArtifactReference to the first artifact located within the versioned reference. or null if      *         no artifact was found within the versioned reference.      * @throws IOException     if the versioned reference is invalid (example: doesn't exist, or isn't a directory)      * @throws LayoutException      */
 specifier|private
 name|ArtifactReference
 name|getFirstArtifact

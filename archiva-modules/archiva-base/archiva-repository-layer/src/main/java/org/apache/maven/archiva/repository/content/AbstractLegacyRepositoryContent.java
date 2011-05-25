@@ -85,6 +85,26 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -193,7 +213,16 @@ literal|"javadoc.jar"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @plexus.requirement role-hint="legacy"      */
+comment|/**      * plexus.requirement role-hint="legacy"      */
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"pathParser#legacy"
+argument_list|)
 specifier|private
 name|PathParser
 name|legacyPathParser

@@ -69,6 +69,16 @@ name|LayoutException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * AbstractLegacyRepositoryContentTestCase  *  * @version $Id$  */
 end_comment
@@ -81,6 +91,8 @@ name|AbstractLegacyRepositoryContentTestCase
 extends|extends
 name|AbstractRepositoryLayerTestCase
 block|{
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBadPathArtifactIdMissingA
@@ -94,6 +106,8 @@ literal|"artifactId is missing"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBadPathArtifactIdMissingB
@@ -107,6 +121,8 @@ literal|"artifactId is missing"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBadPathMissingType
@@ -120,6 +136,8 @@ literal|"missing type"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBadPathTooShort
@@ -134,6 +152,8 @@ literal|"path is too short"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBadPathWrongPackageExtension
@@ -148,6 +168,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws LayoutException      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodButOddVersionSpecGanymedSsh2
@@ -197,6 +219,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws LayoutException      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodButOddVersionSpecJavaxComm
@@ -246,6 +270,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws LayoutException      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodButOddVersionSpecJavaxPersistence
@@ -295,6 +321,8 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodCommonsLang
@@ -343,6 +371,8 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodDerby
@@ -394,6 +424,8 @@ block|}
 comment|/**      * Test the ejb-client type spec.      * Type specs are not a 1 to 1 map to the extension.      * This tests that effect.      * @throws LayoutException      */
 comment|/* TODO: Re-enabled in the future.     public void testGoodFooEjbClient()         throws LayoutException     {         String groupId = "com.foo";         String artifactId = "foo-client";         String version = "1.0";         String type = "ejb"; // oddball type-spec (should result in jar extension)         String path = "com.foo/ejbs/foo-client-1.0.jar";          assertLayout( path, groupId, artifactId, version, classifier, type );     }     */
 comment|/**      * Test the classifier.      * @throws LayoutException      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodFooLibJavadoc
@@ -448,6 +480,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test the classifier, and java-source type spec.      * @throws LayoutException      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodFooLibSources
@@ -502,6 +536,8 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodFooTool
@@ -550,6 +586,8 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodGeronimoEjbSpec
@@ -598,6 +636,8 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodLdapClientsPom
@@ -647,6 +687,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * A timestamped versioned artifact, should reside in a SNAPSHOT baseversion directory.      * @throws LayoutException      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodSnapshotMavenTest
@@ -696,6 +738,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * [MRM-519] version identifiers within filename cause misidentification of version.      * Example uses "test" in artifact Id, which is also part of the versionKeyword list.      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodVersionKeywordInArtifactId
@@ -745,6 +789,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * [MRM-562] Artifact type "maven-plugin" is not detected correctly in .toArtifactReference() methods.      * Example uses "test" in artifact Id, which is also part of the versionKeyword list.      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodDetectPluginMavenTest
@@ -794,6 +840,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * [MRM-562] Artifact type "maven-plugin" is not detected correctly in .toArtifactReference() methods.      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodDetectPluginAvalonMeta
@@ -843,6 +891,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * [MRM-562] Artifact type "maven-plugin" is not detected correctly in .toArtifactReference() methods.      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodDetectPluginCactusMaven
@@ -892,6 +942,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * [MRM-562] Artifact type "maven-plugin" is not detected correctly in .toArtifactReference() methods.      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodDetectPluginGeronimoPackaging
@@ -941,6 +993,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** 	 * [MRM-768] Artifact type "maven-plugin" does not distinguish maven1 and maven2 plugins.  	 * This produces conflicts when m2 plugins are stored in legacy-layout repository 	 */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testMaven1Maven2PluginTypeDistinc

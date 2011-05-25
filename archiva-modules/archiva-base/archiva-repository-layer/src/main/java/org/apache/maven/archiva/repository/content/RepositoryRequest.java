@@ -101,8 +101,40 @@ name|MetadataTools
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
 begin_comment
-comment|/**  * RepositoryRequest is used to determine the type of request that is incoming, and convert it to an appropriate  * ArtifactReference.  *  * @version $Id$  *  * @todo no need to be a component once legacy path parser is not  *  * @plexus.component  *      role="org.apache.maven.archiva.repository.content.RepositoryRequest"  */
+comment|/**  * RepositoryRequest is used to determine the type of request that is incoming, and convert it to an appropriate  * ArtifactReference.  *  * @version $Id$  * @todo no need to be a component once legacy path parser is not  *<p/>  */
 end_comment
 
 begin_class
@@ -118,11 +150,24 @@ operator|new
 name|DefaultPathParser
 argument_list|()
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="legacy"      */
 specifier|private
 name|PathParser
 name|legacyPathParser
 decl_stmt|;
+specifier|public
+name|RepositoryRequest
+parameter_list|(
+name|LegacyPathParser
+name|legacyPathParser
+parameter_list|)
+block|{
+name|this
+operator|.
+name|legacyPathParser
+operator|=
+name|legacyPathParser
+expr_stmt|;
+block|}
 comment|/**      * Takes an incoming requested path (in "/" format) and gleans the layout      * and ArtifactReference appropriate for that content.      *      * @param requestedPath the relative path to the content.      * @return the ArtifactReference for the requestedPath.      * @throws LayoutException if the request path is not layout valid.      */
 specifier|public
 name|ArtifactReference
@@ -564,7 +609,7 @@ operator|==
 literal|3
 return|;
 block|}
-comment|/**      * Adjust the requestedPath to conform to the native layout of the provided {@link ManagedRepositoryContent}.      *      * @param requestedPath the incoming requested path.      * @param repository the repository to adjust to.      * @return the adjusted (to native) path.      * @throws LayoutException if the path cannot be parsed.      */
+comment|/**      * Adjust the requestedPath to conform to the native layout of the provided {@link ManagedRepositoryContent}.      *      * @param requestedPath the incoming requested path.      * @param repository    the repository to adjust to.      * @return the adjusted (to native) path.      * @throws LayoutException if the path cannot be parsed.      */
 specifier|public
 name|String
 name|toNativePath

@@ -213,6 +213,42 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -246,6 +282,16 @@ comment|/**  * ManagedLegacyRepositoryContent   *  * @version $Id$  *   * @todo 
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"managedRepositoryContent#legacy"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|ManagedLegacyRepositoryContent
@@ -254,7 +300,9 @@ name|AbstractLegacyRepositoryContent
 implements|implements
 name|ManagedRepositoryContent
 block|{
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|FileTypes
 name|filetypes

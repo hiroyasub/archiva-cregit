@@ -101,11 +101,47 @@ name|LayoutException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
 begin_comment
-comment|/**  * RemoteDefaultRepositoryContent   *  * @version $Id$  *   * @plexus.component   *      role="org.apache.maven.archiva.repository.RemoteRepositoryContent"  *      role-hint="default"  *      instantiation-strategy="per-lookup"  */
+comment|/**  * RemoteDefaultRepositoryContent  *  * @version $Id$  *<p/>  *          plexus.component  *          role="org.apache.maven.archiva.repository.RemoteRepositoryContent"  *          role-hint="default"  *          instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"remoteRepositoryContent#default"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|RemoteDefaultRepositoryContent
@@ -170,7 +206,7 @@ operator|=
 name|repository
 expr_stmt|;
 block|}
-comment|/**      * Convert a path to an artifact reference.      *       * @param path the path to convert. (relative or full url path)      * @throws LayoutException if the path cannot be converted to an artifact reference.      */
+comment|/**      * Convert a path to an artifact reference.      *      * @param path the path to convert. (relative or full url path)      * @throws LayoutException if the path cannot be converted to an artifact reference.      */
 annotation|@
 name|Override
 specifier|public

@@ -183,6 +183,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -196,6 +208,11 @@ comment|/**  * DefaultPathParser is a parser for maven 2 (default layout) paths 
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"pathParser#default"
+argument_list|)
 specifier|public
 class|class
 name|DefaultPathParser

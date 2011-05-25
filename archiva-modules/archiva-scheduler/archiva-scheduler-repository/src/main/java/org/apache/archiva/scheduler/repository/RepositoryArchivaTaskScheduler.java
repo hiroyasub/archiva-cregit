@@ -291,6 +291,20 @@ name|plexus
 operator|.
 name|taskqueue
 operator|.
+name|Task
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|taskqueue
+operator|.
 name|TaskQueue
 import|;
 end_import
@@ -371,6 +385,38 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|text
@@ -424,6 +470,11 @@ comment|/**  * Default implementation of a scheduling component for archiva.  * 
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"archivaTaskScheduler#repository"
+argument_list|)
 specifier|public
 class|class
 name|RepositoryArchivaTaskScheduler
@@ -450,27 +501,44 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|Scheduler
 name|scheduler
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="repository-scanning"      */
+comment|/**      * plexus.requirement role-hint="repository-scanning"      */
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"taskQueue#repository-scanning"
+argument_list|)
 specifier|private
 name|TaskQueue
 name|repositoryScanningQueue
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|RepositoryStatisticsManager
 name|repositoryStatisticsManager
 decl_stmt|;
-comment|/**      * TODO: could have multiple implementations      *      * @plexus.requirement      */
+comment|/**      * TODO: could have multiple implementations      *      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|RepositorySessionFactory
 name|repositorySessionFactory

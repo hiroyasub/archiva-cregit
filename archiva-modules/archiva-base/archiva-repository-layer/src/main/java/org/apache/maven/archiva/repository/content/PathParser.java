@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PathParser interface.  *   * @version $Id$  */
+comment|/**  * PathParser interface.  *  * @version $Id$  */
 end_comment
 
 begin_interface
@@ -62,8 +62,7 @@ specifier|public
 interface|interface
 name|PathParser
 block|{
-comment|/**      * Take a path and get the ArtifactReference associated with it.      *       * @param path the relative path to parse.      * @return the ArtifactReference for the provided path. (never null)      * @throws LayoutException if there was a problem parsing the path.      */
-specifier|public
+comment|/**      * Take a path and get the ArtifactReference associated with it.      *      * @param path the relative path to parse.      * @return the ArtifactReference for the provided path. (never null)      * @throws LayoutException if there was a problem parsing the path.      */
 name|ArtifactReference
 name|toArtifactReference
 parameter_list|(

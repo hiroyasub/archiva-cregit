@@ -119,6 +119,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -138,10 +150,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MockConfiguration   *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.configuration.ArchivaConfiguration"  *                   role-hint="mock"  */
+comment|/**  * MockConfiguration   *  * @version $Id$  *   * plexus.component role="org.apache.maven.archiva.configuration.ArchivaConfiguration"  *                   role-hint="mock"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"archivaConfiguration#mock"
+argument_list|)
 specifier|public
 class|class
 name|MockConfiguration

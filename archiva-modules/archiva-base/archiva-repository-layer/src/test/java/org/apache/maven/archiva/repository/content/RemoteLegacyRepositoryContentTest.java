@@ -85,8 +85,38 @@ name|LayoutException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
 begin_comment
-comment|/**  * RemoteLegacyRepositoryContentTest   *  * @version $Id$  */
+comment|/**  * RemoteLegacyRepositoryContentTest  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -96,13 +126,22 @@ name|RemoteLegacyRepositoryContentTest
 extends|extends
 name|AbstractLegacyRepositoryContentTestCase
 block|{
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"remoteRepositoryContent#legacy"
+argument_list|)
 specifier|private
 name|RemoteRepositoryContent
 name|repoContent
 decl_stmt|;
 annotation|@
-name|Override
-specifier|protected
+name|Before
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -133,20 +172,7 @@ argument_list|(
 literal|"legacy"
 argument_list|)
 expr_stmt|;
-name|repoContent
-operator|=
-operator|(
-name|RemoteRepositoryContent
-operator|)
-name|lookup
-argument_list|(
-name|RemoteRepositoryContent
-operator|.
-name|class
-argument_list|,
-literal|"legacy"
-argument_list|)
-expr_stmt|;
+comment|//repoContent = (RemoteRepositoryContent) lookup( RemoteRepositoryContent.class, "legacy" );
 name|repoContent
 operator|.
 name|setRepository

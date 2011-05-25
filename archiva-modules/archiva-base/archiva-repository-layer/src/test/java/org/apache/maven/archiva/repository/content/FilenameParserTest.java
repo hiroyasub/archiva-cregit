@@ -29,17 +29,60 @@ name|TestCase
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|runner
+operator|.
+name|RunWith
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|runners
+operator|.
+name|JUnit4
+import|;
+end_import
+
 begin_comment
 comment|/**  * FilenameParserTest  *  * @version $Id$  */
 end_comment
 
 begin_class
+annotation|@
+name|RunWith
+argument_list|(
+name|JUnit4
+operator|.
+name|class
+argument_list|)
 specifier|public
 class|class
 name|FilenameParserTest
 extends|extends
 name|TestCase
 block|{
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testNameExtensionJar
@@ -75,6 +118,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testNameExtensionTarGz
@@ -110,6 +155,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testNameExtensionTarBz2
@@ -145,6 +192,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testNameExtensionCapitolizedTarGz
@@ -180,6 +229,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testNext
@@ -263,6 +314,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testExpect
@@ -332,6 +385,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testExpectWithRemaining
@@ -421,6 +476,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testExpectWithRemainingDualExtensions
@@ -500,6 +557,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testNextNonVersion
@@ -535,6 +594,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testNextArbitraryNonVersion
@@ -570,6 +631,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testNextJython
@@ -615,6 +678,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testLongExtension
@@ -650,6 +715,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testInterveningVersion
@@ -717,6 +784,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testExpectWrongSnapshot
@@ -752,6 +821,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testExpectWrongSnapshot2
@@ -788,6 +859,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testClassifier
@@ -853,6 +926,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testNoExtension

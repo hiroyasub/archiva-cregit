@@ -21,6 +21,16 @@ end_comment
 
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -39,13 +49,33 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|junit
 operator|.
-name|plexus
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|spring
+name|junit
 operator|.
-name|PlexusInSpringTestCase
+name|runner
+operator|.
+name|RunWith
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|runners
+operator|.
+name|JUnit4
 import|;
 end_import
 
@@ -60,16 +90,25 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryMetadataReaderTest   *  * @version $Id$  */
+comment|/**  * RepositoryMetadataReaderTest  *  * @version $Id$  */
 end_comment
 
 begin_class
+annotation|@
+name|RunWith
+argument_list|(
+name|JUnit4
+operator|.
+name|class
+argument_list|)
 specifier|public
 class|class
 name|RepositoryMetadataReaderTest
 extends|extends
-name|PlexusInSpringTestCase
+name|TestCase
 block|{
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testLoadSimple
@@ -83,9 +122,6 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|getBasedir
-argument_list|()
-argument_list|,
 literal|"src/test/repositories/default-repository"
 argument_list|)
 decl_stmt|;
@@ -197,6 +233,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testLoadComplex
@@ -210,9 +248,6 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|getBasedir
-argument_list|()
-argument_list|,
 literal|"src/test/repositories/default-repository"
 argument_list|)
 decl_stmt|;

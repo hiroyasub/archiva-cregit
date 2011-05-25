@@ -83,6 +83,16 @@ name|LayoutException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * DefaultPathParserTest  *  * TODO: move to path translator tests  *  * @version $Id$  */
 end_comment
@@ -102,6 +112,8 @@ operator|new
 name|DefaultPathParser
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBadPathMissingType
@@ -116,6 +128,8 @@ literal|"missing type"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBadPathReleaseInSnapshotDir
@@ -129,6 +143,8 @@ literal|"non snapshot artifact inside of a snapshot dir"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBadPathTimestampedSnapshotNotInSnapshotDir
@@ -142,6 +158,8 @@ literal|"Timestamped Snapshot artifact not inside of an Snapshot dir"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBadPathTooShort
@@ -155,6 +173,8 @@ literal|"path is too short"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBadPathVersionMismatchA
@@ -168,6 +188,8 @@ literal|"version mismatch between path and artifact"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBadPathVersionMismatchB
@@ -181,6 +203,8 @@ literal|"version mismatch between path and artifact"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBadPathWrongArtifactId
@@ -195,6 +219,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * [MRM-481] Artifact requests with a .xml.zip extension fail with a 404 Error      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodButDualExtensions
@@ -248,6 +274,8 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodButDualExtensionsWithClassifier
@@ -301,6 +329,8 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodButDualExtensionsTarGz
@@ -355,6 +385,8 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodButDualExtensionsTarGzAndClassifier
@@ -410,6 +442,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      *      * @throws LayoutException      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodButOddVersionSpecGanymedSsh2
@@ -464,6 +498,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      *      * @throws LayoutException      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodButOddVersionSpecJavaxComm
@@ -520,6 +556,8 @@ block|}
 comment|/**      * Test the ejb-client type spec.      * Type specs are not a 1 to 1 map to the extension.      * This tests that effect.      * @throws LayoutException      */
 comment|/* TODO: Re-enabled in the future.     public void testGoodFooEjbClient()         throws LayoutException     {         String groupId = "com.foo";         String artifactId = "foo-client";         String version = "1.0";         String classifier = null;         String type = "ejb-client"; // oddball type-spec (should result in jar extension)         String path = "com/foo/foo-client/1.0/foo-client-1.0.jar";          assertLayout( path, groupId, artifactId, version, classifier, type );     }     */
 comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      *      * @throws LayoutException      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodButOddVersionSpecJavaxPersistence
@@ -574,6 +612,8 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodComFooTool
@@ -627,6 +667,8 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodCommonsLang
@@ -680,6 +722,8 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testWindowsPathSeparator
@@ -734,6 +778,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * [MRM-486] Can not deploy artifact test.maven-arch:test-arch due to "No ArtifactID Detected"      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodDashedArtifactId
@@ -788,6 +834,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * It may seem odd, but this is a valid artifact.      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodDotNotationArtifactId
@@ -842,6 +890,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * It may seem odd, but this is a valid artifact.      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodDotNotationSameGroupIdAndArtifactId
@@ -896,6 +946,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test the classifier, and java-source type spec.      *      * @throws LayoutException      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodFooLibSources
@@ -951,6 +1003,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * A timestamped versioned artifact, should reside in a SNAPSHOT baseversion directory.      *      * @throws LayoutException      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodSnapshotMavenTest
@@ -1005,6 +1059,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * A timestamped versioned artifact, should reside in a SNAPSHOT baseversion directory.      *      * @throws LayoutException      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodLongSnapshotMavenTest
@@ -1059,6 +1115,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * A timestamped versioned artifact but without release version part. Like on axiom trunk.      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBadSnapshotWithoutReleasePart
@@ -1073,6 +1131,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * A timestamped versioned artifact, should reside in a SNAPSHOT baseversion directory.      *      * @throws LayoutException      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testClassifiedSnapshotMavenTest
@@ -1127,6 +1187,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * [MRM-519] version identifiers within filename cause misidentification of version.      * Example uses "test" in artifact Id, which is also part of the versionKeyword list.      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodVersionKeywordInArtifactId
@@ -1181,6 +1243,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * [MRM-562] Artifact type "maven-plugin" is not detected correctly in .toArtifactReference() methods.      * Example uses "test" in artifact Id, which is also part of the versionKeyword list.      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodDetectMavenTestPlugin
@@ -1235,6 +1299,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * [MRM-562] Artifact type "maven-plugin" is not detected correctly in .toArtifactReference() methods.      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGoodDetectCoberturaMavenPlugin
@@ -1288,6 +1354,8 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testToArtifactOnEmptyPath
@@ -1317,6 +1385,8 @@ block|{
 comment|/* expected path */
 block|}
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testToArtifactOnNullPath
@@ -1346,6 +1416,8 @@ block|{
 comment|/* expected path */
 block|}
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testToArtifactReferenceOnEmptyPath
@@ -1375,6 +1447,8 @@ block|{
 comment|/* expected path */
 block|}
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testToArtifactReferenceOnNullPath

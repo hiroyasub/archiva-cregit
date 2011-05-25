@@ -21,16 +21,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -109,8 +99,18 @@ name|LayoutException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
 begin_comment
-comment|/**  * LegacyPathParser is a parser for maven 1 (legacy layout) paths to  * ArtifactReference.  *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.repository.content.PathParser"  * role-hint="legacy"  */
+comment|/**  * LegacyPathParser is a parser for maven 1 (legacy layout) paths to  * ArtifactReference.  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -128,11 +128,24 @@ name|INVALID_ARTIFACT_PATH
 init|=
 literal|"Invalid path to Artifact: "
 decl_stmt|;
-comment|/**      * @todo pass these in on construction instead, since this can't be long lived (no config listener), then no need to be a component      * @plexus.requirement      */
 specifier|protected
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
+specifier|public
+name|LegacyPathParser
+parameter_list|(
+name|ArchivaConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
+block|}
 comment|/**      * {@inheritDoc}      *      * @see org.apache.maven.archiva.repository.content.PathParser#toArtifactReference(java.lang.String)      */
 specifier|public
 name|ArtifactReference
