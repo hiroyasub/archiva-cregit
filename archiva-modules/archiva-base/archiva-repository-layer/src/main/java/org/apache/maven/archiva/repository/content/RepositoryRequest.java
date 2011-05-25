@@ -134,7 +134,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryRequest is used to determine the type of request that is incoming, and convert it to an appropriate  * ArtifactReference.  *  * @version $Id$  * @todo no need to be a component once legacy path parser is not  *<p/>  */
+comment|/**  * RepositoryRequest is used to determine the type of request that is incoming, and convert it to an appropriate  * ArtifactReference.  *  * @version $Id$  *<p/>  */
 end_comment
 
 begin_class

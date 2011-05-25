@@ -1520,7 +1520,10 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/test-repo"
+name|getBasedir
+argument_list|()
+operator|+
+literal|"/target/test-repo"
 argument_list|)
 decl_stmt|;
 return|return
@@ -1723,10 +1726,9 @@ literal|"default"
 argument_list|)
 decl_stmt|;
 comment|// Test (pom) legacy to default
-name|assertEquals
-argument_list|(
-literal|"mygroup/myejb/1.0/myejb-1.0.jar"
-argument_list|,
+name|String
+name|result
+init|=
 name|repoRequest
 operator|.
 name|toNativePath
@@ -1735,6 +1737,12 @@ literal|"mygroup/ejbs/myejb-1.0.jar"
 argument_list|,
 name|repository
 argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"mygroup/myejb/1.0/myejb-1.0.jar"
+argument_list|,
+name|result
 argument_list|)
 expr_stmt|;
 block|}
