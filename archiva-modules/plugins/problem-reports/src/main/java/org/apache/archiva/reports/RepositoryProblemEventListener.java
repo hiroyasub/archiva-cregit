@@ -133,11 +133,28 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
 begin_comment
-comment|/**  * Process repository management events and respond appropriately.  *  * @plexus.component role="org.apache.archiva.repository.events.RepositoryListener" role-hint="problem-reports"  */
+comment|/**  * Process repository management events and respond appropriately.  *<p/>  * plexus.component role="org.apache.archiva.repository.events.RepositoryListener" role-hint="problem-reports"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"repositoryListener#problem-reports"
+argument_list|)
 specifier|public
 class|class
 name|RepositoryProblemEventListener

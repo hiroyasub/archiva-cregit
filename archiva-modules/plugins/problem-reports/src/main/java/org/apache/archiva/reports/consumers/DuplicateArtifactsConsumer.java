@@ -291,46 +291,6 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|personality
-operator|.
-name|plexus
-operator|.
-name|lifecycle
-operator|.
-name|phase
-operator|.
-name|Initializable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|personality
-operator|.
-name|plexus
-operator|.
-name|lifecycle
-operator|.
-name|phase
-operator|.
-name|InitializationException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
 name|registry
 operator|.
 name|Registry
@@ -368,6 +328,62 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|PostConstruct
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
 import|;
 end_import
 
@@ -432,10 +448,20 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Search the database of known SHA1 Checksums for potential duplicate artifacts.  *  * TODO: no need for this to be a scanner - we can just query the database / content repository to get a full list  *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="duplicate-artifacts"  * instantiation-strategy="per-lookup"  */
+comment|/**  * Search the database of known SHA1 Checksums for potential duplicate artifacts.  *<p/>  * TODO: no need for this to be a scanner - we can just query the database / content repository to get a full list  *  * @version $Id$  *          plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *          role-hint="duplicate-artifacts"  *          instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"knownRepositoryContentConsumer#duplicate-artifacts"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|DuplicateArtifactsConsumer
@@ -445,8 +471,6 @@ implements|implements
 name|KnownRepositoryContentConsumer
 implements|,
 name|RegistryListener
-implements|,
-name|Initializable
 block|{
 specifier|private
 name|Logger
@@ -461,27 +485,37 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * @plexus.configuration default-value="duplicate-artifacts"      */
+comment|/**      * plexus.configuration default-value="duplicate-artifacts"      */
 specifier|private
 name|String
 name|id
+init|=
+literal|"duplicate-artifacts"
 decl_stmt|;
-comment|/**      * @plexus.configuration default-value="Check for Duplicate Artifacts via SHA1 Checksums"      */
+comment|/**      * plexus.configuration default-value="Check for Duplicate Artifacts via SHA1 Checksums"      */
 specifier|private
 name|String
 name|description
+init|=
+literal|"Check for Duplicate Artifacts via SHA1 Checksums"
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|FileTypes
 name|filetypes
 decl_stmt|;
-comment|/**      * FIXME: can be of other types      *      * @plexus.requirement      */
+comment|/**      * FIXME: can be of other types      *<p/>      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|RepositorySessionFactory
 name|repositorySessionFactory
@@ -508,7 +542,16 @@ specifier|private
 name|String
 name|repoId
 decl_stmt|;
-comment|/**      * FIXME: needs to be selected based on the repository in question      *      * @plexus.requirement role-hint="maven2"      */
+comment|/**      * FIXME: needs to be selected based on the repository in question      *<p/>      * plexus.requirement role-hint="maven2"      */
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"repositoryPathTranslator#maven2"
+argument_list|)
 specifier|private
 name|RepositoryPathTranslator
 name|pathTranslator
@@ -1147,12 +1190,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|PostConstruct
 specifier|public
 name|void
 name|initialize
 parameter_list|()
-throws|throws
-name|InitializationException
 block|{
 name|initIncludes
 argument_list|()
