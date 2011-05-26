@@ -21,31 +21,17 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|archiva
 operator|.
-name|util
+name|common
 operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|plexusbridge
 operator|.
-name|util
-operator|.
-name|List
+name|PlexusSisuBridge
 import|;
 end_import
 
@@ -267,6 +253,24 @@ begin_import
 import|import
 name|org
 operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|component
+operator|.
+name|repository
+operator|.
+name|exception
+operator|.
+name|ComponentLookupException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -309,8 +313,48 @@ name|Service
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
-comment|/**  * LegacyConverterArtifactConsumer - convert artifacts as they are found  * into the destination repository.   *  * @version $Id$  *   * plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *     role-hint="artifact-legacy-to-default-converter"  *     instantiation-strategy="per-lookup"  */
+comment|/**  * LegacyConverterArtifactConsumer - convert artifacts as they are found  * into the destination repository.  *  * @version $Id$  *<p/>  *          plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *          role-hint="artifact-legacy-to-default-converter"  *          instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -345,12 +389,14 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="legacy-to-default"      */
+comment|/**      * plexus.requirement role-hint="legacy-to-default"      */
+annotation|@
+name|Inject
 specifier|private
 name|ArtifactConverter
 name|artifactConverter
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
 specifier|private
 name|ArtifactFactory
 name|artifactFactory
@@ -377,9 +423,16 @@ name|String
 argument_list|>
 name|excludes
 decl_stmt|;
+annotation|@
+name|Inject
 specifier|public
 name|LegacyConverterArtifactConsumer
-parameter_list|()
+parameter_list|(
+name|PlexusSisuBridge
+name|plexusSisuBridge
+parameter_list|)
+throws|throws
+name|ComponentLookupException
 block|{
 name|includes
 operator|=
@@ -409,6 +462,17 @@ operator|.
 name|add
 argument_list|(
 literal|"**/*.war"
+argument_list|)
+expr_stmt|;
+name|artifactFactory
+operator|=
+name|plexusSisuBridge
+operator|.
+name|lookup
+argument_list|(
+name|ArtifactFactory
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -472,6 +536,7 @@ name|void
 name|completeScan
 parameter_list|()
 block|{
+comment|// no op
 block|}
 specifier|public
 name|void
