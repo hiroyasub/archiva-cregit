@@ -51,11 +51,28 @@ name|MetadataFacetFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
 begin_comment
-comment|/**  * @plexus.component role="org.apache.archiva.metadata.model.MetadataFacetFactory" role-hint="org.apache.archiva.metadata.repository.stats"  */
+comment|/**  * plexus.component role="org.apache.archiva.metadata.model.MetadataFacetFactory" role-hint="org.apache.archiva.metadata.repository.stats"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"metadataFacetFactory#org.apache.archiva.metadata.repository.stats"
+argument_list|)
 specifier|public
 class|class
 name|RepositoryStatisticsFactory

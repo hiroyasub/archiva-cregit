@@ -139,6 +139,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|text
@@ -316,10 +328,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @plexus.component role="org.apache.archiva.metadata.repository.stats.RepositoryStatisticsManager" role-hint="default"  */
+comment|/**  * plexus.component role="org.apache.archiva.metadata.repository.stats.RepositoryStatisticsManager" role-hint="default"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"repositoryStatisticsManager#default"
+argument_list|)
 specifier|public
 class|class
 name|DefaultRepositoryStatisticsManager
