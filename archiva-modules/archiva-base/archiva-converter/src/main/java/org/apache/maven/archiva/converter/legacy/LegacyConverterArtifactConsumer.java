@@ -283,11 +283,47 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
 begin_comment
-comment|/**  * LegacyConverterArtifactConsumer - convert artifacts as they are found  * into the destination repository.   *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *     role-hint="artifact-legacy-to-default-converter"  *     instantiation-strategy="per-lookup"  */
+comment|/**  * LegacyConverterArtifactConsumer - convert artifacts as they are found  * into the destination repository.   *  * @version $Id$  *   * plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *     role-hint="artifact-legacy-to-default-converter"  *     instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"knownRepositoryContentConsumer#artifact-legacy-to-default-converter"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|LegacyConverterArtifactConsumer

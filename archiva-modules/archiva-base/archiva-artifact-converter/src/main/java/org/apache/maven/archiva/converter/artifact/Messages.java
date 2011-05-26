@@ -84,6 +84,7 @@ specifier|private
 name|Messages
 parameter_list|()
 block|{
+comment|// no op
 block|}
 specifier|public
 specifier|static
