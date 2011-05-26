@@ -377,6 +377,22 @@ name|model
 operator|.
 name|building
 operator|.
+name|DefaultModelBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|model
+operator|.
+name|building
+operator|.
 name|DefaultModelBuildingRequest
 import|;
 end_import
@@ -446,6 +462,36 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|PostConstruct
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
 import|;
 end_import
 
@@ -540,7 +586,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Maven 2 repository format storage implementation. This class currently takes parameters to indicate the repository to  * deal with rather than being instantiated per-repository.  * FIXME: instantiate one per repository and allocate permanently from a factory (which can be obtained within the session).  * TODO: finish Maven 1 implementation to prove this API  *  * The session is passed in as an argument to obtain any necessary resources, rather than the class being instantiated  * within the session in the context of a single managed repository's resolution needs.  *  * @plexus.component role="org.apache.archiva.metadata.repository.storage.RepositoryStorage" role-hint="maven2"  */
+comment|/**  * Maven 2 repository format storage implementation. This class currently takes parameters to indicate the repository to  * deal with rather than being instantiated per-repository.  * FIXME: instantiate one per repository and allocate permanently from a factory (which can be obtained within the session).  * TODO: finish Maven 1 implementation to prove this API  *  * The session is passed in as an argument to obtain any necessary resources, rather than the class being instantiated  * within the session in the context of a single managed repository's resolution needs.  *  * plexus.component role="org.apache.archiva.metadata.repository.storage.RepositoryStorage" role-hint="maven2"  */
 end_comment
 
 begin_class
@@ -553,14 +599,32 @@ block|{
 comment|/**      * @plexus.requirement      */
 specifier|private
 name|ModelBuilder
-name|builder
+name|builders
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"archivaConfiguration#default"
+argument_list|)
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="maven2"      */
+comment|/**      * plexus.requirement role-hint="maven2"      */
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"repositoryPathTranslator#maven2"
+argument_list|)
 specifier|private
 name|RepositoryPathTranslator
 name|pathTranslator
@@ -588,6 +652,17 @@ name|METADATA_FILENAME
 init|=
 literal|"maven-metadata.xml"
 decl_stmt|;
+annotation|@
+name|PostConstruct
+specifier|public
+name|void
+name|initialize
+parameter_list|()
+block|{
+comment|//
+name|ou
+name|ou
+block|}
 specifier|public
 name|ProjectMetadata
 name|readProjectMetadata

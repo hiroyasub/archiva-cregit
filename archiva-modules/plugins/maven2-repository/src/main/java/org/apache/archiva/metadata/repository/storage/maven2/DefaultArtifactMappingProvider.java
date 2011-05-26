@@ -23,6 +23,18 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -42,10 +54,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @plexus.component role="org.apache.archiva.metadata.repository.storage.maven2.ArtifactMappingProvider" role-hint="default"  */
+comment|/**  * plexus.component role="org.apache.archiva.metadata.repository.storage.maven2.ArtifactMappingProvider" role-hint="default"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"artifactMappingProvider#default"
+argument_list|)
 specifier|public
 class|class
 name|DefaultArtifactMappingProvider

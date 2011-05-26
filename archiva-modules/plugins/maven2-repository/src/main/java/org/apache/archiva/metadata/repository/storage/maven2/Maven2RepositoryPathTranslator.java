@@ -75,11 +75,65 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|ApplicationContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|PostConstruct
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
 operator|.
 name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
 import|;
 end_import
 
@@ -118,10 +172,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @plexus.component role="org.apache.archiva.metadata.repository.storage.RepositoryPathTranslator" role-hint="maven2"  */
+comment|/**  * plexus.component role="org.apache.archiva.metadata.repository.storage.RepositoryPathTranslator" role-hint="maven2"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"repositoryPathTranslator#maven2"
+argument_list|)
 specifier|public
 class|class
 name|Maven2RepositoryPathTranslator
@@ -157,7 +216,13 @@ argument_list|(
 literal|"([0-9]{8}.[0-9]{6})-([0-9]+).*"
 argument_list|)
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.archiva.metadata.repository.storage.maven2.ArtifactMappingProvider"      */
+annotation|@
+name|Inject
+specifier|private
+name|ApplicationContext
+name|applicationContext
+decl_stmt|;
+comment|/**      * plexus.requirement role="org.apache.archiva.metadata.repository.storage.maven2.ArtifactMappingProvider"      * see #initialize      */
 specifier|private
 name|List
 argument_list|<
@@ -169,6 +234,36 @@ specifier|public
 name|Maven2RepositoryPathTranslator
 parameter_list|()
 block|{
+comment|// noop
+block|}
+annotation|@
+name|PostConstruct
+specifier|public
+name|void
+name|initialize
+parameter_list|()
+block|{
+name|artifactMappingProviders
+operator|=
+operator|new
+name|ArrayList
+argument_list|<
+name|ArtifactMappingProvider
+argument_list|>
+argument_list|(
+name|applicationContext
+operator|.
+name|getBeansOfType
+argument_list|(
+name|ArtifactMappingProvider
+operator|.
+name|class
+argument_list|)
+operator|.
+name|values
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|Maven2RepositoryPathTranslator
