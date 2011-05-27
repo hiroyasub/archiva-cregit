@@ -379,6 +379,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -388,7 +398,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaRepositoryScanningTaskExecutor  *  * @version $Id$  * @plexus.component role="org.codehaus.plexus.taskqueue.execution.TaskExecutor"  * role-hint="repository-scanning"  */
+comment|/**  * ArchivaRepositoryScanningTaskExecutor  *  * @version $Id$  * plexus.component role="org.codehaus.plexus.taskqueue.execution.TaskExecutor"  * role-hint="repository-scanning"  */
 end_comment
 
 begin_class
@@ -421,6 +431,13 @@ decl_stmt|;
 comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"archivaConfiguration#default"
+argument_list|)
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration

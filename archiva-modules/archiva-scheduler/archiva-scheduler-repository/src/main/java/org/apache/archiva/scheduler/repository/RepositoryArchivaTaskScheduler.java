@@ -466,7 +466,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of a scheduling component for archiva.  *  * @plexus.component role="org.apache.archiva.scheduler.ArchivaTaskScheduler" role-hint="repository"  */
+comment|/**  * Default implementation of a scheduling component for archiva.  *  * plexus.component role="org.apache.archiva.scheduler.ArchivaTaskScheduler" role-hint="repository"  */
 end_comment
 
 begin_class
@@ -532,6 +532,13 @@ decl_stmt|;
 comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"repositoryStatisticsManager#default"
+argument_list|)
 specifier|private
 name|RepositoryStatisticsManager
 name|repositoryStatisticsManager

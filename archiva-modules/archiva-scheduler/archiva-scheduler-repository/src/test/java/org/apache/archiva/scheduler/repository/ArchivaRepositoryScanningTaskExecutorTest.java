@@ -400,6 +400,13 @@ name|archivaConfig
 decl_stmt|;
 annotation|@
 name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"repositoryStatisticsManager#test"
+argument_list|)
 specifier|private
 name|RepositoryStatisticsManager
 name|repositoryStatisticsManager
