@@ -193,6 +193,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -260,6 +270,8 @@ name|NAME_MOCKED_PROXIED2
 init|=
 literal|"Bad Proxied 2"
 decl_stmt|;
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateErrorImmediatelyWithErrorThenSuccess
@@ -318,6 +330,8 @@ name|ID_MOCKED_PROXIED1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateErrorImmediatelyWithNotFoundThenError
@@ -388,6 +402,8 @@ name|ID_MOCKED_PROXIED2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateErrorImmediatelyWithSuccessThenError
@@ -438,6 +454,8 @@ name|REPOPATH_PROXIED1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateErrorImmediatelyWithNotFoundThenSuccess
@@ -498,6 +516,8 @@ name|REPOPATH_PROXIED2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateErrorAtEndWithErrorThenSuccess
@@ -556,6 +576,8 @@ name|ID_MOCKED_PROXIED1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateErrorAtEndWithSuccessThenError
@@ -606,6 +628,8 @@ name|REPOPATH_PROXIED1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateErrorAtEndWithNotFoundThenError
@@ -676,6 +700,8 @@ name|ID_MOCKED_PROXIED2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateErrorAtEndWithErrorThenNotFound
@@ -746,6 +772,8 @@ name|ID_MOCKED_PROXIED1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateErrorAtEndWithErrorThenError
@@ -823,6 +851,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateErrorAtEndWithNotFoundThenSuccess
@@ -883,6 +913,8 @@ name|REPOPATH_PROXIED2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIgnoreErrorWithErrorThenSuccess
@@ -943,6 +975,8 @@ name|REPOPATH_PROXIED2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIgnoreErrorWithSuccessThenError
@@ -993,6 +1027,8 @@ name|REPOPATH_PROXIED1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIgnoreErrorWithNotFoundThenError
@@ -1061,6 +1097,8 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIgnoreErrorWithErrorThenNotFound
@@ -1129,6 +1167,8 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIgnoreErrorWithErrorThenError
@@ -1197,6 +1237,8 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateOnUpdateAlwaysArtifactNotPresent
@@ -1265,6 +1307,8 @@ name|ID_MOCKED_PROXIED1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateOnUpdateAlwaysArtifactPresent
@@ -1333,6 +1377,8 @@ name|ID_MOCKED_PROXIED1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateOnUpdateAlwaysQueueArtifactNotPresent
@@ -1418,6 +1464,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateOnUpdateAlwaysQueueArtifactPresent
@@ -1503,6 +1551,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateOnUpdateAlwaysIgnoreArtifactNotPresent
@@ -1579,6 +1629,8 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateOnUpdateAlwaysIgnoreArtifactPresent
@@ -1663,6 +1715,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateOnUpdateNotPresentArtifactNotPresent
@@ -1731,6 +1785,8 @@ name|ID_MOCKED_PROXIED1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateOnUpdateNotPresentArtifactPresent
@@ -1805,6 +1861,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateOnUpdateNotPresentQueueArtifactNotPresent
@@ -1890,6 +1948,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateOnUpdateNotPresentQueueArtifactPresent
@@ -1974,6 +2034,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateOnUpdateNotPresentIgnoreArtifactNotPresent
@@ -2050,6 +2112,8 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPropagateOnUpdateNotPresentIgnoreArtifactPresent

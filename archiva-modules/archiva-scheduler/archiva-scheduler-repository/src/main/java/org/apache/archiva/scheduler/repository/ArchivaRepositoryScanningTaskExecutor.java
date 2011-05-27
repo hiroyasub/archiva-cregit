@@ -487,8 +487,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Initialized "
-operator|+
+literal|"Initialized {}"
+argument_list|,
 name|this
 operator|.
 name|getClass

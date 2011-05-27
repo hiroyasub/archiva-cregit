@@ -99,6 +99,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -118,6 +128,8 @@ name|SnapshotTransferTest
 extends|extends
 name|AbstractProxyTestCase
 block|{
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testSnapshotNonExistant
@@ -202,6 +214,8 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testTimestampDrivenSnapshotNotPresentAlready
@@ -301,6 +315,8 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testNewerTimestampDrivenSnapshotOnFirstRepo
@@ -406,6 +422,8 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testOlderTimestampDrivenSnapshotOnFirstRepo
@@ -499,6 +517,8 @@ expr_stmt|;
 block|}
 comment|/**      * TODO: Has problems with wagon implementation not preserving timestamp.      */
 comment|/*     public void testNewerTimestampDrivenSnapshotOnSecondRepoThanFirstNotPresentAlready()         throws Exception     {         String path = "org/apache/maven/test/get-timestamped-snapshot-in-both/1.0-SNAPSHOT/get-timestamped-snapshot-in-both-1.0-SNAPSHOT.jar";         setupTestableManagedRepository( path );                  File expectedFile = new File( managedDefaultDir, path );         ArtifactReference artifact = createArtifactReference( "default", path );          expectedFile.delete();         assertFalse( expectedFile.exists() );          // Create customized proxy / target repository         File targetProxyDir = saveTargetedRepositoryConfig( ID_PROXIED1_TARGET, REPOPATH_PROXIED1,                                                             REPOPATH_PROXIED1_TARGET, "default" );          new File( targetProxyDir, path ).setLastModified( getPastDate().getTime() );          // Configure Connector (usually done within archiva.xml configuration)         saveConnector( ID_DEFAULT_MANAGED, ID_PROXIED1_TARGET, ChecksumPolicy.IGNORED, ReleasesPolicy.IGNORED,                        SnapshotsPolicy.IGNORED, CachedFailuresPolicy.IGNORED );         saveConnector( ID_DEFAULT_MANAGED, ID_PROXIED2, ChecksumPolicy.IGNORED, ReleasesPolicy.IGNORED,                        SnapshotsPolicy.IGNORED, CachedFailuresPolicy.IGNORED );          File downloadedFile = proxyHandler.fetchFromProxies( managedDefaultRepository, artifact );          // Should have downloaded the content from proxy2, as proxy1 has an old (by file.lastModified check) version.         File proxiedFile = new File( REPOPATH_PROXIED2, path );         assertFileEquals( expectedFile, downloadedFile, proxiedFile );         assertNoTempFiles( expectedFile );     }       public void testOlderTimestampDrivenSnapshotOnSecondRepoThanFirstNotPresentAlready()         throws Exception     {         String path = "org/apache/maven/test/get-timestamped-snapshot-in-both/1.0-SNAPSHOT/get-timestamped-snapshot-in-both-1.0-SNAPSHOT.jar";         setupTestableManagedRepository( path );                  File expectedFile = new File( managedDefaultDir, path );         ArtifactReference artifact = createArtifactReference( "default", path );          expectedFile.delete();         assertFalse( expectedFile.exists() );          // Create customized proxy / target repository         File targetProxyDir = saveTargetedRepositoryConfig( ID_PROXIED2_TARGET, REPOPATH_PROXIED2,                                                             REPOPATH_PROXIED2_TARGET, "default" );          new File( targetProxyDir, path ).setLastModified( getPastDate().getTime() );          // Configure Connector (usually done within archiva.xml configuration)         saveConnector( ID_DEFAULT_MANAGED, ID_PROXIED1, ChecksumPolicy.IGNORED, ReleasesPolicy.IGNORED,                        SnapshotsPolicy.IGNORED, CachedFailuresPolicy.IGNORED );         saveConnector( ID_DEFAULT_MANAGED, ID_PROXIED2_TARGET, ChecksumPolicy.IGNORED, ReleasesPolicy.IGNORED,                        SnapshotsPolicy.IGNORED, CachedFailuresPolicy.IGNORED );          File downloadedFile = proxyHandler.fetchFromProxies( managedDefaultRepository, artifact );          File proxiedFile = new File( REPOPATH_PROXIED1_TARGET, path );         assertFileEquals( expectedFile, downloadedFile, proxiedFile );         assertNoTempFiles( expectedFile );     } */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testTimestampDrivenSnapshotNotExpired
@@ -604,6 +624,8 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testTimestampDrivenSnapshotNotUpdated
@@ -708,6 +730,8 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testTimestampDrivenSnapshotNotPresentAlreadyExpiredCacheFailure
@@ -848,6 +872,8 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testMetadataDrivenSnapshotNotPresentAlready
@@ -947,6 +973,8 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetMetadataDrivenSnapshotRemoteUpdate

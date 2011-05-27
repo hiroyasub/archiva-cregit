@@ -127,6 +127,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -146,6 +156,8 @@ name|ChecksumTransferTest
 extends|extends
 name|AbstractProxyTestCase
 block|{
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetChecksumWhenConnectorIsDisabled
@@ -246,6 +258,8 @@ name|downloadedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetChecksumBothCorrect
@@ -375,6 +389,8 @@ literal|"e58f30c6a150a2e843552438d18e15cb *get-checksum-both-right-1.0.jar"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetChecksumCorrectSha1NoMd5
@@ -504,6 +520,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetChecksumNoSha1CorrectMd5
@@ -633,6 +651,8 @@ literal|"f3af5201bf8da801da37db8842846e1c *get-checksum-md5-only-1.0.jar"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetWithNoChecksumsUsingIgnoredSetting
@@ -762,6 +782,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetChecksumBadSha1BadMd5IgnoredSetting
@@ -891,6 +913,8 @@ literal|"invalid checksum file"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetChecksumBadSha1BadMd5FailSetting
@@ -1000,6 +1024,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetChecksumBadSha1BadMd5FixSetting
@@ -1129,6 +1155,8 @@ literal|"a292491a35925465e693a44809a078b5  get-checksum-both-bad-1.0.jar"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetChecksumCorrectSha1BadMd5UsingFailSetting
@@ -1238,6 +1266,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetChecksumNoSha1CorrectMd5UsingFailSetting
@@ -1368,6 +1398,8 @@ literal|"f3af5201bf8da801da37db8842846e1c *get-checksum-md5-only-1.0.jar"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetWithNoChecksumsUsingFailSetting
@@ -1477,6 +1509,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetChecksumCorrectSha1BadMd5UsingIgnoredSetting
@@ -1606,6 +1640,8 @@ literal|"invalid checksum file"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetChecksumCorrectSha1BadMd5UsingFixSetting
@@ -1735,6 +1771,8 @@ literal|"c35f3b76268b73a4ba617f6f275c49ab  get-checksum-sha1-bad-md5-1.0.jar"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetChecksumNoSha1CorrectMd5UsingFixSetting
@@ -1864,6 +1902,8 @@ literal|"f3af5201bf8da801da37db8842846e1c *get-checksum-md5-only-1.0.jar"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetWithNoChecksumsUsingFixSetting
@@ -1993,6 +2033,8 @@ literal|"3f7341545f21226b6f49a3c2704cb9be  get-default-layout-1.0.jar"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetChecksumNotFoundOnRemote
@@ -2322,6 +2364,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetAlwaysBadChecksumPresentLocallyAbsentRemoteUsingIgnoredSetting
@@ -2452,6 +2496,8 @@ literal|"invalid checksum file"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetAlwaysBadChecksumPresentLocallyAbsentRemoteUsingFailSetting
@@ -2568,6 +2614,8 @@ literal|"invalid checksum file"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetAlwaysBadChecksumPresentLocallyAbsentRemoteUsingFixSetting

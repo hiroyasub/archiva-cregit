@@ -149,6 +149,26 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -170,6 +190,8 @@ name|AbstractProxyTestCase
 block|{
 comment|// TODO: test some hard failures (eg TransferFailedException)
 comment|// TODO: test the various combinations of fetchFrom* (note: need only test when caching is enabled)
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetWithCacheFailuresOn
@@ -393,6 +415,8 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetWithCacheFailuresOff
@@ -659,6 +683,8 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetWhenInBothProxiedButFirstCacheFailure
@@ -828,6 +854,11 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Inject
+name|UrlFailureCache
+name|urlFailureCache
+decl_stmt|;
 specifier|protected
 name|UrlFailureCache
 name|lookupUrlFailureCache
@@ -835,17 +866,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|UrlFailureCache
-name|urlFailureCache
-init|=
-operator|(
-name|UrlFailureCache
-operator|)
-name|lookup
-argument_list|(
-literal|"urlFailureCache"
-argument_list|)
-decl_stmt|;
+comment|//UrlFailureCache urlFailureCache = (UrlFailureCache) lookup( "urlFailureCache" );
 name|assertNotNull
 argument_list|(
 literal|"URL Failure Cache cannot be null."

@@ -99,6 +99,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -119,6 +129,8 @@ extends|extends
 name|AbstractProxyTestCase
 block|{
 comment|/**      * Incoming request on a Managed Legacy repository, for content that does not      * exist in the managed legacy repository, but does exist on a remote default layout repository.      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testManagedLegacyNotPresentRemoteDefaultPresent
@@ -206,6 +218,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Incoming request on a Managed Legacy repository, for content that already      * exist in the managed legacy repository, and also exist on a remote default layout repository.      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testManagedLegacyPresentRemoteDefaultPresent
@@ -316,6 +330,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Incoming request on a Managed Legacy repository, for content that does not      * exist in the managed legacy repository, and does not exist on a remote legacy layout repository.      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testManagedLegacyNotPresentRemoteLegacyPresent
@@ -403,6 +419,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Incoming request on a Managed Legacy repository, for content that does exist in the       * managed legacy repository, and also exists on a remote legacy layout repository.       */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testManagedLegacyPresentRemoteLegacyPresent
@@ -492,6 +510,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Incoming request on a Managed Legacy repository, for content that does exist in the       * managed legacy repository, and does not exist on a remote legacy layout repository.       */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testManagedLegacyPresentRemoteLegacyNotPresent
@@ -567,6 +587,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Incoming request on a Managed Legacy repository, for content that does exist in the       * managed legacy repository, and does not exists on a remote default layout repository.       */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testManagedLegacyPresentRemoteDefaultNotPresent
@@ -642,6 +664,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Incoming request on a Managed Legacy repository, for content that does not exist in the       * managed legacy repository, and does not exists on a remote legacy layout repository.       */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testManagedLegacyNotPresentRemoteLegacyNotPresent
@@ -714,6 +738,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Incoming request on a Managed Legacy repository, for content that does not exist in the       * managed legacy repository, and does not exists on a remote default layout repository.       */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testManagedLegacyNotPresentRemoteDefaultNotPresent

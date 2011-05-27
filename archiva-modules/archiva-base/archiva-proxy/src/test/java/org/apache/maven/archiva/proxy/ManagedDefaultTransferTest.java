@@ -141,6 +141,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -160,6 +170,8 @@ name|ManagedDefaultTransferTest
 extends|extends
 name|AbstractProxyTestCase
 block|{
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetDefaultLayoutNotPresentConnectorOffline
@@ -251,6 +263,8 @@ name|downloadedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetDefaultLayoutNotPresent
@@ -360,6 +374,8 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetDefaultLayoutNotPresentPassthrough
@@ -526,6 +542,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * The attempt here should result in no file being transferred.      *<p/>      * The file exists locally, and the policy is ONCE.      *      * @throws Exception      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetDefaultLayoutAlreadyPresentPolicyOnce
@@ -627,6 +645,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * The attempt here should result in no file being transferred.      *<p/>      * The file exists locally, and the policy is ONCE.      *      * @throws Exception      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetDefaultLayoutAlreadyPresentPassthrough
@@ -748,6 +768,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      *<p>      * Request a file, that exists locally, and remotely.      *</p>      *<p>      * All policies are set to IGNORE.      *</p>      *<p>      * Managed file is newer than remote file.      *</p>      *<p>      * Transfer should not have occured, as managed file is newer.      *</p>      *      * @throws Exception      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetDefaultLayoutAlreadyPresentNewerThanRemotePolicyIgnored
@@ -879,6 +901,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      *<p>      * Request a file, that exists locally, and remotely.      *</p>      *<p>      * All policies are set to IGNORE.      *</p>      *<p>      * Managed file is older than Remote file.      *</p>      *<p>      * Transfer should have occured, as managed file is older than remote.      *</p>      *      * @throws Exception      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetDefaultLayoutAlreadyPresentOlderThanRemotePolicyIgnored
@@ -1010,6 +1034,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * The attempt here should result in file being transferred.      *<p/>      * The file exists locally, is over 6 years old, and the policy is DAILY.      *      * @throws Exception      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetDefaultLayoutRemoteUpdate
@@ -1132,6 +1158,8 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetWhenInBothProxiedRepos
@@ -1283,6 +1311,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetInSecondProxiedRepo
@@ -1384,6 +1414,8 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testNotFoundInAnyProxies
@@ -1485,6 +1517,8 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetInSecondProxiedRepoFirstFails
@@ -1644,6 +1678,8 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetAllRepositoriesFail
@@ -1840,6 +1876,8 @@ expr_stmt|;
 comment|// TODO: do not want failures to present as a not found [MRM-492]
 comment|// TODO: How much information on each failure should we pass back to the user vs. logging in the proxy?
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetFromLegacyProxyAlreadyPresentInManaged_NewerThanRemote
@@ -1958,6 +1996,8 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetFromLegacyProxyAlreadyPresentInManaged_OlderThanRemote
@@ -2076,6 +2116,8 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetFromLegacyProxyNotPresentInManaged
@@ -2172,6 +2214,8 @@ name|expectedFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetFromLegacyProxyPluginNotPresentInManaged

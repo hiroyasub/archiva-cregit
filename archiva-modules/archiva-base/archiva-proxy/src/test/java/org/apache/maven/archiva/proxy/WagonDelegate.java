@@ -265,11 +265,28 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
 begin_comment
 comment|/**  * A dummy wagon implementation  *  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"wagon#test"
+argument_list|)
 specifier|public
 class|class
 name|WagonDelegate

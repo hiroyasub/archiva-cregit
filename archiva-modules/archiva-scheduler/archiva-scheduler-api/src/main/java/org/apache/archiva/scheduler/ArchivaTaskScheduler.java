@@ -44,7 +44,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The component that takes care of scheduling in the application.  *  */
+comment|/**  * The component that takes care of scheduling in the application.  */
 end_comment
 
 begin_interface
@@ -71,8 +71,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/**      * Adds the task to the scanning queue.      *       * @param task      * @throws TaskQueueException      */
-specifier|public
+comment|/**      * Adds the task to the scanning queue.      *      * @param task      * @throws TaskQueueException      */
 name|void
 name|queueTask
 parameter_list|(
