@@ -422,7 +422,7 @@ name|applicationContext
 operator|.
 name|getBean
 argument_list|(
-literal|"RemoteRepositoryContent#"
+literal|"remoteRepositoryContent#"
 operator|+
 name|repoConfig
 operator|.
