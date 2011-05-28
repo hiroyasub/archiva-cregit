@@ -59,6 +59,22 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|configuration
+operator|.
+name|ProxyConnectorConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
 name|model
 operator|.
 name|ArchivaRepositoryMetadata
@@ -340,6 +356,16 @@ operator|.
 name|io
 operator|.
 name|StringWriter
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
 import|;
 end_import
 
@@ -776,6 +802,21 @@ decl_stmt|;
 name|setupTestableManagedRepository
 argument_list|(
 name|requestedResource
+argument_list|)
+expr_stmt|;
+name|config
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|setProxyConnectors
+argument_list|(
+operator|new
+name|ArrayList
+argument_list|<
+name|ProxyConnectorConfiguration
+argument_list|>
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertResourceExists
@@ -1345,6 +1386,21 @@ decl_stmt|;
 name|setupTestableManagedRepository
 argument_list|(
 name|requestedResource
+argument_list|)
+expr_stmt|;
+name|config
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|setProxyConnectors
+argument_list|(
+operator|new
+name|ArrayList
+argument_list|<
+name|ProxyConnectorConfiguration
+argument_list|>
+argument_list|( )
 argument_list|)
 expr_stmt|;
 comment|// Configure Connector (usually done within archiva.xml configuration)
