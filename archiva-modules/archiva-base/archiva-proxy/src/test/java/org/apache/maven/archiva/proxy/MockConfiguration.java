@@ -418,13 +418,7 @@ operator|.
 name|getRepository
 argument_list|()
 decl_stmt|;
-name|configuration
-operator|.
-name|addManagedRepository
-argument_list|(
-name|repoConfig
-argument_list|)
-expr_stmt|;
+comment|//configuration.addManagedRepository( repoConfig );
 name|configuration
 operator|.
 name|setRepositoryScanning
