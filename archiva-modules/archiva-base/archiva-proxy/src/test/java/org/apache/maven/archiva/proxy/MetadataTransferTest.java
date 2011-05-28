@@ -341,6 +341,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -390,6 +400,8 @@ name|MetadataTransferTest
 extends|extends
 name|AbstractProxyTestCase
 block|{
+annotation|@
+name|Inject
 specifier|private
 name|MetadataTools
 name|metadataTools
@@ -403,22 +415,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-name|metadataTools
-operator|=
-name|applicationContext
-operator|.
-name|getBean
-argument_list|(
-name|MetadataTools
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
+comment|//super.setUp();
+comment|//metadataTools = applicationContext.getBean( MetadataTools.class );
 block|}
 annotation|@
 name|Test
@@ -764,6 +762,21 @@ decl_stmt|;
 name|setupTestableManagedRepository
 argument_list|(
 name|requestedResource
+argument_list|)
+expr_stmt|;
+name|config
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|setProxyConnectors
+argument_list|(
+operator|new
+name|ArrayList
+argument_list|<
+name|ProxyConnectorConfiguration
+argument_list|>
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertResourceNotFound
