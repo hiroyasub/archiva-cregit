@@ -929,6 +929,72 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|ApplicationContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|PostConstruct
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|servlet
+operator|.
+name|http
+operator|.
+name|HttpServletResponse
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -987,23 +1053,16 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|servlet
-operator|.
-name|http
-operator|.
-name|HttpServletResponse
-import|;
-end_import
-
 begin_comment
-comment|/**  * @plexus.component role="org.apache.maven.archiva.webdav.ArchivaDavResourceFactory"  */
+comment|/**  * plexus.component role="org.apache.maven.archiva.webdav.ArchivaDavResourceFactory"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"davResourceFactory#archiva"
+argument_list|)
 specifier|public
 class|class
 name|ArchivaDavResourceFactory
@@ -1041,7 +1100,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.archiva.audit.AuditListener"      */
+comment|/**      * plexus.requirement role="org.apache.archiva.audit.AuditListener"      */
 specifier|private
 name|List
 argument_list|<
@@ -1056,42 +1115,72 @@ name|AuditListener
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|RepositoryContentFactory
 name|repositoryFactory
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|RepositoryRequest
 name|repositoryRequest
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="default"      */
+comment|/**      * plexus.requirement role-hint="default"      */
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"repositoryProxyConnectors#default"
+argument_list|)
 specifier|private
 name|RepositoryProxyConnectors
 name|connectors
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|MetadataTools
 name|metadataTools
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|MimeTypes
 name|mimeTypes
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|ServletAuthenticator
 name|servletAuth
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="basic"      */
+comment|/**      * plexus.requirement role-hint="basic"      */
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"httpAuthenticator#basic"
+argument_list|)
 specifier|private
 name|HttpAuthenticator
 name|httpAuth
@@ -1106,26 +1195,92 @@ operator|new
 name|SimpleLockManager
 argument_list|()
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|ChecksumFile
 name|checksum
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="sha1"      */
+comment|/**      * plexus.requirement role-hint="sha1"      */
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"digester#sha1"
+argument_list|)
 specifier|private
 name|Digester
 name|digestSha1
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="md5";      */
+comment|/**      * plexus.requirement role-hint="md5";      */
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"digester#md5"
+argument_list|)
 specifier|private
 name|Digester
 name|digestMd5
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.archiva.scheduler.ArchivaTaskScheduler" role-hint="repository"      */
+comment|/**      * plexus.requirement role="org.apache.archiva.scheduler.ArchivaTaskScheduler" role-hint="repository"      */
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"archivaTaskScheduler#repository"
+argument_list|)
 specifier|private
 name|RepositoryArchivaTaskScheduler
 name|scheduler
 decl_stmt|;
+annotation|@
+name|Inject
+specifier|private
+name|ApplicationContext
+name|applicationContext
+decl_stmt|;
+annotation|@
+name|PostConstruct
+specifier|public
+name|void
+name|initialize
+parameter_list|()
+block|{
+name|this
+operator|.
+name|auditListeners
+operator|=
+operator|new
+name|ArrayList
+argument_list|<
+name|AuditListener
+argument_list|>
+argument_list|(
+name|applicationContext
+operator|.
+name|getBeansOfType
+argument_list|(
+name|AuditListener
+operator|.
+name|class
+argument_list|)
+operator|.
+name|values
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 specifier|public
 name|DavResource
 name|createResource
@@ -3251,7 +3406,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * A relocation capable client will request the POM prior to the artifact, and will then read meta-data and do      * client side relocation. A simplier client (like maven 1) will only request the artifact and not use the      * metadatas.      *<p>      * For such clients, archiva does server-side relocation by reading itself the&lt;relocation&gt; element in      * metadatas and serving the expected artifact.      */
+comment|/**      * A relocation capable client will request the POM prior to the artifact, and will then read meta-data and do      * client side relocation. A simplier client (like maven 1) will only request the artifact and not use the      * metadatas.      *<p/>      * For such clients, archiva does server-side relocation by reading itself the&lt;relocation&gt; element in      * metadatas and serving the expected artifact.      */
 specifier|protected
 name|void
 name|applyServerSideRelocation

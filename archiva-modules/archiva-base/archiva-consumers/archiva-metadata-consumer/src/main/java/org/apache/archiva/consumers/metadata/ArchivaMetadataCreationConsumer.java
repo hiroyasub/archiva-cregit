@@ -321,46 +321,6 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|personality
-operator|.
-name|plexus
-operator|.
-name|lifecycle
-operator|.
-name|phase
-operator|.
-name|Initializable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|personality
-operator|.
-name|plexus
-operator|.
-name|lifecycle
-operator|.
-name|phase
-operator|.
-name|InitializationException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
 name|registry
 operator|.
 name|Registry
@@ -403,6 +363,62 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|PostConstruct
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -432,10 +448,20 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Take an artifact off of disk and put it into the metadata repository.  *  * @version $Id: ArtifactUpdateDatabaseConsumer.java 718864 2008-11-19 06:33:35Z brett $  * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="create-archiva-metadata" instantiation-strategy="per-lookup"  */
+comment|/**  * Take an artifact off of disk and put it into the metadata repository.  *  * @version $Id: ArtifactUpdateDatabaseConsumer.java 718864 2008-11-19 06:33:35Z brett $  * plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="create-archiva-metadata" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"knownRepositoryContentConsumer#create-archiva-metadata"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|ArchivaMetadataCreationConsumer
@@ -445,25 +471,31 @@ implements|implements
 name|KnownRepositoryContentConsumer
 implements|,
 name|RegistryListener
-implements|,
-name|Initializable
 block|{
-comment|/**      * @plexus.configuration default-value="create-archiva-metadata"      */
+comment|/**      * plexus.configuration default-value="create-archiva-metadata"      */
 specifier|private
 name|String
 name|id
+init|=
+literal|"create-archiva-metadata"
 decl_stmt|;
-comment|/**      * @plexus.configuration default-value="Create basic metadata for Archiva to be able to reference the artifact"      */
+comment|/**      * plexus.configuration default-value="Create basic metadata for Archiva to be able to reference the artifact"      */
 specifier|private
 name|String
 name|description
+init|=
+literal|"Create basic metadata for Archiva to be able to reference the artifact"
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|FileTypes
 name|filetypes
@@ -487,11 +519,22 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|/**      * FIXME: can be of other types      *      * @plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|RepositorySessionFactory
 name|repositorySessionFactory
 decl_stmt|;
-comment|/**      * FIXME: this needs to be configurable based on storage type - and could also be instantiated per repo. Change to a      * factory.      *      * @plexus.requirement role-hint="maven2"      */
+comment|/**      * FIXME: this needs to be configurable based on storage type - and could also be instantiated per repo. Change to a      * factory.      *      * plexus.requirement role-hint="maven2"      */
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"repositoryStorage#maven2"
+argument_list|)
 specifier|private
 name|RepositoryStorage
 name|repositoryStorage
@@ -1027,12 +1070,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|PostConstruct
 specifier|public
 name|void
 name|initialize
 parameter_list|()
-throws|throws
-name|InitializationException
 block|{
 name|configuration
 operator|.

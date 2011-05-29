@@ -103,19 +103,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|springframework
 operator|.
-name|plexus
+name|context
 operator|.
-name|personality
-operator|.
-name|plexus
-operator|.
-name|lifecycle
-operator|.
-name|phase
-operator|.
-name|Initializable
+name|ApplicationContext
 import|;
 end_import
 
@@ -123,29 +115,31 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|springframework
 operator|.
-name|plexus
+name|stereotype
 operator|.
-name|personality
-operator|.
-name|plexus
-operator|.
-name|lifecycle
-operator|.
-name|phase
-operator|.
-name|InitializationException
+name|Service
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|javax
 operator|.
-name|util
+name|annotation
 operator|.
-name|Map
+name|PostConstruct
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
 import|;
 end_import
 
@@ -169,20 +163,39 @@ name|RepositoryException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
-comment|/**  * @plexus.component role="org.apache.archiva.metadata.repository.RepositorySessionFactory" role-hint="jcr"  */
+comment|/**  * plexus.component role="org.apache.archiva.metadata.repository.RepositorySessionFactory" role-hint="jcr"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"repositorySessionFactory#jcr"
+argument_list|)
 specifier|public
 class|class
 name|JcrRepositorySessionFactory
 implements|implements
 name|RepositorySessionFactory
-implements|,
-name|Initializable
 block|{
-comment|/**      * @plexus.requirement role="org.apache.archiva.metadata.model.MetadataFacetFactory"      */
+annotation|@
+name|Inject
+specifier|private
+name|ApplicationContext
+name|applicationContext
+decl_stmt|;
+comment|/**      * plexus.requirement role="org.apache.archiva.metadata.model.MetadataFacetFactory"      */
 specifier|private
 name|Map
 argument_list|<
@@ -192,12 +205,16 @@ name|MetadataFacetFactory
 argument_list|>
 name|metadataFacetFactories
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|Repository
 name|repository
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|MetadataResolver
 name|metadataResolver
@@ -251,13 +268,24 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|PostConstruct
 specifier|public
 name|void
 name|initialize
 parameter_list|()
-throws|throws
-name|InitializationException
 block|{
+name|metadataFacetFactories
+operator|=
+name|applicationContext
+operator|.
+name|getBeansOfType
+argument_list|(
+name|MetadataFacetFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|JcrMetadataRepository
 name|metadataRepository
 init|=
@@ -294,7 +322,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|InitializationException
+name|RuntimeException
 argument_list|(
 name|e
 operator|.

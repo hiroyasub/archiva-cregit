@@ -576,7 +576,6 @@ implements|implements
 name|ArchivaConfiguration
 implements|,
 name|RegistryListener
-comment|//, Initializable
 block|{
 specifier|private
 name|Logger
