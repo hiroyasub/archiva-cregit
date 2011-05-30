@@ -99,6 +99,32 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -178,10 +204,20 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AutoRenameConsumer  *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="auto-rename"  * instantiation-strategy="per-lookup"  */
+comment|/**  * AutoRenameConsumer  *  * @version $Id$  * plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="auto-rename"  * instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"knownRepositoryContentConsumer#auto-rename"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|AutoRenameConsumer
@@ -190,15 +226,19 @@ name|AbstractMonitoredConsumer
 implements|implements
 name|KnownRepositoryContentConsumer
 block|{
-comment|/**      * @plexus.configuration default-value="auto-rename"      */
+comment|/**      * plexus.configuration default-value="auto-rename"      */
 specifier|private
 name|String
 name|id
+init|=
+literal|"auto-rename"
 decl_stmt|;
-comment|/**      * @plexus.configuration default-value="Automatically rename common artifact mistakes."      */
+comment|/**      * plexus.configuration default-value="Automatically rename common artifact mistakes."      */
 specifier|private
 name|String
 name|description
+init|=
+literal|"Automatically rename common artifact mistakes."
 decl_stmt|;
 specifier|private
 specifier|static

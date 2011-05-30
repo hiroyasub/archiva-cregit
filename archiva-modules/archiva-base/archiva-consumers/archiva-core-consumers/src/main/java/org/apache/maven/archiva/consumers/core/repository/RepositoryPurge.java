@@ -31,7 +31,6 @@ interface|interface
 name|RepositoryPurge
 block|{
 comment|/**      * Perform checking on artifact for repository purge      *      * @param path          path to the scanned artifact      */
-specifier|public
 name|void
 name|process
 parameter_list|(

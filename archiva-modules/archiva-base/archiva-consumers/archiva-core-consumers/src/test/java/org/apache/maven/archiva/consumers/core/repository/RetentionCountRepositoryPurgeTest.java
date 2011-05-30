@@ -55,6 +55,26 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -84,7 +104,9 @@ name|RetentionCountRepositoryPurgeTest
 extends|extends
 name|AbstractRepositoryPurgeTest
 block|{
-specifier|protected
+annotation|@
+name|Before
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -139,6 +161,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test if the artifact to be processed was a jar.      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIfAJarWasFound
@@ -433,6 +457,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test if the artifact to be processed is a pom      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIfAPomWasFound
@@ -684,6 +710,8 @@ literal|"/castor-anttasks-1.1.2-20070506.163513-2-sources.jar.sha1"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testOrderOfDeletion

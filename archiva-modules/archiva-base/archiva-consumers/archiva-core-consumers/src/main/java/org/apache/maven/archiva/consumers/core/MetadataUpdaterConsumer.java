@@ -371,46 +371,6 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|personality
-operator|.
-name|plexus
-operator|.
-name|lifecycle
-operator|.
-name|phase
-operator|.
-name|Initializable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|personality
-operator|.
-name|plexus
-operator|.
-name|lifecycle
-operator|.
-name|phase
-operator|.
-name|InitializationException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
 name|registry
 operator|.
 name|Registry
@@ -451,11 +411,67 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|PostConstruct
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
 begin_comment
-comment|/**  * MetadataUpdaterConsumer will create and update the metadata present within the repository.  *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="metadata-updater"  * instantiation-strategy="per-lookup"  */
+comment|/**  * MetadataUpdaterConsumer will create and update the metadata present within the repository.  *  * @version $Id$  * plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="metadata-updater"  * instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"knownRepositoryContentConsumer#metadata-updater"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|MetadataUpdaterConsumer
@@ -465,8 +481,6 @@ implements|implements
 name|KnownRepositoryContentConsumer
 implements|,
 name|RegistryListener
-implements|,
-name|Initializable
 block|{
 specifier|private
 name|Logger
@@ -481,32 +495,44 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * @plexus.configuration default-value="metadata-updater"      */
+comment|/**      * plexus.configuration default-value="metadata-updater"      */
 specifier|private
 name|String
 name|id
+init|=
+literal|"metadata-updater"
 decl_stmt|;
-comment|/**      * @plexus.configuration default-value="Update / Create maven-metadata.xml files"      */
+comment|/**      * plexus.configuration default-value="Update / Create maven-metadata.xml files"      */
 specifier|private
 name|String
 name|description
+init|=
+literal|"Update / Create maven-metadata.xml files"
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|RepositoryContentFactory
 name|repositoryFactory
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|MetadataTools
 name|metadataTools
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|FileTypes
 name|filetypes
@@ -1376,12 +1402,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|PostConstruct
 specifier|public
 name|void
 name|initialize
 parameter_list|()
-throws|throws
-name|InitializationException
 block|{
 name|configuration
 operator|.

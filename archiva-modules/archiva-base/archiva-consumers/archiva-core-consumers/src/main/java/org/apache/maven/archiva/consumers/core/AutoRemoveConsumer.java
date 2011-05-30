@@ -167,46 +167,6 @@ name|codehaus
 operator|.
 name|plexus
 operator|.
-name|personality
-operator|.
-name|plexus
-operator|.
-name|lifecycle
-operator|.
-name|phase
-operator|.
-name|Initializable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|personality
-operator|.
-name|plexus
-operator|.
-name|lifecycle
-operator|.
-name|phase
-operator|.
-name|InitializationException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
 name|registry
 operator|.
 name|Registry
@@ -224,6 +184,52 @@ operator|.
 name|registry
 operator|.
 name|RegistryListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|PostConstruct
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
 import|;
 end_import
 
@@ -268,10 +274,20 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AutoRemoveConsumer  *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="auto-remove"  * instantiation-strategy="per-lookup"  */
+comment|/**  * AutoRemoveConsumer  *  * @version $Id$  * plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="auto-remove"  * instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"knownRepositoryContentConsumer#auto-remove"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|AutoRemoveConsumer
@@ -281,25 +297,31 @@ implements|implements
 name|KnownRepositoryContentConsumer
 implements|,
 name|RegistryListener
-implements|,
-name|Initializable
 block|{
-comment|/**      * @plexus.configuration default-value="auto-remove"      */
+comment|/**      * plexus.configuration default-value="auto-remove"      */
 specifier|private
 name|String
 name|id
+init|=
+literal|"auto-remove"
 decl_stmt|;
-comment|/**      * @plexus.configuration default-value="Automatically Remove File from Filesystem."      */
+comment|/**      * plexus.configuration default-value="Automatically Remove File from Filesystem."      */
 specifier|private
 name|String
 name|description
+init|=
+literal|"Automatically Remove File from Filesystem."
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|FileTypes
 name|filetypes
@@ -584,12 +606,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|PostConstruct
 specifier|public
 name|void
 name|initialize
 parameter_list|()
-throws|throws
-name|InitializationException
 block|{
 name|configuration
 operator|.

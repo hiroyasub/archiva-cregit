@@ -54,16 +54,6 @@ specifier|public
 interface|interface
 name|ArchivaConfiguration
 block|{
-name|String
-name|ROLE
-init|=
-name|ArchivaConfiguration
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-decl_stmt|;
 comment|/**      * Get the configuration.      *      * @return the configuration      */
 name|Configuration
 name|getConfiguration

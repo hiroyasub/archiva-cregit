@@ -25,6 +25,38 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|common
+operator|.
+name|plexusbridge
+operator|.
+name|PlexusSisuBridge
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|common
+operator|.
+name|plexusbridge
+operator|.
+name|PlexusSisuBridgeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|archiva
@@ -129,19 +161,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|springframework
 operator|.
-name|plexus
+name|context
 operator|.
-name|personality
+name|annotation
 operator|.
-name|plexus
-operator|.
-name|lifecycle
-operator|.
-name|phase
-operator|.
-name|Initializable
+name|Scope
 import|;
 end_import
 
@@ -149,19 +175,31 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|springframework
 operator|.
-name|plexus
+name|stereotype
 operator|.
-name|personality
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
 operator|.
-name|plexus
+name|annotation
 operator|.
-name|lifecycle
+name|PostConstruct
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
 operator|.
-name|phase
+name|inject
 operator|.
-name|InitializationException
+name|Inject
 import|;
 end_import
 
@@ -236,10 +274,20 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ValidateChecksumConsumer - validate the provided checksum against the file it represents.  *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="validate-checksum"  * instantiation-strategy="per-lookup"  */
+comment|/**  * ValidateChecksumConsumer - validate the provided checksum against the file it represents.  *  * @version $Id$  *          plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *          role-hint="validate-checksum"  *          instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"knownRepositoryContentConsumer#validate-checksum"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|ValidateChecksumConsumer
@@ -247,8 +295,6 @@ extends|extends
 name|AbstractMonitoredConsumer
 implements|implements
 name|KnownRepositoryContentConsumer
-implements|,
-name|Initializable
 block|{
 specifier|private
 specifier|static
@@ -282,28 +328,40 @@ name|CHECKSUM_IO_ERROR
 init|=
 literal|"checksum-io-error"
 decl_stmt|;
-comment|/**      * @plexus.configuration default-value="validate-checksums"      */
+comment|/**      * plexus.configuration default-value="validate-checksums"      */
 specifier|private
 name|String
 name|id
+init|=
+literal|"validate-checksums"
 decl_stmt|;
-comment|/**      * @plexus.configuration default-value="Validate checksums against file."      */
+comment|/**      * plexus.configuration default-value="Validate checksums against file."      */
 specifier|private
 name|String
 name|description
+init|=
+literal|"Validate checksums against file."
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|ChecksumFile
 name|checksum
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.codehaus.plexus.digest.Digester"      */
+comment|/**      * plexus.requirement role="org.codehaus.plexus.digest.Digester"      */
 specifier|private
 name|List
 argument_list|<
 name|Digester
 argument_list|>
 name|digesterList
+decl_stmt|;
+annotation|@
+name|Inject
+specifier|private
+name|PlexusSisuBridge
+name|plexusSisuBridge
 decl_stmt|;
 specifier|private
 name|File
@@ -570,13 +628,26 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|PostConstruct
 specifier|public
 name|void
 name|initialize
 parameter_list|()
 throws|throws
-name|InitializationException
+name|PlexusSisuBridgeException
 block|{
+name|digesterList
+operator|=
+name|plexusSisuBridge
+operator|.
+name|lookupList
+argument_list|(
+name|Digester
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|Iterator
