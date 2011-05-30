@@ -728,6 +728,8 @@ name|applicationContext
 operator|.
 name|getBean
 argument_list|(
+literal|"repositoryProxyConnectors#default"
+argument_list|,
 name|RepositoryProxyConnectors
 operator|.
 name|class

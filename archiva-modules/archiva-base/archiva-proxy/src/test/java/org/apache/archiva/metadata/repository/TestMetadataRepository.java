@@ -99,6 +99,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -142,6 +154,8 @@ comment|// TODO: remove, it does nothing
 end_comment
 
 begin_class
+annotation|@
+name|Service
 specifier|public
 class|class
 name|TestMetadataRepository

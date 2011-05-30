@@ -335,15 +335,11 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|".get("
-operator|+
+literal|".get({}, {})"
+argument_list|,
 name|resourceName
-operator|+
-literal|", "
-operator|+
+argument_list|,
 name|destination
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 name|delegate

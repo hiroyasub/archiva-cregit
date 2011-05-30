@@ -19,21 +19,33 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|File
+name|archiva
+operator|.
+name|common
+operator|.
+name|plexusbridge
+operator|.
+name|PlexusSisuBridge
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|IOException
+name|archiva
+operator|.
+name|common
+operator|.
+name|plexusbridge
+operator|.
+name|PlexusSisuBridgeException
 import|;
 end_import
 
@@ -106,46 +118,6 @@ operator|.
 name|configuration
 operator|.
 name|ManagedRepositoryConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|personality
-operator|.
-name|plexus
-operator|.
-name|lifecycle
-operator|.
-name|phase
-operator|.
-name|Initializable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|personality
-operator|.
-name|plexus
-operator|.
-name|lifecycle
-operator|.
-name|phase
-operator|.
-name|InitializationException
 import|;
 end_import
 
@@ -363,18 +335,63 @@ name|IndexPackingRequest
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|PostConstruct
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
-comment|/**  * ArchivaIndexingTaskExecutor Executes all indexing tasks. Adding, updating and removing artifacts from the index are  * all performed by this executor. Add and update artifact in index tasks are added in the indexing task queue by the  * NexusIndexerConsumer while remove artifact from index tasks are added by the LuceneCleanupRemoveIndexedConsumer.  *   * @plexus.component role="org.codehaus.plexus.taskqueue.execution.TaskExecutor" role-hint="indexing"  *                   instantiation-strategy="singleton"  */
+comment|/**  * ArchivaIndexingTaskExecutor Executes all indexing tasks. Adding, updating and removing artifacts from the index are  * all performed by this executor. Add and update artifact in index tasks are added in the indexing task queue by the  * NexusIndexerConsumer while remove artifact from index tasks are added by the LuceneCleanupRemoveIndexedConsumer.  *<p/>  * plexus.component role="org.codehaus.plexus.taskqueue.execution.TaskExecutor" role-hint="indexing"  * instantiation-strategy="singleton"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"taskExecutor#indexing"
+argument_list|)
 specifier|public
 class|class
 name|ArchivaIndexingTaskExecutor
 implements|implements
 name|TaskExecutor
-implements|,
-name|Initializable
 block|{
 specifier|private
 name|Logger
@@ -389,12 +406,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
 specifier|private
 name|IndexerEngine
 name|indexerEngine
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
 specifier|private
 name|IndexPacker
 name|indexPacker
@@ -403,6 +420,61 @@ specifier|private
 name|ArtifactContextProducer
 name|artifactContextProducer
 decl_stmt|;
+specifier|private
+name|PlexusSisuBridge
+name|plexusSisuBridge
+decl_stmt|;
+specifier|public
+name|void
+name|initialize
+parameter_list|()
+throws|throws
+name|PlexusSisuBridgeException
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Initialized {}"
+argument_list|,
+name|this
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|artifactContextProducer
+operator|=
+operator|new
+name|DefaultArtifactContextProducer
+argument_list|()
+expr_stmt|;
+name|indexerEngine
+operator|=
+name|plexusSisuBridge
+operator|.
+name|lookup
+argument_list|(
+name|IndexerEngine
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|indexPacker
+operator|=
+name|plexusSisuBridge
+operator|.
+name|lookup
+argument_list|(
+name|IndexPacker
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 specifier|public
 name|void
 name|executeTask
@@ -504,8 +576,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Creating indexing context on resource: "
-operator|+
+literal|"Creating indexing context on resource: {}"
+argument_list|,
 name|indexingTask
 operator|.
 name|getResourceFile
@@ -712,14 +784,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Adding artifact '"
-operator|+
+literal|"Adding artifact '{}' to index.."
+argument_list|,
 name|ac
 operator|.
 name|getArtifactInfo
 argument_list|()
-operator|+
-literal|"' to index.."
 argument_list|)
 expr_stmt|;
 name|indexerEngine
@@ -746,14 +816,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Updating artifact '"
-operator|+
+literal|"Updating artifact '{}' in index.."
+argument_list|,
 name|ac
 operator|.
 name|getArtifactInfo
 argument_list|()
-operator|+
-literal|"' in index.."
 argument_list|)
 expr_stmt|;
 name|indexerEngine
@@ -788,8 +856,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Finishing indexing task on resource file : "
-operator|+
+literal|"Finishing indexing task on resource file : {}"
+argument_list|,
 name|indexingTask
 operator|.
 name|getResourceFile
@@ -816,14 +884,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Removing artifact '"
-operator|+
+literal|"Removing artifact '{}' from index.."
+argument_list|,
 name|ac
 operator|.
 name|getArtifactInfo
 argument_list|()
-operator|+
-literal|"' from index.."
 argument_list|)
 expr_stmt|;
 name|indexerEngine
@@ -982,14 +1048,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Index file packaged at '"
-operator|+
+literal|"Index file packaged at '{}'."
+argument_list|,
 name|indexLocation
 operator|.
 name|getPath
 argument_list|()
-operator|+
-literal|"'."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1081,35 +1145,6 @@ throw|;
 block|}
 block|}
 block|}
-block|}
-specifier|public
-name|void
-name|initialize
-parameter_list|()
-throws|throws
-name|InitializationException
-block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Initialized "
-operator|+
-name|this
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|artifactContextProducer
-operator|=
-operator|new
-name|DefaultArtifactContextProducer
-argument_list|()
-expr_stmt|;
 block|}
 specifier|public
 name|void

@@ -79,11 +79,48 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
 begin_comment
 comment|/**  * Default implementation of a scheduling component for archiva.  *  * @todo TODO - consider just folding in, not really scheduled  * @plexus.component role="org.apache.archiva.scheduler.ArchivaTaskScheduler" role-hint="indexing"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"archivaTaskScheduler#indexing"
+argument_list|)
 specifier|public
 class|class
 name|IndexingArchivaTaskScheduler
@@ -106,7 +143,16 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="indexing"      */
+comment|/**      * plexus.requirement role-hint="indexing"      */
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"taskQueue#indexing"
+argument_list|)
 specifier|private
 name|TaskQueue
 name|indexingQueue
