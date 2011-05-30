@@ -255,6 +255,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -328,6 +338,13 @@ name|ManagedRepositoryContent
 block|{
 annotation|@
 name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"fileTypes"
+argument_list|)
 specifier|private
 name|FileTypes
 name|filetypes

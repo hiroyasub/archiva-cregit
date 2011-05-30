@@ -351,6 +351,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -431,6 +441,13 @@ decl_stmt|;
 comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"archivaConfiguration#default"
+argument_list|)
 specifier|private
 name|ArchivaConfiguration
 name|configuration
@@ -438,6 +455,13 @@ decl_stmt|;
 comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"repositoryContentFactory#default"
+argument_list|)
 specifier|private
 name|RepositoryContentFactory
 name|repositoryContentFactory
@@ -452,6 +476,13 @@ decl_stmt|;
 comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"fileTypes"
+argument_list|)
 specifier|private
 name|FileTypes
 name|filetypes
@@ -501,7 +532,7 @@ operator|.
 name|emptyList
 argument_list|()
 decl_stmt|;
-comment|/**      * TODO: this could be multiple implementations and needs to be configured.      *      * plexus.requirement      */
+comment|/**      * TODO: this could be multiple implementations and needs to be configured.      *<p/>      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private

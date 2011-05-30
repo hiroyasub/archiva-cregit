@@ -732,6 +732,13 @@ decl_stmt|;
 comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"fileTypes"
+argument_list|)
 specifier|private
 name|FileTypes
 name|filetypes
