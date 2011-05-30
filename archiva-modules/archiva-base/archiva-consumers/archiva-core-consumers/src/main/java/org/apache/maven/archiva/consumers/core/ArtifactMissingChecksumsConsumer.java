@@ -832,6 +832,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|PostConstruct
 specifier|public
 name|void
 name|initialize
