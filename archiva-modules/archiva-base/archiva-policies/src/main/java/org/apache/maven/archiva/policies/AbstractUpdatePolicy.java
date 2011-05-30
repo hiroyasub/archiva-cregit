@@ -401,12 +401,10 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"OK to update, "
-operator|+
+literal|"OK to update, {} policy set to ALWAYS."
+argument_list|,
 name|getUpdateMode
 argument_list|()
-operator|+
-literal|" policy set to ALWAYS."
 argument_list|)
 expr_stmt|;
 return|return;
