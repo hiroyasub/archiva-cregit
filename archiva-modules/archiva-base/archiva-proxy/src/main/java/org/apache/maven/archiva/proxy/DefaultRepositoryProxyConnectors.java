@@ -627,22 +627,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
-operator|.
-name|redback
-operator|.
-name|components
-operator|.
-name|springutils
-operator|.
-name|ComponentContainer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -656,6 +640,18 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|ApplicationContext
 import|;
 end_import
 
@@ -728,6 +724,16 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
 import|;
 end_import
 
@@ -865,8 +871,8 @@ decl_stmt|;
 annotation|@
 name|Inject
 specifier|private
-name|ComponentContainer
-name|componentContainer
+name|ApplicationContext
+name|applicationContext
 decl_stmt|;
 comment|/**      * @plexus.requirement role="org.apache.maven.archiva.policies.PreDownloadPolicy"      */
 specifier|private
@@ -989,9 +995,9 @@ name|this
 operator|.
 name|postDownloadPolicies
 operator|=
-name|componentContainer
+name|applicationContext
 operator|.
-name|buildMapWithRole
+name|getBeansOfType
 argument_list|(
 name|PostDownloadPolicy
 operator|.
@@ -1002,9 +1008,9 @@ name|this
 operator|.
 name|preDownloadPolicies
 operator|=
-name|componentContainer
+name|applicationContext
 operator|.
-name|buildMapWithRole
+name|getBeansOfType
 argument_list|(
 name|PreDownloadPolicy
 operator|.
@@ -1015,9 +1021,9 @@ name|this
 operator|.
 name|downloadErrorPolicies
 operator|=
-name|componentContainer
+name|applicationContext
 operator|.
-name|buildMapWithRole
+name|getBeansOfType
 argument_list|(
 name|DownloadErrorPolicy
 operator|.
@@ -1653,8 +1659,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Successfully transferred: "
-operator|+
+literal|"Successfully transferred: {}"
+argument_list|,
 name|downloadedFile
 operator|.
 name|getAbsolutePath
@@ -1676,17 +1682,15 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Artifact "
-operator|+
+literal|"Artifact {} not found on repository \"{}\"."
+argument_list|,
 name|Keys
 operator|.
 name|toKey
 argument_list|(
 name|artifact
 argument_list|)
-operator|+
-literal|" not found on repository \""
-operator|+
+argument_list|,
 name|targetRepository
 operator|.
 name|getRepository
@@ -1694,8 +1698,6 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"\"."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1709,17 +1711,15 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Artifact "
-operator|+
+literal|"Artifact {} not updated on repository \"{}\"."
+argument_list|,
 name|Keys
 operator|.
 name|toKey
 argument_list|(
 name|artifact
 argument_list|)
-operator|+
-literal|" not updated on repository \""
-operator|+
+argument_list|,
 name|targetRepository
 operator|.
 name|getRepository
@@ -1727,8 +1727,6 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"\"."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1787,16 +1785,14 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Exhausted all target repositories, artifact "
-operator|+
+literal|"Exhausted all target repositories, artifact {} not found."
+argument_list|,
 name|Keys
 operator|.
 name|toKey
 argument_list|(
 name|artifact
 argument_list|)
-operator|+
-literal|" not found."
 argument_list|)
 expr_stmt|;
 return|return
@@ -1957,8 +1953,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Successfully transferred: "
-operator|+
+literal|"Successfully transferred: {}"
+argument_list|,
 name|downloadedFile
 operator|.
 name|getAbsolutePath
@@ -1980,12 +1976,10 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Resource "
-operator|+
+literal|"Resource {} not found on repository \"{}\"."
+argument_list|,
 name|path
-operator|+
-literal|" not found on repository \""
-operator|+
+argument_list|,
 name|targetRepository
 operator|.
 name|getRepository
@@ -1993,8 +1987,6 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"\"."
 argument_list|)
 expr_stmt|;
 block|}
@@ -2008,12 +2000,10 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Resource "
-operator|+
+literal|"Resource {} not updated on repository \"{}\"."
+argument_list|,
 name|path
-operator|+
-literal|" not updated on repository \""
-operator|+
+argument_list|,
 name|targetRepository
 operator|.
 name|getRepository
@@ -2021,8 +2011,6 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"\"."
 argument_list|)
 expr_stmt|;
 block|}
@@ -2073,11 +2061,9 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Exhausted all target repositories, resource "
-operator|+
+literal|"Exhausted all target repositories, resource {} not found."
+argument_list|,
 name|path
-operator|+
-literal|" not found."
 argument_list|)
 expr_stmt|;
 return|return
@@ -2236,6 +2222,14 @@ name|NotFoundException
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -2260,11 +2254,20 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 catch|catch
 parameter_list|(
 name|NotModifiedException
 name|e
 parameter_list|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
 block|{
 name|log
 operator|.
@@ -2289,6 +2292,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -3504,17 +3508,21 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Checksum "
-operator|+
+literal|"Checksum {} Downloaded: {} to move to {}"
+argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
 name|url
-operator|+
-literal|" Downloaded: "
-operator|+
+argument_list|,
 name|destFile
-operator|+
-literal|" to move to "
-operator|+
+argument_list|,
 name|resource
+argument_list|)
+operator|.
+name|toArray
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3948,15 +3956,11 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Applying ["
-operator|+
+literal|"Applying [{}] policy with [{}]"
+argument_list|,
 name|key
-operator|+
-literal|"] policy with ["
-operator|+
+argument_list|,
 name|setting
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 try|try
@@ -4420,21 +4424,17 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Tried to copy file "
-operator|+
+literal|"Tried to copy file {} to {} but file with this name already exists."
+argument_list|,
 name|temp
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" to "
-operator|+
+argument_list|,
 name|target
 operator|.
 name|getAbsolutePath
 argument_list|()
-operator|+
-literal|" but file with this name already exists."
 argument_list|)
 expr_stmt|;
 block|}
@@ -4659,12 +4659,10 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Using username "
-operator|+
+literal|"Using username {} to connect to remote repository {}"
+argument_list|,
 name|username
-operator|+
-literal|" to connect to remote repository "
-operator|+
+argument_list|,
 name|remoteRepository
 operator|.
 name|getURL
