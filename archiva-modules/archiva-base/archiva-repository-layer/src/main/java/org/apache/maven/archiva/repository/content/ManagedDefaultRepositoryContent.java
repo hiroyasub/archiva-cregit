@@ -681,8 +681,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Not processing file that is not an artifact: "
-operator|+
+literal|"Not processing file that is not an artifact: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

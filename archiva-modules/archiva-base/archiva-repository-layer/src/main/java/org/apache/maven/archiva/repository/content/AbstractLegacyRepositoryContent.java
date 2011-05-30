@@ -372,11 +372,11 @@ name|String
 name|type
 parameter_list|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|path
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|path
