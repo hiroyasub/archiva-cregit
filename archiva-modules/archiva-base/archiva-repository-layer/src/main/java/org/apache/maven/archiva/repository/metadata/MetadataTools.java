@@ -2180,8 +2180,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"No metadata to update for "
-operator|+
+literal|"No metadata to update for {}"
+argument_list|,
 name|logicalResource
 argument_list|)
 expr_stmt|;
@@ -2463,14 +2463,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Could not read metadata at "
-operator|+
+literal|"Could not read metadata at {}. Metadata will be removed."
+argument_list|,
 name|file
 operator|.
 name|getAbsolutePath
 argument_list|()
-operator|+
-literal|". Metadata will be removed."
 argument_list|)
 expr_stmt|;
 name|FileUtils
