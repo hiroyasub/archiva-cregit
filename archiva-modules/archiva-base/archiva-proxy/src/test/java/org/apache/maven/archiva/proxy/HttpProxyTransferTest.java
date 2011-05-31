@@ -397,16 +397,6 @@ begin_import
 import|import
 name|javax
 operator|.
-name|inject
-operator|.
-name|Named
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
 name|servlet
 operator|.
 name|ServletException
@@ -560,6 +550,8 @@ name|applicationContext
 operator|.
 name|getBean
 argument_list|(
+literal|"repositoryProxyConnectors#test"
+argument_list|,
 name|RepositoryProxyConnectors
 operator|.
 name|class

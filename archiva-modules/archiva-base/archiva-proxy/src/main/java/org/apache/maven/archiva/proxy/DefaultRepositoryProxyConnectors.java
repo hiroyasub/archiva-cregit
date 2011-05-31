@@ -871,6 +871,13 @@ decl_stmt|;
 comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"metadataTools#default"
+argument_list|)
 specifier|private
 name|MetadataTools
 name|metadataTools
