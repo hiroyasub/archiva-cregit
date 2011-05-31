@@ -289,11 +289,7 @@ name|Service
 argument_list|(
 literal|"archivaConfiguration#mock"
 argument_list|)
-annotation|@
-name|Scope
-argument_list|(
-literal|"prototype"
-argument_list|)
+comment|//Scope( "prototype" )
 specifier|public
 class|class
 name|MockConfiguration

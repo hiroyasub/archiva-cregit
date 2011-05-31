@@ -857,6 +857,13 @@ decl_stmt|;
 comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"repositoryContentFactory#default"
+argument_list|)
 specifier|private
 name|RepositoryContentFactory
 name|repositoryFactory
@@ -874,7 +881,7 @@ specifier|private
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.archiva.policies.PreDownloadPolicy"      */
+comment|/**      * plexus.requirement role="org.apache.maven.archiva.policies.PreDownloadPolicy"      */
 specifier|private
 name|Map
 argument_list|<
@@ -884,7 +891,7 @@ name|PreDownloadPolicy
 argument_list|>
 name|preDownloadPolicies
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.archiva.policies.PostDownloadPolicy"      */
+comment|/**      * plexus.requirement role="org.apache.maven.archiva.policies.PostDownloadPolicy"      */
 specifier|private
 name|Map
 argument_list|<
@@ -894,7 +901,7 @@ name|PostDownloadPolicy
 argument_list|>
 name|postDownloadPolicies
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.archiva.policies.DownloadErrorPolicy"      */
+comment|/**      * plexus.requirement role="org.apache.maven.archiva.policies.DownloadErrorPolicy"      */
 specifier|private
 name|Map
 argument_list|<

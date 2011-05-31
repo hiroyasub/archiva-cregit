@@ -179,7 +179,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|ProjectVersionMetadata
@@ -201,7 +200,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|Collection
@@ -224,9 +222,11 @@ name|projectVersion
 parameter_list|)
 block|{
 return|return
-literal|null
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|Collection
@@ -249,9 +249,11 @@ name|projectVersion
 parameter_list|)
 block|{
 return|return
-literal|null
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|Collection
@@ -265,9 +267,11 @@ name|repoId
 parameter_list|)
 block|{
 return|return
-literal|null
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|Collection
@@ -284,9 +288,11 @@ name|namespace
 parameter_list|)
 block|{
 return|return
-literal|null
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|Collection
@@ -303,9 +309,11 @@ name|namespace
 parameter_list|)
 block|{
 return|return
-literal|null
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|Collection
@@ -325,9 +333,11 @@ name|projectId
 parameter_list|)
 block|{
 return|return
-literal|null
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -340,7 +350,7 @@ name|ProjectMetadata
 name|project
 parameter_list|)
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
+comment|// no op
 block|}
 specifier|public
 name|void
@@ -362,7 +372,7 @@ name|ArtifactMetadata
 name|artifactMeta
 parameter_list|)
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
+comment|// no op
 block|}
 specifier|public
 name|void
@@ -381,7 +391,7 @@ name|ProjectVersionMetadata
 name|versionMetadata
 parameter_list|)
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
+comment|// no op
 block|}
 specifier|public
 name|void
@@ -394,7 +404,7 @@ name|String
 name|namespace
 parameter_list|)
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
+comment|// no op
 block|}
 specifier|public
 name|List
@@ -434,7 +444,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -447,7 +456,7 @@ name|MetadataFacet
 name|metadataFacet
 parameter_list|)
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
+comment|// no op
 block|}
 specifier|public
 name|void
@@ -460,7 +469,7 @@ name|String
 name|facetId
 parameter_list|)
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
+comment|// no op
 block|}
 specifier|public
 name|void
@@ -476,7 +485,7 @@ name|String
 name|name
 parameter_list|)
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
+comment|// no op
 block|}
 specifier|public
 name|List
@@ -496,9 +505,11 @@ name|endTime
 parameter_list|)
 block|{
 return|return
-literal|null
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|Collection
@@ -509,9 +520,11 @@ name|getRepositories
 parameter_list|()
 block|{
 return|return
-literal|null
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|List
@@ -528,9 +541,11 @@ name|checksum
 parameter_list|)
 block|{
 return|return
-literal|null
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -552,7 +567,7 @@ name|String
 name|id
 parameter_list|)
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
+comment|// no op
 block|}
 specifier|public
 name|void
@@ -562,7 +577,7 @@ name|String
 name|repoId
 parameter_list|)
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
+comment|// no op
 block|}
 specifier|public
 name|Collection
@@ -585,30 +600,32 @@ name|projectVersion
 parameter_list|)
 block|{
 return|return
-literal|null
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
 name|save
 parameter_list|()
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
+comment|// no op
 block|}
 specifier|public
 name|void
 name|close
 parameter_list|()
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
+comment|// no op
 block|}
 specifier|public
 name|void
 name|revert
 parameter_list|()
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
+comment|// no op
 block|}
 specifier|public
 name|boolean
@@ -624,7 +641,6 @@ block|{
 return|return
 literal|false
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|Object
@@ -654,7 +670,10 @@ name|repositoryId
 parameter_list|)
 block|{
 return|return
-literal|null
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
 block|}
 block|}
