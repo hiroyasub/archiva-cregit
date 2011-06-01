@@ -670,6 +670,8 @@ argument_list|(
 name|expectedFile
 argument_list|,
 name|remoteFile
+argument_list|,
+literal|12000000
 argument_list|)
 expr_stmt|;
 name|long
