@@ -677,12 +677,10 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Walk Step: "
-operator|+
+literal|"Walk Step: {}, {}"
+argument_list|,
 name|percentage
-operator|+
-literal|", "
-operator|+
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
@@ -874,8 +872,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Repository Scanner: "
-operator|+
+literal|"Repository Scanner: {}"
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;

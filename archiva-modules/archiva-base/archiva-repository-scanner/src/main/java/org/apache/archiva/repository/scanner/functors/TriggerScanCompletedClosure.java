@@ -190,21 +190,17 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Consumer ["
-operator|+
+literal|"Consumer [{}] completed for repository [{}]"
+argument_list|,
 name|consumer
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"] completed for repository ["
-operator|+
+argument_list|,
 name|repository
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}

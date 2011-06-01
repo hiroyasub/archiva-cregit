@@ -194,8 +194,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Sending to consumer: "
-operator|+
+literal|"Sending to consumer: {}"
+argument_list|,
 name|id
 argument_list|)
 expr_stmt|;
