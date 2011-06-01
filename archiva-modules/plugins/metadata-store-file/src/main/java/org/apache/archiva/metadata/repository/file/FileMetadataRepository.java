@@ -536,8 +536,6 @@ name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
 specifier|private
-specifier|static
-specifier|final
 name|Logger
 name|log
 init|=
@@ -787,10 +785,17 @@ name|e
 parameter_list|)
 block|{
 comment|// TODO!
+name|log
+operator|.
+name|error
+argument_list|(
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|()
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1633,12 +1638,18 @@ name|e
 parameter_list|)
 block|{
 comment|// TODO
+name|log
+operator|.
+name|error
+argument_list|(
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|()
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
-comment|//To change body of catch statement use File | Settings | File Templates.
 block|}
 block|}
 specifier|private
@@ -1982,12 +1993,18 @@ name|e
 parameter_list|)
 block|{
 comment|// TODO
+name|log
+operator|.
+name|error
+argument_list|(
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|()
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
-comment|//To change body of catch statement use File | Settings | File Templates.
 block|}
 block|}
 specifier|public
@@ -2050,10 +2067,17 @@ name|e
 parameter_list|)
 block|{
 comment|// TODO!
+name|log
+operator|.
+name|error
+argument_list|(
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|()
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -2261,12 +2285,18 @@ name|e
 parameter_list|)
 block|{
 comment|// TODO
+name|log
+operator|.
+name|error
+argument_list|(
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|()
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
-comment|//To change body of catch statement use File | Settings | File Templates.
 return|return
 literal|null
 return|;
@@ -2440,12 +2470,18 @@ name|e
 parameter_list|)
 block|{
 comment|// TODO!
+name|log
+operator|.
+name|error
+argument_list|(
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|()
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
-comment|//To change body of catch statement use File | Settings | File Templates.
 block|}
 block|}
 specifier|public
@@ -4404,12 +4440,18 @@ name|e
 parameter_list|)
 block|{
 comment|// TODO
+name|log
+operator|.
+name|error
+argument_list|(
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|()
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
-comment|//To change body of catch statement use File | Settings | File Templates.
 block|}
 return|return
 operator|new
@@ -5527,8 +5569,8 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Attempted to load unknown project version metadata facet: "
-operator|+
+literal|"Attempted to load unknown project version metadata facet: {}"
+argument_list|,
 name|facetId
 argument_list|)
 expr_stmt|;
