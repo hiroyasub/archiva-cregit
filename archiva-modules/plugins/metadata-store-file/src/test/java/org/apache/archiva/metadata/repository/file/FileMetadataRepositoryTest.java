@@ -115,6 +115,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -164,6 +174,8 @@ name|FileMetadataRepositoryTest
 extends|extends
 name|AbstractMetadataRepositoryTest
 block|{
+annotation|@
+name|Before
 specifier|public
 name|void
 name|setUp

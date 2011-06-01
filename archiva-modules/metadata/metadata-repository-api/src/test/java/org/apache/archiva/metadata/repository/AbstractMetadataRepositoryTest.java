@@ -221,6 +221,58 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|runner
+operator|.
+name|RunWith
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|test
+operator|.
+name|context
+operator|.
+name|ContextConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|test
+operator|.
+name|context
+operator|.
+name|junit4
+operator|.
+name|SpringJUnit4ClassRunner
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -310,6 +362,24 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|RunWith
+argument_list|(
+name|SpringJUnit4ClassRunner
+operator|.
+name|class
+argument_list|)
+annotation|@
+name|ContextConfiguration
+argument_list|(
+name|locations
+operator|=
+block|{
+literal|"classpath*:/META-INF/spring-context.xml"
+block|,
+literal|"classpath*:/spring-context.xml"
+block|}
+argument_list|)
 specifier|public
 specifier|abstract
 class|class
@@ -544,6 +614,8 @@ return|return
 name|factories
 return|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testRootNamespaceWithNoMetadataRepository
@@ -578,6 +650,8 @@ name|namespaces
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNamespaceOnly
@@ -627,6 +701,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProjectOnly
@@ -745,6 +821,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProjectVersionOnly
@@ -905,6 +983,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactOnly
@@ -1129,6 +1209,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testUpdateProjectVersionMetadataWithNoOtherArchives
@@ -1279,6 +1361,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testUpdateProjectVersionMetadataWithAllElements
@@ -1953,6 +2037,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetRepositories
@@ -2005,6 +2091,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testUpdateProjectVersionMetadataIncomplete
@@ -2173,6 +2261,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testUpdateProjectVersionMetadataWithExistingFacets
@@ -2333,6 +2423,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testUpdateProjectVersionMetadataWithNoExistingFacets
@@ -2470,6 +2562,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testUpdateProjectVersionMetadataWithExistingFacetsFacetPropertyWasRemoved
@@ -2717,6 +2811,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactsDoesntReturnProjectVersionMetadataFacets
@@ -2954,6 +3050,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testUpdateArtifactMetadataWithExistingFacetsFacetPropertyWasRemoved
@@ -3241,6 +3339,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testUpdateArtifactMetadataWithExistingFacets
@@ -3401,6 +3501,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testUpdateArtifactMetadataWithNoExistingFacets
@@ -3538,6 +3640,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetMetadataFacet
@@ -3579,6 +3683,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetMetadataFacetWhenEmpty
@@ -3601,6 +3707,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetMetadataFacetWhenUnknownName
@@ -3636,6 +3744,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetMetadataFacetWhenDefaultValue
@@ -3677,6 +3787,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetMetadataFacetWhenUnknownFacetId
@@ -3699,6 +3811,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetMetadataFacets
@@ -3739,6 +3853,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetMetadataFacetsWhenEmpty
@@ -3770,6 +3886,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testRemoveFacets
@@ -3842,6 +3960,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testRemoveFacetsWhenEmpty
@@ -3901,6 +4021,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testRemoveFacetsWhenUnknown
@@ -3919,6 +4041,8 @@ name|UNKNOWN
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testRemoveFacetWhenUnknown
@@ -3939,6 +4063,8 @@ name|TEST_NAME
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testRemoveFacet
@@ -4048,6 +4174,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testRemoveFacetWhenEmpty
@@ -4137,6 +4265,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifacts
@@ -4279,6 +4409,8 @@ name|actual
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactVersions
@@ -4432,6 +4564,8 @@ name|versions
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactVersionsMultipleArtifactsSingleVersion
@@ -4531,6 +4665,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactsByDateRangeOpen
@@ -4586,6 +4722,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactsByDateRangeSparseNamespace
@@ -4653,6 +4791,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactsByDateRangeLowerBound
@@ -4725,6 +4865,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactsByDateRangeLowerBoundOutOfRange
@@ -4788,6 +4930,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactsByDateRangeLowerAndUpperBound
@@ -4877,6 +5021,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactsByDateRangeUpperBound
@@ -4949,6 +5095,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactsByDateRangeUpperBoundOutOfRange
@@ -5017,6 +5165,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactsByRepoId
@@ -5068,6 +5218,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactsByRepoIdMultipleCopies
@@ -5165,6 +5317,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactsByDateRangeMultipleCopies
@@ -5270,6 +5424,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactsByChecksumMultipleCopies
@@ -5409,6 +5565,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNamespacesWithSparseDepth
@@ -5500,6 +5658,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNamespacesWithProjectsPresent
@@ -5569,6 +5729,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProjectsWithOtherNamespacesPresent
@@ -5635,6 +5797,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProjectVersionsWithOtherNamespacesPresent
@@ -5733,6 +5897,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactsByChecksumSingleResultMd5
@@ -5786,6 +5952,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactsByChecksumSingleResultSha1
@@ -5839,6 +6007,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactsByChecksumDeepNamespace
@@ -5923,6 +6093,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactsByChecksumMultipleResult
@@ -6080,6 +6252,8 @@ name|artifacts
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactsByChecksumNoResult
@@ -6137,6 +6311,8 @@ name|artifactsByChecksum
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testDeleteArtifact
@@ -6244,6 +6420,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testDeleteRepository
