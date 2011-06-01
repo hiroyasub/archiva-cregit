@@ -852,6 +852,14 @@ argument_list|(
 name|REPOPATH_LEGACY_MANAGED_TARGET
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|repoLocation
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
 name|FileUtils
 operator|.
 name|deleteDirectory
@@ -859,6 +867,7 @@ argument_list|(
 name|repoLocation
 argument_list|)
 expr_stmt|;
+block|}
 name|copyDirectoryStructure
 argument_list|(
 operator|new

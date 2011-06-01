@@ -4090,13 +4090,22 @@ name|entrySet
 argument_list|()
 control|)
 block|{
+comment|// olamy with spring rolehint is now downloadPolicy#hint
+comment|// so substring after last # to get the hint as with plexus
 name|String
 name|key
 init|=
+name|StringUtils
+operator|.
+name|substringAfterLast
+argument_list|(
 name|entry
 operator|.
 name|getKey
 argument_list|()
+argument_list|,
+literal|"#"
+argument_list|)
 decl_stmt|;
 name|DownloadErrorPolicy
 name|policy
