@@ -145,6 +145,28 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -204,10 +226,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Retrieve and process all artifacts of a repository from the database and generate a rss feed.  * The artifacts will be grouped by the date when the artifacts were gathered.  * Each group will appear as one entry in the feed.  *  * @plexus.component role="org.apache.archiva.rss.processor.RssFeedProcessor" role-hint="new-artifacts"  */
+comment|/**  * Retrieve and process all artifacts of a repository from the database and generate a rss feed.  * The artifacts will be grouped by the date when the artifacts were gathered.  * Each group will appear as one entry in the feed.  *  * plexus.component role="org.apache.archiva.rss.processor.RssFeedProcessor" role-hint="new-artifacts"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"rssFeedProcessor#new-artifacts"
+argument_list|)
 specifier|public
 class|class
 name|NewArtifactsRssFeedProcessor
@@ -236,7 +263,9 @@ name|desc
 init|=
 literal|"These are the new artifacts found in the repository "
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|RssFeedGenerator
 name|generator

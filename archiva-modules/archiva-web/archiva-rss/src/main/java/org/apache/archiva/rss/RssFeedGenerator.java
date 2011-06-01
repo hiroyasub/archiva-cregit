@@ -151,11 +151,47 @@ name|SyndFeedImpl
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
 begin_comment
-comment|/**  * Generates RSS feeds.  *   * @plexus.component role="org.apache.archiva.rss.RssFeedGenerator"   *      instantiation-strategy="per-lookup"  *   * @version  */
+comment|/**  * Generates RSS feeds.  *   * plexus.component role="org.apache.archiva.rss.RssFeedGenerator"  *      instantiation-strategy="per-lookup"  *   * @version  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"rssFeedGenerator#default"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|RssFeedGenerator
@@ -295,11 +331,9 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Finished generating the feed \'"
-operator|+
+literal|"Finished generating the feed \'{}\'."
+argument_list|,
 name|title
-operator|+
-literal|"\'."
 argument_list|)
 expr_stmt|;
 return|return
