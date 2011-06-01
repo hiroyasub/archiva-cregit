@@ -970,8 +970,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Skipping uptodate metadata: "
-operator|+
+literal|"Skipping uptodate metadata: {}"
+argument_list|,
 name|this
 operator|.
 name|metadataTools
@@ -999,8 +999,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Updated metadata: "
-operator|+
+literal|"Updated metadata: {}"
+argument_list|,
 name|this
 operator|.
 name|metadataTools
@@ -1196,8 +1196,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Skipping uptodate metadata: "
-operator|+
+literal|"Skipping uptodate metadata: {}"
+argument_list|,
 name|this
 operator|.
 name|metadataTools
@@ -1225,8 +1225,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Updated metadata: "
-operator|+
+literal|"Updated metadata: {}"
+argument_list|,
 name|this
 operator|.
 name|metadataTools
