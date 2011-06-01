@@ -118,7 +118,6 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-specifier|public
 name|List
 argument_list|<
 name|ArtifactMetadata

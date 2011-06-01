@@ -289,6 +289,38 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -408,22 +440,27 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @plexus.component role="org.apache.archiva.stagerepository.merge.RepositoryMerger" role-hint="maven2"  */
+comment|/**  * plexus.component role="org.apache.archiva.stagerepository.merge.RepositoryMerger" role-hint="maven2"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"repositoryMerger#maven2"
+argument_list|)
 specifier|public
 class|class
 name|Maven2RepositoryMerger
 implements|implements
 name|RepositoryMerger
 block|{
-comment|/**      * @plexus.requirement role-hint="default"      */
+comment|/**      * plexus.requirement role-hint="default"      */
 specifier|private
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="maven2"      */
+comment|/**      * plexus.requirement role-hint="maven2"      */
 specifier|private
 name|RepositoryPathTranslator
 name|pathTranslator
@@ -436,6 +473,45 @@ name|METADATA_FILENAME
 init|=
 literal|"maven-metadata.xml"
 decl_stmt|;
+annotation|@
+name|Inject
+specifier|public
+name|Maven2RepositoryMerger
+parameter_list|(
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"archivaConfiguration#default"
+argument_list|)
+name|ArchivaConfiguration
+name|archivaConfiguration
+parameter_list|,
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"repositoryPathTranslator#maven2"
+argument_list|)
+name|RepositoryPathTranslator
+name|repositoryPathTranslator
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|archivaConfiguration
+expr_stmt|;
+name|this
+operator|.
+name|pathTranslator
+operator|=
+name|repositoryPathTranslator
+expr_stmt|;
+block|}
 specifier|public
 name|void
 name|setConfiguration
