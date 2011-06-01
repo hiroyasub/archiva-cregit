@@ -540,8 +540,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Finishing indexing task on repo: "
-operator|+
+literal|"Finishing indexing task on repo: {}"
+argument_list|,
 name|repository
 operator|.
 name|getId
