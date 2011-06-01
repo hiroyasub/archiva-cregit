@@ -199,6 +199,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|runner
+operator|.
+name|RunWith
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|sonatype
 operator|.
 name|nexus
@@ -308,6 +320,22 @@ operator|.
 name|context
 operator|.
 name|ContextConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|test
+operator|.
+name|context
+operator|.
+name|junit4
+operator|.
+name|SpringJUnit4ClassRunner
 import|;
 end_import
 
@@ -431,6 +459,13 @@ end_comment
 
 begin_class
 annotation|@
+name|RunWith
+argument_list|(
+name|SpringJUnit4ClassRunner
+operator|.
+name|class
+argument_list|)
+annotation|@
 name|ContextConfiguration
 argument_list|(
 name|locations
@@ -447,6 +482,8 @@ name|ArchivaIndexingTaskExecutorTest
 extends|extends
 name|TestCase
 block|{
+annotation|@
+name|Inject
 specifier|private
 name|ArchivaIndexingTaskExecutor
 name|indexingExecutor
@@ -494,12 +531,8 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|indexingExecutor
-operator|=
-operator|new
-name|ArchivaIndexingTaskExecutor
-argument_list|()
-expr_stmt|;
+comment|//indexingExecutor = new ArchivaIndexingTaskExecutor();
+comment|//indexingExecutor.setPlexusSisuBridge( plexusSisuBridge );
 name|indexingExecutor
 operator|.
 name|initialize
@@ -522,7 +555,7 @@ name|repositoryConfig
 operator|.
 name|setLocation
 argument_list|(
-literal|"/target/test-classes/test-repo"
+literal|"target/test-classes/test-repo"
 argument_list|)
 expr_stmt|;
 name|repositoryConfig
