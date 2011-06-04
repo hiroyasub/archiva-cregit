@@ -117,6 +117,16 @@ name|Diff
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
 begin_comment
 comment|/**  * Abstract TestCase for RepositoryServlet Tests, Proxied, Get of Metadata.   *  * @version $Id$  */
 end_comment
@@ -1009,7 +1019,9 @@ comment|//                assertManagedFileNotExists( repoRootInternal, resource
 comment|//                break;
 comment|//        }
 comment|//    }
-specifier|protected
+annotation|@
+name|Before
+specifier|public
 name|void
 name|tearDown
 parameter_list|()

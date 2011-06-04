@@ -83,6 +83,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -102,6 +112,8 @@ name|RepositoryServletProxiedSnapshotPolicyTest
 extends|extends
 name|AbstractRepositoryServletProxiedTestCase
 block|{
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedSnapshotsArtifactPolicyAlwaysManagedNewer
@@ -127,6 +139,8 @@ operator|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedSnapshotsArtifactPolicyAlwaysManagedOlder
@@ -152,6 +166,8 @@ operator|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedSnapshotsArtifactPolicyAlwaysNoManagedContent
@@ -171,6 +187,8 @@ name|NO_MANAGED_COPY
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedSnapshotsArtifactPolicyDailyFail
@@ -196,6 +214,8 @@ operator|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedSnapshotsArtifactPolicyDailyNoManagedContent
@@ -215,6 +235,8 @@ name|NO_MANAGED_COPY
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedSnapshotsArtifactPolicyDailyPass
@@ -240,6 +262,8 @@ operator|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedSnapshotsArtifactPolicyRejectFail
@@ -259,6 +283,8 @@ name|HAS_MANAGED_COPY
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedSnapshotsArtifactPolicyRejectNoManagedContentFail
@@ -278,6 +304,8 @@ name|NO_MANAGED_COPY
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedSnapshotsArtifactPolicyRejectPass
@@ -297,6 +325,8 @@ name|HAS_MANAGED_COPY
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedSnapshotsArtifactPolicyHourlyFail
@@ -322,6 +352,8 @@ operator|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedSnapshotsArtifactPolicyHourlyNoManagedContent
@@ -341,6 +373,8 @@ name|NO_MANAGED_COPY
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedSnapshotsArtifactPolicyHourlyPass
@@ -366,6 +400,8 @@ operator|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedSnapshotsArtifactPolicyOnceFail
@@ -385,6 +421,8 @@ name|HAS_MANAGED_COPY
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedSnapshotsArtifactPolicyOnceNoManagedContent
@@ -404,6 +442,8 @@ name|NO_MANAGED_COPY
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedSnapshotsArtifactPolicyOncePass

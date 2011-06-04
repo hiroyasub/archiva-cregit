@@ -19,11 +19,25 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|io
+name|meterware
 operator|.
-name|File
+name|httpunit
+operator|.
+name|WebConversation
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|meterware
+operator|.
+name|httpunit
+operator|.
+name|WebResponse
 import|;
 end_import
 
@@ -141,6 +155,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|mortbay
 operator|.
 name|jetty
@@ -207,30 +241,16 @@ end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|meterware
+name|io
 operator|.
-name|httpunit
-operator|.
-name|WebConversation
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|meterware
-operator|.
-name|httpunit
-operator|.
-name|WebResponse
+name|File
 import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractRepositoryServletProxiedTestCase   *  * @version $Id$  */
+comment|/**  * AbstractRepositoryServletProxiedTestCase  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -412,8 +432,8 @@ name|RemoteRepoInfo
 name|remotePrivateSnapshots
 decl_stmt|;
 annotation|@
-name|Override
-specifier|protected
+name|Before
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -461,7 +481,8 @@ name|repo
 operator|.
 name|root
 operator|=
-name|getTestFile
+operator|new
+name|File
 argument_list|(
 literal|"target/remote-repos/"
 operator|+
@@ -1109,7 +1130,9 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-specifier|protected
+annotation|@
+name|After
+specifier|public
 name|void
 name|tearDown
 parameter_list|()

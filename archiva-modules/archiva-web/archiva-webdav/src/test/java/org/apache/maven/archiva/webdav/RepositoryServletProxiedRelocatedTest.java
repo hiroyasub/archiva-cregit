@@ -81,6 +81,16 @@ name|ReleasesPolicy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * RepositoryServlet Tests, Proxied, Get of Release Artifacts, with varying policy settings.  *  * @version $Id: RepositoryServletProxiedReleasePolicyTest.java 590908 2007-11-01 06:21:26Z joakime $  */
 end_comment
@@ -92,6 +102,8 @@ name|RepositoryServletProxiedRelocatedTest
 extends|extends
 name|AbstractRepositoryServletProxiedTestCase
 block|{
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedReleaseArtifactPolicyOncePass

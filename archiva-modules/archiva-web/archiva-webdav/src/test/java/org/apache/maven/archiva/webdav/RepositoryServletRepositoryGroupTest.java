@@ -19,53 +19,49 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|io
+name|meterware
 operator|.
-name|File
+name|httpunit
+operator|.
+name|GetMethodWebRequest
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|io
+name|meterware
 operator|.
-name|InputStream
+name|httpunit
+operator|.
+name|PutMethodWebRequest
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|util
+name|meterware
 operator|.
-name|ArrayList
+name|httpunit
+operator|.
+name|WebRequest
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|util
+name|meterware
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
+name|httpunit
 operator|.
-name|servlet
-operator|.
-name|http
-operator|.
-name|HttpServletResponse
+name|WebResponse
 import|;
 end_import
 
@@ -181,54 +177,78 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|meterware
+name|junit
 operator|.
-name|httpunit
-operator|.
-name|GetMethodWebRequest
+name|After
 import|;
 end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|meterware
+name|junit
 operator|.
-name|httpunit
-operator|.
-name|PutMethodWebRequest
+name|Before
 import|;
 end_import
 
 begin_import
 import|import
-name|com
+name|javax
 operator|.
-name|meterware
+name|servlet
 operator|.
-name|httpunit
+name|http
 operator|.
-name|WebRequest
+name|HttpServletResponse
 import|;
 end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|meterware
+name|io
 operator|.
-name|httpunit
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|WebResponse
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryServletRepositoryGroupTest  *   * Test Case 1.  Accessing a valid repository group root url (e.g. http://machine.com/repository/repository-group/) returns a Bad Request (HTTP 400)  * Test Case 2.  Accessing an invalid repository group root url is forwarded to managed repository checking (this is not covered here)  * Test Case 3.  Accessing an artifact in a valid repository group will iterate over the managed repositories in the repository group  *     Test Case 3.a.  If an invalid managed repository is encountered (managed repository doesn't exist),  *                     a Not Found (HTTP 404) is returned and the iteration is broken  *     Test Case 3.b.  If an artifact is not found in a valid managed repository (after proxying, etc.),  *                     a Not Found (HTTP 404) is set but not returned yet, the iteration continues to the next managed repository.  *                     The Not Found (HTTP 404) is returned after exhausting all valid managed repositories  *     Test Case 3.c.  If an artifact is found in a valid managed repository,  *                     the artifact is returned, the iteration is broken and any Not Found (HTTP 404) is disregarded  * Test Case 4.  Accessing a valid repository group with any http write method returns a Bad Request (HTTP 400)  *                       *  */
+comment|/**  * RepositoryServletRepositoryGroupTest  *<p/>  * Test Case 1.  Accessing a valid repository group root url (e.g. http://machine.com/repository/repository-group/) returns a Bad Request (HTTP 400)  * Test Case 2.  Accessing an invalid repository group root url is forwarded to managed repository checking (this is not covered here)  * Test Case 3.  Accessing an artifact in a valid repository group will iterate over the managed repositories in the repository group  * Test Case 3.a.  If an invalid managed repository is encountered (managed repository doesn't exist),  * a Not Found (HTTP 404) is returned and the iteration is broken  * Test Case 3.b.  If an artifact is not found in a valid managed repository (after proxying, etc.),  * a Not Found (HTTP 404) is set but not returned yet, the iteration continues to the next managed repository.  * The Not Found (HTTP 404) is returned after exhausting all valid managed repositories  * Test Case 3.c.  If an artifact is found in a valid managed repository,  * the artifact is returned, the iteration is broken and any Not Found (HTTP 404) is disregarded  * Test Case 4.  Accessing a valid repository group with any http write method returns a Bad Request (HTTP 400)  */
 end_comment
 
 begin_class
@@ -292,7 +312,9 @@ literal|"group-with-invalid-repos"
 decl_stmt|;
 annotation|@
 name|Override
-specifier|protected
+annotation|@
+name|Before
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -551,7 +573,9 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-specifier|protected
+annotation|@
+name|After
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -574,7 +598,7 @@ name|tearDown
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*      * Test Case 3.c      */
+comment|/*     * Test Case 3.c     */
 specifier|public
 name|void
 name|testGetFromFirstManagedRepositoryReturnOk
@@ -660,7 +684,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * Test Case 3.c      */
+comment|/*     * Test Case 3.c     */
 specifier|public
 name|void
 name|testGetFromLastManagedRepositoryReturnOk
@@ -746,7 +770,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * Test Case 3.b      */
+comment|/*     * Test Case 3.b     */
 specifier|public
 name|void
 name|testGetFromValidRepositoryGroupReturnNotFound
@@ -790,7 +814,7 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * Test Case 3.a      */
+comment|/*     * Test Case 3.a     */
 specifier|public
 name|void
 name|testGetInvalidManagedRepositoryInGroupReturnNotFound
@@ -834,7 +858,7 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * Test Case 4      */
+comment|/*     * Test Case 4     */
 specifier|public
 name|void
 name|testPutValidRepositoryGroupReturnBadRequest
@@ -1021,10 +1045,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|getBasedir
-argument_list|()
-argument_list|,
-literal|"/target/test-classes/retrievedMetadataFile.xml"
+literal|"target/test-classes/retrievedMetadataFile.xml"
 argument_list|)
 decl_stmt|;
 name|FileUtils

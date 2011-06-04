@@ -119,6 +119,16 @@ name|MkColMethodWebRequest
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Deploy / Put Test cases for RepositoryServlet.    *  * @version $Id$  */
 end_comment
@@ -138,6 +148,8 @@ name|ARTIFACT_DEFAULT_LAYOUT
 init|=
 literal|"/path/to/artifact/1.0.0/artifact-1.0.0.jar"
 decl_stmt|;
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPutWithMissingParentCollection
@@ -215,6 +227,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * MRM-747      * test whether trying to overwrite existing relase-artifact is blocked by returning HTTP-code 409       *       * @throws Exception      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testReleaseArtifactsRedeploymentValidPath
@@ -406,6 +420,8 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testReleaseArtifactsRedeploymentIsAllowed
@@ -622,6 +638,8 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testReleaseArtifactsRedeploymentInvalidPath
@@ -807,6 +825,8 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testReleaseArtifactsRedeploymentArtifactIsSnapshot
@@ -992,6 +1012,8 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testMkColWithMissingParentCollectionFails

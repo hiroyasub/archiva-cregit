@@ -69,6 +69,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -88,6 +98,8 @@ name|RepositoryServletNoProxyMetadataTest
 extends|extends
 name|AbstractRepositoryServletTestCase
 block|{
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetVersionMetadataDefaultLayout
@@ -174,6 +186,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProjectMetadataDefaultLayout
@@ -260,6 +274,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetGroupMetadataDefaultLayout
@@ -346,6 +362,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetSnapshotVersionMetadataDefaultLayout

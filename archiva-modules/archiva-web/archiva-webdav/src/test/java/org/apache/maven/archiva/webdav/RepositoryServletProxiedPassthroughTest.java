@@ -75,6 +75,16 @@ name|WebResponse
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * RepositoryServlet Tests, Proxied, Get of resources that are not artifacts or metadata, with varying policy settings.  *   * @version $Id: RepositoryServletProxiedReleasePolicyTest.java 661174 2008-05-29 01:49:41Z jdumay $  */
 end_comment
@@ -130,6 +140,8 @@ name|PATH_ASC
 init|=
 literal|"org/apache/archiva/test/1.0/test-1.0.jar.asc"
 decl_stmt|;
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedManagedNewerSha1
@@ -155,6 +167,8 @@ name|CONTENT_SHA1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedManagedOlderSha1
@@ -180,6 +194,8 @@ name|CONTENT_SHA1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedNoManagedContentSha1
@@ -199,6 +215,8 @@ name|CONTENT_SHA1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedEqualSha1
@@ -218,6 +236,8 @@ name|CONTENT_SHA1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedManagedNewerAsc
@@ -243,6 +263,8 @@ name|CONTENT_ASC
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedManagedOlderAsc
@@ -268,6 +290,8 @@ name|CONTENT_ASC
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedNoManagedContentAsc
@@ -287,6 +311,8 @@ name|CONTENT_ASC
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProxiedEqualAsc

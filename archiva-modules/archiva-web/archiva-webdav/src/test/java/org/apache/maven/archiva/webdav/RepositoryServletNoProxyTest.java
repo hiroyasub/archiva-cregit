@@ -69,6 +69,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -88,6 +98,8 @@ name|RepositoryServletNoProxyTest
 extends|extends
 name|AbstractRepositoryServletTestCase
 block|{
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testLastModifiedHeaderExists
@@ -162,6 +174,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyChecksumDefaultLayout
@@ -243,6 +257,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyChecksumLegacyLayout
@@ -324,6 +340,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyVersionedMetadataDefaultLayout
@@ -410,6 +428,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyProjectMetadataDefaultLayout
@@ -496,6 +516,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyGroupMetadataDefaultLayout
@@ -582,6 +604,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyArtifactDefaultLayout
@@ -668,6 +692,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyArtifactLegacyLayout
@@ -754,6 +780,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxySnapshotArtifactDefaultLayout
@@ -840,6 +868,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxySnapshotArtifactLegacyLayout
@@ -926,6 +956,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyTimestampedSnapshotArtifactDefaultLayout
@@ -1012,6 +1044,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyTimestampedSnapshotArtifactLegacyLayout
@@ -1099,6 +1133,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * [MRM-481] Artifact requests with a .xml.zip extension fail with a 404 Error      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyDualExtensionDefaultLayout
@@ -1185,6 +1221,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyDistributionLegacyLayout
@@ -1271,6 +1309,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyChecksumDefaultLayoutManagedLegacy
@@ -1352,6 +1392,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyChecksumLegacyLayoutManagedLegacy
@@ -1433,6 +1475,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyVersionedMetadataDefaultLayoutManagedLegacy
@@ -1520,6 +1564,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyProjectMetadataDefaultLayoutManagedLegacy
@@ -1607,6 +1653,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyGroupMetadataDefaultLayoutManagedLegacy
@@ -1693,6 +1741,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyArtifactDefaultLayoutManagedLegacy
@@ -1779,6 +1829,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyArtifactLegacyLayoutManagedLegacy
@@ -1865,6 +1917,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxySnapshotArtifactDefaultLayoutManagedLegacy
@@ -1951,6 +2005,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxySnapshotArtifactLegacyLayoutManagedLegacy
@@ -2037,6 +2093,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyTimestampedSnapshotArtifactDefaultLayoutManagedLegacy
@@ -2132,6 +2190,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyTimestampedSnapshotArtifactLegacyLayoutManagedLegacy
@@ -2219,6 +2279,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * [MRM-481] Artifact requests with a .xml.zip extension fail with a 404 Error      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyDualExtensionDefaultLayoutManagedLegacy
@@ -2305,6 +2367,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetNoProxyDistributionLegacyLayoutManagedLegacy
