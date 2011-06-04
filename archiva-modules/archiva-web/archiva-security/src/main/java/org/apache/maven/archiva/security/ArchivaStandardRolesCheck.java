@@ -114,14 +114,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaStandardRolesCheck tests for the existance of expected / standard roles and permissions.   *  * @version $Id$  *   * @plexus.component role="org.codehaus.plexus.redback.system.check.EnvironmentCheck"  *                   role-hint="required-roles"  */
+comment|/**  * ArchivaStandardRolesCheck tests for the existance of expected / standard roles and permissions.   *  * @version $Id$  *   * plexus.component role="org.codehaus.plexus.redback.system.check.EnvironmentCheck"  *                   role-hint="required-roles"  */
 end_comment
 
 begin_class
 annotation|@
 name|Service
 argument_list|(
-literal|"environmentCheck#required-roles"
+literal|"environmentCheck#archiva-required-roles"
 argument_list|)
 specifier|public
 class|class
@@ -142,7 +142,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="cached"      */
+comment|/**      * plexus.requirement role-hint="cached"      */
 annotation|@
 name|Inject
 annotation|@
