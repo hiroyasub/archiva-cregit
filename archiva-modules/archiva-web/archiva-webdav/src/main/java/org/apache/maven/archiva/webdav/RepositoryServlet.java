@@ -422,7 +422,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryServlet  *   * @version $Id$  */
+comment|/**  * RepositoryServlet  *   */
 end_comment
 
 begin_class
@@ -1000,6 +1000,13 @@ argument_list|(
 name|servletAuth
 argument_list|,
 name|httpAuth
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"initServers done"
 argument_list|)
 expr_stmt|;
 block|}
