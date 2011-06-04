@@ -21,6 +21,16 @@ end_comment
 
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -331,20 +341,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|spring
-operator|.
-name|PlexusInSpringTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|easymock
 operator|.
 name|MockControl
@@ -360,6 +356,68 @@ operator|.
 name|classextension
 operator|.
 name|MockClassControl
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|runner
+operator|.
+name|RunWith
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|test
+operator|.
+name|context
+operator|.
+name|ContextConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|test
+operator|.
+name|context
+operator|.
+name|junit4
+operator|.
+name|SpringJUnit4ClassRunner
 import|;
 end_import
 
@@ -442,11 +500,29 @@ comment|/**  * SearchServiceImplTest  *  * @version $Id: SearchServiceImplTest.j
 end_comment
 
 begin_class
+annotation|@
+name|RunWith
+argument_list|(
+name|SpringJUnit4ClassRunner
+operator|.
+name|class
+argument_list|)
+annotation|@
+name|ContextConfiguration
+argument_list|(
+name|locations
+operator|=
+block|{
+literal|"classpath*:/META-INF/spring-context.xml"
+block|,
+literal|"classpath*:/spring-context.xml"
+block|}
+argument_list|)
 specifier|public
 class|class
 name|SearchServiceImplTest
 extends|extends
-name|PlexusInSpringTestCase
+name|TestCase
 block|{
 specifier|private
 name|SearchService
@@ -522,6 +598,8 @@ name|repositorySession
 decl_stmt|;
 annotation|@
 name|Override
+annotation|@
+name|Before
 specifier|public
 name|void
 name|setUp
@@ -694,6 +772,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// MRM-1230
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testQuickSearchModelPackagingIsUsed
@@ -1047,6 +1127,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testQuickSearchDefaultPackagingIsUsed
@@ -1391,6 +1473,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testQuickSearchArtifactRegularSearch
@@ -1750,6 +1834,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testQuickSearchNoResults
@@ -1885,6 +1971,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactByChecksum
@@ -2054,6 +2142,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactVersionsArtifactExists
@@ -2353,6 +2443,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactVersionsByDateArtifactExists
@@ -2362,6 +2454,8 @@ name|Exception
 block|{
 comment|// TODO
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactVersionsByDateArtifactDoesNotExist
@@ -2371,6 +2465,8 @@ name|Exception
 block|{
 comment|// TODO
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetDependenciesArtifactExists
@@ -2647,6 +2743,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetDependenciesArtifactDoesNotExist
@@ -2755,6 +2853,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetDependencyTreeArtifactExists
@@ -2764,6 +2864,8 @@ name|Exception
 block|{
 comment|// TODO
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetDependencyTreeArtifactDoesNotExist
@@ -2773,6 +2875,8 @@ name|Exception
 block|{
 comment|// TODO
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetDependees
@@ -3022,6 +3126,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetDependeesArtifactDoesNotExist
