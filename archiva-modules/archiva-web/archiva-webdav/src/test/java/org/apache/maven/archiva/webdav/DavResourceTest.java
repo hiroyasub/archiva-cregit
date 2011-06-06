@@ -571,7 +571,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|After
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()

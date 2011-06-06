@@ -459,6 +459,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|runner
 operator|.
 name|RunWith
@@ -975,7 +985,7 @@ annotation|@
 name|Override
 annotation|@
 name|After
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -1036,6 +1046,8 @@ expr_stmt|;
 block|}
 comment|// test deploy with invalid user, and guest has no write access to repo
 comment|// 401 must be returned
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPutWithInvalidUserAndGuestHasNoWriteAccess
@@ -1225,6 +1237,8 @@ expr_stmt|;
 comment|// assertEquals(HttpServletResponse.SC_UNAUTHORIZED, response.getResponseCode());
 block|}
 comment|// test deploy with invalid user, but guest has write access to repo
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPutWithInvalidUserAndGuestHasWriteAccess
@@ -1558,6 +1572,8 @@ expr_stmt|;
 comment|// assertEquals( HttpServletResponse.SC_CREATED, response.getResponseCode() );
 block|}
 comment|// test deploy with a valid user with no write access
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPutWithValidUserWithNoWriteAccess
@@ -1852,6 +1868,8 @@ expr_stmt|;
 comment|// assertEquals(HttpServletResponse.SC_UNAUTHORIZED, response.getResponseCode());
 block|}
 comment|// test deploy with a valid user with write access
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPutWithValidUserWithWriteAccess
@@ -2194,6 +2212,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// test get with invalid user, and guest has read access to repo
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetWithInvalidUserAndGuestHasReadAccess
@@ -2534,6 +2554,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// test get with invalid user, and guest has no read access to repo
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetWithInvalidUserAndGuestHasNoReadAccess
@@ -2726,6 +2748,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// test get with valid user with read access to repo
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetWithAValidUserWithReadAccess
@@ -3044,6 +3068,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// test get with valid user with no read access to repo
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetWithAValidUserWithNoReadAccess

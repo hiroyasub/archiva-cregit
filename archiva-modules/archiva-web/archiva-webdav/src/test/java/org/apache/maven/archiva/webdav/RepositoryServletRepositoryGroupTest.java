@@ -197,6 +197,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|servlet
@@ -599,6 +609,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/*     * Test Case 3.c     */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetFromFirstManagedRepositoryReturnOk
@@ -685,6 +697,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*     * Test Case 3.c     */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetFromLastManagedRepositoryReturnOk
@@ -771,6 +785,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*     * Test Case 3.b     */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetFromValidRepositoryGroupReturnNotFound
@@ -815,6 +831,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*     * Test Case 3.a     */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetInvalidManagedRepositoryInGroupReturnNotFound
@@ -859,6 +877,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*     * Test Case 4     */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPutValidRepositoryGroupReturnBadRequest
@@ -923,6 +943,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// MRM-872
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetMergedMetadata
@@ -1298,6 +1320,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// MRM-901
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBrowseWithTwoArtifactsWithSameGroupIdInRepos
