@@ -19,21 +19,15 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|util
+name|google
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|common
 operator|.
-name|util
+name|collect
 operator|.
-name|List
+name|Lists
 import|;
 end_import
 
@@ -255,8 +249,28 @@ name|Inject
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
-comment|/**  * DefaultUserRepositories  *   * @version $Id$  * plexus.component role="org.apache.maven.archiva.security.UserRepositories" role-hint="default"  */
+comment|/**  * DefaultUserRepositories  *  * @version $Id$  *          plexus.component role="org.apache.maven.archiva.security.UserRepositories" role-hint="default"  */
 end_comment
 
 begin_class
@@ -474,29 +488,42 @@ name|e
 parameter_list|)
 block|{
 comment|// swallow.
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Not authorizing '"
-operator|+
+literal|"Not authorizing '{}' for repository '{}': {}"
+argument_list|,
+name|Lists
+operator|.
+expr|<
+name|Object
+operator|>
+name|newArrayList
+argument_list|(
 name|principal
-operator|+
-literal|"' for repository '"
-operator|+
+argument_list|,
 name|repo
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"': "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
 argument_list|)
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return

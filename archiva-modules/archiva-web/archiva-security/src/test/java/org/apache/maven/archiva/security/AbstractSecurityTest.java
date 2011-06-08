@@ -413,6 +413,13 @@ name|roleManager
 decl_stmt|;
 annotation|@
 name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"archivaConfiguration#default"
+argument_list|)
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
@@ -475,6 +482,23 @@ name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|archivaConfiguration
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getManagedRepositoriesAsMap
+argument_list|()
+operator|.
+name|containsKey
+argument_list|(
+name|repoId
+argument_list|)
+condition|)
+block|{
 name|archivaConfiguration
 operator|.
 name|getConfiguration
@@ -485,6 +509,7 @@ argument_list|(
 name|repoConfig
 argument_list|)
 expr_stmt|;
+block|}
 comment|// Add repo roles to security.
 name|userRepos
 operator|.
