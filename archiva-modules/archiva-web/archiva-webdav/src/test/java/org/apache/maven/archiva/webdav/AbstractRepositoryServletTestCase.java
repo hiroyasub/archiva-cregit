@@ -280,7 +280,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractRepositoryServletTestCase   *  * @version $Id$  */
+comment|/**  * AbstractRepositoryServletTestCase  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -905,6 +905,22 @@ argument_list|,
 literal|"conf/archiva.xml"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|testConfDest
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+name|FileUtils
+operator|.
+name|deleteQuietly
+argument_list|(
+name|testConfDest
+argument_list|)
+expr_stmt|;
+block|}
 name|FileUtils
 operator|.
 name|copyFile
@@ -943,6 +959,20 @@ operator|.
 name|getConfiguration
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|config
+operator|.
+name|getManagedRepositoriesAsMap
+argument_list|()
+operator|.
+name|containsKey
+argument_list|(
+name|REPOID_INTERNAL
+argument_list|)
+condition|)
+block|{
 name|config
 operator|.
 name|addManagedRepository
@@ -959,6 +989,26 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|saveConfiguration
+argument_list|(
+name|archivaConfiguration
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|config
+operator|.
+name|getManagedRepositoriesAsMap
+argument_list|()
+operator|.
+name|containsKey
+argument_list|(
+name|REPOID_LEGACY
+argument_list|)
+condition|)
+block|{
 name|config
 operator|.
 name|addManagedRepository
@@ -982,15 +1032,15 @@ argument_list|(
 name|archivaConfiguration
 argument_list|)
 expr_stmt|;
+block|}
+comment|//CacheManager.getInstance().removeCache( "url-failures-cache" );
 name|CacheManager
 operator|.
 name|getInstance
 argument_list|()
 operator|.
-name|removeCache
-argument_list|(
-literal|"url-failures-cache"
-argument_list|)
+name|clearAll
+argument_list|()
 expr_stmt|;
 name|HttpUnitOptions
 operator|.
