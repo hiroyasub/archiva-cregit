@@ -797,6 +797,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|StringUtils
 operator|.
 name|equalsIgnoreCase
@@ -805,8 +806,6 @@ name|expectedChecksum
 argument_list|,
 name|actualChecksum
 argument_list|)
-operator|==
-literal|false
 condition|)
 block|{
 comment|// create checksum (again)
