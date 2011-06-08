@@ -19,16 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -38,6 +28,16 @@ operator|.
 name|lang
 operator|.
 name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
 import|;
 end_import
 
@@ -61,8 +61,18 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
-comment|/**  * DefaultUserRepositoriesTest   *  * @version $Id$  */
+comment|/**  * DefaultUserRepositoriesTest  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -250,6 +260,36 @@ name|getObservableRepositoryIds
 argument_list|(
 name|USER_ADMIN
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|After
+specifier|public
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
+name|restoreGuestInitialValues
+argument_list|(
+name|USER_ALPACA
+argument_list|)
+expr_stmt|;
+name|restoreGuestInitialValues
+argument_list|(
+name|USER_GUEST
+argument_list|)
+expr_stmt|;
+name|restoreGuestInitialValues
+argument_list|(
+name|USER_ADMIN
 argument_list|)
 expr_stmt|;
 block|}

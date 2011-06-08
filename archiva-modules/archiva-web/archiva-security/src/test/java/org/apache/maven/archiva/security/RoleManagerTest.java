@@ -134,7 +134,6 @@ name|RoleManagerTest
 extends|extends
 name|TestCase
 block|{
-comment|/**      * @plexus.requirement role-hint="default"      */
 annotation|@
 name|Inject
 name|RoleManager
