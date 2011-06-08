@@ -256,7 +256,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultUserRepositories  *   * @version $Id$  * @plexus.component role="org.apache.maven.archiva.security.UserRepositories" role-hint="default"  */
+comment|/**  * DefaultUserRepositories  *   * @version $Id$  * plexus.component role="org.apache.maven.archiva.security.UserRepositories" role-hint="default"  */
 end_comment
 
 begin_class
@@ -271,21 +271,21 @@ name|DefaultUserRepositories
 implements|implements
 name|UserRepositories
 block|{
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private
 name|SecuritySystem
 name|securitySystem
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="default"      */
+comment|/**      * plexus.requirement role-hint="default"      */
 annotation|@
 name|Inject
 specifier|private
 name|RoleManager
 name|roleManager
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private

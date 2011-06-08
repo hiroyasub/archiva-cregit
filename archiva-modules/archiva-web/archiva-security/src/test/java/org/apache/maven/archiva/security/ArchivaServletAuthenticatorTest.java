@@ -19,23 +19,27 @@ end_comment
 
 begin_import
 import|import
-name|javax
+name|com
 operator|.
-name|inject
+name|google
 operator|.
-name|Inject
+name|common
+operator|.
+name|collect
+operator|.
+name|Lists
 import|;
 end_import
 
 begin_import
 import|import
-name|javax
+name|net
 operator|.
-name|servlet
+name|sf
 operator|.
-name|http
+name|ehcache
 operator|.
-name|HttpServletRequest
+name|CacheManager
 import|;
 end_import
 
@@ -84,6 +88,22 @@ operator|.
 name|authorization
 operator|.
 name|UnauthorizedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|redback
+operator|.
+name|rbac
+operator|.
+name|UserAssignment
 import|;
 end_import
 
@@ -181,8 +201,50 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|servlet
+operator|.
+name|http
+operator|.
+name|HttpServletRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
 begin_comment
-comment|/**  * ArchivaServletAuthenticatorTest  *   * @version  */
+comment|/**  * ArchivaServletAuthenticatorTest  */
 end_comment
 
 begin_class
@@ -194,6 +256,13 @@ name|AbstractSecurityTest
 block|{
 annotation|@
 name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"servletAuthenticator#test"
+argument_list|)
 specifier|private
 name|ServletAuthenticator
 name|servletAuth
@@ -468,6 +537,11 @@ argument_list|(
 name|isAuthorized
 argument_list|)
 expr_stmt|;
+name|restoreGuestInitialValues
+argument_list|(
+name|USER_ALPACA
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -596,6 +670,11 @@ operator|.
 name|verify
 argument_list|()
 expr_stmt|;
+name|restoreGuestInitialValues
+argument_list|(
+name|USER_ALPACA
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -683,6 +762,11 @@ decl_stmt|;
 name|assertTrue
 argument_list|(
 name|isAuthorized
+argument_list|)
+expr_stmt|;
+name|restoreGuestInitialValues
+argument_list|(
+name|USER_ALPACA
 argument_list|)
 expr_stmt|;
 block|}
@@ -784,6 +868,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|restoreGuestInitialValues
+argument_list|(
+name|USER_ALPACA
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -820,6 +909,12 @@ decl_stmt|;
 name|assertTrue
 argument_list|(
 name|isAuthorized
+argument_list|)
+expr_stmt|;
+comment|// cleanup previously add karma
+name|restoreGuestInitialValues
+argument_list|(
+name|USER_GUEST
 argument_list|)
 expr_stmt|;
 block|}
@@ -860,6 +955,12 @@ argument_list|(
 name|isAuthorized
 argument_list|)
 expr_stmt|;
+comment|// cleanup previously add karma
+name|restoreGuestInitialValues
+argument_list|(
+name|USER_GUEST
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -896,6 +997,12 @@ decl_stmt|;
 name|assertTrue
 argument_list|(
 name|isAuthorized
+argument_list|)
+expr_stmt|;
+comment|// cleanup previously add karma
+name|restoreGuestInitialValues
+argument_list|(
+name|USER_GUEST
 argument_list|)
 expr_stmt|;
 block|}

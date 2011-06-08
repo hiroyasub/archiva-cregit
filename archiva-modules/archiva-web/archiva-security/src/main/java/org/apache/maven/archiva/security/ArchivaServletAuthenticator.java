@@ -264,7 +264,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version  * @plexus.component role="org.apache.maven.archiva.security.ServletAuthenticator" role-hint="default"  */
+comment|/**  * @version  * plexus.component role="org.apache.maven.archiva.security.ServletAuthenticator" role-hint="default"  */
 end_comment
 
 begin_class
@@ -292,7 +292,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private
@@ -581,6 +581,30 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+block|}
+specifier|public
+name|SecuritySystem
+name|getSecuritySystem
+parameter_list|()
+block|{
+return|return
+name|securitySystem
+return|;
+block|}
+specifier|public
+name|void
+name|setSecuritySystem
+parameter_list|(
+name|SecuritySystem
+name|securitySystem
+parameter_list|)
+block|{
+name|this
+operator|.
+name|securitySystem
+operator|=
+name|securitySystem
+expr_stmt|;
 block|}
 block|}
 end_class

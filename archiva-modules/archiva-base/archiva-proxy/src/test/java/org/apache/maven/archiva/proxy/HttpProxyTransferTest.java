@@ -900,14 +900,6 @@ argument_list|(
 name|repoConfig
 argument_list|)
 expr_stmt|;
-name|CacheManager
-operator|.
-name|getInstance
-argument_list|()
-operator|.
-name|clearAll
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|After
