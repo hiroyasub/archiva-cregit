@@ -203,7 +203,7 @@ name|web
 operator|.
 name|action
 operator|.
-name|PlexusActionSupport
+name|AbstractActionSupport
 import|;
 end_import
 
@@ -285,16 +285,62 @@ name|SecureActionException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Controller
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
 begin_comment
-comment|/**  * ConfigureNetworkProxyAction  *  * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="configureNetworkProxyAction" instantiation-strategy="per-lookup"  */
+comment|/**  * ConfigureNetworkProxyAction  *  * @version $Id$  *          plexus.component role="com.opensymphony.xwork2.Action" role-hint="configureNetworkProxyAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
+annotation|@
+name|Controller
+argument_list|(
+literal|"configureNetworkProxyAction"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|ConfigureNetworkProxyAction
 extends|extends
-name|PlexusActionSupport
+name|AbstractActionSupport
 implements|implements
 name|SecureAction
 implements|,
@@ -302,7 +348,9 @@ name|Preparable
 implements|,
 name|Validateable
 block|{
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration

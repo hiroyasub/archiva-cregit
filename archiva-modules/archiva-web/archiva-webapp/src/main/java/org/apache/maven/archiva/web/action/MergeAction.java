@@ -241,6 +241,52 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Controller
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -280,15 +326,25 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="mergeAction" instantiation-strategy="per-lookup"  */
+comment|/**  * plexus.component role="com.opensymphony.xwork2.Action" role-hint="mergeAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
+annotation|@
+name|Controller
+argument_list|(
+literal|"mergeAction"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|MergeAction
 extends|extends
-name|PlexusActionSupport
+name|AbstractActionSupport
 implements|implements
 name|Validateable
 implements|,
@@ -296,17 +352,30 @@ name|Preparable
 implements|,
 name|Auditable
 block|{
-comment|/**      * @plexus.requirement role="org.apache.archiva.stagerepository.merge.RepositoryMerger" role-hint="maven2"      */
+comment|/**      * plexus.requirement role="org.apache.archiva.stagerepository.merge.RepositoryMerger" role-hint="maven2"      */
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"repositoryMerger#maven2"
+argument_list|)
 specifier|private
 name|Maven2RepositoryMerger
 name|repositoryMerger
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|protected
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * @plexus.requirement role="com.opensymphony.xwork2.Action" role-hint="schedulerAction"      */
+comment|/**      * TODO olamy : why using an action ???      * plexus.requirement role="com.opensymphony.xwork2.Action" role-hint="schedulerAction"      */
+annotation|@
+name|Inject
 specifier|private
 name|SchedulerAction
 name|scheduler

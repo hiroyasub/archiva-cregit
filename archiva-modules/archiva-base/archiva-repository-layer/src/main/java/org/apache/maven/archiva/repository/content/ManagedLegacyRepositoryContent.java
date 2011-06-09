@@ -278,7 +278,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ManagedLegacyRepositoryContent   *  * @version $Id$  *   * @todo no need to be a component when filetypes, legacy path parser is not  *   * @plexus.component   *      role="org.apache.maven.archiva.repository.ManagedRepositoryContent"  *      role-hint="legacy"  *      instantiation-strategy="per-lookup"  */
+comment|/**  * ManagedLegacyRepositoryContent   *  * @version $Id$  *   * @todo no need to be a component when filetypes, legacy path parser is not  *   * plexus.component  *      role="org.apache.maven.archiva.repository.ManagedRepositoryContent"  *      role-hint="legacy"  *      instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

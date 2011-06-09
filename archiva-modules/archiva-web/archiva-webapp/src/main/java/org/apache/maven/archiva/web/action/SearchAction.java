@@ -271,6 +271,32 @@ name|org
 operator|.
 name|springframework
 operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Controller
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
 name|web
 operator|.
 name|context
@@ -346,10 +372,20 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Search all indexed fields by the given criteria.  *  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="searchAction" instantiation-strategy="per-lookup"  */
+comment|/**  * Search all indexed fields by the given criteria.  *  * plexus.component role="com.opensymphony.xwork2.Action" role-hint="searchAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
+annotation|@
+name|Controller
+argument_list|(
+literal|"searchAction"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|SearchAction
@@ -359,6 +395,7 @@ implements|implements
 name|Preparable
 block|{
 comment|/**      * Query string.      */
+comment|// FIXME olamy WTF here??
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration

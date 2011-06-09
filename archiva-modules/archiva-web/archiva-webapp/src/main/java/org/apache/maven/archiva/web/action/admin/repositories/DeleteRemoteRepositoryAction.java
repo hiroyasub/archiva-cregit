@@ -113,6 +113,32 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Controller
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -122,10 +148,20 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DeleteRemoteRepositoryAction   *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteRemoteRepositoryAction" instantiation-strategy="per-lookup"  */
+comment|/**  * DeleteRemoteRepositoryAction  *  * @version $Id$  * plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteRemoteRepositoryAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
+annotation|@
+name|Controller
+argument_list|(
+literal|"deleteRemoteRepositoryAction"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|DeleteRemoteRepositoryAction

@@ -147,6 +147,26 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -166,7 +186,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract ManagedRepositories Action.  *   * Place for all generic methods used in Managed Repository Administration.  *  * @version $Id$  */
+comment|/**  * Abstract ManagedRepositories Action.  *<p/>  * Place for all generic methods used in Managed Repository Administration.  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -177,12 +197,23 @@ name|AbstractManagedRepositoriesAction
 extends|extends
 name|AbstractRepositoriesAdminAction
 block|{
-comment|/**      * @plexus.requirement role-hint="default"      */
+comment|/**      * plexus.requirement role-hint="default"      */
+annotation|@
+name|Inject
 specifier|protected
 name|RoleManager
 name|roleManager
 decl_stmt|;
-comment|/**      * Plexus registry to read the configuration from.      *      * @plexus.requirement role-hint="commons-configuration"      */
+comment|/**      * Plexus registry to read the configuration from.      *<p/>      * plexus.requirement role-hint="commons-configuration"      */
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"commons-configuration"
+argument_list|)
 specifier|private
 name|Registry
 name|registry

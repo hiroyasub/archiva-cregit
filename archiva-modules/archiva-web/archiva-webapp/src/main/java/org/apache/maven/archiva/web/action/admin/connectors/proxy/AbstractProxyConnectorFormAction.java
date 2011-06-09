@@ -67,6 +67,34 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Lists
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|audit
+operator|.
+name|AuditListener
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -171,6 +199,16 @@ name|Preparable
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|PostConstruct
+import|;
+end_import
+
 begin_comment
 comment|/**  * AbstractProxyConnectorFormAction - generic fields and methods for either add or edit actions related with the   * Proxy Connector.   *  * @version $Id$  */
 end_comment
@@ -185,7 +223,7 @@ name|AbstractProxyConnectorAction
 implements|implements
 name|Preparable
 block|{
-comment|/**      * @plexus.requirement role="org.apache.maven.archiva.policies.PreDownloadPolicy"      */
+comment|/**      * plexus.requirement role="org.apache.maven.archiva.policies.PreDownloadPolicy"      */
 specifier|private
 name|Map
 argument_list|<
@@ -195,7 +233,7 @@ name|PreDownloadPolicy
 argument_list|>
 name|preDownloadPolicyMap
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.archiva.policies.PostDownloadPolicy"      */
+comment|/**      * plexus.requirement role="org.apache.maven.archiva.policies.PostDownloadPolicy"      */
 specifier|private
 name|Map
 argument_list|<
@@ -205,7 +243,7 @@ name|PostDownloadPolicy
 argument_list|>
 name|postDownloadPolicyMap
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.maven.archiva.policies.DownloadErrorPolicy"      */
+comment|/**      * plexus.requirement role="org.apache.maven.archiva.policies.DownloadErrorPolicy"      */
 specifier|private
 name|Map
 argument_list|<
@@ -279,6 +317,52 @@ specifier|protected
 name|ProxyConnectorConfiguration
 name|connector
 decl_stmt|;
+annotation|@
+name|PostConstruct
+specifier|public
+name|void
+name|initialize
+parameter_list|()
+block|{
+name|super
+operator|.
+name|initialize
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|preDownloadPolicyMap
+operator|=
+name|getBeansOfType
+argument_list|(
+name|PreDownloadPolicy
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|postDownloadPolicyMap
+operator|=
+name|getBeansOfType
+argument_list|(
+name|PostDownloadPolicy
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|downloadErrorPolicyMap
+operator|=
+name|getBeansOfType
+argument_list|(
+name|DownloadErrorPolicy
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 specifier|protected
 name|List
 argument_list|<

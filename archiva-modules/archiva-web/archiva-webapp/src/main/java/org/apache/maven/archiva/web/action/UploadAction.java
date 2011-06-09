@@ -565,6 +565,52 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Controller
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -694,7 +740,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Upload an artifact using Jakarta file upload in webwork. If set by the user a pom will also be generated. Metadata  * will also be updated if one exists, otherwise it would be created.  *  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="uploadAction" instantiation-strategy="per-lookup"  */
+comment|/**  * Upload an artifact using Jakarta file upload in webwork. If set by the user a pom will also be generated. Metadata  * will also be updated if one exists, otherwise it would be created.  *<p/>  * plexus.component role="com.opensymphony.xwork2.Action" role-hint="uploadAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -703,11 +749,21 @@ name|SuppressWarnings
 argument_list|(
 literal|"serial"
 argument_list|)
+annotation|@
+name|Controller
+argument_list|(
+literal|"uploadAction"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|UploadAction
 extends|extends
-name|PlexusActionSupport
+name|AbstractActionSupport
 implements|implements
 name|Validateable
 implements|,
@@ -768,22 +824,37 @@ name|String
 argument_list|>
 name|managedRepoIdList
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|UserRepositories
 name|userRepositories
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="default"      */
+comment|/**      * plexus.requirement role-hint="default"      */
+annotation|@
+name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|RepositoryContentFactory
 name|repositoryFactory
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.archiva.scheduler.ArchivaTaskScheduler" role-hint="repository"      */
+comment|/**      * lexus.requirement role="org.apache.archiva.scheduler.ArchivaTaskScheduler" role-hint="repository"      */
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"archivaTaskScheduler#repository"
+argument_list|)
 specifier|private
 name|ArchivaTaskScheduler
 name|scheduler

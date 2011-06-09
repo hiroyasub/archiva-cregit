@@ -41,11 +41,47 @@ name|ProxyConnectorConfiguration
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Controller
+import|;
+end_import
+
 begin_comment
-comment|/**  * EditProxyConnectorAction   *  * @version $Id$  *   * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="editProxyConnectorAction" instantiation-strategy="per-lookup"  */
+comment|/**  * EditProxyConnectorAction   *  * @version $Id$  *   * plexus.component role="com.opensymphony.xwork2.Action" role-hint="editProxyConnectorAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
+annotation|@
+name|Controller
+argument_list|(
+literal|"editProxyConnectorAction"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|EditProxyConnectorAction

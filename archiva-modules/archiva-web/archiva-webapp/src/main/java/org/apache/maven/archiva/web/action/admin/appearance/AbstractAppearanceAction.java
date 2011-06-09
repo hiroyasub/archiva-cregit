@@ -25,6 +25,18 @@ end_comment
 
 begin_import
 import|import
+name|com
+operator|.
+name|opensymphony
+operator|.
+name|xwork2
+operator|.
+name|Preparable
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -73,18 +85,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|opensymphony
-operator|.
-name|xwork2
-operator|.
-name|Preparable
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -97,12 +97,22 @@ name|web
 operator|.
 name|action
 operator|.
-name|PlexusActionSupport
+name|AbstractActionSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
 import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractAppearanceAction   *  * @version $Id$  */
+comment|/**  * AbstractAppearanceAction  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -111,11 +121,13 @@ specifier|abstract
 class|class
 name|AbstractAppearanceAction
 extends|extends
-name|PlexusActionSupport
+name|AbstractActionSupport
 implements|implements
 name|Preparable
 block|{
-comment|/**      * Archiva Application Configuration      * @plexus.requirement      */
+comment|/**      * Archiva Application Configuration      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|protected
 name|ArchivaConfiguration
 name|configuration

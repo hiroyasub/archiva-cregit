@@ -323,6 +323,32 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Controller
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|text
@@ -432,7 +458,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Browse the repository.  *  * TODO change name to ShowVersionedAction to conform to terminology.  *  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="showArtifactAction"  * instantiation-strategy="per-lookup"  */
+comment|/**  * Browse the repository.  *  * TODO change name to ShowVersionedAction to conform to terminology.  *  * plexus.component role="com.opensymphony.xwork2.Action" role-hint="showArtifactAction"  * instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -440,6 +466,16 @@ annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"serial"
+argument_list|)
+annotation|@
+name|Controller
+argument_list|(
+literal|"showArtifactAction"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
 argument_list|)
 specifier|public
 class|class
@@ -450,7 +486,7 @@ implements|implements
 name|Validateable
 block|{
 comment|/* .\ Not Exposed \._____________________________________________ */
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
 specifier|private
 name|RepositoryContentFactory
 name|repositoryFactory

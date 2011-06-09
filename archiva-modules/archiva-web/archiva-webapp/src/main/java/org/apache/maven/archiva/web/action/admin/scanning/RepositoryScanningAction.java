@@ -265,7 +265,7 @@ name|web
 operator|.
 name|action
 operator|.
-name|PlexusActionSupport
+name|AbstractActionSupport
 import|;
 end_import
 
@@ -349,6 +349,42 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Controller
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -388,15 +424,25 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryScanningAction  *  * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="repositoryScanningAction" instantiation-strategy="per-lookup"  */
+comment|/**  * RepositoryScanningAction  *  * @version $Id$  *          plexus.component role="com.opensymphony.xwork2.Action" role-hint="repositoryScanningAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
+annotation|@
+name|Controller
+argument_list|(
+literal|"repositoryScanningAction"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|RepositoryScanningAction
 extends|extends
-name|PlexusActionSupport
+name|AbstractActionSupport
 implements|implements
 name|Preparable
 implements|,
@@ -406,12 +452,16 @@ name|SecureAction
 implements|,
 name|Auditable
 block|{
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|RepositoryContentConsumers
 name|repoconsumerUtil
@@ -491,8 +541,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"[ActionError] "
-operator|+
+literal|"[ActionError] {}"
+argument_list|,
 name|anErrorMessage
 argument_list|)
 expr_stmt|;
@@ -516,8 +566,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"[ActionMessage] "
-operator|+
+literal|"[ActionMessage] {}"
+argument_list|,
 name|aMessage
 argument_list|)
 expr_stmt|;

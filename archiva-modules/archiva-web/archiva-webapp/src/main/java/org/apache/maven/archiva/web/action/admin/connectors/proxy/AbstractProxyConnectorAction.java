@@ -181,7 +181,7 @@ name|web
 operator|.
 name|action
 operator|.
-name|PlexusActionSupport
+name|AbstractActionSupport
 import|;
 end_import
 
@@ -283,6 +283,16 @@ name|SecureActionException
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
 begin_comment
 comment|/**  * AbstractProxyConnectorAction   *  * @version $Id$  */
 end_comment
@@ -293,7 +303,7 @@ specifier|abstract
 class|class
 name|AbstractProxyConnectorAction
 extends|extends
-name|PlexusActionSupport
+name|AbstractActionSupport
 implements|implements
 name|SecureAction
 block|{
@@ -305,7 +315,9 @@ name|DIRECT_CONNECTION
 init|=
 literal|"(direct connection)"
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|protected
 name|ArchivaConfiguration
 name|archivaConfiguration

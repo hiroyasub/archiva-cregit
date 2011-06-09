@@ -147,7 +147,7 @@ name|web
 operator|.
 name|action
 operator|.
-name|PlexusActionSupport
+name|AbstractActionSupport
 import|;
 end_import
 
@@ -231,6 +231,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -260,7 +270,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract AdminRepositories Action base.  *   * Base class for all repository administrative functions.  * This should be neutral to the type of action (add/edit/delete) and type of repo (managed/remote)  *  * @version $Id$  */
+comment|/**  * Abstract AdminRepositories Action base.  *<p/>  * Base class for all repository administrative functions.  * This should be neutral to the type of action (add/edit/delete) and type of repo (managed/remote)  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -269,13 +279,15 @@ specifier|abstract
 class|class
 name|AbstractRepositoriesAdminAction
 extends|extends
-name|PlexusActionSupport
+name|AbstractActionSupport
 implements|implements
 name|SecureAction
 implements|,
 name|Auditable
 block|{
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|protected
 name|ArchivaConfiguration
 name|archivaConfiguration
@@ -342,7 +354,7 @@ operator|=
 name|archivaConfiguration
 expr_stmt|;
 block|}
-comment|/**      * Save the configuration.      *       * @param configuration the configuration to save.      * @return the webwork result code to issue.      * @throws IOException thrown if unable to save file to disk.      * @throws InvalidConfigurationException thrown if configuration is invalid.      * @throws RegistryException thrown if configuration subsystem has a problem saving the configuration to disk.      */
+comment|/**      * Save the configuration.      *      * @param configuration the configuration to save.      * @return the webwork result code to issue.      * @throws IOException                   thrown if unable to save file to disk.      * @throws InvalidConfigurationException thrown if configuration is invalid.      * @throws RegistryException             thrown if configuration subsystem has a problem saving the configuration to disk.      */
 specifier|protected
 name|String
 name|saveConfiguration
@@ -408,7 +420,7 @@ return|return
 name|SUCCESS
 return|;
 block|}
-comment|/**      * Get the list of ProxyConnectors that are present in the configuration.      *       * @return a new list of ProxyConnectors present in the configuration.      */
+comment|/**      * Get the list of ProxyConnectors that are present in the configuration.      *      * @return a new list of ProxyConnectors present in the configuration.      */
 specifier|protected
 name|List
 argument_list|<

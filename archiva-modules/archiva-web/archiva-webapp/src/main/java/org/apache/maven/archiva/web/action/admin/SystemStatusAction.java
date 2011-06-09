@@ -67,7 +67,7 @@ name|web
 operator|.
 name|action
 operator|.
-name|PlexusActionSupport
+name|AbstractActionSupport
 import|;
 end_import
 
@@ -165,6 +165,52 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Controller
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|PostConstruct
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -174,19 +220,29 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Shows system status information for the administrator.  *  * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="systemStatus" instantiation-strategy="per-lookup"  */
+comment|/**  * Shows system status information for the administrator.  *  * @version $Id$  *          plexus.component role="com.opensymphony.xwork2.Action" role-hint="systemStatus" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
+annotation|@
+name|Controller
+argument_list|(
+literal|"systemStatus"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|SystemStatusAction
 extends|extends
-name|PlexusActionSupport
+name|AbstractActionSupport
 implements|implements
 name|SecureAction
 block|{
-comment|/**      * @plexus.requirement role="org.codehaus.plexus.taskqueue.TaskQueue"      */
+comment|/**      * plexus.requirement role="org.codehaus.plexus.taskqueue.TaskQueue"      */
 specifier|private
 name|Map
 argument_list|<
@@ -196,7 +252,7 @@ name|TaskQueue
 argument_list|>
 name|queues
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.codehaus.plexus.cache.Cache"      */
+comment|/**      * plexus.requirement role="org.codehaus.plexus.cache.Cache"      */
 specifier|private
 name|Map
 argument_list|<
@@ -206,7 +262,9 @@ name|Cache
 argument_list|>
 name|caches
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|RepositoryScanner
 name|scanner
@@ -215,6 +273,37 @@ specifier|private
 name|String
 name|memoryStatus
 decl_stmt|;
+annotation|@
+name|PostConstruct
+specifier|public
+name|void
+name|initialize
+parameter_list|()
+block|{
+name|super
+operator|.
+name|initialize
+argument_list|()
+expr_stmt|;
+name|queues
+operator|=
+name|getBeansOfType
+argument_list|(
+name|TaskQueue
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|caches
+operator|=
+name|getBeansOfType
+argument_list|(
+name|Cache
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 specifier|public
 name|SecureActionBundle
 name|getSecureActionBundle

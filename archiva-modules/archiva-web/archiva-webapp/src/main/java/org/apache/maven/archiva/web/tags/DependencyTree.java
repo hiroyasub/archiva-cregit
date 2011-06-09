@@ -21,36 +21,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Stack
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|opensymphony
@@ -247,11 +217,55 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
-comment|/**  * DependencyTree  *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.web.tags.DependencyTree"  */
+comment|/**  * DependencyTree  *  * @version $Id$  *          plexus.component role="org.apache.maven.archiva.web.tags.DependencyTree"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
 specifier|public
 class|class
 name|DependencyTree
@@ -269,12 +283,16 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="maven2"      */
+comment|/**      * plexus.requirement role-hint="maven2"      */
+annotation|@
+name|Inject
 specifier|private
 name|DependencyTreeBuilder
 name|dependencyTreeBuilder
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|UserRepositories
 name|userRepositories

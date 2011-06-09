@@ -23,6 +23,20 @@ begin_import
 import|import
 name|com
 operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Lists
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
 name|opensymphony
 operator|.
 name|xwork2
@@ -527,6 +541,52 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Controller
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|PostConstruct
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -626,15 +686,25 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Delete an artifact. Metadata will be updated if one exists, otherwise it would be created.  *  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteArtifactAction" instantiation-strategy="per-lookup"  */
+comment|/**  * Delete an artifact. Metadata will be updated if one exists, otherwise it would be created.  *<p/>  * plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteArtifactAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
+annotation|@
+name|Controller
+argument_list|(
+literal|"deleteArtifactAction"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|DeleteArtifactAction
 extends|extends
-name|PlexusActionSupport
+name|AbstractActionSupport
 implements|implements
 name|Validateable
 implements|,
@@ -670,22 +740,28 @@ name|String
 argument_list|>
 name|managedRepos
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|UserRepositories
 name|userRepositories
 decl_stmt|;
-comment|/**      * @plexus.requirement role-hint="default"      */
+comment|/**      * plexus.requirement role-hint="default"      */
+annotation|@
+name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|RepositoryContentFactory
 name|repositoryFactory
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.apache.archiva.repository.events.RepositoryListener"      */
+comment|/**      * plexus.requirement role="org.apache.archiva.repository.events.RepositoryListener"      */
 specifier|private
 name|List
 argument_list|<
@@ -711,6 +787,38 @@ operator|.
 name|MD5
 block|}
 decl_stmt|;
+annotation|@
+name|PostConstruct
+specifier|public
+name|void
+name|initialize
+parameter_list|()
+block|{
+name|super
+operator|.
+name|initialize
+argument_list|()
+expr_stmt|;
+name|listeners
+operator|=
+name|Lists
+operator|.
+name|newArrayList
+argument_list|(
+name|applicationContext
+operator|.
+name|getBeansOfType
+argument_list|(
+name|RepositoryListener
+operator|.
+name|class
+argument_list|)
+operator|.
+name|values
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 specifier|public
 name|String
 name|getGroupId

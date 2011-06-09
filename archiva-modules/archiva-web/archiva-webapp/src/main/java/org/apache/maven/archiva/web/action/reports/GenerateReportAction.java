@@ -311,6 +311,42 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Controller
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -440,10 +476,20 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="generateReport" instantiation-strategy="per-lookup"  */
+comment|/**  * plexus.component role="com.opensymphony.xwork2.Action" role-hint="generateReport" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
+annotation|@
+name|Controller
+argument_list|(
+literal|"generateReport"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|GenerateReportAction
@@ -527,12 +573,16 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|RepositoryStatisticsManager
 name|repositoryStatisticsManager
@@ -732,7 +782,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Generate the statistics report.      *      * check whether single repo report or comparison report      * 1. if it is a single repository, get all the statistics for the repository on the specified date      * - if no date is specified, get only the latest      * (total page = 1 --> no pagination since only the most recent stats will be displayed)      * - otherwise, get everything within the date range (total pages = repo stats / rows per page)      * - required params: repository, startDate, endDate      *      * 2. if multiple repositories, get the latest statistics on each repository on the specified date      * - if no date is specified, use the current date endDate      * - required params: repositories, endDate      * - total pages = repositories / rows per page      *      * @return action result      */
+comment|/**      * Generate the statistics report.      *<p/>      * check whether single repo report or comparison report      * 1. if it is a single repository, get all the statistics for the repository on the specified date      * - if no date is specified, get only the latest      * (total page = 1 --> no pagination since only the most recent stats will be displayed)      * - otherwise, get everything within the date range (total pages = repo stats / rows per page)      * - required params: repository, startDate, endDate      *<p/>      * 2. if multiple repositories, get the latest statistics on each repository on the specified date      * - if no date is specified, use the current date endDate      * - required params: repositories, endDate      * - total pages = repositories / rows per page      *      * @return action result      */
 specifier|public
 name|String
 name|generateStatistics

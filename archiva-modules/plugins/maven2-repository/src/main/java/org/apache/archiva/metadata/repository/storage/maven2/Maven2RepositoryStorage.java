@@ -709,6 +709,8 @@ argument_list|(
 name|ModelBuilder
 operator|.
 name|class
+argument_list|,
+literal|"default"
 argument_list|)
 expr_stmt|;
 block|}

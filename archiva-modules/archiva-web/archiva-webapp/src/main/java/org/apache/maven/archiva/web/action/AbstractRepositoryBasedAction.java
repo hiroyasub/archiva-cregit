@@ -103,14 +103,26 @@ name|UserRepositories
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
 begin_class
 specifier|public
 class|class
 name|AbstractRepositoryBasedAction
 extends|extends
-name|PlexusActionSupport
+name|AbstractActionSupport
 block|{
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|UserRepositories
 name|userRepositories
