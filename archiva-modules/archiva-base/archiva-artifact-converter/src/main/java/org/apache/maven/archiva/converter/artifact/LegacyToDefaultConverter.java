@@ -654,12 +654,12 @@ specifier|private
 name|ModelConverter
 name|translator
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
 specifier|private
 name|ArtifactFactory
 name|artifactFactory
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
 specifier|private
 name|ArtifactHandlerManager
 name|artifactHandlerManager
