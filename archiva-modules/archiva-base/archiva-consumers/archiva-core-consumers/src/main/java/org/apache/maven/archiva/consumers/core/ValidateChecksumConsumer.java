@@ -343,8 +343,6 @@ init|=
 literal|"Validate checksums against file."
 decl_stmt|;
 comment|/**      * plexus.requirement      */
-annotation|@
-name|Inject
 specifier|private
 name|ChecksumFile
 name|checksum
@@ -637,6 +635,17 @@ parameter_list|()
 throws|throws
 name|PlexusSisuBridgeException
 block|{
+name|checksum
+operator|=
+name|plexusSisuBridge
+operator|.
+name|lookup
+argument_list|(
+name|ChecksumFile
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|digesterList
 operator|=
 name|plexusSisuBridge

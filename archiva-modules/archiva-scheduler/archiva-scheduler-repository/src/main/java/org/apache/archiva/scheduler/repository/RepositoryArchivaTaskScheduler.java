@@ -484,6 +484,7 @@ name|scheduler
 decl_stmt|;
 annotation|@
 name|Inject
+specifier|private
 name|CronExpressionValidator
 name|cronValidator
 decl_stmt|;
