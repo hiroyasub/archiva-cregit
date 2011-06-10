@@ -69,6 +69,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|text
@@ -162,6 +174,11 @@ comment|/**  * @plexus.component role="org.apache.archiva.audit.AuditManager"  *
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"auditManager#default"
+argument_list|)
 specifier|public
 class|class
 name|DefaultAuditManager

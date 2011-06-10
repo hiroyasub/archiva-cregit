@@ -25,7 +25,6 @@ interface|interface
 name|Auditable
 block|{
 comment|/**      * Add an AuditListener.      *       * @param the listener to add.      */
-specifier|public
 name|void
 name|addAuditListener
 parameter_list|(
@@ -34,7 +33,6 @@ name|auditListener
 parameter_list|)
 function_decl|;
 comment|/**      * Remove an AuditListener.      *       * @param the listener to remove.      */
-specifier|public
 name|void
 name|removeAuditListener
 parameter_list|(
@@ -43,7 +41,6 @@ name|auditListener
 parameter_list|)
 function_decl|;
 comment|/**      * Remove all registered {@link AuditListener} objects.      */
-specifier|public
 name|void
 name|clearAuditListeners
 parameter_list|()

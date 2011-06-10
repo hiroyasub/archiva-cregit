@@ -83,11 +83,38 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
 begin_comment
-comment|/**  * @plexus.component role="org.apache.archiva.audit.AuditListener" role-hint="metadata"  */
+comment|/**  * plexus.component role="org.apache.archiva.audit.AuditListener" role-hint="metadata"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"uuditListener#metadata"
+argument_list|)
 specifier|public
 class|class
 name|MetadataAuditListener
@@ -109,12 +136,16 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * @plexus.requirement      */
+comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|AuditManager
 name|auditManager
 decl_stmt|;
-comment|/**      * FIXME: this could be multiple implementations and needs to be configured. It also starts a separate session to      * the originator of the audit event that we may rather want to pass through.      *      * @plexus.requirement      */
+comment|/**      * FIXME: this could be multiple implementations and needs to be configured. It also starts a separate session to      * the originator of the audit event that we may rather want to pass through.      *      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|RepositorySessionFactory
 name|repositorySessionFactory

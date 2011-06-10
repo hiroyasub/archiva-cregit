@@ -35,11 +35,28 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
 begin_comment
 comment|/**  * AuditLog - Audit Log.  *   * @version $Id$  * @plexus.component role="org.apache.archiva.audit.AuditListener" role-hint="logging"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"auditListener#logging"
+argument_list|)
 specifier|public
 class|class
 name|AuditLog
@@ -84,11 +101,11 @@ name|AuditEvent
 name|event
 parameter_list|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|msg
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|msg

@@ -219,7 +219,7 @@ name|FileRepositorySessionFactory
 implements|implements
 name|RepositorySessionFactory
 block|{
-comment|/**      * @plexus.requirement role="org.apache.archiva.metadata.model.MetadataFacetFactory"      */
+comment|/**      * plexus.requirement role="org.apache.archiva.metadata.model.MetadataFacetFactory"      */
 specifier|private
 name|Map
 argument_list|<

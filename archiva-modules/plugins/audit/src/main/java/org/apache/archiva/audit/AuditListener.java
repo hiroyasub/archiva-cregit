@@ -25,7 +25,6 @@ interface|interface
 name|AuditListener
 block|{
 comment|/**      * Notification that an audit event occured.       *       * @param event the event details.      */
-specifier|public
 name|void
 name|auditEvent
 parameter_list|(
