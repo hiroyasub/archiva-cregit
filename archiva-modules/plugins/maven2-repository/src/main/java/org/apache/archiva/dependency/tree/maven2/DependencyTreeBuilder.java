@@ -21,32 +21,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|factory
-operator|.
-name|DefaultArtifactFactory
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -83,6 +57,16 @@ name|DependencyNodeVisitor
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * Builds a tree of dependencies for a given Maven project. Customized wrapper for maven-dependency-tree to use  * maven-model-builder instead of maven-project.  */
 end_comment
@@ -93,7 +77,6 @@ interface|interface
 name|DependencyTreeBuilder
 block|{
 comment|/**      * Builds a tree of dependencies for the specified Maven project.      *      * @param repositoryIds the list of repositories to search for metadata      * @param groupId       the project groupId to build the tree for      * @param artifactId    the project artifactId to build the tree for      * @param version       the project version to build the tree for      * @param nodeVisitor   visitor to apply to all nodes discovered      * @throws DependencyTreeBuilderException if the dependency tree cannot be resolved      */
-specifier|public
 name|void
 name|buildDependencyTree
 parameter_list|(

@@ -237,7 +237,7 @@ specifier|private
 name|boolean
 name|containerAutoWiring
 init|=
-literal|false
+literal|true
 decl_stmt|;
 specifier|private
 name|String
@@ -245,7 +245,7 @@ name|containerClassPathScanning
 init|=
 name|PlexusConstants
 operator|.
-name|SCANNING_OFF
+name|SCANNING_ON
 decl_stmt|;
 specifier|private
 name|String
@@ -384,13 +384,7 @@ argument_list|(
 name|classRealm
 argument_list|)
 expr_stmt|;
-name|conf
-operator|.
-name|setClassWorld
-argument_list|(
-name|classWorld
-argument_list|)
-expr_stmt|;
+comment|//conf.setClassWorld( classWorld );
 try|try
 block|{
 name|plexusContainer
