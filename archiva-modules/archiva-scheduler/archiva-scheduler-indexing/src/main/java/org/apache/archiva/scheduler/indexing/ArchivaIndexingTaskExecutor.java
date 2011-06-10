@@ -475,6 +475,8 @@ argument_list|(
 name|IndexerEngine
 operator|.
 name|class
+argument_list|,
+literal|"default"
 argument_list|)
 expr_stmt|;
 name|indexPacker
@@ -486,6 +488,8 @@ argument_list|(
 name|IndexPacker
 operator|.
 name|class
+argument_list|,
+literal|"default"
 argument_list|)
 expr_stmt|;
 block|}

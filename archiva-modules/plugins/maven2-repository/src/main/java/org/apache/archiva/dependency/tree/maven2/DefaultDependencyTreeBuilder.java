@@ -1102,8 +1102,32 @@ parameter_list|()
 throws|throws
 name|PlexusSisuBridgeException
 block|{
-comment|//factory = plexusSisuBridge.lookup( ArtifactFactory.class , "default" );
-comment|//collector = plexusSisuBridge.lookup( ArtifactCollector.class , "default" );
+name|factory
+operator|=
+name|plexusSisuBridge
+operator|.
+name|lookup
+argument_list|(
+name|ArtifactFactory
+operator|.
+name|class
+argument_list|,
+literal|"default"
+argument_list|)
+expr_stmt|;
+name|collector
+operator|=
+name|plexusSisuBridge
+operator|.
+name|lookup
+argument_list|(
+name|ArtifactCollector
+operator|.
+name|class
+argument_list|,
+literal|"default"
+argument_list|)
+expr_stmt|;
 name|DefaultModelBuilderFactory
 name|defaultModelBuilderFactory
 init|=
