@@ -202,11 +202,11 @@ name|String
 name|resource
 parameter_list|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|baseUrl
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|baseUrl

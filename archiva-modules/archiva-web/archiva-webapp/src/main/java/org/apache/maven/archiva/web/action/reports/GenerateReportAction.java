@@ -1333,7 +1333,7 @@ name|RepositoryStatistics
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|input
 decl_stmt|;
 name|RepositorySession
@@ -1424,7 +1424,7 @@ block|}
 name|input
 operator|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 literal|"Repository,Total File Count,Total Size,Artifact Count,Group Count,Project Count,Plugins,Archetypes,"
 operator|+
@@ -1821,7 +1821,7 @@ block|}
 name|input
 operator|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 literal|"Date of Scan,Total File Count,Total Size,Artifact Count,Group Count,Project Count,Plugins,"
 operator|+
