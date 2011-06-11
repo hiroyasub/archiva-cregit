@@ -19,6 +19,20 @@ end_comment
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Lists
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -2248,12 +2262,17 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Metadata "
-operator|+
+literal|"Metadata {} not found on remote repository \"{}\"."
+argument_list|,
+name|Lists
+operator|.
+expr|<
+name|Object
+operator|>
+name|newArrayList
+argument_list|(
 name|logicalPath
-operator|+
-literal|" not found on remote repository \""
-operator|+
+argument_list|,
 name|targetRepository
 operator|.
 name|getRepository
@@ -2261,8 +2280,7 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"\"."
+argument_list|)
 argument_list|,
 name|e
 argument_list|)
@@ -2287,12 +2305,17 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Metadata "
-operator|+
+literal|"Metadata {} not updated on remote repository \"{}\"."
+argument_list|,
+name|Lists
+operator|.
+expr|<
+name|Object
+operator|>
+name|newArrayList
+argument_list|(
 name|logicalPath
-operator|+
-literal|" not updated on remote repository \""
-operator|+
+argument_list|,
 name|targetRepository
 operator|.
 name|getRepository
@@ -2300,8 +2323,7 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"\"."
+argument_list|)
 argument_list|,
 name|e
 argument_list|)
@@ -4144,15 +4166,11 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Applying ["
-operator|+
+literal|"Applying [{}] policy with [{}]"
+argument_list|,
 name|key
-operator|+
-literal|"] policy with ["
-operator|+
+argument_list|,
 name|setting
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 try|try

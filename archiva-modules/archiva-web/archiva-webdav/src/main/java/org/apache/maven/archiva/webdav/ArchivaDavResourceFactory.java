@@ -4571,15 +4571,11 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Repository '"
-operator|+
+literal|"Repository '{}' accessed by '{}'"
+argument_list|,
 name|repository
-operator|+
-literal|"' accessed by '"
-operator|+
+argument_list|,
 name|activePrincipal
-operator|+
-literal|"'"
 argument_list|)
 expr_stmt|;
 block|}
@@ -4651,15 +4647,11 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Repository '"
-operator|+
+literal|"Repository '{}' accessed by '{}'"
+argument_list|,
 name|repository
-operator|+
-literal|"' accessed by '"
-operator|+
+argument_list|,
 name|activePrincipal
-operator|+
-literal|"'"
 argument_list|)
 expr_stmt|;
 block|}

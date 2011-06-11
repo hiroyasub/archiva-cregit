@@ -1632,20 +1632,16 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Directory '"
-operator|+
+literal|"Directory '{}' (current user '{}')"
+argument_list|,
 name|resource
 operator|.
 name|getDisplayName
 argument_list|()
-operator|+
-literal|"' (current user '"
-operator|+
+argument_list|,
 name|this
 operator|.
 name|principal
-operator|+
-literal|"')"
 argument_list|)
 expr_stmt|;
 name|triggerAuditEvent
@@ -1809,17 +1805,13 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Resource '"
-operator|+
+literal|"Resource '{}' retrieved by '{}'"
+argument_list|,
 name|item
-operator|+
-literal|"' retrieved by '"
-operator|+
+argument_list|,
 name|this
 operator|.
 name|principal
-operator|+
-literal|"'"
 argument_list|)
 expr_stmt|;
 block|}
