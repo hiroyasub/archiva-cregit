@@ -19,6 +19,48 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|consumers
+operator|.
+name|KnownRepositoryContentConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -37,27 +79,21 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|consumers
-operator|.
-name|KnownRepositoryContentConsumer
-import|;
-end_import
-
 begin_comment
-comment|/**  * ArtifactCountConsumer   *  * @version $Id$  *   * @plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *                   role-hint="count-artifacts"  *                   instantiation-strategy="per-lookup"  */
+comment|/**  * ArtifactCountConsumer  *  * @version $Id$  * plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="count-artifacts"  * instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"knownRepositoryContentConsumer#count-artifacts"
+argument_list|)
+annotation|@
+name|Scope
+argument_list|(
+literal|"prototype"
+argument_list|)
 specifier|public
 class|class
 name|ArtifactCountConsumer
@@ -66,15 +102,19 @@ name|AbstractProgressConsumer
 implements|implements
 name|KnownRepositoryContentConsumer
 block|{
-comment|/**      * @plexus.configuration default-value="count-artifacts"      */
+comment|/**      * plexus.configuration default-value="count-artifacts"      */
 specifier|private
 name|String
 name|id
+init|=
+literal|"count-artifacts"
 decl_stmt|;
-comment|/**      * @plexus.configuration default-value="Count Artifacts"      */
+comment|/**      * plexus.configuration default-value="Count Artifacts"      */
 specifier|private
 name|String
 name|description
+init|=
+literal|"Count Artifacts"
 decl_stmt|;
 specifier|private
 name|List
