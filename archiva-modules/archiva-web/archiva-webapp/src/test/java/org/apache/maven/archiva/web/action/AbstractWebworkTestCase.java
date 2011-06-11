@@ -49,13 +49,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|struts2
 operator|.
-name|spring
-operator|.
-name|PlexusInSpringTestCase
+name|StrutsSpringTestCase
 import|;
 end_import
 
@@ -101,8 +99,27 @@ specifier|abstract
 class|class
 name|AbstractWebworkTestCase
 extends|extends
-name|PlexusInSpringTestCase
+name|StrutsSpringTestCase
 block|{
+annotation|@
+name|Override
+specifier|protected
+name|String
+index|[]
+name|getContextLocations
+parameter_list|()
+block|{
+return|return
+operator|new
+name|String
+index|[]
+block|{
+literal|"classpath*:/META-INF/spring-context.xml"
+block|,
+literal|"classpath*:/spring-context.xml"
+block|}
+return|;
+block|}
 comment|/**      * This is a conveinence method for mimicking how the webwork interceptors      * operate on an action, before the request is processed.      *       * Call this before each major request to the action to be sure you mimic the webwork process correctly.       */
 specifier|protected
 name|void

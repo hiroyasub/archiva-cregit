@@ -93,6 +93,16 @@ end_import
 
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -123,20 +133,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|spring
-operator|.
-name|PlexusInSpringTestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|sun
 operator|.
 name|misc
@@ -157,12 +153,22 @@ name|HttpServletResponse
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
 begin_class
 specifier|public
 class|class
 name|RssFeedServletTest
 extends|extends
-name|PlexusInSpringTestCase
+name|TestCase
 block|{
 specifier|private
 name|ServletRunner
@@ -184,7 +190,8 @@ operator|=
 operator|new
 name|ServletRunner
 argument_list|(
-name|getTestFile
+operator|new
+name|File
 argument_list|(
 literal|"src/test/webapp/WEB-INF/feedServletTest-web.xml"
 argument_list|)
@@ -788,8 +795,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
+comment|//Override
 specifier|protected
 name|String
 name|getPlexusConfigLocation
