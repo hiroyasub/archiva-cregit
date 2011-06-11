@@ -525,26 +525,17 @@ operator|!=
 literal|1
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
+literal|"{} is not collapsible as it has sub-namespaces: {}"
+argument_list|,
 name|n
-operator|+
-literal|" is not collapsible as it has sub-namespaces: "
-operator|+
+argument_list|,
 name|subNamespaces
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|n
 return|;
@@ -589,24 +580,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
+literal|"{} is not collapsible as it has projects"
+argument_list|,
 name|n
-operator|+
-literal|" is not collapsible as it has projects"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|n
 return|;

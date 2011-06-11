@@ -584,8 +584,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"removed user roles associated with repository "
-operator|+
+literal|"removed user roles associated with repository {}"
+argument_list|,
 name|repoId
 argument_list|)
 expr_stmt|;

@@ -1537,8 +1537,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Upload failed: "
-operator|+
+literal|"Upload failed: {}"
+argument_list|,
 name|msg
 argument_list|)
 expr_stmt|;
