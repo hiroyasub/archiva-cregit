@@ -25,11 +25,13 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|util
+name|opensymphony
 operator|.
-name|Collections
+name|xwork2
+operator|.
+name|Action
 import|;
 end_import
 
@@ -105,20 +107,6 @@ name|org
 operator|.
 name|codehaus
 operator|.
-name|plexus
-operator|.
-name|spring
-operator|.
-name|PlexusInSpringTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
 name|redback
 operator|.
 name|integration
@@ -157,18 +145,16 @@ end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|opensymphony
+name|util
 operator|.
-name|xwork2
-operator|.
-name|Action
+name|Collections
 import|;
 end_import
 
 begin_comment
-comment|/**  * DeleteRepositoryGroupActionTest  *   * @version  */
+comment|/**  * DeleteRepositoryGroupActionTest  */
 end_comment
 
 begin_class
@@ -210,22 +196,19 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+comment|//action = (DeleteRepositoryGroupAction) lookup ( Action.class.getName(), "deleteRepositoryGroupAction" );
 name|action
 operator|=
 operator|(
 name|DeleteRepositoryGroupAction
 operator|)
-name|lookup
+name|getActionProxy
 argument_list|(
-name|Action
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-literal|"deleteRepositoryGroupAction"
+literal|"/admin/deleteRepositoryGroup"
 argument_list|)
+operator|.
+name|getAction
+argument_list|()
 expr_stmt|;
 name|archivaConfigurationControl
 operator|=

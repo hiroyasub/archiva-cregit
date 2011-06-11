@@ -442,7 +442,7 @@ specifier|private
 name|RBACManager
 name|rbacManager
 decl_stmt|;
-comment|/**      * @plexus.requirement role="org.codehaus.plexus.redback.system.check.EnvironmentCheck"      */
+comment|/**      * plexus.requirement role="org.codehaus.plexus.redback.system.check.EnvironmentCheck"      */
 specifier|private
 name|Map
 argument_list|<

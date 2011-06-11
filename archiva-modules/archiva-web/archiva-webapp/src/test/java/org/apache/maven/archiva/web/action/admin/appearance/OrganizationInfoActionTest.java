@@ -39,18 +39,6 @@ name|OrganisationInformation
 import|;
 end_import
 
-begin_import
-import|import
-name|com
-operator|.
-name|opensymphony
-operator|.
-name|xwork2
-operator|.
-name|Action
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
@@ -160,21 +148,18 @@ name|AbstractAppearanceAction
 name|getAction
 parameter_list|()
 block|{
+comment|//return (OrganisationInfoAction) lookup( Action.class.getName(), "organisationInfo" );
 return|return
 operator|(
 name|OrganisationInfoAction
 operator|)
-name|lookup
+name|getActionProxy
 argument_list|(
-name|Action
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-literal|"organisationInfo"
+literal|"/admin/organisationInfo"
 argument_list|)
+operator|.
+name|getAction
+argument_list|()
 return|;
 block|}
 block|}

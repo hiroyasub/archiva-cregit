@@ -157,13 +157,11 @@ name|org
 operator|.
 name|codehaus
 operator|.
-name|redback
+name|plexus
 operator|.
-name|integration
+name|registry
 operator|.
-name|interceptor
-operator|.
-name|SecureActionBundle
+name|RegistryException
 import|;
 end_import
 
@@ -173,11 +171,13 @@ name|org
 operator|.
 name|codehaus
 operator|.
-name|plexus
+name|redback
 operator|.
-name|registry
+name|integration
 operator|.
-name|RegistryException
+name|interceptor
+operator|.
+name|SecureActionBundle
 import|;
 end_import
 
@@ -947,22 +947,19 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+comment|//action = (DisableProxyConnectorAction) lookup( Action.class.getName(), "disableProxyConnectorAction" );
 name|action
 operator|=
 operator|(
 name|DisableProxyConnectorAction
 operator|)
-name|lookup
+name|getActionProxy
 argument_list|(
-name|Action
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-literal|"disableProxyConnectorAction"
+literal|"/admin/disableProxyConnector"
 argument_list|)
+operator|.
+name|getAction
+argument_list|()
 expr_stmt|;
 name|archivaConfigurationControl
 operator|=

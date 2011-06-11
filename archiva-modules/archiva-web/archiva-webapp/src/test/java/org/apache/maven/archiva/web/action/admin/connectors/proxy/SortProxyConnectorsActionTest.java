@@ -189,13 +189,11 @@ name|org
 operator|.
 name|codehaus
 operator|.
-name|redback
+name|plexus
 operator|.
-name|integration
+name|registry
 operator|.
-name|interceptor
-operator|.
-name|SecureActionBundle
+name|RegistryException
 import|;
 end_import
 
@@ -205,11 +203,13 @@ name|org
 operator|.
 name|codehaus
 operator|.
-name|plexus
+name|redback
 operator|.
-name|registry
+name|integration
 operator|.
-name|RegistryException
+name|interceptor
+operator|.
+name|SecureActionBundle
 import|;
 end_import
 
@@ -244,7 +244,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SortProxyConnectorsActionTest   *  * @version $Id$  */
+comment|/**  * SortProxyConnectorsActionTest  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -1139,22 +1139,19 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+comment|//action = (SortProxyConnectorsAction) lookup( Action.class.getName(), "sortProxyConnectorsAction" );
 name|action
 operator|=
 operator|(
 name|SortProxyConnectorsAction
 operator|)
-name|lookup
+name|getActionProxy
 argument_list|(
-name|Action
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-literal|"sortProxyConnectorsAction"
+literal|"/admin/sortProxyConnectors"
 argument_list|)
+operator|.
+name|getAction
+argument_list|()
 expr_stmt|;
 name|archivaConfigurationControl
 operator|=

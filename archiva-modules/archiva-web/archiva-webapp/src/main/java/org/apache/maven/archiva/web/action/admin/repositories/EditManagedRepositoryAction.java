@@ -246,7 +246,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AddManagedRepositoryAction  *  * @version $Id$  * @plexus.component role="com.opensymphony.xwork2.Action" role-hint="editManagedRepositoryAction" instantiation-strategy="per-lookup"  */
+comment|/**  * AddManagedRepositoryAction  *  * @version $Id$  * plexus.component role="com.opensymphony.xwork2.Action" role-hint="editManagedRepositoryAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class

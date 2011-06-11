@@ -120,7 +120,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interceptor that makes the configuration bits available, both to the application and the webapp  *  * @plexus.component role="com.opensymphony.xwork2.interceptor.Interceptor"  * role-hint="configurationInterceptor"  */
+comment|/**  * An interceptor that makes the configuration bits available, both to the application and the webapp  *  * plexus.component role="com.opensymphony.xwork2.interceptor.Interceptor"  * role-hint="configurationInterceptor"  */
 end_comment
 
 begin_class

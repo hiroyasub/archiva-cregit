@@ -167,20 +167,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|spring
-operator|.
-name|PlexusInSpringTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|easymock
 operator|.
 name|MockControl
@@ -198,7 +184,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DeleteRemoteRepositoryActionTest   *  * @version $Id$  */
+comment|/**  * DeleteRemoteRepositoryActionTest  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -240,22 +226,19 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+comment|//action = (DeleteRemoteRepositoryAction) lookup( Action.class.getName(), "deleteRemoteRepositoryAction" );
 name|action
 operator|=
 operator|(
 name|DeleteRemoteRepositoryAction
 operator|)
-name|lookup
+name|getActionProxy
 argument_list|(
-name|Action
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-literal|"deleteRemoteRepositoryAction"
+literal|"/admin/deleteRemoteRepository"
 argument_list|)
+operator|.
+name|getAction
+argument_list|()
 expr_stmt|;
 name|archivaConfigurationControl
 operator|=
@@ -441,10 +424,7 @@ name|createManagedRepository
 argument_list|(
 literal|"internal"
 argument_list|,
-name|getTestPath
-argument_list|(
 literal|"target/repo/internal"
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -456,10 +436,7 @@ name|createManagedRepository
 argument_list|(
 literal|"snapshots"
 argument_list|,
-name|getTestPath
-argument_list|(
 literal|"target/repo/snapshots"
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
