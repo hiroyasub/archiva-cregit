@@ -227,6 +227,16 @@ begin_import
 import|import
 name|javax
 operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
 name|servlet
 operator|.
 name|http
@@ -330,6 +340,13 @@ decl_stmt|;
 comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"repositorySessionFactory"
+argument_list|)
 specifier|protected
 name|RepositorySessionFactory
 name|repositorySessionFactory

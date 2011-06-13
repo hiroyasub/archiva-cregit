@@ -298,6 +298,25 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|StringUtils
+operator|.
+name|isEmpty
+argument_list|(
+name|path
+argument_list|)
+condition|)
+block|{
+comment|// try RequestURI in last at least for StrutsTestCase
+name|path
+operator|=
+name|httpServletRequest
+operator|.
+name|getRequestURI
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|path
 operator|.
 name|startsWith

@@ -260,7 +260,7 @@ name|ProxyConnectorsAction
 operator|)
 name|getActionProxy
 argument_list|(
-literal|"/admin/proxyConnectors"
+literal|"/admin/proxyConnectors.action"
 argument_list|)
 operator|.
 name|getAction
