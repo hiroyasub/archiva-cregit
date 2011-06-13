@@ -422,7 +422,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryServlet  *   */
+comment|/**  * RepositoryServlet  */
 end_comment
 
 begin_class
@@ -508,7 +508,7 @@ name|servletConfig
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Service the given request. This method has been overridden and copy/pasted to allow better exception handling and      * to support different realms      *       * @param request      * @param response      * @throws ServletException      * @throws java.io.IOException      */
+comment|/**      * Service the given request. This method has been overridden and copy/pasted to allow better exception handling and      * to support different realms      *      * @param request      * @param response      * @throws ServletException      * @throws java.io.IOException      */
 annotation|@
 name|Override
 specifier|protected
@@ -955,6 +955,8 @@ name|wac
 operator|.
 name|getBean
 argument_list|(
+literal|"davResourceFactory#archiva"
+argument_list|,
 name|DavResourceFactory
 operator|.
 name|class
