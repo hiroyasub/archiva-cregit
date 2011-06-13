@@ -250,7 +250,7 @@ name|RepositoriesAction
 operator|)
 name|getActionProxy
 argument_list|(
-literal|"/admin/index"
+literal|"/admin/index.action"
 argument_list|)
 operator|.
 name|getAction

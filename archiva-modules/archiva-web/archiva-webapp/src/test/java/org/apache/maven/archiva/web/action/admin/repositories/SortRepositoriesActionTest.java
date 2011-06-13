@@ -231,7 +231,7 @@ name|SortRepositoriesAction
 operator|)
 name|getActionProxy
 argument_list|(
-literal|"sortDownRepositoryFromGroup"
+literal|"sortDownRepositoryFromGroup.action"
 argument_list|)
 operator|.
 name|getAction

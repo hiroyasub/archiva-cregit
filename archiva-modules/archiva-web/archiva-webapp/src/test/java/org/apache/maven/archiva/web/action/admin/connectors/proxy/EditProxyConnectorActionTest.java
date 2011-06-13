@@ -2081,7 +2081,7 @@ name|EditProxyConnectorAction
 operator|)
 name|getActionProxy
 argument_list|(
-literal|"/admin/editProxyConnector"
+literal|"/admin/editProxyConnector.action"
 argument_list|)
 operator|.
 name|getAction

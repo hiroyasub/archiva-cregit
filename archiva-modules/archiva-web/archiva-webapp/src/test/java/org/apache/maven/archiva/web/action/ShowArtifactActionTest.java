@@ -520,7 +520,7 @@ name|action
 operator|==
 name|getActionProxy
 argument_list|(
-literal|"/showArtifact"
+literal|"/showArtifact.action"
 argument_list|)
 operator|.
 name|getAction
@@ -3576,7 +3576,7 @@ name|ShowArtifactAction
 operator|)
 name|getActionProxy
 argument_list|(
-literal|"/showArtifact"
+literal|"/showArtifact.action"
 argument_list|)
 operator|.
 name|getAction

@@ -351,7 +351,7 @@ name|AddProxyConnectorAction
 operator|)
 name|getActionProxy
 argument_list|(
-literal|"addProxyConnector"
+literal|"/admin/addProxyConnector.action"
 argument_list|)
 operator|.
 name|getAction

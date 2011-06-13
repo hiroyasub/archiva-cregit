@@ -204,7 +204,7 @@ name|DeleteRepositoryGroupAction
 operator|)
 name|getActionProxy
 argument_list|(
-literal|"/admin/deleteRepositoryGroup"
+literal|"/admin/deleteRepositoryGroup.action"
 argument_list|)
 operator|.
 name|getAction

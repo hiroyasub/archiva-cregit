@@ -925,7 +925,7 @@ name|DeleteProxyConnectorAction
 operator|)
 name|getActionProxy
 argument_list|(
-literal|"/admin/deleteProxyConnector"
+literal|"/admin/deleteProxyConnector.action"
 argument_list|)
 operator|.
 name|getAction

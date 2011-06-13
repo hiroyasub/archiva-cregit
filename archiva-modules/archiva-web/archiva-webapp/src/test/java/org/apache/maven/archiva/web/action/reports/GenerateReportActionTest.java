@@ -360,7 +360,7 @@ name|GenerateReportAction
 operator|)
 name|getActionProxy
 argument_list|(
-literal|"/admin/generateReport"
+literal|"/admin/generateReport.action"
 argument_list|)
 operator|.
 name|getAction

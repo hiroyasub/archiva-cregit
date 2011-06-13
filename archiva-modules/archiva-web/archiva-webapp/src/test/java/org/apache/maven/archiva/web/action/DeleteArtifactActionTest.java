@@ -419,7 +419,7 @@ name|DeleteArtifactAction
 operator|)
 name|getActionProxy
 argument_list|(
-literal|"/deleteArtifact"
+literal|"/deleteArtifact.action"
 argument_list|)
 operator|.
 name|getAction

@@ -204,7 +204,7 @@ name|AddRemoteRepositoryAction
 operator|)
 name|getActionProxy
 argument_list|(
-literal|"/admin/addRemoteRepository"
+literal|"/admin/addRemoteRepository.action"
 argument_list|)
 operator|.
 name|getAction

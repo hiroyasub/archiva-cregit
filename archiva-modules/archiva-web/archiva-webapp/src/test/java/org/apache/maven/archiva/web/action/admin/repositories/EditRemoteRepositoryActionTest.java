@@ -689,7 +689,7 @@ name|EditRemoteRepositoryAction
 operator|)
 name|getActionProxy
 argument_list|(
-literal|"editRemoteRepository"
+literal|"editRemoteRepository.action"
 argument_list|)
 operator|.
 name|getAction

@@ -955,7 +955,7 @@ name|EnableProxyConnectorAction
 operator|)
 name|getActionProxy
 argument_list|(
-literal|"/admin/enableProxyConnector"
+literal|"/admin/enableProxyConnector.action"
 argument_list|)
 operator|.
 name|getAction

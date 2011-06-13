@@ -270,7 +270,7 @@ name|RepositoryGroupsAction
 operator|)
 name|getActionProxy
 argument_list|(
-literal|"/admin/repositoryGroups"
+literal|"/admin/repositoryGroups.action"
 argument_list|)
 expr_stmt|;
 name|archivaConfigurationControl

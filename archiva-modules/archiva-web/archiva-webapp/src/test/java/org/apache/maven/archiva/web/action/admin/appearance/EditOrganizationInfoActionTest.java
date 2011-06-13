@@ -901,7 +901,7 @@ name|EditOrganisationInfoAction
 operator|)
 name|getActionProxy
 argument_list|(
-literal|"/admin/editOrganisationInfo"
+literal|"/admin/editOrganisationInfo.action"
 argument_list|)
 operator|.
 name|getAction
