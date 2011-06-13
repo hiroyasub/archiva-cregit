@@ -323,15 +323,14 @@ name|SpringJUnit4ClassRunner
 operator|.
 name|class
 argument_list|)
+comment|//ContextConfiguration( locations = { "classpath*:/META-INF/spring-context.xml", "classpath*:/spring-context.xml" } )
 annotation|@
 name|ContextConfiguration
 argument_list|(
 name|locations
 operator|=
 block|{
-literal|"classpath*:/META-INF/spring-context.xml"
-block|,
-literal|"classpath*:/spring-context.xml"
+literal|"classpath*:/repository-servlet-simple.xml"
 block|}
 argument_list|)
 specifier|public
