@@ -2189,7 +2189,7 @@ name|BrowseAction
 operator|)
 name|getActionProxy
 argument_list|(
-literal|"browse.action"
+literal|"/browse.action"
 argument_list|)
 operator|.
 name|getAction
