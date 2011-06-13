@@ -738,6 +738,8 @@ name|wac
 operator|.
 name|getBean
 argument_list|(
+literal|"repositorySessionFactory"
+argument_list|,
 name|RepositorySessionFactory
 operator|.
 name|class
