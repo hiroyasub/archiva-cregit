@@ -105,17 +105,46 @@ name|ApplicationContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
 begin_comment
 comment|/**  * UnauthenticatedDavResourceFactory  *  * @version $Id:  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"archivaDavResourceFactory#unauthenticated"
+argument_list|)
 specifier|public
 class|class
 name|UnauthenticatedDavResourceFactory
 extends|extends
 name|ArchivaDavResourceFactory
 block|{
+annotation|@
+name|Inject
 specifier|public
 name|UnauthenticatedDavResourceFactory
 parameter_list|(
