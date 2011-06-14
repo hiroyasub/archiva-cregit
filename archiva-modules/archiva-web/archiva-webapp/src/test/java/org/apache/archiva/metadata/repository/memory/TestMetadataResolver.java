@@ -375,7 +375,12 @@ name|String
 name|projectVersion
 parameter_list|)
 block|{
-return|return
+name|Collection
+argument_list|<
+name|ProjectVersionReference
+argument_list|>
+name|projectVersionReferences
+init|=
 name|references
 operator|.
 name|get
@@ -391,6 +396,9 @@ argument_list|,
 name|projectVersion
 argument_list|)
 argument_list|)
+decl_stmt|;
+return|return
+name|projectVersionReferences
 return|;
 block|}
 specifier|public
