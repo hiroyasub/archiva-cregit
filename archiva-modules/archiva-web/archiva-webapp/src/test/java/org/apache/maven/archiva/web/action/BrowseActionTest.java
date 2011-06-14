@@ -75,22 +75,6 @@ name|metadata
 operator|.
 name|repository
 operator|.
-name|RepositorySessionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
 name|memory
 operator|.
 name|TestMetadataResolver
@@ -236,7 +220,7 @@ name|BrowseAction
 operator|)
 name|getActionProxy
 argument_list|(
-literal|"browse.action"
+literal|"/browse.action"
 argument_list|)
 operator|.
 name|getAction
@@ -2231,12 +2215,13 @@ name|applicationContext
 operator|.
 name|getBean
 argument_list|(
+literal|"repositorySessionFactory#test"
+argument_list|,
 name|TestRepositorySessionFactory
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|//TestRepositorySessionFactory factory = (TestRepositorySessionFactory) lookup( RepositorySessionFactory.class );
 name|factory
 operator|.
 name|setRepositorySession
