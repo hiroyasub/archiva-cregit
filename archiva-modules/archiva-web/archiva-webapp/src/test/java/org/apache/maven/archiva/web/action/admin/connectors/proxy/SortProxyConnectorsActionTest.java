@@ -1147,7 +1147,7 @@ name|SortProxyConnectorsAction
 operator|)
 name|getActionProxy
 argument_list|(
-literal|"/admin/sortProxyConnectors.action"
+literal|"/admin/sortUpProxyConnector.action"
 argument_list|)
 operator|.
 name|getAction
