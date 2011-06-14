@@ -272,6 +272,9 @@ name|getActionProxy
 argument_list|(
 literal|"/admin/repositoryGroups.action"
 argument_list|)
+operator|.
+name|getAction
+argument_list|()
 expr_stmt|;
 name|archivaConfigurationControl
 operator|=
