@@ -155,7 +155,7 @@ name|OrganisationInfoAction
 operator|)
 name|getActionProxy
 argument_list|(
-literal|"/admin/organisationInfo.action"
+literal|"/components/companyInfo.action"
 argument_list|)
 operator|.
 name|getAction
