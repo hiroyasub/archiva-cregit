@@ -21,18 +21,6 @@ end_comment
 
 begin_import
 import|import
-name|com
-operator|.
-name|opensymphony
-operator|.
-name|xwork2
-operator|.
-name|Action
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -76,22 +64,6 @@ operator|.
 name|repository
 operator|.
 name|RepositorySession
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
-name|RepositorySessionFactory
 import|;
 end_import
 
@@ -516,14 +488,19 @@ argument_list|(
 name|metadataRepository
 argument_list|)
 expr_stmt|;
-comment|//TestRepositorySessionFactory repositorySessionFactory = (TestRepositorySessionFactory) lookup(
-comment|//    RepositorySessionFactory.class );
 name|TestRepositorySessionFactory
 name|repositorySessionFactory
 init|=
-operator|new
+name|applicationContext
+operator|.
+name|getBean
+argument_list|(
+literal|"repositorySessionFactory#test"
+argument_list|,
 name|TestRepositorySessionFactory
-argument_list|()
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 name|repositorySessionFactory
 operator|.
