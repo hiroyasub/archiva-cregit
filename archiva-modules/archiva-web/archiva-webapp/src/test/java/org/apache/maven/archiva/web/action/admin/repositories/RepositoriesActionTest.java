@@ -424,13 +424,19 @@ argument_list|(
 name|metadataRepository
 argument_list|)
 expr_stmt|;
-comment|//TestRepositorySessionFactory factory = (TestRepositorySessionFactory) lookup( RepositorySessionFactory.class );
 name|TestRepositorySessionFactory
 name|factory
 init|=
-operator|new
+name|applicationContext
+operator|.
+name|getBean
+argument_list|(
+literal|"repositorySessionFactory#test"
+argument_list|,
 name|TestRepositorySessionFactory
-argument_list|()
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 name|factory
 operator|.

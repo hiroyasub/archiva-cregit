@@ -597,7 +597,6 @@ argument_list|>
 name|repoIds
 parameter_list|)
 block|{
-comment|//(UserRepositoriesStub) lookup( UserRepositories.class );
 name|UserRepositoriesStub
 name|repos
 init|=
@@ -605,7 +604,7 @@ name|applicationContext
 operator|.
 name|getBean
 argument_list|(
-literal|"userRepositories#test"
+literal|"userRepositories"
 argument_list|,
 name|UserRepositoriesStub
 operator|.
