@@ -1578,8 +1578,6 @@ argument_list|)
 decl_stmt|;
 comment|// Note that we don't permit going to external repositories. We don't need to pass in a local and remote
 comment|// since our metadata source has control over them
-comment|//collector.collect( dependencyArtifacts, projectArtifact, managedVersions, null, null, metadataSource,
-comment|//                   null, Collections.singletonList( listener ) );
 name|collector
 operator|.
 name|collect
@@ -1588,15 +1586,11 @@ name|dependencyArtifacts
 argument_list|,
 name|projectArtifact
 argument_list|,
+name|managedVersions
+argument_list|,
 literal|null
 argument_list|,
-name|Collections
-operator|.
-expr|<
-name|ArtifactRepository
-operator|>
-name|emptyList
-argument_list|()
+literal|null
 argument_list|,
 name|metadataSource
 argument_list|,
@@ -1606,13 +1600,12 @@ name|Collections
 operator|.
 name|singletonList
 argument_list|(
-operator|(
-name|ResolutionListener
-operator|)
 name|listener
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//collector.collect( dependencyArtifacts, projectArtifact, null, Collections.<ArtifactRepository>emptyList(),
+comment|//                   metadataSource, null,  Collections.singletonList( (ResolutionListener) listener ) );
 comment|/*                 Set<Artifact> artifacts, Artifact originatingArtifact,                                       ArtifactRepository localRepository, List<ArtifactRepository> remoteRepositories,                                       ArtifactMetadataSource source, ArtifactFilter filter,                                       List< ResolutionListener> listeners                 */
 block|}
 finally|finally
