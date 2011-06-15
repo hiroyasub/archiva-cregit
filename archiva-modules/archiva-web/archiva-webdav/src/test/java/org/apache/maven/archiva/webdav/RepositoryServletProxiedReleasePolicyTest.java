@@ -75,6 +75,22 @@ name|maven
 operator|.
 name|archiva
 operator|.
+name|configuration
+operator|.
+name|ProxyConnectorConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
 name|policies
 operator|.
 name|ReleasesPolicy
@@ -101,8 +117,18 @@ name|File
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
 begin_comment
-comment|/**  * RepositoryServlet Tests, Proxied, Get of Release Artifacts, with varying policy settings.   *  * @version $Id$  */
+comment|/**  * RepositoryServlet Tests, Proxied, Get of Release Artifacts, with varying policy settings.  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -578,6 +604,21 @@ name|deltaManagedToRemoteTimestamp
 argument_list|)
 expr_stmt|;
 block|}
+name|archivaConfiguration
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|setProxyConnectors
+argument_list|(
+operator|new
+name|ArrayList
+argument_list|<
+name|ProxyConnectorConfiguration
+argument_list|>
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|setupReleaseConnector
 argument_list|(
 name|REPOID_INTERNAL
