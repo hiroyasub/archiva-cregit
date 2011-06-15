@@ -41,6 +41,24 @@ name|FileUtils
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|common
+operator|.
+name|utils
+operator|.
+name|FileUtil
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -59,6 +77,8 @@ init|=
 operator|new
 name|File
 argument_list|(
+name|FileUtil
+operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
@@ -163,6 +183,8 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
+name|FileUtil
+operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
@@ -391,6 +413,8 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
+name|FileUtil
+operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
