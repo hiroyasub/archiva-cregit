@@ -349,6 +349,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|text
@@ -487,6 +497,8 @@ name|Validateable
 block|{
 comment|/* .\ Not Exposed \._____________________________________________ */
 comment|/**      * plexus.requirement      */
+annotation|@
+name|Inject
 specifier|private
 name|RepositoryContentFactory
 name|repositoryFactory
