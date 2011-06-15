@@ -5,11 +5,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|proxy
+operator|.
+name|common
 package|;
 end_package
 
@@ -24,22 +24,6 @@ operator|.
 name|framework
 operator|.
 name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|common
-operator|.
-name|plexusbridge
-operator|.
-name|PlexusSisuBridge
 import|;
 end_import
 
@@ -138,8 +122,6 @@ name|locations
 operator|=
 block|{
 literal|"classpath*:/META-INF/spring-context.xml"
-block|,
-literal|"classpath:/spring-context.xml"
 block|}
 argument_list|)
 specifier|public

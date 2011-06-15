@@ -5,11 +5,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|proxy
+operator|.
+name|common
 package|;
 end_package
 
@@ -17,41 +17,37 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *  http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|wagon
-operator|.
-name|Wagon
-import|;
-end_import
-
 begin_comment
-comment|/**  * Create a Wagon instance for the given protocol.  */
+comment|/**  * @author Olivier Lamy  * @since 1.4  */
 end_comment
 
-begin_interface
+begin_class
 specifier|public
-interface|interface
-name|WagonFactory
+class|class
+name|WagonFactoryException
+extends|extends
+name|Exception
 block|{
-comment|/**      * Create a new Wagon instance for the given protocol.      *      * @param protocol the protocol to find the Wagon for, which must be prefixed with<code>wagon#</code>, for example      *<code>wagon#http</code>.      * @return the Wagon instance      */
-name|Wagon
-name|getWagon
+specifier|public
+name|WagonFactoryException
 parameter_list|(
 name|String
-name|protocol
+name|message
+parameter_list|,
+name|Throwable
+name|e
 parameter_list|)
-throws|throws
-name|WagonFactoryException
-function_decl|;
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 
