@@ -29,18 +29,6 @@ end_import
 
 begin_import
 import|import
-name|net
-operator|.
-name|sf
-operator|.
-name|ehcache
-operator|.
-name|CacheManager
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -397,6 +385,26 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|inject
@@ -436,26 +444,6 @@ operator|.
 name|http
 operator|.
 name|HttpServletResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -571,9 +559,6 @@ argument_list|)
 expr_stmt|;
 name|config
 operator|=
-operator|(
-name|MockConfiguration
-operator|)
 name|applicationContext
 operator|.
 name|getBean
@@ -584,6 +569,19 @@ name|ArchivaConfiguration
 operator|.
 name|class
 argument_list|)
+expr_stmt|;
+comment|// clear from previous tests - TODO the spring context should be initialised per test instead, or the config
+comment|// made a complete mock
+name|config
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getProxyConnectors
+argument_list|()
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 comment|// Setup source repository (using default layout)
 name|String
