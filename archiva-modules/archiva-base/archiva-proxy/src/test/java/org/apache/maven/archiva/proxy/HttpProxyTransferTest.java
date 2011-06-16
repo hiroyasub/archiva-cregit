@@ -19,16 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -447,6 +437,18 @@ name|HttpServletResponse
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/**  * Integration test for connecting over a HTTP proxy.  *  * @version $Id: ManagedDefaultTransferTest.java 677852 2008-07-18 08:16:24Z brett $  */
 end_comment
@@ -473,8 +475,6 @@ argument_list|)
 specifier|public
 class|class
 name|HttpProxyTransferTest
-extends|extends
-name|TestCase
 block|{
 specifier|private
 specifier|static
@@ -539,11 +539,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 name|proxyHandler
 operator|=
 name|applicationContext
@@ -589,7 +584,10 @@ name|repoPath
 init|=
 literal|"target/test-repository/managed/"
 operator|+
-name|getName
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
 argument_list|()
 decl_stmt|;
 name|File
@@ -908,11 +906,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
 name|server
 operator|.
 name|stop

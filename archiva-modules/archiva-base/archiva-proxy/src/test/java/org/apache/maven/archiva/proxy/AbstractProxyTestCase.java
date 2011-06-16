@@ -19,16 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|net
 operator|.
 name|sf
@@ -66,20 +56,6 @@ operator|.
 name|lang
 operator|.
 name|ArrayUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|StringUtils
 import|;
 end_import
 
@@ -393,16 +369,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -511,6 +477,28 @@ name|Locale
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/**  * AbstractProxyTestCase  *  * @version $Id$  */
 end_comment
@@ -538,8 +526,6 @@ specifier|public
 specifier|abstract
 class|class
 name|AbstractProxyTestCase
-extends|extends
-name|TestCase
 block|{
 annotation|@
 name|Inject
@@ -729,11 +715,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 name|config
 operator|=
 operator|(
@@ -797,12 +778,20 @@ argument_list|)
 expr_stmt|;
 comment|// Setup source repository (using default layout)
 name|String
+name|name
+init|=
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+decl_stmt|;
+name|String
 name|repoPath
 init|=
 literal|"target/test-repository/managed/"
 operator|+
-name|getName
-argument_list|()
+name|name
 decl_stmt|;
 name|File
 name|repoLocation
@@ -1072,34 +1061,11 @@ name|info
 argument_list|(
 literal|"\n.\\ "
 operator|+
-name|getName
-argument_list|()
+name|name
 operator|+
 literal|"() \\._________________________________________\n"
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|String
-name|getName
-parameter_list|()
-block|{
-return|return
-name|StringUtils
-operator|.
-name|substringAfterLast
-argument_list|(
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-literal|"."
-argument_list|)
-return|;
 block|}
 specifier|protected
 specifier|static
