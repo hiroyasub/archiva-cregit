@@ -141,6 +141,18 @@ name|Named
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/**  * LegacyPathParserTest  *  * @version $Id$  */
 end_comment
@@ -178,11 +190,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 name|parser
 operator|=
 operator|new
