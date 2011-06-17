@@ -510,6 +510,10 @@ literal|"/"
 operator|+
 name|getVersion
 argument_list|()
+operator|+
+literal|"?"
+operator|+
+name|forceLocaleParam
 argument_list|)
 expr_stmt|;
 name|waitPage

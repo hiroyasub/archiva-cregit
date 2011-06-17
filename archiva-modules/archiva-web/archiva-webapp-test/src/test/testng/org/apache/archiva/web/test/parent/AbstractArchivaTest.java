@@ -320,6 +320,10 @@ operator|.
 name|open
 argument_list|(
 name|baseUrl
+operator|+
+literal|"?"
+operator|+
+name|forceLocaleParam
 argument_list|)
 expr_stmt|;
 name|clickLinkWithText

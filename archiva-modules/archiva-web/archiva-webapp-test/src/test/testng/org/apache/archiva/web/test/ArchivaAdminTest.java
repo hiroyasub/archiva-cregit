@@ -215,6 +215,10 @@ operator|.
 name|open
 argument_list|(
 name|baseUrl
+operator|+
+literal|"/index.action?"
+operator|+
+name|forceLocaleParam
 argument_list|,
 name|browser
 argument_list|,
@@ -236,6 +240,10 @@ operator|.
 name|open
 argument_list|(
 name|baseUrl
+operator|+
+literal|"?"
+operator|+
+name|forceLocaleParam
 argument_list|)
 expr_stmt|;
 name|String

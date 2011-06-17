@@ -79,7 +79,9 @@ argument_list|()
 operator|.
 name|open
 argument_list|(
-literal|"/archiva/report/queryAuditLogReport.action"
+literal|"/archiva/report/queryAuditLogReport.action?"
+operator|+
+name|forceLocaleParam
 argument_list|)
 expr_stmt|;
 block|}
