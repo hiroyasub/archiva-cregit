@@ -369,7 +369,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Response"
+literal|"1st Response"
 argument_list|,
 name|HttpServletResponse
 operator|.
@@ -400,7 +400,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Response"
+literal|"2nd Response"
 argument_list|,
 name|HttpServletResponse
 operator|.
@@ -431,7 +431,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Response"
+literal|"3rd Response"
 argument_list|,
 name|HttpServletResponse
 operator|.
@@ -462,7 +462,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Response"
+literal|"4th Response"
 argument_list|,
 name|HttpServletResponse
 operator|.
