@@ -2068,6 +2068,13 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"repository.getRepositories() -> "
+operator|+
+name|repository
+operator|.
+name|getRepositories
+argument_list|()
+argument_list|,
 name|Arrays
 operator|.
 name|asList
