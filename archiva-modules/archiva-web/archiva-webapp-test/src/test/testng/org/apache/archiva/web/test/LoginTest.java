@@ -101,6 +101,8 @@ name|LoginTest
 extends|extends
 name|AbstractArchivaTest
 block|{
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testWithBadUsername
@@ -178,7 +180,7 @@ argument_list|()
 operator|.
 name|click
 argument_list|(
-literal|"loginForm__login"
+literal|"loginSubmit"
 argument_list|)
 expr_stmt|;
 name|getSelenium
@@ -189,9 +191,11 @@ argument_list|(
 name|maxWaitTimeInMs
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
+comment|//assertTextPresent( "You have entered an incorrect username and/or password" );
+comment|//<ul class="errorMessage">
+name|assertElementPresent
 argument_list|(
-literal|"You have entered an incorrect username and/or password"
+literal|"//ul[@class=\'errorMessage\']"
 argument_list|)
 expr_stmt|;
 block|}

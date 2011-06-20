@@ -377,69 +377,59 @@ name|void
 name|assertLoginPage
 parameter_list|()
 block|{
-name|assertPage
+comment|//assertPage( "Apache Archiva \\ Login Page" );
+comment|//assertTextPresent( "Login" );
+name|assertElementPresent
 argument_list|(
-literal|"Apache Archiva \\ Login Page"
+literal|"loginForm"
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
+comment|//assertTextPresent( "Register" );
+name|assertElementPresent
 argument_list|(
-literal|"Login"
+literal|"registerLink"
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"Register"
-argument_list|)
-expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"Username"
-argument_list|)
-expr_stmt|;
+comment|//assertTextPresent( "Username" );
 name|assertElementPresent
 argument_list|(
 literal|"username"
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"Password"
-argument_list|)
-expr_stmt|;
+comment|//assertTextPresent( "Password" );
 name|assertElementPresent
 argument_list|(
 literal|"password"
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"Remember Me"
-argument_list|)
-expr_stmt|;
+comment|//assertTextPresent( "Remember Me" );
 name|assertElementPresent
 argument_list|(
 literal|"rememberMe"
 argument_list|)
 expr_stmt|;
-name|assertButtonWithValuePresent
+comment|//assertButtonWithValuePresent( "Login" );
+name|assertButtonWithIdPresent
 argument_list|(
-literal|"Login"
+literal|"loginSubmit"
 argument_list|)
 expr_stmt|;
-name|assertButtonWithValuePresent
+comment|//assertButtonWithValuePresent( "Cancel" );
+name|assertButtonWithIdPresent
 argument_list|(
-literal|"Cancel"
+literal|"loginCancel"
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
+comment|//assertTextPresent( "Need an Account? Register!" );
+comment|//assertTextPresent( "Forgot your Password? Request a password reset." );
+name|assertElementPresent
 argument_list|(
-literal|"Need an Account? Register!"
+literal|"registerLinkLoginPage"
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
+name|assertElementPresent
 argument_list|(
-literal|"Forgot your Password? Request a password reset."
+literal|"forgottenPasswordLink"
 argument_list|)
 expr_stmt|;
 block|}
