@@ -88,6 +88,12 @@ operator|=
 block|{
 literal|"login"
 block|}
+argument_list|,
+name|dependsOnGroups
+operator|=
+block|{
+literal|"about"
+block|}
 argument_list|)
 specifier|public
 class|class

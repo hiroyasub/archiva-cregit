@@ -199,16 +199,13 @@ name|void
 name|assertCreateAdmin
 parameter_list|()
 block|{
-name|assertPage
+name|assertElementPresent
 argument_list|(
-literal|"Apache Archiva \\ Create Admin User"
+literal|"adminCreateForm"
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"Username"
-argument_list|)
-expr_stmt|;
+comment|//assertPage( "Apache Archiva \\ Create Admin User" );
+comment|//assertTextPresent( "Username" );
 name|assertFieldValue
 argument_list|(
 literal|"admin"
@@ -216,51 +213,31 @@ argument_list|,
 literal|"user.username"
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"Full Name*"
-argument_list|)
-expr_stmt|;
+comment|//assertTextPresent( "Full Name*" );
 name|assertElementPresent
 argument_list|(
 literal|"user.fullName"
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"Email Address*"
-argument_list|)
-expr_stmt|;
+comment|//assertTextPresent( "Email Address*" );
 name|assertElementPresent
 argument_list|(
 literal|"user.email"
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"Password*"
-argument_list|)
-expr_stmt|;
+comment|//assertTextPresent( "Password*" );
 name|assertElementPresent
 argument_list|(
 literal|"user.password"
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"Confirm Password*"
-argument_list|)
-expr_stmt|;
+comment|//assertTextPresent( "Confirm Password*" );
 name|assertElementPresent
 argument_list|(
 literal|"user.confirmPassword"
 argument_list|)
 expr_stmt|;
-name|assertButtonWithValuePresent
-argument_list|(
-literal|"Create Admin"
-argument_list|)
-expr_stmt|;
+comment|//assertButtonWithValuePresent( "Create Admin" );
 block|}
 specifier|public
 name|void
@@ -320,15 +297,12 @@ operator|.
 name|open
 argument_list|(
 name|baseUrl
-operator|+
-literal|"?"
-operator|+
-name|forceLocaleParam
 argument_list|)
 expr_stmt|;
-name|clickLinkWithText
+comment|//clickLinkWithText( "Login" );
+name|clickLinkWithLocator
 argument_list|(
-literal|"Login"
+literal|"loginLink"
 argument_list|)
 expr_stmt|;
 name|assertLoginPage
@@ -1185,29 +1159,28 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|assertTextPresent
-argument_list|(
-literal|"Current User:"
-argument_list|)
-expr_stmt|;
+comment|//assertTextPresent( "Current User:" );
 name|assertTextPresent
 argument_list|(
 name|username
 argument_list|)
 expr_stmt|;
-name|assertLinkPresent
+comment|//assertLinkPresent( "Edit Details" );
+name|assertElementPresent
 argument_list|(
-literal|"Edit Details"
+literal|"editUserLink"
 argument_list|)
 expr_stmt|;
-name|assertLinkPresent
+name|assertElementPresent
 argument_list|(
-literal|"Logout"
+literal|"logoutLink"
 argument_list|)
 expr_stmt|;
-name|assertTextNotPresent
+comment|//assertLinkPresent( "Logout" );
+comment|//assertTextNotPresent( "Login" );
+name|assertElementNotPresent
 argument_list|(
-literal|"Login"
+literal|"loginLink"
 argument_list|)
 expr_stmt|;
 block|}

@@ -177,13 +177,6 @@ decl_stmt|;
 specifier|public
 specifier|static
 name|String
-name|forceLocaleParam
-init|=
-literal|"request_locale=en_US"
-decl_stmt|;
-specifier|public
-specifier|static
-name|String
 name|maxWaitTimeInMs
 decl_stmt|;
 specifier|private
@@ -304,10 +297,6 @@ argument_list|,
 name|browser
 argument_list|,
 name|baseUrl
-operator|+
-literal|"?"
-operator|+
-name|forceLocaleParam
 argument_list|)
 decl_stmt|;
 name|s

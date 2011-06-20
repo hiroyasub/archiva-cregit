@@ -86,9 +86,7 @@ argument_list|()
 operator|.
 name|open
 argument_list|(
-literal|"/archiva/admin/addRepository.action?"
-operator|+
-name|forceLocaleParam
+literal|"/archiva/admin/addRepository.action"
 argument_list|)
 expr_stmt|;
 name|addStagingRepository

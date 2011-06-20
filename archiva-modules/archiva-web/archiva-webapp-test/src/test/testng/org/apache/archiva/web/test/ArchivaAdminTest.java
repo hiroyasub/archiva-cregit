@@ -215,10 +215,6 @@ operator|.
 name|open
 argument_list|(
 name|baseUrl
-operator|+
-literal|"/index.action?"
-operator|+
-name|forceLocaleParam
 argument_list|,
 name|browser
 argument_list|,
@@ -240,10 +236,6 @@ operator|.
 name|open
 argument_list|(
 name|baseUrl
-operator|+
-literal|"?"
-operator|+
-name|forceLocaleParam
 argument_list|)
 expr_stmt|;
 name|String
@@ -255,15 +247,15 @@ operator|.
 name|getTitle
 argument_list|()
 decl_stmt|;
+comment|//assertElementPresent( "adminCreateForm" );
 if|if
 condition|(
-name|title
-operator|.
-name|endsWith
+name|isElementPresent
 argument_list|(
-literal|"Create Admin User"
+literal|"adminCreateForm"
 argument_list|)
 condition|)
+comment|//if ( title.endsWith( "Create Admin User" ) )
 block|{
 name|assertCreateAdmin
 argument_list|()
@@ -314,12 +306,11 @@ argument_list|(
 name|username
 argument_list|)
 expr_stmt|;
-name|submit
-argument_list|()
-expr_stmt|;
-name|clickLinkWithText
+comment|//submit();
+comment|//clickLinkWithText( "Logout" );
+name|clickLinkWithLocator
 argument_list|(
-literal|"Logout"
+literal|"logoutLink"
 argument_list|)
 expr_stmt|;
 block|}

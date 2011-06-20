@@ -39,10 +39,6 @@ operator|.
 name|open
 argument_list|(
 literal|"/archiva/browse"
-operator|+
-literal|"?"
-operator|+
-name|forceLocaleParam
 argument_list|)
 expr_stmt|;
 name|assertBrowsePage
