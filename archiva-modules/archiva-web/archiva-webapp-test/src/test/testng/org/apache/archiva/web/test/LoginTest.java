@@ -103,6 +103,11 @@ name|AbstractArchivaTest
 block|{
 annotation|@
 name|Test
+argument_list|(
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
 specifier|public
 name|void
 name|testWithBadUsername
@@ -118,9 +123,12 @@ argument_list|,
 literal|"badUsername"
 argument_list|)
 expr_stmt|;
-name|clickButtonWithValue
+name|getSelenium
+argument_list|()
+operator|.
+name|click
 argument_list|(
-literal|"Login"
+literal|"loginSubmit"
 argument_list|)
 expr_stmt|;
 name|getSelenium
@@ -131,11 +139,12 @@ argument_list|(
 name|maxWaitTimeInMs
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
+name|assertElementPresent
 argument_list|(
-literal|"You have entered an incorrect username and/or password"
+literal|"//ul[@class=\'errorMessage\']"
 argument_list|)
 expr_stmt|;
+comment|//assertTextPresent( "You have entered an incorrect username and/or password" );
 block|}
 annotation|@
 name|Test
@@ -192,7 +201,7 @@ name|maxWaitTimeInMs
 argument_list|)
 expr_stmt|;
 comment|//assertTextPresent( "You have entered an incorrect username and/or password" );
-comment|//<ul class="errorMessage">
+comment|//<ul class="errorMessage"><li><span>
 name|assertElementPresent
 argument_list|(
 literal|"//ul[@class=\'errorMessage\']"
@@ -227,9 +236,12 @@ argument_list|,
 literal|"password"
 argument_list|)
 expr_stmt|;
-name|clickButtonWithValue
+name|getSelenium
+argument_list|()
+operator|.
+name|click
 argument_list|(
-literal|"Login"
+literal|"loginSubmit"
 argument_list|)
 expr_stmt|;
 name|getSelenium
@@ -240,9 +252,10 @@ argument_list|(
 name|maxWaitTimeInMs
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
+comment|//assertTextPresent( "User Name is required" );
+name|assertElementPresent
 argument_list|(
-literal|"User Name is required"
+literal|"//tr[@errorFor=\'loginForm_username\']"
 argument_list|)
 expr_stmt|;
 block|}
@@ -277,9 +290,12 @@ literal|"ADMIN_USERNAME"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|clickButtonWithValue
+name|getSelenium
+argument_list|()
+operator|.
+name|click
 argument_list|(
-literal|"Login"
+literal|"loginSubmit"
 argument_list|)
 expr_stmt|;
 name|getSelenium
@@ -290,9 +306,10 @@ argument_list|(
 name|maxWaitTimeInMs
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
+comment|//assertTextPresent( "You have entered an incorrect username and/or password" );
+name|assertElementPresent
 argument_list|(
-literal|"You have entered an incorrect username and/or password"
+literal|"//ul[@class=\'errorMessage\']"
 argument_list|)
 expr_stmt|;
 block|}
@@ -343,9 +360,12 @@ literal|"ADMIN_PASSWORD"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|clickButtonWithValue
+name|getSelenium
+argument_list|()
+operator|.
+name|click
 argument_list|(
-literal|"Login"
+literal|"loginSubmit"
 argument_list|)
 expr_stmt|;
 name|getSelenium
@@ -356,14 +376,16 @@ argument_list|(
 name|maxWaitTimeInMs
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
+comment|//assertTextPresent( "Logout" );
+name|assertElementPresent
 argument_list|(
-literal|"Edit Details"
+literal|"logoutLink"
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
+comment|//assertTextPresent( "Edit Details" );
+name|assertElementPresent
 argument_list|(
-literal|"Logout"
+literal|"editUserLink"
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
