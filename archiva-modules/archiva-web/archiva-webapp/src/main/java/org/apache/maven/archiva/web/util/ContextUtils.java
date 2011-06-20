@@ -116,8 +116,9 @@ name|put
 argument_list|(
 literal|"http"
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|80
 argument_list|)
@@ -129,8 +130,9 @@ name|put
 argument_list|(
 literal|"https"
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|443
 argument_list|)
