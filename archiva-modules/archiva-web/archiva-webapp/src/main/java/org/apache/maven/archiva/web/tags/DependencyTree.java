@@ -266,6 +266,9 @@ end_comment
 begin_class
 annotation|@
 name|Service
+argument_list|(
+literal|"dependencyTree"
+argument_list|)
 specifier|public
 class|class
 name|DependencyTree
