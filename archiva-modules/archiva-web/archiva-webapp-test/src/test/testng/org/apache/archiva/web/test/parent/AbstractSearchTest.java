@@ -111,17 +111,13 @@ block|{
 name|goToSearchPage
 argument_list|()
 expr_stmt|;
-name|getSelenium
-argument_list|()
-operator|.
-name|type
+name|setFieldValue
 argument_list|(
-literal|"dom=document.forms[1].elements[0]"
+literal|"quickSearchValue"
 argument_list|,
 name|artifactId
 argument_list|)
 expr_stmt|;
-comment|//clickButtonWithValue( "Search" );
 name|clickButtonWithLocator
 argument_list|(
 literal|"quickSearchSubmit"

@@ -484,12 +484,10 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"OK to update "
-operator|+
+literal|"OK to update {}, local file does not exist."
+argument_list|,
 name|getUpdateMode
 argument_list|()
-operator|+
-literal|", local file does not exist."
 argument_list|)
 expr_stmt|;
 return|return;

@@ -1606,34 +1606,29 @@ name|void
 name|assertFindArtifactPage
 parameter_list|()
 block|{
-name|assertPage
+comment|//assertPage( "Apache Archiva \\ Find Artifact" );
+name|assertElementPresent
 argument_list|(
-literal|"Apache Archiva \\ Find Artifact"
+literal|"searchBox"
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
+comment|//assertTextPresent( "Find Artifact" );
+comment|//assertTextPresent( "Search for:" );
+comment|//assertTextPresent( "Checksum:" );
+name|assertElementPresent
 argument_list|(
-literal|"Find Artifact"
-argument_list|)
-expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"Search for:"
-argument_list|)
-expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"Checksum:"
+literal|"quickSearchValue"
 argument_list|)
 expr_stmt|;
 name|assertElementPresent
 argument_list|(
-literal|"q"
+literal|"searchHint"
 argument_list|)
 expr_stmt|;
-name|assertButtonWithValuePresent
+comment|//assertButtonWithValuePresent( "Search" );
+name|assertElementPresent
 argument_list|(
-literal|"Search"
+literal|"quickSearchSubmit"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1816,15 +1811,17 @@ name|arrayartifact
 range|:
 name|arrayArtifact
 control|)
+block|{
 name|assertTextPresent
 argument_list|(
 name|arrayartifact
 argument_list|)
 expr_stmt|;
+block|}
 name|String
 name|artifactElements
 init|=
-literal|"upload_groupId,upload_artifactId,upload_version,upload_packaging,upload_classifier,upload_generatePom,upload_artifact,upload_pom,upload_repositoryId,upload_0"
+literal|"upload_groupId,upload_artifactId,upload_version,upload_packaging,upload_classifier,upload_generatePom,upload_artifact,upload_pom,upload_repositoryId,uploadSubmit"
 decl_stmt|;
 name|String
 index|[]
@@ -1844,11 +1841,13 @@ name|artifactelements
 range|:
 name|arrayArtifactElements
 control|)
+block|{
 name|assertElementPresent
 argument_list|(
 name|artifactelements
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 specifier|public
 name|void
