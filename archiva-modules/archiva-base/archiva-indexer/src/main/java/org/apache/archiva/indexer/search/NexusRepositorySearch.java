@@ -1006,14 +1006,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Indexing context '"
-operator|+
+literal|"Indexing context '{}' removed from search."
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|"' removed from search."
 argument_list|)
 expr_stmt|;
 block|}

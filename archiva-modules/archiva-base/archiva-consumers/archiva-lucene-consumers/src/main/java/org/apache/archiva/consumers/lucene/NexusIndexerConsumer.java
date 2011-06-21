@@ -371,8 +371,6 @@ implements|,
 name|Initializable
 block|{
 specifier|private
-specifier|static
-specifier|final
 name|Logger
 name|log
 init|=
@@ -677,11 +675,9 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Queueing indexing task + '"
-operator|+
+literal|"Queueing indexing task '{}' to add or update the artifact in the index."
+argument_list|,
 name|task
-operator|+
-literal|"' to add or update the artifact in the index."
 argument_list|)
 expr_stmt|;
 name|scheduler
@@ -777,11 +773,9 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Queueing indexing task + '"
-operator|+
+literal|"Queueing indexing task '{}' to add or update the artifact in the index."
+argument_list|,
 name|task
-operator|+
-literal|"' to add or update the artifact in the index."
 argument_list|)
 expr_stmt|;
 name|scheduler
@@ -843,11 +837,9 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Queueing indexing task + '"
-operator|+
+literal|"Queueing indexing task '{}' to finish indexing."
+argument_list|,
 name|task
-operator|+
-literal|"' to finish indexing."
 argument_list|)
 expr_stmt|;
 name|scheduler
