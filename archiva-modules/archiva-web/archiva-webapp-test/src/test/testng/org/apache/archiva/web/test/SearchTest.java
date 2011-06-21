@@ -67,11 +67,15 @@ block|{
 literal|"search"
 block|}
 argument_list|,
-name|dependsOnMethods
+name|dependsOnGroups
 operator|=
 block|{
-literal|"testWithCorrectUsernamePassword"
+literal|"about"
 block|}
+argument_list|,
+name|sequential
+operator|=
+literal|true
 argument_list|)
 specifier|public
 class|class
@@ -79,6 +83,13 @@ name|SearchTest
 extends|extends
 name|AbstractSearchTest
 block|{
+annotation|@
+name|Test
+argument_list|(
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
 specifier|public
 name|void
 name|testSearchNonExistingArtifact
@@ -94,13 +105,21 @@ literal|"SEARCH_BAD_ARTIFACT"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
+comment|//assertTextPresent( "No results found" );
+name|assertElementPresent
 argument_list|(
-literal|"No results found"
+literal|"//span[@class=\'errorMessage\']"
 argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO: make search tests more robust especially when comparing/asserting number of hits
+annotation|@
+name|Test
+argument_list|(
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
 specifier|public
 name|void
 name|testSearchExistingArtifact
@@ -114,14 +133,15 @@ literal|"ARTIFACT_ARTIFACTID"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
+comment|//assertTextPresent( "Results" );
+name|assertElementPresent
 argument_list|(
-literal|"Results"
+literal|"resultsBox"
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
-literal|"Hits: 1 to 1 of 1"
+literal|"1 to 1 of 1"
 argument_list|)
 expr_stmt|;
 name|assertLinkPresent
@@ -130,6 +150,13 @@ literal|"test"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+argument_list|(
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
 specifier|public
 name|void
 name|testViewSearchedArtifact
@@ -180,6 +207,13 @@ literal|"Apache Archiva \\ Browse Repository"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+argument_list|(
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
 specifier|public
 name|void
 name|testSearchWithMultipleKeywords
@@ -293,6 +327,13 @@ literal|"No results found"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+argument_list|(
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
 specifier|public
 name|void
 name|testSearchNonExistingArtifactInAdvancedSearch
@@ -322,6 +363,13 @@ literal|"No results found"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+argument_list|(
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
 specifier|public
 name|void
 name|testSearchNoSearchCriteriaSpecifiedInAdvancedSearch
@@ -348,6 +396,13 @@ literal|"Advanced Search - At least one search criteria must be provided."
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+argument_list|(
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
 specifier|public
 name|void
 name|testSearchExistingArtifactUsingAdvancedSearchArtifactId
@@ -390,6 +445,13 @@ literal|"test"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+argument_list|(
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
 specifier|public
 name|void
 name|testSearchExistingArtifactUsingAdvancedSearchGroupId
@@ -432,6 +494,13 @@ literal|"test"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+argument_list|(
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
 specifier|public
 name|void
 name|testSearchExistingArtifactAllCriteriaSpecifiedInAdvancedSearch
@@ -483,6 +552,13 @@ literal|"test"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+argument_list|(
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
 specifier|public
 name|void
 name|testSearchExistingArtifactUsingAdvancedSearchNotInRepository

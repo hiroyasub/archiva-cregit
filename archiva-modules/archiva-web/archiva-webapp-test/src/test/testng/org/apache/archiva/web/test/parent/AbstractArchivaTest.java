@@ -299,7 +299,6 @@ argument_list|(
 name|baseUrl
 argument_list|)
 expr_stmt|;
-comment|//clickLinkWithText( "Login" );
 name|clickLinkWithLocator
 argument_list|(
 literal|"loginLink"
@@ -963,9 +962,9 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|isLinkPresent
+name|isElementPresent
 argument_list|(
-literal|"Login"
+literal|"loginLink"
 argument_list|)
 condition|)
 block|{
@@ -1099,9 +1098,10 @@ literal|"rememberMe"
 argument_list|)
 expr_stmt|;
 block|}
-name|clickButtonWithValue
+comment|//clickButtonWithValue( "Login" );
+name|clickButtonWithLocator
 argument_list|(
-literal|"Login"
+literal|"loginSubmit"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1745,12 +1745,27 @@ literal|"Save"
 argument_list|)
 expr_stmt|;
 block|}
+specifier|public
+name|void
+name|goToHomePage
+parameter_list|()
+block|{
+name|getSelenium
+argument_list|()
+operator|.
+name|open
+argument_list|(
+literal|""
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Upload Artifact
 specifier|public
 name|void
 name|goToAddArtifactPage
 parameter_list|()
 block|{
+comment|// must be logged as admin
 name|getSelenium
 argument_list|()
 operator|.
@@ -1902,6 +1917,19 @@ name|String
 name|repositoryId
 parameter_list|)
 block|{
+name|login
+argument_list|(
+name|getProperty
+argument_list|(
+literal|"ADMIN_USERNAME"
+argument_list|)
+argument_list|,
+name|getProperty
+argument_list|(
+literal|"ADMIN_PASSWORD"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|goToAddArtifactPage
 argument_list|()
 expr_stmt|;
@@ -2014,14 +2042,15 @@ argument_list|)
 expr_stmt|;
 name|selectValue
 argument_list|(
-literal|"repositoryId"
+literal|"upload_repositoryId"
 argument_list|,
 name|repositoryId
 argument_list|)
 expr_stmt|;
-name|clickButtonWithValue
+comment|//clickButtonWithValue( "Submit" );
+name|clickButtonWithLocator
 argument_list|(
-literal|"Submit"
+literal|"uploadSubmit"
 argument_list|)
 expr_stmt|;
 block|}

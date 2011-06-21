@@ -33,21 +33,22 @@ name|void
 name|goToSearchPage
 parameter_list|()
 block|{
+name|goToHomePage
+argument_list|()
+expr_stmt|;
+comment|//if ( !"Apache Archiva \\ Quick Search".equals( getTitle() ) )
 if|if
 condition|(
-operator|!
-literal|"Apache Archiva \\ Quick Search"
-operator|.
-name|equals
+name|isElementPresent
 argument_list|(
-name|getTitle
-argument_list|()
+literal|"quickSearchBox"
 argument_list|)
 condition|)
 block|{
-name|clickLinkWithText
+comment|//clickLinkWithText( "Search" );
+name|clickLinkWithLocator
 argument_list|(
-literal|"Search"
+literal|"menuSearchLink"
 argument_list|)
 expr_stmt|;
 name|getSelenium
@@ -58,11 +59,12 @@ argument_list|(
 name|maxWaitTimeInMs
 argument_list|)
 expr_stmt|;
-name|assertPage
+name|assertElementPresent
 argument_list|(
-literal|"Apache Archiva \\ Quick Search"
+literal|"quickSearchSubmit"
 argument_list|)
 expr_stmt|;
+comment|//assertPage( "Apache Archiva \\ Quick Search" );
 block|}
 block|}
 specifier|public
@@ -82,7 +84,7 @@ argument_list|)
 expr_stmt|;
 name|assertElementPresent
 argument_list|(
-literal|"quickSearch_q"
+literal|"quickSearchSubmit"
 argument_list|)
 expr_stmt|;
 name|assertButtonWithValuePresent
@@ -119,9 +121,10 @@ argument_list|,
 name|artifactId
 argument_list|)
 expr_stmt|;
-name|clickButtonWithValue
+comment|//clickButtonWithValue( "Search" );
+name|clickButtonWithLocator
 argument_list|(
-literal|"Search"
+literal|"quickSearchSubmit"
 argument_list|)
 expr_stmt|;
 block|}

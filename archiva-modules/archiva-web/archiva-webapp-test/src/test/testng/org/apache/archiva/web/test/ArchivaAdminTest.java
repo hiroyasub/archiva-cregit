@@ -247,7 +247,7 @@ operator|.
 name|getTitle
 argument_list|()
 decl_stmt|;
-comment|//assertElementPresent( "adminCreateForm" );
+comment|// if not admin user created create one
 if|if
 condition|(
 name|isElementPresent
@@ -255,7 +255,6 @@ argument_list|(
 literal|"adminCreateForm"
 argument_list|)
 condition|)
-comment|//if ( title.endsWith( "Create Admin User" ) )
 block|{
 name|assertCreateAdmin
 argument_list|()
@@ -306,14 +305,13 @@ argument_list|(
 name|username
 argument_list|)
 expr_stmt|;
-comment|//submit();
-comment|//clickLinkWithText( "Logout" );
 name|clickLinkWithLocator
 argument_list|(
 literal|"logoutLink"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// take care about repositories : internal
 block|}
 block|}
 end_class
