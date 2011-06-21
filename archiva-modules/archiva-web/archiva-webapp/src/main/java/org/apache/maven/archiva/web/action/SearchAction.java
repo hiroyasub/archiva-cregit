@@ -323,6 +323,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|net
@@ -512,6 +522,8 @@ specifier|private
 name|boolean
 name|fromResultsPage
 decl_stmt|;
+annotation|@
+name|Inject
 specifier|private
 name|RepositorySearch
 name|nexusSearch
@@ -1959,7 +1971,6 @@ name|RepositorySearch
 name|getNexusSearch
 parameter_list|()
 block|{
-comment|// no need to do this when wiring is already in spring
 if|if
 condition|(
 name|nexusSearch
@@ -1982,14 +1993,15 @@ argument_list|)
 decl_stmt|;
 name|nexusSearch
 operator|=
-operator|(
-name|RepositorySearch
-operator|)
 name|wac
 operator|.
 name|getBean
 argument_list|(
 literal|"nexusSearch"
+argument_list|,
+name|RepositorySearch
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
