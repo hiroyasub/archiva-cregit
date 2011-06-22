@@ -36,19 +36,21 @@ block|{
 name|goToHomePage
 argument_list|()
 expr_stmt|;
-comment|//if ( !"Apache Archiva \\ Quick Search".equals( getTitle() ) )
 if|if
 condition|(
+operator|!
 name|isElementPresent
 argument_list|(
 literal|"quickSearchBox"
 argument_list|)
 condition|)
 block|{
-comment|//clickLinkWithText( "Search" );
-name|clickLinkWithLocator
+name|getSelenium
+argument_list|()
+operator|.
+name|open
 argument_list|(
-literal|"menuSearchLink"
+literal|"/index.action"
 argument_list|)
 expr_stmt|;
 name|getSelenium
@@ -64,7 +66,6 @@ argument_list|(
 literal|"quickSearchSubmit"
 argument_list|)
 expr_stmt|;
-comment|//assertPage( "Apache Archiva \\ Quick Search" );
 block|}
 block|}
 specifier|public
