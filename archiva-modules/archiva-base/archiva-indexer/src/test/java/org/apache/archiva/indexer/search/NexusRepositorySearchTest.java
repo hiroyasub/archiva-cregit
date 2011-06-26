@@ -179,20 +179,6 @@ name|maven
 operator|.
 name|index
 operator|.
-name|IndexerEngine
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|index
-operator|.
 name|NexusIndexer
 import|;
 end_import
@@ -210,22 +196,6 @@ operator|.
 name|artifact
 operator|.
 name|IllegalArtifactCoordinateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|index
-operator|.
-name|context
-operator|.
-name|DefaultIndexingContext
 import|;
 end_import
 
@@ -454,13 +424,6 @@ name|TEST_REPO_2
 init|=
 literal|"nexus-search-test-repo-2"
 decl_stmt|;
-specifier|private
-specifier|static
-name|int
-name|TEST_NUMBER
-init|=
-literal|0
-decl_stmt|;
 annotation|@
 name|Inject
 name|PlexusSisuBridge
@@ -483,17 +446,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-comment|//to prevent failure during obtain lock change name
-name|System
-operator|.
-name|gc
-argument_list|()
-expr_stmt|;
-name|TEST_NUMBER
-operator|++
-expr_stmt|;
-comment|//TEST_REPO_1 = TEST_REPO_1 + TEST_NUMBER;
-comment|//TEST_REPO_2 = TEST_REPO_2 + TEST_NUMBER;
 name|FileUtils
 operator|.
 name|deleteDirectory
@@ -607,7 +559,6 @@ argument_list|,
 name|archivaConfig
 argument_list|)
 expr_stmt|;
-comment|//indexerEngine = plexusSisuBridge.lookup( IndexerEngine.class );
 name|nexusIndexer
 operator|=
 name|plexusSisuBridge
@@ -660,7 +611,10 @@ block|}
 specifier|private
 name|void
 name|createSimpleIndex
-parameter_list|()
+parameter_list|(
+name|boolean
+name|scan
+parameter_list|)
 throws|throws
 name|IOException
 throws|,
@@ -746,13 +700,18 @@ argument_list|(
 name|TEST_REPO_1
 argument_list|,
 name|files
+argument_list|,
+name|scan
 argument_list|)
 expr_stmt|;
 block|}
 specifier|private
 name|void
 name|createIndexContainingMoreArtifacts
-parameter_list|()
+parameter_list|(
+name|boolean
+name|scan
+parameter_list|)
 throws|throws
 name|IOException
 throws|,
@@ -918,6 +877,8 @@ argument_list|(
 name|TEST_REPO_1
 argument_list|,
 name|files
+argument_list|,
+name|scan
 argument_list|)
 expr_stmt|;
 block|}
@@ -1005,7 +966,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|/*          if ( context != null )         {             context.unlock();             context.unlockExclusively();             context.close( true );         }         */
 for|for
 control|(
 name|IndexingContext
@@ -1020,7 +980,6 @@ name|values
 argument_list|()
 control|)
 block|{
-comment|//indexingContext.close( true );
 name|nexusIndexer
 operator|.
 name|removeIndexingContext
@@ -1131,6 +1090,9 @@ argument_list|<
 name|File
 argument_list|>
 name|filesToBeIndexed
+parameter_list|,
+name|boolean
+name|scan
 parameter_list|)
 throws|throws
 name|IOException
@@ -1213,7 +1175,6 @@ name|delete
 argument_list|()
 expr_stmt|;
 block|}
-comment|//IndexWriter.unlock( FSDirectory.open( lockFile.getParentFile()) );
 name|assertFalse
 argument_list|(
 name|lockFile
@@ -1222,7 +1183,6 @@ name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|/*         context = new DefaultIndexingContext( repository, repository,                                               new File( FileUtil.getBasedir(), "/target/test-classes/" + repository ),                                               new File( FileUtil.getBasedir(),                                                         "/target/test-classes/" + repository + "/.indexer" ), null,                                               null, ArchivaNexusIndexerUtil.FULL_INDEX, false );         context.setSearchable( true );         */
 name|File
 name|repo
 init|=
@@ -1257,9 +1217,6 @@ operator|+
 literal|"/.indexer"
 argument_list|)
 decl_stmt|;
-comment|//String id, String repositoryId, File repository, File indexDirectory,
-comment|//                                      String repositoryUrl, String indexUpdateUrl,
-comment|//                                      List<? extends IndexCreator> indexers
 name|IndexingContext
 name|context
 init|=
@@ -1357,6 +1314,11 @@ argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|scan
+condition|)
+block|{
 name|nexusIndexer
 operator|.
 name|scan
@@ -1364,7 +1326,7 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
-comment|//context.close( false );
+block|}
 name|assertTrue
 argument_list|(
 operator|new
@@ -1397,7 +1359,9 @@ throws|throws
 name|Exception
 block|{
 name|createSimpleIndex
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
@@ -1575,7 +1539,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|"total hints not 1"
+argument_list|,
+literal|1
 argument_list|,
 name|results
 operator|.
@@ -1596,7 +1562,9 @@ throws|throws
 name|Exception
 block|{
 name|createSimpleIndex
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
@@ -1665,7 +1633,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0
+literal|1
 argument_list|,
 name|results
 operator|.
@@ -1684,7 +1652,9 @@ throws|throws
 name|Exception
 block|{
 name|createSimpleIndex
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
@@ -1788,11 +1758,29 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|"total hits not 4 for page1 "
+operator|+
+name|results
+argument_list|,
+literal|4
 argument_list|,
 name|results
 operator|.
 name|getTotalHits
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"returned hits not 1 for page1 "
+operator|+
+name|results
+argument_list|,
+literal|1
+argument_list|,
+name|results
+operator|.
+name|getReturnedHitsCount
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1873,6 +1861,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"hits not 1"
+argument_list|,
 literal|1
 argument_list|,
 name|results
@@ -1886,11 +1876,29 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|"total hits not 4 for page 2 "
+operator|+
+name|results
+argument_list|,
+literal|4
 argument_list|,
 name|results
 operator|.
 name|getTotalHits
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"returned hits not 1 for page2 "
+operator|+
+name|results
+argument_list|,
+literal|1
+argument_list|,
+name|results
+operator|.
+name|getReturnedHitsCount
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1915,7 +1923,9 @@ throws|throws
 name|Exception
 block|{
 name|createSimpleIndex
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
@@ -1975,6 +1985,8 @@ argument_list|(
 name|TEST_REPO_2
 argument_list|,
 name|files
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|List
@@ -2063,7 +2075,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
+literal|3
 argument_list|,
 name|results
 operator|.
@@ -2160,7 +2172,9 @@ throws|throws
 name|Exception
 block|{
 name|createSimpleIndex
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
@@ -2418,7 +2432,9 @@ throws|throws
 name|Exception
 block|{
 name|createSimpleIndex
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
@@ -2507,6 +2523,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"total hints not 1"
+argument_list|,
 literal|1
 argument_list|,
 name|results
@@ -2550,6 +2568,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"versions not 1"
+argument_list|,
 literal|1
 argument_list|,
 name|hit
@@ -2645,6 +2665,8 @@ argument_list|(
 name|TEST_REPO_2
 argument_list|,
 name|files
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|List
@@ -2805,7 +2827,9 @@ throws|throws
 name|Exception
 block|{
 name|createIndexContainingMoreArtifacts
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
@@ -2908,7 +2932,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|3
+literal|4
 argument_list|,
 name|results
 operator|.
@@ -2992,7 +3016,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|3
+literal|4
 argument_list|,
 name|results
 operator|.
@@ -3082,6 +3106,8 @@ argument_list|(
 name|TEST_REPO_1
 argument_list|,
 name|files
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|List
@@ -3499,7 +3525,9 @@ throws|throws
 name|Exception
 block|{
 name|createSimpleIndex
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
@@ -3613,6 +3641,10 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"total hints not 1"
+operator|+
+name|results
+argument_list|,
 literal|1
 argument_list|,
 name|results
@@ -3656,6 +3688,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"version not 2.0"
+argument_list|,
 literal|"2.0"
 argument_list|,
 name|hit
@@ -3680,7 +3714,9 @@ throws|throws
 name|Exception
 block|{
 name|createIndexContainingMoreArtifacts
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
@@ -3766,7 +3802,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|5
+literal|6
 argument_list|,
 name|results
 operator|.
@@ -3785,7 +3821,9 @@ throws|throws
 name|Exception
 block|{
 name|createSimpleIndex
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
@@ -3911,7 +3949,9 @@ throws|throws
 name|Exception
 block|{
 name|createIndexContainingMoreArtifacts
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
@@ -3997,6 +4037,10 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"totalHits not 1 results "
+operator|+
+name|results
+argument_list|,
 literal|1
 argument_list|,
 name|results
@@ -4020,6 +4064,8 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
+literal|"groupId not com"
+argument_list|,
 literal|"com"
 argument_list|,
 name|hit
@@ -4030,6 +4076,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"arttifactId not classname-search"
+argument_list|,
 literal|"classname-search"
 argument_list|,
 name|hit
@@ -4040,6 +4088,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|" hits.version(0) not 1.0"
+argument_list|,
 literal|"1.0"
 argument_list|,
 name|hit

@@ -323,6 +323,59 @@ name|version
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"SearchResultHit{"
+operator|+
+literal|"context='"
+operator|+
+name|context
+operator|+
+literal|'\''
+operator|+
+literal|", url='"
+operator|+
+name|url
+operator|+
+literal|'\''
+operator|+
+literal|", groupId='"
+operator|+
+name|groupId
+operator|+
+literal|'\''
+operator|+
+literal|", artifactId='"
+operator|+
+name|artifactId
+operator|+
+literal|'\''
+operator|+
+literal|", version='"
+operator|+
+name|version
+operator|+
+literal|'\''
+operator|+
+literal|", repositoryId='"
+operator|+
+name|repositoryId
+operator|+
+literal|'\''
+operator|+
+literal|", versions="
+operator|+
+name|versions
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 

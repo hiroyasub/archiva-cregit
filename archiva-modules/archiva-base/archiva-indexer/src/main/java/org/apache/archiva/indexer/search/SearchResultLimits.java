@@ -120,6 +120,27 @@ operator|=
 name|selectedPage
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"SearchResultLimits{"
+operator|+
+literal|"pageSize="
+operator|+
+name|pageSize
+operator|+
+literal|", selectedPage="
+operator|+
+name|selectedPage
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 

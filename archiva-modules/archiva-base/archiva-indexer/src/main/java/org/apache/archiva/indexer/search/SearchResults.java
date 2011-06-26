@@ -89,6 +89,10 @@ name|int
 name|totalHits
 decl_stmt|;
 specifier|private
+name|int
+name|returnedHitsCount
+decl_stmt|;
+specifier|private
 name|SearchResultLimits
 name|limits
 decl_stmt|;
@@ -216,6 +220,61 @@ name|totalHits
 operator|=
 name|totalHits
 expr_stmt|;
+block|}
+comment|/**      * @since 1.4      * @return      */
+specifier|public
+name|int
+name|getReturnedHitsCount
+parameter_list|()
+block|{
+return|return
+name|returnedHitsCount
+return|;
+block|}
+comment|/**      * @since 1.4      * @param returnedHitsCount      */
+specifier|public
+name|void
+name|setReturnedHitsCount
+parameter_list|(
+name|int
+name|returnedHitsCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|returnedHitsCount
+operator|=
+name|returnedHitsCount
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"SearchResults{"
+operator|+
+literal|"hits="
+operator|+
+name|hits
+operator|+
+literal|", totalHits="
+operator|+
+name|totalHits
+operator|+
+literal|", returnedHitsCount="
+operator|+
+name|returnedHitsCount
+operator|+
+literal|", limits="
+operator|+
+name|limits
+operator|+
+literal|'}'
+return|;
 block|}
 block|}
 end_class
