@@ -43,9 +43,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|sonatype
+name|apache
 operator|.
-name|nexus
+name|maven
 operator|.
 name|index
 operator|.
@@ -59,9 +59,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|sonatype
+name|apache
 operator|.
-name|nexus
+name|maven
 operator|.
 name|index
 operator|.
@@ -75,9 +75,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|sonatype
+name|apache
 operator|.
-name|nexus
+name|maven
 operator|.
 name|index
 operator|.
@@ -91,9 +91,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|sonatype
+name|apache
 operator|.
-name|nexus
+name|maven
 operator|.
 name|index
 operator|.
