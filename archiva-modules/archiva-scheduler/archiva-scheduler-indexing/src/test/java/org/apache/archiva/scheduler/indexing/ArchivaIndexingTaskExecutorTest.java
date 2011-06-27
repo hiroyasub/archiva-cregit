@@ -556,6 +556,10 @@ specifier|private
 name|IndexingContext
 name|context
 decl_stmt|;
+specifier|private
+name|NexusIndexer
+name|nexusIndexer
+decl_stmt|;
 annotation|@
 name|Inject
 name|PlexusSisuBridge
@@ -697,6 +701,17 @@ argument_list|(
 name|indexPacker
 argument_list|)
 expr_stmt|;
+name|nexusIndexer
+operator|=
+name|plexusSisuBridge
+operator|.
+name|lookup
+argument_list|(
+name|NexusIndexer
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|context
 operator|=
 name|ArtifactIndexingTask
@@ -704,6 +719,8 @@ operator|.
 name|createContext
 argument_list|(
 name|repositoryConfig
+argument_list|,
+name|nexusIndexer
 argument_list|)
 expr_stmt|;
 block|}
@@ -1475,6 +1492,8 @@ operator|.
 name|createContext
 argument_list|(
 name|repositoryConfig
+argument_list|,
+name|nexusIndexer
 argument_list|)
 expr_stmt|;
 comment|// remove added artifact from index

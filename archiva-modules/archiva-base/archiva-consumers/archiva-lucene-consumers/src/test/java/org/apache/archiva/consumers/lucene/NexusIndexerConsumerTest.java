@@ -105,6 +105,22 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|common
+operator|.
+name|plexusbridge
+operator|.
+name|PlexusSisuBridge
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|scheduler
 operator|.
 name|ArchivaTaskScheduler
@@ -202,6 +218,20 @@ operator|.
 name|consumers
 operator|.
 name|KnownRepositoryContentConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|index
+operator|.
+name|NexusIndexer
 import|;
 end_import
 
@@ -487,6 +517,12 @@ name|ApplicationContext
 name|applicationContext
 decl_stmt|;
 annotation|@
+name|Inject
+specifier|private
+name|PlexusSisuBridge
+name|plexusSisuBridge
+decl_stmt|;
+annotation|@
 name|Override
 annotation|@
 name|Before
@@ -542,6 +578,8 @@ argument_list|,
 name|configuration
 argument_list|,
 name|filetypes
+argument_list|,
+name|plexusSisuBridge
 argument_list|)
 expr_stmt|;
 comment|// initialize to set the file types to be processed
