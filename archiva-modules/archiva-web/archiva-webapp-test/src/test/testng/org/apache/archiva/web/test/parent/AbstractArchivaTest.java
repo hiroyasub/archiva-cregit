@@ -1617,18 +1617,18 @@ comment|//assertTextPresent( "Search for:" );
 comment|//assertTextPresent( "Checksum:" );
 name|assertElementPresent
 argument_list|(
-literal|"quickSearchValue"
+literal|"quickSearchBox"
 argument_list|)
 expr_stmt|;
 name|assertElementPresent
 argument_list|(
-literal|"searchHint"
+literal|"checksumSearch"
 argument_list|)
 expr_stmt|;
 comment|//assertButtonWithValuePresent( "Search" );
 name|assertElementPresent
 argument_list|(
-literal|"quickSearchSubmit"
+literal|"checksumSearch_0"
 argument_list|)
 expr_stmt|;
 block|}

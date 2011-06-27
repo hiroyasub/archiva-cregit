@@ -57,6 +57,12 @@ block|{
 literal|"findartifact"
 block|}
 argument_list|,
+name|dependsOnGroups
+operator|=
+block|{
+literal|"about"
+block|}
+argument_list|,
 name|sequential
 operator|=
 literal|true
