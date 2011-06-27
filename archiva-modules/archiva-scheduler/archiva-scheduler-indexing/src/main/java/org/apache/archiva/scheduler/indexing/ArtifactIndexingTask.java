@@ -727,9 +727,6 @@ operator|.
 name|FULL_INDEX
 argument_list|)
 decl_stmt|;
-comment|//IndexingContext context =
-comment|//    new DefaultIndexingContext( repository.getId(), repository.getId(), managedRepository, indexDirectory,
-comment|//                                null, null, ArchivaNexusIndexerUtil.FULL_INDEX, false );
 name|context
 operator|.
 name|setSearchable
