@@ -73,6 +73,13 @@ name|FindArtifactTest
 extends|extends
 name|AbstractArchivaTest
 block|{
+annotation|@
+name|Test
+argument_list|(
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
 specifier|public
 name|void
 name|testFindArtifactNullValues
@@ -92,6 +99,13 @@ literal|"You must select a file, or enter the checksum. If the file was given an
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+argument_list|(
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
 specifier|public
 name|void
 name|testFindArtifactUsingChecksum

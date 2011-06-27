@@ -311,6 +311,18 @@ literal|"logoutLink"
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|login
+argument_list|(
+name|getAdminUsername
+argument_list|()
+argument_list|,
+name|getAdminPassword
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// take care about repositories : internal
 block|}
 block|}
