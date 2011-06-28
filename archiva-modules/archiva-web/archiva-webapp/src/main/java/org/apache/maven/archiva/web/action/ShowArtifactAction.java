@@ -107,6 +107,22 @@ name|metadata
 operator|.
 name|model
 operator|.
+name|MetadataFacet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|model
+operator|.
 name|ProjectVersionMetadata
 import|;
 end_import
@@ -233,6 +249,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|reports
+operator|.
+name|RepositoryProblemFacet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|lang
@@ -349,16 +379,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|text
@@ -464,6 +484,16 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
 import|;
 end_import
 
@@ -661,7 +691,9 @@ argument_list|()
 condition|)
 block|{
 name|addIncompleteModelWarning
-argument_list|()
+argument_list|(
+literal|"Artifact metadata is incomplete."
+argument_list|)
 expr_stmt|;
 block|}
 name|model
@@ -752,6 +784,59 @@ argument_list|,
 name|version
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|versionMetadata
+operator|!=
+literal|null
+condition|)
+block|{
+name|MetadataFacet
+name|repoProbFacet
+decl_stmt|;
+if|if
+condition|(
+operator|(
+name|repoProbFacet
+operator|=
+name|versionMetadata
+operator|.
+name|getFacet
+argument_list|(
+name|RepositoryProblemFacet
+operator|.
+name|FACET_ID
+argument_list|)
+operator|)
+operator|!=
+literal|null
+condition|)
+block|{
+name|addIncompleteModelWarning
+argument_list|(
+literal|"Artifact metadata is incomplete: "
+operator|+
+operator|(
+operator|(
+name|RepositoryProblemFacet
+operator|)
+name|repoProbFacet
+operator|)
+operator|.
+name|getProblem
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|//set metadata to complete so that no additional 'Artifact metadata is incomplete' warning is logged
+name|versionMetadata
+operator|.
+name|setIncomplete
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -760,7 +845,14 @@ name|e
 parameter_list|)
 block|{
 name|addIncompleteModelWarning
+argument_list|(
+literal|"Error resolving artifact metadata: "
+operator|+
+name|e
+operator|.
+name|getMessage
 argument_list|()
+argument_list|)
 expr_stmt|;
 comment|// TODO: need a consistent way to construct this - same in ArchivaMetadataCreationConsumer
 name|versionMetadata
@@ -828,7 +920,14 @@ name|e
 parameter_list|)
 block|{
 name|addIncompleteModelWarning
+argument_list|(
+literal|"Error resolving artifact metadata: "
+operator|+
+name|e
+operator|.
+name|getMessage
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|artifacts
 operator|=
@@ -992,13 +1091,17 @@ block|}
 specifier|private
 name|void
 name|addIncompleteModelWarning
-parameter_list|()
+parameter_list|(
+name|String
+name|warningMessage
+parameter_list|)
 block|{
-name|addActionMessage
+name|addActionError
 argument_list|(
-literal|"The model may be incomplete due to a previous error in resolving information. Refer to the repository problem reports for more information."
+name|warningMessage
 argument_list|)
 expr_stmt|;
+comment|//"The model may be incomplete due to a previous error in resolving information. Refer to the repository problem reports for more information." );
 block|}
 comment|/**      * Show the artifact information tab.      */
 specifier|public
