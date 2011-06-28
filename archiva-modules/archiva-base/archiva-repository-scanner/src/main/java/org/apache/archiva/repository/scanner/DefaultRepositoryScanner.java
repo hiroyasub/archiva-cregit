@@ -364,12 +364,20 @@ name|getLocation
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|//MRM-1342 Repository statistics report doesn't appear to be working correctly
+comment|//create the repo if not existing to have an empty stats
 if|if
 condition|(
 operator|!
 name|repositoryBase
 operator|.
 name|exists
+argument_list|()
+operator|&&
+operator|!
+name|repositoryBase
+operator|.
+name|mkdirs
 argument_list|()
 condition|)
 block|{
