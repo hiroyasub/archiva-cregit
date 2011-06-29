@@ -367,21 +367,21 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
 import|;
 end_import
 
@@ -426,6 +426,8 @@ block|{
 literal|"classpath*:/META-INF/spring-context.xml"
 block|,
 literal|"classpath:/spring-context.xml"
+block|,
+literal|"classpath:/spring-context-DependencyTreeTest.xml"
 block|}
 argument_list|)
 specifier|public

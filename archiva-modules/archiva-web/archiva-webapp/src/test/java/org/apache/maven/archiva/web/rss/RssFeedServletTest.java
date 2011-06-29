@@ -143,6 +143,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|servlet
@@ -150,16 +160,6 @@ operator|.
 name|http
 operator|.
 name|HttpServletResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
 import|;
 end_import
 
@@ -794,16 +794,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-comment|//Override
-specifier|protected
-name|String
-name|getPlexusConfigLocation
-parameter_list|()
-block|{
-return|return
-literal|"org/apache/maven/archiva/web/rss/RssFeedServletTest.xml"
-return|;
 block|}
 annotation|@
 name|Override
