@@ -902,7 +902,7 @@ literal|"Unable to add new repository with id ["
 operator|+
 name|repoId
 operator|+
-literal|"], rpository  id cannot contains word stage"
+literal|"], repository id cannot contains word stage"
 argument_list|)
 expr_stmt|;
 block|}
