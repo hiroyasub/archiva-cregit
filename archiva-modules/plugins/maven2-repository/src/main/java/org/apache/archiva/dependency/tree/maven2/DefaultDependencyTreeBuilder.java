@@ -1293,6 +1293,8 @@ decl_stmt|;
 try|try
 block|{
 comment|// MRM-1411
+comment|// TODO: this is a workaround for a lack of proxy capability in the resolvers - replace when it can all be
+comment|//       handled there. It doesn't cache anything locally!
 name|List
 argument_list|<
 name|RemoteRepositoryConfiguration

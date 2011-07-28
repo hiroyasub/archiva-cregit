@@ -1080,6 +1080,8 @@ literal|"' was missing"
 argument_list|)
 throw|;
 block|}
+comment|// TODO: this is a workaround until we can properly resolve using proxies as well - this doesn't cache
+comment|//       anything locally!
 name|List
 argument_list|<
 name|RemoteRepositoryConfiguration

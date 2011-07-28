@@ -771,7 +771,7 @@ name|pathTranslator
 argument_list|)
 return|;
 block|}
-comment|// TODO: we need to do some refactoring, we cannot re-use the proxy components of archiva-proxy in maven2-repository
+comment|// FIXME: we need to do some refactoring, we cannot re-use the proxy components of archiva-proxy in maven2-repository
 comment|// because it's causing a cyclic dependency
 specifier|private
 name|boolean
