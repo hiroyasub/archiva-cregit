@@ -41,6 +41,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TimeZone
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|atlassian
@@ -214,6 +224,16 @@ name|args
 index|[
 literal|2
 index|]
+argument_list|)
+expr_stmt|;
+name|info
+operator|.
+name|setTimeZone
+argument_list|(
+name|TimeZone
+operator|.
+name|getDefault
+argument_list|()
 argument_list|)
 expr_stmt|;
 try|try
