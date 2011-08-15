@@ -21,26 +21,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -103,8 +83,44 @@ name|MinimalArtifactInfoIndexCreator
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|index
+operator|.
+name|creator
+operator|.
+name|OSGIArtifactIndexCreator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
-comment|/**  * ArchivaNexusIndexerUtil   *  */
+comment|/**  * ArchivaNexusIndexerUtil  */
 end_comment
 
 begin_class
@@ -112,6 +128,7 @@ specifier|public
 class|class
 name|ArchivaNexusIndexerUtil
 block|{
+comment|// FIXME olamy use lookup mechanism from plexus/sisu as here some possible injections can fail !
 specifier|public
 specifier|static
 specifier|final
@@ -140,6 +157,10 @@ argument_list|()
 argument_list|,
 operator|new
 name|MavenPluginArtifactInfoIndexCreator
+argument_list|()
+argument_list|,
+operator|new
+name|OSGIArtifactIndexCreator
 argument_list|()
 argument_list|)
 decl_stmt|;
