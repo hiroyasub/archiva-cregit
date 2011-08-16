@@ -733,7 +733,7 @@ operator|.
 name|toURL
 argument_list|()
 operator|.
-name|toString
+name|toExternalForm
 argument_list|()
 argument_list|,
 name|indexDirectory

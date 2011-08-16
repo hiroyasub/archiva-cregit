@@ -634,7 +634,7 @@ argument_list|()
 condition|)
 block|{
 comment|// TODO update or not !!
-comment|// do the full scan
+comment|// olamy currently do the full scan
 try|try
 block|{
 name|nexusIndexer
@@ -642,6 +642,10 @@ operator|.
 name|scan
 argument_list|(
 name|context
+argument_list|,
+literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1085,7 +1089,6 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-comment|//if ( d.totalHits == 0 )
 block|{
 name|log
 operator|.
@@ -1099,8 +1102,6 @@ name|getArtifactInfo
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//indexerEngine.index( context, ac );
-comment|//context.getIndexWriter().commit();
 name|nexusIndexer
 operator|.
 name|addArtifactToIndex

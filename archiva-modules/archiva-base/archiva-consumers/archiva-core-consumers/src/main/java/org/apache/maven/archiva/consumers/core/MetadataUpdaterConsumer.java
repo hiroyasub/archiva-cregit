@@ -796,7 +796,7 @@ parameter_list|)
 throws|throws
 name|ConsumerException
 block|{
-comment|// Ignore paths like .indexer etc
+comment|// Ignore paths like .index etc
 if|if
 condition|(
 operator|!
