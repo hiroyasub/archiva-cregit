@@ -472,6 +472,30 @@ literal|", versions="
 operator|+
 name|versions
 operator|+
+literal|", bundleVersion='"
+operator|+
+name|bundleVersion
+operator|+
+literal|'\''
+operator|+
+literal|", bundleSymbolicName='"
+operator|+
+name|bundleSymbolicName
+operator|+
+literal|'\''
+operator|+
+literal|", bundleExportPackage='"
+operator|+
+name|bundleExportPackage
+operator|+
+literal|'\''
+operator|+
+literal|", bundleExportService='"
+operator|+
+name|bundleExportService
+operator|+
+literal|'\''
+operator|+
 literal|'}'
 return|;
 block|}
