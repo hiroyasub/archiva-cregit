@@ -509,6 +509,8 @@ decl_stmt|;
 specifier|private
 name|List
 argument_list|<
+name|?
+extends|extends
 name|IndexCreator
 argument_list|>
 name|allIndexCreators
