@@ -108,6 +108,8 @@ name|destination
 parameter_list|,
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Digester
 argument_list|>
 name|digesters

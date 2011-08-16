@@ -201,6 +201,8 @@ comment|/**      * {@link List}&lt;{@link Digester}>      */
 specifier|private
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Digester
 argument_list|>
 name|digesters
@@ -227,6 +229,8 @@ name|AbstractTransactionEvent
 parameter_list|(
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Digester
 argument_list|>
 name|digesters
@@ -242,6 +246,8 @@ block|}
 specifier|protected
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Digester
 argument_list|>
 name|getDigesters
