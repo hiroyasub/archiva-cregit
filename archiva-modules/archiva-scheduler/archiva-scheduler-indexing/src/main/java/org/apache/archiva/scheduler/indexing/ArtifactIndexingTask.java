@@ -583,6 +583,8 @@ name|indexer
 parameter_list|,
 name|List
 argument_list|<
+name|?
+extends|extends
 name|IndexCreator
 argument_list|>
 name|indexCreators

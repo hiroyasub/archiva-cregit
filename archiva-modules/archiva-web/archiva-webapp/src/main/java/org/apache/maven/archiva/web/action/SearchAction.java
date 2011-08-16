@@ -382,7 +382,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Search all indexed fields by the given criteria.  *  * plexus.component role="com.opensymphony.xwork2.Action" role-hint="searchAction" instantiation-strategy="per-lookup"  */
+comment|/**  * Search all indexed fields by the given criteria.  *<p/>  * plexus.component role="com.opensymphony.xwork2.Action" role-hint="searchAction" instantiation-strategy="per-lookup"  */
 end_comment
 
 begin_class
@@ -914,6 +914,15 @@ argument_list|,
 name|selectedRepos
 argument_list|)
 decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"filteredSearch with searchFields {}"
+argument_list|,
+name|searchFields
+argument_list|)
+expr_stmt|;
 comment|// TODO: add packaging in the list of fields for advanced search (UI)?
 try|try
 block|{
@@ -1112,6 +1121,17 @@ operator|.
 name|ACCESS_TO_NO_REPOS
 return|;
 block|}
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"quickSearch with selectedRepos {} query {}"
+argument_list|,
+name|selectedRepos
+argument_list|,
+name|q
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 if|if

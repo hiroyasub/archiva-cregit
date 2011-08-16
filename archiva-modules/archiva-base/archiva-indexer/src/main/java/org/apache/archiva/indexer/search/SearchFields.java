@@ -416,6 +416,77 @@ operator|=
 name|bundleExportService
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"SearchFields{"
+operator|+
+literal|"groupId='"
+operator|+
+name|groupId
+operator|+
+literal|'\''
+operator|+
+literal|", artifactId='"
+operator|+
+name|artifactId
+operator|+
+literal|'\''
+operator|+
+literal|", version='"
+operator|+
+name|version
+operator|+
+literal|'\''
+operator|+
+literal|", packaging='"
+operator|+
+name|packaging
+operator|+
+literal|'\''
+operator|+
+literal|", className='"
+operator|+
+name|className
+operator|+
+literal|'\''
+operator|+
+literal|", repositories="
+operator|+
+name|repositories
+operator|+
+literal|", bundleVersion='"
+operator|+
+name|bundleVersion
+operator|+
+literal|'\''
+operator|+
+literal|", bundleSymbolicName='"
+operator|+
+name|bundleSymbolicName
+operator|+
+literal|'\''
+operator|+
+literal|", bundleExportPackage='"
+operator|+
+name|bundleExportPackage
+operator|+
+literal|'\''
+operator|+
+literal|", bundleExportService='"
+operator|+
+name|bundleExportService
+operator|+
+literal|'\''
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 
