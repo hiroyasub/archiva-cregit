@@ -1565,6 +1565,8 @@ block|}
 specifier|protected
 name|List
 argument_list|<
+name|?
+extends|extends
 name|IndexCreator
 argument_list|>
 name|getAllIndexCreators
