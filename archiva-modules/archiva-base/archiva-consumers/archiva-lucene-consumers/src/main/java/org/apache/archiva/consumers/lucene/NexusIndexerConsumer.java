@@ -643,8 +643,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Creating indexing context for repo : "
-operator|+
+literal|"Creating indexing context for repo : {}"
+argument_list|,
 name|repository
 operator|.
 name|getId

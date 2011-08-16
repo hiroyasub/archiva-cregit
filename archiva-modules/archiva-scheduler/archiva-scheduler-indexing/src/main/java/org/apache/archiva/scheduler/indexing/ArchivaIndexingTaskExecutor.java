@@ -633,6 +633,36 @@ name|isExecuteOnEntireRepo
 argument_list|()
 condition|)
 block|{
+comment|// TODO update or not !!
+comment|// do the full scan
+try|try
+block|{
+name|nexusIndexer
+operator|.
+name|scan
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|TaskExecutionException
+argument_list|(
+literal|"Error scan repository "
+operator|+
+name|repository
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 name|log
 operator|.
 name|debug
@@ -726,6 +756,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -757,6 +789,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1199,6 +1233,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw
