@@ -198,7 +198,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"using lookList from sisu plexus failed so build plexus Digesters manually"
+literal|"using lookupList from sisu plexus failed so build plexus Digesters manually"
 argument_list|)
 expr_stmt|;
 name|allDigesters
@@ -216,6 +216,26 @@ name|Md5Digester
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|allDigesters
+operator|==
+literal|null
+operator|||
+name|allDigesters
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|PlexusSisuBridgeException
+argument_list|(
+literal|"no way to initiliaze IndexCreator"
+argument_list|)
+throw|;
 block|}
 name|log
 operator|.
