@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Olivier Lamy  * @since TODO  */
+comment|/**  * @author Olivier Lamy  * @since 1.4  */
 end_comment
 
 begin_class
