@@ -892,6 +892,14 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+comment|// only update index we don't need to scan the full repo here
+name|task
+operator|.
+name|setOnlyUpdate
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|log
