@@ -633,8 +633,6 @@ name|isExecuteOnEntireRepo
 argument_list|()
 condition|)
 block|{
-comment|// TODO update or not !!
-comment|// olamy currently do the full scan
 try|try
 block|{
 name|nexusIndexer
@@ -645,7 +643,10 @@ name|context
 argument_list|,
 literal|null
 argument_list|,
-literal|false
+name|indexingTask
+operator|.
+name|isOnlyUpdate
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
