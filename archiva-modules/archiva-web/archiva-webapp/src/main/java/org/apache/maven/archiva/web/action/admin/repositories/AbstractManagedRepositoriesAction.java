@@ -239,7 +239,7 @@ begin_class
 specifier|public
 specifier|abstract
 class|class
-name|AbstractManagedRepositoriesAction
+name|AbstractManagedReposigettoriesAction
 extends|extends
 name|AbstractRepositoriesAdminAction
 block|{
