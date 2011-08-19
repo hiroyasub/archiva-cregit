@@ -75,6 +75,17 @@ name|getBytes
 argument_list|()
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
+specifier|protected
+name|String
+name|getSpringConfigLocation
+parameter_list|()
+block|{
+return|return
+literal|"classpath*:META-INF/spring-context.xml,classpath:META-INF/spring-context-test.xml"
+return|;
+block|}
 block|}
 end_class
 

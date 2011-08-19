@@ -280,9 +280,11 @@ argument_list|)
 annotation|@
 name|RedbackAuthorization
 argument_list|(
-name|noRestriction
+name|permission
 operator|=
-literal|true
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_RUN_INDEXER
 argument_list|)
 name|Boolean
 name|scanRepository
