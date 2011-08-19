@@ -632,7 +632,6 @@ argument_list|(
 name|repoConfig
 argument_list|)
 expr_stmt|;
-comment|//ArchivaConfiguration archivaConfiguration = (ArchivaConfiguration) lookup( ArchivaConfiguration.class );
 name|ArchivaConfiguration
 name|archivaConfiguration
 init|=
@@ -652,8 +651,6 @@ argument_list|(
 name|configuration
 argument_list|)
 expr_stmt|;
-comment|//tree = (DependencyTree) lookup( DependencyTree.class );
-comment|//artifactFactory = (ArtifactFactory) lookup( ArtifactFactory.class );
 name|artifactFactory
 operator|=
 name|plexusSisuBridge
@@ -665,7 +662,6 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|//TestMetadataResolver metadataResolver = (TestMetadataResolver) lookup( MetadataResolver.class );
 name|TestMetadataResolver
 name|metadataResolver
 init|=
@@ -728,8 +724,6 @@ argument_list|(
 name|metadataResolver
 argument_list|)
 expr_stmt|;
-comment|//TestRepositorySessionFactory repositorySessionFactory = (TestRepositorySessionFactory) lookup(
-comment|//    RepositorySessionFactory.class );
 name|TestRepositorySessionFactory
 name|repositorySessionFactory
 init|=
