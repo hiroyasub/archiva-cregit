@@ -683,7 +683,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"foo"
+literal|"test"
 argument_list|,
 name|repo
 operator|.
