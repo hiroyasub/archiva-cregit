@@ -339,6 +339,8 @@ name|Inject
 specifier|protected
 name|List
 argument_list|<
+name|?
+extends|extends
 name|ArtifactMappingProvider
 argument_list|>
 name|artifactMappingProviders
