@@ -762,6 +762,8 @@ name|RepositoryContentFactory
 name|repositoryFactory
 decl_stmt|;
 comment|/**      * plexus.requirement role="org.apache.archiva.repository.events.RepositoryListener"      */
+annotation|@
+name|Inject
 specifier|private
 name|List
 argument_list|<
@@ -798,25 +800,6 @@ name|super
 operator|.
 name|initialize
 argument_list|()
-expr_stmt|;
-name|listeners
-operator|=
-name|Lists
-operator|.
-name|newArrayList
-argument_list|(
-name|applicationContext
-operator|.
-name|getBeansOfType
-argument_list|(
-name|RepositoryListener
-operator|.
-name|class
-argument_list|)
-operator|.
-name|values
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 specifier|public

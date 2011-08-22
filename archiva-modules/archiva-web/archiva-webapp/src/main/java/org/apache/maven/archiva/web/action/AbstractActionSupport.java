@@ -337,6 +337,8 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|/**      * plexus.requirement role="org.apache.archiva.audit.AuditListener"      */
+annotation|@
+name|Inject
 specifier|private
 name|List
 argument_list|<
@@ -382,28 +384,7 @@ name|void
 name|initialize
 parameter_list|()
 block|{
-comment|// TODO some caching here
-name|this
-operator|.
-name|auditListeners
-operator|=
-name|Lists
-operator|.
-name|newArrayList
-argument_list|(
-name|applicationContext
-operator|.
-name|getBeansOfType
-argument_list|(
-name|AuditListener
-operator|.
-name|class
-argument_list|)
-operator|.
-name|values
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// no op
 block|}
 annotation|@
 name|SuppressWarnings

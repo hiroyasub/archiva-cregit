@@ -928,13 +928,11 @@ specifier|private
 name|MetadataTools
 name|metadataTools
 decl_stmt|;
+comment|//@Inject
+comment|//private ApplicationContext applicationContext;
+comment|/**      * plexus.requirement role="org.apache.maven.archiva.policies.PreDownloadPolicy"      */
 annotation|@
 name|Inject
-specifier|private
-name|ApplicationContext
-name|applicationContext
-decl_stmt|;
-comment|/**      * plexus.requirement role="org.apache.maven.archiva.policies.PreDownloadPolicy"      */
 specifier|private
 name|Map
 argument_list|<
@@ -945,6 +943,8 @@ argument_list|>
 name|preDownloadPolicies
 decl_stmt|;
 comment|/**      * plexus.requirement role="org.apache.maven.archiva.policies.PostDownloadPolicy"      */
+annotation|@
+name|Inject
 specifier|private
 name|Map
 argument_list|<
@@ -955,6 +955,8 @@ argument_list|>
 name|postDownloadPolicies
 decl_stmt|;
 comment|/**      * plexus.requirement role="org.apache.maven.archiva.policies.DownloadErrorPolicy"      */
+annotation|@
+name|Inject
 specifier|private
 name|Map
 argument_list|<
@@ -1051,45 +1053,9 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|postDownloadPolicies
-operator|=
-name|applicationContext
-operator|.
-name|getBeansOfType
-argument_list|(
-name|PostDownloadPolicy
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|preDownloadPolicies
-operator|=
-name|applicationContext
-operator|.
-name|getBeansOfType
-argument_list|(
-name|PreDownloadPolicy
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|downloadErrorPolicies
-operator|=
-name|applicationContext
-operator|.
-name|getBeansOfType
-argument_list|(
-name|DownloadErrorPolicy
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
+comment|//this.postDownloadPolicies = applicationContext.getBeansOfType( PostDownloadPolicy.class );
+comment|//his.preDownloadPolicies = applicationContext.getBeansOfType( PreDownloadPolicy.class );
+comment|//this.downloadErrorPolicies = applicationContext.getBeansOfType( DownloadErrorPolicy.class );
 block|}
 annotation|@
 name|SuppressWarnings

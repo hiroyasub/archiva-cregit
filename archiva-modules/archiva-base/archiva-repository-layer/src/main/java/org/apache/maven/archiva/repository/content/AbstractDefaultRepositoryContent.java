@@ -334,21 +334,17 @@ name|DefaultPathParser
 argument_list|()
 decl_stmt|;
 comment|/**      * plexus.requirement role="org.apache.archiva.metadata.repository.storage.maven2.ArtifactMappingProvider"      */
+annotation|@
+name|Inject
 specifier|protected
 name|List
 argument_list|<
-name|?
-extends|extends
 name|ArtifactMappingProvider
 argument_list|>
 name|artifactMappingProviders
 decl_stmt|;
-annotation|@
-name|Inject
-specifier|protected
-name|ApplicationContext
-name|applicationContext
-decl_stmt|;
+comment|//@Inject
+comment|//protected ApplicationContext applicationContext;
 annotation|@
 name|PostConstruct
 specifier|protected
@@ -356,27 +352,8 @@ name|void
 name|initialize
 parameter_list|()
 block|{
-name|artifactMappingProviders
-operator|=
-operator|new
-name|ArrayList
-argument_list|<
-name|ArtifactMappingProvider
-argument_list|>
-argument_list|(
-name|applicationContext
-operator|.
-name|getBeansOfType
-argument_list|(
-name|ArtifactMappingProvider
-operator|.
-name|class
-argument_list|)
-operator|.
-name|values
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//artifactMappingProviders = new ArrayList<ArtifactMappingProvider>(
+comment|//    applicationContext.getBeansOfType( ArtifactMappingProvider.class ).values() );
 block|}
 specifier|public
 name|ArtifactReference

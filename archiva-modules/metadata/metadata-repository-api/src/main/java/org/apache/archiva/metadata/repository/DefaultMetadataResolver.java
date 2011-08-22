@@ -317,6 +317,8 @@ name|RepositoryStorage
 name|repositoryStorage
 decl_stmt|;
 comment|/**      * plexus.requirement role="org.apache.archiva.repository.events.RepositoryListener"      */
+annotation|@
+name|Inject
 specifier|private
 name|List
 argument_list|<
@@ -324,12 +326,8 @@ name|RepositoryListener
 argument_list|>
 name|listeners
 decl_stmt|;
-annotation|@
-name|Inject
-specifier|private
-name|ApplicationContext
-name|applicationContext
-decl_stmt|;
+comment|//@Inject
+comment|//private ApplicationContext applicationContext;
 annotation|@
 name|PostConstruct
 specifier|private
@@ -337,27 +335,8 @@ name|void
 name|initialize
 parameter_list|()
 block|{
-name|listeners
-operator|=
-operator|new
-name|ArrayList
-argument_list|<
-name|RepositoryListener
-argument_list|>
-argument_list|(
-name|applicationContext
-operator|.
-name|getBeansOfType
-argument_list|(
-name|RepositoryListener
-operator|.
-name|class
-argument_list|)
-operator|.
-name|values
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//listeners =
+comment|//    new ArrayList<RepositoryListener>( applicationContext.getBeansOfType( RepositoryListener.class ).values() );
 block|}
 specifier|public
 name|ProjectVersionMetadata

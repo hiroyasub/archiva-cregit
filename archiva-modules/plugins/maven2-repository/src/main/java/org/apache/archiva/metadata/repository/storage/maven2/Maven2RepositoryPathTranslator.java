@@ -216,13 +216,11 @@ argument_list|(
 literal|"([0-9]{8}.[0-9]{6})-([0-9]+).*"
 argument_list|)
 decl_stmt|;
+comment|//@Inject
+comment|//private ApplicationContext applicationContext;
+comment|/**      * plexus.requirement role="org.apache.archiva.metadata.repository.storage.maven2.ArtifactMappingProvider"      * see #initialize      */
 annotation|@
 name|Inject
-specifier|private
-name|ApplicationContext
-name|applicationContext
-decl_stmt|;
-comment|/**      * plexus.requirement role="org.apache.archiva.metadata.repository.storage.maven2.ArtifactMappingProvider"      * see #initialize      */
 specifier|private
 name|List
 argument_list|<
@@ -243,27 +241,8 @@ name|void
 name|initialize
 parameter_list|()
 block|{
-name|artifactMappingProviders
-operator|=
-operator|new
-name|ArrayList
-argument_list|<
-name|ArtifactMappingProvider
-argument_list|>
-argument_list|(
-name|applicationContext
-operator|.
-name|getBeansOfType
-argument_list|(
-name|ArtifactMappingProvider
-operator|.
-name|class
-argument_list|)
-operator|.
-name|values
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//artifactMappingProviders = new ArrayList<ArtifactMappingProvider>(
+comment|//    applicationContext.getBeansOfType( ArtifactMappingProvider.class ).values() );
 block|}
 specifier|public
 name|Maven2RepositoryPathTranslator

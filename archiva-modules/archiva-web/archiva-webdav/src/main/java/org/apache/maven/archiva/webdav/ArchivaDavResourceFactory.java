@@ -1151,6 +1151,8 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|/**      * plexus.requirement role="org.apache.archiva.audit.AuditListener"      */
+annotation|@
+name|Inject
 specifier|private
 name|List
 argument_list|<
@@ -1206,7 +1208,6 @@ name|MimeTypes
 name|mimeTypes
 decl_stmt|;
 comment|/**      * plexus.requirement      */
-comment|//Inject
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
@@ -1243,21 +1244,16 @@ name|SimpleLockManager
 argument_list|()
 decl_stmt|;
 comment|/**      * plexus.requirement      */
-comment|//Inject
 specifier|private
 name|ChecksumFile
 name|checksum
 decl_stmt|;
 comment|/**      * plexus.requirement role-hint="sha1"      */
-comment|//Inject
-comment|//Named( value = "digester#sha1" )
 specifier|private
 name|Digester
 name|digestSha1
 decl_stmt|;
 comment|/**      * plexus.requirement role-hint="md5";      */
-comment|//Inject
-comment|//Named( value = "digester#md5" )
 specifier|private
 name|Digester
 name|digestMd5
@@ -1276,7 +1272,6 @@ specifier|private
 name|RepositoryArchivaTaskScheduler
 name|scheduler
 decl_stmt|;
-comment|//Inject
 specifier|private
 name|ApplicationContext
 name|applicationContext
@@ -1363,29 +1358,6 @@ name|LegacyPathParser
 argument_list|(
 name|archivaConfiguration
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|auditListeners
-operator|=
-operator|new
-name|ArrayList
-argument_list|<
-name|AuditListener
-argument_list|>
-argument_list|(
-name|applicationContext
-operator|.
-name|getBeansOfType
-argument_list|(
-name|AuditListener
-operator|.
-name|class
-argument_list|)
-operator|.
-name|values
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

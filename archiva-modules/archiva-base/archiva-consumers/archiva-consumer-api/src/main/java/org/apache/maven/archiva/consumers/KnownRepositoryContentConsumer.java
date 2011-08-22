@@ -27,7 +27,9 @@ interface|interface
 name|KnownRepositoryContentConsumer
 extends|extends
 name|RepositoryContentConsumer
-block|{  }
+block|{
+comment|// no op
+block|}
 end_interface
 
 end_unit
