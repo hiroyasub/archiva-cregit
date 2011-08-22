@@ -109,7 +109,7 @@ name|index
 operator|.
 name|creator
 operator|.
-name|OSGIArtifactIndexCreator
+name|OsgiArtifactIndexCreator
 import|;
 end_import
 
@@ -281,7 +281,7 @@ name|IndexCreator
 operator|.
 name|class
 argument_list|,
-name|OSGIArtifactIndexCreator
+name|OsgiArtifactIndexCreator
 operator|.
 name|ID
 argument_list|)
