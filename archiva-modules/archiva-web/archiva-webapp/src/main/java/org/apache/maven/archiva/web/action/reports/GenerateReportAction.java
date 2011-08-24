@@ -1215,7 +1215,7 @@ decl_stmt|;
 if|if
 condition|(
 name|end
-operator|>
+operator|>=
 name|stats
 operator|.
 name|size
