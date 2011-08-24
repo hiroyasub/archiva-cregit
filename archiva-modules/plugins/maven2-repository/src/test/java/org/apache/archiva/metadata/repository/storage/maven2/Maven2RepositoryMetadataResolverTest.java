@@ -687,7 +687,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-comment|//ArchivaConfiguration configuration = (ArchivaConfiguration) lookup( ArchivaConfiguration.class );
 name|Configuration
 name|c
 init|=
@@ -859,7 +858,6 @@ argument_list|(
 name|wagon
 argument_list|)
 expr_stmt|;
-comment|//storage = (Maven2RepositoryStorage) lookup( RepositoryStorage.class, "maven2" );
 block|}
 annotation|@
 name|Test
