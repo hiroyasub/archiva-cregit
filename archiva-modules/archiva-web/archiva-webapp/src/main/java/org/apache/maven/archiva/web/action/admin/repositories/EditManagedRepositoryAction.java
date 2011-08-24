@@ -699,16 +699,6 @@ name|save
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|result
-operator|.
-name|equals
-argument_list|(
-name|SUCCESS
-argument_list|)
-condition|)
-block|{
 comment|//MRM-1342 Repository statistics report doesn't appear to be working correctly
 comment|//scan repository when modification of repository is successful
 if|if
@@ -789,7 +779,6 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
