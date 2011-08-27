@@ -814,6 +814,16 @@ argument_list|(
 name|subset
 argument_list|)
 decl_stmt|;
+name|config
+operator|.
+name|getRepositoryGroups
+argument_list|()
+expr_stmt|;
+name|config
+operator|.
+name|getRepositoryGroupsAsMap
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 operator|!

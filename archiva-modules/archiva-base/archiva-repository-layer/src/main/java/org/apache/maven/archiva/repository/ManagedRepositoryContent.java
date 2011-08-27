@@ -145,7 +145,6 @@ interface|interface
 name|ManagedRepositoryContent
 block|{
 comment|/**      * Delete from the managed repository all files / directories associated with the      * provided version reference.      *       * @param reference the version reference to delete.      * @throws ContentNotFoundException       */
-specifier|public
 name|void
 name|deleteVersion
 parameter_list|(
@@ -156,13 +155,11 @@ throws|throws
 name|ContentNotFoundException
 function_decl|;
 comment|/**      *<p>      * Convenience method to get the repository id.      *</p>      *       *<p>      * Equivalent to calling<code>.getRepository().getId()</code>      *</p>      *       * @return the repository id.      */
-specifier|public
 name|String
 name|getId
 parameter_list|()
 function_decl|;
 comment|/**      *<p>      * Gather up the list of related artifacts to the ArtifactReference provided.      * This typically inclues the pom files, and those things with       * classifiers (such as doc, source code, test libs, etc...)      *</p>      *       *<p>      *<strong>NOTE:</strong> Some layouts (such as maven 1 "legacy") are not compatible with this query.      *</p>       *       * @param reference the reference to work off of.      * @return the set of ArtifactReferences for related artifacts.      * @throws ContentNotFoundException if the initial artifact reference does not exist within the repository.      * @throws LayoutException       */
-specifier|public
 name|Set
 argument_list|<
 name|ArtifactReference
@@ -176,19 +173,16 @@ throws|throws
 name|ContentNotFoundException
 function_decl|;
 comment|/**      *<p>      * Convenience method to get the repository (on disk) root directory.      *</p>      *       *<p>      * Equivalent to calling<code>.getRepository().getLocation()</code>      *</p>      *       * @return the repository (on disk) root directory.      */
-specifier|public
 name|String
 name|getRepoRoot
 parameter_list|()
 function_decl|;
 comment|/**      * Get the repository configuration associated with this      * repository content.      *       * @return the repository that is associated with this repository content.      */
-specifier|public
 name|ManagedRepositoryConfiguration
 name|getRepository
 parameter_list|()
 function_decl|;
 comment|/**      * Given a specific {@link ProjectReference}, return the list of available versions for      * that project reference.      *       * @param reference the project reference to work off of.      * @return the list of versions found for that project reference.      * @throws ContentNotFoundException if the project reference does nto exist within the repository.      * @throws LayoutException       */
-specifier|public
 name|Set
 argument_list|<
 name|String

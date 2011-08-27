@@ -1529,7 +1529,7 @@ block|{
 comment|// make a copy to avoid potential concurrent modifications (eg. by configuration)
 comment|// TODO: ultimately, locking might be more efficient than copying in this fashion since updates are
 comment|//  infrequent
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>

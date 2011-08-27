@@ -93,25 +93,21 @@ interface|interface
 name|RemoteRepositoryContent
 block|{
 comment|/**      *<p>      * Convenience method to get the repository id.      *</p>      *       *<p>      * Equivalent to calling<code>.getRepository().getId()</code>      *</p>      *       * @return the repository id.      */
-specifier|public
 name|String
 name|getId
 parameter_list|()
 function_decl|;
 comment|/**      * Get the repository configuration associated with this      * repository content.      *       * @return the repository that is associated with this repository content.      */
-specifier|public
 name|RemoteRepositoryConfiguration
 name|getRepository
 parameter_list|()
 function_decl|;
 comment|/**      *<p>      * Convenience method to get the repository url.      *</p>      *       *<p>      * Equivalent to calling<code>new RepositoryURL( this.getRepository().getUrl() )</code>      *</p>      *       * @return the repository url.      */
-specifier|public
 name|RepositoryURL
 name|getURL
 parameter_list|()
 function_decl|;
 comment|/**      * Set the repository configuration to associate with this      * repository content.      *       * @param repo the repository to associate with this repository content.      */
-specifier|public
 name|void
 name|setRepository
 parameter_list|(
@@ -120,7 +116,6 @@ name|repo
 parameter_list|)
 function_decl|;
 comment|/**      * Given a repository relative path to a filename, return the {@link VersionedReference} object suitable for the path.      *      * @param path the path relative to the repository base dir for the artifact.      * @return the {@link ArtifactReference} representing the path.  (or null if path cannot be converted to      *         a {@link ArtifactReference})      * @throws LayoutException if there was a problem converting the path to an artifact.      */
-specifier|public
 name|ArtifactReference
 name|toArtifactReference
 parameter_list|(
@@ -131,7 +126,6 @@ throws|throws
 name|LayoutException
 function_decl|;
 comment|/**      * Given an ArtifactReference, return the relative path to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
-specifier|public
 name|String
 name|toPath
 parameter_list|(
@@ -140,7 +134,6 @@ name|reference
 parameter_list|)
 function_decl|;
 comment|/**      * Given an ArtifactReference, return the url to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
-specifier|public
 name|RepositoryURL
 name|toURL
 parameter_list|(
