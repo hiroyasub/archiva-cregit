@@ -29,9 +29,7 @@ name|archiva
 operator|.
 name|admin
 operator|.
-name|repository
-operator|.
-name|RepositoryAdminException
+name|AuditInformation
 import|;
 end_import
 
@@ -39,15 +37,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|archiva
 operator|.
-name|redback
+name|admin
 operator|.
-name|users
+name|repository
 operator|.
-name|User
+name|RepositoryAdminException
 import|;
 end_import
 
@@ -94,8 +92,8 @@ parameter_list|(
 name|String
 name|repositoryId
 parameter_list|,
-name|User
-name|user
+name|AuditInformation
+name|auditInformation
 parameter_list|)
 throws|throws
 name|RepositoryAdminException
@@ -109,8 +107,8 @@ parameter_list|,
 name|boolean
 name|needStageRepo
 parameter_list|,
-name|User
-name|user
+name|AuditInformation
+name|auditInformation
 parameter_list|)
 throws|throws
 name|RepositoryAdminException
@@ -124,8 +122,8 @@ parameter_list|,
 name|boolean
 name|needStageRepo
 parameter_list|,
-name|User
-name|user
+name|AuditInformation
+name|auditInformation
 parameter_list|)
 throws|throws
 name|RepositoryAdminException
