@@ -245,7 +245,7 @@ argument_list|)
 expr_stmt|;
 name|repo
 operator|.
-name|setUrl
+name|setLocation
 argument_list|(
 name|APPSERVER_BASE_PATH
 operator|+

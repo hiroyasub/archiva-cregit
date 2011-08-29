@@ -587,7 +587,7 @@ argument_list|()
 argument_list|,
 name|managedRepository
 operator|.
-name|getUrl
+name|getLocation
 argument_list|()
 argument_list|,
 name|managedRepository
