@@ -71,7 +71,7 @@ name|name
 decl_stmt|;
 specifier|private
 name|String
-name|url
+name|location
 decl_stmt|;
 specifier|private
 name|String
@@ -117,7 +117,7 @@ name|String
 name|name
 parameter_list|,
 name|String
-name|url
+name|location
 parameter_list|,
 name|String
 name|layout
@@ -152,9 +152,9 @@ name|name
 expr_stmt|;
 name|this
 operator|.
-name|url
+name|location
 operator|=
-name|url
+name|location
 expr_stmt|;
 name|this
 operator|.
@@ -228,13 +228,13 @@ return|;
 block|}
 specifier|public
 name|String
-name|getUrl
+name|getLocation
 parameter_list|()
 block|{
 return|return
 name|this
 operator|.
-name|url
+name|location
 return|;
 block|}
 specifier|public
@@ -337,17 +337,17 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|setUrl
+name|setLocation
 parameter_list|(
 name|String
-name|url
+name|location
 parameter_list|)
 block|{
 name|this
 operator|.
-name|url
+name|location
 operator|=
-name|url
+name|location
 expr_stmt|;
 block|}
 specifier|public
@@ -556,9 +556,9 @@ name|name
 operator|+
 literal|'\''
 operator|+
-literal|", url='"
+literal|", location='"
 operator|+
-name|url
+name|location
 operator|+
 literal|'\''
 operator|+

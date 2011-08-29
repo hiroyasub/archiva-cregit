@@ -772,7 +772,6 @@ range|:
 name|managedRepoConfigs
 control|)
 block|{
-comment|// TODO fix resolution of repo url!
 comment|// TODO staging repo too
 name|ManagedRepository
 name|repo
@@ -790,7 +789,10 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-literal|"URL"
+name|repoConfig
+operator|.
+name|getLocation
+argument_list|()
 argument_list|,
 name|repoConfig
 operator|.
@@ -1309,7 +1311,7 @@ argument_list|()
 argument_list|,
 name|managedRepository
 operator|.
-name|getUrl
+name|getLocation
 argument_list|()
 argument_list|,
 name|managedRepository
@@ -1815,7 +1817,7 @@ argument_list|()
 argument_list|,
 name|repository
 operator|.
-name|getUrl
+name|getLocation
 argument_list|()
 argument_list|,
 name|repository
