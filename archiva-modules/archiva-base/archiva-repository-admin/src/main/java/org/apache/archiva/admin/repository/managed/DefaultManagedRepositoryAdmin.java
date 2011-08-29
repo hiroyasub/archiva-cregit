@@ -556,21 +556,6 @@ return|;
 block|}
 specifier|public
 name|Boolean
-name|deleteManagedRepository
-parameter_list|(
-name|String
-name|repositoryId
-parameter_list|)
-throws|throws
-name|RepositoryAdminException
-block|{
-return|return
-literal|null
-return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
-block|}
-specifier|public
-name|Boolean
 name|addManagedRepository
 parameter_list|(
 name|ManagedRepository
@@ -673,13 +658,6 @@ operator|.
 name|getConfiguration
 argument_list|()
 decl_stmt|;
-name|CronExpressionValidator
-name|validator
-init|=
-operator|new
-name|CronExpressionValidator
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|config
@@ -709,31 +687,6 @@ if|else if
 condition|(
 name|config
 operator|.
-name|getRemoteRepositoriesAsMap
-argument_list|()
-operator|.
-name|containsKey
-argument_list|(
-name|repoId
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|RepositoryAdminException
-argument_list|(
-literal|"Unable to add new repository with id ["
-operator|+
-name|repoId
-operator|+
-literal|"], that id already exists as a remote repository."
-argument_list|)
-throw|;
-block|}
-if|else if
-condition|(
-name|config
-operator|.
 name|getRepositoryGroupsAsMap
 argument_list|()
 operator|.
@@ -755,6 +708,24 @@ literal|"], that id already exists as a repository group."
 argument_list|)
 throw|;
 block|}
+comment|// FIXME : olamy can be empty to avoid scheduled scan ?
+if|if
+condition|(
+name|StringUtils
+operator|.
+name|isNotBlank
+argument_list|(
+name|cronExpression
+argument_list|)
+condition|)
+block|{
+name|CronExpressionValidator
+name|validator
+init|=
+operator|new
+name|CronExpressionValidator
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -774,6 +745,8 @@ literal|"Invalid cron expression."
 argument_list|)
 throw|;
 block|}
+block|}
+comment|// FIXME checKid non empty
 if|if
 condition|(
 operator|!
@@ -792,6 +765,24 @@ operator|new
 name|RepositoryAdminException
 argument_list|(
 literal|"Invalid repository ID. Identifier must only contain alphanumeric characters, underscores(_), dots(.), and dashes(-)."
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|StringUtils
+operator|.
+name|isBlank
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|RepositoryAdminException
+argument_list|(
+literal|"repository name cannot be empty"
 argument_list|)
 throw|;
 block|}
@@ -1059,6 +1050,21 @@ name|managedRepository
 parameter_list|,
 name|boolean
 name|needStageRepo
+parameter_list|)
+throws|throws
+name|RepositoryAdminException
+block|{
+return|return
+literal|null
+return|;
+comment|//To change body of implemented methods use File | Settings | File Templates.
+block|}
+specifier|public
+name|Boolean
+name|deleteManagedRepository
+parameter_list|(
+name|String
+name|repositoryId
 parameter_list|)
 throws|throws
 name|RepositoryAdminException
