@@ -37,6 +37,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|redback
+operator|.
+name|users
+operator|.
+name|User
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -77,6 +93,9 @@ name|deleteManagedRepository
 parameter_list|(
 name|String
 name|repositoryId
+parameter_list|,
+name|User
+name|user
 parameter_list|)
 throws|throws
 name|RepositoryAdminException
@@ -89,6 +108,9 @@ name|managedRepository
 parameter_list|,
 name|boolean
 name|needStageRepo
+parameter_list|,
+name|User
+name|user
 parameter_list|)
 throws|throws
 name|RepositoryAdminException
@@ -101,6 +123,9 @@ name|managedRepository
 parameter_list|,
 name|boolean
 name|needStageRepo
+parameter_list|,
+name|User
+name|user
 parameter_list|)
 throws|throws
 name|RepositoryAdminException
