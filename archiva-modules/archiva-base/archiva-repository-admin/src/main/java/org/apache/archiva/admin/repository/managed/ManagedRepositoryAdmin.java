@@ -51,22 +51,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|ArchivaConfiguration
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -110,6 +94,9 @@ name|repositoryId
 parameter_list|,
 name|AuditInformation
 name|auditInformation
+parameter_list|,
+name|boolean
+name|deleteContent
 parameter_list|)
 throws|throws
 name|RepositoryAdminException

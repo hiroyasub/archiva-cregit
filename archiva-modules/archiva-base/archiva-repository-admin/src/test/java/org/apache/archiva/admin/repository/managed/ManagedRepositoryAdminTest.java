@@ -494,6 +494,8 @@ literal|"test-new-one"
 argument_list|,
 name|getFakeAuditInformation
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|repos
@@ -937,6 +939,8 @@ argument_list|()
 argument_list|,
 name|getFakeAuditInformation
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -1165,6 +1169,19 @@ init|=
 operator|new
 name|SimpleUser
 argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|Object
+name|getPrincipal
+parameter_list|()
+block|{
+return|return
+literal|"root"
+return|;
+block|}
+block|}
 decl_stmt|;
 name|user
 operator|.

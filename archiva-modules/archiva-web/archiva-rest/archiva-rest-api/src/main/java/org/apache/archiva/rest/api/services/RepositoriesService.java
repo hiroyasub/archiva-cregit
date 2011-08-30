@@ -357,6 +357,9 @@ literal|"repositoryId"
 argument_list|)
 name|String
 name|repositoryId
+parameter_list|,
+name|boolean
+name|deleteContent
 parameter_list|)
 throws|throws
 name|Exception

@@ -866,6 +866,9 @@ name|deleteManagedRepository
 parameter_list|(
 name|String
 name|repoId
+parameter_list|,
+name|boolean
+name|deleteContent
 parameter_list|)
 throws|throws
 name|Exception
@@ -879,6 +882,8 @@ name|repoId
 argument_list|,
 name|getAuditInformation
 argument_list|()
+argument_list|,
+name|deleteContent
 argument_list|)
 return|;
 block|}
