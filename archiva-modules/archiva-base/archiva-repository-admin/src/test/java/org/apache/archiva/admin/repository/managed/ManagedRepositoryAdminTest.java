@@ -819,7 +819,7 @@ name|setLocation
 argument_list|(
 name|APPSERVER_BASE_PATH
 operator|+
-literal|"new-path"
+literal|"/new-path"
 argument_list|)
 expr_stmt|;
 name|managedRepositoryAdmin
@@ -891,7 +891,7 @@ name|File
 argument_list|(
 name|APPSERVER_BASE_PATH
 operator|+
-literal|"new-path"
+literal|"/new-path"
 argument_list|)
 operator|.
 name|exists
