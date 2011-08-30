@@ -51,6 +51,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
+name|ArchivaConfiguration
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util

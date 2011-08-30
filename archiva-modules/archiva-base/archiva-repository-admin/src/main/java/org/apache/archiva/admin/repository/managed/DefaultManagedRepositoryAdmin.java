@@ -705,7 +705,7 @@ range|:
 name|managedRepoConfigs
 control|)
 block|{
-comment|// TODO staging repo too
+comment|// TODO add staging repo too
 name|ManagedRepository
 name|repo
 init|=
@@ -1032,7 +1032,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|// FIXME checKid non empty
+comment|// FIXME checkId non empty
 if|if
 condition|(
 operator|!
@@ -2706,6 +2706,54 @@ literal|"removed user roles associated with repository {}"
 argument_list|,
 name|repoId
 argument_list|)
+expr_stmt|;
+block|}
+specifier|public
+name|ArchivaConfiguration
+name|getArchivaConfiguration
+parameter_list|()
+block|{
+return|return
+name|archivaConfiguration
+return|;
+block|}
+specifier|public
+name|void
+name|setArchivaConfiguration
+parameter_list|(
+name|ArchivaConfiguration
+name|archivaConfiguration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|archivaConfiguration
+operator|=
+name|archivaConfiguration
+expr_stmt|;
+block|}
+specifier|public
+name|RoleManager
+name|getRoleManager
+parameter_list|()
+block|{
+return|return
+name|roleManager
+return|;
+block|}
+specifier|public
+name|void
+name|setRoleManager
+parameter_list|(
+name|RoleManager
+name|roleManager
+parameter_list|)
+block|{
+name|this
+operator|.
+name|roleManager
+operator|=
+name|roleManager
 expr_stmt|;
 block|}
 block|}
