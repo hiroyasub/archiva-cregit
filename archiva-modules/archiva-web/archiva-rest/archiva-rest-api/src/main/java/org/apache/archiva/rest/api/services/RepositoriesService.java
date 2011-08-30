@@ -317,7 +317,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"deleteManagedRepository/{repositoryId}"
+literal|"deleteManagedRepository/{repositoryId}/{deleteContent}"
 argument_list|)
 annotation|@
 name|GET
@@ -358,6 +358,11 @@ argument_list|)
 name|String
 name|repositoryId
 parameter_list|,
+annotation|@
+name|PathParam
+argument_list|(
+literal|"deleteContent"
+argument_list|)
 name|boolean
 name|deleteContent
 parameter_list|)
