@@ -1868,6 +1868,14 @@ argument_list|(
 name|configuration
 argument_list|)
 expr_stmt|;
+comment|// save for staging repo delete
+name|archivaConfiguration
+operator|.
+name|save
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
 name|archivaConfigurationControl
 operator|.
 name|replay
