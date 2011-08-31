@@ -589,6 +589,14 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|STAGE_REPO_ID_END
+init|=
+literal|"-stage"
+decl_stmt|;
 annotation|@
 name|Inject
 specifier|private
@@ -705,7 +713,7 @@ range|:
 name|managedRepoConfigs
 control|)
 block|{
-comment|// TODO add staging repo too
+comment|// TODO add staging repo information back too
 name|ManagedRepository
 name|repo
 init|=
@@ -1374,10 +1382,6 @@ return|return
 name|repository
 return|;
 block|}
-comment|// FIXME delete stagedRepo if exists !!!!
-comment|// find it tru :
-comment|// stagingRepository =
-comment|//            archivaConfiguration.getConfiguration().findManagedRepositoryById( repoid + "-stage" );
 specifier|public
 name|Boolean
 name|deleteManagedRepository
@@ -1770,6 +1774,42 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
+comment|// stage repo exists ?
+name|ManagedRepositoryConfiguration
+name|stagingRepository
+init|=
+name|archivaConfiguration
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|findManagedRepositoryById
+argument_list|(
+name|repositoryId
+operator|+
+name|STAGE_REPO_ID_END
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|stagingRepository
+operator|!=
+literal|null
+condition|)
+block|{
+name|deleteManagedRepository
+argument_list|(
+name|stagingRepository
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|auditInformation
+argument_list|,
+name|deleteContent
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|Boolean
@@ -2348,7 +2388,7 @@ operator|.
 name|getId
 argument_list|()
 operator|+
-literal|"-stage"
+name|STAGE_REPO_ID_END
 argument_list|)
 expr_stmt|;
 name|stagingRepository
@@ -2370,7 +2410,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"-stage"
+name|STAGE_REPO_ID_END
 argument_list|)
 expr_stmt|;
 name|stagingRepository
