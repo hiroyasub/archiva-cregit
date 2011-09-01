@@ -61,6 +61,20 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|audit
+operator|.
+name|AuditListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|metadata
 operator|.
 name|repository
@@ -362,16 +376,6 @@ operator|.
 name|util
 operator|.
 name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
 import|;
 end_import
 
@@ -730,6 +734,26 @@ argument_list|(
 name|factory
 argument_list|)
 expr_stmt|;
+operator|(
+operator|(
+name|DefaultManagedRepositoryAdmin
+operator|)
+name|getManagedRepositoryAdmin
+argument_list|()
+operator|)
+operator|.
+name|setAuditListeners
+argument_list|(
+operator|new
+name|ArrayList
+argument_list|<
+name|AuditListener
+argument_list|>
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|action
 operator|.
 name|setManagedRepositoryAdmin
@@ -1063,7 +1087,7 @@ expr_stmt|;
 name|roleManagerControl
 operator|.
 name|setVoidCallable
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|roleManager
 operator|.
@@ -1097,7 +1121,7 @@ expr_stmt|;
 name|roleManagerControl
 operator|.
 name|setVoidCallable
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|roleManagerControl
 operator|.
