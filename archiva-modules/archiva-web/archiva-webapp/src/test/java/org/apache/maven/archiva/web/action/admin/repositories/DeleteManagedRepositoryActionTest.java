@@ -674,13 +674,7 @@ operator|.
 name|getMock
 argument_list|()
 expr_stmt|;
-name|action
-operator|.
-name|setRoleManager
-argument_list|(
-name|roleManager
-argument_list|)
-expr_stmt|;
+comment|//action.setRoleManager( roleManager );
 name|location
 operator|=
 operator|new

@@ -315,6 +315,7 @@ literal|true
 argument_list|)
 return|;
 block|}
+comment|// FIXME olamy use ManagedRepositoryAdmin rather tha, directly archivaConfiguration
 specifier|public
 name|String
 name|commit
@@ -346,6 +347,9 @@ name|repository
 operator|.
 name|setLocation
 argument_list|(
+name|getManagedRepositoryAdmin
+argument_list|()
+operator|.
 name|removeExpressions
 argument_list|(
 name|repository

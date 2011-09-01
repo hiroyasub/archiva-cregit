@@ -143,6 +143,7 @@ specifier|private
 name|String
 name|repoid
 decl_stmt|;
+comment|// FIXME olamy use ManagedRepositoryAdmin rather tha, directly archivaConfiguration
 specifier|public
 name|void
 name|prepare
@@ -254,11 +255,6 @@ name|ManagedRepositoryConfiguration
 name|existingRepository
 init|=
 name|repository
-decl_stmt|;
-name|ManagedRepositoryConfiguration
-name|attachedStagingRepo
-init|=
-name|stagingRepository
 decl_stmt|;
 if|if
 condition|(
