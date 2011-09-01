@@ -1322,30 +1322,8 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|stageRepoNeeded
-condition|)
-block|{
-name|ManagedRepositoryConfiguration
-name|stagingRepository
-init|=
-name|getStageRepoConfig
-argument_list|(
-name|repository
-argument_list|)
-decl_stmt|;
-name|scanRepository
-argument_list|(
-name|stagingRepository
-operator|.
-name|getId
-argument_list|()
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
+comment|// olamy no need of scanning staged repo
+comment|/*             if ( stageRepoNeeded )             {                 ManagedRepositoryConfiguration stagingRepository = getStageRepoConfig( repository );                 scanRepository( stagingRepository.getId(), true );             }*/
 block|}
 catch|catch
 parameter_list|(
@@ -2049,7 +2027,7 @@ try|try
 block|{
 name|triggerAuditEvent
 argument_list|(
-name|managedRepository
+name|managedRepositoryConfiguration
 operator|.
 name|getId
 argument_list|()
@@ -2061,11 +2039,6 @@ operator|.
 name|MODIFY_MANAGED_REPO
 argument_list|,
 name|auditInformation
-argument_list|)
-expr_stmt|;
-name|addRepositoryRoles
-argument_list|(
-name|managedRepositoryConfiguration
 argument_list|)
 expr_stmt|;
 name|saveConfiguration
@@ -2099,7 +2072,7 @@ operator|.
 name|getRepository
 argument_list|()
 argument_list|,
-name|managedRepository
+name|managedRepositoryConfiguration
 operator|.
 name|getId
 argument_list|()
@@ -2111,41 +2084,6 @@ name|save
 argument_list|()
 expr_stmt|;
 block|}
-comment|//MRM-1342 Repository statistics report doesn't appear to be working correctly
-comment|//scan repository when modification of repository is successful
-comment|// olamy :  IMHO we are fine to ignore issue with scheduling scanning
-comment|// as here the repo has been updated
-name|scanRepository
-argument_list|(
-name|managedRepository
-operator|.
-name|getId
-argument_list|()
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-comment|// TODO indexing staging repo really needed ??
-comment|/*             if ( stageNeeded )             {                 executeRepositoryScanner( stagingRepository.getId() );             }*/
-block|}
-catch|catch
-parameter_list|(
-name|RoleManagerException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RepositoryAdminException
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-throw|;
 block|}
 catch|catch
 parameter_list|(
