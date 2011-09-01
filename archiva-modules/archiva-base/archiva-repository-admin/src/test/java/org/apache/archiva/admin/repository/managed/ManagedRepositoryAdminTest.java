@@ -455,6 +455,13 @@ argument_list|(
 name|repoLocation
 argument_list|)
 expr_stmt|;
+name|repo
+operator|.
+name|setCronExpression
+argument_list|(
+literal|"0 0 * * * ?"
+argument_list|)
+expr_stmt|;
 name|managedRepositoryAdmin
 operator|.
 name|addManagedRepository
@@ -673,6 +680,13 @@ argument_list|(
 name|repoLocation
 argument_list|)
 expr_stmt|;
+name|repo
+operator|.
+name|setCronExpression
+argument_list|(
+literal|"0 0 * * * ?"
+argument_list|)
+expr_stmt|;
 name|managedRepositoryAdmin
 operator|.
 name|addManagedRepository
@@ -731,6 +745,13 @@ operator|.
 name|setLocation
 argument_list|(
 name|repoLocation
+argument_list|)
+expr_stmt|;
+name|repo
+operator|.
+name|setCronExpression
+argument_list|(
+literal|"0 0 * * * ?"
 argument_list|)
 expr_stmt|;
 name|managedRepositoryAdmin
@@ -947,6 +968,13 @@ operator|.
 name|setLocation
 argument_list|(
 name|repoLocation
+argument_list|)
+expr_stmt|;
+name|repo
+operator|.
+name|setCronExpression
+argument_list|(
+literal|"0 0 * * * ?"
 argument_list|)
 expr_stmt|;
 name|managedRepositoryAdmin

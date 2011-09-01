@@ -1050,7 +1050,34 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|// FIXME checkId non empty
+else|else
+block|{
+throw|throw
+operator|new
+name|RepositoryAdminException
+argument_list|(
+literal|"Cron expression cannot be empty."
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|StringUtils
+operator|.
+name|isBlank
+argument_list|(
+name|repoId
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|RepositoryAdminException
+argument_list|(
+literal|"Repository ID cannot be empty."
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 operator|!
