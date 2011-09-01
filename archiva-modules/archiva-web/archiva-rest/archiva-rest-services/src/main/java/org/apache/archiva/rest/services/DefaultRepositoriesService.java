@@ -1252,6 +1252,11 @@ argument_list|()
 argument_list|,
 name|getAuditInformation
 argument_list|()
+argument_list|,
+name|managedRepository
+operator|.
+name|isResetStats
+argument_list|()
 argument_list|)
 return|;
 block|}
