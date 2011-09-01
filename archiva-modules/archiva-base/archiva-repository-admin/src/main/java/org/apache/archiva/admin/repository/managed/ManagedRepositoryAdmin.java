@@ -127,6 +127,9 @@ name|needStageRepo
 parameter_list|,
 name|AuditInformation
 name|auditInformation
+parameter_list|,
+name|boolean
+name|resetStats
 parameter_list|)
 throws|throws
 name|RepositoryAdminException

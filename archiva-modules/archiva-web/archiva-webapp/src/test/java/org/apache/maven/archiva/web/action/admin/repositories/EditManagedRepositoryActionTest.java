@@ -634,7 +634,6 @@ argument_list|(
 name|metadataRepository
 argument_list|)
 expr_stmt|;
-comment|//TestRepositorySessionFactory factory = (TestRepositorySessionFactory) lookup( RepositorySessionFactory.class );
 name|TestRepositorySessionFactory
 name|factory
 init|=

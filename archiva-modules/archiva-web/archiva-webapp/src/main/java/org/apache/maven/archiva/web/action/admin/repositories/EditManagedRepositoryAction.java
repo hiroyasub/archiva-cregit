@@ -284,7 +284,7 @@ name|Preparable
 implements|,
 name|Validateable
 block|{
-comment|/**      * The model for this action.      */
+comment|/**      * FIXME we must manipulate beans from repo admin api      * The model for this action.      */
 specifier|private
 name|ManagedRepositoryConfiguration
 name|repository

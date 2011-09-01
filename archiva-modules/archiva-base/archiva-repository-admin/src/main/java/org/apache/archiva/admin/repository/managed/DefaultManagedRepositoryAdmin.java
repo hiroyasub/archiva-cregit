@@ -523,6 +523,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -1870,6 +1880,9 @@ name|needStageRepo
 parameter_list|,
 name|AuditInformation
 name|auditInformation
+parameter_list|,
+name|boolean
+name|resetStats
 parameter_list|)
 throws|throws
 name|RepositoryAdminException
@@ -1883,6 +1896,27 @@ operator|.
 name|getConfiguration
 argument_list|()
 decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"updateManagedConfiguration repo {} needStage {} resetStats {} "
+argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|managedRepository
+argument_list|,
+name|needStageRepo
+argument_list|,
+name|resetStats
+argument_list|)
+operator|.
+name|toArray
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|ManagedRepositoryConfiguration
 name|toremove
 init|=
@@ -1911,20 +1945,47 @@ name|toremove
 argument_list|)
 expr_stmt|;
 block|}
-comment|// FIXME the case of the attached staging repository
-comment|/*         if ( stagingRepository != null )         {             removeRepository( stagingRepository.getId(), configuration );         }*/
-comment|// Save the repository configuration.
-name|String
-name|result
-decl_stmt|;
-name|RepositorySession
-name|repositorySession
+name|ManagedRepositoryConfiguration
+name|stagingRepository
 init|=
-name|repositorySessionFactory
-operator|.
-name|createSession
-argument_list|()
+name|getStageRepoConfig
+argument_list|(
+name|toremove
+argument_list|)
 decl_stmt|;
+comment|// TODO remove content from old if path has changed !!!!!
+if|if
+condition|(
+name|stagingRepository
+operator|!=
+literal|null
+condition|)
+block|{
+name|configuration
+operator|.
+name|removeManagedRepository
+argument_list|(
+name|stagingRepository
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|toremove
+operator|!=
+literal|null
+operator|&&
+name|stagingRepository
+operator|!=
+literal|null
+condition|)
+block|{
+name|saveConfiguration
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
+block|}
 name|ManagedRepositoryConfiguration
 name|managedRepositoryConfiguration
 init|=
@@ -1975,11 +2036,14 @@ argument_list|,
 name|auditInformation
 argument_list|)
 decl_stmt|;
-comment|// FIXME only location has changed from previous
-name|boolean
-name|resetStats
+comment|// Save the repository configuration.
+name|RepositorySession
+name|repositorySession
 init|=
-literal|true
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
 decl_stmt|;
 try|try
 block|{
@@ -2004,11 +2068,6 @@ argument_list|(
 name|managedRepositoryConfiguration
 argument_list|)
 expr_stmt|;
-comment|// FIXME this staging part !!
-comment|//update changes of the staging repo
-comment|/*if ( stageNeeded )             {                  stagingRepository = getStageRepoConfig( configuration );                 addRepository( stagingRepository, configuration );                 addRepositoryRoles( stagingRepository );              }*/
-comment|//delete staging repo when we dont need it
-comment|/*             if ( !stageNeeded )             {                 stagingRepository = getStageRepoConfig( configuration );                 removeRepository( stagingRepository.getId(), configuration );                 removeContents( stagingRepository );                 removeRepositoryRoles( stagingRepository );             }*/
 name|saveConfiguration
 argument_list|(
 name|this
@@ -2066,7 +2125,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// FIXME staging !!
+comment|// TODO indexing staging repo really needed ??
 comment|/*             if ( stageNeeded )             {                 executeRepositoryScanner( stagingRepository.getId() );             }*/
 block|}
 catch|catch
@@ -2613,6 +2672,8 @@ operator|.
 name|info
 argument_list|(
 literal|"scanning of repository with id {} already scheduled"
+argument_list|,
+name|repositoryId
 argument_list|)
 expr_stmt|;
 block|}
@@ -2827,6 +2888,9 @@ name|repoId
 argument_list|)
 expr_stmt|;
 block|}
+comment|//--------------------------
+comment|// setters/getters
+comment|//--------------------------
 specifier|public
 name|ArchivaConfiguration
 name|getArchivaConfiguration
@@ -2951,6 +3015,30 @@ operator|.
 name|auditListeners
 operator|=
 name|auditListeners
+expr_stmt|;
+block|}
+specifier|public
+name|RepositoryArchivaTaskScheduler
+name|getRepositoryTaskScheduler
+parameter_list|()
+block|{
+return|return
+name|repositoryTaskScheduler
+return|;
+block|}
+specifier|public
+name|void
+name|setRepositoryTaskScheduler
+parameter_list|(
+name|RepositoryArchivaTaskScheduler
+name|repositoryTaskScheduler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|repositoryTaskScheduler
+operator|=
+name|repositoryTaskScheduler
 expr_stmt|;
 block|}
 block|}
