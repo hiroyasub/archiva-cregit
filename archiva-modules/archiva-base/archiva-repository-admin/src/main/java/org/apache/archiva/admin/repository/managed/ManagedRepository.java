@@ -161,6 +161,12 @@ name|blockRedeployments
 operator|=
 name|blockRedeployments
 expr_stmt|;
+name|this
+operator|.
+name|cronExpression
+operator|=
+name|cronExpression
+expr_stmt|;
 block|}
 specifier|public
 name|String

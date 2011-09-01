@@ -435,9 +435,21 @@ name|RepositoryAdminException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|addActionError
 argument_list|(
-literal|"Repository Administration Exception: "
+literal|"Check your server logs, Repository Administration Exception: "
 operator|+
 name|e
 operator|.
