@@ -188,7 +188,6 @@ name|Preparable
 implements|,
 name|Validateable
 block|{
-comment|/**      * FIXME we must manipulate beans from repo admin api      * The model for this action.      */
 specifier|private
 name|ManagedRepository
 name|repository

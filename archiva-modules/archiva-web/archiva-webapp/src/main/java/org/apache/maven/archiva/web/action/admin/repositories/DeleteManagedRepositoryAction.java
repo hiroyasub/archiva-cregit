@@ -108,7 +108,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DeleteManagedRepositoryAction  *  * @version $Id$  *          plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteManagedRepositoryAction" instantiation-strategy="per-lookup"  */
+comment|/**  * DeleteManagedRepositoryAction  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -130,7 +130,6 @@ name|AbstractManagedRepositoriesAction
 implements|implements
 name|Preparable
 block|{
-comment|/**      * FIXME we must manipulate beans from repo admin api      * The model for this action.      */
 specifier|private
 name|ManagedRepositoryConfiguration
 name|repository
