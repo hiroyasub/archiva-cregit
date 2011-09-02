@@ -553,7 +553,6 @@ operator|.
 name|getMock
 argument_list|()
 expr_stmt|;
-comment|//action.setRoleManager( roleManager );
 name|registryControl
 operator|=
 name|MockControl
@@ -575,7 +574,6 @@ operator|.
 name|getMock
 argument_list|()
 expr_stmt|;
-comment|//action.setRegistry( registry );
 name|repositoryTaskSchedulerControl
 operator|=
 name|MockClassControl
@@ -596,13 +594,6 @@ name|repositoryTaskSchedulerControl
 operator|.
 name|getMock
 argument_list|()
-expr_stmt|;
-name|action
-operator|.
-name|setRepositoryTaskScheduler
-argument_list|(
-name|repositoryTaskScheduler
-argument_list|)
 expr_stmt|;
 name|location
 operator|=
@@ -661,13 +652,6 @@ operator|.
 name|setRepositorySession
 argument_list|(
 name|repositorySession
-argument_list|)
-expr_stmt|;
-name|action
-operator|.
-name|setRepositorySessionFactory
-argument_list|(
-name|factory
 argument_list|)
 expr_stmt|;
 operator|(
