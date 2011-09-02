@@ -21,16 +21,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|atlassian
@@ -49,6 +39,22 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|admin
+operator|.
+name|repository
+operator|.
+name|RepositoryAdminException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|web
 operator|.
 name|xmlrpc
@@ -81,6 +87,16 @@ name|RemoteRepository
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_interface
 annotation|@
 name|ServiceObject
@@ -91,8 +107,7 @@ specifier|public
 interface|interface
 name|AdministrationService
 block|{
-comment|/**      * Executes repository scanner on the given repository.      *       * @param repoId id of the repository to be scanned      * @return      * @throws Exception      */
-specifier|public
+comment|/**      * Executes repository scanner on the given repository.      *      * @param repoId id of the repository to be scanned      * @return      * @throws Exception      */
 name|Boolean
 name|executeRepositoryScanner
 parameter_list|(
@@ -102,8 +117,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Gets all available repository consumers.      *       * @return      */
-specifier|public
+comment|/**      * Gets all available repository consumers.      *      * @return      */
 name|List
 argument_list|<
 name|String
@@ -112,8 +126,7 @@ name|getAllRepositoryConsumers
 parameter_list|()
 function_decl|;
 comment|// TODO should we already implement config of consumers per repository?
-comment|/**      * Configures (enable or disable) repository consumer.      *       * @param repoId      * @param consumerId      * @param enable      * @return      * @throws Exception      */
-specifier|public
+comment|/**      * Configures (enable or disable) repository consumer.      *      * @param repoId      * @param consumerId      * @param enable      * @return      * @throws Exception      */
 name|Boolean
 name|configureRepositoryConsumer
 parameter_list|(
@@ -129,17 +142,17 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Gets all managed repositories.      *       * @return      */
-specifier|public
+comment|/**      * Gets all managed repositories.      *      * @return      */
 name|List
 argument_list|<
 name|ManagedRepository
 argument_list|>
 name|getAllManagedRepositories
 parameter_list|()
+throws|throws
+name|RepositoryAdminException
 function_decl|;
-comment|/**      * Gets all remote repositories.      *       * @return      */
-specifier|public
+comment|/**      * Gets all remote repositories.      *      * @return      */
 name|List
 argument_list|<
 name|RemoteRepository
@@ -147,8 +160,7 @@ argument_list|>
 name|getAllRemoteRepositories
 parameter_list|()
 function_decl|;
-comment|/**      * Deletes given artifact from the specified repository.      *       * @param repoId id of the repository where the artifact to be deleted resides      * @param groupId groupId of the artifact to be deleted      * @param artifactId artifactId of the artifact to be deleted      * @param version version of the artifact to be deleted      * @return      * @throws Exception      */
-specifier|public
+comment|/**      * Deletes given artifact from the specified repository.      *      * @param repoId     id of the repository where the artifact to be deleted resides      * @param groupId    groupId of the artifact to be deleted      * @param artifactId artifactId of the artifact to be deleted      * @param version    version of the artifact to be deleted      * @return      * @throws Exception      */
 name|Boolean
 name|deleteArtifact
 parameter_list|(
@@ -167,8 +179,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Create a new managed repository with the given parameters.      *       * @param repoId      * @param layout      * @param name      * @param location      * @param blockRedeployments      * @param releasesIncluded      * @param snapshotsIncluded      * @param cronExpression      * @return      * @throws Exception      */
-specifier|public
+comment|/**      * Create a new managed repository with the given parameters.      *      * @param repoId      * @param layout      * @param name      * @param location      * @param blockRedeployments      * @param releasesIncluded      * @param snapshotsIncluded      * @param cronExpression      * @return      * @throws Exception      */
 name|Boolean
 name|addManagedRepository
 parameter_list|(
@@ -202,8 +213,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Deletes a managed repository with the given repository id.      *       * @param repoId      * @return      */
-specifier|public
+comment|/**      * Deletes a managed repository with the given repository id.      *      * @param repoId      * @return      */
 name|Boolean
 name|deleteManagedRepository
 parameter_list|(
@@ -213,8 +223,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Deletes a managed repository content with the given repository id      *       * @param repoId      * @return      * @throws Exception      */
-specifier|public
+comment|/**      * Deletes a managed repository content with the given repository id      *      * @param repoId      * @return      * @throws Exception      */
 name|Boolean
 name|deleteManagedRepositoryContent
 parameter_list|(
@@ -224,8 +233,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Get a managed repository with the given repository id.      * @param repoId      * @return      * @throws Exception      */
-specifier|public
+comment|/**      * Get a managed repository with the given repository id.      *      * @param repoId      * @return      * @throws Exception      */
 name|ManagedRepository
 name|getManagedRepository
 parameter_list|(
@@ -239,8 +247,7 @@ comment|// TODO
 comment|// consider the following as additional services:
 comment|// - getAllConfiguredRepositoryConsumers( String repoId ) - list all enabled consumers for the repo
 comment|// - getAllConfiguredDatabaseConsumers() - list all enabled db consumers
-comment|/**      * Merge staging repository with the managed repository and skips if there are conflicts      * @param repoId      * @param skipConflicts      * @return      * @throws Exception      */
-specifier|public
+comment|/**      * Merge staging repository with the managed repository and skips if there are conflicts      *      * @param repoId      * @param skipConflicts      * @return      * @throws Exception      */
 name|boolean
 name|merge
 parameter_list|(

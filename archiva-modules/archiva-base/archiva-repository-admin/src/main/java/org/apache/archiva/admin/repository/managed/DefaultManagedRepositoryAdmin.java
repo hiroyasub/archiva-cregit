@@ -689,7 +689,8 @@ name|ManagedRepositoryConfiguration
 argument_list|>
 name|managedRepoConfigs
 init|=
-name|archivaConfiguration
+name|getArchivaConfiguration
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -957,7 +958,8 @@ block|{
 name|Configuration
 name|config
 init|=
-name|archivaConfiguration
+name|getArchivaConfiguration
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -1416,7 +1418,8 @@ block|{
 name|Configuration
 name|config
 init|=
-name|archivaConfiguration
+name|getArchivaConfiguration
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -1474,7 +1477,8 @@ comment|// stage repo exists ?
 name|ManagedRepositoryConfiguration
 name|stagingRepository
 init|=
-name|archivaConfiguration
+name|getArchivaConfiguration
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -1568,7 +1572,8 @@ block|{
 name|RepositorySession
 name|repositorySession
 init|=
-name|repositorySessionFactory
+name|getRepositorySessionFactory
+argument_list|()
 operator|.
 name|createSession
 argument_list|()
@@ -1600,7 +1605,8 @@ argument_list|(
 literal|"call repositoryStatisticsManager.deleteStatistics"
 argument_list|)
 expr_stmt|;
-name|repositoryStatisticsManager
+name|getRepositoryStatisticsManager
+argument_list|()
 operator|.
 name|deleteStatistics
 argument_list|(
@@ -1738,10 +1744,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|archivaConfiguration
-operator|.
-name|getConfiguration
-argument_list|()
+name|config
 operator|.
 name|removeProxyConnector
 argument_list|(
@@ -1810,10 +1813,7 @@ range|:
 name|repoGroups
 control|)
 block|{
-name|archivaConfiguration
-operator|.
-name|getConfiguration
-argument_list|()
+name|config
 operator|.
 name|findRepositoryGroupById
 argument_list|(
@@ -1867,6 +1867,11 @@ name|e
 argument_list|)
 throw|;
 block|}
+name|saveConfiguration
+argument_list|(
+name|config
+argument_list|)
+expr_stmt|;
 return|return
 name|Boolean
 operator|.
@@ -1896,7 +1901,8 @@ comment|// Ensure that the fields are valid.
 name|Configuration
 name|configuration
 init|=
-name|archivaConfiguration
+name|getArchivaConfiguration
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -2045,7 +2051,8 @@ comment|// Save the repository configuration.
 name|RepositorySession
 name|repositorySession
 init|=
-name|repositorySessionFactory
+name|getRepositorySessionFactory
+argument_list|()
 operator|.
 name|createSession
 argument_list|()
@@ -2072,7 +2079,8 @@ name|saveConfiguration
 argument_list|(
 name|this
 operator|.
-name|archivaConfiguration
+name|getArchivaConfiguration
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -2090,7 +2098,8 @@ argument_list|(
 literal|"call repositoryStatisticsManager.deleteStatistics"
 argument_list|)
 expr_stmt|;
-name|repositoryStatisticsManager
+name|getRepositoryStatisticsManager
+argument_list|()
 operator|.
 name|deleteStatistics
 argument_list|(
@@ -2225,7 +2234,8 @@ control|(
 name|AuditListener
 name|listener
 range|:
-name|auditListeners
+name|getAuditListeners
+argument_list|()
 control|)
 block|{
 name|listener
@@ -2256,7 +2266,8 @@ name|directory
 argument_list|,
 literal|"${appserver.base}"
 argument_list|,
-name|registry
+name|getRegistry
+argument_list|()
 operator|.
 name|getString
 argument_list|(
@@ -2276,7 +2287,8 @@ name|value
 argument_list|,
 literal|"${appserver.home}"
 argument_list|,
-name|registry
+name|getRegistry
+argument_list|()
 operator|.
 name|getString
 argument_list|(
@@ -2302,7 +2314,8 @@ name|RepositoryAdminException
 block|{
 try|try
 block|{
-name|archivaConfiguration
+name|getArchivaConfiguration
+argument_list|()
 operator|.
 name|save
 argument_list|(
@@ -2624,7 +2637,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|repositoryTaskScheduler
+name|getRepositoryTaskScheduler
+argument_list|()
 operator|.
 name|isProcessingRepositoryTask
 argument_list|(
@@ -2665,7 +2679,8 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|repositoryTaskScheduler
+name|getRepositoryTaskScheduler
+argument_list|()
 operator|.
 name|queueTask
 argument_list|(
@@ -2721,7 +2736,8 @@ comment|// TODO: belongs in the business logic
 if|if
 condition|(
 operator|!
-name|roleManager
+name|getRoleManager
+argument_list|()
 operator|.
 name|templatedRoleExists
 argument_list|(
@@ -2733,7 +2749,8 @@ name|repoId
 argument_list|)
 condition|)
 block|{
-name|roleManager
+name|getRoleManager
+argument_list|()
 operator|.
 name|createTemplatedRole
 argument_list|(
@@ -2748,7 +2765,8 @@ block|}
 if|if
 condition|(
 operator|!
-name|roleManager
+name|getRoleManager
+argument_list|()
 operator|.
 name|templatedRoleExists
 argument_list|(
@@ -2760,7 +2778,8 @@ name|repoId
 argument_list|)
 condition|)
 block|{
-name|roleManager
+name|getRoleManager
+argument_list|()
 operator|.
 name|createTemplatedRole
 argument_list|(
@@ -2793,7 +2812,8 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|roleManager
+name|getRoleManager
+argument_list|()
 operator|.
 name|templatedRoleExists
 argument_list|(
@@ -2805,7 +2825,8 @@ name|repoId
 argument_list|)
 condition|)
 block|{
-name|roleManager
+name|getRoleManager
+argument_list|()
 operator|.
 name|removeTemplatedRole
 argument_list|(
@@ -2819,7 +2840,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|roleManager
+name|getRoleManager
+argument_list|()
 operator|.
 name|templatedRoleExists
 argument_list|(
@@ -2831,7 +2853,8 @@ name|repoId
 argument_list|)
 condition|)
 block|{
-name|roleManager
+name|getRoleManager
+argument_list|()
 operator|.
 name|removeTemplatedRole
 argument_list|(
