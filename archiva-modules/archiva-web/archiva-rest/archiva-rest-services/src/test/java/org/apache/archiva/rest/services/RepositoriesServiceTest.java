@@ -485,7 +485,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"sanRepo call ok "
+literal|"scanRepo call ok "
 argument_list|)
 expr_stmt|;
 name|assertTrue
