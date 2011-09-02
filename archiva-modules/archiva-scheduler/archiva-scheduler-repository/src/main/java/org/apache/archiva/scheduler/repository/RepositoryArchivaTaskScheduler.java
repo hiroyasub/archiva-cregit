@@ -1008,7 +1008,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"cannot unuqueue Repository task '{}' not already queued."
+literal|"cannot unqueue Repository task '{}' not already queued."
 argument_list|,
 name|task
 argument_list|)
