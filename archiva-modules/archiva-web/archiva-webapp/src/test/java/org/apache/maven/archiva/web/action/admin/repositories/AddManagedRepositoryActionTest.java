@@ -61,6 +61,24 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|admin
+operator|.
+name|repository
+operator|.
+name|managed
+operator|.
+name|ManagedRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|scheduler
 operator|.
 name|repository
@@ -128,22 +146,6 @@ operator|.
 name|configuration
 operator|.
 name|Configuration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|ManagedRepositoryConfiguration
 import|;
 end_import
 
@@ -647,7 +649,7 @@ operator|.
 name|prepare
 argument_list|()
 expr_stmt|;
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|configuration
 init|=
 name|action
@@ -974,6 +976,18 @@ argument_list|)
 expr_stmt|;
 name|archivaConfiguration
 operator|.
+name|getConfiguration
+argument_list|()
+expr_stmt|;
+name|archivaConfigurationControl
+operator|.
+name|setReturnValue
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
+name|archivaConfiguration
+operator|.
 name|save
 argument_list|(
 name|configuration
@@ -989,7 +1003,7 @@ operator|.
 name|prepare
 argument_list|()
 expr_stmt|;
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 init|=
 name|action
@@ -1044,7 +1058,8 @@ argument_list|(
 name|repository
 argument_list|)
 argument_list|,
-name|configuration
+name|getManagedRepositoryAdmin
+argument_list|()
 operator|.
 name|getManagedRepositories
 argument_list|()
@@ -1150,7 +1165,7 @@ operator|.
 name|prepare
 argument_list|()
 expr_stmt|;
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 init|=
 name|action
@@ -1223,10 +1238,10 @@ name|Exception
 block|{
 comment|// prep
 comment|// 0 is the default value for primitive int; null for objects
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|managedRepositoryConfiguration
 init|=
-name|createManagedRepositoryConfiguration
+name|createManagedRepository
 argument_list|(
 literal|null
 argument_list|,
@@ -1402,10 +1417,10 @@ name|Exception
 block|{
 comment|// prep
 comment|// 0 is the default value for primitive int
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|managedRepositoryConfiguration
 init|=
-name|createManagedRepositoryConfiguration
+name|createManagedRepository
 argument_list|(
 name|EMPTY_STRING
 argument_list|,
@@ -1580,10 +1595,10 @@ throws|throws
 name|Exception
 block|{
 comment|// prep
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|managedRepositoryConfiguration
 init|=
-name|createManagedRepositoryConfiguration
+name|createManagedRepository
 argument_list|(
 name|REPOSITORY_ID_INVALID_INPUT
 argument_list|,
@@ -1764,7 +1779,7 @@ name|expectedFieldErrors
 operator|.
 name|put
 argument_list|(
-literal|"repository.indexDir"
+literal|"repository.indexDirectory"
 argument_list|,
 name|expectedErrorMessages
 argument_list|)
@@ -1837,10 +1852,10 @@ throws|throws
 name|Exception
 block|{
 comment|// prep
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|managedRepositoryConfiguration
 init|=
-name|createManagedRepositoryConfiguration
+name|createManagedRepository
 argument_list|(
 name|REPOSITORY_ID_VALID_INPUT
 argument_list|,

@@ -55,24 +55,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
-operator|.
-name|repository
-operator|.
-name|managed
-operator|.
-name|ManagedRepositoryAdmin
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|audit
 operator|.
 name|AuditEvent
@@ -5665,6 +5647,12 @@ argument_list|,
 literal|true
 argument_list|,
 literal|"0 15 3 * * ? *"
+argument_list|,
+literal|1
+argument_list|,
+literal|1
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -5979,6 +5967,12 @@ argument_list|,
 literal|true
 argument_list|,
 literal|"0 15 3 * * ? *"
+argument_list|,
+literal|1
+argument_list|,
+literal|1
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|fail
@@ -6264,6 +6258,12 @@ argument_list|,
 literal|true
 argument_list|,
 literal|"0 15 3 * * ? *"
+argument_list|,
+literal|1
+argument_list|,
+literal|1
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|fail
@@ -6593,6 +6593,12 @@ argument_list|,
 literal|true
 argument_list|,
 literal|"0 15 3 * * ? *"
+argument_list|,
+literal|1
+argument_list|,
+literal|1
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|fail

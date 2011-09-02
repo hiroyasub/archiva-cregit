@@ -209,6 +209,15 @@ name|stageRepoNeeded
 parameter_list|,
 name|String
 name|cronExpression
+parameter_list|,
+name|int
+name|daysOlder
+parameter_list|,
+name|int
+name|retentionCount
+parameter_list|,
+name|boolean
+name|deleteReleasedSnapshots
 parameter_list|)
 throws|throws
 name|Exception

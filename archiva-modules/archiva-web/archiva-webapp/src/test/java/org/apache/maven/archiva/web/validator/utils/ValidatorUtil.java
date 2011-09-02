@@ -23,6 +23,30 @@ end_comment
 
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|SystemUtils
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -38,16 +62,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|Assert
 import|;
 end_import
 
@@ -103,6 +117,18 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
+literal|"expected "
+operator|+
+name|expectedFieldErrors
+operator|+
+name|SystemUtils
+operator|.
+name|LINE_SEPARATOR
+operator|+
+literal|", found "
+operator|+
+name|actualFieldErrors
+argument_list|,
 name|expectedFieldErrors
 operator|.
 name|size
@@ -150,6 +176,15 @@ name|Assert
 operator|.
 name|assertNotNull
 argument_list|(
+literal|"actual with key "
+operator|+
+name|expectedEntry
+operator|.
+name|getKey
+argument_list|()
+operator|+
+literal|" is null"
+argument_list|,
 name|actualFieldErrors
 operator|.
 name|get
