@@ -43,8 +43,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|xml
@@ -58,8 +56,6 @@ import|import
 name|org
 operator|.
 name|apache
-operator|.
-name|maven
 operator|.
 name|archiva
 operator|.
@@ -104,7 +100,7 @@ name|MavenRepositoryMetadataReader
 parameter_list|()
 block|{
 block|}
-comment|/**      * Read and return the {@link MavenRepositoryMetadata} object from the provided xml file.      *      * @param metadataFile the maven-metadata.xml file to read.      * @return the archiva repository metadata object that represents the provided file contents.      * @throws org.apache.maven.archiva.xml.XMLException      *      */
+comment|/**      * Read and return the {@link MavenRepositoryMetadata} object from the provided xml file.      *      * @param metadataFile the maven-metadata.xml file to read.      * @return the archiva repository metadata object that represents the provided file contents.      * @throws org.apache.archiva.xml.XMLException      *      */
 specifier|public
 specifier|static
 name|MavenRepositoryMetadata
