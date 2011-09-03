@@ -5,8 +5,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|web
@@ -260,7 +258,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DependencyTree  *  * @version $Id$  *          plexus.component role="org.apache.maven.archiva.web.tags.DependencyTree"  */
+comment|/**  * DependencyTree  *  * @version $Id$  *          plexus.component role="org.apache.archiva.web.tags.DependencyTree"  */
 end_comment
 
 begin_class
