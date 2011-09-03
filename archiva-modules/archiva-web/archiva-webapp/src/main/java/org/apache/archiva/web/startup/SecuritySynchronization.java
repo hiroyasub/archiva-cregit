@@ -5,8 +5,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|web
@@ -396,7 +394,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ConfigurationSynchronization  *  * @version $Id$  * plexus.component role="org.apache.maven.archiva.web.startup.SecuritySynchronization"  * role-hint="default"  */
+comment|/**  * ConfigurationSynchronization  *  * @version $Id$  * plexus.component role="org.apache.archiva.web.startup.SecuritySynchronization"  * role-hint="default"  */
 end_comment
 
 begin_class
