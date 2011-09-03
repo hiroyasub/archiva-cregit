@@ -293,8 +293,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|security
@@ -312,16 +310,6 @@ operator|.
 name|struts2
 operator|.
 name|StrutsSpringTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
 import|;
 end_import
 

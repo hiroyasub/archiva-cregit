@@ -5,8 +5,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|security
@@ -264,7 +262,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version  * plexus.component role="org.apache.maven.archiva.security.ServletAuthenticator" role-hint="default"  */
+comment|/**  * @version  * plexus.component role="org.apache.archiva.security.ServletAuthenticator" role-hint="default"  */
 end_comment
 
 begin_class

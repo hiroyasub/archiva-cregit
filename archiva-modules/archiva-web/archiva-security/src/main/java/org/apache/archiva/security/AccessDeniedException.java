@@ -5,8 +5,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|security
@@ -18,18 +16,18 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * PrincipalNotFoundException   *  * @version $Id$  */
+comment|/**  * AccessDeniedException   *  * @version $Id$  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|PrincipalNotFoundException
+name|AccessDeniedException
 extends|extends
 name|ArchivaSecurityException
 block|{
 specifier|public
-name|PrincipalNotFoundException
+name|AccessDeniedException
 parameter_list|(
 name|String
 name|message
@@ -47,7 +45,7 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|public
-name|PrincipalNotFoundException
+name|AccessDeniedException
 parameter_list|(
 name|String
 name|message
