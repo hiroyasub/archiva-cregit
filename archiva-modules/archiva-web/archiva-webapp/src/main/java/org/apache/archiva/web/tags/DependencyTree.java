@@ -254,7 +254,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DependencyTree  *  * @version $Id$  *          plexus.component role="org.apache.archiva.web.tags.DependencyTree"  */
+comment|/**  * DependencyTree  *  * @version $Id$  */
 end_comment
 
 begin_class
