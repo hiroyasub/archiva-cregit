@@ -345,7 +345,7 @@ name|repository
 operator|.
 name|setLocation
 argument_list|(
-name|getManagedRepositoryAdmin
+name|getRepositoryCommonValidator
 argument_list|()
 operator|.
 name|removeExpressions

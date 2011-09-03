@@ -134,14 +134,6 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 function_decl|;
-comment|/**      * replace some interpolations ${appserver.base} with correct values      * @param directory      * @return      */
-name|String
-name|removeExpressions
-parameter_list|(
-name|String
-name|directory
-parameter_list|)
-function_decl|;
 block|}
 end_interface
 
