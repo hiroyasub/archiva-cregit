@@ -10,8 +10,6 @@ operator|.
 name|admin
 operator|.
 name|repository
-operator|.
-name|managed
 package|;
 end_package
 
