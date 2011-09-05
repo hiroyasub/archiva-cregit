@@ -41,6 +41,42 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|admin
+operator|.
+name|repository
+operator|.
+name|remote
+operator|.
+name|DefaultRemoteRepositoryAdmin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|admin
+operator|.
+name|repository
+operator|.
+name|remote
+operator|.
+name|RemoteRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|archiva
@@ -64,22 +100,6 @@ operator|.
 name|configuration
 operator|.
 name|Configuration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|RemoteRepositoryConfiguration
 import|;
 end_import
 
@@ -154,7 +174,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AddRemoteRepositoryActionTest   *  * @version $Id$  */
+comment|/**  * AddRemoteRepositoryActionTest  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -196,7 +216,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-comment|//action = (AddRemoteRepositoryAction) lookup( Action.class.getName(), "addRemoteRepositoryAction" );
 name|action
 operator|=
 operator|(
@@ -232,6 +251,21 @@ name|getMock
 argument_list|()
 expr_stmt|;
 name|action
+operator|.
+name|setArchivaConfiguration
+argument_list|(
+name|archivaConfiguration
+argument_list|)
+expr_stmt|;
+operator|(
+operator|(
+name|DefaultRemoteRepositoryAdmin
+operator|)
+name|action
+operator|.
+name|getRemoteRepositoryAdmin
+argument_list|()
+operator|)
 operator|.
 name|setArchivaConfiguration
 argument_list|(
@@ -331,7 +365,7 @@ operator|.
 name|prepare
 argument_list|()
 expr_stmt|;
-name|RemoteRepositoryConfiguration
+name|RemoteRepository
 name|configuration
 init|=
 name|action
@@ -403,6 +437,18 @@ argument_list|(
 name|configuration
 argument_list|)
 expr_stmt|;
+name|archivaConfiguration
+operator|.
+name|getConfiguration
+argument_list|()
+expr_stmt|;
+name|archivaConfigurationControl
+operator|.
+name|setReturnValue
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
 name|archivaConfigurationControl
 operator|.
 name|replay
@@ -413,7 +459,7 @@ operator|.
 name|prepare
 argument_list|()
 expr_stmt|;
-name|RemoteRepositoryConfiguration
+name|RemoteRepository
 name|repository
 init|=
 name|action
@@ -462,7 +508,10 @@ argument_list|(
 name|repository
 argument_list|)
 argument_list|,
-name|configuration
+name|action
+operator|.
+name|getRemoteRepositoryAdmin
+argument_list|()
 operator|.
 name|getRemoteRepositories
 argument_list|()
@@ -488,7 +537,7 @@ specifier|private
 name|void
 name|populateRepository
 parameter_list|(
-name|RemoteRepositoryConfiguration
+name|RemoteRepository
 name|repository
 parameter_list|)
 block|{

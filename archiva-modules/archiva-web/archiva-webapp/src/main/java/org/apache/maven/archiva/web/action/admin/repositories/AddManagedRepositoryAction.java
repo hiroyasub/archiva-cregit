@@ -402,7 +402,7 @@ return|return
 name|result
 return|;
 block|}
-comment|// FIXME olamy dupe with admin repo componennt
+comment|// FIXME olamy dupe with admin repo component
 annotation|@
 name|Override
 specifier|public
