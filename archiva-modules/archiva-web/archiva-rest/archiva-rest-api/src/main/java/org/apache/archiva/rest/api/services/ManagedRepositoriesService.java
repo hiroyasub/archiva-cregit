@@ -63,6 +63,8 @@ name|archiva
 operator|.
 name|security
 operator|.
+name|common
+operator|.
 name|ArchivaRoleConstants
 import|;
 end_import
