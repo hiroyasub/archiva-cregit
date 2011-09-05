@@ -988,7 +988,7 @@ argument_list|)
 expr_stmt|;
 name|setFieldValue
 argument_list|(
-literal|"repository.indexDir"
+literal|"repository.indexDirectory"
 argument_list|,
 name|indexDirectory
 argument_list|)
@@ -1002,7 +1002,7 @@ argument_list|)
 expr_stmt|;
 name|setFieldValue
 argument_list|(
-literal|"repository.refreshCronExpression"
+literal|"repository.cronExpression"
 argument_list|,
 name|cron
 argument_list|)

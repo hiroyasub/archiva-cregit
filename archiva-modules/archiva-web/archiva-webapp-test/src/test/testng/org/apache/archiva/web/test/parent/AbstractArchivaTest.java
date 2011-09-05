@@ -17,6 +17,22 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|web
+operator|.
+name|test
+operator|.
+name|XPathExpressionUtil
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -32,22 +48,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|web
-operator|.
-name|test
-operator|.
-name|XPathExpressionUtil
 import|;
 end_import
 
@@ -299,11 +299,41 @@ argument_list|(
 name|baseUrl
 argument_list|)
 expr_stmt|;
+comment|// are we already logged in ?
+if|if
+condition|(
+name|isElementPresent
+argument_list|(
+literal|"logoutLink"
+argument_list|)
+condition|)
+block|{
+comment|// so logout
+name|clickLinkWithLocator
+argument_list|(
+literal|"logoutLink"
+argument_list|)
+expr_stmt|;
 name|clickLinkWithLocator
 argument_list|(
 literal|"loginLink"
 argument_list|)
 expr_stmt|;
+block|}
+if|else if
+condition|(
+name|isElementPresent
+argument_list|(
+literal|"loginLink"
+argument_list|)
+condition|)
+block|{
+name|clickLinkWithLocator
+argument_list|(
+literal|"loginLink"
+argument_list|)
+expr_stmt|;
+block|}
 name|assertLoginPage
 argument_list|()
 expr_stmt|;
@@ -635,11 +665,13 @@ name|userroles
 range|:
 name|arrayRole
 control|)
+block|{
 name|assertTextPresent
 argument_list|(
 name|userroles
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 specifier|public
 name|void
@@ -1576,11 +1608,13 @@ name|navmenu
 range|:
 name|arrayMenu
 control|)
+block|{
 name|assertLinkPresent
 argument_list|(
 name|navmenu
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// Find Artifact
@@ -1683,11 +1717,13 @@ name|appear
 range|:
 name|arrayAppearance
 control|)
+block|{
 name|assertTextPresent
 argument_list|(
 name|appear
 argument_list|)
 expr_stmt|;
+block|}
 name|assertLinkPresent
 argument_list|(
 literal|"Edit"
@@ -2163,7 +2199,7 @@ argument_list|)
 expr_stmt|;
 name|setFieldValue
 argument_list|(
-literal|"repository.indexDir"
+literal|"repository.indexDirectory"
 argument_list|,
 name|indexDirectory
 argument_list|)
@@ -2177,7 +2213,7 @@ argument_list|)
 expr_stmt|;
 name|setFieldValue
 argument_list|(
-literal|"repository.refreshCronExpression"
+literal|"repository.cronExpression"
 argument_list|,
 name|cron
 argument_list|)
@@ -2603,11 +2639,13 @@ name|arrayelement
 range|:
 name|arrayElement
 control|)
+block|{
 name|assertElementPresent
 argument_list|(
 name|arrayelement
 argument_list|)
 expr_stmt|;
+block|}
 name|assertButtonWithValuePresent
 argument_list|(
 literal|"Add Legacy Artifact Path"
@@ -2667,7 +2705,7 @@ argument_list|)
 expr_stmt|;
 name|setFieldValue
 argument_list|(
-literal|"repository.indexDir"
+literal|"repository.indexDirectory"
 argument_list|,
 name|indexDirectory
 argument_list|)
@@ -2681,7 +2719,7 @@ argument_list|)
 expr_stmt|;
 name|setFieldValue
 argument_list|(
-literal|"repository.refreshCronExpression"
+literal|"repository.cronExpression"
 argument_list|,
 name|cron
 argument_list|)
