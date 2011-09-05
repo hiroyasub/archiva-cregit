@@ -125,18 +125,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|ws
-operator|.
-name|rs
-operator|.
-name|PathParam
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -283,11 +271,6 @@ specifier|public
 name|RemoteRepository
 name|getRemoteRepository
 parameter_list|(
-annotation|@
-name|PathParam
-argument_list|(
-literal|"repositoryId"
-argument_list|)
 name|String
 name|repositoryId
 parameter_list|)
@@ -339,11 +322,6 @@ specifier|public
 name|Boolean
 name|deleteRemoteRepository
 parameter_list|(
-annotation|@
-name|PathParam
-argument_list|(
-literal|"repositoryId"
-argument_list|)
 name|String
 name|repositoryId
 parameter_list|)
