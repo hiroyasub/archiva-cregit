@@ -159,6 +159,8 @@ name|RemoteRepository
 argument_list|>
 name|getAllRemoteRepositories
 parameter_list|()
+throws|throws
+name|RepositoryAdminException
 function_decl|;
 comment|/**      * Deletes given artifact from the specified repository.      *      * @param repoId     id of the repository where the artifact to be deleted resides      * @param groupId    groupId of the artifact to be deleted      * @param artifactId artifactId of the artifact to be deleted      * @param version    version of the artifact to be deleted      * @return      * @throws Exception      */
 name|Boolean
