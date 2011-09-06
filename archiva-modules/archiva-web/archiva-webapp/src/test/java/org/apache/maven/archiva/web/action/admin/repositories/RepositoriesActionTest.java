@@ -67,6 +67,24 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|admin
+operator|.
+name|repository
+operator|.
+name|remote
+operator|.
+name|DefaultRemoteRepositoryAdmin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|metadata
 operator|.
 name|repository
@@ -242,7 +260,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-comment|//action = (RepositoriesAction) lookup( Action.class.getName(), "repositoriesAction" );
 name|action
 operator|=
 operator|(

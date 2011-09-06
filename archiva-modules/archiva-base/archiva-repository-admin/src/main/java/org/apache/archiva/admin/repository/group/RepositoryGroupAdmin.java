@@ -59,6 +59,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Olivier Lamy  * @since 1.4  */
 end_comment
@@ -149,6 +159,48 @@ parameter_list|,
 name|AuditInformation
 name|auditInformation
 parameter_list|)
+throws|throws
+name|RepositoryAdminException
+function_decl|;
+comment|/**      * @return Map with key repoGroupId and value repoGroup      * @throws RepositoryAdminException      */
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|RepositoryGroup
+argument_list|>
+name|getRepositoryGroupsAsMap
+parameter_list|()
+throws|throws
+name|RepositoryAdminException
+function_decl|;
+comment|/**      * @return Map with key repoGroupId and value List of ManagedRepositories      * @throws RepositoryAdminException      */
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|getGroupToRepositoryMap
+parameter_list|()
+throws|throws
+name|RepositoryAdminException
+function_decl|;
+comment|/**      * @return Map with key managedRepo id and value List of repositoryGroup ids where the repo is      * @throws RepositoryAdminException      */
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|getRepositoryToGroupMap
+parameter_list|()
 throws|throws
 name|RepositoryAdminException
 function_decl|;
