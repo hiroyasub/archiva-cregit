@@ -314,7 +314,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ManagedDefaultRepositoryContent   *  * @version $Id$  *   * plexus.component  *      role="org.apache.maven.archiva.repository.ManagedRepositoryContent"  *      role-hint="default"  *      instantiation-strategy="per-lookup"  */
+comment|/**  * ManagedDefaultRepositoryContent   *  * @version $Id$  */
 end_comment
 
 begin_class

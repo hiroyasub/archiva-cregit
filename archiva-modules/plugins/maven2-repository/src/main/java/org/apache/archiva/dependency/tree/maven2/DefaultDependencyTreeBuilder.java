@@ -1066,7 +1066,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of<code>DependencyTreeBuilder</code>. Customized wrapper for maven-dependency-tree to use  * maven-model-builder instead of maven-project. Note that the role must differ to avoid conflicting with the  * maven-shared implementation.  *<p/>  * plexus.component role="org.apache.archiva.dependency.tree.maven2.DependencyTreeBuilder" role-hint="maven2"  */
+comment|/**  * Default implementation of<code>DependencyTreeBuilder</code>. Customized wrapper for maven-dependency-tree to use  * maven-model-builder instead of maven-project. Note that the role must differ to avoid conflicting with the  * maven-shared implementation.  */
 end_comment
 
 begin_class

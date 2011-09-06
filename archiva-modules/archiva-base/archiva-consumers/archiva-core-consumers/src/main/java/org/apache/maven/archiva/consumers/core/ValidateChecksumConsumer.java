@@ -290,7 +290,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ValidateChecksumConsumer - validate the provided checksum against the file it represents.  *  * @version $Id$  *          plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *          role-hint="validate-checksum"  *          instantiation-strategy="per-lookup"  */
+comment|/**  * ValidateChecksumConsumer - validate the provided checksum against the file it represents.  *  * @version $Id$  */
 end_comment
 
 begin_class

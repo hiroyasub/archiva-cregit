@@ -448,7 +448,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Take an artifact off of disk and put it into the metadata repository.  *  * @version $Id: ArtifactUpdateDatabaseConsumer.java 718864 2008-11-19 06:33:35Z brett $  * plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="create-archiva-metadata" instantiation-strategy="per-lookup"  */
+comment|/**  * Take an artifact off of disk and put it into the metadata repository.  *  * @version $Id: ArtifactUpdateDatabaseConsumer.java 718864 2008-11-19 06:33:35Z brett $  */
 end_comment
 
 begin_class

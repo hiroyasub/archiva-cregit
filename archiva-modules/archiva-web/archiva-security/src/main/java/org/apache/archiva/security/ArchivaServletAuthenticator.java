@@ -262,7 +262,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version  * plexus.component role="org.apache.archiva.security.ServletAuthenticator" role-hint="default"  */
+comment|/**  *  */
 end_comment
 
 begin_class

@@ -176,7 +176,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryContentRequest  *  * @version $Id$  *<p/>  *          plexus.component  *          role="org.apache.maven.archiva.repository.RepositoryContentFactory"  */
+comment|/**  * RepositoryContentRequest  *  * @version $Id$  */
 end_comment
 
 begin_class

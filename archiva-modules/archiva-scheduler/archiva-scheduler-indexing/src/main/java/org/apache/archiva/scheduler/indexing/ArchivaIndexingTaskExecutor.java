@@ -448,7 +448,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaIndexingTaskExecutor Executes all indexing tasks. Adding, updating and removing artifacts from the index are  * all performed by this executor. Add and update artifact in index tasks are added in the indexing task queue by the  * NexusIndexerConsumer while remove artifact from index tasks are added by the LuceneCleanupRemoveIndexedConsumer.  *<p/>  * plexus.component role="org.codehaus.plexus.taskqueue.execution.TaskExecutor" role-hint="indexing"  * instantiation-strategy="singleton"  */
+comment|/**  * ArchivaIndexingTaskExecutor Executes all indexing tasks. Adding, updating and removing artifacts from the index are  * all performed by this executor. Add and update artifact in index tasks are added in the indexing task queue by the  * NexusIndexerConsumer while remove artifact from index tasks are added by the LuceneCleanupRemoveIndexedConsumer.  *  */
 end_comment
 
 begin_class

@@ -198,7 +198,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultRepositoryScanner  *  * @version $Id$  * plexus.component role="org.apache.archiva.repository.scanner.RepositoryScanner"  */
+comment|/**  * DefaultRepositoryScanner  *  * @version $Id$  */
 end_comment
 
 begin_class

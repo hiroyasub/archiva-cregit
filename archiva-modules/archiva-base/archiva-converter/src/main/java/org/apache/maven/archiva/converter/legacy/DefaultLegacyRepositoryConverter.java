@@ -298,7 +298,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultLegacyRepositoryConverter  *  * @version $Id$  *          plexus.component  */
+comment|/**  * DefaultLegacyRepositoryConverter  *  * @version $Id$  */
 end_comment
 
 begin_class

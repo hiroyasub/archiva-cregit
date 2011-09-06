@@ -440,7 +440,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * plexus.component role="org.apache.archiva.stagerepository.merge.RepositoryMerger" role-hint="maven2"  */
+comment|/**  *  */
 end_comment
 
 begin_class

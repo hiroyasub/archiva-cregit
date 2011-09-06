@@ -352,7 +352,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LegacyConverterArtifactConsumer - convert artifacts as they are found  * into the destination repository.  *  * @version $Id$  *<p/>  *          plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *          role-hint="artifact-legacy-to-default-converter"  *          instantiation-strategy="per-lookup"  */
+comment|/**  * LegacyConverterArtifactConsumer - convert artifacts as they are found  * into the destination repository.  *  * @version $Id$  */
 end_comment
 
 begin_class

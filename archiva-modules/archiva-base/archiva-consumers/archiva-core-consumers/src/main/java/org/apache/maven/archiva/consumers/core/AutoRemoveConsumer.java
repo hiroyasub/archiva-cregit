@@ -274,7 +274,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AutoRemoveConsumer  *  * @version $Id$  * plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="auto-remove"  * instantiation-strategy="per-lookup"  */
+comment|/**  * AutoRemoveConsumer  *  * @version $Id$  */
 end_comment
 
 begin_class

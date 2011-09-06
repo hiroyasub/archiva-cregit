@@ -448,7 +448,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Search the database of known SHA1 Checksums for potential duplicate artifacts.  *<p/>  * TODO: no need for this to be a scanner - we can just query the database / content repository to get a full list  *  * @version $Id$  *          plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *          role-hint="duplicate-artifacts"  *          instantiation-strategy="per-lookup"  */
+comment|/**  * Search the database of known SHA1 Checksums for potential duplicate artifacts.  *<p/>  * TODO: no need for this to be a scanner - we can just query the database / content repository to get a full list  *  * @version $Id$  */
 end_comment
 
 begin_class

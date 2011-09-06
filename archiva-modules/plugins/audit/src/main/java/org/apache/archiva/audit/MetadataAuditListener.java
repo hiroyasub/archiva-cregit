@@ -106,7 +106,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * plexus.component role="org.apache.archiva.audit.AuditListener" role-hint="metadata"  */
+comment|/**  *  */
 end_comment
 
 begin_class

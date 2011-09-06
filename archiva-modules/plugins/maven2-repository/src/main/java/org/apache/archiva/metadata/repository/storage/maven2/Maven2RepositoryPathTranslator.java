@@ -172,7 +172,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * plexus.component role="org.apache.archiva.metadata.repository.storage.RepositoryPathTranslator" role-hint="maven2"  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -216,9 +216,7 @@ argument_list|(
 literal|"([0-9]{8}.[0-9]{6})-([0-9]+).*"
 argument_list|)
 decl_stmt|;
-comment|//@Inject
-comment|//private ApplicationContext applicationContext;
-comment|/**      * plexus.requirement role="org.apache.archiva.metadata.repository.storage.maven2.ArtifactMappingProvider"      * see #initialize      */
+comment|/**      *      * see #initialize      */
 annotation|@
 name|Inject
 specifier|private

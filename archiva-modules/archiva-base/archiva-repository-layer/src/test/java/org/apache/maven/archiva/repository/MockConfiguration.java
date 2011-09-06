@@ -150,7 +150,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MockConfiguration   *  * @version $Id$  *   * plexus.component role="org.apache.maven.archiva.configuration.ArchivaConfiguration"  *                   role-hint="mock"  */
+comment|/**  * MockConfiguration   *  * @version $Id$  */
 end_comment
 
 begin_class

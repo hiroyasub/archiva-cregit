@@ -146,7 +146,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Process repository management events and respond appropriately.  *<p/>  * plexus.component role="org.apache.archiva.repository.events.RepositoryListener" role-hint="problem-reports"  */
+comment|/**  * Process repository management events and respond appropriately.  *  */
 end_comment
 
 begin_class

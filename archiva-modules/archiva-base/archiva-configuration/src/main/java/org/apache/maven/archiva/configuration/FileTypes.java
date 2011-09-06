@@ -286,7 +286,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FileTypes  *  * @version $Id$  *<p/>  *          plexus.component role="org.apache.maven.archiva.configuration.FileTypes"  */
+comment|/**  * FileTypes  *  * @version $Id$  */
 end_comment
 
 begin_class

@@ -84,7 +84,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Required as plexus-spring doesn't understand the optional = true argument added to Plexus and used here.  *  * @plexus.component role="org.apache.maven.model.plugin.LifecycleBindingsInjector"  */
+comment|/**  * Required as plexus-spring doesn't understand the optional = true argument added to Plexus and used here.  *  *  */
 end_comment
 
 begin_class

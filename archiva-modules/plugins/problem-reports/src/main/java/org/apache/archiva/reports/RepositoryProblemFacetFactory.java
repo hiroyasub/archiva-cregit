@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * plexus.component role="org.apache.archiva.metadata.model.MetadataFacetFactory" role-hint="org.apache.archiva.reports"  */
+comment|/**  *  */
 end_comment
 
 begin_class

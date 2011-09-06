@@ -170,7 +170,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @plexus.component role="org.apache.archiva.audit.AuditManager"  */
+comment|/**  *  */
 end_comment
 
 begin_class

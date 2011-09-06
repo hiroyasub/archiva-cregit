@@ -1102,7 +1102,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * plexus.component role="org.apache.maven.archiva.webdav.ArchivaDavResourceFactory"  */
+comment|/**  *  */
 end_comment
 
 begin_class

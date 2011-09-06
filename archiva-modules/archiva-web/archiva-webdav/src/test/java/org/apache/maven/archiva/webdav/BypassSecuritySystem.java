@@ -306,7 +306,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * BypassSecuritySystem - used to bypass the security system for testing reasons and allow  * for every request to respond as success / true.   *  * @version $Id$  *   * plexus.component  *      role="org.codehaus.plexus.redback.system.SecuritySystem"  */
+comment|/**  * BypassSecuritySystem - used to bypass the security system for testing reasons and allow  * for every request to respond as success / true.   *  * @version $Id$  */
 end_comment
 
 begin_class

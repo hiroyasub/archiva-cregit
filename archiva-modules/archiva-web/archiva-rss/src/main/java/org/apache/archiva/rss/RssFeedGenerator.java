@@ -178,7 +178,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generates RSS feeds.  *   * plexus.component role="org.apache.archiva.rss.RssFeedGenerator"  *      instantiation-strategy="per-lookup"  *   * @version  */
+comment|/**  * Generates RSS feeds.  *  */
 end_comment
 
 begin_class

@@ -128,7 +128,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RemoteDefaultRepositoryContent  *  * @version $Id$  *<p/>  *          plexus.component  *          role="org.apache.maven.archiva.repository.RemoteRepositoryContent"  *          role-hint="default"  *          instantiation-strategy="per-lookup"  */
+comment|/**  * RemoteDefaultRepositoryContent  *  * @version $Id$  */
 end_comment
 
 begin_class

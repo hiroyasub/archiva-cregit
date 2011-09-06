@@ -102,7 +102,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SampleKnownConsumer   *  * @version $Id$  *   * plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  *                   role-hint="sample-known"  */
+comment|/**  * SampleKnownConsumer   *  * @version $Id$  */
 end_comment
 
 begin_class

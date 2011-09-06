@@ -204,7 +204,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AutoRenameConsumer  *  * @version $Id$  * plexus.component role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"  * role-hint="auto-rename"  * instantiation-strategy="per-lookup"  */
+comment|/**  * AutoRenameConsumer  *  * @version $Id$  */
 end_comment
 
 begin_class

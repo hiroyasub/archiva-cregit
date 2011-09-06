@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * plexus.component role="org.apache.archiva.metadata.repository.storage.maven2.ArtifactMappingProvider" role-hint="default"  */
+comment|/**  *  */
 end_comment
 
 begin_class

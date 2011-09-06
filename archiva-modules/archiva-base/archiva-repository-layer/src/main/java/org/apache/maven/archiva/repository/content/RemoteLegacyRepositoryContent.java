@@ -128,7 +128,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RemoteLegacyRepositoryContent  *  * @version $Id$  * @todo no need to be a component once legacy path parser is not  * plexus.component role="org.apache.maven.archiva.repository.RemoteRepositoryContent"  * role-hint="legacy"  * instantiation-strategy="per-lookup"  */
+comment|/**  * RemoteLegacyRepositoryContent  *  * @version $Id$  * @todo no need to be a component once legacy path parser is not  */
 end_comment
 
 begin_class

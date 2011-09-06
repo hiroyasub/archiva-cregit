@@ -632,7 +632,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LegacyToDefaultConverter  *  * @version $Id$  * @plexus.component role="org.apache.maven.archiva.converter.artifact.ArtifactConverter"  * role-hint="legacy-to-default"  */
+comment|/**  * LegacyToDefaultConverter  *  * @version $Id$  */
 end_comment
 
 begin_class

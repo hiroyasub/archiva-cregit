@@ -204,7 +204,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * plexus.component role="org.apache.archiva.metadata.repository.RepositorySessionFactory" role-hint="file"  */
+comment|/**  *  */
 end_comment
 
 begin_class

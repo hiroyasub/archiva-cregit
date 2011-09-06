@@ -268,7 +268,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultUserRepositories  *  * @version $Id$  *          plexus.component role="org.apache.archiva.security.UserRepositories" role-hint="default"  */
+comment|/**  * DefaultUserRepositories  *  * @version $Id$  */
 end_comment
 
 begin_class

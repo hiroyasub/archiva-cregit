@@ -112,7 +112,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of a scheduling component for archiva.  *  * @todo TODO - consider just folding in, not really scheduled  * @plexus.component role="org.apache.archiva.scheduler.ArchivaTaskScheduler" role-hint="indexing"  */
+comment|/**  * Default implementation of a scheduling component for archiva.  *  * @todo TODO - consider just folding in, not really scheduled  */
 end_comment
 
 begin_class

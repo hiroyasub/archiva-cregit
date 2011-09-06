@@ -664,7 +664,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MetadataTools  *  * @version $Id$  *<p/>  *          plexus.component role="org.apache.maven.archiva.repository.metadata.MetadataTools"  */
+comment|/**  * MetadataTools  *  * @version $Id$  */
 end_comment
 
 begin_class
