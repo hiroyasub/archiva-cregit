@@ -23,6 +23,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|security
+operator|.
+name|common
+operator|.
+name|ArchivaRoleConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|collections
@@ -106,20 +122,6 @@ operator|.
 name|configuration
 operator|.
 name|ManagedRepositoryConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|security
-operator|.
-name|ArchivaRoleConstants
 import|;
 end_import
 
@@ -392,7 +394,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ConfigurationSynchronization  *  * @version $Id$  * plexus.component role="org.apache.archiva.web.startup.SecuritySynchronization"  * role-hint="default"  */
+comment|/**  * ConfigurationSynchronization  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -417,14 +419,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * plexus.requirement role-hint="default"      */
 annotation|@
 name|Inject
 specifier|private
 name|RoleManager
 name|roleManager
 decl_stmt|;
-comment|/**      * plexus.requirement role-hint="cached"      */
 annotation|@
 name|Inject
 annotation|@
@@ -438,7 +438,6 @@ specifier|private
 name|RBACManager
 name|rbacManager
 decl_stmt|;
-comment|/**      * plexus.requirement role="org.codehaus.plexus.redback.system.check.EnvironmentCheck"      */
 specifier|private
 name|Map
 argument_list|<
@@ -448,7 +447,6 @@ name|EnvironmentCheck
 argument_list|>
 name|checkers
 decl_stmt|;
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private

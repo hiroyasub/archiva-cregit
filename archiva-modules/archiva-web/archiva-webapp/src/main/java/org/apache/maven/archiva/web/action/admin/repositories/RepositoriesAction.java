@@ -125,6 +125,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|security
+operator|.
+name|common
+operator|.
+name|ArchivaRoleConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|archiva
@@ -198,20 +214,6 @@ operator|.
 name|functors
 operator|.
 name|RepositoryConfigurationComparator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|security
-operator|.
-name|ArchivaRoleConstants
 import|;
 end_import
 
@@ -426,7 +428,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Shows the Repositories Tab for the administrator.  *  * @version $Id$  *          plexus.component role="com.opensymphony.xwork2.Action" role-hint="repositoriesAction" instantiation-strategy="per-lookup"  */
+comment|/**  * Shows the Repositories Tab for the administrator.  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -452,7 +454,6 @@ name|ServletRequestAware
 implements|,
 name|Preparable
 block|{
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private
@@ -499,7 +500,6 @@ specifier|private
 name|String
 name|baseUrl
 decl_stmt|;
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private

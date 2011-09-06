@@ -97,6 +97,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|security
+operator|.
+name|common
+operator|.
+name|ArchivaRoleConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|collections
@@ -232,20 +248,6 @@ operator|.
 name|functors
 operator|.
 name|FiletypeToMapClosure
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|security
-operator|.
-name|ArchivaRoleConstants
 import|;
 end_import
 
@@ -422,7 +424,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryScanningAction  *  * @version $Id$  *          plexus.component role="com.opensymphony.xwork2.Action" role-hint="repositoryScanningAction" instantiation-strategy="per-lookup"  */
+comment|/**  * RepositoryScanningAction  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -450,14 +452,12 @@ name|SecureAction
 implements|,
 name|Auditable
 block|{
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private

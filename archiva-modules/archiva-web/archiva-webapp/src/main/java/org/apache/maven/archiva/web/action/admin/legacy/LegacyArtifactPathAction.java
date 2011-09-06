@@ -41,6 +41,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|security
+operator|.
+name|common
+operator|.
+name|ArchivaRoleConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|archiva
@@ -80,20 +96,6 @@ operator|.
 name|configuration
 operator|.
 name|LegacyArtifactPath
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|security
-operator|.
-name|ArchivaRoleConstants
 import|;
 end_import
 
@@ -278,7 +280,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Shows the LegacyArtifactPath Tab for the administrator.  *  * @since 1.1  *        plexus.component role="com.opensymphony.xwork2.Action" role-hint="legacyArtifactPathAction" instantiation-strategy="per-lookup"  */
+comment|/**  * Shows the LegacyArtifactPath Tab for the administrator.  *  * @since 1.1  */
 end_comment
 
 begin_class
@@ -304,7 +306,6 @@ name|ServletRequestAware
 implements|,
 name|Preparable
 block|{
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private

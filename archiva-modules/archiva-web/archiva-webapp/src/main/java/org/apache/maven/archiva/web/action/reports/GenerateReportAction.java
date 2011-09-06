@@ -137,6 +137,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|security
+operator|.
+name|common
+operator|.
+name|ArchivaRoleConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|io
@@ -188,20 +204,6 @@ operator|.
 name|configuration
 operator|.
 name|ArchivaConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|security
-operator|.
-name|ArchivaRoleConstants
 import|;
 end_import
 
@@ -571,14 +573,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private

@@ -53,6 +53,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|security
+operator|.
+name|common
+operator|.
+name|ArchivaRoleConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|collections
@@ -170,20 +186,6 @@ operator|.
 name|functors
 operator|.
 name|NetworkProxySelectionPredicate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|security
-operator|.
-name|ArchivaRoleConstants
 import|;
 end_import
 
@@ -320,7 +322,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ConfigureNetworkProxyAction  *  * @version $Id$  *          plexus.component role="com.opensymphony.xwork2.Action" role-hint="configureNetworkProxyAction" instantiation-strategy="per-lookup"  */
+comment|/**  * ConfigureNetworkProxyAction  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -346,7 +348,6 @@ name|Preparable
 implements|,
 name|Validateable
 block|{
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private

@@ -59,11 +59,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|archiva
 operator|.
-name|lang
+name|security
 operator|.
-name|StringUtils
+name|common
+operator|.
+name|ArchivaRoleConstants
 import|;
 end_import
 
@@ -73,11 +75,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|archiva
+name|commons
 operator|.
-name|security
+name|lang
 operator|.
-name|ArchivaRoleConstants
+name|StringUtils
 import|;
 end_import
 
@@ -224,7 +226,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Configures the application.  *<p/>  * plexus.component role="com.opensymphony.xwork2.Action" role-hint="schedulerAction" instantiation-strategy="per-lookup"  */
+comment|/**  * Configures the application.  */
 end_comment
 
 begin_class
@@ -246,7 +248,6 @@ name|AbstractActionSupport
 implements|implements
 name|SecureAction
 block|{
-comment|/**      * plexus.requirement role="org.apache.archiva.scheduler.ArchivaTaskScheduler" role-hint="repository"      */
 annotation|@
 name|Inject
 annotation|@

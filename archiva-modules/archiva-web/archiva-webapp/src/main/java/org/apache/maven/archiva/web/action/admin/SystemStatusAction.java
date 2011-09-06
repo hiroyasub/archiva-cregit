@@ -43,11 +43,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|archiva
 operator|.
-name|lang
+name|security
 operator|.
-name|StringUtils
+name|common
+operator|.
+name|ArchivaRoleConstants
 import|;
 end_import
 
@@ -57,11 +59,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|archiva
+name|commons
 operator|.
-name|security
+name|lang
 operator|.
-name|ArchivaRoleConstants
+name|StringUtils
 import|;
 end_import
 
@@ -232,7 +234,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Shows system status information for the administrator.  *  * @version $Id$  *          plexus.component role="com.opensymphony.xwork2.Action" role-hint="systemStatus" instantiation-strategy="per-lookup"  */
+comment|/**  * Shows system status information for the administrator.  *  * @version $Id$  */
 end_comment
 
 begin_class

@@ -41,6 +41,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|security
+operator|.
+name|common
+operator|.
+name|ArchivaRoleConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|lang
@@ -94,20 +110,6 @@ operator|.
 name|configuration
 operator|.
 name|OrganisationInformation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|security
-operator|.
-name|ArchivaRoleConstants
 import|;
 end_import
 
@@ -216,7 +218,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Id: ConfigurationAction.java 480950 2006-11-30 14:58:35Z evenisse $  * plexus.component role="com.opensymphony.xwork2.Action"  * role-hint="editOrganisationInfo"  * instantiation-strategy="per-lookup"  */
+comment|/**  * @version $Id: ConfigurationAction.java 480950 2006-11-30 14:58:35Z evenisse $  */
 end_comment
 
 begin_class

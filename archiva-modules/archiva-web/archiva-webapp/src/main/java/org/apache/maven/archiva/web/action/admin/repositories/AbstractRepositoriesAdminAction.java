@@ -81,6 +81,8 @@ name|archiva
 operator|.
 name|security
 operator|.
+name|common
+operator|.
 name|ArchivaRoleConstants
 import|;
 end_import
@@ -317,7 +319,6 @@ name|SecureAction
 implements|,
 name|Auditable
 block|{
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|protected
