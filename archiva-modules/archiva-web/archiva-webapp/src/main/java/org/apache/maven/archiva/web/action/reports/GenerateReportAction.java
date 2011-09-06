@@ -476,7 +476,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * plexus.component role="com.opensymphony.xwork2.Action" role-hint="generateReport" instantiation-strategy="per-lookup"  */
+comment|/**  *  */
 end_comment
 
 begin_class

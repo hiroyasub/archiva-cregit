@@ -382,7 +382,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Search all indexed fields by the given criteria.  *<p/>  * plexus.component role="com.opensymphony.xwork2.Action" role-hint="searchAction" instantiation-strategy="per-lookup"  */
+comment|/**  * Search all indexed fields by the given criteria.  */
 end_comment
 
 begin_class

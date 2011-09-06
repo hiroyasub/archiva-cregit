@@ -246,7 +246,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Browse the repository.  *  * @todo implement repository selectors (all or specific repository)  * plexus.component role="com.opensymphony.xwork2.Action" role-hint="browseAction" instantiation-strategy="per-lookup"  */
+comment|/**  * Browse the repository.  *  * @todo implement repository selectors (all or specific repository)  */
 end_comment
 
 begin_class

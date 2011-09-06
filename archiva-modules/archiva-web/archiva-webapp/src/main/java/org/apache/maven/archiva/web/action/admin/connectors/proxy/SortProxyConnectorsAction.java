@@ -92,7 +92,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SortProxyConnectorsAction -  *  * @version $Id$  *<p/>  *          plexus.component role="com.opensymphony.xwork2.Action" role-hint="sortProxyConnectorsAction" instantiation-strategy="per-lookup"  */
+comment|/**  * SortProxyConnectorsAction -  *  * @version $Id$  */
 end_comment
 
 begin_class

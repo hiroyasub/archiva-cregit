@@ -122,7 +122,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DeleteRepositoryGroupAction  *  * plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteRepositoryGroupAction" instantiation-strategy="per-lookup"  */
+comment|/**  * DeleteRepositoryGroupAction  *  */
 end_comment
 
 begin_class

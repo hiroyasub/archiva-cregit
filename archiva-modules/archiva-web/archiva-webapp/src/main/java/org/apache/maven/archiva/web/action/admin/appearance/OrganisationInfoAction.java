@@ -50,7 +50,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Stores the organisation information for displaying on the page.  *<p/>  * plexus.component role="com.opensymphony.xwork2.Action" role-hint="organisationInfo" instantiation-strategy="per-lookup"  */
+comment|/**  * Stores the organisation information for displaying on the page.  */
 end_comment
 
 begin_class

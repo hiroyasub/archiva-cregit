@@ -224,7 +224,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryGroupsAction  *  * @version plexus.component role="com.opensymphony.xwork2.Action" role-hint="repositoryGroupsAction" instantiation-strategy="per-lookup"  */
+comment|/**  * RepositoryGroupsAction  *  */
 end_comment
 
 begin_class
