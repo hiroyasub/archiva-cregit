@@ -61,16 +61,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -90,12 +80,6 @@ name|RemoteRepositoryAdminTest
 extends|extends
 name|AbstractRepositoryAdminTest
 block|{
-annotation|@
-name|Inject
-specifier|private
-name|RemoteRepositoryAdmin
-name|remoteRepositoryAdmin
-decl_stmt|;
 annotation|@
 name|Test
 specifier|public

@@ -317,6 +317,14 @@ specifier|public
 specifier|static
 specifier|final
 name|String
+name|MODIFY_REPO_GROUP
+init|=
+literal|"Modify Repository Group"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
 name|ADD_REPO_TO_GROUP
 init|=
 literal|"Added Repository to Group"

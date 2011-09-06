@@ -43,9 +43,59 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|admin
+operator|.
+name|repository
+operator|.
+name|RepositoryAdminException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|admin
+operator|.
+name|repository
+operator|.
+name|managed
+operator|.
+name|ManagedRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|audit
 operator|.
 name|AuditEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|web
+operator|.
+name|util
+operator|.
+name|ContextUtils
 import|;
 end_import
 
@@ -108,22 +158,6 @@ operator|.
 name|configuration
 operator|.
 name|RepositoryGroupConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|web
-operator|.
-name|util
-operator|.
-name|ContextUtils
 import|;
 end_import
 
@@ -224,7 +258,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryGroupsAction  *  */
+comment|/**  * RepositoryGroupsAction  */
 end_comment
 
 begin_class
@@ -266,7 +300,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 argument_list|>
 name|managedRepositories
 decl_stmt|;
@@ -334,6 +368,8 @@ specifier|public
 name|void
 name|prepare
 parameter_list|()
+throws|throws
+name|RepositoryAdminException
 block|{
 name|Configuration
 name|config
@@ -358,7 +394,8 @@ argument_list|()
 expr_stmt|;
 name|managedRepositories
 operator|=
-name|config
+name|getManagedRepositoryAdmin
+argument_list|()
 operator|.
 name|getManagedRepositoriesAsMap
 argument_list|()
@@ -929,7 +966,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 argument_list|>
 name|getManagedRepositories
 parameter_list|()

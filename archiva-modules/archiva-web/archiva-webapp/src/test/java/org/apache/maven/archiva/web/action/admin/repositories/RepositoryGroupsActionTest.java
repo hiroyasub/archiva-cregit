@@ -65,6 +65,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|admin
+operator|.
+name|repository
+operator|.
+name|RepositoryAdminException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|archiva
@@ -204,7 +220,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryGroupsActionTest  *   * @version  */
+comment|/**  * RepositoryGroupsActionTest  */
 end_comment
 
 begin_class
@@ -262,7 +278,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-comment|//action = (RepositoryGroupsAction) lookup( Action.class.getName(), "repositoryGroupsAction" );
 name|action
 operator|=
 operator|(
@@ -311,6 +326,8 @@ name|testSecureActionBundle
 parameter_list|()
 throws|throws
 name|SecureActionException
+throws|,
+name|RepositoryAdminException
 block|{
 name|archivaConfiguration
 operator|.
