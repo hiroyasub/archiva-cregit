@@ -428,7 +428,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -442,14 +442,14 @@ specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * The repository scanner component.      *      * plexus.requirement      */
+comment|/**      * The repository scanner component.      *      *      */
 annotation|@
 name|Inject
 specifier|private
 name|RepositoryScanner
 name|repoScanner
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
@@ -460,14 +460,14 @@ specifier|private
 name|Task
 name|task
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|RepositoryStatisticsManager
 name|repositoryStatisticsManager
 decl_stmt|;
-comment|/**      * TODO: may be different implementations      *      * plexus.requirement      */
+comment|/**      * TODO: may be different implementations      *      */
 annotation|@
 name|Inject
 specifier|private

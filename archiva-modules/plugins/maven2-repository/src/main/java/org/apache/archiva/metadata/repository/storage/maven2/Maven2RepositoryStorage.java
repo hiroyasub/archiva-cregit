@@ -751,12 +751,12 @@ name|Maven2RepositoryStorage
 implements|implements
 name|RepositoryStorage
 block|{
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 specifier|private
 name|ModelBuilder
 name|builder
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -770,7 +770,7 @@ specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * plexus.requirement role-hint="maven2"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@

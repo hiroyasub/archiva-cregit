@@ -476,7 +476,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 specifier|private
 name|IndexPacker
 name|indexPacker

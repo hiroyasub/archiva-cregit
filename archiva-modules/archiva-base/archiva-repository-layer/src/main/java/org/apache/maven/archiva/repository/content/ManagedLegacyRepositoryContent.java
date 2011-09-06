@@ -300,7 +300,7 @@ name|AbstractLegacyRepositoryContent
 implements|implements
 name|ManagedRepositoryContent
 block|{
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private

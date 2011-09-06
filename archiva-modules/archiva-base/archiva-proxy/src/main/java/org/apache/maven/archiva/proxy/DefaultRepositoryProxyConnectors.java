@@ -886,7 +886,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -900,7 +900,7 @@ specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -914,7 +914,7 @@ specifier|private
 name|RepositoryContentFactory
 name|repositoryFactory
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -928,9 +928,7 @@ specifier|private
 name|MetadataTools
 name|metadataTools
 decl_stmt|;
-comment|//@Inject
-comment|//private ApplicationContext applicationContext;
-comment|/**      * plexus.requirement role="org.apache.maven.archiva.policies.PreDownloadPolicy"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
@@ -942,7 +940,7 @@ name|PreDownloadPolicy
 argument_list|>
 name|preDownloadPolicies
 decl_stmt|;
-comment|/**      * plexus.requirement role="org.apache.maven.archiva.policies.PostDownloadPolicy"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
@@ -954,7 +952,7 @@ name|PostDownloadPolicy
 argument_list|>
 name|postDownloadPolicies
 decl_stmt|;
-comment|/**      * plexus.requirement role="org.apache.maven.archiva.policies.DownloadErrorPolicy"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
@@ -966,7 +964,7 @@ name|DownloadErrorPolicy
 argument_list|>
 name|downloadErrorPolicies
 decl_stmt|;
-comment|/**      * plexus.requirement role-hint="default"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
@@ -1015,14 +1013,14 @@ name|ProxyInfo
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|WagonFactory
 name|wagonFactory
 decl_stmt|;
-comment|/**      * plexus.requirement role="org.apache.archiva.scheduler.ArchivaTaskScheduler" role-hint="repository"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@

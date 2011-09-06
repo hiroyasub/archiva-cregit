@@ -290,7 +290,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private

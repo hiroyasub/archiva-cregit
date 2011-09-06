@@ -276,7 +276,7 @@ name|desc
 init|=
 literal|"These are the new versions of artifact "
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private

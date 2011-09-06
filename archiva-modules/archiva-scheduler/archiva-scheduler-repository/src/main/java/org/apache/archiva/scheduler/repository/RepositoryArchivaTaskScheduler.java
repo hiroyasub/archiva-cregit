@@ -475,7 +475,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
@@ -488,7 +488,7 @@ specifier|private
 name|CronExpressionValidator
 name|cronValidator
 decl_stmt|;
-comment|/**      * plexus.requirement role-hint="repository-scanning"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -502,14 +502,14 @@ specifier|private
 name|TaskQueue
 name|repositoryScanningQueue
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -523,7 +523,7 @@ specifier|private
 name|RepositoryStatisticsManager
 name|repositoryStatisticsManager
 decl_stmt|;
-comment|/**      * TODO: could have multiple implementations      *<p/>      * plexus.requirement      */
+comment|/**      * TODO: could have multiple implementations      *      */
 annotation|@
 name|Inject
 specifier|private

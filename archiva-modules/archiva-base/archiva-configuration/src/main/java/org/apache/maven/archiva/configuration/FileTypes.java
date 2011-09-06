@@ -333,7 +333,7 @@ name|IGNORED
 init|=
 literal|"ignored"
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@

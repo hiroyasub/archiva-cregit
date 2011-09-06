@@ -213,7 +213,7 @@ literal|"javadoc.jar"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * plexus.requirement role-hint="legacy"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@

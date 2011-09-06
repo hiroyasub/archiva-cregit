@@ -358,12 +358,12 @@ name|description
 init|=
 literal|"Validate checksums against file."
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 specifier|private
 name|ChecksumFile
 name|checksum
 decl_stmt|;
-comment|/**      * plexus.requirement role="org.codehaus.plexus.digest.Digester"      */
+comment|/**      *      */
 specifier|private
 name|List
 argument_list|<

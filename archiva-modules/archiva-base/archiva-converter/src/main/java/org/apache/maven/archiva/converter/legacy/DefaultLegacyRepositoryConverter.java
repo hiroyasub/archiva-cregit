@@ -313,17 +313,17 @@ name|DefaultLegacyRepositoryConverter
 implements|implements
 name|LegacyRepositoryConverter
 block|{
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 specifier|private
 name|ArtifactRepositoryFactory
 name|artifactRepositoryFactory
 decl_stmt|;
-comment|/**      * plexus.requirement role-hint="default"      */
+comment|/**      *      */
 specifier|private
 name|ArtifactRepositoryLayout
 name|defaultLayout
 decl_stmt|;
-comment|/**      * plexus.requirement role="org.apache.maven.archiva.consumers.KnownRepositoryContentConsumer"      * role-hint="artifact-legacy-to-default-converter"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -337,7 +337,7 @@ specifier|private
 name|LegacyConverterArtifactConsumer
 name|legacyConverterConsumer
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private

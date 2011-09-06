@@ -302,7 +302,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * FIXME: this needs to be configurable based on storage type - and could also be instantiated per repo. Change to a      * factory, and perhaps retrieve from the session. We should avoid creating one per request, however.      *<p/>      * TODO: Also need to accommodate availability of proxy module      * ... could be a different type since we need methods to modify the storage metadata, which would also allow more      * appropriate methods to pass in the already determined repository configuration, for example, instead of the ID      *      * plexus.requirement role-hint="maven2"      */
+comment|/**      * FIXME: this needs to be configurable based on storage type - and could also be instantiated per repo. Change to a      * factory, and perhaps retrieve from the session. We should avoid creating one per request, however.      *<p/>      * TODO: Also need to accommodate availability of proxy module      * ... could be a different type since we need methods to modify the storage metadata, which would also allow more      * appropriate methods to pass in the already determined repository configuration, for example, instead of the ID      *      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -316,7 +316,7 @@ specifier|private
 name|RepositoryStorage
 name|repositoryStorage
 decl_stmt|;
-comment|/**      * plexus.requirement role="org.apache.archiva.repository.events.RepositoryListener"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
@@ -326,8 +326,6 @@ name|RepositoryListener
 argument_list|>
 name|listeners
 decl_stmt|;
-comment|//@Inject
-comment|//private ApplicationContext applicationContext;
 annotation|@
 name|PostConstruct
 specifier|private
@@ -335,8 +333,7 @@ name|void
 name|initialize
 parameter_list|()
 block|{
-comment|//listeners =
-comment|//    new ArrayList<RepositoryListener>( applicationContext.getBeansOfType( RepositoryListener.class ).values() );
+comment|// no op
 block|}
 specifier|public
 name|ProjectVersionMetadata

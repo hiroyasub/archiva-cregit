@@ -263,7 +263,7 @@ name|desc
 init|=
 literal|"These are the new artifacts found in the repository "
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private

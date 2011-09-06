@@ -178,7 +178,7 @@ name|YES
 init|=
 literal|"yes"
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private

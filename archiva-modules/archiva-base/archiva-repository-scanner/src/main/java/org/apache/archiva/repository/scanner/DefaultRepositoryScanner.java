@@ -213,14 +213,14 @@ name|DefaultRepositoryScanner
 implements|implements
 name|RepositoryScanner
 block|{
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|FileTypes
 name|filetypes
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private

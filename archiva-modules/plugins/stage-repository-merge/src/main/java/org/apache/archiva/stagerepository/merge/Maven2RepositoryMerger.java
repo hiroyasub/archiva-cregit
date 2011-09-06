@@ -455,12 +455,12 @@ name|Maven2RepositoryMerger
 implements|implements
 name|RepositoryMerger
 block|{
-comment|/**      * plexus.requirement role-hint="default"      */
+comment|/**      *      */
 specifier|private
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      * plexus.requirement role-hint="maven2"      */
+comment|/**      *      */
 specifier|private
 name|RepositoryPathTranslator
 name|pathTranslator

@@ -219,7 +219,7 @@ specifier|private
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
-comment|/**      * plexus.requirement role="org.apache.archiva.metadata.model.MetadataFacetFactory"      */
+comment|/**      *      */
 specifier|private
 name|Map
 argument_list|<
@@ -229,14 +229,14 @@ name|MetadataFacetFactory
 argument_list|>
 name|metadataFacetFactories
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|Repository
 name|repository
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private

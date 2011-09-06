@@ -1093,29 +1093,29 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 specifier|private
 name|ArtifactFactory
 name|factory
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 specifier|private
 name|ArtifactCollector
 name|collector
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 specifier|private
 name|ModelBuilder
 name|builder
 decl_stmt|;
-comment|/**      * TODO: can have other types, and this might eventually come through from the main request      *<p/>      * plexus.requirement      */
+comment|/**      * TODO: can have other types, and this might eventually come through from the main request      *      */
 annotation|@
 name|Inject
 specifier|private
 name|RepositorySessionFactory
 name|repositorySessionFactory
 decl_stmt|;
-comment|/**      * plexus.requirement role-hint="maven2"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -1129,7 +1129,7 @@ specifier|private
 name|RepositoryPathTranslator
 name|pathTranslator
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@

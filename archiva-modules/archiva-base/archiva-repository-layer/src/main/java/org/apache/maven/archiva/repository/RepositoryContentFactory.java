@@ -191,7 +191,7 @@ name|RepositoryContentFactory
 implements|implements
 name|RegistryListener
 block|{
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private

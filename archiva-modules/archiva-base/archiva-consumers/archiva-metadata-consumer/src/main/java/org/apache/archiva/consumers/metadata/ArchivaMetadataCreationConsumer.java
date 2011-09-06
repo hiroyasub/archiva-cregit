@@ -486,14 +486,14 @@ name|description
 init|=
 literal|"Create basic metadata for Archiva to be able to reference the artifact"
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      */
 annotation|@
 name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      */
 annotation|@
 name|Inject
 specifier|private
@@ -518,14 +518,14 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * FIXME: can be of other types      *      * @plexus.requirement      */
+comment|/**      * FIXME: can be of other types      *      */
 annotation|@
 name|Inject
 specifier|private
 name|RepositorySessionFactory
 name|repositorySessionFactory
 decl_stmt|;
-comment|/**      * FIXME: this needs to be configurable based on storage type - and could also be instantiated per repo. Change to a      * factory.      *      * plexus.requirement role-hint="maven2"      */
+comment|/**      * FIXME: this needs to be configurable based on storage type - and could also be instantiated per repo. Change to a      * factory.      *      */
 annotation|@
 name|Inject
 annotation|@

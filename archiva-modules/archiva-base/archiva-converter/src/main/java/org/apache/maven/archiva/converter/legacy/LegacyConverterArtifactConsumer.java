@@ -387,14 +387,14 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * plexus.requirement role-hint="legacy-to-default"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|ArtifactConverter
 name|artifactConverter
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 specifier|private
 name|ArtifactFactory
 name|artifactFactory

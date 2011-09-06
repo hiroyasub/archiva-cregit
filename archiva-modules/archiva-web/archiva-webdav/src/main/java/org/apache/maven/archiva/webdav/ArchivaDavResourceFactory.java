@@ -1148,7 +1148,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * plexus.requirement role="org.apache.archiva.audit.AuditListener"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
@@ -1165,19 +1165,19 @@ name|AuditListener
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|RepositoryContentFactory
 name|repositoryFactory
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 specifier|private
 name|RepositoryRequest
 name|repositoryRequest
 decl_stmt|;
-comment|/**      * plexus.requirement role-hint="default"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -1191,33 +1191,33 @@ specifier|private
 name|RepositoryProxyConnectors
 name|connectors
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|MetadataTools
 name|metadataTools
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|MimeTypes
 name|mimeTypes
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|ServletAuthenticator
 name|servletAuth
 decl_stmt|;
-comment|/**      * plexus.requirement role-hint="basic"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -1241,22 +1241,22 @@ operator|new
 name|SimpleLockManager
 argument_list|()
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 specifier|private
 name|ChecksumFile
 name|checksum
 decl_stmt|;
-comment|/**      * plexus.requirement role-hint="sha1"      */
+comment|/**      *      */
 specifier|private
 name|Digester
 name|digestSha1
 decl_stmt|;
-comment|/**      * plexus.requirement role-hint="md5";      */
+comment|/**      *      */
 specifier|private
 name|Digester
 name|digestMd5
 decl_stmt|;
-comment|/**      * plexus.requirement role="org.apache.archiva.scheduler.ArchivaTaskScheduler" role-hint="repository"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@

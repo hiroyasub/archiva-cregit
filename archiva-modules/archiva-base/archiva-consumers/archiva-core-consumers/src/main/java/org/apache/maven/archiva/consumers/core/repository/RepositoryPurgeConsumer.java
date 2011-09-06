@@ -438,7 +438,7 @@ name|description
 init|=
 literal|"Purge repository of old snapshots"
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -452,7 +452,7 @@ specifier|private
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -466,14 +466,14 @@ specifier|private
 name|RepositoryContentFactory
 name|repositoryContentFactory
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|MetadataTools
 name|metadataTools
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -513,9 +513,7 @@ specifier|private
 name|boolean
 name|deleteReleasedSnapshots
 decl_stmt|;
-comment|//@Inject
-comment|//private ApplicationContext applicationContext;
-comment|/**      * plexus.requirement role="org.apache.archiva.repository.events.RepositoryListener"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
@@ -530,7 +528,7 @@ operator|.
 name|emptyList
 argument_list|()
 decl_stmt|;
-comment|/**      * TODO: this could be multiple implementations and needs to be configured.      *<p/>      * plexus.requirement      */
+comment|/**      * TODO: this could be multiple implementations and needs to be configured.      *      */
 annotation|@
 name|Inject
 specifier|private

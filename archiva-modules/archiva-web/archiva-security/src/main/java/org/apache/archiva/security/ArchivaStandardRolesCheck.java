@@ -140,7 +140,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * plexus.requirement role-hint="cached"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@

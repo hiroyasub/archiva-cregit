@@ -143,7 +143,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * plexus.requirement role-hint="indexing"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@

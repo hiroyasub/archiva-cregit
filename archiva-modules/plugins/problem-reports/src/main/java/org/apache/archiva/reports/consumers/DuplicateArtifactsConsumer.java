@@ -499,21 +499,21 @@ name|description
 init|=
 literal|"Check for Duplicate Artifacts via SHA1 Checksums"
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|FileTypes
 name|filetypes
 decl_stmt|;
-comment|/**      * FIXME: can be of other types      *<p/>      * plexus.requirement      */
+comment|/**      * FIXME: can be of other types      *      */
 annotation|@
 name|Inject
 specifier|private
@@ -542,7 +542,7 @@ specifier|private
 name|String
 name|repoId
 decl_stmt|;
-comment|/**      * FIXME: needs to be selected based on the repository in question      *<p/>      * plexus.requirement role-hint="maven2"      */
+comment|/**      * FIXME: needs to be selected based on the repository in question      *      */
 annotation|@
 name|Inject
 annotation|@

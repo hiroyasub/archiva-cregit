@@ -647,7 +647,7 @@ name|LegacyToDefaultConverter
 implements|implements
 name|ArtifactConverter
 block|{
-comment|/**      * {@link List}&lt;{@link Digester}      * plexus.requirement role="org.codehaus.plexus.digest.Digester"      */
+comment|/**      * {@link List}&lt;{@link Digester}      *      */
 specifier|private
 name|List
 argument_list|<
@@ -669,17 +669,17 @@ specifier|private
 name|DigesterUtils
 name|digesterUtils
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 specifier|private
 name|ModelConverter
 name|translator
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 specifier|private
 name|ArtifactFactory
 name|artifactFactory
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 specifier|private
 name|ArtifactHandlerManager
 name|artifactHandlerManager

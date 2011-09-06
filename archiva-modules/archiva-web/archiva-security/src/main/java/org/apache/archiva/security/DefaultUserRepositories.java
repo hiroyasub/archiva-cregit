@@ -283,21 +283,21 @@ name|DefaultUserRepositories
 implements|implements
 name|UserRepositories
 block|{
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|SecuritySystem
 name|securitySystem
 decl_stmt|;
-comment|/**      * plexus.requirement role-hint="default"      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|RoleManager
 name|roleManager
 decl_stmt|;
-comment|/**      * plexus.requirement      */
+comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
