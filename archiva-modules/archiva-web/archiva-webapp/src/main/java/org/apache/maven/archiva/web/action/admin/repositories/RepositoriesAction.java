@@ -671,14 +671,6 @@ parameter_list|()
 throws|throws
 name|RepositoryAdminException
 block|{
-name|Configuration
-name|config
-init|=
-name|archivaConfiguration
-operator|.
-name|getConfiguration
-argument_list|()
-decl_stmt|;
 name|remoteRepositories
 operator|=
 operator|new

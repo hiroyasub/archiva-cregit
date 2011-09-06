@@ -25,6 +25,18 @@ end_comment
 
 begin_import
 import|import
+name|com
+operator|.
+name|opensymphony
+operator|.
+name|xwork2
+operator|.
+name|Action
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -125,20 +137,8 @@ name|MockControl
 import|;
 end_import
 
-begin_import
-import|import
-name|com
-operator|.
-name|opensymphony
-operator|.
-name|xwork2
-operator|.
-name|Action
-import|;
-end_import
-
 begin_comment
-comment|/**  * SortRepositoriesActionTest  *   * @version  */
+comment|/**  * SortRepositoriesActionTest  */
 end_comment
 
 begin_class
@@ -189,6 +189,10 @@ name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
 specifier|private
+name|ArchivaConfiguration
+name|originalArchivaConfiguration
+decl_stmt|;
+specifier|private
 name|SortRepositoriesAction
 name|action
 decl_stmt|;
@@ -223,7 +227,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-comment|//action = (SortRepositoriesAction) lookup( Action.class.getName(), "sortRepositoriesAction" );
 name|action
 operator|=
 operator|(
@@ -258,12 +261,39 @@ operator|.
 name|getMock
 argument_list|()
 expr_stmt|;
+name|originalArchivaConfiguration
+operator|=
+name|action
+operator|.
+name|archivaConfiguration
+expr_stmt|;
 name|action
 operator|.
 name|setArchivaConfiguration
 argument_list|(
 name|archivaConfiguration
 argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|protected
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
+name|action
+operator|.
+name|archivaConfiguration
+operator|=
+name|originalArchivaConfiguration
 expr_stmt|;
 block|}
 specifier|public
