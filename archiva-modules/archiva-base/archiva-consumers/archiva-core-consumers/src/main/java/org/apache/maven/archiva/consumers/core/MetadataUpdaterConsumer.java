@@ -495,14 +495,14 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * plexus.configuration default-value="metadata-updater"      */
+comment|/**      * default-value="metadata-updater"      */
 specifier|private
 name|String
 name|id
 init|=
 literal|"metadata-updater"
 decl_stmt|;
-comment|/**      * plexus.configuration default-value="Update / Create maven-metadata.xml files"      */
+comment|/**      * default-value="Update / Create maven-metadata.xml files"      */
 specifier|private
 name|String
 name|description

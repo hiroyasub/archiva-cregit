@@ -635,14 +635,14 @@ name|PostDownloadPolicy
 argument_list|>
 name|postPolicies
 decl_stmt|;
-comment|/**      * see #initialize      * plexus.configuration default-value="${user.home}/.m2/archiva.xml"      */
+comment|/**      * see #initialize      * default-value="${user.home}/.m2/archiva.xml"      */
 specifier|private
 name|String
 name|userConfigFilename
 init|=
 literal|"${user.home}/.m2/archiva.xml"
 decl_stmt|;
-comment|/**      * see #initialize      * plexus.configuration default-value="${appserver.base}/conf/archiva.xml"      */
+comment|/**      * see #initialize      * default-value="${appserver.base}/conf/archiva.xml"      */
 specifier|private
 name|String
 name|altConfigFilename

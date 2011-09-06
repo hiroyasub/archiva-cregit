@@ -344,14 +344,14 @@ name|CHECKSUM_IO_ERROR
 init|=
 literal|"checksum-io-error"
 decl_stmt|;
-comment|/**      * plexus.configuration default-value="validate-checksums"      */
+comment|/**      * default-value="validate-checksums"      */
 specifier|private
 name|String
 name|id
 init|=
 literal|"validate-checksums"
 decl_stmt|;
-comment|/**      * plexus.configuration default-value="Validate checksums against file."      */
+comment|/**      * default-value="Validate checksums against file."      */
 specifier|private
 name|String
 name|description

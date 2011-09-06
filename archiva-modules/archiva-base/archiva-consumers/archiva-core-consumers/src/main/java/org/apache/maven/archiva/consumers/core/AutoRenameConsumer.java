@@ -226,14 +226,14 @@ name|AbstractMonitoredConsumer
 implements|implements
 name|KnownRepositoryContentConsumer
 block|{
-comment|/**      * plexus.configuration default-value="auto-rename"      */
+comment|/**      * default-value="auto-rename"      */
 specifier|private
 name|String
 name|id
 init|=
 literal|"auto-rename"
 decl_stmt|;
-comment|/**      * plexus.configuration default-value="Automatically rename common artifact mistakes."      */
+comment|/**      * default-value="Automatically rename common artifact mistakes."      */
 specifier|private
 name|String
 name|description

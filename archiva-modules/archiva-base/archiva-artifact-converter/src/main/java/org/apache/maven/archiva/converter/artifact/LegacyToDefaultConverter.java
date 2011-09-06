@@ -684,12 +684,12 @@ specifier|private
 name|ArtifactHandlerManager
 name|artifactHandlerManager
 decl_stmt|;
-comment|/**      * plexus.configuration default-value="false"      */
+comment|/**      * default-value="false"      */
 specifier|private
 name|boolean
 name|force
 decl_stmt|;
-comment|/**      * plexus.configuration default-value="false"      */
+comment|/**      * default-value="false"      */
 specifier|private
 name|boolean
 name|dryrun

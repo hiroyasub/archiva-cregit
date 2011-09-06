@@ -424,14 +424,14 @@ name|KnownRepositoryContentConsumer
 implements|,
 name|RegistryListener
 block|{
-comment|/**      * plexus.configuration default-value="repository-purge"      */
+comment|/**      * default-value="repository-purge"      */
 specifier|private
 name|String
 name|id
 init|=
 literal|"repository-purge"
 decl_stmt|;
-comment|/**      * plexus.configuration default-value="Purge repository of old snapshots"      */
+comment|/**      * default-value="Purge repository of old snapshots"      */
 specifier|private
 name|String
 name|description

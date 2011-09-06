@@ -102,14 +102,14 @@ name|AbstractProgressConsumer
 implements|implements
 name|KnownRepositoryContentConsumer
 block|{
-comment|/**      * plexus.configuration default-value="count-artifacts"      */
+comment|/**      * default-value="count-artifacts"      */
 specifier|private
 name|String
 name|id
 init|=
 literal|"count-artifacts"
 decl_stmt|;
-comment|/**      * plexus.configuration default-value="Count Artifacts"      */
+comment|/**      * default-value="Count Artifacts"      */
 specifier|private
 name|String
 name|description

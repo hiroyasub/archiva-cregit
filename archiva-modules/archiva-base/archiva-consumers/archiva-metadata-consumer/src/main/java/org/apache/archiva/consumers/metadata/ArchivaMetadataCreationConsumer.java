@@ -472,14 +472,14 @@ name|KnownRepositoryContentConsumer
 implements|,
 name|RegistryListener
 block|{
-comment|/**      * plexus.configuration default-value="create-archiva-metadata"      */
+comment|/**      * default-value="create-archiva-metadata"      */
 specifier|private
 name|String
 name|id
 init|=
 literal|"create-archiva-metadata"
 decl_stmt|;
-comment|/**      * plexus.configuration default-value="Create basic metadata for Archiva to be able to reference the artifact"      */
+comment|/**      * default-value="Create basic metadata for Archiva to be able to reference the artifact"      */
 specifier|private
 name|String
 name|description

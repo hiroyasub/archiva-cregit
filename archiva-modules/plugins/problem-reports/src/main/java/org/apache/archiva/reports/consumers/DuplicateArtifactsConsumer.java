@@ -485,14 +485,14 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * plexus.configuration default-value="duplicate-artifacts"      */
+comment|/**      * default-value="duplicate-artifacts"      */
 specifier|private
 name|String
 name|id
 init|=
 literal|"duplicate-artifacts"
 decl_stmt|;
-comment|/**      * plexus.configuration default-value="Check for Duplicate Artifacts via SHA1 Checksums"      */
+comment|/**      * default-value="Check for Duplicate Artifacts via SHA1 Checksums"      */
 specifier|private
 name|String
 name|description

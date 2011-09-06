@@ -298,14 +298,14 @@ name|KnownRepositoryContentConsumer
 implements|,
 name|RegistryListener
 block|{
-comment|/**      * plexus.configuration default-value="auto-remove"      */
+comment|/**      * default-value="auto-remove"      */
 specifier|private
 name|String
 name|id
 init|=
 literal|"auto-remove"
 decl_stmt|;
-comment|/**      * plexus.configuration default-value="Automatically Remove File from Filesystem."      */
+comment|/**      * default-value="Automatically Remove File from Filesystem."      */
 specifier|private
 name|String
 name|description

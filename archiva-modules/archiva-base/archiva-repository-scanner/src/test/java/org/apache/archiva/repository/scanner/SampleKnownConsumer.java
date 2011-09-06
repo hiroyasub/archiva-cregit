@@ -114,7 +114,7 @@ name|AbstractMonitoredConsumer
 implements|implements
 name|KnownRepositoryContentConsumer
 block|{
-comment|/**      * plexus.configuration default-value="unset-id"      */
+comment|/**      * default-value="unset-id"      */
 specifier|private
 name|String
 name|id
