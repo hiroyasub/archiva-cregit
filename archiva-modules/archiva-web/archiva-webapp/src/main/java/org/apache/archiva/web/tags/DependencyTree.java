@@ -280,14 +280,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * plexus.requirement role-hint="maven2"      */
 annotation|@
 name|Inject
 specifier|private
 name|DependencyTreeBuilder
 name|dependencyTreeBuilder
 decl_stmt|;
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private

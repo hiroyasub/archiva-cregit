@@ -718,28 +718,24 @@ name|String
 argument_list|>
 name|managedRepos
 decl_stmt|;
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private
 name|UserRepositories
 name|userRepositories
 decl_stmt|;
-comment|/**      * plexus.requirement role-hint="default"      */
 annotation|@
 name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private
 name|RepositoryContentFactory
 name|repositoryFactory
 decl_stmt|;
-comment|/**      * plexus.requirement role="org.apache.archiva.repository.events.RepositoryListener"      */
 annotation|@
 name|Inject
 specifier|private

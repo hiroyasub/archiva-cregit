@@ -223,7 +223,6 @@ name|AbstractProxyConnectorAction
 implements|implements
 name|Preparable
 block|{
-comment|/**      * plexus.requirement role="org.apache.maven.archiva.policies.PreDownloadPolicy"      */
 specifier|private
 name|Map
 argument_list|<
@@ -233,7 +232,6 @@ name|PreDownloadPolicy
 argument_list|>
 name|preDownloadPolicyMap
 decl_stmt|;
-comment|/**      * plexus.requirement role="org.apache.maven.archiva.policies.PostDownloadPolicy"      */
 specifier|private
 name|Map
 argument_list|<
@@ -243,7 +241,6 @@ name|PostDownloadPolicy
 argument_list|>
 name|postDownloadPolicyMap
 decl_stmt|;
-comment|/**      * plexus.requirement role="org.apache.maven.archiva.policies.DownloadErrorPolicy"      */
 specifier|private
 name|Map
 argument_list|<
@@ -253,7 +250,6 @@ name|DownloadErrorPolicy
 argument_list|>
 name|downloadErrorPolicyMap
 decl_stmt|;
-comment|/**      * The list of network proxy ids that are available.      */
 specifier|private
 name|List
 argument_list|<
@@ -261,7 +257,6 @@ name|String
 argument_list|>
 name|proxyIdOptions
 decl_stmt|;
-comment|/**      * The list of managed repository ids that are available.      */
 specifier|private
 name|List
 argument_list|<
@@ -269,7 +264,6 @@ name|String
 argument_list|>
 name|managedRepoIdList
 decl_stmt|;
-comment|/**      * The list of remove repository ids that are available.      */
 specifier|private
 name|List
 argument_list|<

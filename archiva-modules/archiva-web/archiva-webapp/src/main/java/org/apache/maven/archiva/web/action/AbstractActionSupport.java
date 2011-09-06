@@ -346,7 +346,6 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|/**      * plexus.requirement role="org.apache.archiva.audit.AuditListener"      */
 annotation|@
 name|Inject
 specifier|private
@@ -363,7 +362,6 @@ name|AuditListener
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 annotation|@

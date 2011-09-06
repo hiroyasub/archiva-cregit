@@ -125,7 +125,6 @@ name|AbstractActionSupport
 implements|implements
 name|Preparable
 block|{
-comment|/**      * Archiva Application Configuration      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|protected

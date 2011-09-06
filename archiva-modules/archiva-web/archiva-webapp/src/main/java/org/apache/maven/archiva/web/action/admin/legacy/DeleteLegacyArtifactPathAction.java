@@ -166,7 +166,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Delete a LegacyArtifactPath to archiva configuration  *  * @since 1.1  *        plexus.component role="com.opensymphony.xwork2.Action" role-hint="deleteLegacyArtifactPathAction" instantiation-strategy="per-lookup"  */
+comment|/**  * Delete a LegacyArtifactPath to archiva configuration  *  * @since 1.1  */
 end_comment
 
 begin_class
@@ -186,7 +186,6 @@ name|DeleteLegacyArtifactPathAction
 extends|extends
 name|AbstractActionSupport
 block|{
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private

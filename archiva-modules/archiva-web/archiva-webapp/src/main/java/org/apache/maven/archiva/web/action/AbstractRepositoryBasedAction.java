@@ -112,7 +112,6 @@ name|AbstractRepositoryBasedAction
 extends|extends
 name|AbstractActionSupport
 block|{
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private

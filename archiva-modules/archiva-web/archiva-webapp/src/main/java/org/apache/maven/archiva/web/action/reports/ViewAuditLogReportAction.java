@@ -352,7 +352,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * plexus.component role="com.opensymphony.xwork2.Action" role-hint="viewAuditLogReport"  * instantiation-strategy="per-lookup"  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -382,12 +382,17 @@ specifier|protected
 name|HttpServletRequest
 name|request
 decl_stmt|;
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private
 name|UserRepositories
 name|userRepositories
+decl_stmt|;
+annotation|@
+name|Inject
+specifier|private
+name|AuditManager
+name|auditManager
 decl_stmt|;
 specifier|private
 name|String
@@ -508,13 +513,6 @@ literal|"MM-dd-yyyy"
 block|,
 literal|"MM-dd-yy"
 block|}
-decl_stmt|;
-comment|/**      * plexus.requirement      */
-annotation|@
-name|Inject
-specifier|private
-name|AuditManager
-name|auditManager
 decl_stmt|;
 specifier|public
 name|SecureActionBundle

@@ -260,14 +260,12 @@ name|Preparable
 implements|,
 name|Validateable
 block|{
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      * plexus.requirement role-hint="legacy"      */
 annotation|@
 name|Inject
 annotation|@

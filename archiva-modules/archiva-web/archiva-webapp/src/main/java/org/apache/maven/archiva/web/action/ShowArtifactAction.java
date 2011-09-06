@@ -498,7 +498,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Browse the repository.  *  * TODO change name to ShowVersionedAction to conform to terminology.  *  * plexus.component role="com.opensymphony.xwork2.Action" role-hint="showArtifactAction"  * instantiation-strategy="per-lookup"  */
+comment|/**  * Browse the repository.  *  * TODO change name to ShowVersionedAction to conform to terminology.  *  */
 end_comment
 
 begin_class
@@ -526,7 +526,6 @@ implements|implements
 name|Validateable
 block|{
 comment|/* .\ Not Exposed \._____________________________________________ */
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private

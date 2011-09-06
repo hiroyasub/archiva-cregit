@@ -342,7 +342,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * plexus.component role="com.opensymphony.xwork2.Action" role-hint="mergeAction" instantiation-strategy="per-lookup"  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -368,7 +368,6 @@ name|Preparable
 implements|,
 name|Auditable
 block|{
-comment|/**      * plexus.requirement role="org.apache.archiva.stagerepository.merge.RepositoryMerger" role-hint="maven2"      */
 annotation|@
 name|Inject
 annotation|@
@@ -382,7 +381,6 @@ specifier|private
 name|Maven2RepositoryMerger
 name|repositoryMerger
 decl_stmt|;
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|protected

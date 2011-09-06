@@ -256,7 +256,6 @@ name|AbstractActionSupport
 implements|implements
 name|SecureAction
 block|{
-comment|/**      * plexus.requirement role="org.codehaus.plexus.taskqueue.TaskQueue"      */
 specifier|private
 name|Map
 argument_list|<
@@ -266,7 +265,6 @@ name|TaskQueue
 argument_list|>
 name|queues
 decl_stmt|;
-comment|/**      * plexus.requirement role="org.codehaus.plexus.cache.Cache"      */
 specifier|private
 name|Map
 argument_list|<
@@ -276,7 +274,6 @@ name|Cache
 argument_list|>
 name|caches
 decl_stmt|;
-comment|/**      * plexus.requirement      */
 annotation|@
 name|Inject
 specifier|private
