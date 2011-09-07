@@ -515,10 +515,17 @@ name|ProxyConnectorConfiguration
 argument_list|>
 name|proxyConnectors
 init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|ProxyConnectorConfiguration
+argument_list|>
+argument_list|(
 name|configuration
 operator|.
 name|getProxyConnectors
 argument_list|()
+argument_list|)
 decl_stmt|;
 for|for
 control|(
