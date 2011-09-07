@@ -67,11 +67,11 @@ name|name
 decl_stmt|;
 specifier|private
 name|String
-name|url
+name|layout
 decl_stmt|;
 specifier|private
 name|String
-name|layout
+name|url
 decl_stmt|;
 specifier|private
 name|String

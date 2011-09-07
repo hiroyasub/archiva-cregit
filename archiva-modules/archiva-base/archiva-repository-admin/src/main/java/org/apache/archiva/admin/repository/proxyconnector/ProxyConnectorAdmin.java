@@ -150,18 +150,6 @@ parameter_list|()
 throws|throws
 name|RepositoryAdminException
 function_decl|;
-name|ProxyConnector
-name|findProxyConnector
-parameter_list|(
-name|String
-name|sourceId
-parameter_list|,
-name|String
-name|targetId
-parameter_list|)
-throws|throws
-name|RepositoryAdminException
-function_decl|;
 block|}
 end_interface
 

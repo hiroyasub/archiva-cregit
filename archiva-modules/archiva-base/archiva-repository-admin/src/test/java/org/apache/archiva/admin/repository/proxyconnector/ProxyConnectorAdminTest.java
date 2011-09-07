@@ -835,7 +835,7 @@ name|proxyConnector
 init|=
 name|proxyConnectorAdmin
 operator|.
-name|findProxyConnector
+name|getProxyConnector
 argument_list|(
 literal|"internal"
 argument_list|,
@@ -862,7 +862,7 @@ name|proxyConnector
 init|=
 name|proxyConnectorAdmin
 operator|.
-name|findProxyConnector
+name|getProxyConnector
 argument_list|(
 literal|"internal"
 argument_list|,
@@ -895,7 +895,7 @@ name|proxyConnector
 operator|=
 name|proxyConnectorAdmin
 operator|.
-name|findProxyConnector
+name|getProxyConnector
 argument_list|(
 literal|"internal"
 argument_list|,
@@ -931,7 +931,7 @@ name|proxyConnector
 operator|=
 name|proxyConnectorAdmin
 operator|.
-name|findProxyConnector
+name|getProxyConnector
 argument_list|(
 literal|"internal"
 argument_list|,
@@ -967,7 +967,7 @@ name|proxyConnector
 operator|=
 name|proxyConnectorAdmin
 operator|.
-name|findProxyConnector
+name|getProxyConnector
 argument_list|(
 literal|"internal"
 argument_list|,

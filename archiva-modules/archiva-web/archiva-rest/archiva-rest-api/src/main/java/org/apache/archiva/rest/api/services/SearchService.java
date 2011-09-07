@@ -59,6 +59,18 @@ begin_import
 import|import
 name|javax
 operator|.
+name|ws
+operator|.
+name|rs
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
 name|xml
 operator|.
 name|bind
@@ -91,11 +103,9 @@ end_import
 
 begin_interface
 annotation|@
-name|XmlRootElement
+name|Path
 argument_list|(
-name|name
-operator|=
-literal|"searchRequest"
+literal|"/searchService/"
 argument_list|)
 specifier|public
 interface|interface
