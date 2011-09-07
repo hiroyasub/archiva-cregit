@@ -19,6 +19,22 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|admin
+operator|.
+name|repository
+operator|.
+name|RepositoryAdminException
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|servlet
@@ -28,7 +44,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * UnauthenticatedRepositoryServlet   *  * @version $Id$  */
+comment|/**  * UnauthenticatedRepositoryServlet  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -49,6 +65,8 @@ name|ServletConfig
 name|servletConfig
 parameter_list|)
 block|{
+try|try
+block|{
 name|super
 operator|.
 name|initServers
@@ -56,6 +74,26 @@ argument_list|(
 name|servletConfig
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RepositoryAdminException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 name|UnauthenticatedDavSessionProvider
 name|sessionProvider
 init|=
