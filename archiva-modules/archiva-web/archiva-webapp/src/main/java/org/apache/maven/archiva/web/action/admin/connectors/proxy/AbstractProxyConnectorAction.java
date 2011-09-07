@@ -400,7 +400,7 @@ return|return
 name|getProxyConnectorAdmin
 argument_list|()
 operator|.
-name|findProxyConnector
+name|getProxyConnector
 argument_list|(
 name|sourceId
 argument_list|,
