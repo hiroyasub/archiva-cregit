@@ -31,13 +31,31 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
+name|archiva
+operator|.
+name|admin
+operator|.
+name|repository
+operator|.
+name|RepositoryAdminException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
 operator|.
 name|archiva
 operator|.
-name|configuration
+name|admin
 operator|.
-name|ProxyConnectorConfiguration
+name|repository
+operator|.
+name|proxyconnector
+operator|.
+name|ProxyConnector
 import|;
 end_import
 
@@ -68,7 +86,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * EditProxyConnectorAction   *  * @version $Id$  *  */
+comment|/**  * EditProxyConnectorAction  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -104,6 +122,8 @@ specifier|public
 name|void
 name|prepare
 parameter_list|()
+throws|throws
+name|RepositoryAdminException
 block|{
 name|super
 operator|.
@@ -192,6 +212,8 @@ specifier|public
 name|String
 name|commit
 parameter_list|()
+throws|throws
+name|RepositoryAdminException
 block|{
 name|validateConnector
 argument_list|()
@@ -222,7 +244,7 @@ operator|.
 name|getTargetRepoId
 argument_list|()
 decl_stmt|;
-name|ProxyConnectorConfiguration
+name|ProxyConnector
 name|otherConnector
 init|=
 name|findProxyConnector
@@ -256,41 +278,13 @@ return|return
 name|INPUT
 return|;
 block|}
-comment|// MRM-1135
-name|connector
-operator|.
-name|setBlackListPatterns
-argument_list|(
-name|unescapePatterns
-argument_list|(
-name|connector
-operator|.
-name|getBlackListPatterns
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|connector
-operator|.
-name|setWhiteListPatterns
-argument_list|(
-name|unescapePatterns
-argument_list|(
-name|connector
-operator|.
-name|getWhiteListPatterns
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|addProxyConnector
 argument_list|(
 name|connector
 argument_list|)
 expr_stmt|;
 return|return
-name|saveConfiguration
-argument_list|()
+name|SUCCESS
 return|;
 block|}
 specifier|public

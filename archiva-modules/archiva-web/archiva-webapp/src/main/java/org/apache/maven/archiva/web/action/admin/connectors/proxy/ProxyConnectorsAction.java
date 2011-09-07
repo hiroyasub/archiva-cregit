@@ -43,13 +43,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
-name|configuration
+name|admin
 operator|.
-name|AbstractRepositoryConfiguration
+name|repository
+operator|.
+name|AbstractRepository
 import|;
 end_import
 
@@ -59,13 +59,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
-name|configuration
+name|admin
 operator|.
-name|Configuration
+name|repository
+operator|.
+name|RepositoryAdminException
 import|;
 end_import
 
@@ -75,13 +75,15 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
-name|configuration
+name|admin
 operator|.
-name|ProxyConnectorConfiguration
+name|repository
+operator|.
+name|proxyconnector
+operator|.
+name|ProxyConnector
 import|;
 end_import
 
@@ -142,7 +144,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProxyConnectorsAction  *  * @version $Id$  *  */
+comment|/**  * ProxyConnectorsAction  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -169,7 +171,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|AbstractRepositoryConfiguration
+name|AbstractRepository
 argument_list|>
 name|repoMap
 decl_stmt|;
@@ -188,7 +190,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|ProxyConnectorConfiguration
+name|ProxyConnector
 argument_list|>
 argument_list|>
 name|proxyConnectorMap
@@ -197,15 +199,9 @@ specifier|public
 name|void
 name|prepare
 parameter_list|()
+throws|throws
+name|RepositoryAdminException
 block|{
-name|Configuration
-name|config
-init|=
-name|archivaConfiguration
-operator|.
-name|getConfiguration
-argument_list|()
-decl_stmt|;
 name|repoMap
 operator|=
 operator|new
@@ -213,7 +209,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|AbstractRepositoryConfiguration
+name|AbstractRepository
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -221,17 +217,20 @@ name|repoMap
 operator|.
 name|putAll
 argument_list|(
-name|config
+name|getRemoteRepositoryAdmin
+argument_list|()
 operator|.
 name|getRemoteRepositoriesAsMap
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// FIXME olamy : are we sure we want Managed too ???
 name|repoMap
 operator|.
 name|putAll
 argument_list|(
-name|config
+name|getManagedRepositoryAdmin
+argument_list|()
 operator|.
 name|getManagedRepositoriesAsMap
 argument_list|()
@@ -244,7 +243,8 @@ argument_list|()
 expr_stmt|;
 name|remoteRepoExists
 operator|=
-name|config
+name|getRemoteRepositoryAdmin
+argument_list|()
 operator|.
 name|getRemoteRepositories
 argument_list|()
@@ -260,7 +260,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|AbstractRepositoryConfiguration
+name|AbstractRepository
 argument_list|>
 name|getRepoMap
 parameter_list|()
@@ -276,7 +276,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|ProxyConnectorConfiguration
+name|ProxyConnector
 argument_list|>
 argument_list|>
 name|getProxyConnectorMap
@@ -286,6 +286,7 @@ return|return
 name|proxyConnectorMap
 return|;
 block|}
+comment|// FIXME olamy should be is !
 specifier|public
 name|boolean
 name|getRemoteRepoExists

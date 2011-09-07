@@ -31,6 +31,40 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|admin
+operator|.
+name|repository
+operator|.
+name|RepositoryAdminException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|admin
+operator|.
+name|repository
+operator|.
+name|proxyconnector
+operator|.
+name|ProxyConnector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|archiva
@@ -68,7 +102,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DeleteProxyConnectorAction   *  * @version $Id$  *  */
+comment|/**  * DeleteProxyConnectorAction  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -97,13 +131,15 @@ name|String
 name|target
 decl_stmt|;
 specifier|private
-name|ProxyConnectorConfiguration
+name|ProxyConnector
 name|proxyConfig
 decl_stmt|;
 specifier|public
 name|String
 name|confirmDelete
 parameter_list|()
+throws|throws
+name|RepositoryAdminException
 block|{
 name|this
 operator|.
@@ -151,6 +187,8 @@ specifier|public
 name|String
 name|delete
 parameter_list|()
+throws|throws
+name|RepositoryAdminException
 block|{
 name|this
 operator|.
@@ -200,9 +238,15 @@ return|return
 name|ERROR
 return|;
 block|}
-name|removeProxyConnector
+name|getProxyConnectorAdmin
+argument_list|()
+operator|.
+name|deleteProxyConnector
 argument_list|(
 name|proxyConfig
+argument_list|,
+name|getAuditInformation
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|addActionMessage
@@ -229,8 +273,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 return|return
-name|saveConfiguration
-argument_list|()
+name|SUCCESS
 return|;
 block|}
 specifier|public
@@ -282,7 +325,7 @@ name|id
 expr_stmt|;
 block|}
 specifier|public
-name|ProxyConnectorConfiguration
+name|ProxyConnector
 name|getProxyConfig
 parameter_list|()
 block|{

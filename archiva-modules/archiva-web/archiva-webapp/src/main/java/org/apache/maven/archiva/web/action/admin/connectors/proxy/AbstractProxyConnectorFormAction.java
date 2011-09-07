@@ -1785,6 +1785,7 @@ block|}
 block|}
 block|}
 block|}
+comment|// FIXME remove
 specifier|public
 name|ArchivaConfiguration
 name|getArchivaConfiguration

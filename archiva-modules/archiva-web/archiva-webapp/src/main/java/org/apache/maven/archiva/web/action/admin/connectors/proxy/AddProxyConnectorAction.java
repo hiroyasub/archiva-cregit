@@ -31,11 +31,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|archiva
 operator|.
-name|lang
+name|admin
 operator|.
-name|StringUtils
+name|repository
+operator|.
+name|RepositoryAdminException
 import|;
 end_import
 
@@ -45,13 +47,29 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
-name|configuration
+name|admin
 operator|.
-name|ProxyConnectorConfiguration
+name|repository
+operator|.
+name|proxyconnector
+operator|.
+name|ProxyConnector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
 import|;
 end_import
 
@@ -108,6 +126,8 @@ specifier|public
 name|void
 name|prepare
 parameter_list|()
+throws|throws
+name|RepositoryAdminException
 block|{
 name|super
 operator|.
@@ -117,7 +137,7 @@ expr_stmt|;
 name|connector
 operator|=
 operator|new
-name|ProxyConnectorConfiguration
+name|ProxyConnector
 argument_list|()
 expr_stmt|;
 block|}
@@ -171,6 +191,8 @@ specifier|public
 name|String
 name|commit
 parameter_list|()
+throws|throws
+name|RepositoryAdminException
 block|{
 comment|/* Too complex for webwork's ${Action}-validation.xml techniques.          * Not appropriate for use with webwork's implements Validatable, as that validates regardless of          * the request method, such as .addProperty() or .addWhiteList().          *           * This validation is ultimately only useful on this one request method.          */
 name|String
@@ -189,7 +211,7 @@ operator|.
 name|getTargetRepoId
 argument_list|()
 decl_stmt|;
-name|ProxyConnectorConfiguration
+name|ProxyConnector
 name|otherConnector
 init|=
 name|findProxyConnector
@@ -289,8 +311,7 @@ name|connector
 argument_list|)
 expr_stmt|;
 return|return
-name|saveConfiguration
-argument_list|()
+name|SUCCESS
 return|;
 block|}
 block|}

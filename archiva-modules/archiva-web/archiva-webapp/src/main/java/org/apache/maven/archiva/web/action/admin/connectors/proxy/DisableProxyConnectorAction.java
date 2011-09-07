@@ -27,13 +27,31 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
+name|archiva
+operator|.
+name|admin
+operator|.
+name|repository
+operator|.
+name|RepositoryAdminException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
 operator|.
 name|archiva
 operator|.
-name|configuration
+name|admin
 operator|.
-name|ProxyConnectorConfiguration
+name|repository
+operator|.
+name|proxyconnector
+operator|.
+name|ProxyConnector
 import|;
 end_import
 
@@ -68,7 +86,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * DisableProxyConnectorAction  *  */
+comment|/**  * DisableProxyConnectorAction  */
 end_comment
 
 begin_class
@@ -97,13 +115,15 @@ name|String
 name|target
 decl_stmt|;
 specifier|private
-name|ProxyConnectorConfiguration
+name|ProxyConnector
 name|proxyConfig
 decl_stmt|;
 specifier|public
 name|String
 name|confirmDisable
 parameter_list|()
+throws|throws
+name|RepositoryAdminException
 block|{
 name|this
 operator|.
@@ -151,6 +171,8 @@ specifier|public
 name|String
 name|disable
 parameter_list|()
+throws|throws
+name|RepositoryAdminException
 block|{
 name|this
 operator|.
@@ -230,9 +252,19 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-return|return
-name|saveConfiguration
+name|getProxyConnectorAdmin
 argument_list|()
+operator|.
+name|updateProxyConnector
+argument_list|(
+name|proxyConfig
+argument_list|,
+name|getAuditInformation
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|SUCCESS
 return|;
 block|}
 specifier|public

@@ -70,7 +70,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * No update method here as id is : sourceRepoId and targetRepoId, use delete then add.  *  * @author Olivier Lamy  * @since 1.4  */
+comment|/**  *<b>No update method for changing source and target here as id is : sourceRepoId and targetRepoId, use delete then add.</b>  *  * @author Olivier Lamy  * @since 1.4  */
 end_comment
 
 begin_interface
@@ -113,6 +113,19 @@ name|RepositoryAdminException
 function_decl|;
 name|Boolean
 name|deleteProxyConnector
+parameter_list|(
+name|ProxyConnector
+name|proxyConnector
+parameter_list|,
+name|AuditInformation
+name|auditInformation
+parameter_list|)
+throws|throws
+name|RepositoryAdminException
+function_decl|;
+comment|/**      *<b>only for enabled/disable or changing bean values except target/source</b>      * @param proxyConnector      * @param auditInformation      * @return      * @throws RepositoryAdminException      */
+name|Boolean
+name|updateProxyConnector
 parameter_list|(
 name|ProxyConnector
 name|proxyConnector
