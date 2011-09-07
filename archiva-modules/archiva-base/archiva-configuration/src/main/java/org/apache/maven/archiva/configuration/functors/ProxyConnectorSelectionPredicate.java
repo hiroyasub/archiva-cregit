@@ -64,7 +64,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProxyConnectorPredicate   *  * @version $Id$  */
+comment|/**  * ProxyConnectorPredicate  * @version $Id$  */
 end_comment
 
 begin_class
