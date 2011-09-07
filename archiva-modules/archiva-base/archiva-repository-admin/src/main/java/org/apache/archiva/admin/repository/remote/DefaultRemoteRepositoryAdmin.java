@@ -507,6 +507,7 @@ argument_list|(
 name|remoteRepositoryConfiguration
 argument_list|)
 expr_stmt|;
+comment|// TODO use ProxyConnectorAdmin interface ?
 comment|// [MRM-520] Proxy Connectors are not deleted with the deletion of a Repository.
 name|List
 argument_list|<
@@ -514,6 +515,8 @@ name|ProxyConnectorConfiguration
 argument_list|>
 name|proxyConnectors
 init|=
+name|configuration
+operator|.
 name|getProxyConnectors
 argument_list|()
 decl_stmt|;

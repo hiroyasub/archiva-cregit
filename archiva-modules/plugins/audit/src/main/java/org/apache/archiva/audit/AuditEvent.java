@@ -377,6 +377,30 @@ name|MERGE_REPO_REMOTE
 init|=
 literal|"Merged Staging Repository Triggered Remotely"
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ADD_PROXY_CONNECTOR
+init|=
+literal|"Added Proxy Connector"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DELETE_PROXY_CONNECTOR
+init|=
+literal|"Deleted Proxy Connector"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MODIFY_PROXY_CONNECTOR
+init|=
+literal|"Updated Proxy Connector"
+decl_stmt|;
 specifier|private
 name|String
 name|repositoryId
