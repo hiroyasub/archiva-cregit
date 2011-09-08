@@ -438,6 +438,9 @@ operator|.
 name|addLegacyArtifactPath
 argument_list|(
 name|legacyArtifactPath
+argument_list|,
+name|getAuditInformation
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

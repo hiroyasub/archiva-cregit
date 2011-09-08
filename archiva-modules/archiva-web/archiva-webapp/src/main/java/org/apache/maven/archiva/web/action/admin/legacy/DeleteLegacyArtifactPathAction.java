@@ -166,6 +166,9 @@ operator|.
 name|deleteLegacyArtifactPath
 argument_list|(
 name|path
+argument_list|,
+name|getAuditInformation
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

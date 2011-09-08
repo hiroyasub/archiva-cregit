@@ -159,6 +159,9 @@ operator|.
 name|addLegacyArtifactPath
 argument_list|(
 name|legacyArtifactPath
+argument_list|,
+name|getFakeAuditInformation
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -202,6 +205,9 @@ argument_list|(
 name|legacyArtifactPath
 operator|.
 name|getPath
+argument_list|()
+argument_list|,
+name|getFakeAuditInformation
 argument_list|()
 argument_list|)
 expr_stmt|;
