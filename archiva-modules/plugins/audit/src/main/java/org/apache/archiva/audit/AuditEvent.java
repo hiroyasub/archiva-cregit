@@ -401,6 +401,30 @@ name|MODIFY_PROXY_CONNECTOR
 init|=
 literal|"Updated Proxy Connector"
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ADD_NETWORK_PROXY
+init|=
+literal|"Added Network Proxy"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DELETE_NETWORK_PROXY
+init|=
+literal|"Deleted Network Proxy"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MODIFY_NETWORK_PROXY
+init|=
+literal|"Updated Network Proxy"
+decl_stmt|;
 specifier|private
 name|String
 name|repositoryId

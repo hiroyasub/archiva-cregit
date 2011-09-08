@@ -107,6 +107,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|mockAuditListener
+operator|.
+name|clearEvents
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"not proxyConnectors 2 "
@@ -373,6 +378,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|mockAuditListener
+operator|.
+name|clearEvents
+argument_list|()
+expr_stmt|;
 name|RemoteRepository
 name|remoteRepository
 init|=
@@ -857,6 +867,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|mockAuditListener
+operator|.
+name|clearEvents
+argument_list|()
+expr_stmt|;
 name|ProxyConnector
 name|proxyConnector
 init|=
@@ -983,6 +998,11 @@ operator|.
 name|getOrder
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|mockAuditListener
+operator|.
+name|clearEvents
+argument_list|()
 expr_stmt|;
 block|}
 block|}
