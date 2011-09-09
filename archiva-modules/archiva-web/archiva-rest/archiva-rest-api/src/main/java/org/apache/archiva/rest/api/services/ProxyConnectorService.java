@@ -27,22 +27,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
-operator|.
-name|repository
-operator|.
-name|RepositoryAdminException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|rest
 operator|.
 name|api
@@ -235,7 +219,7 @@ argument_list|>
 name|getProxyConnectors
 parameter_list|()
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -290,7 +274,7 @@ name|String
 name|targetRepoId
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -345,7 +329,7 @@ name|ProxyConnector
 name|proxyConnector
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -400,9 +384,9 @@ name|ProxyConnector
 name|proxyConnector
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
-comment|/**      *<b>only for enabled/disable or changing bean values except target/source</b>      *      * @param proxyConnector      * @return      * @throws org.apache.archiva.admin.repository.RepositoryAdminException      *      */
+comment|/**      *<b>only for enabled/disable or changing bean values except target/source</b>      *      * @param proxyConnector      * @return      *      */
 annotation|@
 name|Path
 argument_list|(
@@ -456,7 +440,7 @@ name|ProxyConnector
 name|proxyConnector
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 block|}
 end_interface

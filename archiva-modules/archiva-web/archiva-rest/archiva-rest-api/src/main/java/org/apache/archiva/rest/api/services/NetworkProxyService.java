@@ -27,22 +27,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
-operator|.
-name|repository
-operator|.
-name|RepositoryAdminException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|rest
 operator|.
 name|api
@@ -235,7 +219,7 @@ argument_list|>
 name|getNetworkProxies
 parameter_list|()
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -282,7 +266,7 @@ name|String
 name|networkProxyId
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -337,7 +321,7 @@ name|NetworkProxy
 name|networkProxy
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -392,7 +376,7 @@ name|NetworkProxy
 name|networkProxy
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -439,7 +423,7 @@ name|String
 name|networkProxyId
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 block|}
 end_interface

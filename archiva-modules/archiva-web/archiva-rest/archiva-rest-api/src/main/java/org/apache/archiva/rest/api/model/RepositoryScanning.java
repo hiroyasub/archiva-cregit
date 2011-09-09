@@ -21,24 +21,6 @@ end_comment
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|admin
-operator|.
-name|repository
-operator|.
-name|admin
-operator|.
-name|FileType
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|xml

@@ -27,22 +27,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
-operator|.
-name|repository
-operator|.
-name|RepositoryAdminException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|rest
 operator|.
 name|api
@@ -271,7 +255,7 @@ argument_list|>
 name|getLegacyArtifactPaths
 parameter_list|()
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -326,7 +310,7 @@ name|LegacyArtifactPath
 name|legacyArtifactPath
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -373,7 +357,7 @@ name|String
 name|path
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -412,7 +396,7 @@ name|RepositoryScanning
 name|getRepositoryScanning
 parameter_list|()
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -450,7 +434,7 @@ name|RepositoryScanning
 name|repositoryScanning
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -505,7 +489,7 @@ name|String
 name|pattern
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -560,7 +544,7 @@ name|String
 name|pattern
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -602,7 +586,7 @@ name|String
 name|fileTypeId
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -640,7 +624,7 @@ name|FileType
 name|fileType
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -687,7 +671,7 @@ name|String
 name|fileTypeId
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -734,7 +718,7 @@ name|String
 name|knownContentConsumer
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -775,7 +759,7 @@ argument_list|>
 name|knownContentConsumers
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -822,7 +806,7 @@ name|String
 name|knownContentConsumer
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -869,7 +853,7 @@ name|String
 name|invalidContentConsumer
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -910,7 +894,7 @@ argument_list|>
 name|invalidContentConsumers
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -957,7 +941,7 @@ name|String
 name|invalidContentConsumer
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ArchivaRestServiceException
 function_decl|;
 block|}
 end_interface
