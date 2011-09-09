@@ -771,14 +771,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RepositoryScanning
-name|reposcanning
-init|=
-name|archivaAdministration
-operator|.
-name|getRepositoryScanning
-argument_list|()
-decl_stmt|;
 name|FiletypeToMapClosure
 name|filetypeToMapClosure
 init|=
@@ -790,7 +782,7 @@ name|CollectionUtils
 operator|.
 name|forAllDo
 argument_list|(
-name|reposcanning
+name|archivaAdministration
 operator|.
 name|getFileTypes
 argument_list|()
@@ -811,7 +803,7 @@ init|=
 operator|new
 name|AddAdminRepoConsumerClosure
 argument_list|(
-name|reposcanning
+name|archivaAdministration
 operator|.
 name|getKnownContentConsumers
 argument_list|()
@@ -855,7 +847,7 @@ operator|=
 operator|new
 name|AddAdminRepoConsumerClosure
 argument_list|(
-name|reposcanning
+name|archivaAdministration
 operator|.
 name|getInvalidContentConsumers
 argument_list|()
@@ -965,9 +957,6 @@ argument_list|>
 name|oldConsumers
 init|=
 name|getArchivaAdministration
-argument_list|()
-operator|.
-name|getRepositoryScanning
 argument_list|()
 operator|.
 name|getInvalidContentConsumers
@@ -1112,9 +1101,6 @@ argument_list|>
 name|oldConsumers
 init|=
 name|getArchivaAdministration
-argument_list|()
-operator|.
-name|getRepositoryScanning
 argument_list|()
 operator|.
 name|getKnownContentConsumers

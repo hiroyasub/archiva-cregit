@@ -303,9 +303,6 @@ name|initialSize
 init|=
 name|archivaAdministration
 operator|.
-name|getRepositoryScanning
-argument_list|()
-operator|.
 name|getFileTypes
 argument_list|()
 operator|.
@@ -358,9 +355,6 @@ literal|1
 argument_list|,
 name|archivaAdministration
 operator|.
-name|getRepositoryScanning
-argument_list|()
-operator|.
 name|getFileTypes
 argument_list|()
 operator|.
@@ -387,9 +381,6 @@ operator|+
 literal|1
 argument_list|,
 name|archivaAdministration
-operator|.
-name|getRepositoryScanning
-argument_list|()
 operator|.
 name|getFileTypes
 argument_list|()
@@ -490,9 +481,6 @@ literal|1
 argument_list|,
 name|archivaAdministration
 operator|.
-name|getRepositoryScanning
-argument_list|()
-operator|.
 name|getFileTypes
 argument_list|()
 operator|.
@@ -588,9 +576,6 @@ name|initialSize
 argument_list|,
 name|archivaAdministration
 operator|.
-name|getRepositoryScanning
-argument_list|()
-operator|.
 name|getFileTypes
 argument_list|()
 operator|.
@@ -628,9 +613,6 @@ name|initialSize
 init|=
 name|archivaAdministration
 operator|.
-name|getRepositoryScanning
-argument_list|()
-operator|.
 name|getKnownContentConsumers
 argument_list|()
 operator|.
@@ -655,9 +637,6 @@ literal|1
 argument_list|,
 name|archivaAdministration
 operator|.
-name|getRepositoryScanning
-argument_list|()
-operator|.
 name|getKnownContentConsumers
 argument_list|()
 operator|.
@@ -668,9 +647,6 @@ expr_stmt|;
 name|assertTrue
 argument_list|(
 name|archivaAdministration
-operator|.
-name|getRepositoryScanning
-argument_list|()
 operator|.
 name|getKnownContentConsumers
 argument_list|()
@@ -700,9 +676,6 @@ literal|1
 argument_list|,
 name|archivaAdministration
 operator|.
-name|getRepositoryScanning
-argument_list|()
-operator|.
 name|getKnownContentConsumers
 argument_list|()
 operator|.
@@ -713,9 +686,6 @@ expr_stmt|;
 name|assertTrue
 argument_list|(
 name|archivaAdministration
-operator|.
-name|getRepositoryScanning
-argument_list|()
 operator|.
 name|getKnownContentConsumers
 argument_list|()
@@ -742,9 +712,6 @@ name|initialSize
 argument_list|,
 name|archivaAdministration
 operator|.
-name|getRepositoryScanning
-argument_list|()
-operator|.
 name|getKnownContentConsumers
 argument_list|()
 operator|.
@@ -755,9 +722,6 @@ expr_stmt|;
 name|assertFalse
 argument_list|(
 name|archivaAdministration
-operator|.
-name|getRepositoryScanning
-argument_list|()
 operator|.
 name|getKnownContentConsumers
 argument_list|()
@@ -841,9 +805,6 @@ name|initialSize
 init|=
 name|archivaAdministration
 operator|.
-name|getRepositoryScanning
-argument_list|()
-operator|.
 name|getInvalidContentConsumers
 argument_list|()
 operator|.
@@ -868,9 +829,6 @@ literal|1
 argument_list|,
 name|archivaAdministration
 operator|.
-name|getRepositoryScanning
-argument_list|()
-operator|.
 name|getInvalidContentConsumers
 argument_list|()
 operator|.
@@ -881,9 +839,6 @@ expr_stmt|;
 name|assertTrue
 argument_list|(
 name|archivaAdministration
-operator|.
-name|getRepositoryScanning
-argument_list|()
 operator|.
 name|getInvalidContentConsumers
 argument_list|()
@@ -913,9 +868,6 @@ literal|1
 argument_list|,
 name|archivaAdministration
 operator|.
-name|getRepositoryScanning
-argument_list|()
-operator|.
 name|getInvalidContentConsumers
 argument_list|()
 operator|.
@@ -926,9 +878,6 @@ expr_stmt|;
 name|assertTrue
 argument_list|(
 name|archivaAdministration
-operator|.
-name|getRepositoryScanning
-argument_list|()
 operator|.
 name|getInvalidContentConsumers
 argument_list|()
@@ -955,9 +904,6 @@ name|initialSize
 argument_list|,
 name|archivaAdministration
 operator|.
-name|getRepositoryScanning
-argument_list|()
-operator|.
 name|getInvalidContentConsumers
 argument_list|()
 operator|.
@@ -968,9 +914,6 @@ expr_stmt|;
 name|assertFalse
 argument_list|(
 name|archivaAdministration
-operator|.
-name|getRepositoryScanning
-argument_list|()
 operator|.
 name|getInvalidContentConsumers
 argument_list|()
