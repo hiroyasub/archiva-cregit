@@ -466,7 +466,9 @@ parameter_list|()
 throws|throws
 name|RepositoryAdminException
 block|{
-return|return
+name|RepositoryScanning
+name|repositoryScanning
+init|=
 operator|new
 name|BeanReplicator
 argument_list|()
@@ -486,6 +488,8 @@ name|RepositoryScanning
 operator|.
 name|class
 argument_list|)
+return|return
+name|repositoryScanning
 return|;
 block|}
 specifier|public
