@@ -269,6 +269,21 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 function_decl|;
+name|OrganisationInformation
+name|getOrganisationInformation
+parameter_list|()
+throws|throws
+name|RepositoryAdminException
+function_decl|;
+name|void
+name|setOrganisationInformation
+parameter_list|(
+name|OrganisationInformation
+name|organisationInformation
+parameter_list|)
+throws|throws
+name|RepositoryAdminException
+function_decl|;
 block|}
 end_interface
 
