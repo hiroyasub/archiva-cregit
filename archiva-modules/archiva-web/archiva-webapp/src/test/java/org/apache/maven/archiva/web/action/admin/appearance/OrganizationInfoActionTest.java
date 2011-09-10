@@ -148,7 +148,6 @@ name|AbstractAppearanceAction
 name|getAction
 parameter_list|()
 block|{
-comment|//return (OrganisationInfoAction) lookup( Action.class.getName(), "organisationInfo" );
 return|return
 operator|(
 name|OrganisationInfoAction
