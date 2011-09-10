@@ -762,7 +762,7 @@ name|expectedErrorMessages
 operator|.
 name|add
 argument_list|(
-literal|"You must enter a URL"
+literal|"You must enter a URL."
 argument_list|)
 expr_stmt|;
 name|expectedFieldErrors
@@ -787,7 +787,7 @@ name|expectedErrorMessages
 operator|.
 name|add
 argument_list|(
-literal|"You must enter a URL"
+literal|"You must enter a URL for your logo."
 argument_list|)
 expr_stmt|;
 name|expectedFieldErrors
