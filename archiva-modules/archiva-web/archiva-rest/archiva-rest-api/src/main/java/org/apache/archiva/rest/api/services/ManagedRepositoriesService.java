@@ -333,7 +333,7 @@ name|boolean
 name|deleteContent
 parameter_list|)
 throws|throws
-name|Exception
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -388,7 +388,7 @@ name|ManagedRepository
 name|managedRepository
 parameter_list|)
 throws|throws
-name|Exception
+name|ArchivaRestServiceException
 function_decl|;
 annotation|@
 name|Path
@@ -443,7 +443,7 @@ name|ManagedRepository
 name|managedRepository
 parameter_list|)
 throws|throws
-name|Exception
+name|ArchivaRestServiceException
 function_decl|;
 block|}
 end_interface
