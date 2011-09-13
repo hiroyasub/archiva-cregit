@@ -19,27 +19,19 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
-name|configuration
+name|admin
 operator|.
-name|ManagedRepositoryConfiguration
+name|model
+operator|.
+name|managed
+operator|.
+name|ManagedRepository
 import|;
 end_import
 
@@ -88,6 +80,16 @@ operator|.
 name|consumers
 operator|.
 name|RepositoryContentConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
 import|;
 end_import
 
@@ -115,7 +117,7 @@ specifier|public
 name|void
 name|beginScan
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 parameter_list|,
 name|Date
@@ -135,7 +137,7 @@ specifier|public
 name|void
 name|beginScan
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 parameter_list|,
 name|Date

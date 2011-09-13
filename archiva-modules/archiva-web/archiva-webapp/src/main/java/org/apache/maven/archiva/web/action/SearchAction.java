@@ -405,14 +405,14 @@ implements|implements
 name|Preparable
 block|{
 comment|/**      * Query string.      */
+specifier|private
+name|String
+name|q
+decl_stmt|;
 comment|// FIXME olamy WTF here??
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
-decl_stmt|;
-specifier|private
-name|String
-name|q
 decl_stmt|;
 comment|/**      * The Search Results.      */
 specifier|private

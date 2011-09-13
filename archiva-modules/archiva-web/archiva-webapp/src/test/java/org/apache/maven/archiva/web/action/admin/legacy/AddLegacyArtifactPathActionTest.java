@@ -57,7 +57,7 @@ name|archiva
 operator|.
 name|admin
 operator|.
-name|repository
+name|model
 operator|.
 name|admin
 operator|.

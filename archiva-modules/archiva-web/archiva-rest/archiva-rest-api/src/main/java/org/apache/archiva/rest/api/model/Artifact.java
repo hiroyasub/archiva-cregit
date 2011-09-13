@@ -77,7 +77,30 @@ specifier|private
 name|String
 name|type
 decl_stmt|;
-comment|//private Date whenGathered;
+specifier|private
+name|String
+name|url
+decl_stmt|;
+comment|/**      * contains osgi metadata Bundle-Version if available      *      * @since 1.4      */
+specifier|private
+name|String
+name|bundleVersion
+decl_stmt|;
+comment|/**      * contains osgi metadata Bundle-SymbolicName if available      *      * @since 1.4      */
+specifier|private
+name|String
+name|bundleSymbolicName
+decl_stmt|;
+comment|/**      * contains osgi metadata Export-Package if available      *      * @since 1.4      */
+specifier|private
+name|String
+name|bundleExportPackage
+decl_stmt|;
+comment|/**      * contains osgi metadata Export-Service if available      *      * @since 1.4      */
+specifier|private
+name|String
+name|bundleExportService
+decl_stmt|;
 specifier|public
 name|Artifact
 parameter_list|()

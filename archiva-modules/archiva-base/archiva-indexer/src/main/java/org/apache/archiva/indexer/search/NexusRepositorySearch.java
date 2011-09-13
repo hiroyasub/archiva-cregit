@@ -1925,8 +1925,16 @@ operator|.
 name|groupId
 argument_list|)
 expr_stmt|;
-comment|// do we still need to set the repository id even though we're merging everything?
-comment|//hit.setRepositoryId( artifactInfo.repository );
+name|hit
+operator|.
+name|setRepositoryId
+argument_list|(
+name|artifactInfo
+operator|.
+name|repository
+argument_list|)
+expr_stmt|;
+comment|// FIXME archiva url ??
 name|hit
 operator|.
 name|setUrl

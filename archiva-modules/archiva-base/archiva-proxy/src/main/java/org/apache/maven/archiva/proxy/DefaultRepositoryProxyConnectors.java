@@ -4670,7 +4670,7 @@ operator|.
 name|getRepository
 argument_list|()
 operator|.
-name|getUsername
+name|getUserName
 argument_list|()
 decl_stmt|;
 name|String

@@ -19,6 +19,22 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|archiva
+operator|.
+name|common
+operator|.
+name|FileTypeUtils
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -54,22 +70,6 @@ operator|.
 name|util
 operator|.
 name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|FileTypes
 import|;
 end_import
 
@@ -333,7 +333,7 @@ name|getDefaultArtifactExclusions
 parameter_list|()
 block|{
 return|return
-name|FileTypes
+name|FileTypeUtils
 operator|.
 name|DEFAULT_EXCLUSIONS
 return|;

@@ -53,6 +53,8 @@ name|archiva
 operator|.
 name|admin
 operator|.
+name|model
+operator|.
 name|AuditInformation
 import|;
 end_import
@@ -121,11 +123,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|archiva
 operator|.
-name|lang
+name|security
 operator|.
-name|StringUtils
+name|ArchivaXworkUser
 import|;
 end_import
 
@@ -135,11 +137,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|archiva
+name|commons
 operator|.
-name|security
+name|lang
 operator|.
-name|ArchivaXworkUser
+name|StringUtils
 import|;
 end_import
 

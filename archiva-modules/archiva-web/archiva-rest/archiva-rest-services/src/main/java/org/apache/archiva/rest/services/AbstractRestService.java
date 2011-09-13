@@ -27,6 +27,8 @@ name|archiva
 operator|.
 name|admin
 operator|.
+name|model
+operator|.
 name|AuditInformation
 import|;
 end_import

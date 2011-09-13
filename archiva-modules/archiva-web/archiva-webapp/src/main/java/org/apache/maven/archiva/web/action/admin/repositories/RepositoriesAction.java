@@ -45,7 +45,7 @@ name|archiva
 operator|.
 name|admin
 operator|.
-name|repository
+name|model
 operator|.
 name|RepositoryAdminException
 import|;
@@ -61,7 +61,7 @@ name|archiva
 operator|.
 name|admin
 operator|.
-name|repository
+name|model
 operator|.
 name|group
 operator|.
@@ -79,7 +79,7 @@ name|archiva
 operator|.
 name|admin
 operator|.
-name|repository
+name|model
 operator|.
 name|managed
 operator|.
@@ -97,7 +97,7 @@ name|archiva
 operator|.
 name|admin
 operator|.
-name|repository
+name|model
 operator|.
 name|managed
 operator|.
@@ -115,7 +115,7 @@ name|archiva
 operator|.
 name|admin
 operator|.
-name|repository
+name|model
 operator|.
 name|remote
 operator|.
@@ -133,7 +133,7 @@ name|archiva
 operator|.
 name|admin
 operator|.
-name|repository
+name|model
 operator|.
 name|remote
 operator|.
@@ -288,22 +288,6 @@ operator|.
 name|configuration
 operator|.
 name|ArchivaConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|Configuration
 import|;
 end_import
 
@@ -528,12 +512,6 @@ name|ServletRequestAware
 implements|,
 name|Preparable
 block|{
-annotation|@
-name|Inject
-specifier|private
-name|ArchivaConfiguration
-name|archivaConfiguration
-decl_stmt|;
 annotation|@
 name|Inject
 specifier|private

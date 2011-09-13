@@ -23,6 +23,24 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|admin
+operator|.
+name|model
+operator|.
+name|remote
+operator|.
+name|RemoteRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|archiva
@@ -98,7 +116,7 @@ name|getId
 parameter_list|()
 function_decl|;
 comment|/**      * Get the repository configuration associated with this      * repository content.      *       * @return the repository that is associated with this repository content.      */
-name|RemoteRepositoryConfiguration
+name|RemoteRepository
 name|getRepository
 parameter_list|()
 function_decl|;
@@ -111,7 +129,7 @@ comment|/**      * Set the repository configuration to associate with this      
 name|void
 name|setRepository
 parameter_list|(
-name|RemoteRepositoryConfiguration
+name|RemoteRepository
 name|repo
 parameter_list|)
 function_decl|;

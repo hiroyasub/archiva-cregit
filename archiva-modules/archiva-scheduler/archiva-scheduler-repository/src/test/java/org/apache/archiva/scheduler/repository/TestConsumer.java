@@ -23,13 +23,15 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
-name|configuration
+name|admin
 operator|.
-name|ManagedRepositoryConfiguration
+name|model
+operator|.
+name|managed
+operator|.
+name|ManagedRepository
 import|;
 end_import
 
@@ -182,16 +184,6 @@ operator|.
 name|inject
 operator|.
 name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|inject
-operator|.
-name|Named
 import|;
 end_import
 
@@ -353,7 +345,7 @@ specifier|public
 name|void
 name|beginScan
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 parameter_list|,
 name|Date
@@ -408,7 +400,7 @@ specifier|public
 name|void
 name|beginScan
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 parameter_list|,
 name|Date

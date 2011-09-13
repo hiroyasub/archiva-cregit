@@ -23,13 +23,15 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
-name|configuration
+name|admin
 operator|.
-name|ManagedRepositoryConfiguration
+name|model
+operator|.
+name|managed
+operator|.
+name|ManagedRepository
 import|;
 end_import
 
@@ -168,7 +170,7 @@ name|FINISH
 block|}
 specifier|private
 specifier|final
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 decl_stmt|;
 specifier|private
@@ -202,7 +204,7 @@ decl_stmt|;
 specifier|public
 name|ArtifactIndexingTask
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 parameter_list|,
 name|File
@@ -243,7 +245,7 @@ block|}
 specifier|public
 name|ArtifactIndexingTask
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 parameter_list|,
 name|File
@@ -280,7 +282,7 @@ block|}
 specifier|public
 name|ArtifactIndexingTask
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 parameter_list|,
 name|File
@@ -371,7 +373,7 @@ name|action
 return|;
 block|}
 specifier|public
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|getRepository
 parameter_list|()
 block|{
@@ -649,7 +651,7 @@ specifier|static
 name|IndexingContext
 name|createContext
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 parameter_list|,
 name|NexusIndexer
@@ -673,7 +675,7 @@ name|indexDir
 init|=
 name|repository
 operator|.
-name|getIndexDir
+name|getIndexDirectory
 argument_list|()
 decl_stmt|;
 name|File
@@ -715,7 +717,7 @@ name|File
 argument_list|(
 name|repository
 operator|.
-name|getIndexDir
+name|getIndexDirectory
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -35,6 +35,24 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|admin
+operator|.
+name|model
+operator|.
+name|managed
+operator|.
+name|ManagedRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|common
 operator|.
 name|plexusbridge
@@ -505,7 +523,7 @@ name|KnownRepositoryContentConsumer
 name|nexusIndexerConsumer
 decl_stmt|;
 specifier|private
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repositoryConfig
 decl_stmt|;
 specifier|private
@@ -595,7 +613,7 @@ expr_stmt|;
 comment|// initialize to set the file types to be processed
 operator|(
 operator|(
-name|Initializable
+name|NexusIndexerConsumer
 operator|)
 name|nexusIndexerConsumer
 operator|)
@@ -606,7 +624,7 @@ expr_stmt|;
 name|repositoryConfig
 operator|=
 operator|new
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 argument_list|()
 expr_stmt|;
 name|repositoryConfig

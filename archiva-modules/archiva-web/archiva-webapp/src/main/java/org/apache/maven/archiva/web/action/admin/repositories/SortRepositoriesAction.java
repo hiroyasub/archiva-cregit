@@ -106,7 +106,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SortRepositoriesAction  *  */
+comment|/**  * SortRepositoriesAction  * FIXME remove access to archivaconfiguration  */
 end_comment
 
 begin_class

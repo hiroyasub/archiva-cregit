@@ -45,11 +45,11 @@ name|archiva
 operator|.
 name|admin
 operator|.
-name|repository
+name|model
 operator|.
 name|remote
 operator|.
-name|DefaultRemoteRepositoryAdmin
+name|RemoteRepository
 import|;
 end_import
 
@@ -67,7 +67,7 @@ name|repository
 operator|.
 name|remote
 operator|.
-name|RemoteRepository
+name|DefaultRemoteRepositoryAdmin
 import|;
 end_import
 

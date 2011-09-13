@@ -39,6 +39,24 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|admin
+operator|.
+name|model
+operator|.
+name|managed
+operator|.
+name|ManagedRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|metadata
 operator|.
 name|repository
@@ -396,7 +414,7 @@ init|=
 literal|"Releases Test Repo One"
 decl_stmt|;
 specifier|private
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|config
 decl_stmt|;
 specifier|private
@@ -520,7 +538,7 @@ literal|null
 expr_stmt|;
 block|}
 specifier|public
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|getRepoConfiguration
 parameter_list|(
 name|String
@@ -533,7 +551,7 @@ block|{
 name|config
 operator|=
 operator|new
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 argument_list|()
 expr_stmt|;
 name|config

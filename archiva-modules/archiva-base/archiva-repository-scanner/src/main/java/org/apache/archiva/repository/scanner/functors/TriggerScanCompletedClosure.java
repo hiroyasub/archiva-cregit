@@ -25,11 +25,15 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|archiva
 operator|.
-name|collections
+name|admin
 operator|.
-name|Closure
+name|model
+operator|.
+name|managed
+operator|.
+name|ManagedRepository
 import|;
 end_import
 
@@ -39,13 +43,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
+name|commons
 operator|.
-name|archiva
+name|collections
 operator|.
-name|configuration
-operator|.
-name|ManagedRepositoryConfiguration
+name|Closure
 import|;
 end_import
 
@@ -111,7 +113,7 @@ argument_list|)
 decl_stmt|;
 specifier|private
 specifier|final
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 decl_stmt|;
 specifier|private
@@ -123,7 +125,7 @@ decl_stmt|;
 specifier|public
 name|TriggerScanCompletedClosure
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 parameter_list|)
 block|{
@@ -137,7 +139,7 @@ block|}
 specifier|public
 name|TriggerScanCompletedClosure
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 parameter_list|,
 name|boolean

@@ -23,13 +23,15 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
-name|configuration
+name|admin
 operator|.
-name|ManagedRepositoryConfiguration
+name|model
+operator|.
+name|managed
+operator|.
+name|ManagedRepository
 import|;
 end_import
 
@@ -136,7 +138,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ManagedRepositoryContent interface for interacting with a managed repository in an abstract way,   * without the need for processing based on filesystem paths, or working with the database.  *  * @version $Id$  */
+comment|/**  * ManagedRepositoryContent interface for interacting with a managed repository in an abstract way,  * without the need for processing based on filesystem paths, or working with the database.  *  * @version $Id$  */
 end_comment
 
 begin_interface
@@ -144,7 +146,7 @@ specifier|public
 interface|interface
 name|ManagedRepositoryContent
 block|{
-comment|/**      * Delete from the managed repository all files / directories associated with the      * provided version reference.      *       * @param reference the version reference to delete.      * @throws ContentNotFoundException       */
+comment|/**      * Delete from the managed repository all files / directories associated with the      * provided version reference.      *      * @param reference the version reference to delete.      * @throws ContentNotFoundException      */
 name|void
 name|deleteVersion
 parameter_list|(
@@ -154,12 +156,12 @@ parameter_list|)
 throws|throws
 name|ContentNotFoundException
 function_decl|;
-comment|/**      *<p>      * Convenience method to get the repository id.      *</p>      *       *<p>      * Equivalent to calling<code>.getRepository().getId()</code>      *</p>      *       * @return the repository id.      */
+comment|/**      *<p>      * Convenience method to get the repository id.      *</p>      *<p/>      *<p>      * Equivalent to calling<code>.getRepository().getId()</code>      *</p>      *      * @return the repository id.      */
 name|String
 name|getId
 parameter_list|()
 function_decl|;
-comment|/**      *<p>      * Gather up the list of related artifacts to the ArtifactReference provided.      * This typically inclues the pom files, and those things with       * classifiers (such as doc, source code, test libs, etc...)      *</p>      *       *<p>      *<strong>NOTE:</strong> Some layouts (such as maven 1 "legacy") are not compatible with this query.      *</p>       *       * @param reference the reference to work off of.      * @return the set of ArtifactReferences for related artifacts.      * @throws ContentNotFoundException if the initial artifact reference does not exist within the repository.      * @throws LayoutException       */
+comment|/**      *<p>      * Gather up the list of related artifacts to the ArtifactReference provided.      * This typically inclues the pom files, and those things with      * classifiers (such as doc, source code, test libs, etc...)      *</p>      *<p/>      *<p>      *<strong>NOTE:</strong> Some layouts (such as maven 1 "legacy") are not compatible with this query.      *</p>      *      * @param reference the reference to work off of.      * @return the set of ArtifactReferences for related artifacts.      * @throws ContentNotFoundException if the initial artifact reference does not exist within the repository.      * @throws LayoutException      */
 name|Set
 argument_list|<
 name|ArtifactReference
@@ -172,17 +174,17 @@ parameter_list|)
 throws|throws
 name|ContentNotFoundException
 function_decl|;
-comment|/**      *<p>      * Convenience method to get the repository (on disk) root directory.      *</p>      *       *<p>      * Equivalent to calling<code>.getRepository().getLocation()</code>      *</p>      *       * @return the repository (on disk) root directory.      */
+comment|/**      *<p>      * Convenience method to get the repository (on disk) root directory.      *</p>      *<p/>      *<p>      * Equivalent to calling<code>.getRepository().getLocation()</code>      *</p>      *      * @return the repository (on disk) root directory.      */
 name|String
 name|getRepoRoot
 parameter_list|()
 function_decl|;
-comment|/**      * Get the repository configuration associated with this      * repository content.      *       * @return the repository that is associated with this repository content.      */
-name|ManagedRepositoryConfiguration
+comment|/**      * Get the repository configuration associated with this      * repository content.      *      * @return the repository that is associated with this repository content.      */
+name|ManagedRepository
 name|getRepository
 parameter_list|()
 function_decl|;
-comment|/**      * Given a specific {@link ProjectReference}, return the list of available versions for      * that project reference.      *       * @param reference the project reference to work off of.      * @return the list of versions found for that project reference.      * @throws ContentNotFoundException if the project reference does nto exist within the repository.      * @throws LayoutException       */
+comment|/**      * Given a specific {@link ProjectReference}, return the list of available versions for      * that project reference.      *      * @param reference the project reference to work off of.      * @return the list of versions found for that project reference.      * @throws ContentNotFoundException if the project reference does nto exist within the repository.      * @throws LayoutException      */
 name|Set
 argument_list|<
 name|String
@@ -197,8 +199,7 @@ name|ContentNotFoundException
 throws|,
 name|LayoutException
 function_decl|;
-comment|/**      *<p>      * Given a specific {@link VersionedReference}, return the list of available versions for that      * versioned reference.      *</p>      *       *<p>      *<strong>NOTE:</strong> This is really only useful when working with SNAPSHOTs.      *</p>      *       * @param reference the versioned reference to work off of.      * @return the set of versions found.      * @throws ContentNotFoundException if the versioned reference does not exist within the repository.      * @throws LayoutException       */
-specifier|public
+comment|/**      *<p>      * Given a specific {@link VersionedReference}, return the list of available versions for that      * versioned reference.      *</p>      *<p/>      *<p>      *<strong>NOTE:</strong> This is really only useful when working with SNAPSHOTs.      *</p>      *      * @param reference the versioned reference to work off of.      * @return the set of versions found.      * @throws ContentNotFoundException if the versioned reference does not exist within the repository.      * @throws LayoutException      */
 name|Set
 argument_list|<
 name|String
@@ -211,8 +212,7 @@ parameter_list|)
 throws|throws
 name|ContentNotFoundException
 function_decl|;
-comment|/**      * Determines if the artifact referenced exists in the repository.      *       * @param reference the artifact reference to check for.      * @return true if the artifact referenced exists.      */
-specifier|public
+comment|/**      * Determines if the artifact referenced exists in the repository.      *      * @param reference the artifact reference to check for.      * @return true if the artifact referenced exists.      */
 name|boolean
 name|hasContent
 parameter_list|(
@@ -220,8 +220,7 @@ name|ArtifactReference
 name|reference
 parameter_list|)
 function_decl|;
-comment|/**      * Determines if the project referenced exists in the repository.      *       * @param reference the project reference to check for.      * @return true it the project referenced exists.      */
-specifier|public
+comment|/**      * Determines if the project referenced exists in the repository.      *      * @param reference the project reference to check for.      * @return true it the project referenced exists.      */
 name|boolean
 name|hasContent
 parameter_list|(
@@ -229,8 +228,7 @@ name|ProjectReference
 name|reference
 parameter_list|)
 function_decl|;
-comment|/**      * Determines if the version reference exists in the repository.      *       * @param reference the version reference to check for.      * @return true if the version referenced exists.      */
-specifier|public
+comment|/**      * Determines if the version reference exists in the repository.      *      * @param reference the version reference to check for.      * @return true if the version referenced exists.      */
 name|boolean
 name|hasContent
 parameter_list|(
@@ -238,17 +236,15 @@ name|VersionedReference
 name|reference
 parameter_list|)
 function_decl|;
-comment|/**      * Set the repository configuration to associate with this      * repository content.      *       * @param repo the repository to associate with this repository content.      */
-specifier|public
+comment|/**      * Set the repository configuration to associate with this      * repository content.      *      * @param repo the repository to associate with this repository content.      */
 name|void
 name|setRepository
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repo
 parameter_list|)
 function_decl|;
 comment|/**      * Given a repository relative path to a filename, return the {@link VersionedReference} object suitable for the path.      *      * @param path the path relative to the repository base dir for the artifact.      * @return the {@link ArtifactReference} representing the path.  (or null if path cannot be converted to      *         a {@link ArtifactReference})      * @throws LayoutException if there was a problem converting the path to an artifact.      */
-specifier|public
 name|ArtifactReference
 name|toArtifactReference
 parameter_list|(
@@ -259,7 +255,6 @@ throws|throws
 name|LayoutException
 function_decl|;
 comment|/**      * Given an {@link ArtifactReference}, return the file reference to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
-specifier|public
 name|File
 name|toFile
 parameter_list|(
@@ -268,7 +263,6 @@ name|reference
 parameter_list|)
 function_decl|;
 comment|/**      * Given an {@link ArchivaArtifact}, return the file reference to the artifact.      *      * @param reference the archiva artifact to use.      * @return the relative path to the artifact.      */
-specifier|public
 name|File
 name|toFile
 parameter_list|(
@@ -276,8 +270,7 @@ name|ArchivaArtifact
 name|reference
 parameter_list|)
 function_decl|;
-comment|/**      * Given a {@link ProjectReference}, return the path to the metadata for      * the project.       *       * @param reference the reference to use.      * @return the path to the metadata file, or null if no metadata is appropriate.      */
-specifier|public
+comment|/**      * Given a {@link ProjectReference}, return the path to the metadata for      * the project.      *      * @param reference the reference to use.      * @return the path to the metadata file, or null if no metadata is appropriate.      */
 name|String
 name|toMetadataPath
 parameter_list|(
@@ -285,8 +278,7 @@ name|ProjectReference
 name|reference
 parameter_list|)
 function_decl|;
-comment|/**      * Given a {@link VersionedReference}, return the path to the metadata for      * the specific version of the project.       *       * @param reference the reference to use.      * @return the path to the metadata file, or null if no metadata is appropriate.      */
-specifier|public
+comment|/**      * Given a {@link VersionedReference}, return the path to the metadata for      * the specific version of the project.      *      * @param reference the reference to use.      * @return the path to the metadata file, or null if no metadata is appropriate.      */
 name|String
 name|toMetadataPath
 parameter_list|(
@@ -295,7 +287,6 @@ name|reference
 parameter_list|)
 function_decl|;
 comment|/**      * Given an {@link ArtifactReference}, return the relative path to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
-specifier|public
 name|String
 name|toPath
 parameter_list|(
@@ -304,7 +295,6 @@ name|reference
 parameter_list|)
 function_decl|;
 comment|/**      * Given an {@link ArchivaArtifact}, return the relative path to the artifact.      *      * @param reference the archiva artifact to use.      * @return the relative path to the artifact.      */
-specifier|public
 name|String
 name|toPath
 parameter_list|(

@@ -27,7 +27,7 @@ name|archiva
 operator|.
 name|admin
 operator|.
-name|repository
+name|model
 operator|.
 name|RepositoryAdminException
 import|;
@@ -43,7 +43,7 @@ name|archiva
 operator|.
 name|admin
 operator|.
-name|repository
+name|model
 operator|.
 name|group
 operator|.
@@ -220,7 +220,7 @@ name|archiva
 operator|.
 name|admin
 operator|.
-name|repository
+name|model
 operator|.
 name|group
 operator|.
@@ -351,7 +351,7 @@ name|archiva
 operator|.
 name|admin
 operator|.
-name|repository
+name|model
 operator|.
 name|group
 operator|.
@@ -424,7 +424,7 @@ name|archiva
 operator|.
 name|admin
 operator|.
-name|repository
+name|model
 operator|.
 name|group
 operator|.

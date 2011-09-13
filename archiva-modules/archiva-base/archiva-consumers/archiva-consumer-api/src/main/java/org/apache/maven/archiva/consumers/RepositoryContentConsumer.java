@@ -23,13 +23,15 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
-name|configuration
+name|admin
 operator|.
-name|ManagedRepositoryConfiguration
+name|model
+operator|.
+name|managed
+operator|.
+name|ManagedRepository
 import|;
 end_import
 
@@ -84,7 +86,7 @@ comment|/**      *<p>      * Event that triggers at the beginning of a scan.    
 name|void
 name|beginScan
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 parameter_list|,
 name|Date
@@ -93,11 +95,11 @@ parameter_list|)
 throws|throws
 name|ConsumerException
 function_decl|;
-comment|/**      *<p>      * Event that triggers at the beginning of a scan, where you can also indicate whether the consumers will be      * executed on an entire repository or on a specific resource.      *</p>      *      * @param repository          the repository that this consumer is being used for.      * @param whenGathered        the start of the repository scan      * @param executeOnEntireRepo flags whether the consumer will be executed on an entire repository or just on a specific resource      * @throws ConsumerException if there was a problem with using the provided repository with the consumer.      * @see RepositoryContentConsumer#beginScan(org.apache.maven.archiva.configuration.ManagedRepositoryConfiguration, java.util.Date)      */
+comment|/**      *<p>      * Event that triggers at the beginning of a scan, where you can also indicate whether the consumers will be      * executed on an entire repository or on a specific resource.      *</p>      *      * @param repository          the repository that this consumer is being used for.      * @param whenGathered        the start of the repository scan      * @param executeOnEntireRepo flags whether the consumer will be executed on an entire repository or just on a specific resource      * @throws ConsumerException if there was a problem with using the provided repository with the consumer.      * @see RepositoryContentConsumer#beginScan(ManagedRepository, java.util.Date)      */
 name|void
 name|beginScan
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 parameter_list|,
 name|Date

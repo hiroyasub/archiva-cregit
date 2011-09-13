@@ -33,9 +33,11 @@ name|archiva
 operator|.
 name|admin
 operator|.
-name|repository
+name|model
 operator|.
-name|RepositoryCommonValidator
+name|managed
+operator|.
+name|ManagedRepositoryAdmin
 import|;
 end_import
 
@@ -51,9 +53,7 @@ name|admin
 operator|.
 name|repository
 operator|.
-name|managed
-operator|.
-name|ManagedRepositoryAdmin
+name|RepositoryCommonValidator
 import|;
 end_import
 

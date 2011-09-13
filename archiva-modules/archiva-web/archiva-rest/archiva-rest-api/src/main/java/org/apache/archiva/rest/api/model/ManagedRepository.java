@@ -97,13 +97,22 @@ specifier|private
 name|boolean
 name|stageRepoNeeded
 decl_stmt|;
+comment|// default value
 specifier|private
 name|String
 name|cronExpression
+init|=
+literal|"0 0 * * * ?"
 decl_stmt|;
 specifier|private
 name|boolean
 name|resetStats
+decl_stmt|;
+specifier|private
+name|boolean
+name|scanned
+init|=
+literal|false
 decl_stmt|;
 specifier|public
 name|ManagedRepository
@@ -451,6 +460,30 @@ name|resetStats
 expr_stmt|;
 block|}
 specifier|public
+name|boolean
+name|isScanned
+parameter_list|()
+block|{
+return|return
+name|scanned
+return|;
+block|}
+specifier|public
+name|void
+name|setScanned
+parameter_list|(
+name|boolean
+name|scanned
+parameter_list|)
+block|{
+name|this
+operator|.
+name|scanned
+operator|=
+name|scanned
+expr_stmt|;
+block|}
+specifier|public
 name|int
 name|hashCode
 parameter_list|()
@@ -622,12 +655,12 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", location='"
+literal|", layout='"
 argument_list|)
 operator|.
 name|append
 argument_list|(
-name|location
+name|layout
 argument_list|)
 operator|.
 name|append
@@ -639,12 +672,12 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", layout='"
+literal|", location='"
 argument_list|)
 operator|.
 name|append
 argument_list|(
-name|layout
+name|location
 argument_list|)
 operator|.
 name|append
@@ -727,6 +760,18 @@ operator|.
 name|append
 argument_list|(
 name|resetStats
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", scanned="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|scanned
 argument_list|)
 expr_stmt|;
 name|sb

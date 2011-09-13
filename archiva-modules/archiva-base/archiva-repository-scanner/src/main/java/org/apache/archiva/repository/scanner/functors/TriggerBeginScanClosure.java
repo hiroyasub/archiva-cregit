@@ -21,11 +21,19 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Date
+name|archiva
+operator|.
+name|admin
+operator|.
+name|model
+operator|.
+name|managed
+operator|.
+name|ManagedRepository
 import|;
 end_import
 
@@ -40,22 +48,6 @@ operator|.
 name|collections
 operator|.
 name|Closure
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|ManagedRepositoryConfiguration
 import|;
 end_import
 
@@ -111,6 +103,16 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
 begin_comment
 comment|/**  * TriggerBeginScanClosure   *  * @version $Id$  */
 end_comment
@@ -136,7 +138,7 @@ name|class
 argument_list|)
 decl_stmt|;
 specifier|private
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 decl_stmt|;
 specifier|private
@@ -152,7 +154,7 @@ decl_stmt|;
 specifier|public
 name|TriggerBeginScanClosure
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 parameter_list|)
 block|{
@@ -166,7 +168,7 @@ block|}
 specifier|public
 name|TriggerBeginScanClosure
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 parameter_list|,
 name|Date
@@ -188,7 +190,7 @@ block|}
 specifier|public
 name|TriggerBeginScanClosure
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 parameter_list|,
 name|Date

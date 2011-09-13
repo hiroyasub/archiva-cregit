@@ -19,11 +19,19 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|List
+name|archiva
+operator|.
+name|admin
+operator|.
+name|model
+operator|.
+name|admin
+operator|.
+name|ArchivaAdministration
 import|;
 end_import
 
@@ -40,22 +48,6 @@ operator|.
 name|scanner
 operator|.
 name|RepositoryContentConsumers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|ArchivaConfiguration
 import|;
 end_import
 
@@ -91,6 +83,16 @@ name|KnownRepositoryContentConsumer
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_class
 specifier|public
 class|class
@@ -101,13 +103,13 @@ block|{
 specifier|public
 name|StubRepositoryContentConsumers
 parameter_list|(
-name|ArchivaConfiguration
-name|configuration
+name|ArchivaAdministration
+name|archivaAdministration
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|configuration
+name|archivaAdministration
 argument_list|)
 expr_stmt|;
 block|}

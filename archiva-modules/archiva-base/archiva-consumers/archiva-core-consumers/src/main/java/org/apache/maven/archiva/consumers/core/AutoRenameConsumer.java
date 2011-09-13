@@ -25,11 +25,15 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|archiva
 operator|.
-name|io
+name|admin
 operator|.
-name|FileUtils
+name|model
+operator|.
+name|managed
+operator|.
+name|ManagedRepository
 import|;
 end_import
 
@@ -39,13 +43,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
+name|commons
 operator|.
-name|archiva
+name|io
 operator|.
-name|configuration
-operator|.
-name|ManagedRepositoryConfiguration
+name|FileUtils
 import|;
 end_import
 
@@ -372,7 +374,7 @@ specifier|public
 name|void
 name|beginScan
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 parameter_list|,
 name|Date
@@ -399,7 +401,7 @@ specifier|public
 name|void
 name|beginScan
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 parameter_list|,
 name|Date

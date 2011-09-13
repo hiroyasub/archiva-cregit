@@ -19,47 +19,19 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
-name|configuration
+name|admin
 operator|.
-name|ManagedRepositoryConfiguration
+name|model
+operator|.
+name|managed
+operator|.
+name|ManagedRepository
 import|;
 end_import
 
@@ -95,8 +67,28 @@ name|KnownRepositoryContentConsumer
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
-comment|/**  * RepositoryScanner   *  * @version $Id$  */
+comment|/**  * RepositoryScanner  *  * @version $Id$  */
 end_comment
 
 begin_interface
@@ -104,7 +96,7 @@ specifier|public
 interface|interface
 name|RepositoryScanner
 block|{
-comment|/**      * The value to pass to {@link #scan(ManagedRepositoryConfiguration, long)} to have the scan      * operate in a fresh fashion, with no check on changes based on timestamp.      */
+comment|/**      * The value to pass to {@link #scan(ManagedRepository, long)} to have the scan      * operate in a fresh fashion, with no check on changes based on timestamp.      */
 specifier|public
 specifier|static
 specifier|final
@@ -113,7 +105,7 @@ name|FRESH_SCAN
 init|=
 literal|0
 decl_stmt|;
-comment|/**      *<p>      * Typical Ignorable Content patterns.      *</p>      *       *<p><strong>      * NOTE: Do not use for normal webapp or task driven repository scanning.      *</strong></p>      *       *<p>      * These patterns are only valid for archiva-cli and archiva-converter use.      *</p>      */
+comment|/**      *<p>      * Typical Ignorable Content patterns.      *</p>      *<p/>      *<p><strong>      * NOTE: Do not use for normal webapp or task driven repository scanning.      *</strong></p>      *<p/>      *<p>      * These patterns are only valid for archiva-cli and archiva-converter use.      *</p>      */
 specifier|public
 specifier|static
 specifier|final
@@ -153,12 +145,11 @@ block|,
 literal|"**/KEYS*"
 block|}
 decl_stmt|;
-comment|/**      * Scan the repository for content changes.      *       * Internally, this will use the as-configured known and invalid consumer lists.      *       * @param repository the repository to change.      * @param changesSince the timestamp to use as a threshold on what is considered new or changed.      *                     (To have all content be taken into consideration regardless of timestamp,      *                      use the {@link #FRESH_SCAN} constant)       * @return the statistics for this scan.      * @throws RepositoryScannerException if there was a fundamental problem with getting the discoverer started.      */
-specifier|public
+comment|/**      * Scan the repository for content changes.      *<p/>      * Internally, this will use the as-configured known and invalid consumer lists.      *      * @param repository   the repository to change.      * @param changesSince the timestamp to use as a threshold on what is considered new or changed.      *                     (To have all content be taken into consideration regardless of timestamp,      *                     use the {@link #FRESH_SCAN} constant)      * @return the statistics for this scan.      * @throws RepositoryScannerException if there was a fundamental problem with getting the discoverer started.      */
 name|RepositoryScanStatistics
 name|scan
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 parameter_list|,
 name|long
@@ -167,12 +158,11 @@ parameter_list|)
 throws|throws
 name|RepositoryScannerException
 function_decl|;
-comment|/**      * Scan the repository for content changes.      *       * Internally, this will use the as-configured known and invalid consumer lists.      *       * @param repository the repository to change.      * @param knownContentConsumers the list of consumers that follow the {@link KnownRepositoryContentConsumer}       *                              interface that should be used for this scan.      * @param invalidContentConsumers the list of consumers that follow the {@link InvalidRepositoryContentConsumer}       *                                 interface that should be used for this scan.      * @param ignoredContentPatterns list of patterns that should be ignored and not sent to any consumer.      * @param changesSince the timestamp to use as a threshold on what is considered new or changed.      *                     (To have all content be taken into consideration regardless of timestamp,      *                      use the {@link #FRESH_SCAN} constant)       * @return the statistics for this scan.      * @throws RepositoryScannerException if there was a fundamental problem with getting the discoverer started.      */
-specifier|public
+comment|/**      * Scan the repository for content changes.      *<p/>      * Internally, this will use the as-configured known and invalid consumer lists.      *      * @param repository              the repository to change.      * @param knownContentConsumers   the list of consumers that follow the {@link KnownRepositoryContentConsumer}      *                                interface that should be used for this scan.      * @param invalidContentConsumers the list of consumers that follow the {@link InvalidRepositoryContentConsumer}      *                                interface that should be used for this scan.      * @param ignoredContentPatterns  list of patterns that should be ignored and not sent to any consumer.      * @param changesSince            the timestamp to use as a threshold on what is considered new or changed.      *                                (To have all content be taken into consideration regardless of timestamp,      *                                use the {@link #FRESH_SCAN} constant)      * @return the statistics for this scan.      * @throws RepositoryScannerException if there was a fundamental problem with getting the discoverer started.      */
 name|RepositoryScanStatistics
 name|scan
 parameter_list|(
-name|ManagedRepositoryConfiguration
+name|ManagedRepository
 name|repository
 parameter_list|,
 name|List
