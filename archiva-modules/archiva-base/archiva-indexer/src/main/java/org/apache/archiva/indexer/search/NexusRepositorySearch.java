@@ -2076,6 +2076,15 @@ operator|.
 name|prefix
 argument_list|)
 expr_stmt|;
+name|hit
+operator|.
+name|setPackaging
+argument_list|(
+name|artifactInfo
+operator|.
+name|packaging
+argument_list|)
+expr_stmt|;
 comment|// sure ??
 name|hit
 operator|.

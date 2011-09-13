@@ -1024,35 +1024,8 @@ name|getHits
 argument_list|()
 control|)
 block|{
-specifier|final
-name|String
-name|version
-init|=
-name|hit
-operator|.
-name|getVersion
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|version
-operator|!=
-literal|null
-condition|)
-block|{
-name|hit
-operator|.
-name|setVersion
-argument_list|(
-name|VersionUtil
-operator|.
-name|getBaseVersion
-argument_list|(
-name|version
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
+comment|// fix version ?
+comment|//hit.setVersion( VersionUtil.getBaseVersion( version ) );
 block|}
 return|return
 name|SUCCESS

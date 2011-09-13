@@ -38,7 +38,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SearchResultHit   *  * @version $Id: SearchResultHit.java 740552 2009-02-04 01:09:17Z oching $  */
+comment|/**  * SearchResultHit  *  * @version $Id: SearchResultHit.java 740552 2009-02-04 01:09:17Z oching $  */
 end_comment
 
 begin_class
@@ -86,66 +86,70 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+specifier|private
+name|String
+name|packaging
+decl_stmt|;
 comment|/**      * Plugin goal prefix (only if packaging is "maven-plugin")      */
-specifier|public
+specifier|private
 name|String
 name|prefix
 decl_stmt|;
 comment|/**      * Plugin goals (only if packaging is "maven-plugin")      */
-specifier|public
+specifier|private
 name|List
 argument_list|<
 name|String
 argument_list|>
 name|goals
 decl_stmt|;
-comment|/**      * contains osgi metadata Bundle-Version if available      * @since 1.4      */
-specifier|public
+comment|/**      * contains osgi metadata Bundle-Version if available      *      * @since 1.4      */
+specifier|private
 name|String
 name|bundleVersion
 decl_stmt|;
-comment|/**      * contains osgi metadata Bundle-SymbolicName if available      * @since 1.4      */
-specifier|public
+comment|/**      * contains osgi metadata Bundle-SymbolicName if available      *      * @since 1.4      */
+specifier|private
 name|String
 name|bundleSymbolicName
 decl_stmt|;
-comment|/**      * contains osgi metadata Export-Package if available      * @since 1.4      */
-specifier|public
+comment|/**      * contains osgi metadata Export-Package if available      *      * @since 1.4      */
+specifier|private
 name|String
 name|bundleExportPackage
 decl_stmt|;
-comment|/**      * contains osgi metadata Export-Service if available      * @since 1.4      */
-specifier|public
+comment|/**      * contains osgi metadata Export-Service if available      *      * @since 1.4      */
+specifier|private
 name|String
 name|bundleExportService
 decl_stmt|;
-comment|/**      * contains osgi metadata Bundle-Description if available      * @since 1.4      */
-specifier|public
+comment|/**      * contains osgi metadata Bundle-Description if available      *      * @since 1.4      */
+specifier|private
 name|String
 name|bundleDescription
 decl_stmt|;
-comment|/**      * contains osgi metadata Bundle-Name if available      * @since 1.4      */
-specifier|public
+comment|/**      * contains osgi metadata Bundle-Name if available      *      * @since 1.4      */
+specifier|private
 name|String
 name|bundleName
 decl_stmt|;
-comment|/**      * contains osgi metadata Bundle-License if available      * @since 1.4      */
-specifier|public
+comment|/**      * contains osgi metadata Bundle-License if available      *      * @since 1.4      */
+specifier|private
 name|String
 name|bundleLicense
 decl_stmt|;
-comment|/**      * contains osgi metadata Bundle-DocURL if available      * @since 1.4      */
-specifier|public
+comment|/**      * contains osgi metadata Bundle-DocURL if available      *      * @since 1.4      */
+specifier|private
 name|String
 name|bundleDocUrl
 decl_stmt|;
-comment|/**      * contains osgi metadata Import-Package if available      * @since 1.4      */
-specifier|public
+comment|/**      * contains osgi metadata Import-Package if available      *      * @since 1.4      */
+specifier|private
 name|String
 name|bundleImportPackage
 decl_stmt|;
-comment|/**      * contains osgi metadata Require-Bundle if available      * @since 1.4      */
-specifier|public
+comment|/**      * contains osgi metadata Require-Bundle if available      *      * @since 1.4      */
+specifier|private
 name|String
 name|bundleRequireBundle
 decl_stmt|;
@@ -632,6 +636,40 @@ operator|=
 name|bundleRequireBundle
 expr_stmt|;
 block|}
+specifier|public
+name|String
+name|getPackaging
+parameter_list|()
+block|{
+return|return
+name|packaging
+return|;
+block|}
+specifier|public
+name|void
+name|setPackaging
+parameter_list|(
+name|String
+name|packaging
+parameter_list|)
+block|{
+name|this
+operator|.
+name|packaging
+operator|=
+name|packaging
+expr_stmt|;
+block|}
+specifier|public
+name|String
+name|getType
+parameter_list|()
+block|{
+return|return
+name|getPackaging
+argument_list|()
+return|;
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -749,6 +787,23 @@ operator|.
 name|append
 argument_list|(
 name|versions
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", packaging='"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|packaging
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|'\''
 argument_list|)
 expr_stmt|;
 name|sb
