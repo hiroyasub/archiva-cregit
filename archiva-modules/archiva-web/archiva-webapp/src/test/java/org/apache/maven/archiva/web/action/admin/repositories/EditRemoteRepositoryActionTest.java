@@ -295,13 +295,6 @@ operator|.
 name|getMock
 argument_list|()
 expr_stmt|;
-name|action
-operator|.
-name|setArchivaConfiguration
-argument_list|(
-name|archivaConfiguration
-argument_list|)
-expr_stmt|;
 operator|(
 operator|(
 name|DefaultRemoteRepositoryAdmin

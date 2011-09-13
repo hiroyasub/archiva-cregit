@@ -429,13 +429,6 @@ operator|.
 name|getMock
 argument_list|()
 expr_stmt|;
-name|action
-operator|.
-name|setArchivaConfiguration
-argument_list|(
-name|archivaConfiguration
-argument_list|)
-expr_stmt|;
 name|roleManagerControl
 operator|=
 name|MockControl
