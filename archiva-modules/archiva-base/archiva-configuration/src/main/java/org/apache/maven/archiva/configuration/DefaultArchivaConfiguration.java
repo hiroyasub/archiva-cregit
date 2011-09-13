@@ -590,7 +590,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Plexus registry to read the configuration from.      *      */
+comment|/**      * Plexus registry to read the configuration from.      */
 annotation|@
 name|Inject
 annotation|@
@@ -2710,6 +2710,33 @@ name|SystemPropertyExpressionSource
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|String
+name|userConfigFileNameSysProps
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"archiva.user.configFileName"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|StringUtils
+operator|.
+name|isNotBlank
+argument_list|(
+name|userConfigFileNameSysProps
+argument_list|)
+condition|)
+block|{
+name|userConfigFilename
+operator|=
+name|userConfigFileNameSysProps
+expr_stmt|;
+block|}
+else|else
+block|{
 name|userConfigFilename
 operator|=
 name|expressionEvaluator
@@ -2719,6 +2746,7 @@ argument_list|(
 name|userConfigFilename
 argument_list|)
 expr_stmt|;
+block|}
 name|altConfigFilename
 operator|=
 name|expressionEvaluator
