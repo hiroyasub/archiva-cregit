@@ -1543,7 +1543,7 @@ operator|.
 name|replay
 argument_list|()
 expr_stmt|;
-comment|// wait lucene flush.....SearchServiceImplTest
+comment|// wait lucene flush.....
 name|Thread
 operator|.
 name|sleep
