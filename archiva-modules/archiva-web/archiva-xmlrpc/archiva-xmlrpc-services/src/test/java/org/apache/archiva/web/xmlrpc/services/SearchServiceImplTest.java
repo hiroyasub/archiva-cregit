@@ -893,6 +893,10 @@ argument_list|(
 name|ARCHIVA_TEST_GROUP_ID
 argument_list|,
 literal|"archiva-webapp"
+argument_list|,
+literal|null
+argument_list|,
+literal|"war"
 argument_list|)
 argument_list|,
 name|resultHit
@@ -1248,6 +1252,10 @@ argument_list|(
 name|ARCHIVA_TEST_GROUP_ID
 argument_list|,
 name|ARCHIVA_TEST_ARTIFACT_ID
+argument_list|,
+literal|null
+argument_list|,
+literal|"war"
 argument_list|)
 argument_list|,
 name|resultHit
@@ -1600,6 +1608,10 @@ name|resultHit
 operator|.
 name|getArtifactId
 argument_list|()
+argument_list|,
+literal|null
+argument_list|,
+literal|"war"
 argument_list|)
 argument_list|,
 name|resultHit
