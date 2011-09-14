@@ -1165,7 +1165,6 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-comment|//nexusIndexer.scan( context, true );
 name|context
 operator|.
 name|updateTimestamp

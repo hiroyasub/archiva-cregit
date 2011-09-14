@@ -58,7 +58,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SearchResults   *  * @version $Id: SearchResults.java 742859 2009-02-10 05:35:05Z jdumay $  */
+comment|/**  * SearchResults  *  * @version $Id: SearchResults.java 742859 2009-02-10 05:35:05Z jdumay $  */
 end_comment
 
 begin_class
@@ -124,7 +124,7 @@ name|hit
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the list of {@link SearchResultHit} objects.      *       * @return the list of {@link SearchResultHit} objects.      */
+comment|/**      * Get the list of {@link SearchResultHit} objects.      *      * @return the list of {@link SearchResultHit} objects.      */
 specifier|public
 name|List
 argument_list|<
@@ -144,6 +144,24 @@ name|hits
 operator|.
 name|values
 argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * see SearchUtil on how to generate the key      *      * @param key      * @return      */
+specifier|public
+name|SearchResultHit
+name|getSearchResultHit
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+return|return
+name|hits
+operator|.
+name|get
+argument_list|(
+name|key
 argument_list|)
 return|;
 block|}
@@ -221,7 +239,7 @@ operator|=
 name|totalHits
 expr_stmt|;
 block|}
-comment|/**      * @since 1.4      * @return      */
+comment|/**      * @return      * @since 1.4      */
 specifier|public
 name|int
 name|getReturnedHitsCount
@@ -231,7 +249,7 @@ return|return
 name|returnedHitsCount
 return|;
 block|}
-comment|/**      * @since 1.4      * @param returnedHitsCount      */
+comment|/**      * @param returnedHitsCount      * @since 1.4      */
 specifier|public
 name|void
 name|setReturnedHitsCount
