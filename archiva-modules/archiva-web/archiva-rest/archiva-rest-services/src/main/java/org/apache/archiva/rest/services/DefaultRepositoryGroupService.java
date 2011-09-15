@@ -45,9 +45,9 @@ name|admin
 operator|.
 name|model
 operator|.
-name|group
+name|beans
 operator|.
-name|RepositoryGroupAdmin
+name|RepositoryGroup
 import|;
 end_import
 
@@ -59,13 +59,13 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|rest
-operator|.
-name|api
+name|admin
 operator|.
 name|model
 operator|.
-name|RepositoryGroup
+name|group
+operator|.
+name|RepositoryGroupAdmin
 import|;
 end_import
 
