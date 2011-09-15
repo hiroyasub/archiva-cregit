@@ -61,9 +61,9 @@ name|admin
 operator|.
 name|model
 operator|.
-name|networkproxy
+name|beans
 operator|.
-name|NetworkProxyAdmin
+name|NetworkProxy
 import|;
 end_import
 
@@ -75,13 +75,13 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|rest
-operator|.
-name|api
+name|admin
 operator|.
 name|model
 operator|.
-name|NetworkProxy
+name|networkproxy
+operator|.
+name|NetworkProxyAdmin
 import|;
 end_import
 
