@@ -97,7 +97,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|admin
+name|beans
 operator|.
 name|FileType
 import|;
@@ -115,7 +115,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|admin
+name|beans
 operator|.
 name|LegacyArtifactPath
 import|;
@@ -133,7 +133,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|admin
+name|beans
 operator|.
 name|OrganisationInformation
 import|;

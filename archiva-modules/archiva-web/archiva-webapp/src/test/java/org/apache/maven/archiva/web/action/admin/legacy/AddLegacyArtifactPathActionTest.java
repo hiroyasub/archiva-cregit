@@ -59,7 +59,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|admin
+name|beans
 operator|.
 name|LegacyArtifactPath
 import|;

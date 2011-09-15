@@ -31,7 +31,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|networkproxy
+name|beans
 operator|.
 name|NetworkProxy
 import|;

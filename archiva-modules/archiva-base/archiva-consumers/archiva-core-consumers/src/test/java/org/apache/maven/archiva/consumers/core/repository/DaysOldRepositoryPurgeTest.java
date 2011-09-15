@@ -33,7 +33,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|managed
+name|beans
 operator|.
 name|ManagedRepository
 import|;
@@ -68,22 +68,6 @@ operator|.
 name|time
 operator|.
 name|DateUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|ManagedRepositoryConfiguration
 import|;
 end_import
 

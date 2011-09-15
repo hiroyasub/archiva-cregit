@@ -59,7 +59,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|managed
+name|beans
 operator|.
 name|ManagedRepository
 import|;
@@ -126,18 +126,6 @@ operator|.
 name|configuration
 operator|.
 name|ManagedRepositoryConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|stereotype
-operator|.
-name|Service
 import|;
 end_import
 

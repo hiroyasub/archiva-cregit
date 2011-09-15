@@ -222,7 +222,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|group
+name|beans
 operator|.
 name|RepositoryGroup
 name|repoGroup
@@ -353,7 +353,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|group
+name|beans
 operator|.
 name|RepositoryGroup
 argument_list|(
@@ -426,7 +426,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|group
+name|beans
 operator|.
 name|RepositoryGroup
 argument_list|(

@@ -31,25 +31,9 @@ name|admin
 operator|.
 name|model
 operator|.
-name|remote
+name|beans
 operator|.
 name|RemoteRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|RemoteRepositoryConfiguration
 import|;
 end_import
 

@@ -77,7 +77,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|admin
+name|beans
 operator|.
 name|FileType
 import|;
@@ -95,7 +95,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|admin
+name|beans
 operator|.
 name|LegacyArtifactPath
 import|;
@@ -113,7 +113,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|admin
+name|beans
 operator|.
 name|OrganisationInformation
 import|;
@@ -132,18 +132,6 @@ operator|.
 name|configuration
 operator|.
 name|ArchivaConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|stereotype
-operator|.
-name|Service
 import|;
 end_import
 

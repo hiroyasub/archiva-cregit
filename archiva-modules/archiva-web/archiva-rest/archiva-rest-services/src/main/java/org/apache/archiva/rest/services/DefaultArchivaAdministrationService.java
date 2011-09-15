@@ -270,7 +270,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|admin
+name|beans
 operator|.
 name|LegacyArtifactPath
 name|legacyArtifactPath
@@ -356,7 +356,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|admin
+name|beans
 operator|.
 name|LegacyArtifactPath
 operator|.
@@ -556,7 +556,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|admin
+name|beans
 operator|.
 name|FileType
 name|fileType
@@ -646,7 +646,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|admin
+name|beans
 operator|.
 name|FileType
 operator|.
@@ -1018,7 +1018,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|admin
+name|beans
 operator|.
 name|FileType
 argument_list|>
@@ -1078,7 +1078,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|admin
+name|beans
 operator|.
 name|FileType
 name|fileType
@@ -1234,7 +1234,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|admin
+name|beans
 operator|.
 name|OrganisationInformation
 name|organisationInformation
@@ -1334,7 +1334,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|admin
+name|beans
 operator|.
 name|OrganisationInformation
 operator|.

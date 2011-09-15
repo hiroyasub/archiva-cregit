@@ -231,7 +231,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|managed
+name|beans
 operator|.
 name|ManagedRepository
 argument_list|>
@@ -272,7 +272,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|managed
+name|beans
 operator|.
 name|ManagedRepository
 name|repoConfig
@@ -490,7 +490,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|managed
+name|beans
 operator|.
 name|ManagedRepository
 name|repo
@@ -506,7 +506,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|managed
+name|beans
 operator|.
 name|ManagedRepository
 argument_list|()
@@ -688,7 +688,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|managed
+name|beans
 operator|.
 name|ManagedRepository
 name|repo
@@ -704,7 +704,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|managed
+name|beans
 operator|.
 name|ManagedRepository
 argument_list|()

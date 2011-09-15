@@ -53,9 +53,9 @@ name|admin
 operator|.
 name|model
 operator|.
-name|managed
+name|beans
 operator|.
-name|ManagedRepositoryAdmin
+name|ProxyConnector
 import|;
 end_import
 
@@ -71,9 +71,9 @@ name|admin
 operator|.
 name|model
 operator|.
-name|proxyconnector
+name|managed
 operator|.
-name|ProxyConnector
+name|ManagedRepositoryAdmin
 import|;
 end_import
 

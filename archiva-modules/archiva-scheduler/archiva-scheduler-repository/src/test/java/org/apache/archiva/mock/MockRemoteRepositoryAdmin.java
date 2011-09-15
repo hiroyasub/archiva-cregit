@@ -59,7 +59,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|remote
+name|beans
 operator|.
 name|RemoteRepository
 import|;
@@ -96,18 +96,6 @@ operator|.
 name|configuration
 operator|.
 name|ArchivaConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|stereotype
-operator|.
-name|Service
 import|;
 end_import
 

@@ -11,7 +11,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|proxyconnector
+name|beans
 package|;
 end_package
 

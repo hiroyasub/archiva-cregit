@@ -31,7 +31,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|proxyconnector
+name|beans
 operator|.
 name|ProxyConnector
 import|;
@@ -49,7 +49,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|remote
+name|beans
 operator|.
 name|RemoteRepository
 import|;

@@ -21,6 +21,24 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|admin
+operator|.
+name|model
+operator|.
+name|beans
+operator|.
+name|ProxyConnector
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util

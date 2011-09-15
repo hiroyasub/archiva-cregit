@@ -109,7 +109,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|managed
+name|beans
 operator|.
 name|ManagedRepository
 import|;

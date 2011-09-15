@@ -63,7 +63,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|group
+name|beans
 operator|.
 name|RepositoryGroup
 import|;
@@ -98,22 +98,6 @@ operator|.
 name|lang
 operator|.
 name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|RepositoryGroupConfiguration
 import|;
 end_import
 

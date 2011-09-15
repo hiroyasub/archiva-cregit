@@ -222,7 +222,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|remote
+name|beans
 operator|.
 name|RemoteRepository
 name|remoteRepository
@@ -439,7 +439,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|remote
+name|beans
 operator|.
 name|RemoteRepository
 name|getModelRemoteRepository
@@ -460,7 +460,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|remote
+name|beans
 operator|.
 name|RemoteRepository
 argument_list|(

@@ -87,7 +87,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|group
+name|beans
 operator|.
 name|RepositoryGroup
 import|;

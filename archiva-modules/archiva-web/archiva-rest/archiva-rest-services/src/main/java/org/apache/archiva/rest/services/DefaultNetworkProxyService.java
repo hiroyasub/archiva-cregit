@@ -224,7 +224,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|networkproxy
+name|beans
 operator|.
 name|NetworkProxy
 name|networkProxy
@@ -298,7 +298,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|networkproxy
+name|beans
 operator|.
 name|NetworkProxy
 name|networkProxy
@@ -393,7 +393,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|networkproxy
+name|beans
 operator|.
 name|NetworkProxy
 operator|.
@@ -467,7 +467,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|networkproxy
+name|beans
 operator|.
 name|NetworkProxy
 operator|.

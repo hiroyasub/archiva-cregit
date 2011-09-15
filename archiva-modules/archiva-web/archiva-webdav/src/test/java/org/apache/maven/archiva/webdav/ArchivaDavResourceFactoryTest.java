@@ -55,9 +55,9 @@ name|admin
 operator|.
 name|model
 operator|.
-name|group
+name|beans
 operator|.
-name|RepositoryGroup
+name|ManagedRepository
 import|;
 end_import
 
@@ -73,9 +73,9 @@ name|admin
 operator|.
 name|model
 operator|.
-name|managed
+name|beans
 operator|.
-name|ManagedRepository
+name|RepositoryGroup
 import|;
 end_import
 

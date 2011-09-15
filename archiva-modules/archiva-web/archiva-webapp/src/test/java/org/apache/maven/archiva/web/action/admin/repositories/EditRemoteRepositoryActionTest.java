@@ -63,7 +63,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|remote
+name|beans
 operator|.
 name|RemoteRepository
 import|;

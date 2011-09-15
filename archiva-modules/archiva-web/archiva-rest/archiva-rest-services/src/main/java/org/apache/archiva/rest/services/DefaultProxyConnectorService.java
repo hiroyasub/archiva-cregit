@@ -224,7 +224,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|proxyconnector
+name|beans
 operator|.
 name|ProxyConnector
 name|proxyConnector
@@ -301,7 +301,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|proxyconnector
+name|beans
 operator|.
 name|ProxyConnector
 name|proxyConnector
@@ -402,7 +402,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|proxyconnector
+name|beans
 operator|.
 name|ProxyConnector
 operator|.
@@ -480,7 +480,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|proxyconnector
+name|beans
 operator|.
 name|ProxyConnector
 operator|.
@@ -558,7 +558,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|proxyconnector
+name|beans
 operator|.
 name|ProxyConnector
 operator|.
