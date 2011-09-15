@@ -61,9 +61,9 @@ name|admin
 operator|.
 name|model
 operator|.
-name|proxyconnector
+name|beans
 operator|.
-name|ProxyConnectorAdmin
+name|ProxyConnector
 import|;
 end_import
 
@@ -75,13 +75,13 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|rest
-operator|.
-name|api
+name|admin
 operator|.
 name|model
 operator|.
-name|ProxyConnector
+name|proxyconnector
+operator|.
+name|ProxyConnectorAdmin
 import|;
 end_import
 
