@@ -89,6 +89,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|search
@@ -108,22 +122,6 @@ operator|.
 name|search
 operator|.
 name|BooleanQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|ManagedRepositoryConfiguration
 import|;
 end_import
 
@@ -466,7 +464,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaIndexingTaskExecutor Executes all indexing tasks. Adding, updating and removing artifacts from the index are  * all performed by this executor. Add and update artifact in index tasks are added in the indexing task queue by the  * NexusIndexerConsumer while remove artifact from index tasks are added by the LuceneCleanupRemoveIndexedConsumer.  *  */
+comment|/**  * ArchivaIndexingTaskExecutor Executes all indexing tasks. Adding, updating and removing artifacts from the index are  * all performed by this executor. Add and update artifact in index tasks are added in the indexing task queue by the  * NexusIndexerConsumer while remove artifact from index tasks are added by the LuceneCleanupRemoveIndexedConsumer.  */
 end_comment
 
 begin_class
@@ -1336,16 +1334,37 @@ name|getLocation
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|String
+name|indexDirectory
+init|=
+name|repository
+operator|.
+name|getIndexDirectory
+argument_list|()
+decl_stmt|;
 specifier|final
 name|File
 name|indexLocation
 init|=
+name|StringUtils
+operator|.
+name|isBlank
+argument_list|(
+name|indexDirectory
+argument_list|)
+condition|?
 operator|new
 name|File
 argument_list|(
 name|managedRepository
 argument_list|,
-literal|".index"
+literal|".indexer"
+argument_list|)
+else|:
+operator|new
+name|File
+argument_list|(
+name|indexDirectory
 argument_list|)
 decl_stmt|;
 name|IndexPackingRequest

@@ -1521,7 +1521,7 @@ name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertFalse
 argument_list|(
 operator|new
 name|File
@@ -1679,23 +1679,6 @@ name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-operator|new
-name|File
-argument_list|(
-name|repositoryConfig
-operator|.
-name|getLocation
-argument_list|()
-argument_list|,
-literal|".index"
-argument_list|)
-operator|.
-name|exists
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// unpack .zip index
 name|File
 name|destDir
@@ -1708,7 +1691,7 @@ operator|.
 name|getLocation
 argument_list|()
 argument_list|,
-literal|".index/tmp"
+literal|".indexer/tmp"
 argument_list|)
 decl_stmt|;
 name|unzipIndex
@@ -1721,7 +1704,7 @@ operator|.
 name|getLocation
 argument_list|()
 argument_list|,
-literal|".index"
+literal|".indexer"
 argument_list|)
 operator|.
 name|getPath
