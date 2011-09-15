@@ -2154,6 +2154,15 @@ operator|.
 name|packaging
 argument_list|)
 expr_stmt|;
+name|hit
+operator|.
+name|setClassifier
+argument_list|(
+name|artifactInfo
+operator|.
+name|classifier
+argument_list|)
+expr_stmt|;
 comment|// sure ??
 name|hit
 operator|.

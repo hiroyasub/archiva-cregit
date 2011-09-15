@@ -292,6 +292,14 @@ literal|"artifactId"
 argument_list|)
 name|String
 name|artifactId
+parameter_list|,
+annotation|@
+name|QueryParam
+argument_list|(
+literal|"packaging"
+argument_list|)
+name|String
+name|packaging
 parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
