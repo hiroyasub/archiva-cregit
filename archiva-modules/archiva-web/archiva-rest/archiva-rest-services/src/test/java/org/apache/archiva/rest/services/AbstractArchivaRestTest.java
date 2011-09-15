@@ -25,11 +25,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|rest
-operator|.
-name|api
+name|admin
 operator|.
 name|model
+operator|.
+name|beans
 operator|.
 name|ManagedRepository
 import|;
@@ -885,9 +885,19 @@ literal|true
 argument_list|,
 literal|false
 argument_list|,
+literal|"2 * * * * ?"
+argument_list|,
+literal|null
+argument_list|,
 literal|false
 argument_list|,
-literal|"2 * * * * ?"
+literal|2
+argument_list|,
+literal|3
+argument_list|,
+literal|true
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}

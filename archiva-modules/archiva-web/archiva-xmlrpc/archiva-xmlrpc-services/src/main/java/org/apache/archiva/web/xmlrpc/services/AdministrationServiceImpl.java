@@ -1857,6 +1857,8 @@ argument_list|,
 name|retentionCount
 argument_list|,
 name|deleteReleasedSnapshots
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 return|return

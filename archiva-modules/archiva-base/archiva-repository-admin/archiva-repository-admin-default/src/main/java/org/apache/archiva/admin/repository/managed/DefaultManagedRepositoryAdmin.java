@@ -804,6 +804,8 @@ name|repoConfig
 operator|.
 name|isDeleteReleasedSnapshots
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|managedRepos

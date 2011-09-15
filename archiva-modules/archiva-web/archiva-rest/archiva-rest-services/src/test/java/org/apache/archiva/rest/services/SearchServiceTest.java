@@ -25,13 +25,13 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|rest
-operator|.
-name|api
+name|admin
 operator|.
 name|model
 operator|.
-name|Artifact
+name|beans
+operator|.
+name|ManagedRepository
 import|;
 end_import
 
@@ -49,7 +49,7 @@ name|api
 operator|.
 name|model
 operator|.
-name|ManagedRepository
+name|Artifact
 import|;
 end_import
 
