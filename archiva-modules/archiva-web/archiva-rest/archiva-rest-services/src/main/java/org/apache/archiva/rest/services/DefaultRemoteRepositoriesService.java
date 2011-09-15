@@ -45,9 +45,9 @@ name|admin
 operator|.
 name|model
 operator|.
-name|remote
+name|beans
 operator|.
-name|RemoteRepositoryAdmin
+name|RemoteRepository
 import|;
 end_import
 
@@ -59,13 +59,13 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|rest
-operator|.
-name|api
+name|admin
 operator|.
 name|model
 operator|.
-name|RemoteRepository
+name|remote
+operator|.
+name|RemoteRepositoryAdmin
 import|;
 end_import
 
@@ -496,7 +496,7 @@ argument_list|()
 argument_list|,
 name|remoteRepository
 operator|.
-name|getTimeOut
+name|getTimeout
 argument_list|()
 argument_list|)
 return|;

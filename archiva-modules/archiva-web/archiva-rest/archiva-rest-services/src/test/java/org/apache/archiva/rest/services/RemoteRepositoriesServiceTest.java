@@ -25,11 +25,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|rest
-operator|.
-name|api
+name|admin
 operator|.
 name|model
+operator|.
+name|beans
 operator|.
 name|RemoteRepository
 import|;
@@ -407,7 +407,7 @@ argument_list|(
 name|getRemoteRepository
 argument_list|()
 operator|.
-name|getTimeOut
+name|getTimeout
 argument_list|()
 argument_list|,
 name|service
@@ -417,7 +417,7 @@ argument_list|(
 literal|"id-new"
 argument_list|)
 operator|.
-name|getTimeOut
+name|getTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -625,7 +625,7 @@ argument_list|(
 name|getRemoteRepository
 argument_list|()
 operator|.
-name|getTimeOut
+name|getTimeout
 argument_list|()
 argument_list|,
 name|service
@@ -635,7 +635,7 @@ argument_list|(
 literal|"id-new"
 argument_list|)
 operator|.
-name|getTimeOut
+name|getTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -789,7 +789,7 @@ name|assertEquals
 argument_list|(
 name|repo
 operator|.
-name|getTimeOut
+name|getTimeout
 argument_list|()
 argument_list|,
 name|service
@@ -799,7 +799,7 @@ argument_list|(
 literal|"id-new"
 argument_list|)
 operator|.
-name|getTimeOut
+name|getTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;

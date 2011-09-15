@@ -69,7 +69,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"remoteRepository"
+literal|"repositoryGroup"
 argument_list|)
 specifier|public
 class|class
@@ -157,7 +157,7 @@ name|String
 name|password
 parameter_list|,
 name|int
-name|timeOut
+name|timeout
 parameter_list|)
 block|{
 name|super
@@ -191,7 +191,7 @@ name|this
 operator|.
 name|timeout
 operator|=
-name|timeOut
+name|timeout
 expr_stmt|;
 block|}
 specifier|public
