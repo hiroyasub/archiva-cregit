@@ -1281,6 +1281,13 @@ argument_list|(
 name|deteleReleasedSnapshots
 argument_list|)
 expr_stmt|;
+name|repository
+operator|.
+name|setIndexDir
+argument_list|(
+name|indexDir
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|addRepository
