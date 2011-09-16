@@ -283,6 +283,7 @@ name|AbstractArchivaRestTest
 extends|extends
 name|AbstractRestServicesTest
 block|{
+comment|// START SNIPPET: authz-header
 specifier|public
 name|String
 name|guestAuthzHeader
@@ -313,6 +314,7 @@ name|getBytes
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// END SNIPPET: authz-header
 annotation|@
 name|Override
 specifier|protected
@@ -776,6 +778,7 @@ name|String
 name|authzHeader
 parameter_list|)
 block|{
+comment|// START SNIPPET: cxf-searchservice-creation
 name|SearchService
 name|service
 init|=
@@ -842,6 +845,7 @@ expr_stmt|;
 return|return
 name|service
 return|;
+comment|// END SNIPPET: cxf-searchservice-creation
 block|}
 specifier|protected
 name|ManagedRepository

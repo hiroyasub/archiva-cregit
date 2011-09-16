@@ -323,6 +323,7 @@ argument_list|(
 name|testRepoId
 argument_list|)
 decl_stmt|;
+comment|// START SNIPPET: searchservice-artifact-versions
 name|SearchService
 name|searchService
 init|=
@@ -348,6 +349,7 @@ argument_list|,
 literal|"jar"
 argument_list|)
 decl_stmt|;
+comment|// END SNIPPET: searchservice-artifact-versions
 name|assertNotNull
 argument_list|(
 name|artifacts
