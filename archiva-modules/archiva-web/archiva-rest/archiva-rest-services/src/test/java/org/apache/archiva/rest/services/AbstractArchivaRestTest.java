@@ -284,6 +284,7 @@ extends|extends
 name|AbstractRestServicesTest
 block|{
 comment|// START SNIPPET: authz-header
+comment|// guest with an empty password
 specifier|public
 name|String
 name|guestAuthzHeader
@@ -314,6 +315,9 @@ name|getBytes
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// with an other login/password
+comment|//public String authzHeader =
+comment|//    "Basic " + org.apache.cxf.common.util.Base64Utility.encode( ( "login" + ":password" ).getBytes() );
 comment|// END SNIPPET: authz-header
 annotation|@
 name|Override
