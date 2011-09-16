@@ -253,8 +253,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|repository
@@ -268,8 +266,6 @@ import|import
 name|org
 operator|.
 name|apache
-operator|.
-name|maven
 operator|.
 name|archiva
 operator|.
@@ -285,8 +281,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|repository
@@ -300,8 +294,6 @@ import|import
 name|org
 operator|.
 name|apache
-operator|.
-name|maven
 operator|.
 name|archiva
 operator|.
@@ -319,8 +311,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|repository
@@ -336,8 +326,6 @@ import|import
 name|org
 operator|.
 name|apache
-operator|.
-name|maven
 operator|.
 name|archiva
 operator|.
