@@ -228,7 +228,8 @@ argument_list|(
 literal|"commons-logging"
 argument_list|)
 decl_stmt|;
-comment|// return all artifacts with groupId OR artifactId
+comment|// return all artifacts with groupId OR artifactId OR version OR packaging OR className
+comment|// NOTE : only artifacts with classifier empty are returned
 comment|// START SNIPPET: quick-search
 name|assertNotNull
 argument_list|(
@@ -457,6 +458,7 @@ argument_list|(
 name|authorizationHeader
 argument_list|)
 decl_stmt|;
+comment|// START SNIPPET: searchservice-with-classifier
 name|SearchRequest
 name|searchRequest
 init|=
@@ -498,6 +500,7 @@ argument_list|(
 name|searchRequest
 argument_list|)
 decl_stmt|;
+comment|// END SNIPPET: searchservice-with-classifier
 name|assertNotNull
 argument_list|(
 name|artifacts
@@ -602,6 +605,7 @@ argument_list|(
 name|authorizationHeader
 argument_list|)
 decl_stmt|;
+comment|// START SNIPPET: searchservice-with-osgi
 name|SearchRequest
 name|searchRequest
 init|=
@@ -616,6 +620,7 @@ argument_list|(
 literal|"org.apache.karaf.features.command"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: searchservice-with-osgi
 name|List
 argument_list|<
 name|Artifact
