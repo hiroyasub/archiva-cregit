@@ -230,7 +230,7 @@ argument_list|)
 decl_stmt|;
 comment|// return all artifacts with groupId OR artifactId OR version OR packaging OR className
 comment|// NOTE : only artifacts with classifier empty are returned
-comment|// START SNIPPET: quick-search
+comment|// END SNIPPET: quick-search
 name|assertNotNull
 argument_list|(
 name|artifacts
