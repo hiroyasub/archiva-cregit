@@ -710,8 +710,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|common
@@ -829,8 +827,6 @@ argument_list|(
 name|org
 operator|.
 name|apache
-operator|.
-name|maven
 operator|.
 name|archiva
 operator|.

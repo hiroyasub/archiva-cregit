@@ -303,8 +303,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|common
@@ -320,8 +318,6 @@ import|import
 name|org
 operator|.
 name|apache
-operator|.
-name|maven
 operator|.
 name|archiva
 operator|.
