@@ -200,7 +200,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MimeTypes   *  * @version $Id: MimeTypes.java 7010 2007-10-25 23:35:02Z joakime $  *  */
+comment|/**  * MimeTypes  *  * @version $Id: MimeTypes.java 7010 2007-10-25 23:35:02Z joakime $  */
 end_comment
 
 begin_class
@@ -258,7 +258,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Get the Mime Type for the provided filename.      *       * @param filename the filename to obtain the mime type for.      * @return a mime type String, or null if filename is null, has no extension, or no mime type is associated with it.      */
+comment|/**      * Get the Mime Type for the provided filename.      *      * @param filename the filename to obtain the mime type for.      * @return a mime type String, or null if filename is null, has no extension, or no mime type is associated with it.      */
 specifier|public
 name|String
 name|getMimeType

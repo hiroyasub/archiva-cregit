@@ -29,7 +29,7 @@ name|commons
 operator|.
 name|lang
 operator|.
-name|StringUtils
+name|ArrayUtils
 import|;
 end_import
 
@@ -43,7 +43,7 @@ name|commons
 operator|.
 name|lang
 operator|.
-name|ArrayUtils
+name|StringUtils
 import|;
 end_import
 

@@ -25,9 +25,9 @@ name|apache
 operator|.
 name|jackrabbit
 operator|.
-name|webdav
+name|util
 operator|.
-name|DavResourceLocator
+name|Text
 import|;
 end_import
 
@@ -53,9 +53,9 @@ name|apache
 operator|.
 name|jackrabbit
 operator|.
-name|util
+name|webdav
 operator|.
-name|Text
+name|DavResourceLocator
 import|;
 end_import
 
@@ -417,7 +417,7 @@ name|getResourcePath
 argument_list|()
 return|;
 block|}
-comment|/**      * Computes the hash code from the href, which is built using the final fields prefix and resourcePath.      *       * @return the hash code      */
+comment|/**      * Computes the hash code from the href, which is built using the final fields prefix and resourcePath.      *      * @return the hash code      */
 specifier|public
 name|int
 name|hashCode
@@ -430,7 +430,7 @@ name|hashCode
 argument_list|()
 return|;
 block|}
-comment|/**      * Equality of path is achieved if the specified object is a<code>DavResourceLocator</code> object with the same      * hash code.      *       * @param obj the object to compare to      * @return<code>true</code> if the 2 objects are equal;<code>false</code> otherwise      */
+comment|/**      * Equality of path is achieved if the specified object is a<code>DavResourceLocator</code> object with the same      * hash code.      *      * @param obj the object to compare to      * @return<code>true</code> if the 2 objects are equal;<code>false</code> otherwise      */
 specifier|public
 name|boolean
 name|equals

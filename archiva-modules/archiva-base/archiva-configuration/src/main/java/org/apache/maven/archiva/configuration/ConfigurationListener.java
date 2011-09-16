@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * ConfigurationListener   *  * @version $Id$  */
+comment|/**  * ConfigurationListener  *  * @version $Id$  */
 end_comment
 
 begin_interface

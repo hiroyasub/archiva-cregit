@@ -25,11 +25,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|archiva
 operator|.
-name|lang
+name|security
 operator|.
-name|StringUtils
+name|ArchivaRoleConstants
 import|;
 end_import
 
@@ -39,11 +39,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|archiva
+name|commons
 operator|.
-name|security
+name|lang
 operator|.
-name|ArchivaRoleConstants
+name|StringUtils
 import|;
 end_import
 
@@ -78,7 +78,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * WebdavMethodUtil  *   * @version $Id: WebdavMethodUtil.java 5412 2007-01-13 01:18:47Z joakime $  */
+comment|/**  * WebdavMethodUtil  *  * @version $Id: WebdavMethodUtil.java 5412 2007-01-13 01:18:47Z joakime $  */
 end_comment
 
 begin_class
