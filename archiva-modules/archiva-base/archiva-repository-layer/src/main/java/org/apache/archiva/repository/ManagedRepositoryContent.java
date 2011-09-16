@@ -39,8 +39,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|model
@@ -54,8 +52,6 @@ import|import
 name|org
 operator|.
 name|apache
-operator|.
-name|maven
 operator|.
 name|archiva
 operator|.
@@ -71,8 +67,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|model
@@ -86,8 +80,6 @@ import|import
 name|org
 operator|.
 name|apache
-operator|.
-name|maven
 operator|.
 name|archiva
 operator|.
