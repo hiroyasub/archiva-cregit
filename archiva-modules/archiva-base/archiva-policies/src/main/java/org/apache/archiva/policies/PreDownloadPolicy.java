@@ -5,13 +5,9 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|policies
-operator|.
-name|urlcache
 package|;
 end_package
 
@@ -20,31 +16,16 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Cache for requested URLs that cannot be fetched.   *  * @version $Id$  */
+comment|/**  * Policy to apply before the download is attempted.  *  * @version $Id$  */
 end_comment
 
 begin_interface
 specifier|public
 interface|interface
-name|UrlFailureCache
-block|{
-comment|/**      * Store a URL in the cache as failed.      *       * @param url the url to store.       */
-name|void
-name|cacheFailure
-parameter_list|(
-name|String
-name|url
-parameter_list|)
-function_decl|;
-comment|/**      * Test if a specified URL has failed before.      *       * NOTE: If the provided URL has failed, then making this call       * should refresh the expiration time on that URL entry.      *       * @param url the URL to test.      * @return true if it has failed before, false if not.      */
-name|boolean
-name|hasFailedBefore
-parameter_list|(
-name|String
-name|url
-parameter_list|)
-function_decl|;
-block|}
+name|PreDownloadPolicy
+extends|extends
+name|DownloadPolicy
+block|{ }
 end_interface
 
 end_unit

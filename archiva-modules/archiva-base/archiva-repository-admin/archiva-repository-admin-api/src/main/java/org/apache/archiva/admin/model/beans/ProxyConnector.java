@@ -88,7 +88,7 @@ name|UNORDERED
 init|=
 literal|0
 decl_stmt|;
-comment|/**      * The policy key {@link #getPolicies()} for error handling.      * See {@link org.apache.maven.archiva.policies.DownloadErrorPolicy}      * for details on potential values to this policy key.      */
+comment|/**      * The policy key {@link #getPolicies()} for error handling.      * See {@link org.apache.archiva.policies.DownloadErrorPolicy}      * for details on potential values to this policy key.      */
 specifier|public
 specifier|static
 specifier|final
@@ -97,7 +97,7 @@ name|POLICY_PROPAGATE_ERRORS
 init|=
 literal|"propagate-errors"
 decl_stmt|;
-comment|/**      * The policy key {@link #getPolicies()} for error handling when an artifact is present.      * See {@link org.apache.maven.archiva.policies.DownloadErrorPolicy}      * for details on potential values to this policy key.      */
+comment|/**      * The policy key {@link #getPolicies()} for error handling when an artifact is present.      * See {@link org.apache.archiva.policies.DownloadErrorPolicy}      * for details on potential values to this policy key.      */
 specifier|public
 specifier|static
 specifier|final
@@ -106,7 +106,7 @@ name|POLICY_PROPAGATE_ERRORS_ON_UPDATE
 init|=
 literal|"propagate-errors-on-update"
 decl_stmt|;
-comment|/**      * The policy key {@link #getPolicies()} for snapshot handling.      * See {@link org.apache.maven.archiva.policies.SnapshotsPolicy}      * for details on potential values to this policy key.      */
+comment|/**      * The policy key {@link #getPolicies()} for snapshot handling.      * See {@link org.apache.archiva.policies.SnapshotsPolicy}      * for details on potential values to this policy key.      */
 specifier|public
 specifier|static
 specifier|final
@@ -115,7 +115,7 @@ name|POLICY_SNAPSHOTS
 init|=
 literal|"snapshots"
 decl_stmt|;
-comment|/**      * The policy key {@link #getPolicies()} for releases handling.      * See {@link org.apache.maven.archiva.policies.ReleasesPolicy}      * for details on potential values to this policy key.      */
+comment|/**      * The policy key {@link #getPolicies()} for releases handling.      * See {@link org.apache.archiva.policies.ReleasesPolicy}      * for details on potential values to this policy key.      */
 specifier|public
 specifier|static
 specifier|final
@@ -124,7 +124,7 @@ name|POLICY_RELEASES
 init|=
 literal|"releases"
 decl_stmt|;
-comment|/**      * The policy key {@link #getPolicies()} for checksum handling.      * See {@link org.apache.maven.archiva.policies.ChecksumPolicy}      * for details on potential values to this policy key.      */
+comment|/**      * The policy key {@link #getPolicies()} for checksum handling.      * See {@link org.apache.archiva.policies.ChecksumPolicy}      * for details on potential values to this policy key.      */
 specifier|public
 specifier|static
 specifier|final
@@ -133,7 +133,7 @@ name|POLICY_CHECKSUM
 init|=
 literal|"checksum"
 decl_stmt|;
-comment|/**      * The policy key {@link #getPolicies()} for cache-failures handling.      * See {@link org.apache.maven.archiva.policies.CachedFailuresPolicy}      * for details on potential values to this policy key.      */
+comment|/**      * The policy key {@link #getPolicies()} for cache-failures handling.      * See {@link org.apache.archiva.policies.CachedFailuresPolicy}      * for details on potential values to this policy key.      */
 specifier|public
 specifier|static
 specifier|final

@@ -5,8 +5,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|policies
@@ -30,18 +28,18 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link PreDownloadPolicy} to apply for released versions.  *  * @version $Id$  */
+comment|/**  * {@link PreDownloadPolicy} to apply for snapshot versions.   *  * @version $Id$  */
 end_comment
 
 begin_class
 annotation|@
 name|Service
 argument_list|(
-literal|"preDownloadPolicy#releases"
+literal|"preDownloadPolicy#snapshots"
 argument_list|)
 specifier|public
 class|class
-name|ReleasesPolicy
+name|SnapshotsPolicy
 extends|extends
 name|AbstractUpdatePolicy
 implements|implements
@@ -65,7 +63,7 @@ name|isSnapshotPolicy
 parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 specifier|protected
@@ -74,7 +72,7 @@ name|getUpdateMode
 parameter_list|()
 block|{
 return|return
-literal|"releases"
+literal|"snapshots"
 return|;
 block|}
 specifier|public
@@ -83,7 +81,7 @@ name|getId
 parameter_list|()
 block|{
 return|return
-literal|"releases"
+literal|"snapshots"
 return|;
 block|}
 specifier|public
@@ -92,7 +90,7 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"Releases"
+literal|"Snapshots"
 return|;
 block|}
 block|}

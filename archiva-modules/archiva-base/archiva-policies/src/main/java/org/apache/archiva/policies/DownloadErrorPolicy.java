@@ -5,8 +5,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|policies
@@ -33,24 +31,34 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Properties
 import|;
 end_import
 
 begin_comment
-comment|/**  * DownloadPolicy   *  * @version $Id$  */
+comment|/**  * Policy to apply after the download has completed, but before the  * resource is made available to the calling client.  *  * @version $Id$  */
 end_comment
 
 begin_interface
 specifier|public
 interface|interface
-name|DownloadPolicy
+name|DownloadErrorPolicy
 extends|extends
 name|Policy
 block|{
-comment|/**      * Apply the download policy.      *       * @param policySetting the policy setting.      * @param request the list of request properties that the policy might use.      * @param localFile      *       * @throws PolicyViolationException if the policy has been violated.      */
+comment|/**      * Apply the download error policy.      *      * @param policySetting      the policy setting.      * @param request            the list of request properties that the policy might use.      * @param localFile      * @param exception          the exception that triggered the error      * @param previousExceptions any previously triggered exceptions      * @return whether to process the exception or not      * @throws PolicyConfigurationException if the policy is improperly configured      */
 specifier|public
-name|void
+name|boolean
 name|applyPolicy
 parameter_list|(
 name|String
@@ -61,10 +69,19 @@ name|request
 parameter_list|,
 name|File
 name|localFile
+parameter_list|,
+name|Exception
+name|exception
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Exception
+argument_list|>
+name|previousExceptions
 parameter_list|)
 throws|throws
-name|PolicyViolationException
-throws|,
 name|PolicyConfigurationException
 function_decl|;
 block|}

@@ -5,8 +5,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|policies
@@ -32,18 +30,18 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PolicyViolationException   *  * @version $Id$  */
+comment|/**  * PolicyConfigurationException is thrown when a policy cannot be executed due to a   * configuration issue.   *  * @version $Id$  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|PolicyViolationException
+name|PolicyConfigurationException
 extends|extends
 name|ArchivaException
 block|{
 specifier|public
-name|PolicyViolationException
+name|PolicyConfigurationException
 parameter_list|(
 name|String
 name|message
@@ -61,7 +59,7 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|public
-name|PolicyViolationException
+name|PolicyConfigurationException
 parameter_list|(
 name|String
 name|message
