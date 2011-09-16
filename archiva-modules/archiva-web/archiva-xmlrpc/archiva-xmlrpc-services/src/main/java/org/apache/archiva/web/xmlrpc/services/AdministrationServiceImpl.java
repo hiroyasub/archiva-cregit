@@ -477,8 +477,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|consumers
@@ -492,8 +490,6 @@ import|import
 name|org
 operator|.
 name|apache
-operator|.
-name|maven
 operator|.
 name|archiva
 operator|.
