@@ -214,6 +214,7 @@ argument_list|(
 name|authorizationHeader
 argument_list|)
 decl_stmt|;
+comment|// START SNIPPET: quick-search
 name|List
 argument_list|<
 name|Artifact
@@ -227,6 +228,8 @@ argument_list|(
 literal|"commons-logging"
 argument_list|)
 decl_stmt|;
+comment|// return all artifacts with groupId OR artifactId
+comment|// START SNIPPET: quick-search
 name|assertNotNull
 argument_list|(
 name|artifacts
