@@ -43,8 +43,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|configuration
@@ -58,8 +56,6 @@ import|import
 name|org
 operator|.
 name|apache
-operator|.
-name|maven
 operator|.
 name|archiva
 operator|.
@@ -75,8 +71,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
-operator|.
 name|archiva
 operator|.
 name|configuration
@@ -90,8 +84,6 @@ import|import
 name|org
 operator|.
 name|apache
-operator|.
-name|maven
 operator|.
 name|archiva
 operator|.
@@ -344,7 +336,7 @@ name|config
 argument_list|)
 return|;
 block|}
-comment|/**      * Save the configuration.      *      * @param configuration the configuration to save.      * @return the webwork result code to issue.      * @throws java.io.IOException                   thrown if unable to save file to disk.      * @throws org.apache.maven.archiva.configuration.InvalidConfigurationException thrown if configuration is invalid.      * @throws org.codehaus.plexus.registry.RegistryException             thrown if configuration subsystem has a problem saving the configuration to disk.      */
+comment|/**      * Save the configuration.      *      * @param configuration the configuration to save.      * @return the webwork result code to issue.      * @throws java.io.IOException                   thrown if unable to save file to disk.      * @throws org.apache.archiva.configuration.InvalidConfigurationException thrown if configuration is invalid.      * @throws org.codehaus.plexus.registry.RegistryException             thrown if configuration subsystem has a problem saving the configuration to disk.      */
 specifier|protected
 name|String
 name|saveConfiguration
