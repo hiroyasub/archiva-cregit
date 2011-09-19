@@ -975,6 +975,7 @@ name|void
 name|waitPage
 parameter_list|()
 block|{
+comment|// TODO define a smaller maxWaitTimeJsInMs for wait javascript response for browser side validation
 name|getSelenium
 argument_list|()
 operator|.

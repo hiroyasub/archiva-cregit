@@ -856,11 +856,8 @@ argument_list|,
 literal|" "
 argument_list|,
 literal|"internal"
-argument_list|)
-expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"Invalid version."
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -896,6 +893,8 @@ argument_list|,
 literal|"asdf"
 argument_list|,
 literal|"internal"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
