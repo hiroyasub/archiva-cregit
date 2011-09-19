@@ -976,18 +976,21 @@ name|waitPage
 parameter_list|()
 block|{
 comment|// TODO define a smaller maxWaitTimeJsInMs for wait javascript response for browser side validation
-comment|//getSelenium().waitForPageToLoad( maxWaitTimeInMs );
-comment|// http://jira.openqa.org/browse/SRC-302
 name|getSelenium
 argument_list|()
 operator|.
-name|waitForCondition
+name|waitForPageToLoad
 argument_list|(
-literal|"selenium.isElementPresent('document.body');"
-argument_list|,
 name|maxWaitTimeInMs
 argument_list|)
 expr_stmt|;
+comment|// http://jira.openqa.org/browse/SRC-302
+comment|// those hack looks to break some tests :-(
+comment|// getSelenium().waitForCondition( "selenium.isElementPresent('document.body');", maxWaitTimeInMs );
+comment|//getSelenium().waitForCondition( "selenium.isElementPresent('footer');", maxWaitTimeInMs );
+comment|//getSelenium().waitForCondition( "selenium.browserbot.getCurrentWindow().document.getElementById('footer')",
+comment|//                                maxWaitTimeInMs );
+comment|// so the only hack is to not use a too small wait time
 comment|/*         try         {             Thread.sleep( 1000 );         }         catch ( InterruptedException e )         {             throw new RuntimeException( "issue on Thread.sleep : " + e.getMessage(), e );         }*/
 block|}
 specifier|public
