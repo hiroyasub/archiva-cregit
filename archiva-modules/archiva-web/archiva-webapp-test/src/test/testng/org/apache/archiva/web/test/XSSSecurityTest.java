@@ -21,18 +21,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|archiva
@@ -44,6 +32,18 @@ operator|.
 name|parent
 operator|.
 name|AbstractArchivaTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|testng
+operator|.
+name|annotations
+operator|.
+name|Test
 import|;
 end_import
 
@@ -597,6 +597,8 @@ argument_list|,
 literal|"test<script>alert('xss')</script>"
 argument_list|,
 literal|"test<script>alert('xss')</script>"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// xss inputs are blocked by validation.
@@ -638,6 +640,8 @@ argument_list|,
 literal|"http://\">test<script>alert(\"xss\")</script>"
 argument_list|,
 literal|"http://\">test<script>alert(\"xss\")</script>"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// escaped html/url prevents cross-site scripting exploits

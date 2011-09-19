@@ -1747,6 +1747,9 @@ name|url
 parameter_list|,
 name|String
 name|logoUrl
+parameter_list|,
+name|boolean
+name|wait
 parameter_list|)
 block|{
 name|setFieldValue
@@ -1773,6 +1776,8 @@ expr_stmt|;
 name|clickButtonWithValue
 argument_list|(
 literal|"Save"
+argument_list|,
+name|wait
 argument_list|)
 expr_stmt|;
 block|}

@@ -93,6 +93,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|""
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -122,6 +124,8 @@ argument_list|,
 literal|"/home/user/abcXYZ0129._/\\~:?!&=-<> ~+[ ]'\""
 argument_list|,
 literal|"/home/user/abcXYZ0129._/\\~:?!&=-<> ~+[ ]'\""
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -134,11 +138,24 @@ argument_list|(
 literal|"You must enter a URL"
 argument_list|)
 expr_stmt|;
+comment|//assertXpathCount( "//tr errorfor='saveAppearance_organisationUrl'", 1 );
 name|assertXpathCount
 argument_list|(
-literal|"//span[@class='errorMessage' and text()='You must enter a URL']"
+literal|"//span[@class='errorMessage/text()='You must enter a URL']"
 argument_list|,
-literal|2
+literal|1
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"You must enter a URL for your logo"
+argument_list|)
+expr_stmt|;
+name|assertXpathCount
+argument_list|(
+literal|"//span[@class='errorMessage/text()='You must enter a URL for your logo']"
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -163,6 +180,8 @@ argument_list|,
 literal|"http://www.apache.org/"
 argument_list|,
 literal|"http://www.apache.org/images/asf_logo_wide.gifs"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -192,6 +211,8 @@ argument_list|,
 literal|"/home/user/abcXYZ0129._/\\~:?!&=-<> ~+[ ]'\""
 argument_list|,
 literal|"http://www.apache.org/images/asf_logo_wide.gifs"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -201,7 +222,7 @@ argument_list|)
 expr_stmt|;
 name|assertXpathCount
 argument_list|(
-literal|"//span[@class='errorMessage' and text()='You must enter a URL']"
+literal|"//span[@class='errorMessage/text()='You must enter a URL']"
 argument_list|,
 literal|1
 argument_list|)
@@ -228,6 +249,8 @@ argument_list|,
 literal|"http://www.apache.org/"
 argument_list|,
 literal|"/home/user/abcXYZ0129._/\\~:?!&=-<> ~+[ ]'\""
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -237,7 +260,7 @@ argument_list|)
 expr_stmt|;
 name|assertXpathCount
 argument_list|(
-literal|"//span[@class='errorMessage' and text()='You must enter a URL']"
+literal|"//span[@class='errorMessage'/text()='You must enter a URL']"
 argument_list|,
 literal|1
 argument_list|)
@@ -264,6 +287,8 @@ argument_list|,
 literal|"http://www.apache.org/"
 argument_list|,
 literal|"http://www.apache.org/images/asf_logo_wide.gifs"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -298,6 +323,8 @@ argument_list|,
 literal|"http://www.apache.org/"
 argument_list|,
 literal|"http://www.apache.org/images/asf_logo_wide.gifs"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent

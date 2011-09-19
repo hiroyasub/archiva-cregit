@@ -1809,10 +1809,9 @@ name|int
 name|expectedCount
 parameter_list|)
 block|{
-name|Assert
-operator|.
-name|assertEquals
-argument_list|(
+name|int
+name|count
+init|=
 name|getSelenium
 argument_list|()
 operator|.
@@ -1823,6 +1822,12 @@ argument_list|)
 operator|.
 name|intValue
 argument_list|()
+decl_stmt|;
+name|Assert
+operator|.
+name|assertEquals
+argument_list|(
+name|count
 argument_list|,
 name|expectedCount
 argument_list|)
