@@ -19,16 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -292,6 +282,8 @@ argument_list|,
 name|filePath
 argument_list|,
 name|repoId
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// verify artifact is existing

@@ -555,6 +555,8 @@ literal|"SNAPSHOT_ARTIFACTFILEPATH"
 argument_list|)
 argument_list|,
 name|repo
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -772,6 +774,8 @@ literal|"SNAPSHOT_ARTIFACTFILEPATH"
 argument_list|)
 argument_list|,
 name|repositoryId
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|goToAuditLogReports

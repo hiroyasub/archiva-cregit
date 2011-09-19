@@ -19,16 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -64,6 +54,16 @@ operator|.
 name|annotations
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
 import|;
 end_import
 
@@ -308,6 +308,8 @@ argument_list|,
 name|path
 argument_list|,
 name|releasesRepo
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -364,6 +366,8 @@ argument_list|,
 name|path
 argument_list|,
 name|snapshotsRepo
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -450,6 +454,8 @@ argument_list|,
 name|path
 argument_list|,
 name|snapshotsRepo
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -505,6 +511,8 @@ argument_list|,
 name|path
 argument_list|,
 name|snapshotsRepo
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent

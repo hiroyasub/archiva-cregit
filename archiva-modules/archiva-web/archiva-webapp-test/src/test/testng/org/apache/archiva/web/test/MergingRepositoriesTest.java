@@ -150,6 +150,8 @@ name|getValidArtifactFilePath
 argument_list|()
 argument_list|,
 literal|"merging-repo-stage"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -346,6 +348,8 @@ name|getValidArtifactFilePath
 argument_list|()
 argument_list|,
 literal|"merging-repo-stage"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent

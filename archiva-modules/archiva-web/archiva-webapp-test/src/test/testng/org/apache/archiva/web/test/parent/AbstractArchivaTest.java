@@ -1906,6 +1906,9 @@ name|artifactFilePath
 parameter_list|,
 name|String
 name|repositoryId
+parameter_list|,
+name|boolean
+name|wait
 parameter_list|)
 block|{
 name|addArtifact
@@ -1923,6 +1926,8 @@ argument_list|,
 name|artifactFilePath
 argument_list|,
 name|repositoryId
+argument_list|,
+name|wait
 argument_list|)
 expr_stmt|;
 block|}
@@ -1950,6 +1955,9 @@ name|artifactFilePath
 parameter_list|,
 name|String
 name|repositoryId
+parameter_list|,
+name|boolean
+name|wait
 parameter_list|)
 block|{
 name|login
@@ -2086,6 +2094,8 @@ comment|//clickButtonWithValue( "Submit" );
 name|clickButtonWithLocator
 argument_list|(
 literal|"uploadSubmit"
+argument_list|,
+name|wait
 argument_list|)
 expr_stmt|;
 block|}

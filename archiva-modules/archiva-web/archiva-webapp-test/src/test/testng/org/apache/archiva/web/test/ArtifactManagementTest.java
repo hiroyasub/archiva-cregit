@@ -158,6 +158,8 @@ argument_list|()
 argument_list|,
 name|getRepositoryId
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -202,6 +204,8 @@ argument_list|()
 argument_list|,
 name|getRepositoryId
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -246,6 +250,8 @@ argument_list|()
 argument_list|,
 name|getRepositoryId
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -290,6 +296,8 @@ argument_list|()
 argument_list|,
 name|getRepositoryId
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -334,6 +342,8 @@ argument_list|()
 argument_list|,
 name|getRepositoryId
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -378,6 +388,8 @@ literal|" "
 argument_list|,
 name|getRepositoryId
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -431,6 +443,8 @@ argument_list|()
 argument_list|,
 name|getRepositoryId
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -504,6 +518,8 @@ argument_list|()
 argument_list|,
 name|getRepositoryId
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -634,6 +650,8 @@ argument_list|()
 argument_list|,
 name|getRepositoryId
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -715,6 +733,8 @@ name|getArtifactFilePath
 argument_list|()
 argument_list|,
 name|repositoryId
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -916,11 +936,6 @@ argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
-literal|"Invalid version."
-argument_list|)
-expr_stmt|;
-name|assertTextPresent
-argument_list|(
 literal|"Group id must only contain alphanumeric characters, underscores(_), dots(.), and dashes(-)."
 argument_list|)
 expr_stmt|;
@@ -929,6 +944,8 @@ argument_list|(
 literal|"Artifact id must only contain alphanumeric characters, underscores(_), dots(.), and dashes(-)."
 argument_list|)
 expr_stmt|;
+comment|// as it's a validation on server side it's not available here but tested in testDeleteArtifactInvalidVersion
+comment|//assertTextPresent( "Invalid version." );
 block|}
 annotation|@
 name|Test
