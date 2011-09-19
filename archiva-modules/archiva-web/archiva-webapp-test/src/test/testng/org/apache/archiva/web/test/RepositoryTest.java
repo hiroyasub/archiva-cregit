@@ -109,6 +109,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|""
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|clickButtonWithValue
@@ -168,6 +170,8 @@ argument_list|,
 literal|"-1"
 argument_list|,
 literal|"101"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -237,6 +241,8 @@ argument_list|,
 literal|"1"
 argument_list|,
 literal|"1"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -276,6 +282,8 @@ argument_list|,
 literal|"1"
 argument_list|,
 literal|"1"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -315,6 +323,8 @@ argument_list|,
 literal|"1"
 argument_list|,
 literal|"1"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -354,6 +364,8 @@ argument_list|,
 literal|"1"
 argument_list|,
 literal|"1"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -393,6 +405,8 @@ argument_list|,
 literal|"1"
 argument_list|,
 literal|"101"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -432,6 +446,8 @@ argument_list|,
 literal|"-1"
 argument_list|,
 literal|"1"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -465,7 +481,6 @@ argument_list|(
 literal|"/archiva/admin/addRepository.action"
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 name|addManagedRepository
 argument_list|(
 literal|""
@@ -483,6 +498,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|""
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -537,6 +554,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|""
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -576,6 +595,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|""
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -615,6 +636,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|""
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -654,6 +677,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|""
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -707,6 +732,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|""
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|clickButtonWithValue

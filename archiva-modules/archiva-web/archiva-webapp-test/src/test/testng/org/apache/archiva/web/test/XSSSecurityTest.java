@@ -538,6 +538,8 @@ argument_list|,
 literal|"-1"
 argument_list|,
 literal|"101"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// xss inputs are blocked by validation.
@@ -614,7 +616,7 @@ argument_list|)
 expr_stmt|;
 name|assertXpathCount
 argument_list|(
-literal|"//span[@class='errorMessage' and text()='You must enter a URL']"
+literal|"//span[@class='errorMessage'/text()='You must enter a URL']"
 argument_list|,
 literal|2
 argument_list|)

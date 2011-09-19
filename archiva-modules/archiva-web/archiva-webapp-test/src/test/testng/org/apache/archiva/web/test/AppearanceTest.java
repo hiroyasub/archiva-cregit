@@ -117,6 +117,14 @@ name|void
 name|testAddAppearanceInvalidValues
 parameter_list|()
 block|{
+name|goToAppearancePage
+argument_list|()
+expr_stmt|;
+name|clickLinkWithText
+argument_list|(
+literal|"Edit"
+argument_list|)
+expr_stmt|;
 name|addEditAppearance
 argument_list|(
 literal|"<>~+[ ]'\""
@@ -138,10 +146,9 @@ argument_list|(
 literal|"You must enter a URL"
 argument_list|)
 expr_stmt|;
-comment|//assertXpathCount( "//tr errorfor='saveAppearance_organisationUrl'", 1 );
 name|assertXpathCount
 argument_list|(
-literal|"//span[@class='errorMessage/text()='You must enter a URL']"
+literal|"//span[@class='errorMessage'/text()='You must enter a URL']"
 argument_list|,
 literal|1
 argument_list|)
@@ -153,7 +160,7 @@ argument_list|)
 expr_stmt|;
 name|assertXpathCount
 argument_list|(
-literal|"//span[@class='errorMessage/text()='You must enter a URL for your logo']"
+literal|"//span[@class='errorMessage'/text()='You must enter a URL for your logo']"
 argument_list|,
 literal|1
 argument_list|)
@@ -173,6 +180,14 @@ name|void
 name|testAddAppearanceInvalidOrganisationName
 parameter_list|()
 block|{
+name|goToAppearancePage
+argument_list|()
+expr_stmt|;
+name|clickLinkWithText
+argument_list|(
+literal|"Edit"
+argument_list|)
+expr_stmt|;
 name|addEditAppearance
 argument_list|(
 literal|"<>~+[ ]'\""
@@ -204,6 +219,9 @@ name|void
 name|testAddAppearanceInvalidOrganisationUrl
 parameter_list|()
 block|{
+name|goToAppearancePage
+argument_list|()
+expr_stmt|;
 name|addEditAppearance
 argument_list|(
 literal|"The Apache Software Foundation"
@@ -222,7 +240,7 @@ argument_list|)
 expr_stmt|;
 name|assertXpathCount
 argument_list|(
-literal|"//span[@class='errorMessage/text()='You must enter a URL']"
+literal|"//span[@class='errorMessage'/text()='You must enter a URL']"
 argument_list|,
 literal|1
 argument_list|)
@@ -242,6 +260,14 @@ name|void
 name|testAddAppearanceInvalidOrganisationLogo
 parameter_list|()
 block|{
+name|goToAppearancePage
+argument_list|()
+expr_stmt|;
+name|clickLinkWithText
+argument_list|(
+literal|"Edit"
+argument_list|)
+expr_stmt|;
 name|addEditAppearance
 argument_list|(
 literal|"The Apache Software Foundation"
@@ -280,6 +306,14 @@ name|void
 name|testAddAppearanceValidValues
 parameter_list|()
 block|{
+name|goToAppearancePage
+argument_list|()
+expr_stmt|;
+name|clickLinkWithText
+argument_list|(
+literal|"Edit"
+argument_list|)
+expr_stmt|;
 name|addEditAppearance
 argument_list|(
 literal|"The Apache Software Foundation"
@@ -311,6 +345,9 @@ name|void
 name|testEditAppearance
 parameter_list|()
 block|{
+name|goToAppearancePage
+argument_list|()
+expr_stmt|;
 name|clickLinkWithText
 argument_list|(
 literal|"Edit"

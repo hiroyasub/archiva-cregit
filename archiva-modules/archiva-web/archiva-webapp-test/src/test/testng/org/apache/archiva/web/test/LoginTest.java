@@ -131,13 +131,9 @@ argument_list|(
 literal|"loginSubmit"
 argument_list|)
 expr_stmt|;
-name|getSelenium
+comment|//getSelenium().waitForPageToLoad( maxWaitTimeInMs );
+name|waitPage
 argument_list|()
-operator|.
-name|waitForPageToLoad
-argument_list|(
-name|maxWaitTimeInMs
-argument_list|)
 expr_stmt|;
 name|assertElementPresent
 argument_list|(
@@ -192,13 +188,9 @@ argument_list|(
 literal|"loginSubmit"
 argument_list|)
 expr_stmt|;
-name|getSelenium
+comment|//getSelenium().waitForPageToLoad( maxWaitTimeInMs );
+name|waitPage
 argument_list|()
-operator|.
-name|waitForPageToLoad
-argument_list|(
-name|maxWaitTimeInMs
-argument_list|)
 expr_stmt|;
 comment|//assertTextPresent( "You have entered an incorrect username and/or password" );
 comment|//<ul class="errorMessage"><li><span>
@@ -244,13 +236,9 @@ argument_list|(
 literal|"loginSubmit"
 argument_list|)
 expr_stmt|;
-name|getSelenium
+comment|//getSelenium().waitForPageToLoad( maxWaitTimeInMs );
+name|waitPage
 argument_list|()
-operator|.
-name|waitForPageToLoad
-argument_list|(
-name|maxWaitTimeInMs
-argument_list|)
 expr_stmt|;
 comment|//assertTextPresent( "User Name is required" );
 name|assertElementPresent
@@ -298,13 +286,9 @@ argument_list|(
 literal|"loginSubmit"
 argument_list|)
 expr_stmt|;
-name|getSelenium
+comment|//getSelenium().waitForPageToLoad( maxWaitTimeInMs );
+name|waitPage
 argument_list|()
-operator|.
-name|waitForPageToLoad
-argument_list|(
-name|maxWaitTimeInMs
-argument_list|)
 expr_stmt|;
 comment|//assertTextPresent( "You have entered an incorrect username and/or password" );
 name|assertElementPresent
@@ -368,13 +352,9 @@ argument_list|(
 literal|"loginSubmit"
 argument_list|)
 expr_stmt|;
-name|getSelenium
+comment|//getSelenium().waitForPageToLoad( maxWaitTimeInMs );
+name|waitPage
 argument_list|()
-operator|.
-name|waitForPageToLoad
-argument_list|(
-name|maxWaitTimeInMs
-argument_list|)
 expr_stmt|;
 comment|//assertTextPresent( "Logout" );
 name|assertElementPresent
