@@ -53,13 +53,9 @@ argument_list|(
 literal|"/index.action"
 argument_list|)
 expr_stmt|;
-name|getSelenium
+comment|//getSelenium().waitForPageToLoad( maxWaitTimeInMs );
+name|waitPage
 argument_list|()
-operator|.
-name|waitForPageToLoad
-argument_list|(
-name|maxWaitTimeInMs
-argument_list|)
 expr_stmt|;
 name|assertElementPresent
 argument_list|(

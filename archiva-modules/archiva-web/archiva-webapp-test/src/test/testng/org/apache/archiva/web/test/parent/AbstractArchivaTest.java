@@ -2187,6 +2187,9 @@ name|daysOlder
 parameter_list|,
 name|String
 name|retentionCount
+parameter_list|,
+name|boolean
+name|wait
 parameter_list|)
 block|{
 comment|// goToRepositoriesPage();
@@ -2251,6 +2254,8 @@ comment|// TODO
 name|clickButtonWithValue
 argument_list|(
 literal|"Add Repository"
+argument_list|,
+name|wait
 argument_list|)
 expr_stmt|;
 block|}
