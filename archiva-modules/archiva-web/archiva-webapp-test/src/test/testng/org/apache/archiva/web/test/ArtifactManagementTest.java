@@ -75,6 +75,10 @@ argument_list|(
 name|alwaysRun
 operator|=
 literal|true
+argument_list|,
+name|dependsOnGroups
+operator|=
+literal|"about"
 argument_list|)
 specifier|public
 name|void
@@ -87,16 +91,14 @@ expr_stmt|;
 name|clickButtonWithValue
 argument_list|(
 literal|"Submit"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
+comment|//assertTextPresent( "Please add a file to upload." );
 name|assertTextPresent
 argument_list|(
-literal|"Please add a file to upload."
-argument_list|)
-expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"Invalid version."
+literal|"You must enter a version."
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
