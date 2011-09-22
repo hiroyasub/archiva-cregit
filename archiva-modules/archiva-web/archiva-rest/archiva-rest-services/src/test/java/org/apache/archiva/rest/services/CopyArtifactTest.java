@@ -388,6 +388,7 @@ block|{
 name|initSourceTargetRepo
 argument_list|()
 expr_stmt|;
+comment|// START SNIPPET: copy-artifact
 name|ArtifactTransferRequest
 name|artifactTransferRequest
 init|=
@@ -430,8 +431,9 @@ argument_list|(
 name|TARGET_REPO_ID
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
+name|Boolean
+name|res
+init|=
 name|getRepositoriesService
 argument_list|(
 name|authorizationHeader
@@ -441,6 +443,11 @@ name|copyArtifact
 argument_list|(
 name|artifactTransferRequest
 argument_list|)
+decl_stmt|;
+comment|// END SNIPPET: copy-artifact
+name|assertTrue
+argument_list|(
+name|res
 argument_list|)
 expr_stmt|;
 name|ArtifactReference
