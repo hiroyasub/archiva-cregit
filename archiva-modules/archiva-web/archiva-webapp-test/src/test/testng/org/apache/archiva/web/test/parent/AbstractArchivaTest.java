@@ -622,24 +622,27 @@ name|void
 name|assertUserRolesPage
 parameter_list|()
 block|{
-name|assertPage
-argument_list|(
-literal|"Apache Archiva \\ [Admin] User Edit"
-argument_list|)
-expr_stmt|;
+comment|//assertPage( "Apache Archiva \\ [Admin] User Edit" );
+comment|//[Admin] RÃ´les de l'utilisateur
 name|assertTextPresent
 argument_list|(
 literal|"[Admin] User Roles"
+argument_list|,
+literal|"[Admin] R\u00F4les de l'utilisateur"
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
 literal|"Username"
+argument_list|,
+literal|"Nom d'utilisateur"
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
 literal|"Full Name"
+argument_list|,
+literal|"Nom complet"
 argument_list|)
 expr_stmt|;
 name|String
@@ -681,15 +684,13 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|assertPage
-argument_list|(
-literal|"Apache Archiva \\ [Admin] User Delete"
-argument_list|)
-expr_stmt|;
-comment|// TODO
 name|assertTextPresent
 argument_list|(
 literal|"[Admin] User Delete"
+argument_list|,
+literal|"[Admin] Suppression de l'utilisateur"
+argument_list|,
+literal|"L'utilisateur suivant va \u00EAtre supprim\u00E9:"
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -702,11 +703,15 @@ argument_list|(
 literal|"Username: "
 operator|+
 name|username
+argument_list|,
+literal|"Nom d'utilisateur:"
+operator|+
+name|username
 argument_list|)
 expr_stmt|;
-name|assertButtonWithValuePresent
+name|assertButtonWithIdPresent
 argument_list|(
-literal|"Delete User"
+literal|"userDeleteSubmit"
 argument_list|)
 expr_stmt|;
 block|}
@@ -778,11 +783,14 @@ argument_list|(
 literal|"/archiva/security/userlist.action"
 argument_list|)
 expr_stmt|;
-name|clickButtonWithValue
+name|clickButtonWithLocator
 argument_list|(
-literal|"Create New User"
+literal|"userCreateButton"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
+comment|//clickButtonWithValue( "Create New User" );
 name|assertCreateUserPage
 argument_list|()
 expr_stmt|;
@@ -827,9 +835,12 @@ expr_stmt|;
 name|assertUserRolesPage
 argument_list|()
 expr_stmt|;
-name|clickButtonWithValue
+comment|//clickButtonWithValue( "Submit" );
+name|clickButtonWithName
 argument_list|(
-literal|"Submit"
+literal|"submitRolesButton"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 if|if
@@ -1349,19 +1360,13 @@ name|void
 name|assertCreateUserPage
 parameter_list|()
 block|{
-name|assertPage
-argument_list|(
-literal|"Apache Archiva \\ [Admin] User Create"
-argument_list|)
-expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"[Admin] User Create"
-argument_list|)
-expr_stmt|;
+comment|//assertPage( "Apache Archiva \\ [Admin] User Create" );
+comment|//assertTextPresent( "[Admin] User Create" );
 name|assertTextPresent
 argument_list|(
 literal|"Username*:"
+argument_list|,
+literal|"Nom d'utilisateur*:"
 argument_list|)
 expr_stmt|;
 name|assertElementPresent
@@ -1372,6 +1377,8 @@ expr_stmt|;
 name|assertTextPresent
 argument_list|(
 literal|"Full Name*:"
+argument_list|,
+literal|"Nom complet*:"
 argument_list|)
 expr_stmt|;
 name|assertElementPresent
@@ -1382,6 +1389,8 @@ expr_stmt|;
 name|assertTextPresent
 argument_list|(
 literal|"Email Address*:"
+argument_list|,
+literal|"Adresse email*:"
 argument_list|)
 expr_stmt|;
 name|assertElementPresent
@@ -1392,6 +1401,8 @@ expr_stmt|;
 name|assertTextPresent
 argument_list|(
 literal|"Password*:"
+argument_list|,
+literal|"Mot de passe*:"
 argument_list|)
 expr_stmt|;
 name|assertElementPresent
@@ -1402,6 +1413,8 @@ expr_stmt|;
 name|assertTextPresent
 argument_list|(
 literal|"Confirm Password*:"
+argument_list|,
+literal|"Confirmer le mot de passe*"
 argument_list|)
 expr_stmt|;
 name|assertElementPresent
@@ -1409,9 +1422,11 @@ argument_list|(
 literal|"user.confirmPassword"
 argument_list|)
 expr_stmt|;
-name|assertButtonWithValuePresent
+comment|//assertButtonWithValuePresent( "Create User" );
+comment|//assertButtonWithIdPresent( "userCreateSubmit" );
+name|assertElementNotPresent
 argument_list|(
-literal|"Create User"
+literal|"userCreateSubmit"
 argument_list|)
 expr_stmt|;
 block|}
