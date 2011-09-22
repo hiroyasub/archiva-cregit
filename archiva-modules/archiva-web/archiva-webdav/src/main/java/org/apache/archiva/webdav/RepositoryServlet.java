@@ -515,10 +515,6 @@ specifier|public
 name|void
 name|init
 parameter_list|(
-name|javax
-operator|.
-name|servlet
-operator|.
 name|ServletConfig
 name|servletConfig
 parameter_list|)
