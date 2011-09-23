@@ -958,6 +958,7 @@ init|)
 block|{
 if|if
 condition|(
+operator|!
 name|isProcessingRepositoryTask
 argument_list|(
 name|task
