@@ -978,6 +978,8 @@ operator|.
 name|info
 argument_list|(
 literal|"scanning of repository with id {} already scheduled"
+argument_list|,
+name|repositoryId
 argument_list|)
 expr_stmt|;
 return|return
@@ -1063,11 +1065,6 @@ specifier|public
 name|Boolean
 name|removeScanningTaskFromQueue
 parameter_list|(
-annotation|@
-name|PathParam
-argument_list|(
-literal|"repositoryId"
-argument_list|)
 name|String
 name|repositoryId
 parameter_list|)
@@ -1300,7 +1297,7 @@ name|isBlank
 argument_list|(
 name|artifactTransferRequest
 operator|.
-name|getSourceRepositoryId
+name|getRepositoryId
 argument_list|()
 argument_list|)
 condition|)
@@ -1349,7 +1346,7 @@ name|getManagedRepository
 argument_list|(
 name|artifactTransferRequest
 operator|.
-name|getSourceRepositoryId
+name|getRepositoryId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1386,7 +1383,7 @@ literal|"cannot find repository with id "
 operator|+
 name|artifactTransferRequest
 operator|.
-name|getSourceRepositoryId
+name|getRepositoryId
 argument_list|()
 argument_list|)
 throw|;
@@ -1613,7 +1610,7 @@ name|OPERATION_REPOSITORY_ACCESS
 argument_list|,
 name|artifactTransferRequest
 operator|.
-name|getSourceRepositoryId
+name|getRepositoryId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1631,7 +1628,7 @@ literal|"not authorized to access repo:"
 operator|+
 name|artifactTransferRequest
 operator|.
-name|getSourceRepositoryId
+name|getRepositoryId
 argument_list|()
 argument_list|)
 throw|;
@@ -1829,7 +1826,7 @@ name|getManagedRepositoryContent
 argument_list|(
 name|artifactTransferRequest
 operator|.
-name|getSourceRepositoryId
+name|getRepositoryId
 argument_list|()
 argument_list|)
 decl_stmt|;
