@@ -169,11 +169,7 @@ name|RegistryListener
 name|listener
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
+comment|//noop
 block|}
 specifier|public
 name|void
