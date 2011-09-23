@@ -87,6 +87,24 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|rest
+operator|.
+name|api
+operator|.
+name|services
+operator|.
+name|RepositoriesService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|io
@@ -555,6 +573,8 @@ name|initSourceTargetRepo
 argument_list|()
 expr_stmt|;
 comment|// START SNIPPET: copy-artifact
+comment|// configure the artifact you want to copy
+comment|// if package ommited default will be jar
 name|ArtifactTransferRequest
 name|artifactTransferRequest
 init|=
@@ -597,13 +617,20 @@ argument_list|(
 name|TARGET_REPO_ID
 argument_list|)
 expr_stmt|;
-name|Boolean
-name|res
+comment|// retrieve the service
+name|RepositoriesService
+name|repositoriesService
 init|=
 name|getRepositoriesService
 argument_list|(
 name|authorizationHeader
 argument_list|)
+decl_stmt|;
+comment|// copy the artifact
+name|Boolean
+name|res
+init|=
+name|repositoriesService
 operator|.
 name|copyArtifact
 argument_list|(
