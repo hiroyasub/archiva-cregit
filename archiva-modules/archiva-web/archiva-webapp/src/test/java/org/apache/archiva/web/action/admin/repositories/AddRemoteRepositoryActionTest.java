@@ -263,7 +263,7 @@ name|void
 name|testSecureActionBundle
 parameter_list|()
 throws|throws
-name|SecureActionException
+name|Exception
 block|{
 name|archivaConfiguration
 operator|.

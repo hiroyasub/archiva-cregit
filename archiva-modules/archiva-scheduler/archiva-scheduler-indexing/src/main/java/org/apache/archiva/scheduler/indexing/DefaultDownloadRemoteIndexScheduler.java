@@ -812,7 +812,7 @@ block|}
 block|}
 annotation|@
 name|PreDestroy
-specifier|private
+specifier|public
 name|void
 name|shutdown
 parameter_list|()
