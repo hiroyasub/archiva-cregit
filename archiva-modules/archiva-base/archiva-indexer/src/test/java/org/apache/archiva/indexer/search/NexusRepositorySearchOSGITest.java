@@ -126,6 +126,10 @@ name|getConfiguration
 argument_list|()
 argument_list|,
 name|config
+argument_list|,
+literal|1
+argument_list|,
+literal|2
 argument_list|)
 expr_stmt|;
 name|archivaConfigControl

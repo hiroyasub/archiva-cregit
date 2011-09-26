@@ -402,6 +402,17 @@ operator|.
 name|FACET_ID
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|scans
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 name|Collections
 operator|.
 name|sort

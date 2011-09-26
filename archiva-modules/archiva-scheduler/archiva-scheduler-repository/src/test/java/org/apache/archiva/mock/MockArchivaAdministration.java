@@ -199,7 +199,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -214,7 +213,6 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -229,7 +227,6 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -247,7 +244,6 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -265,7 +261,6 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|List
@@ -280,7 +275,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|FileType
@@ -295,7 +289,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -310,7 +303,6 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -325,7 +317,6 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -340,7 +331,6 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -358,7 +348,6 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|List
@@ -404,7 +393,6 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -419,7 +407,6 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -437,7 +424,6 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|List
@@ -483,7 +469,6 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|OrganisationInformation
@@ -495,7 +480,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -507,7 +491,6 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|ArchivaConfiguration
@@ -543,7 +526,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -555,7 +537,6 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 block|}
 end_class
