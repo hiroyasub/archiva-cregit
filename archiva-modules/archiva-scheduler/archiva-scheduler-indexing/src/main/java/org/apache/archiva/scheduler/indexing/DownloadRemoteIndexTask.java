@@ -1425,6 +1425,8 @@ name|remoteRepository
 operator|.
 name|getRemoteDownloadTimeout
 argument_list|()
+operator|*
+literal|1000
 argument_list|)
 argument_list|)
 decl_stmt|;
