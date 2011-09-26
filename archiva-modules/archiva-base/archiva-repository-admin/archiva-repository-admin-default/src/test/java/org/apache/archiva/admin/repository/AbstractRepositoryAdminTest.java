@@ -677,6 +677,13 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
+name|remoteRepository
+operator|.
+name|setRemoteDownloadNetworkProxyId
+argument_list|(
+literal|"foo"
+argument_list|)
+expr_stmt|;
 return|return
 name|remoteRepository
 return|;

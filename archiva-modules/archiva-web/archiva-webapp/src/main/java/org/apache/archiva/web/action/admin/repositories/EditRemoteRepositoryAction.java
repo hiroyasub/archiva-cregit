@@ -224,6 +224,15 @@ name|repoid
 argument_list|)
 expr_stmt|;
 block|}
+name|setNetworkProxies
+argument_list|(
+name|getNetworkProxyAdmin
+argument_list|()
+operator|.
+name|getNetworkProxies
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|String

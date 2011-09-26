@@ -139,6 +139,8 @@ specifier|public
 name|void
 name|prepare
 parameter_list|()
+throws|throws
+name|RepositoryAdminException
 block|{
 name|this
 operator|.
@@ -147,6 +149,15 @@ operator|=
 operator|new
 name|RemoteRepository
 argument_list|()
+expr_stmt|;
+name|setNetworkProxies
+argument_list|(
+name|getNetworkProxyAdmin
+argument_list|()
+operator|.
+name|getNetworkProxies
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 specifier|public
