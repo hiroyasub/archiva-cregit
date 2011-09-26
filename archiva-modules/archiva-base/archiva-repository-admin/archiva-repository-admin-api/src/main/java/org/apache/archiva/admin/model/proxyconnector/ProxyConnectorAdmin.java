@@ -143,7 +143,7 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 function_decl|;
-comment|/**      *<b>only for enabled/disable or changing bean values except target/source</b>      * @param proxyConnector      * @param auditInformation      * @return      * @throws RepositoryAdminException      */
+comment|/**      *<b>only for enabled/disable or changing bean values except target/source</b>      *      * @param proxyConnector      * @param auditInformation      * @return      * @throws RepositoryAdminException      */
 name|Boolean
 name|updateProxyConnector
 parameter_list|(
@@ -156,6 +156,7 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 function_decl|;
+comment|/**      * @return key/value : managed repo Id / list to proxy connector ordered      * @throws RepositoryAdminException      */
 name|Map
 argument_list|<
 name|String
