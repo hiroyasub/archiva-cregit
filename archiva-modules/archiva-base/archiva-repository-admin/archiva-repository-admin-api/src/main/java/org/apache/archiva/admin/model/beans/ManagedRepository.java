@@ -85,6 +85,13 @@ name|blockRedeployments
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * default model value hourly      */
+specifier|private
+name|String
+name|cronExpression
+init|=
+literal|"0 0 * * * ?"
+decl_stmt|;
 comment|/**      * not need when creating the repo : only available when reading      */
 specifier|private
 name|ManagedRepository
@@ -256,6 +263,30 @@ operator|.
 name|resetStats
 operator|=
 name|resetStats
+expr_stmt|;
+block|}
+specifier|public
+name|String
+name|getCronExpression
+parameter_list|()
+block|{
+return|return
+name|cronExpression
+return|;
+block|}
+specifier|public
+name|void
+name|setCronExpression
+parameter_list|(
+name|String
+name|cronExpression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cronExpression
+operator|=
+name|cronExpression
 expr_stmt|;
 block|}
 specifier|public
@@ -612,6 +643,23 @@ operator|.
 name|append
 argument_list|(
 name|blockRedeployments
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", cronExpression='"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|cronExpression
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|'\''
 argument_list|)
 expr_stmt|;
 name|sb
