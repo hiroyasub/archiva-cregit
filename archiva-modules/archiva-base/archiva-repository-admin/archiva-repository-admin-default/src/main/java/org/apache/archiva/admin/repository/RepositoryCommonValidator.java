@@ -29,6 +29,8 @@ name|admin
 operator|.
 name|model
 operator|.
+name|beans
+operator|.
 name|AbstractRepository
 import|;
 end_import

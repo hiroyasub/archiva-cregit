@@ -1434,10 +1434,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-finally|finally
-block|{
-comment|/*             olamy don't close it anymore as it nullify IndexSearcher             if ( context != null )             {                 try                 {                     context.close( false );                 }                 catch ( IOException e )                 {                     log.error( "Error occurred while closing context: " + e.getMessage() );                     throw new TaskExecutionException( "Error occurred while closing context: " + e.getMessage() );                 }             }             */
-block|}
 block|}
 specifier|public
 name|void

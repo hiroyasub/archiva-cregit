@@ -410,8 +410,6 @@ class|class
 name|ArchivaRepositoryScanningTaskExecutor
 implements|implements
 name|TaskExecutor
-implements|,
-name|Initializable
 block|{
 specifier|private
 name|Logger
