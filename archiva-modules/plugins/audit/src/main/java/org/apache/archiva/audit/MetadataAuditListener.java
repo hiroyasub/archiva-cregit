@@ -113,7 +113,7 @@ begin_class
 annotation|@
 name|Service
 argument_list|(
-literal|"uuditListener#metadata"
+literal|"auditListener#metadata"
 argument_list|)
 specifier|public
 class|class
