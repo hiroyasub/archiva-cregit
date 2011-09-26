@@ -1090,6 +1090,15 @@ argument_list|,
 name|resourceFetcher
 argument_list|)
 decl_stmt|;
+name|request
+operator|.
+name|setForceFullUpdate
+argument_list|(
+name|this
+operator|.
+name|fullDownload
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|indexUpdater
