@@ -93,22 +93,6 @@ name|apache
 operator|.
 name|commons
 operator|.
-name|compress
-operator|.
-name|compressors
-operator|.
-name|CompressorException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
 name|io
 operator|.
 name|FileUtils
@@ -939,12 +923,6 @@ name|mkdirs
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*             File[] indexFiles = indexDirectory.listFiles( new FileFilter()             {                 public boolean accept( File file )                 {                     return !file.isDirectory();                 }             } );              List<String> indexFileNames = new ArrayList<String>( indexFiles == null ? 0 : indexFiles.length );              for ( File f : indexFiles == null ? new File[0] : indexFiles )             {                 indexFileNames.add( f.getName() );             }             */
-comment|//List<String> files = wagon.getFileList( "" );
-comment|// take care about time stamp : no need to rebuild index
-comment|// TODO incremental honor fullDownload true !!
-comment|// FIXME dont fail all if one file fail ?
-comment|/*             for ( String file : files )             {                 if ( !indexFileNames.contains( file )&& StringUtils.endsWith( file, ".gz" ) )                 {                     downloadFile( wagon, file, tempIndexDirectory );                     File compressIndexUpdate = new File( tempIndexDirectory, file );                     mergeCompressIndex( indexingContext, compressIndexUpdate, wagon );                 }             }*/
 name|ResourceFetcher
 name|resourceFetcher
 init|=
@@ -1279,7 +1257,11 @@ throw|;
 block|}
 finally|finally
 block|{
-comment|//deleteDirectoryQuiet( tempIndexDirectory );
+name|deleteDirectoryQuiet
+argument_list|(
+name|tempIndexDirectory
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|runningRemoteDownloadIds
@@ -1341,84 +1323,6 @@ argument_list|(
 literal|"skip error delete "
 operator|+
 name|f
-operator|+
-literal|": "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-specifier|protected
-name|void
-name|mergeCompressIndex
-parameter_list|(
-name|IndexingContext
-name|context
-parameter_list|,
-specifier|final
-name|File
-name|compressedIndexUpdate
-parameter_list|,
-specifier|final
-name|Wagon
-name|wagon
-parameter_list|)
-throws|throws
-name|IOException
-throws|,
-name|CompressorException
-block|{
-comment|/*          final File tmpUncompressDirectory = new File( compressedIndexUpdate.getParent(),                                                       StringUtils.substringBeforeLast( compressedIndexUpdate.getName(),                                                                                        "." ) );         tmpUncompressDirectory.deleteOnExit();         final FileOutputStream fos =             new FileOutputStream( new File( tmpUncompressDirectory, compressedIndexUpdate.getName() ) );         try         {             if ( tmpUncompressDirectory.exists() )             {                 tmpUncompressDirectory.delete();             }             tmpUncompressDirectory.mkdirs();              // gunzip  the file to a directory and merge              // gunzip             final InputStream in = new FileInputStream( compressedIndexUpdate );             CompressorInputStream cis =                 new CompressorStreamFactory().createCompressorInputStream( CompressorStreamFactory.GZIP, in );             IOUtils.copy( cis, fos );             in.close();             fos.flush();             fos.close();             // merge          }         finally         {             IOUtils.closeQuietly( fos );             //deleteDirectoryQuiet( tmpUncompressDirectory );             //FileUtils.deleteQuietly( tmpUncompressDirectory );         }         */
-block|}
-specifier|protected
-name|void
-name|downloadFile
-parameter_list|(
-name|Wagon
-name|wagon
-parameter_list|,
-name|String
-name|file
-parameter_list|,
-name|File
-name|tempIndexDirectory
-parameter_list|)
-block|{
-try|try
-block|{
-name|wagon
-operator|.
-name|get
-argument_list|(
-name|file
-argument_list|,
-operator|new
-name|File
-argument_list|(
-name|tempIndexDirectory
-argument_list|,
-name|file
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"skip fail to download "
-operator|+
-name|file
 operator|+
 literal|": "
 operator|+
