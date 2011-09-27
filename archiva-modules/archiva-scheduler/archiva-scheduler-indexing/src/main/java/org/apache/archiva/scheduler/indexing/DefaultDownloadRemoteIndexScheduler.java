@@ -938,12 +938,15 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
+name|StringUtils
+operator|.
+name|isNotBlank
+argument_list|(
 name|remoteRepository
 operator|.
 name|getRemoteDownloadNetworkProxyId
 argument_list|()
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
 name|networkProxy
