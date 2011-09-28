@@ -413,10 +413,6 @@ specifier|protected
 name|RemoteRepoInfo
 name|remoteSnapshots
 decl_stmt|;
-specifier|protected
-name|RemoteRepoInfo
-name|remotePrivateSnapshots
-decl_stmt|;
 annotation|@
 name|Before
 specifier|public
