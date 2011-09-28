@@ -31,6 +31,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|common
+operator|.
+name|utils
+operator|.
+name|FileUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|io
@@ -50,22 +66,6 @@ operator|.
 name|lang
 operator|.
 name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|common
-operator|.
-name|utils
-operator|.
-name|FileUtil
 import|;
 end_import
 
@@ -759,7 +759,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Ensures that the provided configuration matches the details present in the archiva-default.xml file.      */
 specifier|private
 name|void
 name|assertConfiguration
@@ -770,12 +769,31 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|assertConfiguration
+argument_list|(
+name|configuration
+argument_list|,
+literal|2
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Ensures that the provided configuration matches the details present in the archiva-default.xml file.      */
+specifier|private
+name|void
+name|assertConfiguration
+parameter_list|(
+name|Configuration
+name|configuration
+parameter_list|,
+name|int
+name|managedExpected
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 name|FileTypes
 name|filetypes
 init|=
-operator|(
-name|FileTypes
-operator|)
 name|lookup
 argument_list|(
 name|FileTypes
@@ -785,9 +803,14 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"check repositories"
+literal|"check managed repositories: "
+operator|+
+name|configuration
+operator|.
+name|getManagedRepositories
+argument_list|()
 argument_list|,
-literal|2
+name|managedExpected
 argument_list|,
 name|configuration
 operator|.
@@ -800,7 +823,12 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"check repositories"
+literal|"check remote repositories: "
+operator|+
+name|configuration
+operator|.
+name|getRemoteRepositories
+argument_list|()
 argument_list|,
 literal|2
 argument_list|,
@@ -815,7 +843,12 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"check proxy connectors"
+literal|"check proxy connectors:"
+operator|+
+name|configuration
+operator|.
+name|getProxyConnectors
+argument_list|()
 argument_list|,
 literal|2
 argument_list|,
@@ -2868,9 +2901,6 @@ block|{
 name|ArchivaConfiguration
 name|archivaConfiguration
 init|=
-operator|(
-name|ArchivaConfiguration
-operator|)
 name|lookup
 argument_list|(
 name|ArchivaConfiguration
@@ -2889,9 +2919,12 @@ operator|.
 name|getConfiguration
 argument_list|()
 decl_stmt|;
+comment|// test-upgrade-09 contains a managed with id: local so it's 3 managed
 name|assertConfiguration
 argument_list|(
 name|configuration
+argument_list|,
+literal|3
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2912,9 +2945,6 @@ expr_stmt|;
 name|ManagedRepositoryConfiguration
 name|repository
 init|=
-operator|(
-name|ManagedRepositoryConfiguration
-operator|)
 name|configuration
 operator|.
 name|getManagedRepositories
@@ -3039,9 +3069,6 @@ comment|// Load the original (unconverted) archiva.xml
 name|ArchivaConfiguration
 name|archivaConfiguration
 init|=
-operator|(
-name|ArchivaConfiguration
-operator|)
 name|lookup
 argument_list|(
 name|ArchivaConfiguration
@@ -3087,9 +3114,6 @@ expr_stmt|;
 name|ManagedRepositoryConfiguration
 name|repository
 init|=
-operator|(
-name|ManagedRepositoryConfiguration
-operator|)
 name|configuration
 operator|.
 name|getManagedRepositories
