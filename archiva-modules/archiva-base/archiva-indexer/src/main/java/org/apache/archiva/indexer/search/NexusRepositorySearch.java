@@ -2345,22 +2345,6 @@ operator|.
 name|repository
 argument_list|)
 expr_stmt|;
-comment|// FIXME archiva url ??
-name|hit
-operator|.
-name|setUrl
-argument_list|(
-name|artifactInfo
-operator|.
-name|repository
-operator|+
-literal|"/"
-operator|+
-name|artifactInfo
-operator|.
-name|fname
-argument_list|)
-expr_stmt|;
 name|hit
 operator|.
 name|addVersion
@@ -2505,7 +2489,6 @@ operator|.
 name|classifier
 argument_list|)
 expr_stmt|;
-comment|// sure ??
 name|hit
 operator|.
 name|setUrl

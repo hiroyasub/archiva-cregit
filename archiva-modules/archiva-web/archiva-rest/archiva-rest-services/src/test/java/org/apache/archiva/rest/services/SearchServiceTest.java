@@ -894,6 +894,23 @@ operator|==
 literal|1
 argument_list|)
 expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"artifcat url "
+operator|+
+name|artifacts
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getUrl
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|deleteTestRepo
 argument_list|(
 name|testRepoId
