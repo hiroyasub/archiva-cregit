@@ -2566,7 +2566,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * calculate baseUrl without the context and base Archiva Url      * @param artifactInfo      * @return      */
+comment|/**      * calculate baseUrl without the context and base Archiva Url      *      * @param artifactInfo      * @return      */
 specifier|protected
 name|String
 name|getBaseUrl
@@ -2580,7 +2580,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|sb
 operator|.
@@ -2688,6 +2688,31 @@ name|classifier
 argument_list|)
 expr_stmt|;
 block|}
+comment|// maven-plugin packaging is a jar
+if|if
+condition|(
+name|StringUtils
+operator|.
+name|equals
+argument_list|(
+literal|"maven-plugin"
+argument_list|,
+name|artifactInfo
+operator|.
+name|packaging
+argument_list|)
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"jar"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|sb
 operator|.
 name|append
@@ -2702,6 +2727,7 @@ operator|.
 name|packaging
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|sb
 operator|.
