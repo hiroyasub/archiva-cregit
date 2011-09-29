@@ -893,7 +893,6 @@ name|AbstractAppearanceAction
 name|getAction
 parameter_list|()
 block|{
-comment|//return (EditOrganisationInfoAction) lookup( Action.class.getName(), "editOrganisationInfo" );
 return|return
 operator|(
 name|EditOrganisationInfoAction
