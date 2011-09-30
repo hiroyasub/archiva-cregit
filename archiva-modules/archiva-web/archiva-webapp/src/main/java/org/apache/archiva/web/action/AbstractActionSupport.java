@@ -309,6 +309,16 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Properties
+import|;
+end_import
+
 begin_comment
 comment|/**  * LogEnabled and SessionAware ActionSupport  */
 end_comment
@@ -384,6 +394,19 @@ decl_stmt|;
 specifier|private
 name|String
 name|principal
+decl_stmt|;
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"archivaRuntimeProperties"
+argument_list|)
+specifier|private
+name|Properties
+name|archivaRuntimeProperties
 decl_stmt|;
 annotation|@
 name|PostConstruct
@@ -861,6 +884,23 @@ argument_list|)
 decl_stmt|;
 return|return
 name|auditInformation
+return|;
+block|}
+specifier|public
+name|String
+name|getArchivaVersion
+parameter_list|()
+block|{
+return|return
+operator|(
+name|String
+operator|)
+name|archivaRuntimeProperties
+operator|.
+name|get
+argument_list|(
+literal|"archiva.version"
+argument_list|)
 return|;
 block|}
 comment|/**      * dummy information for audit events      * @since 1.4      */
