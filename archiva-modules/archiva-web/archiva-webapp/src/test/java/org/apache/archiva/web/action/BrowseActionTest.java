@@ -83,9 +83,7 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|metadata
-operator|.
-name|repository
+name|webtest
 operator|.
 name|memory
 operator|.
@@ -101,9 +99,7 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|metadata
-operator|.
-name|repository
+name|webtest
 operator|.
 name|memory
 operator|.
@@ -124,20 +120,6 @@ operator|.
 name|indexing
 operator|.
 name|DefaultDownloadRemoteIndexScheduler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|context
-operator|.
-name|support
-operator|.
-name|GenericApplicationContext
 import|;
 end_import
 

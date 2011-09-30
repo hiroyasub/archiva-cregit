@@ -151,9 +151,7 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|metadata
-operator|.
-name|repository
+name|webtest
 operator|.
 name|memory
 operator|.
