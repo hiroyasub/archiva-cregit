@@ -132,14 +132,14 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"not proxyConnectors 2 "
+literal|"not proxyConnectors 1 "
 operator|+
 name|proxyConnectorAdmin
 operator|.
 name|getProxyConnectors
 argument_list|()
 argument_list|,
-literal|2
+literal|1
 argument_list|,
 name|proxyConnectorAdmin
 operator|.
@@ -205,7 +205,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|3
+literal|2
 argument_list|,
 name|proxyConnectorAdmin
 operator|.
@@ -240,7 +240,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|1
 argument_list|,
 name|proxyConnectorAdmin
 operator|.
@@ -421,14 +421,14 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"not proxyConnectors 2 "
+literal|"not proxyConnectors 1 "
 operator|+
 name|proxyConnectorAdmin
 operator|.
 name|getProxyConnectors
 argument_list|()
 argument_list|,
-literal|2
+literal|1
 argument_list|,
 name|proxyConnectorAdmin
 operator|.
@@ -508,7 +508,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|3
+literal|2
 argument_list|,
 name|proxyConnectorAdmin
 operator|.
@@ -641,7 +641,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|1
 argument_list|,
 name|proxyConnectorAdmin
 operator|.
