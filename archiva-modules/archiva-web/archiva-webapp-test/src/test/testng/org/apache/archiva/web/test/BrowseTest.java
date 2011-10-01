@@ -178,6 +178,12 @@ operator|=
 block|{
 literal|"testAddArtifactValidValues"
 block|}
+argument_list|,
+name|groups
+operator|=
+block|{
+literal|"requiresUpload"
+block|}
 argument_list|)
 specifier|public
 name|void
