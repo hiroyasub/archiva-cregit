@@ -489,7 +489,7 @@ return|;
 block|}
 specifier|public
 name|void
-name|setBundleImportName
+name|setBundleName
 parameter_list|(
 name|String
 name|bundleName
