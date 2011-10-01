@@ -158,6 +158,9 @@ name|void
 name|testAddArtifactFileType_ExistingValue
 parameter_list|()
 block|{
+name|goToRepositoryScanningPage
+argument_list|()
+expr_stmt|;
 comment|// FIXME: broken
 name|setFieldValue
 argument_list|(
@@ -288,6 +291,9 @@ name|void
 name|testAddAutoRemove_ExistingValue
 parameter_list|()
 block|{
+name|goToRepositoryScanningPage
+argument_list|()
+expr_stmt|;
 name|setFieldValue
 argument_list|(
 literal|"newpattern_1"
@@ -462,6 +468,9 @@ name|void
 name|testAddIgnoredArtifacts_ExistingValue
 parameter_list|()
 block|{
+name|goToRepositoryScanningPage
+argument_list|()
+expr_stmt|;
 name|setFieldValue
 argument_list|(
 literal|"newpattern_2"
@@ -635,6 +644,9 @@ name|void
 name|testAddIndexableContent_ExistingValue
 parameter_list|()
 block|{
+name|goToRepositoryScanningPage
+argument_list|()
+expr_stmt|;
 name|setFieldValue
 argument_list|(
 literal|"newpattern_3"
