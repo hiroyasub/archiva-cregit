@@ -105,6 +105,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|time
+operator|.
+name|StopWatch
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|index
@@ -523,7 +539,7 @@ operator|.
 name|getLogger
 argument_list|(
 name|getClass
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 specifier|private
@@ -577,7 +593,7 @@ operator|=
 name|downloadRemoteIndexTaskRequest
 operator|.
 name|getRemoteRepository
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|this
 operator|.
@@ -586,7 +602,7 @@ operator|=
 name|downloadRemoteIndexTaskRequest
 operator|.
 name|getNexusIndexer
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|this
 operator|.
@@ -595,7 +611,7 @@ operator|=
 name|downloadRemoteIndexTaskRequest
 operator|.
 name|getWagonFactory
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|this
 operator|.
@@ -604,7 +620,7 @@ operator|=
 name|downloadRemoteIndexTaskRequest
 operator|.
 name|getNetworkProxy
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|this
 operator|.
@@ -613,7 +629,7 @@ operator|=
 name|downloadRemoteIndexTaskRequest
 operator|.
 name|isFullDownload
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|this
 operator|.
@@ -628,13 +644,13 @@ operator|=
 name|downloadRemoteIndexTaskRequest
 operator|.
 name|getIndexUpdater
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 specifier|public
 name|void
 name|run
-parameter_list|()
+parameter_list|( )
 block|{
 comment|// so short lock : not sure we need it
 synchronized|synchronized
@@ -657,7 +673,7 @@ operator|.
 name|remoteRepository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -673,25 +689,11 @@ operator|.
 name|remoteRepository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"start download remote index for remote repository "
-operator|+
-name|this
-operator|.
-name|remoteRepository
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|runningRemoteDownloadIds
@@ -703,17 +705,43 @@ operator|.
 name|remoteRepository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
+name|StopWatch
+name|stopWatch
+init|=
+operator|new
+name|StopWatch
+argument_list|( )
+decl_stmt|;
+name|stopWatch
+operator|.
+name|start
+argument_list|( )
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"start download remote index for remote repository "
+operator|+
+name|this
+operator|.
+name|remoteRepository
+operator|.
+name|getId
+argument_list|( )
+argument_list|)
+expr_stmt|;
 name|IndexingContext
 name|indexingContext
 init|=
 name|nexusIndexer
 operator|.
 name|getIndexingContexts
-argument_list|()
+argument_list|( )
 operator|.
 name|get
 argument_list|(
@@ -722,7 +750,7 @@ operator|+
 name|remoteRepository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 comment|// TODO check if null ? normally not as created by DefaultDownloadRemoteIndexScheduler#startup
@@ -737,10 +765,10 @@ argument_list|(
 name|indexingContext
 operator|.
 name|getIndexDirectoryFile
-argument_list|()
+argument_list|( )
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 argument_list|,
 literal|".tmpIndex"
 argument_list|)
@@ -752,7 +780,7 @@ condition|(
 name|tempIndexDirectory
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|FileUtils
@@ -766,7 +794,7 @@ block|}
 name|tempIndexDirectory
 operator|.
 name|mkdirs
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|String
 name|baseIndexUrl
@@ -774,7 +802,7 @@ init|=
 name|indexingContext
 operator|.
 name|getIndexUpdateUrl
-argument_list|()
+argument_list|( )
 decl_stmt|;
 specifier|final
 name|Wagon
@@ -792,11 +820,11 @@ operator|.
 name|remoteRepository
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|getProtocol
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|setupWagonReadTimeout
@@ -811,7 +839,7 @@ name|addTransferListener
 argument_list|(
 operator|new
 name|DownloadListener
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|ProxyInfo
@@ -832,7 +860,7 @@ name|proxyInfo
 operator|=
 operator|new
 name|ProxyInfo
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|proxyInfo
 operator|.
@@ -843,7 +871,7 @@ operator|.
 name|networkProxy
 operator|.
 name|getHost
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|proxyInfo
@@ -855,7 +883,7 @@ operator|.
 name|networkProxy
 operator|.
 name|getPort
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|proxyInfo
@@ -867,7 +895,7 @@ operator|.
 name|networkProxy
 operator|.
 name|getUsername
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|proxyInfo
@@ -879,7 +907,7 @@ operator|.
 name|networkProxy
 operator|.
 name|getPassword
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -895,7 +923,7 @@ operator|.
 name|remoteRepository
 operator|.
 name|getUserName
-argument_list|()
+argument_list|( )
 operator|!=
 literal|null
 condition|)
@@ -904,7 +932,7 @@ name|authenticationInfo
 operator|=
 operator|new
 name|AuthenticationInfo
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|authenticationInfo
 operator|.
@@ -915,7 +943,7 @@ operator|.
 name|remoteRepository
 operator|.
 name|getUserName
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|authenticationInfo
@@ -927,7 +955,7 @@ operator|.
 name|remoteRepository
 operator|.
 name|getPassword
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -943,7 +971,7 @@ operator|.
 name|remoteRepository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|baseIndexUrl
 argument_list|)
@@ -959,7 +987,7 @@ init|=
 name|indexingContext
 operator|.
 name|getIndexDirectoryFile
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -967,13 +995,13 @@ operator|!
 name|indexDirectory
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|indexDirectory
 operator|.
 name|mkdirs
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 name|ResourceFetcher
@@ -981,7 +1009,7 @@ name|resourceFetcher
 init|=
 operator|new
 name|ResourceFetcher
-argument_list|()
+argument_list|( )
 block|{
 specifier|public
 name|void
@@ -1001,7 +1029,7 @@ block|}
 specifier|public
 name|void
 name|disconnect
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|IOException
 block|{
@@ -1047,13 +1075,13 @@ condition|(
 name|file
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|file
 operator|.
 name|delete
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 comment|//file.deleteOnExit();
@@ -1087,7 +1115,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -1104,7 +1132,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -1121,7 +1149,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -1157,6 +1185,34 @@ argument_list|(
 name|request
 argument_list|)
 expr_stmt|;
+name|stopWatch
+operator|.
+name|stop
+argument_list|( )
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"time to download remote repository index for repository {}: {} s"
+argument_list|,
+name|this
+operator|.
+name|remoteRepository
+operator|.
+name|getId
+argument_list|( )
+argument_list|,
+operator|(
+name|stopWatch
+operator|.
+name|getTime
+argument_list|( )
+operator|/
+literal|1000
+operator|)
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1171,7 +1227,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1183,7 +1239,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1202,7 +1258,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1214,7 +1270,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1233,7 +1289,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1245,7 +1301,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1264,7 +1320,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1276,7 +1332,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1295,7 +1351,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1307,7 +1363,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1331,7 +1387,7 @@ operator|.
 name|remoteRepository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1346,7 +1402,7 @@ operator|.
 name|remoteRepository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1387,7 +1443,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1407,20 +1463,20 @@ name|httpConfiguration
 init|=
 operator|new
 name|HttpConfiguration
-argument_list|()
+argument_list|( )
 operator|.
 name|setAll
 argument_list|(
 operator|new
 name|HttpMethodConfiguration
-argument_list|()
+argument_list|( )
 operator|.
 name|setReadTimeout
 argument_list|(
 name|remoteRepository
 operator|.
 name|getRemoteDownloadTimeout
-argument_list|()
+argument_list|( )
 operator|*
 literal|1000
 argument_list|)
@@ -1432,7 +1488,7 @@ init|=
 name|wagon
 operator|.
 name|getClass
-argument_list|()
+argument_list|( )
 operator|.
 name|getMethod
 argument_list|(
@@ -1468,7 +1524,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1491,7 +1547,7 @@ operator|.
 name|getLogger
 argument_list|(
 name|getClass
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|String
@@ -1513,10 +1569,10 @@ operator|=
 name|transferEvent
 operator|.
 name|getResource
-argument_list|()
+argument_list|( )
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|log
 operator|.
@@ -1541,17 +1597,17 @@ operator|=
 name|transferEvent
 operator|.
 name|getResource
-argument_list|()
+argument_list|( )
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|startTime
 operator|=
 name|System
 operator|.
 name|currentTimeMillis
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|log
 operator|.
@@ -1562,10 +1618,10 @@ argument_list|,
 name|transferEvent
 operator|.
 name|getResource
-argument_list|()
+argument_list|( )
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1597,10 +1653,10 @@ argument_list|(
 name|transferEvent
 operator|.
 name|getResource
-argument_list|()
+argument_list|( )
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|,
 name|buffer
 operator|.
@@ -1610,7 +1666,7 @@ name|length
 argument_list|)
 operator|.
 name|toArray
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1627,10 +1683,10 @@ operator|=
 name|transferEvent
 operator|.
 name|getResource
-argument_list|()
+argument_list|( )
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|long
 name|endTime
@@ -1638,7 +1694,7 @@ init|=
 name|System
 operator|.
 name|currentTimeMillis
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|log
 operator|.
@@ -1649,10 +1705,10 @@ argument_list|,
 name|transferEvent
 operator|.
 name|getResource
-argument_list|()
+argument_list|( )
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|,
 operator|(
 name|endTime
@@ -1685,18 +1741,18 @@ argument_list|(
 name|transferEvent
 operator|.
 name|getResource
-argument_list|()
+argument_list|( )
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|,
 name|transferEvent
 operator|.
 name|getException
-argument_list|()
+argument_list|( )
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|toArray
@@ -1711,7 +1767,7 @@ argument_list|,
 name|transferEvent
 operator|.
 name|getException
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
