@@ -233,7 +233,7 @@ name|void
 name|testDeleteRepositoryGroup
 parameter_list|()
 block|{
-name|assertRepositoryGroupsPage
+name|goToRepositoryGroupsPage
 argument_list|()
 expr_stmt|;
 name|deleteRepositoryGroup

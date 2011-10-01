@@ -108,19 +108,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|Test
-argument_list|(
-name|groups
-operator|=
-block|{
-literal|"about"
-block|}
-argument_list|,
-name|alwaysRun
-operator|=
-literal|true
-argument_list|)
 specifier|public
 class|class
 name|ArchivaAdminTest
@@ -238,15 +225,6 @@ argument_list|(
 name|baseUrl
 argument_list|)
 expr_stmt|;
-name|String
-name|title
-init|=
-name|getSelenium
-argument_list|()
-operator|.
-name|getTitle
-argument_list|()
-decl_stmt|;
 comment|// if not admin user created create one
 if|if
 condition|(
@@ -324,6 +302,38 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// take care about repositories : internal
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|groups
+operator|=
+block|{
+literal|"about"
+block|}
+argument_list|,
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
+specifier|public
+name|void
+name|testHome
+parameter_list|()
+block|{
+name|getSelenium
+argument_list|()
+operator|.
+name|open
+argument_list|(
+name|baseUrl
+argument_list|)
+expr_stmt|;
+name|assertPage
+argument_list|(
+literal|"Apache Archiva \\ Quick Search"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

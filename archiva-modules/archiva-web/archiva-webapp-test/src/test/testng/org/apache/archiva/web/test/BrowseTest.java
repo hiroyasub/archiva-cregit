@@ -696,6 +696,8 @@ name|dependsOnMethods
 operator|=
 block|{
 literal|"testAddMetadataProperty"
+block|,
+literal|"testWithCorrectUsernamePassword"
 block|}
 argument_list|)
 specifier|public

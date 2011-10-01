@@ -472,6 +472,10 @@ argument_list|(
 name|groups
 operator|=
 literal|"requiresUpload"
+argument_list|,
+name|enabled
+operator|=
+literal|false
 argument_list|)
 specifier|public
 name|void
@@ -519,7 +523,7 @@ argument_list|,
 name|getRepositoryId
 argument_list|()
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -594,6 +598,7 @@ operator|+
 name|getVersion
 argument_list|()
 decl_stmt|;
+comment|// FIXME: currently broken - is dotnet-library
 name|assertLinkPresent
 argument_list|(
 literal|".NET Library"
@@ -651,7 +656,7 @@ argument_list|,
 name|getRepositoryId
 argument_list|()
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -734,7 +739,7 @@ argument_list|()
 argument_list|,
 name|repositoryId
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent
@@ -751,6 +756,8 @@ argument_list|,
 literal|"1.0"
 argument_list|,
 literal|"internal"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertTextPresent

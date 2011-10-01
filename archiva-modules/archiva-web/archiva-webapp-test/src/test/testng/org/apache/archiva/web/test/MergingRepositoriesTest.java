@@ -326,6 +326,15 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// change the configuaration first and try to upload existing artifact to the repository
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testAddArtifactToStagingRepository"
+block|}
+argument_list|)
 specifier|public
 name|void
 name|testConfigurationChangesOfStagingRepository
