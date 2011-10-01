@@ -773,6 +773,28 @@ argument_list|,
 literal|".tmpIndex"
 argument_list|)
 decl_stmt|;
+name|File
+name|indexCacheDirectory
+init|=
+operator|new
+name|File
+argument_list|(
+name|indexingContext
+operator|.
+name|getIndexDirectoryFile
+argument_list|( )
+operator|.
+name|getParent
+argument_list|( )
+argument_list|,
+literal|".indexCache"
+argument_list|)
+decl_stmt|;
+name|indexCacheDirectory
+operator|.
+name|mkdirs
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 if|if
@@ -795,6 +817,11 @@ name|tempIndexDirectory
 operator|.
 name|mkdirs
 argument_list|( )
+expr_stmt|;
+name|tempIndexDirectory
+operator|.
+name|deleteOnExit
+argument_list|()
 expr_stmt|;
 name|String
 name|baseIndexUrl
@@ -1051,14 +1078,13 @@ try|try
 block|{
 name|log
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"resourceFetcher#retrieve, name:{}"
+literal|"index update retrieve file, name:{}"
 argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-comment|//TODO check those files are deleted !!
 name|File
 name|file
 init|=
@@ -1084,7 +1110,11 @@ name|delete
 argument_list|( )
 expr_stmt|;
 block|}
-comment|//file.deleteOnExit();
+name|file
+operator|.
+name|deleteOnExit
+argument_list|()
+expr_stmt|;
 name|wagon
 operator|.
 name|get
@@ -1174,6 +1204,13 @@ argument_list|(
 name|this
 operator|.
 name|fullDownload
+argument_list|)
+expr_stmt|;
+name|request
+operator|.
+name|setLocalIndexCacheDir
+argument_list|(
+name|indexCacheDirectory
 argument_list|)
 expr_stmt|;
 name|this
