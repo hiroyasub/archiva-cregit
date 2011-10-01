@@ -472,10 +472,6 @@ argument_list|(
 name|groups
 operator|=
 literal|"requiresUpload"
-argument_list|,
-name|enabled
-operator|=
-literal|false
 argument_list|)
 specifier|public
 name|void
@@ -598,7 +594,6 @@ operator|+
 name|getVersion
 argument_list|()
 decl_stmt|;
-comment|// FIXME: currently broken - is dotnet-library
 name|assertLinkPresent
 argument_list|(
 literal|".NET Library"
