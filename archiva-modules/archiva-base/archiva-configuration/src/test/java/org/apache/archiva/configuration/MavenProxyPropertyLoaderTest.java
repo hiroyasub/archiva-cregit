@@ -141,16 +141,6 @@ specifier|private
 name|MavenProxyPropertyLoader
 name|loader
 decl_stmt|;
-comment|// TODO to remove
-specifier|protected
-name|String
-name|getSpringConfigLocation
-parameter_list|()
-block|{
-return|return
-literal|"org/apache/maven/archiva/configuration/spring-context.xml"
-return|;
-block|}
 annotation|@
 name|Test
 specifier|public

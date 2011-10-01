@@ -270,16 +270,6 @@ name|path
 argument_list|)
 return|;
 block|}
-comment|/**      * @TODO to remove      */
-specifier|protected
-name|String
-name|getSpringConfigLocation
-parameter_list|()
-block|{
-return|return
-literal|"org/apache/maven/archiva/configuration/spring-context.xml"
-return|;
-block|}
 specifier|protected
 parameter_list|<
 name|T
@@ -1165,7 +1155,7 @@ name|System
 operator|.
 name|setProperty
 argument_list|(
-literal|"org.apache.maven.archiva.webapp.ui.appletFindEnabled"
+literal|"org.apache.archiva.webapp.ui.appletFindEnabled"
 argument_list|,
 literal|"false"
 argument_list|)
@@ -1173,9 +1163,6 @@ expr_stmt|;
 name|ArchivaConfiguration
 name|archivaConfiguration
 init|=
-operator|(
-name|ArchivaConfiguration
-operator|)
 name|lookup
 argument_list|(
 name|ArchivaConfiguration
@@ -1226,7 +1213,7 @@ argument_list|()
 operator|.
 name|remove
 argument_list|(
-literal|"org.apache.maven.archiva.webapp.ui.appletFindEnabled"
+literal|"org.apache.archiva.webapp.ui.appletFindEnabled"
 argument_list|)
 expr_stmt|;
 block|}

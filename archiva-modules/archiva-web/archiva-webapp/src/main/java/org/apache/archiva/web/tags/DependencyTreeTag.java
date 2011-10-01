@@ -240,7 +240,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DependencyTreeTag - just here to output the dependency tree to the browser.  * It was easier to do it this way, vs accessing the dependency graph via a JSP.  *   *<pre>  *<archiva:dependency-tree groupId="org.apache.maven.archiva"   *                            artifactId="archiva-common"   *                            version="1.0"  *                            nodevar="node">  *<b>${node.groupId}</b>:<b>${node.artifactId}</b>:<b>${node.version}</b> (${node.scope})  *</archiva:dependency-tree>  *</pre>  *  * @version $Id$  */
+comment|/**  * DependencyTreeTag - just here to output the dependency tree to the browser.  * It was easier to do it this way, vs accessing the dependency graph via a JSP.  *   *<pre>  *<archiva:dependency-tree groupId="org.apache.archiva"  *                            artifactId="archiva-common"   *                            version="1.3.5"  *                            nodevar="node">  *<b>${node.groupId}</b>:<b>${node.artifactId}</b>:<b>${node.version}</b> (${node.scope})  *</archiva:dependency-tree>  *</pre>  *  * @version $Id$  */
 end_comment
 
 begin_class

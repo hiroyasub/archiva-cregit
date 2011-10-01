@@ -672,7 +672,7 @@ specifier|final
 name|String
 name|KEY
 init|=
-literal|"org.apache.maven.archiva"
+literal|"org.apache.archiva"
 decl_stmt|;
 specifier|public
 name|Configuration
@@ -2334,7 +2334,7 @@ literal|"<configuration><xml fileName=\""
 operator|+
 name|fileLocation
 operator|+
-literal|"\" config-forceCreate=\"true\" config-name=\"org.apache.maven.archiva.user\"/>"
+literal|"\" config-forceCreate=\"true\" config-name=\"org.apache.archiva.user\"/>"
 operator|+
 literal|"</configuration>"
 expr_stmt|;
@@ -2350,12 +2350,7 @@ argument_list|(
 name|contents
 argument_list|)
 expr_stmt|;
-operator|(
-operator|(
-name|CommonsConfigurationRegistry
-operator|)
 name|registry
-operator|)
 operator|.
 name|initialize
 argument_list|()

@@ -263,15 +263,6 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|protected
-name|String
-name|getPlexusConfigLocation
-parameter_list|()
-block|{
-return|return
-literal|"org/apache/maven/archiva/security/ArchivaServletAuthenticatorTest.xml"
-return|;
-block|}
-specifier|protected
 name|void
 name|assignRepositoryManagerRole
 parameter_list|(
