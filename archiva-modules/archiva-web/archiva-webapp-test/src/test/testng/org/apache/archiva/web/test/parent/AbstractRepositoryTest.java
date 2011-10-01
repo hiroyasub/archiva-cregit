@@ -238,6 +238,9 @@ name|addRepositoryGroup
 parameter_list|(
 name|String
 name|repoGroupName
+parameter_list|,
+name|boolean
+name|wait
 parameter_list|)
 block|{
 name|goToRepositoryGroupsPage
@@ -253,6 +256,8 @@ expr_stmt|;
 name|clickButtonWithValue
 argument_list|(
 literal|"Add Group"
+argument_list|,
+name|wait
 argument_list|)
 expr_stmt|;
 block|}
