@@ -126,6 +126,10 @@ operator|=
 block|{
 literal|"testAddStagingRepository"
 block|}
+argument_list|,
+name|groups
+operator|=
+literal|"requiresUpload"
 argument_list|)
 specifier|public
 name|void

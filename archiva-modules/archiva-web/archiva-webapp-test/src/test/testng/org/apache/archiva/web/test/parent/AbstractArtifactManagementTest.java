@@ -237,7 +237,7 @@ name|clickButtonWithValue
 argument_list|(
 literal|"Submit"
 argument_list|,
-literal|false
+name|wait
 argument_list|)
 expr_stmt|;
 block|}

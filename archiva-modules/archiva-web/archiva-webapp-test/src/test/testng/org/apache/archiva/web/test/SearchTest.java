@@ -95,10 +95,9 @@ literal|"SEARCH_BAD_ARTIFACT"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//assertTextPresent( "No results found" );
-name|assertElementPresent
+name|assertTextPresent
 argument_list|(
-literal|"//span[@class=\'errorMessage\']"
+literal|"No results found"
 argument_list|)
 expr_stmt|;
 block|}
@@ -117,6 +116,8 @@ parameter_list|()
 block|{
 name|searchForArtifact
 argument_list|(
+literal|"artifactId:"
+operator|+
 name|getProperty
 argument_list|(
 literal|"ARTIFACT_ARTIFACTID"
@@ -160,12 +161,16 @@ literal|"ARTIFACT_ARTIFACTID"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|clickLinkWithText
+name|clickLinkWithLocator
 argument_list|(
+literal|"//span[@class=\"artifact-title\"]/a[text()='"
+operator|+
 name|getProperty
 argument_list|(
 literal|"ARTIFACT_ARTIFACTID"
 argument_list|)
+operator|+
+literal|"']"
 argument_list|)
 expr_stmt|;
 name|assertPage
@@ -315,7 +320,17 @@ argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
-literal|"No results found"
+literal|"Results"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Hits: 1 to 1 of 1"
+argument_list|)
+expr_stmt|;
+name|assertLinkPresent
+argument_list|(
+name|existingArtifactId
 argument_list|)
 expr_stmt|;
 block|}

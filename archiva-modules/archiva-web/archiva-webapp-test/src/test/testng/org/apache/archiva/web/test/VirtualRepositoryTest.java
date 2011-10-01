@@ -79,6 +79,14 @@ name|VirtualRepositoryTest
 extends|extends
 name|AbstractRepositoryTest
 block|{
+comment|// FIXME: says repositoryGroup id cannot be empty
+annotation|@
+name|Test
+argument_list|(
+name|enabled
+operator|=
+literal|false
+argument_list|)
 specifier|public
 name|void
 name|testAddRepositoryGroupNullValue

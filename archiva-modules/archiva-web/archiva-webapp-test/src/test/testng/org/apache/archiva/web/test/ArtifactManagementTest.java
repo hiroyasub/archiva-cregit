@@ -857,7 +857,7 @@ literal|" "
 argument_list|,
 literal|"internal"
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTextPresent

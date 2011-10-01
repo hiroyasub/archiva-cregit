@@ -71,6 +71,22 @@ specifier|protected
 name|String
 name|fullname
 decl_stmt|;
+specifier|protected
+specifier|static
+name|String
+name|getErrorMessageText
+parameter_list|()
+block|{
+return|return
+name|getSelenium
+argument_list|()
+operator|.
+name|getText
+argument_list|(
+literal|"//ul[@class='errorMessage']/li/span"
+argument_list|)
+return|;
+block|}
 specifier|public
 name|String
 name|getUserEmail
@@ -1423,12 +1439,12 @@ literal|"user.confirmPassword"
 argument_list|)
 expr_stmt|;
 comment|//assertButtonWithValuePresent( "Create User" );
-comment|//assertButtonWithIdPresent( "userCreateSubmit" );
-name|assertElementNotPresent
+name|assertButtonWithIdPresent
 argument_list|(
 literal|"userCreateSubmit"
 argument_list|)
 expr_stmt|;
+comment|//        assertElementNotPresent( "userCreateSubmit" );
 block|}
 specifier|public
 name|void
@@ -2578,6 +2594,9 @@ name|classifier
 parameter_list|,
 name|String
 name|type
+parameter_list|,
+name|boolean
+name|wait
 parameter_list|)
 block|{
 name|assertAddLegacyArtifactPathPage
@@ -2628,6 +2647,8 @@ expr_stmt|;
 name|clickButtonWithValue
 argument_list|(
 literal|"Add Legacy Artifact Path"
+argument_list|,
+name|wait
 argument_list|)
 expr_stmt|;
 block|}

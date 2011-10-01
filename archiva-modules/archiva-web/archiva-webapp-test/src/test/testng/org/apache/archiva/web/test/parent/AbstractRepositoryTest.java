@@ -444,11 +444,6 @@ argument_list|(
 literal|"Central Repository"
 argument_list|)
 expr_stmt|;
-name|assertTextPresent
-argument_list|(
-literal|"Java.net Repository for Maven 2"
-argument_list|)
-expr_stmt|;
 block|}
 specifier|public
 name|void
@@ -694,7 +689,7 @@ expr_stmt|;
 name|String
 name|remoteElements
 init|=
-literal|"addRemoteRepository_repository_id,addRemoteRepository_repository_name,addRemoteRepository_repository_url,addRemoteRepository_repository_username,addRemoteRepository_repository_password,addRemoteRepository_repository_timeout,addRemoteRepository_repository_layout"
+literal|"addRemoteRepository_repository_id,addRemoteRepository_repository_name,addRemoteRepository_repository_url,addRemoteRepository_repository_userName,addRemoteRepository_repository_password,addRemoteRepository_repository_timeout,addRemoteRepository_repository_layout"
 decl_stmt|;
 name|String
 index|[]
@@ -780,9 +775,11 @@ name|timeout
 parameter_list|,
 name|String
 name|type
+parameter_list|,
+name|boolean
+name|wait
 parameter_list|)
 block|{
-comment|// goToRepositoriesPage();
 name|assertAddRemoteRepository
 argument_list|()
 expr_stmt|;
@@ -809,7 +806,7 @@ argument_list|)
 expr_stmt|;
 name|setFieldValue
 argument_list|(
-literal|"addRemoteRepository_repository_username"
+literal|"addRemoteRepository_repository_userName"
 argument_list|,
 name|username
 argument_list|)
@@ -838,6 +835,8 @@ expr_stmt|;
 name|clickButtonWithValue
 argument_list|(
 literal|"Add Repository"
+argument_list|,
+name|wait
 argument_list|)
 expr_stmt|;
 block|}
@@ -1084,9 +1083,12 @@ name|void
 name|goToRepositoryScanningPage
 parameter_list|()
 block|{
-name|clickLinkWithText
+name|getSelenium
+argument_list|()
+operator|.
+name|open
 argument_list|(
-literal|"Repository Scanning"
+literal|"/archiva/admin/repositoryScanning.action"
 argument_list|)
 expr_stmt|;
 name|assertRepositoryScanningPage
