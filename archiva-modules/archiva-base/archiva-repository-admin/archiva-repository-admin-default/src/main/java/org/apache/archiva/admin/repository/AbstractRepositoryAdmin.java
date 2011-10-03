@@ -409,7 +409,12 @@ throw|throw
 operator|new
 name|RepositoryAdminException
 argument_list|(
-literal|"Error occurred in the registry."
+literal|"Error occurred in the registry: "
+operator|+
+name|e
+operator|.
+name|getLocalizedMessage
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
@@ -425,7 +430,12 @@ throw|throw
 operator|new
 name|RepositoryAdminException
 argument_list|(
-literal|"Error occurred while saving the configuration."
+literal|"Error occurred while saving the configuration: "
+operator|+
+name|e
+operator|.
+name|getLocalizedMessage
+argument_list|()
 argument_list|,
 name|e
 argument_list|)

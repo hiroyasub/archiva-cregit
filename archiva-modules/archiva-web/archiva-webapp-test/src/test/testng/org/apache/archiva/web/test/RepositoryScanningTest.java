@@ -148,10 +148,6 @@ operator|=
 block|{
 literal|"testAddArtifactFileType"
 block|}
-argument_list|,
-name|enabled
-operator|=
-literal|false
 argument_list|)
 specifier|public
 name|void
@@ -161,7 +157,6 @@ block|{
 name|goToRepositoryScanningPage
 argument_list|()
 expr_stmt|;
-comment|// FIXME: broken
 name|setFieldValue
 argument_list|(
 literal|"newpattern_0"
@@ -181,7 +176,7 @@ argument_list|(
 name|getErrorMessageText
 argument_list|()
 argument_list|,
-literal|"Not adding pattern \"**/*.zip\" to filetype artifacts as it already exists."
+literal|"File type [artifacts] already contains pattern [**/*.zip]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -281,10 +276,6 @@ operator|=
 block|{
 literal|"testAddAutoRemove_NullValue"
 block|}
-argument_list|,
-name|enabled
-operator|=
-literal|false
 argument_list|)
 specifier|public
 name|void
@@ -306,7 +297,6 @@ argument_list|(
 literal|"newpattern_1"
 argument_list|)
 expr_stmt|;
-comment|// FIXME: broken
 name|Assert
 operator|.
 name|assertEquals
@@ -314,7 +304,7 @@ argument_list|(
 name|getErrorMessageText
 argument_list|()
 argument_list|,
-literal|"Not adding pattern \"**/*-\" to filetype auto-remove as it already exists."
+literal|"File type [auto-remove] already contains pattern [**/*-]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -458,11 +448,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|enabled
-operator|=
-literal|false
-argument_list|)
 specifier|public
 name|void
 name|testAddIgnoredArtifacts_ExistingValue
@@ -483,7 +468,6 @@ argument_list|(
 literal|"newpattern_2"
 argument_list|)
 expr_stmt|;
-comment|// FIXME: broken
 name|Assert
 operator|.
 name|assertEquals
@@ -491,7 +475,7 @@ argument_list|(
 name|getErrorMessageText
 argument_list|()
 argument_list|,
-literal|"Not adding pattern \"**/*.sh\" to filetype ignored as it already exists."
+literal|"File type [ignored] already contains pattern [**/*.sh]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -634,11 +618,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|enabled
-operator|=
-literal|false
-argument_list|)
 specifier|public
 name|void
 name|testAddIndexableContent_ExistingValue
@@ -659,7 +638,6 @@ argument_list|(
 literal|"newpattern_3"
 argument_list|)
 expr_stmt|;
-comment|// FIXME: broken
 name|Assert
 operator|.
 name|assertEquals
@@ -667,7 +645,7 @@ argument_list|(
 name|getErrorMessageText
 argument_list|()
 argument_list|,
-literal|"Not adding pattern \"**/*.xml\" to filetype indexable-content as it already exists."
+literal|"File type [indexable-content] already contains pattern [**/*.xml]"
 argument_list|)
 expr_stmt|;
 block|}

@@ -547,8 +547,6 @@ parameter_list|)
 block|{
 name|addActionError
 argument_list|(
-literal|"error adding file type pattern "
-operator|+
 name|e
 operator|.
 name|getMessage

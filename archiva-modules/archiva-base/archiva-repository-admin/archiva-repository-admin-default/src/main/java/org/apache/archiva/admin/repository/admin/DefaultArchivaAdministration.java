@@ -655,6 +655,35 @@ condition|)
 block|{
 return|return;
 block|}
+if|if
+condition|(
+name|fileType
+operator|.
+name|getPatterns
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|pattern
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|RepositoryAdminException
+argument_list|(
+literal|"File type ["
+operator|+
+name|fileTypeId
+operator|+
+literal|"] already contains pattern ["
+operator|+
+name|pattern
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|fileType
 operator|.
 name|addPattern
