@@ -137,10 +137,6 @@ operator|=
 block|{
 literal|"testAddManagedRepoValidValues"
 block|}
-argument_list|,
-name|enabled
-operator|=
-literal|false
 argument_list|)
 specifier|public
 name|void
@@ -206,10 +202,9 @@ argument_list|(
 literal|"Repository Purge By Days Older Than needs to be larger than 0."
 argument_list|)
 expr_stmt|;
-comment|// FIXME: broken
 name|assertTextPresent
 argument_list|(
-literal|"Invalid cron expression."
+literal|"Cron expression is required."
 argument_list|)
 expr_stmt|;
 block|}
@@ -467,11 +462,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|enabled
-operator|=
-literal|false
-argument_list|)
 specifier|public
 name|void
 name|testAddManagedRepoBlankValues
@@ -521,10 +511,9 @@ argument_list|(
 literal|"You must enter a directory."
 argument_list|)
 expr_stmt|;
-comment|// FIXME: broken
 name|assertTextPresent
 argument_list|(
-literal|"Invalid cron expression."
+literal|"Cron expression is required."
 argument_list|)
 expr_stmt|;
 block|}
@@ -656,11 +645,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|enabled
-operator|=
-literal|false
-argument_list|)
 specifier|public
 name|void
 name|testAddManagedRepoNoCron
@@ -695,10 +679,9 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-comment|// FIXME: broken
 name|assertTextPresent
 argument_list|(
-literal|"Invalid cron expression."
+literal|"Cron expression is required."
 argument_list|)
 expr_stmt|;
 block|}
@@ -760,10 +743,6 @@ operator|=
 block|{
 literal|"testAddManagedRepoForEdit"
 block|}
-argument_list|,
-name|enabled
-operator|=
-literal|false
 argument_list|)
 specifier|public
 name|void
@@ -812,10 +791,9 @@ argument_list|(
 literal|"Repository Purge By Days Older Than needs to be larger than 0."
 argument_list|)
 expr_stmt|;
-comment|// FIXME: broken
 name|assertTextPresent
 argument_list|(
-literal|"Invalid cron expression."
+literal|"Cron expression is required."
 argument_list|)
 expr_stmt|;
 block|}
@@ -938,14 +916,10 @@ operator|=
 block|{
 literal|"testAddManagedRepoForEdit"
 block|}
-argument_list|,
-name|enabled
-operator|=
-literal|false
 argument_list|)
 specifier|public
 name|void
-name|testEditManagedRepoInvalidCron
+name|testEditManagedRepoInvalidCronBadText
 parameter_list|()
 block|{
 name|editManagedRepository
@@ -958,14 +932,87 @@ literal|"/.index"
 argument_list|,
 literal|"Maven 2.x Repository"
 argument_list|,
-literal|""
+literal|"asdf"
 argument_list|,
 literal|"1"
 argument_list|,
 literal|"1"
 argument_list|)
 expr_stmt|;
-comment|// FIXME: broken
+name|assertTextPresent
+argument_list|(
+literal|"Invalid cron expression."
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testAddManagedRepoForEdit"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testEditManagedRepoInvalidCronBadValue
+parameter_list|()
+block|{
+name|editManagedRepository
+argument_list|(
+literal|"name"
+argument_list|,
+literal|"/home"
+argument_list|,
+literal|"/.index"
+argument_list|,
+literal|"Maven 2.x Repository"
+argument_list|,
+literal|"60 0 * * * ?"
+argument_list|,
+literal|"1"
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
+name|assertTextPresent
+argument_list|(
+literal|"Invalid cron expression."
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|dependsOnMethods
+operator|=
+block|{
+literal|"testAddManagedRepoForEdit"
+block|}
+argument_list|)
+specifier|public
+name|void
+name|testEditManagedRepoInvalidCronTooManyElements
+parameter_list|()
+block|{
+name|editManagedRepository
+argument_list|(
+literal|"name"
+argument_list|,
+literal|"/home"
+argument_list|,
+literal|"/.index"
+argument_list|,
+literal|"Maven 2.x Repository"
+argument_list|,
+literal|"* * * * * * * *"
+argument_list|,
+literal|"1"
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
 name|assertTextPresent
 argument_list|(
 literal|"Invalid cron expression."

@@ -485,7 +485,7 @@ condition|)
 block|{
 name|addFieldError
 argument_list|(
-literal|"repository.refreshCronExpression"
+literal|"repository.cronExpression"
 argument_list|,
 literal|"Invalid cron expression."
 argument_list|)

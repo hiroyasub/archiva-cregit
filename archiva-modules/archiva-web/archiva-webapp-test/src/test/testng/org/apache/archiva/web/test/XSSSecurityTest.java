@@ -507,16 +507,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|enabled
-operator|=
-literal|false
-argument_list|)
 specifier|public
 name|void
 name|testAddManagedRepositoryImmunityToInputFieldCrossSiteScripting
 parameter_list|()
 block|{
+comment|// TODO: these are evaluated client side now - we should force it to do server-side to make sure (though this could probably be tested in the webapp tests instead)
 name|getSelenium
 argument_list|()
 operator|.
@@ -577,7 +573,49 @@ argument_list|(
 literal|"Repository Purge By Days Older Than needs to be larger than 0."
 argument_list|)
 expr_stmt|;
-comment|// FIXME: broken
+name|assertTextPresent
+argument_list|(
+literal|"Cron expression is required."
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+specifier|public
+name|void
+name|testAddManagedRepositoryImmunityToInputFieldCrossSiteScriptingCron
+parameter_list|()
+block|{
+comment|// separate test because cron is evaluated server side, not client side
+name|getSelenium
+argument_list|()
+operator|.
+name|open
+argument_list|(
+literal|"/archiva/admin/addRepository.action"
+argument_list|)
+expr_stmt|;
+name|addManagedRepository
+argument_list|(
+literal|"id"
+argument_list|,
+literal|"name"
+argument_list|,
+literal|"/home"
+argument_list|,
+literal|"/.index"
+argument_list|,
+literal|"Maven 2.x Repository"
+argument_list|,
+literal|"<test\"><script>alert('xss')</script>"
+argument_list|,
+literal|"1"
+argument_list|,
+literal|"1"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 name|assertTextPresent
 argument_list|(
 literal|"Invalid cron expression."
