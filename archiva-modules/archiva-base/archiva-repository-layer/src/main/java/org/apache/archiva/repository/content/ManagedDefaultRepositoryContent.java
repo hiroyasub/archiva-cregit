@@ -419,7 +419,9 @@ throw|throw
 operator|new
 name|ContentNotFoundException
 argument_list|(
-literal|"Unable to delete non-existing project directory."
+literal|"Unable to delete non-existing project directory: "
+operator|+
+name|projectDir
 argument_list|)
 throw|;
 block|}
