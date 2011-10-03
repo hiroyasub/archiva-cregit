@@ -265,11 +265,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|enabled
-operator|=
-literal|false
-argument_list|)
 specifier|public
 name|void
 name|testAddAppearanceValidValues
@@ -283,7 +278,6 @@ argument_list|(
 literal|"Edit"
 argument_list|)
 expr_stmt|;
-comment|// FIXME: not allowed this URL for the logo?!
 name|addEditAppearance
 argument_list|(
 literal|"The Apache Software Foundation"
@@ -309,10 +303,6 @@ operator|=
 block|{
 literal|"testAddAppearanceValidValues"
 block|}
-argument_list|,
-name|enabled
-operator|=
-literal|false
 argument_list|)
 specifier|public
 name|void
@@ -327,7 +317,6 @@ argument_list|(
 literal|"Edit"
 argument_list|)
 expr_stmt|;
-comment|// FIXME: not allowed this URL for the logo?!
 name|addEditAppearance
 argument_list|(
 literal|"Apache Software Foundation"
