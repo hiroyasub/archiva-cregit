@@ -111,20 +111,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|archiva
 operator|.
 name|policies
@@ -172,6 +158,20 @@ operator|.
 name|policies
 operator|.
 name|PreDownloadPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
 import|;
 end_import
 
@@ -368,12 +368,12 @@ name|PostConstruct
 specifier|public
 name|void
 name|initialize
-parameter_list|()
+parameter_list|( )
 block|{
 name|super
 operator|.
 name|initialize
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|this
 operator|.
@@ -434,7 +434,7 @@ name|ArrayList
 argument_list|<
 name|String
 argument_list|>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -451,10 +451,9 @@ range|:
 name|patterns
 control|)
 block|{
-name|escapedPatterns
-operator|.
-name|add
-argument_list|(
+name|String
+name|escapedPattern
+init|=
 name|StringUtils
 operator|.
 name|replace
@@ -465,6 +464,12 @@ literal|"\\"
 argument_list|,
 literal|"\\\\"
 argument_list|)
+decl_stmt|;
+name|escapedPatterns
+operator|.
+name|add
+argument_list|(
+name|escapedPattern
 argument_list|)
 expr_stmt|;
 block|}
@@ -498,7 +503,7 @@ name|ArrayList
 argument_list|<
 name|String
 argument_list|>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -515,10 +520,9 @@ range|:
 name|patterns
 control|)
 block|{
-name|rawPatterns
-operator|.
-name|add
-argument_list|(
+name|String
+name|unescapedPattern
+init|=
 name|StringUtils
 operator|.
 name|replace
@@ -529,6 +533,12 @@ literal|"\\\\"
 argument_list|,
 literal|"\\"
 argument_list|)
+decl_stmt|;
+name|rawPatterns
+operator|.
+name|add
+argument_list|(
+name|unescapedPattern
 argument_list|)
 expr_stmt|;
 block|}
@@ -561,13 +571,13 @@ block|}
 specifier|public
 name|String
 name|addBlackListPattern
-parameter_list|()
+parameter_list|( )
 block|{
 name|String
 name|pattern
 init|=
 name|getBlackListPattern
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -589,14 +599,14 @@ if|if
 condition|(
 operator|!
 name|hasActionErrors
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|getConnector
-argument_list|()
+argument_list|( )
 operator|.
 name|getBlackListPatterns
-argument_list|()
+argument_list|( )
 operator|.
 name|add
 argument_list|(
@@ -624,19 +634,19 @@ argument_list|)
 specifier|public
 name|String
 name|addProperty
-parameter_list|()
+parameter_list|( )
 block|{
 name|String
 name|key
 init|=
 name|getPropertyKey
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|String
 name|value
 init|=
 name|getPropertyValue
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -674,14 +684,14 @@ if|if
 condition|(
 operator|!
 name|hasActionErrors
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|getConnector
-argument_list|()
+argument_list|( )
 operator|.
 name|getProperties
-argument_list|()
+argument_list|( )
 operator|.
 name|put
 argument_list|(
@@ -708,13 +718,13 @@ block|}
 specifier|public
 name|String
 name|addWhiteListPattern
-parameter_list|()
+parameter_list|( )
 block|{
 name|String
 name|pattern
 init|=
 name|getWhiteListPattern
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -736,14 +746,14 @@ if|if
 condition|(
 operator|!
 name|hasActionErrors
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|getConnector
-argument_list|()
+argument_list|( )
 operator|.
 name|getWhiteListPatterns
-argument_list|()
+argument_list|( )
 operator|.
 name|add
 argument_list|(
@@ -766,7 +776,7 @@ block|}
 specifier|public
 name|String
 name|getBlackListPattern
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|blackListPattern
@@ -775,7 +785,7 @@ block|}
 specifier|public
 name|ProxyConnector
 name|getConnector
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|connector
@@ -787,7 +797,7 @@ argument_list|<
 name|String
 argument_list|>
 name|getManagedRepoIdList
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|managedRepoIdList
@@ -796,7 +806,7 @@ block|}
 specifier|public
 name|String
 name|getPattern
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|pattern
@@ -810,7 +820,7 @@ argument_list|,
 name|Policy
 argument_list|>
 name|getPolicyMap
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|policyMap
@@ -819,7 +829,7 @@ block|}
 specifier|public
 name|String
 name|getPropertyKey
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|propertyKey
@@ -828,7 +838,7 @@ block|}
 specifier|public
 name|String
 name|getPropertyValue
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|propertyValue
@@ -840,7 +850,7 @@ argument_list|<
 name|String
 argument_list|>
 name|getProxyIdOptions
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|proxyIdOptions
@@ -852,7 +862,7 @@ argument_list|<
 name|String
 argument_list|>
 name|getRemoteRepoIdList
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|remoteRepoIdList
@@ -861,7 +871,7 @@ block|}
 specifier|public
 name|String
 name|getWhiteListPattern
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|whiteListPattern
@@ -870,41 +880,41 @@ block|}
 specifier|public
 name|void
 name|prepare
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|RepositoryAdminException
 block|{
 name|proxyIdOptions
 operator|=
 name|createNetworkProxyOptions
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|managedRepoIdList
 operator|=
 name|createManagedRepoOptions
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|remoteRepoIdList
 operator|=
 name|createRemoteRepoOptions
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|policyMap
 operator|=
 name|createPolicyMap
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 specifier|public
 name|String
 name|removeBlackListPattern
-parameter_list|()
+parameter_list|( )
 block|{
 name|String
 name|pattern
 init|=
 name|getPattern
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -926,10 +936,10 @@ if|if
 condition|(
 operator|!
 name|getConnector
-argument_list|()
+argument_list|( )
 operator|.
 name|getBlackListPatterns
-argument_list|()
+argument_list|( )
 operator|.
 name|contains
 argument_list|(
@@ -938,10 +948,10 @@ argument_list|)
 operator|&&
 operator|!
 name|getConnector
-argument_list|()
+argument_list|( )
 operator|.
 name|getBlackListPatterns
-argument_list|()
+argument_list|( )
 operator|.
 name|contains
 argument_list|(
@@ -972,14 +982,14 @@ if|if
 condition|(
 operator|!
 name|hasActionErrors
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|getConnector
-argument_list|()
+argument_list|( )
 operator|.
 name|getBlackListPatterns
-argument_list|()
+argument_list|( )
 operator|.
 name|remove
 argument_list|(
@@ -1007,13 +1017,13 @@ block|}
 specifier|public
 name|String
 name|removeProperty
-parameter_list|()
+parameter_list|( )
 block|{
 name|String
 name|key
 init|=
 name|getPropertyKey
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -1035,10 +1045,10 @@ if|if
 condition|(
 operator|!
 name|getConnector
-argument_list|()
+argument_list|( )
 operator|.
 name|getProperties
-argument_list|()
+argument_list|( )
 operator|.
 name|containsKey
 argument_list|(
@@ -1060,14 +1070,14 @@ if|if
 condition|(
 operator|!
 name|hasActionErrors
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|getConnector
-argument_list|()
+argument_list|( )
 operator|.
 name|getProperties
-argument_list|()
+argument_list|( )
 operator|.
 name|remove
 argument_list|(
@@ -1092,13 +1102,13 @@ block|}
 specifier|public
 name|String
 name|removeWhiteListPattern
-parameter_list|()
+parameter_list|( )
 block|{
 name|String
 name|pattern
 init|=
 name|getPattern
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -1120,10 +1130,10 @@ if|if
 condition|(
 operator|!
 name|getConnector
-argument_list|()
+argument_list|( )
 operator|.
 name|getWhiteListPatterns
-argument_list|()
+argument_list|( )
 operator|.
 name|contains
 argument_list|(
@@ -1132,10 +1142,10 @@ argument_list|)
 operator|&&
 operator|!
 name|getConnector
-argument_list|()
+argument_list|( )
 operator|.
 name|getWhiteListPatterns
-argument_list|()
+argument_list|( )
 operator|.
 name|contains
 argument_list|(
@@ -1166,14 +1176,14 @@ if|if
 condition|(
 operator|!
 name|hasActionErrors
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|getConnector
-argument_list|()
+argument_list|( )
 operator|.
 name|getWhiteListPatterns
-argument_list|()
+argument_list|( )
 operator|.
 name|remove
 argument_list|(
@@ -1368,7 +1378,7 @@ argument_list|<
 name|String
 argument_list|>
 name|createManagedRepoOptions
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|RepositoryAdminException
 block|{
@@ -1380,13 +1390,13 @@ name|String
 argument_list|>
 argument_list|(
 name|getManagedRepositoryAdmin
-argument_list|()
+argument_list|( )
 operator|.
 name|getManagedRepositoriesAsMap
-argument_list|()
+argument_list|( )
 operator|.
 name|keySet
-argument_list|()
+argument_list|( )
 argument_list|)
 return|;
 block|}
@@ -1396,7 +1406,7 @@ argument_list|<
 name|String
 argument_list|>
 name|createNetworkProxyOptions
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|RepositoryAdminException
 block|{
@@ -1411,7 +1421,7 @@ name|ArrayList
 argument_list|<
 name|String
 argument_list|>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|options
 operator|.
@@ -1425,7 +1435,7 @@ operator|.
 name|addAll
 argument_list|(
 name|getNetworkProxiesKeys
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 return|return
@@ -1438,7 +1448,7 @@ argument_list|<
 name|String
 argument_list|>
 name|getNetworkProxiesKeys
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|RepositoryAdminException
 block|{
@@ -1451,7 +1461,7 @@ init|=
 name|networkProxyAdmin
 operator|.
 name|getNetworkProxies
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -1462,14 +1472,14 @@ operator|||
 name|networkProxies
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 return|return
 name|Collections
 operator|.
 name|emptyList
-argument_list|()
+argument_list|( )
 return|;
 block|}
 name|List
@@ -1487,7 +1497,7 @@ argument_list|(
 name|networkProxies
 operator|.
 name|size
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 for|for
@@ -1505,7 +1515,7 @@ argument_list|(
 name|networkProxy
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1521,7 +1531,7 @@ argument_list|,
 name|Policy
 argument_list|>
 name|createPolicyMap
-parameter_list|()
+parameter_list|( )
 block|{
 name|Map
 argument_list|<
@@ -1538,7 +1548,7 @@ name|String
 argument_list|,
 name|Policy
 argument_list|>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|policyMap
 operator|.
@@ -1571,7 +1581,7 @@ argument_list|<
 name|String
 argument_list|>
 name|createRemoteRepoOptions
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|RepositoryAdminException
 block|{
@@ -1583,13 +1593,13 @@ name|String
 argument_list|>
 argument_list|(
 name|getRemoteRepositoryAdmin
-argument_list|()
+argument_list|( )
 operator|.
 name|getRemoteRepositoriesAsMap
-argument_list|()
+argument_list|( )
 operator|.
 name|keySet
-argument_list|()
+argument_list|( )
 argument_list|)
 return|;
 block|}
@@ -1601,14 +1611,14 @@ argument_list|)
 specifier|protected
 name|void
 name|validateConnector
-parameter_list|()
+parameter_list|( )
 block|{
 if|if
 condition|(
 name|connector
 operator|.
 name|getPolicies
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 condition|)
@@ -1635,10 +1645,10 @@ argument_list|>
 name|entry
 range|:
 name|getPolicyMap
-argument_list|()
+argument_list|( )
 operator|.
 name|entrySet
-argument_list|()
+argument_list|( )
 control|)
 block|{
 name|String
@@ -1647,7 +1657,7 @@ init|=
 name|entry
 operator|.
 name|getKey
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|Policy
 name|policy
@@ -1655,7 +1665,7 @@ init|=
 name|entry
 operator|.
 name|getValue
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|List
 argument_list|<
@@ -1666,7 +1676,7 @@ init|=
 name|policy
 operator|.
 name|getOptions
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -1674,7 +1684,7 @@ operator|!
 name|connector
 operator|.
 name|getPolicies
-argument_list|()
+argument_list|( )
 operator|.
 name|containsKey
 argument_list|(
@@ -1704,7 +1714,7 @@ init|=
 name|connector
 operator|.
 name|getProperties
-argument_list|()
+argument_list|( )
 decl_stmt|;
 for|for
 control|(
@@ -1721,7 +1731,7 @@ range|:
 name|properties
 operator|.
 name|entrySet
-argument_list|()
+argument_list|( )
 control|)
 block|{
 name|Object
@@ -1730,17 +1740,17 @@ init|=
 name|entry2
 operator|.
 name|getValue
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
 name|value
 operator|.
 name|getClass
-argument_list|()
+argument_list|( )
 operator|.
 name|isArray
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|String
@@ -1760,7 +1770,7 @@ argument_list|(
 name|entry2
 operator|.
 name|getKey
-argument_list|()
+argument_list|( )
 argument_list|,
 name|arr
 index|[
@@ -1777,7 +1787,7 @@ init|=
 name|connector
 operator|.
 name|getPolicies
-argument_list|()
+argument_list|( )
 operator|.
 name|get
 argument_list|(
@@ -1792,10 +1802,10 @@ condition|(
 name|o
 operator|.
 name|getClass
-argument_list|()
+argument_list|( )
 operator|.
 name|isArray
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|String
@@ -1829,7 +1839,7 @@ block|}
 name|connector
 operator|.
 name|getPolicies
-argument_list|()
+argument_list|( )
 operator|.
 name|put
 argument_list|(
@@ -1893,7 +1903,7 @@ block|}
 specifier|public
 name|NetworkProxyAdmin
 name|getNetworkProxyAdmin
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|networkProxyAdmin
