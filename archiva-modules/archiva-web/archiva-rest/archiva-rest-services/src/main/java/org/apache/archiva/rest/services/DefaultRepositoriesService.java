@@ -876,7 +876,7 @@ operator|.
 name|getLogger
 argument_list|(
 name|getClass
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 annotation|@
@@ -1019,7 +1019,7 @@ name|task
 init|=
 operator|new
 name|RepositoryTask
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|task
 operator|.
@@ -1100,7 +1100,7 @@ name|task
 init|=
 operator|new
 name|RepositoryTask
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|task
 operator|.
@@ -1194,7 +1194,7 @@ argument_list|(
 name|mavenIndexerUtils
 operator|.
 name|getAllIndexCreators
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1257,7 +1257,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1269,7 +1269,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -1317,7 +1317,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1329,7 +1329,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -1354,13 +1354,13 @@ name|String
 name|userName
 init|=
 name|getAuditInformation
-argument_list|()
+argument_list|( )
 operator|.
 name|getUser
-argument_list|()
+argument_list|( )
 operator|.
 name|getUsername
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -1389,7 +1389,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getRepositoryId
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -1410,7 +1410,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getTargetRepositoryId
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -1438,7 +1438,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getRepositoryId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1455,7 +1455,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -1475,7 +1475,7 @@ operator|+
 name|artifactTransferRequest
 operator|.
 name|getRepositoryId
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -1495,7 +1495,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getTargetRepositoryId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1512,7 +1512,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -1532,7 +1532,7 @@ operator|+
 name|artifactTransferRequest
 operator|.
 name|getTargetRepositoryId
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -1545,7 +1545,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -1566,7 +1566,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -1587,7 +1587,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -1608,7 +1608,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -1633,7 +1633,7 @@ operator|=
 name|securitySystem
 operator|.
 name|getUserManager
-argument_list|()
+argument_list|( )
 operator|.
 name|findUser
 argument_list|(
@@ -1702,7 +1702,7 @@ argument_list|,
 name|artifactTransferRequest
 operator|.
 name|getRepositoryId
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 if|if
@@ -1720,7 +1720,7 @@ operator|+
 name|artifactTransferRequest
 operator|.
 name|getRepositoryId
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -1740,7 +1740,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1752,7 +1752,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -1775,7 +1775,7 @@ argument_list|,
 name|artifactTransferRequest
 operator|.
 name|getTargetRepositoryId
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 if|if
@@ -1793,7 +1793,7 @@ operator|+
 name|artifactTransferRequest
 operator|.
 name|getTargetRepositoryId
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -1813,7 +1813,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1825,7 +1825,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -1835,7 +1835,7 @@ name|artifactReference
 init|=
 operator|new
 name|ArtifactReference
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|artifactReference
 operator|.
@@ -1844,7 +1844,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|artifactReference
@@ -1854,7 +1854,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|artifactReference
@@ -1864,7 +1864,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|artifactReference
@@ -1874,7 +1874,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getClassifier
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|String
@@ -1887,7 +1887,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getPackaging
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|artifactReference
@@ -1918,7 +1918,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getRepositoryId
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|String
@@ -1931,6 +1931,41 @@ argument_list|(
 name|artifactReference
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|StringUtils
+operator|.
+name|isEmpty
+argument_list|(
+name|artifactSourcePath
+argument_list|)
+condition|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"cannot find artifact "
+operator|+
+name|artifactTransferRequest
+operator|.
+name|toString
+argument_list|( )
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|ArchivaRestServiceException
+argument_list|(
+literal|"cannot find artifact "
+operator|+
+name|artifactTransferRequest
+operator|.
+name|toString
+argument_list|( )
+argument_list|)
+throw|;
+block|}
 name|File
 name|artifactFile
 init|=
@@ -1940,11 +1975,45 @@ argument_list|(
 name|source
 operator|.
 name|getLocation
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifactSourcePath
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|artifactFile
+operator|.
+name|exists
+argument_list|( )
+condition|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"cannot find artifact "
+operator|+
+name|artifactTransferRequest
+operator|.
+name|toString
+argument_list|( )
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|ArchivaRestServiceException
+argument_list|(
+literal|"cannot find artifact "
+operator|+
+name|artifactTransferRequest
+operator|.
+name|toString
+argument_list|( )
+argument_list|)
+throw|;
+block|}
 name|ManagedRepositoryContent
 name|targetRepository
 init|=
@@ -1955,7 +2024,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getTargetRepositoryId
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|String
@@ -1999,7 +2068,7 @@ argument_list|(
 name|target
 operator|.
 name|getLocation
-argument_list|()
+argument_list|( )
 argument_list|,
 name|path
 argument_list|)
@@ -2010,10 +2079,10 @@ init|=
 name|Calendar
 operator|.
 name|getInstance
-argument_list|()
+argument_list|( )
 operator|.
 name|getTime
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|int
 name|newBuildNumber
@@ -2052,13 +2121,13 @@ operator|!
 name|targetPath
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|targetPath
 operator|.
 name|mkdirs
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 name|String
@@ -2082,7 +2151,7 @@ operator|(
 name|archivaAdministration
 operator|.
 name|getKnownContentConsumers
-argument_list|()
+argument_list|( )
 operator|.
 name|contains
 argument_list|(
@@ -2106,12 +2175,12 @@ condition|(
 name|targetFile
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 operator|&&
 name|target
 operator|.
 name|isBlockRedeployments
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 throw|throw
@@ -2123,7 +2192,7 @@ operator|+
 name|artifactTransferRequest
 operator|.
 name|getTargetRepositoryId
-argument_list|()
+argument_list|( )
 operator|+
 literal|" and redeployment blocked"
 argument_list|)
@@ -2147,7 +2216,7 @@ argument_list|(
 name|target
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|targetFile
 argument_list|)
@@ -2168,7 +2237,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getClassifier
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -2185,7 +2254,7 @@ operator|+
 name|artifactTransferRequest
 operator|.
 name|getClassifier
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -2212,7 +2281,7 @@ argument_list|(
 name|source
 operator|.
 name|getLocation
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifactSourcePath
 operator|.
@@ -2241,7 +2310,7 @@ operator|&&
 name|pomFile
 operator|.
 name|length
-argument_list|()
+argument_list|( )
 operator|>
 literal|0
 condition|)
@@ -2262,7 +2331,7 @@ argument_list|(
 name|target
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 operator|new
 name|File
@@ -2281,7 +2350,7 @@ operator|!
 name|archivaAdministration
 operator|.
 name|getKnownContentConsumers
-argument_list|()
+argument_list|( )
 operator|.
 name|contains
 argument_list|(
@@ -2294,7 +2363,7 @@ argument_list|(
 name|targetPath
 operator|.
 name|getAbsolutePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|lastUpdatedTimestamp
 argument_list|,
@@ -2316,28 +2385,28 @@ operator|+
 name|artifactTransferRequest
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 operator|+
 literal|":"
 operator|+
 name|artifactTransferRequest
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 operator|+
 literal|":"
 operator|+
 name|artifactTransferRequest
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 operator|+
 literal|"\' was successfully deployed to repository \'"
 operator|+
 name|artifactTransferRequest
 operator|.
 name|getTargetRepositoryId
-argument_list|()
+argument_list|( )
 operator|+
 literal|"\'"
 decl_stmt|;
@@ -2357,7 +2426,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -2369,7 +2438,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -2388,7 +2457,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -2400,7 +2469,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -2419,7 +2488,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -2431,7 +2500,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -2456,7 +2525,7 @@ name|task
 init|=
 operator|new
 name|RepositoryTask
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|task
 operator|.
@@ -2505,7 +2574,7 @@ operator|+
 name|localFile
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 operator|+
 literal|"']."
 argument_list|)
@@ -2527,14 +2596,14 @@ name|metadata
 init|=
 operator|new
 name|ArchivaRepositoryMetadata
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
 name|metadataFile
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|metadata
@@ -2611,12 +2680,12 @@ block|{
 name|out
 operator|.
 name|close
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|input
 operator|.
 name|close
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 if|if
@@ -2698,7 +2767,7 @@ name|ArrayList
 argument_list|<
 name|String
 argument_list|>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|String
 name|latestVersion
@@ -2706,7 +2775,7 @@ init|=
 name|artifactTransferRequest
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|File
 name|projectDir
@@ -2718,7 +2787,7 @@ name|targetPath
 argument_list|)
 operator|.
 name|getParentFile
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|File
 name|projectMetadataFile
@@ -2746,7 +2815,7 @@ condition|(
 name|projectMetadataFile
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|availableVersions
@@ -2754,7 +2823,7 @@ operator|=
 name|projectMetadata
 operator|.
 name|getAvailableVersions
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|Collections
 operator|.
@@ -2765,7 +2834,7 @@ argument_list|,
 name|VersionComparator
 operator|.
 name|getInstance
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 if|if
@@ -2778,7 +2847,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -2789,7 +2858,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -2802,7 +2871,7 @@ argument_list|(
 name|availableVersions
 operator|.
 name|size
-argument_list|()
+argument_list|( )
 operator|-
 literal|1
 argument_list|)
@@ -2817,7 +2886,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|projectMetadata
@@ -2827,7 +2896,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|projectMetadata
@@ -2837,7 +2906,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -2846,7 +2915,7 @@ condition|(
 name|projectMetadata
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 condition|)
@@ -2858,7 +2927,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -2867,7 +2936,7 @@ condition|(
 name|projectMetadata
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 condition|)
@@ -2879,7 +2948,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -2914,7 +2983,7 @@ argument_list|(
 name|artifactTransferRequest
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
