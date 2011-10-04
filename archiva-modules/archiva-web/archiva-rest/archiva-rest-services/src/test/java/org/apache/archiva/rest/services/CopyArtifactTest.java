@@ -43,34 +43,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|model
-operator|.
-name|ArtifactReference
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|RepositoryContentFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|rest
 operator|.
 name|api
@@ -117,33 +89,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|inject
-operator|.
-name|Inject
 import|;
 end_import
 
@@ -185,7 +133,7 @@ decl_stmt|;
 specifier|private
 name|void
 name|initSourceTargetRepo
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -203,7 +151,7 @@ condition|(
 name|targetRepo
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|FileUtils
@@ -219,13 +167,13 @@ argument_list|(
 name|targetRepo
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|targetRepo
 operator|.
 name|mkdirs
-argument_list|()
+argument_list|( )
 expr_stmt|;
 if|if
 condition|(
@@ -272,7 +220,7 @@ name|ManagedRepository
 name|managedRepository
 init|=
 name|getTestManagedRepository
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|managedRepository
 operator|.
@@ -288,7 +236,7 @@ argument_list|(
 name|targetRepo
 operator|.
 name|getCanonicalPath
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|managedRepository
@@ -335,7 +283,7 @@ condition|(
 name|originRepo
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|FileUtils
@@ -351,7 +299,7 @@ argument_list|(
 name|originRepo
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|FileUtils
@@ -411,7 +359,7 @@ block|}
 name|managedRepository
 operator|=
 name|getTestManagedRepository
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|managedRepository
 operator|.
@@ -427,7 +375,7 @@ argument_list|(
 name|originRepo
 operator|.
 name|getCanonicalPath
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|getManagedRepositoriesService
@@ -454,7 +402,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|getArchivaAdministrationService
-argument_list|()
+argument_list|( )
 operator|.
 name|addKnownContentConsumer
 argument_list|(
@@ -462,7 +410,7 @@ literal|"create-missing-checksums"
 argument_list|)
 expr_stmt|;
 name|getArchivaAdministrationService
-argument_list|()
+argument_list|( )
 operator|.
 name|addKnownContentConsumer
 argument_list|(
@@ -473,7 +421,7 @@ block|}
 specifier|public
 name|void
 name|clean
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -565,12 +513,12 @@ name|Test
 specifier|public
 name|void
 name|copyToAnEmptyRepo
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
 name|initSourceTargetRepo
-argument_list|()
+argument_list|( )
 expr_stmt|;
 comment|// START SNIPPET: copy-artifact
 comment|// configure the artifact you want to copy
@@ -580,7 +528,7 @@ name|artifactTransferRequest
 init|=
 operator|new
 name|ArtifactTransferRequest
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|artifactTransferRequest
 operator|.
@@ -657,7 +605,7 @@ name|TARGET_REPO_ID
 argument_list|)
 operator|.
 name|getLocation
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|File
 name|artifact
@@ -675,7 +623,7 @@ argument_list|(
 name|artifact
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|File
@@ -696,32 +644,32 @@ operator|+
 name|pom
 operator|.
 name|getPath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|pom
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 comment|// TODO find a way to force metadata generation and test it !!
 name|clean
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 comment|//@Test
 specifier|public
 name|void
 name|copyToAnExistingRepo
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
 name|initSourceTargetRepo
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|clean
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
