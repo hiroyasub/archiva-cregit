@@ -453,6 +453,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collection
 import|;
 end_import
@@ -642,7 +652,7 @@ name|HashSet
 argument_list|<
 name|ConfigurationListener
 argument_list|>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 comment|/**      * Registry Listeners we've registered.      */
 specifier|private
@@ -657,7 +667,7 @@ name|HashSet
 argument_list|<
 name|RegistryListener
 argument_list|>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 comment|/**      * Boolean to help determine if the configuration exists as a result of pulling in      * the default-archiva.xml      */
 specifier|private
@@ -677,18 +687,18 @@ decl_stmt|;
 specifier|public
 name|Configuration
 name|getConfiguration
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|loadConfiguration
-argument_list|()
+argument_list|( )
 return|;
 block|}
 specifier|private
 specifier|synchronized
 name|Configuration
 name|loadConfiguration
-parameter_list|()
+parameter_list|( )
 block|{
 if|if
 condition|(
@@ -700,7 +710,7 @@ block|{
 name|configuration
 operator|=
 name|load
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|configuration
 operator|=
@@ -735,7 +745,7 @@ argument_list|)
 specifier|private
 name|Configuration
 name|load
-parameter_list|()
+parameter_list|( )
 block|{
 comment|// TODO: should this be the same as section? make sure unnamed sections still work (eg, sys properties)
 name|Registry
@@ -771,14 +781,14 @@ literal|"repositoryScanning"
 argument_list|)
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 comment|// only for empty, or v< 1
 name|subset
 operator|=
 name|readDefaultConfiguration
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -787,7 +797,7 @@ name|config
 init|=
 operator|new
 name|ConfigurationRegistryReader
-argument_list|()
+argument_list|( )
 operator|.
 name|read
 argument_list|(
@@ -797,12 +807,12 @@ decl_stmt|;
 name|config
 operator|.
 name|getRepositoryGroups
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|config
 operator|.
 name|getRepositoryGroupsAsMap
-argument_list|()
+argument_list|( )
 expr_stmt|;
 if|if
 condition|(
@@ -810,10 +820,10 @@ operator|!
 name|config
 operator|.
 name|getRepositories
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 for|for
@@ -827,15 +837,15 @@ init|=
 name|config
 operator|.
 name|getRepositories
-argument_list|()
+argument_list|( )
 operator|.
 name|iterator
-argument_list|()
+argument_list|( )
 init|;
 name|i
 operator|.
 name|hasNext
-argument_list|()
+argument_list|( )
 condition|;
 control|)
 block|{
@@ -845,7 +855,7 @@ init|=
 name|i
 operator|.
 name|next
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|r
 operator|.
@@ -854,7 +864,7 @@ argument_list|(
 name|r
 operator|.
 name|isIndexed
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 if|if
@@ -866,7 +876,7 @@ argument_list|(
 name|r
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|,
 literal|"file://"
 argument_list|)
@@ -879,7 +889,7 @@ argument_list|(
 name|r
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 operator|.
 name|substring
 argument_list|(
@@ -904,7 +914,7 @@ argument_list|(
 name|r
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|,
 literal|"file:"
 argument_list|)
@@ -917,7 +927,7 @@ argument_list|(
 name|r
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 operator|.
 name|substring
 argument_list|(
@@ -942,7 +952,7 @@ argument_list|(
 name|r
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -958,7 +968,7 @@ argument_list|(
 name|r
 operator|.
 name|getLocation
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -971,7 +981,7 @@ operator|+
 name|r
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -990,7 +1000,7 @@ name|repo
 init|=
 operator|new
 name|RemoteRepositoryConfiguration
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|repo
 operator|.
@@ -999,7 +1009,7 @@ argument_list|(
 name|r
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|repo
@@ -1009,7 +1019,7 @@ argument_list|(
 name|r
 operator|.
 name|getLayout
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|repo
@@ -1019,7 +1029,7 @@ argument_list|(
 name|r
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|repo
@@ -1029,7 +1039,7 @@ argument_list|(
 name|r
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|config
@@ -1045,10 +1055,10 @@ comment|// Prevent duplicate repositories from showing up.
 name|config
 operator|.
 name|getRepositories
-argument_list|()
+argument_list|( )
 operator|.
 name|clear
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|registry
 operator|.
@@ -1070,7 +1080,7 @@ argument_list|(
 name|config
 operator|.
 name|getRemoteRepositories
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -1083,7 +1093,7 @@ init|=
 name|config
 operator|.
 name|getRemoteRepositories
-argument_list|()
+argument_list|( )
 decl_stmt|;
 for|for
 control|(
@@ -1103,7 +1113,7 @@ argument_list|(
 name|repo
 operator|.
 name|getUsername
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -1124,7 +1134,7 @@ argument_list|(
 name|repo
 operator|.
 name|getPassword
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -1144,10 +1154,10 @@ operator|!
 name|config
 operator|.
 name|getProxyConnectors
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 comment|// Fix Proxy Connector Settings.
@@ -1162,7 +1172,7 @@ name|ArrayList
 argument_list|<
 name|ProxyConnectorConfiguration
 argument_list|>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 comment|// Create a copy of the list to read from (to prevent concurrent modification exceptions)
 name|proxyConnectorList
@@ -1172,17 +1182,17 @@ argument_list|(
 name|config
 operator|.
 name|getProxyConnectors
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 comment|// Remove the old connector list.
 name|config
 operator|.
 name|getProxyConnectors
-argument_list|()
+argument_list|( )
 operator|.
 name|clear
-argument_list|()
+argument_list|( )
 expr_stmt|;
 for|for
 control|(
@@ -1213,7 +1223,7 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 comment|// Make copy of policies
 name|policies
@@ -1223,17 +1233,17 @@ argument_list|(
 name|connector
 operator|.
 name|getPolicies
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 comment|// Clear out policies
 name|connector
 operator|.
 name|getPolicies
-argument_list|()
+argument_list|( )
 operator|.
 name|clear
-argument_list|()
+argument_list|( )
 expr_stmt|;
 comment|// Work thru policies. cleaning them up.
 for|for
@@ -1249,7 +1259,7 @@ range|:
 name|policies
 operator|.
 name|entrySet
-argument_list|()
+argument_list|( )
 control|)
 block|{
 name|String
@@ -1258,7 +1268,7 @@ init|=
 name|entry
 operator|.
 name|getKey
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|String
 name|setting
@@ -1266,7 +1276,7 @@ init|=
 name|entry
 operator|.
 name|getValue
-argument_list|()
+argument_list|( )
 decl_stmt|;
 comment|// Upgrade old policy settings.
 if|if
@@ -1418,7 +1428,7 @@ operator|!
 name|policy
 operator|.
 name|getOptions
-argument_list|()
+argument_list|( )
 operator|.
 name|contains
 argument_list|(
@@ -1431,7 +1441,7 @@ operator|=
 name|policy
 operator|.
 name|getDefaultOption
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 name|connector
@@ -1493,7 +1503,7 @@ init|=
 name|config
 operator|.
 name|getProxyConnectorAsMap
-argument_list|()
+argument_list|( )
 decl_stmt|;
 for|for
 control|(
@@ -1506,7 +1516,7 @@ range|:
 name|proxyConnectorMap
 operator|.
 name|values
-argument_list|()
+argument_list|( )
 control|)
 block|{
 comment|// Sort connectors by order field.
@@ -1519,7 +1529,7 @@ argument_list|,
 name|ProxyConnectorConfigurationOrderComparator
 operator|.
 name|getInstance
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 comment|// Normalize the order field values.
@@ -1719,7 +1729,7 @@ block|}
 specifier|private
 name|Registry
 name|readDefaultConfiguration
-parameter_list|()
+parameter_list|( )
 block|{
 comment|// if it contains some old configuration, remove it (Archiva 0.9)
 name|registry
@@ -1835,7 +1845,7 @@ block|{
 name|section
 operator|=
 name|createDefaultConfigurationFile
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -1855,7 +1865,7 @@ init|=
 name|baseSection
 operator|.
 name|getKeys
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|boolean
 name|foundList
@@ -1873,12 +1883,12 @@ init|=
 name|keys
 operator|.
 name|iterator
-argument_list|()
+argument_list|( )
 init|;
 name|i
 operator|.
 name|hasNext
-argument_list|()
+argument_list|( )
 operator|&&
 operator|!
 name|foundList
@@ -1891,7 +1901,7 @@ init|=
 name|i
 operator|.
 name|next
-argument_list|()
+argument_list|( )
 decl_stmt|;
 comment|// a little aggressive with the repositoryScanning and databaseScanning - should be no need to split
 comment|// that configuration
@@ -1923,13 +1933,6 @@ operator|.
 name|startsWith
 argument_list|(
 literal|"repositoryScanning"
-argument_list|)
-operator|||
-name|key
-operator|.
-name|startsWith
-argument_list|(
-literal|"databaseScanning"
 argument_list|)
 operator|||
 name|key
@@ -1992,10 +1995,10 @@ condition|(
 name|configuration
 operator|.
 name|getManagedRepositories
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 operator|&&
 name|section
 operator|!=
@@ -2015,10 +2018,10 @@ condition|(
 name|configuration
 operator|.
 name|getRemoteRepositories
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 operator|&&
 name|section
 operator|!=
@@ -2038,10 +2041,10 @@ condition|(
 name|configuration
 operator|.
 name|getProxyConnectors
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 operator|&&
 name|section
 operator|!=
@@ -2061,10 +2064,10 @@ condition|(
 name|configuration
 operator|.
 name|getNetworkProxies
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 operator|&&
 name|section
 operator|!=
@@ -2084,10 +2087,10 @@ condition|(
 name|configuration
 operator|.
 name|getLegacyArtifactPaths
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 operator|&&
 name|section
 operator|!=
@@ -2107,10 +2110,10 @@ condition|(
 name|configuration
 operator|.
 name|getRepositoryGroups
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 operator|&&
 name|section
 operator|!=
@@ -2130,7 +2133,7 @@ condition|(
 name|configuration
 operator|.
 name|getRepositoryScanning
-argument_list|()
+argument_list|( )
 operator|!=
 literal|null
 condition|)
@@ -2140,13 +2143,13 @@ condition|(
 name|configuration
 operator|.
 name|getRepositoryScanning
-argument_list|()
+argument_list|( )
 operator|.
 name|getKnownContentConsumers
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 operator|&&
 name|section
 operator|!=
@@ -2166,13 +2169,13 @@ condition|(
 name|configuration
 operator|.
 name|getRepositoryScanning
-argument_list|()
+argument_list|( )
 operator|.
 name|getInvalidContentConsumers
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 operator|&&
 name|section
 operator|!=
@@ -2190,7 +2193,7 @@ block|}
 block|}
 operator|new
 name|ConfigurationRegistryWriter
-argument_list|()
+argument_list|( )
 operator|.
 name|write
 argument_list|(
@@ -2202,7 +2205,7 @@ expr_stmt|;
 name|section
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|this
 operator|.
@@ -2243,7 +2246,7 @@ operator|)
 name|configuration
 operator|.
 name|getManagedRepositories
-argument_list|()
+argument_list|( )
 control|)
 block|{
 name|c
@@ -2255,7 +2258,7 @@ argument_list|(
 name|c
 operator|.
 name|getRefreshCronExpression
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2264,7 +2267,7 @@ block|}
 specifier|private
 name|Registry
 name|createDefaultConfigurationFile
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|RegistryException
 block|{
@@ -2353,7 +2356,7 @@ expr_stmt|;
 name|registry
 operator|.
 name|initialize
-argument_list|()
+argument_list|( )
 expr_stmt|;
 for|for
 control|(
@@ -2398,7 +2401,7 @@ name|CommonsConfigurationRegistry
 argument_list|(
 operator|new
 name|BaseConfiguration
-argument_list|()
+argument_list|( )
 argument_list|)
 else|:
 name|section
@@ -2436,7 +2439,7 @@ condition|(
 name|file
 operator|.
 name|getParentFile
-argument_list|()
+argument_list|( )
 operator|!=
 literal|null
 condition|)
@@ -2448,10 +2451,10 @@ operator|(
 name|file
 operator|.
 name|getParentFile
-argument_list|()
+argument_list|( )
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 operator|==
 literal|false
 operator|)
@@ -2460,10 +2463,10 @@ operator|(
 name|file
 operator|.
 name|getParentFile
-argument_list|()
+argument_list|( )
 operator|.
 name|isDirectory
-argument_list|()
+argument_list|( )
 operator|==
 literal|false
 operator|)
@@ -2509,7 +2512,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -2692,7 +2695,7 @@ name|PostConstruct
 specifier|public
 name|void
 name|initialize
-parameter_list|()
+parameter_list|( )
 block|{
 name|this
 operator|.
@@ -2728,7 +2731,7 @@ name|expressionEvaluator
 init|=
 operator|new
 name|DefaultExpressionEvaluator
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|expressionEvaluator
 operator|.
@@ -2736,7 +2739,7 @@ name|addExpressionSource
 argument_list|(
 operator|new
 name|SystemPropertyExpressionSource
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|String
@@ -2786,8 +2789,53 @@ name|altConfigFilename
 argument_list|)
 expr_stmt|;
 name|loadConfiguration
-argument_list|()
+argument_list|( )
 expr_stmt|;
+name|handleUpgradeConfiguration
+argument_list|( )
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IndeterminateConfigurationException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"failed during upgrade from previous version"
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+catch|catch
+parameter_list|(
+name|RegistryException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"failed during upgrade from previous version"
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 catch|catch
 parameter_list|(
@@ -2813,10 +2861,215 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * upgrade from 1.3      */
+specifier|private
+name|void
+name|handleUpgradeConfiguration
+parameter_list|( )
+throws|throws
+name|RegistryException
+throws|,
+name|IndeterminateConfigurationException
+block|{
+comment|// remove database consumers
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|dbConsumers
+init|=
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+literal|"update-db-artifact"
+argument_list|,
+literal|"update-db-repository-metadata"
+argument_list|)
+decl_stmt|;
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|knowContentConsumers
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|String
+argument_list|>
+argument_list|( )
+decl_stmt|;
+for|for
+control|(
+name|String
+name|knowContentConsumer
+range|:
+name|configuration
+operator|.
+name|getRepositoryScanning
+argument_list|( )
+operator|.
+name|getKnownContentConsumers
+argument_list|( )
+control|)
+block|{
+if|if
+condition|(
+operator|!
+name|dbConsumers
+operator|.
+name|contains
+argument_list|(
+name|knowContentConsumer
+argument_list|)
+condition|)
+block|{
+name|knowContentConsumers
+operator|.
+name|add
+argument_list|(
+name|knowContentConsumer
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+name|configuration
+operator|.
+name|getRepositoryScanning
+argument_list|( )
+operator|.
+name|setKnownContentConsumers
+argument_list|(
+name|knowContentConsumers
+argument_list|)
+expr_stmt|;
+name|save
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
+comment|// ensure create-archiva-metadata is here
+if|if
+condition|(
+operator|!
+name|configuration
+operator|.
+name|getRepositoryScanning
+argument_list|( )
+operator|.
+name|getKnownContentConsumers
+argument_list|( )
+operator|.
+name|contains
+argument_list|(
+literal|"create-archiva-metadata"
+argument_list|)
+condition|)
+block|{
+name|knowContentConsumers
+operator|=
+operator|new
+name|ArrayList
+argument_list|<
+name|String
+argument_list|>
+argument_list|(
+name|configuration
+operator|.
+name|getRepositoryScanning
+argument_list|( )
+operator|.
+name|getKnownContentConsumers
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|knowContentConsumers
+operator|.
+name|add
+argument_list|(
+literal|"create-archiva-metadata"
+argument_list|)
+expr_stmt|;
+name|configuration
+operator|.
+name|getRepositoryScanning
+argument_list|( )
+operator|.
+name|setKnownContentConsumers
+argument_list|(
+name|knowContentConsumers
+argument_list|)
+expr_stmt|;
+name|save
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
+block|}
+comment|// ensure duplicate-artifacts is here
+if|if
+condition|(
+operator|!
+name|configuration
+operator|.
+name|getRepositoryScanning
+argument_list|( )
+operator|.
+name|getKnownContentConsumers
+argument_list|( )
+operator|.
+name|contains
+argument_list|(
+literal|"duplicate-artifacts"
+argument_list|)
+condition|)
+block|{
+name|knowContentConsumers
+operator|=
+operator|new
+name|ArrayList
+argument_list|<
+name|String
+argument_list|>
+argument_list|(
+name|configuration
+operator|.
+name|getRepositoryScanning
+argument_list|( )
+operator|.
+name|getKnownContentConsumers
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|knowContentConsumers
+operator|.
+name|add
+argument_list|(
+literal|"duplicate-artifacts"
+argument_list|)
+expr_stmt|;
+name|configuration
+operator|.
+name|getRepositoryScanning
+argument_list|( )
+operator|.
+name|setKnownContentConsumers
+argument_list|(
+name|knowContentConsumers
+argument_list|)
+expr_stmt|;
+name|save
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 specifier|public
 name|void
 name|reload
-parameter_list|()
+parameter_list|( )
 block|{
 name|this
 operator|.
@@ -2831,7 +3084,7 @@ operator|.
 name|registry
 operator|.
 name|initialize
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 catch|catch
@@ -2847,7 +3100,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -2856,7 +3109,7 @@ block|}
 name|this
 operator|.
 name|initialize
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 specifier|public
@@ -3010,15 +3263,15 @@ init|=
 name|config
 operator|.
 name|getManagedRepositories
-argument_list|()
+argument_list|( )
 operator|.
 name|iterator
-argument_list|()
+argument_list|( )
 init|;
 name|i
 operator|.
 name|hasNext
-argument_list|()
+argument_list|( )
 condition|;
 control|)
 block|{
@@ -3028,7 +3281,7 @@ init|=
 name|i
 operator|.
 name|next
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|c
 operator|.
@@ -3039,7 +3292,7 @@ argument_list|(
 name|c
 operator|.
 name|getLocation
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3052,7 +3305,7 @@ argument_list|(
 name|c
 operator|.
 name|getRefreshCronExpression
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3085,7 +3338,7 @@ operator|)
 name|config
 operator|.
 name|getManagedRepositories
-argument_list|()
+argument_list|( )
 control|)
 block|{
 name|String
@@ -3094,7 +3347,7 @@ init|=
 name|repo
 operator|.
 name|getLocation
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|File
 name|repoLocation
@@ -3110,12 +3363,12 @@ condition|(
 name|repoLocation
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 operator|&&
 name|repoLocation
 operator|.
 name|isDirectory
-argument_list|()
+argument_list|( )
 operator|&&
 operator|!
 name|repoPath
@@ -3127,7 +3380,7 @@ operator|+
 name|repo
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -3142,7 +3395,7 @@ operator|+
 name|repo
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -3154,7 +3407,7 @@ block|}
 specifier|public
 name|String
 name|getUserConfigFilename
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|userConfigFilename
@@ -3163,7 +3416,7 @@ block|}
 specifier|public
 name|String
 name|getAltConfigFilename
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|altConfigFilename
@@ -3172,7 +3425,7 @@ block|}
 specifier|public
 name|boolean
 name|isDefaulted
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|this
@@ -3183,7 +3436,7 @@ block|}
 specifier|public
 name|Registry
 name|getRegistry
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|registry
