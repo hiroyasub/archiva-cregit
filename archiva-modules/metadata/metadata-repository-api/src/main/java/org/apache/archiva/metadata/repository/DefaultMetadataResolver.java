@@ -326,15 +326,6 @@ name|RepositoryListener
 argument_list|>
 name|listeners
 decl_stmt|;
-annotation|@
-name|PostConstruct
-specifier|private
-name|void
-name|initialize
-parameter_list|()
-block|{
-comment|// no op
-block|}
 specifier|public
 name|ProjectVersionMetadata
 name|resolveProjectVersion
