@@ -175,6 +175,20 @@ name|commons
 operator|.
 name|collections
 operator|.
+name|ListUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|collections
+operator|.
 name|MapUtils
 import|;
 end_import
@@ -2272,7 +2286,6 @@ throws|throws
 name|RegistryException
 block|{
 comment|// TODO: may not be needed under commons-configuration 1.4 - check
-comment|// UPDATE: Upgrading to commons-configuration 1.4 breaks half the unit tests. 2007-10-11 (joakime)
 name|String
 name|contents
 init|=
@@ -2871,7 +2884,6 @@ name|RegistryException
 throws|,
 name|IndeterminateConfigurationException
 block|{
-comment|// remove database consumers
 name|List
 argument_list|<
 name|String
@@ -2887,6 +2899,37 @@ argument_list|,
 literal|"update-db-repository-metadata"
 argument_list|)
 decl_stmt|;
+comment|// remove database consumers  if here
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|intersec
+init|=
+name|ListUtils
+operator|.
+name|intersection
+argument_list|(
+name|dbConsumers
+argument_list|,
+name|configuration
+operator|.
+name|getRepositoryScanning
+argument_list|( )
+operator|.
+name|getKnownContentConsumers
+argument_list|( )
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|intersec
+operator|.
+name|isEmpty
+argument_list|( )
+condition|)
+block|{
 name|List
 argument_list|<
 name|String
@@ -2944,11 +2987,7 @@ argument_list|(
 name|knowContentConsumers
 argument_list|)
 expr_stmt|;
-name|save
-argument_list|(
-name|configuration
-argument_list|)
-expr_stmt|;
+block|}
 comment|// ensure create-archiva-metadata is here
 if|if
 condition|(
@@ -2967,8 +3006,12 @@ literal|"create-archiva-metadata"
 argument_list|)
 condition|)
 block|{
+name|List
+argument_list|<
+name|String
+argument_list|>
 name|knowContentConsumers
-operator|=
+init|=
 operator|new
 name|ArrayList
 argument_list|<
@@ -2983,7 +3026,7 @@ operator|.
 name|getKnownContentConsumers
 argument_list|( )
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|knowContentConsumers
 operator|.
 name|add
@@ -2999,11 +3042,6 @@ operator|.
 name|setKnownContentConsumers
 argument_list|(
 name|knowContentConsumers
-argument_list|)
-expr_stmt|;
-name|save
-argument_list|(
-name|configuration
 argument_list|)
 expr_stmt|;
 block|}
@@ -3025,8 +3063,12 @@ literal|"duplicate-artifacts"
 argument_list|)
 condition|)
 block|{
+name|List
+argument_list|<
+name|String
+argument_list|>
 name|knowContentConsumers
-operator|=
+init|=
 operator|new
 name|ArrayList
 argument_list|<
@@ -3041,7 +3083,7 @@ operator|.
 name|getKnownContentConsumers
 argument_list|( )
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|knowContentConsumers
 operator|.
 name|add
@@ -3059,12 +3101,9 @@ argument_list|(
 name|knowContentConsumers
 argument_list|)
 expr_stmt|;
-name|save
-argument_list|(
-name|configuration
-argument_list|)
-expr_stmt|;
 block|}
+comment|// save ??
+comment|//save( configuration );
 block|}
 specifier|public
 name|void

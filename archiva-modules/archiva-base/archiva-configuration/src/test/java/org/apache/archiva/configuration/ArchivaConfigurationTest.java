@@ -3243,6 +3243,22 @@ literal|"create-archiva-metadata"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+name|configuration
+operator|.
+name|getRepositoryScanning
+argument_list|( )
+operator|.
+name|getKnownContentConsumers
+argument_list|( )
+operator|.
+name|contains
+argument_list|(
+literal|"duplicate-artifacts"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -4185,9 +4201,6 @@ expr_stmt|;
 name|ArchivaConfiguration
 name|archivaConfiguration
 init|=
-operator|(
-name|ArchivaConfiguration
-operator|)
 name|lookup
 argument_list|(
 name|ArchivaConfiguration
@@ -4324,9 +4337,6 @@ expr_stmt|;
 name|ProxyConnectorConfiguration
 name|proxyConnector
 init|=
-operator|(
-name|ProxyConnectorConfiguration
-operator|)
 name|configuration
 operator|.
 name|getProxyConnectors
@@ -4399,9 +4409,6 @@ expr_stmt|;
 name|LegacyArtifactPath
 name|path
 init|=
-operator|(
-name|LegacyArtifactPath
-operator|)
 name|configuration
 operator|.
 name|getLegacyArtifactPaths
@@ -4446,9 +4453,6 @@ decl_stmt|;
 name|String
 name|consumer
 init|=
-operator|(
-name|String
-operator|)
 name|scanning
 operator|.
 name|getKnownContentConsumers
@@ -4471,7 +4475,8 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
-name|assertTrue
+comment|// default values
+name|assertFalse
 argument_list|(
 name|scanning
 operator|.
@@ -4484,9 +4489,6 @@ argument_list|)
 expr_stmt|;
 name|consumer
 operator|=
-operator|(
-name|String
-operator|)
 name|scanning
 operator|.
 name|getInvalidContentConsumers
@@ -4529,9 +4531,6 @@ argument_list|)
 expr_stmt|;
 name|archivaConfiguration
 operator|=
-operator|(
-name|ArchivaConfiguration
-operator|)
 name|lookup
 argument_list|(
 name|ArchivaConfiguration
@@ -4627,7 +4626,7 @@ operator|.
 name|getRepositoryScanning
 argument_list|( )
 expr_stmt|;
-name|assertTrue
+name|assertFalse
 argument_list|(
 name|scanning
 operator|.
