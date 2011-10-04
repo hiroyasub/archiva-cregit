@@ -1006,7 +1006,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * dummy information for audit events      *      * @since 1.4      */
+comment|/**      * dummy information for audit events      *      * @since 1.4-M1      */
 specifier|private
 specifier|static
 class|class

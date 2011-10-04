@@ -239,7 +239,7 @@ operator|=
 name|totalHits
 expr_stmt|;
 block|}
-comment|/**      * @return      * @since 1.4      */
+comment|/**      * @return      * @since 1.4-M1      */
 specifier|public
 name|int
 name|getReturnedHitsCount
@@ -249,7 +249,7 @@ return|return
 name|returnedHitsCount
 return|;
 block|}
-comment|/**      * @param returnedHitsCount      * @since 1.4      */
+comment|/**      * @param returnedHitsCount      * @since 1.4-M1      */
 specifier|public
 name|void
 name|setReturnedHitsCount

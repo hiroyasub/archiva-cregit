@@ -154,7 +154,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * apply basic repository validation : id and name.  * Check if already exists.  *  * @author Olivier Lamy  * @since 1.4  */
+comment|/**  * apply basic repository validation : id and name.  * Check if already exists.  *  * @author Olivier Lamy  * @since 1.4-M1  */
 end_comment
 
 begin_class

@@ -72,7 +72,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FiletypeToMapClosure   *  * @since 1.4  */
+comment|/**  * FiletypeToMapClosure   *  * @since 1.4-M1  */
 end_comment
 
 begin_class

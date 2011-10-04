@@ -105,22 +105,22 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * contains osgi metadata Bundle-Version if available      *      * @since 1.4      */
+comment|/**      * contains osgi metadata Bundle-Version if available      *      * @since 1.4-M1      */
 specifier|private
 name|String
 name|bundleVersion
 decl_stmt|;
-comment|/**      * contains osgi metadata Bundle-SymbolicName if available      *      * @since 1.4      */
+comment|/**      * contains osgi metadata Bundle-SymbolicName if available      *      * @since 1.4-M1      */
 specifier|private
 name|String
 name|bundleSymbolicName
 decl_stmt|;
-comment|/**      * contains osgi metadata Export-Package if available      *      * @since 1.4      */
+comment|/**      * contains osgi metadata Export-Package if available      *      * @since 1.4-M1      */
 specifier|private
 name|String
 name|bundleExportPackage
 decl_stmt|;
-comment|/**      * contains osgi metadata Export-Service if available      *      * @since 1.4      */
+comment|/**      * contains osgi metadata Export-Service if available      *      * @since 1.4-M1      */
 specifier|private
 name|String
 name|bundleExportService

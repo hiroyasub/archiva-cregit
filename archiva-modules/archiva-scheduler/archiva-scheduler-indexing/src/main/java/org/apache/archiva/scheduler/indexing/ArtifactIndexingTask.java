@@ -194,7 +194,7 @@ name|executeOnEntireRepo
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * @since 1.4      */
+comment|/**      * @since 1.4-M1      */
 specifier|private
 name|boolean
 name|onlyUpdate

@@ -166,7 +166,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<b>No update method for changing source and target here as id is : sourceRepoId and targetRepoId, use delete then add.</b>  *  * @author Olivier Lamy  * @since 1.4  */
+comment|/**  *<b>No update method for changing source and target here as id is : sourceRepoId and targetRepoId, use delete then add.</b>  *  * @author Olivier Lamy  * @since 1.4-M1  */
 end_comment
 
 begin_interface

@@ -108,52 +108,52 @@ name|String
 argument_list|>
 name|goals
 decl_stmt|;
-comment|/**      * contains osgi metadata Bundle-Version if available      *      * @since 1.4      */
+comment|/**      * contains osgi metadata Bundle-Version if available      *      * @since 1.4-M1      */
 specifier|private
 name|String
 name|bundleVersion
 decl_stmt|;
-comment|/**      * contains osgi metadata Bundle-SymbolicName if available      *      * @since 1.4      */
+comment|/**      * contains osgi metadata Bundle-SymbolicName if available      *      * @since 1.4-M1      */
 specifier|private
 name|String
 name|bundleSymbolicName
 decl_stmt|;
-comment|/**      * contains osgi metadata Export-Package if available      *      * @since 1.4      */
+comment|/**      * contains osgi metadata Export-Package if available      *      * @since 1.4-M1      */
 specifier|private
 name|String
 name|bundleExportPackage
 decl_stmt|;
-comment|/**      * contains osgi metadata Export-Service if available      *      * @since 1.4      */
+comment|/**      * contains osgi metadata Export-Service if available      *      * @since 1.4-M1      */
 specifier|private
 name|String
 name|bundleExportService
 decl_stmt|;
-comment|/**      * contains osgi metadata Bundle-Description if available      *      * @since 1.4      */
+comment|/**      * contains osgi metadata Bundle-Description if available      *      * @since 1.4-M1      */
 specifier|private
 name|String
 name|bundleDescription
 decl_stmt|;
-comment|/**      * contains osgi metadata Bundle-Name if available      *      * @since 1.4      */
+comment|/**      * contains osgi metadata Bundle-Name if available      *      * @since 1.4-M1      */
 specifier|private
 name|String
 name|bundleName
 decl_stmt|;
-comment|/**      * contains osgi metadata Bundle-License if available      *      * @since 1.4      */
+comment|/**      * contains osgi metadata Bundle-License if available      *      * @since 1.4-M1      */
 specifier|private
 name|String
 name|bundleLicense
 decl_stmt|;
-comment|/**      * contains osgi metadata Bundle-DocURL if available      *      * @since 1.4      */
+comment|/**      * contains osgi metadata Bundle-DocURL if available      *      * @since 1.4-M1      */
 specifier|private
 name|String
 name|bundleDocUrl
 decl_stmt|;
-comment|/**      * contains osgi metadata Import-Package if available      *      * @since 1.4      */
+comment|/**      * contains osgi metadata Import-Package if available      *      * @since 1.4-M1      */
 specifier|private
 name|String
 name|bundleImportPackage
 decl_stmt|;
-comment|/**      * contains osgi metadata Require-Bundle if available      *      * @since 1.4      */
+comment|/**      * contains osgi metadata Require-Bundle if available      *      * @since 1.4-M1      */
 specifier|private
 name|String
 name|bundleRequireBundle
