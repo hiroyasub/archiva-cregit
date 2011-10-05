@@ -7,9 +7,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|web
+name|metadata
 operator|.
-name|startup
+name|repository
+operator|.
+name|jcr
 package|;
 end_package
 
@@ -137,7 +139,7 @@ block|{
 name|String
 name|resourcePath
 init|=
-literal|"org/apache/archiva/repository.xml"
+literal|"org/apache/archiva/metadata/repository/jcr/repository.xml"
 decl_stmt|;
 name|LoggerFactory
 operator|.
