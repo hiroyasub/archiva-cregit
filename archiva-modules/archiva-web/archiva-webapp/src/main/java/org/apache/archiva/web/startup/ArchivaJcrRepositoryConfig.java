@@ -150,7 +150,7 @@ argument_list|)
 operator|.
 name|info
 argument_list|(
-literal|"now repository.xml file in path {} so use default from resources path {}"
+literal|"no repository.xml file in path {} so use default from resources path {}"
 argument_list|,
 name|file
 argument_list|,
