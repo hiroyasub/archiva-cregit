@@ -292,7 +292,6 @@ argument_list|(
 name|servlet
 argument_list|)
 expr_stmt|;
-comment|//client.newInvocation( "http://localhost/shutdown/foo" );
 block|}
 specifier|public
 name|void
@@ -420,7 +419,6 @@ name|getResponseCode
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//client.newInvocation( "http://localhost/shutdown/foo" );
 block|}
 specifier|public
 name|void
@@ -548,7 +546,6 @@ name|getResponseCode
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//client.newInvocation( "http://localhost/shutdown/foo" );
 block|}
 specifier|public
 name|void
