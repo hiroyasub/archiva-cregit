@@ -70,7 +70,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Olivier Lamy  */
+comment|/**  * @author Olivier Lamy  * @since 1.4-M1  */
 end_comment
 
 begin_class
