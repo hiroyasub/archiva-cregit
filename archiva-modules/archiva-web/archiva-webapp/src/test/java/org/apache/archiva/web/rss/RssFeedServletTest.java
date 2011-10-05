@@ -131,6 +131,36 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|jackrabbit
+operator|.
+name|core
+operator|.
+name|RepositoryImpl
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|jackrabbit
+operator|.
+name|core
+operator|.
+name|util
+operator|.
+name|RepositoryLock
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -262,6 +292,7 @@ argument_list|(
 name|servlet
 argument_list|)
 expr_stmt|;
+comment|//client.newInvocation( "http://localhost/shutdown/foo" );
 block|}
 specifier|public
 name|void
@@ -389,6 +420,7 @@ name|getResponseCode
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|//client.newInvocation( "http://localhost/shutdown/foo" );
 block|}
 specifier|public
 name|void
@@ -516,6 +548,7 @@ name|getResponseCode
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|//client.newInvocation( "http://localhost/shutdown/foo" );
 block|}
 specifier|public
 name|void

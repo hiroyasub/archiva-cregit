@@ -235,22 +235,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|webtest
-operator|.
-name|memory
-operator|.
-name|TestMetadataResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|metadata
 operator|.
 name|repository
@@ -294,6 +278,36 @@ operator|.
 name|security
 operator|.
 name|UserRepositoriesStub
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|webtest
+operator|.
+name|memory
+operator|.
+name|TestMetadataResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|jackrabbit
+operator|.
+name|api
+operator|.
+name|JackrabbitRepository
 import|;
 end_import
 
@@ -557,7 +571,7 @@ specifier|protected
 name|String
 index|[]
 name|getContextLocations
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 operator|new
@@ -650,7 +664,7 @@ argument_list|,
 name|model
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -660,7 +674,7 @@ argument_list|,
 name|model
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -670,7 +684,7 @@ argument_list|,
 name|model
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -680,7 +694,7 @@ argument_list|,
 name|model
 operator|.
 name|getDescription
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -690,10 +704,10 @@ argument_list|,
 name|model
 operator|.
 name|getOrganization
-argument_list|()
+argument_list|( )
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -703,10 +717,10 @@ argument_list|,
 name|model
 operator|.
 name|getOrganization
-argument_list|()
+argument_list|( )
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -716,10 +730,10 @@ argument_list|,
 name|model
 operator|.
 name|getLicenses
-argument_list|()
+argument_list|( )
 operator|.
 name|size
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|License
@@ -728,7 +742,7 @@ init|=
 name|model
 operator|.
 name|getLicenses
-argument_list|()
+argument_list|( )
 operator|.
 name|get
 argument_list|(
@@ -742,7 +756,7 @@ argument_list|,
 name|l
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -752,7 +766,7 @@ argument_list|,
 name|l
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|l
@@ -760,7 +774,7 @@ operator|=
 name|model
 operator|.
 name|getLicenses
-argument_list|()
+argument_list|( )
 operator|.
 name|get
 argument_list|(
@@ -774,7 +788,7 @@ argument_list|,
 name|l
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -784,7 +798,7 @@ argument_list|,
 name|l
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -794,10 +808,10 @@ argument_list|,
 name|model
 operator|.
 name|getIssueManagement
-argument_list|()
+argument_list|( )
 operator|.
 name|getSystem
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -807,10 +821,10 @@ argument_list|,
 name|model
 operator|.
 name|getIssueManagement
-argument_list|()
+argument_list|( )
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -820,10 +834,10 @@ argument_list|,
 name|model
 operator|.
 name|getCiManagement
-argument_list|()
+argument_list|( )
 operator|.
 name|getSystem
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -833,10 +847,10 @@ argument_list|,
 name|model
 operator|.
 name|getCiManagement
-argument_list|()
+argument_list|( )
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -846,10 +860,10 @@ argument_list|,
 name|model
 operator|.
 name|getScm
-argument_list|()
+argument_list|( )
 operator|.
 name|getConnection
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -859,10 +873,10 @@ argument_list|,
 name|model
 operator|.
 name|getScm
-argument_list|()
+argument_list|( )
 operator|.
 name|getDeveloperConnection
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -872,10 +886,10 @@ argument_list|,
 name|model
 operator|.
 name|getScm
-argument_list|()
+argument_list|( )
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|MavenProjectFacet
@@ -900,7 +914,7 @@ argument_list|,
 name|mavenFacet
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -910,7 +924,7 @@ argument_list|,
 name|mavenFacet
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -920,7 +934,7 @@ argument_list|,
 name|mavenFacet
 operator|.
 name|getPackaging
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -930,10 +944,10 @@ argument_list|,
 name|mavenFacet
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -943,10 +957,10 @@ argument_list|,
 name|mavenFacet
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -956,10 +970,10 @@ argument_list|,
 name|mavenFacet
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1001,7 +1015,7 @@ name|model
 init|=
 operator|new
 name|ProjectVersionMetadata
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|model
 operator|.
@@ -1036,7 +1050,7 @@ name|ci
 init|=
 operator|new
 name|CiManagement
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|ci
 operator|.
@@ -1064,7 +1078,7 @@ name|issue
 init|=
 operator|new
 name|IssueManagement
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|issue
 operator|.
@@ -1092,7 +1106,7 @@ name|organization
 init|=
 operator|new
 name|Organization
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|organization
 operator|.
@@ -1120,7 +1134,7 @@ name|l
 init|=
 operator|new
 name|License
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|l
 operator|.
@@ -1147,7 +1161,7 @@ name|l
 operator|=
 operator|new
 name|License
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|l
 operator|.
@@ -1175,7 +1189,7 @@ name|scm
 init|=
 operator|new
 name|Scm
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|scm
 operator|.
@@ -1210,7 +1224,7 @@ name|mavenProjectFacet
 init|=
 operator|new
 name|MavenProjectFacet
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|mavenProjectFacet
 operator|.
@@ -1238,7 +1252,7 @@ name|parent
 init|=
 operator|new
 name|MavenProjectParent
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|parent
 operator|.
@@ -1280,7 +1294,7 @@ name|genericMetadataFacet
 init|=
 operator|new
 name|GenericMetadataFacet
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|Map
 argument_list|<
@@ -1297,7 +1311,7 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|props
 operator|.
@@ -1331,21 +1345,21 @@ name|Override
 specifier|protected
 name|void
 name|setUp
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
 name|super
 operator|.
 name|setUp
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|ConfigurationManager
 name|configurationManager
 init|=
 operator|new
 name|ConfigurationManager
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|configurationManager
 operator|.
@@ -1353,7 +1367,7 @@ name|addContainerProvider
 argument_list|(
 operator|new
 name|XWorkConfigurationProvider
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|Configuration
@@ -1362,7 +1376,7 @@ init|=
 name|configurationManager
 operator|.
 name|getConfiguration
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|Container
 name|container
@@ -1370,7 +1384,7 @@ init|=
 name|config
 operator|.
 name|getContainer
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|ValueStack
 name|stack
@@ -1385,12 +1399,12 @@ name|class
 argument_list|)
 operator|.
 name|createValueStack
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|stack
 operator|.
 name|getContext
-argument_list|()
+argument_list|( )
 operator|.
 name|put
 argument_list|(
@@ -1411,9 +1425,36 @@ argument_list|(
 name|stack
 operator|.
 name|getContext
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|protected
+name|void
+name|tearDown
+parameter_list|( )
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|tearDown
+argument_list|( )
+expr_stmt|;
+name|applicationContext
+operator|.
+name|getBean
+argument_list|(
+name|JackrabbitRepository
+operator|.
+name|class
+argument_list|)
+operator|.
+name|shutdown
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
