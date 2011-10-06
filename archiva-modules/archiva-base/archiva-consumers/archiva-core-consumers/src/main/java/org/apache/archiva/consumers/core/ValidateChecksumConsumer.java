@@ -281,7 +281,7 @@ begin_class
 annotation|@
 name|Service
 argument_list|(
-literal|"knownRepositoryContentConsumer#validate-checksum"
+literal|"knownRepositoryContentConsumer#validate-checksums"
 argument_list|)
 annotation|@
 name|Scope

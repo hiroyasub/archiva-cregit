@@ -438,7 +438,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Search the database of known SHA1 Checksums for potential duplicate artifacts.  *<p/>  * TODO: no need for this to be a scanner - we can just query the database / content repository to get a full list  *  * @version $Id$  */
+comment|/**  * Search the artifact repository of known SHA1 Checksums for potential duplicate artifacts.  *<p/>  * TODO: no need for this to be a scanner - we can just query the database / content repository to get a full list  *  * @version $Id$  */
 end_comment
 
 begin_class
