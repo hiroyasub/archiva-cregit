@@ -203,7 +203,7 @@ name|applicationContext
 operator|.
 name|getBean
 argument_list|(
-literal|"knownRepositoryContentConsumer#artifact-missing-checksums-consumer"
+literal|"knownRepositoryContentConsumer#create-missing-checksums"
 argument_list|,
 name|KnownRepositoryContentConsumer
 operator|.
