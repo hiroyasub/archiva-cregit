@@ -552,9 +552,14 @@ argument_list|)
 expr_stmt|;
 name|artifactContextProducer
 operator|=
-operator|new
-name|DefaultArtifactContextProducer
-argument_list|()
+name|plexusSisuBridge
+operator|.
+name|lookup
+argument_list|(
+name|ArtifactContextProducer
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 name|indexPacker
 operator|=
