@@ -477,10 +477,14 @@ index|[]
 name|data
 parameter_list|)
 block|{
-name|String
+name|StringBuilder
 name|output
 init|=
+operator|new
+name|StringBuilder
+argument_list|(
 literal|""
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -541,14 +545,18 @@ expr_stmt|;
 block|}
 comment|//Concatenate the two characters to the output string.
 name|output
-operator|=
-name|output
-operator|+
+operator|.
+name|append
+argument_list|(
 name|tempStr
+argument_list|)
 expr_stmt|;
 block|}
 return|return
 name|output
+operator|.
+name|toString
+argument_list|()
 operator|.
 name|toUpperCase
 argument_list|()

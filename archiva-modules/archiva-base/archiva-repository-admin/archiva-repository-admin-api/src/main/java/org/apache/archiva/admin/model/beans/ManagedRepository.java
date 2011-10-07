@@ -258,12 +258,6 @@ name|stageRepoNeeded
 operator|=
 name|stageRepoNeeded
 expr_stmt|;
-name|this
-operator|.
-name|resetStats
-operator|=
-name|resetStats
-expr_stmt|;
 block|}
 specifier|public
 name|String
