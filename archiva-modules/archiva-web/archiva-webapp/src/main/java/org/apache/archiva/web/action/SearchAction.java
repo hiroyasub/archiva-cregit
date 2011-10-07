@@ -481,7 +481,7 @@ name|ArrayList
 argument_list|<
 name|String
 argument_list|>
-argument_list|( )
+argument_list|()
 decl_stmt|;
 specifier|private
 name|String
@@ -575,7 +575,7 @@ decl_stmt|;
 specifier|public
 name|boolean
 name|isFromResultsPage
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|fromResultsPage
@@ -599,7 +599,7 @@ block|}
 specifier|public
 name|boolean
 name|isFromFilterSearch
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|fromFilterSearch
@@ -623,19 +623,19 @@ block|}
 specifier|public
 name|void
 name|prepare
-parameter_list|( )
+parameter_list|()
 block|{
 name|managedRepositoryList
 operator|=
 name|getObservableRepos
-argument_list|( )
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
 name|managedRepositoryList
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 operator|>
 literal|0
 condition|)
@@ -657,7 +657,7 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|searchFields
 operator|.
@@ -761,16 +761,16 @@ expr_stmt|;
 name|super
 operator|.
 name|clearErrorsAndMessages
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|clearSearchFields
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 specifier|private
 name|void
 name|clearSearchFields
-parameter_list|( )
+parameter_list|()
 block|{
 name|repositoryId
 operator|=
@@ -805,7 +805,7 @@ comment|// advanced search MRM-90 -- filtered search
 specifier|public
 name|String
 name|filteredSearch
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|MalformedURLException
 block|{
@@ -938,7 +938,7 @@ name|ArrayList
 argument_list|<
 name|String
 argument_list|>
-argument_list|( )
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -969,7 +969,7 @@ block|{
 name|selectedRepos
 operator|=
 name|getObservableRepos
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 else|else
@@ -1164,12 +1164,12 @@ block|{
 name|results
 operator|=
 name|getNexusSearch
-argument_list|( )
+argument_list|()
 operator|.
 name|search
 argument_list|(
 name|getPrincipal
-argument_list|( )
+argument_list|()
 argument_list|,
 name|searchFields
 argument_list|,
@@ -1188,7 +1188,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -1200,7 +1200,7 @@ condition|(
 name|results
 operator|.
 name|isEmpty
-argument_list|( )
+argument_list|()
 condition|)
 block|{
 name|addActionError
@@ -1217,12 +1217,12 @@ operator|=
 name|results
 operator|.
 name|getTotalHits
-argument_list|( )
+argument_list|()
 operator|/
 name|limits
 operator|.
 name|getPageSize
-argument_list|( )
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -1230,12 +1230,12 @@ operator|(
 name|results
 operator|.
 name|getTotalHits
-argument_list|( )
+argument_list|()
 operator|%
 name|limits
 operator|.
 name|getPageSize
-argument_list|( )
+argument_list|()
 operator|)
 operator|!=
 literal|0
@@ -1256,7 +1256,7 @@ range|:
 name|results
 operator|.
 name|getHits
-argument_list|( )
+argument_list|()
 control|)
 block|{
 comment|// fix version ?
@@ -1274,7 +1274,7 @@ argument_list|)
 specifier|public
 name|String
 name|quickSearch
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|MalformedURLException
 block|{
@@ -1287,7 +1287,7 @@ operator|&&
 name|q
 operator|.
 name|length
-argument_list|( )
+argument_list|()
 operator|!=
 literal|0
 assert|;
@@ -1311,7 +1311,7 @@ argument_list|>
 name|selectedRepos
 init|=
 name|getObservableRepos
-argument_list|( )
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -1358,12 +1358,12 @@ block|{
 name|results
 operator|=
 name|getNexusSearch
-argument_list|( )
+argument_list|()
 operator|.
 name|search
 argument_list|(
 name|getPrincipal
-argument_list|( )
+argument_list|()
 argument_list|,
 name|selectedRepos
 argument_list|,
@@ -1372,7 +1372,7 @@ argument_list|,
 name|limits
 argument_list|,
 name|parseCompleteQueryString
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1385,12 +1385,12 @@ expr_stmt|;
 name|results
 operator|=
 name|getNexusSearch
-argument_list|( )
+argument_list|()
 operator|.
 name|search
 argument_list|(
 name|getPrincipal
-argument_list|( )
+argument_list|()
 argument_list|,
 name|selectedRepos
 argument_list|,
@@ -1414,7 +1414,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -1426,7 +1426,7 @@ condition|(
 name|results
 operator|.
 name|isEmpty
-argument_list|( )
+argument_list|()
 condition|)
 block|{
 name|addActionError
@@ -1442,26 +1442,26 @@ name|totalPages
 operator|=
 name|results
 operator|.
-name|getTotalHits
-argument_list|( )
+name|getTotalHitsMapSize
+argument_list|()
 operator|/
 name|limits
 operator|.
 name|getPageSize
-argument_list|( )
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
 operator|(
 name|results
 operator|.
-name|getTotalHits
-argument_list|( )
+name|getTotalHitsMapSize
+argument_list|()
 operator|%
 name|limits
 operator|.
 name|getPageSize
-argument_list|( )
+argument_list|()
 operator|)
 operator|!=
 literal|0
@@ -1496,7 +1496,7 @@ block|}
 specifier|public
 name|String
 name|findArtifact
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -1527,7 +1527,7 @@ name|ArrayList
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|RepositorySession
 name|repositorySession
@@ -1535,7 +1535,7 @@ init|=
 name|repositorySessionFactory
 operator|.
 name|createSession
-argument_list|( )
+argument_list|()
 decl_stmt|;
 try|try
 block|{
@@ -1545,7 +1545,7 @@ init|=
 name|repositorySession
 operator|.
 name|getRepository
-argument_list|( )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -1553,7 +1553,7 @@ name|String
 name|repoId
 range|:
 name|getObservableRepos
-argument_list|( )
+argument_list|()
 control|)
 block|{
 name|databaseResults
@@ -1577,7 +1577,7 @@ block|{
 name|repositorySession
 operator|.
 name|close
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 if|if
@@ -1585,7 +1585,7 @@ condition|(
 name|databaseResults
 operator|.
 name|isEmpty
-argument_list|( )
+argument_list|()
 condition|)
 block|{
 name|addActionError
@@ -1602,7 +1602,7 @@ condition|(
 name|databaseResults
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 operator|==
 literal|1
 condition|)
@@ -1619,7 +1619,7 @@ block|}
 specifier|public
 name|String
 name|doInput
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|INPUT
@@ -1695,7 +1695,7 @@ argument_list|<
 name|String
 argument_list|>
 name|parseCompleteQueryString
-parameter_list|( )
+parameter_list|()
 block|{
 name|List
 argument_list|<
@@ -1708,7 +1708,7 @@ name|ArrayList
 argument_list|<
 name|String
 argument_list|>
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|String
 index|[]
@@ -1799,7 +1799,7 @@ block|}
 specifier|public
 name|String
 name|getQ
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|q
@@ -1823,7 +1823,7 @@ block|}
 specifier|public
 name|SearchResults
 name|getResults
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|results
@@ -1835,7 +1835,7 @@ argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|getDatabaseResults
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|databaseResults
@@ -1859,7 +1859,7 @@ block|}
 specifier|public
 name|int
 name|getCurrentPage
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|currentPage
@@ -1868,7 +1868,7 @@ block|}
 specifier|public
 name|int
 name|getTotalPages
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|totalPages
@@ -1892,7 +1892,7 @@ block|}
 specifier|public
 name|boolean
 name|isSearchResultsOnly
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|searchResultsOnly
@@ -1916,7 +1916,7 @@ block|}
 specifier|public
 name|String
 name|getCompleteQueryString
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|completeQueryString
@@ -1945,7 +1945,7 @@ argument_list|,
 name|ManagedRepository
 argument_list|>
 name|getManagedRepositories
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|RepositoryAdminException
 block|{
@@ -1953,7 +1953,7 @@ return|return
 name|managedRepositoryAdmin
 operator|.
 name|getManagedRepositoriesAsMap
-argument_list|( )
+argument_list|()
 return|;
 block|}
 comment|// wtf : does nothing ??
@@ -1974,7 +1974,7 @@ block|}
 specifier|public
 name|String
 name|getGroupId
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|groupId
@@ -1998,7 +1998,7 @@ block|}
 specifier|public
 name|String
 name|getArtifactId
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|artifactId
@@ -2022,7 +2022,7 @@ block|}
 specifier|public
 name|String
 name|getVersion
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|version
@@ -2046,7 +2046,7 @@ block|}
 specifier|public
 name|int
 name|getRowCount
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|rowCount
@@ -2070,7 +2070,7 @@ block|}
 specifier|public
 name|boolean
 name|isFilterSearch
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|filterSearch
@@ -2094,7 +2094,7 @@ block|}
 specifier|public
 name|String
 name|getRepositoryId
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|repositoryId
@@ -2121,7 +2121,7 @@ argument_list|<
 name|String
 argument_list|>
 name|getManagedRepositoryList
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|managedRepositoryList
@@ -2148,7 +2148,7 @@ block|}
 specifier|public
 name|String
 name|getClassName
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|className
@@ -2172,7 +2172,7 @@ block|}
 specifier|public
 name|RepositorySearch
 name|getNexusSearch
-parameter_list|( )
+parameter_list|()
 block|{
 if|if
 condition|(
@@ -2191,7 +2191,7 @@ argument_list|(
 name|ServletActionContext
 operator|.
 name|getServletContext
-argument_list|( )
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|nexusSearch
@@ -2235,7 +2235,7 @@ argument_list|,
 name|String
 argument_list|>
 name|getSearchFields
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|searchFields
@@ -2264,7 +2264,7 @@ block|}
 specifier|public
 name|String
 name|getInfoMessage
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|infoMessage
@@ -2288,7 +2288,7 @@ block|}
 specifier|public
 name|ManagedRepositoryAdmin
 name|getManagedRepositoryAdmin
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|managedRepositoryAdmin
@@ -2312,7 +2312,7 @@ block|}
 specifier|public
 name|String
 name|getBundleVersion
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|bundleVersion
@@ -2336,7 +2336,7 @@ block|}
 specifier|public
 name|String
 name|getBundleSymbolicName
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|bundleSymbolicName
@@ -2360,7 +2360,7 @@ block|}
 specifier|public
 name|String
 name|getBundleExportPackage
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|bundleExportPackage
@@ -2384,7 +2384,7 @@ block|}
 specifier|public
 name|String
 name|getBundleImportPackage
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|bundleImportPackage
@@ -2408,7 +2408,7 @@ block|}
 specifier|public
 name|String
 name|getBundleName
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|bundleName
@@ -2432,7 +2432,7 @@ block|}
 specifier|public
 name|String
 name|getBundleExportService
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|bundleExportService

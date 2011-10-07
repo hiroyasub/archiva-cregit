@@ -90,6 +90,10 @@ name|totalHits
 decl_stmt|;
 specifier|private
 name|int
+name|totalHitsMapSize
+decl_stmt|;
+specifier|private
+name|int
 name|returnedHitsCount
 decl_stmt|;
 specifier|private
@@ -263,6 +267,32 @@ operator|.
 name|returnedHitsCount
 operator|=
 name|returnedHitsCount
+expr_stmt|;
+block|}
+comment|/**      * @since 1.4-M1      * @return      */
+specifier|public
+name|int
+name|getTotalHitsMapSize
+parameter_list|()
+block|{
+return|return
+name|totalHitsMapSize
+return|;
+block|}
+comment|/**      * @since 1.4-M1      * @param totalHitsMapSize      */
+specifier|public
+name|void
+name|setTotalHitsMapSize
+parameter_list|(
+name|int
+name|totalHitsMapSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|totalHitsMapSize
+operator|=
+name|totalHitsMapSize
 expr_stmt|;
 block|}
 annotation|@
