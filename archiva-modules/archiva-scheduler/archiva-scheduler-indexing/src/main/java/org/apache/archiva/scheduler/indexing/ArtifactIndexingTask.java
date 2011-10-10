@@ -702,7 +702,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"skip adding repository with id {} as already exists"
 argument_list|,
