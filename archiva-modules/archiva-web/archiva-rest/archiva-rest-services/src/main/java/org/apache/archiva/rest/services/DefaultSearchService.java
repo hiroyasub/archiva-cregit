@@ -732,6 +732,14 @@ else|:
 name|packaging
 argument_list|)
 expr_stmt|;
+name|searchField
+operator|.
+name|setRepositories
+argument_list|(
+name|getObservableRepos
+argument_list|()
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|SearchResults

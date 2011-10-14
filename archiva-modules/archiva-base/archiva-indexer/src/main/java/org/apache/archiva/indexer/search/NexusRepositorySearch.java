@@ -805,10 +805,20 @@ name|getRepositories
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// if no index found in the specified one return an empty search result instead of doing a search on all index
+comment|// if no index found in the specified ones return an empty search result instead of doing a search on all index
 comment|// olamy: IMHO doesn't make sense
 if|if
 condition|(
+operator|!
+name|searchFields
+operator|.
+name|getRepositories
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+operator|(
 name|indexingContextIds
 operator|==
 literal|null
@@ -817,6 +827,7 @@ name|indexingContextIds
 operator|.
 name|isEmpty
 argument_list|()
+operator|)
 condition|)
 block|{
 return|return
