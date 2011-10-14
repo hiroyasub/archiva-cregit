@@ -805,6 +805,26 @@ name|getRepositories
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// if no index found in the specified one return an empty search result instead of doing a search on all index
+comment|// olamy: IMHO doesn't make sense
+if|if
+condition|(
+name|indexingContextIds
+operator|==
+literal|null
+operator|||
+name|indexingContextIds
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+return|return
+operator|new
+name|SearchResults
+argument_list|()
+return|;
+block|}
 name|BooleanQuery
 name|q
 init|=
