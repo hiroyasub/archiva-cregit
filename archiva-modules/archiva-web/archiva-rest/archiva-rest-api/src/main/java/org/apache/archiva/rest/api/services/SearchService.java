@@ -247,6 +247,7 @@ name|noRestriction
 operator|=
 literal|false
 argument_list|)
+comment|/**      *<b>search will be apply on all repositories the user used has karma</b>      */
 name|List
 argument_list|<
 name|Artifact
@@ -299,6 +300,7 @@ name|noRestriction
 operator|=
 literal|false
 argument_list|)
+comment|/**      *<b>search will be apply on all repositories the user used has karma</b>      */
 name|List
 argument_list|<
 name|Artifact
@@ -367,6 +369,7 @@ name|noRestriction
 operator|=
 literal|false
 argument_list|)
+comment|/**      * If searchRequest contains repositories, the search will be done only on those repositories.      *<b>if no repositories, the search will be apply on all repositories the user used has karma</b>      */
 name|List
 argument_list|<
 name|Artifact
@@ -414,6 +417,7 @@ name|noRestriction
 operator|=
 literal|false
 argument_list|)
+comment|/**      *<b>this method applies on Maven Indexer lucene index, so datas not yet indexed won't be available</b>      */
 name|GroupIdList
 name|getAllGroupIds
 parameter_list|(
