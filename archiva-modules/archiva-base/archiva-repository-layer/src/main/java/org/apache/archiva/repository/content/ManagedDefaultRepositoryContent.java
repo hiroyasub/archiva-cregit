@@ -43,40 +43,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
-name|storage
-operator|.
-name|maven2
-operator|.
-name|DefaultArtifactMappingProvider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|io
-operator|.
-name|FileUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|common
 operator|.
 name|utils
@@ -96,6 +62,26 @@ operator|.
 name|configuration
 operator|.
 name|FileTypes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|storage
+operator|.
+name|maven2
+operator|.
+name|DefaultArtifactMappingProvider
 import|;
 end_import
 
@@ -203,6 +189,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|FileUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -296,7 +296,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ManagedDefaultRepositoryContent   *  * @version $Id$  */
+comment|/**  * ManagedDefaultRepositoryContent  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -422,6 +422,65 @@ argument_list|(
 literal|"Unable to delete non-existing project directory: "
 operator|+
 name|projectDir
+argument_list|)
+throw|;
+block|}
+block|}
+specifier|public
+name|void
+name|deleteArtifact
+parameter_list|(
+name|ArtifactReference
+name|artifactReference
+parameter_list|)
+throws|throws
+name|ContentNotFoundException
+block|{
+name|String
+name|path
+init|=
+name|toPath
+argument_list|(
+name|artifactReference
+argument_list|)
+decl_stmt|;
+name|File
+name|filePath
+init|=
+operator|new
+name|File
+argument_list|(
+name|getRepoRoot
+argument_list|()
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|filePath
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+name|FileUtils
+operator|.
+name|deleteQuietly
+argument_list|(
+name|filePath
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ContentNotFoundException
+argument_list|(
+literal|"Unable to delete non-existing project artifact: "
+operator|+
+name|filePath
 argument_list|)
 throw|;
 block|}
@@ -701,7 +760,7 @@ return|return
 name|repository
 return|;
 block|}
-comment|/**      * Gather the Available Versions (on disk) for a specific Project Reference, based on filesystem      * information.      *      * @return the Set of available versions, based on the project reference.      * @throws LayoutException       * @throws LayoutException      */
+comment|/**      * Gather the Available Versions (on disk) for a specific Project Reference, based on filesystem      * information.      *      * @return the Set of available versions, based on the project reference.      * @throws LayoutException      * @throws LayoutException      */
 specifier|public
 name|Set
 argument_list|<
@@ -1318,7 +1377,7 @@ operator|=
 name|repository
 expr_stmt|;
 block|}
-comment|/**      * Convert a path to an artifact reference.      *       * @param path the path to convert. (relative or full location path)      * @throws LayoutException if the path cannot be converted to an artifact reference.      */
+comment|/**      * Convert a path to an artifact reference.      *      * @param path the path to convert. (relative or full location path)      * @throws LayoutException if the path cannot be converted to an artifact reference.      */
 annotation|@
 name|Override
 specifier|public
@@ -1439,7 +1498,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the first Artifact found in the provided VersionedReference location.      *      * @param reference         the reference to the versioned reference to search within      * @return the ArtifactReference to the first artifact located within the versioned reference. or null if      *         no artifact was found within the versioned reference.      * @throws IOException     if the versioned reference is invalid (example: doesn't exist, or isn't a directory)      * @throws LayoutException      */
+comment|/**      * Get the first Artifact found in the provided VersionedReference location.      *      * @param reference the reference to the versioned reference to search within      * @return the ArtifactReference to the first artifact located within the versioned reference. or null if      *         no artifact was found within the versioned reference.      * @throws IOException     if the versioned reference is invalid (example: doesn't exist, or isn't a directory)      * @throws LayoutException      */
 specifier|private
 name|ArtifactReference
 name|getFirstArtifact

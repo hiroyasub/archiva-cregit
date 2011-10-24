@@ -144,6 +144,16 @@ parameter_list|)
 throws|throws
 name|ContentNotFoundException
 function_decl|;
+comment|/**      * delete a specified artifact from the repository      * @param artifactReference      * @throws ContentNotFoundException      */
+name|void
+name|deleteArtifact
+parameter_list|(
+name|ArtifactReference
+name|artifactReference
+parameter_list|)
+throws|throws
+name|ContentNotFoundException
+function_decl|;
 comment|/**      *<p>      * Convenience method to get the repository id.      *</p>      *<p/>      *<p>      * Equivalent to calling<code>.getRepository().getId()</code>      *</p>      *      * @return the repository id.      */
 name|String
 name|getId

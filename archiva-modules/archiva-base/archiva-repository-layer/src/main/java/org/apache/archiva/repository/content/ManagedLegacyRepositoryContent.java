@@ -1803,6 +1803,18 @@ operator|=
 name|fileTypes
 expr_stmt|;
 block|}
+specifier|public
+name|void
+name|deleteArtifact
+parameter_list|(
+name|ArtifactReference
+name|artifactReference
+parameter_list|)
+throws|throws
+name|ContentNotFoundException
+block|{
+comment|// TODO implements for legacy ??
+block|}
 block|}
 end_class
 

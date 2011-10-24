@@ -84,7 +84,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Listen to events on the repository. This class is a stopgap  * refactoring measure until an event bus is in place to handle  * generic events such as these.  *  * This assumes that the events occur before the action has completed, though they don't currently offer any mechanism  * to prevent an event from occurring or guarantee that it will happen.  *  * FIXME: this needs to be made more permanent since 3rd party plugins will depend on it heavily  */
+comment|/**  * Listen to events on the repository. This class is a stopgap  * refactoring measure until an event bus is in place to handle  * generic events such as these.  *<p/>  * This assumes that the events occur before the action has completed, though they don't currently offer any mechanism  * to prevent an event from occurring or guarantee that it will happen.  *<p/>  * FIXME: this needs to be made more permanent since 3rd party plugins will depend on it heavily  */
 end_comment
 
 begin_interface
