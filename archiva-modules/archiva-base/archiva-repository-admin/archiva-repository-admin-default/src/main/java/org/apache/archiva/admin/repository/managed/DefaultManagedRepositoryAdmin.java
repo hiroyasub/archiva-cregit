@@ -1445,7 +1445,6 @@ return|return
 name|repository
 return|;
 block|}
-comment|// FIXME cleanup repositoryGroups when deleting a ManagedRepo
 specifier|public
 name|Boolean
 name|deleteManagedRepository
