@@ -249,23 +249,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|reports
+name|model
 operator|.
-name|RepositoryProblemFacet
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|StringUtils
+name|ArtifactReference
 import|;
 end_import
 
@@ -277,9 +263,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|model
+name|reports
 operator|.
-name|ArtifactReference
+name|RepositoryProblemFacet
 import|;
 end_import
 
@@ -331,6 +317,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|artifact
@@ -364,6 +364,16 @@ operator|.
 name|stereotype
 operator|.
 name|Controller
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
 import|;
 end_import
 
@@ -477,18 +487,8 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
 begin_comment
-comment|/**  * Browse the repository.  *  * TODO change name to ShowVersionedAction to conform to terminology.  *  */
+comment|/**  * Browse the repository.  *<p/>  * TODO change name to ShowVersionedAction to conform to terminology.  */
 end_comment
 
 begin_class
@@ -2202,6 +2202,10 @@ specifier|private
 name|String
 name|path
 decl_stmt|;
+specifier|private
+name|String
+name|classifier
+decl_stmt|;
 specifier|public
 name|ArtifactDownloadInfo
 parameter_list|(
@@ -2345,6 +2349,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|this
+operator|.
 name|type
 operator|=
 name|facet
@@ -2352,13 +2358,16 @@ operator|.
 name|getType
 argument_list|()
 expr_stmt|;
-block|}
 name|this
 operator|.
-name|type
+name|classifier
 operator|=
-name|type
+name|facet
+operator|.
+name|getClassifier
+argument_list|()
 expr_stmt|;
+block|}
 name|namespace
 operator|=
 name|artifact
@@ -2550,6 +2559,15 @@ parameter_list|()
 block|{
 return|return
 name|path
+return|;
+block|}
+specifier|public
+name|String
+name|getClassifier
+parameter_list|()
+block|{
+return|return
+name|classifier
 return|;
 block|}
 block|}
