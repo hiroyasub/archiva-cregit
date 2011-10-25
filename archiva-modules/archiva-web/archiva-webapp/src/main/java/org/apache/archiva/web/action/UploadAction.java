@@ -2890,7 +2890,7 @@ name|task
 operator|.
 name|setScanAll
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 try|try
