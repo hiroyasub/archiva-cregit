@@ -1232,8 +1232,7 @@ expr_stmt|;
 name|reset
 argument_list|()
 expr_stmt|;
-comment|// as metadatarepository doesn't contains any informations regarding classifier we are free to return
-comment|// TODO when metadatarepository will contains such informations we will have to cleanup that !!
+comment|// TODO cleanup facet which contains classifier information
 return|return
 name|SUCCESS
 return|;
