@@ -5021,6 +5021,8 @@ operator|.
 name|buildMergedIndex
 argument_list|(
 name|authzRepos
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|mergedRepositoryContents
