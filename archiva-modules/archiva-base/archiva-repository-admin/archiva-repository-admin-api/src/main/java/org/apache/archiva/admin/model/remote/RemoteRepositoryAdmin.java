@@ -71,6 +71,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|index
+operator|.
+name|context
+operator|.
+name|IndexingContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -160,6 +176,16 @@ name|RemoteRepository
 argument_list|>
 name|getRemoteRepositoriesAsMap
 parameter_list|()
+throws|throws
+name|RepositoryAdminException
+function_decl|;
+comment|/**      * @param repository      * @return      * @throws RepositoryAdminException      * @since 1.4-M2      */
+name|IndexingContext
+name|createIndexContext
+parameter_list|(
+name|RemoteRepository
+name|repository
+parameter_list|)
 throws|throws
 name|RepositoryAdminException
 function_decl|;

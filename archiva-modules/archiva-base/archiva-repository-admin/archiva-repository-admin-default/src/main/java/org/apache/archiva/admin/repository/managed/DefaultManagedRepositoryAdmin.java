@@ -1073,7 +1073,9 @@ argument_list|,
 name|auditInformation
 argument_list|)
 expr_stmt|;
-return|return
+name|Boolean
+name|res
+init|=
 name|addManagedRepository
 argument_list|(
 name|managedRepository
@@ -1148,6 +1150,14 @@ argument_list|()
 argument_list|)
 operator|!=
 literal|null
+decl_stmt|;
+name|createIndexContext
+argument_list|(
+name|managedRepository
+argument_list|)
+expr_stmt|;
+return|return
+name|res
 return|;
 block|}
 specifier|private
@@ -2443,6 +2453,11 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+name|createIndexContext
+argument_list|(
+name|managedRepository
+argument_list|)
+expr_stmt|;
 return|return
 literal|true
 return|;
