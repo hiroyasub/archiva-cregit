@@ -4498,6 +4498,16 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|StringUtils
+operator|.
+name|isNotEmpty
+argument_list|(
+name|repoIndexDirectory
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
 operator|!
 operator|new
 name|File
@@ -4537,6 +4547,7 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
