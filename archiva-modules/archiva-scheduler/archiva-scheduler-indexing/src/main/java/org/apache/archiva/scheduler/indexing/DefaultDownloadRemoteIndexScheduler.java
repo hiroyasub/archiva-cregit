@@ -423,16 +423,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -496,7 +486,7 @@ operator|.
 name|getLogger
 argument_list|(
 name|getClass
-argument_list|( )
+argument_list|()
 argument_list|)
 decl_stmt|;
 annotation|@
@@ -575,14 +565,14 @@ name|CopyOnWriteArrayList
 argument_list|<
 name|String
 argument_list|>
-argument_list|( )
+argument_list|()
 decl_stmt|;
 annotation|@
 name|PostConstruct
 specifier|public
 name|void
 name|startup
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|ArchivaException
 throws|,
@@ -604,17 +594,6 @@ name|this
 argument_list|)
 expr_stmt|;
 comment|// TODO add indexContexts even if null
-comment|// FIXME get this from ArchivaAdministration
-name|String
-name|appServerBase
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"appserver.base"
-argument_list|)
-decl_stmt|;
 name|nexusIndexer
 operator|=
 name|plexusSisuBridge
@@ -645,7 +624,7 @@ range|:
 name|remoteRepositoryAdmin
 operator|.
 name|getRemoteRepositories
-argument_list|( )
+argument_list|()
 control|)
 block|{
 name|String
@@ -656,121 +635,37 @@ operator|+
 name|remoteRepository
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 decl_stmt|;
-if|if
-condition|(
+name|IndexingContext
+name|context
+init|=
 name|nexusIndexer
 operator|.
 name|getIndexingContexts
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
 name|contextKey
 argument_list|)
-operator|!=
+decl_stmt|;
+if|if
+condition|(
+name|context
+operator|==
 literal|null
 condition|)
 block|{
 continue|continue;
 block|}
-comment|// create path
-name|File
-name|repoDir
-init|=
-operator|new
-name|File
-argument_list|(
-name|appServerBase
-argument_list|,
-literal|"data/remotes/"
-operator|+
-name|remoteRepository
-operator|.
-name|getId
-argument_list|( )
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|repoDir
-operator|.
-name|exists
-argument_list|( )
-condition|)
-block|{
-name|repoDir
-operator|.
-name|mkdirs
-argument_list|( )
-expr_stmt|;
-block|}
-name|File
-name|indexDirectory
-init|=
-operator|new
-name|File
-argument_list|(
-name|repoDir
-argument_list|,
-literal|".index"
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|indexDirectory
-operator|.
-name|exists
-argument_list|( )
-condition|)
-block|{
-name|indexDirectory
-operator|.
-name|mkdirs
-argument_list|( )
-expr_stmt|;
-block|}
-name|nexusIndexer
-operator|.
-name|addIndexingContext
-argument_list|(
-name|contextKey
-argument_list|,
-name|remoteRepository
-operator|.
-name|getId
-argument_list|( )
-argument_list|,
-name|repoDir
-argument_list|,
-name|indexDirectory
-argument_list|,
-name|remoteRepository
-operator|.
-name|getUrl
-argument_list|( )
-argument_list|,
-name|calculateIndexRemoteUrl
-argument_list|(
-name|remoteRepository
-argument_list|)
-argument_list|,
-name|mavenIndexerUtils
-operator|.
-name|getAllIndexCreators
-argument_list|( )
-argument_list|)
-expr_stmt|;
 comment|// TODO record jobs from configuration
 if|if
 condition|(
 name|remoteRepository
 operator|.
 name|isDownloadRemoteIndex
-argument_list|( )
+argument_list|()
 operator|&&
 name|StringUtils
 operator|.
@@ -779,17 +674,20 @@ argument_list|(
 name|remoteRepository
 operator|.
 name|getCronExpression
-argument_list|( )
+argument_list|()
 argument_list|)
 condition|)
 block|{
 name|boolean
 name|fullDownload
 init|=
-name|indexDirectory
+name|context
+operator|.
+name|getIndexDirectoryFile
+argument_list|()
 operator|.
 name|list
-argument_list|( )
+argument_list|()
 operator|.
 name|length
 operator|==
@@ -800,7 +698,7 @@ argument_list|(
 name|remoteRepository
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|,
 literal|false
 argument_list|,
@@ -815,7 +713,7 @@ name|PreDestroy
 specifier|public
 name|void
 name|shutdown
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|RepositoryAdminException
 throws|,
@@ -829,7 +727,7 @@ range|:
 name|remoteRepositoryAdmin
 operator|.
 name|getRemoteRepositories
-argument_list|( )
+argument_list|()
 control|)
 block|{
 name|String
@@ -840,7 +738,7 @@ operator|+
 name|remoteRepository
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|IndexingContext
 name|context
@@ -848,7 +746,7 @@ init|=
 name|nexusIndexer
 operator|.
 name|getIndexingContexts
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -945,7 +843,7 @@ argument_list|(
 name|remoteRepository
 operator|.
 name|getRemoteDownloadNetworkProxyId
-argument_list|( )
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -958,7 +856,7 @@ argument_list|(
 name|remoteRepository
 operator|.
 name|getRemoteDownloadNetworkProxyId
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -977,7 +875,7 @@ argument_list|,
 name|remoteRepository
 operator|.
 name|getRemoteDownloadNetworkProxyId
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -987,7 +885,7 @@ name|downloadRemoteIndexTaskRequest
 init|=
 operator|new
 name|DownloadRemoteIndexTaskRequest
-argument_list|( )
+argument_list|()
 operator|.
 name|setRemoteRepository
 argument_list|(
@@ -1033,7 +931,7 @@ argument_list|,
 name|remoteRepository
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// do it in async
@@ -1053,7 +951,7 @@ argument_list|)
 argument_list|,
 operator|new
 name|Date
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1068,12 +966,12 @@ argument_list|,
 name|remoteRepository
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|,
 name|remoteRepository
 operator|.
 name|getCronExpression
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|taskScheduler
@@ -1096,7 +994,7 @@ argument_list|(
 name|remoteRepository
 operator|.
 name|getCronExpression
-argument_list|( )
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1115,7 +1013,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|( )
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
@@ -1127,129 +1025,17 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|( )
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
 throw|;
 block|}
 block|}
-specifier|protected
-name|String
-name|calculateIndexRemoteUrl
-parameter_list|(
-name|RemoteRepository
-name|remoteRepository
-parameter_list|)
-block|{
-if|if
-condition|(
-name|StringUtils
-operator|.
-name|startsWith
-argument_list|(
-name|remoteRepository
-operator|.
-name|getRemoteIndexUrl
-argument_list|( )
-argument_list|,
-literal|"http"
-argument_list|)
-condition|)
-block|{
-name|String
-name|baseUrl
-init|=
-name|remoteRepository
-operator|.
-name|getRemoteIndexUrl
-argument_list|( )
-decl_stmt|;
-return|return
-name|baseUrl
-operator|.
-name|endsWith
-argument_list|(
-literal|"/"
-argument_list|)
-condition|?
-name|StringUtils
-operator|.
-name|substringBeforeLast
-argument_list|(
-name|baseUrl
-argument_list|,
-literal|"/"
-argument_list|)
-else|:
-name|baseUrl
-return|;
-block|}
-name|String
-name|baseUrl
-init|=
-name|StringUtils
-operator|.
-name|endsWith
-argument_list|(
-name|remoteRepository
-operator|.
-name|getUrl
-argument_list|( )
-argument_list|,
-literal|"/"
-argument_list|)
-condition|?
-name|StringUtils
-operator|.
-name|substringBeforeLast
-argument_list|(
-name|remoteRepository
-operator|.
-name|getUrl
-argument_list|( )
-argument_list|,
-literal|"/"
-argument_list|)
-else|:
-name|remoteRepository
-operator|.
-name|getUrl
-argument_list|( )
-decl_stmt|;
-name|baseUrl
-operator|=
-name|StringUtils
-operator|.
-name|isEmpty
-argument_list|(
-name|remoteRepository
-operator|.
-name|getRemoteIndexUrl
-argument_list|( )
-argument_list|)
-condition|?
-name|baseUrl
-operator|+
-literal|"/.index"
-else|:
-name|baseUrl
-operator|+
-literal|"/"
-operator|+
-name|remoteRepository
-operator|.
-name|getRemoteIndexUrl
-argument_list|( )
-expr_stmt|;
-return|return
-name|baseUrl
-return|;
-block|}
 specifier|public
 name|TaskScheduler
 name|getTaskScheduler
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|taskScheduler

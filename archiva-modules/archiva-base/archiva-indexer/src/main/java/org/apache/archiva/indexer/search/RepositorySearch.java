@@ -19,6 +19,22 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|admin
+operator|.
+name|model
+operator|.
+name|RepositoryAdminException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -37,12 +53,22 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_interface
 specifier|public
 interface|interface
 name|RepositorySearch
 block|{
-comment|/**      * Quick search.      *       * @param principal      * @param selectedRepos      * @param term      * @param limits      * @param previousSearchTerms       * @return      */
+comment|/**      * Quick search.      *      * @param principal      * @param selectedRepos      * @param term      * @param limits      * @param previousSearchTerms      * @return      */
 name|SearchResults
 name|search
 parameter_list|(
@@ -70,7 +96,7 @@ parameter_list|)
 throws|throws
 name|RepositorySearchException
 function_decl|;
-comment|/**      * Advanced search.      *       * @param principal      * @param searchFields      * @param limits      * @return      */
+comment|/**      * Advanced search.      *      * @param principal      * @param searchFields      * @param limits      * @return      */
 name|SearchResults
 name|search
 parameter_list|(
@@ -103,6 +129,18 @@ name|selectedRepos
 parameter_list|)
 throws|throws
 name|RepositorySearchException
+function_decl|;
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|getRemoteIndexingContextIds
+parameter_list|(
+name|String
+name|managedRepoId
+parameter_list|)
+throws|throws
+name|RepositoryAdminException
 function_decl|;
 block|}
 end_interface
