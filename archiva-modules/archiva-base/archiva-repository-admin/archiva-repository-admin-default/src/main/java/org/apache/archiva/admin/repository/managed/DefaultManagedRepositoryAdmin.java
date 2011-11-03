@@ -772,7 +772,7 @@ name|indexer
 decl_stmt|;
 annotation|@
 name|PostConstruct
-specifier|private
+specifier|public
 name|void
 name|initialize
 parameter_list|()
@@ -838,7 +838,7 @@ block|}
 block|}
 annotation|@
 name|PreDestroy
-specifier|private
+specifier|public
 name|void
 name|shutdown
 parameter_list|()
@@ -1893,6 +1893,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// delete content only if directory exists
 name|nexusIndexer
 operator|.
 name|removeIndexingContext
@@ -1900,6 +1901,14 @@ argument_list|(
 name|context
 argument_list|,
 name|deleteContent
+operator|&&
+name|context
+operator|.
+name|getIndexDirectoryFile
+argument_list|()
+operator|.
+name|exists
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2826,6 +2835,21 @@ name|managedRepository
 argument_list|,
 literal|".indexer"
 argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|indexDirectory
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+name|indexDirectory
+operator|.
+name|mkdirs
+argument_list|()
 expr_stmt|;
 block|}
 name|context

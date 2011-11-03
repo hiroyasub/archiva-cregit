@@ -418,7 +418,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|/**          Configuration config = archivaConfiguration.getConfiguration();          config.removeManagedRepository( config.findManagedRepositoryById( TEST_REPO_ID ) );          config.addManagedRepository( getRepoConfiguration( TEST_REPO_ID, TEST_REPO_NAME ) );          **/
 name|applicationContext
 operator|.
 name|getBean
@@ -434,7 +433,7 @@ name|TEST_REPO_ID
 argument_list|,
 literal|null
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|applicationContext
@@ -720,7 +719,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|/*Configuration config = archivaConfiguration.getConfiguration();         config.removeManagedRepository( config.findManagedRepositoryById( TEST_REPO_ID ) );         config.addManagedRepository( getRepoConfiguration( TEST_REPO_ID, TEST_REPO_NAME ) );*/
 name|applicationContext
 operator|.
 name|getBean
@@ -847,7 +845,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|/*         Configuration config = archivaConfiguration.getConfiguration();         config.removeManagedRepository( config.findManagedRepositoryById( TEST_REPO_ID ) );         config.addManagedRepository( getRepoConfiguration( TEST_REPO_ID, TEST_REPO_NAME ) );         config.addManagedRepository( getRepoConfiguration( RELEASES_TEST_REPO_ID, RELEASES_TEST_REPO_NAME ) );         */
 name|applicationContext
 operator|.
 name|getBean
@@ -1093,7 +1090,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|/*         Configuration config = archivaConfiguration.getConfiguration();         config.removeManagedRepository( config.findManagedRepositoryById( TEST_REPO_ID ) );         config.addManagedRepository( getRepoConfiguration( TEST_REPO_ID, TEST_REPO_NAME ) );         */
 name|applicationContext
 operator|.
 name|getBean
