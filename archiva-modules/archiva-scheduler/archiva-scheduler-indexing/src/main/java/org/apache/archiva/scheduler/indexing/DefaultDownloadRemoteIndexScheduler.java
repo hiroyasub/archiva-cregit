@@ -907,9 +907,9 @@ argument_list|(
 name|wagonFactory
 argument_list|)
 operator|.
-name|setNexusIndexer
+name|setRemoteRepositoryAdmin
 argument_list|(
-name|nexusIndexer
+name|remoteRepositoryAdmin
 argument_list|)
 operator|.
 name|setIndexUpdater
