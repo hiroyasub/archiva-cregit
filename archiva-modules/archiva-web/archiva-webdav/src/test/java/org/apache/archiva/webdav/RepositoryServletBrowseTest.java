@@ -85,16 +85,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|servlet
@@ -105,8 +95,18 @@ name|HttpServletResponse
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
 begin_comment
-comment|/**  * RepositoryServletBrowseTest   *  * @version $Id$  */
+comment|/**  * RepositoryServletBrowseTest  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -198,7 +198,8 @@ decl_stmt|;
 name|WebResponse
 name|response
 init|=
-name|sc
+name|getServletUnitClient
+argument_list|()
 operator|.
 name|getResponse
 argument_list|(
@@ -228,6 +229,8 @@ operator|new
 name|String
 index|[]
 block|{
+literal|".indexer"
+block|,
 literal|"commons-lang/"
 block|,
 literal|"net/"
@@ -267,7 +270,8 @@ decl_stmt|;
 name|WebResponse
 name|response
 init|=
-name|sc
+name|getServletUnitClient
+argument_list|()
 operator|.
 name|getResponse
 argument_list|(
@@ -358,7 +362,8 @@ decl_stmt|;
 name|WebResponse
 name|response
 init|=
-name|sc
+name|getServletUnitClient
+argument_list|()
 operator|.
 name|getResponse
 argument_list|(
@@ -389,7 +394,8 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|sc
+name|getServletUnitClient
+argument_list|()
 operator|.
 name|getResponse
 argument_list|(
@@ -420,7 +426,8 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|sc
+name|getServletUnitClient
+argument_list|()
 operator|.
 name|getResponse
 argument_list|(
@@ -451,7 +458,8 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|sc
+name|getServletUnitClient
+argument_list|()
 operator|.
 name|getResponse
 argument_list|(

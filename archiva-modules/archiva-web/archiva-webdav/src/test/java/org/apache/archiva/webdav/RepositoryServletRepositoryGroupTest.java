@@ -659,7 +659,8 @@ decl_stmt|;
 name|WebResponse
 name|response
 init|=
-name|sc
+name|getServletUnitClient
+argument_list|()
 operator|.
 name|getResponse
 argument_list|(
@@ -747,7 +748,8 @@ decl_stmt|;
 name|WebResponse
 name|response
 init|=
-name|sc
+name|getServletUnitClient
+argument_list|()
 operator|.
 name|getResponse
 argument_list|(
@@ -805,7 +807,8 @@ decl_stmt|;
 name|WebResponse
 name|response
 init|=
-name|sc
+name|getServletUnitClient
+argument_list|()
 operator|.
 name|getResponse
 argument_list|(
@@ -851,7 +854,8 @@ decl_stmt|;
 name|WebResponse
 name|response
 init|=
-name|sc
+name|getServletUnitClient
+argument_list|()
 operator|.
 name|getResponse
 argument_list|(
@@ -917,7 +921,8 @@ decl_stmt|;
 name|WebResponse
 name|response
 init|=
-name|sc
+name|getServletUnitClient
+argument_list|()
 operator|.
 name|getResponse
 argument_list|(
@@ -1042,7 +1047,8 @@ decl_stmt|;
 name|WebResponse
 name|response
 init|=
-name|sc
+name|getServletUnitClient
+argument_list|()
 operator|.
 name|getResource
 argument_list|(
@@ -1242,7 +1248,8 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|sc
+name|getServletUnitClient
+argument_list|()
 operator|.
 name|getResource
 argument_list|(
@@ -1281,7 +1288,8 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|sc
+name|getServletUnitClient
+argument_list|()
 operator|.
 name|getResource
 argument_list|(
@@ -1402,7 +1410,8 @@ decl_stmt|;
 name|WebResponse
 name|response
 init|=
-name|sc
+name|getServletUnitClient
+argument_list|()
 operator|.
 name|getResource
 argument_list|(
