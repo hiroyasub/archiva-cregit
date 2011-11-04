@@ -39,6 +39,48 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|Lock
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|LockReleaseFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|NativeFSLockFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|index
@@ -187,6 +229,16 @@ name|ServletContextListener
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Olivier Lamy  */
 end_comment
@@ -242,7 +294,7 @@ name|class
 argument_list|)
 expr_stmt|;
 name|cleanupIndex
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -255,7 +307,7 @@ throws|throws
 name|Exception
 block|{
 name|cleanupIndex
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 specifier|public
@@ -293,7 +345,7 @@ name|class
 argument_list|)
 expr_stmt|;
 name|cleanupIndex
-argument_list|(  )
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch
@@ -339,7 +391,7 @@ block|{
 try|try
 block|{
 name|cleanupIndex
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch
@@ -377,7 +429,7 @@ block|}
 specifier|public
 name|void
 name|cleanupIndex
-parameter_list|(  )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -424,6 +476,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+comment|/*         try         {             NativeFSLockFactory nativeFSLockFactory =                 new NativeFSLockFactory( new File( "target/appserver-base/data/repositories/internal/.indexer" ) );             Lock lock = nativeFSLockFactory.makeLock( "write.lock" );             lock.release();             log.info( "cleanup lock" );         }         catch ( LockReleaseFailedException e )         {             // ignore         }*/
 block|}
 block|}
 end_class
