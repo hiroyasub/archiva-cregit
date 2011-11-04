@@ -229,7 +229,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|".indexer"
+literal|".indexer/"
 block|,
 literal|"commons-lang/"
 block|,
