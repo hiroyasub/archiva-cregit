@@ -507,19 +507,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|BeforeClass
-specifier|public
-specifier|static
-name|void
-name|lockCleanup
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|/*          try         {              /*             Field locks = NativeFSLockFactory.class.getDeclaredClasses()[0].getField( "LOCK_HELD" );             locks.setAccessible( true );             Method clear = locks.getClass().getMethod( "clear" );              clear.invoke( field, null );             */
-comment|/*             NativeFSLockFactory nativeFSLockFactory =                 new NativeFSLockFactory( new File( "target/appserver-base/data/repositories/internal/.indexer" ) );              Lock lock = nativeFSLockFactory.makeLock( "write.lock" );             lock.release();             LoggerFactory.getLogger( AbstractRepositoryServletTestCase.class ).info( "cleanup lock" );           }         catch ( LockReleaseFailedException e )         {             // ignore         }         */
-block|}
-annotation|@
 name|Before
 specifier|public
 name|void
@@ -528,9 +515,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|lockCleanup
-argument_list|()
-expr_stmt|;
 name|super
 operator|.
 name|setUp

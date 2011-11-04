@@ -476,7 +476,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*         try         {             NativeFSLockFactory nativeFSLockFactory =                 new NativeFSLockFactory( new File( "target/appserver-base/data/repositories/internal/.indexer" ) );             Lock lock = nativeFSLockFactory.makeLock( "write.lock" );             lock.release();             log.info( "cleanup lock" );         }         catch ( LockReleaseFailedException e )         {             // ignore         }*/
 block|}
 block|}
 end_class
