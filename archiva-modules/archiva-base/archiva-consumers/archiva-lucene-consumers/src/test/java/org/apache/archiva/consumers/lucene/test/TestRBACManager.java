@@ -183,6 +183,24 @@ begin_import
 import|import
 name|org
 operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|redback
+operator|.
+name|rbac
+operator|.
+name|memory
+operator|.
+name|MemoryResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|stereotype
@@ -688,7 +706,6 @@ block|{
 return|return
 literal|false
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|Operation
@@ -705,7 +722,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|Operation
@@ -722,7 +738,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|List
@@ -737,7 +752,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -753,7 +767,6 @@ name|RbacObjectInvalidException
 throws|,
 name|RbacManagerException
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -769,7 +782,6 @@ name|RbacObjectInvalidException
 throws|,
 name|RbacManagerException
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|Resource
@@ -782,9 +794,10 @@ throws|throws
 name|RbacManagerException
 block|{
 return|return
-literal|null
+operator|new
+name|MemoryResource
+argument_list|()
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|boolean
