@@ -316,6 +316,5 @@ block|}
 block|}
 end_class
 
-unit|}
 end_unit
 
