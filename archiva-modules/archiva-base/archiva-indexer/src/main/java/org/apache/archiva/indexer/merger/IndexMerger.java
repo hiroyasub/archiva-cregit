@@ -19,6 +19,22 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|index
+operator|.
+name|context
+operator|.
+name|IndexingContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -46,8 +62,16 @@ specifier|public
 interface|interface
 name|IndexMerger
 block|{
-comment|/**      * @param repositoriesIds repositories Ids to merge content      * @param packIndex will generate a downloadable index      * @return a temporary directory with a merge index (directory marked deleteOnExit)      * @throws IndexMergerException      */
-name|File
+comment|/**      * default tmp created group index ttl in minutes      */
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_GROUP_INDEX_TTL
+init|=
+literal|1
+decl_stmt|;
+comment|/**      * @param repositoriesIds repositories Ids to merge content      * @param packIndex       will generate a downloadable index      * @return a temporary directory with a merge index (directory marked deleteOnExit)      * @throws IndexMergerException      */
+name|IndexingContext
 name|buildMergedIndex
 parameter_list|(
 name|Collection
@@ -61,6 +85,20 @@ name|packIndex
 parameter_list|)
 throws|throws
 name|IndexMergerException
+function_decl|;
+name|void
+name|cleanTemporaryGroupIndex
+parameter_list|(
+name|TemporaryGroupIndex
+name|temporaryGroupIndex
+parameter_list|)
+function_decl|;
+name|Collection
+argument_list|<
+name|TemporaryGroupIndex
+argument_list|>
+name|getTemporaryGroupIndexes
+parameter_list|()
 function_decl|;
 block|}
 end_interface
