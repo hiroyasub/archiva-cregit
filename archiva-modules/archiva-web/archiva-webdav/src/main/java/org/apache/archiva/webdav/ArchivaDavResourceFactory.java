@@ -5699,9 +5699,10 @@ name|getCreationTime
 argument_list|()
 operator|>
 operator|(
-name|IndexMerger
+name|indexMerger
 operator|.
-name|DEFAULT_GROUP_INDEX_TTL
+name|getDefaultGroupIndexTtl
+argument_list|()
 operator|*
 literal|60
 operator|*

@@ -62,13 +62,13 @@ specifier|public
 interface|interface
 name|IndexMerger
 block|{
-comment|/**      * default tmp created group index ttl in minutes      */
+comment|/**      * system property which contains the value in s for ttl of temporary index groups      */
 specifier|static
 specifier|final
-name|int
-name|DEFAULT_GROUP_INDEX_TTL
+name|String
+name|TMP_GROUP_INDEX_SYS_KEY
 init|=
-literal|30
+literal|"archiva.tmp.group.index.ttl"
 decl_stmt|;
 comment|/**      * @param repositoriesIds repositories Ids to merge content      * @param packIndex       will generate a downloadable index      * @return a temporary directory with a merge index (directory marked deleteOnExit)      * @throws IndexMergerException      */
 name|IndexingContext
@@ -98,6 +98,11 @@ argument_list|<
 name|TemporaryGroupIndex
 argument_list|>
 name|getTemporaryGroupIndexes
+parameter_list|()
+function_decl|;
+comment|/**      * @return ttl of temporay group index      */
+name|int
+name|getDefaultGroupIndexTtl
 parameter_list|()
 function_decl|;
 block|}
