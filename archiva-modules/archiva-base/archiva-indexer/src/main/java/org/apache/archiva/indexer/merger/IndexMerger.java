@@ -68,7 +68,7 @@ specifier|final
 name|int
 name|DEFAULT_GROUP_INDEX_TTL
 init|=
-literal|1
+literal|30
 decl_stmt|;
 comment|/**      * @param repositoriesIds repositories Ids to merge content      * @param packIndex       will generate a downloadable index      * @return a temporary directory with a merge index (directory marked deleteOnExit)      * @throws IndexMergerException      */
 name|IndexingContext
