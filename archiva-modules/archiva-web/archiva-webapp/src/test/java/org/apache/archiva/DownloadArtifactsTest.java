@@ -472,6 +472,15 @@ name|previousAppServerBase
 argument_list|)
 expr_stmt|;
 block|}
+specifier|protected
+name|String
+name|getSpringConfigLocation
+parameter_list|()
+block|{
+return|return
+literal|"classpath*:META-INF/spring-context.xml classpath*:spring-context-artifacts-download.xml"
+return|;
+block|}
 annotation|@
 name|Before
 specifier|public
@@ -503,8 +512,9 @@ init|=
 operator|new
 name|ServletHolder
 argument_list|(
-name|getServletClass
-argument_list|()
+name|RedirectServlet
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|ServletContextHandler
@@ -917,19 +927,6 @@ name|Collections
 operator|.
 name|emptyList
 argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
-specifier|protected
-name|Class
-name|getServletClass
-parameter_list|()
-block|{
-return|return
-name|RedirectServlet
-operator|.
-name|class
 return|;
 block|}
 specifier|public

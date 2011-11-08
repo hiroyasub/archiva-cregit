@@ -21,21 +21,13 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|util
+name|atlassian
 operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|xmlrpc
 operator|.
-name|util
-operator|.
-name|List
+name|ServiceObject
 import|;
 end_import
 
@@ -81,13 +73,21 @@ end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|atlassian
+name|util
 operator|.
-name|xmlrpc
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|ServiceObject
+name|util
+operator|.
+name|List
 import|;
 end_import
 
