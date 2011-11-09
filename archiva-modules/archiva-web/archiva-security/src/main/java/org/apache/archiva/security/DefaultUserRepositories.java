@@ -61,6 +61,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|security
+operator|.
+name|common
+operator|.
+name|ArchivaRoleConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -279,21 +295,18 @@ name|DefaultUserRepositories
 implements|implements
 name|UserRepositories
 block|{
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|SecuritySystem
 name|securitySystem
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|RoleManager
 name|roleManager
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private

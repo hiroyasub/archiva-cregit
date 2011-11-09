@@ -35,13 +35,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|web
-operator|.
-name|xmlrpc
-operator|.
 name|security
 operator|.
-name|XmlRpcAuthenticator
+name|common
+operator|.
+name|ArchivaRoleConstants
 import|;
 end_import
 
@@ -53,9 +51,13 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|web
+operator|.
+name|xmlrpc
+operator|.
 name|security
 operator|.
-name|ArchivaRoleConstants
+name|XmlRpcAuthenticator
 import|;
 end_import
 
