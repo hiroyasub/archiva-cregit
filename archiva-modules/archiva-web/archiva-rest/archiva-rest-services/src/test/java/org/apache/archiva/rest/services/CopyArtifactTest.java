@@ -67,24 +67,6 @@ name|api
 operator|.
 name|services
 operator|.
-name|ArchivaRestServiceException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|rest
-operator|.
-name|api
-operator|.
-name|services
-operator|.
 name|RepositoriesService
 import|;
 end_import
@@ -178,10 +160,10 @@ name|SOURCE_REPO_ID
 init|=
 literal|"test-origin-repo"
 decl_stmt|;
-specifier|private
+specifier|protected
 name|void
 name|initSourceTargetRepo
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -199,7 +181,7 @@ condition|(
 name|targetRepo
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 condition|)
 block|{
 name|FileUtils
@@ -215,13 +197,13 @@ argument_list|(
 name|targetRepo
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|targetRepo
 operator|.
 name|mkdirs
-argument_list|( )
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -268,7 +250,7 @@ name|ManagedRepository
 name|managedRepository
 init|=
 name|getTestManagedRepository
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|managedRepository
 operator|.
@@ -284,7 +266,7 @@ argument_list|(
 name|targetRepo
 operator|.
 name|getCanonicalPath
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|managedRepository
@@ -331,7 +313,7 @@ condition|(
 name|originRepo
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 condition|)
 block|{
 name|FileUtils
@@ -347,7 +329,7 @@ argument_list|(
 name|originRepo
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|FileUtils
@@ -407,7 +389,7 @@ block|}
 name|managedRepository
 operator|=
 name|getTestManagedRepository
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|managedRepository
 operator|.
@@ -423,7 +405,7 @@ argument_list|(
 name|originRepo
 operator|.
 name|getCanonicalPath
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|getManagedRepositoriesService
@@ -450,7 +432,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|getArchivaAdministrationService
-argument_list|( )
+argument_list|()
 operator|.
 name|addKnownContentConsumer
 argument_list|(
@@ -458,7 +440,7 @@ literal|"create-missing-checksums"
 argument_list|)
 expr_stmt|;
 name|getArchivaAdministrationService
-argument_list|( )
+argument_list|()
 operator|.
 name|addKnownContentConsumer
 argument_list|(
@@ -469,7 +451,7 @@ block|}
 specifier|public
 name|void
 name|clean
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -561,14 +543,14 @@ name|Test
 specifier|public
 name|void
 name|copyToAnEmptyRepo
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
 try|try
 block|{
 name|initSourceTargetRepo
-argument_list|( )
+argument_list|()
 expr_stmt|;
 comment|// START SNIPPET: copy-artifact
 comment|// configure the artifact you want to copy
@@ -578,7 +560,7 @@ name|artifactTransferRequest
 init|=
 operator|new
 name|ArtifactTransferRequest
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|artifactTransferRequest
 operator|.
@@ -655,7 +637,7 @@ name|TARGET_REPO_ID
 argument_list|)
 operator|.
 name|getLocation
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|File
 name|artifact
@@ -673,7 +655,7 @@ argument_list|(
 name|artifact
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|File
@@ -694,12 +676,12 @@ operator|+
 name|pom
 operator|.
 name|getPath
-argument_list|( )
+argument_list|()
 argument_list|,
 name|pom
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// TODO find a way to force metadata generation and test it !!
@@ -707,7 +689,7 @@ block|}
 finally|finally
 block|{
 name|clean
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -723,21 +705,21 @@ argument_list|)
 specifier|public
 name|void
 name|copyNonExistingArtifact
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Throwable
 block|{
 try|try
 block|{
 name|initSourceTargetRepo
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|ArtifactTransferRequest
 name|artifactTransferRequest
 init|=
 operator|new
 name|ArtifactTransferRequest
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|artifactTransferRequest
 operator|.
@@ -808,7 +790,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|( )
+argument_list|()
 argument_list|,
 literal|"cannot find artifact"
 argument_list|)
@@ -821,7 +803,7 @@ block|}
 finally|finally
 block|{
 name|clean
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -829,15 +811,15 @@ comment|//@Test
 specifier|public
 name|void
 name|copyToAnExistingRepo
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|initSourceTargetRepo
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|clean
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
