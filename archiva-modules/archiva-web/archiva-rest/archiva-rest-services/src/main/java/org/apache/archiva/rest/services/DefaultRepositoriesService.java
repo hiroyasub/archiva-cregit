@@ -3314,7 +3314,7 @@ operator|.
 name|getUser
 argument_list|()
 operator|.
-name|getPrincipal
+name|getUsername
 argument_list|()
 decl_stmt|;
 if|if

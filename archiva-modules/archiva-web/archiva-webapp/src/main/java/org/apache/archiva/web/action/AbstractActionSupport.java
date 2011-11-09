@@ -1086,7 +1086,9 @@ name|getUsername
 parameter_list|()
 block|{
 return|return
-literal|null
+name|this
+operator|.
+name|principal
 return|;
 block|}
 specifier|public
