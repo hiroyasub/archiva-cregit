@@ -47,6 +47,8 @@ block|{
 specifier|private
 name|int
 name|httpErrorCode
+init|=
+literal|500
 decl_stmt|;
 specifier|private
 name|String
