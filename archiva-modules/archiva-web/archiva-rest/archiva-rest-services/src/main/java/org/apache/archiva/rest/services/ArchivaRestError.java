@@ -59,11 +59,11 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"restError"
+literal|"archivaRestError"
 argument_list|)
 specifier|public
 class|class
-name|RestError
+name|ArchivaRestError
 block|{
 specifier|private
 name|int
@@ -78,13 +78,13 @@ name|String
 name|errorMessage
 decl_stmt|;
 specifier|public
-name|RestError
+name|ArchivaRestError
 parameter_list|()
 block|{
 comment|// no op
 block|}
 specifier|public
-name|RestError
+name|ArchivaRestError
 parameter_list|(
 name|ArchivaRestServiceException
 name|e

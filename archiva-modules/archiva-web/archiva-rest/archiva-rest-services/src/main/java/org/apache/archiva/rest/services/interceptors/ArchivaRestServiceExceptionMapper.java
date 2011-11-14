@@ -49,7 +49,7 @@ name|rest
 operator|.
 name|services
 operator|.
-name|RestError
+name|ArchivaRestError
 import|;
 end_import
 
@@ -62,20 +62,6 @@ operator|.
 name|stereotype
 operator|.
 name|Service
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|ws
-operator|.
-name|rs
-operator|.
-name|core
-operator|.
-name|MediaType
 import|;
 end_import
 
@@ -150,11 +136,11 @@ name|ArchivaRestServiceException
 name|e
 parameter_list|)
 block|{
-name|RestError
+name|ArchivaRestError
 name|restError
 init|=
 operator|new
-name|RestError
+name|ArchivaRestError
 argument_list|(
 name|e
 argument_list|)
