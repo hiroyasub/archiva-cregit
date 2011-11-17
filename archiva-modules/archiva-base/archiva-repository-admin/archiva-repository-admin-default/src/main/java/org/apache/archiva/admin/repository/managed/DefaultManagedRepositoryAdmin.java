@@ -2042,10 +2042,13 @@ name|MetadataRepositoryException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|RepositoryAdminException
+comment|//throw new RepositoryAdminException( e.getMessage(), e );
+name|log
+operator|.
+name|warn
 argument_list|(
+literal|"skip error during removing repository from MetadatRepository:"
+operator|+
 name|e
 operator|.
 name|getMessage
@@ -2053,7 +2056,7 @@ argument_list|()
 argument_list|,
 name|e
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 finally|finally
 block|{
