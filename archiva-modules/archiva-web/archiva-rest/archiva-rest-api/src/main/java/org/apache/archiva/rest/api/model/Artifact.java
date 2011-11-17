@@ -166,7 +166,7 @@ specifier|private
 name|String
 name|packaging
 decl_stmt|;
-comment|/**      * file extension of the search result      * @since 1.4-M2      */
+comment|/**      * file extension of the artifact      * @since 1.4-M2      */
 specifier|private
 name|String
 name|fileExtension
