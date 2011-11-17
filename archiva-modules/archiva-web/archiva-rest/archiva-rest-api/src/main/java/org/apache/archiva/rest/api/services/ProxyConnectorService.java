@@ -386,7 +386,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
-comment|/**      *<b>only for enabled/disable or changing bean values except target/source</b>      *      * @param proxyConnector      * @return      *      */
+comment|/**      *<b>only for enabled/disable or changing bean values except target/source</b>      *      * @param proxyConnector      * @return      */
 annotation|@
 name|Path
 argument_list|(

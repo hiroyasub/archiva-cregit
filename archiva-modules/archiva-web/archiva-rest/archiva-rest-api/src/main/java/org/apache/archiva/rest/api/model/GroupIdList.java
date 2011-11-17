@@ -80,7 +80,7 @@ name|groupIds
 decl_stmt|;
 specifier|public
 name|GroupIdList
-parameter_list|(  )
+parameter_list|()
 block|{
 comment|// no op
 block|}

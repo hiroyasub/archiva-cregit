@@ -135,7 +135,7 @@ name|String
 name|ping
 parameter_list|()
 function_decl|;
-comment|/**      * same as #ping but check authz      * @return      */
+comment|/**      * same as #ping but check authz      *      * @return      */
 annotation|@
 name|Path
 argument_list|(
