@@ -68,7 +68,7 @@ specifier|public
 interface|interface
 name|RepositorySearch
 block|{
-comment|/**      * Quick search.      *      * @param principal      * @param selectedRepos      * @param term      * @param limits      * @param previousSearchTerms      * @return      */
+comment|/**      * Quick search by won't return artifact with file extension pom      *      * @param principal      * @param selectedRepos      * @param term      * @param limits      * @param previousSearchTerms      * @return      */
 name|SearchResults
 name|search
 parameter_list|(

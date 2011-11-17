@@ -1318,8 +1318,6 @@ name|getVersions
 argument_list|()
 control|)
 block|{
-comment|/*                     Artifact versionned = new Artifact(  );                     versionned.setArtifactId( hit.getArtifactId());                     versionned.setGroupId( hit.getGroupId() );                     versionned.setRepositoryId(hit.getRepositoryId() );                       versionned.setBundleExportPackage( hit.getBundleExportPackage() );                     versionned.setBundleExportService( hit.getBundleExportService());                     versionned.setBundleSymbolicName(hit.getBundleSymbolicName() );                     versionned.setBundleVersion( artifactInfo.bundleVersion );                     versionned.setBundleDescription( artifactInfo.bundleDescription );                     versionned.setBundleDocUrl( artifactInfo.bundleDocUrl );                      versionned.setBundleRequireBundle( artifactInfo.bundleRequireBundle );                     versionned.setBundleImportPackage( artifactInfo.bundleImportPackage );                     versionned.setBundleLicense( artifactInfo.bundleLicense );                     versionned.setBundleName( artifactInfo.bundleName );                     versionned.setContext( artifactInfo.context );                     versionned.setGoals( artifactInfo.goals );                     versionned.setPrefix( artifactInfo.prefix );                     // sure ??                     versionned.setUrl( artifactInfo.remoteUrl );                     */
-comment|// FIXME archiva url ??
 name|Artifact
 name|versionned
 init|=
@@ -1380,6 +1378,7 @@ return|return
 name|artifacts
 return|;
 block|}
+comment|/**      * TODO add a configuration mechanism to have configured the base archiva url      * @param httpContext      * @param artifact      * @return      */
 specifier|private
 name|String
 name|getArtifactUrl
