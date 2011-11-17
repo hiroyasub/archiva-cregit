@@ -237,6 +237,8 @@ block|}
 name|createAndIndexRepo
 argument_list|(
 name|testRepoId
+argument_list|,
+literal|"src/test/repo-with-osgi"
 argument_list|)
 expr_stmt|;
 name|SearchService
@@ -353,6 +355,8 @@ block|}
 name|createAndIndexRepo
 argument_list|(
 name|testRepoId
+argument_list|,
+literal|"src/test/repo-with-osgi"
 argument_list|)
 expr_stmt|;
 comment|// START SNIPPET: searchservice-artifact-versions
@@ -471,6 +475,8 @@ block|}
 name|createAndIndexRepo
 argument_list|(
 name|testRepoId
+argument_list|,
+literal|"src/test/repo-with-osgi"
 argument_list|)
 expr_stmt|;
 name|SearchService
@@ -613,6 +619,8 @@ block|}
 name|createAndIndexRepo
 argument_list|(
 name|testRepoId
+argument_list|,
+literal|"src/test/repo-with-osgi"
 argument_list|)
 expr_stmt|;
 name|SearchService
@@ -727,6 +735,8 @@ block|}
 name|createAndIndexRepo
 argument_list|(
 name|testRepoId
+argument_list|,
+literal|"src/test/repo-with-osgi"
 argument_list|)
 expr_stmt|;
 name|SearchService
@@ -839,6 +849,8 @@ block|}
 name|createAndIndexRepo
 argument_list|(
 name|testRepoId
+argument_list|,
+literal|"src/test/repo-with-osgi"
 argument_list|)
 expr_stmt|;
 name|SearchService
@@ -981,6 +993,8 @@ block|}
 name|createAndIndexRepo
 argument_list|(
 name|testRepoId
+argument_list|,
+literal|"src/test/repo-with-osgi"
 argument_list|)
 expr_stmt|;
 name|SearchService
@@ -1106,6 +1120,8 @@ block|}
 name|createAndIndexRepo
 argument_list|(
 name|testRepoId
+argument_list|,
+literal|"src/test/repo-with-osgi"
 argument_list|)
 expr_stmt|;
 name|SearchService
@@ -1235,6 +1251,8 @@ block|}
 name|createAndIndexRepo
 argument_list|(
 name|testRepoId
+argument_list|,
+literal|"src/test/repo-with-osgi"
 argument_list|)
 expr_stmt|;
 name|SearchService
@@ -1315,6 +1333,9 @@ name|createAndIndexRepo
 parameter_list|(
 name|String
 name|testRepoId
+parameter_list|,
+name|String
+name|repoPath
 parameter_list|)
 throws|throws
 name|Exception
@@ -1382,7 +1403,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"src/test/repo-with-osgi"
+name|repoPath
 argument_list|)
 operator|.
 name|getPath
