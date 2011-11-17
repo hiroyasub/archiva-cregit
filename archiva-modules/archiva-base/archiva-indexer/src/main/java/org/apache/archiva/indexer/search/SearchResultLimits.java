@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * SearchResultLimits - used to provide the search some limits on how the results are returned.  * This can provide paging for the   *  * @version $Id: SearchResultLimits.java 718864 2008-11-19 06:33:35Z brett $  */
+comment|/**  * SearchResultLimits - used to provide the search some limits on how the results are returned.  * This can provide paging for the  *  * @version $Id: SearchResultLimits.java 718864 2008-11-19 06:33:35Z brett $  */
 end_comment
 
 begin_class
@@ -26,7 +26,7 @@ specifier|public
 class|class
 name|SearchResultLimits
 block|{
-comment|/**       * Constant to use for {@link #setSelectedPage(int)} to indicate a desire to get ALL PAGES.      * USE WITH CAUTION!!      */
+comment|/**      * Constant to use for {@link #setSelectedPage(int)} to indicate a desire to get ALL PAGES.      * USE WITH CAUTION!!      */
 specifier|public
 specifier|static
 specifier|final
@@ -73,7 +73,7 @@ return|return
 name|pageSize
 return|;
 block|}
-comment|/**      * Set page size for maximum # of hits to return per page.      *       * @param pageSize size of page by # of hits. (maximum value is 200)      */
+comment|/**      * Set page size for maximum # of hits to return per page.      *      * @param pageSize size of page by # of hits. (maximum value is 200)      */
 specifier|public
 name|void
 name|setPageSize

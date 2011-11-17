@@ -269,7 +269,7 @@ operator|=
 name|returnedHitsCount
 expr_stmt|;
 block|}
-comment|/**      * @since 1.4-M1      * @return      */
+comment|/**      * @return      * @since 1.4-M1      */
 specifier|public
 name|int
 name|getTotalHitsMapSize
@@ -279,7 +279,7 @@ return|return
 name|totalHitsMapSize
 return|;
 block|}
-comment|/**      * @since 1.4-M1      * @param totalHitsMapSize      */
+comment|/**      * @param totalHitsMapSize      * @since 1.4-M1      */
 specifier|public
 name|void
 name|setTotalHitsMapSize
