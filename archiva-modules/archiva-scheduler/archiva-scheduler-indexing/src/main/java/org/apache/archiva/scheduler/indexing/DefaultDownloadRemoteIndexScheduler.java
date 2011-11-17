@@ -1011,6 +1011,11 @@ operator|.
 name|info
 argument_list|(
 literal|"remote repository {} configured with downloadRemoteIndexOnStartup schedule now a download"
+argument_list|,
+name|remoteRepository
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|taskScheduler
