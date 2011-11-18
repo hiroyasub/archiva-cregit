@@ -38,7 +38,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * BaseFile - convenient File object that tracks the Base Directory and can provide relative path values  * for the file object based on that Base Directory value.   *  * @version $Id$  */
+comment|/**  * BaseFile - convenient File object that tracks the Base Directory and can provide relative path values  * for the file object based on that Base Directory value.  *  * @version $Id$  */
 end_comment
 
 begin_class

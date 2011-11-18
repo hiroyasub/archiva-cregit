@@ -52,7 +52,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PathUtil - simple utility methods for path manipulation.   *  * @version $Id$  */
+comment|/**  * PathUtil - simple utility methods for path manipulation.  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -160,7 +160,7 @@ name|pathCorrected
 return|;
 block|}
 block|}
-comment|/**      * Given a basedir and a child file, return the relative path to the child.      *       * @param basedir the basedir.      * @param file the file to get the relative path for.      * @return the relative path to the child. (NOTE: this path will NOT start with a {@link File#separator} character)      */
+comment|/**      * Given a basedir and a child file, return the relative path to the child.      *      * @param basedir the basedir.      * @param file    the file to get the relative path for.      * @return the relative path to the child. (NOTE: this path will NOT start with a {@link File#separator} character)      */
 specifier|public
 specifier|static
 name|String
@@ -185,7 +185,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Given a basedir and a child file, return the relative path to the child.      *       * @param basedir the basedir.      * @param child the child path (can be a full path)      * @return the relative path to the child. (NOTE: this path will NOT start with a {@link File#separator} character)      */
+comment|/**      * Given a basedir and a child file, return the relative path to the child.      *      * @param basedir the basedir.      * @param child   the child path (can be a full path)      * @return the relative path to the child. (NOTE: this path will NOT start with a {@link File#separator} character)      */
 specifier|public
 specifier|static
 name|String

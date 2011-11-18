@@ -48,7 +48,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DateUtil - some (not-so) common date utility methods.   *  * @version $Id$  */
+comment|/**  * DateUtil - some (not-so) common date utility methods.  *  * @version $Id$  */
 end_comment
 
 begin_class

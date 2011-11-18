@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Version utility methods.   *  * @version $Id$  */
+comment|/**  * Version utility methods.  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -187,7 +187,7 @@ operator|.
 name|CASE_INSENSITIVE
 argument_list|)
 decl_stmt|;
-comment|/**      *<p>      * Tests if the unknown string contains elements that identify it as a version string (or not).      *</p>      *       *<p>      * The algorithm tests each part of the string that is delimited by a '-' (dash) character.      * If 75% or more of the sections are identified as 'version' strings, the result is      * determined to be of a high probability to be version identifier string.      *</p>      *       * @param unknown the unknown string to test.      * @return true if the unknown string is likely a version string.      */
+comment|/**      *<p>      * Tests if the unknown string contains elements that identify it as a version string (or not).      *</p>      *<p/>      *<p>      * The algorithm tests each part of the string that is delimited by a '-' (dash) character.      * If 75% or more of the sections are identified as 'version' strings, the result is      * determined to be of a high probability to be version identifier string.      *</p>      *      * @param unknown the unknown string to test.      * @return true if the unknown string is likely a version string.      */
 specifier|public
 specifier|static
 name|boolean
@@ -318,7 +318,7 @@ name|threshold
 operator|)
 return|;
 block|}
-comment|/**      *<p>      * Tests if the identifier is a known simple version keyword.      *</p>      *       *<p>      * This method is different from {@link #isVersion(String)} in that it tests the whole input string in      * one go as a simple identifier. (eg "alpha", "1.0", "beta", "debug", "latest", "rc#", etc...)      *</p>      *       * @param identifier the identifier to test.      * @return true if the unknown string is likely a version string.      */
+comment|/**      *<p>      * Tests if the identifier is a known simple version keyword.      *</p>      *<p/>      *<p>      * This method is different from {@link #isVersion(String)} in that it tests the whole input string in      * one go as a simple identifier. (eg "alpha", "1.0", "beta", "debug", "latest", "rc#", etc...)      *</p>      *      * @param identifier the identifier to test.      * @return true if the unknown string is likely a version string.      */
 specifier|public
 specifier|static
 name|boolean
@@ -433,7 +433,7 @@ name|version
 return|;
 block|}
 block|}
-comment|/**      *<p>      * Get the release version of the snapshot version.      *</p>      *       *<p>      * If snapshot version is 1.0-SNAPSHOT, then release version would be 1.0      * And if snapshot version is 1.0-20070113.163208-1.jar, then release version would still be 1.0      *</p>      *       * @param snapshotVersion      * @return      */
+comment|/**      *<p>      * Get the release version of the snapshot version.      *</p>      *<p/>      *<p>      * If snapshot version is 1.0-SNAPSHOT, then release version would be 1.0      * And if snapshot version is 1.0-20070113.163208-1.jar, then release version would still be 1.0      *</p>      *      * @param snapshotVersion      * @return      */
 specifier|public
 specifier|static
 name|String
