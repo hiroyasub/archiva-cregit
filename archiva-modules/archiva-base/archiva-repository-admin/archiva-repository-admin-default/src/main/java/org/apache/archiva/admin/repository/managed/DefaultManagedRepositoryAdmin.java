@@ -3098,6 +3098,13 @@ name|lastIndex
 init|=
 name|path
 operator|.
+name|replace
+argument_list|(
+literal|'\\'
+argument_list|,
+literal|'/'
+argument_list|)
+operator|.
 name|lastIndexOf
 argument_list|(
 literal|'/'
