@@ -404,22 +404,6 @@ name|MetadataTools
 name|metadataTools
 decl_stmt|;
 annotation|@
-name|Before
-specifier|public
-name|void
-name|init
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-comment|//metadataTools = applicationContext.getBean( MetadataTools.class );
-block|}
-annotation|@
 name|Test
 specifier|public
 name|void

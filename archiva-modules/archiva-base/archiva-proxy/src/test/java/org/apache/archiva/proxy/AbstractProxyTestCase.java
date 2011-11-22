@@ -947,7 +947,10 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-comment|//config.getConfiguration().addManagedRepository( repoConfig );
+comment|// to prevent windauze file leaking
+name|removeMavenIndexes
+argument_list|()
+expr_stmt|;
 comment|// Setup source repository (using legacy layout)
 name|repoLocation
 operator|=
@@ -1185,6 +1188,17 @@ name|After
 specifier|public
 name|void
 name|shutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|removeMavenIndexes
+argument_list|()
+expr_stmt|;
+block|}
+specifier|protected
+name|void
+name|removeMavenIndexes
 parameter_list|()
 throws|throws
 name|Exception
