@@ -879,8 +879,11 @@ name|String
 name|prepareTestRepos
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
+name|removeMavenIndexes
+argument_list|()
+expr_stmt|;
 name|File
 name|testDir
 init|=
