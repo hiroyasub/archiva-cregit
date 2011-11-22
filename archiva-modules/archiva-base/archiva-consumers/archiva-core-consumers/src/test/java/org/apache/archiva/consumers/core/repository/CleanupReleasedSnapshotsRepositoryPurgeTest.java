@@ -408,6 +408,9 @@ argument_list|(
 name|archivaConfiguration
 argument_list|)
 expr_stmt|;
+name|removeMavenIndexes
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Test
