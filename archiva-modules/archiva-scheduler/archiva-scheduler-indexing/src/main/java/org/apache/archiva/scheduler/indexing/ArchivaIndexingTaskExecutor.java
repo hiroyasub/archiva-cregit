@@ -549,11 +549,6 @@ parameter_list|)
 throws|throws
 name|TaskExecutionException
 block|{
-synchronized|synchronized
-init|(
-name|nexusIndexer
-init|)
-block|{
 name|ArtifactIndexingTask
 name|indexingTask
 init|=
@@ -1209,7 +1204,6 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
-block|}
 block|}
 block|}
 block|}
