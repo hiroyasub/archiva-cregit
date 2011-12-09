@@ -76,19 +76,6 @@ specifier|public
 interface|interface
 name|ArtifactConverter
 block|{
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|ROLE
-init|=
-name|ArtifactConverter
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-decl_stmt|;
 comment|/**      * Convert an provided artifact, and place it into the destination repository.      *       * @param artifact the artifact to convert.      * @param destinationRepository the respository to send the artifact to.      * @throws ArtifactConversionException       */
 name|void
 name|convert
