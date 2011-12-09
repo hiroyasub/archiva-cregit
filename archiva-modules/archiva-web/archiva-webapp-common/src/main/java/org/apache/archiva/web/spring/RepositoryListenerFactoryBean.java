@@ -7,7 +7,7 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|webapp
+name|web
 operator|.
 name|spring
 package|;
