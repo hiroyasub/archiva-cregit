@@ -7,7 +7,7 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|web
+name|webapp
 operator|.
 name|startup
 package|;
