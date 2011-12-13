@@ -263,6 +263,20 @@ name|springframework
 operator|.
 name|core
 operator|.
+name|env
+operator|.
+name|Environment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|core
+operator|.
 name|io
 operator|.
 name|Resource
@@ -2590,6 +2604,15 @@ argument_list|(
 literal|"Not supported yet."
 argument_list|)
 throw|;
+block|}
+specifier|public
+name|Environment
+name|getEnvironment
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
 block|}
 block|}
 block|}
