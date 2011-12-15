@@ -201,11 +201,8 @@ specifier|final
 name|char
 name|PATH_SEPARATOR
 init|=
-name|File
-operator|.
-name|separatorChar
+literal|'/'
 decl_stmt|;
-comment|// '/';
 specifier|private
 specifier|static
 specifier|final
