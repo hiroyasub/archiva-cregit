@@ -199,14 +199,6 @@ specifier|private
 specifier|static
 specifier|final
 name|char
-name|PATH_SEPARATOR
-init|=
-literal|'/'
-decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|char
 name|GROUP_SEPARATOR
 init|=
 literal|'.'
