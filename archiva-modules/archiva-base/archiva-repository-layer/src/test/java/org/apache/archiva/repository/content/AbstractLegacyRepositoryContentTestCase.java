@@ -996,7 +996,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * [MRM-768] Artifact type "maven-plugin" does not distinguish maven1 and maven2 plugins.  	 * This produces conflicts when m2 plugins are stored in legacy-layout repository 	 */
+comment|/**      * [MRM-768] Artifact type "maven-plugin" does not distinguish maven1 and maven2 plugins.       * This produces conflicts when m2 plugins are stored in legacy-layout repository      */
 annotation|@
 name|Test
 specifier|public
