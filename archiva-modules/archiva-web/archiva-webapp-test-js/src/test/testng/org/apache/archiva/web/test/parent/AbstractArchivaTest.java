@@ -819,11 +819,11 @@ argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
-literal|"user created:guest_user"
+literal|"user created:"
+operator|+
+name|userName
 argument_list|)
 expr_stmt|;
-comment|//assertUserRolesPage();
-comment|//clickButtonWithName( "submitRolesButton", true );
 if|if
 condition|(
 name|valid
@@ -911,6 +911,11 @@ operator|+
 name|userName
 argument_list|)
 expr_stmt|;
+name|clickLinkWithLocator
+argument_list|(
+literal|"dialog-confirm-modal-ok"
+argument_list|)
+expr_stmt|;
 name|assertTextPresent
 argument_list|(
 literal|"user "
@@ -918,6 +923,11 @@ operator|+
 name|userName
 operator|+
 literal|" deleted"
+argument_list|)
+expr_stmt|;
+name|clickLinkWithLocator
+argument_list|(
+literal|"alert-message-success-close-a"
 argument_list|)
 expr_stmt|;
 name|assertTextNotPresent
@@ -2744,17 +2754,17 @@ argument_list|(
 literal|"Current User:"
 argument_list|)
 expr_stmt|;
-name|assertLinkNotPresent
+name|assertLinkNotVisible
 argument_list|(
 literal|"Edit Details"
 argument_list|)
 expr_stmt|;
-name|assertLinkNotPresent
+name|assertLinkNotVisible
 argument_list|(
 literal|"Logout"
 argument_list|)
 expr_stmt|;
-name|assertLinkPresent
+name|assertLinkVisible
 argument_list|(
 literal|"Login"
 argument_list|)
