@@ -225,10 +225,7 @@ argument_list|(
 name|baseUrl
 argument_list|)
 expr_stmt|;
-name|getSelenium
-argument_list|()
-operator|.
-name|refresh
+name|waitPage
 argument_list|()
 expr_stmt|;
 comment|// if not admin user created create one

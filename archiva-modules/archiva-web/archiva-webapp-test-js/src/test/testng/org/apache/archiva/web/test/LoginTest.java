@@ -76,7 +76,7 @@ comment|/*  * Bug in TestNG. TESTNG-285: @Test(sequential=true) works incorrectl
 end_comment
 
 begin_comment
-comment|/**  * Based on LoginTest of Emmanuel Venisse test.  *   * @author JosÃ© Morales MartÃ­nez  * @version $Id$  */
+comment|/**  * Based on LoginTest of Emmanuel Venisse test.  *  * @author JosÃ© Morales MartÃ­nez  * @version $Id$  */
 end_comment
 
 begin_class
@@ -123,15 +123,18 @@ argument_list|,
 literal|"badUsername"
 argument_list|)
 expr_stmt|;
-name|waitPage
-argument_list|()
-expr_stmt|;
-name|assertElementPresent
+name|clickLinkWithLocator
 argument_list|(
-literal|"//ul[@class=\'errorMessage\']"
+literal|"modal-login-ok"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
-comment|//assertTextPresent( "You have entered an incorrect username and/or password" );
+name|assertTextPresent
+argument_list|(
+literal|"This field is required."
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -156,7 +159,7 @@ argument_list|()
 expr_stmt|;
 name|setFieldValue
 argument_list|(
-literal|"loginForm_username"
+literal|"user-login-form-username"
 argument_list|,
 name|getProperty
 argument_list|(
@@ -166,28 +169,21 @@ argument_list|)
 expr_stmt|;
 name|setFieldValue
 argument_list|(
-literal|"loginForm_password"
+literal|"user-login-form-password"
 argument_list|,
 literal|"badPassword"
 argument_list|)
 expr_stmt|;
-name|getSelenium
-argument_list|()
-operator|.
-name|click
+name|clickLinkWithLocator
 argument_list|(
-literal|"loginSubmit"
+literal|"modal-login-ok"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
-comment|//getSelenium().waitForPageToLoad( maxWaitTimeInMs );
-name|waitPage
-argument_list|()
-expr_stmt|;
-comment|//assertTextPresent( "You have entered an incorrect username and/or password" );
-comment|//<ul class="errorMessage"><li><span>
-name|assertElementPresent
+name|assertTextPresent
 argument_list|(
-literal|"//ul[@class=\'errorMessage\']"
+literal|"You have entered an incorrect username and/or password"
 argument_list|)
 expr_stmt|;
 block|}
@@ -214,27 +210,22 @@ argument_list|()
 expr_stmt|;
 name|setFieldValue
 argument_list|(
-literal|"loginForm_password"
+literal|"user-login-form-password"
 argument_list|,
 literal|"password"
 argument_list|)
 expr_stmt|;
-name|getSelenium
-argument_list|()
-operator|.
-name|click
+name|clickLinkWithLocator
 argument_list|(
-literal|"loginSubmit"
+literal|"modal-login-ok"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
-comment|//getSelenium().waitForPageToLoad( maxWaitTimeInMs );
-name|waitPage
-argument_list|()
-expr_stmt|;
 comment|//assertTextPresent( "User Name is required" );
-name|assertElementPresent
+name|assertTextPresent
 argument_list|(
-literal|"//tr[@errorFor=\'loginForm_username\']"
+literal|"This field is required."
 argument_list|)
 expr_stmt|;
 block|}
@@ -261,7 +252,7 @@ argument_list|()
 expr_stmt|;
 name|setFieldValue
 argument_list|(
-literal|"loginForm_username"
+literal|"user-login-form-username"
 argument_list|,
 name|getProperty
 argument_list|(
@@ -269,22 +260,17 @@ literal|"ADMIN_USERNAME"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|getSelenium
-argument_list|()
-operator|.
-name|click
+name|clickLinkWithLocator
 argument_list|(
-literal|"loginSubmit"
+literal|"modal-login-ok"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
-comment|//getSelenium().waitForPageToLoad( maxWaitTimeInMs );
-name|waitPage
-argument_list|()
-expr_stmt|;
 comment|//assertTextPresent( "You have entered an incorrect username and/or password" );
-name|assertElementPresent
+name|assertTextPresent
 argument_list|(
-literal|"//ul[@class=\'errorMessage\']"
+literal|"This field is required."
 argument_list|)
 expr_stmt|;
 block|}
@@ -317,7 +303,7 @@ argument_list|()
 expr_stmt|;
 name|setFieldValue
 argument_list|(
-literal|"loginForm_username"
+literal|"user-login-form-username"
 argument_list|,
 name|getProperty
 argument_list|(
@@ -327,7 +313,7 @@ argument_list|)
 expr_stmt|;
 name|setFieldValue
 argument_list|(
-literal|"loginForm_password"
+literal|"user-login-form-password"
 argument_list|,
 name|getProperty
 argument_list|(
@@ -335,31 +321,14 @@ literal|"ADMIN_PASSWORD"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|getSelenium
-argument_list|()
-operator|.
-name|click
+name|clickLinkWithLocator
 argument_list|(
-literal|"loginSubmit"
+literal|"modal-login-ok"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
-comment|//getSelenium().waitForPageToLoad( maxWaitTimeInMs );
-name|waitPage
-argument_list|()
-expr_stmt|;
-comment|//assertTextPresent( "Logout" );
-name|assertElementPresent
-argument_list|(
-literal|"logoutLink"
-argument_list|)
-expr_stmt|;
-comment|//assertTextPresent( "Edit Details" );
-name|assertElementPresent
-argument_list|(
-literal|"editUserLink"
-argument_list|)
-expr_stmt|;
-name|assertTextPresent
+name|assertUserLoggedIn
 argument_list|(
 name|getProperty
 argument_list|(
