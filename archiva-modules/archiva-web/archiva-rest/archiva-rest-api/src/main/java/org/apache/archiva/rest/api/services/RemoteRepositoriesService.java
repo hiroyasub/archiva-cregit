@@ -206,7 +206,7 @@ argument_list|)
 annotation|@
 name|RedbackAuthorization
 argument_list|(
-name|permission
+name|permissions
 operator|=
 name|ArchivaRoleConstants
 operator|.
@@ -248,7 +248,7 @@ argument_list|)
 annotation|@
 name|RedbackAuthorization
 argument_list|(
-name|permission
+name|permissions
 operator|=
 name|ArchivaRoleConstants
 operator|.
@@ -295,7 +295,7 @@ argument_list|)
 annotation|@
 name|RedbackAuthorization
 argument_list|(
-name|permission
+name|permissions
 operator|=
 name|ArchivaRoleConstants
 operator|.
@@ -355,7 +355,7 @@ argument_list|)
 annotation|@
 name|RedbackAuthorization
 argument_list|(
-name|permission
+name|permissions
 operator|=
 name|ArchivaRoleConstants
 operator|.
@@ -410,7 +410,7 @@ argument_list|)
 annotation|@
 name|RedbackAuthorization
 argument_list|(
-name|permission
+name|permissions
 operator|=
 name|ArchivaRoleConstants
 operator|.

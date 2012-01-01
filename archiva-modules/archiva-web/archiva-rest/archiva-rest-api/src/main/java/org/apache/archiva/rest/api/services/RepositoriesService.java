@@ -226,7 +226,7 @@ argument_list|)
 annotation|@
 name|RedbackAuthorization
 argument_list|(
-name|permission
+name|permissions
 operator|=
 name|ArchivaRoleConstants
 operator|.
@@ -281,7 +281,7 @@ argument_list|)
 annotation|@
 name|RedbackAuthorization
 argument_list|(
-name|permission
+name|permissions
 operator|=
 name|ArchivaRoleConstants
 operator|.
@@ -328,7 +328,7 @@ argument_list|)
 annotation|@
 name|RedbackAuthorization
 argument_list|(
-name|permission
+name|permissions
 operator|=
 name|ArchivaRoleConstants
 operator|.
@@ -375,7 +375,7 @@ argument_list|)
 annotation|@
 name|RedbackAuthorization
 argument_list|(
-name|permission
+name|permissions
 operator|=
 name|ArchivaRoleConstants
 operator|.
@@ -447,7 +447,7 @@ name|noPermission
 operator|=
 literal|true
 argument_list|)
-comment|/**      * permission are checked in impl      * will copy an artifact from the source repository to the target repository      */
+comment|/**      * permissions are checked in impl      * will copy an artifact from the source repository to the target repository      */
 name|Boolean
 name|copyArtifact
 parameter_list|(
@@ -484,7 +484,7 @@ argument_list|)
 annotation|@
 name|RedbackAuthorization
 argument_list|(
-name|permission
+name|permissions
 operator|=
 name|ArchivaRoleConstants
 operator|.
@@ -551,7 +551,7 @@ name|noPermission
 operator|=
 literal|true
 argument_list|)
-comment|/**      * permission are checked in impl      * @since 1.4-M2      */
+comment|/**      * permissions are checked in impl      * @since 1.4-M2      */
 name|Boolean
 name|deleteArtifact
 parameter_list|(
