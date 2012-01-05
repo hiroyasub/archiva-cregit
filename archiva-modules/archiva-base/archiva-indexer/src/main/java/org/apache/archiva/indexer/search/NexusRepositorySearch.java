@@ -746,7 +746,7 @@ name|q
 argument_list|,
 name|indexingContextIds
 argument_list|,
-name|NoClassifierArtifactInfoFiler
+name|NoClassifierArtifactInfoFilter
 operator|.
 name|LIST
 argument_list|,
@@ -1374,7 +1374,7 @@ argument_list|,
 name|Collections
 operator|.
 expr|<
-name|ArtifactInfoFiler
+name|ArtifactInfoFilter
 operator|>
 name|emptyList
 argument_list|()
@@ -1411,7 +1411,7 @@ name|List
 argument_list|<
 name|?
 extends|extends
-name|ArtifactInfoFiler
+name|ArtifactInfoFilter
 argument_list|>
 name|filters
 parameter_list|,
@@ -2413,9 +2413,9 @@ name|List
 argument_list|<
 name|?
 extends|extends
-name|ArtifactInfoFiler
+name|ArtifactInfoFilter
 argument_list|>
-name|artifactInfoFilers
+name|artifactInfoFilters
 parameter_list|,
 name|List
 argument_list|<
@@ -2518,7 +2518,7 @@ name|applyArtifactInfoFilters
 argument_list|(
 name|artifactInfo
 argument_list|,
-name|artifactInfoFilers
+name|artifactInfoFilters
 argument_list|,
 name|hitsMap
 argument_list|)
@@ -3309,9 +3309,9 @@ name|List
 argument_list|<
 name|?
 extends|extends
-name|ArtifactInfoFiler
+name|ArtifactInfoFilter
 argument_list|>
-name|artifactInfoFilers
+name|artifactInfoFilters
 parameter_list|,
 name|Map
 argument_list|<
@@ -3324,11 +3324,11 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|artifactInfoFilers
+name|artifactInfoFilters
 operator|==
 literal|null
 operator|||
-name|artifactInfoFilers
+name|artifactInfoFilters
 operator|.
 name|isEmpty
 argument_list|()
@@ -3340,10 +3340,10 @@ return|;
 block|}
 for|for
 control|(
-name|ArtifactInfoFiler
+name|ArtifactInfoFilter
 name|filter
 range|:
-name|artifactInfoFilers
+name|artifactInfoFilters
 control|)
 block|{
 if|if
