@@ -195,6 +195,20 @@ name|org
 operator|.
 name|codehaus
 operator|.
+name|plexus
+operator|.
+name|registry
+operator|.
+name|RegistryException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
 name|redback
 operator|.
 name|integration
@@ -209,20 +223,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|registry
-operator|.
-name|RegistryException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|easymock
 operator|.
 name|MockControl
@@ -230,7 +230,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProxyConnectorsActionTest   *  * @version $Id$  */
+comment|/**  * ProxyConnectorsActionTest  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -379,7 +379,7 @@ name|Exception
 block|{
 name|expectConfigurationRequests
 argument_list|(
-literal|4
+literal|5
 argument_list|)
 expr_stmt|;
 name|archivaConfigurationControl
@@ -527,21 +527,6 @@ init|=
 name|createInitialConfiguration
 argument_list|()
 decl_stmt|;
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|requestConfigCount
-condition|;
-name|i
-operator|++
-control|)
-block|{
 name|archivaConfiguration
 operator|.
 name|getConfiguration
@@ -552,9 +537,12 @@ operator|.
 name|setReturnValue
 argument_list|(
 name|config
+argument_list|,
+name|requestConfigCount
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
-block|}
 name|archivaConfiguration
 operator|.
 name|save
