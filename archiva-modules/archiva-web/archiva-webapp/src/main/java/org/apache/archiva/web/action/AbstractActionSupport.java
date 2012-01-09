@@ -135,11 +135,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|archiva
 operator|.
-name|lang
+name|web
 operator|.
-name|StringUtils
+name|runtime
+operator|.
+name|ArchivaRuntimeInfo
 import|;
 end_import
 
@@ -153,9 +155,7 @@ name|commons
 operator|.
 name|lang
 operator|.
-name|math
-operator|.
-name|NumberUtils
+name|StringUtils
 import|;
 end_import
 
@@ -351,16 +351,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Properties
-import|;
-end_import
-
 begin_comment
 comment|/**  * LogEnabled and SessionAware ActionSupport  */
 end_comment
@@ -437,18 +427,14 @@ specifier|private
 name|String
 name|principal
 decl_stmt|;
+comment|//@Inject
+comment|//@Named( value = "archivaRuntimeProperties" )
+comment|//private Properties archivaRuntimeProperties;
 annotation|@
 name|Inject
-annotation|@
-name|Named
-argument_list|(
-name|value
-operator|=
-literal|"archivaRuntimeProperties"
-argument_list|)
 specifier|private
-name|Properties
-name|archivaRuntimeProperties
+name|ArchivaRuntimeInfo
+name|archivaRuntimeInfo
 decl_stmt|;
 annotation|@
 name|PostConstruct
@@ -955,16 +941,12 @@ name|getArchivaVersion
 parameter_list|()
 block|{
 return|return
-operator|(
-name|String
-operator|)
-name|archivaRuntimeProperties
+name|archivaRuntimeInfo
 operator|.
-name|get
-argument_list|(
-literal|"archiva.version"
-argument_list|)
+name|getVersion
+argument_list|()
 return|;
+comment|//(String) archivaRuntimeProperties.get( "archiva.version" );
 block|}
 specifier|public
 name|String
@@ -972,16 +954,12 @@ name|getArchivaBuildNumber
 parameter_list|()
 block|{
 return|return
-operator|(
-name|String
-operator|)
-name|archivaRuntimeProperties
+name|archivaRuntimeInfo
 operator|.
-name|get
-argument_list|(
-literal|"archiva.buildNumber"
-argument_list|)
+name|getBuildNumber
+argument_list|()
 return|;
+comment|// (String) archivaRuntimeProperties.get( "archiva.buildNumber" );
 block|}
 specifier|public
 name|String
@@ -989,16 +967,17 @@ name|getArchivaBuildTimestamp
 parameter_list|()
 block|{
 return|return
-operator|(
-name|String
-operator|)
-name|archivaRuntimeProperties
+name|Long
 operator|.
-name|get
+name|toString
 argument_list|(
-literal|"archiva.timestamp"
+name|archivaRuntimeInfo
+operator|.
+name|getTimestamp
+argument_list|()
 argument_list|)
 return|;
+comment|//(String) archivaRuntimeProperties.get( "archiva.timestamp" );
 block|}
 specifier|public
 name|String
@@ -1025,23 +1004,14 @@ argument_list|(
 operator|new
 name|Date
 argument_list|(
-name|NumberUtils
+name|archivaRuntimeInfo
 operator|.
-name|createLong
-argument_list|(
-operator|(
-name|String
-operator|)
-name|archivaRuntimeProperties
-operator|.
-name|get
-argument_list|(
-literal|"archiva.timestamp"
-argument_list|)
-argument_list|)
+name|getTimestamp
+argument_list|()
 argument_list|)
 argument_list|)
 return|;
+comment|//new Date( NumberUtils.createLong( (String) archivaRuntimeProperties.get( "archiva.timestamp" ) ) ) );
 block|}
 comment|/**      * dummy information for audit events      *      * @since 1.4-M1      */
 specifier|private
