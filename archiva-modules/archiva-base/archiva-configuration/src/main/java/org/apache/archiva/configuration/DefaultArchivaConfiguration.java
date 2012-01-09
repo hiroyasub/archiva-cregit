@@ -1175,6 +1175,7 @@ argument_list|()
 condition|)
 block|{
 comment|// Fix Proxy Connector Settings.
+comment|// Create a copy of the list to read from (to prevent concurrent modification exceptions)
 name|List
 argument_list|<
 name|ProxyConnectorConfiguration
@@ -1186,19 +1187,13 @@ name|ArrayList
 argument_list|<
 name|ProxyConnectorConfiguration
 argument_list|>
-argument_list|()
-decl_stmt|;
-comment|// Create a copy of the list to read from (to prevent concurrent modification exceptions)
-name|proxyConnectorList
-operator|.
-name|addAll
 argument_list|(
 name|config
 operator|.
 name|getProxyConnectors
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// Remove the old connector list.
 name|config
 operator|.
@@ -2941,7 +2936,18 @@ name|ArrayList
 argument_list|<
 name|String
 argument_list|>
+argument_list|(
+name|configuration
+operator|.
+name|getRepositoryScanning
 argument_list|()
+operator|.
+name|getKnownContentConsumers
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
 decl_stmt|;
 for|for
 control|(

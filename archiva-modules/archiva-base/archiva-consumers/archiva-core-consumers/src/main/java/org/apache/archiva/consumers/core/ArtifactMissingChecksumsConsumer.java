@@ -360,7 +360,9 @@ name|ArrayList
 argument_list|<
 name|String
 argument_list|>
-argument_list|( )
+argument_list|(
+literal|0
+argument_list|)
 decl_stmt|;
 annotation|@
 name|Inject
@@ -394,13 +396,13 @@ name|this
 argument_list|)
 expr_stmt|;
 name|initIncludes
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 specifier|public
 name|String
 name|getId
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|this
@@ -411,7 +413,7 @@ block|}
 specifier|public
 name|String
 name|getDescription
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|this
@@ -422,7 +424,7 @@ block|}
 specifier|public
 name|boolean
 name|isPermanent
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 literal|false
@@ -451,7 +453,7 @@ argument_list|(
 name|repo
 operator|.
 name|getLocation
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -482,7 +484,7 @@ block|}
 specifier|public
 name|void
 name|completeScan
-parameter_list|( )
+parameter_list|()
 block|{
 comment|/* do nothing */
 block|}
@@ -495,7 +497,7 @@ name|executeOnEntireRepo
 parameter_list|)
 block|{
 name|completeScan
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 specifier|public
@@ -504,11 +506,11 @@ argument_list|<
 name|String
 argument_list|>
 name|getExcludes
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|getDefaultArtifactExclusions
-argument_list|( )
+argument_list|()
 return|;
 block|}
 specifier|public
@@ -517,7 +519,7 @@ argument_list|<
 name|String
 argument_list|>
 name|getIncludes
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|includes
@@ -624,7 +626,7 @@ literal|0
 index|]
 operator|.
 name|getExt
-argument_list|( )
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -632,7 +634,7 @@ condition|(
 name|checksumFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 condition|)
 block|{
 name|checksum
@@ -673,7 +675,7 @@ operator|+
 name|checksumFile
 operator|.
 name|getAbsolutePath
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -697,7 +699,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -708,7 +710,7 @@ operator|!
 name|checksumFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 condition|)
 block|{
 name|checksum
@@ -738,7 +740,7 @@ operator|+
 name|checksumFile
 operator|.
 name|getAbsolutePath
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -761,7 +763,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -777,7 +779,7 @@ operator|+
 name|checksumFile
 operator|.
 name|getAbsolutePath
-argument_list|( )
+argument_list|()
 operator|+
 literal|" is not a file."
 argument_list|)
@@ -809,7 +811,7 @@ argument_list|)
 condition|)
 block|{
 name|initIncludes
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -832,16 +834,15 @@ block|}
 specifier|private
 name|void
 name|initIncludes
-parameter_list|( )
+parameter_list|()
 block|{
 name|includes
-operator|.
-name|clear
-argument_list|( )
-expr_stmt|;
-name|includes
-operator|.
-name|addAll
+operator|=
+operator|new
+name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|(
 name|filetypes
 operator|.
@@ -859,7 +860,7 @@ name|PostConstruct
 specifier|public
 name|void
 name|initialize
-parameter_list|( )
+parameter_list|()
 block|{
 name|configuration
 operator|.
@@ -869,7 +870,7 @@ name|this
 argument_list|)
 expr_stmt|;
 name|initIncludes
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}

@@ -158,10 +158,6 @@ return|;
 block|}
 comment|/**      * Method getRepositories.      *      * @return List      */
 specifier|public
-name|java
-operator|.
-name|util
-operator|.
 name|List
 argument_list|<
 name|String
@@ -187,7 +183,9 @@ name|ArrayList
 argument_list|<
 name|String
 argument_list|>
-argument_list|()
+argument_list|(
+literal|0
+argument_list|)
 expr_stmt|;
 block|}
 return|return

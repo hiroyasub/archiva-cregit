@@ -135,7 +135,9 @@ name|ArrayList
 argument_list|<
 name|String
 argument_list|>
-argument_list|()
+argument_list|(
+literal|23
+argument_list|)
 expr_stmt|;
 comment|// ids that refer to LATEST
 name|specialWords

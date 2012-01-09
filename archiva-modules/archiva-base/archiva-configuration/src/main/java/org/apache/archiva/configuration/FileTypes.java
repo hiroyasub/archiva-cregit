@@ -907,7 +907,15 @@ name|ArrayList
 argument_list|<
 name|String
 argument_list|>
+argument_list|(
+name|filetype
+operator|.
+name|getPatterns
 argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 name|patterns

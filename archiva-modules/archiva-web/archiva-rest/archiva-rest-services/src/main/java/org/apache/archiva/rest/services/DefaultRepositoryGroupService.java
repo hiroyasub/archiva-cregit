@@ -208,7 +208,15 @@ name|ArrayList
 argument_list|<
 name|RepositoryGroup
 argument_list|>
+argument_list|(
+name|repositoryGroupAdmin
+operator|.
+name|getRepositoriesGroups
 argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
 decl_stmt|;
 for|for
 control|(

@@ -17,6 +17,68 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|FileUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|IOUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -89,70 +151,8 @@ name|Pattern
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|io
-operator|.
-name|FileUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|io
-operator|.
-name|IOUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
-comment|/**  * ChecksummedFile  *  *<dl>  *<lh>Terminology:</lh>  *<dt>Checksum File</dt>  *<dd>The file that contains the previously calculated checksum value for the reference file.  *       This is a text file with the extension ".sha1" or ".md5", and contains a single entry  *       consisting of an optional reference filename, and a checksum string.  *</dd>  *<dt>Reference File</dt>  *<dd>The file that is being referenced in the checksum file.</dd>  *</dl>  *  * @version $Id$  */
+comment|/**  * ChecksummedFile  *<p/>  *<dl>  *<lh>Terminology:</lh>  *<dt>Checksum File</dt>  *<dd>The file that contains the previously calculated checksum value for the reference file.  * This is a text file with the extension ".sha1" or ".md5", and contains a single entry  * consisting of an optional reference filename, and a checksum string.  *</dd>  *<dt>Reference File</dt>  *<dd>The file that is being referenced in the checksum file.</dd>  *</dl>  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -178,7 +178,7 @@ specifier|final
 name|File
 name|referenceFile
 decl_stmt|;
-comment|/**      * Construct a ChecksummedFile object.      *       * @param referenceFile      */
+comment|/**      * Construct a ChecksummedFile object.      *      * @param referenceFile      */
 specifier|public
 name|ChecksummedFile
 parameter_list|(
@@ -194,7 +194,7 @@ operator|=
 name|referenceFile
 expr_stmt|;
 block|}
-comment|/**      * Calculate the checksum based on a given checksum.      *       * @param checksumAlgorithm the algorithm to use.      * @return the checksum string for the file.      * @throws IOException if unable to calculate the checksum.      */
+comment|/**      * Calculate the checksum based on a given checksum.      *      * @param checksumAlgorithm the algorithm to use.      * @return the checksum string for the file.      * @throws IOException if unable to calculate the checksum.      */
 specifier|public
 name|String
 name|calculateChecksum
@@ -254,7 +254,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Creates a checksum file of the provided referenceFile.      * @param checksumAlgorithm the hash to use.      *       * @return the checksum File that was created.      * @throws IOException if there was a problem either reading the referenceFile, or writing the checksum file.      */
+comment|/**      * Creates a checksum file of the provided referenceFile.      *      * @param checksumAlgorithm the hash to use.      * @return the checksum File that was created.      * @throws IOException if there was a problem either reading the referenceFile, or writing the checksum file.      */
 specifier|public
 name|File
 name|createChecksum
@@ -312,7 +312,7 @@ return|return
 name|checksumFile
 return|;
 block|}
-comment|/**      * Get the checksum file for the reference file and hash.      *       * @param checksumAlgorithm the hash that we are interested in.      * @return the checksum file to return      */
+comment|/**      * Get the checksum file for the reference file and hash.      *      * @param checksumAlgorithm the hash that we are interested in.      * @return the checksum file to return      */
 specifier|public
 name|File
 name|getChecksumFile
@@ -339,7 +339,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      *<p>      * Given a checksum file, check to see if the file it represents is valid according to the checksum.      *</p>      *       *<p>      * NOTE: Only supports single file checksums of type MD5 or SHA1.      *</p>      *       * @param checksumFile the algorithms to check for.      * @return true if the checksum is valid for the file it represents. or if the checksum file does not exist.      * @throws IOException if the reading of the checksumFile or the file it refers to fails.      */
+comment|/**      *<p>      * Given a checksum file, check to see if the file it represents is valid according to the checksum.      *</p>      *<p/>      *<p>      * NOTE: Only supports single file checksums of type MD5 or SHA1.      *</p>      *      * @param checksumFile the algorithms to check for.      * @return true if the checksum is valid for the file it represents. or if the checksum file does not exist.      * @throws IOException if the reading of the checksumFile or the file it refers to fails.      */
 specifier|public
 name|boolean
 name|isValidChecksum
@@ -362,7 +362,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Of any checksum files present, validate that the reference file conforms      * the to the checksum.         *       * @param algorithms the algorithms to check for.      * @return true if the checksums report that the the reference file is valid, false if invalid.      */
+comment|/**      * Of any checksum files present, validate that the reference file conforms      * the to the checksum.      *      * @param algorithms the algorithms to check for.      * @return true if the checksums report that the the reference file is valid, false if invalid.      */
 specifier|public
 name|boolean
 name|isValidChecksums
@@ -390,7 +390,11 @@ name|ArrayList
 argument_list|<
 name|Checksum
 argument_list|>
-argument_list|()
+argument_list|(
+name|algorithms
+operator|.
+name|length
+argument_list|)
 decl_stmt|;
 comment|// Create checksum object for each algorithm.
 for|for
@@ -606,14 +610,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Fix or create checksum files for the reference file.      *       * @param algorithms the hashes to check for.      * @return true if checksums were created successfully.      */
+comment|/**      * Fix or create checksum files for the reference file.      *      * @param algorithms the hashes to check for.      * @return true if checksums were created successfully.      */
 specifier|public
 name|boolean
 name|fixChecksums
 parameter_list|(
 name|ChecksumAlgorithm
-name|algorithms
 index|[]
+name|algorithms
 parameter_list|)
 block|{
 name|List
@@ -627,7 +631,11 @@ name|ArrayList
 argument_list|<
 name|Checksum
 argument_list|>
-argument_list|()
+argument_list|(
+name|algorithms
+operator|.
+name|length
+argument_list|)
 decl_stmt|;
 comment|// Create checksum object for each algorithm.
 for|for
@@ -958,7 +966,7 @@ argument_list|)
 operator|)
 return|;
 block|}
-comment|/**      * Parse a checksum string.      *       * Validate the expected path, and expected checksum algorithm, then return      * the trimmed checksum hex string.       *       * @param rawChecksumString      * @param expectedHash      * @param expectedPath      * @return      * @throws IOException      */
+comment|/**      * Parse a checksum string.      *<p/>      * Validate the expected path, and expected checksum algorithm, then return      * the trimmed checksum hex string.      *      * @param rawChecksumString      * @param expectedHash      * @param expectedPath      * @return      * @throws IOException      */
 specifier|public
 name|String
 name|parseChecksum

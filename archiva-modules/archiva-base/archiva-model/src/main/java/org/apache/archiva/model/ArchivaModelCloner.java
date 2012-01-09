@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utility methods for cloning various Archiva Model objects.   *  * @version $Id$  */
+comment|/**  * Utility methods for cloning various Archiva Model objects.  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -386,7 +386,12 @@ name|ArrayList
 argument_list|<
 name|ArtifactReference
 argument_list|>
+argument_list|(
+name|artifactReferenceList
+operator|.
+name|size
 argument_list|()
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -448,7 +453,12 @@ name|ArrayList
 argument_list|<
 name|String
 argument_list|>
+argument_list|(
+name|simple
+operator|.
+name|size
 argument_list|()
+argument_list|)
 decl_stmt|;
 for|for
 control|(
