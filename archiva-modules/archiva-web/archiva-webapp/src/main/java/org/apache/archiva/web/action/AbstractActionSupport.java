@@ -427,9 +427,6 @@ specifier|private
 name|String
 name|principal
 decl_stmt|;
-comment|//@Inject
-comment|//@Named( value = "archivaRuntimeProperties" )
-comment|//private Properties archivaRuntimeProperties;
 annotation|@
 name|Inject
 specifier|private
