@@ -416,6 +416,8 @@ name|Configuration
 argument_list|()
 argument_list|,
 literal|3
+argument_list|,
+literal|5
 argument_list|)
 expr_stmt|;
 name|archivaConfigurationControl
@@ -484,6 +486,8 @@ argument_list|(
 name|configuration
 argument_list|,
 literal|6
+argument_list|,
+literal|8
 argument_list|)
 expr_stmt|;
 name|archivaConfiguration
@@ -585,6 +589,8 @@ argument_list|(
 name|configuration
 argument_list|,
 literal|5
+argument_list|,
+literal|7
 argument_list|)
 expr_stmt|;
 name|archivaConfiguration
@@ -660,7 +666,9 @@ name|setReturnValue
 argument_list|(
 name|configuration
 argument_list|,
-literal|8
+literal|10
+argument_list|,
+literal|12
 argument_list|)
 expr_stmt|;
 name|archivaConfiguration
@@ -812,6 +820,8 @@ argument_list|(
 name|configuration
 argument_list|,
 literal|6
+argument_list|,
+literal|8
 argument_list|)
 expr_stmt|;
 name|archivaConfigurationControl
@@ -1028,7 +1038,9 @@ name|setReturnValue
 argument_list|(
 name|configuration
 argument_list|,
-literal|17
+literal|20
+argument_list|,
+literal|24
 argument_list|)
 expr_stmt|;
 name|archivaConfiguration
@@ -1375,7 +1387,9 @@ name|setReturnValue
 argument_list|(
 name|configuration
 argument_list|,
-literal|13
+literal|19
+argument_list|,
+literal|22
 argument_list|)
 expr_stmt|;
 name|archivaConfiguration
@@ -1721,6 +1735,8 @@ argument_list|(
 name|configuration
 argument_list|,
 literal|6
+argument_list|,
+literal|10
 argument_list|)
 expr_stmt|;
 name|archivaConfiguration
@@ -1950,6 +1966,8 @@ argument_list|(
 name|configuration
 argument_list|,
 literal|6
+argument_list|,
+literal|10
 argument_list|)
 expr_stmt|;
 name|archivaConfiguration

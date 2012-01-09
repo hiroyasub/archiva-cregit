@@ -382,6 +382,8 @@ operator|.
 name|setReturnValue
 argument_list|(
 name|configuration
+argument_list|,
+literal|2
 argument_list|)
 expr_stmt|;
 name|archivaConfigurationControl
@@ -480,7 +482,7 @@ name|setReturnValue
 argument_list|(
 name|configuration
 argument_list|,
-literal|5
+literal|7
 argument_list|)
 expr_stmt|;
 name|archivaConfiguration
@@ -609,7 +611,7 @@ name|setReturnValue
 argument_list|(
 name|configuration
 argument_list|,
-literal|2
+literal|4
 argument_list|)
 expr_stmt|;
 name|archivaConfiguration
