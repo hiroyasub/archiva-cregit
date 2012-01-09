@@ -355,6 +355,8 @@ argument_list|)
 operator|.
 name|toString
 argument_list|()
+argument_list|,
+name|locale
 argument_list|)
 expr_stmt|;
 comment|// if locale override with locale content
@@ -392,6 +394,8 @@ argument_list|)
 operator|.
 name|toString
 argument_list|()
+argument_list|,
+name|locale
 argument_list|)
 expr_stmt|;
 block|}
@@ -484,6 +488,9 @@ name|finalProperties
 parameter_list|,
 name|String
 name|resourceName
+parameter_list|,
+name|String
+name|locale
 parameter_list|)
 throws|throws
 name|IOException
@@ -544,6 +551,19 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+operator|!
+name|StringUtils
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|locale
+argument_list|,
+literal|"en"
+argument_list|)
+condition|)
+block|{
 name|log
 operator|.
 name|info
@@ -553,6 +573,7 @@ argument_list|,
 name|resourceName
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 finally|finally
