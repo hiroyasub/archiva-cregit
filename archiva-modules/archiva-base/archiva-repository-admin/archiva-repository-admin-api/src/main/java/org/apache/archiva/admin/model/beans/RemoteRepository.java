@@ -53,7 +53,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"repositoryGroup"
+literal|"remoteRepository"
 argument_list|)
 specifier|public
 class|class
