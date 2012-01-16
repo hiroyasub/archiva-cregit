@@ -114,6 +114,11 @@ specifier|public
 interface|interface
 name|ManagedRepositoryAdmin
 block|{
+name|String
+name|REPOSITORY_LOCATION_VALID_EXPRESSION
+init|=
+literal|"^[-a-zA-Z0-9._/~:?!&amp;=\\\\]+$"
+decl_stmt|;
 name|List
 argument_list|<
 name|ManagedRepository
