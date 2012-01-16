@@ -382,6 +382,11 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getFieldName
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -428,6 +433,11 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
+argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getFieldName
 argument_list|()
 argument_list|)
 throw|;
@@ -480,6 +490,11 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
+argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getFieldName
 argument_list|()
 argument_list|)
 throw|;

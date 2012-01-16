@@ -505,6 +505,8 @@ operator|new
 name|RepositoryAdminException
 argument_list|(
 literal|"Invalid cron expression."
+argument_list|,
+literal|"cronExpression"
 argument_list|)
 throw|;
 block|}
@@ -552,6 +554,8 @@ argument_list|(
 literal|"Invalid repository location. Directory must only contain alphanumeric characters, equals(=), question-marks(?), "
 operator|+
 literal|"exclamation-points(!), ampersands(&amp;), forward-slashes(/), back-slashes(\\), underscores(_), dots(.), colons(:), tildes(~), and dashes(-)."
+argument_list|,
+literal|"location"
 argument_list|)
 throw|;
 block|}
