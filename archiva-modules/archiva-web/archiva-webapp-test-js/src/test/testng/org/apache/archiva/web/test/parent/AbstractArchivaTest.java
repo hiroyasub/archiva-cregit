@@ -305,6 +305,9 @@ argument_list|(
 name|baseUrl
 argument_list|)
 expr_stmt|;
+name|waitPage
+argument_list|()
+expr_stmt|;
 comment|// are we already logged in ?
 if|if
 condition|(
