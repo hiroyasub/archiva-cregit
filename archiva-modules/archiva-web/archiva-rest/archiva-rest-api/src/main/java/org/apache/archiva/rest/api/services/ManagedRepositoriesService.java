@@ -448,7 +448,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"fileLocationExists/{fileLocation}"
+literal|"fileLocationExists"
 argument_list|)
 annotation|@
 name|GET
@@ -482,7 +482,7 @@ name|Boolean
 name|fileLocationExists
 parameter_list|(
 annotation|@
-name|PathParam
+name|QueryParam
 argument_list|(
 literal|"fileLocation"
 argument_list|)
