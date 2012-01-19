@@ -1455,14 +1455,15 @@ name|task
 operator|.
 name|setExecuteOnEntireRepo
 argument_list|(
-name|fullScan
+literal|true
 argument_list|)
 expr_stmt|;
 name|task
 operator|.
 name|setOnlyUpdate
 argument_list|(
-literal|false
+operator|!
+name|fullScan
 argument_list|)
 expr_stmt|;
 name|archivaIndexingTaskExecutor
