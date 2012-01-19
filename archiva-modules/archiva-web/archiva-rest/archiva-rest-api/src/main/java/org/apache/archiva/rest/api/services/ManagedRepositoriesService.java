@@ -496,6 +496,7 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
+comment|/**      * @since 1.4-M3      */
 name|Boolean
 name|fileLocationExists
 parameter_list|(
@@ -539,6 +540,7 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
+comment|/**      * @since 1.4-M3      */
 name|ArchivaRepositoryStatistics
 name|getManagedRepositoryStatistics
 parameter_list|(
