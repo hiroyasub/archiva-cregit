@@ -501,14 +501,6 @@ argument_list|(
 name|authorizationHeader
 argument_list|)
 decl_stmt|;
-name|RepositoriesService
-name|repositoriesService
-init|=
-name|getRepositoriesService
-argument_list|(
-name|authorizationHeader
-argument_list|)
-decl_stmt|;
 name|ArchivaRepositoryStatistics
 name|archivaRepositoryStatistics
 init|=
