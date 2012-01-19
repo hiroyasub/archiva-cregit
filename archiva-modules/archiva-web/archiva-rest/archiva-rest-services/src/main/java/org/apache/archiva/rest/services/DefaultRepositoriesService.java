@@ -1455,7 +1455,7 @@ name|task
 operator|.
 name|setExecuteOnEntireRepo
 argument_list|(
-literal|true
+name|fullScan
 argument_list|)
 expr_stmt|;
 name|task

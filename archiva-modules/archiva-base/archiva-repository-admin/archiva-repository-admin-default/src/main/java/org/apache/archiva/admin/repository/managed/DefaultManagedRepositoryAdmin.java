@@ -2666,7 +2666,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"skip adding repository with id {} as already exists"
+literal|"skip adding repository indexingContent with id {} as already exists"
 argument_list|,
 name|repository
 operator|.
