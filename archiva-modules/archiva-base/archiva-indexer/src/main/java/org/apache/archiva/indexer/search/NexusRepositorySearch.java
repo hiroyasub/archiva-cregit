@@ -2932,6 +2932,12 @@ argument_list|(
 name|managedRepoId
 argument_list|)
 expr_stmt|;
+name|artifactInfo
+operator|.
+name|context
+operator|=
+name|managedRepoId
+expr_stmt|;
 block|}
 block|}
 else|else
