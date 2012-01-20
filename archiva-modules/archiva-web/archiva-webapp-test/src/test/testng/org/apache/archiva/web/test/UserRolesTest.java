@@ -75,7 +75,7 @@ specifier|final
 name|String
 name|EDIT_ROLES
 init|=
-literal|"Edit Roles"
+literal|"Roles"
 decl_stmt|;
 specifier|public
 name|void
