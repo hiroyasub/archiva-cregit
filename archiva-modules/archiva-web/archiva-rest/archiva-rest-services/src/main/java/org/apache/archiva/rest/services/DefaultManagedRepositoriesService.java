@@ -1008,6 +1008,13 @@ name|snippet
 operator|.
 name|append
 argument_list|(
+literal|"<url>"
+argument_list|)
+expr_stmt|;
+name|snippet
+operator|.
+name|append
+argument_list|(
 name|getBaseUrl
 argument_list|(
 name|httpServletRequest
