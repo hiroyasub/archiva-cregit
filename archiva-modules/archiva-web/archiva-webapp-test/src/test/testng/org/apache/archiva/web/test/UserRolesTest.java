@@ -69,6 +69,14 @@ name|UserRolesTest
 extends|extends
 name|AbstractArchivaTest
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|EDIT_ROLES
+init|=
+literal|"Edit Roles"
+decl_stmt|;
 specifier|public
 name|void
 name|testBasicAddDeleteUser
@@ -176,7 +184,7 @@ argument_list|)
 expr_stmt|;
 name|clickLinkWithText
 argument_list|(
-literal|"Edit Roles"
+name|EDIT_ROLES
 argument_list|)
 expr_stmt|;
 name|checkUserRoleWithValue
@@ -282,7 +290,7 @@ argument_list|)
 expr_stmt|;
 name|clickLinkWithText
 argument_list|(
-literal|"Edit Roles"
+name|EDIT_ROLES
 argument_list|)
 expr_stmt|;
 name|checkUserRoleWithValue
@@ -388,7 +396,7 @@ argument_list|)
 expr_stmt|;
 name|clickLinkWithText
 argument_list|(
-literal|"Edit Roles"
+name|EDIT_ROLES
 argument_list|)
 expr_stmt|;
 name|checkUserRoleWithValue
@@ -494,7 +502,7 @@ argument_list|)
 expr_stmt|;
 name|clickLinkWithText
 argument_list|(
-literal|"Edit Roles"
+name|EDIT_ROLES
 argument_list|)
 expr_stmt|;
 name|checkUserRoleWithValue
@@ -600,7 +608,7 @@ argument_list|)
 expr_stmt|;
 name|clickLinkWithText
 argument_list|(
-literal|"Edit Roles"
+name|EDIT_ROLES
 argument_list|)
 expr_stmt|;
 name|checkUserRoleWithValue
@@ -706,7 +714,7 @@ argument_list|)
 expr_stmt|;
 name|clickLinkWithText
 argument_list|(
-literal|"Edit Roles"
+name|EDIT_ROLES
 argument_list|)
 expr_stmt|;
 name|checkUserRoleWithValue
@@ -812,7 +820,7 @@ argument_list|)
 expr_stmt|;
 name|clickLinkWithText
 argument_list|(
-literal|"Edit Roles"
+name|EDIT_ROLES
 argument_list|)
 expr_stmt|;
 name|checkResourceRoleWithValue
@@ -919,7 +927,7 @@ argument_list|)
 expr_stmt|;
 name|clickLinkWithText
 argument_list|(
-literal|"Edit Roles"
+name|EDIT_ROLES
 argument_list|)
 expr_stmt|;
 name|checkResourceRoleWithValue
