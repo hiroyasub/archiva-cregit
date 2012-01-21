@@ -227,10 +227,6 @@ block|,
 name|MediaType
 operator|.
 name|APPLICATION_XML
-block|,
-name|MediaType
-operator|.
-name|TEXT_PLAIN
 block|}
 argument_list|)
 annotation|@
@@ -269,10 +265,6 @@ block|,
 name|MediaType
 operator|.
 name|APPLICATION_XML
-block|,
-name|MediaType
-operator|.
-name|TEXT_PLAIN
 block|}
 argument_list|)
 annotation|@
@@ -384,10 +376,6 @@ block|,
 name|MediaType
 operator|.
 name|APPLICATION_XML
-block|,
-name|MediaType
-operator|.
-name|TEXT_PLAIN
 block|}
 argument_list|)
 annotation|@
