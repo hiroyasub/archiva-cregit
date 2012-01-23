@@ -767,6 +767,20 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+specifier|public
+name|Boolean
+name|devMode
+parameter_list|()
+block|{
+return|return
+name|Boolean
+operator|.
+name|getBoolean
+argument_list|(
+literal|"archiva.devMode"
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
