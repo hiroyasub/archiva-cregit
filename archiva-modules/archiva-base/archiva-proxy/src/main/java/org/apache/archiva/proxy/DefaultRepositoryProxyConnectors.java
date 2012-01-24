@@ -797,6 +797,18 @@ name|Properties
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentHashMap
+import|;
+end_import
+
 begin_comment
 comment|/**  * DefaultRepositoryProxyConnectors  *  * @version $Id$  * @todo exception handling needs work - "not modified" is not really an exceptional case, and it has more layers than  * your average brown onion  */
 end_comment
@@ -947,7 +959,7 @@ argument_list|>
 name|networkProxyMap
 init|=
 operator|new
-name|HashMap
+name|ConcurrentHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -1006,13 +1018,6 @@ specifier|private
 name|void
 name|initConnectorsAndNetworkProxies
 parameter_list|()
-block|{
-synchronized|synchronized
-init|(
-name|this
-operator|.
-name|proxyConnectorMap
-init|)
 block|{
 name|ProxyConnectorOrderComparator
 name|proxyOrderSorter
@@ -1342,14 +1347,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-synchronized|synchronized
-init|(
-name|this
-operator|.
-name|networkProxyMap
-init|)
-block|{
 name|this
 operator|.
 name|networkProxyMap
@@ -1455,7 +1452,6 @@ argument_list|,
 name|proxy
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 specifier|public
@@ -4487,19 +4483,7 @@ decl_stmt|;
 specifier|final
 name|ProxyInfo
 name|networkProxy
-decl_stmt|;
-synchronized|synchronized
-init|(
-name|this
-operator|.
-name|networkProxyMap
-init|)
-block|{
-name|networkProxy
-operator|=
-operator|(
-name|ProxyInfo
-operator|)
+init|=
 name|this
 operator|.
 name|networkProxyMap
@@ -4511,8 +4495,7 @@ operator|.
 name|getProxyId
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 if|if
 condition|(
 name|log
