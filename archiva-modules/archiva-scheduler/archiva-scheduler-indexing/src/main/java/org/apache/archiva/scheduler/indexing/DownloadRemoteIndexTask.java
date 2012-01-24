@@ -875,7 +875,6 @@ argument_list|(
 name|wagon
 argument_list|)
 expr_stmt|;
-comment|// TODO transferListener
 name|wagon
 operator|.
 name|addTransferListener

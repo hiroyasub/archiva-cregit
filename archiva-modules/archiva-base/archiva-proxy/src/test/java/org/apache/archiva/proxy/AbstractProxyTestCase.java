@@ -779,6 +779,7 @@ name|managedRepositoryAdmin
 decl_stmt|;
 annotation|@
 name|Inject
+specifier|protected
 name|PlexusSisuBridge
 name|plexusSisuBridge
 decl_stmt|;
@@ -1145,15 +1146,15 @@ operator|=
 operator|(
 name|WagonDelegate
 operator|)
-name|plexusSisuBridge
+name|applicationContext
 operator|.
-name|lookup
+name|getBean
 argument_list|(
+literal|"wagon#test"
+argument_list|,
 name|Wagon
 operator|.
 name|class
-argument_list|,
-literal|"test"
 argument_list|)
 expr_stmt|;
 name|delegate

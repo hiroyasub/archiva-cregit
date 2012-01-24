@@ -4484,6 +4484,15 @@ specifier|final
 name|ProxyInfo
 name|networkProxy
 init|=
+name|connector
+operator|.
+name|getProxyId
+argument_list|()
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
 name|this
 operator|.
 name|networkProxyMap

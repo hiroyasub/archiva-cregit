@@ -83,6 +83,30 @@ name|org
 operator|.
 name|springframework
 operator|.
+name|beans
+operator|.
+name|BeansException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|ApplicationContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
 name|stereotype
 operator|.
 name|Service
@@ -120,6 +144,10 @@ name|PlexusSisuBridge
 name|plexusSisuBridge
 decl_stmt|;
 specifier|private
+name|ApplicationContext
+name|applicationContext
+decl_stmt|;
+specifier|private
 name|DebugTransferListener
 name|debugTransferListener
 init|=
@@ -134,6 +162,9 @@ name|DefaultWagonFactory
 parameter_list|(
 name|PlexusSisuBridge
 name|plexusSisuBridge
+parameter_list|,
+name|ApplicationContext
+name|applicationContext
 parameter_list|)
 block|{
 name|this
@@ -141,6 +172,12 @@ operator|.
 name|plexusSisuBridge
 operator|=
 name|plexusSisuBridge
+expr_stmt|;
+name|this
+operator|.
+name|applicationContext
+operator|=
+name|applicationContext
 expr_stmt|;
 block|}
 specifier|public
@@ -157,29 +194,38 @@ try|try
 block|{
 comment|// with sisu inject bridge hint is file or http
 comment|// so remove wagon#
+comment|//protocol = StringUtils.remove( protocol, "wagon#" );
+comment|// spring beans will be named wagon#protocol (http, https, file )
 name|protocol
 operator|=
 name|StringUtils
 operator|.
-name|remove
+name|startsWith
 argument_list|(
 name|protocol
 argument_list|,
 literal|"wagon#"
 argument_list|)
+condition|?
+name|protocol
+else|:
+literal|"wagon#"
+operator|+
+name|protocol
 expr_stmt|;
+comment|//Wagon wagon = plexusSisuBridge.lookup( Wagon.class, protocol );
 name|Wagon
 name|wagon
 init|=
-name|plexusSisuBridge
+name|applicationContext
 operator|.
-name|lookup
+name|getBean
 argument_list|(
+name|protocol
+argument_list|,
 name|Wagon
 operator|.
 name|class
-argument_list|,
-name|protocol
 argument_list|)
 decl_stmt|;
 name|wagon
@@ -193,9 +239,10 @@ return|return
 name|wagon
 return|;
 block|}
+comment|//catch ( PlexusSisuBridgeException e )
 catch|catch
 parameter_list|(
-name|PlexusSisuBridgeException
+name|BeansException
 name|e
 parameter_list|)
 block|{
