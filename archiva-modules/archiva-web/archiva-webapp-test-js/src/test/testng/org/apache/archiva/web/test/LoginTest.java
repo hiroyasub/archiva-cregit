@@ -72,10 +72,6 @@ import|;
 end_import
 
 begin_comment
-comment|/*  * Bug in TestNG. TESTNG-285: @Test(sequential=true) works incorrectly for classes with inheritance  * http://code.google.com/p/testng/source/browse/trunk/CHANGES.txt  * Waiting 5.9 release. It's comming soon.  */
-end_comment
-
-begin_comment
 comment|/**  * Based on LoginTest of Emmanuel Venisse test.  *  * @author JosÃ© Morales MartÃ­nez  * @version $Id$  */
 end_comment
 
