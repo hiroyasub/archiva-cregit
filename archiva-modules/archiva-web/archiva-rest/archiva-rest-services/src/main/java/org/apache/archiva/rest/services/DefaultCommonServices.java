@@ -834,11 +834,6 @@ specifier|public
 name|Boolean
 name|validateCronExpression
 parameter_list|(
-annotation|@
-name|QueryParam
-argument_list|(
-literal|"cronExpression"
-argument_list|)
 name|String
 name|cronExpression
 parameter_list|)
