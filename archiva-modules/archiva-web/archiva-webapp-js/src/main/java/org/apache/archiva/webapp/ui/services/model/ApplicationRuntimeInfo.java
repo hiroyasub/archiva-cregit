@@ -7,9 +7,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|rest
+name|webapp
 operator|.
-name|api
+name|ui
+operator|.
+name|services
 operator|.
 name|model
 package|;
@@ -43,11 +45,11 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"archivaRuntimeInfo"
+literal|"applicationRuntimeInfo"
 argument_list|)
 specifier|public
 class|class
-name|ArchivaRuntimeInfo
+name|ApplicationRuntimeInfo
 block|{
 specifier|private
 name|boolean
@@ -62,7 +64,7 @@ init|=
 literal|false
 decl_stmt|;
 specifier|public
-name|ArchivaRuntimeInfo
+name|ApplicationRuntimeInfo
 parameter_list|()
 block|{
 name|this
@@ -155,7 +157,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"ArchivaRuntimeInfo"
+literal|"ApplicationRuntimeInfo"
 argument_list|)
 expr_stmt|;
 name|sb
