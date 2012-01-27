@@ -149,7 +149,7 @@ operator|=
 literal|true
 argument_list|)
 name|ApplicationRuntimeInfo
-name|archivaRuntimeInfo
+name|getApplicationRuntimeInfo
 parameter_list|()
 function_decl|;
 block|}
