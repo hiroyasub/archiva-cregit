@@ -827,6 +827,13 @@ operator|+
 name|userName
 argument_list|)
 expr_stmt|;
+name|assertElementPresent
+argument_list|(
+literal|"users-grid-user-id-"
+operator|+
+name|userName
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|valid
@@ -933,8 +940,10 @@ argument_list|(
 literal|"alert-message-success-close-a"
 argument_list|)
 expr_stmt|;
-name|assertTextNotPresent
+name|assertElementNotPresent
 argument_list|(
+literal|"users-grid-user-id-"
+operator|+
 name|userName
 argument_list|)
 expr_stmt|;
