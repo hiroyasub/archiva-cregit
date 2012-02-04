@@ -124,10 +124,6 @@ implements|implements
 name|WagonFactory
 block|{
 specifier|private
-name|PlexusSisuBridge
-name|plexusSisuBridge
-decl_stmt|;
-specifier|private
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
@@ -144,19 +140,10 @@ name|Inject
 specifier|public
 name|DefaultWagonFactory
 parameter_list|(
-name|PlexusSisuBridge
-name|plexusSisuBridge
-parameter_list|,
 name|ApplicationContext
 name|applicationContext
 parameter_list|)
 block|{
-name|this
-operator|.
-name|plexusSisuBridge
-operator|=
-name|plexusSisuBridge
-expr_stmt|;
 name|this
 operator|.
 name|applicationContext
@@ -176,10 +163,6 @@ name|WagonFactoryException
 block|{
 try|try
 block|{
-comment|// with sisu inject bridge hint is file or http
-comment|// so remove wagon#
-comment|//protocol = StringUtils.remove( protocol, "wagon#" );
-comment|// spring beans will be named wagon#protocol (http, https, file )
 name|protocol
 operator|=
 name|StringUtils
@@ -197,7 +180,6 @@ literal|"wagon#"
 operator|+
 name|protocol
 expr_stmt|;
-comment|//Wagon wagon = plexusSisuBridge.lookup( Wagon.class, protocol );
 name|Wagon
 name|wagon
 init|=
@@ -223,7 +205,6 @@ return|return
 name|wagon
 return|;
 block|}
-comment|//catch ( PlexusSisuBridgeException e )
 catch|catch
 parameter_list|(
 name|BeansException
