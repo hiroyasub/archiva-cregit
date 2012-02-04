@@ -305,6 +305,24 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|storage
+operator|.
+name|RepositoryStorageRuntimeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -667,6 +685,16 @@ parameter_list|)
 throws|throws
 name|ConsumerException
 block|{
+name|RepositorySession
+name|repositorySession
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+decl_stmt|;
+try|try
+block|{
 comment|// note that we do minimal processing including checksums and POM information for performance of
 comment|// the initial scan. Any request for this information will be intercepted and populated on-demand
 comment|// or picked up by subsequent scans
@@ -722,16 +750,6 @@ name|getVersion
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|RepositorySession
-name|repositorySession
-init|=
-name|repositorySessionFactory
-operator|.
-name|createSession
-argument_list|()
-decl_stmt|;
-try|try
-block|{
 name|MetadataRepository
 name|metadataRepository
 init|=
@@ -916,6 +934,36 @@ block|}
 catch|catch
 parameter_list|(
 name|MetadataRepositoryException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Error occurred persisting metadata for artifact: "
+operator|+
+name|path
+operator|+
+literal|"; message: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+name|repositorySession
+operator|.
+name|revert
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RepositoryStorageRuntimeException
 name|e
 parameter_list|)
 block|{

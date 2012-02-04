@@ -27,22 +27,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
-operator|.
-name|model
-operator|.
-name|RepositoryAdminException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|metadata
 operator|.
 name|model
@@ -153,7 +137,7 @@ name|RepositoryStorageMetadataInvalidException
 throws|,
 name|RepositoryStorageMetadataNotFoundException
 throws|,
-name|RepositoryAdminException
+name|RepositoryStorageRuntimeException
 function_decl|;
 name|Collection
 argument_list|<
@@ -171,7 +155,7 @@ argument_list|>
 name|filter
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|RepositoryStorageRuntimeException
 function_decl|;
 name|Collection
 argument_list|<
@@ -192,7 +176,7 @@ argument_list|>
 name|filter
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|RepositoryStorageRuntimeException
 function_decl|;
 name|Collection
 argument_list|<
@@ -213,7 +197,7 @@ argument_list|>
 name|filter
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|RepositoryStorageRuntimeException
 function_decl|;
 name|Collection
 argument_list|<
@@ -237,7 +221,7 @@ argument_list|>
 name|filter
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|RepositoryStorageRuntimeException
 function_decl|;
 name|Collection
 argument_list|<
@@ -264,7 +248,7 @@ argument_list|>
 name|filter
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|RepositoryStorageRuntimeException
 function_decl|;
 comment|// FIXME: reconsider this API, do we want to expose storage format in the form of a path?
 name|ArtifactMetadata
@@ -277,7 +261,7 @@ name|String
 name|path
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|RepositoryStorageRuntimeException
 function_decl|;
 block|}
 end_interface
