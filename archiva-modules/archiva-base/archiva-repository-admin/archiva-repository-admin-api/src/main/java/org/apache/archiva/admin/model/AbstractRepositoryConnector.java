@@ -876,7 +876,7 @@ control|(
 name|PropertyEntry
 name|propertyEntry
 range|:
-name|policiesEntries
+name|propertiesEntries
 control|)
 block|{
 name|addProperty
