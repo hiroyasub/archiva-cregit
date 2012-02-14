@@ -178,8 +178,6 @@ operator|=
 name|archivaRuntimeInfo
 expr_stmt|;
 block|}
-annotation|@
-name|Inject
 specifier|public
 name|ApplicationRuntimeInfo
 name|getApplicationRuntimeInfo
