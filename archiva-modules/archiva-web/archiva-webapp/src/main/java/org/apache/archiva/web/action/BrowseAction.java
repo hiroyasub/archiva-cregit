@@ -805,7 +805,7 @@ name|SUCCESS
 return|;
 block|}
 specifier|private
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -818,7 +818,7 @@ argument_list|>
 name|set
 parameter_list|)
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
