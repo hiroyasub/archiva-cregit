@@ -732,8 +732,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO: this logic should be optional, particularly remembering we want to keep this code simple
-comment|//       it is located here to avoid the content repository implementation needing to do too much for what
-comment|//       is essentially presentation code
+comment|// it is located here to avoid the content repository implementation needing to do too much for what
+comment|// is essentially presentation code
 name|namespaces
 operator|=
 operator|new
