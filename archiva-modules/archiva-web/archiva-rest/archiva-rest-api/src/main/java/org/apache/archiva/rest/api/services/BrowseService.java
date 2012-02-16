@@ -33,7 +33,7 @@ name|api
 operator|.
 name|model
 operator|.
-name|BrowseGroupIdResult
+name|BrowseResult
 import|;
 end_import
 
@@ -178,7 +178,7 @@ name|noPermission
 operator|=
 literal|false
 argument_list|)
-name|GroupIdList
+name|BrowseResult
 name|getRootGroups
 parameter_list|()
 throws|throws
@@ -215,7 +215,7 @@ name|noPermission
 operator|=
 literal|false
 argument_list|)
-name|BrowseGroupIdResult
+name|BrowseResult
 name|browseGroupId
 parameter_list|(
 annotation|@
