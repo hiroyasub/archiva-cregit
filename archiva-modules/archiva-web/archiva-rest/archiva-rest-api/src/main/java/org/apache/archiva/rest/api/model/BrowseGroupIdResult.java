@@ -92,7 +92,12 @@ argument_list|>
 name|browseGroupIdEntries
 parameter_list|)
 block|{
-comment|// no op
+name|this
+operator|.
+name|browseGroupIdEntries
+operator|=
+name|browseGroupIdEntries
+expr_stmt|;
 block|}
 specifier|public
 name|List
