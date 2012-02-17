@@ -76,6 +76,10 @@ name|BrowseResultEntry
 argument_list|>
 name|browseResultEntries
 decl_stmt|;
+specifier|private
+name|boolean
+name|rootLevel
+decl_stmt|;
 specifier|public
 name|BrowseResult
 parameter_list|()
