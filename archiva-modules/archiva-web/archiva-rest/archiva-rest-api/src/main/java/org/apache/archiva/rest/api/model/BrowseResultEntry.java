@@ -43,15 +43,15 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"browseIdEntry"
+literal|"browseResultEntry"
 argument_list|)
 specifier|public
 class|class
-name|BrowseIdEntry
+name|BrowseResultEntry
 implements|implements
 name|Comparable
 argument_list|<
-name|BrowseIdEntry
+name|BrowseResultEntry
 argument_list|>
 block|{
 specifier|private
@@ -63,13 +63,13 @@ name|boolean
 name|project
 decl_stmt|;
 specifier|public
-name|BrowseIdEntry
+name|BrowseResultEntry
 parameter_list|()
 block|{
 comment|// no op
 block|}
 specifier|public
-name|BrowseIdEntry
+name|BrowseResultEntry
 parameter_list|(
 name|String
 name|name
@@ -143,8 +143,8 @@ specifier|public
 name|int
 name|compareTo
 parameter_list|(
-name|BrowseIdEntry
-name|browseGroupIdEntry
+name|BrowseResultEntry
+name|browseGroupResultEntry
 parameter_list|)
 block|{
 return|return
@@ -154,7 +154,7 @@ name|name
 operator|.
 name|compareTo
 argument_list|(
-name|browseGroupIdEntry
+name|browseGroupResultEntry
 operator|.
 name|name
 argument_list|)
