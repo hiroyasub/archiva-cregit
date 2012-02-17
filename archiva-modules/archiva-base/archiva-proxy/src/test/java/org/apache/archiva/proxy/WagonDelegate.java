@@ -575,6 +575,25 @@ literal|0
 return|;
 block|}
 specifier|public
+name|void
+name|setReadTimeout
+parameter_list|(
+name|int
+name|timeoutValue
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+specifier|public
+name|int
+name|getReadTimeout
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
+specifier|public
 name|Repository
 name|getRepository
 parameter_list|()
