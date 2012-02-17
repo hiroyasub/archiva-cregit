@@ -1604,7 +1604,15 @@ argument_list|()
 operator|*
 literal|1000
 decl_stmt|;
+comment|// FIXME olamy having 2 config values
 comment|// Set timeout
+name|wagon
+operator|.
+name|setReadTimeout
+argument_list|(
+name|timeoutInMilliseconds
+argument_list|)
+expr_stmt|;
 name|wagon
 operator|.
 name|setTimeout
