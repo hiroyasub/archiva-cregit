@@ -79,7 +79,7 @@ name|api
 operator|.
 name|model
 operator|.
-name|BrowseResultEntry
+name|BrowseResult
 import|;
 end_import
 
@@ -97,7 +97,7 @@ name|api
 operator|.
 name|model
 operator|.
-name|BrowseResult
+name|BrowseResultEntry
 import|;
 end_import
 
@@ -740,6 +740,10 @@ argument_list|(
 operator|new
 name|BrowseResultEntry
 argument_list|(
+name|groupId
+operator|+
+literal|'.'
+operator|+
 name|project
 argument_list|,
 literal|true
