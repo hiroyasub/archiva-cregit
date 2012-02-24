@@ -15,6 +15,20 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlRootElement
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -32,6 +46,13 @@ comment|/**  * Information about the available mailing lists for communicating w
 end_comment
 
 begin_class
+annotation|@
+name|XmlRootElement
+argument_list|(
+name|name
+operator|=
+literal|"mailingList"
+argument_list|)
 specifier|public
 class|class
 name|MailingList

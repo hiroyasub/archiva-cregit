@@ -19,6 +19,20 @@ end_comment
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlElement
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -166,7 +180,7 @@ name|keySet
 argument_list|()
 return|;
 block|}
-comment|/**      * Get all available facets as a Map (typically used by bean rendering, such as in Archiva's JSPs).       * @return the map of facets      * @see #facets      */
+comment|/**      * Get all available facets as a Map (typically used by bean rendering, such as in Archiva's JSPs).      *      * @return the map of facets      * @see #facets      */
 specifier|public
 name|Map
 argument_list|<
