@@ -431,6 +431,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|model
@@ -1316,21 +1330,29 @@ init|=
 operator|new
 name|DefaultModelBuildingRequest
 argument_list|()
-decl_stmt|;
-name|req
 operator|.
 name|setProcessPlugins
 argument_list|(
 literal|false
 argument_list|)
-expr_stmt|;
-name|req
 operator|.
 name|setPomFile
 argument_list|(
 name|file
 argument_list|)
-expr_stmt|;
+operator|.
+name|setTwoPhaseBuilding
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|setValidationLevel
+argument_list|(
+name|ModelBuildingRequest
+operator|.
+name|VALIDATION_LEVEL_MINIMAL
+argument_list|)
+decl_stmt|;
 comment|// MRM-1411
 name|req
 operator|.
@@ -1351,15 +1373,6 @@ name|networkProxies
 argument_list|,
 name|repositoryConfiguration
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|req
-operator|.
-name|setValidationLevel
-argument_list|(
-name|ModelBuildingRequest
-operator|.
-name|VALIDATION_LEVEL_MINIMAL
 argument_list|)
 expr_stmt|;
 name|Model
@@ -1421,8 +1434,12 @@ control|)
 block|{
 comment|// MRM-1411, related to MRM-1335
 comment|// this means that the problem was that the parent wasn't resolved!
+comment|// olamy really hackhish but fail with java profile so use error message
+comment|// || ( StringUtils.startsWith( problem.getMessage(), "Failed to determine Java version for profile" ) )
+comment|// but setTwoPhaseBuilding(true) fix that
 if|if
 condition|(
+operator|(
 name|problem
 operator|.
 name|getException
@@ -1450,6 +1467,7 @@ operator|.
 name|getModelId
 argument_list|()
 argument_list|)
+operator|)
 condition|)
 block|{
 name|log
@@ -1519,6 +1537,19 @@ name|errMsg
 init|=
 literal|"Error in resolving artifact's parent POM file. "
 operator|+
+operator|(
+name|problem
+operator|.
+name|getException
+argument_list|()
+operator|==
+literal|null
+condition|?
+name|problem
+operator|.
+name|getMessage
+argument_list|()
+else|:
 name|problem
 operator|.
 name|getException
@@ -1526,6 +1557,7 @@ argument_list|()
 operator|.
 name|getMessage
 argument_list|()
+operator|)
 decl_stmt|;
 name|RepositoryProblemFacet
 name|repoProblemFacet
