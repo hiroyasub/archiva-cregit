@@ -511,8 +511,6 @@ function_decl|;
 name|void
 name|save
 parameter_list|()
-throws|throws
-name|MetadataRepositoryException
 function_decl|;
 name|void
 name|close
@@ -521,8 +519,6 @@ function_decl|;
 name|void
 name|revert
 parameter_list|()
-throws|throws
-name|MetadataRepositoryException
 function_decl|;
 name|boolean
 name|canObtainAccess

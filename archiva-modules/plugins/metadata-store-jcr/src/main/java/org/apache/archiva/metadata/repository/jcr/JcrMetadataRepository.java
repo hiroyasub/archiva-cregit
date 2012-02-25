@@ -5308,8 +5308,6 @@ specifier|public
 name|void
 name|save
 parameter_list|()
-throws|throws
-name|MetadataRepositoryException
 block|{
 try|try
 block|{
@@ -5327,7 +5325,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|MetadataRepositoryException
+name|RuntimeException
 argument_list|(
 name|e
 operator|.
@@ -5343,8 +5341,6 @@ specifier|public
 name|void
 name|revert
 parameter_list|()
-throws|throws
-name|MetadataRepositoryException
 block|{
 try|try
 block|{
@@ -5364,7 +5360,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|MetadataRepositoryException
+name|RuntimeException
 argument_list|(
 name|e
 operator|.

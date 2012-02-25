@@ -119,8 +119,6 @@ specifier|public
 name|void
 name|save
 parameter_list|()
-throws|throws
-name|MetadataRepositoryException
 block|{
 name|repository
 operator|.
@@ -136,8 +134,6 @@ specifier|public
 name|void
 name|revert
 parameter_list|()
-throws|throws
-name|MetadataRepositoryException
 block|{
 name|repository
 operator|.
@@ -166,26 +162,6 @@ name|save
 argument_list|()
 expr_stmt|;
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|MetadataRepositoryException
-name|e
-parameter_list|)
-block|{
-comment|// olamy use revert here ?
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-throw|;
 block|}
 finally|finally
 block|{
