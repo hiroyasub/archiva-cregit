@@ -784,8 +784,6 @@ specifier|public
 name|void
 name|save
 parameter_list|( )
-throws|throws
-name|MetadataRepositoryException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
@@ -800,8 +798,6 @@ specifier|public
 name|void
 name|revert
 parameter_list|( )
-throws|throws
-name|MetadataRepositoryException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}

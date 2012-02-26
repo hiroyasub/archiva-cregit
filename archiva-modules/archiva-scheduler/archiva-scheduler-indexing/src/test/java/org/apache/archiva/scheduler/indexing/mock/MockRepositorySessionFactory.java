@@ -250,7 +250,7 @@ block|{
 specifier|public
 name|RepositorySession
 name|createSession
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 operator|new
@@ -266,7 +266,7 @@ name|Override
 specifier|public
 name|void
 name|close
-parameter_list|( )
+parameter_list|()
 block|{
 return|return;
 block|}
@@ -275,7 +275,7 @@ name|Override
 specifier|public
 name|void
 name|save
-parameter_list|( )
+parameter_list|()
 block|{
 comment|// no op
 block|}
@@ -284,12 +284,12 @@ name|Override
 specifier|public
 name|MetadataRepository
 name|getRepository
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 operator|new
 name|MetadataRepository
-argument_list|( )
+argument_list|()
 block|{
 specifier|public
 name|void
@@ -386,7 +386,7 @@ return|return
 name|Collections
 operator|.
 name|emptyList
-argument_list|( )
+argument_list|()
 return|;
 block|}
 specifier|public
@@ -488,7 +488,7 @@ argument_list|<
 name|String
 argument_list|>
 name|getRepositories
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|MetadataRepositoryException
 block|{
@@ -785,25 +785,21 @@ block|}
 specifier|public
 name|void
 name|save
-parameter_list|( )
-throws|throws
-name|MetadataRepositoryException
+parameter_list|()
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
 name|close
-parameter_list|( )
+parameter_list|()
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
 name|revert
-parameter_list|( )
-throws|throws
-name|MetadataRepositoryException
+parameter_list|()
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
