@@ -3363,8 +3363,6 @@ specifier|public
 name|void
 name|save
 parameter_list|()
-throws|throws
-name|MetadataRepositoryException
 block|{
 comment|// it's all instantly persisted
 block|}
@@ -3379,8 +3377,6 @@ specifier|public
 name|void
 name|revert
 parameter_list|()
-throws|throws
-name|MetadataRepositoryException
 block|{
 name|log
 operator|.
