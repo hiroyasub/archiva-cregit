@@ -530,15 +530,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|observableRepoIds
-init|=
-name|getObservableRepos
-argument_list|()
-decl_stmt|;
 try|try
 block|{
 name|SearchResults
