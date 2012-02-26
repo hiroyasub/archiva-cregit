@@ -213,7 +213,7 @@ literal|true
 argument_list|,
 name|noRestriction
 operator|=
-literal|false
+literal|true
 argument_list|)
 comment|/**      *<b>search will be apply on all repositories the current user has karma</b>      */
 name|List
@@ -262,7 +262,7 @@ literal|true
 argument_list|,
 name|noRestriction
 operator|=
-literal|false
+literal|true
 argument_list|)
 comment|/**      *<b>search will be apply on all repositories the current user has karma</b>      */
 name|List
@@ -327,7 +327,7 @@ literal|true
 argument_list|,
 name|noRestriction
 operator|=
-literal|false
+literal|true
 argument_list|)
 comment|/**      * If searchRequest contains repositories, the search will be done only on those repositories.      *<b>if no repositories, the search will be apply on all repositories the current user has karma</b>      */
 name|List
