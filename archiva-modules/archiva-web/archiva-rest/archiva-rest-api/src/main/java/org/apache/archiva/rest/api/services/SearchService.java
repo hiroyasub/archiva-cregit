@@ -412,7 +412,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"observablesRepoIds"
+literal|"observableRepoIds"
 argument_list|)
 annotation|@
 name|GET
