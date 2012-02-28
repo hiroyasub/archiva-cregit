@@ -254,7 +254,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"quickSearch"
+literal|"quickSearchWithRepositories"
 argument_list|)
 annotation|@
 name|POST
