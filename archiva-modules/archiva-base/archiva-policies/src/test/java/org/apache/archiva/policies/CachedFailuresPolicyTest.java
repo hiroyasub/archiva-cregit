@@ -133,18 +133,6 @@ name|Properties
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|cache
-operator|.
-name|CacheManager
-import|;
-end_import
-
 begin_comment
 comment|/**  * CachedFailuresPolicyTest  *  * @version $Id$  */
 end_comment
