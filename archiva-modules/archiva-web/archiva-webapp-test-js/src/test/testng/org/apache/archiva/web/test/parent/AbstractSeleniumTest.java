@@ -234,7 +234,7 @@ argument_list|()
 operator|.
 name|getResourceAsStream
 argument_list|(
-literal|"testng.properties"
+literal|"test.properties"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -403,7 +403,7 @@ argument_list|()
 operator|.
 name|getResourceAsStream
 argument_list|(
-literal|"testng.properties"
+literal|"test.properties"
 argument_list|)
 decl_stmt|;
 name|String
