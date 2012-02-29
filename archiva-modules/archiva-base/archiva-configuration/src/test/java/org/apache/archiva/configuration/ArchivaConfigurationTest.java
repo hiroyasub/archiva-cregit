@@ -1579,9 +1579,6 @@ expr_stmt|;
 name|ArchivaConfiguration
 name|archivaConfiguration
 init|=
-operator|(
-name|ArchivaConfiguration
-operator|)
 name|lookup
 argument_list|(
 name|ArchivaConfiguration
@@ -1738,9 +1735,6 @@ expr_stmt|;
 name|ArchivaConfiguration
 name|archivaConfiguration
 init|=
-operator|(
-name|ArchivaConfiguration
-operator|)
 name|lookup
 argument_list|(
 name|ArchivaConfiguration

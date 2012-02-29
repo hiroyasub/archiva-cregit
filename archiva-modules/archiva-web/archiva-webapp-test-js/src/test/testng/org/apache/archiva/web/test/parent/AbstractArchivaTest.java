@@ -822,9 +822,11 @@ argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
-literal|"user created:"
+literal|"User "
 operator|+
 name|userName
+operator|+
+literal|" created."
 argument_list|)
 expr_stmt|;
 name|assertElementPresent
@@ -928,11 +930,11 @@ argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
-literal|"user "
+literal|"User "
 operator|+
 name|userName
 operator|+
-literal|" deleted"
+literal|" deleted."
 argument_list|)
 expr_stmt|;
 name|clickLinkWithLocator
