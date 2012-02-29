@@ -133,6 +133,18 @@ name|Properties
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|cache
+operator|.
+name|CacheManager
+import|;
+end_import
+
 begin_comment
 comment|/**  * CachedFailuresPolicyTest  *  * @version $Id$  */
 end_comment
@@ -281,12 +293,11 @@ annotation|@
 name|Test
 specifier|public
 name|void
-name|testPolicyYesNotInCache
+name|testPolicyYes
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//CacheManager.getInstance().clearAll();
 name|DownloadPolicy
 name|policy
 init|=
@@ -314,6 +325,7 @@ argument_list|,
 literal|"http://a.bad.hostname.maven.org/path/to/resource.txt"
 argument_list|)
 expr_stmt|;
+comment|// should not fail
 name|policy
 operator|.
 name|applyPolicy
@@ -327,34 +339,8 @@ argument_list|,
 name|localFile
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Test
-specifier|public
-name|void
-name|testPolicyYesInCache
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|DownloadPolicy
-name|policy
-init|=
-name|lookupPolicy
-argument_list|()
-decl_stmt|;
-name|File
-name|localFile
-init|=
-name|getFile
-argument_list|()
-decl_stmt|;
-name|Properties
-name|request
-init|=
-name|createRequest
-argument_list|()
-decl_stmt|;
+comment|// status Yes Not In cache
+comment|// Yes in Cache
 name|String
 name|url
 init|=
