@@ -99,11 +99,6 @@ name|AbstractArchivaTest
 block|{
 annotation|@
 name|Test
-argument_list|(
-name|alwaysRun
-operator|=
-literal|true
-argument_list|)
 specifier|public
 name|void
 name|testWithBadUsername
@@ -134,17 +129,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|dependsOnMethods
-operator|=
-block|{
-literal|"testWithBadUsername"
-block|}
-argument_list|,
-name|alwaysRun
-operator|=
-literal|true
-argument_list|)
 specifier|public
 name|void
 name|testWithBadPassword
@@ -185,17 +169,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|dependsOnMethods
-operator|=
-block|{
-literal|"testWithBadPassword"
-block|}
-argument_list|,
-name|alwaysRun
-operator|=
-literal|true
-argument_list|)
 specifier|public
 name|void
 name|testWithEmptyUsername
@@ -218,7 +191,6 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|//assertTextPresent( "User Name is required" );
 name|assertTextPresent
 argument_list|(
 literal|"This field is required."
@@ -228,12 +200,6 @@ block|}
 annotation|@
 name|Test
 argument_list|(
-name|dependsOnMethods
-operator|=
-block|{
-literal|"testWithEmptyUsername"
-block|}
-argument_list|,
 name|alwaysRun
 operator|=
 literal|true
@@ -263,7 +229,6 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|//assertTextPresent( "You have entered an incorrect username and/or password" );
 name|assertTextPresent
 argument_list|(
 literal|"This field is required."
@@ -272,23 +237,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|groups
-operator|=
-block|{
-literal|"loginSuccess"
-block|}
-argument_list|,
-name|dependsOnMethods
-operator|=
-block|{
-literal|"testWithEmptyPassword"
-block|}
-argument_list|,
-name|alwaysRun
-operator|=
-literal|true
-argument_list|)
 specifier|public
 name|void
 name|testWithCorrectUsernamePassword

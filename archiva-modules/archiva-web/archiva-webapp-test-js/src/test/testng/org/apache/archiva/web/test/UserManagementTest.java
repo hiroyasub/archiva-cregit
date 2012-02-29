@@ -61,10 +61,10 @@ block|{
 literal|"usermanagement"
 block|}
 argument_list|,
-name|dependsOnMethods
+name|dependsOnGroups
 operator|=
 block|{
-literal|"testWithCorrectUsernamePassword"
+literal|"about"
 block|}
 argument_list|)
 specifier|public
