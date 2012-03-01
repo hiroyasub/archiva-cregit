@@ -37,6 +37,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|jackson
+operator|.
+name|annotate
+operator|.
+name|JsonIgnoreProperties
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
