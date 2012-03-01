@@ -94,7 +94,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaRepositoryScanningTaskExecutorPhase1Test  *   * @version $Id: ArchivaRepositoryScanningTaskExecutorPhase1Test.java 1214303 2011-12-14 15:37:51Z olamy $  */
+comment|/**  * ArchivaRepositoryScanningTaskExecutorPhase1Test  *  * @version $Id: ArchivaRepositoryScanningTaskExecutorPhase1Test.java 1214303 2011-12-14 15:37:51Z olamy $  */
 end_comment
 
 begin_class
