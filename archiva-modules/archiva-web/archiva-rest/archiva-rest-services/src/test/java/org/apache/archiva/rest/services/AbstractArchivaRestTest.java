@@ -1196,6 +1196,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// to add authentification
 if|if
 condition|(
 name|authzHeader
@@ -1218,6 +1219,7 @@ name|authzHeader
 argument_list|)
 expr_stmt|;
 block|}
+comment|// to configure read timeout
 name|WebClient
 operator|.
 name|getConfig
@@ -1236,6 +1238,7 @@ argument_list|(
 literal|100000000
 argument_list|)
 expr_stmt|;
+comment|// if you want to use json as exchange format xml is supported too
 name|WebClient
 operator|.
 name|client
