@@ -1348,7 +1348,9 @@ name|artifactPath
 operator|.
 name|lastIndexOf
 argument_list|(
-literal|'/'
+name|File
+operator|.
+name|separatorChar
 argument_list|)
 decl_stmt|;
 name|String
