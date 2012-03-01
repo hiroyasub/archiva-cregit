@@ -513,14 +513,22 @@ name|RepositoryAdminException
 block|{
 try|try
 block|{
+name|List
+argument_list|<
+name|RemoteRepository
+argument_list|>
+name|remoteRepositories
+init|=
+name|getRemoteRepositories
+argument_list|()
+decl_stmt|;
 comment|// close index on shutdown
 for|for
 control|(
 name|RemoteRepository
 name|remoteRepository
 range|:
-name|getRemoteRepositories
-argument_list|()
+name|remoteRepositories
 control|)
 block|{
 name|IndexingContext
