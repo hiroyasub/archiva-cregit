@@ -108,7 +108,7 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|ScreenshotCaptureRule
+name|ArchivaSeleniumExecutionRule
 implements|implements
 name|MethodRule
 comment|//TestRule

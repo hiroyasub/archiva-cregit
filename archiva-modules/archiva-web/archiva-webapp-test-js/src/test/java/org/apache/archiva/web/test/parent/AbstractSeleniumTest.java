@@ -57,7 +57,7 @@ name|test
 operator|.
 name|tools
 operator|.
-name|ScreenshotCaptureRule
+name|ArchivaSeleniumExecutionRule
 import|;
 end_import
 
@@ -186,11 +186,11 @@ block|{
 annotation|@
 name|Rule
 specifier|public
-name|ScreenshotCaptureRule
-name|screenshotCaptureRule
+name|ArchivaSeleniumExecutionRule
+name|archivaSeleniumExecutionRule
 init|=
 operator|new
-name|ScreenshotCaptureRule
+name|ArchivaSeleniumExecutionRule
 argument_list|()
 decl_stmt|;
 specifier|public
@@ -307,7 +307,7 @@ argument_list|,
 name|maxWaitTimeInMs
 argument_list|)
 expr_stmt|;
-name|screenshotCaptureRule
+name|archivaSeleniumExecutionRule
 operator|.
 name|selenium
 operator|=
