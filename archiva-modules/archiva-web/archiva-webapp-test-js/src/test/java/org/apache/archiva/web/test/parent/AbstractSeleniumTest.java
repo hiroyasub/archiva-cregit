@@ -57,24 +57,6 @@ name|test
 operator|.
 name|tools
 operator|.
-name|AfterSeleniumFailure
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|web
-operator|.
-name|test
-operator|.
-name|tools
-operator|.
 name|ScreenshotCaptureRule
 import|;
 end_import
@@ -280,6 +262,7 @@ specifier|public
 name|Properties
 name|p
 decl_stmt|;
+comment|/**      * this method is called by the Rule before executing a test      * @throws Exception      */
 specifier|public
 name|void
 name|open
@@ -334,7 +317,7 @@ name|assertAdminCreated
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Close selenium session.      */
+comment|/**      * this method is called by the Rule after executing a tests      */
 specifier|public
 name|void
 name|close
@@ -2659,8 +2642,6 @@ name|expectedValue
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|AfterSeleniumFailure
 specifier|public
 name|void
 name|captureScreenShotOnFailure
