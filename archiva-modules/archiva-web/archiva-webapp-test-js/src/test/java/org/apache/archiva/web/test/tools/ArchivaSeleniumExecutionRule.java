@@ -113,6 +113,7 @@ implements|implements
 name|MethodRule
 comment|//TestRule
 block|{
+comment|// FIXME cerate a separate TestRule for open and close calls ?
 specifier|public
 name|Selenium
 name|selenium
@@ -160,6 +161,9 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
+name|String
+name|fileName
+init|=
 operator|(
 operator|(
 name|AbstractSeleniumTest
@@ -187,7 +191,23 @@ operator|.
 name|getName
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|" see screenShot file:"
+operator|+
+name|fileName
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 finally|finally
 block|{
@@ -235,7 +255,6 @@ block|{
 return|return
 name|base
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 block|}
 end_class

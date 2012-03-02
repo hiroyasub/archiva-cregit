@@ -262,7 +262,7 @@ specifier|public
 name|Properties
 name|p
 decl_stmt|;
-comment|/**      * this method is called by the Rule before executing a test      * @throws Exception      */
+comment|/**      * this method is called by the Rule before executing a test      *      * @throws Exception      */
 specifier|public
 name|void
 name|open
@@ -2643,7 +2643,7 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|public
-name|void
+name|String
 name|captureScreenShotOnFailure
 parameter_list|(
 name|Throwable
@@ -2791,6 +2791,12 @@ argument_list|,
 literal|"background=#FFFFFF"
 argument_list|)
 expr_stmt|;
+return|return
+name|fileName
+operator|.
+name|getAbsolutePath
+argument_list|()
+return|;
 block|}
 block|}
 end_class
