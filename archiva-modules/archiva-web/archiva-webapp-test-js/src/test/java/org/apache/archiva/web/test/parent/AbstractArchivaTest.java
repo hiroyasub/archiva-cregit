@@ -29,7 +29,7 @@ name|test
 operator|.
 name|tools
 operator|.
-name|ArchivaSeleniumRunner
+name|ScreenshotCaptureRule
 import|;
 end_import
 
@@ -39,7 +39,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|Rule
 import|;
 end_import
 
@@ -52,6 +52,18 @@ operator|.
 name|runner
 operator|.
 name|RunWith
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|runners
+operator|.
+name|BlockJUnit4ClassRunner
 import|;
 end_import
 
@@ -83,7 +95,7 @@ begin_class
 annotation|@
 name|RunWith
 argument_list|(
-name|ArchivaSeleniumRunner
+name|BlockJUnit4ClassRunner
 operator|.
 name|class
 argument_list|)

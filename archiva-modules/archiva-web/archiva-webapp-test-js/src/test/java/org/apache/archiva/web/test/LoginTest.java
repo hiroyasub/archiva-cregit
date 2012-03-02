@@ -82,7 +82,7 @@ argument_list|)
 expr_stmt|;
 name|assertTextPresent
 argument_list|(
-literal|"This field is required."
+literal|"This field is required.f"
 argument_list|)
 expr_stmt|;
 block|}
