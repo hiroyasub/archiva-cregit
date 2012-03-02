@@ -21,21 +21,21 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|junit
 operator|.
-name|File
+name|Assert
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|testng
+name|io
 operator|.
-name|Assert
+name|File
 import|;
 end_import
 
@@ -488,11 +488,13 @@ name|arrayproxy
 range|:
 name|arrayProxy
 control|)
+block|{
 name|assertTextPresent
 argument_list|(
 name|arrayproxy
 argument_list|)
 expr_stmt|;
+block|}
 comment|/*          * String proxyElements =          * "addProxyConnector_connector_proxyId,addProxyConnector_connector_sourceRepoId,addProxyConnector_connector_targetRepoId,policy_propagate-errors-on-update,policy_propagate-errors,policy_releases,policy_snapshots,policy_checksum,policy_cache-failures,propertiesEntry,propertiesValue,blackListEntry,whiteListEntry"          * ; String[] arrayProxyElements = proxyElements.split( "," ); for ( String arrayproxyelements :          * arrayProxyElements ) assertTextPresent( arrayproxyelements );          */
 name|assertButtonWithValuePresent
 argument_list|(
@@ -686,11 +688,13 @@ name|arrayremote
 range|:
 name|arrayRemote
 control|)
+block|{
 name|assertTextPresent
 argument_list|(
 name|arrayremote
 argument_list|)
 expr_stmt|;
+block|}
 name|String
 name|remoteElements
 init|=
@@ -714,11 +718,13 @@ name|arrayremotelement
 range|:
 name|arrayRemoteElements
 control|)
+block|{
 name|assertElementPresent
 argument_list|(
 name|arrayremotelement
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 specifier|public
 name|void
@@ -1152,6 +1158,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 name|Assert
 operator|.
 name|assertEquals
@@ -1174,6 +1181,7 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
+block|}
 name|String
 name|autoremove
 init|=
@@ -1206,6 +1214,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 name|Assert
 operator|.
 name|assertEquals
@@ -1228,6 +1237,7 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
+block|}
 name|String
 name|ignored
 init|=
@@ -1260,6 +1270,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 name|Assert
 operator|.
 name|assertEquals
@@ -1282,6 +1293,7 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
+block|}
 name|String
 name|indexableContent
 init|=
@@ -1314,6 +1326,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 name|Assert
 operator|.
 name|assertEquals
@@ -1336,6 +1349,7 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// ///////////////////////////////////////////
 comment|// Database

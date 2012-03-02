@@ -53,7 +53,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
 name|Assert
 import|;
@@ -63,9 +63,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -76,19 +74,6 @@ comment|/**  * @author Olivier Lamy  */
 end_comment
 
 begin_class
-annotation|@
-name|Test
-argument_list|(
-name|groups
-operator|=
-block|{
-literal|"usermanagement"
-block|}
-argument_list|,
-name|dependsOnGroups
-operator|=
-literal|"about"
-argument_list|)
 specifier|public
 class|class
 name|RolesManagementTest
