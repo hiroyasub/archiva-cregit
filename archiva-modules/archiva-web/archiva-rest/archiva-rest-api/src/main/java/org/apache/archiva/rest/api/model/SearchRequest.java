@@ -65,7 +65,7 @@ specifier|public
 class|class
 name|SearchRequest
 block|{
-comment|/**      * @since 1.4-M3      * to be able to search with a query on selected repositories      */
+comment|/**      * @since 1.4-M3      *        to be able to search with a query on selected repositories      */
 specifier|private
 name|String
 name|queryTerms
@@ -130,11 +130,21 @@ specifier|private
 name|String
 name|bundleExportService
 decl_stmt|;
+comment|/**      * contains osgi metadata Import-Package if available      *      * @since 1.4-M3      */
+specifier|private
+name|String
+name|bundleImportPackage
+decl_stmt|;
+comment|/**      * contains osgi metadata Require-Bundle if available      *      * @since 1.4-M3      */
+specifier|private
+name|String
+name|bundleRequireBundle
+decl_stmt|;
 specifier|private
 name|String
 name|classifier
 decl_stmt|;
-comment|/**      * not return artifact with file extension pom      * @since 1.4-M2      */
+comment|/**      * not return artifact with file extension pom      *      * @since 1.4-M2      */
 specifier|private
 name|boolean
 name|includePomArtifacts
@@ -527,6 +537,54 @@ operator|=
 name|queryTerms
 expr_stmt|;
 block|}
+specifier|public
+name|String
+name|getBundleImportPackage
+parameter_list|()
+block|{
+return|return
+name|bundleImportPackage
+return|;
+block|}
+specifier|public
+name|void
+name|setBundleImportPackage
+parameter_list|(
+name|String
+name|bundleImportPackage
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bundleImportPackage
+operator|=
+name|bundleImportPackage
+expr_stmt|;
+block|}
+specifier|public
+name|String
+name|getBundleRequireBundle
+parameter_list|()
+block|{
+return|return
+name|bundleRequireBundle
+return|;
+block|}
+specifier|public
+name|void
+name|setBundleRequireBundle
+parameter_list|(
+name|String
+name|bundleRequireBundle
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bundleRequireBundle
+operator|=
+name|bundleRequireBundle
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -724,6 +782,40 @@ operator|.
 name|append
 argument_list|(
 name|bundleExportService
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|'\''
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", bundleImportPackage='"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|bundleImportPackage
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|'\''
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", bundleRequireBundle='"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|bundleRequireBundle
 argument_list|)
 operator|.
 name|append

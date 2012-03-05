@@ -112,7 +112,12 @@ specifier|private
 name|String
 name|bundleExportService
 decl_stmt|;
-comment|/**      * not return artifact with file extension pom      * @since 1.4-M2      */
+comment|/**      * contains osgi metadata Require-Bundle if available      *      * @since 1.4-M3      */
+specifier|private
+name|String
+name|bundleRequireBundle
+decl_stmt|;
+comment|/**      * not return artifact with file extension pom      *      * @since 1.4-M2      */
 specifier|private
 name|boolean
 name|includePomArtifacts
@@ -533,6 +538,30 @@ operator|=
 name|includePomArtifacts
 expr_stmt|;
 block|}
+specifier|public
+name|String
+name|getBundleRequireBundle
+parameter_list|()
+block|{
+return|return
+name|bundleRequireBundle
+return|;
+block|}
+specifier|public
+name|void
+name|setBundleRequireBundle
+parameter_list|(
+name|String
+name|bundleRequireBundle
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bundleRequireBundle
+operator|=
+name|bundleRequireBundle
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -747,6 +776,23 @@ operator|.
 name|append
 argument_list|(
 name|bundleExportService
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|'\''
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", bundleRequireBundle='"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|bundleRequireBundle
 argument_list|)
 operator|.
 name|append
