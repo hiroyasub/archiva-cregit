@@ -174,6 +174,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|//Path 	jaxen/jars/jaxen-1.0-FCS-full.jar
+comment|//Artifact 	jaxen:jaxen:1.0-FCS:full:jar
 name|int
 name|initialSize
 init|=
@@ -197,14 +199,14 @@ name|legacyArtifactPath
 operator|.
 name|setArtifact
 argument_list|(
-literal|"foo"
+literal|"wine:bordeaux:2006:GREAT:jar"
 argument_list|)
 expr_stmt|;
 name|legacyArtifactPath
 operator|.
 name|setPath
 argument_list|(
-literal|"bar"
+literal|"wine/jars/bordeaux-2006-GREAT.jar"
 argument_list|)
 expr_stmt|;
 name|getArchivaAdministrationService
@@ -236,7 +238,7 @@ argument_list|()
 operator|.
 name|deleteLegacyArtifactPath
 argument_list|(
-literal|"bar"
+literal|"wine/jars/bordeaux-2006-GREAT.jar"
 argument_list|)
 expr_stmt|;
 name|assertEquals
