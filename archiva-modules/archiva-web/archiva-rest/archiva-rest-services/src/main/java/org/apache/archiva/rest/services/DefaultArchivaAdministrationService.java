@@ -379,7 +379,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 block|{
-comment|// Check the proposed Artifact macthes the path
+comment|// Check the proposed Artifact matches the path
 name|ArtifactReference
 name|artifact
 init|=
