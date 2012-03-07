@@ -7,13 +7,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|web
+name|rest
 operator|.
-name|action
+name|services
 operator|.
-name|admin
-operator|.
-name|scanning
+name|utils
 package|;
 end_package
 
