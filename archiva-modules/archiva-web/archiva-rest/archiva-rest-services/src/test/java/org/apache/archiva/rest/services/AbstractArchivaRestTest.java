@@ -1760,7 +1760,7 @@ expr_stmt|;
 name|getArchivaAdministrationService
 argument_list|()
 operator|.
-name|addKnownContentConsumer
+name|enabledKnownContentConsumer
 argument_list|(
 literal|"create-missing-checksums"
 argument_list|)
@@ -1768,7 +1768,7 @@ expr_stmt|;
 name|getArchivaAdministrationService
 argument_list|()
 operator|.
-name|addKnownContentConsumer
+name|enabledKnownContentConsumer
 argument_list|(
 literal|"metadata-updater"
 argument_list|)

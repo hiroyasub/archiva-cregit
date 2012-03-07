@@ -744,7 +744,7 @@ expr_stmt|;
 name|getArchivaAdministrationService
 argument_list|()
 operator|.
-name|addInvalidContentConsumer
+name|enabledInvalidContentConsumer
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -773,7 +773,7 @@ expr_stmt|;
 name|getArchivaAdministrationService
 argument_list|()
 operator|.
-name|removeInvalidContentConsumer
+name|disabledInvalidContentConsumer
 argument_list|(
 literal|"foo"
 argument_list|)

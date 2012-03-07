@@ -888,7 +888,7 @@ block|}
 block|}
 specifier|public
 name|Boolean
-name|addKnownContentConsumer
+name|enabledKnownContentConsumer
 parameter_list|(
 name|String
 name|knownContentConsumer
@@ -934,7 +934,7 @@ block|}
 block|}
 specifier|public
 name|void
-name|setKnownContentConsumers
+name|enabledKnownContentConsumers
 parameter_list|(
 name|List
 argument_list|<
@@ -978,7 +978,7 @@ block|}
 block|}
 specifier|public
 name|Boolean
-name|removeKnownContentConsumer
+name|disabledKnownContentConsumer
 parameter_list|(
 name|String
 name|knownContentConsumer
@@ -1024,7 +1024,7 @@ block|}
 block|}
 specifier|public
 name|Boolean
-name|addInvalidContentConsumer
+name|enabledInvalidContentConsumer
 parameter_list|(
 name|String
 name|invalidContentConsumer
@@ -1070,7 +1070,7 @@ block|}
 block|}
 specifier|public
 name|void
-name|setInvalidContentConsumers
+name|enabledInvalidContentConsumers
 parameter_list|(
 name|List
 argument_list|<
@@ -1114,7 +1114,7 @@ block|}
 block|}
 specifier|public
 name|Boolean
-name|removeInvalidContentConsumer
+name|disabledInvalidContentConsumer
 parameter_list|(
 name|String
 name|invalidContentConsumer

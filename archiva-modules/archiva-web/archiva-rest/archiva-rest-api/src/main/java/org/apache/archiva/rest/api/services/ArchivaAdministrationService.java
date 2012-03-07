@@ -646,7 +646,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"addKnownContentConsumer"
+literal|"enabledKnownContentConsumer"
 argument_list|)
 annotation|@
 name|GET
@@ -677,7 +677,7 @@ operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
 name|Boolean
-name|addKnownContentConsumer
+name|enabledKnownContentConsumer
 parameter_list|(
 annotation|@
 name|QueryParam
@@ -693,7 +693,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"setKnownContentConsumers"
+literal|"enabledKnownContentConsumers"
 argument_list|)
 annotation|@
 name|POST
@@ -720,7 +720,7 @@ operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
 name|void
-name|setKnownContentConsumers
+name|enabledKnownContentConsumers
 parameter_list|(
 name|List
 argument_list|<
@@ -734,7 +734,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"removeKnownContentConsumer"
+literal|"disabledKnownContentConsumer"
 argument_list|)
 annotation|@
 name|GET
@@ -765,7 +765,7 @@ operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
 name|Boolean
-name|removeKnownContentConsumer
+name|disabledKnownContentConsumer
 parameter_list|(
 annotation|@
 name|QueryParam
@@ -781,7 +781,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"addInvalidContentConsumer"
+literal|"enabledInvalidContentConsumer"
 argument_list|)
 annotation|@
 name|GET
@@ -812,7 +812,7 @@ operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
 name|Boolean
-name|addInvalidContentConsumer
+name|enabledInvalidContentConsumer
 parameter_list|(
 annotation|@
 name|QueryParam
@@ -828,7 +828,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"setInvalidContentConsumers"
+literal|"enabledInvalidContentConsumers"
 argument_list|)
 annotation|@
 name|POST
@@ -855,7 +855,7 @@ operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
 name|void
-name|setInvalidContentConsumers
+name|enabledInvalidContentConsumers
 parameter_list|(
 name|List
 argument_list|<
@@ -869,7 +869,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"removeInvalidContentConsumer"
+literal|"disabledInvalidContentConsumer"
 argument_list|)
 annotation|@
 name|GET
@@ -900,7 +900,7 @@ operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
 name|Boolean
-name|removeInvalidContentConsumer
+name|disabledInvalidContentConsumer
 parameter_list|(
 annotation|@
 name|QueryParam
