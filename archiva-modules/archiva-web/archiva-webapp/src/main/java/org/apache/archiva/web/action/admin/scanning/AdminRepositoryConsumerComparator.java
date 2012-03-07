@@ -23,6 +23,24 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|rest
+operator|.
+name|api
+operator|.
+name|model
+operator|.
+name|AdminRepositoryConsumer
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
