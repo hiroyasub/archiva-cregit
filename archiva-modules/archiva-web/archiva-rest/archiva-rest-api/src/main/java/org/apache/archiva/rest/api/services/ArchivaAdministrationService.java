@@ -215,6 +215,18 @@ name|ws
 operator|.
 name|rs
 operator|.
+name|PathParam
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|ws
+operator|.
+name|rs
+operator|.
 name|Produces
 import|;
 end_import
@@ -646,7 +658,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"enabledKnownContentConsumer"
+literal|"enabledKnownContentConsumer/{knownContentConsumer}"
 argument_list|)
 annotation|@
 name|GET
@@ -680,7 +692,7 @@ name|Boolean
 name|enabledKnownContentConsumer
 parameter_list|(
 annotation|@
-name|QueryParam
+name|PathParam
 argument_list|(
 literal|"knownContentConsumer"
 argument_list|)
@@ -734,7 +746,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"disabledKnownContentConsumer"
+literal|"disabledKnownContentConsumer/{knownContentConsumer}"
 argument_list|)
 annotation|@
 name|GET
@@ -768,7 +780,7 @@ name|Boolean
 name|disabledKnownContentConsumer
 parameter_list|(
 annotation|@
-name|QueryParam
+name|PathParam
 argument_list|(
 literal|"knownContentConsumer"
 argument_list|)
@@ -781,7 +793,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"enabledInvalidContentConsumer"
+literal|"enabledInvalidContentConsumer/{invalidContentConsumer}"
 argument_list|)
 annotation|@
 name|GET
@@ -815,7 +827,7 @@ name|Boolean
 name|enabledInvalidContentConsumer
 parameter_list|(
 annotation|@
-name|QueryParam
+name|PathParam
 argument_list|(
 literal|"invalidContentConsumer"
 argument_list|)
@@ -869,7 +881,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"disabledInvalidContentConsumer"
+literal|"disabledInvalidContentConsumer/{invalidContentConsumer}"
 argument_list|)
 annotation|@
 name|GET
@@ -903,7 +915,7 @@ name|Boolean
 name|disabledInvalidContentConsumer
 parameter_list|(
 annotation|@
-name|QueryParam
+name|PathParam
 argument_list|(
 literal|"invalidContentConsumer"
 argument_list|)
