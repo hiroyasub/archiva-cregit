@@ -65,6 +65,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|scheduling
+operator|.
+name|annotation
+operator|.
+name|Async
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
