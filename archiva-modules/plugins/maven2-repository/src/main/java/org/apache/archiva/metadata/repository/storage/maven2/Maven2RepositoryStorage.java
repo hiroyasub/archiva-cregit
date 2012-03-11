@@ -985,7 +985,7 @@ block|{
 try|try
 block|{
 name|ManagedRepository
-name|repositoryConfiguration
+name|managedRepository
 init|=
 name|managedRepositoryAdmin
 operator|.
@@ -1005,7 +1005,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|repositoryConfiguration
+name|managedRepository
 operator|.
 name|getLocation
 argument_list|()
@@ -1372,7 +1372,7 @@ argument_list|(
 operator|new
 name|RepositoryModelResolver
 argument_list|(
-name|basedir
+name|managedRepository
 argument_list|,
 name|pathTranslator
 argument_list|,
@@ -1382,7 +1382,7 @@ name|remoteRepositories
 argument_list|,
 name|networkProxies
 argument_list|,
-name|repositoryConfiguration
+name|managedRepository
 argument_list|)
 argument_list|)
 expr_stmt|;

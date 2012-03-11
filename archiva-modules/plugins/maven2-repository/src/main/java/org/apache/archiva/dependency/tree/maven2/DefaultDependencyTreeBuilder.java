@@ -1378,18 +1378,6 @@ block|{
 comment|// metadata could not be resolved
 return|return;
 block|}
-name|File
-name|basedir
-init|=
-operator|new
-name|File
-argument_list|(
-name|repository
-operator|.
-name|getLocation
-argument_list|()
-argument_list|)
-decl_stmt|;
 try|try
 block|{
 comment|// MRM-1411
@@ -1531,7 +1519,7 @@ argument_list|(
 operator|new
 name|RepositoryModelResolver
 argument_list|(
-name|basedir
+name|repository
 argument_list|,
 name|pathTranslator
 argument_list|,
