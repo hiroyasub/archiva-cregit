@@ -33,6 +33,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -64,6 +74,8 @@ argument_list|)
 specifier|public
 class|class
 name|SearchRequest
+implements|implements
+name|Serializable
 block|{
 comment|/**      * @since 1.4-M3      *        to be able to search with a query on selected repositories      */
 specifier|private

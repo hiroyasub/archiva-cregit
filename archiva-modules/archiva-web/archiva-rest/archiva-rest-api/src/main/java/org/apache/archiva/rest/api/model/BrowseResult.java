@@ -37,6 +37,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collections
@@ -68,6 +78,8 @@ argument_list|)
 specifier|public
 class|class
 name|BrowseResult
+implements|implements
+name|Serializable
 block|{
 specifier|private
 name|List

@@ -33,6 +33,16 @@ name|XmlRootElement
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
 begin_comment
 comment|/**  * AdminRepositoryConsumer  *  * @version $Id$  */
 end_comment
@@ -48,6 +58,8 @@ argument_list|)
 specifier|public
 class|class
 name|AdminRepositoryConsumer
+implements|implements
+name|Serializable
 block|{
 specifier|private
 name|boolean
