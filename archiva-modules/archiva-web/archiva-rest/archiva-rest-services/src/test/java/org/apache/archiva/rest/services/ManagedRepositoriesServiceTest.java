@@ -626,6 +626,8 @@ operator|.
 name|getManagedRepositoryStatistics
 argument_list|(
 name|testRepoId
+argument_list|,
+literal|"en"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
