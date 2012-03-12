@@ -714,7 +714,7 @@ name|exists
 argument_list|()
 condition|)
 block|{
-comment|// is a SNAPSHOT ?
+comment|// is a SNAPSHOT ? so we can try to find locally before asking remote repositories.
 if|if
 condition|(
 name|StringUtils
