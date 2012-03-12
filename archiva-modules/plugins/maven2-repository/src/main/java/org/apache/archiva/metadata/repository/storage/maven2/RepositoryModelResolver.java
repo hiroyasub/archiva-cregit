@@ -1294,10 +1294,10 @@ argument_list|(
 literal|"Successfully downloaded metadata."
 argument_list|)
 expr_stmt|;
-name|MavenRepositoryMetadata
+name|ArchivaRepositoryMetadata
 name|metadata
 init|=
-name|MavenRepositoryMetadataReader
+name|MavenMetadataReader
 operator|.
 name|read
 argument_list|(
@@ -1305,9 +1305,7 @@ name|tmpMetadataResource
 argument_list|)
 decl_stmt|;
 comment|// re-adjust to timestamp if present, otherwise retain the original -SNAPSHOT filename
-name|MavenRepositoryMetadata
-operator|.
-name|Snapshot
+name|SnapshotVersion
 name|snapshotVersion
 init|=
 name|metadata
