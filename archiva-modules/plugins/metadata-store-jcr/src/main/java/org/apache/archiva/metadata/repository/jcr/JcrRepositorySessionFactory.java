@@ -298,6 +298,8 @@ specifier|public
 name|void
 name|initialize
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|metadataFacetFactories
 operator|=

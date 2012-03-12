@@ -274,7 +274,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"scanRepositoryDirectories/{repositoryId}"
+literal|"scanRepositoryDirectoriesNow/{repositoryId}"
 argument_list|)
 annotation|@
 name|GET
@@ -306,7 +306,7 @@ name|OPERATION_RUN_INDEXER
 argument_list|)
 comment|/**      * scan directories      * @since 1.4-M3      */
 name|RepositoryScanStatistics
-name|scanRepositoryDirectories
+name|scanRepositoryDirectoriesNow
 parameter_list|(
 annotation|@
 name|PathParam

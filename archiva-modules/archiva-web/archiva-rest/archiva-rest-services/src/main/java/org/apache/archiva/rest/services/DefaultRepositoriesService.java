@@ -4137,7 +4137,7 @@ return|;
 block|}
 specifier|public
 name|RepositoryScanStatistics
-name|scanRepositoryDirectories
+name|scanRepositoryDirectoriesNow
 parameter_list|(
 name|String
 name|repositoryId

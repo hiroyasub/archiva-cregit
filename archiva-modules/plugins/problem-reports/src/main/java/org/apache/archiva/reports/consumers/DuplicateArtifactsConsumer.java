@@ -775,6 +775,11 @@ name|MetadataRepositoryException
 name|e
 parameter_list|)
 block|{
+name|repositorySession
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 throw|throw
 operator|new
 name|ConsumerException

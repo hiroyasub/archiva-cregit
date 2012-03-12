@@ -515,6 +515,8 @@ function_decl|;
 name|void
 name|close
 parameter_list|()
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|void
 name|revert
@@ -539,6 +541,8 @@ name|?
 argument_list|>
 name|aClass
 parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 block|}
 end_interface
