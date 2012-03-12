@@ -943,7 +943,6 @@ operator|.
 name|getVersion
 argument_list|()
 return|;
-comment|//(String) archivaRuntimeProperties.get( "archiva.version" );
 block|}
 specifier|public
 name|String
@@ -956,7 +955,6 @@ operator|.
 name|getBuildNumber
 argument_list|()
 return|;
-comment|// (String) archivaRuntimeProperties.get( "archiva.buildNumber" );
 block|}
 specifier|public
 name|String
@@ -974,7 +972,6 @@ name|getTimestamp
 argument_list|()
 argument_list|)
 return|;
-comment|//(String) archivaRuntimeProperties.get( "archiva.timestamp" );
 block|}
 specifier|public
 name|String
@@ -1008,7 +1005,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 return|;
-comment|//new Date( NumberUtils.createLong( (String) archivaRuntimeProperties.get( "archiva.timestamp" ) ) ) );
 block|}
 comment|/**      * dummy information for audit events      *      * @since 1.4-M1      */
 specifier|private
