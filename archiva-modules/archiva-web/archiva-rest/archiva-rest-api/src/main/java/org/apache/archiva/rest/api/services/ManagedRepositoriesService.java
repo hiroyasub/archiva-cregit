@@ -502,7 +502,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"getManagedRepositoryStatistics/{repositoryId}"
+literal|"getManagedRepositoryStatistics/{repositoryId}/{lang}"
 argument_list|)
 annotation|@
 name|GET
@@ -539,6 +539,14 @@ literal|"repositoryId"
 argument_list|)
 name|String
 name|repositoryId
+parameter_list|,
+annotation|@
+name|PathParam
+argument_list|(
+literal|"lang"
+argument_list|)
+name|String
+name|lang
 parameter_list|)
 throws|throws
 name|ArchivaRestServiceException

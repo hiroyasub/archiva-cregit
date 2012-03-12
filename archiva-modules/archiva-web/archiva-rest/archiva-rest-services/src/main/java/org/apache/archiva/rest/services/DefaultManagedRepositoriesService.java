@@ -109,22 +109,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|common
-operator|.
-name|plexusbridge
-operator|.
-name|PlexusSisuBridge
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|metadata
 operator|.
 name|repository
@@ -162,22 +146,6 @@ operator|.
 name|repository
 operator|.
 name|RepositorySession
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
-name|RepositorySessionFactory
 import|;
 end_import
 
@@ -323,11 +291,11 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|java
 operator|.
-name|inject
+name|io
 operator|.
-name|Named
+name|File
 import|;
 end_import
 
@@ -335,9 +303,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|text
 operator|.
-name|File
+name|SimpleDateFormat
 import|;
 end_import
 
@@ -358,6 +326,16 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
 import|;
 end_import
 
@@ -751,6 +729,9 @@ name|getManagedRepositoryStatistics
 parameter_list|(
 name|String
 name|repositoryId
+parameter_list|,
+name|String
+name|lang
 parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
@@ -762,6 +743,21 @@ name|repositorySessionFactory
 operator|.
 name|createSession
 argument_list|()
+decl_stmt|;
+name|SimpleDateFormat
+name|sdf
+init|=
+operator|new
+name|SimpleDateFormat
+argument_list|(
+literal|"EEE, d MMM yyyy HH:mm:ss Z"
+argument_list|,
+operator|new
+name|Locale
+argument_list|(
+name|lang
+argument_list|)
+argument_list|)
 decl_stmt|;
 try|try
 block|{
@@ -855,6 +851,21 @@ argument_list|()
 operator|.
 name|getTime
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|archivaRepositoryStatistics
+operator|.
+name|setLastScanDate
+argument_list|(
+name|sdf
+operator|.
+name|format
+argument_list|(
+name|archivaRepositoryStatistics
+operator|.
+name|getScanEndTime
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
