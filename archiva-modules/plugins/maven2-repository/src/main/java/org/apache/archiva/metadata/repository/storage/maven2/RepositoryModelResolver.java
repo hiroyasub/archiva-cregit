@@ -727,8 +727,9 @@ literal|"SNAPSHOT"
 argument_list|)
 condition|)
 block|{
-name|model
-operator|=
+name|File
+name|localSnapshotModel
+init|=
 name|findTimeStampedSnapshotPom
 argument_list|(
 name|groupId
@@ -742,10 +743,10 @@ operator|.
 name|getParent
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
-name|model
+name|localSnapshotModel
 operator|!=
 literal|null
 condition|)
@@ -754,7 +755,7 @@ return|return
 operator|new
 name|FileModelSource
 argument_list|(
-name|model
+name|localSnapshotModel
 argument_list|)
 return|;
 block|}
