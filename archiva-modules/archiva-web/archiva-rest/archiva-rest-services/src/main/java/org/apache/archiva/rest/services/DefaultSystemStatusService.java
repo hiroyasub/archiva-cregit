@@ -965,10 +965,6 @@ name|getRepository
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//repositoryScannerStatistics.setRepositoryScanStatistics( instance.getStatistics() );
-comment|//repositoryScannerStatistics.setConsumerCounts( new HashMap<String, Long>( instance.getConsumerCounts() ) );
-comment|//repositoryScannerStatistics.setConsumerTimings(
-comment|//    new HashMap<String, Long>( instance.getConsumerTimings() ) );
 name|repositoryScannerStatistics
 operator|.
 name|setNewFileCount

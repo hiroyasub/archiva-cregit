@@ -93,7 +93,6 @@ specifier|private
 name|ManagedRepository
 name|managedRepository
 decl_stmt|;
-comment|//private RepositoryScanStatistics repositoryScanStatistics;
 specifier|private
 name|List
 argument_list|<
@@ -143,8 +142,6 @@ operator|=
 name|managedRepository
 expr_stmt|;
 block|}
-comment|/*     public RepositoryScanStatistics getRepositoryScanStatistics()     {         return repositoryScanStatistics;     }      public void setRepositoryScanStatistics( RepositoryScanStatistics repositoryScanStatistics )     {         this.repositoryScanStatistics = repositoryScanStatistics;     }*/
-comment|/*public Map<String, Long> getConsumerCounts()     {         return consumerCounts;     }      public void setConsumerCounts( Map<String, Long> consumerCounts )     {         this.consumerCounts = consumerCounts;     }      public Map<String, Long> getConsumerTimings()     {         return consumerTimings;     }      public void setConsumerTimings( Map<String, Long> consumerTimings )     {         this.consumerTimings = consumerTimings;     } */
 specifier|public
 name|List
 argument_list|<
