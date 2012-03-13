@@ -929,6 +929,7 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+comment|//FIXME start an other jetty instance rather than being dependant on network !!
 specifier|public
 specifier|static
 class|class
@@ -1008,7 +1009,7 @@ name|resp
 operator|.
 name|sendRedirect
 argument_list|(
-literal|"http://repo1.maven.apache.org/maven2/"
+literal|"http://repo.maven.apache.org/maven2/"
 operator|+
 name|req
 operator|.
