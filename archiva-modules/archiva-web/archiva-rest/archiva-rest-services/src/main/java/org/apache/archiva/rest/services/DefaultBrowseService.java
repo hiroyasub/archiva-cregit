@@ -25,6 +25,24 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|admin
+operator|.
+name|model
+operator|.
+name|beans
+operator|.
+name|ManagedRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|common
 operator|.
 name|utils
@@ -1654,7 +1672,7 @@ block|}
 specifier|public
 name|List
 argument_list|<
-name|String
+name|ManagedRepository
 argument_list|>
 name|getUserRepositories
 parameter_list|()
@@ -1662,9 +1680,10 @@ throws|throws
 name|ArchivaRestServiceException
 block|{
 return|return
-name|getObservableRepos
-argument_list|()
-return|;
+name|userRepositories
+operator|.
+name|getAccessibleRepositories
+argument_list|(  )
 block|}
 comment|//---------------------------
 comment|// internals

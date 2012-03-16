@@ -126,7 +126,7 @@ name|AccessDeniedException
 throws|,
 name|ArchivaSecurityException
 function_decl|;
-comment|/**      *      * @param principal      * @param operation      * @since 1.4-M3      * @return      * @throws ArchivaSecurityException      * @throws AccessDeniedException      * @throws PrincipalNotFoundException      */
+comment|/**      *      * @param principal      * @since 1.4-M3      * @return      * @throws ArchivaSecurityException      * @throws AccessDeniedException      * @throws PrincipalNotFoundException      */
 name|List
 argument_list|<
 name|ManagedRepository
@@ -135,9 +135,6 @@ name|getAccessibleRepositories
 parameter_list|(
 name|String
 name|principal
-parameter_list|,
-name|String
-name|operation
 parameter_list|)
 throws|throws
 name|ArchivaSecurityException

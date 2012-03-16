@@ -365,7 +365,7 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Inject
-specifier|private
+specifier|protected
 name|UserRepositories
 name|userRepositories
 decl_stmt|;

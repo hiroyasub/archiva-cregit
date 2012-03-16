@@ -212,9 +212,6 @@ name|getAccessibleRepositories
 parameter_list|(
 name|String
 name|principal
-parameter_list|,
-name|String
-name|operation
 parameter_list|)
 throws|throws
 name|ArchivaSecurityException
