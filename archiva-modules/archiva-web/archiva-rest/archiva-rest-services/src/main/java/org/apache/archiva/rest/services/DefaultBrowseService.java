@@ -1651,6 +1651,21 @@ expr_stmt|;
 block|}
 block|}
 block|}
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getUserRepositories
+parameter_list|()
+throws|throws
+name|ArchivaRestServiceException
+block|{
+return|return
+name|getObservableRepos
+argument_list|()
+return|;
+block|}
 comment|//---------------------------
 comment|// internals
 comment|//---------------------------
