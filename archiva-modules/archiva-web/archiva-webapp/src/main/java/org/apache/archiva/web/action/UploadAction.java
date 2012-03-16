@@ -1339,6 +1339,15 @@ argument_list|(
 name|artifactReference
 argument_list|)
 decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"artifactPath:{}"
+argument_list|,
+name|artifactPath
+argument_list|)
+expr_stmt|;
 name|int
 name|lastIndex
 init|=
