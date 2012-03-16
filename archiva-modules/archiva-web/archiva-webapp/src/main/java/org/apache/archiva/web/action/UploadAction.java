@@ -1339,15 +1339,6 @@ argument_list|(
 name|artifactReference
 argument_list|)
 decl_stmt|;
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"artifactPath:{}"
-argument_list|,
-name|artifactPath
-argument_list|)
-expr_stmt|;
 name|int
 name|lastIndex
 init|=
@@ -1355,9 +1346,7 @@ name|artifactPath
 operator|.
 name|lastIndexOf
 argument_list|(
-name|File
-operator|.
-name|separatorChar
+literal|'/'
 argument_list|)
 decl_stmt|;
 name|String
@@ -1386,6 +1375,17 @@ argument_list|,
 name|path
 argument_list|)
 decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"artifactPath: {} found targetPath: {}"
+argument_list|,
+name|artifactPath
+argument_list|,
+name|targetPath
+argument_list|)
+expr_stmt|;
 name|Date
 name|lastUpdatedTimestamp
 init|=
