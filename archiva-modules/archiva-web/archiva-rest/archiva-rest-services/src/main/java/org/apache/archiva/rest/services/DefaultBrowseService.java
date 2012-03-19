@@ -2021,7 +2021,10 @@ name|sharedModel
 operator|.
 name|setIssueManagement
 argument_list|(
-literal|null
+name|versionMetadata
+operator|.
+name|getIssueManagement
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2068,7 +2071,10 @@ name|sharedModel
 operator|.
 name|setCiManagement
 argument_list|(
-literal|null
+name|versionMetadata
+operator|.
+name|getCiManagement
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2115,7 +2121,10 @@ name|sharedModel
 operator|.
 name|setOrganization
 argument_list|(
-literal|null
+name|versionMetadata
+operator|.
+name|getOrganization
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2149,7 +2158,10 @@ name|sharedModel
 operator|.
 name|setUrl
 argument_list|(
-literal|null
+name|versionMetadata
+operator|.
+name|getUrl
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
