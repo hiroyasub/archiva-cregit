@@ -952,8 +952,6 @@ name|String
 name|repoId
 parameter_list|)
 throws|throws
-name|AccessDeniedException
-throws|,
 name|ArchivaSecurityException
 block|{
 try|try
