@@ -1144,11 +1144,13 @@ argument_list|)
 annotation|@
 name|RedbackAuthorization
 argument_list|(
-name|permissions
+name|noPermission
 operator|=
-name|ArchivaRoleConstants
-operator|.
-name|OPERATION_MANAGE_CONFIGURATION
+literal|true
+argument_list|,
+name|noRestriction
+operator|=
+literal|true
 argument_list|)
 name|OrganisationInformation
 name|getOrganisationInformation
