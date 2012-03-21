@@ -138,7 +138,7 @@ throws|throws
 name|ArchivaSecurityException
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 specifier|public
@@ -153,7 +153,7 @@ name|repoId
 parameter_list|)
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 specifier|public
