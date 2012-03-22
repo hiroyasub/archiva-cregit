@@ -2562,7 +2562,6 @@ name|DependencyNode
 name|node
 parameter_list|)
 block|{
-comment|/*             if ( node.getChildren().isEmpty() )             {                 currentEntry = currentEntry.getParent();             }             else             {              } */
 name|currentEntry
 operator|=
 name|currentEntry
