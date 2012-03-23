@@ -166,7 +166,7 @@ specifier|private
 name|String
 name|packaging
 decl_stmt|;
-comment|/**      * file extension of the artifact      * @since 1.4-M2      */
+comment|/**      * file extension of the artifact      *      * @since 1.4-M2      */
 specifier|private
 name|String
 name|fileExtension
@@ -176,6 +176,38 @@ name|Artifact
 parameter_list|()
 block|{
 comment|// no op
+block|}
+specifier|public
+name|Artifact
+parameter_list|(
+name|String
+name|groupId
+parameter_list|,
+name|String
+name|artifactId
+parameter_list|,
+name|String
+name|version
+parameter_list|)
+block|{
+name|this
+operator|.
+name|artifactId
+operator|=
+name|artifactId
+expr_stmt|;
+name|this
+operator|.
+name|groupId
+operator|=
+name|groupId
+expr_stmt|;
+name|this
+operator|.
+name|version
+operator|=
+name|version
+expr_stmt|;
 block|}
 specifier|public
 name|String
