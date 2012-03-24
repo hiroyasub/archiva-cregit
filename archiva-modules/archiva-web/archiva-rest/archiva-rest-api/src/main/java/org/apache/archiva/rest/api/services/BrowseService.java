@@ -593,6 +593,7 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
+comment|/**      * @return List of managed repositories current user can read      */
 name|List
 argument_list|<
 name|ManagedRepository
@@ -633,6 +634,7 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
+comment|/**      * return the dependency Tree for an artifacts      *<b>the List result has only one entry</b>      */
 name|List
 argument_list|<
 name|TreeEntry
@@ -705,6 +707,7 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
+comment|/**      * List of artifacts using the artifact passed in parameter.      */
 name|List
 argument_list|<
 name|Artifact
