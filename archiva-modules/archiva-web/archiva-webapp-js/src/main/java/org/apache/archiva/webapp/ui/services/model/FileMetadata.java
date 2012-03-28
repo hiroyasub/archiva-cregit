@@ -83,6 +83,10 @@ specifier|private
 name|String
 name|deleteType
 decl_stmt|;
+specifier|private
+name|String
+name|errorKey
+decl_stmt|;
 specifier|public
 name|FileMetadata
 parameter_list|()
