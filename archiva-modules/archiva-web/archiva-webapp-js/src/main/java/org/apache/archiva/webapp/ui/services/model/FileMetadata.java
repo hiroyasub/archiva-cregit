@@ -31,21 +31,17 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlElement
+name|XmlRootElement
 import|;
 end_import
 
 begin_import
 import|import
-name|javax
+name|java
 operator|.
-name|xml
+name|io
 operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlRootElement
+name|Serializable
 import|;
 end_import
 
@@ -64,6 +60,8 @@ argument_list|)
 specifier|public
 class|class
 name|FileMetadata
+implements|implements
+name|Serializable
 block|{
 specifier|private
 name|String
@@ -207,13 +205,6 @@ operator|=
 name|url
 expr_stmt|;
 block|}
-annotation|@
-name|XmlElement
-argument_list|(
-name|name
-operator|=
-literal|"delete_url"
-argument_list|)
 specifier|public
 name|String
 name|getDeleteUrl
@@ -238,13 +229,6 @@ operator|=
 name|deleteUrl
 expr_stmt|;
 block|}
-annotation|@
-name|XmlElement
-argument_list|(
-name|name
-operator|=
-literal|"delete_type"
-argument_list|)
 specifier|public
 name|String
 name|getDeleteType
