@@ -616,7 +616,7 @@ name|noPermission
 operator|=
 literal|true
 argument_list|)
-comment|/**      * permissions are checked in impl      * @since 1.4-M2      */
+comment|/**      *<b>permissions are checked in impl</b>      * @since 1.4-M2      */
 name|Boolean
 name|deleteArtifact
 parameter_list|(
