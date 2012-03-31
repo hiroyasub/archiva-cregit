@@ -807,7 +807,11 @@ name|auditEvent
 init|=
 operator|new
 name|AuditEvent
-argument_list|()
+argument_list|(
+name|action
+argument_list|,
+name|repositoryId
+argument_list|)
 decl_stmt|;
 name|auditEvent
 operator|.
