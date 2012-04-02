@@ -4524,7 +4524,7 @@ name|exception
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a working directory in the repository root for this request      *      * @param repository      * @return file location of working directory      * @throws IOException      */
+comment|/**      * Creates a working directory      *      * @param repository      * @return file location of working directory      * @throws IOException      */
 specifier|private
 name|File
 name|createWorkingDirectory
@@ -4546,15 +4546,6 @@ argument_list|(
 literal|".workingdirectory"
 argument_list|,
 literal|null
-argument_list|,
-operator|new
-name|File
-argument_list|(
-name|repository
-operator|.
-name|getRepoRoot
-argument_list|()
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|tmpDir
