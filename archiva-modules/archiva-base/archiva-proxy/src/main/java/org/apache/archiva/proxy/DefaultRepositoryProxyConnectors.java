@@ -31,6 +31,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|Files
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -4534,50 +4548,13 @@ name|repository
 parameter_list|)
 block|{
 comment|// TODO: This is ugly - lets actually clean this up when we get the new repository api
-try|try
-block|{
-name|File
-name|tmpDir
-init|=
-name|File
-operator|.
-name|createTempFile
-argument_list|(
-literal|".workingdirectory"
-argument_list|,
-literal|null
-argument_list|)
-decl_stmt|;
-name|tmpDir
-operator|.
-name|delete
-argument_list|()
-expr_stmt|;
-name|tmpDir
-operator|.
-name|mkdirs
-argument_list|()
-expr_stmt|;
+comment|/*         try         {             File tmpDir = File.createTempFile( ".workingdirectory", null );             tmpDir.delete();             tmpDir.mkdirs();             return tmpDir;         }         catch ( IOException e )         {             throw new RuntimeException( "Could not create working directory for this request", e );         } */
 return|return
-name|tmpDir
+name|Files
+operator|.
+name|createTempDir
+argument_list|()
 return|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-literal|"Could not create working directory for this request"
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 comment|/**      * Used to move the temporary file to its real destination. This is patterned from the way WagonManager handles its      * downloaded files.      *      * @param temp   The completed download file      * @param target The final location of the downloaded file      * @throws ProxyException when the temp file cannot replace the target file      */
 specifier|private
