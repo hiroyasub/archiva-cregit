@@ -4547,8 +4547,6 @@ name|ManagedRepositoryContent
 name|repository
 parameter_list|)
 block|{
-comment|// TODO: This is ugly - lets actually clean this up when we get the new repository api
-comment|/*         try         {             File tmpDir = File.createTempFile( ".workingdirectory", null );             tmpDir.delete();             tmpDir.mkdirs();             return tmpDir;         }         catch ( IOException e )         {             throw new RuntimeException( "Could not create working directory for this request", e );         } */
 return|return
 name|Files
 operator|.
