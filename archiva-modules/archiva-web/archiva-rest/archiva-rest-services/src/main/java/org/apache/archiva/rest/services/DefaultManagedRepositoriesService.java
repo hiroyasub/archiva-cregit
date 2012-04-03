@@ -1020,7 +1020,7 @@ argument_list|(
 name|httpServletRequest
 argument_list|)
 operator|+
-literal|"repository"
+literal|"/repository"
 argument_list|)
 expr_stmt|;
 name|snippet
@@ -1184,7 +1184,7 @@ argument_list|(
 name|httpServletRequest
 argument_list|)
 operator|+
-literal|"repository"
+literal|"/repository"
 argument_list|)
 expr_stmt|;
 name|snippet
@@ -1411,7 +1411,7 @@ argument_list|(
 name|httpServletRequest
 argument_list|)
 operator|+
-literal|"repository"
+literal|"/repository"
 argument_list|)
 expr_stmt|;
 name|snippet
