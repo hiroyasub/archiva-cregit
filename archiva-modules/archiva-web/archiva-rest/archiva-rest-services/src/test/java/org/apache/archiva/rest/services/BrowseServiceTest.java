@@ -1289,7 +1289,7 @@ literal|"org"
 argument_list|,
 literal|false
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 argument_list|,
 operator|new
@@ -1299,7 +1299,7 @@ literal|"META-INF"
 argument_list|,
 literal|false
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1437,7 +1437,7 @@ literal|"org/apache"
 argument_list|,
 literal|false
 argument_list|,
-literal|2
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -33,6 +33,16 @@ name|XmlRootElement
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Olivier Lamy  * @since 1.4-M3  */
 end_comment
@@ -48,6 +58,8 @@ argument_list|)
 specifier|public
 class|class
 name|ArtifactContentEntry
+implements|implements
+name|Serializable
 block|{
 specifier|private
 name|String
