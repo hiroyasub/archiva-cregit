@@ -983,9 +983,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|archiva
 operator|.
 name|redback
 operator|.
@@ -999,9 +999,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|archiva
 operator|.
 name|redback
 operator|.
