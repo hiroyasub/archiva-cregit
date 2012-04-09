@@ -31,7 +31,7 @@ name|redback
 operator|.
 name|role
 operator|.
-name|RoleManagerException
+name|RoleManager
 import|;
 end_import
 
@@ -47,7 +47,7 @@ name|redback
 operator|.
 name|role
 operator|.
-name|RoleManager
+name|RoleManagerException
 import|;
 end_import
 
@@ -55,9 +55,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|archiva
 operator|.
 name|redback
 operator|.
