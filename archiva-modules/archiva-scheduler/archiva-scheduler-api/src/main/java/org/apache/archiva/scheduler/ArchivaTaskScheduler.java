@@ -57,20 +57,6 @@ extends|extends
 name|Task
 parameter_list|>
 block|{
-comment|/**      * The Plexus component role.      */
-specifier|public
-specifier|final
-specifier|static
-name|String
-name|ROLE
-init|=
-name|ArchivaTaskScheduler
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-decl_stmt|;
 comment|/**      * Adds the task to the scanning queue.      *      * @param task      * @throws TaskQueueException      */
 name|void
 name|queueTask

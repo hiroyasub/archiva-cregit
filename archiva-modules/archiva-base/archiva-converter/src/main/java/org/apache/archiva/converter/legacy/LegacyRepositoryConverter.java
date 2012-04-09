@@ -52,7 +52,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Convert an entire repository.  *   */
+comment|/**  * Convert an entire repository.  */
 end_comment
 
 begin_interface
@@ -60,17 +60,7 @@ specifier|public
 interface|interface
 name|LegacyRepositoryConverter
 block|{
-name|String
-name|ROLE
-init|=
-name|LegacyRepositoryConverter
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-decl_stmt|;
-comment|/**      * Convert a legacy repository to a modern repository. This means a Maven 1.x repository      * using v3 POMs to a Maven 2.x repository using v4.0.0 POMs.      *      * @param legacyRepositoryDirectory the directory of the legacy repository.       * @param destinationRepositoryDirectory the directory of the modern repository.      * @param fileExclusionPatterns the list of patterns to exclude from the conversion.      * @throws RepositoryConversionException       */
+comment|/**      * Convert a legacy repository to a modern repository. This means a Maven 1.x repository      * using v3 POMs to a Maven 2.x repository using v4.0.0 POMs.      *      * @param legacyRepositoryDirectory      the directory of the legacy repository.      * @param destinationRepositoryDirectory the directory of the modern repository.      * @param fileExclusionPatterns          the list of patterns to exclude from the conversion.      * @throws RepositoryConversionException      */
 name|void
 name|convertLegacyRepository
 parameter_list|(
