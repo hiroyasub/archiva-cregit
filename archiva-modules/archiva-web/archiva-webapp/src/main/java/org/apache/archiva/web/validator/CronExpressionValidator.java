@@ -97,7 +97,9 @@ argument_list|)
 decl_stmt|;
 name|org
 operator|.
-name|codehaus
+name|apache
+operator|.
+name|archiva
 operator|.
 name|redback
 operator|.
@@ -111,7 +113,9 @@ init|=
 operator|new
 name|org
 operator|.
-name|codehaus
+name|apache
+operator|.
+name|archiva
 operator|.
 name|redback
 operator|.
