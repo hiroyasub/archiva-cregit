@@ -26,25 +26,21 @@ interface|interface
 name|Consumer
 block|{
 comment|/**      * This is the id for the consumer.      *       * @return the consumer id.      */
-specifier|public
 name|String
 name|getId
 parameter_list|()
 function_decl|;
 comment|/**      * The human readable description for this consumer.      *       * @return the human readable description for this consumer.      */
-specifier|public
 name|String
 name|getDescription
 parameter_list|()
 function_decl|;
 comment|/**      * Flag indicating permanance of consumer. (if it can be disabled or not)      *       * @return true indicating that consumer is permanent and cannot be disabled.       */
-specifier|public
 name|boolean
 name|isPermanent
 parameter_list|()
 function_decl|;
 comment|/**      * Add a consumer monitor to the consumer.      *       * @param monitor the monitor to add.      */
-specifier|public
 name|void
 name|addConsumerMonitor
 parameter_list|(
@@ -53,7 +49,6 @@ name|monitor
 parameter_list|)
 function_decl|;
 comment|/**      * Remove a consumer monitor.      *       * @param monitor the monitor to remove.      */
-specifier|public
 name|void
 name|removeConsumerMonitor
 parameter_list|(
