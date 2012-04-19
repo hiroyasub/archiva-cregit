@@ -186,6 +186,15 @@ argument_list|,
 name|length
 argument_list|)
 expr_stmt|;
+name|int
+name|copyLeftOverLength
+init|=
+name|leftover
+operator|.
+name|length
+operator|-
+name|length
+decl_stmt|;
 comment|// Create new leftover of remaining.
 name|char
 name|tmp
@@ -194,7 +203,7 @@ init|=
 operator|new
 name|char
 index|[
-name|length
+name|copyLeftOverLength
 index|]
 decl_stmt|;
 name|System
@@ -209,7 +218,7 @@ name|tmp
 argument_list|,
 literal|0
 argument_list|,
-name|length
+name|copyLeftOverLength
 argument_list|)
 expr_stmt|;
 name|leftover
@@ -234,7 +243,7 @@ name|leftover
 argument_list|,
 literal|0
 argument_list|,
-name|length
+name|copyLeftOverLength
 argument_list|)
 expr_stmt|;
 comment|// Return len
