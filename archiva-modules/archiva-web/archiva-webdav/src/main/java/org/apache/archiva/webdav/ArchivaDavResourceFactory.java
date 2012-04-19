@@ -1292,6 +1292,16 @@ init|=
 literal|"PUT"
 decl_stmt|;
 specifier|private
+specifier|static
+specifier|final
+name|MavenXpp3Reader
+name|mavenXpp3Reader
+init|=
+operator|new
+name|MavenXpp3Reader
+argument_list|()
+decl_stmt|;
+specifier|private
 name|Logger
 name|log
 init|=
@@ -3942,9 +3952,7 @@ try|try
 block|{
 name|model
 operator|=
-operator|new
-name|MavenXpp3Reader
-argument_list|()
+name|mavenXpp3Reader
 operator|.
 name|read
 argument_list|(
