@@ -17,6 +17,38 @@ end_comment
 
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|dom4j
+operator|.
+name|DocumentException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|dom4j
+operator|.
+name|io
+operator|.
+name|SAXReader
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -105,50 +137,8 @@ name|URL
 import|;
 end_import
 
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|dom4j
-operator|.
-name|Document
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|dom4j
-operator|.
-name|DocumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|dom4j
-operator|.
-name|io
-operator|.
-name|SAXReader
-import|;
-end_import
-
 begin_comment
-comment|/**  * LatinEntityResolutionReaderTest   *  * @version $Id$  */
+comment|/**  * LatinEntityResolutionReaderTest  *  * @version $Id$  */
 end_comment
 
 begin_class
@@ -158,7 +148,7 @@ name|LatinEntityResolutionReaderTest
 extends|extends
 name|AbstractArchivaXmlTestCase
 block|{
-comment|/**      * A method to obtain the content of a reader as a String,      * while allowing for specifing the buffer size of the operation.      *       * This method is only really useful for testing a Reader implementation.      *       * @param input the reader to get the input from.      * @param bufsize the buffer size to use.      * @return the contents of the reader as a String.      * @throws IOException if there was an I/O error.      */
+comment|/**      * A method to obtain the content of a reader as a String,      * while allowing for specifing the buffer size of the operation.      *<p/>      * This method is only really useful for testing a Reader implementation.      *      * @param input   the reader to get the input from.      * @param bufsize the buffer size to use.      * @return the contents of the reader as a String.      * @throws IOException if there was an I/O error.      */
 specifier|private
 name|String
 name|toStringFromReader
@@ -236,7 +226,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * This reads a text file from the src/test/examples directory,      * normalizes the end of lines, and returns the contents as a big String.      *       * @param examplePath the name of the file in the src/test/examples directory.      * @return the contents of the provided file      * @throws IOException if there was an I/O error.      */
+comment|/**      * This reads a text file from the src/test/examples directory,      * normalizes the end of lines, and returns the contents as a big String.      *      * @param examplePath the name of the file in the src/test/examples directory.      * @return the contents of the provided file      * @throws IOException if there was an I/O error.      */
 specifier|private
 name|String
 name|toStringFromExample
@@ -940,12 +930,22 @@ operator|+
 name|e
 argument_list|)
 expr_stmt|;
-throw|throw
+name|IOException
+name|ioe
+init|=
 operator|new
 name|IOException
+argument_list|()
+decl_stmt|;
+name|ioe
+operator|.
+name|initCause
 argument_list|(
 name|e
 argument_list|)
+expr_stmt|;
+throw|throw
+name|ioe
 throw|;
 block|}
 block|}
