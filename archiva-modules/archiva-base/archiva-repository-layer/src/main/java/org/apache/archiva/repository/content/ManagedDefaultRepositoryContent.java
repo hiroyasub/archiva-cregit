@@ -361,8 +361,6 @@ parameter_list|(
 name|VersionedReference
 name|reference
 parameter_list|)
-throws|throws
-name|ContentNotFoundException
 block|{
 name|String
 name|path
@@ -413,18 +411,6 @@ name|projectDir
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|ContentNotFoundException
-argument_list|(
-literal|"Unable to delete non-existing project directory: "
-operator|+
-name|projectDir
-argument_list|)
-throw|;
-block|}
 block|}
 specifier|public
 name|void
@@ -433,8 +419,6 @@ parameter_list|(
 name|ArtifactReference
 name|artifactReference
 parameter_list|)
-throws|throws
-name|ContentNotFoundException
 block|{
 name|String
 name|path
@@ -471,18 +455,6 @@ argument_list|(
 name|filePath
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|ContentNotFoundException
-argument_list|(
-literal|"Unable to delete non-existing project artifact: "
-operator|+
-name|filePath
-argument_list|)
-throw|;
 block|}
 block|}
 specifier|public
