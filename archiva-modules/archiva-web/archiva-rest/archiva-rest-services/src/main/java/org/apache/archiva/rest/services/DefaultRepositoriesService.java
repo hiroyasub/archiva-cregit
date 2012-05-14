@@ -357,6 +357,104 @@ name|archiva
 operator|.
 name|redback
 operator|.
+name|authentication
+operator|.
+name|AuthenticationResult
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|redback
+operator|.
+name|authorization
+operator|.
+name|AuthorizationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|redback
+operator|.
+name|components
+operator|.
+name|taskqueue
+operator|.
+name|TaskQueueException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|redback
+operator|.
+name|system
+operator|.
+name|DefaultSecuritySession
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|redback
+operator|.
+name|system
+operator|.
+name|SecuritySession
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|redback
+operator|.
+name|system
+operator|.
+name|SecuritySystem
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|redback
+operator|.
 name|users
 operator|.
 name|User
@@ -842,104 +940,6 @@ operator|.
 name|context
 operator|.
 name|IndexingContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|redback
-operator|.
-name|authentication
-operator|.
-name|AuthenticationResult
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|redback
-operator|.
-name|authorization
-operator|.
-name|AuthorizationException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|redback
-operator|.
-name|system
-operator|.
-name|DefaultSecuritySession
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|redback
-operator|.
-name|system
-operator|.
-name|SecuritySession
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|redback
-operator|.
-name|system
-operator|.
-name|SecuritySystem
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|redback
-operator|.
-name|components
-operator|.
-name|taskqueue
-operator|.
-name|TaskQueueException
 import|;
 end_import
 
@@ -1575,6 +1575,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1635,6 +1637,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1682,6 +1686,8 @@ operator|new
 name|ArchivaRestServiceException
 argument_list|(
 literal|"copyArtifact call: userName not found"
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -1703,6 +1709,8 @@ operator|new
 name|ArchivaRestServiceException
 argument_list|(
 literal|"copyArtifact call: sourceRepositoryId cannot be null"
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -1724,6 +1732,8 @@ operator|new
 name|ArchivaRestServiceException
 argument_list|(
 literal|"copyArtifact call: targetRepositoryId cannot be null"
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -1761,6 +1771,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1781,6 +1793,8 @@ name|artifactTransferRequest
 operator|.
 name|getRepositoryId
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -1818,6 +1832,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1838,6 +1854,8 @@ name|artifactTransferRequest
 operator|.
 name|getTargetRepositoryId
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -1859,6 +1877,8 @@ operator|new
 name|ArchivaRestServiceException
 argument_list|(
 literal|"groupId is mandatory"
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -1880,6 +1900,8 @@ operator|new
 name|ArchivaRestServiceException
 argument_list|(
 literal|"artifactId is mandatory"
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -1901,6 +1923,8 @@ operator|new
 name|ArchivaRestServiceException
 argument_list|(
 literal|"version is mandatory"
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -1922,6 +1946,8 @@ operator|new
 name|ArchivaRestServiceException
 argument_list|(
 literal|"copy of SNAPSHOT not supported"
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -1961,6 +1987,8 @@ operator|+
 name|userName
 operator|+
 literal|" not found"
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -2026,6 +2054,8 @@ name|artifactTransferRequest
 operator|.
 name|getRepositoryId
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -2058,6 +2088,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -2099,6 +2131,8 @@ name|artifactTransferRequest
 operator|.
 name|getTargetRepositoryId
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -2131,6 +2165,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -2268,6 +2304,8 @@ name|artifactTransferRequest
 operator|.
 name|toString
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -2316,6 +2354,8 @@ name|artifactTransferRequest
 operator|.
 name|toString
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -2500,6 +2540,8 @@ name|getTargetRepositoryId
 argument_list|()
 operator|+
 literal|" and redeployment blocked"
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -2744,6 +2786,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -2775,6 +2819,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -2806,6 +2852,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -3416,6 +3464,8 @@ argument_list|(
 literal|"repositoryId cannot be null"
 argument_list|,
 literal|400
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -3435,6 +3485,8 @@ argument_list|(
 literal|"not authorized to delete artifacts"
 argument_list|,
 literal|403
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -3452,6 +3504,8 @@ argument_list|(
 literal|"artifact cannot be null"
 argument_list|,
 literal|400
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -3475,6 +3529,8 @@ argument_list|(
 literal|"artifact.groupId cannot be null"
 argument_list|,
 literal|400
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -3498,6 +3554,8 @@ argument_list|(
 literal|"artifact.artifactId cannot be null"
 argument_list|,
 literal|400
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -3639,6 +3697,8 @@ argument_list|(
 literal|"You must configure a type/packaging when using classifier"
 argument_list|,
 literal|400
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -4002,6 +4062,8 @@ name|getMessage
 argument_list|()
 argument_list|,
 literal|400
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -4023,6 +4085,8 @@ name|getMessage
 argument_list|()
 argument_list|,
 literal|400
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -4044,6 +4108,8 @@ name|getMessage
 argument_list|()
 argument_list|,
 literal|500
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -4065,6 +4131,8 @@ name|getMessage
 argument_list|()
 argument_list|,
 literal|500
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -4086,6 +4154,8 @@ name|getMessage
 argument_list|()
 argument_list|,
 literal|500
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -4107,6 +4177,8 @@ name|getMessage
 argument_list|()
 argument_list|,
 literal|500
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -4197,6 +4269,8 @@ name|INTERNAL_SERVER_ERROR
 operator|.
 name|getStatusCode
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -4267,6 +4341,8 @@ name|getMessage
 argument_list|()
 argument_list|,
 literal|500
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -4300,6 +4376,8 @@ name|getMessage
 argument_list|()
 argument_list|,
 literal|500
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}

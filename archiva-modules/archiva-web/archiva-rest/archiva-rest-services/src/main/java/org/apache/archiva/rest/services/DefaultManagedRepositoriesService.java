@@ -440,6 +440,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -555,6 +557,8 @@ name|e
 operator|.
 name|getFieldName
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -609,6 +613,8 @@ operator|new
 name|ArchivaRestServiceException
 argument_list|(
 literal|"fail to created managed Repository"
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -631,6 +637,8 @@ name|e
 operator|.
 name|getFieldName
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -688,6 +696,8 @@ name|e
 operator|.
 name|getFieldName
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
