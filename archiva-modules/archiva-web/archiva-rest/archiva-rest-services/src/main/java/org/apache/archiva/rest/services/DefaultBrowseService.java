@@ -3411,18 +3411,7 @@ argument_list|,
 literal|"/"
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|filterDepth
-operator|==
-literal|0
-condition|)
-block|{
-name|filterDepth
-operator|=
-literal|1
-expr_stmt|;
-block|}
+comment|/*if ( filterDepth == 0 )         {             filterDepth = 1;         }*/
 name|JarFile
 name|jarFile
 init|=
@@ -3529,6 +3518,10 @@ name|containsKey
 argument_list|(
 name|entryRootPath
 argument_list|)
+operator|&&
+name|depth
+operator|==
+name|filterDepth
 condition|)
 block|{
 name|artifactContentEntryMap
@@ -3570,7 +3563,7 @@ argument_list|)
 operator|&&
 operator|(
 name|depth
-operator|>=
+operator|==
 name|filterDepth
 operator|||
 operator|(
