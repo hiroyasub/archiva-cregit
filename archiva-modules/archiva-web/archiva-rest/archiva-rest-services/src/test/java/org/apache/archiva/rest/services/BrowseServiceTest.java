@@ -1290,8 +1290,6 @@ argument_list|,
 literal|false
 argument_list|,
 literal|0
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -1302,8 +1300,6 @@ argument_list|,
 literal|false
 argument_list|,
 literal|0
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1442,8 +1438,6 @@ argument_list|,
 literal|false
 argument_list|,
 literal|1
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1582,8 +1576,6 @@ argument_list|,
 literal|false
 argument_list|,
 literal|4
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -1594,8 +1586,6 @@ argument_list|,
 literal|true
 argument_list|,
 literal|4
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
