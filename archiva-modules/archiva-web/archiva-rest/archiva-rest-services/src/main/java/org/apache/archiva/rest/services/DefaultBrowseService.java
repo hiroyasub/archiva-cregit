@@ -3549,6 +3549,8 @@ name|isDirectory
 argument_list|()
 argument_list|,
 name|depth
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3603,6 +3605,8 @@ name|isDirectory
 argument_list|()
 argument_list|,
 name|depth
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

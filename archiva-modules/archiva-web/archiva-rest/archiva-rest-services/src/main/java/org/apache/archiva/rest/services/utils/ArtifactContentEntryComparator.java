@@ -86,14 +86,14 @@ comment|// include depth too in comparaison ?
 return|return
 name|artifactContentEntry
 operator|.
-name|getName
+name|getText
 argument_list|()
 operator|.
 name|compareTo
 argument_list|(
 name|artifactContentEntry1
 operator|.
-name|getName
+name|getText
 argument_list|()
 argument_list|)
 return|;
