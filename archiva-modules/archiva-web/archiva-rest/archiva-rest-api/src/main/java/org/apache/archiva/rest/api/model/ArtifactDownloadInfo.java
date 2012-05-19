@@ -145,6 +145,12 @@ name|classifier
 decl_stmt|;
 specifier|public
 name|ArtifactDownloadInfo
+parameter_list|()
+block|{
+comment|// no op
+block|}
+specifier|public
+name|ArtifactDownloadInfo
 parameter_list|(
 name|ArtifactMetadata
 name|artifact
