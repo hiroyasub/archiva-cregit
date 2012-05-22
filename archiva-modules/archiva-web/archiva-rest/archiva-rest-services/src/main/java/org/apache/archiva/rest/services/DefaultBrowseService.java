@@ -3326,7 +3326,7 @@ literal|"jar"
 else|:
 name|type
 argument_list|,
-name|repositoryId
+name|repoId
 argument_list|)
 decl_stmt|;
 name|File
@@ -3622,7 +3622,7 @@ name|repositoryContentFactory
 operator|.
 name|getManagedRepositoryContent
 argument_list|(
-name|repositoryId
+name|repoId
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3823,7 +3823,7 @@ literal|"jar"
 else|:
 name|type
 argument_list|,
-name|repositoryId
+name|repoId
 argument_list|)
 decl_stmt|;
 name|File
