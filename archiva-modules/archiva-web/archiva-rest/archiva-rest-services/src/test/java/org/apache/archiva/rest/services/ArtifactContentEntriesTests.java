@@ -218,6 +218,8 @@ argument_list|(
 name|file
 argument_list|,
 literal|null
+argument_list|,
+literal|"foo"
 argument_list|)
 decl_stmt|;
 name|log
@@ -255,6 +257,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|0
+argument_list|,
+literal|"foo"
 argument_list|)
 argument_list|,
 operator|new
@@ -265,6 +269,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|0
+argument_list|,
+literal|"foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -303,6 +309,8 @@ argument_list|(
 name|file
 argument_list|,
 literal|""
+argument_list|,
+literal|"foo"
 argument_list|)
 decl_stmt|;
 name|log
@@ -340,6 +348,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|0
+argument_list|,
+literal|"foo"
 argument_list|)
 argument_list|,
 operator|new
@@ -350,6 +360,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|0
+argument_list|,
+literal|"foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -388,6 +400,8 @@ argument_list|(
 name|file
 argument_list|,
 literal|"/"
+argument_list|,
+literal|"foo"
 argument_list|)
 decl_stmt|;
 name|log
@@ -425,6 +439,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|0
+argument_list|,
+literal|"foo"
 argument_list|)
 argument_list|,
 operator|new
@@ -435,6 +451,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|0
+argument_list|,
+literal|"foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -473,6 +491,8 @@ argument_list|(
 name|file
 argument_list|,
 literal|"org"
+argument_list|,
+literal|"foo"
 argument_list|)
 decl_stmt|;
 name|log
@@ -510,6 +530,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|1
+argument_list|,
+literal|"foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -548,6 +570,8 @@ argument_list|(
 name|file
 argument_list|,
 literal|"org/apache/commons/logging/impl/"
+argument_list|,
+literal|"foo"
 argument_list|)
 decl_stmt|;
 name|log
@@ -585,6 +609,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|5
+argument_list|,
+literal|"foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -623,6 +649,8 @@ argument_list|(
 name|file
 argument_list|,
 literal|"org/apache/commons/logging/"
+argument_list|,
+literal|"foo"
 argument_list|)
 decl_stmt|;
 name|log
@@ -660,6 +688,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|4
+argument_list|,
+literal|"foo"
 argument_list|)
 argument_list|,
 operator|new
@@ -670,6 +700,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|4
+argument_list|,
+literal|"foo"
 argument_list|)
 argument_list|)
 expr_stmt|;

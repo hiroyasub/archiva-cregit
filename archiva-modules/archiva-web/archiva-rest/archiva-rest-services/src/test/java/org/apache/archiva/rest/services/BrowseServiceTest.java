@@ -1338,6 +1338,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|0
+argument_list|,
+name|testRepoId
 argument_list|)
 argument_list|,
 operator|new
@@ -1348,6 +1350,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|0
+argument_list|,
+name|testRepoId
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1486,6 +1490,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|1
+argument_list|,
+name|testRepoId
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1624,6 +1630,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|4
+argument_list|,
+name|testRepoId
 argument_list|)
 argument_list|,
 operator|new
@@ -1634,6 +1642,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|4
+argument_list|,
+name|testRepoId
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1868,6 +1878,9 @@ literal|"org/apache/commons/logging/LogSource.java"
 argument_list|,
 name|testRepoId
 argument_list|)
+operator|.
+name|getContent
+argument_list|()
 decl_stmt|;
 name|log
 operator|.
@@ -2023,6 +2036,9 @@ literal|null
 argument_list|,
 name|testRepoId
 argument_list|)
+operator|.
+name|getContent
+argument_list|()
 decl_stmt|;
 name|log
 operator|.
