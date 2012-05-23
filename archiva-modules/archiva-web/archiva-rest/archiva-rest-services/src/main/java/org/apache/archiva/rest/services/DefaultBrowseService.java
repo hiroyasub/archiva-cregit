@@ -3845,10 +3845,7 @@ name|exists
 argument_list|()
 condition|)
 block|{
-comment|// 404 ?
-return|return
-literal|""
-return|;
+continue|continue;
 block|}
 if|if
 condition|(
@@ -4042,6 +4039,7 @@ name|e
 argument_list|)
 throw|;
 block|}
+comment|// 404 ?
 return|return
 literal|""
 return|;
