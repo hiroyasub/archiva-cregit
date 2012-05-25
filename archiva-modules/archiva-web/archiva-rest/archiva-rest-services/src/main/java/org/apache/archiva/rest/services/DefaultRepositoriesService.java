@@ -1227,12 +1227,6 @@ name|repositoryFactory
 decl_stmt|;
 annotation|@
 name|Inject
-specifier|private
-name|ArchivaAdministration
-name|archivaAdministration
-decl_stmt|;
-annotation|@
-name|Inject
 annotation|@
 name|Named
 argument_list|(
