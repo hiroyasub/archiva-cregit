@@ -1331,8 +1331,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"artifactDiscovered "
-operator|+
+literal|"artifactDiscovered {}:"
+argument_list|,
 name|ac
 operator|.
 name|getArtifact
@@ -1340,9 +1340,7 @@ argument_list|()
 operator|.
 name|getPath
 argument_list|()
-operator|+
-literal|":"
-operator|+
+argument_list|,
 name|ac
 operator|.
 name|getArtifactInfo

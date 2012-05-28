@@ -785,24 +785,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Resolved root namespaces from storage: "
-operator|+
+literal|"Resolved root namespaces from storage: {}"
+argument_list|,
 name|storageNamespaces
 argument_list|)
 expr_stmt|;
-block|}
 for|for
 control|(
 name|String
@@ -1752,24 +1743,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Resolved artifacts from storage: "
-operator|+
+literal|"Resolved artifacts from storage: {}"
+argument_list|,
 name|storageArtifacts
 argument_list|)
 expr_stmt|;
-block|}
 for|for
 control|(
 name|ArtifactMetadata
