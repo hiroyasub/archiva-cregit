@@ -737,7 +737,9 @@ name|contains
 argument_list|(
 name|version
 argument_list|,
-literal|"SNAPSHOT"
+name|VersionUtil
+operator|.
+name|SNAPSHOT
 argument_list|)
 condition|)
 block|{

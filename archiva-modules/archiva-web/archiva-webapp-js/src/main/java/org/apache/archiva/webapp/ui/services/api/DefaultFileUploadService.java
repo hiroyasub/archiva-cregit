@@ -2385,7 +2385,9 @@ name|filename
 operator|.
 name|replaceAll
 argument_list|(
-literal|"SNAPSHOT"
+name|VersionUtil
+operator|.
+name|SNAPSHOT
 argument_list|,
 name|timestamp
 operator|+
