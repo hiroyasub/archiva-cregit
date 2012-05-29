@@ -389,6 +389,16 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|artifactDownloadInfo
+operator|.
+name|setContext
+argument_list|(
+name|managedRepositoryContent
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|DecimalFormat
 name|df
 init|=
