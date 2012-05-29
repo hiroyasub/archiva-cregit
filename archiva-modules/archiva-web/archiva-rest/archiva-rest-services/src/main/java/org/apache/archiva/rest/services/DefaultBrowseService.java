@@ -3654,10 +3654,7 @@ name|getArtifactUrl
 argument_list|(
 name|art
 argument_list|,
-name|artifact
-operator|.
-name|getVersion
-argument_list|()
+name|version
 argument_list|)
 argument_list|)
 expr_stmt|;
