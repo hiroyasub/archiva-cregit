@@ -1044,9 +1044,7 @@ operator|.
 name|append
 argument_list|(
 name|getBaseUrl
-argument_list|(
-name|httpServletRequest
-argument_list|)
+argument_list|(  )
 operator|+
 literal|"/repository"
 argument_list|)
@@ -1208,9 +1206,7 @@ operator|.
 name|append
 argument_list|(
 name|getBaseUrl
-argument_list|(
-name|httpServletRequest
-argument_list|)
+argument_list|(  )
 operator|+
 literal|"/repository"
 argument_list|)
@@ -1435,9 +1431,7 @@ operator|.
 name|append
 argument_list|(
 name|getBaseUrl
-argument_list|(
-name|httpServletRequest
-argument_list|)
+argument_list|(  )
 operator|+
 literal|"/repository"
 argument_list|)

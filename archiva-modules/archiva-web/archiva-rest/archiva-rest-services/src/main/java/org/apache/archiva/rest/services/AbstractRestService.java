@@ -744,10 +744,7 @@ block|}
 specifier|protected
 name|String
 name|getBaseUrl
-parameter_list|(
-name|HttpServletRequest
-name|req
-parameter_list|)
+parameter_list|()
 throws|throws
 name|RepositoryAdminException
 block|{
@@ -777,20 +774,20 @@ name|applicationUrl
 return|;
 block|}
 return|return
-name|req
+name|httpServletRequest
 operator|.
 name|getScheme
 argument_list|()
 operator|+
 literal|"://"
 operator|+
-name|req
+name|httpServletRequest
 operator|.
 name|getServerName
 argument_list|()
 operator|+
 operator|(
-name|req
+name|httpServletRequest
 operator|.
 name|getServerPort
 argument_list|()
@@ -801,13 +798,13 @@ literal|""
 else|:
 literal|":"
 operator|+
-name|req
+name|httpServletRequest
 operator|.
 name|getServerPort
 argument_list|()
 operator|)
 operator|+
-name|req
+name|httpServletRequest
 operator|.
 name|getContextPath
 argument_list|()
@@ -1011,7 +1008,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * TODO add a configuration mechanism to have configured the base archiva url      *      * @param artifact      * @return      */
+comment|/**      * @param artifact      * @return      */
 specifier|protected
 name|String
 name|getArtifactUrl
@@ -1045,9 +1042,7 @@ operator|new
 name|StringBuilder
 argument_list|(
 name|getBaseUrl
-argument_list|(
-name|httpServletRequest
-argument_list|)
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|sb
