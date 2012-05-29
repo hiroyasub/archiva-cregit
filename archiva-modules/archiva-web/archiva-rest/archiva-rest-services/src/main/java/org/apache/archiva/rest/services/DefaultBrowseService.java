@@ -3653,8 +3653,6 @@ argument_list|(
 name|getArtifactUrl
 argument_list|(
 name|art
-argument_list|,
-name|version
 argument_list|)
 argument_list|)
 expr_stmt|;

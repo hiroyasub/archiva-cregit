@@ -1015,9 +1015,6 @@ name|getArtifactUrl
 parameter_list|(
 name|Artifact
 name|artifact
-parameter_list|,
-name|String
-name|version
 parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
