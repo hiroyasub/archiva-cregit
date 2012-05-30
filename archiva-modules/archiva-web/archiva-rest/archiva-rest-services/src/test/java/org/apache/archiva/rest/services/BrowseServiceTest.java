@@ -47,7 +47,7 @@ name|api
 operator|.
 name|model
 operator|.
-name|ArtifactContentEntry
+name|Artifact
 import|;
 end_import
 
@@ -65,7 +65,7 @@ name|api
 operator|.
 name|model
 operator|.
-name|ArtifactDownloadInfo
+name|ArtifactContentEntry
 import|;
 end_import
 
@@ -1820,7 +1820,7 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|ArtifactDownloadInfo
+name|Artifact
 argument_list|>
 name|artifactDownloadInfos
 init|=

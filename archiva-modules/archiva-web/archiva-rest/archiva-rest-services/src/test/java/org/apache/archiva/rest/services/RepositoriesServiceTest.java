@@ -345,6 +345,13 @@ argument_list|(
 literal|"jar"
 argument_list|)
 expr_stmt|;
+name|artifact
+operator|.
+name|setContext
+argument_list|(
+name|SOURCE_REPO_ID
+argument_list|)
+expr_stmt|;
 name|RepositoriesService
 name|repositoriesService
 init|=
@@ -358,8 +365,6 @@ operator|.
 name|deleteArtifact
 argument_list|(
 name|artifact
-argument_list|,
-name|SOURCE_REPO_ID
 argument_list|)
 expr_stmt|;
 block|}
@@ -450,8 +455,6 @@ operator|.
 name|deleteArtifact
 argument_list|(
 name|artifact
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -551,6 +554,13 @@ argument_list|(
 literal|"jar"
 argument_list|)
 expr_stmt|;
+name|artifact
+operator|.
+name|setContext
+argument_list|(
+name|SOURCE_REPO_ID
+argument_list|)
+expr_stmt|;
 name|RepositoriesService
 name|repositoriesService
 init|=
@@ -564,8 +574,6 @@ operator|.
 name|deleteArtifact
 argument_list|(
 name|artifact
-argument_list|,
-name|SOURCE_REPO_ID
 argument_list|)
 expr_stmt|;
 name|assertFalse
