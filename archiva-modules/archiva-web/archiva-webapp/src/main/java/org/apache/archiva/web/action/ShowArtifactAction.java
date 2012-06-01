@@ -311,7 +311,7 @@ name|api
 operator|.
 name|model
 operator|.
-name|ArtifactDownloadInfo
+name|Artifact
 import|;
 end_import
 
@@ -539,7 +539,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|ArtifactDownloadInfo
+name|Artifact
 argument_list|>
 argument_list|>
 name|artifacts
@@ -718,7 +718,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|ArtifactDownloadInfo
+name|Artifact
 argument_list|>
 argument_list|>
 argument_list|()
@@ -950,7 +950,7 @@ control|)
 block|{
 name|List
 argument_list|<
-name|ArtifactDownloadInfo
+name|Artifact
 argument_list|>
 name|l
 init|=
@@ -978,7 +978,7 @@ operator|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ArtifactDownloadInfo
+name|Artifact
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -2037,7 +2037,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|ArtifactDownloadInfo
+name|Artifact
 argument_list|>
 argument_list|>
 name|getArtifacts
