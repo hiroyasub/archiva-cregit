@@ -2301,6 +2301,17 @@ name|name
 argument_list|)
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|metadataFacetFactories
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|metadataFacet
+return|;
+block|}
 name|MetadataFacetFactory
 name|metadataFacetFactory
 init|=
