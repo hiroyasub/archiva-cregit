@@ -426,6 +426,7 @@ block|{
 comment|// START SNIPPET: authz-header
 comment|// guest with an empty password
 specifier|public
+specifier|static
 name|String
 name|guestAuthzHeader
 init|=

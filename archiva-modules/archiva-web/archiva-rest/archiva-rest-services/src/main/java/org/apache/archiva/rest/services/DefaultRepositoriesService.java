@@ -3937,7 +3937,7 @@ block|{
 comment|// TODO: mismatch between artifact (snapshot) version and project (base) version here
 if|if
 condition|(
-name|artifact
+name|artifactMetadata
 operator|.
 name|getVersion
 argument_list|()
@@ -4040,6 +4040,11 @@ block|}
 name|repositorySession
 operator|.
 name|save
+argument_list|()
+expr_stmt|;
+name|repositorySession
+operator|.
+name|close
 argument_list|()
 expr_stmt|;
 block|}

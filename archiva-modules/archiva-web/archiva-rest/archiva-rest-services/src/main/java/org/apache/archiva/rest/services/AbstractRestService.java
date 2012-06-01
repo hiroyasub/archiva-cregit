@@ -1251,7 +1251,7 @@ name|append
 argument_list|(
 name|artifact
 operator|.
-name|getPackaging
+name|getFileExtension
 argument_list|()
 argument_list|)
 expr_stmt|;
