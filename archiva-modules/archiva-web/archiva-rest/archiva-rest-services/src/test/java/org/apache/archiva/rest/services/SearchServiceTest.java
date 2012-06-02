@@ -93,6 +93,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|fest
+operator|.
+name|assertions
+operator|.
+name|Assertions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -258,7 +270,7 @@ name|testRepoId
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * same search but with Guest user      * @throws Exception      */
+comment|/**      * same search but with Guest user      *      * @throws Exception      */
 annotation|@
 name|Test
 specifier|public
@@ -903,29 +915,18 @@ argument_list|(
 name|searchRequest
 argument_list|)
 decl_stmt|;
-name|assertNotNull
+name|Assertions
+operator|.
+name|assertThat
 argument_list|(
 name|artifacts
 argument_list|)
-expr_stmt|;
-name|assertTrue
+operator|.
+name|isNotNull
+argument_list|()
+operator|.
+name|hasSize
 argument_list|(
-literal|" not 2 results for Bundle Symbolic Name org.apache.karaf.features.core but "
-operator|+
-name|artifacts
-operator|.
-name|size
-argument_list|()
-operator|+
-literal|":"
-operator|+
-name|artifacts
-argument_list|,
-name|artifacts
-operator|.
-name|size
-argument_list|()
-operator|==
 literal|2
 argument_list|)
 expr_stmt|;
@@ -971,7 +972,7 @@ literal|"/org.apache.karaf.features.core-"
 operator|+
 name|version
 operator|+
-literal|".bundle"
+literal|".jar"
 argument_list|,
 name|artifact
 operator|.
