@@ -144,12 +144,22 @@ parameter_list|)
 throws|throws
 name|ContentNotFoundException
 function_decl|;
-comment|/**      * delete a specified artifact from the repository      * @param artifactReference      * @throws ContentNotFoundException      */
+comment|/**      * delete a specified artifact from the repository      *      * @param artifactReference      * @throws ContentNotFoundException      */
 name|void
 name|deleteArtifact
 parameter_list|(
 name|ArtifactReference
 name|artifactReference
+parameter_list|)
+throws|throws
+name|ContentNotFoundException
+function_decl|;
+comment|/**      * @since 1.4-M3      * @param groupId      * @throws ContentNotFoundException      */
+name|void
+name|deleteGroupId
+parameter_list|(
+name|String
+name|groupId
 parameter_list|)
 throws|throws
 name|ContentNotFoundException

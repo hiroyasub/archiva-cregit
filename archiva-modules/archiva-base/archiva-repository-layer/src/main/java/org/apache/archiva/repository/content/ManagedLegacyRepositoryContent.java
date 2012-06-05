@@ -41,34 +41,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
-operator|.
-name|collections
-operator|.
-name|CollectionUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|archiva
 operator|.
 name|common
@@ -197,6 +169,34 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|collections
+operator|.
+name|CollectionUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -260,7 +260,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ManagedLegacyRepositoryContent   *  * @version $Id$  *   * @todo no need to be a component when filetypes, legacy path parser is not  */
+comment|/**  * ManagedLegacyRepositoryContent  *  * @version $Id$  * @todo no need to be a component when filetypes, legacy path parser is not  */
 end_comment
 
 begin_class
@@ -1237,7 +1237,7 @@ operator|=
 name|repository
 expr_stmt|;
 block|}
-comment|/**      * Convert a path to an artifact reference.      *       * @param path the path to convert. (relative or full location path)      * @throws LayoutException if the path cannot be converted to an artifact reference.      */
+comment|/**      * Convert a path to an artifact reference.      *      * @param path the path to convert. (relative or full location path)      * @throws LayoutException if the path cannot be converted to an artifact reference.      */
 annotation|@
 name|Override
 specifier|public
@@ -1809,6 +1809,18 @@ name|deleteArtifact
 parameter_list|(
 name|ArtifactReference
 name|artifactReference
+parameter_list|)
+throws|throws
+name|ContentNotFoundException
+block|{
+comment|// TODO implements for legacy ??
+block|}
+specifier|public
+name|void
+name|deleteGroupId
+parameter_list|(
+name|String
+name|groupId
 parameter_list|)
 throws|throws
 name|ContentNotFoundException

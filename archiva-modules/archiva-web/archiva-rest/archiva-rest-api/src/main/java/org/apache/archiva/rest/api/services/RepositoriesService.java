@@ -730,6 +730,14 @@ literal|"groupId"
 argument_list|)
 name|String
 name|groupId
+parameter_list|,
+annotation|@
+name|QueryParam
+argument_list|(
+literal|"repositoryId"
+argument_list|)
+name|String
+name|repositoryId
 parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
