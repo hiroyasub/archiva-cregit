@@ -329,6 +329,28 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+comment|/**      * @param repositoryId      * @param namespace      * @param project      * @param version      * @param metadataFacet will remove artifacts which have this {@link MetadataFacet} using equals      * @throws MetadataRepositoryException      * @since 1.4-M3      */
+name|void
+name|removeArtifact
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|,
+name|String
+name|namespace
+parameter_list|,
+name|String
+name|project
+parameter_list|,
+name|String
+name|version
+parameter_list|,
+name|MetadataFacet
+name|metadataFacet
+parameter_list|)
+throws|throws
+name|MetadataRepositoryException
+function_decl|;
 comment|/**      * Delete a repository's metadata. This includes all associated metadata facets.      *      * @param repositoryId the repository to delete      */
 name|void
 name|removeRepository

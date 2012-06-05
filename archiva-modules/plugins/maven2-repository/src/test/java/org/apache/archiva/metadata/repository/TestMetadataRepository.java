@@ -735,6 +735,33 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+specifier|public
+name|void
+name|removeArtifact
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|,
+name|String
+name|namespace
+parameter_list|,
+name|String
+name|project
+parameter_list|,
+name|String
+name|projectVersion
+parameter_list|,
+name|String
+name|projectId
+parameter_list|,
+name|MetadataFacet
+name|metadataFacet
+parameter_list|)
+throws|throws
+name|MetadataRepositoryException
+block|{
+comment|//To change body of implemented methods use File | Settings | File Templates.
+block|}
 block|}
 end_class
 
