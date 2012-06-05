@@ -115,6 +115,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|MetadataRepositoryException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -803,7 +819,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -825,7 +840,39 @@ name|String
 name|id
 parameter_list|)
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
+block|}
+specifier|public
+name|void
+name|removeArtifact
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|,
+name|String
+name|namespace
+parameter_list|,
+name|String
+name|project
+parameter_list|,
+name|String
+name|version
+parameter_list|,
+name|MetadataFacet
+name|metadataFacet
+parameter_list|)
+throws|throws
+name|MetadataRepositoryException
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
 block|}
 specifier|public
 name|void
@@ -835,7 +882,11 @@ name|String
 name|repoId
 parameter_list|)
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
 block|}
 specifier|public
 name|Collection
@@ -898,7 +949,6 @@ block|{
 return|return
 literal|false
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|Object
@@ -914,7 +964,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|List

@@ -319,20 +319,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|NotImplementedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -3851,9 +3837,6 @@ parameter_list|,
 name|String
 name|projectVersion
 parameter_list|,
-name|String
-name|projectId
-parameter_list|,
 name|MetadataFacet
 name|metadataFacet
 parameter_list|)
@@ -3862,7 +3845,7 @@ name|MetadataRepositoryException
 block|{
 throw|throw
 operator|new
-name|NotImplementedException
+name|UnsupportedOperationException
 argument_list|(
 literal|"not implemented"
 argument_list|)

@@ -749,10 +749,7 @@ name|String
 name|project
 parameter_list|,
 name|String
-name|projectVersion
-parameter_list|,
-name|String
-name|projectId
+name|version
 parameter_list|,
 name|MetadataFacet
 name|metadataFacet
@@ -760,7 +757,11 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
 block|}
 block|}
 end_class
