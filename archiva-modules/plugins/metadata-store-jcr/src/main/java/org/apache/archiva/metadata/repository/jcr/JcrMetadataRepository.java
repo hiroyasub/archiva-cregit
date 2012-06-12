@@ -1158,6 +1158,15 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|metadataFacet
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
+if|if
+condition|(
 name|node
 operator|.
 name|hasNode
