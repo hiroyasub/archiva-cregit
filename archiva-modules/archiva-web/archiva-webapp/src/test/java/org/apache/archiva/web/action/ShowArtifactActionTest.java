@@ -3164,19 +3164,8 @@ name|getArtifactId
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-name|artifact
-operator|.
-name|getProject
-argument_list|()
-argument_list|,
-name|actual
-operator|.
-name|getGroupId
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// olamy test has no more sense as we reuse an other object now
+comment|//assertEquals( artifact.getProject(), actual.getGroupId() );
 name|assertEquals
 argument_list|(
 name|artifact

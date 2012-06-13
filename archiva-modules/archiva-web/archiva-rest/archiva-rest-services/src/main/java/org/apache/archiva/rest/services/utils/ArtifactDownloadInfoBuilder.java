@@ -232,7 +232,7 @@ name|setArtifactId
 argument_list|(
 name|artifactMetadata
 operator|.
-name|getProject
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -361,6 +361,16 @@ name|getVersion
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|artifact
+operator|.
+name|setRepositoryId
+argument_list|(
+name|artifactMetadata
+operator|.
+name|getRepositoryId
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|artifact
 operator|.
 name|setClassifier
