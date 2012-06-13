@@ -232,7 +232,7 @@ name|setArtifactId
 argument_list|(
 name|artifactMetadata
 operator|.
-name|getId
+name|getProject
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -387,9 +387,28 @@ argument_list|)
 expr_stmt|;
 name|artifact
 operator|.
+name|setType
+argument_list|(
+name|type
+argument_list|)
+expr_stmt|;
+name|artifact
+operator|.
 name|setFileExtension
 argument_list|(
 name|extension
+argument_list|)
+expr_stmt|;
+name|artifact
+operator|.
+name|setPath
+argument_list|(
+name|managedRepositoryContent
+operator|.
+name|toPath
+argument_list|(
+name|ref
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// TODO: find a reusable formatter for this
