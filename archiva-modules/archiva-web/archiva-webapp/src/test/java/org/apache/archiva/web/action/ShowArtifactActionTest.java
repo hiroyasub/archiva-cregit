@@ -3160,7 +3160,7 @@ argument_list|()
 argument_list|,
 name|actual
 operator|.
-name|getArtifactId
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
