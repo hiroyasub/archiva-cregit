@@ -980,6 +980,25 @@ return|return
 name|artifacts
 return|;
 block|}
+specifier|public
+name|void
+name|removeArtifact
+parameter_list|(
+name|ArtifactMetadata
+name|artifactMetadata
+parameter_list|,
+name|String
+name|baseVersion
+parameter_list|)
+throws|throws
+name|MetadataRepositoryException
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
+block|}
 block|}
 end_class
 
