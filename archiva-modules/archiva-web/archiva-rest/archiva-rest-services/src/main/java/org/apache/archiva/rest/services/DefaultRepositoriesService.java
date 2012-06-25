@@ -4245,6 +4245,31 @@ block|}
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|snapshotVersion
+condition|)
+block|{
+name|metadataRepository
+operator|.
+name|removeArtifact
+argument_list|(
+name|artifactMetadata
+argument_list|,
+name|VersionUtil
+operator|.
+name|getBaseVersion
+argument_list|(
+name|artifact
+operator|.
+name|getVersion
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|metadataRepository
 operator|.
 name|removeArtifact
@@ -4275,6 +4300,7 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// TODO: move into the metadata repository proper - need to differentiate attachment of
 comment|//       repository metadata to an artifact

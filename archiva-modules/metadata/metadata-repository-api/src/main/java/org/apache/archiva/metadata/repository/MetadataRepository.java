@@ -329,6 +329,18 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+name|void
+name|removeArtifact
+parameter_list|(
+name|ArtifactMetadata
+name|artifactMetadata
+parameter_list|,
+name|String
+name|baseVersion
+parameter_list|)
+throws|throws
+name|MetadataRepositoryException
+function_decl|;
 comment|/**      * @param repositoryId      * @param namespace      * @param project      * @param version      * @param metadataFacet will remove artifacts which have this {@link MetadataFacet} using equals      * @throws MetadataRepositoryException      * @since 1.4-M3      */
 name|void
 name|removeArtifact
