@@ -1249,7 +1249,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/*             for ( MetadataFacet facet : artifactMeta.getFacetList() )             {                 if ( node.hasNode( facet.getFacetId() ) )                 {                     node.getNode( facet.getFacetId() ).remove();                 }                  // recreate, to ensure properties are removed                 Node n = node.addNode( facet.getFacetId() );                 n.addMixin( FACET_NODE_TYPE );                  for ( Map.Entry<String, String> entry : facet.toProperties().entrySet() )                 {                     n.setProperty( entry.getKey(), entry.getValue() );                 }             }             */
 block|}
 catch|catch
 parameter_list|(
