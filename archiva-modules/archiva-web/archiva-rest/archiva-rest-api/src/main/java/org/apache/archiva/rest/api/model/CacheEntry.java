@@ -143,11 +143,14 @@ name|cacheHitRate
 operator|=
 name|cacheHitRate
 expr_stmt|;
+comment|// size is in bytes so use kb
 name|this
 operator|.
 name|inMemorySize
 operator|=
 name|inMemorySize
+operator|/
+literal|1024
 expr_stmt|;
 block|}
 specifier|public
@@ -270,6 +273,7 @@ operator|=
 name|cacheHitRate
 expr_stmt|;
 block|}
+comment|/**      *      * @return cache size in kb      */
 specifier|public
 name|long
 name|getInMemorySize
