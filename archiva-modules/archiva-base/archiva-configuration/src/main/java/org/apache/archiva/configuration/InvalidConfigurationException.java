@@ -16,7 +16,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * An error in the configuration.  *  */
+comment|/**  * An error in the configuration.  */
 end_comment
 
 begin_class

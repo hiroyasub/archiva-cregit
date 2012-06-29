@@ -23,11 +23,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|archiva
 operator|.
-name|collections
+name|configuration
 operator|.
-name|Closure
+name|FileType
 import|;
 end_import
 
@@ -37,11 +37,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|archiva
+name|commons
 operator|.
-name|configuration
+name|collections
 operator|.
-name|FileType
+name|Closure
 import|;
 end_import
 
@@ -66,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FiletypeToMapClosure   *  * @version $Id$  */
+comment|/**  * FiletypeToMapClosure  *  * @version $Id$  */
 end_comment
 
 begin_class

@@ -77,7 +77,7 @@ name|RegistryException
 throws|,
 name|IndeterminateConfigurationException
 function_decl|;
-comment|/**      * Determines if the configuration in use was as a result of a defaulted configuration.      *       * @return true if the configuration was created from the default-archiva.xml as opposed      *              to being loaded from the usual locations of ${user.home}/.m2/archiva.xml or      *              ${appserver.base}/conf/archiva.xml      */
+comment|/**      * Determines if the configuration in use was as a result of a defaulted configuration.      *      * @return true if the configuration was created from the default-archiva.xml as opposed      *         to being loaded from the usual locations of ${user.home}/.m2/archiva.xml or      *         ${appserver.base}/conf/archiva.xml      */
 name|boolean
 name|isDefaulted
 parameter_list|()
@@ -98,7 +98,7 @@ name|ConfigurationListener
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Add a registry listener to notify of events in plexus-registry.      *      * @param listener the listener      * TODO: Remove in future.      */
+comment|/**      * Add a registry listener to notify of events in plexus-registry.      *      * @param listener the listener      *                 TODO: Remove in future.      */
 name|void
 name|addChangeListener
 parameter_list|(
@@ -106,7 +106,7 @@ name|RegistryListener
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * reload configuration from file included registry      * @since 1.4-M1      */
+comment|/**      * reload configuration from file included registry      *      * @since 1.4-M1      */
 name|void
 name|reload
 parameter_list|()

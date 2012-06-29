@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test the generated LegacyArtifactPath class from Modello. This is primarily to test the hand coded methods.  * @since 1.1  */
+comment|/**  * Test the generated LegacyArtifactPath class from Modello. This is primarily to test the hand coded methods.  *  * @since 1.1  */
 end_comment
 
 begin_class

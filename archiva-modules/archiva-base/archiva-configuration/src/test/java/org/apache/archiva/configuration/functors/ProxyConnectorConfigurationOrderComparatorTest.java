@@ -19,6 +19,16 @@ end_comment
 
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -75,18 +85,8 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
 begin_comment
-comment|/**  * ProxyConnectorConfigurationOrderComparatorTest   *  * @version $Id$  */
+comment|/**  * ProxyConnectorConfigurationOrderComparatorTest  *  * @version $Id$  */
 end_comment
 
 begin_class

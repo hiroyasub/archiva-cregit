@@ -23,6 +23,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
+name|FileType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|collections
@@ -45,22 +59,8 @@ name|StringUtils
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|FileType
-import|;
-end_import
-
 begin_comment
-comment|/**  * FiletypeSelectionPredicate   *  * @version $Id$  */
+comment|/**  * FiletypeSelectionPredicate  *  * @version $Id$  */
 end_comment
 
 begin_class

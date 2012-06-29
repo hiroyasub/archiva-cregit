@@ -42,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * NetworkProxyComparator   *  * @version $Id$  */
+comment|/**  * NetworkProxyComparator  *  * @version $Id$  */
 end_comment
 
 begin_class
