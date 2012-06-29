@@ -2030,6 +2030,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|getManagedRepositoriesService
 argument_list|(
 name|authorizationHeader
@@ -2055,6 +2057,23 @@ name|SNAPSHOT_REPO_ID
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"skip issue while cleaning test repository: this can cause test failure"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 specifier|protected
