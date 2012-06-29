@@ -65,6 +65,24 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|redback
+operator|.
+name|components
+operator|.
+name|springutils
+operator|.
+name|ComponentContainer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|io
@@ -84,24 +102,6 @@ operator|.
 name|lang
 operator|.
 name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|redback
-operator|.
-name|components
-operator|.
-name|springutils
-operator|.
-name|ComponentContainer
 import|;
 end_import
 
@@ -277,7 +277,7 @@ operator|.
 name|getLogger
 argument_list|(
 name|getClass
-argument_list|( )
+argument_list|()
 argument_list|)
 decl_stmt|;
 annotation|@
@@ -302,7 +302,7 @@ argument_list|(
 name|FileUtil
 operator|.
 name|getBasedir
-argument_list|( )
+argument_list|()
 argument_list|,
 name|path
 argument_list|)
@@ -364,7 +364,7 @@ name|Test
 specifier|public
 name|void
 name|testGetConfigurationFromRegistryWithASingleNamedConfigurationResource
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -386,7 +386,7 @@ init|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertConfiguration
 argument_list|(
@@ -408,10 +408,10 @@ argument_list|,
 name|configuration
 operator|.
 name|getNetworkProxies
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ManagedRepositoryConfiguration
@@ -420,7 +420,7 @@ init|=
 name|configuration
 operator|.
 name|getManagedRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -436,7 +436,7 @@ argument_list|,
 name|repository
 operator|.
 name|getLocation
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -448,7 +448,7 @@ argument_list|,
 name|repository
 operator|.
 name|getName
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -460,7 +460,7 @@ argument_list|,
 name|repository
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -472,7 +472,7 @@ argument_list|,
 name|repository
 operator|.
 name|getLayout
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -482,7 +482,7 @@ argument_list|,
 name|repository
 operator|.
 name|isScanned
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -491,16 +491,13 @@ name|Test
 specifier|public
 name|void
 name|testGetConfigurationFromDefaults
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|ArchivaConfiguration
 name|archivaConfiguration
 init|=
-operator|(
-name|ArchivaConfiguration
-operator|)
 name|lookup
 argument_list|(
 name|ArchivaConfiguration
@@ -516,7 +513,7 @@ init|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertConfiguration
 argument_list|(
@@ -538,22 +535,19 @@ argument_list|,
 name|configuration
 operator|.
 name|getNetworkProxies
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ManagedRepositoryConfiguration
 name|repository
 init|=
-operator|(
-name|ManagedRepositoryConfiguration
-operator|)
 name|configuration
 operator|.
 name|getManagedRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -569,7 +563,7 @@ argument_list|,
 name|repository
 operator|.
 name|getLocation
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -581,7 +575,7 @@ argument_list|,
 name|repository
 operator|.
 name|getName
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -593,7 +587,7 @@ argument_list|,
 name|repository
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -605,7 +599,7 @@ argument_list|,
 name|repository
 operator|.
 name|getLayout
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -615,7 +609,7 @@ argument_list|,
 name|repository
 operator|.
 name|isScanned
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -625,7 +619,7 @@ name|Test
 specifier|public
 name|void
 name|testGetConfigurationFromDefaultsWithDefaultRepoLocationAlreadyExisting
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -638,7 +632,7 @@ argument_list|(
 name|FileUtil
 operator|.
 name|getBasedir
-argument_list|( )
+argument_list|()
 argument_list|,
 literal|"/target/test-classes/existing_snapshots"
 argument_list|)
@@ -646,7 +640,7 @@ decl_stmt|;
 name|repo
 operator|.
 name|mkdirs
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|repo
 operator|=
@@ -656,7 +650,7 @@ argument_list|(
 name|FileUtil
 operator|.
 name|getBasedir
-argument_list|( )
+argument_list|()
 argument_list|,
 literal|"/target/test-classes/existing_internal"
 argument_list|)
@@ -664,7 +658,7 @@ expr_stmt|;
 name|repo
 operator|.
 name|mkdirs
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|String
 name|existingTestDefaultArchivaConfigFile
@@ -692,7 +686,7 @@ argument_list|,
 name|FileUtil
 operator|.
 name|getBasedir
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|File
@@ -704,7 +698,7 @@ argument_list|(
 name|FileUtil
 operator|.
 name|getBasedir
-argument_list|( )
+argument_list|()
 argument_list|,
 literal|"target/test-classes/org/apache/archiva/configuration/default-archiva.xml"
 argument_list|)
@@ -738,7 +732,7 @@ init|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertConfiguration
 argument_list|(
@@ -754,13 +748,10 @@ expr_stmt|;
 name|ManagedRepositoryConfiguration
 name|repository
 init|=
-operator|(
-name|ManagedRepositoryConfiguration
-operator|)
 name|configuration
 operator|.
 name|getManagedRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -774,7 +765,7 @@ argument_list|,
 name|repository
 operator|.
 name|getLocation
-argument_list|( )
+argument_list|()
 operator|.
 name|endsWith
 argument_list|(
@@ -785,36 +776,14 @@ expr_stmt|;
 name|generatedTestDefaultArchivaConfigFile
 operator|.
 name|delete
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|generatedTestDefaultArchivaConfigFile
 operator|.
 name|exists
-argument_list|( )
-argument_list|)
-expr_stmt|;
-block|}
-specifier|private
-name|void
-name|assertConfiguration
-parameter_list|(
-name|Configuration
-name|configuration
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|assertConfiguration
-argument_list|(
-name|configuration
-argument_list|,
-literal|2
-argument_list|,
-literal|2
-argument_list|,
-literal|1
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -855,17 +824,17 @@ operator|+
 name|configuration
 operator|.
 name|getManagedRepositories
-argument_list|( )
+argument_list|()
 argument_list|,
 name|managedExpected
 argument_list|,
 name|configuration
 operator|.
 name|getManagedRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -875,17 +844,17 @@ operator|+
 name|configuration
 operator|.
 name|getRemoteRepositories
-argument_list|( )
+argument_list|()
 argument_list|,
 name|remoteExpected
 argument_list|,
 name|configuration
 operator|.
 name|getRemoteRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -895,17 +864,17 @@ operator|+
 name|configuration
 operator|.
 name|getProxyConnectors
-argument_list|( )
+argument_list|()
 argument_list|,
 name|proxyConnectorExpected
 argument_list|,
 name|configuration
 operator|.
 name|getProxyConnectors
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|RepositoryScanningConfiguration
@@ -914,7 +883,7 @@ init|=
 name|configuration
 operator|.
 name|getRepositoryScanning
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -932,10 +901,10 @@ argument_list|,
 name|repoScanning
 operator|.
 name|getFileTypes
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -947,10 +916,10 @@ argument_list|,
 name|repoScanning
 operator|.
 name|getKnownContentConsumers
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -962,10 +931,10 @@ argument_list|,
 name|repoScanning
 operator|.
 name|getInvalidContentConsumers
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|List
@@ -997,7 +966,7 @@ argument_list|,
 name|patterns
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|WebappConfiguration
@@ -1006,7 +975,7 @@ init|=
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -1021,7 +990,7 @@ init|=
 name|webapp
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -1037,7 +1006,7 @@ argument_list|,
 name|ui
 operator|.
 name|isShowFindArtifacts
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -1047,7 +1016,7 @@ argument_list|,
 name|ui
 operator|.
 name|isAppletFindEnabled
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1056,7 +1025,7 @@ name|Test
 specifier|public
 name|void
 name|testGetConfigurationFromRegistryWithTwoConfigurationResources
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -1078,7 +1047,7 @@ init|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 comment|// from base
 name|assertEquals
@@ -1090,10 +1059,10 @@ argument_list|,
 name|configuration
 operator|.
 name|getManagedRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1105,10 +1074,10 @@ argument_list|,
 name|configuration
 operator|.
 name|getRemoteRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// from user
@@ -1121,10 +1090,10 @@ argument_list|,
 name|configuration
 operator|.
 name|getProxyConnectors
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|WebappConfiguration
@@ -1133,7 +1102,7 @@ init|=
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -1148,7 +1117,7 @@ init|=
 name|webapp
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -1165,7 +1134,7 @@ argument_list|,
 name|ui
 operator|.
 name|isShowFindArtifacts
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// from user
@@ -1176,7 +1145,7 @@ argument_list|,
 name|ui
 operator|.
 name|isAppletFindEnabled
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1185,7 +1154,7 @@ name|Test
 specifier|public
 name|void
 name|testGetConfigurationSystemOverride
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -1213,7 +1182,7 @@ decl_stmt|;
 name|archivaConfiguration
 operator|.
 name|reload
-argument_list|( )
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -1223,7 +1192,7 @@ init|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertFalse
 argument_list|(
@@ -1232,13 +1201,13 @@ argument_list|,
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 operator|.
 name|isAppletFindEnabled
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1247,7 +1216,7 @@ block|{
 name|System
 operator|.
 name|getProperties
-argument_list|( )
+argument_list|()
 operator|.
 name|remove
 argument_list|(
@@ -1261,7 +1230,7 @@ name|Test
 specifier|public
 name|void
 name|testStoreConfiguration
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -1276,14 +1245,14 @@ decl_stmt|;
 name|file
 operator|.
 name|delete
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|file
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// TODO: remove with commons-configuration 1.4
@@ -1307,14 +1276,14 @@ decl_stmt|;
 name|archivaConfiguration
 operator|.
 name|reload
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|Configuration
 name|configuration
 init|=
 operator|new
 name|Configuration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|configuration
 operator|.
@@ -1329,28 +1298,28 @@ name|setWebapp
 argument_list|(
 operator|new
 name|WebappConfiguration
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|setUi
 argument_list|(
 operator|new
 name|UserInterfaceOptions
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 operator|.
 name|setAppletFindEnabled
 argument_list|(
@@ -1362,7 +1331,7 @@ name|MockControl
 name|control
 init|=
 name|createConfigurationListenerMockControl
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|ConfigurationListener
 name|listener
@@ -1373,7 +1342,7 @@ operator|)
 name|control
 operator|.
 name|getMock
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|archivaConfiguration
 operator|.
@@ -1398,12 +1367,12 @@ expr_stmt|;
 name|control
 operator|.
 name|setVoidCallable
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|control
 operator|.
 name|replay
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|archivaConfiguration
 operator|.
@@ -1415,7 +1384,7 @@ expr_stmt|;
 name|control
 operator|.
 name|verify
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
@@ -1424,7 +1393,7 @@ argument_list|,
 name|file
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// check it
@@ -1433,7 +1402,7 @@ operator|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
@@ -1442,13 +1411,13 @@ argument_list|,
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 operator|.
 name|isAppletFindEnabled
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// read it back
@@ -1469,14 +1438,14 @@ expr_stmt|;
 name|archivaConfiguration
 operator|.
 name|reload
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|configuration
 operator|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
@@ -1485,13 +1454,13 @@ argument_list|,
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 operator|.
 name|isAppletFindEnabled
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1499,7 +1468,7 @@ specifier|private
 specifier|static
 name|MockControl
 name|createConfigurationListenerMockControl
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|MockControl
@@ -1517,7 +1486,7 @@ name|Test
 specifier|public
 name|void
 name|testStoreConfigurationUser
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -1532,14 +1501,14 @@ decl_stmt|;
 name|baseFile
 operator|.
 name|delete
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|baseFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|File
@@ -1553,23 +1522,23 @@ decl_stmt|;
 name|userFile
 operator|.
 name|delete
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|userFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|userFile
 operator|.
 name|getParentFile
-argument_list|( )
+argument_list|()
 operator|.
 name|mkdirs
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|FileUtils
 operator|.
@@ -1599,7 +1568,7 @@ name|configuration
 init|=
 operator|new
 name|Configuration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|configuration
 operator|.
@@ -1607,28 +1576,28 @@ name|setWebapp
 argument_list|(
 operator|new
 name|WebappConfiguration
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|setUi
 argument_list|(
 operator|new
 name|UserInterfaceOptions
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 operator|.
 name|setAppletFindEnabled
 argument_list|(
@@ -1649,7 +1618,7 @@ argument_list|,
 name|userFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -1659,7 +1628,7 @@ argument_list|,
 name|baseFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// check it
@@ -1668,7 +1637,7 @@ operator|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
@@ -1677,13 +1646,13 @@ argument_list|,
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 operator|.
 name|isAppletFindEnabled
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1692,7 +1661,7 @@ name|Test
 specifier|public
 name|void
 name|testStoreConfigurationLoadedFromDefaults
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -1707,14 +1676,14 @@ decl_stmt|;
 name|baseFile
 operator|.
 name|delete
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|baseFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|File
@@ -1728,14 +1697,14 @@ decl_stmt|;
 name|userFile
 operator|.
 name|delete
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|userFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ArchivaConfiguration
@@ -1753,14 +1722,14 @@ decl_stmt|;
 name|archivaConfiguration
 operator|.
 name|reload
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|Configuration
 name|configuration
 init|=
 operator|new
 name|Configuration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|configuration
 operator|.
@@ -1768,28 +1737,28 @@ name|setWebapp
 argument_list|(
 operator|new
 name|WebappConfiguration
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|setUi
 argument_list|(
 operator|new
 name|UserInterfaceOptions
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 operator|.
 name|setAppletFindEnabled
 argument_list|(
@@ -1801,7 +1770,7 @@ name|MockControl
 name|control
 init|=
 name|createConfigurationListenerMockControl
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|ConfigurationListener
 name|listener
@@ -1812,7 +1781,7 @@ operator|)
 name|control
 operator|.
 name|getMock
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|archivaConfiguration
 operator|.
@@ -1844,7 +1813,7 @@ expr_stmt|;
 name|control
 operator|.
 name|replay
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|archivaConfiguration
 operator|.
@@ -1856,7 +1825,7 @@ expr_stmt|;
 name|control
 operator|.
 name|verify
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
@@ -1865,7 +1834,7 @@ argument_list|,
 name|userFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -1875,7 +1844,7 @@ argument_list|,
 name|baseFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// check it
@@ -1884,7 +1853,7 @@ operator|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
@@ -1893,13 +1862,13 @@ argument_list|,
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 operator|.
 name|isAppletFindEnabled
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1908,7 +1877,7 @@ name|Test
 specifier|public
 name|void
 name|testDefaultUserConfigFilename
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -1930,7 +1899,7 @@ decl_stmt|;
 name|archivaConfiguration
 operator|.
 name|reload
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -1946,7 +1915,7 @@ argument_list|,
 name|archivaConfiguration
 operator|.
 name|getUserConfigFilename
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1965,7 +1934,7 @@ argument_list|,
 name|archivaConfiguration
 operator|.
 name|getAltConfigFilename
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1974,7 +1943,7 @@ name|Test
 specifier|public
 name|void
 name|testStoreConfigurationFallback
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -1989,14 +1958,14 @@ decl_stmt|;
 name|baseFile
 operator|.
 name|delete
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|baseFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|File
@@ -2010,23 +1979,23 @@ decl_stmt|;
 name|userFile
 operator|.
 name|delete
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|userFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|baseFile
 operator|.
 name|getParentFile
-argument_list|( )
+argument_list|()
 operator|.
 name|mkdirs
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|FileUtils
 operator|.
@@ -2057,14 +2026,14 @@ decl_stmt|;
 name|archivaConfiguration
 operator|.
 name|reload
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|Configuration
 name|configuration
 init|=
 operator|new
 name|Configuration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|configuration
 operator|.
@@ -2072,28 +2041,28 @@ name|setWebapp
 argument_list|(
 operator|new
 name|WebappConfiguration
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|setUi
 argument_list|(
 operator|new
 name|UserInterfaceOptions
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 operator|.
 name|setAppletFindEnabled
 argument_list|(
@@ -2114,7 +2083,7 @@ argument_list|,
 name|baseFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -2124,7 +2093,7 @@ argument_list|,
 name|userFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// check it
@@ -2133,7 +2102,7 @@ operator|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
@@ -2142,13 +2111,13 @@ argument_list|,
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 operator|.
 name|isAppletFindEnabled
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2157,7 +2126,7 @@ name|Test
 specifier|public
 name|void
 name|testStoreConfigurationFailsWhenReadFromBothLocationsNoLists
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -2172,14 +2141,14 @@ decl_stmt|;
 name|baseFile
 operator|.
 name|delete
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|baseFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|File
@@ -2193,23 +2162,23 @@ decl_stmt|;
 name|userFile
 operator|.
 name|delete
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|userFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|baseFile
 operator|.
 name|getParentFile
-argument_list|( )
+argument_list|()
 operator|.
 name|mkdirs
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|FileUtils
 operator|.
@@ -2225,10 +2194,10 @@ expr_stmt|;
 name|userFile
 operator|.
 name|getParentFile
-argument_list|( )
+argument_list|()
 operator|.
 name|mkdirs
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|FileUtils
 operator|.
@@ -2259,7 +2228,7 @@ decl_stmt|;
 name|archivaConfiguration
 operator|.
 name|reload
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|Configuration
 name|configuration
@@ -2267,7 +2236,7 @@ init|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
@@ -2276,22 +2245,22 @@ argument_list|,
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 operator|.
 name|isAppletFindEnabled
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 operator|.
 name|setAppletFindEnabled
 argument_list|(
@@ -2312,7 +2281,7 @@ argument_list|,
 name|baseFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2338,7 +2307,7 @@ argument_list|,
 name|userFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -2366,7 +2335,7 @@ operator|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
@@ -2375,13 +2344,13 @@ argument_list|,
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 operator|.
 name|isAppletFindEnabled
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2390,7 +2359,7 @@ name|Test
 specifier|public
 name|void
 name|testStoreConfigurationFailsWhenReadFromBothLocationsUserHasLists
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -2405,14 +2374,14 @@ decl_stmt|;
 name|baseFile
 operator|.
 name|delete
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|baseFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|File
@@ -2426,23 +2395,23 @@ decl_stmt|;
 name|userFile
 operator|.
 name|delete
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|userFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|userFile
 operator|.
 name|getParentFile
-argument_list|( )
+argument_list|()
 operator|.
 name|mkdirs
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|FileUtils
 operator|.
@@ -2459,10 +2428,10 @@ expr_stmt|;
 name|baseFile
 operator|.
 name|getParentFile
-argument_list|( )
+argument_list|()
 operator|.
 name|mkdirs
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|FileUtils
 operator|.
@@ -2493,7 +2462,7 @@ decl_stmt|;
 name|archivaConfiguration
 operator|.
 name|reload
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|Configuration
 name|configuration
@@ -2501,7 +2470,7 @@ init|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
@@ -2510,22 +2479,22 @@ argument_list|,
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 operator|.
 name|isShowFindArtifacts
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 operator|.
 name|setShowFindArtifacts
 argument_list|(
@@ -2546,7 +2515,7 @@ argument_list|,
 name|baseFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2572,7 +2541,7 @@ argument_list|,
 name|userFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -2600,7 +2569,7 @@ operator|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
@@ -2609,13 +2578,13 @@ argument_list|,
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 operator|.
 name|isShowFindArtifacts
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2624,7 +2593,7 @@ name|Test
 specifier|public
 name|void
 name|testStoreConfigurationFailsWhenReadFromBothLocationsAppserverHasLists
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -2639,14 +2608,14 @@ decl_stmt|;
 name|baseFile
 operator|.
 name|delete
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|baseFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|File
@@ -2660,23 +2629,23 @@ decl_stmt|;
 name|userFile
 operator|.
 name|delete
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|userFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|baseFile
 operator|.
 name|getParentFile
-argument_list|( )
+argument_list|()
 operator|.
 name|mkdirs
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|FileUtils
 operator|.
@@ -2693,10 +2662,10 @@ expr_stmt|;
 name|userFile
 operator|.
 name|getParentFile
-argument_list|( )
+argument_list|()
 operator|.
 name|mkdirs
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|FileUtils
 operator|.
@@ -2727,7 +2696,7 @@ decl_stmt|;
 name|archivaConfiguration
 operator|.
 name|reload
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|Configuration
 name|configuration
@@ -2735,7 +2704,7 @@ init|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
@@ -2744,22 +2713,22 @@ argument_list|,
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 operator|.
 name|isAppletFindEnabled
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 operator|.
 name|setAppletFindEnabled
 argument_list|(
@@ -2793,7 +2762,7 @@ operator|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
@@ -2802,13 +2771,13 @@ argument_list|,
 name|configuration
 operator|.
 name|getWebapp
-argument_list|( )
+argument_list|()
 operator|.
 name|getUi
-argument_list|( )
+argument_list|()
 operator|.
 name|isAppletFindEnabled
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2818,16 +2787,13 @@ name|Test
 specifier|public
 name|void
 name|testLoadConfigurationFromInvalidBothLocationsOnDisk
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|ArchivaConfiguration
 name|archivaConfiguration
 init|=
-operator|(
-name|ArchivaConfiguration
-operator|)
 name|lookup
 argument_list|(
 name|ArchivaConfiguration
@@ -2843,7 +2809,7 @@ init|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 try|try
 block|{
@@ -2874,7 +2840,7 @@ name|Test
 specifier|public
 name|void
 name|testLoadConfigurationFromInvalidUserLocationOnDisk
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -2889,14 +2855,11 @@ decl_stmt|;
 name|testConfDir
 operator|.
 name|mkdirs
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|ArchivaConfiguration
 name|archivaConfiguration
 init|=
-operator|(
-name|ArchivaConfiguration
-operator|)
 name|lookup
 argument_list|(
 name|ArchivaConfiguration
@@ -2912,7 +2875,7 @@ init|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|archivaConfiguration
 operator|.
@@ -2929,7 +2892,7 @@ name|Test
 specifier|public
 name|void
 name|testConfigurationUpgradeFrom09
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -2952,7 +2915,7 @@ init|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 comment|// test-upgrade-09 contains a managed with id: local so it's 3 managed
 name|assertConfiguration
@@ -2975,10 +2938,10 @@ argument_list|,
 name|configuration
 operator|.
 name|getNetworkProxies
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ManagedRepositoryConfiguration
@@ -2987,7 +2950,7 @@ init|=
 name|configuration
 operator|.
 name|getManagedRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -3003,7 +2966,7 @@ argument_list|,
 name|repository
 operator|.
 name|getLocation
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3015,7 +2978,7 @@ argument_list|,
 name|repository
 operator|.
 name|getName
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3027,7 +2990,7 @@ argument_list|,
 name|repository
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3039,7 +3002,7 @@ argument_list|,
 name|repository
 operator|.
 name|getLayout
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -3049,7 +3012,7 @@ argument_list|,
 name|repository
 operator|.
 name|isScanned
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3058,7 +3021,7 @@ name|Test
 specifier|public
 name|void
 name|testConfigurationUpgradeFrom13
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -3081,7 +3044,7 @@ init|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertConfiguration
 argument_list|(
@@ -3103,10 +3066,10 @@ argument_list|,
 name|configuration
 operator|.
 name|getNetworkProxies
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ManagedRepositoryConfiguration
@@ -3115,7 +3078,7 @@ init|=
 name|configuration
 operator|.
 name|getManagedRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -3131,7 +3094,7 @@ argument_list|,
 name|repository
 operator|.
 name|getLocation
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3143,7 +3106,7 @@ argument_list|,
 name|repository
 operator|.
 name|getName
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3155,7 +3118,7 @@ argument_list|,
 name|repository
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3167,7 +3130,7 @@ argument_list|,
 name|repository
 operator|.
 name|getLayout
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -3177,7 +3140,7 @@ argument_list|,
 name|repository
 operator|.
 name|isScanned
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|log
@@ -3189,10 +3152,10 @@ operator|+
 name|configuration
 operator|.
 name|getRepositoryScanning
-argument_list|( )
+argument_list|()
 operator|.
 name|getKnownContentConsumers
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -3200,10 +3163,10 @@ argument_list|(
 name|configuration
 operator|.
 name|getRepositoryScanning
-argument_list|( )
+argument_list|()
 operator|.
 name|getKnownContentConsumers
-argument_list|( )
+argument_list|()
 operator|.
 name|contains
 argument_list|(
@@ -3216,10 +3179,10 @@ argument_list|(
 name|configuration
 operator|.
 name|getRepositoryScanning
-argument_list|( )
+argument_list|()
 operator|.
 name|getKnownContentConsumers
-argument_list|( )
+argument_list|()
 operator|.
 name|contains
 argument_list|(
@@ -3232,10 +3195,10 @@ argument_list|(
 name|configuration
 operator|.
 name|getRepositoryScanning
-argument_list|( )
+argument_list|()
 operator|.
 name|getKnownContentConsumers
-argument_list|( )
+argument_list|()
 operator|.
 name|contains
 argument_list|(
@@ -3248,10 +3211,10 @@ argument_list|(
 name|configuration
 operator|.
 name|getRepositoryScanning
-argument_list|( )
+argument_list|()
 operator|.
 name|getKnownContentConsumers
-argument_list|( )
+argument_list|()
 operator|.
 name|contains
 argument_list|(
@@ -3265,7 +3228,7 @@ name|Test
 specifier|public
 name|void
 name|testAutoDetectV1
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -3281,23 +3244,23 @@ decl_stmt|;
 name|userFile
 operator|.
 name|delete
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|userFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|userFile
 operator|.
 name|getParentFile
-argument_list|( )
+argument_list|()
 operator|.
 name|mkdirs
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|FileUtils
 operator|.
@@ -3327,7 +3290,7 @@ decl_stmt|;
 name|archivaConfiguration
 operator|.
 name|reload
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|Configuration
 name|configuration
@@ -3335,7 +3298,7 @@ init|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertConfiguration
 argument_list|(
@@ -3357,10 +3320,10 @@ argument_list|,
 name|configuration
 operator|.
 name|getNetworkProxies
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ManagedRepositoryConfiguration
@@ -3369,7 +3332,7 @@ init|=
 name|configuration
 operator|.
 name|getManagedRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -3385,7 +3348,7 @@ argument_list|,
 name|repository
 operator|.
 name|getLocation
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3397,7 +3360,7 @@ argument_list|,
 name|repository
 operator|.
 name|getName
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3409,7 +3372,7 @@ argument_list|,
 name|repository
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3421,7 +3384,7 @@ argument_list|,
 name|repository
 operator|.
 name|getLayout
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -3431,7 +3394,7 @@ argument_list|,
 name|repository
 operator|.
 name|isScanned
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Test that only 1 set of repositories exist.
@@ -3444,10 +3407,10 @@ argument_list|,
 name|configuration
 operator|.
 name|getManagedRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3459,10 +3422,10 @@ argument_list|,
 name|configuration
 operator|.
 name|getRemoteRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3474,10 +3437,10 @@ argument_list|,
 name|configuration
 operator|.
 name|getRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Save the file.
@@ -3493,9 +3456,6 @@ comment|//release( archivaConfiguration );
 comment|// Reload.
 name|archivaConfiguration
 operator|=
-operator|(
-name|ArchivaConfiguration
-operator|)
 name|lookup
 argument_list|(
 name|ArchivaConfiguration
@@ -3510,7 +3470,7 @@ operator|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 expr_stmt|;
 comment|// Test that only 1 set of repositories exist.
 name|assertEquals
@@ -3522,10 +3482,10 @@ argument_list|,
 name|configuration
 operator|.
 name|getManagedRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3537,10 +3497,10 @@ argument_list|,
 name|configuration
 operator|.
 name|getManagedRepositoriesAsMap
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3552,10 +3512,10 @@ argument_list|,
 name|configuration
 operator|.
 name|getRemoteRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3567,10 +3527,10 @@ argument_list|,
 name|configuration
 operator|.
 name|getRemoteRepositoriesAsMap
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3582,10 +3542,10 @@ argument_list|,
 name|configuration
 operator|.
 name|getRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|String
@@ -3624,7 +3584,7 @@ name|Test
 specifier|public
 name|void
 name|testArchivaV1
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -3646,7 +3606,7 @@ init|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertConfiguration
 argument_list|(
@@ -3668,10 +3628,10 @@ argument_list|,
 name|configuration
 operator|.
 name|getNetworkProxies
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3683,10 +3643,10 @@ argument_list|,
 name|configuration
 operator|.
 name|getManagedRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3698,10 +3658,10 @@ argument_list|,
 name|configuration
 operator|.
 name|getRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Map
@@ -3715,7 +3675,7 @@ init|=
 name|configuration
 operator|.
 name|getManagedRepositoriesAsMap
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|ManagedRepositoryConfiguration
 name|repository
@@ -3736,7 +3696,7 @@ argument_list|,
 name|repository
 operator|.
 name|getLocation
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3748,7 +3708,7 @@ argument_list|,
 name|repository
 operator|.
 name|getName
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3760,7 +3720,7 @@ argument_list|,
 name|repository
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3772,7 +3732,7 @@ argument_list|,
 name|repository
 operator|.
 name|getLayout
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -3782,7 +3742,7 @@ argument_list|,
 name|repository
 operator|.
 name|isScanned
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -3792,7 +3752,7 @@ argument_list|,
 name|repository
 operator|.
 name|isSnapshots
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|repository
@@ -3813,7 +3773,7 @@ argument_list|,
 name|repository
 operator|.
 name|getLocation
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3825,7 +3785,7 @@ argument_list|,
 name|repository
 operator|.
 name|getName
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3837,7 +3797,7 @@ argument_list|,
 name|repository
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3849,7 +3809,7 @@ argument_list|,
 name|repository
 operator|.
 name|getLayout
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -3859,7 +3819,7 @@ argument_list|,
 name|repository
 operator|.
 name|isScanned
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -3869,7 +3829,7 @@ argument_list|,
 name|repository
 operator|.
 name|isSnapshots
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3878,7 +3838,7 @@ name|Test
 specifier|public
 name|void
 name|testCronExpressionsWithComma
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -3893,14 +3853,14 @@ decl_stmt|;
 name|baseFile
 operator|.
 name|delete
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|baseFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|File
@@ -3914,23 +3874,23 @@ decl_stmt|;
 name|userFile
 operator|.
 name|delete
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|userFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|baseFile
 operator|.
 name|getParentFile
-argument_list|( )
+argument_list|()
 operator|.
 name|mkdirs
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|FileUtils
 operator|.
@@ -3947,10 +3907,10 @@ expr_stmt|;
 name|userFile
 operator|.
 name|getParentFile
-argument_list|( )
+argument_list|()
 operator|.
 name|mkdirs
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|FileUtils
 operator|.
@@ -3979,7 +3939,7 @@ decl_stmt|;
 name|archivaConfiguration
 operator|.
 name|reload
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|Configuration
 name|configuration
@@ -3987,18 +3947,15 @@ init|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|ManagedRepositoryConfiguration
 name|repository
 init|=
-operator|(
-name|ManagedRepositoryConfiguration
-operator|)
 name|configuration
 operator|.
 name|getManagedRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -4014,10 +3971,10 @@ argument_list|,
 name|repository
 operator|.
 name|getRefreshCronExpression
-argument_list|( )
+argument_list|()
 operator|.
 name|trim
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// add a test listener to confirm it doesn't see the escaped format. We don't need to test the number of calls,
@@ -4028,7 +3985,7 @@ name|addListener
 argument_list|(
 operator|new
 name|ConfigurationListener
-argument_list|( )
+argument_list|()
 block|{
 specifier|public
 name|void
@@ -4047,7 +4004,7 @@ argument_list|,
 name|event
 operator|.
 name|getType
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4066,7 +4023,7 @@ operator|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 expr_stmt|;
 comment|// test for the escape character '\' showing up on repositories.jsp
 name|repository
@@ -4088,7 +4045,7 @@ operator|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 operator|.
 name|findManagedRepositoryById
 argument_list|(
@@ -4104,7 +4061,7 @@ argument_list|,
 name|repository
 operator|.
 name|getRefreshCronExpression
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4113,7 +4070,7 @@ name|Test
 specifier|public
 name|void
 name|testRemoveLastElements
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -4128,14 +4085,14 @@ decl_stmt|;
 name|baseFile
 operator|.
 name|delete
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|baseFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|File
@@ -4149,23 +4106,23 @@ decl_stmt|;
 name|userFile
 operator|.
 name|delete
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|userFile
 operator|.
 name|exists
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|baseFile
 operator|.
 name|getParentFile
-argument_list|( )
+argument_list|()
 operator|.
 name|mkdirs
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|FileUtils
 operator|.
@@ -4182,10 +4139,10 @@ expr_stmt|;
 name|userFile
 operator|.
 name|getParentFile
-argument_list|( )
+argument_list|()
 operator|.
 name|mkdirs
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|FileUtils
 operator|.
@@ -4213,7 +4170,7 @@ decl_stmt|;
 name|archivaConfiguration
 operator|.
 name|reload
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|Configuration
 name|configuration
@@ -4221,18 +4178,15 @@ init|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|RepositoryGroupConfiguration
 name|repositoryGroup
 init|=
-operator|(
-name|RepositoryGroupConfiguration
-operator|)
 name|configuration
 operator|.
 name|getRepositoryGroups
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -4256,10 +4210,10 @@ argument_list|(
 name|configuration
 operator|.
 name|getRepositoryGroups
-argument_list|( )
+argument_list|()
 operator|.
 name|isEmpty
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|RemoteRepositoryConfiguration
@@ -4268,7 +4222,7 @@ init|=
 name|configuration
 operator|.
 name|getRemoteRepositoriesAsMap
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -4292,10 +4246,10 @@ argument_list|(
 name|configuration
 operator|.
 name|getRemoteRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|isEmpty
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ManagedRepositoryConfiguration
@@ -4304,7 +4258,7 @@ init|=
 name|configuration
 operator|.
 name|getManagedRepositoriesAsMap
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -4328,10 +4282,10 @@ argument_list|(
 name|configuration
 operator|.
 name|getManagedRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|isEmpty
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ProxyConnectorConfiguration
@@ -4340,7 +4294,7 @@ init|=
 name|configuration
 operator|.
 name|getProxyConnectors
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -4364,10 +4318,10 @@ argument_list|(
 name|configuration
 operator|.
 name|getProxyConnectors
-argument_list|( )
+argument_list|()
 operator|.
 name|isEmpty
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|NetworkProxyConfiguration
@@ -4376,7 +4330,7 @@ init|=
 name|configuration
 operator|.
 name|getNetworkProxiesAsMap
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -4400,10 +4354,10 @@ argument_list|(
 name|configuration
 operator|.
 name|getNetworkProxies
-argument_list|( )
+argument_list|()
 operator|.
 name|isEmpty
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|LegacyArtifactPath
@@ -4412,7 +4366,7 @@ init|=
 name|configuration
 operator|.
 name|getLegacyArtifactPaths
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -4436,10 +4390,10 @@ argument_list|(
 name|configuration
 operator|.
 name|getLegacyArtifactPaths
-argument_list|( )
+argument_list|()
 operator|.
 name|isEmpty
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|RepositoryScanningConfiguration
@@ -4448,7 +4402,7 @@ init|=
 name|configuration
 operator|.
 name|getRepositoryScanning
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|String
 name|consumer
@@ -4456,7 +4410,7 @@ init|=
 name|scanning
 operator|.
 name|getKnownContentConsumers
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -4481,10 +4435,10 @@ argument_list|(
 name|scanning
 operator|.
 name|getKnownContentConsumers
-argument_list|( )
+argument_list|()
 operator|.
 name|isEmpty
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|consumer
@@ -4492,7 +4446,7 @@ operator|=
 name|scanning
 operator|.
 name|getInvalidContentConsumers
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -4516,10 +4470,10 @@ argument_list|(
 name|scanning
 operator|.
 name|getInvalidContentConsumers
-argument_list|( )
+argument_list|()
 operator|.
 name|isEmpty
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|archivaConfiguration
@@ -4545,14 +4499,14 @@ operator|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertNull
 argument_list|(
 name|configuration
 operator|.
 name|getRemoteRepositoriesAsMap
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -4565,10 +4519,10 @@ argument_list|(
 name|configuration
 operator|.
 name|getRepositoryGroups
-argument_list|( )
+argument_list|()
 operator|.
 name|isEmpty
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertNull
@@ -4576,7 +4530,7 @@ argument_list|(
 name|configuration
 operator|.
 name|getManagedRepositoriesAsMap
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -4589,10 +4543,10 @@ argument_list|(
 name|configuration
 operator|.
 name|getProxyConnectors
-argument_list|( )
+argument_list|()
 operator|.
 name|isEmpty
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertNull
@@ -4600,7 +4554,7 @@ argument_list|(
 name|configuration
 operator|.
 name|getNetworkProxiesAsMap
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -4613,10 +4567,10 @@ argument_list|(
 name|configuration
 operator|.
 name|getLegacyArtifactPaths
-argument_list|( )
+argument_list|()
 operator|.
 name|isEmpty
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|scanning
@@ -4624,17 +4578,17 @@ operator|=
 name|configuration
 operator|.
 name|getRepositoryScanning
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
 name|scanning
 operator|.
 name|getKnownContentConsumers
-argument_list|( )
+argument_list|()
 operator|.
 name|isEmpty
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -4642,10 +4596,10 @@ argument_list|(
 name|scanning
 operator|.
 name|getInvalidContentConsumers
-argument_list|( )
+argument_list|()
 operator|.
 name|isEmpty
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4655,7 +4609,7 @@ name|Test
 specifier|public
 name|void
 name|testGetConfigurationFixEmptyRemoteRepoUsernamePassword
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -4674,7 +4628,7 @@ decl_stmt|;
 name|archivaConfiguration
 operator|.
 name|reload
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|Configuration
 name|configuration
@@ -4682,7 +4636,7 @@ init|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertConfiguration
 argument_list|(
@@ -4704,10 +4658,10 @@ argument_list|,
 name|configuration
 operator|.
 name|getRemoteRepositories
-argument_list|( )
+argument_list|()
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|RemoteRepositoryConfiguration
@@ -4716,7 +4670,7 @@ init|=
 name|configuration
 operator|.
 name|getRemoteRepositoriesAsMap
-argument_list|( )
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -4732,7 +4686,7 @@ argument_list|,
 name|repository
 operator|.
 name|getUrl
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -4744,7 +4698,7 @@ argument_list|,
 name|repository
 operator|.
 name|getName
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -4756,7 +4710,7 @@ argument_list|,
 name|repository
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -4768,7 +4722,7 @@ argument_list|,
 name|repository
 operator|.
 name|getLayout
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertNull
@@ -4778,7 +4732,7 @@ argument_list|,
 name|repository
 operator|.
 name|getUsername
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertNull
@@ -4788,7 +4742,7 @@ argument_list|,
 name|repository
 operator|.
 name|getPassword
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
