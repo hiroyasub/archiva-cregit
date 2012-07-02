@@ -49,18 +49,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|runners
-operator|.
-name|JUnit4
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -89,6 +77,20 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|test
+operator|.
+name|ArchivaBlockJUnit4ClassRunner
+import|;
+end_import
+
 begin_comment
 comment|/**  * Test the generated Configuration class from Modello. This is primarily to test the hand coded methods.  */
 end_comment
@@ -97,7 +99,7 @@ begin_class
 annotation|@
 name|RunWith
 argument_list|(
-name|JUnit4
+name|ArchivaBlockJUnit4ClassRunner
 operator|.
 name|class
 argument_list|)

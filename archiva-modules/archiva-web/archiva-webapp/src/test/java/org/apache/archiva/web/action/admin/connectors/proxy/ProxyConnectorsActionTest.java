@@ -235,6 +235,26 @@ name|MockControl
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * ProxyConnectorsActionTest  *  * @version $Id$  */
 end_comment
@@ -284,7 +304,9 @@ name|archivaConfiguration
 decl_stmt|;
 annotation|@
 name|Override
-specifier|protected
+annotation|@
+name|Before
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -376,6 +398,8 @@ name|archivaConfiguration
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testSecureActionBundle
@@ -428,6 +452,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testExecute

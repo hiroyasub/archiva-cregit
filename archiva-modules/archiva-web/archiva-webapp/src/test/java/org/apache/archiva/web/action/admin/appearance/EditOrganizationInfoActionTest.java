@@ -127,6 +127,26 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -203,6 +223,8 @@ name|actionValidatorManager
 decl_stmt|;
 annotation|@
 name|Override
+annotation|@
+name|Before
 specifier|public
 name|void
 name|setUp
@@ -230,6 +252,8 @@ name|createDefaultActionValidatorManager
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testOrganisationInfoSaves
@@ -384,6 +408,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testStruts2ValidationFrameworkWithNullInputs
@@ -507,6 +533,8 @@ name|fieldErrors
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testStruts2ValidationFrameworkWithBlankInputs
@@ -630,6 +658,8 @@ name|fieldErrors
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testStruts2ValidationFrameworkWithInvalidInputs
@@ -803,6 +833,8 @@ name|fieldErrors
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testStruts2ValidationFrameworkWithValidInputs

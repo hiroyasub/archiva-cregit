@@ -35,6 +35,16 @@ name|OrganisationInformation
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -46,6 +56,8 @@ name|OrganizationInfoActionTest
 extends|extends
 name|AbstractOrganizationInfoActionTest
 block|{
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testOrganisationInfoLoads

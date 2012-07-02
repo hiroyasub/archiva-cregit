@@ -63,6 +63,16 @@ name|StringUtils
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * ChecksummedFileTest  *  * @version $Id$  */
 end_comment
@@ -283,6 +293,8 @@ return|return
 name|jarFile
 return|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testCalculateChecksumMd5
@@ -332,6 +344,8 @@ name|actualChecksum
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testCalculateChecksumSha1
@@ -381,6 +395,8 @@ name|actualChecksum
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testCreateChecksum
@@ -463,6 +479,8 @@ name|hashContents
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFixChecksum
@@ -564,6 +582,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetChecksumFile
@@ -600,6 +620,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIsValidChecksum
@@ -643,6 +665,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIsValidChecksumInvalidSha1Format
@@ -706,6 +730,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIsValidChecksumNoChecksumFiles
@@ -758,6 +784,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIsValidChecksumSha1AndMd5
@@ -810,6 +838,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testIsValidChecksumSha1NoMd5
@@ -862,6 +892,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testParseChecksum
@@ -919,6 +951,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testParseChecksumAltDash1
@@ -976,6 +1010,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testParseChecksumAltDash2
@@ -1033,6 +1069,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testRemoteMetadataChecksumFilePathSha1
@@ -1110,6 +1148,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testRemoteMetadataChecksumFilePathMd5

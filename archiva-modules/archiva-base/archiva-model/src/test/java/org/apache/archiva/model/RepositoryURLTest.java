@@ -25,11 +25,54 @@ name|TestCase
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|test
+operator|.
+name|ArchivaBlockJUnit4ClassRunner
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|runner
+operator|.
+name|RunWith
+import|;
+end_import
+
 begin_comment
 comment|/**  * RepositoryURLTest   *  * @version $Id$  */
 end_comment
 
 begin_class
+annotation|@
+name|RunWith
+argument_list|(
+name|ArchivaBlockJUnit4ClassRunner
+operator|.
+name|class
+argument_list|)
 specifier|public
 class|class
 name|RepositoryURLTest
@@ -176,6 +219,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFileUrlNormal
@@ -199,6 +244,8 @@ name|NO_PASS
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFileUrlShort
@@ -222,6 +269,8 @@ name|NO_PASS
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testHttpUrlPathless
@@ -245,6 +294,8 @@ name|NO_PASS
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testHttpUrlWithPort
@@ -268,6 +319,8 @@ name|NO_PASS
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testHttpUrlWithUsernamePassword
@@ -291,6 +344,8 @@ literal|"pass"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testHttpUrlWithUsernameNoPassword
@@ -314,6 +369,8 @@ name|NO_PASS
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testHttpUrlWithUsernamePasswordAndPort
@@ -337,6 +394,8 @@ literal|"pass"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBogusWithPath

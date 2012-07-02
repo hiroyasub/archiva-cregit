@@ -151,6 +151,26 @@ name|Collections
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * AddRemoteRepositoryActionTest  *  * @version $Id$  */
 end_comment
@@ -182,7 +202,11 @@ name|REPO_ID
 init|=
 literal|"remote-repo-ident"
 decl_stmt|;
-specifier|protected
+annotation|@
+name|Override
+annotation|@
+name|Before
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -244,6 +268,8 @@ name|archivaConfiguration
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testSecureActionBundle
@@ -305,6 +331,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testAddRemoteRepositoryInitialPage
@@ -375,6 +403,8 @@ name|status
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testAddRemoteRepository

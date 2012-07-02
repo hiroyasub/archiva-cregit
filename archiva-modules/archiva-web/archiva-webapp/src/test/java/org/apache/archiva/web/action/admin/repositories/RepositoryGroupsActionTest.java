@@ -265,6 +265,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * RepositoryGroupsActionTest  */
 end_comment
@@ -312,7 +322,9 @@ specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-specifier|protected
+annotation|@
+name|Override
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -397,6 +409,8 @@ name|archivaConfiguration
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testSecureActionBundle
@@ -464,6 +478,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testAddRepositoryGroup
@@ -567,6 +583,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testAddEmptyRepositoryGroup
@@ -645,6 +663,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testAddDuplicateRepositoryGroup
@@ -784,6 +804,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetRepositoryGroups
@@ -1018,6 +1040,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testAddRepositoryToGroup
@@ -1367,6 +1391,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testRemoveRepositoryFromGroup
@@ -1714,6 +1740,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testAddDuplicateRepositoryToGroup
@@ -1945,6 +1973,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testRemoveRepositoryNotInGroup

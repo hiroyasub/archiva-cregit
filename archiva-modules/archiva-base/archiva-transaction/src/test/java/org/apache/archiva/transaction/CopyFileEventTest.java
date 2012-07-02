@@ -65,6 +65,36 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -128,6 +158,10 @@ name|source
 decl_stmt|,
 name|oldChecksum
 decl_stmt|;
+annotation|@
+name|Override
+annotation|@
+name|Before
 specifier|public
 name|void
 name|setUp
@@ -228,6 +262,8 @@ name|testDestChecksum
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testCopyCommitRollback
@@ -319,6 +355,8 @@ name|testDest
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testCopyCommitRollbackWithBackup
@@ -448,6 +486,8 @@ name|testDest
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testCreateRollbackCommit
@@ -534,7 +574,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-specifier|protected
+annotation|@
+name|After
+annotation|@
+name|Override
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -563,6 +607,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|assertChecksumCommit
@@ -601,6 +647,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|assertChecksumRollback

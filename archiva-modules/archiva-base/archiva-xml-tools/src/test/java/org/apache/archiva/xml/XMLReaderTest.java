@@ -55,6 +55,16 @@ name|Element
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * XMLReaderTest   *  * @version $Id$  */
 end_comment
@@ -170,6 +180,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testNoPrologBasicRead
@@ -228,6 +240,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testNoPrologEntitiesRead
@@ -282,6 +296,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testNoPrologUtf8Read
@@ -336,6 +352,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testPrologUtf8Read
@@ -391,6 +409,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// MRM-1136
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testProxiedMetadataRead

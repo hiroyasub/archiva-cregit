@@ -279,22 +279,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|test
-operator|.
-name|context
-operator|.
-name|junit4
-operator|.
-name|SpringJUnit4ClassRunner
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|inject
@@ -335,6 +319,20 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|test
+operator|.
+name|ArchivaSpringJUnit4ClassRunner
+import|;
+end_import
+
 begin_comment
 comment|/**  * AbstractRepositoryServletTestCase  *  * @version $Id$  */
 end_comment
@@ -343,7 +341,7 @@ begin_class
 annotation|@
 name|RunWith
 argument_list|(
-name|SpringJUnit4ClassRunner
+name|ArchivaSpringJUnit4ClassRunner
 operator|.
 name|class
 argument_list|)

@@ -327,6 +327,26 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * AddManagedRepositoryActionTest  *  * @version $Id$  */
 end_comment
@@ -388,7 +408,9 @@ name|repositoryTaskScheduler
 decl_stmt|;
 annotation|@
 name|Override
-specifier|protected
+annotation|@
+name|Before
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -632,6 +654,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testSecureActionBundle
@@ -693,6 +717,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testAddRepositoryInitialPage
@@ -843,6 +869,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testAddRepository
@@ -1178,6 +1206,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testAddRepositoryExistingLocation
@@ -1306,6 +1336,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testStruts2ValidationFrameworkWithNullInputs
@@ -1485,6 +1517,8 @@ name|fieldErrors
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testStruts2ValidationFrameworkWithBlankInputs
@@ -1664,6 +1698,8 @@ name|fieldErrors
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testStruts2ValidationFrameworkWithInvalidInputs
@@ -1921,6 +1957,8 @@ name|fieldErrors
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testStruts2ValidationFrameworkWithValidInputs

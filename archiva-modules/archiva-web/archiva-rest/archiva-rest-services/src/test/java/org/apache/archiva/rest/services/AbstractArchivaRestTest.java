@@ -411,11 +411,44 @@ name|Date
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|test
+operator|.
+name|ArchivaBlockJUnit4ClassRunner
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|runner
+operator|.
+name|RunWith
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Olivier Lamy  */
 end_comment
 
 begin_class
+annotation|@
+name|RunWith
+argument_list|(
+name|ArchivaBlockJUnit4ClassRunner
+operator|.
+name|class
+argument_list|)
 specifier|public
 specifier|abstract
 class|class

@@ -154,6 +154,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -230,7 +240,9 @@ name|OTHER_TEST_REPO
 init|=
 literal|"other-repo"
 decl_stmt|;
-specifier|protected
+annotation|@
+name|Override
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -319,7 +331,9 @@ name|repositorySession
 argument_list|)
 expr_stmt|;
 block|}
-specifier|protected
+annotation|@
+name|Override
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -357,6 +371,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testInstantiation
@@ -376,6 +392,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBrowse
@@ -475,6 +493,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBrowseNoObservableRepos
@@ -510,6 +530,8 @@ name|assertNoOutputVariables
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBrowseGroupNoObservableRepos
@@ -612,6 +634,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBrowseArtifactNoObservableRepos
@@ -728,6 +752,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBrowseGroupNoGroupId
@@ -752,6 +778,8 @@ name|assertNoOutputVariables
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBrowseGroupNoArtifacts
@@ -882,6 +910,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBrowseGroupWithArtifacts
@@ -1026,6 +1056,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBrowseWithCollapsedGroupsAndArtifacts
@@ -1150,6 +1182,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBrowseWithCollapsedGroupsAndArtifactsAcrossRepositories
@@ -1294,6 +1328,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBrowseGroupWithCollapsedGroupsAndArtifacts
@@ -1444,6 +1480,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBrowseArtifactNoGroupId
@@ -1535,6 +1573,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBrowseArtifactNoArtifactId
@@ -1626,6 +1666,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBrowseArtifact
@@ -1843,6 +1885,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testBrowseArtifactWithSnapshots

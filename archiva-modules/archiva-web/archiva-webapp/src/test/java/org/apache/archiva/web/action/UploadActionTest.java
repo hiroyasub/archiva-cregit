@@ -443,6 +443,16 @@ name|TimeZone
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * UploadActionTest  */
 end_comment
@@ -494,6 +504,8 @@ specifier|private
 name|ManagedRepository
 name|managedRepository
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setUp
@@ -698,6 +710,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|tearDown
@@ -1778,6 +1792,8 @@ return|return
 name|control
 return|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testArtifactUploadWithPomSuccessful
@@ -1982,6 +1998,8 @@ name|repoLocation
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testArtifactUploadWithClassifier
@@ -2310,6 +2328,8 @@ name|repoLocation
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testArtifactUploadGeneratePomSuccessful
@@ -2505,6 +2525,8 @@ name|repoLocation
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testArtifactUploadNoPomSuccessful
@@ -3010,6 +3032,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testArtifactUploadFailedRepositoryNotFound
@@ -3186,6 +3210,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testArtifactUploadSnapshots
@@ -3949,6 +3975,8 @@ name|buildnumber
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testChecksumIsCorrectWhenArtifactIsReUploaded
@@ -4267,6 +4295,8 @@ name|repoLocation
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testUploadArtifactAlreadyExistingRedeploymentsBlocked
@@ -4505,6 +4535,8 @@ name|repoLocation
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testUploadArtifactAlreadyExistingRedeploymentsAllowed

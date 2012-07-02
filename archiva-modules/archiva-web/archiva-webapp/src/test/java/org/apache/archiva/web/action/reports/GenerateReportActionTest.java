@@ -340,6 +340,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -428,7 +438,7 @@ literal|"problem"
 decl_stmt|;
 annotation|@
 name|Override
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -578,6 +588,8 @@ name|repositorySession
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|After
 specifier|public
@@ -831,6 +843,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGenerateStatisticsInvalidRowCount
@@ -898,6 +912,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGenerateStatisticsInvalidEndDate
@@ -972,6 +988,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGenerateStatisticsMalformedEndDate
@@ -1040,6 +1058,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGenerateStatisticsInvalidEndDateMultiRepo
@@ -1117,6 +1137,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGenerateStatisticsMalformedEndDateMultiRepo
@@ -1188,6 +1210,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGenerateStatisticsNoRepos
@@ -1251,6 +1275,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGenerateStatisticsSingleRepo
@@ -1325,6 +1351,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGenerateStatisticsSingleRepoNoStats
@@ -1411,6 +1439,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGenerateStatisticsOvershotPages
@@ -1504,6 +1534,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGenerateStatisticsMultipleRepoNoResults
@@ -1635,6 +1667,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGenerateStatisticsMultipleRepo
@@ -1738,6 +1772,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testDownloadStatisticsSingleRepo
@@ -1860,6 +1896,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testDownloadStatisticsMultipleRepos
@@ -1986,6 +2024,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testDownloadStatisticsMalformedEndDateMultiRepo
@@ -2057,6 +2097,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testDownloadStatisticsMalformedEndDateSingleRepo
@@ -2125,6 +2167,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testDownloadStatisticsInvalidEndDateMultiRepo
@@ -2202,6 +2246,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testDownloadStatisticsInvalidEndDateSingleRepo
@@ -2276,6 +2322,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testDownloadStatisticsSingleRepoNoStats
@@ -2362,6 +2410,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testDownloadStatisticsNoRepos
@@ -2425,6 +2475,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testDownloadStatisticsMultipleRepoNoResults
@@ -2556,6 +2608,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testDownloadStatisticsMultipleRepoInStrutsFormat
@@ -2702,6 +2756,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testHealthReportSingleRepo
@@ -2901,6 +2957,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testHealthReportInvalidRowCount
@@ -2986,6 +3044,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testHealthReportAllRepos
@@ -3235,6 +3295,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testHealthReportSingleRepoByCorrectGroupId
@@ -3441,6 +3503,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testHealthReportSingleRepoByCorrectGroupIdAllRepositories
@@ -3697,6 +3761,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testHealthReportSingleRepoByIncorrectGroupId
@@ -3886,6 +3952,8 @@ return|return
 name|problem
 return|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testHealthReportNoRepositoryId

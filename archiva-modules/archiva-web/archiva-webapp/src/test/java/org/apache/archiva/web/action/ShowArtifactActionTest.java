@@ -412,6 +412,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -547,7 +557,9 @@ name|TEST_TYPE
 init|=
 literal|"jar"
 decl_stmt|;
-specifier|protected
+annotation|@
+name|Override
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -781,6 +793,8 @@ name|archivaConfig
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testInstantiation
@@ -800,6 +814,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactUniqueRelease
@@ -903,6 +919,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactUniqueSnapshot
@@ -1065,6 +1083,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactUniqueSnapshotTimestamped
@@ -1139,6 +1159,8 @@ name|assertNoOutputFields
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetMissingProject
@@ -1169,6 +1191,8 @@ name|assertNoOutputFields
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactNoObservableRepos
@@ -1211,6 +1235,8 @@ name|assertNoOutputFields
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactNotInObservableRepos
@@ -1257,6 +1283,8 @@ name|assertNoOutputFields
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactOnlySeenInSecondObservableRepo
@@ -1372,6 +1400,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactSeenInBothObservableRepo
@@ -1503,6 +1533,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactCanOnlyObserveInOneOfTwoRepos
@@ -1632,6 +1664,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetArtifactNoMavenFacet
@@ -1802,6 +1836,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testMetadataHasRepositoryFacetProblem
@@ -1942,6 +1978,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testMetadataIncomplete
@@ -2065,6 +2103,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetMailingLists
@@ -2241,6 +2281,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetDependencies
@@ -2409,6 +2451,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetDependees
@@ -2587,6 +2631,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testGetProjectMetadata
@@ -2725,6 +2771,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testAddAndDeleteMetadataProperty

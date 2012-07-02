@@ -286,6 +286,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -378,7 +388,7 @@ name|session
 decl_stmt|;
 annotation|@
 name|Override
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -546,6 +556,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// quick search...
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testQuickSearch
@@ -834,6 +846,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testSearchWithinSearchResults
@@ -1155,6 +1169,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testQuickSearchUserHasNoAccessToAnyRepository
@@ -1238,6 +1254,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testQuickSearchNoSearchHits
@@ -1408,6 +1426,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// advanced/filtered search...
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testAdvancedSearchOneRepository
@@ -1694,6 +1714,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testAdvancedSearchAllRepositories
@@ -2004,6 +2026,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testAdvancedSearchNoSearchHits
@@ -2221,6 +2245,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testAdvancedSearchUserHasNoAccessToAnyRepository
@@ -2273,6 +2299,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testAdvancedSearchNoSpecifiedCriteria
@@ -2349,6 +2377,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// find artifact..
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFindArtifactWithOneHit
@@ -2513,6 +2543,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFindArtifactWithMultipleHits
@@ -2683,6 +2715,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFindArtifactNoChecksumSpecified
@@ -2738,6 +2772,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFindArtifactNoResults

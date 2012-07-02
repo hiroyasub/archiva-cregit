@@ -55,6 +55,16 @@ name|StringWriter
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * XMLWriterTest   *  * @version $Id$  */
 end_comment
@@ -66,6 +76,8 @@ name|XMLWriterTest
 extends|extends
 name|AbstractArchivaXmlTestCase
 block|{
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testWrite

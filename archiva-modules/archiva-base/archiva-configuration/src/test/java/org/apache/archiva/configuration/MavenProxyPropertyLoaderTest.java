@@ -119,6 +119,20 @@ name|Properties
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|test
+operator|.
+name|ArchivaBlockJUnit4ClassRunner
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -127,7 +141,7 @@ begin_class
 annotation|@
 name|RunWith
 argument_list|(
-name|JUnit4
+name|ArchivaBlockJUnit4ClassRunner
 operator|.
 name|class
 argument_list|)

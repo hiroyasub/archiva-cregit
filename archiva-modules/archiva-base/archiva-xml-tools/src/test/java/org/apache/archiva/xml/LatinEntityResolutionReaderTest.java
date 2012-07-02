@@ -137,6 +137,16 @@ name|URL
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * LatinEntityResolutionReaderTest  *  * @version $Id$  */
 end_comment
@@ -498,6 +508,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testReaderNormalBufsize
@@ -584,6 +596,8 @@ literal|4096
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testReaderSmallBufsize
@@ -670,6 +684,8 @@ literal|1024
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testReaderRediculouslyTinyBufsize
@@ -756,6 +772,8 @@ literal|32
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testReaderHugeBufsize
@@ -842,6 +860,8 @@ literal|409600
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testReaderLeftOver
@@ -949,6 +969,8 @@ name|ioe
 throw|;
 block|}
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testNoLatinEntitiesHugeLine

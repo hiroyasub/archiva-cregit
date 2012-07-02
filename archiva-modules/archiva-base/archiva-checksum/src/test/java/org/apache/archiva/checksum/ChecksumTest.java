@@ -55,6 +55,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * ChecksumTest  *  * @version $Id$  */
 end_comment
@@ -74,6 +84,8 @@ name|UNSET_SHA1
 init|=
 literal|"da39a3ee5e6b4b0d3255bfef95601890afd80709"
 decl_stmt|;
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testConstructSha1
@@ -111,6 +123,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testConstructMd5
@@ -148,6 +162,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testUpdate
@@ -203,6 +219,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testUpdateMany
@@ -315,6 +333,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testUpdateWholeUpdatePartial

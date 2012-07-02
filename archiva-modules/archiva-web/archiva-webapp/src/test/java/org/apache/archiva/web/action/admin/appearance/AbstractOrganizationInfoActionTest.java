@@ -93,6 +93,16 @@ name|MockControl
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -128,8 +138,10 @@ name|getAction
 parameter_list|()
 function_decl|;
 annotation|@
+name|Before
+annotation|@
 name|Override
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

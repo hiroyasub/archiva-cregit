@@ -172,17 +172,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaRepositoryScanningTaskExecutorPhase2Test  *  * @version $Id: ArchivaRepositoryScanningTaskExecutorTest.java 1214303 2011-12-14 15:37:51Z olamy $  */
+comment|/**  * ArchivaRepositoryScanningTaskExecutorPhase2Test  *  * @version $Id$  */
 end_comment
 
 begin_class
-annotation|@
-name|RunWith
-argument_list|(
-name|SpringJUnit4ClassRunner
-operator|.
-name|class
-argument_list|)
 annotation|@
 name|ContextConfiguration
 argument_list|(

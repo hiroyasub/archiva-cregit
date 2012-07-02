@@ -506,6 +506,26 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -592,7 +612,11 @@ specifier|private
 name|MockControl
 name|metadataRepositoryControl
 decl_stmt|;
-specifier|protected
+annotation|@
+name|Override
+annotation|@
+name|Before
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -827,6 +851,8 @@ name|replay
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testSecureActionBundle
@@ -890,6 +916,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testDeleteRepositoryAndReposUnderRepoGroup
@@ -1062,6 +1090,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testDeleteRepositoryConfirmation
@@ -1228,6 +1258,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testDeleteRepositoryKeepContent
@@ -1430,6 +1462,8 @@ return|return
 name|control
 return|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testDeleteRepositoryDeleteContent
@@ -1536,6 +1570,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testDeleteRepositoryAndAssociatedProxyConnectors
@@ -1704,6 +1740,8 @@ name|verify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testDeleteRepositoryCancelled

@@ -203,18 +203,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|runners
-operator|.
-name|BlockJUnit4ClassRunner
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|servlet
@@ -235,11 +223,25 @@ name|File
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|test
+operator|.
+name|ArchivaBlockJUnit4ClassRunner
+import|;
+end_import
+
 begin_class
 annotation|@
 name|RunWith
 argument_list|(
-name|BlockJUnit4ClassRunner
+name|ArchivaBlockJUnit4ClassRunner
 operator|.
 name|class
 argument_list|)
