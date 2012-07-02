@@ -423,22 +423,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|test
-operator|.
-name|context
-operator|.
-name|junit4
-operator|.
-name|SpringJUnit4ClassRunner
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|inject
@@ -566,6 +550,8 @@ operator|.
 name|archiva
 operator|.
 name|test
+operator|.
+name|utils
 operator|.
 name|ArchivaSpringJUnit4ClassRunner
 import|;

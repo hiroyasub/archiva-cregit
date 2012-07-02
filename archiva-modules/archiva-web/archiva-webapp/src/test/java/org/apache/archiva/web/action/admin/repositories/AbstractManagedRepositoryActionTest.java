@@ -103,6 +103,8 @@ name|archiva
 operator|.
 name|test
 operator|.
+name|utils
+operator|.
 name|ArchivaBlockJUnit4ClassRunner
 import|;
 end_import
@@ -114,16 +116,6 @@ operator|.
 name|junit
 operator|.
 name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 

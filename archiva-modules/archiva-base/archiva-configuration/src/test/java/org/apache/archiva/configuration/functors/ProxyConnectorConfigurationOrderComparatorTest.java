@@ -95,6 +95,8 @@ name|archiva
 operator|.
 name|test
 operator|.
+name|utils
+operator|.
 name|ArchivaBlockJUnit4ClassRunner
 import|;
 end_import

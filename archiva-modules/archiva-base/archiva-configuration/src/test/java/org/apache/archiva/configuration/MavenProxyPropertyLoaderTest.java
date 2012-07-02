@@ -59,18 +59,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|runners
-operator|.
-name|JUnit4
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -128,6 +116,8 @@ operator|.
 name|archiva
 operator|.
 name|test
+operator|.
+name|utils
 operator|.
 name|ArchivaBlockJUnit4ClassRunner
 import|;

@@ -343,6 +343,8 @@ name|archiva
 operator|.
 name|test
 operator|.
+name|utils
+operator|.
 name|ArchivaSpringJUnit4ClassRunner
 import|;
 end_import
