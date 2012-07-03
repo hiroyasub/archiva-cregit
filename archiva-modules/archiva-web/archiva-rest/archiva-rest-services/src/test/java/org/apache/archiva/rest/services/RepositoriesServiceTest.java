@@ -215,6 +215,8 @@ name|fest
 operator|.
 name|assertions
 operator|.
+name|api
+operator|.
 name|Assertions
 import|;
 end_import

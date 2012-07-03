@@ -183,6 +183,8 @@ name|fest
 operator|.
 name|assertions
 operator|.
+name|api
+operator|.
 name|MapAssert
 import|;
 end_import
@@ -258,6 +260,8 @@ operator|.
 name|fest
 operator|.
 name|assertions
+operator|.
+name|api
 operator|.
 name|Assertions
 operator|.
