@@ -124,7 +124,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProxyConnectorConfigurationOrderComparatorTest  *  * @version $Id$  */
+comment|/**  * ProxyConnectorConfigurationOrderComparatorTest  *  *  */
 end_comment
 
 begin_class

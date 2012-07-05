@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Selects Consumers that are flaged as 'permanent'.   *  * @version $Id$  */
+comment|/**  * Selects Consumers that are flaged as 'permanent'.   *  *  */
 end_comment
 
 begin_class

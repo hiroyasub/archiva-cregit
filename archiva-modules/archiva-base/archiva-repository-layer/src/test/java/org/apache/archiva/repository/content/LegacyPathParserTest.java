@@ -142,7 +142,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LegacyPathParserTest  *  * @version $Id$  */
+comment|/**  * LegacyPathParserTest  *  *  */
 end_comment
 
 begin_class

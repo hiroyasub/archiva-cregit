@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utility methods for cloning various Archiva Model objects.  *  * @version $Id$  */
+comment|/**  * Utility methods for cloning various Archiva Model objects.  *  *  */
 end_comment
 
 begin_class

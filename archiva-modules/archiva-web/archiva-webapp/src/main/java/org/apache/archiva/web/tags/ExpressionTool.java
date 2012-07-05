@@ -96,7 +96,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ExpressionTool   *  * @version $Id$  */
+comment|/**  * ExpressionTool   *  *  */
 end_comment
 
 begin_class

@@ -360,7 +360,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AddProxyConnectorActionTest  *  * @version $Id$  */
+comment|/**  * AddProxyConnectorActionTest  *  *  */
 end_comment
 
 begin_class

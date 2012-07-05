@@ -86,7 +86,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AddAdminRepoConsumerClosure   *  * @version $Id$  */
+comment|/**  * AddAdminRepoConsumerClosure   *  *  */
 end_comment
 
 begin_class

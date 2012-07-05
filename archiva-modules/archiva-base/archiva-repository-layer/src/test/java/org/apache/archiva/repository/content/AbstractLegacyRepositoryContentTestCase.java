@@ -84,7 +84,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractLegacyRepositoryContentTestCase  *  * @version $Id$  */
+comment|/**  * AbstractLegacyRepositoryContentTestCase  *  *  */
 end_comment
 
 begin_class

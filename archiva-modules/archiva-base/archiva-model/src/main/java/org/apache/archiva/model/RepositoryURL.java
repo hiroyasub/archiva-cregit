@@ -16,7 +16,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * RepositoryURL - Mutable (and protocol forgiving) URL object.  *  * @version $Id$  */
+comment|/**  * RepositoryURL - Mutable (and protocol forgiving) URL object.  *  *  */
 end_comment
 
 begin_class

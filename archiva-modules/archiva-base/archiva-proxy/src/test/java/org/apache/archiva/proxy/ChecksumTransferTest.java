@@ -158,7 +158,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ChecksumTransferTest  *  * @version $Id$  */
+comment|/**  * ChecksumTransferTest  *  *  */
 end_comment
 
 begin_class

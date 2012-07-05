@@ -472,7 +472,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Shows the Repositories Tab for the administrator.  *  * @version $Id$  */
+comment|/**  * Shows the Repositories Tab for the administrator.  *  *  */
 end_comment
 
 begin_class

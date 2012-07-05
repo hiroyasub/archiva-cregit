@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Cache for requested URLs that cannot be fetched.   *  * @version $Id$  */
+comment|/**  * Cache for requested URLs that cannot be fetched.   *  *  */
 end_comment
 
 begin_interface

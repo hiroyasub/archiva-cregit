@@ -256,7 +256,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProxyConnectorsActionTest  *  * @version $Id$  */
+comment|/**  * ProxyConnectorsActionTest  *  *  */
 end_comment
 
 begin_class

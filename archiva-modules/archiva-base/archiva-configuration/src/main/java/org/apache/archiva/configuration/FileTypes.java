@@ -302,7 +302,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FileTypes  *  * @version $Id$  */
+comment|/**  * FileTypes  *  *  */
 end_comment
 
 begin_class

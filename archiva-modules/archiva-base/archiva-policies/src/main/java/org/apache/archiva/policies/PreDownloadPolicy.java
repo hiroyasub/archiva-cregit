@@ -16,7 +16,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Policy to apply before the download is attempted.  *  * @version $Id$  */
+comment|/**  * Policy to apply before the download is attempted.  *  *  */
 end_comment
 
 begin_interface

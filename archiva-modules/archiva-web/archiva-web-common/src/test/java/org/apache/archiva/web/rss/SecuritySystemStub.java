@@ -342,7 +342,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SecuritySystem stub used for testing.  *  * @version $Id$  */
+comment|/**  * SecuritySystem stub used for testing.  *  *  */
 end_comment
 
 begin_class

@@ -310,7 +310,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ManagedDefaultRepositoryContent  *  * @version $Id$  */
+comment|/**  * ManagedDefaultRepositoryContent  *  *  */
 end_comment
 
 begin_class

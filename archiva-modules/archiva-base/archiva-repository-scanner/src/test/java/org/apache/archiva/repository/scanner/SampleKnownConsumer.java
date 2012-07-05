@@ -98,7 +98,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SampleKnownConsumer   *  * @version $Id$  */
+comment|/**  * SampleKnownConsumer   *  *  */
 end_comment
 
 begin_class

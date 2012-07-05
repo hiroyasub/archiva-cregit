@@ -80,7 +80,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractChecksumTestCase  *  * @version $Id$  */
+comment|/**  * AbstractChecksumTestCase  *  *  */
 end_comment
 
 begin_class

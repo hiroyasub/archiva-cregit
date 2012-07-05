@@ -44,7 +44,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * UserRepositories   *  * @version $Id$  */
+comment|/**  * UserRepositories   *  *  */
 end_comment
 
 begin_interface

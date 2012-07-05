@@ -16,7 +16,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Hex - simple hex conversions.   *  * @version $Id$  */
+comment|/**  * Hex - simple hex conversions.   *  *  */
 end_comment
 
 begin_class

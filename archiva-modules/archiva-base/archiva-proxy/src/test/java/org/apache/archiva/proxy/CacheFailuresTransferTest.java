@@ -186,7 +186,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CacheFailuresTransferTest  *  * @version $Id$  */
+comment|/**  * CacheFailuresTransferTest  *  *  */
 end_comment
 
 begin_class

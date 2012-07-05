@@ -48,7 +48,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AuditLog - Audit Log.  *   * @version $Id$  *  */
+comment|/**  * AuditLog - Audit Log.  *   *  *  */
 end_comment
 
 begin_class

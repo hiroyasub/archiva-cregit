@@ -292,7 +292,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryScannerInstance  *  * @version $Id$  */
+comment|/**  * RepositoryScannerInstance  *  *  */
 end_comment
 
 begin_class

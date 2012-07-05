@@ -118,7 +118,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ManagedLegacyTransferTest   *  * @version $Id$  */
+comment|/**  * ManagedLegacyTransferTest   *  *  */
 end_comment
 
 begin_class

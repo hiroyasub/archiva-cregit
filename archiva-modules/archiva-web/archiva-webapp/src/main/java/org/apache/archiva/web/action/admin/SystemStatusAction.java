@@ -244,7 +244,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Shows system status information for the administrator.  *  * @version $Id$  */
+comment|/**  * Shows system status information for the administrator.  *  *  */
 end_comment
 
 begin_class

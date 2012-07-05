@@ -250,7 +250,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ConfigureNetworkProxyAction  *  * @version $Id$  */
+comment|/**  * ConfigureNetworkProxyAction  *  *  */
 end_comment
 
 begin_class

@@ -228,7 +228,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractDefaultRepositoryContent - common methods for working with default (maven 2) layout.  *  * @version $Id$  */
+comment|/**  * AbstractDefaultRepositoryContent - common methods for working with default (maven 2) layout.  *  *  */
 end_comment
 
 begin_class

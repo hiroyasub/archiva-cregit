@@ -116,7 +116,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractUpdatePolicy  *  * @version $Id$  */
+comment|/**  * AbstractUpdatePolicy  *  *  */
 end_comment
 
 begin_class

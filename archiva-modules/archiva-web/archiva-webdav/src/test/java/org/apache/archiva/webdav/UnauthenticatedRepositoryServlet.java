@@ -42,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * UnauthenticatedRepositoryServlet  *  * @version $Id$  */
+comment|/**  * UnauthenticatedRepositoryServlet  *  *  */
 end_comment
 
 begin_class

@@ -426,7 +426,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryContentConsumersTest  *  * @version $Id$  */
+comment|/**  * RepositoryContentConsumersTest  *  *  */
 end_comment
 
 begin_class

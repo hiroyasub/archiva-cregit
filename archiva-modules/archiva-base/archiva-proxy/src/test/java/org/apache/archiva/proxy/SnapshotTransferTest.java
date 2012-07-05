@@ -130,7 +130,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SnapshotTransferTest   *  * @version $Id$  */
+comment|/**  * SnapshotTransferTest   *  *  */
 end_comment
 
 begin_class

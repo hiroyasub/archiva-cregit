@@ -30,7 +30,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ConsumerException - details about the failure of a consumer.  *  * @version $Id$  */
+comment|/**  * ConsumerException - details about the failure of a consumer.  *  *  */
 end_comment
 
 begin_class

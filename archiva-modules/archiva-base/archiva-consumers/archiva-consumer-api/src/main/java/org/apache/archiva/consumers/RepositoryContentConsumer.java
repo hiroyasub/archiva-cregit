@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A consumer of content (files) in the repository.  *  * @version $Id$  */
+comment|/**  * A consumer of content (files) in the repository.  *  *  */
 end_comment
 
 begin_interface

@@ -92,7 +92,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * VersionComparator - compare the parts of two version strings.  *<p/>  * Technique.  *<p/>  * * Split the version strings into parts by splitting on<code>"-._"</code> first, then breaking apart words from numbers.  *<p/>  *<code>  * "1.0"         = "1", "0"  * "1.0-alpha-1" = "1", "0", "alpha", "1"  * "2.0-rc2"     = "2", "0", "rc", "2"  * "1.3-m2"      = "1", "3", "m", "3"  *</code>  *<p/>  * compare each part individually, and when they do not match, perform the following test.  *<p/>  * Numbers are calculated per normal comparison rules.  * Words that are part of the "special word list" will be treated as their index within that heirarchy.  * Words that cannot be identified as special, are treated using normal case-insensitive comparison rules.  *  * @version $Id$  */
+comment|/**  * VersionComparator - compare the parts of two version strings.  *<p/>  * Technique.  *<p/>  * * Split the version strings into parts by splitting on<code>"-._"</code> first, then breaking apart words from numbers.  *<p/>  *<code>  * "1.0"         = "1", "0"  * "1.0-alpha-1" = "1", "0", "alpha", "1"  * "2.0-rc2"     = "2", "0", "rc", "2"  * "1.3-m2"      = "1", "3", "m", "3"  *</code>  *<p/>  * compare each part individually, and when they do not match, perform the following test.  *<p/>  * Numbers are calculated per normal comparison rules.  * Words that are part of the "special word list" will be treated as their index within that heirarchy.  * Words that cannot be identified as special, are treated using normal case-insensitive comparison rules.  *  *  */
 end_comment
 
 begin_class

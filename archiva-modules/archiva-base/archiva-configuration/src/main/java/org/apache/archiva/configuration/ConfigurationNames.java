@@ -16,7 +16,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Utility methods for testing the configuration property name.  *  * @version $Id$  */
+comment|/**  * Utility methods for testing the configuration property name.  *  *  */
 end_comment
 
 begin_class

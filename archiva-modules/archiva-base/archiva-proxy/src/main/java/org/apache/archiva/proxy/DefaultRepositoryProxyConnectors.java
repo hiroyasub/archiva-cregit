@@ -920,7 +920,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultRepositoryProxyConnectors  *  * @version $Id$  * @todo exception handling needs work - "not modified" is not really an exceptional case, and it has more layers than  * your average brown onion  */
+comment|/**  * DefaultRepositoryProxyConnectors  *  *  * @todo exception handling needs work - "not modified" is not really an exceptional case, and it has more layers than  * your average brown onion  */
 end_comment
 
 begin_class

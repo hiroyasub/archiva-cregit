@@ -64,7 +64,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryURLTest   *  * @version $Id$  */
+comment|/**  * RepositoryURLTest   *  *  */
 end_comment
 
 begin_class

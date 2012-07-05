@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ConsumerWantsFilePredicate   *  * @version $Id$  */
+comment|/**  * ConsumerWantsFilePredicate   *  *  */
 end_comment
 
 begin_class

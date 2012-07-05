@@ -150,7 +150,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * EditRemoteRepositoryAction  *  * @version $Id$  */
+comment|/**  * EditRemoteRepositoryAction  *  *  */
 end_comment
 
 begin_class

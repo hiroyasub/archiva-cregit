@@ -234,7 +234,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryContentRequest  *  * @version $Id$  */
+comment|/**  * RepositoryContentRequest  *  *  */
 end_comment
 
 begin_class

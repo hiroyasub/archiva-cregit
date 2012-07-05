@@ -134,7 +134,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CachedFailuresPolicyTest  *  * @version $Id$  */
+comment|/**  * CachedFailuresPolicyTest  *  *  */
 end_comment
 
 begin_class

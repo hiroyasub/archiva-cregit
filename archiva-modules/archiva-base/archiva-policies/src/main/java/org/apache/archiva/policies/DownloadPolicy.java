@@ -36,7 +36,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DownloadPolicy   *  * @version $Id$  */
+comment|/**  * DownloadPolicy   *  *  */
 end_comment
 
 begin_interface

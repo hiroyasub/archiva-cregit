@@ -86,7 +86,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultUserRepositoriesTest  *  * @version $Id$  */
+comment|/**  * DefaultUserRepositoriesTest  *  *  */
 end_comment
 
 begin_class

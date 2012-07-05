@@ -244,7 +244,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * EditRemoteRepositoryActionTest  *  * @version $Id$  */
+comment|/**  * EditRemoteRepositoryActionTest  *  *  */
 end_comment
 
 begin_class

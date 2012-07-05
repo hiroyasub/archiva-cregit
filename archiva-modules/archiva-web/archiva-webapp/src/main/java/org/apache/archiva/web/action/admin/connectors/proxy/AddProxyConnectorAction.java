@@ -98,7 +98,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AddProxyConnectorAction  *  * @version $Id$  */
+comment|/**  * AddProxyConnectorAction  *  *  */
 end_comment
 
 begin_class

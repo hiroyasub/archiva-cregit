@@ -58,7 +58,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactExtensionMapping  *  * @version $Id$  */
+comment|/**  * ArtifactExtensionMapping  *  *  */
 end_comment
 
 begin_class

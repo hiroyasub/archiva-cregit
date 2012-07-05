@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultUrlFailureCache   *  * @version $Id$  */
+comment|/**  * DefaultUrlFailureCache   *  *  */
 end_comment
 
 begin_class

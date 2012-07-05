@@ -550,7 +550,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DeleteManagedRepositoryActionTest  *  * @version $Id$  */
+comment|/**  * DeleteManagedRepositoryActionTest  *  *  */
 end_comment
 
 begin_class

@@ -122,7 +122,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * BannerTest  *  * @version $Id$  */
+comment|/**  * BannerTest  *  *  */
 end_comment
 
 begin_class

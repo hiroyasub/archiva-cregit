@@ -246,7 +246,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * XMLReader - a set of common xml utility methods for reading content out of an xml file.   *  * @version $Id$  */
+comment|/**  * XMLReader - a set of common xml utility methods for reading content out of an xml file.   *  *  */
 end_comment
 
 begin_class

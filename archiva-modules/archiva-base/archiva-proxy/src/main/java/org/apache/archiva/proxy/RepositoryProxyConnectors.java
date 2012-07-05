@@ -78,7 +78,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Handler for potential repository proxy connectors.  *  * @version $Id$  */
+comment|/**  * Handler for potential repository proxy connectors.  *  *  */
 end_comment
 
 begin_interface

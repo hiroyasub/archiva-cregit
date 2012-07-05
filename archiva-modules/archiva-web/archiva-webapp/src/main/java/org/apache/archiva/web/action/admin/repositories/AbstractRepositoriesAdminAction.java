@@ -182,7 +182,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract AdminRepositories Action base.  *<p/>  * Base class for all repository administrative functions.  * This should be neutral to the type of action (add/edit/delete) and type of repo (managed/remote)  *  * @version $Id$  */
+comment|/**  * Abstract AdminRepositories Action base.  *<p/>  * Base class for all repository administrative functions.  * This should be neutral to the type of action (add/edit/delete) and type of repo (managed/remote)  *  *  */
 end_comment
 
 begin_class

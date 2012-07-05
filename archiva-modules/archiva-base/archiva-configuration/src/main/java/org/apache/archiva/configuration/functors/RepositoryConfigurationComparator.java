@@ -42,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryConfigurationComparator  *  * @version $Id$  */
+comment|/**  * RepositoryConfigurationComparator  *  *  */
 end_comment
 
 begin_class

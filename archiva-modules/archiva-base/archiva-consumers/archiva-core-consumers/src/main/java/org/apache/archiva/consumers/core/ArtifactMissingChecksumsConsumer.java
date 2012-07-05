@@ -280,7 +280,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactMissingChecksumsConsumer - Create missing and/or fix invalid checksums for the artifact.  *  * @version $Id$  */
+comment|/**  * ArtifactMissingChecksumsConsumer - Create missing and/or fix invalid checksums for the artifact.  *  *  */
 end_comment
 
 begin_class

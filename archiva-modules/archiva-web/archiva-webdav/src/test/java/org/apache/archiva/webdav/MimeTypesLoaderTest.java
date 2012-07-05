@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaMimeTypesTest   *  * @version $Id$  */
+comment|/**  * ArchivaMimeTypesTest   *  *  */
 end_comment
 
 begin_class

@@ -28,7 +28,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link PreDownloadPolicy} to apply for snapshot versions.   *  * @version $Id$  */
+comment|/**  * {@link PreDownloadPolicy} to apply for snapshot versions.   *  *  */
 end_comment
 
 begin_class

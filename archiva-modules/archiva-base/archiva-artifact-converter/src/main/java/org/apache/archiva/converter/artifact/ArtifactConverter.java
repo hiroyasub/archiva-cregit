@@ -68,7 +68,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactConverter   *  * @version $Id$  */
+comment|/**  * ArtifactConverter   *  *  */
 end_comment
 
 begin_interface

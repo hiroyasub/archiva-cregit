@@ -148,7 +148,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractRepositoryLayerTestCase  *  * @version $Id$  */
+comment|/**  * AbstractRepositoryLayerTestCase  *  *  */
 end_comment
 
 begin_class

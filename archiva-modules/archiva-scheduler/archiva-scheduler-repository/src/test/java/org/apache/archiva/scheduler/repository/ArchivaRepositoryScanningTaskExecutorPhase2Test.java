@@ -172,7 +172,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaRepositoryScanningTaskExecutorPhase2Test  *  * @version $Id$  */
+comment|/**  * ArchivaRepositoryScanningTaskExecutorPhase2Test  *  *  */
 end_comment
 
 begin_class

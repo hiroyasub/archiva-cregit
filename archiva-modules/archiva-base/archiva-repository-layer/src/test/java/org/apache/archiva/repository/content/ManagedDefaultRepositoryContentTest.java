@@ -278,7 +278,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ManagedDefaultRepositoryContentTest  *  * @version $Id$  */
+comment|/**  * ManagedDefaultRepositoryContentTest  *  *  */
 end_comment
 
 begin_class

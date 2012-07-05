@@ -376,7 +376,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ConfigurationSynchronization  *  * @version $Id$  */
+comment|/**  * ConfigurationSynchronization  *  *  */
 end_comment
 
 begin_class

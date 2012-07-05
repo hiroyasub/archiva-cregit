@@ -30,7 +30,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PolicyViolationException   *  * @version $Id$  */
+comment|/**  * PolicyViolationException   *  *  */
 end_comment
 
 begin_class

@@ -100,7 +100,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LegacyPathParser is a parser for maven 1 (legacy layout) paths to  * ArtifactReference.  *  * @version $Id$  */
+comment|/**  * LegacyPathParser is a parser for maven 1 (legacy layout) paths to  * ArtifactReference.  *  *  */
 end_comment
 
 begin_class

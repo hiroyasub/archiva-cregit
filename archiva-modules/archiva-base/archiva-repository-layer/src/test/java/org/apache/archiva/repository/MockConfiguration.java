@@ -154,7 +154,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MockConfiguration   *  * @version $Id$  */
+comment|/**  * MockConfiguration   *  *  */
 end_comment
 
 begin_class

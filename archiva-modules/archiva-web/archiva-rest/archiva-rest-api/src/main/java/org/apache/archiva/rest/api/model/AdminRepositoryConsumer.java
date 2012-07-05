@@ -44,7 +44,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AdminRepositoryConsumer  *  * @version $Id$  */
+comment|/**  * AdminRepositoryConsumer  *  *  */
 end_comment
 
 begin_class

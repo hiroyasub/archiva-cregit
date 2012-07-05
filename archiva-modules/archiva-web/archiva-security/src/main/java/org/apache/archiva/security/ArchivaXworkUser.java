@@ -90,7 +90,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaXworkUser  *  * @version $Id$  */
+comment|/**  * ArchivaXworkUser  *  *  */
 end_comment
 
 begin_class

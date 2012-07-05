@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FiletypeSelectionPredicate  *  * @version $Id$  */
+comment|/**  * FiletypeSelectionPredicate  *  *  */
 end_comment
 
 begin_class

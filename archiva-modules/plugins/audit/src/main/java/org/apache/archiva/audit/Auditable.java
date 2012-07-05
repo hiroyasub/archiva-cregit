@@ -16,7 +16,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Auditable   *  * @version $Id$  */
+comment|/**  * Auditable   *  *  */
 end_comment
 
 begin_interface

@@ -172,7 +172,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AddRemoteRepositoryActionTest  *  * @version $Id$  */
+comment|/**  * AddRemoteRepositoryActionTest  *  *  */
 end_comment
 
 begin_class

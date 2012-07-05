@@ -630,7 +630,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LegacyToDefaultConverter  *  * @version $Id$  */
+comment|/**  * LegacyToDefaultConverter  *  *  */
 end_comment
 
 begin_class

@@ -108,7 +108,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryMetadataMerge   *  * @version $Id$  */
+comment|/**  * RepositoryMetadataMerge   *  *  */
 end_comment
 
 begin_class

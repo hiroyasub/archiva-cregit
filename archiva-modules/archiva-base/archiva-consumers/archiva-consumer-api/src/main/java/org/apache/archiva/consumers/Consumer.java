@@ -16,7 +16,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Consumer - the base set of methods for a consumer.  *  * @version $Id$  */
+comment|/**  * Consumer - the base set of methods for a consumer.  *  *  */
 end_comment
 
 begin_interface

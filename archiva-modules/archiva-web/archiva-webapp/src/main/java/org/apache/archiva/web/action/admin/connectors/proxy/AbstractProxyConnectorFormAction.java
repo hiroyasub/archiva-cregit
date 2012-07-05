@@ -270,7 +270,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractProxyConnectorFormAction - generic fields and methods for either add or edit actions related with the  * Proxy Connector.  *  * @version $Id$  */
+comment|/**  * AbstractProxyConnectorFormAction - generic fields and methods for either add or edit actions related with the  * Proxy Connector.  *  *  */
 end_comment
 
 begin_class

@@ -388,7 +388,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaRepositoryScanningTaskExecutor  *  * @version $Id$  */
+comment|/**  * ArchivaRepositoryScanningTaskExecutor  *  *  */
 end_comment
 
 begin_class

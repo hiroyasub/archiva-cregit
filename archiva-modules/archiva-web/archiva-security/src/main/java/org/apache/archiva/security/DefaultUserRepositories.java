@@ -304,7 +304,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultUserRepositories  *  * @version $Id$  */
+comment|/**  * DefaultUserRepositories  *  *  */
 end_comment
 
 begin_class

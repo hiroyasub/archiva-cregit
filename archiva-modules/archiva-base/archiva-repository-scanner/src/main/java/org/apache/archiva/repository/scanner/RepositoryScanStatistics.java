@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryScanStatistics - extension to the RepositoryContentStatistics model.  *  * @version $Id$  */
+comment|/**  * RepositoryScanStatistics - extension to the RepositoryContentStatistics model.  *  *  */
 end_comment
 
 begin_class

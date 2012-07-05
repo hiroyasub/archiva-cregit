@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Event for creating a file from a string content.  *  * @version $Id$  */
+comment|/**  * Event for creating a file from a string content.  *  *  */
 end_comment
 
 begin_class

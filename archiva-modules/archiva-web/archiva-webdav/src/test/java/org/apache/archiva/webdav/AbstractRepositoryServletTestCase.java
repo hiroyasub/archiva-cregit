@@ -336,7 +336,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractRepositoryServletTestCase  *  * @version $Id$  */
+comment|/**  * AbstractRepositoryServletTestCase  *  *  */
 end_comment
 
 begin_class

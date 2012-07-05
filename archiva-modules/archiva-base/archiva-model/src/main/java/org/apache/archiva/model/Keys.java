@@ -30,7 +30,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Keys - utility methods for converting common objects into string keys.   *  * @version $Id$  */
+comment|/**  * Keys - utility methods for converting common objects into string keys.   *  *  */
 end_comment
 
 begin_class

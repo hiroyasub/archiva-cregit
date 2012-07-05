@@ -372,7 +372,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LegacyToDefaultConverterTest  *  * @version $Id$  */
+comment|/**  * LegacyToDefaultConverterTest  *  *  */
 end_comment
 
 begin_class

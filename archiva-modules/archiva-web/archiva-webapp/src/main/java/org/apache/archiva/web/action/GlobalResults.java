@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * GlobalResults - constants for global result definitions.   *  * @version $Id$  */
+comment|/**  * GlobalResults - constants for global result definitions.   *  *  */
 end_comment
 
 begin_class

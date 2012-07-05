@@ -66,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FilenameParserTest  *  * @version $Id$  */
+comment|/**  * FilenameParserTest  *  *  */
 end_comment
 
 begin_class

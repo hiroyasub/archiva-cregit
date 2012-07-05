@@ -138,7 +138,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract class for the TransactionEvents  *  * @version $Id$  */
+comment|/**  * Abstract class for the TransactionEvents  *  *  */
 end_comment
 
 begin_class

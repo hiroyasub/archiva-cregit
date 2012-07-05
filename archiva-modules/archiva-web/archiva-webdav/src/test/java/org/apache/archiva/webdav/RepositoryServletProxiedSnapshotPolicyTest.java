@@ -156,7 +156,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryServlet Tests, Proxied, Get of Snapshot Artifacts, with varying policy settings.  *  * @version $Id$  */
+comment|/**  * RepositoryServlet Tests, Proxied, Get of Snapshot Artifacts, with varying policy settings.  *  *  */
 end_comment
 
 begin_class

@@ -84,7 +84,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * EditProxyConnectorAction  *  * @version $Id$  */
+comment|/**  * EditProxyConnectorAction  *  *  */
 end_comment
 
 begin_class

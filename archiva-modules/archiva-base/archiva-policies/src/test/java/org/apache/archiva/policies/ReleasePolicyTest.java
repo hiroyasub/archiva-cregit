@@ -142,7 +142,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ReleasePolicyTest  *  * @version $Id$  */
+comment|/**  * ReleasePolicyTest  *  *  */
 end_comment
 
 begin_class

@@ -192,7 +192,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ChecksumPolicyTest  *  * @version $Id$  */
+comment|/**  * ChecksumPolicyTest  *  *  */
 end_comment
 
 begin_class

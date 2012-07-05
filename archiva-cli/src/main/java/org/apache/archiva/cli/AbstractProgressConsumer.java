@@ -86,7 +86,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractProgressConsumer   *  * @version $Id$  */
+comment|/**  * AbstractProgressConsumer   *  *  */
 end_comment
 
 begin_class

@@ -106,7 +106,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Checksum - simple checksum hashing routines.   *  * @version $Id$  */
+comment|/**  * Checksum - simple checksum hashing routines.   *  *  */
 end_comment
 
 begin_class

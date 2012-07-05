@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaArtifact - Mutable artifact object.  *  * @version $Id$  */
+comment|/**  * ArchivaArtifact - Mutable artifact object.  *  *  */
 end_comment
 
 begin_class

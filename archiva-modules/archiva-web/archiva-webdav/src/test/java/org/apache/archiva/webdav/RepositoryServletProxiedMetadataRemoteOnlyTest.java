@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryServlet Tests, Proxied, Get of Metadata, exists on remote repository only.  *  * @version $Id$  */
+comment|/**  * RepositoryServlet Tests, Proxied, Get of Metadata, exists on remote repository only.  *  *  */
 end_comment
 
 begin_class

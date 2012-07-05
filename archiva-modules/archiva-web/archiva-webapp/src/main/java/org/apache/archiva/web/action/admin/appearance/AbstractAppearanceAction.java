@@ -96,7 +96,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractAppearanceAction  *  * @version $Id$  */
+comment|/**  * AbstractAppearanceAction  *  *  */
 end_comment
 
 begin_class

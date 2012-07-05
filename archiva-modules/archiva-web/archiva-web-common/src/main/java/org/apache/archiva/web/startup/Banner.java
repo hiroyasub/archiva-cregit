@@ -66,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Banner   *  * @version $Id$  */
+comment|/**  * Banner   *  *  */
 end_comment
 
 begin_class

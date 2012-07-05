@@ -64,7 +64,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LatinEntitiesTest   *  * @version $Id$  */
+comment|/**  * LatinEntitiesTest   *  *  */
 end_comment
 
 begin_class

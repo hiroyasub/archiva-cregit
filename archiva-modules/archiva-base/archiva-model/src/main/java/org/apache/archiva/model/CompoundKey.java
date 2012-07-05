@@ -16,7 +16,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Tag for identifying a Compound Key   *  * @version $Id$  */
+comment|/**  * Tag for identifying a Compound Key   *  *  */
 end_comment
 
 begin_interface

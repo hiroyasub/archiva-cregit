@@ -106,7 +106,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * AbstractRemoteRepositoriesAction  *  * @version $Id$  */
+comment|/**  * AbstractRemoteRepositoriesAction  *  *  */
 end_comment
 
 begin_class

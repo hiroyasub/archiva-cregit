@@ -406,7 +406,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryScanningAction  *  * @version $Id$  */
+comment|/**  * RepositoryScanningAction  *  *  */
 end_comment
 
 begin_class

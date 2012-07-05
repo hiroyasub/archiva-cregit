@@ -124,7 +124,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Deploy / Put Test cases for RepositoryServlet.    *  * @version $Id$  */
+comment|/**  * Deploy / Put Test cases for RepositoryServlet.    *  *  */
 end_comment
 
 begin_class

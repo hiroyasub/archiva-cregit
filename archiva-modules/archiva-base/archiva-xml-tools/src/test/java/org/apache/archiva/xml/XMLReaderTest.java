@@ -66,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * XMLReaderTest   *  * @version $Id$  */
+comment|/**  * XMLReaderTest   *  *  */
 end_comment
 
 begin_class

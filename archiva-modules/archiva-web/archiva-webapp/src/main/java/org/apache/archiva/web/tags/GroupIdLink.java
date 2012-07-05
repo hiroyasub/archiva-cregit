@@ -112,7 +112,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * GroupIdLink   *  * @version $Id$  */
+comment|/**  * GroupIdLink   *  *  */
 end_comment
 
 begin_class

@@ -144,7 +144,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ProxyConnectorsAction  *  * @version $Id$  */
+comment|/**  * ProxyConnectorsAction  *  *  */
 end_comment
 
 begin_class

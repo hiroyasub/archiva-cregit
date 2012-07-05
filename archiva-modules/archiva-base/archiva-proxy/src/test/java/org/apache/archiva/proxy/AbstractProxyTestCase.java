@@ -570,7 +570,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractProxyTestCase  *  * @version $Id$  */
+comment|/**  * AbstractProxyTestCase  *  *  */
 end_comment
 
 begin_class

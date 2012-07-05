@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ChecksumTest  *  * @version $Id$  */
+comment|/**  * ChecksumTest  *  *  */
 end_comment
 
 begin_class

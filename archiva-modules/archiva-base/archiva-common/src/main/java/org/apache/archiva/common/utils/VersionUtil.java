@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Version utility methods.  *  * @version $Id$  */
+comment|/**  * Version utility methods.  *  *  */
 end_comment
 
 begin_class

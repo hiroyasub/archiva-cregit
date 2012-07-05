@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryConnector   *  * @version $Id$  */
+comment|/**  * RepositoryConnector   *  *  */
 end_comment
 
 begin_interface

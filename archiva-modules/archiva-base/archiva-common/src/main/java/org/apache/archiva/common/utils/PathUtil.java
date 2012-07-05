@@ -52,7 +52,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PathUtil - simple utility methods for path manipulation.  *  * @version $Id$  */
+comment|/**  * PathUtil - simple utility methods for path manipulation.  *  *  */
 end_comment
 
 begin_class

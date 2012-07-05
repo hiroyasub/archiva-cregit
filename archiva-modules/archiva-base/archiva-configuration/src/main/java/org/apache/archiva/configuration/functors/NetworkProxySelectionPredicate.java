@@ -60,7 +60,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * NetworkProxySelectionPredicate  *  * @version $Id$  */
+comment|/**  * NetworkProxySelectionPredicate  *  *  */
 end_comment
 
 begin_class

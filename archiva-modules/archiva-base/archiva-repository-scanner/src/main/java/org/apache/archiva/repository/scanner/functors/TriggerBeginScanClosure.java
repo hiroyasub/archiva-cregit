@@ -110,7 +110,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TriggerBeginScanClosure   *  * @version $Id$  */
+comment|/**  * TriggerBeginScanClosure   *  *  */
 end_comment
 
 begin_class

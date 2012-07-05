@@ -116,7 +116,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractLegacyRepositoryContent  *  * @version $Id$  */
+comment|/**  * AbstractLegacyRepositoryContent  *  *  */
 end_comment
 
 begin_class

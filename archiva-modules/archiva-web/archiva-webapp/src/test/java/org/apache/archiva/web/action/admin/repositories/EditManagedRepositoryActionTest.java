@@ -510,7 +510,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * EditManagedRepositoryActionTest  *  * @version $Id$  */
+comment|/**  * EditManagedRepositoryActionTest  *  *  */
 end_comment
 
 begin_class

@@ -130,7 +130,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ChecksumPolicy - a policy applied after the download to see if the file has been downloaded  * successfully and completely (or not).  *  * @version $Id$  */
+comment|/**  * ChecksumPolicy - a policy applied after the download to see if the file has been downloaded  * successfully and completely (or not).  *  *  */
 end_comment
 
 begin_class

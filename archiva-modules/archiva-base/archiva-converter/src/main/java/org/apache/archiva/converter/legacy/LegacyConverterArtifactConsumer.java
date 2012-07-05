@@ -334,7 +334,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LegacyConverterArtifactConsumer - convert artifacts as they are found  * into the destination repository.  *  * @version $Id$  */
+comment|/**  * LegacyConverterArtifactConsumer - convert artifacts as they are found  * into the destination repository.  *  *  */
 end_comment
 
 begin_class

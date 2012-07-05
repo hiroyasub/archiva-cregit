@@ -46,7 +46,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Based on LoginTest of Emmanuel Venisse test.  *  * @author JosÃ© Morales MartÃ­nez  * @version $Id$  */
+comment|/**  * Based on LoginTest of Emmanuel Venisse test.  *  * @author JosÃ© Morales MartÃ­nez  *  */
 end_comment
 
 begin_class

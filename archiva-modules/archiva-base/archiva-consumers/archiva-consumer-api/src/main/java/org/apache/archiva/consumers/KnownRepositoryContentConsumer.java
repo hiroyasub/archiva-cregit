@@ -16,7 +16,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Consumer for Known Repository Content.  *  * @version $Id$  */
+comment|/**  * Consumer for Known Repository Content.  *  *  */
 end_comment
 
 begin_interface

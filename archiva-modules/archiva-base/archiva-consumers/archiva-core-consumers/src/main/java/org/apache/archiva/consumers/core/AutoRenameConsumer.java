@@ -198,7 +198,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AutoRenameConsumer  *  * @version $Id$  */
+comment|/**  * AutoRenameConsumer  *  *  */
 end_comment
 
 begin_class

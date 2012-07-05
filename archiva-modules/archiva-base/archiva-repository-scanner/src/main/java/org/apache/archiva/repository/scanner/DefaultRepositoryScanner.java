@@ -208,7 +208,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultRepositoryScanner  *  * @version $Id$  */
+comment|/**  * DefaultRepositoryScanner  *  *  */
 end_comment
 
 begin_class

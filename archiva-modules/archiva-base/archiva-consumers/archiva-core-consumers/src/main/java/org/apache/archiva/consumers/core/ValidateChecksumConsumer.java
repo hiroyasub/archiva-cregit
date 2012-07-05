@@ -274,7 +274,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ValidateChecksumConsumer - validate the provided checksum against the file it represents.  *  * @version $Id$  */
+comment|/**  * ValidateChecksumConsumer - validate the provided checksum against the file it represents.  *  *  */
 end_comment
 
 begin_class

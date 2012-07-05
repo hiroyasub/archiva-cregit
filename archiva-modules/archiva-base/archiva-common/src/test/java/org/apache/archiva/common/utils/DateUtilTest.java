@@ -58,7 +58,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DateUtilTest   *  * @version $Id$  */
+comment|/**  * DateUtilTest   *  *  */
 end_comment
 
 begin_class

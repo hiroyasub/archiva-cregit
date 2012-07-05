@@ -218,7 +218,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * NetworkProxiesAction  *  * @version $Id$  */
+comment|/**  * NetworkProxiesAction  *  *  */
 end_comment
 
 begin_class

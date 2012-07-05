@@ -432,7 +432,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MetadataUpdaterConsumer will create and update the metadata present within the repository.  *  * @version $Id$  */
+comment|/**  * MetadataUpdaterConsumer will create and update the metadata present within the repository.  *  *  */
 end_comment
 
 begin_class

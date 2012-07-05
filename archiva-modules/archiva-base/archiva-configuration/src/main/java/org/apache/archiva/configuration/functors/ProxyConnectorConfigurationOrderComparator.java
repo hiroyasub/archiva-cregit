@@ -42,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Id$  * @deprecated ProxyConnectorConfigurationOrderComparator  */
+comment|/**  *  * @deprecated ProxyConnectorConfigurationOrderComparator  */
 end_comment
 
 begin_class

@@ -30,7 +30,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * XMLException   *  * @version $Id$  */
+comment|/**  * XMLException   *  *  */
 end_comment
 
 begin_class

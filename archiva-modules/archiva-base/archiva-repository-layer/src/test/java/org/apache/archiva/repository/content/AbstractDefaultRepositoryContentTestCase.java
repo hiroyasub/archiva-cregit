@@ -98,7 +98,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractDefaultRepositoryContentTestCase   *  * @version $Id$  */
+comment|/**  * AbstractDefaultRepositoryContentTestCase   *  *  */
 end_comment
 
 begin_class

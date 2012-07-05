@@ -30,7 +30,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PolicyConfigurationException is thrown when a policy cannot be executed due to a   * configuration issue.   *  * @version $Id$  */
+comment|/**  * PolicyConfigurationException is thrown when a policy cannot be executed due to a   * configuration issue.   *  *  */
 end_comment
 
 begin_class

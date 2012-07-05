@@ -196,7 +196,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryRequestTest  *  * @version $Id$  */
+comment|/**  * RepositoryRequestTest  *  *  */
 end_comment
 
 begin_class

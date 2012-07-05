@@ -58,7 +58,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generic Filename Parser for use with layout routines.  *  * @version $Id$  */
+comment|/**  * Generic Filename Parser for use with layout routines.  *  *  */
 end_comment
 
 begin_class

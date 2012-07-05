@@ -564,7 +564,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryServletSecurityTest Test the flow of the authentication and authorization checks. This does not necessarily  * perform redback security checking.  *   * @version $Id$  */
+comment|/**  * RepositoryServletSecurityTest Test the flow of the authentication and authorization checks. This does not necessarily  * perform redback security checking.  *   *  */
 end_comment
 
 begin_class

@@ -238,7 +238,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DeleteProxyConnectorActionTest  *  * @version $Id$  */
+comment|/**  * DeleteProxyConnectorActionTest  *  *  */
 end_comment
 
 begin_class

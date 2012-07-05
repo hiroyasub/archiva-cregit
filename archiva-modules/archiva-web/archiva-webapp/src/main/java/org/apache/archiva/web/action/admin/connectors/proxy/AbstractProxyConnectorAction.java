@@ -258,7 +258,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractProxyConnectorAction  *  * @version $Id$  */
+comment|/**  * AbstractProxyConnectorAction  *  *  */
 end_comment
 
 begin_class

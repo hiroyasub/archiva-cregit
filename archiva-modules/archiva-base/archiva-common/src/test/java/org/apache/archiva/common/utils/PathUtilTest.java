@@ -52,7 +52,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PathUtilTest   *  * @version $Id$  */
+comment|/**  * PathUtilTest   *  *  */
 end_comment
 
 begin_class

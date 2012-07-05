@@ -666,7 +666,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MetadataTools  *  * @version $Id$  */
+comment|/**  * MetadataTools  *  *  */
 end_comment
 
 begin_class

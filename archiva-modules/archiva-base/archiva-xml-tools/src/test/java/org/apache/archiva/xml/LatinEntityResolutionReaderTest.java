@@ -148,7 +148,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LatinEntityResolutionReaderTest  *  * @version $Id$  */
+comment|/**  * LatinEntityResolutionReaderTest  *  *  */
 end_comment
 
 begin_class

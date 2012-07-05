@@ -124,7 +124,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * InvalidScanConsumer   *  * @version $Id$  */
+comment|/**  * InvalidScanConsumer   *  *  */
 end_comment
 
 begin_class

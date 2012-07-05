@@ -98,7 +98,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryScanner  *  * @version $Id$  */
+comment|/**  * RepositoryScanner  *  *  */
 end_comment
 
 begin_interface

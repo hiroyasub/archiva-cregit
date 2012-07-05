@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LayoutException   *  * @version $Id$  */
+comment|/**  * LayoutException   *  *  */
 end_comment
 
 begin_class

@@ -66,7 +66,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FiletypeToMapClosure  *  * @version $Id$  */
+comment|/**  * FiletypeToMapClosure  *  *  */
 end_comment
 
 begin_class

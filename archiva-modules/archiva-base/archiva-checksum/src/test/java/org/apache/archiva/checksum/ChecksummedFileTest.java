@@ -94,7 +94,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ChecksummedFileTest  *  * @version $Id$  */
+comment|/**  * ChecksummedFileTest  *  *  */
 end_comment
 
 begin_class

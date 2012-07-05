@@ -106,7 +106,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryServletBrowseTest  *  * @version $Id$  */
+comment|/**  * RepositoryServletBrowseTest  *  *  */
 end_comment
 
 begin_class

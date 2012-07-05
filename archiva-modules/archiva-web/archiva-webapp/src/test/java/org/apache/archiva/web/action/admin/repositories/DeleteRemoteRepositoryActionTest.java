@@ -226,7 +226,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DeleteRemoteRepositoryActionTest  *  * @version $Id$  */
+comment|/**  * DeleteRemoteRepositoryActionTest  *  *  */
 end_comment
 
 begin_class

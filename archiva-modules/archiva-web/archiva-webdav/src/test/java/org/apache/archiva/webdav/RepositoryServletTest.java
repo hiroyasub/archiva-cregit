@@ -132,7 +132,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryServletTest   *  * @version $Id$  */
+comment|/**  * RepositoryServletTest   *  *  */
 end_comment
 
 begin_class

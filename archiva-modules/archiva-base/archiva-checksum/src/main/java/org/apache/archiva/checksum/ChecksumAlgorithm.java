@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Enumeration of available ChecksumAlgorithm techniques.  *  * @version $Id$  */
+comment|/**  * Enumeration of available ChecksumAlgorithm techniques.  *  *  */
 end_comment
 
 begin_enum

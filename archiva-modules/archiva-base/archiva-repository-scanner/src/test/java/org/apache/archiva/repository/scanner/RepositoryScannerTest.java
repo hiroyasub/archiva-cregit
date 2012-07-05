@@ -270,7 +270,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryScannerTest  *  * @version $Id$  */
+comment|/**  * RepositoryScannerTest  *  *  */
 end_comment
 
 begin_class

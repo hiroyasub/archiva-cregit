@@ -70,7 +70,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LatinEntityResolutionReader - Read a Character Stream.  *  * @version $Id$  */
+comment|/**  * LatinEntityResolutionReader - Read a Character Stream.  *  *  */
 end_comment
 
 begin_class

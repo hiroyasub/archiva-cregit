@@ -126,7 +126,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract TestCase for RepositoryServlet Tests, Proxied, Get of Metadata.   *  * @version $Id$  */
+comment|/**  * Abstract TestCase for RepositoryServlet Tests, Proxied, Get of Metadata.   *  *  */
 end_comment
 
 begin_class

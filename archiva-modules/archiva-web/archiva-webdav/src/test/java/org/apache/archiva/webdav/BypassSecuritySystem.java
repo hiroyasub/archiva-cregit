@@ -304,7 +304,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * BypassSecuritySystem - used to bypass the security system for testing reasons and allow  * for every request to respond as success / true.   *  * @version $Id$  */
+comment|/**  * BypassSecuritySystem - used to bypass the security system for testing reasons and allow  * for every request to respond as success / true.   *  *  */
 end_comment
 
 begin_class

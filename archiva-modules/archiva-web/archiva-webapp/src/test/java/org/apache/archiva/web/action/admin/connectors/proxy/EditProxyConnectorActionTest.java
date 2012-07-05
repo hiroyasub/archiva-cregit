@@ -378,7 +378,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * EditProxyConnectorActionTest  *  * @version $Id$  */
+comment|/**  * EditProxyConnectorActionTest  *  *  */
 end_comment
 
 begin_class

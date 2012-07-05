@@ -76,7 +76,7 @@ comment|/*  * Bug in TestNG. TESTNG-285: @Test(sequential=true) works incorrectl
 end_comment
 
 begin_comment
-comment|/**  * Based on LoginTest of Emmanuel Venisse test.  *   * @author JosÃ© Morales MartÃ­nez  * @version $Id$  */
+comment|/**  * Based on LoginTest of Emmanuel Venisse test.  *   * @author JosÃ© Morales MartÃ­nez  *  */
 end_comment
 
 begin_class

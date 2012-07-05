@@ -68,7 +68,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * VersionComparatorTest   *  * @version $Id$  */
+comment|/**  * VersionComparatorTest   *  *  */
 end_comment
 
 begin_class

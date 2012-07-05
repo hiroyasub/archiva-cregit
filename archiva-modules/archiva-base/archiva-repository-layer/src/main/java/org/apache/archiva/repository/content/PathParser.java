@@ -48,7 +48,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PathParser interface.  *  * @version $Id$  */
+comment|/**  * PathParser interface.  *  *  */
 end_comment
 
 begin_interface

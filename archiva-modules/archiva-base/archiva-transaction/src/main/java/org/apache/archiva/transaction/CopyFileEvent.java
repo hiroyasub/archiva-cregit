@@ -74,7 +74,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Event to copy a file.  *  * @version $Id$  */
+comment|/**  * Event to copy a file.  *  *  */
 end_comment
 
 begin_class

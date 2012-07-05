@@ -158,7 +158,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactExtensionMappingTest  *  * @version $Id$  */
+comment|/**  * ArtifactExtensionMappingTest  *  *  */
 end_comment
 
 begin_class

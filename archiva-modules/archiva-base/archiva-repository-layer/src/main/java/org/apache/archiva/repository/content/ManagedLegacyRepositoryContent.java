@@ -260,7 +260,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ManagedLegacyRepositoryContent  *  * @version $Id$  * @todo no need to be a component when filetypes, legacy path parser is not  */
+comment|/**  * ManagedLegacyRepositoryContent  *  *  * @todo no need to be a component when filetypes, legacy path parser is not  */
 end_comment
 
 begin_class

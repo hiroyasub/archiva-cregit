@@ -16,7 +16,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * A tag for objects that are considered ArchivaArtifactPlatformDetails.   *  * @version $Id$  */
+comment|/**  * A tag for objects that are considered ArchivaArtifactPlatformDetails.   *  *  */
 end_comment
 
 begin_interface

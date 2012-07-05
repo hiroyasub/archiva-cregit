@@ -36,7 +36,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LatinEntities - simple utility class to handle latin entity conversion.   *  * @version $Id$  */
+comment|/**  * LatinEntities - simple utility class to handle latin entity conversion.   *  *  */
 end_comment
 
 begin_class

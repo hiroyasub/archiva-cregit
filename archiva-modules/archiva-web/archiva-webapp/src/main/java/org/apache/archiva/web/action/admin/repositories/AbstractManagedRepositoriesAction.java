@@ -22,7 +22,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Abstract ManagedRepositories Action.  *<p/>  * Place for all generic methods used in Managed Repository Administration.  *  * @version $Id$  */
+comment|/**  * Abstract ManagedRepositories Action.  *<p/>  * Place for all generic methods used in Managed Repository Administration.  *  *  */
 end_comment
 
 begin_class

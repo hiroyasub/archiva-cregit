@@ -64,7 +64,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractArchivaXmlTestCase   *  * @version $Id$  */
+comment|/**  * AbstractArchivaXmlTestCase   *  *  */
 end_comment
 
 begin_class

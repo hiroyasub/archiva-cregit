@@ -270,7 +270,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractRepositoryServletProxiedTestCase  *  * @version $Id$  */
+comment|/**  * AbstractRepositoryServletProxiedTestCase  *  *  */
 end_comment
 
 begin_class

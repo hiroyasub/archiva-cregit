@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * UserRepositories stub used for testing.  *  * @version $Id$  */
+comment|/**  * UserRepositories stub used for testing.  *  *  */
 end_comment
 
 begin_class

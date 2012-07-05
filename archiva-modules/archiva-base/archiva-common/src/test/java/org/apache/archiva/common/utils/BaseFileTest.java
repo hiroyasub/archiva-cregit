@@ -52,7 +52,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * BaseFileTest  *  * @version $Id$  */
+comment|/**  * BaseFileTest  *  *  */
 end_comment
 
 begin_class

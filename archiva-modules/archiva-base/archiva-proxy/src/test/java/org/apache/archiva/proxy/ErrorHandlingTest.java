@@ -206,7 +206,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ErrorHandlingTest  *  * @version $Id$  */
+comment|/**  * ErrorHandlingTest  *  *  */
 end_comment
 
 begin_class

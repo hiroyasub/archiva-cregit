@@ -414,7 +414,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MetadataToolsTest  *  * @version $Id$  */
+comment|/**  * MetadataToolsTest  *  *  */
 end_comment
 
 begin_class

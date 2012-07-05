@@ -116,7 +116,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractWebworkTestCase   *  * @version $Id$  */
+comment|/**  * AbstractWebworkTestCase   *  *  */
 end_comment
 
 begin_class

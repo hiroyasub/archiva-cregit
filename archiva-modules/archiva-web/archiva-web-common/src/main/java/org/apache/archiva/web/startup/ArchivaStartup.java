@@ -260,7 +260,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaStartup - the startup of all archiva features in a deterministic order.  *  * @version $Id$  */
+comment|/**  * ArchivaStartup - the startup of all archiva features in a deterministic order.  *  *  */
 end_comment
 
 begin_class

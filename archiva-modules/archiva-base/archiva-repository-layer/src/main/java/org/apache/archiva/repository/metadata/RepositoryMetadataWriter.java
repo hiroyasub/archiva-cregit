@@ -220,7 +220,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryMetadataWriter  *  * @version $Id$  */
+comment|/**  * RepositoryMetadataWriter  *  *  */
 end_comment
 
 begin_class

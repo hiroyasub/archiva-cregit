@@ -108,7 +108,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SortProxyConnectorsAction -  *  * @version $Id$  */
+comment|/**  * SortProxyConnectorsAction -  *  *  */
 end_comment
 
 begin_class

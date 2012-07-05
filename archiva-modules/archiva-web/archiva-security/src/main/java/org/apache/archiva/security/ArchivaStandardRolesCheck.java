@@ -128,7 +128,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaStandardRolesCheck tests for the existance of expected / standard roles and permissions.   *  * @version $Id$  */
+comment|/**  * ArchivaStandardRolesCheck tests for the existance of expected / standard roles and permissions.   *  *  */
 end_comment
 
 begin_class

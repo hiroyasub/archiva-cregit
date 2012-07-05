@@ -28,7 +28,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link PreDownloadPolicy} to apply for released versions.  *  * @version $Id$  */
+comment|/**  * {@link PreDownloadPolicy} to apply for released versions.  *  *  */
 end_comment
 
 begin_class

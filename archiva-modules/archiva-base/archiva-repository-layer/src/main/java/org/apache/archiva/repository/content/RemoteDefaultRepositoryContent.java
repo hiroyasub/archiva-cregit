@@ -120,7 +120,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RemoteDefaultRepositoryContent  *  * @version $Id$  */
+comment|/**  * RemoteDefaultRepositoryContent  *  *  */
 end_comment
 
 begin_class

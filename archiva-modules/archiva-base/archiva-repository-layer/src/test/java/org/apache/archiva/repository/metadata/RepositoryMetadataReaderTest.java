@@ -120,7 +120,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryMetadataReaderTest  *  * @version $Id$  */
+comment|/**  * RepositoryMetadataReaderTest  *  *  */
 end_comment
 
 begin_class

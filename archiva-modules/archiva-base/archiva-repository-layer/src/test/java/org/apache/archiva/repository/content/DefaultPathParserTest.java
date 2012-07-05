@@ -98,7 +98,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultPathParserTest  *  * TODO: move to path translator tests  *  * @version $Id$  */
+comment|/**  * DefaultPathParserTest  *  * TODO: move to path translator tests  *  *  */
 end_comment
 
 begin_class

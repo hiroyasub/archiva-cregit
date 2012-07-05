@@ -128,7 +128,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link PreDownloadPolicy} to check if the requested url has failed before.  *  * @version $Id$  */
+comment|/**  * {@link PreDownloadPolicy} to check if the requested url has failed before.  *  *  */
 end_comment
 
 begin_class

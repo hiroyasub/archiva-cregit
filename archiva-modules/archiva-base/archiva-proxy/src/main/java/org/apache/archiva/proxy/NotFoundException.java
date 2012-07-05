@@ -16,7 +16,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * NotFoundException - thrown when the resource requested was not found on the remote repository.   *  * @version $Id$  */
+comment|/**  * NotFoundException - thrown when the resource requested was not found on the remote repository.   *  *  */
 end_comment
 
 begin_class

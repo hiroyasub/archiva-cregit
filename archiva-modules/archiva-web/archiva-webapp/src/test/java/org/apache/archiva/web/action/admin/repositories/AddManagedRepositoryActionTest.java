@@ -348,7 +348,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AddManagedRepositoryActionTest  *  * @version $Id$  */
+comment|/**  * AddManagedRepositoryActionTest  *  *  */
 end_comment
 
 begin_class

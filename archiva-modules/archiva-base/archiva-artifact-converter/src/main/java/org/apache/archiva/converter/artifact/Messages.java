@@ -48,7 +48,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Messages   *  * @version $Id$  */
+comment|/**  * Messages   *  *  */
 end_comment
 
 begin_class

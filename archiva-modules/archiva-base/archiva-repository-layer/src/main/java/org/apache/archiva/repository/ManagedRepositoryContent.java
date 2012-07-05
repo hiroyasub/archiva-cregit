@@ -126,7 +126,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ManagedRepositoryContent interface for interacting with a managed repository in an abstract way,  * without the need for processing based on filesystem paths, or working with the database.  *  * @version $Id$  */
+comment|/**  * ManagedRepositoryContent interface for interacting with a managed repository in an abstract way,  * without the need for processing based on filesystem paths, or working with the database.  *  *  */
 end_comment
 
 begin_interface
