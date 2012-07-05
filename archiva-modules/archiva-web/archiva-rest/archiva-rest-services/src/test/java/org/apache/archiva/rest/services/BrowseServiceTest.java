@@ -183,9 +183,9 @@ name|fest
 operator|.
 name|assertions
 operator|.
-name|api
+name|data
 operator|.
-name|MapAssert
+name|MapEntry
 import|;
 end_import
 
@@ -493,9 +493,9 @@ operator|.
 name|isNotEmpty
 argument_list|()
 operator|.
-name|includes
+name|contains
 argument_list|(
-name|MapAssert
+name|MapEntry
 operator|.
 name|entry
 argument_list|(
@@ -659,9 +659,9 @@ operator|.
 name|isNotEmpty
 argument_list|()
 operator|.
-name|includes
+name|contains
 argument_list|(
-name|MapAssert
+name|MapEntry
 operator|.
 name|entry
 argument_list|(

@@ -127,6 +127,8 @@ name|fest
 operator|.
 name|assertions
 operator|.
+name|api
+operator|.
 name|Assertions
 operator|.
 name|assertThat
