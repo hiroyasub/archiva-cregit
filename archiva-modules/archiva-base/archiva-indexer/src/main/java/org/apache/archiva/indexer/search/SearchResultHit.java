@@ -38,7 +38,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SearchResultHit  *  * @version $Id: SearchResultHit.java 740552 2009-02-04 01:09:17Z oching $  */
+comment|/**  * SearchResultHit  *  */
 end_comment
 
 begin_class

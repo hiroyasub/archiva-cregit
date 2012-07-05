@@ -194,7 +194,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Id: ConfigurationAction.java 480950 2006-11-30 14:58:35Z evenisse $  */
+comment|/**  *  */
 end_comment
 
 begin_class

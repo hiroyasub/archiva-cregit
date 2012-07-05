@@ -90,7 +90,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MimeTypesTest  *  * @version $Id: MimeTypesTest.java 6556 2007-06-20 20:44:46Z joakime $  */
+comment|/**  * MimeTypesTest  *  *  */
 end_comment
 
 begin_class

@@ -462,7 +462,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Take an artifact off of disk and put it into the metadata repository.  *  * @version $Id: ArtifactUpdateDatabaseConsumer.java 718864 2008-11-19 06:33:35Z brett $  */
+comment|/**  * Take an artifact off of disk and put it into the metadata repository.  *  *  */
 end_comment
 
 begin_class

@@ -462,7 +462,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Integration test for connecting over a HTTP proxy.  *  * @version $Id: ManagedDefaultTransferTest.java 677852 2008-07-18 08:16:24Z brett $  */
+comment|/**  * Integration test for connecting over a HTTP proxy.  *  *  */
 end_comment
 
 begin_class

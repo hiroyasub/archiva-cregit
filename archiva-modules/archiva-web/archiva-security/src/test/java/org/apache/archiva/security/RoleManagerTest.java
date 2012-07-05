@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RoleProfilesTest   *  * @version $Id: RoleManagerTest.java 4330 2007-05-10 17:28:56Z jmcconnell $  */
+comment|/**  * RoleProfilesTest   *  *  */
 end_comment
 
 begin_class

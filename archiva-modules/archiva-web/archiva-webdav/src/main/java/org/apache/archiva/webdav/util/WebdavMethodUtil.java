@@ -78,7 +78,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * WebdavMethodUtil  *  * @version $Id: WebdavMethodUtil.java 5412 2007-01-13 01:18:47Z joakime $  */
+comment|/**  * WebdavMethodUtil  *  */
 end_comment
 
 begin_class

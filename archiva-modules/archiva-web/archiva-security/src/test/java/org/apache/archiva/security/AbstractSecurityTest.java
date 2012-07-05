@@ -324,7 +324,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractSecurityTest  *  * @version $Id: AbstractSecurityTest  */
+comment|/**  * AbstractSecurityTest  *  */
 end_comment
 
 begin_class

@@ -58,7 +58,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SearchResults  *  * @version $Id: SearchResults.java 742859 2009-02-10 05:35:05Z jdumay $  */
+comment|/**  * SearchResults  *  */
 end_comment
 
 begin_class

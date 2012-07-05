@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * RepositoryException   *  * @version $Id: RepositoryException.java 718864 2008-11-19 06:33:35Z brett $  */
+comment|/**  * RepositoryException   *  */
 end_comment
 
 begin_class

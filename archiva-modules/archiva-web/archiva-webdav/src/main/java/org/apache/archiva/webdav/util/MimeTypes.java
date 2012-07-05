@@ -198,7 +198,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MimeTypes  *  * @version $Id: MimeTypes.java 7010 2007-10-25 23:35:02Z joakime $  */
+comment|/**  * MimeTypes  *  *  */
 end_comment
 
 begin_class

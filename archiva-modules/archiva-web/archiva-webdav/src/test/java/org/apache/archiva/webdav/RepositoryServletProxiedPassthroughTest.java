@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryServlet Tests, Proxied, Get of resources that are not artifacts or metadata, with varying policy settings.  *   * @version $Id: RepositoryServletProxiedReleasePolicyTest.java 661174 2008-05-29 01:49:41Z jdumay $  */
+comment|/**  * RepositoryServlet Tests, Proxied, Get of resources that are not artifacts or metadata, with varying policy settings.  *   */
 end_comment
 
 begin_class

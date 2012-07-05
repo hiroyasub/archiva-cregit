@@ -184,7 +184,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author<a href="mailto:evenisse@apache.org">Emmanuel Venisse</a>  * @version $Id: AbstractSeleniumTestCase.java 761154 2009-04-02 03:31:19Z wsmoak $  */
+comment|/**  * @author<a href="mailto:evenisse@apache.org">Emmanuel Venisse</a>  *  */
 end_comment
 
 begin_class

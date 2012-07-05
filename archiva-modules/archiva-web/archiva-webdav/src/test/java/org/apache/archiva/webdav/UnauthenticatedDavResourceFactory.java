@@ -124,7 +124,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * UnauthenticatedDavResourceFactory  *  * @version $Id:  */
+comment|/**  * UnauthenticatedDavResourceFactory  *  */
 end_comment
 
 begin_class
