@@ -727,6 +727,13 @@ argument_list|()
 decl_stmt|;
 name|repositoryStatistics
 operator|.
+name|setRepositoryId
+argument_list|(
+name|repositoryId
+argument_list|)
+expr_stmt|;
+name|repositoryStatistics
+operator|.
 name|setScanStartTime
 argument_list|(
 name|startTime
