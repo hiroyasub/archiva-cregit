@@ -3128,6 +3128,13 @@ argument_list|()
 decl_stmt|;
 name|stats
 operator|.
+name|setRepositoryId
+argument_list|(
+name|TEST_REPO_ID
+argument_list|)
+expr_stmt|;
+name|stats
+operator|.
 name|setScanStartTime
 argument_list|(
 name|startTime

@@ -280,6 +280,13 @@ argument_list|(
 name|totalFiles
 argument_list|)
 expr_stmt|;
+name|repositoryStatistics
+operator|.
+name|setRepositoryId
+argument_list|(
+name|repositoryId
+argument_list|)
+expr_stmt|;
 name|stats
 operator|.
 name|add
