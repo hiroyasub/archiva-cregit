@@ -4238,7 +4238,7 @@ condition|)
 block|{
 name|response
 operator|.
-name|addHeader
+name|setHeader
 argument_list|(
 literal|"Pragma"
 argument_list|,
@@ -4247,7 +4247,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|.
-name|addHeader
+name|setHeader
 argument_list|(
 literal|"Cache-Control"
 argument_list|,
@@ -4258,7 +4258,7 @@ block|}
 comment|// We need to specify this so connecting wagons can work correctly
 name|response
 operator|.
-name|addDateHeader
+name|setDateHeader
 argument_list|(
 literal|"last-modified"
 argument_list|,
