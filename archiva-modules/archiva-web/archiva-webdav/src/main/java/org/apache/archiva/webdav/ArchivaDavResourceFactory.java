@@ -3696,6 +3696,7 @@ name|path
 argument_list|)
 condition|)
 block|{
+comment|// FIXME we must implement a merge of remote archetype catalog from remote servers.
 name|File
 name|proxiedFile
 init|=
