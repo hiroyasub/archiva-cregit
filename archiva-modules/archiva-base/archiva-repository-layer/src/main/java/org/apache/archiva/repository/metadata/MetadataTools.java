@@ -701,6 +701,14 @@ name|MAVEN_METADATA
 init|=
 literal|"maven-metadata.xml"
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MAVEN_ARCHETYPE_CATALOG
+init|=
+literal|"archetype-catalog.xml"
+decl_stmt|;
 specifier|private
 specifier|static
 specifier|final

@@ -23,20 +23,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|archiva
 operator|.
 name|model
@@ -91,8 +77,22 @@ name|MetadataTools
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
+import|;
+end_import
+
 begin_comment
-comment|/**  * RepositoryRequest is used to determine the type of request that is incoming, and convert it to an appropriate  * ArtifactReference.  *  *  *<p/>  */
+comment|/**  * RepositoryRequest is used to determine the type of request that is incoming, and convert it to an appropriate  * ArtifactReference.  *<p/>  *<p/>  *<p/>  */
 end_comment
 
 begin_class
@@ -266,7 +266,7 @@ name|MAVEN_METADATA
 argument_list|)
 return|;
 block|}
-comment|/**      *       * @param requestedPath      * @return true if the requestedPath is likely an archetype catalog request.      */
+comment|/**      * @param requestedPath      * @return true if the requestedPath is likely an archetype catalog request.      */
 specifier|public
 name|boolean
 name|isArchetypeCatalog
@@ -275,13 +275,16 @@ name|String
 name|requestedPath
 parameter_list|)
 block|{
-comment|//TODO: Make it static final String
 return|return
 name|requestedPath
 operator|.
 name|endsWith
 argument_list|(
-literal|"/archetype-catalog.xml"
+literal|"/"
+operator|+
+name|MetadataTools
+operator|.
+name|MAVEN_ARCHETYPE_CATALOG
 argument_list|)
 return|;
 block|}
