@@ -266,6 +266,25 @@ name|MAVEN_METADATA
 argument_list|)
 return|;
 block|}
+comment|/**      *       * @param requestedPath      * @return true if the requestedPath is likely an archetype catalog request.      */
+specifier|public
+name|boolean
+name|isArchetypeCatalog
+parameter_list|(
+name|String
+name|requestedPath
+parameter_list|)
+block|{
+comment|//TODO: Make it static final String
+return|return
+name|requestedPath
+operator|.
+name|endsWith
+argument_list|(
+literal|"/archetype-catalog.xml"
+argument_list|)
+return|;
+block|}
 comment|/**      *<p>      * Tests the path to see if it conforms to the expectations of a support file request.      *</p>      *<p>      * Tests for<code>.sha1</code>,<code>.md5</code>,<code>.asc</code>, and<code>.php</code>.      *</p>      *<p>      * NOTE: This does a cursory check on the path's extension only.  A result of true      * from this method is not a guarantee that the support resource is in a valid format, or      * that it even contains data.      *</p>      *      * @param requestedPath the path to test.      * @return true if the requestedPath is likely that of a support file request.      */
 specifier|public
 name|boolean

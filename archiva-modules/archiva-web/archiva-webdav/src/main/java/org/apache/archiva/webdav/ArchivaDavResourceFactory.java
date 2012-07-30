@@ -3685,6 +3685,37 @@ operator|!=
 literal|null
 return|;
 block|}
+comment|// Is it an Archetype Catalog?
+if|if
+condition|(
+name|repositoryRequest
+operator|.
+name|isArchetypeCatalog
+argument_list|(
+name|path
+argument_list|)
+condition|)
+block|{
+name|File
+name|proxiedFile
+init|=
+name|connectors
+operator|.
+name|fetchFromProxies
+argument_list|(
+name|managedRepository
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+return|return
+operator|(
+name|proxiedFile
+operator|!=
+literal|null
+operator|)
+return|;
+block|}
 comment|// Not any of the above? Then it's gotta be an artifact reference.
 try|try
 block|{
