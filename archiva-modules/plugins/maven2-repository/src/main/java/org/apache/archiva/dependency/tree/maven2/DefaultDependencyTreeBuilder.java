@@ -1966,6 +1966,17 @@ operator|.
 name|VALIDATION_LEVEL_MINIMAL
 argument_list|)
 expr_stmt|;
+comment|//MRM-1607. olamy this will resolve jdk profiles on the current running archiva jvm
+name|req
+operator|.
+name|setSystemProperties
+argument_list|(
+name|System
+operator|.
+name|getProperties
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|builder
 operator|.
