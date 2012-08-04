@@ -645,16 +645,6 @@ begin_import
 import|import
 name|javax
 operator|.
-name|annotation
-operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
 name|inject
 operator|.
 name|Inject
@@ -1638,8 +1628,6 @@ specifier|public
 name|boolean
 name|apply
 parameter_list|(
-annotation|@
-name|Nullable
 name|FileMetadata
 name|fileMetadata
 parameter_list|)
