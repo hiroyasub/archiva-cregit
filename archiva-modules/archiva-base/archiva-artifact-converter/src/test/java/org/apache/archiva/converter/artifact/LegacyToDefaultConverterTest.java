@@ -4046,6 +4046,12 @@ name|pomArtifact
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// clear warning before test related to MRM-1638
+name|artifactConverter
+operator|.
+name|clearWarnings
+argument_list|()
+expr_stmt|;
 name|artifactConverter
 operator|.
 name|convert
@@ -4321,6 +4327,12 @@ name|sleep
 argument_list|(
 name|SLEEP_MILLIS
 argument_list|)
+expr_stmt|;
+comment|// clear warning before test related to MRM-1638
+name|artifactConverter
+operator|.
+name|clearWarnings
+argument_list|()
 expr_stmt|;
 name|artifactConverter
 operator|.
