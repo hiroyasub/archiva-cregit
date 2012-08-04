@@ -203,9 +203,7 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|rest
-operator|.
-name|api
+name|maven2
 operator|.
 name|model
 operator|.

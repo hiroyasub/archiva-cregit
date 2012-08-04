@@ -219,6 +219,22 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|maven2
+operator|.
+name|model
+operator|.
+name|TreeEntry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|metadata
 operator|.
 name|repository
@@ -723,6 +739,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -883,7 +909,10 @@ argument_list|()
 expr_stmt|;
 block|}
 specifier|public
-name|void
+name|List
+argument_list|<
+name|TreeEntry
+argument_list|>
 name|buildDependencyTree
 parameter_list|(
 name|List
@@ -900,9 +929,6 @@ name|artifactId
 parameter_list|,
 name|String
 name|version
-parameter_list|,
-name|DependencyVisitor
-name|dependencyVisitor
 parameter_list|)
 throws|throws
 name|Exception
@@ -968,7 +994,12 @@ literal|null
 condition|)
 block|{
 comment|// metadata could not be resolved
-return|return;
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
 block|}
 comment|// MRM-1411
 comment|// TODO: this is a workaround for a lack of proxy capability in the resolvers - replace when it can all be
@@ -1101,6 +1132,28 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|List
+argument_list|<
+name|TreeEntry
+argument_list|>
+name|treeEntries
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|TreeEntry
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|TreeDependencyNodeVisitor
+name|treeDependencyNodeVisitor
+init|=
+operator|new
+name|TreeDependencyNodeVisitor
+argument_list|(
+name|treeEntries
+argument_list|)
+decl_stmt|;
 comment|// FIXME take care of relative path
 name|resolve
 argument_list|(
@@ -1115,9 +1168,21 @@ name|artifactId
 argument_list|,
 name|version
 argument_list|,
-name|dependencyVisitor
+name|treeDependencyNodeVisitor
 argument_list|)
 expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"treeEntrie: {}"
+argument_list|,
+name|treeEntries
+argument_list|)
+expr_stmt|;
+return|return
+name|treeEntries
+return|;
 block|}
 specifier|private
 name|void
