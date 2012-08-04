@@ -565,6 +565,22 @@ name|sonatype
 operator|.
 name|aether
 operator|.
+name|impl
+operator|.
+name|internal
+operator|.
+name|SimpleLocalRepositoryManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|sonatype
+operator|.
+name|aether
+operator|.
 name|repository
 operator|.
 name|LocalRepository
@@ -636,24 +652,6 @@ operator|.
 name|selector
 operator|.
 name|ExclusionDependencySelector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|sonatype
-operator|.
-name|aether
-operator|.
-name|util
-operator|.
-name|graph
-operator|.
-name|selector
-operator|.
-name|OptionalDependencySelector
 import|;
 end_import
 
@@ -1393,14 +1391,14 @@ name|session
 operator|.
 name|setLocalRepositoryManager
 argument_list|(
-name|system
-operator|.
-name|newLocalRepositoryManager
+operator|new
+name|SimpleLocalRepositoryManager
 argument_list|(
-name|localRepo
+name|localRepoDir
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// system.newLocalRepositoryManager( localRepo ) );
 comment|//session.setTransferListener(  );
 comment|//session.setRepositoryListener( n );
 return|return
