@@ -776,6 +776,8 @@ argument_list|)
 specifier|public
 class|class
 name|Maven3DependencyTreeBuilder
+implements|implements
+name|DependencyTreeBuilder
 block|{
 specifier|private
 name|Logger
@@ -921,7 +923,7 @@ name|DependencyVisitor
 name|dependencyVisitor
 parameter_list|)
 throws|throws
-name|Exception
+name|DependencyTreeBuilderException
 block|{
 name|Artifact
 name|projectArtifact
@@ -963,7 +965,7 @@ block|{
 comment|// FIXME better exception
 throw|throw
 operator|new
-name|Exception
+name|DependencyTreeBuilderException
 argument_list|(
 literal|"Cannot build project dependency tree "
 operator|+
@@ -986,6 +988,8 @@ block|{
 comment|// metadata could not be resolved
 return|return;
 block|}
+try|try
+block|{
 comment|// MRM-1411
 comment|// TODO: this is a workaround for a lack of proxy capability in the resolvers - replace when it can all be
 comment|//       handled there. It doesn't cache anything locally!
@@ -1117,6 +1121,26 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|RepositoryAdminException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|DependencyTreeBuilderException
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 comment|// FIXME take care of relative path
 name|resolve
 argument_list|(
@@ -1158,7 +1182,7 @@ name|String
 name|version
 parameter_list|)
 throws|throws
-name|Exception
+name|DependencyTreeBuilderException
 block|{
 name|List
 argument_list|<

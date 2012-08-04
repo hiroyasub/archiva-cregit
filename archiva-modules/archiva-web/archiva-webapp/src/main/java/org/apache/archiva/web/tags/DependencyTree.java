@@ -57,7 +57,7 @@ name|tree
 operator|.
 name|maven2
 operator|.
-name|Maven3DependencyTreeBuilder
+name|DependencyTreeBuilder
 import|;
 end_import
 
@@ -114,24 +114,6 @@ operator|.
 name|lang
 operator|.
 name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|shared
-operator|.
-name|dependency
-operator|.
-name|tree
-operator|.
-name|DependencyTreeBuilderException
 import|;
 end_import
 
@@ -269,7 +251,7 @@ decl_stmt|;
 annotation|@
 name|Inject
 specifier|private
-name|Maven3DependencyTreeBuilder
+name|DependencyTreeBuilder
 name|dependencyTreeBuilder
 decl_stmt|;
 annotation|@
