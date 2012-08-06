@@ -290,6 +290,8 @@ name|metadataTools
 decl_stmt|;
 annotation|@
 name|Before
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setUp
@@ -1081,6 +1083,25 @@ argument_list|(
 name|releasesProjectRoot
 operator|+
 literal|"/1.0/released-artifact-in-diff-repo-1.0.pom.sha1"
+argument_list|)
+expr_stmt|;
+comment|// remove RELEASES_TEST_REPO_ID so this test will be more independant
+name|applicationContext
+operator|.
+name|getBean
+argument_list|(
+name|ManagedRepositoryAdmin
+operator|.
+name|class
+argument_list|)
+operator|.
+name|deleteManagedRepository
+argument_list|(
+name|RELEASES_TEST_REPO_ID
+argument_list|,
+literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
