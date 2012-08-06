@@ -277,6 +277,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+argument_list|(
+name|expected
+operator|=
+name|PolicyViolationException
+operator|.
+name|class
+argument_list|)
 specifier|public
 name|void
 name|testPolicyYes
@@ -302,13 +309,26 @@ init|=
 name|createRequest
 argument_list|()
 decl_stmt|;
+comment|// make unique name
+name|String
+name|url
+init|=
+literal|"http://a.bad.hostname.maven.org/path/to/resource"
+operator|+
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|+
+literal|".txt"
+decl_stmt|;
 name|request
 operator|.
 name|setProperty
 argument_list|(
 literal|"url"
 argument_list|,
-literal|"http://a.bad.hostname.maven.org/path/to/resource.txt"
+name|url
 argument_list|)
 expr_stmt|;
 comment|// should not fail
@@ -327,11 +347,6 @@ argument_list|)
 expr_stmt|;
 comment|// status Yes Not In cache
 comment|// Yes in Cache
-name|String
-name|url
-init|=
-literal|"http://a.bad.hostname.maven.org/path/to/resource.txt"
-decl_stmt|;
 name|urlFailureCache
 operator|.
 name|cacheFailure
@@ -348,8 +363,6 @@ argument_list|,
 name|url
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|policy
 operator|.
 name|applyPolicy
@@ -363,20 +376,6 @@ argument_list|,
 name|localFile
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected a PolicyViolationException."
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|PolicyViolationException
-name|e
-parameter_list|)
-block|{
-comment|// expected path.
-block|}
 block|}
 block|}
 end_class
