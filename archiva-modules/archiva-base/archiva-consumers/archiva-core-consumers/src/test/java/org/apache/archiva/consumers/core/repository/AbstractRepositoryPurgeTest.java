@@ -311,6 +311,16 @@ name|when
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -613,6 +623,61 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+specifier|private
+specifier|static
+name|String
+name|fixPath
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+if|if
+condition|(
+name|path
+operator|.
+name|contains
+argument_list|(
+literal|" "
+argument_list|)
+condition|)
+block|{
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|AbstractRepositoryPurgeTest
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+operator|.
+name|error
+argument_list|(
+literal|"You are building and testing  with a path: \n "
+operator|+
+name|path
+operator|+
+literal|" containing space. Consider relocating."
+argument_list|)
+expr_stmt|;
+return|return
+name|path
+operator|.
+name|replaceAll
+argument_list|(
+literal|" "
+argument_list|,
+literal|"%20"
+argument_list|)
+return|;
+block|}
+return|return
+name|path
+return|;
+block|}
 specifier|public
 name|ManagedRepository
 name|getRepoConfiguration
@@ -651,9 +716,12 @@ argument_list|(
 name|TEST_DAYS_OLDER
 argument_list|)
 expr_stmt|;
-name|config
+name|String
+name|path
+init|=
+name|AbstractRepositoryPurgeTest
 operator|.
-name|setLocation
+name|fixPath
 argument_list|(
 operator|new
 name|File
@@ -670,6 +738,13 @@ argument_list|)
 operator|.
 name|getAbsolutePath
 argument_list|()
+argument_list|)
+decl_stmt|;
+name|config
+operator|.
+name|setLocation
+argument_list|(
+name|path
 argument_list|)
 expr_stmt|;
 name|config
@@ -834,6 +909,7 @@ init|=
 name|getTestRepoRoot
 argument_list|()
 decl_stmt|;
+comment|// AbstractRepositoryPurgeTest.fixPath( getTestRepoRoot() );
 name|FileUtils
 operator|.
 name|deleteDirectory
