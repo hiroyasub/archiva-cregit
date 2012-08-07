@@ -656,7 +656,7 @@ argument_list|)
 operator|.
 name|error
 argument_list|(
-literal|"You are building and testing  with a path: \n "
+literal|"You are building and testing with a path: \n "
 operator|+
 name|path
 operator|+
@@ -670,7 +670,7 @@ name|replaceAll
 argument_list|(
 literal|" "
 argument_list|,
-literal|"%20"
+literal|"&amp;20"
 argument_list|)
 return|;
 block|}
