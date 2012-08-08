@@ -1019,6 +1019,10 @@ expr_stmt|;
 name|String
 name|releasesProjectRoot
 init|=
+name|AbstractRepositoryPurgeTest
+operator|.
+name|fixPath
+argument_list|(
 operator|new
 name|File
 argument_list|(
@@ -1034,6 +1038,7 @@ name|getAbsolutePath
 argument_list|()
 operator|+
 literal|"/org/apache/archiva/released-artifact-in-diff-repo"
+argument_list|)
 decl_stmt|;
 comment|// check if the released version was not removed
 name|assertExists
