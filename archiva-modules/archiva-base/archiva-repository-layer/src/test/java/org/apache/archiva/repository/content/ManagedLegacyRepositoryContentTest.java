@@ -719,11 +719,11 @@ block|,
 literal|"org.apache.maven/javadoc.jars/testing-1.0-javadoc.jar"
 block|}
 decl_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|relatedDebugString
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|relatedDebugString

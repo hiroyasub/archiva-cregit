@@ -421,11 +421,11 @@ operator|--
 name|leftDays
 expr_stmt|;
 block|}
-name|StringBuffer
+name|StringBuilder
 name|interval
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|appendInterval
@@ -485,7 +485,7 @@ specifier|static
 name|void
 name|appendInterval
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|interval
 parameter_list|,
 name|int

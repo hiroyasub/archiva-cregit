@@ -291,7 +291,7 @@ name|tmp_length
 expr_stmt|;
 block|}
 block|}
-name|StringBuffer
+name|StringBuilder
 name|sbuf
 init|=
 name|getExpandedBuffer
@@ -412,7 +412,7 @@ name|tmp_length
 return|;
 block|}
 specifier|private
-name|StringBuffer
+name|StringBuilder
 name|getExpandedBuffer
 parameter_list|(
 name|int
@@ -421,7 +421,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|StringBuffer
+name|StringBuilder
 name|buf
 init|=
 literal|null
@@ -461,7 +461,7 @@ block|{
 name|buf
 operator|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 expr_stmt|;
 block|}
@@ -542,11 +542,11 @@ name|String
 name|line
 parameter_list|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|ret
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|int

@@ -1854,11 +1854,11 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|emsg
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|emsg
