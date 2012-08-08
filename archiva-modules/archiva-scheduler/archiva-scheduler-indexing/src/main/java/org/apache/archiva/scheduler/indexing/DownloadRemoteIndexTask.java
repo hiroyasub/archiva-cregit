@@ -718,8 +718,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"start download remote index for remote repository "
-operator|+
+literal|"start download remote index for remote repository {}"
+argument_list|,
 name|this
 operator|.
 name|remoteRepository
@@ -1390,12 +1390,10 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"skip error delete "
-operator|+
+literal|"skip error delete {} : {}"
+argument_list|,
 name|f
-operator|+
-literal|": "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
