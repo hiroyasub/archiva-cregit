@@ -1422,7 +1422,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|String
-name|reourceName
+name|resourceName
 decl_stmt|;
 name|long
 name|startTime
@@ -1435,7 +1435,7 @@ name|TransferEvent
 name|transferEvent
 parameter_list|)
 block|{
-name|reourceName
+name|resourceName
 operator|=
 name|transferEvent
 operator|.
@@ -1451,7 +1451,7 @@ name|debug
 argument_list|(
 literal|"initiate transfer of {}"
 argument_list|,
-name|reourceName
+name|resourceName
 argument_list|)
 expr_stmt|;
 block|}
@@ -1463,7 +1463,7 @@ name|TransferEvent
 name|transferEvent
 parameter_list|)
 block|{
-name|reourceName
+name|resourceName
 operator|=
 name|transferEvent
 operator|.
@@ -1549,7 +1549,7 @@ name|TransferEvent
 name|transferEvent
 parameter_list|)
 block|{
-name|reourceName
+name|resourceName
 operator|=
 name|transferEvent
 operator|.
