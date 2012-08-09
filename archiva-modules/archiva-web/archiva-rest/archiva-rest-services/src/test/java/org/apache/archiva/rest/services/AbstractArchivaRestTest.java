@@ -433,9 +433,39 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Assume
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|BeforeClass
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|runner
 operator|.
 name|RunWith
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
 import|;
 end_import
 
@@ -495,6 +525,53 @@ comment|// with an other login/password
 comment|//public String authzHeader =
 comment|//    "Basic " + org.apache.cxf.common.util.Base64Utility.encode( ( "login" + ":password" ).getBytes() );
 comment|// END SNIPPET: authz-header
+annotation|@
+name|BeforeClass
+specifier|public
+specifier|static
+name|void
+name|chekRepo
+parameter_list|()
+block|{
+name|Assume
+operator|.
+name|assumeTrue
+argument_list|(
+operator|!
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"appserver.base"
+argument_list|)
+operator|.
+name|contains
+argument_list|(
+literal|" "
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|AbstractArchivaRestTest
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+operator|.
+name|error
+argument_list|(
+literal|"Rest services unit test must be run in a folder with no space"
+argument_list|)
+expr_stmt|;
+comment|// skygo: was not possible to fix path in this particular module
+comment|// Skip test if not in proper folder , otherwise test are not fair coz repository
+comment|// cannot have space in their name.
+block|}
 annotation|@
 name|Override
 annotation|@
@@ -564,6 +641,8 @@ return|return
 literal|"classpath*:META-INF/spring-context.xml,classpath:META-INF/spring-context-test.xml"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|String
 name|getRestServicesPath
