@@ -357,7 +357,39 @@ name|index
 operator|.
 name|expr
 operator|.
+name|SourcedSearchExpression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|index
+operator|.
+name|expr
+operator|.
 name|StringSearchExpression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|index
+operator|.
+name|expr
+operator|.
+name|UserInputSearchExpression
 import|;
 end_import
 
@@ -869,7 +901,7 @@ operator|.
 name|GROUP_ID
 argument_list|,
 operator|new
-name|StringSearchExpression
+name|UserInputSearchExpression
 argument_list|(
 name|searchFields
 operator|.
@@ -910,7 +942,7 @@ operator|.
 name|ARTIFACT_ID
 argument_list|,
 operator|new
-name|StringSearchExpression
+name|UserInputSearchExpression
 argument_list|(
 name|searchFields
 operator|.
@@ -951,7 +983,7 @@ operator|.
 name|VERSION
 argument_list|,
 operator|new
-name|StringSearchExpression
+name|SourcedSearchExpression
 argument_list|(
 name|searchFields
 operator|.
@@ -992,7 +1024,7 @@ operator|.
 name|PACKAGING
 argument_list|,
 operator|new
-name|StringSearchExpression
+name|UserInputSearchExpression
 argument_list|(
 name|searchFields
 operator|.
@@ -1033,7 +1065,7 @@ operator|.
 name|CLASSNAMES
 argument_list|,
 operator|new
-name|StringSearchExpression
+name|UserInputSearchExpression
 argument_list|(
 name|searchFields
 operator|.
@@ -1074,7 +1106,7 @@ operator|.
 name|SYMBOLIC_NAME
 argument_list|,
 operator|new
-name|StringSearchExpression
+name|UserInputSearchExpression
 argument_list|(
 name|searchFields
 operator|.
@@ -1115,7 +1147,7 @@ operator|.
 name|VERSION
 argument_list|,
 operator|new
-name|StringSearchExpression
+name|UserInputSearchExpression
 argument_list|(
 name|searchFields
 operator|.
@@ -1156,7 +1188,7 @@ operator|.
 name|EXPORT_PACKAGE
 argument_list|,
 operator|new
-name|StringSearchExpression
+name|UserInputSearchExpression
 argument_list|(
 name|searchFields
 operator|.
@@ -1197,7 +1229,7 @@ operator|.
 name|EXPORT_SERVICE
 argument_list|,
 operator|new
-name|StringSearchExpression
+name|UserInputSearchExpression
 argument_list|(
 name|searchFields
 operator|.
@@ -1238,7 +1270,7 @@ operator|.
 name|IMPORT_PACKAGE
 argument_list|,
 operator|new
-name|StringSearchExpression
+name|UserInputSearchExpression
 argument_list|(
 name|searchFields
 operator|.
@@ -1279,7 +1311,7 @@ operator|.
 name|NAME
 argument_list|,
 operator|new
-name|StringSearchExpression
+name|UserInputSearchExpression
 argument_list|(
 name|searchFields
 operator|.
@@ -1320,7 +1352,7 @@ operator|.
 name|IMPORT_PACKAGE
 argument_list|,
 operator|new
-name|StringSearchExpression
+name|UserInputSearchExpression
 argument_list|(
 name|searchFields
 operator|.
@@ -1361,7 +1393,7 @@ operator|.
 name|REQUIRE_BUNDLE
 argument_list|,
 operator|new
-name|StringSearchExpression
+name|UserInputSearchExpression
 argument_list|(
 name|searchFields
 operator|.
@@ -1402,7 +1434,7 @@ operator|.
 name|CLASSIFIER
 argument_list|,
 operator|new
-name|StringSearchExpression
+name|UserInputSearchExpression
 argument_list|(
 name|searchFields
 operator|.
@@ -1735,7 +1767,7 @@ operator|.
 name|GROUP_ID
 argument_list|,
 operator|new
-name|StringSearchExpression
+name|UserInputSearchExpression
 argument_list|(
 name|term
 argument_list|)
@@ -1759,7 +1791,7 @@ operator|.
 name|ARTIFACT_ID
 argument_list|,
 operator|new
-name|StringSearchExpression
+name|UserInputSearchExpression
 argument_list|(
 name|term
 argument_list|)
@@ -1783,7 +1815,7 @@ operator|.
 name|VERSION
 argument_list|,
 operator|new
-name|StringSearchExpression
+name|UserInputSearchExpression
 argument_list|(
 name|term
 argument_list|)
@@ -1807,7 +1839,7 @@ operator|.
 name|PACKAGING
 argument_list|,
 operator|new
-name|StringSearchExpression
+name|UserInputSearchExpression
 argument_list|(
 name|term
 argument_list|)
@@ -1831,7 +1863,7 @@ operator|.
 name|CLASSNAMES
 argument_list|,
 operator|new
-name|StringSearchExpression
+name|UserInputSearchExpression
 argument_list|(
 name|term
 argument_list|)
