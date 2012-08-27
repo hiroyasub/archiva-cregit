@@ -313,7 +313,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"/target/test-classes/existing_snapshots"
+literal|"target/test-classes/existing_snapshots"
 argument_list|)
 decl_stmt|;
 name|repo
@@ -331,7 +331,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"/target/test-classes/existing_internal"
+literal|"target/test-classes/existing_internal"
 argument_list|)
 expr_stmt|;
 name|repo
@@ -419,9 +419,9 @@ name|configuration
 argument_list|,
 literal|2
 argument_list|,
-literal|1
+literal|2
 argument_list|,
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|ManagedRepositoryConfiguration
