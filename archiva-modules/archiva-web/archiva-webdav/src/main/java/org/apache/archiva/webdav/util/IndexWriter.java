@@ -494,56 +494,70 @@ name|writer
 operator|.
 name|println
 argument_list|(
-literal|".file{list-style-image:url("
+literal|".file{background:url("
 operator|+
 name|relative
 operator|.
 name|toString
 argument_list|()
 operator|+
-literal|"images/package-x-generic.png);}"
+literal|"images/package-x-generic.png) no-repeat scroll 0 0 transparent;}"
 argument_list|)
 expr_stmt|;
 name|writer
 operator|.
 name|println
 argument_list|(
-literal|".folder{list-style-image:url("
+literal|".folder{background:url("
 operator|+
 name|relative
 operator|.
 name|toString
 argument_list|()
 operator|+
-literal|"images/folder.png);}"
+literal|"images/folder.png) no-repeat scroll 0 0 transparent;}"
 argument_list|)
 expr_stmt|;
 name|writer
 operator|.
 name|println
 argument_list|(
-literal|"a{color: #0088CC;text-decoration: none;}"
+literal|"a{color:#0088CC;text-decoration: none;padding-left:20px;}"
 argument_list|)
 expr_stmt|;
 name|writer
 operator|.
 name|println
 argument_list|(
-literal|".collection li:nth-child(odd){background-color:#fafafa;}"
+literal|".collection tr:nth-child(odd){background-color:#fafafa;}"
 argument_list|)
 expr_stmt|;
 name|writer
 operator|.
 name|println
 argument_list|(
-literal|".size{position:absolute;left:500px;color:#cc8800;}"
+literal|"tr td:nth-child(2){width:150px;color:#cc8800;text-align:right;}"
 argument_list|)
 expr_stmt|;
 name|writer
 operator|.
 name|println
 argument_list|(
-literal|".date{position:absolute;left:600px;color:#0000cc;}"
+literal|"tr td:nth-child(3){width:150px;color:#0000cc;text-align:center;}"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|println
+argument_list|(
+literal|"th td:nth-child(2){width:150px;}"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|println
+argument_list|(
+literal|"th td:nth-child(3){width:150px;}"
 argument_list|)
 expr_stmt|;
 name|writer
@@ -640,7 +654,7 @@ name|writer
 operator|.
 name|println
 argument_list|(
-literal|"<li class=\"folder\"><a href=\"../\">"
+literal|"<li><a class=\"folder\" href=\"../\">"
 operator|+
 name|parentName
 operator|+
@@ -659,7 +673,14 @@ name|writer
 operator|.
 name|println
 argument_list|(
-literal|"<ul class=\"collection\">"
+literal|"<table class=\"collection\">"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|println
+argument_list|(
+literal|"<tr><th>Name</th><th>Size (Bytes)</th><th>Last Modified</th></tr>"
 argument_list|)
 expr_stmt|;
 block|}
@@ -675,7 +696,7 @@ name|writer
 operator|.
 name|println
 argument_list|(
-literal|"</ul>"
+literal|"</table>"
 argument_list|)
 expr_stmt|;
 name|writer
@@ -1120,40 +1141,6 @@ argument_list|)
 return|;
 block|}
 specifier|private
-specifier|static
-name|String
-name|fileSizeFormat
-parameter_list|(
-name|long
-name|fileSize
-parameter_list|)
-block|{
-name|DecimalFormat
-name|format
-init|=
-operator|new
-name|DecimalFormat
-argument_list|(
-literal|"###,##0.000"
-argument_list|)
-decl_stmt|;
-return|return
-name|format
-operator|.
-name|format
-argument_list|(
-operator|(
-name|double
-operator|)
-name|fileSize
-operator|/
-literal|1024
-argument_list|)
-operator|+
-literal|" KB"
-return|;
-block|}
-specifier|private
 name|void
 name|writeHyperlink
 parameter_list|(
@@ -1182,7 +1169,7 @@ name|writer
 operator|.
 name|println
 argument_list|(
-literal|"<li class=\"folder\"><a href=\""
+literal|"<tr><td><a class=\"folder\" href=\""
 operator|+
 name|resourceName
 operator|+
@@ -1190,7 +1177,7 @@ literal|"/\">"
 operator|+
 name|resourceName
 operator|+
-literal|"</a></li>"
+literal|"</a></td><td>&nbsp;</td><td>&nbsp;</td></tr>"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1200,7 +1187,7 @@ name|writer
 operator|.
 name|println
 argument_list|(
-literal|"<li class=\"file\"><a href=\""
+literal|"<tr><td><a class=\"file\" href=\""
 operator|+
 name|resourceName
 operator|+
@@ -1208,21 +1195,18 @@ literal|"\">"
 operator|+
 name|resourceName
 operator|+
-literal|"<span class=\"size\">"
+literal|"</a></td><td class=\"size\">"
 operator|+
-name|fileSizeFormat
-argument_list|(
 name|fileSize
-argument_list|)
 operator|+
-literal|"</span><span class=\"date\">"
+literal|"&nbsp;&nbsp;</td><td class=\"date\">"
 operator|+
 name|fileDateFormat
 argument_list|(
 name|lastModified
 argument_list|)
 operator|+
-literal|"</span></a></li>"
+literal|"</td></tr>"
 argument_list|)
 expr_stmt|;
 block|}
