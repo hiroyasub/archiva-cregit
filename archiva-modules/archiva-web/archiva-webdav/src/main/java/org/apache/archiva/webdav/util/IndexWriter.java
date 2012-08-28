@@ -501,7 +501,7 @@ operator|.
 name|toString
 argument_list|()
 operator|+
-literal|"images/trash.png);}"
+literal|"images/package-x-generic.png);}"
 argument_list|)
 expr_stmt|;
 name|writer
