@@ -1376,7 +1376,8 @@ name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// XXX skygo: look strange to me
+comment|// if it's a ntlm proxy we have to lookup the wagon light which support thats
+comment|// wagon http client doesn't support that
 name|wagon
 operator|=
 operator|(
