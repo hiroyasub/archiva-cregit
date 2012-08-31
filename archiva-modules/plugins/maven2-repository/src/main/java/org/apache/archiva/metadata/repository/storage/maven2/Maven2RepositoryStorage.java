@@ -3752,12 +3752,10 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Unable to checksum file "
-operator|+
+literal|"Unable to checksum file {}: {},MD5"
+argument_list|,
 name|file
-operator|+
-literal|": "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -3792,12 +3790,10 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Unable to checksum file "
-operator|+
+literal|"Unable to checksum file {}: {},SHA1"
+argument_list|,
 name|file
-operator|+
-literal|": "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage

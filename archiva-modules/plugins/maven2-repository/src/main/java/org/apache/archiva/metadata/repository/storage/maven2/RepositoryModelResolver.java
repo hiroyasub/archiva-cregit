@@ -515,24 +515,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
-name|storage
-operator|.
-name|RepositoryStorageRuntimeException
-import|;
-end_import
-
 begin_class
 specifier|public
 class|class
@@ -752,77 +734,7 @@ name|exists
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|VersionUtil
-operator|.
-name|isSnapshot
-argument_list|(
-name|version
-argument_list|)
-condition|)
-comment|// skygo trying to improve speed by honoring managed configuration MRM-1658
-block|{
-if|if
-condition|(
-name|managedRepository
-operator|.
-name|isReleases
-argument_list|()
-operator|&&
-operator|!
-name|managedRepository
-operator|.
-name|isSnapshots
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|UnresolvableModelException
-argument_list|(
-literal|"lookforsnaponreleaseonly"
-argument_list|,
-name|groupId
-argument_list|,
-name|artifactId
-argument_list|,
-name|version
-argument_list|)
-throw|;
-block|}
-block|}
-else|else
-block|{
-if|if
-condition|(
-operator|!
-name|managedRepository
-operator|.
-name|isReleases
-argument_list|()
-operator|&&
-name|managedRepository
-operator|.
-name|isSnapshots
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|UnresolvableModelException
-argument_list|(
-literal|"lookforsreleaseonsneponly"
-argument_list|,
-name|groupId
-argument_list|,
-name|artifactId
-argument_list|,
-name|version
-argument_list|)
-throw|;
-block|}
-block|}
+comment|/**              *               */
 comment|// is a SNAPSHOT ? so we can try to find locally before asking remote repositories.
 if|if
 condition|(
@@ -911,21 +823,17 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Model '"
-operator|+
+literal|"Model '{}' successfully retrieved from remote repository '{}'"
+argument_list|,
 name|model
 operator|.
 name|getAbsolutePath
 argument_list|()
-operator|+
-literal|"' successfully retrieved from remote repository '"
-operator|+
+argument_list|,
 name|remoteRepository
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"'"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -941,26 +849,27 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"An exception was caught while attempting to retrieve model '"
-operator|+
+literal|"An exception was caught while attempting to retrieve model '{}' from remote repository '{}'.Reason:{}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|model
 operator|.
 name|getAbsolutePath
 argument_list|()
-operator|+
-literal|"' from remote repository '"
-operator|+
+block|,
 name|remoteRepository
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"'.Reason:"
-operator|+
+block|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -974,26 +883,27 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"An exception was caught while attempting to retrieve model '"
-operator|+
+literal|"An exception was caught while attempting to retrieve model '{}' from remote repository '{}'.Reason:{}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|model
 operator|.
 name|getAbsolutePath
 argument_list|()
-operator|+
-literal|"' from remote repository '"
-operator|+
+block|,
 name|remoteRepository
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"'."
-argument_list|,
+block|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -1611,8 +1521,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"New artifactPath : "
-operator|+
+literal|"New artifactPath :{}"
+argument_list|,
 name|artifactPath
 argument_list|)
 expr_stmt|;
@@ -1622,12 +1532,10 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Retrieving "
-operator|+
+literal|"Retrieving {} from {}"
+argument_list|,
 name|artifactPath
-operator|+
-literal|" from "
-operator|+
+argument_list|,
 name|remoteRepository
 operator|.
 name|getName
@@ -2149,15 +2057,13 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Could not connect to "
-operator|+
+literal|"Could not connect to {}:{} "
+argument_list|,
 name|remoteRepository
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|": "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -2179,15 +2085,13 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Could not connect to "
-operator|+
+literal|"Could not connect to {}:{} "
+argument_list|,
 name|remoteRepository
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|": "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -2252,12 +2156,10 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Retrieving "
-operator|+
+literal|"Retrieving {} from {}"
+argument_list|,
 name|remotePath
-operator|+
-literal|" from "
-operator|+
+argument_list|,
 name|remoteRepository
 operator|.
 name|getName
@@ -2443,21 +2345,17 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Tried to copy file "
-operator|+
+literal|"Tried to copy file {} to {} but file with this name already exists."
+argument_list|,
 name|fileToMove
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" to "
-operator|+
+argument_list|,
 name|newLocation
 operator|.
 name|getAbsolutePath
 argument_list|()
-operator|+
-literal|" but file with this name already exists."
 argument_list|)
 expr_stmt|;
 block|}

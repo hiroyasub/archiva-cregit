@@ -227,7 +227,7 @@ argument_list|>
 name|toProperties
 parameter_list|()
 block|{
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
