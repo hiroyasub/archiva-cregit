@@ -815,11 +815,15 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Missing or invalid POM for artifact: "
+literal|"Missing or invalid POM for artifact:"
 operator|+
 name|path
 operator|+
-literal|"; creating empty metadata"
+literal|" ("
+operator|+
+name|repoId
+operator|+
+literal|"); creating empty metadata"
 argument_list|)
 expr_stmt|;
 name|versionMetadata
@@ -857,11 +861,15 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Error occurred resolving POM for artifact: "
+literal|"Error occurred resolving POM for artifact:"
 operator|+
 name|path
 operator|+
-literal|"; message: "
+literal|"("
+operator|+
+name|repoId
+operator|+
+literal|"); message: "
 operator|+
 name|e
 operator|.
@@ -953,7 +961,11 @@ literal|"Error occurred persisting metadata for artifact: "
 operator|+
 name|path
 operator|+
-literal|"; message: "
+literal|"("
+operator|+
+name|repoId
+operator|+
+literal|"); message: "
 operator|+
 name|e
 operator|.
@@ -983,7 +995,11 @@ literal|"Error occurred persisting metadata for artifact: "
 operator|+
 name|path
 operator|+
-literal|"; message: "
+literal|"("
+operator|+
+name|repoId
+operator|+
+literal|"); message: "
 operator|+
 name|e
 operator|.
