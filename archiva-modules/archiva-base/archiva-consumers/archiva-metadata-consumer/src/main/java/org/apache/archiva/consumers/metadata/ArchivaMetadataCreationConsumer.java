@@ -815,15 +815,11 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Missing or invalid POM for artifact:"
-operator|+
+literal|"Missing or invalid POM for artifact:{} (repository:{}); creating empty metadata"
+argument_list|,
 name|path
-operator|+
-literal|" ("
-operator|+
+argument_list|,
 name|repoId
-operator|+
-literal|"); creating empty metadata"
 argument_list|)
 expr_stmt|;
 name|versionMetadata
@@ -861,20 +857,21 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Error occurred resolving POM for artifact:"
-operator|+
+literal|"Error occurred resolving POM for artifact:{} (repository:{}); message: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|path
-operator|+
-literal|"("
-operator|+
+block|,
 name|repoId
-operator|+
-literal|"); message: "
-operator|+
+block|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -957,20 +954,26 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Error occurred persisting metadata for artifact: "
-operator|+
-name|path
-operator|+
-literal|"("
-operator|+
-name|repoId
-operator|+
-literal|"); message: "
+literal|"Error occurred persisting metadata for artifact:{} (repository:{}); message: {}"
 operator|+
 name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|path
+block|,
+name|repoId
+block|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+block|}
 argument_list|,
 name|e
 argument_list|)
@@ -991,20 +994,26 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Error occurred persisting metadata for artifact: "
-operator|+
-name|path
-operator|+
-literal|"("
-operator|+
-name|repoId
-operator|+
-literal|"); message: "
+literal|"Error occurred persisting metadata for artifact:{} (repository:{}); message: {}"
 operator|+
 name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|path
+block|,
+name|repoId
+block|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+block|}
 argument_list|,
 name|e
 argument_list|)
