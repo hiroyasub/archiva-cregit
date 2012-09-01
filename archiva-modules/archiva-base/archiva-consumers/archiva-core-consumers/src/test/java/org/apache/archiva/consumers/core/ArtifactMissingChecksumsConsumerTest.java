@@ -15,6 +15,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Calendar
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -65,11 +85,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|archiva
 operator|.
-name|io
+name|consumers
 operator|.
-name|FileUtils
+name|KnownRepositoryContentConsumer
 import|;
 end_import
 
@@ -79,11 +99,23 @@ name|org
 operator|.
 name|apache
 operator|.
-name|archiva
+name|commons
 operator|.
-name|consumers
+name|io
 operator|.
-name|KnownRepositoryContentConsumer
+name|FileUtils
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|*
 import|;
 end_import
 
@@ -104,26 +136,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Calendar
 import|;
 end_import
 

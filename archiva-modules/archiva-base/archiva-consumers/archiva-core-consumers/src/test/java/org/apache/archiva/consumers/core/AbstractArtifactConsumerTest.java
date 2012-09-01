@@ -19,16 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -172,6 +162,18 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -265,6 +267,20 @@ name|ArchivaSpringJUnit4ClassRunner
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
+import|;
+end_import
+
 begin_class
 annotation|@
 name|RunWith
@@ -288,8 +304,6 @@ specifier|public
 specifier|abstract
 class|class
 name|AbstractArtifactConsumerTest
-extends|extends
-name|TestCase
 block|{
 specifier|private
 name|File
@@ -318,8 +332,6 @@ name|plexusSisuBridge
 decl_stmt|;
 annotation|@
 name|Before
-annotation|@
-name|Override
 specifier|public
 name|void
 name|setUp
@@ -327,11 +339,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 name|FileType
 name|fileType
 init|=
@@ -389,8 +396,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|After
-annotation|@
-name|Override
 specifier|public
 name|void
 name|tearDown
@@ -542,6 +547,26 @@ name|consumer
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|StringUtils
+operator|.
+name|substringAfterLast
+argument_list|(
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+literal|"."
+argument_list|)
+return|;
 block|}
 block|}
 end_class
