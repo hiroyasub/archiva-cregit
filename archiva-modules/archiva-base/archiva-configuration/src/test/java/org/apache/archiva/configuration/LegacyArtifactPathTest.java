@@ -17,16 +17,6 @@ end_comment
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -38,6 +28,18 @@ operator|.
 name|utils
 operator|.
 name|ArchivaBlockJUnit4ClassRunner
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|*
 import|;
 end_import
 
@@ -78,8 +80,6 @@ argument_list|)
 specifier|public
 class|class
 name|LegacyArtifactPathTest
-extends|extends
-name|TestCase
 block|{
 specifier|private
 name|LegacyArtifactPath

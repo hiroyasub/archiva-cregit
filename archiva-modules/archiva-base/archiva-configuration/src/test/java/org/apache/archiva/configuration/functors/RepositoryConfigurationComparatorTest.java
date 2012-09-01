@@ -19,11 +19,11 @@ end_comment
 
 begin_import
 import|import
-name|junit
+name|java
 operator|.
-name|framework
+name|util
 operator|.
-name|TestCase
+name|Comparator
 import|;
 end_import
 
@@ -57,16 +57,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Comparator
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -78,6 +68,18 @@ operator|.
 name|utils
 operator|.
 name|ArchivaBlockJUnit4ClassRunner
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|*
 import|;
 end_import
 
@@ -118,8 +120,6 @@ argument_list|)
 specifier|public
 class|class
 name|RepositoryConfigurationComparatorTest
-extends|extends
-name|TestCase
 block|{
 annotation|@
 name|Test
