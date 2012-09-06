@@ -329,7 +329,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-comment|/**      * used for deleting timestamped version of SNAPSHOT artifacts      * @param artifactMetadata the artifactMetadata with the timestamped version (2.0-20120618.214135-2)      * @param baseVersion      the base version of the snapshot (2.0-SNAPSHOT)      * @throws MetadataRepositoryException      * @since 1.4-M3      */
+comment|/**      * used for deleting timestamped version of SNAPSHOT artifacts      *      * @param artifactMetadata the artifactMetadata with the timestamped version (2.0-20120618.214135-2)      * @param baseVersion      the base version of the snapshot (2.0-SNAPSHOT)      * @throws MetadataRepositoryException      * @since 1.4-M3      */
 name|void
 name|removeArtifact
 parameter_list|(
@@ -370,6 +370,19 @@ name|removeRepository
 parameter_list|(
 name|String
 name|repositoryId
+parameter_list|)
+throws|throws
+name|MetadataRepositoryException
+function_decl|;
+comment|/**      *      * @param repositoryId      * @param project      * @since 1.4-M3      * @throws MetadataRepositoryException      */
+name|void
+name|removeNamespace
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|,
+name|String
+name|project
 parameter_list|)
 throws|throws
 name|MetadataRepositoryException
