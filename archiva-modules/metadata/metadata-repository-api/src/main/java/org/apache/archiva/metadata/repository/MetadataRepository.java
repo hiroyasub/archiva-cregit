@@ -374,7 +374,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-comment|/**      *      * @param repositoryId      * @param project      * @since 1.4-M3      * @throws MetadataRepositoryException      */
+comment|/**      *      * @param repositoryId      * @param namespace (groupId for maven )      * @since 1.4-M3      * @throws MetadataRepositoryException      */
 name|void
 name|removeNamespace
 parameter_list|(
@@ -382,7 +382,7 @@ name|String
 name|repositoryId
 parameter_list|,
 name|String
-name|project
+name|namespace
 parameter_list|)
 throws|throws
 name|MetadataRepositoryException
