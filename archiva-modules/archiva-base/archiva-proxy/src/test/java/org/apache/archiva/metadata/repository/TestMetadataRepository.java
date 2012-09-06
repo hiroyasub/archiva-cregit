@@ -723,6 +723,20 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+specifier|public
+name|void
+name|removeNamespace
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|,
+name|String
+name|namespace
+parameter_list|)
+throws|throws
+name|MetadataRepositoryException
+block|{
+block|}
 block|}
 end_class
 

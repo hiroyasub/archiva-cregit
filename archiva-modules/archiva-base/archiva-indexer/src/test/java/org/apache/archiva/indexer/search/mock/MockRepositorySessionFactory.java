@@ -877,6 +877,20 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+specifier|public
+name|void
+name|removeNamespace
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|,
+name|String
+name|namespace
+parameter_list|)
+throws|throws
+name|MetadataRepositoryException
+block|{
+block|}
 block|}
 return|;
 block|}
