@@ -17,20 +17,6 @@ end_comment
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -619,27 +605,12 @@ name|e
 parameter_list|)
 block|{
 comment|// swallow.
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
 literal|"Not authorizing '{}' for repository '{}': {}"
 argument_list|,
-name|Lists
-operator|.
-expr|<
-name|Object
-operator|>
-name|newArrayList
-argument_list|(
 name|principal
 argument_list|,
 name|repo
@@ -652,9 +623,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|)
-argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return

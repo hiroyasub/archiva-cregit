@@ -703,16 +703,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collection
 import|;
 end_import
@@ -4047,10 +4037,6 @@ name|debug
 argument_list|(
 literal|"artifact: {}:{}:{}:{}:{} not found"
 argument_list|,
-name|Arrays
-operator|.
-name|asList
-argument_list|(
 name|groupId
 argument_list|,
 name|artifactId
@@ -4060,16 +4046,6 @@ argument_list|,
 name|classifier
 argument_list|,
 name|type
-argument_list|)
-operator|.
-name|toArray
-argument_list|(
-operator|new
-name|String
-index|[
-literal|5
-index|]
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// 404 ?

@@ -1305,8 +1305,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"artifactError "
-operator|+
+literal|"artifactError {}"
+argument_list|,
 name|ac
 operator|.
 name|getArtifact
@@ -1331,7 +1331,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"artifactDiscovered {}:"
+literal|"artifactDiscovered {}:{}"
 argument_list|,
 name|ac
 operator|.
