@@ -337,6 +337,20 @@ name|*
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|test
+operator|.
+name|annotation
+operator|.
+name|DirtiesContext
+import|;
+end_import
+
 begin_class
 annotation|@
 name|SuppressWarnings
@@ -362,6 +376,17 @@ literal|"classpath*:/META-INF/spring-context.xml"
 block|,
 literal|"classpath:/spring-context.xml"
 block|}
+argument_list|)
+annotation|@
+name|DirtiesContext
+argument_list|(
+name|classMode
+operator|=
+name|DirtiesContext
+operator|.
+name|ClassMode
+operator|.
+name|AFTER_EACH_TEST_METHOD
 argument_list|)
 specifier|public
 class|class
@@ -469,6 +494,8 @@ name|applicationContext
 decl_stmt|;
 annotation|@
 name|Before
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setUp
