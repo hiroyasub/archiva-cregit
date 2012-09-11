@@ -360,6 +360,13 @@ argument_list|(
 literal|"0 0 * * * ?"
 argument_list|)
 expr_stmt|;
+name|repo
+operator|.
+name|setDescription
+argument_list|(
+literal|"cool repo"
+argument_list|)
+expr_stmt|;
 name|managedRepositoryAdmin
 operator|.
 name|addManagedRepository
@@ -396,14 +403,39 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertNotNull
-argument_list|(
+name|ManagedRepository
+name|managedRepository
+init|=
 name|managedRepositoryAdmin
 operator|.
 name|getManagedRepository
 argument_list|(
 name|repoId
 argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|managedRepository
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"test repo"
+argument_list|,
+name|managedRepository
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"cool repo"
+argument_list|,
+name|managedRepository
+operator|.
+name|getDescription
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTemplateRoleExists
@@ -622,6 +654,18 @@ argument_list|(
 name|newName
 argument_list|)
 expr_stmt|;
+name|String
+name|description
+init|=
+literal|"so great repository"
+decl_stmt|;
+name|repo
+operator|.
+name|setDescription
+argument_list|(
+name|description
+argument_list|)
+expr_stmt|;
 name|repo
 operator|.
 name|setLocation
@@ -707,6 +751,16 @@ name|repoLocation
 argument_list|)
 operator|.
 name|exists
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|description
+argument_list|,
+name|repo
+operator|.
+name|getDescription
 argument_list|()
 argument_list|)
 expr_stmt|;
