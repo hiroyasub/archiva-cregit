@@ -453,6 +453,18 @@ name|TimeZone
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Pattern
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -1103,6 +1115,7 @@ name|exists
 argument_list|()
 condition|)
 block|{
+comment|//Pattern quote for windows path
 name|String
 name|relativePathToVersionMetadataFile
 init|=
@@ -1113,7 +1126,12 @@ argument_list|()
 operator|.
 name|split
 argument_list|(
+name|Pattern
+operator|.
+name|quote
+argument_list|(
 name|sourceRepoPath
+argument_list|)
 argument_list|)
 index|[
 literal|1
@@ -1205,7 +1223,12 @@ argument_list|()
 operator|.
 name|split
 argument_list|(
+name|Pattern
+operator|.
+name|quote
+argument_list|(
 name|sourceRepoPath
+argument_list|)
 argument_list|)
 index|[
 literal|1
