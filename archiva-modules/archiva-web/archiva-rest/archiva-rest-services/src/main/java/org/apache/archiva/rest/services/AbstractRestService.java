@@ -1047,6 +1047,8 @@ argument_list|(
 literal|"/repository"
 argument_list|)
 expr_stmt|;
+comment|// FIXME when artifact come from a remote repository when have here the remote repo id
+comment|// we must replace it with a valid managed one available for the user.
 name|sb
 operator|.
 name|append
