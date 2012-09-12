@@ -345,6 +345,20 @@ name|getTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+name|getRemoteRepository
+argument_list|()
+operator|.
+name|getDescription
+argument_list|()
+argument_list|,
+name|repo
+operator|.
+name|getDescription
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|remoteRepositoryAdmin
 operator|.
 name|deleteRemoteRepository
@@ -673,6 +687,13 @@ argument_list|(
 literal|"toto"
 argument_list|)
 expr_stmt|;
+name|repo
+operator|.
+name|setDescription
+argument_list|(
+literal|"archiva rocks!"
+argument_list|)
+expr_stmt|;
 name|remoteRepositoryAdmin
 operator|.
 name|updateRemoteRepository
@@ -729,6 +750,16 @@ argument_list|,
 name|repo
 operator|.
 name|getRemoteDownloadNetworkProxyId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"archiva rocks!"
+argument_list|,
+name|repo
+operator|.
+name|getDescription
 argument_list|()
 argument_list|)
 expr_stmt|;

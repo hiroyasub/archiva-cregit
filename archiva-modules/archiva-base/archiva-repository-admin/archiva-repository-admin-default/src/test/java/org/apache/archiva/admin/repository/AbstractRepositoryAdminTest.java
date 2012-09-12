@@ -747,6 +747,13 @@ argument_list|(
 literal|"foo"
 argument_list|)
 expr_stmt|;
+name|remoteRepository
+operator|.
+name|setDescription
+argument_list|(
+literal|"cool apache repo"
+argument_list|)
+expr_stmt|;
 return|return
 name|remoteRepository
 return|;
