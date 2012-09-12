@@ -1231,16 +1231,7 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|context
-operator|.
-name|getIndexWriter
-argument_list|()
-operator|.
-name|close
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
+comment|//context.getIndexWriter().close( true );
 comment|// wait for io flush ....
 comment|//Thread.sleep( 2000 );
 name|context

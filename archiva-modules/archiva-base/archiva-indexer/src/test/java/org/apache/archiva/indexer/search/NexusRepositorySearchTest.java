@@ -716,9 +716,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"total hints not 1"
+literal|"total hints not 3"
 argument_list|,
-literal|1
+literal|3
 argument_list|,
 name|results
 operator|.
@@ -1032,7 +1032,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
+literal|2
 argument_list|,
 name|results
 operator|.
