@@ -680,6 +680,13 @@ argument_list|(
 literal|"0 0 * * * ?"
 argument_list|)
 expr_stmt|;
+name|repo
+operator|.
+name|setSkipPackedIndexCreation
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|managedRepositoryAdmin
 operator|.
 name|updateManagedRepository
@@ -761,6 +768,14 @@ argument_list|,
 name|repo
 operator|.
 name|getDescription
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|repo
+operator|.
+name|isSkipPackedIndexCreation
 argument_list|()
 argument_list|)
 expr_stmt|;

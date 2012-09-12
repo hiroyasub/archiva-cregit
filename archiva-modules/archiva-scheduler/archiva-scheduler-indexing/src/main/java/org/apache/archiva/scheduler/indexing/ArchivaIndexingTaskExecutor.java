@@ -1270,6 +1270,14 @@ operator|.
 name|optimize
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|repository
+operator|.
+name|isSkipPackedIndexCreation
+argument_list|()
+condition|)
+block|{
 name|File
 name|managedRepository
 init|=
@@ -1352,6 +1360,17 @@ name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"skip packed index creation"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(

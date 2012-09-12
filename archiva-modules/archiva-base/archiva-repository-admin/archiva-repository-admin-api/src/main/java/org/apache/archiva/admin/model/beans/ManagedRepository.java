@@ -129,6 +129,11 @@ specifier|private
 name|boolean
 name|resetStats
 decl_stmt|;
+comment|/**      * @since 1.4-M3      */
+specifier|private
+name|boolean
+name|skipPackedIndexCreation
+decl_stmt|;
 specifier|public
 name|ManagedRepository
 parameter_list|()
@@ -259,7 +264,7 @@ operator|=
 name|stageRepoNeeded
 expr_stmt|;
 block|}
-comment|/**      *      * @since 1.4-M3      */
+comment|/**      * @since 1.4-M3      */
 specifier|public
 name|ManagedRepository
 parameter_list|(
@@ -307,6 +312,9 @@ name|stageRepoNeeded
 parameter_list|,
 name|String
 name|description
+parameter_list|,
+name|boolean
+name|skipPackedIndexCreation
 parameter_list|)
 block|{
 name|this
@@ -343,6 +351,11 @@ expr_stmt|;
 name|setDescription
 argument_list|(
 name|description
+argument_list|)
+expr_stmt|;
+name|setSkipPackedIndexCreation
+argument_list|(
+name|skipPackedIndexCreation
 argument_list|)
 expr_stmt|;
 block|}
@@ -641,6 +654,30 @@ operator|=
 name|resetStats
 expr_stmt|;
 block|}
+specifier|public
+name|boolean
+name|isSkipPackedIndexCreation
+parameter_list|()
+block|{
+return|return
+name|skipPackedIndexCreation
+return|;
+block|}
+specifier|public
+name|void
+name|setSkipPackedIndexCreation
+parameter_list|(
+name|boolean
+name|skipPackedIndexCreation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|skipPackedIndexCreation
+operator|=
+name|skipPackedIndexCreation
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -825,6 +862,18 @@ operator|.
 name|append
 argument_list|(
 name|resetStats
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", skipPackedIndexCreation="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|skipPackedIndexCreation
 argument_list|)
 expr_stmt|;
 name|sb
