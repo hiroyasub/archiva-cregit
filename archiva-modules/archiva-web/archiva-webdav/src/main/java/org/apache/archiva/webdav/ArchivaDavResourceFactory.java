@@ -1295,7 +1295,7 @@ specifier|private
 specifier|static
 specifier|final
 name|MavenXpp3Reader
-name|mavenXpp3Reader
+name|MAVEN_XPP_3_READER
 init|=
 operator|new
 name|MavenXpp3Reader
@@ -3954,7 +3954,7 @@ try|try
 block|{
 name|model
 operator|=
-name|mavenXpp3Reader
+name|MAVEN_XPP_3_READER
 operator|.
 name|read
 argument_list|(
