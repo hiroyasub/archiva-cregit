@@ -69,6 +69,24 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|redback
+operator|.
+name|components
+operator|.
+name|taskqueue
+operator|.
+name|TaskQueueException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|scheduler
 operator|.
 name|ArchivaTaskScheduler
@@ -512,24 +530,6 @@ operator|.
 name|property
 operator|.
 name|ResourceType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|redback
-operator|.
-name|components
-operator|.
-name|taskqueue
-operator|.
-name|TaskQueueException
 import|;
 end_import
 
@@ -1566,25 +1566,17 @@ argument_list|(
 name|localFile
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"File '"
-operator|+
+literal|"File '{}{}(current user '{}')"
+argument_list|,
 name|resource
 operator|.
 name|getDisplayName
 argument_list|()
-operator|+
+argument_list|,
 operator|(
 name|exists
 condition|?
@@ -1592,17 +1584,12 @@ literal|"' modified "
 else|:
 literal|"' created "
 operator|)
-operator|+
-literal|"(current user '"
-operator|+
+argument_list|,
 name|this
 operator|.
 name|principal
-operator|+
-literal|"')"
 argument_list|)
 expr_stmt|;
-block|}
 name|triggerAuditEvent
 argument_list|(
 name|resource
@@ -1940,18 +1927,12 @@ name|REMOVE_FILE
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
+literal|"{}{}' removed (current user '{}')"
+argument_list|,
 operator|(
 name|resource
 operator|.
@@ -1962,22 +1943,17 @@ literal|"Directory '"
 else|:
 literal|"File '"
 operator|)
-operator|+
+argument_list|,
 name|member
 operator|.
 name|getDisplayName
 argument_list|()
-operator|+
-literal|"' removed (current user '"
-operator|+
+argument_list|,
 name|this
 operator|.
 name|principal
-operator|+
-literal|"')"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -2195,18 +2171,12 @@ name|MOVE_FILE
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
+literal|"{}{}' moved to '{}' (current user '{}')"
+argument_list|,
 operator|(
 name|isCollection
 argument_list|()
@@ -2215,27 +2185,20 @@ literal|"Directory '"
 else|:
 literal|"File '"
 operator|)
-operator|+
+argument_list|,
 name|getLocalResource
 argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|"' moved to '"
-operator|+
+argument_list|,
 name|destination
-operator|+
-literal|"' (current user '"
-operator|+
+argument_list|,
 name|this
 operator|.
 name|principal
-operator|+
-literal|"')"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -2386,18 +2349,12 @@ name|COPY_FILE
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
+literal|"{}{}' copied to '{}' (current user '{)')"
+argument_list|,
 operator|(
 name|isCollection
 argument_list|()
@@ -2406,27 +2363,20 @@ literal|"Directory '"
 else|:
 literal|"File '"
 operator|)
-operator|+
+argument_list|,
 name|getLocalResource
 argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|"' copied to '"
-operator|+
+argument_list|,
 name|destination
-operator|+
-literal|"' (current user '"
-operator|+
+argument_list|,
 name|this
 operator|.
 name|principal
-operator|+
-literal|"')"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
