@@ -374,12 +374,6 @@ block|{
 annotation|@
 name|Inject
 specifier|private
-name|ManagedRepositoryAdmin
-name|managedRepositoryAdmin
-decl_stmt|;
-annotation|@
-name|Inject
-specifier|private
 name|RepositoryCommonValidator
 name|repositoryCommonValidator
 decl_stmt|;
