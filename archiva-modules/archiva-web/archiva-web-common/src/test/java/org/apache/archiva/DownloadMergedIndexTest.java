@@ -435,7 +435,7 @@ name|getSpringConfigLocation
 parameter_list|()
 block|{
 return|return
-literal|"classpath*:META-INF/spring-context.xml classpath*:spring-context-merge-index-download.xml"
+literal|"classpath*:META-INF/spring-context.xml classpath*:spring-context-test-common.xml classpath*:spring-context-merge-index-download.xml"
 return|;
 block|}
 annotation|@
