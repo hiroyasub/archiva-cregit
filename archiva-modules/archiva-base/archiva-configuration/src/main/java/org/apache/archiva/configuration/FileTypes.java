@@ -302,7 +302,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FileTypes  *  *  */
+comment|/**  * FileTypes  */
 end_comment
 
 begin_class
@@ -453,6 +453,21 @@ argument_list|(
 name|id
 argument_list|)
 decl_stmt|;
+name|RepositoryScanningConfiguration
+name|repositoryScanningConfiguration
+init|=
+name|config
+operator|.
+name|getRepositoryScanning
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|repositoryScanningConfiguration
+operator|!=
+literal|null
+condition|)
+block|{
 name|FileType
 name|filetype
 init|=
@@ -499,6 +514,7 @@ operator|.
 name|getPatterns
 argument_list|()
 return|;
+block|}
 block|}
 name|List
 argument_list|<
