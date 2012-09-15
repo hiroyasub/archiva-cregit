@@ -1021,10 +1021,8 @@ name|contents
 argument_list|,
 name|Charset
 operator|.
-name|forName
-argument_list|(
-literal|"UTF-8"
-argument_list|)
+name|defaultCharset
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

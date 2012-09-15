@@ -1295,10 +1295,8 @@ name|downloadedFile
 argument_list|,
 name|Charset
 operator|.
-name|forName
-argument_list|(
-literal|"UTF-8"
-argument_list|)
+name|defaultCharset
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|String
@@ -1312,10 +1310,8 @@ name|proxied2File
 argument_list|,
 name|Charset
 operator|.
-name|forName
-argument_list|(
-literal|"UTF-8"
-argument_list|)
+name|defaultCharset
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertFalse

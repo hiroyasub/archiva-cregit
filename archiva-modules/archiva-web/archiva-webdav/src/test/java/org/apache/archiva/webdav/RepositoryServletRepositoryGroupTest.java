@@ -652,10 +652,8 @@ literal|"first"
 argument_list|,
 name|Charset
 operator|.
-name|forName
-argument_list|(
-literal|"UTF-8"
-argument_list|)
+name|defaultCharset
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|WebRequest
@@ -746,10 +744,8 @@ literal|"last"
 argument_list|,
 name|Charset
 operator|.
-name|forName
-argument_list|(
-literal|"UTF-8"
-argument_list|)
+name|defaultCharset
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|WebRequest
@@ -1008,10 +1004,8 @@ literal|"<version>2.5</version>\n</versions>\n<lastUpdated>20080708095554</lastU
 argument_list|,
 name|Charset
 operator|.
-name|forName
-argument_list|(
-literal|"UTF-8"
-argument_list|)
+name|defaultCharset
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//second metadata file
@@ -1055,10 +1049,8 @@ literal|"</versioning></metadata>"
 argument_list|,
 name|Charset
 operator|.
-name|forName
-argument_list|(
-literal|"UTF-8"
-argument_list|)
+name|defaultCharset
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|WebRequest
@@ -1230,10 +1222,8 @@ literal|"3290853214d3687134"
 argument_list|,
 name|Charset
 operator|.
-name|forName
-argument_list|(
-literal|"UTF-8"
-argument_list|)
+name|defaultCharset
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|File
@@ -1267,10 +1257,8 @@ literal|"98745897234eda12836423"
 argument_list|,
 name|Charset
 operator|.
-name|forName
-argument_list|(
-literal|"UTF-8"
-argument_list|)
+name|defaultCharset
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// request the sha1 checksum of the metadata
@@ -1401,10 +1389,8 @@ literal|"first"
 argument_list|,
 name|Charset
 operator|.
-name|forName
-argument_list|(
-literal|"UTF-8"
-argument_list|)
+name|defaultCharset
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|resourceName
@@ -1440,10 +1426,8 @@ literal|"last"
 argument_list|,
 name|Charset
 operator|.
-name|forName
-argument_list|(
-literal|"UTF-8"
-argument_list|)
+name|defaultCharset
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|WebRequest
