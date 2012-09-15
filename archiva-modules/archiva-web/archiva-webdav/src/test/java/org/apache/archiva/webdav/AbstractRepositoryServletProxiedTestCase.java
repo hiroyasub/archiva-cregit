@@ -269,6 +269,18 @@ name|File
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|Charset
+import|;
+end_import
+
 begin_comment
 comment|/**  * AbstractRepositoryServletProxiedTestCase  *  *  */
 end_comment
@@ -1007,7 +1019,12 @@ name|destFile
 argument_list|,
 name|contents
 argument_list|,
-literal|null
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

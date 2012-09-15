@@ -21,34 +21,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
-operator|.
-name|io
-operator|.
-name|FileUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|archiva
 operator|.
 name|model
@@ -119,6 +91,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|FileUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|wagon
@@ -148,6 +148,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|Charset
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -160,7 +172,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ManagedDefaultTransferTest  *  *  */
+comment|/**  * ManagedDefaultTransferTest  */
 end_comment
 
 begin_class
@@ -1281,7 +1293,12 @@ name|readFileToString
 argument_list|(
 name|downloadedFile
 argument_list|,
-literal|null
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|String
@@ -1293,7 +1310,12 @@ name|readFileToString
 argument_list|(
 name|proxied2File
 argument_list|,
-literal|null
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertFalse

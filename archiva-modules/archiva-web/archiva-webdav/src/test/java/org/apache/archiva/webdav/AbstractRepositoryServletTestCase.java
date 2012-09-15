@@ -177,6 +177,22 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|test
+operator|.
+name|utils
+operator|.
+name|ArchivaSpringJUnit4ClassRunner
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|webdav
 operator|.
 name|util
@@ -321,22 +337,18 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|nio
 operator|.
-name|archiva
+name|charset
 operator|.
-name|test
-operator|.
-name|utils
-operator|.
-name|ArchivaSpringJUnit4ClassRunner
+name|Charset
 import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractRepositoryServletTestCase  *  *  */
+comment|/**  * AbstractRepositoryServletTestCase  */
 end_comment
 
 begin_class
@@ -840,7 +852,12 @@ name|readFileToString
 argument_list|(
 name|actualFile
 argument_list|,
-literal|null
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1391,7 +1408,12 @@ name|destFile
 argument_list|,
 name|contents
 argument_list|,
-literal|null
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

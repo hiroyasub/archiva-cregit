@@ -49,11 +49,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|archiva
 operator|.
-name|io
+name|common
 operator|.
-name|FileUtils
+name|utils
+operator|.
+name|FileUtil
 import|;
 end_import
 
@@ -65,11 +67,25 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|common
+name|test
 operator|.
 name|utils
 operator|.
-name|FileUtil
+name|ArchivaSpringJUnit4ClassRunner
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|FileUtils
 import|;
 end_import
 
@@ -297,6 +313,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|Charset
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|text
 operator|.
 name|SimpleDateFormat
@@ -355,24 +383,8 @@ name|Matcher
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|test
-operator|.
-name|utils
-operator|.
-name|ArchivaSpringJUnit4ClassRunner
-import|;
-end_import
-
 begin_comment
-comment|/**  * LegacyToDefaultConverterTest  *  *  */
+comment|/**  * LegacyToDefaultConverterTest  */
 end_comment
 
 begin_class
@@ -5640,7 +5652,12 @@ name|readFileToString
 argument_list|(
 name|expectedPomFile
 argument_list|,
-literal|null
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -5663,7 +5680,12 @@ name|readFileToString
 argument_list|(
 name|pomFile
 argument_list|,
-literal|null
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;

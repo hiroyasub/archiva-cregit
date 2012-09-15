@@ -435,6 +435,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|Charset
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -1126,7 +1138,12 @@ name|readFileToString
 argument_list|(
 name|sourceFile
 argument_list|,
-literal|null
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|String
@@ -1138,7 +1155,12 @@ name|readFileToString
 argument_list|(
 name|downloadedFile
 argument_list|,
-literal|null
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertEquals

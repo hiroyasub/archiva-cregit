@@ -365,6 +365,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|Charset
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -414,7 +426,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MetadataToolsTest  *  *  */
+comment|/**  * MetadataToolsTest  */
 end_comment
 
 begin_class
@@ -1728,7 +1740,12 @@ name|readFileToString
 argument_list|(
 name|metadataFile
 argument_list|,
-literal|null
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|DetailedDiff
@@ -1815,7 +1832,12 @@ name|readFileToString
 argument_list|(
 name|metadataFile
 argument_list|,
-literal|null
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|DetailedDiff

@@ -33,11 +33,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|archiva
 operator|.
-name|io
+name|model
 operator|.
-name|FileUtils
+name|ArchivaRepositoryMetadata
 import|;
 end_import
 
@@ -49,9 +49,25 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|model
+name|test
 operator|.
-name|ArchivaRepositoryMetadata
+name|utils
+operator|.
+name|ArchivaBlockJUnit4ClassRunner
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|FileUtils
 import|;
 end_import
 
@@ -111,22 +127,18 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|nio
 operator|.
-name|archiva
+name|charset
 operator|.
-name|test
-operator|.
-name|utils
-operator|.
-name|ArchivaBlockJUnit4ClassRunner
+name|Charset
 import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryMetadataWriterTest   *  *  */
+comment|/**  * RepositoryMetadataWriterTest  */
 end_comment
 
 begin_class
@@ -181,7 +193,12 @@ name|readFileToString
 argument_list|(
 name|expectedFile
 argument_list|,
-literal|null
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|ArchivaRepositoryMetadata

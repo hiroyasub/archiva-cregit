@@ -257,6 +257,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|test
+operator|.
+name|utils
+operator|.
+name|ArchivaSpringJUnit4ClassRunner
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|io
@@ -475,6 +491,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|Charset
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|text
 operator|.
 name|ParseException
@@ -542,22 +570,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|test
-operator|.
-name|utils
-operator|.
-name|ArchivaSpringJUnit4ClassRunner
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -570,7 +582,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractProxyTestCase  *  *  */
+comment|/**  * AbstractProxyTestCase  */
 end_comment
 
 begin_class
@@ -1724,7 +1736,12 @@ name|readFileToString
 argument_list|(
 name|sourceFile
 argument_list|,
-literal|null
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|String
@@ -1744,7 +1761,12 @@ name|readFileToString
 argument_list|(
 name|actualFile
 argument_list|,
-literal|null
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertEquals
