@@ -2059,7 +2059,6 @@ argument_list|(
 name|TEST_SNAPSHOT_VERSION
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 name|String
 name|result
 init|=
@@ -2470,6 +2469,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|setObservableRepos
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|TEST_REPO
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|ProjectVersionMetadata
 name|versionMetadata
 init|=
