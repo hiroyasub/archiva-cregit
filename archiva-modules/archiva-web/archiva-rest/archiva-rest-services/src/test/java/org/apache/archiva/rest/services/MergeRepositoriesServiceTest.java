@@ -374,6 +374,10 @@ operator|.
 name|getMergeConflictedArtifacts
 argument_list|(
 name|testRepoId
+operator|+
+literal|"-stage"
+argument_list|,
+name|testRepoId
 argument_list|)
 decl_stmt|;
 name|log
