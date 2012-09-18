@@ -821,18 +821,14 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Not processing path that is not an artifact: "
-operator|+
+literal|"Not processing path that is not an artifact: {} ({})"
+argument_list|,
 name|path
-operator|+
-literal|" ("
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 block|}
