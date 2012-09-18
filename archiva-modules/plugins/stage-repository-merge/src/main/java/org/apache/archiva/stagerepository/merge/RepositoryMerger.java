@@ -95,7 +95,7 @@ name|String
 name|targetRepoId
 parameter_list|)
 throws|throws
-name|Exception
+name|RepositoryMergerException
 function_decl|;
 name|void
 name|merge
@@ -116,7 +116,7 @@ argument_list|>
 name|filter
 parameter_list|)
 throws|throws
-name|Exception
+name|RepositoryMergerException
 function_decl|;
 name|List
 argument_list|<
@@ -134,7 +134,7 @@ name|String
 name|targetRepo
 parameter_list|)
 throws|throws
-name|Exception
+name|RepositoryMergerException
 function_decl|;
 block|}
 end_interface
