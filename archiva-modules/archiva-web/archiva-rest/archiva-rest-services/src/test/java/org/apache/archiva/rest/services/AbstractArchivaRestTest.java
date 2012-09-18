@@ -720,7 +720,10 @@ block|}
 specifier|protected
 name|MergeRepositoriesService
 name|getMergeRepositoriesService
-parameter_list|()
+parameter_list|(
+name|String
+name|authzHeader
+parameter_list|)
 block|{
 name|MergeRepositoriesService
 name|service
@@ -755,7 +758,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|authorizationHeader
+name|authzHeader
 operator|!=
 literal|null
 condition|)
@@ -771,7 +774,7 @@ name|header
 argument_list|(
 literal|"Authorization"
 argument_list|,
-name|authorizationHeader
+name|authzHeader
 argument_list|)
 expr_stmt|;
 block|}
@@ -2701,6 +2704,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+try|try
+block|{
 if|if
 condition|(
 name|getManagedRepositoriesService
@@ -2726,6 +2731,25 @@ argument_list|(
 name|id
 argument_list|,
 literal|false
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"skip error deleting repo {}"
+argument_list|,
+name|id
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
