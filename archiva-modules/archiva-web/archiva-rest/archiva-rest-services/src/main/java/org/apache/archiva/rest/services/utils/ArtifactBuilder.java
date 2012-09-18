@@ -160,7 +160,7 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|ArtifactDownloadInfoBuilder
+name|ArtifactBuilder
 block|{
 specifier|private
 name|ManagedRepositoryContent
@@ -171,13 +171,13 @@ name|ArtifactMetadata
 name|artifactMetadata
 decl_stmt|;
 specifier|public
-name|ArtifactDownloadInfoBuilder
+name|ArtifactBuilder
 parameter_list|()
 block|{
 comment|// no op
 block|}
 specifier|public
-name|ArtifactDownloadInfoBuilder
+name|ArtifactBuilder
 name|withManagedRepositoryContent
 parameter_list|(
 name|ManagedRepositoryContent
@@ -195,7 +195,7 @@ name|this
 return|;
 block|}
 specifier|public
-name|ArtifactDownloadInfoBuilder
+name|ArtifactBuilder
 name|forArtifactMetadata
 parameter_list|(
 name|ArtifactMetadata

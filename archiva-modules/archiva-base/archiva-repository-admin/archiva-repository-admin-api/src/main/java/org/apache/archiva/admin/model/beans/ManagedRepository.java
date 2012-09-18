@@ -101,7 +101,7 @@ specifier|private
 name|boolean
 name|scanned
 init|=
-literal|false
+literal|true
 decl_stmt|;
 comment|/**      * default model value      */
 specifier|private

@@ -27,11 +27,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|metadata
+name|maven2
 operator|.
 name|model
 operator|.
-name|ArtifactMetadata
+name|Artifact
 import|;
 end_import
 
@@ -167,7 +167,7 @@ argument_list|)
 comment|/**      *<b>permissions are checked in impl</b>      * @since 1.4-M3      */
 name|List
 argument_list|<
-name|ArtifactMetadata
+name|Artifact
 argument_list|>
 name|getMergeConflictedArtifacts
 parameter_list|(

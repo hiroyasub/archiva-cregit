@@ -327,7 +327,7 @@ name|services
 operator|.
 name|utils
 operator|.
-name|ArtifactDownloadInfoBuilder
+name|ArtifactBuilder
 import|;
 end_import
 
@@ -995,11 +995,11 @@ name|l
 argument_list|)
 expr_stmt|;
 block|}
-name|ArtifactDownloadInfoBuilder
+name|ArtifactBuilder
 name|builder
 init|=
 operator|new
-name|ArtifactDownloadInfoBuilder
+name|ArtifactBuilder
 argument_list|()
 operator|.
 name|forArtifactMetadata
