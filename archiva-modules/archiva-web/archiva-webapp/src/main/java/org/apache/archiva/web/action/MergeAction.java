@@ -1378,11 +1378,9 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Repository ["
-operator|+
+literal|"Repository [{}] task was already queued."
+argument_list|,
 name|repoid
-operator|+
-literal|"] task was already queued."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1394,11 +1392,9 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Your request to have repository ["
-operator|+
+literal|"Your request to have repository [{}] be indexed has been queued."
+argument_list|,
 name|repoid
-operator|+
-literal|"] be indexed has been queued."
 argument_list|)
 expr_stmt|;
 name|repositoryTaskScheduler
@@ -1419,12 +1415,10 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to queue your request to have repository ["
-operator|+
+literal|"Unable to queue your request to have repository [{}] be indexed: {}"
+argument_list|,
 name|repoid
-operator|+
-literal|"] be indexed: "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
