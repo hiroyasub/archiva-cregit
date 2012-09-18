@@ -19,6 +19,20 @@ end_comment
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlRootElement
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -32,6 +46,13 @@ comment|/**  * Metadata stored in the content repository for a particular artifa
 end_comment
 
 begin_class
+annotation|@
+name|XmlRootElement
+argument_list|(
+name|name
+operator|=
+literal|"artifactMetadata"
+argument_list|)
 specifier|public
 class|class
 name|ArtifactMetadata
