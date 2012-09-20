@@ -2263,10 +2263,13 @@ name|number
 init|=
 name|browseService
 operator|.
-name|getArtifactsNumber
+name|getArtifacts
 argument_list|(
 name|testRepoId
 argument_list|)
+operator|.
+name|size
+argument_list|()
 decl_stmt|;
 name|log
 operator|.

@@ -81,6 +81,22 @@ name|metadata
 operator|.
 name|model
 operator|.
+name|ArtifactMetadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|model
+operator|.
 name|ProjectVersionMetadata
 import|;
 end_import
@@ -1366,7 +1382,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"artifactsNumber/{r}"
+literal|"artifacts/{r}"
 argument_list|)
 annotation|@
 name|GET
@@ -1394,9 +1410,12 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
-comment|/**      *      * return artifacts number in a repository      * @param repositoryId      * @return      * @throws ArchivaRestServiceException      * @since 1.4-M3      */
-name|Integer
-name|getArtifactsNumber
+comment|/**      *      * return List of all artifacts from this repository      * @param repositoryId      * @return      * @throws ArchivaRestServiceException      * @since 1.4-M3      */
+name|List
+argument_list|<
+name|Artifact
+argument_list|>
+name|getArtifacts
 parameter_list|(
 annotation|@
 name|PathParam
