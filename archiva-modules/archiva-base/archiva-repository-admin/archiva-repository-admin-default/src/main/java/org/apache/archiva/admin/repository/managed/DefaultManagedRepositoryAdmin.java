@@ -644,7 +644,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * FIXME review the staging mechanism to have a per user session one  *  * @author Olivier Lamy  */
+comment|/**  * FIXME review the staging mechanism to have a per user session one  *  * @author Olivier Lamy  */
 end_comment
 
 begin_class
@@ -943,7 +943,6 @@ range|:
 name|managedRepoConfigs
 control|)
 block|{
-comment|// TODO add staging repo information back too
 name|ManagedRepository
 name|repo
 init|=
@@ -1015,7 +1014,10 @@ operator|.
 name|isDeleteReleasedSnapshots
 argument_list|()
 argument_list|,
-literal|false
+name|repoConfig
+operator|.
+name|isStageRepoNeeded
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|repo
@@ -1505,6 +1507,13 @@ operator|.
 name|setSkipPackedIndexCreation
 argument_list|(
 name|skipPackedIndexCreation
+argument_list|)
+expr_stmt|;
+name|repository
+operator|.
+name|setStageRepoNeeded
+argument_list|(
+name|stageRepoNeeded
 argument_list|)
 expr_stmt|;
 try|try
