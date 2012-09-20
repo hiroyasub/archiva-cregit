@@ -335,6 +335,7 @@ name|AbstractRestService
 implements|implements
 name|MergeRepositoriesService
 block|{
+comment|// FIXME check archiva-merge-repository to sourceRepoId
 annotation|@
 name|Inject
 annotation|@
