@@ -644,7 +644,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FIXME remove all generic Exception to have usefull ones  * FIXME review the staging mechanism to have a per user session one  *  * @author Olivier Lamy  */
+comment|/**  *  * FIXME review the staging mechanism to have a per user session one  *  * @author Olivier Lamy  */
 end_comment
 
 begin_class
