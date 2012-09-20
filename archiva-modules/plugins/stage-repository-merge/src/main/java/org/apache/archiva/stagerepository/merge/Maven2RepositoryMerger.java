@@ -1356,7 +1356,7 @@ name|copyFile
 argument_list|(
 name|projectMetadataFileInSourceRepo
 argument_list|,
-name|projectMetadataFileInSourceRepo
+name|projectMetadataFileInTargetRepo
 argument_list|)
 expr_stmt|;
 block|}
