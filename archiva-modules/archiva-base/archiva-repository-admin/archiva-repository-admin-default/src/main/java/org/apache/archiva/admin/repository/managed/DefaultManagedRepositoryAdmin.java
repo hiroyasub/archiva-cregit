@@ -609,16 +609,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collections
 import|;
 end_import
@@ -2357,19 +2347,11 @@ name|debug
 argument_list|(
 literal|"updateManagedConfiguration repo {} needStage {} resetStats {} "
 argument_list|,
-name|Arrays
-operator|.
-name|asList
-argument_list|(
 name|managedRepository
 argument_list|,
 name|needStageRepo
 argument_list|,
 name|resetStats
-argument_list|)
-operator|.
-name|toArray
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Ensure that the fields are valid.
