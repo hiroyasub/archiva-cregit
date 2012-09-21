@@ -4257,6 +4257,59 @@ literal|"no-cache"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// if the resource is a directory don't cache it as new groupId deployed will be available
+comment|// without need of refreshing browser
+if|if
+condition|(
+operator|(
+operator|(
+name|ArchivaDavResource
+operator|)
+name|resource
+operator|)
+operator|.
+name|getLocalResource
+argument_list|()
+operator|.
+name|isDirectory
+argument_list|()
+condition|)
+block|{
+name|response
+operator|.
+name|setHeader
+argument_list|(
+literal|"Pragma"
+argument_list|,
+literal|"no-cache"
+argument_list|)
+expr_stmt|;
+name|response
+operator|.
+name|setHeader
+argument_list|(
+literal|"Cache-Control"
+argument_list|,
+literal|"no-cache"
+argument_list|)
+expr_stmt|;
+name|response
+operator|.
+name|setDateHeader
+argument_list|(
+literal|"last-modified"
+argument_list|,
+operator|new
+name|Date
+argument_list|()
+operator|.
+name|getTime
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// We need to specify this so connecting wagons can work correctly
 name|response
 operator|.
@@ -4270,6 +4323,7 @@ name|getModificationTime
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 comment|// TODO: [MRM-524] determine http caching options for other types of files (artifacts, sha1, md5, snapshots)
 block|}
 specifier|private
