@@ -197,6 +197,14 @@ specifier|public
 specifier|static
 specifier|final
 name|String
+name|OPERATION_MERGE_REPOSITORY
+init|=
+literal|"archiva-merge-repository"
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
 name|OPERATION_VIEW_AUDIT_LOG
 init|=
 literal|"archiva-view-audit-logs"

@@ -53,6 +53,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|security
+operator|.
+name|common
+operator|.
+name|ArchivaRoleConstants
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|ws
@@ -160,9 +176,11 @@ argument_list|)
 annotation|@
 name|RedbackAuthorization
 argument_list|(
-name|noPermission
+name|permissions
 operator|=
-literal|true
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_MERGE_REPOSITORY
 argument_list|)
 comment|/**      *<b>permissions are checked in impl</b>      * @since 1.4-M3      */
 name|List
@@ -200,9 +218,11 @@ name|GET
 annotation|@
 name|RedbackAuthorization
 argument_list|(
-name|noPermission
+name|permissions
 operator|=
-literal|true
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_MERGE_REPOSITORY
 argument_list|)
 comment|/**      *<b>permissions are checked in impl</b>      * @since 1.4-M3      */
 name|void
