@@ -4236,31 +4236,7 @@ name|endsWith
 argument_list|(
 literal|"/maven-metadata.xml"
 argument_list|)
-condition|)
-block|{
-name|response
-operator|.
-name|setHeader
-argument_list|(
-literal|"Pragma"
-argument_list|,
-literal|"no-cache"
-argument_list|)
-expr_stmt|;
-name|response
-operator|.
-name|setHeader
-argument_list|(
-literal|"Cache-Control"
-argument_list|,
-literal|"no-cache"
-argument_list|)
-expr_stmt|;
-block|}
-comment|// if the resource is a directory don't cache it as new groupId deployed will be available
-comment|// without need of refreshing browser
-if|if
-condition|(
+operator|||
 operator|(
 operator|(
 name|ArchivaDavResource
@@ -4297,7 +4273,7 @@ name|response
 operator|.
 name|setDateHeader
 argument_list|(
-literal|"last-modified"
+literal|"Last-Modified"
 argument_list|,
 operator|new
 name|Date
@@ -4308,6 +4284,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// if the resource is a directory don't cache it as new groupId deployed will be available
+comment|// without need of refreshing browser
 else|else
 block|{
 comment|// We need to specify this so connecting wagons can work correctly
@@ -4315,7 +4293,7 @@ name|response
 operator|.
 name|setDateHeader
 argument_list|(
-literal|"last-modified"
+literal|"Last-Modified"
 argument_list|,
 name|resource
 operator|.
