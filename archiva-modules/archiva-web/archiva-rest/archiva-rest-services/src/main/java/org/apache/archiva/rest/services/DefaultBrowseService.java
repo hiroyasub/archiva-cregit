@@ -3613,7 +3613,7 @@ name|buildArtifacts
 argument_list|(
 name|artifacts
 argument_list|,
-name|repositoryId
+name|repoId
 argument_list|)
 return|;
 block|}
