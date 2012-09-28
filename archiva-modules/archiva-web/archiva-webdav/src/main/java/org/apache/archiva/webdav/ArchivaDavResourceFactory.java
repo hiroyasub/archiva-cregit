@@ -5329,6 +5329,24 @@ name|String
 name|activePrincipal
 parameter_list|)
 block|{
+comment|// when no repositories configured it's impossible to browse nothing !
+comment|// at least make possible to see nothing :-)
+if|if
+condition|(
+name|repositories
+operator|==
+literal|null
+operator|||
+name|repositories
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
 name|boolean
 name|allow
 init|=
