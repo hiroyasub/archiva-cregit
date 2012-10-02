@@ -90,7 +90,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a connector for a repository to repository proxy.  *  *  */
+comment|/**  * This represents a connector for a repository to repository proxy.  */
 end_comment
 
 begin_class
@@ -143,6 +143,12 @@ specifier|private
 name|boolean
 name|disabled
 decl_stmt|;
+specifier|public
+name|ProxyConnector
+parameter_list|()
+block|{
+comment|// no op
+block|}
 specifier|public
 name|boolean
 name|isDisabled
