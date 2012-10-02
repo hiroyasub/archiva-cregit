@@ -223,7 +223,7 @@ argument_list|(
 literal|"proxyConnectorRule"
 argument_list|)
 annotation|@
-name|PUT
+name|POST
 annotation|@
 name|Consumes
 argument_list|(
