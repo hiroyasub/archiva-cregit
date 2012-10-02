@@ -1229,10 +1229,6 @@ block|{
 name|repos
 operator|=
 operator|new
-name|java
-operator|.
-name|util
-operator|.
 name|ArrayList
 argument_list|<
 name|String
@@ -1367,10 +1363,6 @@ block|{
 name|groups
 operator|=
 operator|new
-name|java
-operator|.
-name|util
-operator|.
 name|ArrayList
 argument_list|<
 name|String
