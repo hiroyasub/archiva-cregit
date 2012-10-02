@@ -649,6 +649,7 @@ operator|.
 name|TRUE
 return|;
 block|}
+comment|// FIXME take of proxyConnectorRules !
 specifier|public
 name|Boolean
 name|deleteProxyConnector
@@ -757,6 +758,7 @@ operator|.
 name|TRUE
 return|;
 block|}
+comment|// FIXME take of proxyConnectorRules !
 specifier|public
 name|Boolean
 name|updateProxyConnector
@@ -1139,7 +1141,6 @@ name|ProxyConnector
 name|proxyConnector
 parameter_list|)
 block|{
-comment|/*         ProxyConnectorConfiguration proxyConnectorConfiguration = new ProxyConnectorConfiguration();         proxyConnectorConfiguration.setOrder( proxyConnector.getOrder() );         proxyConnectorConfiguration.setBlackListPatterns(             new ArrayList<String>( proxyConnector.getBlackListPatterns() ) );         proxyConnectorConfiguration.setWhiteListPatterns(             new ArrayList<String>( proxyConnector.getWhiteListPatterns() ) );         proxyConnectorConfiguration.setDisabled( proxyConnector.isDisabled() );         proxyConnectorConfiguration.setPolicies( new HashMap( proxyConnector.getPolicies() ) );         proxyConnectorConfiguration.setProperties( new HashMap( proxyConnector.getProperties() ) );         proxyConnectorConfiguration.setProxyId( proxyConnector.getProxyId() );         proxyConnectorConfiguration.setSourceRepoId( proxyConnector.getSourceRepoId() );         proxyConnectorConfiguration.setTargetRepoId( proxyConnector.getTargetRepoId() );         return proxyConnectorConfiguration;*/
 return|return
 name|proxyConnector
 operator|==

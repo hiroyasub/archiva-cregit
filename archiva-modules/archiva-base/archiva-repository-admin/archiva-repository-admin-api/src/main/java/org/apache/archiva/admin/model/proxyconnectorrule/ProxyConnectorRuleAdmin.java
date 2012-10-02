@@ -11,7 +11,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|proxyconnector
+name|proxyconnectorrule
 package|;
 end_package
 
@@ -65,24 +65,6 @@ name|model
 operator|.
 name|beans
 operator|.
-name|ProxyConnector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|admin
-operator|.
-name|model
-operator|.
-name|beans
-operator|.
 name|ProxyConnectorRule
 import|;
 end_import
@@ -97,51 +79,31 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
-comment|/**  *<b>No update method for changing source and target here as id is : sourceRepoId and targetRepoId, use delete then add.</b>  *  * @author Olivier Lamy  * @since 1.4-M1  */
+comment|/**  * @author Olivier Lamy  * @since 1.4-M3  */
 end_comment
 
 begin_interface
 specifier|public
 interface|interface
-name|ProxyConnectorAdmin
+name|ProxyConnectorRuleAdmin
 block|{
+comment|/**      * @return      * @throws org.apache.archiva.admin.model.RepositoryAdminException      *      * @since 1.4-M3      */
 name|List
 argument_list|<
-name|ProxyConnector
+name|ProxyConnectorRule
 argument_list|>
-name|getProxyConnectors
+name|getProxyConnectorRules
 parameter_list|()
 throws|throws
 name|RepositoryAdminException
 function_decl|;
-name|ProxyConnector
-name|getProxyConnector
+comment|/**      * @param proxyConnectorRule      * @throws RepositoryAdminException      * @since 1.4-M3      */
+name|void
+name|addProxyConnectorRule
 parameter_list|(
-name|String
-name|sourceRepoId
-parameter_list|,
-name|String
-name|targetRepoId
-parameter_list|)
-throws|throws
-name|RepositoryAdminException
-function_decl|;
-name|Boolean
-name|addProxyConnector
-parameter_list|(
-name|ProxyConnector
-name|proxyConnector
+name|ProxyConnectorRule
+name|proxyConnectorRule
 parameter_list|,
 name|AuditInformation
 name|auditInformation
@@ -149,11 +111,12 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 function_decl|;
-name|Boolean
-name|deleteProxyConnector
+comment|/**      * @param proxyConnectorRule      * @throws RepositoryAdminException      * @since 1.4-M3      */
+name|void
+name|deleteProxyConnectorRule
 parameter_list|(
-name|ProxyConnector
-name|proxyConnector
+name|ProxyConnectorRule
+name|proxyConnectorRule
 parameter_list|,
 name|AuditInformation
 name|auditInformation
@@ -161,31 +124,16 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 function_decl|;
-comment|/**      *<b>only for enabled/disable or changing bean values except target/source</b>      *      * @param proxyConnector      * @param auditInformation      * @return      * @throws RepositoryAdminException      */
-name|Boolean
-name|updateProxyConnector
+comment|/**      *<b>only to update attached proxy connectors to update pattern delete then add</b>      * @param proxyConnectorRule      * @throws RepositoryAdminException      * @since 1.4-M3      */
+name|void
+name|updateProxyConnectorRule
 parameter_list|(
-name|ProxyConnector
-name|proxyConnector
+name|ProxyConnectorRule
+name|proxyConnectorRule
 parameter_list|,
 name|AuditInformation
 name|auditInformation
 parameter_list|)
-throws|throws
-name|RepositoryAdminException
-function_decl|;
-comment|/**      * @return key/value : managed repo Id / list to proxy connector ordered      * @throws RepositoryAdminException      */
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|List
-argument_list|<
-name|ProxyConnector
-argument_list|>
-argument_list|>
-name|getProxyConnectorAsMap
-parameter_list|()
 throws|throws
 name|RepositoryAdminException
 function_decl|;
