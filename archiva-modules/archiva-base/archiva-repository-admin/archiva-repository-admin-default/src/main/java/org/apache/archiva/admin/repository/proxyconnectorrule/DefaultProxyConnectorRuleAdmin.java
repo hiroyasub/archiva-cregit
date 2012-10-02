@@ -703,7 +703,7 @@ operator|.
 name|getProxyConnectorRuleType
 argument_list|()
 operator|.
-name|toString
+name|getRuleType
 argument_list|()
 argument_list|)
 condition|)
@@ -807,7 +807,7 @@ operator|.
 name|getProxyConnectorRuleType
 argument_list|()
 operator|.
-name|toString
+name|getRuleType
 argument_list|()
 argument_list|)
 condition|)
