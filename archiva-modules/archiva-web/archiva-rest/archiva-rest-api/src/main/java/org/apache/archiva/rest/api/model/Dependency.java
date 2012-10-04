@@ -83,6 +83,12 @@ name|scope
 decl_stmt|;
 specifier|public
 name|Dependency
+parameter_list|()
+block|{
+comment|// no op
+block|}
+specifier|public
+name|Dependency
 parameter_list|(
 name|String
 name|groupId

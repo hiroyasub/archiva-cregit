@@ -405,6 +405,7 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
+comment|/**      * @param groupId groupId to browse      * @param repositoryId optionnal (repository to browse if<code>null</code> all available user repositories are used)      */
 name|BrowseResult
 name|browseGroupId
 parameter_list|(
