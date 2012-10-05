@@ -7,7 +7,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|rest
+name|webapp
+operator|.
+name|ui
+operator|.
+name|services
 operator|.
 name|docs
 package|;
