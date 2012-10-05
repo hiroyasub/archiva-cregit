@@ -273,7 +273,7 @@ name|getSpringConfigLocation
 parameter_list|()
 block|{
 return|return
-literal|"classpath*:META-INF/spring-context.xml"
+literal|"classpath*:META-INF/spring-context.xml,classpath:/spring-context-with-jcr.xml"
 return|;
 block|}
 specifier|protected
