@@ -7,11 +7,7 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|webapp
-operator|.
-name|ui
-operator|.
-name|services
+name|web
 operator|.
 name|api
 package|;
