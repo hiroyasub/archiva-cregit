@@ -3770,30 +3770,17 @@ name|exists
 argument_list|()
 condition|)
 block|{
-throw|throw
-operator|new
-name|ContentNotFoundException
+comment|//throw new ContentNotFoundException(
+comment|//    artifact.getGroupId() + ":" + artifact.getArtifactId() + ":" + artifact.getVersion() );
+name|log
+operator|.
+name|warn
 argument_list|(
-name|artifact
-operator|.
-name|getGroupId
-argument_list|()
-operator|+
-literal|":"
-operator|+
-name|artifact
-operator|.
-name|getArtifactId
-argument_list|()
-operator|+
-literal|":"
-operator|+
-name|artifact
-operator|.
-name|getVersion
-argument_list|()
+literal|"targetPath {} not found skip file deletion"
+argument_list|,
+name|targetPath
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 comment|// TODO: this should be in the storage mechanism so that it is all tied together
 comment|// delete from file system
