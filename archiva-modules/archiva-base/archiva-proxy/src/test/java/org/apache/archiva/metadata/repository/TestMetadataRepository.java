@@ -737,6 +737,26 @@ throws|throws
 name|MetadataRepositoryException
 block|{
 block|}
+specifier|public
+name|void
+name|removeProjectVersion
+parameter_list|(
+name|String
+name|repoId
+parameter_list|,
+name|String
+name|namespace
+parameter_list|,
+name|String
+name|projectId
+parameter_list|,
+name|String
+name|projectVersion
+parameter_list|)
+throws|throws
+name|MetadataRepositoryException
+block|{
+block|}
 block|}
 end_class
 
