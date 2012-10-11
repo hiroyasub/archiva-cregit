@@ -374,7 +374,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-comment|/**      *      * @param repositoryId      * @param namespace (groupId for maven )      * @since 1.4-M3      * @throws MetadataRepositoryException      */
+comment|/**      * @param repositoryId      * @param namespace    (groupId for maven )      * @throws MetadataRepositoryException      * @since 1.4-M3      */
 name|void
 name|removeNamespace
 parameter_list|(
@@ -534,6 +534,25 @@ name|projectId
 parameter_list|)
 throws|throws
 name|MetadataResolutionException
+function_decl|;
+comment|/**      *      * @param repoId      * @param namespace      * @param projectId      * @param projectVersion      * @since 1.4-M4      * @throws MetadataResolutionException      */
+name|void
+name|removeProjectVersion
+parameter_list|(
+name|String
+name|repoId
+parameter_list|,
+name|String
+name|namespace
+parameter_list|,
+name|String
+name|projectId
+parameter_list|,
+name|String
+name|projectVersion
+parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|Collection
 argument_list|<
