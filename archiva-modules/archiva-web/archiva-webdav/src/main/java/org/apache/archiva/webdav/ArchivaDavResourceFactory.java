@@ -5896,6 +5896,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"generate temporary merged index for repository group '{}' for repositories '{}'"
+argument_list|,
+name|groupId
+argument_list|,
+name|authzRepos
+argument_list|)
+expr_stmt|;
 name|IndexingContext
 name|indexingContext
 init|=
