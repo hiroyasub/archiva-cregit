@@ -1917,6 +1917,15 @@ argument_list|,
 name|scheduler
 argument_list|)
 expr_stmt|;
+name|setHeaders
+argument_list|(
+name|response
+argument_list|,
+name|locator
+argument_list|,
+name|resource
+argument_list|)
+expr_stmt|;
 return|return
 name|resource
 return|;
