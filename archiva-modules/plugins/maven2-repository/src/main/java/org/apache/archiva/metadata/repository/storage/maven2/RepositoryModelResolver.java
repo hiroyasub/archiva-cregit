@@ -734,7 +734,7 @@ name|exists
 argument_list|()
 condition|)
 block|{
-comment|/**              *               */
+comment|/**              *              */
 comment|// is a SNAPSHOT ? so we can try to find locally before asking remote repositories.
 if|if
 condition|(
@@ -1045,34 +1045,21 @@ name|buildNumber
 operator|+
 literal|".pom"
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"use snapshot path {} for maven coordinate {}"
+literal|"use snapshot path {} for maven coordinate {}:{}:{}"
 argument_list|,
 name|snapshotPath
 argument_list|,
 name|groupId
-operator|+
-literal|":"
-operator|+
+argument_list|,
 name|artifactId
-operator|+
-literal|":"
-operator|+
+argument_list|,
 name|version
 argument_list|)
 expr_stmt|;
-block|}
 name|File
 name|model
 init|=
