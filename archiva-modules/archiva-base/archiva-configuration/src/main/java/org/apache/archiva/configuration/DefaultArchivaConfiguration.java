@@ -2329,12 +2329,6 @@ control|(
 name|ManagedRepositoryConfiguration
 name|c
 range|:
-operator|(
-name|List
-argument_list|<
-name|ManagedRepositoryConfiguration
-argument_list|>
-operator|)
 name|configuration
 operator|.
 name|getManagedRepositories
