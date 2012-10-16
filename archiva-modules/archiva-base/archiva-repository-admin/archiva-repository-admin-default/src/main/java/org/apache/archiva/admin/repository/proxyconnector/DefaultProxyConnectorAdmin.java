@@ -816,6 +816,11 @@ name|proxyConnector
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|saveConfiguration
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
 name|triggerAuditEvent
 argument_list|(
 name|proxyConnector
