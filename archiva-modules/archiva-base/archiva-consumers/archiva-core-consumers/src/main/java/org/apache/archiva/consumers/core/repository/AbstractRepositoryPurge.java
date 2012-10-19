@@ -824,12 +824,20 @@ name|MetadataRepositoryException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"skip error deleting metadata {}: {}"
+argument_list|,
+name|reference
+argument_list|,
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|()
+argument_list|)
 expr_stmt|;
-comment|//To change body of catch statement use File | Settings | File Templates.
 block|}
 name|repositorySession
 operator|.
