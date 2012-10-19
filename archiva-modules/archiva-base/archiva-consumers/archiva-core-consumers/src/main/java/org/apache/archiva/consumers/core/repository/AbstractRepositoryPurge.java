@@ -627,6 +627,13 @@ argument_list|,
 name|baseVersion
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|artifacts
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// cleanup snapshots metadata
 for|for
 control|(
@@ -792,6 +799,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
