@@ -4168,9 +4168,6 @@ operator|.
 name|getVersion
 argument_list|()
 decl_stmt|;
-comment|//metadataRepository.updateArtifact( repositoryId, groupId, artifactId, version,
-comment|//                                   artifactMetadata );
-comment|// String repositoryId, String namespace, String project, String version, String projectId, MetadataFacet metadataFacet
 name|MavenArtifactFacet
 name|mavenArtifactFacetToCompare
 init|=
