@@ -365,6 +365,7 @@ operator|.
 name|delete
 argument_list|()
 expr_stmt|;
+comment|//repository.deleteArtifact( reference );
 name|repositorySession
 operator|.
 name|save
