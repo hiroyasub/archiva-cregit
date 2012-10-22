@@ -277,6 +277,24 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+specifier|public
+name|void
+name|testGetVersionFromGenericSnapshot
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"3.0"
+argument_list|,
+name|VersionUtil
+operator|.
+name|getVersionFromGenericSnapshot
+argument_list|(
+literal|"3.0-SNAPSHOT"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

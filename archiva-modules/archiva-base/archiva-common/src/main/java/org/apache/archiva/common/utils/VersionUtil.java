@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Version utility methods.  *  *  */
+comment|/**  * Version utility methods.  */
 end_comment
 
 begin_class
@@ -546,6 +546,46 @@ name|endsWith
 argument_list|(
 name|SNAPSHOT
 argument_list|)
+return|;
+block|}
+specifier|public
+specifier|static
+name|String
+name|getVersionFromGenericSnapshot
+parameter_list|(
+name|String
+name|version
+parameter_list|)
+block|{
+name|Matcher
+name|m
+init|=
+name|GENERIC_SNAPSHOT_PATTERN
+operator|.
+name|matcher
+argument_list|(
+name|version
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|m
+operator|.
+name|matches
+argument_list|()
+condition|)
+block|{
+return|return
+name|m
+operator|.
+name|group
+argument_list|(
+literal|1
+argument_list|)
+return|;
+block|}
+return|return
+name|version
 return|;
 block|}
 block|}
