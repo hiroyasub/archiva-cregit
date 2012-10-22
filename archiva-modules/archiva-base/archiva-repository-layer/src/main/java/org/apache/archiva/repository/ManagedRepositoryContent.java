@@ -126,7 +126,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ManagedRepositoryContent interface for interacting with a managed repository in an abstract way,  * without the need for processing based on filesystem paths, or working with the database.  *  *  */
+comment|/**  * ManagedRepositoryContent interface for interacting with a managed repository in an abstract way,  * without the need for processing based on filesystem paths, or working with the database.  */
 end_comment
 
 begin_interface
@@ -154,7 +154,7 @@ parameter_list|)
 throws|throws
 name|ContentNotFoundException
 function_decl|;
-comment|/**      * @since 1.4-M3      * @param groupId      * @throws ContentNotFoundException      */
+comment|/**      * @param groupId      * @throws ContentNotFoundException      * @since 1.4-M3      */
 name|void
 name|deleteGroupId
 parameter_list|(
@@ -163,6 +163,19 @@ name|groupId
 parameter_list|)
 throws|throws
 name|ContentNotFoundException
+function_decl|;
+comment|/**      *      * @param namespace groupId for maven      * @param projectId artifactId for maven      * @throws ContentNotFoundException      */
+name|void
+name|deleteProject
+parameter_list|(
+name|String
+name|namespace
+parameter_list|,
+name|String
+name|projectId
+parameter_list|)
+throws|throws
+name|RepositoryException
 function_decl|;
 comment|/**      *<p>      * Convenience method to get the repository id.      *</p>      *<p/>      *<p>      * Equivalent to calling<code>.getRepository().getId()</code>      *</p>      *      * @return the repository id.      */
 name|String

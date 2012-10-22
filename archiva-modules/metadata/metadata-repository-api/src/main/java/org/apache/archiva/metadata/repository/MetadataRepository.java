@@ -535,7 +535,7 @@ parameter_list|)
 throws|throws
 name|MetadataResolutionException
 function_decl|;
-comment|/**      *      * @param repoId      * @param namespace      * @param projectId      * @param projectVersion      * @since 1.4-M4      * @throws MetadataResolutionException      */
+comment|/**      * @param repoId      * @param namespace      * @param projectId      * @param projectVersion      * @throws MetadataResolutionException      * @since 1.4-M4      */
 name|void
 name|removeProjectVersion
 parameter_list|(
@@ -574,6 +574,22 @@ name|projectVersion
 parameter_list|)
 throws|throws
 name|MetadataResolutionException
+function_decl|;
+comment|/**      * remove a project      * @param repositoryId      * @param namespace      * @param projectId      * @throws MetadataRepositoryException      * @since 1.4-M4      */
+name|void
+name|removeProject
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|,
+name|String
+name|namespace
+parameter_list|,
+name|String
+name|projectId
+parameter_list|)
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|void
 name|save

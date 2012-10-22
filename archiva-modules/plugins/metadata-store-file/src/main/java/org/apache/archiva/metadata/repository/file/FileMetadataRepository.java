@@ -6782,6 +6782,24 @@ return|;
 block|}
 specifier|public
 name|void
+name|removeProject
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|,
+name|String
+name|namespace
+parameter_list|,
+name|String
+name|projectId
+parameter_list|)
+throws|throws
+name|MetadataRepositoryException
+block|{
+comment|// TODO
+block|}
+specifier|public
+name|void
 name|removeProjectVersion
 parameter_list|(
 name|String
