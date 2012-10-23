@@ -182,7 +182,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|ReadMetadataRequest
-name|repoId
+name|repositoryId
 parameter_list|(
 name|String
 name|repoId

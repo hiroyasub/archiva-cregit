@@ -804,7 +804,7 @@ operator|new
 name|ReadMetadataRequest
 argument_list|()
 operator|.
-name|repoId
+name|repositoryId
 argument_list|(
 name|repoId
 argument_list|)

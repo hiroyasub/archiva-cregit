@@ -96,7 +96,7 @@ import|;
 end_import
 
 begin_comment
-comment|// FIXME: we should drop the repoId parameters and attach this to an instance of a repository storage
+comment|// FIXME: we should drop the repositoryId parameters and attach this to an instance of a repository storage
 end_comment
 
 begin_interface
