@@ -1056,7 +1056,7 @@ name|getManagedRepository
 argument_list|(
 name|readMetadataRequest
 operator|.
-name|getRepoId
+name|getRepositoryId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1401,7 +1401,7 @@ name|get
 argument_list|(
 name|readMetadataRequest
 operator|.
-name|getRepoId
+name|getRepositoryId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1752,7 +1752,7 @@ name|setRepositoryId
 argument_list|(
 name|readMetadataRequest
 operator|.
-name|getRepoId
+name|getRepositoryId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1762,7 +1762,7 @@ name|setId
 argument_list|(
 name|readMetadataRequest
 operator|.
-name|getRepoId
+name|getRepositoryId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3573,7 +3573,7 @@ name|getRepositoryBasedir
 argument_list|(
 name|readMetadataRequest
 operator|.
-name|getRepoId
+name|getRepositoryId
 argument_list|()
 argument_list|)
 argument_list|,
@@ -3647,7 +3647,7 @@ name|getArtifactFromFile
 argument_list|(
 name|readMetadataRequest
 operator|.
-name|getRepoId
+name|getRepositoryId
 argument_list|()
 argument_list|,
 name|readMetadataRequest
