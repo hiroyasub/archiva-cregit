@@ -40,12 +40,12 @@ specifier|public
 interface|interface
 name|WagonFactory
 block|{
-comment|/**      * Create a new Wagon instance for the given protocol.      *      * @param protocol the protocol to find the Wagon for, which must be prefixed with<code>wagon#</code>, for example      *<code>wagon#http</code>.<b>to have a wagon supporting ntlm add -ntlm</b>      * @return the Wagon instance      */
+comment|/**      * Create a new Wagon instance for the given protocol.      *      * @param wagonFactoryRequest      *      * @return the Wagon instance      */
 name|Wagon
 name|getWagon
 parameter_list|(
-name|String
-name|protocol
+name|WagonFactoryRequest
+name|wagonFactoryRequest
 parameter_list|)
 throws|throws
 name|WagonFactoryException

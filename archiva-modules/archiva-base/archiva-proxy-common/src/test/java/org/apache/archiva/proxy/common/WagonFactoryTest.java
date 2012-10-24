@@ -33,6 +33,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|test
+operator|.
+name|utils
+operator|.
+name|ArchivaSpringJUnit4ClassRunner
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|wagon
@@ -87,24 +103,8 @@ name|Inject
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|test
-operator|.
-name|utils
-operator|.
-name|ArchivaSpringJUnit4ClassRunner
-import|;
-end_import
-
 begin_comment
-comment|/**  * Test the WagonFactory works through Spring to be bound into the RepositoryProxyConnectors implementation.  *   */
+comment|/**  * Test the WagonFactory works through Spring to be bound into the RepositoryProxyConnectors implementation.  */
 end_comment
 
 begin_class
@@ -151,7 +151,14 @@ name|factory
 operator|.
 name|getWagon
 argument_list|(
+operator|new
+name|WagonFactoryRequest
+argument_list|()
+operator|.
+name|protocol
+argument_list|(
 literal|"wagon#file"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|Wagon
@@ -161,7 +168,14 @@ name|factory
 operator|.
 name|getWagon
 argument_list|(
+operator|new
+name|WagonFactoryRequest
+argument_list|()
+operator|.
+name|protocol
+argument_list|(
 literal|"wagon#file"
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// ensure we support only protocol name too
@@ -172,7 +186,14 @@ name|factory
 operator|.
 name|getWagon
 argument_list|(
+operator|new
+name|WagonFactoryRequest
+argument_list|()
+operator|.
+name|protocol
+argument_list|(
 literal|"file"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertNotSame
