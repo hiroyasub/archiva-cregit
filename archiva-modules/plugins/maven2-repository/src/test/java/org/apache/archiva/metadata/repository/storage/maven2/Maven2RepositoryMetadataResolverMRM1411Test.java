@@ -457,6 +457,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -859,11 +869,17 @@ name|getWagon
 argument_list|(
 operator|new
 name|WagonFactoryRequest
-argument_list|()
-operator|.
-name|protocol
 argument_list|(
 literal|"wagon#http"
+argument_list|,
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1512,6 +1528,8 @@ argument_list|,
 literal|"target/test-repository/com/example/test/test-snapshot-artifact-module-a"
 argument_list|)
 expr_stmt|;
+comment|//copyTestArtifactWithParent( "target/test-classes/com/example/test/test-snapshot-artifact-root",
+comment|//                            "target/test-repository/com/example/test/test-snapshot-artifact-root" );
 name|ProjectVersionMetadata
 name|metadata
 init|=

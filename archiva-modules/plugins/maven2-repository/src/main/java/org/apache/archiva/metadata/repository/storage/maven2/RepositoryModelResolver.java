@@ -1342,6 +1342,13 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|wagon
+operator|==
+literal|null
+condition|)
+block|{
 name|wagon
 operator|=
 name|wagonFactory
@@ -1362,6 +1369,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|wagon
