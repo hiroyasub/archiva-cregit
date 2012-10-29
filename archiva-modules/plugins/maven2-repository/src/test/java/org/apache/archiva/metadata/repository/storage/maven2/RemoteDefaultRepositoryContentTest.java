@@ -182,7 +182,7 @@ specifier|public
 class|class
 name|RemoteDefaultRepositoryContentTest
 extends|extends
-name|AbstractRepositoryLayerTestCase
+name|AbstractDefaultRepositoryContentTestCase
 block|{
 annotation|@
 name|Inject

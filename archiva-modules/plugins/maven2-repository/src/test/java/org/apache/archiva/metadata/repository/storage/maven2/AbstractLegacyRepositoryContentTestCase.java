@@ -116,7 +116,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractLegacyRepositoryContentTestCase  *  *  */
+comment|/**  * AbstractLegacyRepositoryContentTestCase  */
 end_comment
 
 begin_class
@@ -142,6 +142,8 @@ specifier|public
 specifier|abstract
 class|class
 name|AbstractLegacyRepositoryContentTestCase
+extends|extends
+name|AbstractRepositoryLayerTestCase
 block|{
 annotation|@
 name|Test
@@ -219,7 +221,7 @@ literal|"wrong package extension"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws org.apache.archiva.repository.layout.LayoutException      */
+comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      *      * @throws org.apache.archiva.repository.layout.LayoutException      *      */
 annotation|@
 name|Test
 specifier|public
@@ -270,7 +272,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws org.apache.archiva.repository.layout.LayoutException      */
+comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      *      * @throws org.apache.archiva.repository.layout.LayoutException      *      */
 annotation|@
 name|Test
 specifier|public
@@ -321,7 +323,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      * @throws org.apache.archiva.repository.layout.LayoutException      */
+comment|/**      * [MRM-432] Oddball version spec.      * Example of an oddball / unusual version spec.      *      * @throws org.apache.archiva.repository.layout.LayoutException      *      */
 annotation|@
 name|Test
 specifier|public
@@ -475,7 +477,7 @@ expr_stmt|;
 block|}
 comment|/**      * Test the ejb-client type spec.      * Type specs are not a 1 to 1 map to the extension.      * This tests that effect.      * @throws org.apache.archiva.repository.layout.LayoutException      */
 comment|/* TODO: Re-enabled in the future.     public void testGoodFooEjbClient()         throws LayoutException     {         String groupId = "com.foo";         String artifactId = "foo-client";         String version = "1.0";         String type = "ejb"; // oddball type-spec (should result in jar extension)         String path = "com.foo/ejbs/foo-client-1.0.jar";          assertLayout( path, groupId, artifactId, version, classifier, type );     }     */
-comment|/**      * Test the classifier.      * @throws org.apache.archiva.repository.layout.LayoutException      */
+comment|/**      * Test the classifier.      *      * @throws org.apache.archiva.repository.layout.LayoutException      *      */
 annotation|@
 name|Test
 specifier|public
@@ -531,7 +533,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test the classifier, and java-source type spec.      * @throws org.apache.archiva.repository.layout.LayoutException      */
+comment|/**      * Test the classifier, and java-source type spec.      *      * @throws org.apache.archiva.repository.layout.LayoutException      *      */
 annotation|@
 name|Test
 specifier|public
@@ -738,7 +740,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A timestamped versioned artifact, should reside in a SNAPSHOT baseversion directory.      * @throws org.apache.archiva.repository.layout.LayoutException      */
+comment|/**      * A timestamped versioned artifact, should reside in a SNAPSHOT baseversion directory.      *      * @throws org.apache.archiva.repository.layout.LayoutException      *      */
 annotation|@
 name|Test
 specifier|public
@@ -1044,7 +1046,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * [MRM-768] Artifact type "maven-plugin" does not distinguish maven1 and maven2 plugins.       * This produces conflicts when m2 plugins are stored in legacy-layout repository      */
+comment|/**      * [MRM-768] Artifact type "maven-plugin" does not distinguish maven1 and maven2 plugins.      * This produces conflicts when m2 plugins are stored in legacy-layout repository      */
 annotation|@
 name|Test
 specifier|public
@@ -1095,7 +1097,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Perform a roundtrip through the layout routines to determine success.      * @param classifier TODO      */
+comment|/**      * Perform a roundtrip through the layout routines to determine success.      *      * @param classifier TODO      */
 specifier|private
 name|void
 name|assertLayout
