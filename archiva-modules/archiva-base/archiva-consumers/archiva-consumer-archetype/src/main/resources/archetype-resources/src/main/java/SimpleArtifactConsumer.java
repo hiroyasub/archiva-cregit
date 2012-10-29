@@ -253,8 +253,6 @@ implements|implements
 name|KnownRepositoryContentConsumer
 implements|,
 name|RegistryListener
-implements|,
-name|Initializable
 block|{
 specifier|private
 name|Logger
