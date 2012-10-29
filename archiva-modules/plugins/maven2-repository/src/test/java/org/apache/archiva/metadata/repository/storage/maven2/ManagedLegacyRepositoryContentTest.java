@@ -280,7 +280,7 @@ specifier|public
 class|class
 name|ManagedLegacyRepositoryContentTest
 extends|extends
-name|AbstractDefaultRepositoryContentTestCase
+name|AbstractLegacyRepositoryContentTestCase
 block|{
 annotation|@
 name|Inject
