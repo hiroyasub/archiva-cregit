@@ -571,6 +571,24 @@ name|repository
 operator|.
 name|content
 operator|.
+name|legacy
+operator|.
+name|LegacyPathParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
 name|maven2
 operator|.
 name|RepositoryRequest
@@ -1556,6 +1574,7 @@ argument_list|,
 literal|"sha1"
 argument_list|)
 expr_stmt|;
+comment|// TODO remove this hard dependency on maven !!
 name|repositoryRequest
 operator|=
 operator|new
