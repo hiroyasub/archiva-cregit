@@ -571,6 +571,13 @@ name|writer
 operator|.
 name|println
 argument_list|(
+literal|"<link rel=\"shortcut icon\" href=\"../../favicon.ico\"/>"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|println
+argument_list|(
 literal|"</head>"
 argument_list|)
 expr_stmt|;
