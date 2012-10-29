@@ -516,9 +516,6 @@ block|{
 name|String
 name|extension
 init|=
-operator|(
-name|String
-operator|)
 name|itExtensions
 operator|.
 name|next
@@ -537,9 +534,6 @@ block|{
 name|String
 name|fixedExtension
 init|=
-operator|(
-name|String
-operator|)
 name|this
 operator|.
 name|extensionRenameMap

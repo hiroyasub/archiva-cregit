@@ -55,9 +55,11 @@ name|archiva
 operator|.
 name|metadata
 operator|.
-name|repository
+name|model
 operator|.
-name|MetadataRepository
+name|maven2
+operator|.
+name|MavenArtifactFacet
 import|;
 end_import
 
@@ -73,11 +75,7 @@ name|metadata
 operator|.
 name|repository
 operator|.
-name|storage
-operator|.
-name|maven2
-operator|.
-name|MavenArtifactFacet
+name|MetadataRepository
 import|;
 end_import
 

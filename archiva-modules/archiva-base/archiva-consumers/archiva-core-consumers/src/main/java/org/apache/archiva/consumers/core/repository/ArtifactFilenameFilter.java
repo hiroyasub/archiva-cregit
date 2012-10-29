@@ -58,6 +58,7 @@ specifier|public
 name|ArtifactFilenameFilter
 parameter_list|()
 block|{
+comment|// no op
 block|}
 specifier|public
 name|ArtifactFilenameFilter

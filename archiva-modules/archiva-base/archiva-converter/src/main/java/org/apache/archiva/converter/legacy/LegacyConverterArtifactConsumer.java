@@ -181,6 +181,8 @@ name|repository
 operator|.
 name|content
 operator|.
+name|maven2
+operator|.
 name|ManagedDefaultRepositoryContent
 import|;
 end_import
