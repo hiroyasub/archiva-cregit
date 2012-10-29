@@ -149,7 +149,7 @@ name|dataMap
 operator|.
 name|get
 argument_list|(
-name|RepositoryArchivaTaskScheduler
+name|DefaultRepositoryArchivaTaskScheduler
 operator|.
 name|TASK_QUEUE
 argument_list|)
@@ -164,7 +164,7 @@ name|dataMap
 operator|.
 name|get
 argument_list|(
-name|RepositoryArchivaTaskScheduler
+name|DefaultRepositoryArchivaTaskScheduler
 operator|.
 name|TASK_REPOSITORY
 argument_list|)

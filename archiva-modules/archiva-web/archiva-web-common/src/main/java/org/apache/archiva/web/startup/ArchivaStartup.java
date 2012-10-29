@@ -93,7 +93,7 @@ name|scheduler
 operator|.
 name|repository
 operator|.
-name|RepositoryArchivaTaskScheduler
+name|DefaultRepositoryArchivaTaskScheduler
 import|;
 end_import
 
@@ -283,7 +283,7 @@ name|ThreadedTaskQueueExecutor
 name|tqeIndexing
 decl_stmt|;
 specifier|private
-name|RepositoryArchivaTaskScheduler
+name|DefaultRepositoryArchivaTaskScheduler
 name|repositoryTaskScheduler
 decl_stmt|;
 specifier|private
@@ -335,7 +335,7 @@ name|getBean
 argument_list|(
 literal|"archivaTaskScheduler#repository"
 argument_list|,
-name|RepositoryArchivaTaskScheduler
+name|DefaultRepositoryArchivaTaskScheduler
 operator|.
 name|class
 argument_list|)

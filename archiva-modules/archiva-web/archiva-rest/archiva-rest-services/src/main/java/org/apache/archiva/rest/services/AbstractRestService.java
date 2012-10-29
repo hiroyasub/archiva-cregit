@@ -339,7 +339,7 @@ name|scheduler
 operator|.
 name|repository
 operator|.
-name|RepositoryArchivaTaskScheduler
+name|DefaultRepositoryArchivaTaskScheduler
 import|;
 end_import
 
@@ -656,7 +656,7 @@ operator|=
 literal|"archivaTaskScheduler#repository"
 argument_list|)
 specifier|protected
-name|RepositoryArchivaTaskScheduler
+name|DefaultRepositoryArchivaTaskScheduler
 name|repositoryTaskScheduler
 decl_stmt|;
 annotation|@

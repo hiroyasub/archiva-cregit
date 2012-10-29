@@ -425,12 +425,9 @@ literal|"archivaTaskScheduler#repository"
 argument_list|)
 specifier|public
 class|class
-name|RepositoryArchivaTaskScheduler
+name|DefaultRepositoryArchivaTaskScheduler
 implements|implements
-name|ArchivaTaskScheduler
-argument_list|<
-name|RepositoryTask
-argument_list|>
+name|RepositoryArchivaTaskScheduler
 implements|,
 name|ConfigurationListener
 block|{
@@ -442,9 +439,8 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|RepositoryArchivaTaskScheduler
-operator|.
-name|class
+name|getClass
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|/**      *      */
@@ -835,12 +831,7 @@ literal|false
 return|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-specifier|private
+specifier|public
 name|boolean
 name|isProcessingRepositoryTask
 parameter_list|(
