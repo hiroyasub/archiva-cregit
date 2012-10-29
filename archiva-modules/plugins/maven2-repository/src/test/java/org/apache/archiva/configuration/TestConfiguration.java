@@ -124,11 +124,7 @@ name|ConfigurationListener
 name|listener
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
+comment|// no op
 block|}
 specifier|public
 name|void
@@ -138,11 +134,7 @@ name|ConfigurationListener
 name|listener
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
+comment|// no op
 block|}
 specifier|public
 name|void
@@ -152,11 +144,7 @@ name|RegistryListener
 name|listener
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
+comment|// no op
 block|}
 specifier|public
 name|void

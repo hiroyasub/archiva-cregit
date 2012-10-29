@@ -511,7 +511,7 @@ operator|=
 block|{
 literal|"classpath*:/META-INF/spring-context.xml"
 block|,
-literal|"classpath:/spring-context.xml"
+literal|"classpath:/spring-context-no-mock-conf.xml"
 block|}
 argument_list|)
 specifier|public
@@ -631,6 +631,13 @@ literal|"da39a3ee5e6b4b0d3255bfef95601890afd80709"
 decl_stmt|;
 annotation|@
 name|Inject
+annotation|@
+name|Named
+argument_list|(
+name|value
+operator|=
+literal|"archivaConfiguration#default"
+argument_list|)
 specifier|private
 name|ArchivaConfiguration
 name|configuration
