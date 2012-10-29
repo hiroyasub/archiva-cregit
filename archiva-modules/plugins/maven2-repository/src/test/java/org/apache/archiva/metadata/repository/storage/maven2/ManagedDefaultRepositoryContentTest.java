@@ -336,7 +336,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ManagedDefaultRepositoryContentTest  *  *  */
+comment|/**  * ManagedDefaultRepositoryContentTest  */
 end_comment
 
 begin_class
@@ -362,7 +362,7 @@ specifier|public
 class|class
 name|ManagedDefaultRepositoryContentTest
 extends|extends
-name|AbstractRepositoryLayerTestCase
+name|AbstractDefaultRepositoryContentTestCase
 block|{
 annotation|@
 name|Inject
@@ -427,9 +427,6 @@ decl_stmt|;
 name|FileType
 name|fileType
 init|=
-operator|(
-name|FileType
-operator|)
 name|archivaConfiguration
 operator|.
 name|getConfiguration

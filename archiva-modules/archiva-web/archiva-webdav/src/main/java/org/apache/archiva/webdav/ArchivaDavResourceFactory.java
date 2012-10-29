@@ -333,6 +333,8 @@ name|archiva
 operator|.
 name|proxy
 operator|.
+name|model
+operator|.
 name|RepositoryProxyConnectors
 import|;
 end_import

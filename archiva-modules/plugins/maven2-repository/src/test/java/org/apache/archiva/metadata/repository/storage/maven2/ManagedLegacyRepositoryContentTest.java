@@ -298,7 +298,7 @@ specifier|public
 class|class
 name|ManagedLegacyRepositoryContentTest
 extends|extends
-name|AbstractRepositoryLayerTestCase
+name|AbstractDefaultRepositoryContentTestCase
 block|{
 annotation|@
 name|Inject

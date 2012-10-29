@@ -481,7 +481,9 @@ name|archiva
 operator|.
 name|proxy
 operator|.
-name|RepositoryProxyConnectors
+name|common
+operator|.
+name|WagonFactory
 import|;
 end_import
 
@@ -495,9 +497,9 @@ name|archiva
 operator|.
 name|proxy
 operator|.
-name|common
+name|model
 operator|.
-name|WagonFactory
+name|RepositoryProxyConnectors
 import|;
 end_import
 

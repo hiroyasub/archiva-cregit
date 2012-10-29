@@ -8,6 +8,8 @@ operator|.
 name|archiva
 operator|.
 name|proxy
+operator|.
+name|model
 package|;
 end_package
 
