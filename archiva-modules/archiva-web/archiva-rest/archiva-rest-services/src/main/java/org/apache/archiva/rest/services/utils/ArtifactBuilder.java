@@ -45,9 +45,7 @@ name|archiva
 operator|.
 name|metadata
 operator|.
-name|repository
-operator|.
-name|storage
+name|model
 operator|.
 name|maven2
 operator|.
