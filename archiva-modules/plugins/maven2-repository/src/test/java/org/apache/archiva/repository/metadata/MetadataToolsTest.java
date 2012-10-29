@@ -185,7 +185,15 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|metadata
+operator|.
 name|repository
+operator|.
+name|storage
+operator|.
+name|maven2
+operator|.
+name|conf
 operator|.
 name|MockConfiguration
 import|;

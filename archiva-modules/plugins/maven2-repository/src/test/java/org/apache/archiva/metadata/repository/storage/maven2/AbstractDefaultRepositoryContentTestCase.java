@@ -148,24 +148,6 @@ comment|/**  * AbstractDefaultRepositoryContentTestCase  */
 end_comment
 
 begin_class
-annotation|@
-name|RunWith
-argument_list|(
-name|ArchivaSpringJUnit4ClassRunner
-operator|.
-name|class
-argument_list|)
-annotation|@
-name|ContextConfiguration
-argument_list|(
-name|locations
-operator|=
-block|{
-literal|"classpath*:/META-INF/spring-context.xml"
-block|,
-literal|"classpath:/spring-context-no-mock-conf.xml"
-block|}
-argument_list|)
 specifier|public
 specifier|abstract
 class|class

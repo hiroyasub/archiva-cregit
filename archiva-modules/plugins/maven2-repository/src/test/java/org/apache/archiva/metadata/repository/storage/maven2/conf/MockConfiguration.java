@@ -7,7 +7,15 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|metadata
+operator|.
 name|repository
+operator|.
+name|storage
+operator|.
+name|maven2
+operator|.
+name|conf
 package|;
 end_package
 
