@@ -35,9 +35,17 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|apache
 operator|.
-name|Test
+name|archiva
+operator|.
+name|scheduler
+operator|.
+name|repository
+operator|.
+name|model
+operator|.
+name|RepositoryTask
 import|;
 end_import
 
@@ -47,9 +55,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|runner
-operator|.
-name|RunWith
+name|Test
 import|;
 end_import
 
@@ -64,22 +70,6 @@ operator|.
 name|context
 operator|.
 name|ContextConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|test
-operator|.
-name|context
-operator|.
-name|junit4
-operator|.
-name|SpringJUnit4ClassRunner
 import|;
 end_import
 

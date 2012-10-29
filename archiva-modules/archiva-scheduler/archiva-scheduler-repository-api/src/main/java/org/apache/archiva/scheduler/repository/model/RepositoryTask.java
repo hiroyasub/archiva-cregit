@@ -10,6 +10,8 @@ operator|.
 name|scheduler
 operator|.
 name|repository
+operator|.
+name|model
 package|;
 end_package
 

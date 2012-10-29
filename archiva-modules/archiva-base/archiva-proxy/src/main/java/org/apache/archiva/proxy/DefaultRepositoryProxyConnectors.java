@@ -619,6 +619,8 @@ name|scheduler
 operator|.
 name|repository
 operator|.
+name|model
+operator|.
 name|RepositoryTask
 import|;
 end_import

@@ -105,6 +105,8 @@ name|scheduler
 operator|.
 name|repository
 operator|.
+name|model
+operator|.
 name|RepositoryArchivaTaskScheduler
 import|;
 end_import
@@ -120,6 +122,8 @@ operator|.
 name|scheduler
 operator|.
 name|repository
+operator|.
+name|model
 operator|.
 name|RepositoryTask
 import|;
