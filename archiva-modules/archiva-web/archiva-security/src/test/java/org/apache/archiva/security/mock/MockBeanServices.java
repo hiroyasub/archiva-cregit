@@ -352,7 +352,7 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|MockRepositoryStorage
+name|MockBeanServices
 implements|implements
 name|RepositoryStorage
 implements|,
