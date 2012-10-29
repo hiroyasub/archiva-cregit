@@ -497,7 +497,7 @@ operator|=
 block|{
 literal|"classpath*:/META-INF/spring-context.xml"
 block|,
-literal|"classpath:/spring-context-no-mock-conf.xml"
+literal|"classpath:/spring-context.xml"
 block|}
 argument_list|)
 specifier|public
