@@ -3878,6 +3878,8 @@ name|applicationContext
 operator|.
 name|getBean
 argument_list|(
+literal|"repositoryStorage#"
+operator|+
 name|repositoryLayout
 argument_list|,
 name|RepositoryStorage
