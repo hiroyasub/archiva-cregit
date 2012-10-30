@@ -3862,6 +3862,15 @@ literal|"default"
 argument_list|,
 name|repositoryLayout
 argument_list|)
+operator|||
+name|StringUtils
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+literal|"legacy"
+argument_list|,
+name|repositoryLayout
+argument_list|)
 condition|)
 block|{
 name|repositoryLayout
