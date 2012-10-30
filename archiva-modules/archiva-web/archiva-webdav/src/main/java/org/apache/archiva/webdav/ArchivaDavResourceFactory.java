@@ -1274,16 +1274,6 @@ init|=
 literal|"PUT"
 decl_stmt|;
 specifier|private
-specifier|static
-specifier|final
-name|MavenXpp3Reader
-name|MAVEN_XPP_3_READER
-init|=
-operator|new
-name|MavenXpp3Reader
-argument_list|()
-decl_stmt|;
-specifier|private
 name|Logger
 name|log
 init|=

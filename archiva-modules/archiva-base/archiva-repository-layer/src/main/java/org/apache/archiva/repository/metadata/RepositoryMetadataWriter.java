@@ -434,12 +434,6 @@ control|(
 name|Plugin
 name|plugin
 range|:
-operator|(
-name|List
-argument_list|<
-name|Plugin
-argument_list|>
-operator|)
 name|metadata
 operator|.
 name|getPlugins
@@ -695,9 +689,6 @@ block|{
 name|String
 name|version
 init|=
-operator|(
-name|String
-operator|)
 name|it
 operator|.
 name|next
