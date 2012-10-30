@@ -3852,6 +3852,7 @@ operator|.
 name|getLayout
 argument_list|()
 decl_stmt|;
+comment|// FIXME we could prevent that with renaming bean repositoryStorage#maven2 to repositoryStorage#default
 if|if
 condition|(
 name|StringUtils
