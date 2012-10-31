@@ -238,6 +238,33 @@ operator|.
 name|getProtocol
 argument_list|()
 decl_stmt|;
+comment|// if it's a ntlm proxy we have to lookup the wagon light which support thats
+comment|// wagon http client doesn't support that
+if|if
+condition|(
+name|wagonFactoryRequest
+operator|.
+name|getNetworkProxy
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|wagonFactoryRequest
+operator|.
+name|getNetworkProxy
+argument_list|()
+operator|.
+name|isUseNtlm
+argument_list|()
+condition|)
+block|{
+name|protocol
+operator|=
+name|protocol
+operator|+
+literal|"-ntlm"
+expr_stmt|;
+block|}
 name|Wagon
 name|wagon
 init|=
