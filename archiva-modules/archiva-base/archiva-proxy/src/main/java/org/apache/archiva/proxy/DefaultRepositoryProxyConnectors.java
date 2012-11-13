@@ -931,16 +931,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collections
 import|;
 end_import
@@ -4213,19 +4203,11 @@ name|debug
 argument_list|(
 literal|"Checksum {} Downloaded: {} to move to {}"
 argument_list|,
-name|Arrays
-operator|.
-name|asList
-argument_list|(
 name|url
 argument_list|,
 name|destFile
 argument_list|,
 name|resource
-argument_list|)
-operator|.
-name|toArray
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
