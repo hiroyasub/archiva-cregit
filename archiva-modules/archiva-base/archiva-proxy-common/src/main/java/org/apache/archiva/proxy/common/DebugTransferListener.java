@@ -69,16 +69,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author Olivier Lamy  * @since 1.4-M1  */
 end_comment
@@ -263,10 +253,6 @@ name|debug
 argument_list|(
 literal|"transferError for resource {} on repository url {}"
 argument_list|,
-name|Arrays
-operator|.
-name|asList
-argument_list|(
 name|transferEvent
 operator|.
 name|getResource
@@ -285,16 +271,6 @@ argument_list|()
 operator|.
 name|getUrl
 argument_list|()
-argument_list|)
-operator|.
-name|toArray
-argument_list|(
-operator|new
-name|String
-index|[
-literal|2
-index|]
-argument_list|)
 argument_list|,
 name|transferEvent
 operator|.

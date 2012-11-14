@@ -539,16 +539,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -1616,10 +1606,6 @@ name|debug
 argument_list|(
 literal|"transfer of {} : {}/{}"
 argument_list|,
-name|Arrays
-operator|.
-name|asList
-argument_list|(
 name|transferEvent
 operator|.
 name|getResource
@@ -1633,10 +1619,6 @@ operator|.
 name|length
 argument_list|,
 name|length
-argument_list|)
-operator|.
-name|toArray
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1704,10 +1686,6 @@ name|info
 argument_list|(
 literal|"error of transfer file {}: {}"
 argument_list|,
-name|Arrays
-operator|.
-name|asList
-argument_list|(
 name|transferEvent
 operator|.
 name|getResource
@@ -1723,16 +1701,6 @@ argument_list|()
 operator|.
 name|getMessage
 argument_list|()
-argument_list|)
-operator|.
-name|toArray
-argument_list|(
-operator|new
-name|Object
-index|[
-literal|2
-index|]
-argument_list|)
 argument_list|,
 name|transferEvent
 operator|.
