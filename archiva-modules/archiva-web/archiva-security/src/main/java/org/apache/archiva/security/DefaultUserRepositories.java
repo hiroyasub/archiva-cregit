@@ -755,6 +755,13 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
+name|authn
+operator|.
+name|setUser
+argument_list|(
+name|user
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|DefaultSecuritySession
