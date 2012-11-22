@@ -337,12 +337,9 @@ literal|null
 condition|?
 literal|"null"
 else|:
-operator|(
-name|String
-operator|)
 name|user
 operator|.
-name|getPrincipal
+name|getUsername
 argument_list|()
 argument_list|,
 name|resource

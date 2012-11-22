@@ -725,10 +725,7 @@ name|TEMPLATE_SYSTEM_ADMIN
 argument_list|,
 name|adminUser
 operator|.
-name|getPrincipal
-argument_list|()
-operator|.
-name|toString
+name|getUsername
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -753,10 +750,7 @@ name|TEMPLATE_GUEST
 argument_list|,
 name|guestUser
 operator|.
-name|getPrincipal
-argument_list|()
-operator|.
-name|toString
+name|getUsername
 argument_list|()
 argument_list|)
 expr_stmt|;

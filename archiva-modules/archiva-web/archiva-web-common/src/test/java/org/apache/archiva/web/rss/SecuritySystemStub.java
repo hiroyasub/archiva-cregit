@@ -723,23 +723,13 @@ name|User
 argument_list|()
 block|{
 specifier|public
-name|Object
-name|getPrincipal
-parameter_list|()
-block|{
-return|return
-literal|"guest"
-return|;
-block|}
-specifier|public
 name|String
 name|getUsername
 parameter_list|()
 block|{
 return|return
-literal|null
+literal|"guest"
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -749,7 +739,6 @@ name|String
 name|name
 parameter_list|)
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|String
@@ -759,7 +748,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -1125,23 +1113,13 @@ name|User
 argument_list|()
 block|{
 specifier|public
-name|Object
-name|getPrincipal
-parameter_list|()
-block|{
-return|return
-literal|"guest"
-return|;
-block|}
-specifier|public
 name|String
 name|getUsername
 parameter_list|()
 block|{
 return|return
-literal|null
+literal|"guest"
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -1151,7 +1129,6 @@ name|String
 name|name
 parameter_list|)
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|String
