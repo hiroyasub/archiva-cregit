@@ -555,7 +555,7 @@ parameter_list|(
 name|SecuritySession
 name|arg0
 parameter_list|,
-name|Object
+name|String
 name|arg1
 parameter_list|)
 throws|throws
@@ -572,10 +572,10 @@ parameter_list|(
 name|SecuritySession
 name|arg0
 parameter_list|,
-name|Object
+name|String
 name|arg1
 parameter_list|,
-name|Object
+name|String
 name|arg2
 parameter_list|)
 throws|throws
@@ -1597,7 +1597,7 @@ parameter_list|(
 name|SecuritySession
 name|arg0
 parameter_list|,
-name|Object
+name|String
 name|arg1
 parameter_list|)
 throws|throws
@@ -1614,10 +1614,10 @@ parameter_list|(
 name|SecuritySession
 name|arg0
 parameter_list|,
-name|Object
+name|String
 name|arg1
 parameter_list|,
-name|Object
+name|String
 name|arg2
 parameter_list|)
 throws|throws

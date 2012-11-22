@@ -401,7 +401,7 @@ parameter_list|(
 name|SecuritySession
 name|session
 parameter_list|,
-name|Object
+name|String
 name|permission
 parameter_list|)
 throws|throws
@@ -429,10 +429,10 @@ parameter_list|(
 name|SecuritySession
 name|session
 parameter_list|,
-name|Object
+name|String
 name|permission
 parameter_list|,
-name|Object
+name|String
 name|resource
 parameter_list|)
 throws|throws
@@ -533,7 +533,7 @@ parameter_list|(
 name|SecuritySession
 name|session
 parameter_list|,
-name|Object
+name|String
 name|permission
 parameter_list|)
 throws|throws
@@ -551,10 +551,10 @@ parameter_list|(
 name|SecuritySession
 name|session
 parameter_list|,
-name|Object
+name|String
 name|permission
 parameter_list|,
-name|Object
+name|String
 name|resource
 parameter_list|)
 throws|throws
