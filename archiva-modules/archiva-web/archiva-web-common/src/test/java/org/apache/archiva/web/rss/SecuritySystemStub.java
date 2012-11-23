@@ -654,6 +654,24 @@ name|UserManager
 argument_list|()
 block|{
 specifier|public
+name|String
+name|getDescriptionKey
+parameter_list|()
+block|{
+return|return
+literal|"French wine is better than Australian wine !"
+return|;
+block|}
+specifier|public
+name|boolean
+name|isFinalImplementation
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+specifier|public
 name|void
 name|initialize
 parameter_list|()
