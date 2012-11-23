@@ -120,7 +120,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Olivier Lamy  */
+comment|/**  * @author Olivier Lamy  * @since 1.4-M4  */
 end_comment
 
 begin_class
@@ -230,6 +230,15 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+specifier|public
+name|String
+name|getDescriptionKey
+parameter_list|()
+block|{
+return|return
+literal|"archiva.redback.usermanager.configurable.archiva"
+return|;
 block|}
 block|}
 end_class
