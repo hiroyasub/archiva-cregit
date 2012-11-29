@@ -415,7 +415,7 @@ argument_list|)
 specifier|public
 specifier|abstract
 class|class
-name|AbstractNexusRepositorySearch
+name|AbstractMavenRepositorySearch
 extends|extends
 name|TestCase
 block|{

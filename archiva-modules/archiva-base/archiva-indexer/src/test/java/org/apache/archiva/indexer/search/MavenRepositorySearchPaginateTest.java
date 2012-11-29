@@ -105,7 +105,7 @@ name|class
 argument_list|)
 specifier|public
 class|class
-name|NexusRepositorySearchPaginateTest
+name|MavenRepositorySearchPaginateTest
 extends|extends
 name|TestCase
 block|{

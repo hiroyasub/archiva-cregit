@@ -74,9 +74,9 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|NexusRepositorySearchOSGITest
+name|MavenRepositorySearchOSGITest
 extends|extends
-name|AbstractNexusRepositorySearch
+name|AbstractMavenRepositorySearch
 block|{
 annotation|@
 name|Test

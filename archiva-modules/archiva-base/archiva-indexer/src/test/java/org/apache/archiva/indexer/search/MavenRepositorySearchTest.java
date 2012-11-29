@@ -196,9 +196,9 @@ block|}
 argument_list|)
 specifier|public
 class|class
-name|NexusRepositorySearchTest
+name|MavenRepositorySearchTest
 extends|extends
-name|AbstractNexusRepositorySearch
+name|AbstractMavenRepositorySearch
 block|{
 specifier|private
 name|void
