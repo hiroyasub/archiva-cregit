@@ -199,7 +199,7 @@ specifier|public
 interface|interface
 name|SearchService
 block|{
-comment|/*     * quick/general text search which returns a list of artifacts     * query for an artifact based on a checksum     * query for all available versions of an artifact, sorted in version significance order     * query for an artifact's direct dependencies     * TODO query for an artifact's dependency tree (as with mvn dependency:tree - no duplicates should be included)     * TODO query for all artifacts that depend on a given artifact     */
+comment|/*     * quick/general text search which returns a list of artifacts     * query for an artifact based on a checksum     * query for all available versions of an artifact, sorted in version significance order     * query for an artifact's direct dependencies     *<b>search will be apply on all repositories the current user has karma</b>     * TODO query for an artifact's dependency tree (as with mvn dependency:tree - no duplicates should be included)     * TODO query for all artifacts that depend on a given artifact     */
 annotation|@
 name|Path
 argument_list|(
@@ -231,7 +231,6 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
-comment|/**      *<b>search will be apply on all repositories the current user has karma</b>      */
 name|List
 argument_list|<
 name|Artifact
