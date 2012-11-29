@@ -436,14 +436,14 @@ specifier|static
 name|String
 name|TEST_REPO_1
 init|=
-literal|"nexus-search-test-repo"
+literal|"maven-search-test-repo"
 decl_stmt|;
 specifier|public
 specifier|static
 name|String
 name|TEST_REPO_2
 init|=
-literal|"nexus-search-test-repo-2"
+literal|"maven-search-test-repo-2"
 decl_stmt|;
 specifier|public
 specifier|static
