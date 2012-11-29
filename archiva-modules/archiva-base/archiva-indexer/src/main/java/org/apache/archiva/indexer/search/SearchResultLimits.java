@@ -73,7 +73,7 @@ return|return
 name|pageSize
 return|;
 block|}
-comment|/**      * Set page size for maximum # of hits to return per page.      *      * @param pageSize size of page by # of hits. (maximum value is 200)      */
+comment|/**      * Set page size for maximum # of hits to return per page.      *      * @param pageSize size of page by # of hits.      */
 specifier|public
 name|void
 name|setPageSize
@@ -86,14 +86,7 @@ name|this
 operator|.
 name|pageSize
 operator|=
-name|Math
-operator|.
-name|min
-argument_list|(
-literal|200
-argument_list|,
 name|pageSize
-argument_list|)
 expr_stmt|;
 block|}
 specifier|public

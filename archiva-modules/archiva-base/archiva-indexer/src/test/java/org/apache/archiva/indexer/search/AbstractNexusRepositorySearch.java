@@ -445,6 +445,13 @@ name|TEST_REPO_2
 init|=
 literal|"nexus-search-test-repo-2"
 decl_stmt|;
+specifier|public
+specifier|static
+name|String
+name|REPO_RELEASE
+init|=
+literal|"repo-release"
+decl_stmt|;
 name|NexusRepositorySearch
 name|search
 decl_stmt|;
@@ -677,6 +684,16 @@ argument_list|(
 name|createRepositoryConfig
 argument_list|(
 name|TEST_REPO_2
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|config
+operator|.
+name|addManagedRepository
+argument_list|(
+name|createRepositoryConfig
+argument_list|(
+name|REPO_RELEASE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1231,9 +1248,6 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-comment|//context.getIndexWriter().close( true );
-comment|// wait for io flush ....
-comment|//Thread.sleep( 2000 );
 name|context
 operator|.
 name|setSearchable
