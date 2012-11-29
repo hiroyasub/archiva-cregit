@@ -510,7 +510,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositorySearch implementation which uses the Nexus Indexer for searching.  */
+comment|/**  * RepositorySearch implementation which uses the Maven Indexer for searching.  */
 end_comment
 
 begin_class
@@ -521,7 +521,7 @@ literal|"nexusSearch"
 argument_list|)
 specifier|public
 class|class
-name|NexusRepositorySearch
+name|MavenRepositorySearch
 implements|implements
 name|RepositorySearch
 block|{
@@ -554,7 +554,7 @@ name|MavenIndexerUtils
 name|mavenIndexerUtils
 decl_stmt|;
 specifier|protected
-name|NexusRepositorySearch
+name|MavenRepositorySearch
 parameter_list|()
 block|{
 comment|// for test purpose
@@ -562,7 +562,7 @@ block|}
 annotation|@
 name|Inject
 specifier|public
-name|NexusRepositorySearch
+name|MavenRepositorySearch
 parameter_list|(
 name|PlexusSisuBridge
 name|plexusSisuBridge

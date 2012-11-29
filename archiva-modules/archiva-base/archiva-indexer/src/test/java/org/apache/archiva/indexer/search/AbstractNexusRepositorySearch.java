@@ -452,7 +452,7 @@ name|REPO_RELEASE
 init|=
 literal|"repo-release"
 decl_stmt|;
-name|NexusRepositorySearch
+name|MavenRepositorySearch
 name|search
 decl_stmt|;
 name|ArchivaConfiguration
@@ -628,7 +628,7 @@ expr_stmt|;
 name|search
 operator|=
 operator|new
-name|NexusRepositorySearch
+name|MavenRepositorySearch
 argument_list|(
 name|plexusSisuBridge
 argument_list|,
