@@ -517,7 +517,7 @@ begin_class
 annotation|@
 name|Service
 argument_list|(
-literal|"nexusSearch"
+literal|"repositorySearch#maven"
 argument_list|)
 specifier|public
 class|class
