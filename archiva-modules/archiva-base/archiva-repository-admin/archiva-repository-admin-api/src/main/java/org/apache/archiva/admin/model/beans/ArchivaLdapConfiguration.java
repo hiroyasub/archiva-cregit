@@ -76,7 +76,7 @@ name|hostName
 decl_stmt|;
 comment|/**      * The LDAP port.      */
 specifier|private
-name|String
+name|int
 name|port
 decl_stmt|;
 comment|/**      * ssl LDAP connection.      */
@@ -110,6 +110,11 @@ comment|/**      * The LDAP authenticationMethod.      */
 specifier|private
 name|String
 name|authenticationMethod
+decl_stmt|;
+comment|/**      *      */
+specifier|private
+name|boolean
+name|bindAuthenticatorEnabled
 decl_stmt|;
 comment|/**      * Field extraProperties.      */
 specifier|private
@@ -161,7 +166,7 @@ name|hostName
 expr_stmt|;
 block|}
 specifier|public
-name|String
+name|int
 name|getPort
 parameter_list|()
 block|{
@@ -173,7 +178,7 @@ specifier|public
 name|void
 name|setPort
 parameter_list|(
-name|String
+name|int
 name|port
 parameter_list|)
 block|{
@@ -360,6 +365,30 @@ operator|.
 name|extraProperties
 operator|=
 name|extraProperties
+expr_stmt|;
+block|}
+specifier|public
+name|boolean
+name|isBindAuthenticatorEnabled
+parameter_list|()
+block|{
+return|return
+name|bindAuthenticatorEnabled
+return|;
+block|}
+specifier|public
+name|void
+name|setBindAuthenticatorEnabled
+parameter_list|(
+name|boolean
+name|bindAuthenticatorEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bindAuthenticatorEnabled
+operator|=
+name|bindAuthenticatorEnabled
 expr_stmt|;
 block|}
 block|}

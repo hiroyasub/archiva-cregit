@@ -63,7 +63,7 @@ interface|interface
 name|ArchivaRuntimeConfigurationAdmin
 block|{
 name|ArchivaRuntimeConfiguration
-name|getArchivaRuntimeConfigurationAdmin
+name|getArchivaRuntimeConfiguration
 parameter_list|()
 throws|throws
 name|RepositoryAdminException

@@ -161,7 +161,7 @@ name|userManagerImplStr
 init|=
 name|archivaRuntimeConfigurationAdmin
 operator|.
-name|getArchivaRuntimeConfigurationAdmin
+name|getArchivaRuntimeConfiguration
 argument_list|()
 operator|.
 name|getUserManagerImpl

@@ -292,7 +292,7 @@ block|{
 return|return
 name|archivaRuntimeConfigurationAdmin
 operator|.
-name|getArchivaRuntimeConfigurationAdmin
+name|getArchivaRuntimeConfiguration
 argument_list|()
 return|;
 block|}
@@ -344,7 +344,7 @@ argument_list|()
 argument_list|,
 name|archivaRuntimeConfigurationAdmin
 operator|.
-name|getArchivaRuntimeConfigurationAdmin
+name|getArchivaRuntimeConfiguration
 argument_list|()
 operator|.
 name|getUserManagerImpl
