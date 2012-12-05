@@ -294,7 +294,7 @@ name|Named
 argument_list|(
 name|value
 operator|=
-literal|"userConfiguration"
+literal|"userConfiguration#redback"
 argument_list|)
 name|UserConfiguration
 name|userConfiguration
