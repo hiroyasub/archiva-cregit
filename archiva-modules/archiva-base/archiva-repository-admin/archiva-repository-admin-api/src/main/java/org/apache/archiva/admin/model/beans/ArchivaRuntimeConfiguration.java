@@ -53,7 +53,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"archivaRuntimeConfiguration"
+literal|"redbackRuntimeConfiguration"
 argument_list|)
 specifier|public
 class|class

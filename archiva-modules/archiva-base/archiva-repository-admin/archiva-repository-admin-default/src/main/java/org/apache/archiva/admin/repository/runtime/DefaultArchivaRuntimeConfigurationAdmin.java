@@ -159,7 +159,7 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|RuntimeConfiguration
+name|RedbackRuntimeConfiguration
 import|;
 end_import
 
@@ -510,7 +510,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|getRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 argument_list|)
 return|;
@@ -525,7 +525,7 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 block|{
-name|RuntimeConfiguration
+name|RedbackRuntimeConfiguration
 name|runtimeConfiguration
 init|=
 name|build
@@ -544,7 +544,7 @@ argument_list|()
 decl_stmt|;
 name|configuration
 operator|.
-name|setRuntimeConfiguration
+name|setRedbackRuntimeConfiguration
 argument_list|(
 name|runtimeConfiguration
 argument_list|)
@@ -603,7 +603,7 @@ specifier|private
 name|ArchivaRuntimeConfiguration
 name|build
 parameter_list|(
-name|RuntimeConfiguration
+name|RedbackRuntimeConfiguration
 name|runtimeConfiguration
 parameter_list|)
 block|{
@@ -623,7 +623,7 @@ argument_list|)
 return|;
 block|}
 specifier|private
-name|RuntimeConfiguration
+name|RedbackRuntimeConfiguration
 name|build
 parameter_list|(
 name|ArchivaRuntimeConfiguration
@@ -639,7 +639,7 @@ name|replicateBean
 argument_list|(
 name|archivaRuntimeConfiguration
 argument_list|,
-name|RuntimeConfiguration
+name|RedbackRuntimeConfiguration
 operator|.
 name|class
 argument_list|)
