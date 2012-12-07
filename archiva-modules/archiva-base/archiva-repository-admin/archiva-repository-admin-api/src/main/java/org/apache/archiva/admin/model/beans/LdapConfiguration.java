@@ -63,11 +63,11 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"archivaLdapConfiguration"
+literal|"ldapConfiguration"
 argument_list|)
 specifier|public
 class|class
-name|ArchivaLdapConfiguration
+name|LdapConfiguration
 block|{
 comment|/**      * The LDAP host.      */
 specifier|private
@@ -136,7 +136,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|public
-name|ArchivaLdapConfiguration
+name|LdapConfiguration
 parameter_list|()
 block|{
 comment|// no op

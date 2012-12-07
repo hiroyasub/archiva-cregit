@@ -88,8 +88,8 @@ init|=
 literal|"jdo"
 decl_stmt|;
 specifier|private
-name|ArchivaLdapConfiguration
-name|archivaLdapConfiguration
+name|LdapConfiguration
+name|ldapConfiguration
 decl_stmt|;
 comment|/**      * flag to know if redback configuration has been checked/migrated.      */
 specifier|private
@@ -138,27 +138,27 @@ name|userManagerImpl
 expr_stmt|;
 block|}
 specifier|public
-name|ArchivaLdapConfiguration
-name|getArchivaLdapConfiguration
+name|LdapConfiguration
+name|getLdapConfiguration
 parameter_list|()
 block|{
 return|return
-name|archivaLdapConfiguration
+name|ldapConfiguration
 return|;
 block|}
 specifier|public
 name|void
-name|setArchivaLdapConfiguration
+name|setLdapConfiguration
 parameter_list|(
-name|ArchivaLdapConfiguration
-name|archivaLdapConfiguration
+name|LdapConfiguration
+name|ldapConfiguration
 parameter_list|)
 block|{
 name|this
 operator|.
-name|archivaLdapConfiguration
+name|ldapConfiguration
 operator|=
-name|archivaLdapConfiguration
+name|ldapConfiguration
 expr_stmt|;
 block|}
 specifier|public
@@ -258,9 +258,9 @@ name|userManagerImpl
 operator|+
 literal|'\''
 operator|+
-literal|", archivaLdapConfiguration="
+literal|", ldapConfiguration="
 operator|+
-name|archivaLdapConfiguration
+name|ldapConfiguration
 operator|+
 literal|", migratedFromRedbackConfiguration="
 operator|+

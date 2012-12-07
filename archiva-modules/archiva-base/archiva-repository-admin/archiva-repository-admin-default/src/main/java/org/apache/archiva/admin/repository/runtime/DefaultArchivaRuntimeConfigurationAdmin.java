@@ -65,7 +65,7 @@ name|model
 operator|.
 name|beans
 operator|.
-name|ArchivaLdapConfiguration
+name|LdapConfiguration
 import|;
 end_import
 
@@ -102,22 +102,6 @@ operator|.
 name|runtime
 operator|.
 name|ArchivaRuntimeConfigurationAdmin
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|admin
-operator|.
-name|repository
-operator|.
-name|AbstractRepositoryAdmin
 import|;
 end_import
 
@@ -436,36 +420,36 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// now ldap
-name|ArchivaLdapConfiguration
-name|archivaLdapConfiguration
+name|LdapConfiguration
+name|ldapConfiguration
 init|=
 name|archivaRuntimeConfiguration
 operator|.
-name|getArchivaLdapConfiguration
+name|getLdapConfiguration
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|archivaLdapConfiguration
+name|ldapConfiguration
 operator|==
 literal|null
 condition|)
 block|{
-name|archivaLdapConfiguration
+name|ldapConfiguration
 operator|=
 operator|new
-name|ArchivaLdapConfiguration
+name|LdapConfiguration
 argument_list|()
 expr_stmt|;
 name|archivaRuntimeConfiguration
 operator|.
-name|setArchivaLdapConfiguration
+name|setLdapConfiguration
 argument_list|(
-name|archivaLdapConfiguration
+name|ldapConfiguration
 argument_list|)
 expr_stmt|;
 block|}
-name|archivaLdapConfiguration
+name|ldapConfiguration
 operator|.
 name|setHostName
 argument_list|(
@@ -481,7 +465,7 @@ literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|archivaLdapConfiguration
+name|ldapConfiguration
 operator|.
 name|setPort
 argument_list|(
@@ -498,7 +482,7 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|archivaLdapConfiguration
+name|ldapConfiguration
 operator|.
 name|setSsl
 argument_list|(
@@ -514,7 +498,7 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|archivaLdapConfiguration
+name|ldapConfiguration
 operator|.
 name|setBaseDn
 argument_list|(
@@ -530,7 +514,7 @@ literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|archivaLdapConfiguration
+name|ldapConfiguration
 operator|.
 name|setContextFactory
 argument_list|(
@@ -546,7 +530,7 @@ literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|archivaLdapConfiguration
+name|ldapConfiguration
 operator|.
 name|setBindDn
 argument_list|(
@@ -562,7 +546,7 @@ literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|archivaLdapConfiguration
+name|ldapConfiguration
 operator|.
 name|setPassword
 argument_list|(
@@ -578,7 +562,7 @@ literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|archivaLdapConfiguration
+name|ldapConfiguration
 operator|.
 name|setAuthenticationMethod
 argument_list|(
@@ -756,7 +740,7 @@ if|if
 condition|(
 name|archivaRuntimeConfiguration
 operator|.
-name|getArchivaLdapConfiguration
+name|getLdapConfiguration
 argument_list|()
 operator|==
 literal|null
@@ -765,10 +749,10 @@ block|{
 comment|// prevent NPE
 name|archivaRuntimeConfiguration
 operator|.
-name|setArchivaLdapConfiguration
+name|setLdapConfiguration
 argument_list|(
 operator|new
-name|ArchivaLdapConfiguration
+name|LdapConfiguration
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -785,7 +769,9 @@ name|ArchivaRuntimeConfiguration
 name|archivaRuntimeConfiguration
 parameter_list|)
 block|{
-return|return
+name|RedbackRuntimeConfiguration
+name|redbackRuntimeConfiguration
+init|=
 operator|new
 name|BeanReplicator
 argument_list|()
@@ -798,6 +784,9 @@ name|RedbackRuntimeConfiguration
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+return|return
+name|redbackRuntimeConfiguration
 return|;
 block|}
 comment|// wrapper for UserConfiguration to intercept values (and store it not yet migrated
@@ -965,7 +954,7 @@ return|return
 name|getArchivaRuntimeConfiguration
 argument_list|()
 operator|.
-name|getArchivaLdapConfiguration
+name|getLdapConfiguration
 argument_list|()
 operator|.
 name|getHostName
@@ -988,7 +977,7 @@ return|return
 name|getArchivaRuntimeConfiguration
 argument_list|()
 operator|.
-name|getArchivaLdapConfiguration
+name|getLdapConfiguration
 argument_list|()
 operator|.
 name|getContextFactory
@@ -1011,7 +1000,7 @@ return|return
 name|getArchivaRuntimeConfiguration
 argument_list|()
 operator|.
-name|getArchivaLdapConfiguration
+name|getLdapConfiguration
 argument_list|()
 operator|.
 name|getPassword
@@ -1034,7 +1023,7 @@ return|return
 name|getArchivaRuntimeConfiguration
 argument_list|()
 operator|.
-name|getArchivaLdapConfiguration
+name|getLdapConfiguration
 argument_list|()
 operator|.
 name|getAuthenticationMethod
@@ -1295,7 +1284,7 @@ return|return
 name|getArchivaRuntimeConfiguration
 argument_list|()
 operator|.
-name|getArchivaLdapConfiguration
+name|getLdapConfiguration
 argument_list|()
 operator|.
 name|getPort
@@ -1555,7 +1544,7 @@ return|return
 name|getArchivaRuntimeConfiguration
 argument_list|()
 operator|.
-name|getArchivaLdapConfiguration
+name|getLdapConfiguration
 argument_list|()
 operator|.
 name|isSsl
@@ -1785,7 +1774,7 @@ return|return
 name|getArchivaRuntimeConfiguration
 argument_list|()
 operator|.
-name|getArchivaLdapConfiguration
+name|getLdapConfiguration
 argument_list|()
 operator|.
 name|getBaseDn
@@ -1808,7 +1797,7 @@ return|return
 name|getArchivaRuntimeConfiguration
 argument_list|()
 operator|.
-name|getArchivaLdapConfiguration
+name|getLdapConfiguration
 argument_list|()
 operator|.
 name|getBindDn
