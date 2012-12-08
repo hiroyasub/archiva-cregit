@@ -332,24 +332,24 @@ comment|// has user manager impl changed ?
 name|boolean
 name|userManagerChanged
 init|=
-operator|!
-name|StringUtils
-operator|.
-name|equals
-argument_list|(
 name|archivaRuntimeConfiguration
 operator|.
-name|getUserManagerImpl
+name|getUserManagerImpls
 argument_list|()
-argument_list|,
+operator|.
+name|size
+argument_list|()
+operator|!=
 name|archivaRuntimeConfigurationAdmin
 operator|.
 name|getArchivaRuntimeConfiguration
 argument_list|()
 operator|.
-name|getUserManagerImpl
+name|getUserManagerImpls
 argument_list|()
-argument_list|)
+operator|.
+name|size
+argument_list|()
 decl_stmt|;
 name|archivaRuntimeConfigurationAdmin
 operator|.
@@ -367,11 +367,11 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"user manager impl changed to {} reload it"
+literal|"user managerImpls changed to {} so reload it"
 argument_list|,
 name|archivaRuntimeConfiguration
 operator|.
-name|getUserManagerImpl
+name|getUserManagerImpls
 argument_list|()
 argument_list|)
 expr_stmt|;

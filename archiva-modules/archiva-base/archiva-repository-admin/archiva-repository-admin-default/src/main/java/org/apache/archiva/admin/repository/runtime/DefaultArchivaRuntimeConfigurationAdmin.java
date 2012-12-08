@@ -413,7 +413,10 @@ condition|)
 block|{
 name|archivaRuntimeConfiguration
 operator|.
-name|setUserManagerImpl
+name|getUserManagerImpls
+argument_list|()
+operator|.
+name|add
 argument_list|(
 name|userManagerImpl
 argument_list|)
@@ -871,12 +874,18 @@ name|key
 argument_list|)
 condition|)
 block|{
+comment|// possible false for others than archiva user manager
 return|return
 name|getArchivaRuntimeConfiguration
 argument_list|()
 operator|.
-name|getUserManagerImpl
+name|getUserManagerImpls
 argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
 return|;
 block|}
 name|ArchivaRuntimeConfiguration

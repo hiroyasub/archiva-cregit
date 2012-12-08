@@ -101,11 +101,20 @@ name|ArchivaRuntimeConfiguration
 implements|implements
 name|Serializable
 block|{
+comment|/**      * Field userManagerImpls.      */
 specifier|private
+name|List
+argument_list|<
 name|String
-name|userManagerImpl
+argument_list|>
+name|userManagerImpls
 init|=
-literal|"jdo"
+operator|new
+name|ArrayList
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
 decl_stmt|;
 specifier|private
 name|LdapConfiguration
@@ -142,27 +151,33 @@ block|{
 comment|// no op
 block|}
 specifier|public
+name|List
+argument_list|<
 name|String
-name|getUserManagerImpl
+argument_list|>
+name|getUserManagerImpls
 parameter_list|()
 block|{
 return|return
-name|userManagerImpl
+name|userManagerImpls
 return|;
 block|}
 specifier|public
 name|void
-name|setUserManagerImpl
+name|setUserManagerImpls
 parameter_list|(
+name|List
+argument_list|<
 name|String
-name|userManagerImpl
+argument_list|>
+name|userManagerImpls
 parameter_list|)
 block|{
 name|this
 operator|.
-name|userManagerImpl
+name|userManagerImpls
 operator|=
-name|userManagerImpl
+name|userManagerImpls
 expr_stmt|;
 block|}
 specifier|public
@@ -416,11 +431,9 @@ block|{
 return|return
 literal|"ArchivaRuntimeConfiguration{"
 operator|+
-literal|"userManagerImpl='"
+literal|"userManagerImpls="
 operator|+
-name|userManagerImpl
-operator|+
-literal|'\''
+name|userManagerImpls
 operator|+
 literal|", ldapConfiguration="
 operator|+
@@ -433,6 +446,10 @@ operator|+
 literal|", configurationProperties="
 operator|+
 name|configurationProperties
+operator|+
+literal|", configurationPropertiesEntries="
+operator|+
+name|configurationPropertiesEntries
 operator|+
 literal|'}'
 return|;

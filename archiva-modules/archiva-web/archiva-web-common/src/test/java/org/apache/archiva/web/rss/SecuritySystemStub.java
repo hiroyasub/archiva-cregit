@@ -1037,6 +1037,15 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+specifier|public
+name|String
+name|getUserManagerId
+parameter_list|()
+block|{
+return|return
+literal|"mock"
+return|;
+block|}
 block|}
 return|;
 block|}
@@ -1427,6 +1436,15 @@ name|date
 parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
+block|}
+specifier|public
+name|String
+name|getUserManagerId
+parameter_list|()
+block|{
+return|return
+literal|"mock"
+return|;
 block|}
 block|}
 return|;
