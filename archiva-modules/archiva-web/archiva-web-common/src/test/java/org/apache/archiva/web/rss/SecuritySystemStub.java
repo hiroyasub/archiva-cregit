@@ -1523,43 +1523,16 @@ return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
-name|User
-name|findUser
-parameter_list|(
-name|Object
-name|principal
-parameter_list|)
-throws|throws
-name|UserNotFoundException
-block|{
-return|return
-literal|null
-return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
-block|}
-specifier|public
 name|boolean
 name|userExists
 parameter_list|(
-name|Object
+name|String
 name|principal
 parameter_list|)
 block|{
 return|return
 literal|false
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
-block|}
-specifier|public
-name|void
-name|deleteUser
-parameter_list|(
-name|Object
-name|principal
-parameter_list|)
-throws|throws
-name|UserNotFoundException
-block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
