@@ -1361,9 +1361,10 @@ name|UserManager
 name|userManagerImpl
 parameter_list|)
 block|{
+comment|// not possible here but we know so no need of log.error
 name|log
 operator|.
-name|error
+name|debug
 argument_list|(
 literal|"setUserManagerImpl cannot be used in this implementation"
 argument_list|)
