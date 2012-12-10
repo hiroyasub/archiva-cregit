@@ -544,6 +544,16 @@ name|getDescriptionKey
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|information
+operator|.
+name|setReadOnly
+argument_list|(
+name|userManager
+operator|.
+name|isReadOnly
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|informations
 operator|.
 name|add
