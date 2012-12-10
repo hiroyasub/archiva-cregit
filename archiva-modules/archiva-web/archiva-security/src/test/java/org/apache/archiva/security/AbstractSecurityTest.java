@@ -123,6 +123,22 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|redback
+operator|.
+name|users
+operator|.
+name|UserManagerException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|security
 operator|.
 name|common
@@ -324,7 +340,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractSecurityTest  *  */
+comment|/**  * AbstractSecurityTest  */
 end_comment
 
 begin_class
@@ -566,6 +582,8 @@ parameter_list|,
 name|String
 name|fullname
 parameter_list|)
+throws|throws
+name|UserManagerException
 block|{
 name|UserManager
 name|userManager
