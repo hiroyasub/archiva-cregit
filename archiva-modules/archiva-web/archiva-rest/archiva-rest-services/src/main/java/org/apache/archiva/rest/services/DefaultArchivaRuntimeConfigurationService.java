@@ -465,6 +465,11 @@ name|initialize
 argument_list|()
 expr_stmt|;
 block|}
+name|ldapConnectionFactory
+operator|.
+name|initialize
+argument_list|()
+expr_stmt|;
 return|return
 name|Boolean
 operator|.
@@ -647,11 +652,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|ldapConnectionFactory
-operator|.
-name|initialize
-argument_list|()
-expr_stmt|;
 return|return
 name|informations
 return|;
