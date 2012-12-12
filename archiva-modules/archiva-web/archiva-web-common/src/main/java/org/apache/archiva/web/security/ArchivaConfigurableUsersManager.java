@@ -809,6 +809,10 @@ condition|(
 name|user
 operator|==
 literal|null
+operator|&&
+name|lastException
+operator|!=
+literal|null
 condition|)
 block|{
 throw|throw
