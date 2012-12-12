@@ -594,6 +594,36 @@ name|archivaRuntimeConfiguration
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we must ensure userManagerImpls list is not empty if so put at least jdo one !
+if|if
+condition|(
+name|archivaRuntimeConfiguration
+operator|.
+name|getUserManagerImpls
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"archivaRuntimeConfiguration with empty userManagerImpls so force at least jdo implementation !"
+argument_list|)
+expr_stmt|;
+name|archivaRuntimeConfiguration
+operator|.
+name|getUserManagerImpls
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"jdo"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
