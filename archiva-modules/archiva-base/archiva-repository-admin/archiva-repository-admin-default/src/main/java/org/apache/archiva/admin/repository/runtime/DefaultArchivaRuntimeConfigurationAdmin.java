@@ -623,6 +623,11 @@ argument_list|(
 literal|"jdo"
 argument_list|)
 expr_stmt|;
+name|updateArchivaRuntimeConfiguration
+argument_list|(
+name|archivaRuntimeConfiguration
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 catch|catch
