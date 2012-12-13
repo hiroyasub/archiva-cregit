@@ -1001,6 +1001,7 @@ parameter_list|()
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      * @since 1.4-M3      */
 annotation|@
 name|Path
 argument_list|(
@@ -1030,7 +1031,6 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
-comment|/**      * @since 1.4-M3      */
 name|List
 argument_list|<
 name|AdminRepositoryConsumer
@@ -1040,6 +1040,7 @@ parameter_list|()
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      * @since 1.4-M3      */
 annotation|@
 name|Path
 argument_list|(
@@ -1069,7 +1070,6 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
-comment|/**      * @since 1.4-M3      */
 name|List
 argument_list|<
 name|AdminRepositoryConsumer
@@ -1306,6 +1306,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      * @since 1.4-M3      */
 annotation|@
 name|Path
 argument_list|(
@@ -1331,7 +1332,6 @@ name|noPermission
 operator|=
 literal|true
 argument_list|)
-comment|/**      * @since 1.4-M3      */
 name|String
 name|getApplicationUrl
 parameter_list|()

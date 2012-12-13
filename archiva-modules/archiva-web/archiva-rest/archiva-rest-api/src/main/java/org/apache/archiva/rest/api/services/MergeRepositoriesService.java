@@ -153,6 +153,7 @@ specifier|public
 interface|interface
 name|MergeRepositoriesService
 block|{
+comment|/**      *<b>permissions are checked in impl</b>      * @since 1.4-M3      */
 annotation|@
 name|Path
 argument_list|(
@@ -182,7 +183,6 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MERGE_REPOSITORY
 argument_list|)
-comment|/**      *<b>permissions are checked in impl</b>      * @since 1.4-M3      */
 name|List
 argument_list|<
 name|Artifact
@@ -208,6 +208,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      *<b>permissions are checked in impl</b>      * @since 1.4-M3      */
 annotation|@
 name|Path
 argument_list|(
@@ -224,7 +225,6 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MERGE_REPOSITORY
 argument_list|)
-comment|/**      *<b>permissions are checked in impl</b>      * @since 1.4-M3      */
 name|void
 name|mergeRepositories
 parameter_list|(

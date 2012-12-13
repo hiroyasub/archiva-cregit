@@ -388,6 +388,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      * @param groupId groupId to browse      * @param repositoryId optionnal (repository to browse if<code>null</code> all available user repositories are used)      */
 annotation|@
 name|Path
 argument_list|(
@@ -419,7 +420,6 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
-comment|/**      * @param groupId groupId to browse      * @param repositoryId optionnal (repository to browse if<code>null</code> all available user repositories are used)      */
 name|BrowseResult
 name|browseGroupId
 parameter_list|(
@@ -633,6 +633,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      * @return List of managed repositories current user can read      */
 annotation|@
 name|Path
 argument_list|(
@@ -664,7 +665,6 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
-comment|/**      * @return List of managed repositories current user can read      */
 name|List
 argument_list|<
 name|ManagedRepository
@@ -674,6 +674,7 @@ parameter_list|()
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      * return the dependency Tree for an artifacts      *<b>the List result has only one entry</b>      */
 annotation|@
 name|Path
 argument_list|(
@@ -705,7 +706,6 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
-comment|/**      * return the dependency Tree for an artifacts      *<b>the List result has only one entry</b>      */
 name|List
 argument_list|<
 name|TreeEntry
@@ -747,6 +747,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      * List of artifacts using the artifact passed in parameter.      */
 annotation|@
 name|Path
 argument_list|(
@@ -778,7 +779,6 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
-comment|/**      * List of artifacts using the artifact passed in parameter.      */
 name|List
 argument_list|<
 name|Artifact
@@ -1269,6 +1269,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      * if path is empty content of the file is returned (for pom view)      */
 annotation|@
 name|Path
 argument_list|(
@@ -1300,7 +1301,6 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
-comment|/**      * if path is empty content of the file is returned (for pom view)      */
 name|ArtifactContent
 name|getArtifactContentText
 parameter_list|(
@@ -1363,6 +1363,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      * verify if an artifact is available locally if not download from proxies will be try      * @since 1.4-M3      */
 annotation|@
 name|Path
 argument_list|(
@@ -1394,7 +1395,6 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
-comment|/**      * verify if an artifact is available locally if not download from proxies will be try      * @since 1.4-M3      */
 name|Boolean
 name|artifactAvailable
 parameter_list|(
@@ -1433,6 +1433,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      *      * return List of all artifacts from this repository      * @param repositoryId      * @return      * @throws ArchivaRestServiceException      * @since 1.4-M3      */
 annotation|@
 name|Path
 argument_list|(
@@ -1464,7 +1465,6 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
-comment|/**      *      * return List of all artifacts from this repository      * @param repositoryId      * @return      * @throws ArchivaRestServiceException      * @since 1.4-M3      */
 name|List
 argument_list|<
 name|Artifact

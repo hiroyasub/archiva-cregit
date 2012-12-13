@@ -451,6 +451,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      * @since 1.4-M3      */
 annotation|@
 name|Path
 argument_list|(
@@ -484,7 +485,6 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
-comment|/**      * @since 1.4-M3      */
 name|Boolean
 name|fileLocationExists
 parameter_list|(
@@ -499,6 +499,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      * @since 1.4-M3      */
 annotation|@
 name|Path
 argument_list|(
@@ -528,7 +529,6 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
-comment|/**      * @since 1.4-M3      */
 name|ArchivaRepositoryStatistics
 name|getManagedRepositoryStatistics
 parameter_list|(
@@ -551,6 +551,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      * return a pom snippet to use this repository with entities escaped (<> )      * @since 1.4-M3      */
 annotation|@
 name|Path
 argument_list|(
@@ -576,7 +577,6 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
-comment|/**      * return a pom snippet to use this repository with entities escaped (<> )      * @since 1.4-M3      */
 name|String
 name|getPomSnippet
 parameter_list|(

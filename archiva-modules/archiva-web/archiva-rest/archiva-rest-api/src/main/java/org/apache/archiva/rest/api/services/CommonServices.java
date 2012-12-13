@@ -111,6 +111,7 @@ specifier|public
 interface|interface
 name|CommonServices
 block|{
+comment|/**      * will return properties available in org/apache/archiva/i18n/default.properties      * load default (en) then override with locale used so at least en are returned if no      * translation in the locale asked.      */
 annotation|@
 name|Path
 argument_list|(
@@ -134,7 +135,6 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
-comment|/**      * will return properties available in org/apache/archiva/i18n/default.properties      * load default (en) then override with locale used so at least en are returned if no      * translation in the locale asked.      */
 name|String
 name|getI18nResources
 parameter_list|(
@@ -149,6 +149,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      * will return properties available in org/apache/archiva/i18n/default.properties      * load default (en) then override with locale used so at least en are returned if no      * translation in the locale asked.      * This method will add redback resources too. note Archva wins      */
 annotation|@
 name|Path
 argument_list|(
@@ -172,7 +173,6 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
-comment|/**      * will return properties available in org/apache/archiva/i18n/default.properties      * load default (en) then override with locale used so at least en are returned if no      * translation in the locale asked.      * This method will add redback resources too. note Archva wins      */
 name|String
 name|getAllI18nResources
 parameter_list|(

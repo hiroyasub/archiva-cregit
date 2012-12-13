@@ -248,6 +248,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      *<b>if not repositories in SearchRequest: search will be apply on all repositories the current user has karma</b>      */
 annotation|@
 name|Path
 argument_list|(
@@ -279,7 +280,6 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
-comment|/**      *<b>if not repositories in SearchRequest: search will be apply on all repositories the current user has karma</b>      */
 name|List
 argument_list|<
 name|Artifact
@@ -292,6 +292,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      * If searchRequest contains repositories, the search will be done only on those repositories.      *<b>if no repositories, the search will be apply on all repositories the current user has karma</b>      */
 annotation|@
 name|Path
 argument_list|(
@@ -323,7 +324,6 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
-comment|/**      * If searchRequest contains repositories, the search will be done only on those repositories.      *<b>if no repositories, the search will be apply on all repositories the current user has karma</b>      */
 name|List
 argument_list|<
 name|Artifact
@@ -336,6 +336,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      *<b>search will be apply on all repositories the current user has karma</b>      */
 annotation|@
 name|Path
 argument_list|(
@@ -367,7 +368,6 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
-comment|/**      *<b>search will be apply on all repositories the current user has karma</b>      */
 name|List
 argument_list|<
 name|Artifact
@@ -401,6 +401,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      *<b>this method applies on Maven Indexer lucene index, so datas not yet indexed won't be available</b>      */
 annotation|@
 name|Path
 argument_list|(
@@ -432,7 +433,6 @@ name|noRestriction
 operator|=
 literal|false
 argument_list|)
-comment|/**      *<b>this method applies on Maven Indexer lucene index, so datas not yet indexed won't be available</b>      */
 name|GroupIdList
 name|getAllGroupIds
 parameter_list|(
@@ -450,6 +450,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      * @since 1.4-M3      */
 annotation|@
 name|Path
 argument_list|(
@@ -481,7 +482,6 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
-comment|/**      * @since 1.4-M3      */
 name|StringList
 name|getObservablesRepoIds
 parameter_list|()

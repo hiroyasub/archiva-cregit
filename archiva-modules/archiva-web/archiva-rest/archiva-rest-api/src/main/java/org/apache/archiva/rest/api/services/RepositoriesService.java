@@ -225,6 +225,7 @@ specifier|public
 interface|interface
 name|RepositoriesService
 block|{
+comment|/**      * index repository      */
 annotation|@
 name|Path
 argument_list|(
@@ -258,7 +259,6 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_RUN_INDEXER
 argument_list|)
-comment|/**      * index repository      */
 name|Boolean
 name|scanRepository
 parameter_list|(
@@ -281,6 +281,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      * scan directories      * @since 1.4-M3      */
 annotation|@
 name|Path
 argument_list|(
@@ -314,7 +315,6 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_RUN_INDEXER
 argument_list|)
-comment|/**      * scan directories      * @since 1.4-M3      */
 name|RepositoryScanStatistics
 name|scanRepositoryDirectoriesNow
 parameter_list|(
@@ -478,6 +478,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      * permissions are checked in impl      * will copy an artifact from the source repository to the target repository      */
 annotation|@
 name|Path
 argument_list|(
@@ -522,7 +523,6 @@ name|noPermission
 operator|=
 literal|true
 argument_list|)
-comment|/**      * permissions are checked in impl      * will copy an artifact from the source repository to the target repository      */
 name|Boolean
 name|copyArtifact
 parameter_list|(
@@ -595,6 +595,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      *<b>permissions are checked in impl</b>      * @since 1.4-M2      */
 annotation|@
 name|Path
 argument_list|(
@@ -639,7 +640,6 @@ name|noPermission
 operator|=
 literal|true
 argument_list|)
-comment|/**      *<b>permissions are checked in impl</b>      * @since 1.4-M2      */
 name|Boolean
 name|deleteArtifact
 parameter_list|(
@@ -649,6 +649,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      *<b>permissions are checked in impl</b>      * @since 1.4-M4      */
 annotation|@
 name|Path
 argument_list|(
@@ -680,7 +681,6 @@ name|noPermission
 operator|=
 literal|true
 argument_list|)
-comment|/**      *<b>permissions are checked in impl</b>      * @since 1.4-M4      */
 name|Boolean
 name|removeProjectVersion
 parameter_list|(
@@ -768,6 +768,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      *<b>permissions are checked in impl</b>      * @since 1.4-M3      */
 annotation|@
 name|Path
 argument_list|(
@@ -799,7 +800,6 @@ name|noPermission
 operator|=
 literal|true
 argument_list|)
-comment|/**      *<b>permissions are checked in impl</b>      * @since 1.4-M3      */
 name|Boolean
 name|deleteGroupId
 parameter_list|(
@@ -822,6 +822,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
+comment|/**      *<b>permissions are checked in impl</b>      * @since 1.4-M4      */
 annotation|@
 name|Path
 argument_list|(
@@ -853,7 +854,6 @@ name|noPermission
 operator|=
 literal|true
 argument_list|)
-comment|/**      *<b>permissions are checked in impl</b>      * @since 1.4-M4      */
 name|Boolean
 name|deleteProject
 parameter_list|(
