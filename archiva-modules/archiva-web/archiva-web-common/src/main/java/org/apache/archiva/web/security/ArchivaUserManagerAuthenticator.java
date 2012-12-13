@@ -899,11 +899,16 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Password is Invalid for user {}."
+literal|"Password is Invalid for user {} and userManager '{}'."
 argument_list|,
 name|source
 operator|.
 name|getPrincipal
+argument_list|()
+argument_list|,
+name|userManager
+operator|.
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
