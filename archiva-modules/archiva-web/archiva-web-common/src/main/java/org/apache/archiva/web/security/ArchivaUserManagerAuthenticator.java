@@ -826,6 +826,15 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|userManager
+operator|.
+name|isReadOnly
+argument_list|()
+condition|)
+block|{
 name|userManager
 operator|.
 name|updateUser
@@ -833,6 +842,7 @@ argument_list|(
 name|user
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 operator|new
@@ -927,6 +937,15 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+if|if
+condition|(
+operator|!
+name|userManager
+operator|.
+name|isReadOnly
+argument_list|()
+condition|)
+block|{
 name|userManager
 operator|.
 name|updateUser
@@ -934,6 +953,7 @@ argument_list|(
 name|user
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|//return new AuthenticationResult( false, source.getPrincipal(), null, authnResultExceptionsMap );
 block|}
