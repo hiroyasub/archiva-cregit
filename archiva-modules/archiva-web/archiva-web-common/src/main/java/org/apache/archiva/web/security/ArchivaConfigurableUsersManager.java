@@ -529,17 +529,21 @@ decl_stmt|;
 if|if
 condition|(
 name|userManager
-operator|==
-literal|null
+operator|.
+name|isReadOnly
+argument_list|()
 condition|)
 block|{
-throw|throw
-operator|new
-name|RuntimeException
+name|log
+operator|.
+name|warn
 argument_list|(
-literal|"impossible to find a writable userManager"
+literal|"cannot find writable user manager implementation, skip user creation"
 argument_list|)
-throw|;
+expr_stmt|;
+return|return
+literal|null
+return|;
 block|}
 return|return
 name|userManager
@@ -567,7 +571,6 @@ operator|.
 name|createUserQuery
 argument_list|()
 return|;
-comment|//To change body of overridden methods use File | Settings | File Templates.
 block|}
 annotation|@
 name|Override
@@ -592,17 +595,19 @@ decl_stmt|;
 if|if
 condition|(
 name|userManager
-operator|==
-literal|null
+operator|.
+name|isReadOnly
+argument_list|()
 condition|)
 block|{
-throw|throw
-operator|new
-name|RuntimeException
+name|log
+operator|.
+name|warn
 argument_list|(
-literal|"impossible to find a writable userManager"
+literal|"cannot find writable user manager implementation, skip delete user"
 argument_list|)
-throw|;
+expr_stmt|;
+return|return;
 block|}
 name|userManager
 operator|.
@@ -1283,9 +1288,11 @@ name|boolean
 name|isReadOnly
 parameter_list|()
 block|{
-comment|//olamy: must be it depends :-)
 return|return
-literal|true
+name|findFirstWritable
+argument_list|()
+operator|!=
+literal|null
 return|;
 block|}
 annotation|@
@@ -1531,9 +1538,33 @@ parameter_list|()
 throws|throws
 name|UserManagerException
 block|{
-return|return
+name|UserManager
+name|userManager
+init|=
 name|findFirstWritable
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|userManager
+operator|.
+name|isReadOnly
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"cannot find writable user manager implementation, skip guest user creation"
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
+return|return
+name|userManager
 operator|.
 name|createGuestUser
 argument_list|()
