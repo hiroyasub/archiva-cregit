@@ -388,7 +388,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
-comment|/**      * @param groupId groupId to browse      * @param repositoryId optionnal (repository to browse if<code>null</code> all available user repositories are used)      */
+comment|/**      * @param groupId      groupId to browse      * @param repositoryId optionnal (repository to browse if<code>null</code> all available user repositories are used)      */
 annotation|@
 name|Path
 argument_list|(
@@ -1363,7 +1363,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
-comment|/**      * verify if an artifact is available locally if not download from proxies will be try      * @since 1.4-M3      */
+comment|/**      * verify if an artifact is available locally if not download from proxies will be try      *      * @since 1.4-M3      */
 annotation|@
 name|Path
 argument_list|(
@@ -1433,7 +1433,85 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
-comment|/**      *      * return List of all artifacts from this repository      * @param repositoryId      * @return      * @throws ArchivaRestServiceException      * @since 1.4-M3      */
+comment|/**      * verify if an artifact is available locally if not download from proxies will be try      *      * @since 1.4-M4      */
+annotation|@
+name|Path
+argument_list|(
+literal|"artifactAvailable/{g}/{a}/{v}/{c}"
+argument_list|)
+annotation|@
+name|GET
+annotation|@
+name|Produces
+argument_list|(
+block|{
+name|MediaType
+operator|.
+name|APPLICATION_JSON
+block|,
+name|MediaType
+operator|.
+name|APPLICATION_XML
+block|}
+argument_list|)
+annotation|@
+name|RedbackAuthorization
+argument_list|(
+name|noPermission
+operator|=
+literal|true
+argument_list|,
+name|noRestriction
+operator|=
+literal|true
+argument_list|)
+name|Boolean
+name|artifactAvailable
+parameter_list|(
+annotation|@
+name|PathParam
+argument_list|(
+literal|"g"
+argument_list|)
+name|String
+name|groupId
+parameter_list|,
+annotation|@
+name|PathParam
+argument_list|(
+literal|"a"
+argument_list|)
+name|String
+name|artifactId
+parameter_list|,
+annotation|@
+name|PathParam
+argument_list|(
+literal|"v"
+argument_list|)
+name|String
+name|version
+parameter_list|,
+annotation|@
+name|PathParam
+argument_list|(
+literal|"c"
+argument_list|)
+name|String
+name|classifier
+parameter_list|,
+annotation|@
+name|QueryParam
+argument_list|(
+literal|"repositoryId"
+argument_list|)
+name|String
+name|repositoryId
+parameter_list|)
+throws|throws
+name|ArchivaRestServiceException
+function_decl|;
+comment|/**      * return List of all artifacts from this repository      *      * @param repositoryId      * @return      * @throws ArchivaRestServiceException      * @since 1.4-M3      */
 annotation|@
 name|Path
 argument_list|(
