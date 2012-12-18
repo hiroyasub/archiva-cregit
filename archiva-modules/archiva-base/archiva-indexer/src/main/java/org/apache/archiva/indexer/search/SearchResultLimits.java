@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * SearchResultLimits - used to provide the search some limits on how the results are returned.  * This can provide paging for the  *  */
+comment|/**  * SearchResultLimits - used to provide the search some limits on how the results are returned.  * This can provide paging for the result  */
 end_comment
 
 begin_class
@@ -50,6 +50,7 @@ name|selectedPage
 init|=
 literal|0
 decl_stmt|;
+comment|/**      * @param selectedPage page selected use -1 for all pages      */
 specifier|public
 name|SearchResultLimits
 parameter_list|(
@@ -57,6 +58,30 @@ name|int
 name|selectedPage
 parameter_list|)
 block|{
+name|this
+operator|.
+name|selectedPage
+operator|=
+name|selectedPage
+expr_stmt|;
+block|}
+comment|/**      * @param pageSize     number of groupId:artifact per page      * @param selectedPage page selected use -1 for all pages      * @since 1.4-M4      */
+specifier|public
+name|SearchResultLimits
+parameter_list|(
+name|int
+name|pageSize
+parameter_list|,
+name|int
+name|selectedPage
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pageSize
+operator|=
+name|pageSize
+expr_stmt|;
 name|this
 operator|.
 name|selectedPage
