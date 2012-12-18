@@ -218,7 +218,7 @@ block|{
 annotation|@
 name|Path
 argument_list|(
-literal|"archivaRuntimeConfiguration"
+literal|"redbackRuntimeConfiguration"
 argument_list|)
 annotation|@
 name|GET
@@ -245,7 +245,7 @@ operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
 name|RedbackRuntimeConfiguration
-name|getArchivaRuntimeConfigurationAdmin
+name|getRedbackRuntimeConfigurationAdmin
 parameter_list|()
 throws|throws
 name|ArchivaRestServiceException
@@ -293,7 +293,7 @@ operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
 name|Boolean
-name|updateArchivaRuntimeConfiguration
+name|updateRedbackRuntimeConfiguration
 parameter_list|(
 name|RedbackRuntimeConfiguration
 name|redbackRuntimeConfiguration

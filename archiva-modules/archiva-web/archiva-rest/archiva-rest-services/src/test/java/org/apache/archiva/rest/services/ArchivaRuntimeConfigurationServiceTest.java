@@ -141,7 +141,7 @@ init|=
 name|getArchivaRuntimeConfigurationService
 argument_list|()
 operator|.
-name|getArchivaRuntimeConfigurationAdmin
+name|getRedbackRuntimeConfigurationAdmin
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -175,7 +175,7 @@ init|=
 name|getArchivaRuntimeConfigurationService
 argument_list|()
 operator|.
-name|getArchivaRuntimeConfigurationAdmin
+name|getRedbackRuntimeConfigurationAdmin
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -208,7 +208,7 @@ expr_stmt|;
 name|getArchivaRuntimeConfigurationService
 argument_list|()
 operator|.
-name|updateArchivaRuntimeConfiguration
+name|updateRedbackRuntimeConfiguration
 argument_list|(
 name|redbackRuntimeConfiguration
 argument_list|)
@@ -218,7 +218,7 @@ operator|=
 name|getArchivaRuntimeConfigurationService
 argument_list|()
 operator|.
-name|getArchivaRuntimeConfigurationAdmin
+name|getRedbackRuntimeConfigurationAdmin
 argument_list|()
 expr_stmt|;
 name|assertEquals

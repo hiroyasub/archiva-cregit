@@ -487,7 +487,7 @@ name|ldapConnectionFactory
 decl_stmt|;
 specifier|public
 name|RedbackRuntimeConfiguration
-name|getArchivaRuntimeConfigurationAdmin
+name|getRedbackRuntimeConfigurationAdmin
 parameter_list|()
 throws|throws
 name|ArchivaRestServiceException
@@ -523,7 +523,7 @@ block|}
 block|}
 specifier|public
 name|Boolean
-name|updateArchivaRuntimeConfiguration
+name|updateRedbackRuntimeConfiguration
 parameter_list|(
 name|RedbackRuntimeConfiguration
 name|redbackRuntimeConfiguration
