@@ -536,7 +536,15 @@ init|=
 operator|new
 name|SearchResultLimits
 argument_list|(
-literal|0
+name|searchRequest
+operator|.
+name|getPageSize
+argument_list|()
+argument_list|,
+name|searchRequest
+operator|.
+name|getSelectedPage
+argument_list|()
 argument_list|)
 decl_stmt|;
 try|try
