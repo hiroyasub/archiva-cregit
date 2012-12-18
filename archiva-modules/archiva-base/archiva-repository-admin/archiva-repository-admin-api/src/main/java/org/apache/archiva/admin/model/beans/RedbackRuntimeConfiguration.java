@@ -97,7 +97,7 @@ literal|"redbackRuntimeConfiguration"
 argument_list|)
 specifier|public
 class|class
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 implements|implements
 name|Serializable
 block|{
@@ -145,7 +145,7 @@ argument_list|>
 name|configurationPropertiesEntries
 decl_stmt|;
 specifier|public
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 parameter_list|()
 block|{
 comment|// no op
@@ -429,7 +429,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"ArchivaRuntimeConfiguration{"
+literal|"RedbackRuntimeConfiguration{"
 operator|+
 literal|"userManagerImpls="
 operator|+

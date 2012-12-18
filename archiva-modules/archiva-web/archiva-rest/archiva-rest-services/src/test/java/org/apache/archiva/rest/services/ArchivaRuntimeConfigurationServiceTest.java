@@ -31,7 +31,7 @@ name|model
 operator|.
 name|beans
 operator|.
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 import|;
 end_import
 
@@ -135,8 +135,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArchivaRuntimeConfiguration
-name|archivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
+name|redbackRuntimeConfiguration
 init|=
 name|getArchivaRuntimeConfigurationService
 argument_list|()
@@ -148,7 +148,7 @@ name|assertEquals
 argument_list|(
 literal|"jdo"
 argument_list|,
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|getUserManagerImpls
 argument_list|()
@@ -169,8 +169,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArchivaRuntimeConfiguration
-name|archivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
+name|redbackRuntimeConfiguration
 init|=
 name|getArchivaRuntimeConfigurationService
 argument_list|()
@@ -182,7 +182,7 @@ name|assertEquals
 argument_list|(
 literal|"jdo"
 argument_list|,
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|getUserManagerImpls
 argument_list|()
@@ -193,7 +193,7 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|setUserManagerImpls
 argument_list|(
@@ -210,10 +210,10 @@ argument_list|()
 operator|.
 name|updateArchivaRuntimeConfiguration
 argument_list|(
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 argument_list|)
 expr_stmt|;
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|=
 name|getArchivaRuntimeConfigurationService
 argument_list|()
@@ -225,7 +225,7 @@ name|assertEquals
 argument_list|(
 literal|"foo"
 argument_list|,
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|getUserManagerImpls
 argument_list|()

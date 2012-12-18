@@ -33,7 +33,7 @@ name|model
 operator|.
 name|beans
 operator|.
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 import|;
 end_import
 
@@ -244,7 +244,7 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 name|getArchivaRuntimeConfigurationAdmin
 parameter_list|()
 throws|throws
@@ -253,7 +253,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"archivaRuntimeConfiguration"
+literal|"redbackRuntimeConfiguration"
 argument_list|)
 annotation|@
 name|PUT
@@ -295,8 +295,8 @@ argument_list|)
 name|Boolean
 name|updateArchivaRuntimeConfiguration
 parameter_list|(
-name|ArchivaRuntimeConfiguration
-name|archivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
+name|redbackRuntimeConfiguration
 parameter_list|)
 throws|throws
 name|ArchivaRestServiceException

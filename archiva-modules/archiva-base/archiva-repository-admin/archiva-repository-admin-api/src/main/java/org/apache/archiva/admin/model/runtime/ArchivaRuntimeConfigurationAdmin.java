@@ -49,7 +49,7 @@ name|model
 operator|.
 name|beans
 operator|.
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 import|;
 end_import
 
@@ -62,7 +62,7 @@ specifier|public
 interface|interface
 name|ArchivaRuntimeConfigurationAdmin
 block|{
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 name|getArchivaRuntimeConfiguration
 parameter_list|()
 throws|throws
@@ -71,8 +71,8 @@ function_decl|;
 name|void
 name|updateArchivaRuntimeConfiguration
 parameter_list|(
-name|ArchivaRuntimeConfiguration
-name|archivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
+name|redbackRuntimeConfiguration
 parameter_list|)
 throws|throws
 name|RepositoryAdminException

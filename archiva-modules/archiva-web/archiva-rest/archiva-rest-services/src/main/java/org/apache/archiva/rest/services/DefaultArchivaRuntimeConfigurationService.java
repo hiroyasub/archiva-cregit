@@ -47,7 +47,7 @@ name|model
 operator|.
 name|beans
 operator|.
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 import|;
 end_import
 
@@ -486,7 +486,7 @@ name|LdapConnectionFactory
 name|ldapConnectionFactory
 decl_stmt|;
 specifier|public
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 name|getArchivaRuntimeConfigurationAdmin
 parameter_list|()
 throws|throws
@@ -525,8 +525,8 @@ specifier|public
 name|Boolean
 name|updateArchivaRuntimeConfiguration
 parameter_list|(
-name|ArchivaRuntimeConfiguration
-name|archivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
+name|redbackRuntimeConfiguration
 parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
@@ -537,7 +537,7 @@ comment|// has user manager impl changed ?
 name|boolean
 name|userManagerChanged
 init|=
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|getUserManagerImpls
 argument_list|()
@@ -561,7 +561,7 @@ operator|=
 name|userManagerChanged
 operator|||
 operator|(
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|getUserManagerImpls
 argument_list|()
@@ -591,7 +591,7 @@ name|archivaRuntimeConfigurationAdmin
 operator|.
 name|updateArchivaRuntimeConfiguration
 argument_list|(
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 argument_list|)
 expr_stmt|;
 if|if
@@ -605,7 +605,7 @@ name|info
 argument_list|(
 literal|"user managerImpls changed to {} so reload it"
 argument_list|,
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|getUserManagerImpls
 argument_list|()

@@ -83,7 +83,7 @@ name|model
 operator|.
 name|beans
 operator|.
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 import|;
 end_import
 
@@ -144,20 +144,6 @@ operator|.
 name|configuration
 operator|.
 name|IndeterminateConfigurationException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|RedbackRuntimeConfiguration
 import|;
 end_import
 
@@ -372,8 +358,8 @@ name|UserConfigurationException
 block|{
 try|try
 block|{
-name|ArchivaRuntimeConfiguration
-name|archivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
+name|redbackRuntimeConfiguration
 init|=
 name|getArchivaRuntimeConfiguration
 argument_list|()
@@ -382,7 +368,7 @@ comment|// migrate or not data from redback
 if|if
 condition|(
 operator|!
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|isMigratedFromRedbackConfiguration
 argument_list|()
@@ -411,7 +397,7 @@ name|userManagerImpl
 argument_list|)
 condition|)
 block|{
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|getUserManagerImpls
 argument_list|()
@@ -426,7 +412,7 @@ comment|// now ldap
 name|LdapConfiguration
 name|ldapConfiguration
 init|=
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|getLdapConfiguration
 argument_list|()
@@ -444,7 +430,7 @@ operator|new
 name|LdapConfiguration
 argument_list|()
 expr_stmt|;
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|setLdapConfiguration
 argument_list|(
@@ -581,7 +567,7 @@ literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|setMigratedFromRedbackConfiguration
 argument_list|(
@@ -590,14 +576,14 @@ argument_list|)
 expr_stmt|;
 name|updateArchivaRuntimeConfiguration
 argument_list|(
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 argument_list|)
 expr_stmt|;
 block|}
 comment|// we must ensure userManagerImpls list is not empty if so put at least jdo one !
 if|if
 condition|(
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|getUserManagerImpls
 argument_list|()
@@ -610,10 +596,10 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"archivaRuntimeConfiguration with empty userManagerImpls so force at least jdo implementation !"
+literal|"redbackRuntimeConfiguration with empty userManagerImpls so force at least jdo implementation !"
 argument_list|)
 expr_stmt|;
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|getUserManagerImpls
 argument_list|()
@@ -625,7 +611,7 @@ argument_list|)
 expr_stmt|;
 name|updateArchivaRuntimeConfiguration
 argument_list|(
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 argument_list|)
 expr_stmt|;
 block|}
@@ -651,7 +637,7 @@ throw|;
 block|}
 block|}
 specifier|public
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 name|getArchivaRuntimeConfiguration
 parameter_list|()
 block|{
@@ -672,18 +658,26 @@ specifier|public
 name|void
 name|updateArchivaRuntimeConfiguration
 parameter_list|(
-name|ArchivaRuntimeConfiguration
-name|archivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
+name|redbackRuntimeConfiguration
 parameter_list|)
 throws|throws
 name|RepositoryAdminException
 block|{
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
 name|RedbackRuntimeConfiguration
 name|runtimeConfiguration
 init|=
 name|build
 argument_list|(
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 argument_list|)
 decl_stmt|;
 name|Configuration
@@ -751,15 +745,23 @@ throw|;
 block|}
 block|}
 specifier|private
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 name|build
 parameter_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
 name|RedbackRuntimeConfiguration
 name|runtimeConfiguration
 parameter_list|)
 block|{
-name|ArchivaRuntimeConfiguration
-name|archivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
+name|redbackRuntimeConfiguration
 init|=
 operator|new
 name|BeanReplicator
@@ -769,7 +771,7 @@ name|replicateBean
 argument_list|(
 name|runtimeConfiguration
 argument_list|,
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 operator|.
 name|class
 argument_list|)
@@ -784,7 +786,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|setLdapConfiguration
 argument_list|(
@@ -808,7 +810,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|getLdapConfiguration
 argument_list|()
@@ -817,7 +819,7 @@ literal|null
 condition|)
 block|{
 comment|// prevent NPE
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|setLdapConfiguration
 argument_list|(
@@ -828,17 +830,33 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 return|;
 block|}
 specifier|private
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
 name|RedbackRuntimeConfiguration
 name|build
 parameter_list|(
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 name|archivaRuntimeConfiguration
 parameter_list|)
 block|{
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
 name|RedbackRuntimeConfiguration
 name|redbackRuntimeConfiguration
 init|=
@@ -850,6 +868,14 @@ name|replicateBean
 argument_list|(
 name|archivaRuntimeConfiguration
 argument_list|,
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
 name|RedbackRuntimeConfiguration
 operator|.
 name|class
@@ -923,7 +949,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 name|conf
 init|=
 name|getArchivaRuntimeConfiguration
@@ -1005,7 +1031,7 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"fail to save ArchivaRuntimeConfiguration: {}"
+literal|"fail to save RedbackRuntimeConfiguration: {}"
 argument_list|,
 name|e
 operator|.
@@ -1135,7 +1161,7 @@ name|getAuthenticationMethod
 argument_list|()
 return|;
 block|}
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 name|conf
 init|=
 name|getArchivaRuntimeConfiguration
@@ -1219,7 +1245,7 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"fail to save ArchivaRuntimeConfiguration: {}"
+literal|"fail to save RedbackRuntimeConfiguration: {}"
 argument_list|,
 name|e
 operator|.
@@ -1254,7 +1280,7 @@ name|String
 name|key
 parameter_list|)
 block|{
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 name|conf
 init|=
 name|getArchivaRuntimeConfiguration
@@ -1335,7 +1361,7 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"fail to save ArchivaRuntimeConfiguration: {}"
+literal|"fail to save RedbackRuntimeConfiguration: {}"
 argument_list|,
 name|e
 operator|.
@@ -1396,7 +1422,7 @@ name|getPort
 argument_list|()
 return|;
 block|}
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 name|conf
 init|=
 name|getArchivaRuntimeConfiguration
@@ -1479,7 +1505,7 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"fail to save ArchivaRuntimeConfiguration: {}"
+literal|"fail to save RedbackRuntimeConfiguration: {}"
 argument_list|,
 name|e
 operator|.
@@ -1514,7 +1540,7 @@ name|String
 name|key
 parameter_list|)
 block|{
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 name|conf
 init|=
 name|getArchivaRuntimeConfiguration
@@ -1595,7 +1621,7 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"fail to save ArchivaRuntimeConfiguration: {}"
+literal|"fail to save RedbackRuntimeConfiguration: {}"
 argument_list|,
 name|e
 operator|.
@@ -1656,7 +1682,7 @@ name|isSsl
 argument_list|()
 return|;
 block|}
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 name|conf
 init|=
 name|getArchivaRuntimeConfiguration
@@ -1739,7 +1765,7 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"fail to save ArchivaRuntimeConfiguration: {}"
+literal|"fail to save RedbackRuntimeConfiguration: {}"
 argument_list|,
 name|e
 operator|.
@@ -1790,7 +1816,7 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
-name|ArchivaRuntimeConfiguration
+name|RedbackRuntimeConfiguration
 name|conf
 init|=
 name|getArchivaRuntimeConfiguration
@@ -1827,7 +1853,7 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"fail to save ArchivaRuntimeConfiguration: {}"
+literal|"fail to save RedbackRuntimeConfiguration: {}"
 argument_list|,
 name|e
 operator|.
