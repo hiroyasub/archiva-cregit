@@ -1969,6 +1969,15 @@ name|invalidRepositoryContentConsumers
 expr_stmt|;
 block|}
 specifier|public
+name|String
+name|getApplicationName
+parameter_list|()
+block|{
+return|return
+literal|"foo"
+return|;
+block|}
+specifier|public
 name|AutowireCapableBeanFactory
 name|getAutowireCapableBeanFactory
 parameter_list|( )

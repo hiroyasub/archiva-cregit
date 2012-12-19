@@ -779,6 +779,23 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+specifier|public
+name|boolean
+name|hasMetadataFacet
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|,
+name|String
+name|facetId
+parameter_list|)
+throws|throws
+name|MetadataRepositoryException
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 

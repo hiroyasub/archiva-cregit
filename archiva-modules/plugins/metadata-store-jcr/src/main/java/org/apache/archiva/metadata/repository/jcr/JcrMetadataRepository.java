@@ -2287,14 +2287,9 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 return|return
-name|JcrUtils
-operator|.
-name|getChildNodes
-argument_list|(
 name|node
-argument_list|)
 operator|.
-name|iterator
+name|getNodes
 argument_list|()
 operator|.
 name|hasNext
