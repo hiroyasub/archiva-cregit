@@ -487,7 +487,7 @@ name|ldapConnectionFactory
 decl_stmt|;
 specifier|public
 name|RedbackRuntimeConfiguration
-name|getRedbackRuntimeConfigurationAdmin
+name|getRedbackRuntimeConfiguration
 parameter_list|()
 throws|throws
 name|ArchivaRestServiceException

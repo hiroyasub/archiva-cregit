@@ -245,7 +245,7 @@ operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
 name|RedbackRuntimeConfiguration
-name|getRedbackRuntimeConfigurationAdmin
+name|getRedbackRuntimeConfiguration
 parameter_list|()
 throws|throws
 name|ArchivaRestServiceException

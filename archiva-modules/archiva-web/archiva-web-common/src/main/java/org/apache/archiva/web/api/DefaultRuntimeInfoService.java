@@ -368,7 +368,7 @@ name|setRedbackRuntimeConfiguration
 argument_list|(
 name|archivaRuntimeConfigurationService
 operator|.
-name|getRedbackRuntimeConfigurationAdmin
+name|getRedbackRuntimeConfiguration
 argument_list|()
 argument_list|)
 expr_stmt|;
