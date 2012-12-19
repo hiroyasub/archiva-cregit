@@ -211,6 +211,19 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+comment|/**      *      * @param repositoryId      * @param facetId      * @return true if the repository datas for this facetId      * @since 1.4-M4      * @throws MetadataRepositoryException      */
+name|boolean
+name|hasMetadataFacet
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|,
+name|String
+name|facetId
+parameter_list|)
+throws|throws
+name|MetadataRepositoryException
+function_decl|;
 name|MetadataFacet
 name|getMetadataFacet
 parameter_list|(
