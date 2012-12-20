@@ -89,6 +89,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -128,7 +138,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link PreDownloadPolicy} to check if the requested url has failed before.  *  *  */
+comment|/**  * {@link PreDownloadPolicy} to check if the requested url has failed before.  */
 end_comment
 
 begin_class

@@ -59,6 +59,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -92,6 +102,11 @@ name|Inject
 specifier|public
 name|DefaultUrlFailureCache
 parameter_list|(
+annotation|@
+name|Named
+argument_list|(
+literal|"url-failures-cache"
+argument_list|)
 name|Cache
 name|urlCache
 parameter_list|)
