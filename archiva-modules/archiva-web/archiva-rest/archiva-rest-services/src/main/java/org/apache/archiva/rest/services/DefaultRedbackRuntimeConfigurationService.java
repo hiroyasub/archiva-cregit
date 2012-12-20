@@ -297,7 +297,7 @@ name|api
 operator|.
 name|services
 operator|.
-name|ArchivaRuntimeConfigurationService
+name|RedbackRuntimeConfigurationService
 import|;
 end_import
 
@@ -441,11 +441,11 @@ literal|"archivaRuntimeConfigurationService#rest"
 argument_list|)
 specifier|public
 class|class
-name|DefaultArchivaRuntimeConfigurationService
+name|DefaultRedbackRuntimeConfigurationService
 extends|extends
 name|AbstractRestService
 implements|implements
-name|ArchivaRuntimeConfigurationService
+name|RedbackRuntimeConfigurationService
 block|{
 annotation|@
 name|Inject

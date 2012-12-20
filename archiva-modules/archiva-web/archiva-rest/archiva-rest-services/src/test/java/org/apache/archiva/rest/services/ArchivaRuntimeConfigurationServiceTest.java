@@ -67,7 +67,7 @@ name|api
 operator|.
 name|services
 operator|.
-name|ArchivaRuntimeConfigurationService
+name|RedbackRuntimeConfigurationService
 import|;
 end_import
 
@@ -246,7 +246,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArchivaRuntimeConfigurationService
+name|RedbackRuntimeConfigurationService
 name|service
 init|=
 name|getArchivaRuntimeConfigurationService

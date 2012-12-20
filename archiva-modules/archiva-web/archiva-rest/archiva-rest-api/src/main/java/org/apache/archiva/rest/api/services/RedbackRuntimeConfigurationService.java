@@ -213,7 +213,7 @@ literal|"/archivaRuntimeConfigurationService/"
 argument_list|)
 specifier|public
 interface|interface
-name|ArchivaRuntimeConfigurationService
+name|RedbackRuntimeConfigurationService
 block|{
 annotation|@
 name|Path

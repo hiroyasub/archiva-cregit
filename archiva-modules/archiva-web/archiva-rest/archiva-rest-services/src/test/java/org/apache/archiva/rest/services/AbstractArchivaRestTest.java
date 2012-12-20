@@ -101,7 +101,7 @@ name|api
 operator|.
 name|services
 operator|.
-name|ArchivaRuntimeConfigurationService
+name|RedbackRuntimeConfigurationService
 import|;
 end_import
 
@@ -1315,11 +1315,11 @@ name|service
 return|;
 block|}
 specifier|protected
-name|ArchivaRuntimeConfigurationService
+name|RedbackRuntimeConfigurationService
 name|getArchivaRuntimeConfigurationService
 parameter_list|()
 block|{
-name|ArchivaRuntimeConfigurationService
+name|RedbackRuntimeConfigurationService
 name|service
 init|=
 name|JAXRSClientFactory
@@ -1336,7 +1336,7 @@ argument_list|()
 operator|+
 literal|"/archivaServices/"
 argument_list|,
-name|ArchivaRuntimeConfigurationService
+name|RedbackRuntimeConfigurationService
 operator|.
 name|class
 argument_list|,

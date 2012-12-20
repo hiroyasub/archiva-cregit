@@ -49,7 +49,7 @@ name|api
 operator|.
 name|services
 operator|.
-name|ArchivaRuntimeConfigurationService
+name|RedbackRuntimeConfigurationService
 import|;
 end_import
 
@@ -231,8 +231,8 @@ decl_stmt|;
 annotation|@
 name|Inject
 specifier|private
-name|ArchivaRuntimeConfigurationService
-name|archivaRuntimeConfigurationService
+name|RedbackRuntimeConfigurationService
+name|redbackRuntimeConfigurationService
 decl_stmt|;
 annotation|@
 name|Context
@@ -366,7 +366,7 @@ name|applicationRuntimeInfo
 operator|.
 name|setRedbackRuntimeConfiguration
 argument_list|(
-name|archivaRuntimeConfigurationService
+name|redbackRuntimeConfigurationService
 operator|.
 name|getRedbackRuntimeConfiguration
 argument_list|()
