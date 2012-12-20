@@ -209,7 +209,7 @@ begin_interface
 annotation|@
 name|Path
 argument_list|(
-literal|"/archivaRuntimeConfigurationService/"
+literal|"/redbackRuntimeConfigurationService/"
 argument_list|)
 specifier|public
 interface|interface
