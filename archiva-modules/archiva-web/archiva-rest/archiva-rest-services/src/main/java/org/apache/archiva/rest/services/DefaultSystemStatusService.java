@@ -1069,7 +1069,23 @@ argument_list|(
 literal|"###.##"
 argument_list|)
 decl_stmt|;
-comment|// FIXME take care of NPE here !!!
+if|if
+condition|(
+name|instance
+operator|.
+name|getConsumerCounts
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
+block|}
 name|List
 argument_list|<
 name|ConsumerScanningStatistics

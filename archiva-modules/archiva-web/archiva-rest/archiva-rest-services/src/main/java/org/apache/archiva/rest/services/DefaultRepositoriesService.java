@@ -2445,7 +2445,6 @@ operator|+
 literal|1
 argument_list|)
 decl_stmt|;
-comment|// FIXME some dupe with uploadaction
 name|boolean
 name|fixChecksums
 init|=
@@ -2819,7 +2818,6 @@ return|return
 literal|true
 return|;
 block|}
-comment|//FIXME some duplicate with UploadAction
 specifier|private
 name|void
 name|queueRepositoryTask

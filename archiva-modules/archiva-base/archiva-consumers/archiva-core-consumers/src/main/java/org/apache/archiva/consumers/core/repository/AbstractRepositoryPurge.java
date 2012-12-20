@@ -436,7 +436,6 @@ argument_list|(
 name|reference
 argument_list|)
 decl_stmt|;
-comment|// FIXME: looks incomplete, might not delete related metadata?
 for|for
 control|(
 name|RepositoryListener

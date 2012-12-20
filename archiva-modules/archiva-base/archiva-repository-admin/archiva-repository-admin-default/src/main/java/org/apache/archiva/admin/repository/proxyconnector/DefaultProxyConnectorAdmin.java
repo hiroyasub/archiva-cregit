@@ -649,7 +649,7 @@ operator|.
 name|TRUE
 return|;
 block|}
-comment|// FIXME take of proxyConnectorRules !
+comment|// FIXME take care of proxyConnectorRules !
 specifier|public
 name|Boolean
 name|deleteProxyConnector
@@ -758,7 +758,7 @@ operator|.
 name|TRUE
 return|;
 block|}
-comment|// FIXME take of proxyConnectorRules !
+comment|// FIXME care take of proxyConnectorRules !
 specifier|public
 name|Boolean
 name|updateProxyConnector
