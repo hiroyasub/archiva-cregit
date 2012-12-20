@@ -37,6 +37,28 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -46,21 +68,27 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultUrlFailureCache   *  *  */
+comment|/**  * DefaultUrlFailureCache  */
 end_comment
 
 begin_class
+annotation|@
+name|Service
+argument_list|(
+literal|"urlFailureCache"
+argument_list|)
 specifier|public
 class|class
 name|DefaultUrlFailureCache
 implements|implements
 name|UrlFailureCache
 block|{
-comment|/**      * @todo spring cache instead      */
 specifier|private
 name|Cache
 name|urlCache
 decl_stmt|;
+annotation|@
+name|Inject
 specifier|public
 name|DefaultUrlFailureCache
 parameter_list|(
