@@ -47,7 +47,7 @@ name|model
 operator|.
 name|runtime
 operator|.
-name|ArchivaRuntimeConfigurationAdmin
+name|RedbackRuntimeConfigurationAdmin
 import|;
 end_import
 
@@ -352,8 +352,8 @@ decl_stmt|;
 annotation|@
 name|Inject
 specifier|private
-name|ArchivaRuntimeConfigurationAdmin
-name|archivaRuntimeConfigurationAdmin
+name|RedbackRuntimeConfigurationAdmin
+name|redbackRuntimeConfigurationAdmin
 decl_stmt|;
 specifier|private
 name|List
@@ -377,9 +377,9 @@ name|String
 argument_list|>
 name|userManagerImpls
 init|=
-name|archivaRuntimeConfigurationAdmin
+name|redbackRuntimeConfigurationAdmin
 operator|.
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 operator|.
 name|getUserManagerImpls

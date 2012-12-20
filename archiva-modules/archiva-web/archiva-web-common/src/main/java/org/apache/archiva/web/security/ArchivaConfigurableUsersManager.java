@@ -47,7 +47,7 @@ name|model
 operator|.
 name|runtime
 operator|.
-name|ArchivaRuntimeConfigurationAdmin
+name|RedbackRuntimeConfigurationAdmin
 import|;
 end_import
 
@@ -286,8 +286,8 @@ block|{
 annotation|@
 name|Inject
 specifier|private
-name|ArchivaRuntimeConfigurationAdmin
-name|archivaRuntimeConfigurationAdmin
+name|RedbackRuntimeConfigurationAdmin
+name|redbackRuntimeConfigurationAdmin
 decl_stmt|;
 annotation|@
 name|Inject
@@ -346,9 +346,9 @@ name|String
 argument_list|>
 name|userManagerImpls
 init|=
-name|archivaRuntimeConfigurationAdmin
+name|redbackRuntimeConfigurationAdmin
 operator|.
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 operator|.
 name|getUserManagerImpls
@@ -460,9 +460,9 @@ block|{
 try|try
 block|{
 return|return
-name|archivaRuntimeConfigurationAdmin
+name|redbackRuntimeConfigurationAdmin
 operator|.
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 operator|.
 name|isUseUsersCache

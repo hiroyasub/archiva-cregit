@@ -83,7 +83,7 @@ name|model
 operator|.
 name|runtime
 operator|.
-name|ArchivaRuntimeConfigurationAdmin
+name|RedbackRuntimeConfigurationAdmin
 import|;
 end_import
 
@@ -450,8 +450,8 @@ block|{
 annotation|@
 name|Inject
 specifier|private
-name|ArchivaRuntimeConfigurationAdmin
-name|archivaRuntimeConfigurationAdmin
+name|RedbackRuntimeConfigurationAdmin
+name|redbackRuntimeConfigurationAdmin
 decl_stmt|;
 annotation|@
 name|Inject
@@ -495,9 +495,9 @@ block|{
 try|try
 block|{
 return|return
-name|archivaRuntimeConfigurationAdmin
+name|redbackRuntimeConfigurationAdmin
 operator|.
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 return|;
 block|}
@@ -545,9 +545,9 @@ operator|.
 name|size
 argument_list|()
 operator|!=
-name|archivaRuntimeConfigurationAdmin
+name|redbackRuntimeConfigurationAdmin
 operator|.
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 operator|.
 name|getUserManagerImpls
@@ -572,9 +572,9 @@ operator|.
 name|hashCode
 argument_list|()
 operator|!=
-name|archivaRuntimeConfigurationAdmin
+name|redbackRuntimeConfigurationAdmin
 operator|.
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 operator|.
 name|getUserManagerImpls
@@ -587,9 +587,9 @@ name|hashCode
 argument_list|()
 operator|)
 expr_stmt|;
-name|archivaRuntimeConfigurationAdmin
+name|redbackRuntimeConfigurationAdmin
 operator|.
-name|updateArchivaRuntimeConfiguration
+name|updateRedbackRuntimeConfiguration
 argument_list|(
 name|redbackRuntimeConfiguration
 argument_list|)

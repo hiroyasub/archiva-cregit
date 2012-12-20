@@ -101,7 +101,7 @@ name|model
 operator|.
 name|runtime
 operator|.
-name|ArchivaRuntimeConfigurationAdmin
+name|RedbackRuntimeConfigurationAdmin
 import|;
 end_import
 
@@ -311,9 +311,9 @@ literal|"userConfiguration#archiva"
 argument_list|)
 specifier|public
 class|class
-name|DefaultArchivaRuntimeConfigurationAdmin
+name|DefaultRedbackRuntimeConfigurationAdmin
 implements|implements
-name|ArchivaRuntimeConfigurationAdmin
+name|RedbackRuntimeConfigurationAdmin
 implements|,
 name|UserConfiguration
 block|{
@@ -361,7 +361,7 @@ block|{
 name|RedbackRuntimeConfiguration
 name|redbackRuntimeConfiguration
 init|=
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 decl_stmt|;
 comment|// migrate or not data from redback
@@ -574,7 +574,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|updateArchivaRuntimeConfiguration
+name|updateRedbackRuntimeConfiguration
 argument_list|(
 name|redbackRuntimeConfiguration
 argument_list|)
@@ -609,7 +609,7 @@ argument_list|(
 literal|"jdo"
 argument_list|)
 expr_stmt|;
-name|updateArchivaRuntimeConfiguration
+name|updateRedbackRuntimeConfiguration
 argument_list|(
 name|redbackRuntimeConfiguration
 argument_list|)
@@ -638,7 +638,7 @@ block|}
 block|}
 specifier|public
 name|RedbackRuntimeConfiguration
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 parameter_list|()
 block|{
 return|return
@@ -656,7 +656,7 @@ return|;
 block|}
 specifier|public
 name|void
-name|updateArchivaRuntimeConfiguration
+name|updateRedbackRuntimeConfiguration
 parameter_list|(
 name|RedbackRuntimeConfiguration
 name|redbackRuntimeConfiguration
@@ -937,7 +937,7 @@ condition|)
 block|{
 comment|// possible false for others than archiva user manager
 return|return
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 operator|.
 name|getUserManagerImpls
@@ -952,7 +952,7 @@ block|}
 name|RedbackRuntimeConfiguration
 name|conf
 init|=
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 decl_stmt|;
 if|if
@@ -1015,7 +1015,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|updateArchivaRuntimeConfiguration
+name|updateRedbackRuntimeConfiguration
 argument_list|(
 name|conf
 argument_list|)
@@ -1082,7 +1082,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 operator|.
 name|getLdapConfiguration
@@ -1105,7 +1105,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 operator|.
 name|getLdapConfiguration
@@ -1128,7 +1128,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 operator|.
 name|getLdapConfiguration
@@ -1151,7 +1151,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 operator|.
 name|getLdapConfiguration
@@ -1164,7 +1164,7 @@ block|}
 name|RedbackRuntimeConfiguration
 name|conf
 init|=
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 decl_stmt|;
 if|if
@@ -1229,7 +1229,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|updateArchivaRuntimeConfiguration
+name|updateRedbackRuntimeConfiguration
 argument_list|(
 name|conf
 argument_list|)
@@ -1283,7 +1283,7 @@ block|{
 name|RedbackRuntimeConfiguration
 name|conf
 init|=
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 decl_stmt|;
 if|if
@@ -1345,7 +1345,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|updateArchivaRuntimeConfiguration
+name|updateRedbackRuntimeConfiguration
 argument_list|(
 name|conf
 argument_list|)
@@ -1412,7 +1412,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 operator|.
 name|getLdapConfiguration
@@ -1425,7 +1425,7 @@ block|}
 name|RedbackRuntimeConfiguration
 name|conf
 init|=
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 decl_stmt|;
 if|if
@@ -1489,7 +1489,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|updateArchivaRuntimeConfiguration
+name|updateRedbackRuntimeConfiguration
 argument_list|(
 name|conf
 argument_list|)
@@ -1543,7 +1543,7 @@ block|{
 name|RedbackRuntimeConfiguration
 name|conf
 init|=
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 decl_stmt|;
 if|if
@@ -1605,7 +1605,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|updateArchivaRuntimeConfiguration
+name|updateRedbackRuntimeConfiguration
 argument_list|(
 name|conf
 argument_list|)
@@ -1672,7 +1672,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 operator|.
 name|getLdapConfiguration
@@ -1685,7 +1685,7 @@ block|}
 name|RedbackRuntimeConfiguration
 name|conf
 init|=
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 decl_stmt|;
 if|if
@@ -1749,7 +1749,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|updateArchivaRuntimeConfiguration
+name|updateRedbackRuntimeConfiguration
 argument_list|(
 name|conf
 argument_list|)
@@ -1819,7 +1819,7 @@ decl_stmt|;
 name|RedbackRuntimeConfiguration
 name|conf
 init|=
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 decl_stmt|;
 comment|// TODO concat values
@@ -1837,7 +1837,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|updateArchivaRuntimeConfiguration
+name|updateRedbackRuntimeConfiguration
 argument_list|(
 name|conf
 argument_list|)
@@ -1904,7 +1904,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 operator|.
 name|getLdapConfiguration
@@ -1927,7 +1927,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 operator|.
 name|getLdapConfiguration

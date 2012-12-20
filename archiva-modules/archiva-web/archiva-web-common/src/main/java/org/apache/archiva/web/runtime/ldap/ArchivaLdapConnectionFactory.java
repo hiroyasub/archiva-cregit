@@ -67,7 +67,7 @@ name|model
 operator|.
 name|runtime
 operator|.
-name|ArchivaRuntimeConfigurationAdmin
+name|RedbackRuntimeConfigurationAdmin
 import|;
 end_import
 
@@ -192,8 +192,8 @@ block|{
 annotation|@
 name|Inject
 specifier|private
-name|ArchivaRuntimeConfigurationAdmin
-name|archivaRuntimeConfigurationAdmin
+name|RedbackRuntimeConfigurationAdmin
+name|redbackRuntimeConfigurationAdmin
 decl_stmt|;
 specifier|private
 name|LdapConnectionConfiguration
@@ -211,9 +211,9 @@ block|{
 name|LdapConfiguration
 name|ldapConfiguration
 init|=
-name|archivaRuntimeConfigurationAdmin
+name|redbackRuntimeConfigurationAdmin
 operator|.
-name|getArchivaRuntimeConfiguration
+name|getRedbackRuntimeConfiguration
 argument_list|()
 operator|.
 name|getLdapConfiguration
