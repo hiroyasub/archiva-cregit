@@ -549,7 +549,7 @@ name|setTimeToIdleSeconds
 argument_list|(
 name|redbackRuntimeConfiguration
 operator|.
-name|getUseUsersCacheTimeToIdleSeconds
+name|getUsersCacheTimeToIdleSeconds
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -559,7 +559,7 @@ name|setTimeToLiveSeconds
 argument_list|(
 name|redbackRuntimeConfiguration
 operator|.
-name|getUseUsersCacheTimeToLiveSeconds
+name|getUsersCacheTimeToLiveSeconds
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -804,7 +804,7 @@ name|setTimeToIdleSeconds
 argument_list|(
 name|redbackRuntimeConfiguration
 operator|.
-name|getUseUsersCacheTimeToIdleSeconds
+name|getUsersCacheTimeToIdleSeconds
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -814,7 +814,7 @@ name|setTimeToLiveSeconds
 argument_list|(
 name|redbackRuntimeConfiguration
 operator|.
-name|getUseUsersCacheTimeToLiveSeconds
+name|getUsersCacheTimeToLiveSeconds
 argument_list|()
 argument_list|)
 expr_stmt|;
