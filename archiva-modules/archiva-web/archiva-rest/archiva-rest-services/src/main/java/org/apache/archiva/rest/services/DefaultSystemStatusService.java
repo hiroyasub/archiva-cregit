@@ -829,6 +829,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|Collections
+operator|.
+name|sort
+argument_list|(
+name|cacheEntries
+argument_list|)
+expr_stmt|;
 return|return
 name|cacheEntries
 return|;
