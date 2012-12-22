@@ -105,7 +105,7 @@ parameter_list|(
 annotation|@
 name|Named
 argument_list|(
-literal|"url-failures-cache"
+literal|"cache#url-failures-cache"
 argument_list|)
 name|Cache
 name|urlCache
