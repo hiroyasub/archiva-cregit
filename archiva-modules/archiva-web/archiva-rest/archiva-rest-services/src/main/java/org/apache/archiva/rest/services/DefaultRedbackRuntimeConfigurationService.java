@@ -483,7 +483,7 @@ begin_class
 annotation|@
 name|Service
 argument_list|(
-literal|"archivaRuntimeConfigurationService#rest"
+literal|"redbackRuntimeConfigurationService#rest"
 argument_list|)
 specifier|public
 class|class
