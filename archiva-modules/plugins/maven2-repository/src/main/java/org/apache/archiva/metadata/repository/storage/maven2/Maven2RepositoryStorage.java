@@ -4748,6 +4748,7 @@ return|;
 block|}
 block|}
 specifier|private
+specifier|static
 class|class
 name|ArtifactDirectoryFilter
 implements|implements
@@ -4761,7 +4762,7 @@ name|String
 argument_list|>
 name|filter
 decl_stmt|;
-specifier|public
+specifier|private
 name|ArtifactDirectoryFilter
 parameter_list|(
 name|Filter
