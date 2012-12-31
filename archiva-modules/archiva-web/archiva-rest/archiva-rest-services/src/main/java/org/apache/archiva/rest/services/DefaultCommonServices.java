@@ -619,9 +619,6 @@ operator|.
 name|getResourceAsStream
 argument_list|(
 name|resourceName
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
