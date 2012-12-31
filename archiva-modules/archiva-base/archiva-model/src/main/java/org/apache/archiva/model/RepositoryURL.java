@@ -167,7 +167,7 @@ name|url
 operator|.
 name|indexOf
 argument_list|(
-literal|"/"
+literal|'/'
 argument_list|,
 name|postProtocolPos
 argument_list|)
