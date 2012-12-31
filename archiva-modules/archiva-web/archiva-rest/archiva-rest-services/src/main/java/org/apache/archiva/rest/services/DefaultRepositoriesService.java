@@ -5459,9 +5459,7 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|boolean
-name|res
-init|=
+return|return
 name|userRepositories
 operator|.
 name|isAuthorizedToDeleteArtifacts
@@ -5470,9 +5468,6 @@ name|userName
 argument_list|,
 name|repoId
 argument_list|)
-decl_stmt|;
-return|return
-name|res
 return|;
 block|}
 catch|catch

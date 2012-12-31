@@ -726,16 +726,11 @@ operator|instanceof
 name|Element
 condition|)
 block|{
-name|Element
-name|evalElem
-init|=
+return|return
 operator|(
 name|Element
 operator|)
 name|evaluated
-decl_stmt|;
-return|return
-name|evalElem
 return|;
 block|}
 else|else

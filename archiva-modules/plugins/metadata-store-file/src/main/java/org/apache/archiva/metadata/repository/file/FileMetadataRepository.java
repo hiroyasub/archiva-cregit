@@ -648,9 +648,7 @@ operator|.
 name|getLocation
 argument_list|()
 decl_stmt|;
-name|File
-name|dir
-init|=
+return|return
 operator|new
 name|File
 argument_list|(
@@ -658,9 +656,6 @@ name|basedir
 argument_list|,
 literal|".archiva"
 argument_list|)
-decl_stmt|;
-return|return
-name|dir
 return|;
 block|}
 specifier|private
