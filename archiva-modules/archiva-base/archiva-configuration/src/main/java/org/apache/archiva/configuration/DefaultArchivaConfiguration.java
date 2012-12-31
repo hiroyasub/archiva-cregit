@@ -2948,6 +2948,8 @@ argument_list|(
 literal|"Unable to evaluate expressions found in "
 operator|+
 literal|"userConfigFilename or altConfigFilename."
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}

@@ -1903,6 +1903,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1920,6 +1922,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1929,7 +1933,9 @@ name|ResourceDoesNotExistException
 name|e
 parameter_list|)
 block|{
-throw|throw
+name|FileNotFoundException
+name|fnfe
+init|=
 operator|new
 name|FileNotFoundException
 argument_list|(
@@ -1938,6 +1944,16 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|fnfe
+operator|.
+name|initCause
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+name|fnfe
 throw|;
 block|}
 block|}

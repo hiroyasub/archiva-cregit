@@ -536,6 +536,8 @@ argument_list|(
 literal|"Improperly formatted timestamp for audit log event: "
 operator|+
 name|ts
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
