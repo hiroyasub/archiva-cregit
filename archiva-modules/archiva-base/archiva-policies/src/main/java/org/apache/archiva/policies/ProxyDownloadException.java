@@ -171,10 +171,15 @@ operator|new
 name|StringBuilder
 argument_list|(
 name|message
-operator|+
-literal|":"
 argument_list|)
 decl_stmt|;
+name|msg
+operator|.
+name|append
+argument_list|(
+literal|":"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|Map
