@@ -1491,8 +1491,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-specifier|public
+specifier|private
 specifier|static
+specifier|final
 class|class
 name|DownloadListener
 implements|implements
@@ -1510,9 +1511,11 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+specifier|private
 name|String
 name|resourceName
 decl_stmt|;
+specifier|private
 name|long
 name|startTime
 decl_stmt|;
