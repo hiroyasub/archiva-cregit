@@ -485,11 +485,6 @@ operator|.
 name|getRuntime
 argument_list|()
 decl_stmt|;
-name|runtime
-operator|.
-name|gc
-argument_list|()
-expr_stmt|;
 name|long
 name|total
 init|=
