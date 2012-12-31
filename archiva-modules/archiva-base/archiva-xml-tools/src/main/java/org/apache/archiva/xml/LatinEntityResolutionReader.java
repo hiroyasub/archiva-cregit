@@ -141,15 +141,15 @@ throws|throws
 name|IOException
 block|{
 name|int
-name|tmp_length
+name|tmpLength
 decl_stmt|;
 name|int
-name|current_requested_offset
+name|currentRequestedOffset
 init|=
 name|offset
 decl_stmt|;
 name|int
-name|current_requested_length
+name|currentRequestedLength
 init|=
 name|length
 decl_stmt|;
@@ -181,7 +181,7 @@ literal|0
 argument_list|,
 name|destbuf
 argument_list|,
-name|current_requested_offset
+name|currentRequestedOffset
 argument_list|,
 name|length
 argument_list|)
@@ -253,7 +253,7 @@ return|;
 block|}
 else|else
 block|{
-name|tmp_length
+name|tmpLength
 operator|=
 name|leftover
 operator|.
@@ -270,9 +270,9 @@ literal|0
 argument_list|,
 name|destbuf
 argument_list|,
-name|current_requested_offset
+name|currentRequestedOffset
 argument_list|,
-name|tmp_length
+name|tmpLength
 argument_list|)
 expr_stmt|;
 comment|// Empty out leftover (as there is now none left)
@@ -281,13 +281,13 @@ operator|=
 literal|null
 expr_stmt|;
 comment|// Adjust offset and lengths.
-name|current_requested_offset
+name|currentRequestedOffset
 operator|+=
-name|tmp_length
+name|tmpLength
 expr_stmt|;
-name|current_requested_length
+name|currentRequestedLength
 operator|-=
-name|tmp_length
+name|tmpLength
 expr_stmt|;
 block|}
 block|}
@@ -296,7 +296,7 @@ name|sbuf
 init|=
 name|getExpandedBuffer
 argument_list|(
-name|current_requested_length
+name|currentRequestedLength
 argument_list|)
 decl_stmt|;
 comment|// Have we reached the end of the buffer?
@@ -310,7 +310,7 @@ block|{
 comment|// Do we have content?
 if|if
 condition|(
-name|current_requested_offset
+name|currentRequestedOffset
 operator|>
 name|offset
 condition|)
@@ -318,7 +318,7 @@ block|{
 comment|// Signal that we do, by calculating length.
 return|return
 operator|(
-name|current_requested_offset
+name|currentRequestedOffset
 operator|-
 name|offset
 operator|)
@@ -331,7 +331,7 @@ literal|1
 return|;
 block|}
 comment|// Copy from expanded buf whatever length we can accomodate.
-name|tmp_length
+name|tmpLength
 operator|=
 name|Math
 operator|.
@@ -342,7 +342,7 @@ operator|.
 name|length
 argument_list|()
 argument_list|,
-name|current_requested_length
+name|currentRequestedLength
 argument_list|)
 expr_stmt|;
 name|sbuf
@@ -351,17 +351,17 @@ name|getChars
 argument_list|(
 literal|0
 argument_list|,
-name|tmp_length
+name|tmpLength
 argument_list|,
 name|destbuf
 argument_list|,
-name|current_requested_offset
+name|currentRequestedOffset
 argument_list|)
 expr_stmt|;
 comment|// Create the leftover (if any)
 if|if
 condition|(
-name|tmp_length
+name|tmpLength
 operator|<
 name|sbuf
 operator|.
@@ -379,16 +379,16 @@ operator|.
 name|length
 argument_list|()
 operator|-
-name|tmp_length
+name|tmpLength
 index|]
 expr_stmt|;
 name|sbuf
 operator|.
 name|getChars
 argument_list|(
-name|tmp_length
+name|tmpLength
 argument_list|,
-name|tmp_length
+name|tmpLength
 operator|+
 name|leftover
 operator|.
@@ -403,12 +403,12 @@ block|}
 comment|// Calculate Actual Length and return.
 return|return
 operator|(
-name|current_requested_offset
+name|currentRequestedOffset
 operator|-
 name|offset
 operator|)
 operator|+
-name|tmp_length
+name|tmpLength
 return|;
 block|}
 specifier|private

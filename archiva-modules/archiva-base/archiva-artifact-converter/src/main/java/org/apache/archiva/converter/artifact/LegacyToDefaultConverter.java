@@ -1581,13 +1581,13 @@ name|StringWriter
 argument_list|()
 expr_stmt|;
 name|MavenXpp3Writer
-name|Xpp3Writer
+name|xpp3Writer
 init|=
 operator|new
 name|MavenXpp3Writer
 argument_list|()
 decl_stmt|;
-name|Xpp3Writer
+name|xpp3Writer
 operator|.
 name|write
 argument_list|(
