@@ -845,9 +845,8 @@ comment|// MRM-1212/MRM-1197
 comment|// - do not create missing/fix invalid checksums and update metadata when deploying from webdav since these are uploaded by maven
 if|if
 condition|(
+operator|!
 name|updateRelatedArtifacts
-operator|==
-literal|false
 condition|)
 block|{
 name|List

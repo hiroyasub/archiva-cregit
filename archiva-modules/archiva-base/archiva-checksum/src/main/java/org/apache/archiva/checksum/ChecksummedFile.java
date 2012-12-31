@@ -551,6 +551,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|StringUtils
 operator|.
 name|equalsIgnoreCase
@@ -562,8 +563,6 @@ operator|.
 name|getChecksum
 argument_list|()
 argument_list|)
-operator|==
-literal|false
 condition|)
 block|{
 name|valid

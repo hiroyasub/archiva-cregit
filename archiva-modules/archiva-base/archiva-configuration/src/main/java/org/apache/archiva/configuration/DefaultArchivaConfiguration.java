@@ -2532,19 +2532,7 @@ block|{
 comment|// Check that directory exists
 if|if
 condition|(
-operator|(
-name|file
-operator|.
-name|getParentFile
-argument_list|()
-operator|.
-name|exists
-argument_list|()
-operator|==
-literal|false
-operator|)
-operator|||
-operator|(
+operator|!
 name|file
 operator|.
 name|getParentFile
@@ -2552,9 +2540,6 @@ argument_list|()
 operator|.
 name|isDirectory
 argument_list|()
-operator|==
-literal|false
-operator|)
 condition|)
 block|{
 comment|// Directory to file must exist for file to be created
