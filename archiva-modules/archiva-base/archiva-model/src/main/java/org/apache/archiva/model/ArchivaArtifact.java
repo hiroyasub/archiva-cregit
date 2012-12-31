@@ -66,6 +66,14 @@ specifier|private
 name|String
 name|baseVersion
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|PRIME
+init|=
+literal|31
+decl_stmt|;
 specifier|public
 name|ArchivaArtifact
 parameter_list|(
@@ -540,12 +548,6 @@ name|int
 name|hashCode
 parameter_list|()
 block|{
-specifier|final
-name|int
-name|PRIME
-init|=
-literal|31
-decl_stmt|;
 name|int
 name|result
 init|=
