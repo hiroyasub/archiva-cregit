@@ -416,7 +416,7 @@ name|StringBuilder
 name|getExpandedBuffer
 parameter_list|(
 name|int
-name|minimum_length
+name|minimumLength
 parameter_list|)
 throws|throws
 name|IOException
@@ -501,7 +501,7 @@ operator|.
 name|length
 argument_list|()
 operator|>
-name|minimum_length
+name|minimumLength
 condition|)
 block|{
 name|done
