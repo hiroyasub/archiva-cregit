@@ -425,7 +425,7 @@ name|Named
 argument_list|(
 name|value
 operator|=
-literal|"rBACManager#memory"
+literal|"rbacManager#memory"
 argument_list|)
 specifier|protected
 name|RBACManager

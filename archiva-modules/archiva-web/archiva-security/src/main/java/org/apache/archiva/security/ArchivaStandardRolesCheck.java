@@ -164,7 +164,7 @@ name|Named
 argument_list|(
 name|value
 operator|=
-literal|"rBACManager#cached"
+literal|"rbacManager#cached"
 argument_list|)
 specifier|private
 name|RBACManager
