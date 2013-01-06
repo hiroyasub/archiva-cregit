@@ -329,6 +329,11 @@ literal|"cache#users"
 argument_list|)
 specifier|private
 name|Cache
+argument_list|<
+name|String
+argument_list|,
+name|User
+argument_list|>
 name|usersCache
 decl_stmt|;
 annotation|@
@@ -830,9 +835,6 @@ condition|)
 block|{
 name|user
 operator|=
-operator|(
-name|User
-operator|)
 name|usersCache
 operator|.
 name|get
