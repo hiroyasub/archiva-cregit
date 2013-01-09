@@ -1738,9 +1738,8 @@ decl_stmt|;
 if|if
 condition|(
 name|userManager
-operator|.
-name|isReadOnly
-argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 name|log

@@ -360,6 +360,10 @@ block|}
 if|if
 condition|(
 name|result
+operator|!=
+literal|null
+operator|&&
+name|result
 operator|.
 name|isAuthorized
 argument_list|()
