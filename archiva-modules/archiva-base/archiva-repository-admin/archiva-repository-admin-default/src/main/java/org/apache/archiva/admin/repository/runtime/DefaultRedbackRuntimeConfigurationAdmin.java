@@ -538,7 +538,7 @@ expr_stmt|;
 block|}
 block|}
 name|String
-name|authorizerImpls
+name|rbacManagerImpls
 init|=
 name|userConfiguration
 operator|.
@@ -557,7 +557,7 @@ name|StringUtils
 operator|.
 name|isNotEmpty
 argument_list|(
-name|authorizerImpls
+name|rbacManagerImpls
 argument_list|)
 condition|)
 block|{
@@ -567,7 +567,7 @@ name|StringUtils
 operator|.
 name|contains
 argument_list|(
-name|authorizerImpls
+name|rbacManagerImpls
 argument_list|,
 literal|','
 argument_list|)
@@ -581,7 +581,7 @@ name|StringUtils
 operator|.
 name|split
 argument_list|(
-name|authorizerImpls
+name|rbacManagerImpls
 argument_list|,
 literal|','
 argument_list|)
@@ -843,7 +843,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"redbackRuntimeConfiguration with empty authorizerImpls so force at least rbac implementation !"
+literal|"redbackRuntimeConfiguration with empty rbacManagerImpls so force at least cached implementation !"
 argument_list|)
 expr_stmt|;
 name|redbackRuntimeConfiguration
@@ -853,7 +853,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-literal|"rbac"
+literal|"cached"
 argument_list|)
 expr_stmt|;
 name|updateRedbackRuntimeConfiguration

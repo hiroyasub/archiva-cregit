@@ -249,6 +249,13 @@ name|RBACManager
 block|{
 specifier|public
 name|void
+name|initialize
+parameter_list|()
+block|{
+comment|//To change body of implemented methods use File | Settings | File Templates.
+block|}
+specifier|public
+name|void
 name|addListener
 parameter_list|(
 name|RBACManagerListener
