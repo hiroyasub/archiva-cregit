@@ -453,7 +453,7 @@ name|get
 argument_list|(
 name|source
 operator|.
-name|getPrincipal
+name|getUsername
 argument_list|()
 argument_list|)
 operator|!=
@@ -469,7 +469,7 @@ literal|true
 argument_list|,
 name|source
 operator|.
-name|getPrincipal
+name|getUsername
 argument_list|()
 argument_list|,
 literal|null
@@ -488,7 +488,7 @@ name|setUsername
 argument_list|(
 name|source
 operator|.
-name|getPrincipal
+name|getUsername
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -502,7 +502,7 @@ name|get
 argument_list|(
 name|source
 operator|.
-name|getPrincipal
+name|getUsername
 argument_list|()
 argument_list|)
 argument_list|)
@@ -529,7 +529,7 @@ literal|false
 argument_list|,
 name|source
 operator|.
-name|getPrincipal
+name|getUsername
 argument_list|()
 argument_list|,
 literal|null

@@ -380,7 +380,7 @@ literal|true
 argument_list|,
 name|source
 operator|.
-name|getPrincipal
+name|getUsername
 argument_list|()
 argument_list|,
 literal|null

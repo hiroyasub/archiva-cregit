@@ -618,7 +618,7 @@ name|findUser
 argument_list|(
 name|source
 operator|.
-name|getPrincipal
+name|getUsername
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -637,7 +637,7 @@ name|isLocked
 argument_list|()
 condition|)
 block|{
-comment|//throw new AccountLockedException( "Account " + source.getPrincipal() + " is locked.", user );
+comment|//throw new AccountLockedException( "Account " + source.getUsername() + " is locked.", user );
 name|AccountLockedException
 name|e
 init|=
@@ -648,7 +648,7 @@ literal|"Account "
 operator|+
 name|source
 operator|.
-name|getPrincipal
+name|getUsername
 argument_list|()
 operator|+
 literal|" is locked."
@@ -805,7 +805,7 @@ literal|"User {} provided a valid password"
 argument_list|,
 name|source
 operator|.
-name|getPrincipal
+name|getUsername
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -866,7 +866,7 @@ literal|true
 argument_list|,
 name|source
 operator|.
-name|getPrincipal
+name|getUsername
 argument_list|()
 argument_list|,
 literal|null
@@ -921,7 +921,7 @@ literal|"Password is Invalid for user {} and userManager '{}'."
 argument_list|,
 name|source
 operator|.
-name|getPrincipal
+name|getUsername
 argument_list|()
 argument_list|,
 name|userManager
@@ -945,7 +945,7 @@ literal|"Password is Invalid for user "
 operator|+
 name|source
 operator|.
-name|getPrincipal
+name|getUsername
 argument_list|()
 operator|+
 literal|"."
@@ -982,7 +982,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|//return new AuthenticationResult( false, source.getPrincipal(), null, authnResultExceptionsMap );
+comment|//return new AuthenticationResult( false, source.getUsername(), null, authnResultExceptionsMap );
 block|}
 block|}
 catch|catch
@@ -999,7 +999,7 @@ literal|"Login for user {} failed. user not found."
 argument_list|,
 name|source
 operator|.
-name|getPrincipal
+name|getUsername
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1022,7 +1022,7 @@ literal|"Login for user "
 operator|+
 name|source
 operator|.
-name|getPrincipal
+name|getUsername
 argument_list|()
 operator|+
 literal|" failed. user not found."
@@ -1044,7 +1044,7 @@ literal|"Login for user {} failed, message: {}"
 argument_list|,
 name|source
 operator|.
-name|getPrincipal
+name|getUsername
 argument_list|()
 argument_list|,
 name|e
@@ -1072,7 +1072,7 @@ literal|"Login for user "
 operator|+
 name|source
 operator|.
-name|getPrincipal
+name|getUsername
 argument_list|()
 operator|+
 literal|" failed, message: "
