@@ -116,7 +116,7 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * Field authorizerImpls.      */
+comment|/**      * Field rbacManagerImpls.      */
 specifier|private
 name|java
 operator|.
@@ -126,7 +126,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|authorizerImpls
+name|rbacManagerImpls
 decl_stmt|;
 specifier|private
 name|LdapConfiguration
@@ -497,29 +497,29 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|getAuthorizerImpls
+name|getRbacManagerImpls
 parameter_list|()
 block|{
 return|return
-name|authorizerImpls
+name|rbacManagerImpls
 return|;
 block|}
 specifier|public
 name|void
-name|setAuthorizerImpls
+name|setRbacManagerImpls
 parameter_list|(
 name|List
 argument_list|<
 name|String
 argument_list|>
-name|authorizerImpls
+name|rbacManagerImpls
 parameter_list|)
 block|{
 name|this
 operator|.
-name|authorizerImpls
+name|rbacManagerImpls
 operator|=
-name|authorizerImpls
+name|rbacManagerImpls
 expr_stmt|;
 block|}
 annotation|@
@@ -560,12 +560,12 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", authorizerImpls="
+literal|", rbacManagerImpls="
 argument_list|)
 operator|.
 name|append
 argument_list|(
-name|authorizerImpls
+name|rbacManagerImpls
 argument_list|)
 expr_stmt|;
 name|sb

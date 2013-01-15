@@ -546,9 +546,9 @@ name|getConcatenatedList
 argument_list|(
 name|UserConfigurationKeys
 operator|.
-name|AUTHORIZER_IMPL
+name|RBAC_MANAGER_IMPL
 argument_list|,
-literal|"rbac"
+literal|"cached"
 argument_list|)
 decl_stmt|;
 if|if
@@ -596,7 +596,7 @@ control|)
 block|{
 name|redbackRuntimeConfiguration
 operator|.
-name|getAuthorizerImpls
+name|getRbacManagerImpls
 argument_list|()
 operator|.
 name|add
@@ -610,7 +610,7 @@ else|else
 block|{
 name|redbackRuntimeConfiguration
 operator|.
-name|getAuthorizerImpls
+name|getRbacManagerImpls
 argument_list|()
 operator|.
 name|add
@@ -832,7 +832,7 @@ if|if
 condition|(
 name|redbackRuntimeConfiguration
 operator|.
-name|getAuthorizerImpls
+name|getRbacManagerImpls
 argument_list|()
 operator|.
 name|isEmpty
@@ -848,7 +848,7 @@ argument_list|)
 expr_stmt|;
 name|redbackRuntimeConfiguration
 operator|.
-name|getAuthorizerImpls
+name|getRbacManagerImpls
 argument_list|()
 operator|.
 name|add

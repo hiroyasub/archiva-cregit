@@ -35,6 +35,22 @@ name|archiva
 operator|.
 name|redback
 operator|.
+name|rbac
+operator|.
+name|RbacManagerException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|redback
+operator|.
 name|system
 operator|.
 name|check
@@ -128,7 +144,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaStandardRolesCheck tests for the existance of expected / standard roles and permissions.   *  *  */
+comment|/**  * ArchivaStandardRolesCheck tests for the existance of expected / standard roles and permissions.  */
 end_comment
 
 begin_class
@@ -242,6 +258,8 @@ range|:
 name|expectedRoles
 control|)
 block|{
+try|try
+block|{
 if|if
 condition|(
 operator|!
@@ -253,6 +271,34 @@ name|roleName
 argument_list|)
 condition|)
 block|{
+name|violations
+operator|.
+name|add
+argument_list|(
+literal|"Unable to validate the existances of the '"
+operator|+
+name|roleName
+operator|+
+literal|"' role."
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|RbacManagerException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"fail to verify existence of role '{}'"
+argument_list|,
+name|roleName
+argument_list|)
+expr_stmt|;
 name|violations
 operator|.
 name|add
