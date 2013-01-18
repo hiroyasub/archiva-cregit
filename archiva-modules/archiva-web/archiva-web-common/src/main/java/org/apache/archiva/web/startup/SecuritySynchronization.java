@@ -253,6 +253,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|time
+operator|.
+name|StopWatch
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -376,7 +392,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ConfigurationSynchronization  *  *  */
+comment|/**  * ConfigurationSynchronization  */
 end_comment
 
 begin_class
@@ -886,6 +902,23 @@ literal|"no Environment Check components found."
 argument_list|)
 throw|;
 block|}
+name|StopWatch
+name|stopWatch
+init|=
+operator|new
+name|StopWatch
+argument_list|()
+decl_stmt|;
+name|stopWatch
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+name|stopWatch
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|List
 argument_list|<
 name|String
@@ -1095,6 +1128,23 @@ literal|"] violation(s) encountered, See log for details."
 argument_list|)
 throw|;
 block|}
+name|stopWatch
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"time to execute all EnvironmentCheck: {} ms"
+argument_list|,
+name|stopWatch
+operator|.
+name|getTime
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 specifier|private
 name|void
