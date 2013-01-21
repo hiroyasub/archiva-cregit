@@ -168,7 +168,7 @@ specifier|private
 name|boolean
 name|useUsersCache
 init|=
-literal|false
+literal|true
 decl_stmt|;
 specifier|private
 name|CacheConfiguration
