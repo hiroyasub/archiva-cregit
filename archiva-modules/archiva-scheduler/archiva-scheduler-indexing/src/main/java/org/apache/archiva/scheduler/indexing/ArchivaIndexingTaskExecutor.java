@@ -535,7 +535,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * depending on current {@link Action} you have.      * If {@link org.apache.archiva.scheduler.indexing.ArtifactIndexingTask.Action.FINISH}&& isExecuteOnEntireRepo:      * repository will be scanned.      *      * @param task      * @throws TaskExecutionException      */
+comment|/**      * depending on current {@link Task} you have.      * If {@link org.apache.archiva.scheduler.indexing.ArtifactIndexingTask.Action.FINISH}&& isExecuteOnEntireRepo:      * repository will be scanned.      *      * @param task      * @throws TaskExecutionException      */
 specifier|public
 name|void
 name|executeTask
