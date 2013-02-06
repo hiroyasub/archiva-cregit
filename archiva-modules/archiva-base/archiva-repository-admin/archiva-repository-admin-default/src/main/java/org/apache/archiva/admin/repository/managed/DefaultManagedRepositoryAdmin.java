@@ -2918,7 +2918,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"skip adding repository indexingContent with id {} as already exists"
+literal|"skip creating repository indexingContent with id {} as already exists"
 argument_list|,
 name|repository
 operator|.
@@ -3009,18 +3009,7 @@ operator|.
 name|getIndexDirectory
 argument_list|()
 decl_stmt|;
-name|File
-name|managedRepository
-init|=
-operator|new
-name|File
-argument_list|(
-name|repository
-operator|.
-name|getLocation
-argument_list|()
-argument_list|)
-decl_stmt|;
+comment|//File managedRepository = new File( repository.getLocation() );
 name|File
 name|indexDirectory
 init|=
@@ -3062,7 +3051,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-name|managedRepository
+name|repositoryDirectory
 argument_list|,
 name|repository
 operator|.
@@ -3089,7 +3078,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-name|managedRepository
+name|repositoryDirectory
 argument_list|,
 literal|".indexer"
 argument_list|)
@@ -3097,7 +3086,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|managedRepository
+name|repositoryDirectory
 operator|.
 name|isAbsolute
 argument_list|()
@@ -3178,11 +3167,11 @@ operator|.
 name|getId
 argument_list|()
 argument_list|,
-name|managedRepository
+name|repositoryDirectory
 argument_list|,
 name|indexDirectory
 argument_list|,
-name|managedRepository
+name|repositoryDirectory
 operator|.
 name|toURI
 argument_list|()
