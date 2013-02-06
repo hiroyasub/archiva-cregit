@@ -2916,14 +2916,9 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|indexDir
-operator|!=
-literal|null
-operator|&&
-operator|!
-literal|""
+name|StringUtils
 operator|.
-name|equals
+name|isNotBlank
 argument_list|(
 name|indexDir
 argument_list|)
@@ -2940,6 +2935,7 @@ name|getIndexDirectory
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// not absolute so create it in repository directory
 if|if
 condition|(
 operator|!
