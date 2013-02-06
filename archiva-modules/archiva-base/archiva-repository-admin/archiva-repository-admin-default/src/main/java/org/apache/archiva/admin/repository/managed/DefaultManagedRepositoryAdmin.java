@@ -2704,6 +2704,22 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+comment|// delete directory too as only content is deleted
+name|File
+name|indexDirectory
+init|=
+name|indexingContext
+operator|.
+name|getIndexDirectoryFile
+argument_list|()
+decl_stmt|;
+name|FileUtils
+operator|.
+name|deleteDirectory
+argument_list|(
+name|indexDirectory
+argument_list|)
+expr_stmt|;
 name|createIndexContext
 argument_list|(
 name|managedRepository
