@@ -810,7 +810,7 @@ return|;
 block|}
 specifier|public
 name|int
-name|getDefaultGroupIndexTtl
+name|getGroupMergedIndexTtl
 parameter_list|()
 block|{
 return|return

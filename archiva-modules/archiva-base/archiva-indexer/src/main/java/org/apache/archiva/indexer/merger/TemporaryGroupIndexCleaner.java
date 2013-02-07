@@ -198,6 +198,13 @@ name|void
 name|cleanTemporaryIndex
 parameter_list|()
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"cleanTemporaryIndex"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|TemporaryGroupIndex

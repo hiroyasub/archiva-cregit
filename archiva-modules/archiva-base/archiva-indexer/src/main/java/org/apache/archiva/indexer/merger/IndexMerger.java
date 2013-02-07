@@ -92,7 +92,7 @@ parameter_list|()
 function_decl|;
 comment|/**      * @return ttl of temporay group index      */
 name|int
-name|getDefaultGroupIndexTtl
+name|getGroupMergedIndexTtl
 parameter_list|()
 function_decl|;
 block|}
