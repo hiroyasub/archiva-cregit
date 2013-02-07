@@ -1261,13 +1261,13 @@ name|RepositoryAdminException
 block|{
 try|try
 block|{
-comment|// FIXME get this from ArchivaAdministration
 name|String
 name|appServerBase
 init|=
-name|System
+name|getRegistry
+argument_list|()
 operator|.
-name|getProperty
+name|getString
 argument_list|(
 literal|"appserver.base"
 argument_list|)
