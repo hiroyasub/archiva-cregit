@@ -1057,6 +1057,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|slf4j
+operator|.
+name|MarkerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -5630,7 +5640,16 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"tmp group index is too old so delete it"
+name|MarkerFactory
+operator|.
+name|getDetachedMarker
+argument_list|(
+literal|"group.merged.index"
+argument_list|)
+argument_list|,
+literal|"tmp group index '{}' is too old so delete it"
+argument_list|,
+name|groupId
 argument_list|)
 expr_stmt|;
 name|indexMerger
@@ -5643,6 +5662,22 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+name|MarkerFactory
+operator|.
+name|getDetachedMarker
+argument_list|(
+literal|"group.merged.index"
+argument_list|)
+argument_list|,
+literal|"merged index for group '{}' found in cache"
+argument_list|,
+name|groupId
+argument_list|)
+expr_stmt|;
 return|return
 name|tmp
 operator|.
