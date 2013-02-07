@@ -216,7 +216,7 @@ name|getTemporaryGroupIndexes
 argument_list|()
 control|)
 block|{
-comment|// cleanup files older than 60 minutes 3600000
+comment|// cleanup files older than the ttl
 if|if
 condition|(
 operator|new
@@ -231,7 +231,10 @@ operator|.
 name|getCreationTime
 argument_list|()
 operator|>
-literal|3600000
+name|indexMerger
+operator|.
+name|getGroupMergedIndexTtl
+argument_list|()
 condition|)
 block|{
 name|indexMerger

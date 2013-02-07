@@ -77,6 +77,10 @@ specifier|private
 name|String
 name|indexId
 decl_stmt|;
+specifier|private
+name|String
+name|groupId
+decl_stmt|;
 specifier|public
 name|TemporaryGroupIndex
 parameter_list|(
@@ -85,6 +89,9 @@ name|directory
 parameter_list|,
 name|String
 name|indexId
+parameter_list|,
+name|String
+name|groupId
 parameter_list|)
 block|{
 name|this
@@ -98,6 +105,12 @@ operator|.
 name|indexId
 operator|=
 name|indexId
+expr_stmt|;
+name|this
+operator|.
+name|groupId
+operator|=
+name|groupId
 expr_stmt|;
 block|}
 specifier|public

@@ -60,18 +60,12 @@ name|TMP_GROUP_INDEX_SYS_KEY
 init|=
 literal|"archiva.tmp.group.index.ttl"
 decl_stmt|;
-comment|/**      * @param repositoriesIds repositories Ids to merge content      * @param packIndex       will generate a downloadable index      * @return a temporary directory with a merge index (directory marked deleteOnExit)      * @throws IndexMergerException      */
+comment|/**      * @param indexMergerRequest      * @return a temporary directory with a merge index (directory marked deleteOnExit)      * @throws IndexMergerException      */
 name|IndexingContext
 name|buildMergedIndex
 parameter_list|(
-name|Collection
-argument_list|<
-name|String
-argument_list|>
-name|repositoriesIds
-parameter_list|,
-name|boolean
-name|packIndex
+name|IndexMergerRequest
+name|indexMergerRequest
 parameter_list|)
 throws|throws
 name|IndexMergerException
