@@ -661,10 +661,6 @@ specifier|private
 name|IndexUpdater
 name|indexUpdater
 decl_stmt|;
-specifier|private
-name|IndexPacker
-name|indexPacker
-decl_stmt|;
 specifier|public
 name|DownloadRemoteIndexTask
 parameter_list|(
@@ -736,15 +732,6 @@ operator|=
 name|downloadRemoteIndexTaskRequest
 operator|.
 name|getRemoteRepositoryAdmin
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|indexPacker
-operator|=
-name|downloadRemoteIndexTaskRequest
-operator|.
-name|getIndexPacker
 argument_list|()
 expr_stmt|;
 block|}
@@ -1288,7 +1275,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"time to download remote repository index for repository {}: {} s"
+literal|"time update index from remote for repository {}: {} s"
 argument_list|,
 name|this
 operator|.
@@ -1308,27 +1295,9 @@ operator|)
 argument_list|)
 expr_stmt|;
 comment|// index packing optionnal ??
-name|IndexPackingRequest
-name|indexPackingRequest
-init|=
-operator|new
-name|IndexPackingRequest
-argument_list|(
-name|indexingContext
-argument_list|,
-name|indexingContext
-operator|.
-name|getIndexDirectoryFile
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|indexPacker
-operator|.
-name|packIndex
-argument_list|(
-name|indexPackingRequest
-argument_list|)
-expr_stmt|;
+comment|//IndexPackingRequest indexPackingRequest =
+comment|//    new IndexPackingRequest( indexingContext, indexingContext.getIndexDirectoryFile() );
+comment|//indexPacker.packIndex( indexPackingRequest );
 name|indexingContext
 operator|.
 name|updateTimestamp
@@ -1628,6 +1597,12 @@ specifier|private
 name|long
 name|startTime
 decl_stmt|;
+specifier|private
+name|int
+name|totalLength
+init|=
+literal|0
+decl_stmt|;
 specifier|public
 name|void
 name|transferInitiated
@@ -1636,6 +1611,13 @@ name|TransferEvent
 name|transferEvent
 parameter_list|)
 block|{
+name|startTime
+operator|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+expr_stmt|;
 name|resourceName
 operator|=
 name|transferEvent
@@ -1664,6 +1646,12 @@ name|TransferEvent
 name|transferEvent
 parameter_list|)
 block|{
+name|this
+operator|.
+name|totalLength
+operator|=
+literal|0
+expr_stmt|;
 name|resourceName
 operator|=
 name|transferEvent
@@ -1672,13 +1660,6 @@ name|getResource
 argument_list|()
 operator|.
 name|getName
-argument_list|()
-expr_stmt|;
-name|startTime
-operator|=
-name|System
-operator|.
-name|currentTimeMillis
 argument_list|()
 expr_stmt|;
 name|log
@@ -1733,6 +1714,12 @@ argument_list|,
 name|length
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|totalLength
+operator|+=
+name|length
+expr_stmt|;
 block|}
 specifier|public
 name|void
@@ -1764,7 +1751,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"end of transfer file {}: {}s"
+literal|"end of transfer file {} {} kb: {}s"
 argument_list|,
 name|transferEvent
 operator|.
@@ -1773,6 +1760,12 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
+argument_list|,
+name|this
+operator|.
+name|totalLength
+operator|/
+literal|1024
 argument_list|,
 operator|(
 name|endTime
