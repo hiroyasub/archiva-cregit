@@ -1031,6 +1031,9 @@ name|createAndIndexRepo
 argument_list|(
 name|testRepoId
 argument_list|,
+name|getBasedir
+argument_list|()
+operator|+
 literal|"/src/test/repo-with-osgi"
 argument_list|)
 expr_stmt|;
