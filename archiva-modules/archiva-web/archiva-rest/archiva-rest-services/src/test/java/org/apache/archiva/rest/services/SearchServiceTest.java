@@ -1031,7 +1031,7 @@ name|createAndIndexRepo
 argument_list|(
 name|testRepoId
 argument_list|,
-literal|"src/test/repo-with-osgi"
+literal|"/src/test/repo-with-osgi"
 argument_list|)
 expr_stmt|;
 name|SearchService
