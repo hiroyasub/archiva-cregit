@@ -774,7 +774,7 @@ argument_list|(
 literal|"basedir"
 argument_list|)
 operator|+
-literal|"src/test/repositories/test-repo"
+literal|"/src/test/repositories/test-repo"
 argument_list|)
 expr_stmt|;
 name|managedRepository
