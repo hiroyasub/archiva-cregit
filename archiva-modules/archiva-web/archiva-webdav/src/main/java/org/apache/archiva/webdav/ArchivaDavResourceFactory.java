@@ -5658,7 +5658,7 @@ name|debug
 argument_list|(
 name|MarkerFactory
 operator|.
-name|getDetachedMarker
+name|getMarker
 argument_list|(
 literal|"group.merged.index"
 argument_list|)
@@ -5684,7 +5684,7 @@ name|debug
 argument_list|(
 name|MarkerFactory
 operator|.
-name|getDetachedMarker
+name|getMarker
 argument_list|(
 literal|"group.merged.index"
 argument_list|)
