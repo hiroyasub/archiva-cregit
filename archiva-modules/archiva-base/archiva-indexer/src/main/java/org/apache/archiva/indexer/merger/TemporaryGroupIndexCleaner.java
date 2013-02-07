@@ -198,13 +198,6 @@ name|void
 name|cleanTemporaryIndex
 parameter_list|()
 block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"cleanTemporaryIndex"
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|TemporaryGroupIndex
@@ -237,6 +230,18 @@ name|getGroupMergedIndexTtl
 argument_list|()
 condition|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"cleanTemporaryIndex for groupId {}"
+argument_list|,
+name|temporaryGroupIndex
+operator|.
+name|getGroupId
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|indexMerger
 operator|.
 name|cleanTemporaryGroupIndex
