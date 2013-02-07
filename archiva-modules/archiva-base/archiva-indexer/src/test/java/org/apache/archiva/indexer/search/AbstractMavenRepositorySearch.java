@@ -675,6 +675,16 @@ argument_list|(
 name|nexusIndexer
 argument_list|)
 expr_stmt|;
+name|defaultManagedRepositoryAdmin
+operator|.
+name|setIndexCreators
+argument_list|(
+name|mavenIndexerUtils
+operator|.
+name|getAllIndexCreators
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|config
 operator|=
 operator|new
