@@ -133,6 +133,11 @@ specifier|private
 name|String
 name|bindDn
 decl_stmt|;
+comment|/**      * The LDAP base dn for groups (if empty baseDn is used).      */
+specifier|private
+name|String
+name|baseGroupsDn
+decl_stmt|;
 comment|/**      * The LDAP password.      */
 specifier|private
 name|String
@@ -548,6 +553,30 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+specifier|public
+name|String
+name|getBaseGroupsDn
+parameter_list|()
+block|{
+return|return
+name|baseGroupsDn
+return|;
+block|}
+specifier|public
+name|void
+name|setBaseGroupsDn
+parameter_list|(
+name|String
+name|baseGroupsDn
+parameter_list|)
+block|{
+name|this
+operator|.
+name|baseGroupsDn
+operator|=
+name|baseGroupsDn
+expr_stmt|;
 block|}
 block|}
 end_class

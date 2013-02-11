@@ -285,6 +285,16 @@ begin_import
 import|import
 name|javax
 operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
 name|ws
 operator|.
 name|rs
@@ -429,6 +439,8 @@ specifier|private
 name|RepositoryScanner
 name|scanner
 decl_stmt|;
+comment|// display spring scheduled
+comment|//@Inject @Named (value="springScheduler");
 annotation|@
 name|Inject
 specifier|public
