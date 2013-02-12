@@ -153,6 +153,13 @@ specifier|private
 name|boolean
 name|bindAuthenticatorEnabled
 decl_stmt|;
+comment|/**      * Will use role name as LDAP group.      */
+specifier|private
+name|boolean
+name|useRoleNameAsGroup
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Field extraProperties.      */
 specifier|private
 name|Map
@@ -607,6 +614,30 @@ operator|.
 name|writable
 operator|=
 name|writable
+expr_stmt|;
+block|}
+specifier|public
+name|boolean
+name|isUseRoleNameAsGroup
+parameter_list|()
+block|{
+return|return
+name|useRoleNameAsGroup
+return|;
+block|}
+specifier|public
+name|void
+name|setUseRoleNameAsGroup
+parameter_list|(
+name|boolean
+name|useRoleNameAsGroup
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useRoleNameAsGroup
+operator|=
+name|useRoleNameAsGroup
 expr_stmt|;
 block|}
 block|}
