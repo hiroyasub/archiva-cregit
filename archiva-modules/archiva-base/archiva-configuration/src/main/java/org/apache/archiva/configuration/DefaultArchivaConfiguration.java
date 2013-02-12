@@ -2971,7 +2971,7 @@ argument_list|,
 literal|"update-db-repository-metadata"
 argument_list|)
 decl_stmt|;
-comment|// remove database consumers  if here
+comment|// remove database consumers if here
 name|List
 argument_list|<
 name|String
