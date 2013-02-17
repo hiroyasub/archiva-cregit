@@ -604,6 +604,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+comment|/**      *<b>implementations can throw RuntimeException</b>      */
 name|void
 name|save
 parameter_list|()
@@ -614,6 +615,7 @@ parameter_list|()
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+comment|/**      *<b>implementations can throw RuntimeException</b>      */
 name|void
 name|revert
 parameter_list|()

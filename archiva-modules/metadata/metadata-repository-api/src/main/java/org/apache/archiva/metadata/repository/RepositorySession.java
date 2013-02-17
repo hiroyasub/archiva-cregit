@@ -145,7 +145,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|/**      * Close the session. Required to be called for all open sessions to ensure resources are properly released.      * If the session has been marked as dirty, it will be saved. This may save partial changes in the case of a typical      *<code>try { ... } finally { ... }</code> approach - if this is a problem, ensure you revert changes when an      * exception occurs.      */
+comment|/**      * Close the session. Required to be called for all open sessions to ensure resources are properly released.      * If the session has been marked as dirty, it will be saved. This may save partial changes in the case of a typical      *<code>try { ... } finally { ... }</code> approach - if this is a problem, ensure you revert changes when an      * exception occurs.      *<b>can throw RuntimeException</b>      */
 specifier|public
 name|void
 name|close
@@ -192,6 +192,39 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+block|}
+specifier|public
+name|void
+name|closeQuietly
+parameter_list|()
+block|{
+try|try
+block|{
+name|this
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"ignore Runtime exception while closing: {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 specifier|public

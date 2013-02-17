@@ -3715,7 +3715,7 @@ condition|)
 block|{
 name|session
 operator|.
-name|close
+name|closeQuietly
 argument_list|()
 expr_stmt|;
 block|}
