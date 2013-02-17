@@ -194,6 +194,7 @@ throw|;
 block|}
 block|}
 block|}
+comment|/**      * ignore RuntimeException when closing repository      * @since 1.4-M4      */
 specifier|public
 name|void
 name|closeQuietly
@@ -223,6 +224,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
