@@ -2521,6 +2521,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+comment|//managedRepository.setScanned( scanned );
 name|ManagedRepositoriesService
 name|service
 init|=
