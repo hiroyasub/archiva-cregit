@@ -103,7 +103,7 @@ name|api
 operator|.
 name|model
 operator|.
-name|RedbackImplementationInformations
+name|RedbackImplementationsInformations
 import|;
 end_import
 
@@ -416,7 +416,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"redbackImplementationInformations"
+literal|"redbackImplementationsInformations"
 argument_list|)
 annotation|@
 name|GET
@@ -442,8 +442,8 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
-name|RedbackImplementationInformations
-name|getRedbackImplementationInformations
+name|RedbackImplementationsInformations
+name|getRedbackImplementationsInformations
 parameter_list|()
 throws|throws
 name|ArchivaRestServiceException
