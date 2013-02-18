@@ -1226,6 +1226,15 @@ parameter_list|()
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+specifier|public
+name|boolean
+name|isReadOnly
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 

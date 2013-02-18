@@ -1178,8 +1178,8 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-name|UserManager
-name|userManager
+name|RBACManager
+name|rbacManager
 init|=
 name|applicationContext
 operator|.
@@ -1190,14 +1190,14 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|UserManager
+name|RBACManager
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|userManager
+name|rbacManager
 operator|.
 name|isFinalImplementation
 argument_list|()
@@ -1231,7 +1231,7 @@ name|information
 operator|.
 name|setDescriptionKey
 argument_list|(
-name|userManager
+name|rbacManager
 operator|.
 name|getDescriptionKey
 argument_list|()
@@ -1241,7 +1241,7 @@ name|information
 operator|.
 name|setReadOnly
 argument_list|(
-name|userManager
+name|rbacManager
 operator|.
 name|isReadOnly
 argument_list|()

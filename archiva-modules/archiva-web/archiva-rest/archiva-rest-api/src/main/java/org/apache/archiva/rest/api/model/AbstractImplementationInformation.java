@@ -247,7 +247,7 @@ operator|!
 operator|(
 name|o
 operator|instanceof
-name|UserManagerImplementationInformation
+name|AbstractImplementationInformation
 operator|)
 condition|)
 block|{
