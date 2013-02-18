@@ -333,6 +333,17 @@ argument_list|>
 name|getConfigurationPropertiesEntries
 parameter_list|()
 block|{
+if|if
+condition|(
+name|configurationPropertiesEntries
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|configurationPropertiesEntries
+return|;
+block|}
 name|configurationPropertiesEntries
 operator|=
 operator|new
