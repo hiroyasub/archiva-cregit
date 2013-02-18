@@ -1267,6 +1267,26 @@ literal|"eraseDatabase not implemented"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isFinalImplementation
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+specifier|public
+name|String
+name|getDescriptionKey
+parameter_list|()
+block|{
+return|return
+literal|"archiva.redback.rbacmanager.archiva"
+return|;
+block|}
 block|}
 end_class
 

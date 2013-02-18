@@ -252,7 +252,24 @@ name|void
 name|initialize
 parameter_list|()
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
+block|}
+specifier|public
+name|boolean
+name|isFinalImplementation
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+specifier|public
+name|String
+name|getDescriptionKey
+parameter_list|()
+block|{
+return|return
+literal|"archiva.redback.rbacmanager.test"
+return|;
 block|}
 specifier|public
 name|void
@@ -262,7 +279,6 @@ name|RBACManagerListener
 name|listener
 parameter_list|)
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -272,7 +288,6 @@ name|RBACManagerListener
 name|listener
 parameter_list|)
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|Role
@@ -285,7 +300,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|boolean
@@ -298,7 +312,6 @@ block|{
 return|return
 literal|false
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|boolean
@@ -311,7 +324,6 @@ block|{
 return|return
 literal|false
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|Role
@@ -328,7 +340,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|void
@@ -345,7 +356,6 @@ name|RbacObjectInvalidException
 throws|,
 name|RbacManagerException
 block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|Role
@@ -362,7 +372,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|Map
