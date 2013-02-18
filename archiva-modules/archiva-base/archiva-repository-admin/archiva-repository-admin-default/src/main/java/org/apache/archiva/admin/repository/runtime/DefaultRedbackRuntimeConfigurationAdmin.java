@@ -477,6 +477,7 @@ name|Cache
 name|usersCache
 decl_stmt|;
 specifier|private
+specifier|volatile
 name|RedbackRuntimeConfiguration
 name|currentRedbackRuntimeConfiguration
 decl_stmt|;
