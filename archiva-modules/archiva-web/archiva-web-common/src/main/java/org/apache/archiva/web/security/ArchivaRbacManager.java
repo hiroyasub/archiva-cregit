@@ -1287,6 +1287,15 @@ return|return
 literal|"archiva.redback.rbacmanager.archiva"
 return|;
 block|}
+specifier|public
+name|boolean
+name|isReadOnly
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 
