@@ -577,7 +577,7 @@ name|UserConfigurationKeys
 operator|.
 name|RBAC_MANAGER_IMPL
 argument_list|,
-literal|"cached"
+literal|"jdo"
 argument_list|)
 decl_stmt|;
 if|if
