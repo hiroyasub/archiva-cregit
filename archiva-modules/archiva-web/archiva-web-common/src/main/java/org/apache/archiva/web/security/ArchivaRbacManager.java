@@ -460,9 +460,36 @@ block|}
 block|}
 specifier|protected
 name|RBACManager
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 parameter_list|()
 block|{
+for|for
+control|(
+name|RBACManager
+name|rbacManager
+range|:
+name|this
+operator|.
+name|rbacManagersPerId
+operator|.
+name|values
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+operator|!
+name|rbacManager
+operator|.
+name|isReadOnly
+argument_list|()
+condition|)
+block|{
+return|return
+name|rbacManager
+return|;
+block|}
+block|}
 return|return
 name|this
 operator|.
@@ -487,7 +514,7 @@ name|name
 parameter_list|)
 block|{
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|createRole
@@ -509,7 +536,7 @@ throws|,
 name|RbacManagerException
 block|{
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|saveRole
@@ -533,7 +560,7 @@ name|RbacObjectInvalidException
 throws|,
 name|RbacManagerException
 block|{
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|saveRoles
@@ -612,7 +639,7 @@ name|RbacManagerException
 block|{
 comment|// iterate and aggregate results ?
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|getAllRoles
@@ -633,8 +660,7 @@ name|RbacObjectInvalidException
 throws|,
 name|RbacManagerException
 block|{
-comment|// iterate remove ?
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|removeRole
@@ -653,9 +679,8 @@ parameter_list|)
 throws|throws
 name|RbacManagerException
 block|{
-comment|// iterate ?
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|createPermission
@@ -680,9 +705,8 @@ parameter_list|)
 throws|throws
 name|RbacManagerException
 block|{
-comment|// iterate ?
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|createPermission
@@ -707,9 +731,8 @@ name|RbacObjectInvalidException
 throws|,
 name|RbacManagerException
 block|{
-comment|// iterate ?
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|savePermission
@@ -730,9 +753,8 @@ name|RbacObjectNotFoundException
 throws|,
 name|RbacManagerException
 block|{
-comment|// iterate ?
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|getPermission
@@ -751,9 +773,8 @@ parameter_list|()
 throws|throws
 name|RbacManagerException
 block|{
-comment|// iterate and aggregate ?
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|getAllPermissions
@@ -774,8 +795,7 @@ name|RbacObjectInvalidException
 throws|,
 name|RbacManagerException
 block|{
-comment|// iterate remove ?
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|removePermission
@@ -794,9 +814,8 @@ parameter_list|)
 throws|throws
 name|RbacManagerException
 block|{
-comment|// iterate ?
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|createOperation
@@ -817,9 +836,8 @@ name|RbacObjectInvalidException
 throws|,
 name|RbacManagerException
 block|{
-comment|// iterate ?
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|saveOperation
@@ -840,9 +858,8 @@ name|RbacObjectNotFoundException
 throws|,
 name|RbacManagerException
 block|{
-comment|// iterate ?
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|getOperation
@@ -861,9 +878,8 @@ parameter_list|()
 throws|throws
 name|RbacManagerException
 block|{
-comment|// iterate and aggregate ?
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|getAllOperations
@@ -884,8 +900,7 @@ name|RbacObjectInvalidException
 throws|,
 name|RbacManagerException
 block|{
-comment|// iterate ?
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|removeOperation
@@ -904,9 +919,8 @@ parameter_list|)
 throws|throws
 name|RbacManagerException
 block|{
-comment|// iterate ?
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|createResource
@@ -927,9 +941,8 @@ name|RbacObjectInvalidException
 throws|,
 name|RbacManagerException
 block|{
-comment|// iterate ?
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|saveResource
@@ -950,9 +963,8 @@ name|RbacObjectNotFoundException
 throws|,
 name|RbacManagerException
 block|{
-comment|// iterate ?
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|getResource
@@ -971,9 +983,8 @@ parameter_list|()
 throws|throws
 name|RbacManagerException
 block|{
-comment|// iterate and aggregate ?
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|getAllResources
@@ -994,8 +1005,7 @@ name|RbacObjectInvalidException
 throws|,
 name|RbacManagerException
 block|{
-comment|// iterate
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|removeResource
@@ -1014,9 +1024,8 @@ parameter_list|)
 throws|throws
 name|RbacManagerException
 block|{
-comment|// iterate ?
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|createUserAssignment
@@ -1037,9 +1046,8 @@ name|RbacObjectInvalidException
 throws|,
 name|RbacManagerException
 block|{
-comment|// iterate ?
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|saveUserAssignment
@@ -1060,9 +1068,8 @@ name|RbacObjectNotFoundException
 throws|,
 name|RbacManagerException
 block|{
-comment|// iterate ?
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|getUserAssignment
@@ -1082,7 +1089,7 @@ name|principal
 parameter_list|)
 block|{
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|userAssignmentExists
@@ -1102,7 +1109,7 @@ name|assignment
 parameter_list|)
 block|{
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|userAssignmentExists
@@ -1123,7 +1130,7 @@ name|RbacManagerException
 block|{
 comment|// iterate
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|getAllUserAssignments
@@ -1148,7 +1155,7 @@ name|RbacManagerException
 block|{
 comment|// iterate ?
 return|return
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|getUserAssignmentsForRoles
@@ -1171,8 +1178,7 @@ name|RbacObjectInvalidException
 throws|,
 name|RbacManagerException
 block|{
-comment|// iterate ?
-name|getRbacManagerForCommon
+name|getRbacManagerForWrite
 argument_list|()
 operator|.
 name|removeUserAssignment
