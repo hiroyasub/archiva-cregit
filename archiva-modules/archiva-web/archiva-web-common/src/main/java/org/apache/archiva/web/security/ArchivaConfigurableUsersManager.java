@@ -877,7 +877,7 @@ name|user
 return|;
 block|}
 block|}
-name|UserManagerException
+name|Exception
 name|lastException
 init|=
 literal|null
@@ -945,7 +945,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|UserManagerException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -970,7 +970,16 @@ literal|null
 condition|)
 block|{
 throw|throw
+operator|new
+name|UserManagerException
+argument_list|(
 name|lastException
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|lastException
+argument_list|)
 throw|;
 block|}
 block|}
