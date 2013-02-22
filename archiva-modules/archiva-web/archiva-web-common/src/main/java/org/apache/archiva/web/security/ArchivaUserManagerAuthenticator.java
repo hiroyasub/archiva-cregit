@@ -995,11 +995,16 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Login for user {} failed. user not found."
+literal|"Login for user {} and userManager {} failed. user not found."
 argument_list|,
 name|source
 operator|.
 name|getUsername
+argument_list|()
+argument_list|,
+name|userManager
+operator|.
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1040,11 +1045,16 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Login for user {} failed, message: {}"
+literal|"Login for user {} and userManager {} failed, message: {}"
 argument_list|,
 name|source
 operator|.
 name|getUsername
+argument_list|()
+argument_list|,
+name|userManager
+operator|.
+name|getId
 argument_list|()
 argument_list|,
 name|e
