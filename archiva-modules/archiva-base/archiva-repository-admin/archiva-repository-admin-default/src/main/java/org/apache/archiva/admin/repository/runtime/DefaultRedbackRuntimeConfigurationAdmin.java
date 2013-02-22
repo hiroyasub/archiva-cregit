@@ -838,10 +838,9 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ldapConfiguration
-operator|.
-name|setBindAuthenticatorEnabled
-argument_list|(
+name|boolean
+name|ldapBindAuthenticatorEnabled
+init|=
 name|userConfiguration
 operator|.
 name|getBoolean
@@ -852,6 +851,12 @@ name|LDAP_BIND_AUTHENTICATOR_ENABLED
 argument_list|,
 literal|false
 argument_list|)
+decl_stmt|;
+name|ldapConfiguration
+operator|.
+name|setBindAuthenticatorEnabled
+argument_list|(
+name|ldapBindAuthenticatorEnabled
 argument_list|)
 expr_stmt|;
 name|redbackRuntimeConfiguration
