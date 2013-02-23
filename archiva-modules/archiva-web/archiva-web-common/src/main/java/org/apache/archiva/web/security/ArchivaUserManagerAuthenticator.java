@@ -907,6 +907,11 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|)
+operator|.
+name|user
+argument_list|(
+name|user
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -949,6 +954,11 @@ name|getUsername
 argument_list|()
 operator|+
 literal|"."
+argument_list|)
+operator|.
+name|user
+argument_list|(
+name|user
 argument_list|)
 argument_list|)
 expr_stmt|;
