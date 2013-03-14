@@ -57,7 +57,6 @@ extends|extends
 name|Policy
 block|{
 comment|/**      * Apply the download error policy.      *      * @param policySetting      the policy setting.      * @param request            the list of request properties that the policy might use.      * @param localFile      * @param exception          the exception that triggered the error      * @param previousExceptions any previously triggered exceptions      * @return whether to process the exception or not      * @throws PolicyConfigurationException if the policy is improperly configured      */
-specifier|public
 name|boolean
 name|applyPolicy
 parameter_list|(

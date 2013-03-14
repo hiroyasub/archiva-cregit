@@ -24,7 +24,6 @@ specifier|public
 interface|interface
 name|ArchivaArtifactPlatformDetails
 block|{
-specifier|public
 name|String
 name|getPlatform
 parameter_list|()

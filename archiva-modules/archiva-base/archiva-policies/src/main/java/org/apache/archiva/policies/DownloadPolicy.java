@@ -47,7 +47,6 @@ extends|extends
 name|Policy
 block|{
 comment|/**      * Apply the download policy.      *       * @param policySetting the policy setting.      * @param request the list of request properties that the policy might use.      * @param localFile      *       * @throws PolicyViolationException if the policy has been violated.      */
-specifier|public
 name|void
 name|applyPolicy
 parameter_list|(

@@ -62,17 +62,11 @@ specifier|public
 interface|interface
 name|RepositoryCommonValidator
 block|{
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|REPOSITORY_ID_VALID_EXPRESSION
 init|=
 literal|"^[a-zA-Z0-9._-]+$"
 decl_stmt|;
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|REPOSITORY_NAME_VALID_EXPRESSION
 init|=

@@ -220,7 +220,6 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
-specifier|public
 name|List
 argument_list|<
 name|RepositoryStatistics
@@ -294,7 +293,6 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
-specifier|public
 name|List
 argument_list|<
 name|RepositoryProblemFacet

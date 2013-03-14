@@ -95,16 +95,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|text
-operator|.
-name|DecimalFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -425,7 +415,6 @@ argument_list|(
 literal|"ul{list-style:none;}"
 argument_list|)
 expr_stmt|;
-comment|//list-style-image: url("../images/folder.png");
 name|StringBuilder
 name|relative
 init|=

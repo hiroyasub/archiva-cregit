@@ -89,7 +89,6 @@ interface|interface
 name|RepositoryProxyConnectors
 block|{
 comment|/**      * Performs the artifact fetch operation against the target repositories      * of the provided source repository.      *       * If the artifact is found, it is downloaded and placed into the source repository      * filesystem.      *       * @param repository the source repository to use. (must be a managed repository)      * @param artifact the artifact to fetch.      * @return the file that was obtained, or null if no content was obtained      * @throws ProxyDownloadException if there was a problem fetching the content from the target repositories.      */
-specifier|public
 name|File
 name|fetchFromProxies
 parameter_list|(
@@ -103,7 +102,6 @@ throws|throws
 name|ProxyDownloadException
 function_decl|;
 comment|/**      * Performs the metadata fetch operation against the target repositories      * of the provided source repository.      *       * If the metadata is found, it is downloaded and placed into the source repository      * filesystem.      *       * @param repository the source repository to use. (must be a managed repository)      * @param logicalPath the metadata to fetch.      * @return the file that was obtained, or null if no content was obtained      */
-specifier|public
 name|File
 name|fetchMetatadaFromProxies
 parameter_list|(
@@ -115,7 +113,6 @@ name|logicalPath
 parameter_list|)
 function_decl|;
 comment|/**      * Performs the fetch operation against the target repositories      * of the provided source repository.      *       * @param managedRepository the source repository to use. (must be a managed repository)      * @param path the path of the resource to fetch      * @return the file that was obtained, or null if no content was obtained      */
-specifier|public
 name|File
 name|fetchFromProxies
 parameter_list|(
@@ -127,7 +124,6 @@ name|path
 parameter_list|)
 function_decl|;
 comment|/**      * Get the List of {@link ProxyConnector} objects of the source repository.      *       * @param repository the source repository to look for.      * @return the List of {@link ProxyConnector} objects.      */
-specifier|public
 name|List
 argument_list|<
 name|ProxyConnector
@@ -139,7 +135,6 @@ name|repository
 parameter_list|)
 function_decl|;
 comment|/**      * Tests to see if the provided repository is a source repository for      * any {@link ProxyConnector} objects.      *       * @param repository the source repository to look for.      * @return true if there are proxy connectors that use the provided       *   repository as a source repository.      */
-specifier|public
 name|boolean
 name|hasProxies
 parameter_list|(

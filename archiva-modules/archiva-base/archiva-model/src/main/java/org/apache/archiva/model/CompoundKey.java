@@ -24,7 +24,6 @@ specifier|public
 interface|interface
 name|CompoundKey
 block|{
-specifier|public
 name|String
 name|toString
 parameter_list|()

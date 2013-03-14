@@ -65,20 +65,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|scheduling
-operator|.
-name|annotation
-operator|.
-name|Async
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -107,16 +93,12 @@ interface|interface
 name|RepositoryScanner
 block|{
 comment|/**      * The value to pass to {@link #scan(ManagedRepository, long)} to have the scan      * operate in a fresh fashion, with no check on changes based on timestamp.      */
-specifier|public
-specifier|static
-specifier|final
 name|long
 name|FRESH_SCAN
 init|=
 literal|0
 decl_stmt|;
 comment|/**      *<p>      * Typical Ignorable Content patterns.      *</p>      *<p/>      *<p><strong>      * NOTE: Do not use for normal webapp or task driven repository scanning.      *</strong></p>      *<p/>      *<p>      * These patterns are only valid for archiva-cli and archiva-converter use.      *</p>      */
-specifier|public
 specifier|static
 specifier|final
 name|String

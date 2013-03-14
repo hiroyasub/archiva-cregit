@@ -53,8 +53,6 @@ interface|interface
 name|IndexMerger
 block|{
 comment|/**      * system property which contains the value in s for ttl of temporary index groups      */
-specifier|static
-specifier|final
 name|String
 name|TMP_GROUP_INDEX_SYS_KEY
 init|=

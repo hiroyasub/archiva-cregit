@@ -25,7 +25,6 @@ interface|interface
 name|ConsumerMonitor
 block|{
 comment|/**      * A consumer error event.      *       * @param consumer the consumer that caused the error.      * @param type the type of error.      * @param message the message about the error.      */
-specifier|public
 name|void
 name|consumerError
 parameter_list|(
@@ -40,7 +39,6 @@ name|message
 parameter_list|)
 function_decl|;
 comment|/**      * A consumer warning event.      *       * @param consumer the consumer that caused the warning.      * @param type the type of warning.      * @param message the message about the warning.      */
-specifier|public
 name|void
 name|consumerWarning
 parameter_list|(
@@ -55,7 +53,6 @@ name|message
 parameter_list|)
 function_decl|;
 comment|/**      * A consumer informational event.      *       * @param consumer the consumer that caused the informational message.      * @param message the message.      */
-specifier|public
 name|void
 name|consumerInfo
 parameter_list|(

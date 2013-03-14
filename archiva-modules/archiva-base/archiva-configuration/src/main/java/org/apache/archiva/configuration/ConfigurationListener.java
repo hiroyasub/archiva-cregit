@@ -25,7 +25,6 @@ interface|interface
 name|ConfigurationListener
 block|{
 comment|/**      * Generic event point to notify components that something has happend in the configuration.      */
-specifier|public
 name|void
 name|configurationEvent
 parameter_list|(

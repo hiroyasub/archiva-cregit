@@ -50,8 +50,6 @@ specifier|public
 interface|interface
 name|RepositoryPathTranslator
 block|{
-specifier|static
-specifier|final
 name|char
 name|PATH_SEPARATOR
 init|=
