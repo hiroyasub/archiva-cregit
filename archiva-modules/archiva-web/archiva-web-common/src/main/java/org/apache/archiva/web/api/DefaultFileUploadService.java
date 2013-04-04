@@ -998,6 +998,8 @@ argument_list|,
 literal|"classifier"
 argument_list|)
 decl_stmt|;
+comment|// skygo: http header form pomFile was once sending 1 for true and void for false
+comment|// leading to permanent false value for pomFile if using toBoolean(); use , "1", ""
 name|boolean
 name|pomFile
 init|=
@@ -1011,10 +1013,6 @@ name|multipartBody
 argument_list|,
 literal|"pomFile"
 argument_list|)
-argument_list|,
-literal|"1"
-argument_list|,
-literal|""
 argument_list|)
 decl_stmt|;
 name|Attachment
