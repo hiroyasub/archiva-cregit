@@ -298,6 +298,15 @@ name|boolean
 name|valid
 parameter_list|)
 block|{
+name|login
+argument_list|(
+name|getAdminUsername
+argument_list|()
+argument_list|,
+name|getAdminPassword
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|clickLinkWithLocator
 argument_list|(
 literal|"menu-users-list-a"
