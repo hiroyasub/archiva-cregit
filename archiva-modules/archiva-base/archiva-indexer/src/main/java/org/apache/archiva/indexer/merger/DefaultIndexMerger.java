@@ -523,7 +523,10 @@ name|File
 argument_list|(
 name|tempRepoFile
 argument_list|,
-literal|".indexer"
+name|indexMergerRequest
+operator|.
+name|getMergedIndexPath
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|IndexingContext
