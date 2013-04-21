@@ -94,6 +94,13 @@ name|String
 argument_list|>
 name|repositories
 decl_stmt|;
+comment|/**      * The path of the merged index.      */
+specifier|private
+name|String
+name|mergedIndexPath
+init|=
+literal|"/.indexer"
+decl_stmt|;
 specifier|public
 name|RepositoryGroup
 parameter_list|()
