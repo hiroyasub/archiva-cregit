@@ -2581,8 +2581,6 @@ name|endsWith
 argument_list|(
 name|rootPath
 argument_list|,
-literal|"/"
-operator|+
 name|repoGroupConfig
 operator|.
 name|getMergedIndexPath
