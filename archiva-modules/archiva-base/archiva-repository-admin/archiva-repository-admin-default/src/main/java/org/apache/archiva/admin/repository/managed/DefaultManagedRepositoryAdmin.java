@@ -3615,7 +3615,7 @@ return|return
 literal|true
 return|;
 block|}
-specifier|public
+specifier|private
 name|void
 name|addRepositoryRoles
 parameter_list|(
