@@ -143,7 +143,7 @@ specifier|private
 name|AuditManager
 name|auditManager
 decl_stmt|;
-comment|/**      * FIXME: this could be multiple implementations and needs to be configured. It also starts a separate session to      * the originator of the audit event that we may rather want to pass through.      *      *      */
+comment|/**      * FIXME: this could be multiple implementations and needs to be configured.      *  It also starts a separate session to the originator of the audit event that we may rather want to pass through.      */
 annotation|@
 name|Inject
 specifier|private

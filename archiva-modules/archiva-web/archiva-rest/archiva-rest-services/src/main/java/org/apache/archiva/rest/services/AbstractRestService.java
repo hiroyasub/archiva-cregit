@@ -633,6 +633,7 @@ specifier|protected
 name|UserRepositories
 name|userRepositories
 decl_stmt|;
+comment|/**      * FIXME: this could be multiple implementations and needs to be configured.      */
 annotation|@
 name|Inject
 annotation|@

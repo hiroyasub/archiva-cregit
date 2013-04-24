@@ -552,7 +552,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-comment|/**      * FIXME: can be of other types      */
+comment|/**      * FIXME: this could be multiple implementations and needs to be configured.      */
 annotation|@
 name|Inject
 specifier|private

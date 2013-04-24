@@ -466,7 +466,7 @@ specifier|private
 name|RepositoryStatisticsManager
 name|repositoryStatisticsManager
 decl_stmt|;
-comment|/**      * TODO: may be different implementations      */
+comment|/**      * FIXME: this could be multiple implementations and needs to be configured.      */
 annotation|@
 name|Inject
 specifier|private

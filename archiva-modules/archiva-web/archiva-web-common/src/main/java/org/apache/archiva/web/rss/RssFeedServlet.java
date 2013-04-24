@@ -649,6 +649,7 @@ specifier|private
 name|HttpAuthenticator
 name|httpAuth
 decl_stmt|;
+comment|/**      * FIXME: this could be multiple implementations and needs to be configured.      */
 specifier|private
 name|RepositorySessionFactory
 name|repositorySessionFactory

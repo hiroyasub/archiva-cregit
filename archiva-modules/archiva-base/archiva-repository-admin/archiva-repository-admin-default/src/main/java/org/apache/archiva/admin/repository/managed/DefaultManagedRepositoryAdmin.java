@@ -698,6 +698,7 @@ specifier|private
 name|RepositoryArchivaTaskScheduler
 name|repositoryTaskScheduler
 decl_stmt|;
+comment|/**      * FIXME: this could be multiple implementations and needs to be configured.      */
 annotation|@
 name|Inject
 specifier|private

@@ -483,35 +483,31 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * default-value="duplicate-artifacts"      */
 specifier|private
 name|String
 name|id
 init|=
 literal|"duplicate-artifacts"
 decl_stmt|;
-comment|/**      * default-value="Check for Duplicate Artifacts via SHA1 Checksums"      */
 specifier|private
 name|String
 name|description
 init|=
 literal|"Check for Duplicate Artifacts via SHA1 Checksums"
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|FileTypes
 name|filetypes
 decl_stmt|;
-comment|/**      * FIXME: can be of other types      */
+comment|/**      * FIXME: this could be multiple implementations and needs to be configured.      */
 annotation|@
 name|Inject
 specifier|private
