@@ -996,7 +996,7 @@ name|repositoriesService
 operator|.
 name|scheduleDownloadRemoteIndex
 argument_list|(
-literal|"all-merged"
+name|remoteId
 argument_list|,
 literal|true
 argument_list|,
