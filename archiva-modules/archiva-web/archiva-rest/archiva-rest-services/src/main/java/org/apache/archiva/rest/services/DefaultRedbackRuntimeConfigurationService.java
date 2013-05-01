@@ -117,6 +117,26 @@ name|common
 operator|.
 name|ldap
 operator|.
+name|connection
+operator|.
+name|LdapConnection
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|redback
+operator|.
+name|common
+operator|.
+name|ldap
+operator|.
 name|user
 operator|.
 name|LdapUserMapper
@@ -139,7 +159,7 @@ name|ldap
 operator|.
 name|connection
 operator|.
-name|LdapConnection
+name|DefaultLdapConnection
 import|;
 end_import
 
@@ -1395,7 +1415,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"fail to get LdapConnection: {}"
+literal|"fail to get ldapConnection: {}"
 argument_list|,
 name|e
 operator|.
@@ -1611,7 +1631,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"fail to get LdapConnection: {}"
+literal|"fail to get ldapConnection: {}"
 argument_list|,
 name|e
 operator|.
@@ -1644,7 +1664,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"fail to get LdapConnection: {}"
+literal|"fail to get ldapConnection: {}"
 argument_list|,
 name|e
 operator|.
