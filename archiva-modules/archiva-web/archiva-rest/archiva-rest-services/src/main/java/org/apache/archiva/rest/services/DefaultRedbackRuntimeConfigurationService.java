@@ -117,6 +117,26 @@ name|common
 operator|.
 name|ldap
 operator|.
+name|connection
+operator|.
+name|LdapConnection
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|redback
+operator|.
+name|common
+operator|.
+name|ldap
+operator|.
 name|user
 operator|.
 name|LdapUserMapper
@@ -139,7 +159,7 @@ name|ldap
 operator|.
 name|connection
 operator|.
-name|LdapConnection
+name|DefaultLdapConnection
 import|;
 end_import
 
@@ -1395,12 +1415,14 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"fail to get LdapConnection: {}"
+literal|"fail to get ldapConnection: {}"
 argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -1505,6 +1527,16 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|ldapConnectionConfiguration
+operator|.
+name|setSsl
+argument_list|(
+name|ldapConfiguration
+operator|.
+name|isSsl
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|ldapConnection
 operator|=
 name|ldapConnectionFactory
@@ -1569,6 +1601,16 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ldapConnectionConfiguration
+operator|.
+name|setSsl
+argument_list|(
+name|ldapConfiguration
+operator|.
+name|isSsl
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|ldapConnection
 operator|=
 name|ldapConnectionFactory
@@ -1589,12 +1631,14 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"fail to get LdapConnection: {}"
+literal|"fail to get ldapConnection: {}"
 argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -1620,12 +1664,14 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"fail to get LdapConnection: {}"
+literal|"fail to get ldapConnection: {}"
 argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw

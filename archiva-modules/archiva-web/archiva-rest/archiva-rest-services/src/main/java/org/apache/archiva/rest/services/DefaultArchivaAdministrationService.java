@@ -1485,6 +1485,25 @@ name|ArchivaRestServiceException
 block|{
 try|try
 block|{
+comment|// fix for MRM-1757
+comment|// strip any trailing '/' at the end of the url so it won't affect url/link calculations in UI
+name|uiConfiguration
+operator|.
+name|setApplicationUrl
+argument_list|(
+name|StringUtils
+operator|.
+name|stripEnd
+argument_list|(
+name|uiConfiguration
+operator|.
+name|getApplicationUrl
+argument_list|()
+argument_list|,
+literal|"/"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|archivaAdministration
 operator|.
 name|updateUiConfiguration
