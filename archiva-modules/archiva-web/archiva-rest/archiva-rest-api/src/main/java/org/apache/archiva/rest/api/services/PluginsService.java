@@ -124,7 +124,7 @@ literal|true
 argument_list|)
 name|String
 name|getAdminPlugins
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
