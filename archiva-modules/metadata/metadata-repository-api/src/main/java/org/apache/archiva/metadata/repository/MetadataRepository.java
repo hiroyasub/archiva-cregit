@@ -184,6 +184,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+comment|/**      * create the namespace in the repository. (if not exist)      * @param repositoryId      * @param namespace      * @throws MetadataRepositoryException      */
 name|void
 name|updateNamespace
 parameter_list|(
