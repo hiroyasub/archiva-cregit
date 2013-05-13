@@ -5744,9 +5744,9 @@ name|getCreationTime
 argument_list|()
 operator|>
 operator|(
-name|indexMerger
+name|repositoryGroupConfiguration
 operator|.
-name|getGroupMergedIndexTtl
+name|getMergedIndexTtl
 argument_list|()
 operator|*
 literal|60
