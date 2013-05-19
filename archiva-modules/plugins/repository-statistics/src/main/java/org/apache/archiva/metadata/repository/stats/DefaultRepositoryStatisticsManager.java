@@ -848,6 +848,7 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
+comment|// FIXME what about other implementations ?
 if|if
 condition|(
 name|metadataRepository
@@ -903,8 +904,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Gathering statistics executed in "
-operator|+
+literal|"Gathering statistics executed in {} ms"
+argument_list|,
 operator|(
 name|System
 operator|.
@@ -913,8 +914,6 @@ argument_list|()
 operator|-
 name|startGather
 operator|)
-operator|+
-literal|"ms"
 argument_list|)
 expr_stmt|;
 name|metadataRepository
