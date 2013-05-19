@@ -631,12 +631,15 @@ argument_list|>
 name|aClass
 parameter_list|)
 function_decl|;
-name|Object
+parameter_list|<
+name|T
+parameter_list|>
+name|T
 name|obtainAccess
 parameter_list|(
 name|Class
 argument_list|<
-name|?
+name|T
 argument_list|>
 name|aClass
 parameter_list|)
