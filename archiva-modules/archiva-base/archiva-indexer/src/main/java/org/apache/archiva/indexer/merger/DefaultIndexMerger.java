@@ -644,6 +644,11 @@ name|indexMergerRequest
 operator|.
 name|getGroupId
 argument_list|()
+argument_list|,
+name|indexMergerRequest
+operator|.
+name|getMergedIndexTtl
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
