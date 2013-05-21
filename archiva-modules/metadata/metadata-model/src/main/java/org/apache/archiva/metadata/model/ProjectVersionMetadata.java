@@ -65,6 +65,7 @@ name|ProjectVersionMetadata
 extends|extends
 name|FacetedMetadata
 block|{
+comment|/**      * id is the version      */
 specifier|private
 name|String
 name|id
