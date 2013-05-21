@@ -31,6 +31,16 @@ name|XmlRootElement
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
 begin_comment
 comment|/**  * Information about the issue management system used by the project.  *  * @todo considering moving this to a facet - avoid referring to it externally  */
 end_comment
@@ -46,6 +56,8 @@ argument_list|)
 specifier|public
 class|class
 name|IssueManagement
+implements|implements
+name|Serializable
 block|{
 comment|/**      * A simple identifier for the type of issue management server used, eg<tt>jira</tt>,<tt>bugzilla</tt>, etc.      */
 specifier|private

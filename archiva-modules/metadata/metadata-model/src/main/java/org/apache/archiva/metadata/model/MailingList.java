@@ -31,6 +31,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -56,6 +66,8 @@ argument_list|)
 specifier|public
 class|class
 name|MailingList
+implements|implements
+name|Serializable
 block|{
 comment|/**      * The primary archive URL for this mailing list.      */
 specifier|private

@@ -31,6 +31,16 @@ name|XmlRootElement
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
 begin_comment
 comment|/**  * Information about a dependency that this project has on another project or artifact.  *  * @todo will be reviewing what is appropriate for the base here - rest should be in a maven dependency facet - avoid details on it externally  */
 end_comment
@@ -46,6 +56,8 @@ argument_list|)
 specifier|public
 class|class
 name|Dependency
+implements|implements
+name|Serializable
 block|{
 comment|/**      * The Maven classifier of the dependency.      */
 specifier|private

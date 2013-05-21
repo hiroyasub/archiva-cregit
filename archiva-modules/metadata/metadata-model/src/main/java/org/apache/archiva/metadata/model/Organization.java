@@ -31,6 +31,16 @@ name|XmlRootElement
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
 begin_class
 annotation|@
 name|XmlRootElement
@@ -42,6 +52,8 @@ argument_list|)
 specifier|public
 class|class
 name|Organization
+implements|implements
+name|Serializable
 block|{
 specifier|private
 name|String
