@@ -21,6 +21,16 @@ begin_import
 import|import
 name|javax
 operator|.
+name|persistence
+operator|.
+name|Entity
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
 name|xml
 operator|.
 name|bind
@@ -49,6 +59,8 @@ name|name
 operator|=
 literal|"organization"
 argument_list|)
+annotation|@
+name|Entity
 specifier|public
 class|class
 name|Organization
