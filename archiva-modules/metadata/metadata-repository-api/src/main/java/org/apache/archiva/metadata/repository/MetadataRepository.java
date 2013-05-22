@@ -413,6 +413,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+comment|/**      * basically just checking it exists not complete data returned      * @param repoId      * @param namespace      * @param projectId      * @return      * @throws MetadataResolutionException      */
 name|ProjectMetadata
 name|getProject
 parameter_list|(
