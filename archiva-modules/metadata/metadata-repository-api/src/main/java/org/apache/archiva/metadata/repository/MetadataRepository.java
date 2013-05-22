@@ -279,6 +279,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+comment|/**      * if startTime or endTime are<code>null</code> they are not used for search      * @param repositoryId      * @param startTime can be<code>null</code>      * @param endTime can be<code>null</code>      * @return      * @throws MetadataRepositoryException      */
 name|List
 argument_list|<
 name|ArtifactMetadata
