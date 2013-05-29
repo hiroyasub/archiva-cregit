@@ -1106,6 +1106,11 @@ argument_list|,
 name|TEST_PROJECT
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|projectMetadata
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|TEST_PROJECT
