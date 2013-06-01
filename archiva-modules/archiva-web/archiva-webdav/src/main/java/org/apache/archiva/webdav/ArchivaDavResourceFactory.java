@@ -5744,9 +5744,9 @@ name|getCreationTime
 argument_list|()
 operator|>
 operator|(
-name|indexMerger
+name|repositoryGroupConfiguration
 operator|.
-name|getGroupMergedIndexTtl
+name|getMergedIndexTtl
 argument_list|()
 operator|*
 literal|60
@@ -5941,6 +5941,11 @@ name|repositoryGroupConfiguration
 operator|.
 name|getMergedIndexPath
 argument_list|()
+argument_list|,
+name|repositoryGroupConfiguration
+operator|.
+name|getMergedIndexTtl
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -5968,6 +5973,11 @@ argument_list|,
 name|repositoryGroupConfiguration
 operator|.
 name|getId
+argument_list|()
+argument_list|,
+name|repositoryGroupConfiguration
+operator|.
+name|getMergedIndexTtl
 argument_list|()
 argument_list|)
 operator|.

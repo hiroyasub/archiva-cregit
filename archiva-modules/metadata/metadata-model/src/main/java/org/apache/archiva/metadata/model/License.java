@@ -31,6 +31,16 @@ name|XmlRootElement
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
 begin_comment
 comment|/**  * A description of a particular license used by a project.  */
 end_comment
@@ -46,6 +56,8 @@ argument_list|)
 specifier|public
 class|class
 name|License
+implements|implements
+name|Serializable
 block|{
 comment|/**      * The name of the license.      */
 specifier|private

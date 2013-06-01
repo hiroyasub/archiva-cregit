@@ -224,9 +224,9 @@ operator|.
 name|getCreationTime
 argument_list|()
 operator|>
-name|indexMerger
+name|temporaryGroupIndex
 operator|.
-name|getGroupMergedIndexTtl
+name|getMergedIndexTtl
 argument_list|()
 condition|)
 block|{

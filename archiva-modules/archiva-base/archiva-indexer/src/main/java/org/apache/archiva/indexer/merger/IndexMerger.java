@@ -52,12 +52,6 @@ specifier|public
 interface|interface
 name|IndexMerger
 block|{
-comment|/**      * system property which contains the value in s for ttl of temporary index groups      */
-name|String
-name|TMP_GROUP_INDEX_SYS_KEY
-init|=
-literal|"archiva.tmp.group.index.ttl"
-decl_stmt|;
 comment|/**      * @param indexMergerRequest      * @return a temporary directory with a merge index (directory marked deleteOnExit)      * @throws IndexMergerException      */
 name|IndexingContext
 name|buildMergedIndex
@@ -80,11 +74,6 @@ argument_list|<
 name|TemporaryGroupIndex
 argument_list|>
 name|getTemporaryGroupIndexes
-parameter_list|()
-function_decl|;
-comment|/**      * @return ttl of temporay group index      */
-name|int
-name|getGroupMergedIndexTtl
 parameter_list|()
 function_decl|;
 block|}

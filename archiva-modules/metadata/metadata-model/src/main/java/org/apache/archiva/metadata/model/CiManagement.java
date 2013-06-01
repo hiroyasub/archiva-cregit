@@ -21,6 +21,16 @@ begin_import
 import|import
 name|javax
 operator|.
+name|persistence
+operator|.
+name|Entity
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
 name|xml
 operator|.
 name|bind
@@ -28,6 +38,16 @@ operator|.
 name|annotation
 operator|.
 name|XmlRootElement
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
 import|;
 end_import
 
@@ -43,9 +63,13 @@ name|name
 operator|=
 literal|"ciManagement"
 argument_list|)
+annotation|@
+name|Entity
 specifier|public
 class|class
 name|CiManagement
+implements|implements
+name|Serializable
 block|{
 comment|/**      * A simple identifier for the type of CI server used, eg<tt>continuum</tt>,<tt>bamboo</tt>,<tt>hudson</tt>, etc.      */
 specifier|private

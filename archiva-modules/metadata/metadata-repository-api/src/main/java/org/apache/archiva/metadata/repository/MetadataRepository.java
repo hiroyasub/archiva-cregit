@@ -184,6 +184,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+comment|/**      * create the namespace in the repository. (if not exist)      * @param repositoryId      * @param namespace      * @throws MetadataRepositoryException      */
 name|void
 name|updateNamespace
 parameter_list|(
@@ -278,6 +279,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+comment|/**      * if startTime or endTime are<code>null</code> they are not used for search      * @param repositoryId      * @param startTime can be<code>null</code>      * @param endTime can be<code>null</code>      * @return      * @throws MetadataRepositoryException      */
 name|List
 argument_list|<
 name|ArtifactMetadata
@@ -355,7 +357,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-comment|/**      * @param repositoryId      * @param namespace      * @param project      * @param version      * @param metadataFacet will remove artifacts which have this {@link MetadataFacet} using equals      * @throws MetadataRepositoryException      * @since 1.4-M3      */
+comment|/**      * Only remove {@link MetadataFacet} for the artifact      * @param repositoryId      * @param namespace      * @param project      * @param version      * @param metadataFacet      * @throws MetadataRepositoryException      * @since 1.4-M3      */
 name|void
 name|removeArtifact
 parameter_list|(
@@ -412,6 +414,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+comment|/**      * basically just checking it exists not complete data returned      * @param repoId      * @param namespace      * @param projectId      * @return      * @throws MetadataResolutionException      */
 name|ProjectMetadata
 name|getProject
 parameter_list|(
@@ -630,12 +633,15 @@ argument_list|>
 name|aClass
 parameter_list|)
 function_decl|;
-name|Object
+parameter_list|<
+name|T
+parameter_list|>
+name|T
 name|obtainAccess
 parameter_list|(
 name|Class
 argument_list|<
-name|?
+name|T
 argument_list|>
 name|aClass
 parameter_list|)
