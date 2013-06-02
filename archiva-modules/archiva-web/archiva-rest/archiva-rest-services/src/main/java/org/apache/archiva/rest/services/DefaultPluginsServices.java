@@ -152,7 +152,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Eric Barboni  */
+comment|/**  * @author Eric Barboni  * @since 1.4.0  */
 end_comment
 
 begin_class
