@@ -253,6 +253,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|fest
+operator|.
+name|util
+operator|.
+name|Sets
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -392,6 +404,16 @@ operator|.
 name|util
 operator|.
 name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|LinkedHashSet
 import|;
 end_import
 
@@ -2243,9 +2265,9 @@ literal|"repository.getRepositories() -> "
 operator|+
 name|repositories
 argument_list|,
-name|Arrays
+name|Sets
 operator|.
-name|asList
+name|newLinkedHashSet
 argument_list|(
 name|TEST_REPO_ID
 argument_list|,
@@ -2253,7 +2275,7 @@ name|OTHER_REPO_ID
 argument_list|)
 argument_list|,
 operator|new
-name|ArrayList
+name|LinkedHashSet
 argument_list|<
 name|String
 argument_list|>
