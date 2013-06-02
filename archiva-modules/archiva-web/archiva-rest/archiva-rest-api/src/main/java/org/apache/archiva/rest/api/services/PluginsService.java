@@ -86,7 +86,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * contains some services for plugins  *  * @author Eric Barboni  * @since 1.4-M4  */
+comment|/**  * contains some services for plugins  *  * @author Eric Barboni  * @since 1.4.0  */
 end_comment
 
 begin_interface
