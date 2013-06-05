@@ -6219,7 +6219,7 @@ argument_list|)
 operator|.
 name|contains
 argument_list|(
-literal|"org"
+literal|"apache"
 argument_list|)
 expr_stmt|;
 comment|//assertEquals( Arrays.asList( "maven" ), repository.getNamespaces( TEST_REPO_ID, "org.apache" ) );
