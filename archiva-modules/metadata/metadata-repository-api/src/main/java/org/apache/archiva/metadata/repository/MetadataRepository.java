@@ -503,6 +503,7 @@ parameter_list|)
 throws|throws
 name|MetadataResolutionException
 function_decl|;
+comment|/**      *      * @param repoId      * @param namespace      * @return {@link Collection} of child namespaces of the namespace argument      * @throws MetadataResolutionException      */
 name|Collection
 argument_list|<
 name|String
