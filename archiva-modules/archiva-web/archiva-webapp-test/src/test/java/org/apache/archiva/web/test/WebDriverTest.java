@@ -213,6 +213,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -417,6 +429,27 @@ name|tomcatPort
 operator|+
 literal|"/archiva/index.html?request_lang=en"
 argument_list|)
+expr_stmt|;
+comment|// wait until topbar-menu-container is feeded
+name|await
+argument_list|()
+operator|.
+name|atMost
+argument_list|(
+literal|5
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+operator|.
+name|until
+argument_list|(
+literal|"#topbar-menu"
+argument_list|)
+operator|.
+name|isPresent
+argument_list|()
 expr_stmt|;
 name|FluentList
 argument_list|<
