@@ -621,11 +621,12 @@ literal|"register-link-a"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// skygo need to set to true for passing is that work as expected ?
 name|clickLinkWithLocator
 argument_list|(
 literal|"create-admin-link-a"
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertCreateAdmin
