@@ -1646,9 +1646,9 @@ name|mailingList
 operator|.
 name|setOtherArchives
 argument_list|(
-name|Collections
+name|Arrays
 operator|.
-name|singletonList
+name|asList
 argument_list|(
 literal|"other archive"
 argument_list|)
@@ -1658,9 +1658,9 @@ name|metadata
 operator|.
 name|setMailingLists
 argument_list|(
-name|Collections
+name|Arrays
 operator|.
-name|singletonList
+name|asList
 argument_list|(
 name|mailingList
 argument_list|)
@@ -1986,19 +1986,31 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-name|Collections
+comment|//assertEquals( Collections.singletonList( "other archive" ), mailingList.getOtherArchives() );
+name|Assertions
 operator|.
-name|singletonList
+name|assertThat
 argument_list|(
-literal|"other archive"
-argument_list|)
-argument_list|,
 name|mailingList
 operator|.
 name|getOtherArchives
 argument_list|()
+argument_list|)
+operator|.
+name|isNotNull
+argument_list|()
+operator|.
+name|isNotEmpty
+argument_list|()
+operator|.
+name|hasSize
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|contains
+argument_list|(
+literal|"other archive"
 argument_list|)
 expr_stmt|;
 name|assertEquals
