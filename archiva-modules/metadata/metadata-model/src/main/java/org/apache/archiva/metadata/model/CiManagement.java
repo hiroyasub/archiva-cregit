@@ -63,8 +63,6 @@ name|name
 operator|=
 literal|"ciManagement"
 argument_list|)
-annotation|@
-name|Entity
 specifier|public
 class|class
 name|CiManagement

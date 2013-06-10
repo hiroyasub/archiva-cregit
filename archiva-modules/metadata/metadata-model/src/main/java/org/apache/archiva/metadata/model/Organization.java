@@ -59,8 +59,6 @@ name|name
 operator|=
 literal|"organization"
 argument_list|)
-annotation|@
-name|Entity
 specifier|public
 class|class
 name|Organization

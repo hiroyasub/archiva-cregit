@@ -59,8 +59,6 @@ name|name
 operator|=
 literal|"scm"
 argument_list|)
-annotation|@
-name|Entity
 specifier|public
 class|class
 name|Scm
