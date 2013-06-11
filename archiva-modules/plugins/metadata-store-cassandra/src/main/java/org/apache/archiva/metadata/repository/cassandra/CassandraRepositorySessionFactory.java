@@ -343,9 +343,6 @@ argument_list|,
 name|configuration
 argument_list|,
 name|cassandraEntityManagerFactory
-operator|.
-name|getKeyspace
-argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
