@@ -1542,7 +1542,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|//assertEquals( 1, metadata.getMailingLists().size() );
 name|mailingList
 operator|=
 name|metadata
@@ -1576,7 +1575,6 @@ operator|.
 name|getOtherArchives
 argument_list|()
 decl_stmt|;
-comment|//assertEquals( Collections.<String>emptyList(), mailingList.getOtherArchives() );
 name|Assertions
 operator|.
 name|assertThat
@@ -2913,7 +2911,6 @@ argument_list|,
 name|TEST_PROJECT_VERSION
 argument_list|)
 expr_stmt|;
-comment|//assertEquals( Collections.singleton( TEST_FACET_ID ), metadata.getFacetIds() );
 name|Assertions
 operator|.
 name|assertThat
@@ -3036,7 +3033,6 @@ argument_list|,
 name|TEST_PROJECT_VERSION
 argument_list|)
 expr_stmt|;
-comment|//assertEquals( Collections.singleton( TEST_FACET_ID ), metadata.getFacetIds() );
 name|Assertions
 operator|.
 name|assertThat
@@ -3423,7 +3419,6 @@ argument_list|,
 name|TEST_PROJECT_VERSION
 argument_list|)
 decl_stmt|;
-comment|//assertEquals( 1, artifacts.size() );
 name|Assertions
 operator|.
 name|assertThat
@@ -3452,7 +3447,6 @@ operator|.
 name|next
 argument_list|()
 expr_stmt|;
-comment|//assertEquals( Collections.singleton( TEST_FACET_ID ), metadata.getFacetIds() );
 name|Collection
 argument_list|<
 name|String
@@ -3585,7 +3579,6 @@ argument_list|,
 name|TEST_PROJECT_VERSION
 argument_list|)
 expr_stmt|;
-comment|//assertEquals( 1, artifacts.size() );
 name|Assertions
 operator|.
 name|assertThat
@@ -3614,7 +3607,6 @@ operator|.
 name|next
 argument_list|()
 expr_stmt|;
-comment|//assertEquals( Collections.singleton( TEST_FACET_ID ), metadata.getFacetIds() );
 name|ids
 operator|=
 name|metadata
@@ -3657,7 +3649,6 @@ argument_list|(
 name|TEST_FACET_ID
 argument_list|)
 expr_stmt|;
-comment|//assertFalse( testFacet.toProperties().containsKey( "deleteKey" ) );
 name|Map
 argument_list|<
 name|String
@@ -5314,7 +5305,6 @@ argument_list|(
 name|TEST_PROJECT_VERSION
 argument_list|)
 expr_stmt|;
-comment|//assertEquals( Collections.singleton( TEST_PROJECT_VERSION ), versions );
 block|}
 annotation|@
 name|Test
@@ -5868,7 +5858,6 @@ argument_list|,
 name|upper
 argument_list|)
 decl_stmt|;
-comment|//assertTrue( .isEmpty() );
 name|Assertions
 operator|.
 name|assertThat
@@ -6322,7 +6311,6 @@ argument_list|(
 name|TEST_REPO_ID
 argument_list|)
 decl_stmt|;
-comment|//assertEquals( Arrays.asList( "org" ), repository.getRootNamespaces( TEST_REPO_ID ) );
 name|Assertions
 operator|.
 name|assertThat
@@ -6346,7 +6334,6 @@ argument_list|(
 literal|"org"
 argument_list|)
 expr_stmt|;
-comment|//assertEquals( Arrays.asList( "apache" ), repository.getNamespaces( TEST_REPO_ID, "org" ) );
 name|namespaces
 operator|=
 name|repository
@@ -6381,7 +6368,6 @@ argument_list|(
 literal|"apache"
 argument_list|)
 expr_stmt|;
-comment|//assertEquals( Arrays.asList( "maven" ), repository.getNamespaces( TEST_REPO_ID, "org.apache" ) );
 name|namespaces
 operator|=
 name|repository
@@ -6416,7 +6402,6 @@ argument_list|(
 literal|"maven"
 argument_list|)
 expr_stmt|;
-comment|//assertEquals( Arrays.asList( "shared" ), repository.getNamespaces( TEST_REPO_ID, "org.apache.maven" ) );
 name|namespaces
 operator|=
 name|repository
@@ -6530,7 +6515,6 @@ operator|.
 name|isEmpty
 argument_list|()
 expr_stmt|;
-comment|//assertEquals( Collections.<String>emptyList(),  );
 block|}
 annotation|@
 name|Test
@@ -8207,8 +8191,6 @@ argument_list|,
 name|artifactMetadatas
 argument_list|)
 expr_stmt|;
-comment|//assertEquals( Collections.singletonList( artifact ), new ArrayList<ArtifactMetadata>(
-comment|//    repository.getArtifacts( TEST_REPO_ID, TEST_NAMESPACE, TEST_PROJECT, "2.0-SNAPSHOT" ) ) );
 name|repository
 operator|.
 name|removeArtifact
