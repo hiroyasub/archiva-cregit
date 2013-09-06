@@ -4250,6 +4250,11 @@ name|getVersion
 argument_list|()
 argument_list|)
 operator|.
+name|withProject
+argument_list|(
+name|projectId
+argument_list|)
+operator|.
 name|build
 argument_list|()
 argument_list|)
@@ -6658,7 +6663,6 @@ argument_list|(
 name|artifactMetadataModels
 argument_list|)
 expr_stmt|;
-comment|/*         getMetadataFacetModelEntityManager().visitAll( new Function<MetadataFacetModel, Boolean>()         {             @Override             public Boolean apply( MetadataFacetModel metadataFacetModel )             {                 if ( metadataFacetModel != null )                 {                     ArtifactMetadataModel artifactMetadataModel = metadataFacetModel.getArtifactMetadataModel();                     if ( artifactMetadataModel != null )                     {                         if ( StringUtils.equals( repositoryId, artifactMetadataModel.getRepositoryId() )&& StringUtils.equals( namespace, artifactMetadataModel.getNamespace() )&& StringUtils.equals( project, artifactMetadataModel.getProject() )&& StringUtils.equals(                             version, artifactMetadataModel.getVersion() ) )                         {                             if ( StringUtils.equals( metadataFacetModel.getFacetId(), metadataFacet.getFacetId() )&& StringUtils.equals( metadataFacetModel.getName(), metadataFacet.getName() ) )                             {                                 metadataFacetModels.add( metadataFacetModel );                             }                         }                     }                 }                 return Boolean.TRUE;             }         } );         getMetadataFacetModelEntityManager().remove( metadataFacetModels );         */
 block|}
 annotation|@
 name|Override
@@ -7635,7 +7639,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|/*          getArtifactMetadataModelEntityManager().visitAll( new Function<ArtifactMetadataModel, Boolean>()         {             @Override             public Boolean apply( ArtifactMetadataModel artifactMetadataModel )             {                 if ( artifactMetadataModel != null )                 {                     if ( StringUtils.equals( repoId, artifactMetadataModel.getRepositoryId() )&& StringUtils.equals(                         namespace, artifactMetadataModel.getNamespace() ) )                     {                         projects.add( artifactMetadataModel.getProject() );                     }                 }                 return Boolean.TRUE;             }         } );         */
 return|return
 name|projects
 return|;
