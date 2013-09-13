@@ -245,8 +245,9 @@ name|containerClassPathScanning
 init|=
 name|PlexusConstants
 operator|.
-name|SCANNING_ON
+name|SCANNING_INDEX
 decl_stmt|;
+comment|// PlexusConstants.SCANNING_ON;
 specifier|private
 name|String
 name|containerComponentVisibility
