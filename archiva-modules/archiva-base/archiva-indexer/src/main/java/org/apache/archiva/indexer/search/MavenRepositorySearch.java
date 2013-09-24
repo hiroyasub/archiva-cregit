@@ -742,7 +742,7 @@ name|LIST
 argument_list|,
 name|selectedRepos
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 return|;
 block|}
