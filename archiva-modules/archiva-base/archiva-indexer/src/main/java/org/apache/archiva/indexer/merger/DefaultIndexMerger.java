@@ -329,14 +329,6 @@ name|DefaultIndexMerger
 implements|implements
 name|IndexMerger
 block|{
-comment|/**      * default tmp created group index ttl in minutes      */
-specifier|static
-specifier|final
-name|int
-name|DEFAULT_GROUP_INDEX_TTL
-init|=
-literal|30
-decl_stmt|;
 specifier|private
 name|Logger
 name|log
