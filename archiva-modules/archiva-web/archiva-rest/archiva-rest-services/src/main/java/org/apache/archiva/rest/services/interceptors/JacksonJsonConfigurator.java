@@ -21,27 +21,27 @@ end_comment
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|codehaus
+name|fasterxml
 operator|.
 name|jackson
 operator|.
-name|map
+name|databind
 operator|.
-name|DeserializationConfig
+name|DeserializationFeature
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|codehaus
+name|fasterxml
 operator|.
 name|jackson
 operator|.
-name|map
+name|databind
 operator|.
 name|ObjectMapper
 import|;
@@ -90,7 +90,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * class to setup Jackson Json configuration  * @since 1.4-M3  * @author Olivier Lamy  */
+comment|/**  * class to setup Jackson Json configuration  *  * @author Olivier Lamy  * @since 1.4-M3  */
 end_comment
 
 begin_class
@@ -135,9 +135,7 @@ name|objectMapper
 operator|.
 name|configure
 argument_list|(
-name|DeserializationConfig
-operator|.
-name|Feature
+name|DeserializationFeature
 operator|.
 name|FAIL_ON_UNKNOWN_PROPERTIES
 argument_list|,
