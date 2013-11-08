@@ -15,6 +15,22 @@ end_comment
 
 begin_import
 import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|jaxrs
+operator|.
+name|json
+operator|.
+name|JacksonJaxbJsonProvider
+import|;
+end_import
+
+begin_import
+import|import
 name|junit
 operator|.
 name|framework
@@ -220,20 +236,6 @@ operator|.
 name|servlet
 operator|.
 name|CXFServlet
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|jackson
-operator|.
-name|jaxrs
-operator|.
-name|JacksonJaxbJsonProvider
 import|;
 end_import
 
