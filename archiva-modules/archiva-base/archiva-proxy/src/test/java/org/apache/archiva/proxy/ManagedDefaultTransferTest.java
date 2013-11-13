@@ -1602,9 +1602,6 @@ argument_list|,
 literal|"default"
 argument_list|)
 expr_stmt|;
-comment|//wagonMock.get( path, new File( expectedFile.getAbsolutePath() + ".tmp" ) );
-comment|//wagonMockControl.setMatcher( customWagonGetMatcher );
-comment|//wagonMockControl.setThrowable( new ResourceDoesNotExistException( "transfer failed" ) );
 name|wagonMock
 operator|.
 name|get
@@ -1817,9 +1814,6 @@ operator|+
 literal|".tmp"
 argument_list|)
 decl_stmt|;
-comment|//wagonMock.get( path, tmpFile );
-comment|//wagonMockControl.setMatcher( customWagonGetMatcher );
-comment|//wagonMockControl.setThrowable( new ResourceDoesNotExistException( "Can't find resource." ) );
 name|wagonMock
 operator|.
 name|get
@@ -1855,9 +1849,6 @@ literal|"Can't find resource."
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//wagonMock.get( path, tmpFile );
-comment|//wagonMockControl.setMatcher( customWagonGetMatcher );
-comment|//wagonMockControl.setThrowable( new ResourceDoesNotExistException( "Can't find resource." ) );
 name|wagonMock
 operator|.
 name|get

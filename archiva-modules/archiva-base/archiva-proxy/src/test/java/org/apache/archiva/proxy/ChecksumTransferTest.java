@@ -2161,9 +2161,6 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-comment|//wagonMock.get( path, new File( expectedFile.getAbsolutePath() + ".tmp" ) );
-comment|//wagonMockControl.setMatcher( customWagonGetMatcher );
-comment|//wagonMockControl.setVoidCallable();
 name|wagonMock
 operator|.
 name|get
@@ -2193,9 +2190,6 @@ operator|.
 name|once
 argument_list|()
 expr_stmt|;
-comment|//wagonMock.get( path + ".sha1", new File( expectedFile.getAbsolutePath() + ".sha1.tmp" ) );
-comment|//wagonMockControl.setMatcher( customWagonGetMatcher );
-comment|//wagonMockControl.setVoidCallable();
 name|wagonMock
 operator|.
 name|get
@@ -2227,9 +2221,6 @@ operator|.
 name|once
 argument_list|()
 expr_stmt|;
-comment|//wagonMock.get( path + ".md5", new File( expectedFile.getAbsolutePath() + ".md5.tmp" ) );
-comment|//wagonMockControl.setMatcher( customWagonGetMatcher );
-comment|//wagonMockControl.setThrowable( new ResourceDoesNotExistException( "Resource does not exist." ) );
 name|wagonMock
 operator|.
 name|get

@@ -1047,7 +1047,6 @@ operator|.
 name|getRepository
 argument_list|()
 expr_stmt|;
-comment|//config.getConfiguration().addManagedRepository( repoConfig );
 name|applicationContext
 operator|.
 name|getBean

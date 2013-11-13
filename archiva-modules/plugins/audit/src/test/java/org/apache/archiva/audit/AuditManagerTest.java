@@ -490,9 +490,6 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacets( TEST_REPO_ID,
-comment|//                                                                                 AuditEvent.FACET_ID ),
-comment|//                                           getEventNames( expectedEvents ) );
 name|EasyMock
 operator|.
 name|expect
@@ -535,9 +532,6 @@ argument_list|()
 argument_list|)
 control|)
 block|{
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacet( TEST_REPO_ID,
-comment|//                                                                                AuditEvent.FACET_ID,
-comment|//                                                                                event.getName() ), event );
 name|EasyMock
 operator|.
 name|expect
@@ -718,9 +712,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacets( TEST_REPO_ID,
-comment|//                                                                                 AuditEvent.FACET_ID ),
-comment|//                                           getEventNames( expectedEvents ) );
 name|EasyMock
 operator|.
 name|expect
@@ -753,9 +744,6 @@ range|:
 name|expectedEvents
 control|)
 block|{
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacet( TEST_REPO_ID,
-comment|//                                                                                AuditEvent.FACET_ID,
-comment|//                                                                                event.getName() ), event );
 name|EasyMock
 operator|.
 name|expect
@@ -1028,9 +1016,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacets( TEST_REPO_ID,
-comment|//                                                                                 AuditEvent.FACET_ID ),
-comment|//                                           eventNames.get( TEST_REPO_ID ) );
 name|EasyMock
 operator|.
 name|expect
@@ -1057,9 +1042,6 @@ name|TEST_REPO_ID
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacets( TEST_REPO_ID_2,
-comment|//                                                                                 AuditEvent.FACET_ID ),
-comment|//                                           eventNames.get( TEST_REPO_ID_2 ) );
 name|EasyMock
 operator|.
 name|expect
@@ -1104,9 +1086,6 @@ argument_list|()
 argument_list|)
 control|)
 block|{
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacet( event.getRepositoryId(),
-comment|//                                                                                AuditEvent.FACET_ID,
-comment|//                                                                                event.getName() ), event );
 name|EasyMock
 operator|.
 name|expect
@@ -1250,9 +1229,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacets( TEST_REPO_ID,
-comment|//                                                                                 AuditEvent.FACET_ID ),
-comment|//                                           Collections.emptyList() );
 name|EasyMock
 operator|.
 name|expect
@@ -1518,10 +1494,6 @@ literal|1000
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacets( TEST_REPO_ID,
-comment|//                                                                                 AuditEvent.FACET_ID ),
-comment|//                                           Arrays.asList( event1.getName(), expectedEvent.getName(),
-comment|//                                                          event3.getName() ) );
 name|EasyMock
 operator|.
 name|expect
@@ -1562,10 +1534,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// only match the middle one
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacet( TEST_REPO_ID,
-comment|//                                                                                AuditEvent.FACET_ID,
-comment|//                                                                                expectedEvent.getName() ),
-comment|//                                           expectedEvent );
 name|EasyMock
 operator|.
 name|expect
@@ -1754,10 +1722,6 @@ argument_list|(
 name|ts3
 argument_list|)
 decl_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacets( TEST_REPO_ID,
-comment|//                                                                                 AuditEvent.FACET_ID ),
-comment|//                                           Arrays.asList( event1.getName(), expectedEvent2.getName(),
-comment|//                                                          expectedEvent3.getName() ) );
 name|EasyMock
 operator|.
 name|expect
@@ -1797,10 +1761,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacet( TEST_REPO_ID,
-comment|//                                                                                AuditEvent.FACET_ID,
-comment|//                                                                                expectedEvent2.getName() ),
-comment|//                                           expectedEvent2 );
 name|EasyMock
 operator|.
 name|expect
@@ -1827,10 +1787,6 @@ argument_list|(
 name|expectedEvent2
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacet( TEST_REPO_ID,
-comment|//                                                                                AuditEvent.FACET_ID,
-comment|//                                                                                expectedEvent3.getName() ),
-comment|//                                           expectedEvent3 );
 name|EasyMock
 operator|.
 name|expect
@@ -2032,10 +1988,6 @@ literal|1000
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacets( TEST_REPO_ID,
-comment|//                                                                                 AuditEvent.FACET_ID ),
-comment|//                                           Arrays.asList( expectedEvent1.getName(), expectedEvent2.getName(),
-comment|//                                                          event3.getName() ) );
 name|EasyMock
 operator|.
 name|expect
@@ -2075,10 +2027,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacet( TEST_REPO_ID,
-comment|//                                                                                AuditEvent.FACET_ID,
-comment|//                                                                                expectedEvent1.getName() ),
-comment|//                                           expectedEvent1 );
 name|EasyMock
 operator|.
 name|expect
@@ -2105,10 +2053,6 @@ argument_list|(
 name|expectedEvent1
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacet( TEST_REPO_ID,
-comment|//                                                                                AuditEvent.FACET_ID,
-comment|//                                                                                expectedEvent2.getName() ),
-comment|//                                           expectedEvent2 );
 name|EasyMock
 operator|.
 name|expect
@@ -2324,10 +2268,6 @@ argument_list|(
 name|ts3
 argument_list|)
 decl_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacets( TEST_REPO_ID,
-comment|//                                                                                 AuditEvent.FACET_ID ),
-comment|//                                           Arrays.asList( expectedEvent1.getName(), expectedEvent2.getName(),
-comment|//                                                          expectedEvent3.getName() ) );
 name|EasyMock
 operator|.
 name|expect
@@ -2367,10 +2307,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacet( TEST_REPO_ID,
-comment|//                                                                                AuditEvent.FACET_ID,
-comment|//                                                                                expectedEvent1.getName() ),
-comment|//                                           expectedEvent1 );
 name|EasyMock
 operator|.
 name|expect
@@ -2397,10 +2333,6 @@ argument_list|(
 name|expectedEvent1
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacet( TEST_REPO_ID,
-comment|//                                                                                AuditEvent.FACET_ID,
-comment|//                                                                                expectedEvent2.getName() ),
-comment|//                                           expectedEvent2 );
 name|EasyMock
 operator|.
 name|expect
@@ -2427,10 +2359,6 @@ argument_list|(
 name|expectedEvent2
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacet( TEST_REPO_ID,
-comment|//                                                                                AuditEvent.FACET_ID,
-comment|//                                                                                expectedEvent3.getName() ),
-comment|//                                           expectedEvent3 );
 name|EasyMock
 operator|.
 name|expect
@@ -2666,10 +2594,6 @@ argument_list|(
 name|ts3
 argument_list|)
 decl_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacets( TEST_REPO_ID,
-comment|//                                                                                 AuditEvent.FACET_ID ),
-comment|//                                           Arrays.asList( expectedEvent1.getName(), expectedEvent2.getName(),
-comment|//                                                          expectedEvent3.getName() ) );
 name|EasyMock
 operator|.
 name|expect
@@ -2709,10 +2633,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacet( TEST_REPO_ID,
-comment|//                                                                                AuditEvent.FACET_ID,
-comment|//                                                                                expectedEvent1.getName() ),
-comment|//                                           expectedEvent1 );
 name|EasyMock
 operator|.
 name|expect
@@ -2739,10 +2659,6 @@ argument_list|(
 name|expectedEvent1
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacet( TEST_REPO_ID,
-comment|//                                                                                AuditEvent.FACET_ID,
-comment|//                                                                                expectedEvent2.getName() ),
-comment|//                                           expectedEvent2 );
 name|EasyMock
 operator|.
 name|expect
@@ -2769,10 +2685,6 @@ argument_list|(
 name|expectedEvent2
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacet( TEST_REPO_ID,
-comment|//                                                                                AuditEvent.FACET_ID,
-comment|//                                                                                expectedEvent3.getName() ),
-comment|//                                           expectedEvent3 );
 name|EasyMock
 operator|.
 name|expect
@@ -2978,10 +2890,6 @@ literal|1000
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacets( TEST_REPO_ID,
-comment|//                                                                                 AuditEvent.FACET_ID ),
-comment|//                                           Arrays.asList( expectedEvent1.getName(), expectedEvent2.getName(),
-comment|//                                                          expectedEvent3.getName() ) );
 name|EasyMock
 operator|.
 name|expect
@@ -3021,9 +2929,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacet( TEST_REPO_ID, AuditEvent.FACET_ID, expectedEvent1.getName() ),
-comment|//    expectedEvent1 );
 name|EasyMock
 operator|.
 name|expect
@@ -3050,9 +2955,6 @@ argument_list|(
 name|expectedEvent1
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacet( TEST_REPO_ID, AuditEvent.FACET_ID, expectedEvent2.getName() ),
-comment|//    expectedEvent2 );
 name|EasyMock
 operator|.
 name|expect
@@ -3079,9 +2981,6 @@ argument_list|(
 name|expectedEvent2
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacet( TEST_REPO_ID, AuditEvent.FACET_ID, expectedEvent3.getName() ),
-comment|//    expectedEvent3 );
 name|EasyMock
 operator|.
 name|expect
@@ -3253,9 +3152,6 @@ argument_list|(
 name|ts3
 argument_list|)
 decl_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacets( TEST_REPO_ID, AuditEvent.FACET_ID ),
-comment|//    Arrays.asList( expectedEvent1.getName(), expectedEvent3.getName() ) );
 name|EasyMock
 operator|.
 name|expect
@@ -3290,9 +3186,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacets( TEST_REPO_ID_2, AuditEvent.FACET_ID ),
-comment|//    Arrays.asList( expectedEvent2.getName() ) );
 name|EasyMock
 operator|.
 name|expect
@@ -3322,9 +3215,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacet( TEST_REPO_ID, AuditEvent.FACET_ID, expectedEvent1.getName() ),
-comment|//    expectedEvent1 );
 name|EasyMock
 operator|.
 name|expect
@@ -3351,9 +3241,6 @@ argument_list|(
 name|expectedEvent1
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacet( TEST_REPO_ID_2, AuditEvent.FACET_ID, expectedEvent2.getName() ),
-comment|//    expectedEvent2 );
 name|EasyMock
 operator|.
 name|expect
@@ -3380,9 +3267,6 @@ argument_list|(
 name|expectedEvent2
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacet( TEST_REPO_ID, AuditEvent.FACET_ID, expectedEvent3.getName() ),
-comment|//    expectedEvent3 );
 name|EasyMock
 operator|.
 name|expect
@@ -3618,9 +3502,6 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacets( TEST_REPO_ID, AuditEvent.FACET_ID ),
-comment|//    Arrays.asList( name1, name2, name3 ) );
 name|EasyMock
 operator|.
 name|expect

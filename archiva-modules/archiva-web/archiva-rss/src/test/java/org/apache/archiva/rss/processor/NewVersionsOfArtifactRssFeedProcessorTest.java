@@ -444,8 +444,6 @@ argument_list|,
 name|ARTIFACT_ID
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getRepositories(), Collections.singletonList(
-comment|//    TEST_REPO ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -464,9 +462,6 @@ name|TEST_REPO
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getProjectVersions( TEST_REPO, GROUP_ID,
-comment|//                                                                                  ARTIFACT_ID ), Arrays.asList(
-comment|//    "1.0.1", "1.0.2", "1.0.3-SNAPSHOT" ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -495,9 +490,6 @@ literal|"1.0.3-SNAPSHOT"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getArtifacts( TEST_REPO, GROUP_ID, ARTIFACT_ID,
-comment|//                                                                            "1.0.1" ),
-comment|//                                           Collections.singletonList( artifact1 ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -524,9 +516,6 @@ name|artifact1
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getArtifacts( TEST_REPO, GROUP_ID, ARTIFACT_ID,
-comment|//                                                                            "1.0.2" ),
-comment|//                                           Collections.singletonList( artifact2 ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -553,9 +542,6 @@ name|artifact2
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getArtifacts( TEST_REPO, GROUP_ID, ARTIFACT_ID,
-comment|//                                                                            "1.0.3-SNAPSHOT" ),
-comment|//                                           Collections.singletonList( artifact3 ) );
 name|expect
 argument_list|(
 name|metadataRepository

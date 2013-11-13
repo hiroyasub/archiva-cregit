@@ -1347,9 +1347,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|//KnownRepositoryContentConsumer unselectedKnownConsumer =
-comment|//    (KnownRepositoryContentConsumer) MockControl.createNiceControl(
-comment|//        KnownRepositoryContentConsumer.class ).getMock( );
 name|KnownRepositoryContentConsumer
 name|unselectedKnownConsumer
 init|=
@@ -1413,9 +1410,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|//InvalidRepositoryContentConsumer unselectedInvalidConsumer =
-comment|//    (InvalidRepositoryContentConsumer) MockControl.createControl(
-comment|//        InvalidRepositoryContentConsumer.class ).getMock( );
 name|InvalidRepositoryContentConsumer
 name|unselectedInvalidConsumer
 init|=
@@ -1546,7 +1540,6 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-comment|//        knownConsumer.completeScan();
 name|knownControl
 operator|.
 name|replay
@@ -1563,7 +1556,6 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-comment|//        invalidConsumer.completeScan();
 name|invalidControl
 operator|.
 name|replay
@@ -1590,7 +1582,6 @@ operator|.
 name|verify
 argument_list|( )
 expr_stmt|;
-comment|//verify( in );
 name|knownControl
 operator|.
 name|reset
@@ -1621,8 +1612,6 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-comment|//selectedKnownConsumer.getExcludes( );
-comment|//knownControl.setReturnValue( Collections.EMPTY_LIST );
 name|expect
 argument_list|(
 name|selectedKnownConsumer
@@ -1642,8 +1631,6 @@ name|emptyList
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//selectedKnownConsumer.getIncludes( );
-comment|//knownControl.setReturnValue( Collections.singletonList( "**/*.txt" ) );
 name|expect
 argument_list|(
 name|selectedKnownConsumer
@@ -1662,7 +1649,6 @@ literal|"**/*.txt"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//        knownConsumer.completeScan();
 name|knownControl
 operator|.
 name|replay
@@ -1704,7 +1690,6 @@ argument_list|(
 literal|"invalid"
 argument_list|)
 expr_stmt|;
-comment|//        invalidConsumer.completeScan();
 name|invalidControl
 operator|.
 name|replay
@@ -1779,7 +1764,6 @@ literal|"**/test-file.txt"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//        knownConsumer.completeScan();
 name|knownControl
 operator|.
 name|replay
@@ -1821,7 +1805,6 @@ argument_list|(
 literal|"invalid"
 argument_list|)
 expr_stmt|;
-comment|//        invalidConsumer.completeScan();
 name|invalidControl
 operator|.
 name|replay

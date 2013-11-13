@@ -494,9 +494,6 @@ argument_list|(
 literal|56229
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacets( TEST_REPO_ID,
-comment|//                                                                                 RepositoryStatistics.FACET_ID ),
-comment|//                                                   Arrays.asList( FIRST_TEST_SCAN, SECOND_TEST_SCAN ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -523,9 +520,6 @@ name|SECOND_TEST_SCAN
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getMetadataFacet( TEST_REPO_ID,
-comment|//                                                                                RepositoryStatistics.FACET_ID,
-comment|//                                                                                SECOND_TEST_SCAN ), stats );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -678,9 +672,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacets( TEST_REPO_ID, RepositoryStatistics.FACET_ID ),
-comment|//    Collections.emptyList() );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -788,9 +779,6 @@ argument_list|,
 name|stats
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacets( TEST_REPO_ID, RepositoryStatistics.FACET_ID ),
-comment|//    Arrays.asList( stats.getName() ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -818,9 +806,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacet( TEST_REPO_ID, RepositoryStatistics.FACET_ID, stats.getName() ),
-comment|//    stats );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -845,7 +830,6 @@ argument_list|(
 name|stats
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.canObtainAccess( Session.class ), false );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -1091,9 +1075,6 @@ argument_list|,
 name|stats2
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacets( TEST_REPO_ID, RepositoryStatistics.FACET_ID ),
-comment|//    Arrays.asList( stats1.getName(), stats2.getName() ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -1126,9 +1107,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacet( TEST_REPO_ID, RepositoryStatistics.FACET_ID, stats2.getName() ),
-comment|//    stats2 );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -1164,9 +1142,6 @@ operator|.
 name|FACET_ID
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacets( TEST_REPO_ID, RepositoryStatistics.FACET_ID ),
-comment|//    Collections.emptyList() );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -1192,7 +1167,6 @@ name|emptyList
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.canObtainAccess( Session.class ), false, 2 );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -1308,9 +1282,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacets( TEST_REPO_ID, RepositoryStatistics.FACET_ID ),
-comment|//    Collections.emptyList(), 2 );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -1501,8 +1472,6 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacets( TEST_REPO_ID, RepositoryStatistics.FACET_ID ), keys );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -1533,9 +1502,6 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacet( TEST_REPO_ID, RepositoryStatistics.FACET_ID, key ),
-comment|//    statsCreated.get( key ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -1562,7 +1528,6 @@ name|key
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.canObtainAccess( Session.class ), false, 3 );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -1807,8 +1772,6 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacets( TEST_REPO_ID, RepositoryStatistics.FACET_ID ), keys );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -1838,9 +1801,6 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacet( TEST_REPO_ID, RepositoryStatistics.FACET_ID, key ),
-comment|//    statsCreated.get( key ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -1876,9 +1836,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacet( TEST_REPO_ID, RepositoryStatistics.FACET_ID, key ),
-comment|//    statsCreated.get( key ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -1905,7 +1862,6 @@ name|key
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.canObtainAccess( Session.class ), false, 3 );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -2165,8 +2121,6 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacets( TEST_REPO_ID, RepositoryStatistics.FACET_ID ), keys );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -2196,9 +2150,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacet( TEST_REPO_ID, RepositoryStatistics.FACET_ID, key ),
-comment|//    statsCreated.get( key ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -2234,9 +2185,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacet( TEST_REPO_ID, RepositoryStatistics.FACET_ID, key ),
-comment|//    statsCreated.get( key ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -2263,7 +2211,6 @@ name|key
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.canObtainAccess( Session.class ), false, 3 );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -2532,8 +2479,6 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacets( TEST_REPO_ID, RepositoryStatistics.FACET_ID ), keys );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -2563,9 +2508,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacet( TEST_REPO_ID, RepositoryStatistics.FACET_ID, key ),
-comment|//    statsCreated.get( key ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -2601,9 +2543,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacet( TEST_REPO_ID, RepositoryStatistics.FACET_ID, key ),
-comment|//    statsCreated.get( key ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -2639,9 +2578,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacet( TEST_REPO_ID, RepositoryStatistics.FACET_ID, key ),
-comment|//    statsCreated.get( key ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -2668,7 +2604,6 @@ name|key
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.canObtainAccess( Session.class ), false, 3 );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -2952,8 +2887,6 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getMetadataFacets( TEST_REPO_ID, RepositoryStatistics.FACET_ID ), keys );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -2973,7 +2906,6 @@ argument_list|(
 name|keys
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.canObtainAccess( Session.class ), false, 3 );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -3370,8 +3302,6 @@ name|i
 operator|++
 control|)
 block|{
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getRootNamespaces( TEST_REPO_ID ),
-comment|//                                           Arrays.asList( "com", "org" ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -3394,8 +3324,6 @@ literal|"org"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getProjects( TEST_REPO_ID, "com" ),
-comment|//                                           Arrays.asList() );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -3419,8 +3347,6 @@ name|asList
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getNamespaces( TEST_REPO_ID, "com" ),
-comment|//                                           Arrays.asList( "example" ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -3443,8 +3369,6 @@ literal|"example"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getNamespaces( TEST_REPO_ID, "com.example" ),
-comment|//                                           Arrays.asList() );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -3468,8 +3392,6 @@ name|asList
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getProjects( TEST_REPO_ID, "com.example" ),
-comment|//                                           Arrays.asList( "example-project" ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -3492,9 +3414,6 @@ literal|"example-project"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getProjectVersions( TEST_REPO_ID, "com.example", "example-project" ),
-comment|//    Arrays.asList( "1.0", "1.1" ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -3521,10 +3440,6 @@ literal|"1.1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getArtifacts( TEST_REPO_ID, "com.example", "example-project", "1.0" ),
-comment|//    Arrays.asList( createArtifact( "com.example", "example-project", "1.0", "jar" ),
-comment|//                   createArtifact( "com.example", "example-project", "1.0", "pom" ) ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -3571,10 +3486,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getArtifacts( TEST_REPO_ID, "com.example", "example-project", "1.1" ),
-comment|//    Arrays.asList( createArtifact( "com.example", "example-project", "1.1", "jar" ),
-comment|//                   createArtifact( "com.example", "example-project", "1.1", "pom" ) ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -3621,8 +3532,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getNamespaces( TEST_REPO_ID, "org" ),
-comment|//                                           Arrays.asList( "apache", "codehaus" ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -3647,8 +3556,6 @@ literal|"codehaus"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getNamespaces( TEST_REPO_ID, "org.apache" ),
-comment|//                                           Arrays.asList( "archiva", "maven" ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -3673,8 +3580,6 @@ literal|"maven"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getProjects( TEST_REPO_ID, "org.apache" ),
-comment|//                                           Arrays.asList() );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -3698,8 +3603,6 @@ name|asList
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getNamespaces( TEST_REPO_ID, "org.apache.archiva" ), Arrays.asList() );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -3723,9 +3626,6 @@ name|asList
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getProjects( TEST_REPO_ID, "org.apache.archiva" ),
-comment|///    Arrays.asList( "metadata-repository-api", "metadata-model" ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -3750,9 +3650,6 @@ literal|"metadata-model"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getProjectVersions( TEST_REPO_ID, "org.apache.archiva", "metadata-repository-api" ),
-comment|//    Arrays.asList( "1.3-SNAPSHOT", "1.3" ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -3779,12 +3676,6 @@ literal|"1.3"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getArtifacts( TEST_REPO_ID, "org.apache.archiva", "metadata-repository-api",
-comment|//                                     "1.3-SNAPSHOT" ),
-comment|//    Arrays.asList( createArtifact( "org.apache.archiva", "metadata-repository-api", "1.3-SNAPSHOT", "jar" ),
-comment|//                   createArtifact( "org.apache.archiva", "metadata-repository-api", "1.3-SNAPSHOT",
-comment|//                                   "pom" ) ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -3831,10 +3722,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getArtifacts( TEST_REPO_ID, "org.apache.archiva", "metadata-repository-api", "1.3" ),
-comment|//    Arrays.asList( createArtifact( "org.apache.archiva", "metadata-repository-api", "1.3", "jar" ),
-comment|//                   createArtifact( "org.apache.archiva", "metadata-repository-api", "1.3", "pom" ) ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -3881,9 +3768,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getProjectVersions( TEST_REPO_ID, "org.apache.archiva", "metadata-model" ),
-comment|//    Arrays.asList( "1.3-SNAPSHOT", "1.3" ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -3910,10 +3794,6 @@ literal|"1.3"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getArtifacts( TEST_REPO_ID, "org.apache.archiva", "metadata-model", "1.3-SNAPSHOT" ),
-comment|//    Arrays.asList( createArtifact( "org.apache.archiva", "metadata-model", "1.3-SNAPSHOT", "jar" ),
-comment|//                   createArtifact( "org.apache.archiva", "metadata-model", "1.3-SNAPSHOT", "pom" ) ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -3960,10 +3840,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getArtifacts( TEST_REPO_ID, "org.apache.archiva", "metadata-model", "1.3" ),
-comment|//    Arrays.asList( createArtifact( "org.apache.archiva", "metadata-model", "1.3", "jar" ),
-comment|//                   createArtifact( "org.apache.archiva", "metadata-model", "1.3", "pom" ) ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -4010,8 +3886,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getNamespaces( TEST_REPO_ID, "org.apache.maven" ), Arrays.asList() );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -4035,8 +3909,6 @@ name|asList
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getProjects( TEST_REPO_ID, "org.apache.maven" ), Arrays.asList( "maven-model" ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -4059,9 +3931,6 @@ literal|"maven-model"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getProjectVersions( TEST_REPO_ID, "org.apache.maven", "maven-model" ),
-comment|//    Arrays.asList( "2.2.1" ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -4086,10 +3955,6 @@ literal|"2.2.1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getArtifacts( TEST_REPO_ID, "org.apache.maven", "maven-model", "2.2.1" ),
-comment|//    Arrays.asList( createArtifact( "org.apache.archiva", "maven-model", "2.2.1", "jar" ),
-comment|//                   createArtifact( "org.apache.archiva", "maven-model", "2.2.1", "pom" ) ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -4136,8 +4001,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getNamespaces( TEST_REPO_ID, "org.codehaus" ),
-comment|//                                           Arrays.asList( "plexus" ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -4160,8 +4023,6 @@ literal|"plexus"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getProjects( TEST_REPO_ID, "org" ),
-comment|//                                           Arrays.asList() );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -4185,8 +4046,6 @@ name|asList
 argument_list|(  )
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getProjects( TEST_REPO_ID, "org.codehaus" ),
-comment|//                                           Arrays.asList() );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -4210,8 +4069,6 @@ name|asList
 argument_list|(  )
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getNamespaces( TEST_REPO_ID, "org.codehaus.plexus" ), Arrays.asList() );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -4235,9 +4092,6 @@ name|asList
 argument_list|(  )
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getProjects( TEST_REPO_ID, "org.codehaus.plexus" ),
-comment|//    Arrays.asList( "plexus-spring" ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -4260,9 +4114,6 @@ literal|"plexus-spring"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getProjectVersions( TEST_REPO_ID, "org.codehaus.plexus", "plexus-spring" ),
-comment|//    Arrays.asList( "1.0", "1.1", "1.2" ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -4291,10 +4142,6 @@ literal|"1.2"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getArtifacts( TEST_REPO_ID, "org.codehaus.plexus", "plexus-spring", "1.0" ),
-comment|//    Arrays.asList( createArtifact( "org.codehaus.plexus", "plexus-spring", "1.0", "jar" ),
-comment|//                   createArtifact( "org.codehaus.plexus", "plexus-spring", "1.0", "pom" ) ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -4341,10 +4188,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getArtifacts( TEST_REPO_ID, "org.codehaus.plexus", "plexus-spring", "1.1" ),
-comment|//    Arrays.asList( createArtifact( "org.codehaus.plexus", "plexus-spring", "1.1", "jar" ),
-comment|//                   createArtifact( "org.codehaus.plexus", "plexus-spring", "1.1", "pom" ) ) );
 name|expect
 argument_list|(
 name|metadataRepository
@@ -4391,10 +4234,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//metadataRepositoryControl.expectAndReturn(
-comment|//    metadataRepository.getArtifacts( TEST_REPO_ID, "org.codehaus.plexus", "plexus-spring", "1.2" ),
-comment|//    Arrays.asList( createArtifact( "org.codehaus.plexus", "plexus-spring", "1.2", "jar" ),
-comment|//                   createArtifact( "org.codehaus.plexus", "plexus-spring", "1.2", "pom" ) ) );
 name|expect
 argument_list|(
 name|metadataRepository

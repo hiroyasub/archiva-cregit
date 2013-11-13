@@ -335,9 +335,6 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-comment|//wagonMock.get( path, new File( expectedFile.getParentFile(), expectedFile.getName() + ".tmp" ) );
-comment|//wagonMockControl.setMatcher( customWagonGetMatcher );
-comment|//wagonMockControl.setThrowable( new ResourceDoesNotExistException( "resource does not exist." ), 2 );
 name|wagonMock
 operator|.
 name|get
@@ -560,9 +557,6 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-comment|//wagonMock.get( path, new File( expectedFile.getParentFile(), expectedFile.getName() + ".tmp" ) );
-comment|//wagonMockControl.setMatcher( customWagonGetMatcher );
-comment|//wagonMockControl.setThrowable( new ResourceDoesNotExistException( "resource does not exist." ), 2 );
 name|wagonMock
 operator|.
 name|get
@@ -631,9 +625,6 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-comment|//wagonMock.get( path, new File( expectedFile.getParentFile(), expectedFile.getName() + ".tmp" ) );
-comment|//wagonMockControl.setMatcher( customWagonGetMatcher );
-comment|//wagonMockControl.setThrowable( new ResourceDoesNotExistException( "resource does not exist." ), 2 );
 name|wagonMock
 operator|.
 name|get

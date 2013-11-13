@@ -754,8 +754,6 @@ operator|new
 name|Configuration
 argument_list|()
 expr_stmt|;
-comment|//archivaConfiguration.getConfiguration();
-comment|//archivaConfigurationControl.setReturnValue( config, 5, 20 );
 name|expect
 argument_list|(
 name|archivaConfiguration
@@ -783,7 +781,6 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigurationControl.setVoidCallable( 1, 4 );
 name|expectLastCall
 argument_list|()
 operator|.
@@ -1195,7 +1192,6 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-comment|//archivaConfigurationControl.expectAndReturn( archivaConfiguration.getConfiguration(), config );
 name|expect
 argument_list|(
 name|archivaConfiguration
@@ -1209,7 +1205,6 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getMethod(), "GET", 2 );
 name|expect
 argument_list|(
 name|request
@@ -1228,7 +1223,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getPathInfo(), "org/apache/archiva", 0, 2 );
 name|expect
 argument_list|(
 name|request
@@ -1249,8 +1243,6 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//repoContentFactoryControl.expectAndReturn( repoFactory.getManagedRepositoryContent( RELEASES_REPO ),
-comment|//                                           releasesRepo );
 name|expect
 argument_list|(
 name|repoFactory
@@ -1266,7 +1258,6 @@ argument_list|(
 name|releasesRepo
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getRemoteAddr(), "http://localhost:8080", 2 );
 name|expect
 argument_list|(
 name|request
@@ -1285,7 +1276,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getDavSession(), new ArchivaDavSession(), 2 );
 name|expect
 argument_list|(
 name|request
@@ -1306,9 +1296,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//repoRequestControl.expectAndReturn(
-comment|//    repoRequest.isSupportFile( "org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar" ),
-comment|//    false );
 name|expect
 argument_list|(
 name|repoRequest
@@ -1324,8 +1311,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|//repoRequestControl.expectAndReturn(
-comment|//    repoRequest.isDefault( "org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar" ), false );
 name|expect
 argument_list|(
 name|repoRequest
@@ -1341,9 +1326,6 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-comment|//repoRequestControl.expectAndReturn(
-comment|//    repoRequest.toArtifactReference( "org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar" ),
-comment|//    null );
 name|expect
 argument_list|(
 name|repoRequest
@@ -1359,10 +1341,6 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-comment|//repoRequestControl.expectAndReturn(
-comment|//    repoRequest.toNativePath( "org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar", internalRepo ),
-comment|//    new File( config.findManagedRepositoryById( INTERNAL_REPO ).getLocation(),
-comment|//              "target/test-classes/internal/org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar" ).getPath() );
 name|expect
 argument_list|(
 name|repoRequest
@@ -1397,8 +1375,6 @@ name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//repoContentFactoryControl.expectAndReturn( repoFactory.getManagedRepositoryContent( INTERNAL_REPO ),
-comment|//                                           internalRepo );
 name|expect
 argument_list|(
 name|repoFactory
@@ -1414,9 +1390,6 @@ argument_list|(
 name|internalRepo
 argument_list|)
 expr_stmt|;
-comment|//repoRequestControl.expectAndReturn(
-comment|//        repoRequest.isArchetypeCatalog( "org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar" ),
-comment|//        false );
 name|expect
 argument_list|(
 name|repoRequest
@@ -1615,7 +1588,6 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-comment|//archivaConfigurationControl.expectAndReturn( archivaConfiguration.getConfiguration(), config );
 name|expect
 argument_list|(
 name|archivaConfiguration
@@ -1629,7 +1601,6 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getMethod(), "GET", 2 );
 name|expect
 argument_list|(
 name|request
@@ -1648,7 +1619,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getPathInfo(), "org/apache/archiva", 0, 2 );
 name|expect
 argument_list|(
 name|request
@@ -1669,8 +1639,6 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//repoContentFactoryControl.expectAndReturn( repoFactory.getManagedRepositoryContent( INTERNAL_REPO ),
-comment|//                                           internalRepo );
 name|expect
 argument_list|(
 name|repoFactory
@@ -1686,8 +1654,6 @@ argument_list|(
 name|internalRepo
 argument_list|)
 expr_stmt|;
-comment|//repoContentFactoryControl.expectAndReturn( repoFactory.getManagedRepositoryContent( RELEASES_REPO ),
-comment|//                                           releasesRepo );
 name|expect
 argument_list|(
 name|repoFactory
@@ -1703,7 +1669,6 @@ argument_list|(
 name|releasesRepo
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getRemoteAddr(), "http://localhost:8080", 2 );
 name|expect
 argument_list|(
 name|request
@@ -1722,7 +1687,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getDavSession(), new ArchivaDavSession(), 2 );
 name|expect
 argument_list|(
 name|request
@@ -1743,9 +1707,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//repoRequestControl.expectAndReturn(
-comment|//    repoRequest.isSupportFile( "org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar" ),
-comment|//    false );
 name|expect
 argument_list|(
 name|repoRequest
@@ -1761,8 +1722,6 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-comment|//repoRequestControl.expectAndReturn(
-comment|//    repoRequest.isDefault( "org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar" ), false );
 name|expect
 argument_list|(
 name|repoRequest
@@ -1778,9 +1737,6 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-comment|//repoRequestControl.expectAndReturn(
-comment|//    repoRequest.toArtifactReference( "org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar" ),
-comment|//    null );
 name|expect
 argument_list|(
 name|repoRequest
@@ -1796,10 +1752,6 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-comment|//repoRequestControl.expectAndReturn(
-comment|//    repoRequest.toNativePath( "org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar", internalRepo ),
-comment|//    new File( config.findManagedRepositoryById( INTERNAL_REPO ).getLocation(),
-comment|//              "target/test-classes/internal/org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar" ).getPath() );
 name|expect
 argument_list|(
 name|repoRequest
@@ -1834,9 +1786,6 @@ name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//repoRequestControl.expectAndReturn(
-comment|//        repoRequest.isArchetypeCatalog( "org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar" ),
-comment|//        false );
 name|expect
 argument_list|(
 name|repoRequest
@@ -2060,7 +2009,6 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-comment|//archivaConfigurationControl.expectAndReturn( archivaConfiguration.getConfiguration(), config );
 name|expect
 argument_list|(
 name|archivaConfiguration
@@ -2074,7 +2022,6 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getMethod(), "GET", 4 );
 name|expect
 argument_list|(
 name|request
@@ -2093,7 +2040,6 @@ argument_list|(
 literal|4
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getPathInfo(), "org/apache/archiva", 0, 2 );
 name|expect
 argument_list|(
 name|request
@@ -2114,8 +2060,6 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//repoContentFactoryControl.expectAndReturn( repoFactory.getManagedRepositoryContent( INTERNAL_REPO ),
-comment|//                                           internalRepo );
 name|expect
 argument_list|(
 name|repoFactory
@@ -2131,8 +2075,6 @@ argument_list|(
 name|internalRepo
 argument_list|)
 expr_stmt|;
-comment|//repoContentFactoryControl.expectAndReturn( repoFactory.getManagedRepositoryContent( LOCAL_MIRROR_REPO ),
-comment|//                                           localMirrorRepo );
 name|expect
 argument_list|(
 name|repoFactory
@@ -2148,7 +2090,6 @@ argument_list|(
 name|localMirrorRepo
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getRemoteAddr(), "http://localhost:8080", 4 );
 name|expect
 argument_list|(
 name|request
@@ -2167,7 +2108,6 @@ argument_list|(
 literal|4
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getDavSession(), new ArchivaDavSession(), 4 );
 name|expect
 argument_list|(
 name|request
@@ -2188,9 +2128,6 @@ argument_list|(
 literal|4
 argument_list|)
 expr_stmt|;
-comment|//repoRequestControl.expectAndReturn(
-comment|//    repoRequest.isSupportFile( "org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar" ), false,
-comment|//    2 );
 name|expect
 argument_list|(
 name|repoRequest
@@ -2211,8 +2148,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//repoRequestControl.expectAndReturn(
-comment|//    repoRequest.isDefault( "org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar" ), false, 2 );
 name|expect
 argument_list|(
 name|repoRequest
@@ -2233,9 +2168,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//repoRequestControl.expectAndReturn(
-comment|//    repoRequest.toArtifactReference( "org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar" ),
-comment|//    null, 2 );
 name|expect
 argument_list|(
 name|repoRequest
@@ -2256,11 +2188,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//repoRequestControl.expectAndReturn(
-comment|//repoRequest.toNativePath( "org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar",
-comment|//                          internalRepo ),
-comment|//new File( config.findManagedRepositoryById( INTERNAL_REPO ).getLocation(),
-comment|//          "target/test-classes/internal/org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar" ).getPath() );
 name|expect
 argument_list|(
 name|repoRequest
@@ -2295,10 +2222,6 @@ name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//repoRequestControl.expectAndReturn(
-comment|//    repoRequest.toNativePath( "org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar", localMirrorRepo ),
-comment|//    new File( config.findManagedRepositoryById( LOCAL_MIRROR_REPO ).getLocation(),
-comment|//              "target/test-classes/internal/org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar" ).getPath() );
 name|expect
 argument_list|(
 name|repoRequest
@@ -2333,9 +2256,6 @@ name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//repoRequestControl.expectAndReturn(
-comment|//    repoRequest.isArchetypeCatalog( "org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar" ),
-comment|//    false, 2 );
 name|expect
 argument_list|(
 name|repoRequest
@@ -2501,7 +2421,6 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-comment|//archivaConfigurationControl.expectAndReturn( archivaConfiguration.getConfiguration(), config );
 name|expect
 argument_list|(
 name|archivaConfiguration
@@ -2515,8 +2434,6 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
-comment|//repoContentFactoryControl.expectAndReturn( repoFactory.getManagedRepositoryContent( INTERNAL_REPO ),
-comment|//                                           internalRepo );
 name|expect
 argument_list|(
 name|repoFactory
@@ -2532,7 +2449,6 @@ argument_list|(
 name|internalRepo
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getMethod(), "GET", 3 );
 name|expect
 argument_list|(
 name|request
@@ -2551,7 +2467,6 @@ argument_list|(
 literal|3
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getRemoteAddr(), "http://localhost:8080", 3 );
 name|expect
 argument_list|(
 name|request
@@ -2570,7 +2485,6 @@ argument_list|(
 literal|3
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getDavSession(), new ArchivaDavSession(), 2 );
 name|expect
 argument_list|(
 name|request
@@ -2591,8 +2505,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getRequestURI(),
-comment|//                                "http://localhost:8080/archiva/repository/" + INTERNAL_REPO + "/eclipse/jdtcore/maven-metadata.xml" );
 name|expect
 argument_list|(
 name|request
@@ -2619,7 +2531,6 @@ argument_list|,
 literal|"no-cache"
 argument_list|)
 expr_stmt|;
-comment|//responseControl.setVoidCallable();
 name|expectLastCall
 argument_list|()
 expr_stmt|;
@@ -2632,11 +2543,9 @@ argument_list|,
 literal|"no-cache"
 argument_list|)
 expr_stmt|;
-comment|//responseControl.setVoidCallable();
 name|expectLastCall
 argument_list|()
 expr_stmt|;
-comment|//long date = 2039842134;
 name|response
 operator|.
 name|setDateHeader
@@ -2650,7 +2559,6 @@ name|anyLong
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//responseControl.setVoidCallable();
 name|expectLastCall
 argument_list|()
 expr_stmt|;
@@ -2788,7 +2696,6 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-comment|//archivaConfigurationControl.expectAndReturn( archivaConfiguration.getConfiguration(), config );
 name|expect
 argument_list|(
 name|archivaConfiguration
@@ -2802,8 +2709,6 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
-comment|//repoContentFactoryControl.expectAndReturn( repoFactory.getManagedRepositoryContent( INTERNAL_REPO ),
-comment|//                                           internalRepo );
 name|expect
 argument_list|(
 name|repoFactory
@@ -2819,7 +2724,6 @@ argument_list|(
 name|internalRepo
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getMethod(), "GET", 2 );
 name|expect
 argument_list|(
 name|request
@@ -2838,7 +2742,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getRemoteAddr(), "http://localhost:8080", 2 );
 name|expect
 argument_list|(
 name|request
@@ -2857,7 +2760,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getDavSession(), new ArchivaDavSession(), 2 );
 name|expect
 argument_list|(
 name|request
@@ -3038,7 +2940,6 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-comment|//archivaConfigurationControl.expectAndReturn( archivaConfiguration.getConfiguration(), config );
 name|expect
 argument_list|(
 name|archivaConfiguration
@@ -3052,8 +2953,6 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
-comment|//repoContentFactoryControl.expectAndReturn( repoFactory.getManagedRepositoryContent( LEGACY_REPO ),
-comment|//                                           legacyRepo );
 name|expect
 argument_list|(
 name|repoFactory
@@ -3069,7 +2968,6 @@ argument_list|(
 name|legacyRepo
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getMethod(), "GET", 2 );
 name|expect
 argument_list|(
 name|request
@@ -3088,7 +2986,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getRemoteAddr(), "http://localhost:8080", 2 );
 name|expect
 argument_list|(
 name|request
@@ -3107,7 +3004,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//requestControl.expectAndReturn( request.getDavSession(), new ArchivaDavSession(), 2 );
 name|expect
 argument_list|(
 name|request

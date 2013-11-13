@@ -597,7 +597,6 @@ name|TEST_REPO_1
 argument_list|)
 decl_stmt|;
 comment|// search artifactId
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -727,7 +726,6 @@ name|reset
 argument_list|()
 expr_stmt|;
 comment|// search groupId
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -824,7 +822,6 @@ name|TEST_REPO_1
 argument_list|)
 decl_stmt|;
 comment|// search artifactId
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -954,7 +951,6 @@ name|reset
 argument_list|()
 expr_stmt|;
 comment|// search groupId
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -1063,7 +1059,6 @@ name|TEST_REPO_1
 argument_list|)
 expr_stmt|;
 comment|// search artifactId
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -1227,7 +1222,6 @@ name|TEST_REPO_1
 argument_list|)
 expr_stmt|;
 comment|// search artifactId
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -1422,7 +1416,6 @@ argument_list|(
 name|TEST_REPO_1
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -1540,7 +1533,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -1673,7 +1665,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -1895,7 +1886,6 @@ name|TEST_REPO_2
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 5 );
 name|EasyMock
 operator|.
 name|expect
@@ -2091,7 +2081,6 @@ argument_list|(
 name|TEST_REPO_1
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -2187,7 +2176,6 @@ argument_list|(
 name|TEST_REPO_1
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -2283,7 +2271,6 @@ argument_list|(
 literal|"non-existing-repo"
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -2404,7 +2391,6 @@ argument_list|(
 literal|"archiva-test"
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -2656,7 +2642,6 @@ argument_list|(
 name|selectedRepos
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -2839,7 +2824,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -2935,7 +2919,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -3123,7 +3106,6 @@ argument_list|(
 name|selectedRepos
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -3298,7 +3280,6 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -3446,7 +3427,6 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -3597,7 +3577,6 @@ argument_list|(
 name|selectedRepos
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -3769,7 +3748,6 @@ argument_list|(
 name|selectedRepos
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -3922,7 +3900,6 @@ argument_list|(
 name|selectedRepos
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndDefaultReturn( archivaConfig.getConfiguration(), config );
 name|EasyMock
 operator|.
 name|expect
@@ -4033,7 +4010,6 @@ argument_list|(
 name|selectedRepos
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -4204,7 +4180,6 @@ argument_list|(
 name|selectedRepos
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -4315,7 +4290,6 @@ argument_list|(
 name|selectedRepos
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -4426,7 +4400,6 @@ argument_list|(
 name|TEST_REPO_1
 argument_list|)
 decl_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 0, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -4572,7 +4545,6 @@ argument_list|(
 name|selectedRepos
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 2 );
 name|EasyMock
 operator|.
 name|expect
@@ -4751,7 +4723,6 @@ argument_list|(
 literal|300
 argument_list|)
 expr_stmt|;
-comment|//archivaConfigControl.expectAndReturn( archivaConfig.getConfiguration(), config, 1, 5 );
 name|EasyMock
 operator|.
 name|expect

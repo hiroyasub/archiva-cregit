@@ -849,8 +849,6 @@ operator|.
 name|createControl
 argument_list|()
 expr_stmt|;
-comment|// MockControl.createControl( ServletAuthenticator.class );
-comment|//servletAuthControl.setDefaultMatcher( MockControl.ALWAYS_MATCHER );
 name|servletAuth
 operator|=
 name|servletAuthControl
@@ -869,8 +867,6 @@ operator|.
 name|createControl
 argument_list|()
 expr_stmt|;
-comment|//MockClassControl.createControl( HttpBasicAuthentication.class, HttpBasicAuthentication.class.getMethods() );
-comment|//httpAuthControl.setDefaultMatcher( MockControl.ALWAYS_MATCHER );
 name|httpAuth
 operator|=
 name|httpAuthControl
@@ -1158,7 +1154,6 @@ operator|new
 name|AuthenticationResult
 argument_list|()
 decl_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getAuthenticationResult( null, null ), result );
 name|EasyMock
 operator|.
 name|expect
@@ -1188,8 +1183,6 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndThrow( servletAuth.isAuthenticated( null, null ),
-comment|//                                   new AuthenticationException( "Authentication error" ) );
 name|servletAuth
 operator|.
 name|isAuthenticated
@@ -1240,8 +1233,6 @@ operator|.
 name|OPERATION_REPOSITORY_UPLOAD
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.setMatcher( MockControl.EQUALS_MATCHER );
-comment|//servletAuthControl.setThrowable( new UnauthorizedException( "'guest' has no write access to repository" ) );
 name|EasyMock
 operator|.
 name|expectLastCall
@@ -1291,7 +1282,7 @@ operator|.
 name|verify
 argument_list|()
 expr_stmt|;
-comment|// assertEquals(HttpServletResponse.SC_UNAUTHORIZED, response.getResponseCode());
+comment|//assertEquals(HttpServletResponse.SC_UNAUTHORIZED, response.getResponseCode());
 block|}
 comment|// test deploy with invalid user, but guest has write access to repo
 annotation|@
@@ -1410,7 +1401,6 @@ operator|new
 name|AuthenticationResult
 argument_list|()
 decl_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getAuthenticationResult( null, null ), result );
 name|EasyMock
 operator|.
 name|expect
@@ -1440,8 +1430,6 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndThrow( servletAuth.isAuthenticated( null, null ),
-comment|//                                   new AuthenticationException( "Authentication error" ) );
 name|EasyMock
 operator|.
 name|expect
@@ -1475,8 +1463,6 @@ literal|"Authentication error"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.setMatcher( MockControl.EQUALS_MATCHER );
-comment|//servletAuthControl.setReturnValue( true );
 name|EasyMock
 operator|.
 name|expect
@@ -1508,7 +1494,6 @@ operator|new
 name|DefaultSecuritySession
 argument_list|()
 decl_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getAuthenticationResult( null, null ), result );
 name|EasyMock
 operator|.
 name|expect
@@ -1538,7 +1523,6 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getSecuritySession( ic.getRequest().getSession( true ) ), session );
 name|EasyMock
 operator|.
 name|expect
@@ -1561,8 +1545,6 @@ argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndThrow( servletAuth.isAuthenticated( null, result ),
-comment|//                                   new AuthenticationException( "Authentication error" ) );
 name|EasyMock
 operator|.
 name|expect
@@ -1594,7 +1576,6 @@ literal|"Authentication error"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getSessionUser( ic.getRequest().getSession() ), null );
 name|EasyMock
 operator|.
 name|expect
@@ -1618,9 +1599,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 comment|// check if guest has write access
-comment|//servletAuth.isAuthorized( "guest", "internal", ArchivaRoleConstants.OPERATION_REPOSITORY_UPLOAD );
-comment|//servletAuthControl.setMatcher( MockControl.EQUALS_MATCHER );
-comment|//servletAuthControl.setReturnValue( true );
 name|EasyMock
 operator|.
 name|expect
@@ -1798,7 +1776,6 @@ operator|new
 name|AuthenticationResult
 argument_list|()
 decl_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getAuthenticationResult( null, null ), result );
 name|EasyMock
 operator|.
 name|expect
@@ -1828,7 +1805,6 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndReturn( servletAuth.isAuthenticated( null, null ), true );
 name|EasyMock
 operator|.
 name|expect
@@ -1866,7 +1842,6 @@ operator|new
 name|DefaultSecuritySession
 argument_list|()
 decl_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getAuthenticationResult( null, null ), result );
 name|EasyMock
 operator|.
 name|expect
@@ -1896,7 +1871,6 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getSecuritySession( ic.getRequest().getSession( true ) ), session );
 name|EasyMock
 operator|.
 name|expect
@@ -1922,7 +1896,6 @@ argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getSessionUser( ic.getRequest().getSession() ), new SimpleUser() );
 name|EasyMock
 operator|.
 name|expect
@@ -1948,7 +1921,6 @@ name|SimpleUser
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndReturn( servletAuth.isAuthenticated( null, result ), true );
 name|EasyMock
 operator|.
 name|expect
@@ -1976,9 +1948,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndThrow(
-comment|//                                   servletAuth.isAuthorized( null, session, "internal", ArchivaRoleConstants.OPERATION_REPOSITORY_UPLOAD ),
-comment|//                                   new UnauthorizedException( "User not authorized" ) );
 name|EasyMock
 operator|.
 name|expect
@@ -2198,7 +2167,6 @@ operator|new
 name|AuthenticationResult
 argument_list|()
 decl_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getAuthenticationResult( null, null ), result );
 name|EasyMock
 operator|.
 name|expect
@@ -2228,7 +2196,6 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndReturn( servletAuth.isAuthenticated( null, null ), true );
 name|EasyMock
 operator|.
 name|expect
@@ -2280,7 +2247,6 @@ operator|new
 name|DefaultSecuritySession
 argument_list|()
 decl_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getAuthenticationResult( null, null ), result );
 name|EasyMock
 operator|.
 name|expect
@@ -2310,7 +2276,6 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getSecuritySession( ic.getRequest().getSession( true ) ), session );
 name|EasyMock
 operator|.
 name|expect
@@ -2336,7 +2301,6 @@ argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getSessionUser( ic.getRequest().getSession() ), user );
 name|EasyMock
 operator|.
 name|expect
@@ -2360,7 +2324,6 @@ argument_list|(
 name|user
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndReturn( servletAuth.isAuthenticated( null, result ), true );
 name|EasyMock
 operator|.
 name|expect
@@ -2388,9 +2351,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndReturn(
-comment|//                                    servletAuth.isAuthorized( null, session, "internal", ArchivaRoleConstants.OPERATION_REPOSITORY_UPLOAD ),
-comment|//                                    true );
 name|EasyMock
 operator|.
 name|expect
@@ -2615,7 +2575,6 @@ operator|new
 name|AuthenticationResult
 argument_list|()
 decl_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getAuthenticationResult( null, null ), result );
 name|EasyMock
 operator|.
 name|expect
@@ -2645,8 +2604,6 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndThrow( servletAuth.isAuthenticated( null, null ),
-comment|//                                   new AuthenticationException( "Authentication error" ) );
 name|EasyMock
 operator|.
 name|expect
@@ -2680,9 +2637,6 @@ literal|"Authentication error"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndReturn(
-comment|//                                    servletAuth.isAuthorized( "guest", "internal", ArchivaRoleConstants.OPERATION_REPOSITORY_ACCESS ),
-comment|//                                    true );
 name|EasyMock
 operator|.
 name|expect
@@ -2714,7 +2668,6 @@ operator|new
 name|DefaultSecuritySession
 argument_list|()
 decl_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getAuthenticationResult( null, null ), result );
 name|EasyMock
 operator|.
 name|expect
@@ -2744,7 +2697,6 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getSecuritySession( ic.getRequest().getSession( true ) ), session );
 name|EasyMock
 operator|.
 name|expect
@@ -2767,7 +2719,6 @@ argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getSessionUser( ic.getRequest().getSession() ), null );
 name|EasyMock
 operator|.
 name|expect
@@ -2790,7 +2741,6 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndReturn( servletAuth.isAuthenticated( null, result ), true );
 name|EasyMock
 operator|.
 name|expect
@@ -2818,9 +2768,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndReturn(
-comment|//                                    servletAuth.isAuthorized( null, session, "internal", ArchivaRoleConstants.OPERATION_REPOSITORY_UPLOAD ),
-comment|//                                    true );
 name|EasyMock
 operator|.
 name|expect
@@ -3013,7 +2960,6 @@ operator|new
 name|AuthenticationResult
 argument_list|()
 decl_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getAuthenticationResult( null, null ), result );
 name|EasyMock
 operator|.
 name|expect
@@ -3043,8 +2989,6 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndThrow( servletAuth.isAuthenticated( null, null ),
-comment|//                                   new AuthenticationException( "Authentication error" ) );
 name|EasyMock
 operator|.
 name|expect
@@ -3078,9 +3022,6 @@ literal|"Authentication error"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndReturn(
-comment|//                                    servletAuth.isAuthorized( "guest", "internal", ArchivaRoleConstants.OPERATION_REPOSITORY_ACCESS ),
-comment|//                                    false );
 name|EasyMock
 operator|.
 name|expect
@@ -3277,7 +3218,6 @@ operator|new
 name|AuthenticationResult
 argument_list|()
 decl_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getAuthenticationResult( null, null ), result );
 name|EasyMock
 operator|.
 name|expect
@@ -3307,7 +3247,6 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndReturn( servletAuth.isAuthenticated( null, null ), true );
 name|EasyMock
 operator|.
 name|expect
@@ -3345,7 +3284,6 @@ operator|new
 name|DefaultSecuritySession
 argument_list|()
 decl_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getAuthenticationResult( null, null ), result );
 name|EasyMock
 operator|.
 name|expect
@@ -3375,7 +3313,6 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getSecuritySession( ic.getRequest().getSession( true ) ), session );
 name|EasyMock
 operator|.
 name|expect
@@ -3398,7 +3335,6 @@ argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getSessionUser( ic.getRequest().getSession() ), new SimpleUser() );
 name|EasyMock
 operator|.
 name|expect
@@ -3423,7 +3359,6 @@ name|SimpleUser
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndReturn( servletAuth.isAuthenticated( null, result ), true );
 name|EasyMock
 operator|.
 name|expect
@@ -3451,9 +3386,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndReturn(
-comment|//                                    servletAuth.isAuthorized( null, session, "internal", ArchivaRoleConstants.OPERATION_REPOSITORY_UPLOAD ),
-comment|//                                    true );
 name|EasyMock
 operator|.
 name|expect
@@ -3678,7 +3610,6 @@ operator|new
 name|AuthenticationResult
 argument_list|()
 decl_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getAuthenticationResult( null, null ), result );
 name|EasyMock
 operator|.
 name|expect
@@ -3708,7 +3639,6 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndReturn( servletAuth.isAuthenticated( null, null ), true );
 name|EasyMock
 operator|.
 name|expect
@@ -3746,7 +3676,6 @@ operator|new
 name|DefaultSecuritySession
 argument_list|()
 decl_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getAuthenticationResult( null, null ), result );
 name|EasyMock
 operator|.
 name|expect
@@ -3776,7 +3705,6 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getSecuritySession( ic.getRequest().getSession( true ) ), session );
 name|EasyMock
 operator|.
 name|expect
@@ -3799,7 +3727,6 @@ argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-comment|//httpAuthControl.expectAndReturn( httpAuth.getSessionUser( ic.getRequest().getSession() ), new SimpleUser() );
 name|EasyMock
 operator|.
 name|expect
@@ -3824,7 +3751,6 @@ name|SimpleUser
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndReturn( servletAuth.isAuthenticated( null, result ), true );
 name|EasyMock
 operator|.
 name|expect
@@ -3852,8 +3778,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|//servletAuthControl.expectAndThrow( servletAuth.isAuthorized( null, session, "internal", ArchivaRoleConstants.OPERATION_REPOSITORY_UPLOAD ),
-comment|//                                   new UnauthorizedException( "User not authorized to read repository." ) );
 name|EasyMock
 operator|.
 name|expect

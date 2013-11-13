@@ -648,9 +648,6 @@ name|requestedResource
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|//wagonMock.get( requestedResource, new File( expectedFile.getParentFile(), expectedFile.getName() + ".tmp" ) );
-comment|//wagonMockControl.setMatcher( customWagonGetMatcher );
-comment|//wagonMockControl.setThrowable( new TransferFailedException( "can't connect" ) );
 name|wagonMock
 operator|.
 name|get

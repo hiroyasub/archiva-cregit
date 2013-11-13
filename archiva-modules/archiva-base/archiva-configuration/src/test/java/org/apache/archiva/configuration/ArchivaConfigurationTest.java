@@ -1194,7 +1194,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// add a change listener
-comment|//MockControl control = createConfigurationListenerMockControl();
 name|ConfigurationListener
 name|listener
 init|=
@@ -1205,7 +1204,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// (ConfigurationListener) control.getMock();
 name|archivaConfiguration
 operator|.
 name|addListener
@@ -1226,8 +1224,6 @@ name|SAVED
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//control.setVoidCallable();
-comment|//control.replay();
 name|replay
 argument_list|(
 name|listener
@@ -1240,7 +1236,6 @@ argument_list|(
 name|configuration
 argument_list|)
 expr_stmt|;
-comment|//control.verify();
 name|verify
 argument_list|(
 name|listener
@@ -1630,8 +1625,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// add a change listener
-comment|//MockControl control = createConfigurationListenerMockControl();
-comment|//ConfigurationListener listener = (ConfigurationListener) control.getMock();
 name|ConfigurationListener
 name|listener
 init|=
@@ -1658,8 +1651,6 @@ name|SAVED
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//control.setVoidCallable( 1 );
-comment|//control.replay();
 name|replay
 argument_list|(
 name|listener
@@ -1672,7 +1663,6 @@ argument_list|(
 name|configuration
 argument_list|)
 expr_stmt|;
-comment|//control.verify();
 name|verify
 argument_list|(
 name|listener
@@ -2079,9 +2069,6 @@ expr_stmt|;
 name|ArchivaConfiguration
 name|archivaConfiguration
 init|=
-operator|(
-name|ArchivaConfiguration
-operator|)
 name|lookup
 argument_list|(
 name|ArchivaConfiguration
@@ -2328,9 +2315,6 @@ expr_stmt|;
 name|ArchivaConfiguration
 name|archivaConfiguration
 init|=
-operator|(
-name|ArchivaConfiguration
-operator|)
 name|lookup
 argument_list|(
 name|ArchivaConfiguration
@@ -2577,9 +2561,6 @@ expr_stmt|;
 name|ArchivaConfiguration
 name|archivaConfiguration
 init|=
-operator|(
-name|ArchivaConfiguration
-operator|)
 name|lookup
 argument_list|(
 name|ArchivaConfiguration
@@ -3347,8 +3328,6 @@ argument_list|(
 name|configuration
 argument_list|)
 expr_stmt|;
-comment|// Release existing
-comment|//release( archivaConfiguration );
 comment|// Reload.
 name|archivaConfiguration
 operator|=

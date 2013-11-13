@@ -2409,9 +2409,6 @@ name|ResourceDoesNotExistException
 throws|,
 name|AuthorizationException
 block|{
-comment|//wagonMock.get( path, createExpectedTempFile( expectedFile ) );
-comment|//wagonMockControl.setMatcher(customWagonGetMatcher);
-comment|//wagonMockControl.setThrowable( throwable, 1 );
 name|wagonMock
 operator|.
 name|get
@@ -2464,9 +2461,6 @@ name|ResourceDoesNotExistException
 throws|,
 name|AuthorizationException
 block|{
-comment|//wagonMock.getIfNewer( path, createExpectedTempFile( expectedFile ), expectedFile.lastModified() );
-comment|//wagonMockControl.setMatcher(customWagonGetIfNewerMatcher);
-comment|//wagonMockControl.setThrowable( exception, 1 );
 name|wagonMock
 operator|.
 name|getIfNewer
