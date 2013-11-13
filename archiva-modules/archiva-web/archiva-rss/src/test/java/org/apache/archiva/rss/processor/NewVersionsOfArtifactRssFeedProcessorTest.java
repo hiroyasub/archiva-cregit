@@ -109,9 +109,25 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|test
+operator|.
+name|utils
+operator|.
+name|ArchivaBlockJUnit4ClassRunner
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|easymock
 operator|.
-name|MockControl
+name|IMocksControl
 import|;
 end_import
 
@@ -208,18 +224,26 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|apache
+name|easymock
 operator|.
-name|archiva
+name|EasyMock
 operator|.
-name|test
+name|createControl
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
 operator|.
-name|utils
+name|easymock
 operator|.
-name|ArchivaBlockJUnit4ClassRunner
+name|EasyMock
+operator|.
+name|expect
 import|;
 end_import
 
@@ -266,7 +290,7 @@ init|=
 literal|"artifact-two"
 decl_stmt|;
 specifier|private
-name|MockControl
+name|IMocksControl
 name|metadataRepositoryControl
 decl_stmt|;
 specifier|private
@@ -304,24 +328,19 @@ argument_list|)
 expr_stmt|;
 name|metadataRepositoryControl
 operator|=
-name|MockControl
-operator|.
 name|createControl
+argument_list|()
+expr_stmt|;
+name|metadataRepository
+operator|=
+name|metadataRepositoryControl
+operator|.
+name|createMock
 argument_list|(
 name|MetadataRepository
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
-name|metadataRepository
-operator|=
-operator|(
-name|MetadataRepository
-operator|)
-name|metadataRepositoryControl
-operator|.
-name|getMock
-argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -425,15 +444,18 @@ argument_list|,
 name|ARTIFACT_ID
 argument_list|)
 expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|expectAndReturn
+comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getRepositories(), Collections.singletonList(
+comment|//    TEST_REPO ) );
+name|expect
 argument_list|(
 name|metadataRepository
 operator|.
 name|getRepositories
 argument_list|()
-argument_list|,
+argument_list|)
+operator|.
+name|andReturn
+argument_list|(
 name|Collections
 operator|.
 name|singletonList
@@ -442,9 +464,10 @@ name|TEST_REPO
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|expectAndReturn
+comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getProjectVersions( TEST_REPO, GROUP_ID,
+comment|//                                                                                  ARTIFACT_ID ), Arrays.asList(
+comment|//    "1.0.1", "1.0.2", "1.0.3-SNAPSHOT" ) );
+name|expect
 argument_list|(
 name|metadataRepository
 operator|.
@@ -456,7 +479,10 @@ name|GROUP_ID
 argument_list|,
 name|ARTIFACT_ID
 argument_list|)
-argument_list|,
+argument_list|)
+operator|.
+name|andReturn
+argument_list|(
 name|Arrays
 operator|.
 name|asList
@@ -469,9 +495,10 @@ literal|"1.0.3-SNAPSHOT"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|expectAndReturn
+comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getArtifacts( TEST_REPO, GROUP_ID, ARTIFACT_ID,
+comment|//                                                                            "1.0.1" ),
+comment|//                                           Collections.singletonList( artifact1 ) );
+name|expect
 argument_list|(
 name|metadataRepository
 operator|.
@@ -485,7 +512,10 @@ name|ARTIFACT_ID
 argument_list|,
 literal|"1.0.1"
 argument_list|)
-argument_list|,
+argument_list|)
+operator|.
+name|andReturn
+argument_list|(
 name|Collections
 operator|.
 name|singletonList
@@ -494,9 +524,10 @@ name|artifact1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|expectAndReturn
+comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getArtifacts( TEST_REPO, GROUP_ID, ARTIFACT_ID,
+comment|//                                                                            "1.0.2" ),
+comment|//                                           Collections.singletonList( artifact2 ) );
+name|expect
 argument_list|(
 name|metadataRepository
 operator|.
@@ -510,7 +541,10 @@ name|ARTIFACT_ID
 argument_list|,
 literal|"1.0.2"
 argument_list|)
-argument_list|,
+argument_list|)
+operator|.
+name|andReturn
+argument_list|(
 name|Collections
 operator|.
 name|singletonList
@@ -519,9 +553,10 @@ name|artifact2
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|expectAndReturn
+comment|//metadataRepositoryControl.expectAndReturn( metadataRepository.getArtifacts( TEST_REPO, GROUP_ID, ARTIFACT_ID,
+comment|//                                                                            "1.0.3-SNAPSHOT" ),
+comment|//                                           Collections.singletonList( artifact3 ) );
+name|expect
 argument_list|(
 name|metadataRepository
 operator|.
@@ -535,7 +570,10 @@ name|ARTIFACT_ID
 argument_list|,
 literal|"1.0.3-SNAPSHOT"
 argument_list|)
-argument_list|,
+argument_list|)
+operator|.
+name|andReturn
+argument_list|(
 name|Collections
 operator|.
 name|singletonList

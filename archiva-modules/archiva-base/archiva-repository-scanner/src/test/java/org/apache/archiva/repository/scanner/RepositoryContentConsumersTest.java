@@ -125,7 +125,7 @@ name|org
 operator|.
 name|easymock
 operator|.
-name|MockControl
+name|IMocksControl
 import|;
 end_import
 
@@ -422,6 +422,18 @@ operator|.
 name|utils
 operator|.
 name|ArchivaSpringJUnit4ClassRunner
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|easymock
+operator|.
+name|EasyMock
+operator|.
+name|*
 import|;
 end_import
 
@@ -1311,17 +1323,11 @@ parameter_list|( )
 throws|throws
 name|Exception
 block|{
-name|MockControl
+name|IMocksControl
 name|knownControl
 init|=
-name|MockControl
-operator|.
 name|createNiceControl
-argument_list|(
-name|KnownRepositoryContentConsumer
-operator|.
-name|class
-argument_list|)
+argument_list|( )
 decl_stmt|;
 name|RepositoryContentConsumers
 name|consumers
@@ -1332,31 +1338,30 @@ decl_stmt|;
 name|KnownRepositoryContentConsumer
 name|selectedKnownConsumer
 init|=
-operator|(
-name|KnownRepositoryContentConsumer
-operator|)
 name|knownControl
 operator|.
-name|getMock
-argument_list|( )
-decl_stmt|;
-name|KnownRepositoryContentConsumer
-name|unselectedKnownConsumer
-init|=
-operator|(
-name|KnownRepositoryContentConsumer
-operator|)
-name|MockControl
-operator|.
-name|createNiceControl
+name|createMock
 argument_list|(
 name|KnownRepositoryContentConsumer
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+comment|//KnownRepositoryContentConsumer unselectedKnownConsumer =
+comment|//    (KnownRepositoryContentConsumer) MockControl.createNiceControl(
+comment|//        KnownRepositoryContentConsumer.class ).getMock( );
+name|KnownRepositoryContentConsumer
+name|unselectedKnownConsumer
+init|=
+name|createNiceControl
+argument_list|()
 operator|.
-name|getMock
-argument_list|( )
+name|createMock
+argument_list|(
+name|KnownRepositoryContentConsumer
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 name|consumers
 operator|.
@@ -1390,46 +1395,39 @@ name|selectedKnownConsumer
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|MockControl
+name|IMocksControl
 name|invalidControl
 init|=
-name|MockControl
-operator|.
 name|createControl
-argument_list|(
-name|InvalidRepositoryContentConsumer
-operator|.
-name|class
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|InvalidRepositoryContentConsumer
 name|selectedInvalidConsumer
 init|=
-operator|(
-name|InvalidRepositoryContentConsumer
-operator|)
 name|invalidControl
 operator|.
-name|getMock
-argument_list|( )
-decl_stmt|;
-name|InvalidRepositoryContentConsumer
-name|unselectedInvalidConsumer
-init|=
-operator|(
-name|InvalidRepositoryContentConsumer
-operator|)
-name|MockControl
-operator|.
-name|createControl
+name|createMock
 argument_list|(
 name|InvalidRepositoryContentConsumer
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+comment|//InvalidRepositoryContentConsumer unselectedInvalidConsumer =
+comment|//    (InvalidRepositoryContentConsumer) MockControl.createControl(
+comment|//        InvalidRepositoryContentConsumer.class ).getMock( );
+name|InvalidRepositoryContentConsumer
+name|unselectedInvalidConsumer
+init|=
+name|createControl
+argument_list|()
 operator|.
-name|getMock
-argument_list|( )
+name|createMock
+argument_list|(
+name|InvalidRepositoryContentConsumer
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 name|consumers
 operator|.
@@ -1518,28 +1516,15 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|selectedKnownConsumer
-operator|.
-name|getExcludes
-argument_list|( )
-expr_stmt|;
-name|knownControl
-operator|.
-name|setReturnValue
+name|expect
 argument_list|(
-name|Collections
-operator|.
-name|EMPTY_LIST
-argument_list|)
-expr_stmt|;
 name|selectedKnownConsumer
 operator|.
 name|getIncludes
 argument_list|( )
-expr_stmt|;
-name|knownControl
+argument_list|)
 operator|.
-name|setReturnValue
+name|andReturn
 argument_list|(
 name|Collections
 operator|.
@@ -1605,6 +1590,7 @@ operator|.
 name|verify
 argument_list|( )
 expr_stmt|;
+comment|//verify( in );
 name|knownControl
 operator|.
 name|reset
@@ -1635,28 +1621,38 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|//selectedKnownConsumer.getExcludes( );
+comment|//knownControl.setReturnValue( Collections.EMPTY_LIST );
+name|expect
+argument_list|(
 name|selectedKnownConsumer
 operator|.
 name|getExcludes
-argument_list|( )
-expr_stmt|;
-name|knownControl
+argument_list|()
+argument_list|)
 operator|.
-name|setReturnValue
+name|andReturn
 argument_list|(
 name|Collections
 operator|.
-name|EMPTY_LIST
+expr|<
+name|String
+operator|>
+name|emptyList
+argument_list|()
 argument_list|)
 expr_stmt|;
+comment|//selectedKnownConsumer.getIncludes( );
+comment|//knownControl.setReturnValue( Collections.singletonList( "**/*.txt" ) );
+name|expect
+argument_list|(
 name|selectedKnownConsumer
 operator|.
 name|getIncludes
 argument_list|( )
-expr_stmt|;
-name|knownControl
+argument_list|)
 operator|.
-name|setReturnValue
+name|andReturn
 argument_list|(
 name|Collections
 operator|.
@@ -1695,14 +1691,15 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|expect
+argument_list|(
 name|selectedInvalidConsumer
 operator|.
 name|getId
-argument_list|( )
-expr_stmt|;
-name|invalidControl
+argument_list|()
+argument_list|)
 operator|.
-name|setReturnValue
+name|andReturn
 argument_list|(
 literal|"invalid"
 argument_list|)
@@ -1764,14 +1761,15 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|expect
+argument_list|(
 name|selectedKnownConsumer
 operator|.
 name|getExcludes
-argument_list|( )
-expr_stmt|;
-name|knownControl
+argument_list|()
+argument_list|)
 operator|.
-name|setReturnValue
+name|andReturn
 argument_list|(
 name|Collections
 operator|.
@@ -1810,14 +1808,15 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|expect
+argument_list|(
 name|selectedInvalidConsumer
 operator|.
 name|getId
-argument_list|( )
-expr_stmt|;
-name|invalidControl
+argument_list|()
+argument_list|)
 operator|.
-name|setReturnValue
+name|andReturn
 argument_list|(
 literal|"invalid"
 argument_list|)

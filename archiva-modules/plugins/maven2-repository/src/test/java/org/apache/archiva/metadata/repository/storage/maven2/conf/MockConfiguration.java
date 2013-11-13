@@ -125,7 +125,7 @@ name|org
 operator|.
 name|easymock
 operator|.
-name|MockControl
+name|IMocksControl
 import|;
 end_import
 
@@ -158,6 +158,18 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|easymock
+operator|.
+name|EasyMock
+operator|.
+name|createNiceControl
 import|;
 end_import
 
@@ -214,7 +226,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
-name|MockControl
+name|IMocksControl
 name|registryControl
 decl_stmt|;
 specifier|private
@@ -227,24 +239,19 @@ parameter_list|()
 block|{
 name|registryControl
 operator|=
-name|MockControl
-operator|.
 name|createNiceControl
+argument_list|()
+expr_stmt|;
+name|registryMock
+operator|=
+name|registryControl
+operator|.
+name|createMock
 argument_list|(
 name|Registry
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
-name|registryMock
-operator|=
-operator|(
-name|Registry
-operator|)
-name|registryControl
-operator|.
-name|getMock
-argument_list|()
 expr_stmt|;
 block|}
 specifier|public

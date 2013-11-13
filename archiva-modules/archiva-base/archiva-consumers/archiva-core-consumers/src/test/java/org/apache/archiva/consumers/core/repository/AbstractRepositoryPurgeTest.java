@@ -215,7 +215,17 @@ name|org
 operator|.
 name|easymock
 operator|.
-name|MockControl
+name|EasyMock
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|easymock
+operator|.
+name|IMocksControl
 import|;
 end_import
 
@@ -452,7 +462,7 @@ name|RepositoryPurge
 name|repoPurge
 decl_stmt|;
 specifier|protected
-name|MockControl
+name|IMocksControl
 name|listenerControl
 decl_stmt|;
 specifier|protected
@@ -493,24 +503,21 @@ argument_list|()
 expr_stmt|;
 name|listenerControl
 operator|=
-name|MockControl
+name|EasyMock
 operator|.
 name|createControl
+argument_list|( )
+expr_stmt|;
+name|listener
+operator|=
+name|listenerControl
+operator|.
+name|createMock
 argument_list|(
 name|RepositoryListener
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
-name|listener
-operator|=
-operator|(
-name|RepositoryListener
-operator|)
-name|listenerControl
-operator|.
-name|getMock
-argument_list|()
 expr_stmt|;
 name|repositorySession
 operator|=
@@ -907,7 +914,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// AbstractRepositoryPurgeTest.fixPath( getTestRepoRoot() );
 name|FileUtils
 operator|.
 name|deleteDirectory
