@@ -1163,6 +1163,18 @@ operator|=
 name|taskScheduler
 expr_stmt|;
 block|}
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getRunningRemoteDownloadIds
+parameter_list|()
+block|{
+return|return
+name|runningRemoteDownloadIds
+return|;
+block|}
 block|}
 end_class
 

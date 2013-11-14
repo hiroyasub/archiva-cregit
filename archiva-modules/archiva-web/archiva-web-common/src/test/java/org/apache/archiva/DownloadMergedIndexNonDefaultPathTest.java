@@ -414,7 +414,14 @@ name|setProperty
 argument_list|(
 literal|"appserver.base"
 argument_list|,
-literal|"target/"
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"basedir"
+argument_list|)
+operator|+
+literal|"/target/"
 operator|+
 name|DownloadMergedIndexNonDefaultPathTest
 operator|.
@@ -1004,15 +1011,21 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// wait a bit
-name|timeout
-operator|=
-literal|20000
-expr_stmt|;
+comment|/*         timeout = 20000;         while ( timeout> 0 )         {             Thread.sleep( 500 );             timeout -= 500;         }*/
+comment|// wait the end
 while|while
 condition|(
-name|timeout
-operator|>
-literal|0
+operator|!
+name|repositoriesService
+operator|.
+name|getRunningRemoteDownloadIds
+argument_list|()
+operator|.
+name|getStrings
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|Thread
@@ -1021,10 +1034,6 @@ name|sleep
 argument_list|(
 literal|500
 argument_list|)
-expr_stmt|;
-name|timeout
-operator|-=
-literal|500
 expr_stmt|;
 block|}
 name|SearchService

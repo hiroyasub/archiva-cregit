@@ -1269,6 +1269,17 @@ argument_list|(
 name|request
 argument_list|)
 expr_stmt|;
+comment|// index packing optionnal ??
+comment|//IndexPackingRequest indexPackingRequest =
+comment|//    new IndexPackingRequest( indexingContext, indexingContext.getIndexDirectoryFile() );
+comment|//indexPacker.packIndex( indexPackingRequest );
+name|indexingContext
+operator|.
+name|updateTimestamp
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|stopWatch
 operator|.
 name|stop
@@ -1295,17 +1306,6 @@ argument_list|()
 operator|/
 literal|1000
 operator|)
-argument_list|)
-expr_stmt|;
-comment|// index packing optionnal ??
-comment|//IndexPackingRequest indexPackingRequest =
-comment|//    new IndexPackingRequest( indexingContext, indexingContext.getIndexDirectoryFile() );
-comment|//indexPacker.packIndex( indexPackingRequest );
-name|indexingContext
-operator|.
-name|updateTimestamp
-argument_list|(
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1428,8 +1428,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"end download remote index for remote repository "
-operator|+
+literal|"end download remote index for remote repository {}"
+argument_list|,
 name|this
 operator|.
 name|remoteRepository
@@ -1577,7 +1577,7 @@ throw|throw
 operator|new
 name|ClientProtocolException
 argument_list|(
-literal|"Upload failed: "
+literal|"Download failed: "
 operator|+
 name|response
 operator|.
