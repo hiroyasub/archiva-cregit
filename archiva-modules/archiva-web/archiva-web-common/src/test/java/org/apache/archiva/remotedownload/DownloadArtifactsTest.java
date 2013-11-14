@@ -6,6 +6,8 @@ operator|.
 name|apache
 operator|.
 name|archiva
+operator|.
+name|remotedownload
 package|;
 end_package
 
