@@ -1048,7 +1048,7 @@ name|createTempFile
 argument_list|(
 literal|"upload-artifact"
 argument_list|,
-literal|"tmp"
+literal|".tmp"
 argument_list|)
 decl_stmt|;
 name|tmpFile
