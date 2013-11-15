@@ -958,7 +958,9 @@ name|predicate
 init|=
 operator|new
 name|ConsumerWantsFilePredicate
-argument_list|()
+argument_list|(
+name|repository
+argument_list|)
 decl_stmt|;
 name|predicate
 operator|.
