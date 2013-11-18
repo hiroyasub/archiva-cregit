@@ -118,7 +118,7 @@ argument_list|)
 annotation|@
 name|Serializer
 argument_list|(
-name|HugeStringSerializer
+name|DeflateStringSerializer
 operator|.
 name|class
 argument_list|)
@@ -136,7 +136,7 @@ argument_list|)
 annotation|@
 name|Serializer
 argument_list|(
-name|HugeStringSerializer
+name|DeflateStringSerializer
 operator|.
 name|class
 argument_list|)

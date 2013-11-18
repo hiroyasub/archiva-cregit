@@ -55,22 +55,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|cassandra
-operator|.
-name|db
-operator|.
-name|marshal
-operator|.
-name|UTF8Type
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|commons
 operator|.
 name|codec
@@ -187,18 +171,6 @@ name|util
 operator|.
 name|zip
 operator|.
-name|DeflaterInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|zip
-operator|.
 name|DeflaterOutputStream
 import|;
 end_import
@@ -216,13 +188,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For Huge String we use a  compression  * @author Olivier Lamy  */
+comment|/**  * For Huge String we use a deflate compression  * @author Olivier Lamy  * @since 2.0.0  */
 end_comment
 
 begin_class
 specifier|public
 class|class
-name|HugeStringSerializer
+name|DeflateStringSerializer
 extends|extends
 name|AbstractSerializer
 argument_list|<
@@ -252,11 +224,11 @@ decl_stmt|;
 specifier|private
 specifier|static
 specifier|final
-name|HugeStringSerializer
+name|DeflateStringSerializer
 name|instance
 init|=
 operator|new
-name|HugeStringSerializer
+name|DeflateStringSerializer
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -274,7 +246,7 @@ argument_list|)
 decl_stmt|;
 specifier|public
 specifier|static
-name|HugeStringSerializer
+name|DeflateStringSerializer
 name|get
 parameter_list|()
 block|{
@@ -594,7 +566,6 @@ name|byteBuffer
 argument_list|)
 return|;
 block|}
-comment|/*     private static final String UTF_8 = "UTF-8";     private static final HugeStringSerializer instance = new HugeStringSerializer();     private static final Charset charset = Charset.forName(UTF_8);      public static HugeStringSerializer get() {         return instance;     }      @Override     public ByteBuffer toByteBuffer(String obj) {         if (obj == null) {             return null;         }         return ByteBuffer.wrap(obj.getBytes(charset));     }      @Override     public String fromByteBuffer(ByteBuffer byteBuffer) {         if (byteBuffer == null) {             return null;         }         final ByteBuffer dup = byteBuffer.duplicate();         return charset.decode(dup).toString();     }      @Override     public ComparatorType getComparatorType() {         return ComparatorType.UTF8TYPE;     }      @Override     public ByteBuffer fromString(String str) {         return UTF8Type.instance.fromString(str);     }      @Override     public String getString(ByteBuffer byteBuffer) {         return UTF8Type.instance.getString(byteBuffer);     }     */
 block|}
 end_class
 
