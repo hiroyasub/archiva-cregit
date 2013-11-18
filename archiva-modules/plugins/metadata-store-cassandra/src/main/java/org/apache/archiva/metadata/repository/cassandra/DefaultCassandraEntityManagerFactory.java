@@ -436,7 +436,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FIXME make all configuration not hardcoded :-)  *  * @author Olivier Lamy  */
+comment|/**  * FIXME make all configuration not hardcoded :-)  *  * @author Olivier Lamy  * @since 2.0.0  */
 end_comment
 
 begin_class

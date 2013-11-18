@@ -86,23 +86,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Olivier Lamy  */
+comment|/**  * @author Olivier Lamy  * @since 2.0.0  */
 end_comment
 
 begin_class
 annotation|@
 name|Entity
-annotation|@
-name|Table
-argument_list|(
-name|name
-operator|=
-literal|"repository"
-argument_list|,
-name|schema
-operator|=
-literal|"ArchivaKeySpace@archiva"
-argument_list|)
 specifier|public
 class|class
 name|Repository

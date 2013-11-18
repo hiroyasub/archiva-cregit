@@ -84,7 +84,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Cassandra storage model for {@link org.apache.archiva.metadata.model.MetadataFacet}  *  * @author Olivier Lamy  */
+comment|/**  * Cassandra storage model for {@link org.apache.archiva.metadata.model.MetadataFacet}  *  * @author Olivier Lamy  * @since 2.0.0  */
 end_comment
 
 begin_class
