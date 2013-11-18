@@ -1541,6 +1541,9 @@ name|MetadataResolutionException
 block|{
 try|try
 block|{
+comment|//final List<Namespace> namespaceList =
+comment|//    getNamespaceEntityManager().find( "SELECT name FROM namespace WHERE repository.id='"+ repoId + "'" );
+comment|//final Set<String> namespaces = new HashSet<String>( namespaceList.size() );
 specifier|final
 name|Set
 argument_list|<
@@ -1553,8 +1556,9 @@ name|HashSet
 argument_list|<
 name|String
 argument_list|>
-argument_list|()
+argument_list|( )
 decl_stmt|;
+comment|/*             for ( Namespace namespace : namespaceList )             {                 String name = namespace.getName();                 if ( StringUtils.isNotEmpty( name ) )                 {                     namespaces.add( StringUtils.substringBefore( name, "." ) );                 }             }             */
 name|getNamespaceEntityManager
 argument_list|()
 operator|.
@@ -1944,17 +1948,18 @@ block|}
 comment|// FIXME find correct cql query
 comment|//String query = "select * from namespace where repository.id = '" + repoId + "';";
 comment|//List<Namespace> namespaces = getNamespaceEntityManager().find( query );
+comment|//final Set<Namespace> namespaces = new HashSet<Namespace>();
 specifier|final
 name|Set
 argument_list|<
-name|Namespace
+name|String
 argument_list|>
 name|namespaces
 init|=
 operator|new
 name|HashSet
 argument_list|<
-name|Namespace
+name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -2017,6 +2022,9 @@ operator|.
 name|add
 argument_list|(
 name|namespace
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2029,101 +2037,16 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|repository
-operator|.
-name|setNamespaces
-argument_list|(
+comment|/*              repository.setNamespaces( new ArrayList<Namespace>( namespaces ) );             if ( repository == null || repository.getNamespaces().isEmpty() )             {                 return Collections.emptyList();             }              List<String> namespaceIds = new ArrayList<String>( repository.getNamespaces().size() );              for ( Namespace n : repository.getNamespaces() )             {                 namespaceIds.add( n.getName() );             }              logger.debug( "getNamespaces for repository '{}' found {}", repoId, namespaceIds.size() );              return namespaceIds;             */
+return|return
 operator|new
 name|ArrayList
 argument_list|<
-name|Namespace
+name|String
 argument_list|>
 argument_list|(
 name|namespaces
 argument_list|)
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|repository
-operator|==
-literal|null
-operator|||
-name|repository
-operator|.
-name|getNamespaces
-argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-return|return
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
-return|;
-block|}
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|namespaceIds
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|String
-argument_list|>
-argument_list|(
-name|repository
-operator|.
-name|getNamespaces
-argument_list|()
-operator|.
-name|size
-argument_list|()
-argument_list|)
-decl_stmt|;
-for|for
-control|(
-name|Namespace
-name|n
-range|:
-name|repository
-operator|.
-name|getNamespaces
-argument_list|()
-control|)
-block|{
-name|namespaceIds
-operator|.
-name|add
-argument_list|(
-name|n
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"getNamespaces for repository '{}' found {}"
-argument_list|,
-name|repoId
-argument_list|,
-name|namespaceIds
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|namespaceIds
 return|;
 block|}
 catch|catch

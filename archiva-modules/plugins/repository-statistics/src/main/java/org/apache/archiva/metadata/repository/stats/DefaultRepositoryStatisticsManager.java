@@ -499,9 +499,12 @@ decl_stmt|;
 name|RepositoryStatistics
 name|repositoryStatistics
 init|=
-operator|(
 name|RepositoryStatistics
-operator|)
+operator|.
+name|class
+operator|.
+name|cast
+argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
@@ -513,6 +516,7 @@ operator|.
 name|FACET_ID
 argument_list|,
 name|name
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|stopWatch
