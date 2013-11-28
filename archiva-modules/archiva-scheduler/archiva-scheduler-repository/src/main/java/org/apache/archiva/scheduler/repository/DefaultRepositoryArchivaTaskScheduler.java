@@ -481,7 +481,6 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
@@ -494,7 +493,6 @@ specifier|private
 name|CronExpressionValidator
 name|cronValidator
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -508,14 +506,12 @@ specifier|private
 name|TaskQueue
 name|repositoryScanningQueue
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
