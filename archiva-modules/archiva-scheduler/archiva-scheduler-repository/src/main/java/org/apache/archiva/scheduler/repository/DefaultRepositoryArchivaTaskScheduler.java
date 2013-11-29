@@ -299,6 +299,16 @@ name|org
 operator|.
 name|quartz
 operator|.
+name|JobDetail
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|quartz
+operator|.
 name|SchedulerException
 import|;
 end_import
@@ -741,8 +751,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to determine if a repository is already scanned, skipping initial scan: "
-operator|+
+literal|"Unable to determine if a repository is already scanned, skipping initial scan: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1167,12 +1177,10 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"error restarting job: "
-operator|+
+literal|"error restarting job: '{}' : '{}'"
+argument_list|,
 name|REPOSITORY_JOB
-operator|+
-literal|":"
-operator|+
+argument_list|,
 name|repoConfig
 operator|.
 name|getId
@@ -1299,11 +1307,9 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Repository ["
-operator|+
+literal|"Repository [{}] is queued to be scanned as it hasn't been previously."
+argument_list|,
 name|repoId
-operator|+
-literal|"] is queued to be scanned as it hasn't been previously."
 argument_list|)
 expr_stmt|;
 try|try
@@ -1336,16 +1342,14 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Error occurred while queueing repository ["
-operator|+
-name|repoId
-operator|+
-literal|"] task : "
-operator|+
+literal|"Error occurred while queueing repository [{}] task : {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|repoId
 argument_list|)
 expr_stmt|;
 block|}
@@ -1449,7 +1453,7 @@ name|CRON_HOURLY
 expr_stmt|;
 block|}
 comment|// setup the unprocessed artifact job
-name|JobDetailImpl
+name|JobDetail
 name|repositoryJob
 init|=
 operator|new
@@ -1554,15 +1558,13 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"ParseException in repository scanning cron expression, disabling repository scanning for '"
-operator|+
+literal|"ParseException in repository scanning cron expression, disabling repository scanning for '': {}"
+argument_list|,
 name|repoConfig
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"': "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
