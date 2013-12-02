@@ -245,7 +245,7 @@ name|ArchivaRestServiceException
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Feeding: {}"
 argument_list|,
