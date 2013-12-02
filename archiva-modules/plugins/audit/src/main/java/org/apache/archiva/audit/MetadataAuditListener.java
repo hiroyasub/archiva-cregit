@@ -236,8 +236,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to write audit event to repository: "
-operator|+
+literal|"Unable to write audit event to repository: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

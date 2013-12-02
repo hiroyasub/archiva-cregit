@@ -3431,11 +3431,9 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Artifact path '"
-operator|+
+literal|"Artifact path '{}' is invalid."
+argument_list|,
 name|resourcePath
-operator|+
-literal|"' is invalid."
 argument_list|)
 expr_stmt|;
 block|}

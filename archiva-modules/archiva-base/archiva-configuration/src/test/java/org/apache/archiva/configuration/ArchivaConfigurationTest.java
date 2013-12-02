@@ -3024,8 +3024,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"knowContentConsumers "
-operator|+
+literal|"knowContentConsumers {}"
+argument_list|,
 name|configuration
 operator|.
 name|getRepositoryScanning

@@ -194,8 +194,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"repos "
-operator|+
+literal|"repos {}"
+argument_list|,
 name|repos
 argument_list|)
 expr_stmt|;

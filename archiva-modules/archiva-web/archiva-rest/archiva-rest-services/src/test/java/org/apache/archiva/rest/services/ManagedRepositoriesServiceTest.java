@@ -717,8 +717,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"archivaRepositoryStatistics:"
-operator|+
+literal|"archivaRepositoryStatistics: {}"
+argument_list|,
 name|archivaRepositoryStatistics
 operator|.
 name|toString

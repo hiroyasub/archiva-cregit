@@ -137,8 +137,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"remote "
-operator|+
+literal|"remote {}"
+argument_list|,
 name|remoteRepositories
 argument_list|)
 expr_stmt|;

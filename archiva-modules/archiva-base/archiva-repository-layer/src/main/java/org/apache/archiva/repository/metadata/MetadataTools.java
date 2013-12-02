@@ -1889,8 +1889,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to read metadata: "
-operator|+
+literal|"Unable to read metadata: {}"
+argument_list|,
 name|metadataFile
 operator|.
 name|getAbsolutePath
@@ -1985,8 +1985,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to read metadata: "
-operator|+
+literal|"Unable to read metadata: {}"
+argument_list|,
 name|metadataFile
 operator|.
 name|getAbsolutePath
@@ -2084,8 +2084,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to read metadata: "
-operator|+
+literal|"Unable to read metadata: {}"
+argument_list|,
 name|metadataFile
 operator|.
 name|getAbsolutePath

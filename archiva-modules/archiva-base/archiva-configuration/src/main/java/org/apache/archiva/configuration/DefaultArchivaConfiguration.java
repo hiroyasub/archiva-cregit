@@ -1526,11 +1526,9 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Policy ["
-operator|+
+literal|"Policy [{}] does not exist."
+argument_list|,
 name|policyId
-operator|+
-literal|"] does not exist."
 argument_list|)
 expr_stmt|;
 block|}

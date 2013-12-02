@@ -1200,11 +1200,9 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"\n.\\ "
-operator|+
+literal|"\n.\\ {}() \\._________________________________________\n"
+argument_list|,
 name|name
-operator|+
-literal|"() \\._________________________________________\n"
 argument_list|)
 expr_stmt|;
 block|}

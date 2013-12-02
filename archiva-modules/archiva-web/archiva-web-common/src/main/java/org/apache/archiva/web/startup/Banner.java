@@ -910,6 +910,8 @@ argument_list|)
 operator|.
 name|info
 argument_list|(
+literal|"{} {}, {}"
+argument_list|,
 name|StringUtils
 operator|.
 name|repeat
@@ -918,9 +920,9 @@ literal|"_"
 argument_list|,
 literal|25
 argument_list|)
-operator|+
+argument_list|,
 name|eol
-operator|+
+argument_list|,
 name|banner
 argument_list|)
 expr_stmt|;

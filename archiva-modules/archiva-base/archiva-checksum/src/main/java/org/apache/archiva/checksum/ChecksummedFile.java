@@ -480,8 +480,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to update checksum:"
-operator|+
+literal|"Unable to update checksum:{}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -582,8 +582,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to read / parse checksum: "
-operator|+
+literal|"Unable to read / parse checksum: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

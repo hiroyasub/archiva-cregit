@@ -1657,8 +1657,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to use proxy connector: "
-operator|+
+literal|"Unable to use proxy connector: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1678,8 +1678,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to use proxy connector: "
-operator|+
+literal|"Unable to use proxy connector: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -2477,8 +2477,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Transfer error from repository \""
-operator|+
+literal|"Transfer error from repository {} for resource {}, continuing to next repository. Error message: {}"
+argument_list|,
 name|targetRepository
 operator|.
 name|getRepository
@@ -2486,12 +2486,8 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"\" for resource "
-operator|+
+argument_list|,
 name|path
-operator|+
-literal|", continuing to next repository. Error message: {}"
 argument_list|,
 name|e
 operator|.
@@ -2552,8 +2548,8 @@ argument_list|(
 literal|"transfer.error"
 argument_list|)
 argument_list|,
-literal|"Transfer error from repository \""
-operator|+
+literal|"Transfer error from repository {} for resource {}, continuing to next repository. Error message: {}"
+argument_list|,
 name|targetRepository
 operator|.
 name|getRepository
@@ -2561,12 +2557,8 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"\" for resource "
-operator|+
+argument_list|,
 name|path
-operator|+
-literal|", continuing to next repository. Error message: {}"
 argument_list|,
 name|e
 operator|.
@@ -2815,8 +2807,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Transfer error from repository \""
-operator|+
+literal|"Transfer error from repository {} for versioned Metadata {}, continuing to next repository. Error message: {}"
+argument_list|,
 name|targetRepository
 operator|.
 name|getRepository
@@ -2824,13 +2816,9 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"\" for versioned Metadata "
-operator|+
+argument_list|,
 name|logicalPath
-operator|+
-literal|", continuing to next repository. Error message: "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -2857,8 +2845,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Transfer error from repository \""
-operator|+
+literal|"Transfer error from repository {} for versioned Metadata {}, continuing to next repository. Error message: {}"
+argument_list|,
 name|targetRepository
 operator|.
 name|getRepository
@@ -2866,13 +2854,9 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"\" for versioned Metadata "
-operator|+
+argument_list|,
 name|logicalPath
-operator|+
-literal|", continuing to next repository. Error message: "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -2938,15 +2922,13 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to update metadata "
-operator|+
+literal|"Unable to update metadata {}:{}"
+argument_list|,
 name|localFile
 operator|.
 name|getAbsolutePath
 argument_list|()
-operator|+
-literal|": "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -4321,12 +4303,10 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Transfer failed on checksum: "
-operator|+
+literal|"Transfer failed on checksum: {} : {}"
+argument_list|,
 name|url
-operator|+
-literal|" : "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -4990,8 +4970,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Transfer error from repository \""
-operator|+
+literal|"Transfer error from repository {} for artifact {} , continuing to next repository. Error message: {}"
+argument_list|,
 name|content
 operator|.
 name|getRepository
@@ -4999,18 +4979,14 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"\" for artifact "
-operator|+
+argument_list|,
 name|Keys
 operator|.
 name|toKey
 argument_list|(
 name|artifact
 argument_list|)
-operator|+
-literal|", continuing to next repository. Error message: "
-operator|+
+argument_list|,
 name|exception
 operator|.
 name|getMessage
@@ -5480,8 +5456,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Could not connect to "
-operator|+
+literal|"Could not connect to {}: {}"
+argument_list|,
 name|remoteRepository
 operator|.
 name|getRepository
@@ -5489,9 +5465,7 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|": "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -5513,8 +5487,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Could not connect to "
-operator|+
+literal|"Could not connect to {}: {}"
+argument_list|,
 name|remoteRepository
 operator|.
 name|getRepository
@@ -5522,9 +5496,7 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|": "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage

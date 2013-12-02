@@ -725,8 +725,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Remote HTTP Server started on "
-operator|+
+literal|"Remote HTTP Server started on {}"
+argument_list|,
 name|repo
 operator|.
 name|url

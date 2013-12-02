@@ -489,8 +489,8 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"fail to configure User-Agent: "
-operator|+
+literal|"fail to configure User-Agent: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

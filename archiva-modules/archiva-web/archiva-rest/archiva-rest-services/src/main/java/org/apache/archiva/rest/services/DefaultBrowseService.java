@@ -1788,20 +1788,14 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Skipping invalid metadata while compiling shared model for "
-operator|+
+literal|"Skipping invalid metadata while compiling shared model for {}:{} in repo {}: {}"
+argument_list|,
 name|groupId
-operator|+
-literal|":"
-operator|+
+argument_list|,
 name|artifactId
-operator|+
-literal|" in repo "
-operator|+
+argument_list|,
 name|repoId
-operator|+
-literal|": "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage

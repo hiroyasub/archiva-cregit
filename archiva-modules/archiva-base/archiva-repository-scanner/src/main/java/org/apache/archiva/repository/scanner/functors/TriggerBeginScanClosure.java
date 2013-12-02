@@ -257,15 +257,13 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Consumer ["
-operator|+
+literal|"Consumer [{}] cannot begin: {}"
+argument_list|,
 name|consumer
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"] cannot begin: "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage

@@ -556,8 +556,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"start server on port "
-operator|+
+literal|"start server on port {}"
+argument_list|,
 name|this
 operator|.
 name|port
@@ -814,8 +814,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"returned hit count:"
-operator|+
+literal|"returned hit count:{}"
+argument_list|,
 name|response
 operator|.
 name|getReturnedHitsCount

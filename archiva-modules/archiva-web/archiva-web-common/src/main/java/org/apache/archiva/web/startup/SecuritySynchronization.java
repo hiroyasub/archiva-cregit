@@ -980,21 +980,17 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Environment Check: "
-operator|+
+literal|"Environment Check: {} -> {} violation(s)"
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|" -> "
-operator|+
+argument_list|,
 name|v
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" violation(s)"
 argument_list|)
 expr_stmt|;
 for|for
@@ -1247,20 +1243,16 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to add role ["
-operator|+
+literal|"Unable to add role [{}] to {} user."
+argument_list|,
 name|ArchivaRoleConstants
 operator|.
 name|toRepositoryObserverRoleName
 argument_list|(
 name|repoId
 argument_list|)
-operator|+
-literal|"] to "
-operator|+
+argument_list|,
 name|principal
-operator|+
-literal|" user."
 argument_list|,
 name|e
 argument_list|)

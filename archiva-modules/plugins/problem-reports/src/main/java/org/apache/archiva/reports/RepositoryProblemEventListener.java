@@ -240,8 +240,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to remove metadata facet as part of delete event: "
-operator|+
+literal|"Unable to remove metadata facet as part of delete event: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -332,8 +332,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to remove repository problem facets for the version being corrected in the repository: "
-operator|+
+literal|"Unable to remove repository problem facets for the version being corrected in the repository: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -452,8 +452,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to add repository problem facets for the version being removed: "
-operator|+
+literal|"Unable to add repository problem facets for the version being removed: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

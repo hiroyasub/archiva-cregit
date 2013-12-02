@@ -1486,8 +1486,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"end download remote index for remote repository "
-operator|+
+literal|"end download remote index for remote repository {}"
+argument_list|,
 name|this
 operator|.
 name|remoteRepository

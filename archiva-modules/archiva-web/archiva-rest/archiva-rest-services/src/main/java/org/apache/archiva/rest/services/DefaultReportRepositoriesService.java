@@ -418,8 +418,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to retrieve stats, assuming is empty: "
-operator|+
+literal|"Unable to retrieve stats, assuming is empty: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -536,8 +536,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to retrieve stats, assuming is empty: "
-operator|+
+literal|"Unable to retrieve stats, assuming is empty: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

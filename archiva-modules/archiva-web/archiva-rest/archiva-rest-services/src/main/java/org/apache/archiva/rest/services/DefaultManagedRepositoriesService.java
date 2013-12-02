@@ -798,8 +798,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Error retrieving repository statistics: "
-operator|+
+literal|"Error retrieving repository statistics: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

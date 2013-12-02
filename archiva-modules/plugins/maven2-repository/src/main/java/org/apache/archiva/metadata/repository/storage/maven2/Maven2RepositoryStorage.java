@@ -1420,12 +1420,10 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Invalid metadata: "
-operator|+
+literal|"Invalid metadata: {} - {}"
+argument_list|,
 name|metadataFile
-operator|+
-literal|" - "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1805,13 +1803,11 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"The artifact's parent POM file '"
-operator|+
-name|file
-operator|+
-literal|"' cannot be resolved. "
+literal|"The artifact's parent POM file '{}' cannot be resolved. "
 operator|+
 literal|"Using defaults for project version metadata.."
+argument_list|,
+name|file
 argument_list|)
 expr_stmt|;
 name|ProjectVersionMetadata

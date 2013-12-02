@@ -834,8 +834,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Not reporting problem for invalid artifact in checksum check: "
-operator|+
+literal|"Not reporting problem for invalid artifact in checksum check: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

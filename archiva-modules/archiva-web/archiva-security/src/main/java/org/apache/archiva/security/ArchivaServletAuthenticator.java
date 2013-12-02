@@ -414,23 +414,17 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Authorization Denied [ip="
-operator|+
+literal|"Authorization Denied [ip={},permission={},repo={}] : {}"
+argument_list|,
 name|request
 operator|.
 name|getRemoteAddr
 argument_list|()
-operator|+
-literal|",permission="
-operator|+
+argument_list|,
 name|permission
-operator|+
-literal|",repo="
-operator|+
+argument_list|,
 name|repositoryId
-operator|+
-literal|"] : "
-operator|+
+argument_list|,
 name|authzResult
 operator|.
 name|getException

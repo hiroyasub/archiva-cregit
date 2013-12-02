@@ -515,8 +515,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"url:"
-operator|+
+literal|"url: {}"
+argument_list|,
 name|artifact
 operator|.
 name|getUrl
@@ -942,8 +942,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"url:"
-operator|+
+literal|"url: {}"
+argument_list|,
 name|artifact
 operator|.
 name|getUrl
@@ -1114,8 +1114,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"artifact url "
-operator|+
+literal|"artifact url {}"
+argument_list|,
 name|artifacts
 operator|.
 name|get
@@ -1373,8 +1373,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"artifact url "
-operator|+
+literal|"artifact url {}"
+argument_list|,
 name|artifacts
 operator|.
 name|get
@@ -1472,8 +1472,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"groupIds  "
-operator|+
+literal|"groupIds  {}"
+argument_list|,
 name|groupIds
 argument_list|)
 expr_stmt|;
@@ -1608,8 +1608,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"artifacts:"
-operator|+
+literal|"artifacts: {}"
+argument_list|,
 name|artifacts
 argument_list|)
 expr_stmt|;

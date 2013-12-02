@@ -1504,7 +1504,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Error decoding username and password."
+literal|"Error decoding username and password: {}"
 argument_list|,
 name|ie
 operator|.

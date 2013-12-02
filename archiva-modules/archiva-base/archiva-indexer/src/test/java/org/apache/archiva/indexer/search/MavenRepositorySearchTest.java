@@ -4451,8 +4451,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"groupIds: "
-operator|+
+literal|"groupIds: {}"
+argument_list|,
 name|groupIds
 argument_list|)
 expr_stmt|;

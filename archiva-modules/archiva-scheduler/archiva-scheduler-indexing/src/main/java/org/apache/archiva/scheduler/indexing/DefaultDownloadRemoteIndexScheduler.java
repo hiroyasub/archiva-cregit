@@ -1056,8 +1056,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to schedule remote index download: "
-operator|+
+literal|"Unable to schedule remote index download: {}"
+argument_list|,
 name|e
 operator|.
 name|getLocalizedMessage

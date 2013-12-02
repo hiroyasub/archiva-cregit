@@ -391,19 +391,13 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|".getIfNewer("
-operator|+
+literal|".getIfNewer({}, {}, {})"
+argument_list|,
 name|resourceName
-operator|+
-literal|", "
-operator|+
+argument_list|,
 name|destination
-operator|+
-literal|", "
-operator|+
+argument_list|,
 name|timestamp
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 name|boolean

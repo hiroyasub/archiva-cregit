@@ -616,8 +616,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Exception when checking for locked admin user: "
-operator|+
+literal|"Exception when checking for locked admin user: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

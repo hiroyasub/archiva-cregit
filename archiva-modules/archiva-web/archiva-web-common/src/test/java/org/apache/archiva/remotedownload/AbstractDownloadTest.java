@@ -817,8 +817,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"start server on port "
-operator|+
+literal|"start server on port {}"
+argument_list|,
 name|this
 operator|.
 name|port

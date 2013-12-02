@@ -554,8 +554,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to persist resolved information: "
-operator|+
+literal|"Unable to persist resolved information: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -863,8 +863,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to persist resolved information: "
-operator|+
+literal|"Unable to persist resolved information: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1076,8 +1076,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to persist resolved information: "
-operator|+
+literal|"Unable to persist resolved information: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1306,8 +1306,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to persist resolved information: "
-operator|+
+literal|"Unable to persist resolved information: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1559,8 +1559,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to persist resolved information: "
-operator|+
+literal|"Unable to persist resolved information: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1580,8 +1580,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Not update project in metadata repository due to an error resolving it from storage: "
-operator|+
+literal|"Not update project in metadata repository due to an error resolving it from storage: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1872,8 +1872,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to persist resolved information: "
-operator|+
+literal|"Unable to persist resolved information: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

@@ -633,12 +633,10 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to convert artifact: "
-operator|+
+literal|"Unable to convert artifact: {} : {}"
+argument_list|,
 name|path
-operator|+
-literal|" : "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -658,12 +656,10 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to convert artifact: "
-operator|+
+literal|"Unable to convert artifact: {} : {}"
+argument_list|,
 name|path
-operator|+
-literal|" : "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage

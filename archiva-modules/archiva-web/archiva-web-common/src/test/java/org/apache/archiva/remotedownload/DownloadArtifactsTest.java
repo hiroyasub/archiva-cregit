@@ -1043,8 +1043,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"fail to get zipEntries "
-operator|+
+literal|"fail to get zipEntries {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
