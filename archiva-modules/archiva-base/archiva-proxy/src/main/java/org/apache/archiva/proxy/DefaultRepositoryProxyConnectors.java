@@ -3850,11 +3850,6 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|Wagon
-name|wagon
-init|=
-literal|null
-decl_stmt|;
 name|transferResources
 argument_list|(
 name|connector
