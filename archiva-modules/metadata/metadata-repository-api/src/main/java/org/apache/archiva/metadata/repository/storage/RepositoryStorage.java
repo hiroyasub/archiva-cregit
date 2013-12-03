@@ -311,7 +311,7 @@ parameter_list|)
 throws|throws
 name|ProxyDownloadException
 function_decl|;
-comment|/**      * @param requestPath the web uri request      * @return the file path      * @since 2.0.0      */
+comment|/**      * @param requestPath the web uri request      * @param managedRepository the used managed repository      * @return the file path      * @since 2.0.0      */
 name|String
 name|getFilePath
 parameter_list|(
