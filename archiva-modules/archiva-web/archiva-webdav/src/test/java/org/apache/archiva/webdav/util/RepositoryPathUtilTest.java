@@ -121,7 +121,7 @@ name|href
 argument_list|)
 argument_list|)
 operator|.
-name|equals
+name|isEqualTo
 argument_list|(
 literal|"to"
 argument_list|)
@@ -142,7 +142,7 @@ name|href
 argument_list|)
 argument_list|)
 operator|.
-name|equals
+name|isEqualTo
 argument_list|(
 literal|"to"
 argument_list|)
