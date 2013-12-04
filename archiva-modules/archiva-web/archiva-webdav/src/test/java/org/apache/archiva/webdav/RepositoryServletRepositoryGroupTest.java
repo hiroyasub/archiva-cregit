@@ -687,18 +687,22 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|Assertions
+operator|.
+name|assertThat
 argument_list|(
-literal|"Expected file contents"
-argument_list|,
-literal|"first"
-argument_list|,
 name|response
 operator|.
 name|getText
 argument_list|()
 argument_list|)
+operator|.
+name|isEqualTo
+argument_list|(
+literal|"first"
+argument_list|)
 expr_stmt|;
+comment|//assertEquals( "Expected file contents", "first", response.getText() );
 block|}
 comment|/*     * Test Case 3.c     */
 annotation|@
@@ -779,16 +783,20 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|assertEquals
+comment|//assertEquals( "Expected file contents", "last", response.getText() );
+name|Assertions
+operator|.
+name|assertThat
 argument_list|(
-literal|"Expected file contents"
-argument_list|,
-literal|"last"
-argument_list|,
 name|response
 operator|.
 name|getText
 argument_list|()
+argument_list|)
+operator|.
+name|isEqualTo
+argument_list|(
+literal|"last"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1115,79 +1123,34 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|assertEquals
+comment|/*         assertEquals( "Versions list size", 4, metadata.getAvailableVersions().size() );         assertTrue( "Versions list contains version 1.0", metadata.getAvailableVersions().contains( "1.0" ) );         assertTrue( "Versions list contains version 1.5", metadata.getAvailableVersions().contains( "1.5" ) );         assertTrue( "Versions list contains version 2.0", metadata.getAvailableVersions().contains( "2.0" ) );         assertTrue( "Versions list contains version 2.5", metadata.getAvailableVersions().contains( "2.5" ) );         */
+name|Assertions
+operator|.
+name|assertThat
 argument_list|(
-literal|"Versions list size"
-argument_list|,
-literal|4
-argument_list|,
 name|metadata
 operator|.
 name|getAvailableVersions
-argument_list|()
-operator|.
-name|size
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Versions list contains version 1.0"
-argument_list|,
-name|metadata
 operator|.
-name|getAvailableVersions
+name|isNotNull
 argument_list|()
+operator|.
+name|hasSize
+argument_list|(
+literal|4
+argument_list|)
 operator|.
 name|contains
 argument_list|(
 literal|"1.0"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Versions list contains version 1.5"
 argument_list|,
-name|metadata
-operator|.
-name|getAvailableVersions
-argument_list|()
-operator|.
-name|contains
-argument_list|(
 literal|"1.5"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Versions list contains version 2.0"
 argument_list|,
-name|metadata
-operator|.
-name|getAvailableVersions
-argument_list|()
-operator|.
-name|contains
-argument_list|(
 literal|"2.0"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Versions list contains version 2.5"
 argument_list|,
-name|metadata
-operator|.
-name|getAvailableVersions
-argument_list|()
-operator|.
-name|contains
-argument_list|(
 literal|"2.5"
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|//check if the checksum files were generated
@@ -1291,14 +1254,21 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|assertEquals
+comment|//assertEquals( "add113b0d7f8c6adb92a5015a7a3701081edf998  maven-metadata-group-with-valid-repos.xml",
+comment|//              response.getText() );
+name|Assertions
+operator|.
+name|assertThat
 argument_list|(
-literal|"add113b0d7f8c6adb92a5015a7a3701081edf998  maven-metadata-group-with-valid-repos.xml"
-argument_list|,
 name|response
 operator|.
 name|getText
 argument_list|()
+argument_list|)
+operator|.
+name|isEqualTo
+argument_list|(
+literal|"add113b0d7f8c6adb92a5015a7a3701081edf998  maven-metadata-group-with-valid-repos.xml"
 argument_list|)
 expr_stmt|;
 comment|// request the md5 checksum of the metadata
@@ -1331,17 +1301,21 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|assertEquals
+comment|//assertEquals( "5b85ea4aa5f52bb76760041a52f98de8  maven-metadata-group-with-valid-repos.xml",
+comment|//              response.getText().trim() );
+name|Assertions
+operator|.
+name|assertThat
 argument_list|(
-literal|"5b85ea4aa5f52bb76760041a52f98de8  maven-metadata-group-with-valid-repos.xml"
-argument_list|,
 name|response
 operator|.
 name|getText
 argument_list|()
+argument_list|)
 operator|.
-name|trim
-argument_list|()
+name|isEqualTo
+argument_list|(
+literal|"5b85ea4aa5f52bb76760041a52f98de8  maven-metadata-group-with-valid-repos.xml"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1473,45 +1447,15 @@ name|contains
 argument_list|(
 literal|"Collection"
 argument_list|)
-expr_stmt|;
-name|Assertions
-operator|.
-name|assertThat
-argument_list|(
-name|response
-operator|.
-name|getText
-argument_list|()
-argument_list|)
 operator|.
 name|contains
 argument_list|(
 literal|"dummy/dummy-artifact"
 argument_list|)
-expr_stmt|;
-name|Assertions
-operator|.
-name|assertThat
-argument_list|(
-name|response
-operator|.
-name|getText
-argument_list|()
-argument_list|)
 operator|.
 name|contains
 argument_list|(
 literal|"1.0"
-argument_list|)
-expr_stmt|;
-name|Assertions
-operator|.
-name|assertThat
-argument_list|(
-name|response
-operator|.
-name|getText
-argument_list|()
 argument_list|)
 operator|.
 name|contains
@@ -1528,25 +1472,34 @@ name|WebResponse
 name|response
 parameter_list|)
 block|{
-name|assertNotNull
+comment|//assertNotNull( "Should have recieved a response", response );
+name|Assertions
+operator|.
+name|assertThat
 argument_list|(
-literal|"Should have recieved a response"
-argument_list|,
 name|response
 argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Should have been an 405/Method Not Allowed response code."
-argument_list|,
-name|HttpServletResponse
 operator|.
-name|SC_METHOD_NOT_ALLOWED
-argument_list|,
+name|isNotNull
+argument_list|()
+expr_stmt|;
+comment|//assertEquals( "Should have been an 405/Method Not Allowed response code.",
+comment|//              HttpServletResponse.SC_METHOD_NOT_ALLOWED, response.getResponseCode() );
+name|Assertions
+operator|.
+name|assertThat
+argument_list|(
 name|response
 operator|.
 name|getResponseCode
 argument_list|()
+argument_list|)
+operator|.
+name|isEqualTo
+argument_list|(
+name|HttpServletResponse
+operator|.
+name|SC_METHOD_NOT_ALLOWED
 argument_list|)
 expr_stmt|;
 block|}
