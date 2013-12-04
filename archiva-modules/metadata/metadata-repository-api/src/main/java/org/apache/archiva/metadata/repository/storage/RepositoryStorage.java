@@ -311,7 +311,7 @@ parameter_list|)
 throws|throws
 name|ProxyDownloadException
 function_decl|;
-comment|/**      * @param requestPath the web uri request      * @param managedRepository the used managed repository      * @return the file path      * @since 2.0.0      */
+comment|/**      * add an other method to evaluate real path as when receiving -SNAPSHOT (for maven storage)      * request redirect to the last build      * @param requestPath the web uri request      * @param managedRepository the used managed repository can be<code>null</code> so last version won't be resolved      * @return the file path      * @since 2.0.0      */
 name|String
 name|getFilePath
 parameter_list|(

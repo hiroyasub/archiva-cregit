@@ -4256,6 +4256,7 @@ name|ManagedRepository
 name|managedRepository
 parameter_list|)
 block|{
+comment|// managedRepository can be null
 comment|// extract artifact reference from url
 comment|// groupId:artifactId:version:packaging:classifier
 comment|//org/apache/archiva/archiva-checksum/1.4-M4-SNAPSHOT/archiva-checksum-1.4-M4-SNAPSHOT.jar
