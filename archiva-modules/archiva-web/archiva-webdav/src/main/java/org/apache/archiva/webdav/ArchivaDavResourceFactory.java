@@ -1744,7 +1744,9 @@ throw|throw
 operator|new
 name|DavException
 argument_list|(
-literal|500
+name|HttpServletResponse
+operator|.
+name|SC_INTERNAL_SERVER_ERROR
 argument_list|,
 name|e
 argument_list|)
@@ -2097,7 +2099,9 @@ throw|throw
 operator|new
 name|DavException
 argument_list|(
-literal|500
+name|HttpServletResponse
+operator|.
+name|SC_INTERNAL_SERVER_ERROR
 argument_list|,
 name|e
 argument_list|)
@@ -2922,7 +2926,9 @@ argument_list|(
 operator|new
 name|DavException
 argument_list|(
-literal|500
+name|HttpServletResponse
+operator|.
+name|SC_INTERNAL_SERVER_ERROR
 argument_list|,
 name|e
 argument_list|)
@@ -3947,7 +3953,9 @@ throw|throw
 operator|new
 name|DavException
 argument_list|(
-literal|500
+name|HttpServletResponse
+operator|.
+name|SC_INTERNAL_SERVER_ERROR
 argument_list|,
 name|e
 argument_list|)
@@ -6295,7 +6303,9 @@ throw|throw
 operator|new
 name|DavException
 argument_list|(
-literal|500
+name|HttpServletResponse
+operator|.
+name|SC_INTERNAL_SERVER_ERROR
 argument_list|,
 name|e
 argument_list|)
@@ -6311,7 +6321,9 @@ throw|throw
 operator|new
 name|DavException
 argument_list|(
-literal|500
+name|HttpServletResponse
+operator|.
+name|SC_INTERNAL_SERVER_ERROR
 argument_list|,
 name|e
 argument_list|)
