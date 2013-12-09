@@ -4505,14 +4505,6 @@ name|getRepository
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|String
-name|requestPathNoRepository
-init|=
-name|removePrefix
-argument_list|(
-name|requestPath
-argument_list|)
-decl_stmt|;
 name|ArtifactReference
 name|artifactReference
 init|=
