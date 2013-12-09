@@ -363,7 +363,7 @@ name|ManagedRepositoryContent
 name|managedRepositoryContent
 parameter_list|)
 throws|throws
-name|LayoutException
+name|RelocationException
 throws|,
 name|XMLException
 function_decl|;

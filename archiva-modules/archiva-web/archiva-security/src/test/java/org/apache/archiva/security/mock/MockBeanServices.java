@@ -743,10 +743,6 @@ parameter_list|,
 name|ManagedRepositoryContent
 name|managedRepositoryContent
 parameter_list|)
-throws|throws
-name|LayoutException
-throws|,
-name|XMLException
 block|{
 return|return
 literal|null
