@@ -3208,14 +3208,14 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|error
+name|debug
 argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
+literal|"Relocation to {}"
 argument_list|,
 name|e
+operator|.
+name|getPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -3225,6 +3225,11 @@ argument_list|(
 name|e
 operator|.
 name|getPath
+argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getRelocationType
 argument_list|()
 argument_list|)
 throw|;
