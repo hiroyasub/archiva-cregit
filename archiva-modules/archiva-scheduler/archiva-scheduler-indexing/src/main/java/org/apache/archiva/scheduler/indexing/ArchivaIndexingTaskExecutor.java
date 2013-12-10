@@ -436,7 +436,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      *      */
 specifier|private
 name|IndexPacker
 name|indexPacker

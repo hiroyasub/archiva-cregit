@@ -211,6 +211,16 @@ name|javax
 operator|.
 name|servlet
 operator|.
+name|ServletContext
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|servlet
+operator|.
 name|ServletContextEvent
 import|;
 end_import
@@ -260,7 +270,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaStartup - the startup of all archiva features in a deterministic order.  *  *  */
+comment|/**  * ArchivaStartup - the startup of all archiva features in a deterministic order.  */
 end_comment
 
 begin_class
@@ -497,6 +507,14 @@ name|getServletContext
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|ServletContext
+name|servletContext
+init|=
+name|contextEvent
+operator|.
+name|getServletContext
+argument_list|()
+decl_stmt|;
 comment|// TODO check this stop
 comment|/*         if ( applicationContext != null&& applicationContext instanceof ClassPathXmlApplicationContext )         {             ( (ClassPathXmlApplicationContext) applicationContext ).close();         } */
 if|if
@@ -511,16 +529,22 @@ comment|// stop task queue executors
 name|stopTaskQueueExecutor
 argument_list|(
 name|tqeDbScanning
+argument_list|,
+name|servletContext
 argument_list|)
 expr_stmt|;
 name|stopTaskQueueExecutor
 argument_list|(
 name|tqeRepoScanning
+argument_list|,
+name|servletContext
 argument_list|)
 expr_stmt|;
 name|stopTaskQueueExecutor
 argument_list|(
 name|tqeIndexing
+argument_list|,
+name|servletContext
 argument_list|)
 expr_stmt|;
 comment|// stop the DefaultArchivaTaskScheduler and its scheduler
@@ -545,10 +569,17 @@ name|SchedulerException
 name|e
 parameter_list|)
 block|{
+name|servletContext
+operator|.
+name|log
+argument_list|(
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|()
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 try|try
@@ -599,10 +630,17 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|servletContext
+operator|.
+name|log
+argument_list|(
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|()
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -642,10 +680,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|contextEvent
-operator|.
-name|getServletContext
-argument_list|()
+name|servletContext
 operator|.
 name|log
 argument_list|(
@@ -655,6 +690,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -666,6 +703,9 @@ name|stopTaskQueueExecutor
 parameter_list|(
 name|ThreadedTaskQueueExecutor
 name|taskQueueExecutor
+parameter_list|,
+name|ServletContext
+name|servletContext
 parameter_list|)
 block|{
 if|if
@@ -711,6 +751,8 @@ init|=
 name|getExecutorServiceForTTQE
 argument_list|(
 name|taskQueueExecutor
+argument_list|,
+name|servletContext
 argument_list|)
 decl_stmt|;
 if|if
@@ -733,10 +775,17 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|servletContext
+operator|.
+name|log
+argument_list|(
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|()
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -747,6 +796,9 @@ name|getExecutorServiceForTTQE
 parameter_list|(
 name|ThreadedTaskQueueExecutor
 name|ttqe
+parameter_list|,
+name|ServletContext
+name|servletContext
 parameter_list|)
 block|{
 name|ExecutorService
@@ -795,10 +847,17 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|servletContext
+operator|.
+name|log
+argument_list|(
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|()
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 return|return

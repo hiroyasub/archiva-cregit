@@ -434,21 +434,18 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|ManagedRepositoryAdmin
 name|managedRepositoryAdmin
 decl_stmt|;
-comment|/**      * The repository scanner component.      */
 annotation|@
 name|Inject
 specifier|private
 name|RepositoryScanner
 name|repoScanner
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
@@ -459,7 +456,6 @@ specifier|private
 name|Task
 name|task
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
