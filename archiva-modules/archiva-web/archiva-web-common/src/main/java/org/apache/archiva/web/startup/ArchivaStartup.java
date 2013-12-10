@@ -507,6 +507,8 @@ name|getServletContext
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// we log using servlet mechanism as due to some possible problem with slf4j when container shutdown
+comment|// so servletContext.log
 name|ServletContext
 name|servletContext
 init|=
