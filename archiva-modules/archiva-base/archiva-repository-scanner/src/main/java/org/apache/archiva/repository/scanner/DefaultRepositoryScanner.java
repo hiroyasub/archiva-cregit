@@ -223,14 +223,12 @@ name|DefaultRepositoryScanner
 implements|implements
 name|RepositoryScanner
 block|{
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|FileTypes
 name|filetypes
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
