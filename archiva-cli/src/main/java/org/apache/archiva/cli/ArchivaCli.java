@@ -771,23 +771,9 @@ name|PlexusSisuBridgeException
 block|{
 comment|// hack around poorly configurable project builder by pointing all repositories back at this location to be self
 comment|// contained
-name|PlexusSisuBridge
-name|plexusSisuBridge
-init|=
-name|applicationContext
-operator|.
-name|getBean
-argument_list|(
-name|PlexusSisuBridge
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 name|WagonManager
 name|wagonManager
 init|=
-name|plexusSisuBridge
-operator|.
 name|lookup
 argument_list|(
 name|WagonManager
@@ -908,9 +894,6 @@ expr_stmt|;
 name|RepositoryScanner
 name|scanner
 init|=
-operator|(
-name|RepositoryScanner
-operator|)
 name|lookup
 argument_list|(
 name|RepositoryScanner
@@ -975,12 +958,15 @@ expr_stmt|;
 block|}
 block|}
 specifier|private
-name|Object
+parameter_list|<
+name|T
+parameter_list|>
+name|T
 name|lookup
 parameter_list|(
 name|Class
 argument_list|<
-name|?
+name|T
 argument_list|>
 name|clazz
 parameter_list|)
@@ -1156,9 +1142,6 @@ block|{
 name|String
 name|consumerHint
 init|=
-operator|(
-name|String
-operator|)
 name|entry
 operator|.
 name|getKey
@@ -1167,9 +1150,6 @@ decl_stmt|;
 name|RepositoryContentConsumer
 name|consumer
 init|=
-operator|(
-name|RepositoryContentConsumer
-operator|)
 name|entry
 operator|.
 name|getValue
@@ -1329,9 +1309,6 @@ block|{
 name|LegacyRepositoryConverter
 name|legacyRepositoryConverter
 init|=
-operator|(
-name|LegacyRepositoryConverter
-operator|)
 name|lookup
 argument_list|(
 name|LegacyRepositoryConverter
