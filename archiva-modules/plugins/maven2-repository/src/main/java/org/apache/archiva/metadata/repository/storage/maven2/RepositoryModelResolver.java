@@ -1038,7 +1038,11 @@ name|remove
 argument_list|(
 name|version
 argument_list|,
-literal|"-SNAPSHOT"
+literal|"-"
+operator|+
+name|VersionUtil
+operator|.
+name|SNAPSHOT
 argument_list|)
 operator|+
 literal|'-'

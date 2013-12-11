@@ -4563,7 +4563,9 @@ operator|.
 name|getVersion
 argument_list|()
 argument_list|,
-literal|"SNAPSHOT"
+name|VersionUtil
+operator|.
+name|SNAPSHOT
 argument_list|)
 condition|)
 block|{
@@ -4692,7 +4694,11 @@ operator|.
 name|getVersion
 argument_list|()
 argument_list|,
-literal|"-SNAPSHOT"
+literal|"-"
+operator|+
+name|VersionUtil
+operator|.
+name|SNAPSHOT
 argument_list|)
 operator|+
 literal|"-"
