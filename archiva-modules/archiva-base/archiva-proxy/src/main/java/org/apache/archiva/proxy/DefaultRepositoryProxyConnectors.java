@@ -1050,7 +1050,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -1064,7 +1063,6 @@ specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -1078,7 +1076,6 @@ specifier|private
 name|RepositoryContentFactory
 name|repositoryFactory
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -1092,7 +1089,6 @@ specifier|private
 name|MetadataTools
 name|metadataTools
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
@@ -1104,7 +1100,6 @@ name|PreDownloadPolicy
 argument_list|>
 name|preDownloadPolicies
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
@@ -1116,7 +1111,6 @@ name|PostDownloadPolicy
 argument_list|>
 name|postDownloadPolicies
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
@@ -1128,7 +1122,6 @@ name|DownloadErrorPolicy
 argument_list|>
 name|downloadErrorPolicies
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
@@ -1177,14 +1170,12 @@ name|ProxyInfo
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|WagonFactory
 name|wagonFactory
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
