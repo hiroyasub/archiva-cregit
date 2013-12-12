@@ -275,7 +275,7 @@ name|FileLockManager
 name|fileLockManager
 decl_stmt|;
 class|class
-name|ConcurentFileWrite
+name|ConcurrentFileWrite
 extends|extends
 name|MultithreadedTestCase
 block|{
@@ -323,7 +323,7 @@ argument_list|,
 literal|"src/test/cassandra-all-2.0.3.jar"
 argument_list|)
 decl_stmt|;
-name|ConcurentFileWrite
+name|ConcurrentFileWrite
 parameter_list|(
 name|FileLockManager
 name|fileLockManager
@@ -1129,21 +1129,21 @@ parameter_list|()
 throws|throws
 name|Throwable
 block|{
-name|ConcurentFileWrite
-name|concurentFileWrite
+name|ConcurrentFileWrite
+name|concurrentFileWrite
 init|=
 operator|new
-name|ConcurentFileWrite
+name|ConcurrentFileWrite
 argument_list|(
 name|fileLockManager
 argument_list|)
 decl_stmt|;
-comment|//concurentFileWrite.setTrace( true );
+comment|//concurrentFileWrite.setTrace( true );
 name|TestFramework
 operator|.
 name|runOnce
 argument_list|(
-name|concurentFileWrite
+name|concurrentFileWrite
 argument_list|)
 expr_stmt|;
 name|logger
@@ -1152,7 +1152,7 @@ name|info
 argument_list|(
 literal|"success: {}"
 argument_list|,
-name|concurentFileWrite
+name|concurrentFileWrite
 operator|.
 name|success
 argument_list|)
@@ -1163,7 +1163,7 @@ name|assertEquals
 argument_list|(
 literal|10
 argument_list|,
-name|concurentFileWrite
+name|concurrentFileWrite
 operator|.
 name|success
 operator|.
