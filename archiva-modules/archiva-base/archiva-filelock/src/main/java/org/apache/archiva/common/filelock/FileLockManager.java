@@ -23,6 +23,16 @@ name|File
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|FileNotFoundException
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Olivier Lamy  */
 end_comment
@@ -40,6 +50,8 @@ name|file
 parameter_list|)
 throws|throws
 name|FileLockException
+throws|,
+name|FileNotFoundException
 function_decl|;
 name|Lock
 name|readFileLock
@@ -49,6 +61,8 @@ name|file
 parameter_list|)
 throws|throws
 name|FileLockException
+throws|,
+name|FileNotFoundException
 function_decl|;
 name|void
 name|release
@@ -58,6 +72,19 @@ name|lock
 parameter_list|)
 throws|throws
 name|FileLockException
+throws|,
+name|FileNotFoundException
+function_decl|;
+name|int
+name|getTimeout
+parameter_list|()
+function_decl|;
+name|void
+name|setTimeout
+parameter_list|(
+name|int
+name|timeout
+parameter_list|)
 function_decl|;
 block|}
 end_interface
