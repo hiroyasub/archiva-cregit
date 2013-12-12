@@ -362,6 +362,8 @@ parameter_list|()
 throws|throws
 name|FileLockException
 throws|,
+name|FileLockTimeoutException
+throws|,
 name|IOException
 block|{
 name|logger
@@ -436,6 +438,8 @@ parameter_list|()
 throws|throws
 name|FileLockException
 throws|,
+name|FileLockTimeoutException
+throws|,
 name|IOException
 block|{
 name|logger
@@ -509,6 +513,8 @@ name|thread3
 parameter_list|()
 throws|throws
 name|FileLockException
+throws|,
+name|FileLockTimeoutException
 throws|,
 name|IOException
 block|{
@@ -591,6 +597,8 @@ parameter_list|()
 throws|throws
 name|FileLockException
 throws|,
+name|FileLockTimeoutException
+throws|,
 name|IOException
 block|{
 name|logger
@@ -665,6 +673,8 @@ parameter_list|()
 throws|throws
 name|FileLockException
 throws|,
+name|FileLockTimeoutException
+throws|,
 name|IOException
 block|{
 name|logger
@@ -738,6 +748,8 @@ name|thread6
 parameter_list|()
 throws|throws
 name|FileLockException
+throws|,
+name|FileLockTimeoutException
 throws|,
 name|IOException
 block|{
@@ -820,6 +832,8 @@ parameter_list|()
 throws|throws
 name|FileLockException
 throws|,
+name|FileLockTimeoutException
+throws|,
 name|IOException
 block|{
 name|logger
@@ -893,6 +907,8 @@ name|thread8
 parameter_list|()
 throws|throws
 name|FileLockException
+throws|,
+name|FileLockTimeoutException
 throws|,
 name|IOException
 block|{
@@ -975,6 +991,8 @@ parameter_list|()
 throws|throws
 name|FileLockException
 throws|,
+name|FileLockTimeoutException
+throws|,
 name|IOException
 block|{
 name|logger
@@ -1048,6 +1066,8 @@ name|thread10
 parameter_list|()
 throws|throws
 name|FileLockException
+throws|,
+name|FileLockTimeoutException
 throws|,
 name|IOException
 block|{

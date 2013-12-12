@@ -55,7 +55,7 @@ parameter_list|)
 throws|throws
 name|FileLockException
 throws|,
-name|FileNotFoundException
+name|FileLockTimeoutException
 function_decl|;
 name|Lock
 name|readFileLock
@@ -66,7 +66,7 @@ parameter_list|)
 throws|throws
 name|FileLockException
 throws|,
-name|FileNotFoundException
+name|FileLockTimeoutException
 function_decl|;
 name|void
 name|release

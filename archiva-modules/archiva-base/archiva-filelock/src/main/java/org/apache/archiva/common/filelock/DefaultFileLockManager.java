@@ -189,7 +189,7 @@ parameter_list|)
 throws|throws
 name|FileLockException
 throws|,
-name|FileNotFoundException
+name|FileLockTimeoutException
 block|{
 if|if
 condition|(
@@ -216,6 +216,8 @@ name|acquired
 init|=
 literal|false
 decl_stmt|;
+try|try
+block|{
 name|Lock
 name|lock
 init|=
@@ -271,10 +273,12 @@ argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-comment|// we could not get the lock within the timeout period, so return null
-return|return
-literal|null
-return|;
+comment|// we could not get the lock within the timeout period, so  throw  FileLockTimeoutException
+throw|throw
+operator|new
+name|FileLockTimeoutException
+argument_list|()
+throw|;
 block|}
 block|}
 try|try
@@ -342,6 +346,26 @@ block|}
 return|return
 name|lock
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|FileNotFoundException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|FileLockException
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -355,7 +379,7 @@ parameter_list|)
 throws|throws
 name|FileLockException
 throws|,
-name|FileNotFoundException
+name|FileLockTimeoutException
 block|{
 if|if
 condition|(
@@ -382,6 +406,8 @@ name|acquired
 init|=
 literal|false
 decl_stmt|;
+try|try
+block|{
 name|Lock
 name|lock
 init|=
@@ -437,10 +463,12 @@ argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-comment|// we could not get the lock within the timeout period, so return null
-return|return
-literal|null
-return|;
+comment|// we could not get the lock within the timeout period, so throw FileLockTimeoutException
+throw|throw
+operator|new
+name|FileLockTimeoutException
+argument_list|()
+throw|;
 block|}
 block|}
 try|try
@@ -508,6 +536,26 @@ block|}
 return|return
 name|lock
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|FileNotFoundException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|FileLockException
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override
