@@ -929,6 +929,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|RandomAccessFile
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -5054,6 +5064,10 @@ operator|.
 name|mkdirs
 argument_list|()
 expr_stmt|;
+comment|// TODO file lock library
+name|RandomAccessFile
+name|raf
+decl_stmt|;
 if|if
 condition|(
 operator|!
