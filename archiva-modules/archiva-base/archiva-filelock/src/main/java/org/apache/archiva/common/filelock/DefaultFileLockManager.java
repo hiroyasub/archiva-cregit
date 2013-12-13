@@ -135,28 +135,10 @@ name|DefaultFileLockManager
 implements|implements
 name|FileLockManager
 block|{
-specifier|private
-specifier|static
-specifier|final
-name|ConcurrentMap
-argument_list|<
-name|File
-argument_list|,
-name|Lock
-argument_list|>
-name|lockFiles
-init|=
-operator|new
-name|ConcurrentHashMap
-argument_list|<
-name|File
-argument_list|,
-name|Lock
-argument_list|>
-argument_list|(
-literal|64
-argument_list|)
-decl_stmt|;
+comment|// TODO currently we create lock for read and write!!
+comment|// the idea could be to store lock here with various clients read/write
+comment|// only read could be a more simple lock and acquire a write lock means waiting the end of all reading threads
+comment|//private static final ConcurrentMap<File, Lock> lockFiles = new ConcurrentHashMap<File, Lock>( 64 );
 specifier|private
 name|boolean
 name|skipLocking
