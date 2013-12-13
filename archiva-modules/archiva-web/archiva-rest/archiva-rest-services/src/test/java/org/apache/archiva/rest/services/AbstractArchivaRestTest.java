@@ -1385,7 +1385,7 @@ return|;
 block|}
 specifier|protected
 name|RedbackRuntimeConfigurationService
-name|getArchivaRuntimeConfigurationService
+name|getRedbackRuntimeConfigurationService
 parameter_list|()
 block|{
 name|RedbackRuntimeConfigurationService

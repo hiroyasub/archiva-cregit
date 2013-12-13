@@ -140,7 +140,7 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|ArchivaRuntimeConfigurationServiceTest
+name|RedbackRuntimeConfigurationServiceTest
 extends|extends
 name|AbstractArchivaRestTest
 block|{
@@ -156,7 +156,7 @@ block|{
 name|RedbackRuntimeConfiguration
 name|redbackRuntimeConfiguration
 init|=
-name|getArchivaRuntimeConfigurationService
+name|getRedbackRuntimeConfigurationService
 argument_list|()
 operator|.
 name|getRedbackRuntimeConfiguration
@@ -190,7 +190,7 @@ block|{
 name|RedbackRuntimeConfiguration
 name|redbackRuntimeConfiguration
 init|=
-name|getArchivaRuntimeConfigurationService
+name|getRedbackRuntimeConfigurationService
 argument_list|()
 operator|.
 name|getRedbackRuntimeConfiguration
@@ -223,7 +223,7 @@ literal|"foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|getArchivaRuntimeConfigurationService
+name|getRedbackRuntimeConfigurationService
 argument_list|()
 operator|.
 name|updateRedbackRuntimeConfiguration
@@ -233,7 +233,7 @@ argument_list|)
 expr_stmt|;
 name|redbackRuntimeConfiguration
 operator|=
-name|getArchivaRuntimeConfigurationService
+name|getRedbackRuntimeConfigurationService
 argument_list|()
 operator|.
 name|getRedbackRuntimeConfiguration
@@ -267,7 +267,7 @@ block|{
 name|RedbackRuntimeConfigurationService
 name|service
 init|=
-name|getArchivaRuntimeConfigurationService
+name|getRedbackRuntimeConfigurationService
 argument_list|()
 decl_stmt|;
 name|List
@@ -320,7 +320,7 @@ block|{
 name|RedbackRuntimeConfigurationService
 name|service
 init|=
-name|getArchivaRuntimeConfigurationService
+name|getRedbackRuntimeConfigurationService
 argument_list|()
 decl_stmt|;
 name|List
