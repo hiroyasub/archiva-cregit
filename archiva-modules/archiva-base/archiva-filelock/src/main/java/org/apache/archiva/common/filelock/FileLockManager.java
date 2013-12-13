@@ -90,6 +90,17 @@ name|int
 name|timeout
 parameter_list|)
 function_decl|;
+name|boolean
+name|isSkipLocking
+parameter_list|()
+function_decl|;
+name|void
+name|setSkipLocking
+parameter_list|(
+name|boolean
+name|skipLocking
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
