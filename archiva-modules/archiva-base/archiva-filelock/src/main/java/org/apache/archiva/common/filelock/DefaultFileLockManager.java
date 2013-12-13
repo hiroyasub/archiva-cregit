@@ -164,7 +164,7 @@ specifier|private
 name|boolean
 name|skipLocking
 init|=
-literal|false
+literal|true
 decl_stmt|;
 specifier|private
 name|Logger
