@@ -341,11 +341,7 @@ name|fileLockManager
 operator|=
 name|fileLockManager
 expr_stmt|;
-name|file
-operator|.
-name|createNewFile
-argument_list|()
-expr_stmt|;
+comment|//file.createNewFile();
 block|}
 annotation|@
 name|Override

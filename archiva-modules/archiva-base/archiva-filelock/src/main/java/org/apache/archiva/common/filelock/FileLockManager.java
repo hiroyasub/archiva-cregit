@@ -46,6 +46,7 @@ specifier|public
 interface|interface
 name|FileLockManager
 block|{
+comment|/**      *      * @param file      * @return      * @throws FileLockException      * @throws FileLockTimeoutException      */
 name|Lock
 name|writeFileLock
 parameter_list|(
@@ -57,6 +58,7 @@ name|FileLockException
 throws|,
 name|FileLockTimeoutException
 function_decl|;
+comment|/**      *      * @param file      * @return      * @throws FileLockException      * @throws FileLockTimeoutException      */
 name|Lock
 name|readFileLock
 parameter_list|(

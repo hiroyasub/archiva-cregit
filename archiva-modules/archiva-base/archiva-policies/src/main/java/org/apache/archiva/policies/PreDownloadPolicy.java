@@ -16,7 +16,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Policy to apply before the download is attempted.  *  *  */
+comment|/**  * Policy to apply before the download is attempted.  */
 end_comment
 
 begin_interface
@@ -25,7 +25,9 @@ interface|interface
 name|PreDownloadPolicy
 extends|extends
 name|DownloadPolicy
-block|{ }
+block|{
+comment|// no op
+block|}
 end_interface
 
 end_unit
