@@ -335,6 +335,11 @@ continue|continue;
 block|}
 try|try
 block|{
+name|createNewFileQuietly
+argument_list|(
+name|file
+argument_list|)
+expr_stmt|;
 name|lock
 operator|.
 name|openLock
@@ -619,10 +624,10 @@ continue|continue;
 block|}
 try|try
 block|{
+name|createNewFileQuietly
+argument_list|(
 name|file
-operator|.
-name|createNewFile
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|lock
 operator|.
