@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * @author Olivier Lamy  */
+comment|/**  * @author Olivier Lamy  * @since 2.0.0  */
 end_comment
 
 begin_class
