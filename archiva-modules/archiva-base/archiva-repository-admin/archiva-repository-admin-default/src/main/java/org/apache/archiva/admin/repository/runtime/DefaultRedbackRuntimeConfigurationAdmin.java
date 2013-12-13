@@ -1828,7 +1828,7 @@ name|RedbackRuntimeConfiguration
 name|build
 parameter_list|(
 name|RedbackRuntimeConfiguration
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 parameter_list|)
 block|{
 name|org
@@ -1840,7 +1840,7 @@ operator|.
 name|configuration
 operator|.
 name|RedbackRuntimeConfiguration
-name|redbackRuntimeConfiguration
+name|res
 init|=
 operator|new
 name|BeanReplicator
@@ -1848,7 +1848,7 @@ argument_list|()
 operator|.
 name|replicateBean
 argument_list|(
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 argument_list|,
 name|org
 operator|.
@@ -1865,7 +1865,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|getLdapConfiguration
 argument_list|()
@@ -1873,7 +1873,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|setLdapConfiguration
 argument_list|(
@@ -1883,7 +1883,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|redbackRuntimeConfiguration
+name|res
 operator|.
 name|setLdapConfiguration
 argument_list|(
@@ -1893,7 +1893,7 @@ argument_list|()
 operator|.
 name|replicateBean
 argument_list|(
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|getLdapConfiguration
 argument_list|()
@@ -1914,7 +1914,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|getUsersCacheConfiguration
 argument_list|()
@@ -1922,7 +1922,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|setUsersCacheConfiguration
 argument_list|(
@@ -1932,7 +1932,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|redbackRuntimeConfiguration
+name|res
 operator|.
 name|setUsersCacheConfiguration
 argument_list|(
@@ -1942,7 +1942,7 @@ argument_list|()
 operator|.
 name|replicateBean
 argument_list|(
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|getUsersCacheConfiguration
 argument_list|()
@@ -1967,7 +1967,7 @@ name|LdapGroupMapping
 argument_list|>
 name|ldapGroupMappings
 init|=
-name|archivaRuntimeConfiguration
+name|redbackRuntimeConfiguration
 operator|.
 name|getLdapGroupMappings
 argument_list|()
@@ -2086,7 +2086,7 @@ name|mapping
 argument_list|)
 expr_stmt|;
 block|}
-name|redbackRuntimeConfiguration
+name|res
 operator|.
 name|setLdapGroupMappings
 argument_list|(
@@ -2095,7 +2095,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|redbackRuntimeConfiguration
+name|res
 return|;
 block|}
 comment|// wrapper for UserConfiguration to intercept values (and store it not yet migrated)
