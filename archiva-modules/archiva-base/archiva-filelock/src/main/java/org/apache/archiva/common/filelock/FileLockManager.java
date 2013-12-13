@@ -81,6 +81,10 @@ name|FileLockException
 throws|,
 name|FileNotFoundException
 function_decl|;
+name|void
+name|clearLockFiles
+parameter_list|()
+function_decl|;
 name|int
 name|getTimeout
 parameter_list|()
