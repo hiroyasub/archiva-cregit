@@ -99,6 +99,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|RandomAccessFile
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -335,6 +345,28 @@ argument_list|(
 literal|"read lock file exist continue wait"
 argument_list|)
 expr_stmt|;
+comment|// close RandomAccessFile!!!
+name|RandomAccessFile
+name|raf
+init|=
+name|lock
+operator|.
+name|getRandomAccessFile
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|raf
+operator|!=
+literal|null
+condition|)
+block|{
+name|raf
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 continue|continue;
 block|}
 try|try
@@ -614,6 +646,8 @@ argument_list|(
 name|file
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|current
@@ -628,10 +662,30 @@ argument_list|(
 literal|"write lock file exist continue wait"
 argument_list|)
 expr_stmt|;
+comment|// close RandomAccessFile!!!
+name|RandomAccessFile
+name|raf
+init|=
+name|lock
+operator|.
+name|getRandomAccessFile
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|raf
+operator|!=
+literal|null
+condition|)
+block|{
+name|raf
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 continue|continue;
 block|}
-try|try
-block|{
 name|createNewFileQuietly
 argument_list|(
 name|file

@@ -531,6 +531,15 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+specifier|protected
+name|RandomAccessFile
+name|getRandomAccessFile
+parameter_list|()
+block|{
+return|return
+name|randomAccessFile
+return|;
+block|}
 specifier|private
 name|void
 name|closeQuietly
