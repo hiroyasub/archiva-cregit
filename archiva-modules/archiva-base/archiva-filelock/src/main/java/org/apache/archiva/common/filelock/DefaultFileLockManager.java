@@ -376,6 +376,13 @@ parameter_list|)
 block|{
 comment|// can happen if an other thread has deleted the file
 comment|// close RandomAccessFile!!!
+if|if
+condition|(
+name|lock
+operator|!=
+literal|null
+condition|)
+block|{
 name|closeQuietly
 argument_list|(
 name|lock
@@ -384,6 +391,7 @@ name|getRandomAccessFile
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|log
 operator|.
 name|debug
@@ -656,6 +664,13 @@ parameter_list|)
 block|{
 comment|// can happen if an other thread has deleted the file
 comment|// close RandomAccessFile!!!
+if|if
+condition|(
+name|lock
+operator|!=
+literal|null
+condition|)
+block|{
 name|closeQuietly
 argument_list|(
 name|lock
@@ -664,6 +679,7 @@ name|getRandomAccessFile
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|log
 operator|.
 name|debug
