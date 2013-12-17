@@ -111,7 +111,7 @@ decl_stmt|;
 comment|/**      * default model value is empty so none      * @since 2.0.0      */
 specifier|private
 name|String
-name|mergedIndexCronExpression
+name|cronExpression
 decl_stmt|;
 specifier|public
 name|RepositoryGroup
@@ -353,26 +353,26 @@ return|;
 block|}
 specifier|public
 name|String
-name|getMergedIndexCronExpression
+name|getCronExpression
 parameter_list|()
 block|{
 return|return
-name|mergedIndexCronExpression
+name|cronExpression
 return|;
 block|}
 specifier|public
 name|void
-name|setMergedIndexCronExpression
+name|setCronExpression
 parameter_list|(
 name|String
-name|mergedIndexCronExpression
+name|cronExpression
 parameter_list|)
 block|{
 name|this
 operator|.
-name|mergedIndexCronExpression
+name|cronExpression
 operator|=
-name|mergedIndexCronExpression
+name|cronExpression
 expr_stmt|;
 block|}
 specifier|public
@@ -385,7 +385,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|mergedIndexCronExpression
+name|cronExpression
 operator|=
 name|mergedIndexCronExpression
 expr_stmt|;
@@ -584,12 +584,12 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", mergedIndexCronExpression='"
+literal|", cronExpression='"
 argument_list|)
 operator|.
 name|append
 argument_list|(
-name|mergedIndexCronExpression
+name|cronExpression
 argument_list|)
 operator|.
 name|append
