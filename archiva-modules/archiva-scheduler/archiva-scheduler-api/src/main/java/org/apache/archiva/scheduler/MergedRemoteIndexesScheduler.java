@@ -33,6 +33,16 @@ name|RepositoryGroup
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Olivier Lamy  * @since 2.0.0  */
 end_comment
@@ -48,6 +58,9 @@ name|schedule
 parameter_list|(
 name|RepositoryGroup
 name|repositoryGroup
+parameter_list|,
+name|File
+name|directory
 parameter_list|)
 function_decl|;
 name|void

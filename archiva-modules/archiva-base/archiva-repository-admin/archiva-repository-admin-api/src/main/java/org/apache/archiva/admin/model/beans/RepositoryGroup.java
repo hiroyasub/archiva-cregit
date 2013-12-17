@@ -377,7 +377,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|RepositoryGroup
-name|mergedIndexCronExpression
+name|cronExpression
 parameter_list|(
 name|String
 name|mergedIndexCronExpression
