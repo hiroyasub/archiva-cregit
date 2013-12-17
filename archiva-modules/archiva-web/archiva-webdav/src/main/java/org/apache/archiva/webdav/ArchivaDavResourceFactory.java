@@ -6495,6 +6495,11 @@ name|mergedIndexDirectory
 argument_list|(
 name|tempRepoFile
 argument_list|)
+operator|.
+name|temporary
+argument_list|(
+literal|true
+argument_list|)
 decl_stmt|;
 name|MergedRemoteIndexesTaskRequest
 name|taskRequest
