@@ -359,14 +359,10 @@ argument_list|(
 name|directory
 argument_list|)
 decl_stmt|;
-name|MergedRemoteIndexesTask
-operator|.
 name|MergedRemoteIndexesTaskRequest
 name|taskRequest
 init|=
 operator|new
-name|MergedRemoteIndexesTask
-operator|.
 name|MergedRemoteIndexesTaskRequest
 argument_list|(
 name|indexMergerRequest
