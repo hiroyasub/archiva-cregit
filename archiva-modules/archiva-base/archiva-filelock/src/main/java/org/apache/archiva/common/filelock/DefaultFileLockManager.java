@@ -109,6 +109,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|channels
+operator|.
+name|ClosedChannelException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -880,6 +892,26 @@ name|lock
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ClosedChannelException
+name|e
+parameter_list|)
+block|{
+comment|// skip this one
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"ignore ClosedChannelException: {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
