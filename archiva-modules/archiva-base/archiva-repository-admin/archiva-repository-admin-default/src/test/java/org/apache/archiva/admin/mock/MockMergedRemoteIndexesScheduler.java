@@ -61,6 +61,16 @@ name|Service
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Olivier Lamy  */
 end_comment
@@ -82,6 +92,9 @@ name|schedule
 parameter_list|(
 name|RepositoryGroup
 name|repositoryGroup
+parameter_list|,
+name|File
+name|directory
 parameter_list|)
 block|{
 comment|// no op
