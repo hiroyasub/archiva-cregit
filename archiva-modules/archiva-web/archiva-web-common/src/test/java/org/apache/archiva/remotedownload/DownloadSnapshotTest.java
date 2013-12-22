@@ -6,6 +6,8 @@ operator|.
 name|apache
 operator|.
 name|archiva
+operator|.
+name|remotedownload
 package|;
 end_package
 
@@ -48,20 +50,6 @@ operator|.
 name|services
 operator|.
 name|RoleManagementService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|remotedownload
-operator|.
-name|AbstractDownloadTest
 import|;
 end_import
 
