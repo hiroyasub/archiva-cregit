@@ -17,22 +17,6 @@ end_comment
 
 begin_import
 import|import
-name|net
-operator|.
-name|sf
-operator|.
-name|beanlib
-operator|.
-name|provider
-operator|.
-name|replicator
-operator|.
-name|BeanReplicator
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -270,6 +254,16 @@ operator|.
 name|context
 operator|.
 name|IndexingContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|modelmapper
+operator|.
+name|ModelMapper
 import|;
 end_import
 
@@ -1307,10 +1301,10 @@ condition|?
 literal|null
 else|:
 operator|new
-name|BeanReplicator
+name|ModelMapper
 argument_list|()
 operator|.
-name|replicateBean
+name|map
 argument_list|(
 name|proxyConnectorConfiguration
 argument_list|,

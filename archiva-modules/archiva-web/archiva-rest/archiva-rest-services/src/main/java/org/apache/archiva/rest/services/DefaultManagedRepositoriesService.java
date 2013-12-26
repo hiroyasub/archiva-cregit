@@ -19,22 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|net
-operator|.
-name|sf
-operator|.
-name|beanlib
-operator|.
-name|provider
-operator|.
-name|replicator
-operator|.
-name|BeanReplicator
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -819,11 +803,10 @@ block|{
 name|ArchivaRepositoryStatistics
 name|archivaRepositoryStatistics
 init|=
-operator|new
-name|BeanReplicator
+name|getModelMapper
 argument_list|()
 operator|.
-name|replicateBean
+name|map
 argument_list|(
 name|stats
 argument_list|,
