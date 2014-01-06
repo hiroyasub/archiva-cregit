@@ -431,6 +431,8 @@ name|remoteSnapshots
 decl_stmt|;
 annotation|@
 name|Before
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setUp
@@ -441,6 +443,9 @@ block|{
 name|super
 operator|.
 name|setUp
+argument_list|()
+expr_stmt|;
+name|startRepository
 argument_list|()
 expr_stmt|;
 block|}
