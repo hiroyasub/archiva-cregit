@@ -471,6 +471,8 @@ operator|.
 name|getResponse
 argument_list|(
 name|request
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
