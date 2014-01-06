@@ -2150,6 +2150,29 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+return|return
+name|getWebResponse
+argument_list|(
+operator|new
+name|GetMethodWebRequest
+argument_list|(
+literal|"http://localhost"
+operator|+
+name|path
+argument_list|)
+argument_list|)
+return|;
+block|}
+specifier|protected
+name|WebResponse
+name|getWebResponse
+parameter_list|(
+name|WebRequest
+name|webRequest
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 comment|//WebClient client = newClient();
 comment|//client.getPage( "http://localhost:" + port + "/reinit/reload" );
 comment|//return client.getPage( "http://localhost:" + port + path ).getWebResponse();
@@ -2164,7 +2187,13 @@ name|request
 operator|.
 name|setRequestURI
 argument_list|(
-name|path
+name|webRequest
+operator|.
+name|getUrl
+argument_list|()
+operator|.
+name|getPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|request
@@ -2180,9 +2209,16 @@ name|request
 operator|.
 name|setMethod
 argument_list|(
-literal|"GET"
+name|webRequest
+operator|.
+name|getHttpMethod
+argument_list|()
+operator|.
+name|name
+argument_list|()
 argument_list|)
 expr_stmt|;
+comment|/*         if (webRequest.getHttpMethod() == HttpMethod.PUT)         {             request.set         } */
 specifier|final
 name|MockHttpServletResponse
 name|response
@@ -2438,12 +2474,6 @@ operator|.
 name|getWebResponse
 argument_list|(
 name|request
-operator|.
-name|getUrl
-argument_list|()
-operator|.
-name|getPath
-argument_list|()
 argument_list|)
 return|;
 block|}
