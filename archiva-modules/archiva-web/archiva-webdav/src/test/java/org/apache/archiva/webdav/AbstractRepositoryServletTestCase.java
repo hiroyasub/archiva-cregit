@@ -2055,9 +2055,6 @@ comment|//, boolean followRedirect )
 throws|throws
 name|Exception
 block|{
-comment|//WebClient client = newClient();
-comment|//client.getPage( "http://localhost:" + port + "/reinit/reload" );
-comment|//return client.getPage( "http://localhost:" + port + path ).getWebResponse();
 name|MockHttpServletRequest
 name|request
 init|=
@@ -2219,6 +2216,25 @@ name|response
 operator|.
 name|getStatus
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getResponseHeaderValue
+parameter_list|(
+name|String
+name|headerName
+parameter_list|)
+block|{
+return|return
+name|response
+operator|.
+name|getHeader
+argument_list|(
+name|headerName
+argument_list|)
 return|;
 block|}
 block|}
