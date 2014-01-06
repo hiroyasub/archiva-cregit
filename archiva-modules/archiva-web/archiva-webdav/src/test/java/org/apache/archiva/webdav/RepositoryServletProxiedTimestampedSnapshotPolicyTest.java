@@ -137,11 +137,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 name|archivaConfiguration
 operator|.
 name|getConfiguration
@@ -156,6 +151,11 @@ name|ProxyConnectorConfiguration
 argument_list|>
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
