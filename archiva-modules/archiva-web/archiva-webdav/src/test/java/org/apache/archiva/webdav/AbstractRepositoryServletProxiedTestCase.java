@@ -19,11 +19,11 @@ begin_import
 import|import
 name|com
 operator|.
-name|meterware
+name|gargoylesoftware
 operator|.
-name|httpunit
+name|htmlunit
 operator|.
-name|WebConversation
+name|WebRequest
 import|;
 end_import
 
@@ -31,9 +31,9 @@ begin_import
 import|import
 name|com
 operator|.
-name|meterware
+name|gargoylesoftware
 operator|.
-name|httpunit
+name|htmlunit
 operator|.
 name|WebResponse
 import|;
@@ -163,22 +163,6 @@ name|server
 operator|.
 name|handler
 operator|.
-name|ContextHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|jetty
-operator|.
-name|server
-operator|.
-name|handler
-operator|.
 name|ContextHandlerCollection
 import|;
 end_import
@@ -208,20 +192,6 @@ operator|.
 name|servlet
 operator|.
 name|ServletContextHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|jetty
-operator|.
-name|servlet
-operator|.
-name|ServletHandler
 import|;
 end_import
 
@@ -282,7 +252,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AbstractRepositoryServletProxiedTestCase  *  *  */
+comment|/**  * AbstractRepositoryServletProxiedTestCase  *  */
 end_comment
 
 begin_class
@@ -769,23 +739,27 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|WebConversation
-name|wc
+comment|//WebConversation wc = new WebConversation();
+name|WebRequest
+name|request
 init|=
 operator|new
-name|WebConversation
-argument_list|()
-decl_stmt|;
-name|WebResponse
-name|response
-init|=
-name|wc
-operator|.
-name|getResponse
+name|GetMethodWebRequest
 argument_list|(
 name|remoteRepo
 operator|.
 name|url
+argument_list|)
+decl_stmt|;
+name|WebResponse
+name|response
+init|=
+name|getServletUnitClient
+argument_list|()
+operator|.
+name|getResponse
+argument_list|(
+name|request
 argument_list|)
 decl_stmt|;
 name|assertResponseOK

@@ -19,33 +19,9 @@ begin_import
 import|import
 name|com
 operator|.
-name|meterware
+name|gargoylesoftware
 operator|.
-name|httpunit
-operator|.
-name|GetMethodWebRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|meterware
-operator|.
-name|httpunit
-operator|.
-name|PutMethodWebRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|meterware
-operator|.
-name|httpunit
+name|htmlunit
 operator|.
 name|WebRequest
 import|;
@@ -55,9 +31,9 @@ begin_import
 import|import
 name|com
 operator|.
-name|meterware
+name|gargoylesoftware
 operator|.
-name|httpunit
+name|htmlunit
 operator|.
 name|WebResponse
 import|;
@@ -693,7 +669,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getText
+name|getContentAsString
 argument_list|()
 argument_list|)
 operator|.
@@ -702,7 +678,7 @@ argument_list|(
 literal|"first"
 argument_list|)
 expr_stmt|;
-comment|//assertEquals( "Expected file contents", "first", response.getText() );
+comment|//assertEquals( "Expected file contents", "first", response.getContentAsString() );
 block|}
 comment|/*     * Test Case 3.c     */
 annotation|@
@@ -783,14 +759,14 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-comment|//assertEquals( "Expected file contents", "last", response.getText() );
+comment|//assertEquals( "Expected file contents", "last", response.getContentAsString() );
 name|Assertions
 operator|.
 name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getText
+name|getContentAsString
 argument_list|()
 argument_list|)
 operator|.
@@ -1104,7 +1080,7 @@ name|returnedMetadata
 argument_list|,
 name|response
 operator|.
-name|getText
+name|getContentAsString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1255,14 +1231,14 @@ name|response
 argument_list|)
 expr_stmt|;
 comment|//assertEquals( "add113b0d7f8c6adb92a5015a7a3701081edf998  maven-metadata-group-with-valid-repos.xml",
-comment|//              response.getText() );
+comment|//              response.getContentAsString() );
 name|Assertions
 operator|.
 name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getText
+name|getContentAsString
 argument_list|()
 argument_list|)
 operator|.
@@ -1302,14 +1278,14 @@ name|response
 argument_list|)
 expr_stmt|;
 comment|//assertEquals( "5b85ea4aa5f52bb76760041a52f98de8  maven-metadata-group-with-valid-repos.xml",
-comment|//              response.getText().trim() );
+comment|//              response.getContentAsString().trim() );
 name|Assertions
 operator|.
 name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getText
+name|getContentAsString
 argument_list|()
 argument_list|)
 operator|.
@@ -1439,7 +1415,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getText
+name|getContentAsString
 argument_list|()
 argument_list|)
 operator|.
@@ -1491,7 +1467,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getResponseCode
+name|getStatusCode
 argument_list|()
 argument_list|)
 operator|.

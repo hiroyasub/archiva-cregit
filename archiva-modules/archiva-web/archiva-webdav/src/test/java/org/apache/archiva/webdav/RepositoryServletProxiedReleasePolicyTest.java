@@ -19,33 +19,9 @@ begin_import
 import|import
 name|com
 operator|.
-name|meterware
+name|gargoylesoftware
 operator|.
-name|httpunit
-operator|.
-name|GetMethodWebRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|meterware
-operator|.
-name|httpunit
-operator|.
-name|HttpUnitOptions
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|meterware
-operator|.
-name|httpunit
+name|htmlunit
 operator|.
 name|WebRequest
 import|;
@@ -55,9 +31,9 @@ begin_import
 import|import
 name|com
 operator|.
-name|meterware
+name|gargoylesoftware
 operator|.
-name|httpunit
+name|htmlunit
 operator|.
 name|WebResponse
 import|;
@@ -627,13 +603,7 @@ argument_list|()
 expr_stmt|;
 comment|// --- Execution
 comment|// process the response code later, not via an exception.
-name|HttpUnitOptions
-operator|.
-name|setExceptionsThrownOnErrorStatus
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
+comment|//HttpUnitOptions.setExceptionsThrownOnErrorStatus( false );
 name|WebRequest
 name|request
 init|=
@@ -687,7 +657,7 @@ name|expectedManagedContents
 argument_list|,
 name|response
 operator|.
-name|getText
+name|getContentAsString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -708,7 +678,7 @@ name|expectedRemoteContents
 argument_list|,
 name|response
 operator|.
-name|getText
+name|getContentAsString
 argument_list|()
 argument_list|)
 expr_stmt|;

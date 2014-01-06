@@ -39,39 +39,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
+name|archiva
 operator|.
-name|store
+name|common
 operator|.
-name|Lock
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|plexusbridge
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|LockReleaseFailedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|NativeFSLockFactory
+name|PlexusSisuBridgeException
 import|;
 end_import
 
@@ -235,7 +209,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
+name|IOException
 import|;
 end_import
 
@@ -279,8 +253,6 @@ specifier|public
 name|void
 name|startup
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|plexusSisuBridge
 operator|=
@@ -303,8 +275,6 @@ specifier|public
 name|void
 name|shutdown
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|cleanupIndex
 argument_list|()
@@ -430,8 +400,6 @@ specifier|public
 name|void
 name|cleanupIndex
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|log
 operator|.
@@ -440,6 +408,8 @@ argument_list|(
 literal|"cleanup IndexingContext"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|NexusIndexer
 name|nexusIndexer
 init|=
@@ -473,6 +443,28 @@ argument_list|(
 name|context
 argument_list|,
 literal|true
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"fail to cleanupIndex: {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
