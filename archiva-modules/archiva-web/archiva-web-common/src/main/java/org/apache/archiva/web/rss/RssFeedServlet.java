@@ -473,6 +473,16 @@ name|javax
 operator|.
 name|servlet
 operator|.
+name|ServletConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|servlet
+operator|.
 name|ServletException
 import|;
 end_import
@@ -658,10 +668,6 @@ specifier|public
 name|void
 name|init
 parameter_list|(
-name|javax
-operator|.
-name|servlet
-operator|.
 name|ServletConfig
 name|servletConfig
 parameter_list|)

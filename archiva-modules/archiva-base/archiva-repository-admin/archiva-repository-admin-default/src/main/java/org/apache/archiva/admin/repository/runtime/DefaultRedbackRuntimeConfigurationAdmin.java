@@ -455,6 +455,7 @@ parameter_list|(
 name|ArchivaConfiguration
 name|archivaConfiguration
 parameter_list|,
+comment|//
 annotation|@
 name|Named
 argument_list|(
