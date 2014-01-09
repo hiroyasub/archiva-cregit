@@ -3452,6 +3452,13 @@ argument_list|,
 name|version
 argument_list|)
 decl_stmt|;
+name|artifact
+operator|.
+name|setRepositoryId
+argument_list|(
+name|repositoryId
+argument_list|)
+expr_stmt|;
 return|return
 name|deleteArtifact
 argument_list|(
