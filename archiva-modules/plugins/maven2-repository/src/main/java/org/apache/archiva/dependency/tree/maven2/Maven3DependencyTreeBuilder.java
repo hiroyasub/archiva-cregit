@@ -1450,8 +1450,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-specifier|public
-specifier|static
+specifier|private
 name|RepositorySystem
 name|newRepositorySystem
 parameter_list|()
@@ -1529,8 +1528,7 @@ name|class
 argument_list|)
 return|;
 block|}
-specifier|public
-specifier|static
+specifier|private
 name|RepositorySystemSession
 name|newRepositorySystemSession
 parameter_list|(
