@@ -1567,7 +1567,10 @@ operator|.
 name|getProjectId
 argument_list|()
 argument_list|,
-name|artifactVersion
+name|readMetadataRequest
+operator|.
+name|getProjectVersion
+argument_list|()
 argument_list|,
 name|id
 argument_list|)

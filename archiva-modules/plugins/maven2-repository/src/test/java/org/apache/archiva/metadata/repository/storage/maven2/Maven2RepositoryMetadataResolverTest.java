@@ -2580,9 +2580,12 @@ decl_stmt|;
 name|MavenProjectFacet
 name|facet
 init|=
-operator|(
 name|MavenProjectFacet
-operator|)
+operator|.
+name|class
+operator|.
+name|cast
+argument_list|(
 name|metadata
 operator|.
 name|getFacet
@@ -2590,6 +2593,7 @@ argument_list|(
 name|MavenProjectFacet
 operator|.
 name|FACET_ID
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertEquals
