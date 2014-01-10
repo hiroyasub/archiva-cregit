@@ -1389,7 +1389,29 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// add remote repositories ?
-comment|//collectRequest.addRepository(  )
+name|collectRequest
+operator|.
+name|addRepository
+argument_list|(
+operator|new
+name|org
+operator|.
+name|sonatype
+operator|.
+name|aether
+operator|.
+name|repository
+operator|.
+name|RemoteRepository
+argument_list|(
+literal|"fake"
+argument_list|,
+literal|"default"
+argument_list|,
+literal|"http://maven.apache.org"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|collectRequest
 operator|.
 name|setRequestContext

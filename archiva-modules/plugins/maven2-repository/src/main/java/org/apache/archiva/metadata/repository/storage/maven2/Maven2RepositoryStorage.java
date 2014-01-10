@@ -1327,16 +1327,23 @@ operator|.
 name|getProjectVersion
 argument_list|()
 decl_stmt|;
+comment|// olamy: in case of browsing via the ui we can mix repos (parent of a SNAPSHOT can come from release repo)
+if|if
+condition|(
+operator|!
+name|readMetadataRequest
+operator|.
+name|isBrowsingRequest
+argument_list|()
+condition|)
+block|{
 if|if
 condition|(
 name|VersionUtil
 operator|.
 name|isSnapshot
 argument_list|(
-name|readMetadataRequest
-operator|.
-name|getProjectVersion
-argument_list|()
+name|artifactVersion
 argument_list|)
 condition|)
 comment|// skygo trying to improve speed by honoring managed configuration MRM-1658
@@ -1393,6 +1400,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
 name|File
 name|basedir
 init|=
@@ -1411,10 +1419,7 @@ name|VersionUtil
 operator|.
 name|isSnapshot
 argument_list|(
-name|readMetadataRequest
-operator|.
-name|getProjectVersion
-argument_list|()
+name|artifactVersion
 argument_list|)
 condition|)
 block|{
@@ -1437,10 +1442,7 @@ operator|.
 name|getProjectId
 argument_list|()
 argument_list|,
-name|readMetadataRequest
-operator|.
-name|getProjectVersion
-argument_list|()
+name|artifactVersion
 argument_list|,
 name|METADATA_FILENAME
 argument_list|)
@@ -1565,10 +1567,7 @@ operator|.
 name|getProjectId
 argument_list|()
 argument_list|,
-name|readMetadataRequest
-operator|.
-name|getProjectVersion
-argument_list|()
+name|artifactVersion
 argument_list|,
 name|id
 argument_list|)
@@ -1740,6 +1739,27 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+comment|// That's a browsing request so we can a mix of SNAPSHOT and release artifacts (especially with snapshots which
+comment|// can have released parent pom
+if|if
+condition|(
+name|readMetadataRequest
+operator|.
+name|isBrowsingRequest
+argument_list|()
+condition|)
+block|{
+name|remoteRepositories
+operator|.
+name|addAll
+argument_list|(
+name|remoteRepositoryAdmin
+operator|.
+name|getRemoteRepositories
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 name|ModelBuildingRequest
 name|req
