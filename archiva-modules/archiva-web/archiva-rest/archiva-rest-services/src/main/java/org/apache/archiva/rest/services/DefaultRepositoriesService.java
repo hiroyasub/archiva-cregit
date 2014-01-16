@@ -3459,6 +3459,13 @@ argument_list|(
 name|repositoryId
 argument_list|)
 expr_stmt|;
+name|artifact
+operator|.
+name|setContext
+argument_list|(
+name|repositoryId
+argument_list|)
+expr_stmt|;
 return|return
 name|deleteArtifact
 argument_list|(
@@ -3862,6 +3869,26 @@ operator|.
 name|getContext
 argument_list|()
 decl_stmt|;
+comment|// some rest call can use context or repositoryId
+comment|// so try both!!
+if|if
+condition|(
+name|StringUtils
+operator|.
+name|isEmpty
+argument_list|(
+name|repositoryId
+argument_list|)
+condition|)
+block|{
+name|repositoryId
+operator|=
+name|artifact
+operator|.
+name|getRepositoryId
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|StringUtils
