@@ -427,6 +427,10 @@ decl_stmt|;
 if|if
 condition|(
 name|logicalResource
+operator|!=
+literal|null
+operator|&&
+name|logicalResource
 operator|.
 name|length
 argument_list|()
@@ -591,6 +595,10 @@ expr_stmt|;
 comment|//Check if not root
 if|if
 condition|(
+name|logicalResource
+operator|!=
+literal|null
+operator|&&
 name|logicalResource
 operator|.
 name|length
