@@ -5252,8 +5252,6 @@ argument_list|,
 name|fileLockManager
 argument_list|)
 return|;
-comment|//return new ArchivaVirtualDavResource( Collections.<File>emptyList(), file.getPath(), mimeTypes, locator,
-comment|//                                      this );
 block|}
 name|List
 argument_list|<
