@@ -227,7 +227,7 @@ name|response
 operator|.
 name|getResponseHeaderValue
 argument_list|(
-literal|"last-modified"
+literal|"Last-Modified"
 argument_list|)
 argument_list|)
 expr_stmt|;
