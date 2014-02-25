@@ -62,7 +62,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generator of list of random test method  * -Dorg.apache.archiva.test=n  * n<=0 default jdk behavior  * n>0 number of round of random collection  *  * @author Eric  */
+comment|/**  * Generator of list of random test method  * -Dorg.apache.archiva.test=n  * n&lt;=0 default jdk behavior  * n&gt;0 number of round of random collection  *  * @author Eric  */
 end_comment
 
 begin_class

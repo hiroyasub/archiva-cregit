@@ -5434,7 +5434,7 @@ name|smallestDepth
 argument_list|)
 return|;
 block|}
-comment|/**      * @param path      * @return org/apache -> org , org -> org      */
+comment|/**      * @param path      * @return org/apache -&gt; org , org -&gt; org      */
 specifier|private
 name|String
 name|getRootPath

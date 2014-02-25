@@ -140,7 +140,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RemoteLegacyRepositoryContent  *  *  * @todo no need to be a component once legacy path parser is not  */
+comment|/**  * RemoteLegacyRepositoryContent  *  *  * TODO no need to be a component once legacy path parser is not  */
 end_comment
 
 begin_class

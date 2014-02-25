@@ -602,7 +602,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @todo below: revise storage format for project version metadata  * @todo revise reference storage  */
+comment|/**  * TODO below: revise storage format for project version metadata  * TODO revise reference storage  */
 end_comment
 
 begin_class

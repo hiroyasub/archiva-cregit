@@ -165,7 +165,7 @@ name|AccountLockedException
 throws|,
 name|MustChangePasswordException
 function_decl|;
-comment|/**      * Authorization check for valid users.      *       * @param request      * @param securitySession      * @param repositoryId      * @param isWriteRequest      * @return      * @throws AuthorizationException      * @throws UnauthorizedException      */
+comment|/**      * Authorization check for valid users.      *       * @param request      * @param securitySession      * @param repositoryId      * @param permission      * @return      * @throws AuthorizationException      * @throws UnauthorizedException      */
 name|boolean
 name|isAuthorized
 parameter_list|(
@@ -186,7 +186,7 @@ name|AuthorizationException
 throws|,
 name|UnauthorizedException
 function_decl|;
-comment|/**      * Authorization check specific for user guest, which doesn't go through       * HttpBasicAuthentication#getAuthenticationResult( HttpServletRequest request, HttpServletResponse response )      * since no credentials are attached to the request.       *       * See also MRM-911      *       * @param principal      * @param repoId      * @param isWriteRequest      * @return      * @throws UnauthorizedException      */
+comment|/**      * Authorization check specific for user guest, which doesn't go through       * HttpBasicAuthentication#getAuthenticationResult( HttpServletRequest request, HttpServletResponse response )      * since no credentials are attached to the request.       *       * See also MRM-911      *       * @param principal      * @param repoId      * @param permission      * @return      * @throws UnauthorizedException      */
 name|boolean
 name|isAuthorized
 parameter_list|(

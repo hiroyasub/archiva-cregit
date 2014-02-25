@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Adrien Lecharpentier<alecharp@apache.org>  * @since 1.4-M4  */
+comment|/**  * @author Adrien Lecharpentier&lt;alecharp@apache.org&gt;  * @since 1.4-M4  */
 end_comment
 
 begin_class

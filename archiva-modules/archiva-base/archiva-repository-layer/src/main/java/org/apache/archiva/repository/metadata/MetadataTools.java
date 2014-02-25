@@ -2554,7 +2554,7 @@ return|return
 name|metadatas
 return|;
 block|}
-comment|/**      * Update the metadata to represent the all versions/plugins of      * the provided groupId:artifactId project or group reference,      * based off of information present in the repository,      * the maven-metadata.xml files, and the proxy/repository specific      * metadata file contents.      *<p/>      * We must treat this as a group or a project metadata file as there is no way to know in advance      *      * @param managedRepository the managed repository where the metadata is kept.      * @param reference         the reference to update.      * @throws LayoutException      * @throws RepositoryMetadataException      * @throws IOException      * @throws ContentNotFoundException      * @deprecated      */
+comment|/**      * Update the metadata to represent the all versions/plugins of      * the provided groupId:artifactId project or group reference,      * based off of information present in the repository,      * the maven-metadata.xml files, and the proxy/repository specific      * metadata file contents.      *<p>      * We must treat this as a group or a project metadata file as there is no way to know in advance      *      * @param managedRepository the managed repository where the metadata is kept.      * @param reference         the reference to update.      * @throws LayoutException      * @throws RepositoryMetadataException      * @throws IOException      * @throws ContentNotFoundException      * @deprecated      */
 specifier|public
 name|void
 name|updateMetadata
@@ -3350,7 +3350,7 @@ literal|0
 return|;
 block|}
 block|}
-comment|/**      * Update the metadata based on the following rules.      *<p/>      * 1) If this is a SNAPSHOT reference, then utilize the proxy/repository specific      * metadata files to represent the current / latest SNAPSHOT available.      * 2) If this is a RELEASE reference, and the metadata file does not exist, then      * create the metadata file with contents required of the VersionedReference      *      * @param managedRepository the managed repository where the metadata is kept.      * @param reference         the versioned reference to update      * @throws LayoutException      * @throws RepositoryMetadataException      * @throws IOException      * @throws ContentNotFoundException      * @deprecated      */
+comment|/**      * Update the metadata based on the following rules.      *<p>      * 1) If this is a SNAPSHOT reference, then utilize the proxy/repository specific      * metadata files to represent the current / latest SNAPSHOT available.      * 2) If this is a RELEASE reference, and the metadata file does not exist, then      * create the metadata file with contents required of the VersionedReference      *      * @param managedRepository the managed repository where the metadata is kept.      * @param reference         the versioned reference to update      * @throws LayoutException      * @throws RepositoryMetadataException      * @throws IOException      * @throws ContentNotFoundException      * @deprecated      */
 specifier|public
 name|void
 name|updateMetadata

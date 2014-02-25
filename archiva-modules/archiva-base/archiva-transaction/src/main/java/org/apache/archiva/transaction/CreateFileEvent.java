@@ -80,7 +80,7 @@ specifier|final
 name|String
 name|content
 decl_stmt|;
-comment|/**      *       * @param content      * @param destination      * @param digesters {@link List}&lt;{@link Digester}> digesters to use for checksumming       */
+comment|/**      *       * @param content      * @param destination      * @param digesters {@link List}&lt;{@link Digester}&gt; digesters to use for checksumming       */
 specifier|public
 name|CreateFileEvent
 parameter_list|(

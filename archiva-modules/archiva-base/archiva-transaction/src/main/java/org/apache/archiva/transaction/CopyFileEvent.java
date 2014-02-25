@@ -94,7 +94,7 @@ specifier|final
 name|File
 name|destination
 decl_stmt|;
-comment|/**      *       * @param source      * @param destination      * @param digesters {@link List}&lt;{@link Digester}> digesters to use for checksumming       */
+comment|/**      *       * @param source      * @param destination      * @param digesters {@link List}&lt;{@link Digester}&gt; digesters to use for checksumming       */
 specifier|public
 name|CopyFileEvent
 parameter_list|(

@@ -208,7 +208,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simple component which will initiate the plexus shim component  * to see plexus components inside a guice container.<br/>  * So move all of this here to be able to change quickly if needed.  *  * @author Olivier Lamy  */
+comment|/**  * Simple component which will initiate the plexus shim component  * to see plexus components inside a guice container.<br>  * So move all of this here to be able to change quickly if needed.  *  * @author Olivier Lamy  */
 end_comment
 
 begin_class

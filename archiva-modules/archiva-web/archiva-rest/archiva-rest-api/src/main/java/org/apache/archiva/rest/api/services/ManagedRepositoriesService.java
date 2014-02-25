@@ -551,7 +551,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
-comment|/**      * return a pom snippet to use this repository with entities escaped (<> )      * @since 1.4-M3      */
+comment|/**      * return a pom snippet to use this repository with entities escaped (&lt;&gt;)      * @since 1.4-M3      */
 annotation|@
 name|Path
 argument_list|(

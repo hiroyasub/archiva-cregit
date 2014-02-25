@@ -178,7 +178,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ReportRepositoriesService  *  * @author Adrien Lecharpentier<adrien.lecharpentier@zenika.com>  * @since 1.4-M3  */
+comment|/**  * ReportRepositoriesService  *  * @author Adrien Lecharpentier&lt;adrien.lecharpentier@zenika.com&gt;  * @since 1.4-M3  */
 end_comment
 
 begin_interface

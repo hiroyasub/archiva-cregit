@@ -120,7 +120,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of a scheduling component for archiva.  *  * @todo TODO - consider just folding in, not really scheduled  */
+comment|/**  * Default implementation of a scheduling component for archiva.  *  * TODO - consider just folding in, not really scheduled  */
 end_comment
 
 begin_class

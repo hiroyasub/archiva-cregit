@@ -177,12 +177,12 @@ parameter_list|)
 throws|throws
 name|RepositoryException
 function_decl|;
-comment|/**      *<p>      * Convenience method to get the repository id.      *</p>      *<p/>      *<p>      * Equivalent to calling<code>.getRepository().getId()</code>      *</p>      *      * @return the repository id.      */
+comment|/**      *<p>      * Convenience method to get the repository id.      *</p>      *<p>      * Equivalent to calling<code>.getRepository().getId()</code>      *</p>      *      * @return the repository id.      */
 name|String
 name|getId
 parameter_list|()
 function_decl|;
-comment|/**      *<p>      * Gather up the list of related artifacts to the ArtifactReference provided.      * This typically inclues the pom files, and those things with      * classifiers (such as doc, source code, test libs, etc...)      *</p>      *<p/>      *<p>      *<strong>NOTE:</strong> Some layouts (such as maven 1 "legacy") are not compatible with this query.      *</p>      *      * @param reference the reference to work off of.      * @return the set of ArtifactReferences for related artifacts.      * @throws ContentNotFoundException if the initial artifact reference does not exist within the repository.      * @throws LayoutException      */
+comment|/**      *<p>      * Gather up the list of related artifacts to the ArtifactReference provided.      * This typically inclues the pom files, and those things with      * classifiers (such as doc, source code, test libs, etc...)      *</p>      *<p>      *<strong>NOTE:</strong> Some layouts (such as maven 1 "legacy") are not compatible with this query.      *</p>      *      * @param reference the reference to work off of.      * @return the set of ArtifactReferences for related artifacts.      * @throws ContentNotFoundException if the initial artifact reference does not exist within the repository.      */
 name|Set
 argument_list|<
 name|ArtifactReference
@@ -195,7 +195,7 @@ parameter_list|)
 throws|throws
 name|ContentNotFoundException
 function_decl|;
-comment|/**      *<p>      * Convenience method to get the repository (on disk) root directory.      *</p>      *<p/>      *<p>      * Equivalent to calling<code>.getRepository().getLocation()</code>      *</p>      *      * @return the repository (on disk) root directory.      */
+comment|/**      *<p>      * Convenience method to get the repository (on disk) root directory.      *</p>      *<p>      * Equivalent to calling<code>.getRepository().getLocation()</code>      *</p>      *      * @return the repository (on disk) root directory.      */
 name|String
 name|getRepoRoot
 parameter_list|()
@@ -220,7 +220,7 @@ name|ContentNotFoundException
 throws|,
 name|LayoutException
 function_decl|;
-comment|/**      *<p>      * Given a specific {@link VersionedReference}, return the list of available versions for that      * versioned reference.      *</p>      *<p/>      *<p>      *<strong>NOTE:</strong> This is really only useful when working with SNAPSHOTs.      *</p>      *      * @param reference the versioned reference to work off of.      * @return the set of versions found.      * @throws ContentNotFoundException if the versioned reference does not exist within the repository.      * @throws LayoutException      */
+comment|/**      *<p>      * Given a specific {@link VersionedReference}, return the list of available versions for that      * versioned reference.      *</p>      *<p>      *<strong>NOTE:</strong> This is really only useful when working with SNAPSHOTs.      *</p>      *      * @param reference the versioned reference to work off of.      * @return the set of versions found.      * @throws ContentNotFoundException if the versioned reference does not exist within the repository.      */
 name|Set
 argument_list|<
 name|String

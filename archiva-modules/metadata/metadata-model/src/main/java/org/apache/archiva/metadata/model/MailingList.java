@@ -52,7 +52,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Information about the available mailing lists for communicating with the project.  *  * @todo considering moving this to a facet - avoid referring to it externally  */
+comment|/**  * Information about the available mailing lists for communicating with the project.  *  * TODO considering moving this to a facet - avoid referring to it externally  */
 end_comment
 
 begin_class

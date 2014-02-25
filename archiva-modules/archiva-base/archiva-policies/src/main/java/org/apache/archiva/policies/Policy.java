@@ -48,7 +48,7 @@ name|String
 name|getId
 parameter_list|()
 function_decl|;
-comment|/**      * Get the display name for this policy.      *      * @todo i18n      *      * @return the name for this policy      */
+comment|/**      * Get the display name for this policy.      *      * TODO todo i18n      *      * @return the name for this policy      */
 name|String
 name|getName
 parameter_list|()

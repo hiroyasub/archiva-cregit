@@ -552,7 +552,7 @@ parameter_list|)
 throws|throws
 name|MetadataResolutionException
 function_decl|;
-comment|/**      * @param repoId      * @param namespace      * @param projectId      * @param projectVersion      * @throws MetadataResolutionException      * @since 1.4-M4      */
+comment|/**      * @param repoId      * @param namespace      * @param projectId      * @param projectVersion      * @throws MetadataRepositoryException      * @since 1.4-M4      */
 name|void
 name|removeProjectVersion
 parameter_list|(

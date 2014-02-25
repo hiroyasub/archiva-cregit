@@ -64,7 +64,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * jaxrs fail to return List<String> so use this contains for rest services returning that  *  * @author Olivier Lamy  * @since 1.4-M3  */
+comment|/**  * jaxrs fail to return List&lt;String&gt; so use this contains for rest services returning that  *  * @author Olivier Lamy  * @since 1.4-M3  */
 end_comment
 
 begin_class

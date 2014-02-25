@@ -109,7 +109,7 @@ name|RemoteRepository
 name|repo
 parameter_list|)
 function_decl|;
-comment|/**      * Given a repository relative path to a filename, return the {@link VersionedReference} object suitable for the path.      *      * @param path the path relative to the repository base dir for the artifact.      * @return the {@link ArtifactReference} representing the path.  (or null if path cannot be converted to      *         a {@link ArtifactReference})      * @throws LayoutException if there was a problem converting the path to an artifact.      */
+comment|/**      * Given a repository relative path to a filename, return the {@link org.apache.archiva.model.VersionedReference} object suitable for the path.      *      * @param path the path relative to the repository base dir for the artifact.      * @return the {@link ArtifactReference} representing the path.  (or null if path cannot be converted to      *         a {@link ArtifactReference})      * @throws LayoutException if there was a problem converting the path to an artifact.      */
 name|ArtifactReference
 name|toArtifactReference
 parameter_list|(

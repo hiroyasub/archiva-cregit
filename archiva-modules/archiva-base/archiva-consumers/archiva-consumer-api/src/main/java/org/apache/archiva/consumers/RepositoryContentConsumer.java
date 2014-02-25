@@ -64,7 +64,7 @@ name|RepositoryContentConsumer
 extends|extends
 name|Consumer
 block|{
-comment|/**      * Get the list of included file patterns for this consumer.      *      * @return the list of {@link String} patterns. (example:<code>"**<span />/*.pom"</code>)      */
+comment|/**      * Get the list of included file patterns for this consumer.      *      * @return the list of {@link String} patterns. (example:<code>&quot;**&#47;*.pom&quot;</code>)      */
 name|List
 argument_list|<
 name|String
@@ -72,7 +72,7 @@ argument_list|>
 name|getIncludes
 parameter_list|()
 function_decl|;
-comment|/**      * Get the list of excluded file patterns for this consumer.      *      * @return the list of {@link String} patterns. (example:<code>"**<span />/*.pom"</code>) - (can be null for no exclusions)      */
+comment|/**      * Get the list of excluded file patterns for this consumer.      *      * @return the list of {@link String} patterns. (example:<code>&quot;**&#47;*.pom&quot;</code>) - (can be null for no exclusions)      */
 name|List
 argument_list|<
 name|String
@@ -80,7 +80,7 @@ argument_list|>
 name|getExcludes
 parameter_list|()
 function_decl|;
-comment|/**      *<p>      * Event that triggers at the beginning of a scan.      *</p>      *<p/>      *<p>      * NOTE: This would be a good place to initialize the consumer, to lock any resources, and to      * generally start tracking the scan as a whole.      *</p>      *      * @param repository   the repository that this consumer is being used for.      * @param whenGathered the start of the repository scan      * @throws ConsumerException if there was a problem with using the provided repository with the consumer.      */
+comment|/**      *<p>      * Event that triggers at the beginning of a scan.      *</p>      *<p>      * NOTE: This would be a good place to initialize the consumer, to lock any resources, and to      * generally start tracking the scan as a whole.      *</p>      *      * @param repository   the repository that this consumer is being used for.      * @param whenGathered the start of the repository scan      * @throws ConsumerException if there was a problem with using the provided repository with the consumer.      */
 name|void
 name|beginScan
 parameter_list|(
@@ -109,7 +109,7 @@ parameter_list|)
 throws|throws
 name|ConsumerException
 function_decl|;
-comment|/**      *<p>      * Event indicating a file is to be processed by this consumer.      *</p>      *<p/>      *<p>      * NOTE: The consumer does not need to process the file immediately, can can opt to queue and/or track      * the files to be processed in batch.  Just be sure to complete the processing by the {@link #completeScan()}      * event.      *</p>      *      * @param path the relative file path (in the repository) to process.      * @throws ConsumerException if there was a problem processing this file.      */
+comment|/**      *<p>      * Event indicating a file is to be processed by this consumer.      *</p>      *<p>      * NOTE: The consumer does not need to process the file immediately, can can opt to queue and/or track      * the files to be processed in batch.  Just be sure to complete the processing by the {@link #completeScan()}      * event.      *</p>      *      * @param path the relative file path (in the repository) to process.      * @throws ConsumerException if there was a problem processing this file.      */
 name|void
 name|processFile
 parameter_list|(
@@ -132,12 +132,12 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      *<p>      * Event that triggers on the completion of a scan.      *</p>      *<p/>      *<p>      * NOTE: If the consumer opted to batch up processing requests in the {@link #processFile(String)} event      * this would be the last opportunity to drain any processing queue's.      *</p>      */
+comment|/**      *<p>      * Event that triggers on the completion of a scan.      *</p>      *<p>      * NOTE: If the consumer opted to batch up processing requests in the {@link #processFile(String)} event      * this would be the last opportunity to drain any processing queue's.      *</p>      */
 name|void
 name|completeScan
 parameter_list|()
 function_decl|;
-comment|/**      * @param executeOnEntireRepo      * @throws Exception      */
+comment|/**      * @param executeOnEntireRepo      */
 name|void
 name|completeScan
 parameter_list|(

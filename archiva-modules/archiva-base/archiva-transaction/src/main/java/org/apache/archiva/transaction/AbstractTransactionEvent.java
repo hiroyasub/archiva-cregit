@@ -195,7 +195,7 @@ name|File
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * {@link List}&lt;{@link Digester}>      */
+comment|/**      * {@link List}&lt;{@link Digester}&gt;      */
 specifier|private
 name|List
 argument_list|<

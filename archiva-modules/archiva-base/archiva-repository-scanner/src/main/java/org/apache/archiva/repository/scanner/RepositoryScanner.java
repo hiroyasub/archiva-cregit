@@ -98,7 +98,7 @@ name|FRESH_SCAN
 init|=
 literal|0
 decl_stmt|;
-comment|/**      *<p>      * Typical Ignorable Content patterns.      *</p>      *<p/>      *<p><strong>      * NOTE: Do not use for normal webapp or task driven repository scanning.      *</strong></p>      *<p/>      *<p>      * These patterns are only valid for archiva-cli and archiva-converter use.      *</p>      */
+comment|/**      *<p>      * Typical Ignorable Content patterns.      *</p>      *<p><strong>      * NOTE: Do not use for normal webapp or task driven repository scanning.      *</strong></p>           *<p>      * These patterns are only valid for archiva-cli and archiva-converter use.      *</p>      */
 specifier|static
 specifier|final
 name|String
@@ -139,7 +139,7 @@ block|,
 literal|".indexer"
 block|}
 decl_stmt|;
-comment|/**      * Scan the repository for content changes.      *<p/>      * Internally, this will use the as-configured known and invalid consumer lists.      *      * @param repository   the repository to change.      * @param changesSince the timestamp to use as a threshold on what is considered new or changed.      *                     (To have all content be taken into consideration regardless of timestamp,      *                     use the {@link #FRESH_SCAN} constant)      * @return the statistics for this scan.      * @throws RepositoryScannerException if there was a fundamental problem with getting the discoverer started.      */
+comment|/**      * Scan the repository for content changes.      *<p>      * Internally, this will use the as-configured known and invalid consumer lists.      *      * @param repository   the repository to change.      * @param changesSince the timestamp to use as a threshold on what is considered new or changed.      *                     (To have all content be taken into consideration regardless of timestamp,      *                     use the {@link #FRESH_SCAN} constant)      * @return the statistics for this scan.      * @throws RepositoryScannerException if there was a fundamental problem with getting the discoverer started.      */
 name|RepositoryScanStatistics
 name|scan
 parameter_list|(
@@ -152,7 +152,7 @@ parameter_list|)
 throws|throws
 name|RepositoryScannerException
 function_decl|;
-comment|/**      * Scan the repository for content changes.      *<p/>      * Internally, this will use the as-configured known and invalid consumer lists.      *      * @param repository              the repository to change.      * @param knownContentConsumers   the list of consumers that follow the {@link KnownRepositoryContentConsumer}      *                                interface that should be used for this scan.      * @param invalidContentConsumers the list of consumers that follow the {@link InvalidRepositoryContentConsumer}      *                                interface that should be used for this scan.      * @param ignoredContentPatterns  list of patterns that should be ignored and not sent to any consumer.      * @param changesSince            the timestamp to use as a threshold on what is considered new or changed.      *                                (To have all content be taken into consideration regardless of timestamp,      *                                use the {@link #FRESH_SCAN} constant)      * @return the statistics for this scan.      * @throws RepositoryScannerException if there was a fundamental problem with getting the discoverer started.      */
+comment|/**      * Scan the repository for content changes.      *<p>      * Internally, this will use the as-configured known and invalid consumer lists.      *      * @param repository              the repository to change.      * @param knownContentConsumers   the list of consumers that follow the {@link KnownRepositoryContentConsumer}      *                                interface that should be used for this scan.      * @param invalidContentConsumers the list of consumers that follow the {@link InvalidRepositoryContentConsumer}      *                                interface that should be used for this scan.      * @param ignoredContentPatterns  list of patterns that should be ignored and not sent to any consumer.      * @param changesSince            the timestamp to use as a threshold on what is considered new or changed.      *                                (To have all content be taken into consideration regardless of timestamp,      *                                use the {@link #FRESH_SCAN} constant)      * @return the statistics for this scan.      * @throws RepositoryScannerException if there was a fundamental problem with getting the discoverer started.      */
 name|RepositoryScanStatistics
 name|scan
 parameter_list|(

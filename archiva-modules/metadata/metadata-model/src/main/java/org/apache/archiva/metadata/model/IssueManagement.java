@@ -52,7 +52,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Information about the issue management system used by the project.  *  * @todo considering moving this to a facet - avoid referring to it externally  */
+comment|/**  * Information about the issue management system used by the project.  *  * TODO considering moving this to a facet - avoid referring to it externally  */
 end_comment
 
 begin_class

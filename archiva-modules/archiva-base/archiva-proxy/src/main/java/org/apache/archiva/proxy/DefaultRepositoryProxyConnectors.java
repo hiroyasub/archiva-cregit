@@ -1094,7 +1094,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultRepositoryProxyConnectors  *  * @todo exception handling needs work - "not modified" is not really an exceptional case, and it has more layers than  * your average brown onion  */
+comment|/**  * DefaultRepositoryProxyConnectors  *  * TODO exception handling needs work - "not modified" is not really an exceptional case, and it has more layers than  * your average brown onion  */
 end_comment
 
 begin_class
@@ -4394,7 +4394,7 @@ name|e
 throw|;
 block|}
 block|}
-comment|/**      * Perform the transfer of the remote file to the local file specified.      *      * @param wagon            the wagon instance to use.      * @param remoteRepository the remote repository to use      * @param remotePath       the remote path to attempt to get      * @param repository       the managed repository that will hold the file      * @param origFile         the local file to save to      * @return The local file that was transfered.      * @throws ProxyException if there was a problem moving the downloaded file into place.      * @throws WagonException if there was a problem tranfering the file.      */
+comment|/**      * Perform the transfer of the remote file to the local file specified.      *      * @param wagon            the wagon instance to use.      * @param remoteRepository the remote repository to use      * @param remotePath       the remote path to attempt to get      * @param repository       the managed repository that will hold the file      * @param origFile         the local file to save to      * @throws ProxyException if there was a problem moving the downloaded file into place.      */
 specifier|private
 name|void
 name|transferSimpleFile
@@ -4664,7 +4664,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Apply the policies.      *      * @param policies  the map of policies to execute. (Map of String policy keys, to {@link DownloadPolicy} objects)      * @param settings  the map of settings for the policies to execute. (Map of String policy keys, to String policy      *                  setting)      * @param request   the request properties (utilized by the {@link DownloadPolicy#applyPolicy(String, Properties, File)}      *                  )      * @param localFile the local file (utilized by the {@link DownloadPolicy#applyPolicy(String, Properties, File)})      */
+comment|/**      * Apply the policies.      *      * @param policies  the map of policies to execute. (Map of String policy keys, to {@link DownloadPolicy} objects)      * @param settings  the map of settings for the policies to execute. (Map of String policy keys, to String policy      *                  setting)      * @param request   the request properties (utilized by the {@link DownloadPolicy#applyPolicy(String, Properties, File)}      *                  )      * @param localFile the local file (utilized by the {@link DownloadPolicy#applyPolicy(String, Properties, File)})      * @throws PolicyViolationException      */
 specifier|private
 name|void
 name|validatePolicies
@@ -5076,7 +5076,7 @@ name|exception
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a working directory      *      * @param repository      * @return file location of working directory      * @throws IOException      */
+comment|/**      * Creates a working directory      *      * @param repository      * @return file location of working directory      */
 specifier|private
 name|File
 name|createWorkingDirectory
