@@ -463,6 +463,7 @@ name|value
 operator|=
 literal|"userConfiguration#redback"
 argument_list|)
+comment|//
 name|UserConfiguration
 name|userConfiguration
 parameter_list|,
