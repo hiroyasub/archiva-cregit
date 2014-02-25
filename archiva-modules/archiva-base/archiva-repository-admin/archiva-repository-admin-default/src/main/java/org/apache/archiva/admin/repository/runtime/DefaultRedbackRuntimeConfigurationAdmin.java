@@ -1049,7 +1049,22 @@ name|redbackRuntimeConfiguration
 argument_list|)
 expr_stmt|;
 block|}
-comment|// we ensure authorizerImpls is not empty if so put
+else|else
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"using userManagerImpls: {}"
+argument_list|,
+name|redbackRuntimeConfiguration
+operator|.
+name|getUserManagerImpls
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// we ensure rbacManagerImpls is not empty if so put at least cached
 if|if
 condition|(
 name|redbackRuntimeConfiguration
@@ -1081,6 +1096,21 @@ expr_stmt|;
 name|updateRedbackRuntimeConfiguration
 argument_list|(
 name|redbackRuntimeConfiguration
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"using rbacManagerImpls: {}"
+argument_list|,
+name|redbackRuntimeConfiguration
+operator|.
+name|getRbacManagerImpls
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
