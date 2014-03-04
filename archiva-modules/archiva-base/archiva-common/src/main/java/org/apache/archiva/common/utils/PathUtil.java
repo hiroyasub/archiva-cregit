@@ -109,6 +109,9 @@ block|{
 return|return
 name|file
 operator|.
+name|toURI
+argument_list|()
+operator|.
 name|toURL
 argument_list|()
 operator|.

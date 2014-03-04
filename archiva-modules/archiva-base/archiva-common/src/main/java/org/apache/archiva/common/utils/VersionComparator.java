@@ -107,6 +107,7 @@ argument_list|>
 block|{
 specifier|private
 specifier|static
+specifier|final
 name|Comparator
 argument_list|<
 name|String
@@ -118,6 +119,7 @@ name|VersionComparator
 argument_list|()
 decl_stmt|;
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|String
@@ -317,6 +319,8 @@ return|return
 name|INSTANCE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compare

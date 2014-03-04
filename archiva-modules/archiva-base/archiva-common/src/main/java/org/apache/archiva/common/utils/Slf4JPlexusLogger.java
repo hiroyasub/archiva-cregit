@@ -57,6 +57,7 @@ operator|.
 name|Logger
 block|{
 specifier|private
+specifier|final
 name|Logger
 name|log
 decl_stmt|;
@@ -97,6 +98,8 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|debug
@@ -113,6 +116,8 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|debug
@@ -134,6 +139,8 @@ name|throwable
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|error
@@ -150,6 +157,8 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|error
@@ -171,6 +180,8 @@ name|throwable
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|fatalError
@@ -187,6 +198,8 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|fatalError
@@ -208,6 +221,8 @@ name|throwable
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|org
 operator|.
@@ -239,6 +254,8 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getName
@@ -251,6 +268,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getThreshold
@@ -380,6 +399,8 @@ operator|.
 name|LEVEL_DISABLED
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|info
@@ -396,6 +417,8 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|info
@@ -417,6 +440,8 @@ name|throwable
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isDebugEnabled
@@ -429,6 +454,8 @@ name|isDebugEnabled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isErrorEnabled
@@ -441,6 +468,8 @@ name|isErrorEnabled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isFatalErrorEnabled
@@ -453,6 +482,8 @@ name|isErrorEnabled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isInfoEnabled
@@ -465,6 +496,8 @@ name|isInfoEnabled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isWarnEnabled
@@ -477,6 +510,8 @@ name|isWarnEnabled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setThreshold
@@ -487,6 +522,8 @@ parameter_list|)
 block|{
 comment|/* do nothing */
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|warn
@@ -503,6 +540,8 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|warn
