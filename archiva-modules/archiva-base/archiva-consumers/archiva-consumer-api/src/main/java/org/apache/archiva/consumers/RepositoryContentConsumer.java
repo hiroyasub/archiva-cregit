@@ -119,7 +119,7 @@ parameter_list|)
 throws|throws
 name|ConsumerException
 function_decl|;
-comment|/**      * @param path      * @param executeOnEntireRepo      * @throws Exception      */
+comment|/**      * @param path the relative file path (in the repository) to process.      * @param executeOnEntireRepo flags whether the consumer will be executed on an entire repository or just on a specific resource      * @throws Exception if there was a problem processing this file.      */
 name|void
 name|processFile
 parameter_list|(
@@ -137,7 +137,7 @@ name|void
 name|completeScan
 parameter_list|()
 function_decl|;
-comment|/**      * @param executeOnEntireRepo      */
+comment|/**      * @param executeOnEntireRepo flags whether the consumer will be executed on an entire repository or just on a specific resource      */
 name|void
 name|completeScan
 parameter_list|(

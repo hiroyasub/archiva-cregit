@@ -56,6 +56,8 @@ name|PermanentConsumerPredicate
 implements|implements
 name|Predicate
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|evaluate
