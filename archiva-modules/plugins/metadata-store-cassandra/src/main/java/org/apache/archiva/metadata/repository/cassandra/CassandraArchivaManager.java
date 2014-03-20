@@ -88,6 +88,14 @@ name|String
 name|getProjectFamilyName
 parameter_list|()
 function_decl|;
+name|String
+name|getProjectVersionMetadataModelFamilyName
+parameter_list|()
+function_decl|;
+name|String
+name|getArtifactMetadataModelFamilyName
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
