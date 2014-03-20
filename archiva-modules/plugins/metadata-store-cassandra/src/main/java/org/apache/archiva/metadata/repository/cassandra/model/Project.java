@@ -23,20 +23,6 @@ end_comment
 
 begin_import
 import|import
-name|com
-operator|.
-name|netflix
-operator|.
-name|astyanax
-operator|.
-name|entitystore
-operator|.
-name|Serializer
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -69,16 +55,6 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|Entity
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|persistence
-operator|.
 name|Id
 import|;
 end_import
@@ -98,8 +74,6 @@ comment|/**  * @author Olivier Lamy  * @since 2.0.0  */
 end_comment
 
 begin_class
-annotation|@
-name|Entity
 specifier|public
 class|class
 name|Project
@@ -115,13 +89,6 @@ name|name
 operator|=
 literal|"projectKey"
 argument_list|)
-annotation|@
-name|Serializer
-argument_list|(
-name|DeflateStringSerializer
-operator|.
-name|class
-argument_list|)
 specifier|private
 name|String
 name|projectKey
@@ -132,13 +99,6 @@ argument_list|(
 name|name
 operator|=
 literal|"projectId"
-argument_list|)
-annotation|@
-name|Serializer
-argument_list|(
-name|DeflateStringSerializer
-operator|.
-name|class
 argument_list|)
 specifier|private
 name|String
