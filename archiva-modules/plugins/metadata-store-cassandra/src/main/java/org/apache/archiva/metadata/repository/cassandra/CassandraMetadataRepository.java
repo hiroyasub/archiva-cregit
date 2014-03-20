@@ -692,15 +692,13 @@ comment|//
 operator|.
 name|setColumnNames
 argument_list|(
-literal|"id"
-argument_list|,
-literal|"name"
+literal|"repositoryName"
 argument_list|)
 comment|//
 operator|.
 name|addEqualsExpression
 argument_list|(
-literal|"id"
+literal|"repositoryName"
 argument_list|,
 name|repositoryId
 argument_list|)
@@ -749,7 +747,6 @@ name|get
 argument_list|()
 argument_list|)
 comment|//
-comment|//  values
 operator|.
 name|addInsertion
 argument_list|(
@@ -766,32 +763,7 @@ name|CassandraUtils
 operator|.
 name|column
 argument_list|(
-literal|"id"
-argument_list|,
-name|repository
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-argument_list|)
-comment|//
-operator|.
-name|addInsertion
-argument_list|(
-name|repositoryId
-argument_list|,
-comment|//
-name|cassandraArchivaManager
-operator|.
-name|getRepositoryFamilyName
-argument_list|()
-argument_list|,
-comment|//
-name|CassandraUtils
-operator|.
-name|column
-argument_list|(
-literal|"name"
+literal|"repositoryName"
 argument_list|,
 name|repository
 operator|.
@@ -862,7 +834,7 @@ argument_list|()
 operator|.
 name|getColumnByName
 argument_list|(
-literal|"id"
+literal|"repositoryName"
 argument_list|)
 operator|.
 name|getValue
@@ -936,15 +908,13 @@ comment|//
 operator|.
 name|setColumnNames
 argument_list|(
-literal|"id"
-argument_list|,
-literal|"name"
+literal|"repositoryName"
 argument_list|)
 comment|//
 operator|.
 name|addEqualsExpression
 argument_list|(
-literal|"id"
+literal|"repositoryName"
 argument_list|,
 name|repositoryId
 argument_list|)
@@ -1131,11 +1101,11 @@ name|CassandraUtils
 operator|.
 name|column
 argument_list|(
-literal|"repositoryId"
+literal|"repositoryName"
 argument_list|,
 name|repository
 operator|.
-name|getId
+name|getName
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1251,7 +1221,7 @@ comment|//
 operator|.
 name|setColumnNames
 argument_list|(
-literal|"repositoryId"
+literal|"repositoryName"
 argument_list|,
 literal|"name"
 argument_list|)
@@ -1259,7 +1229,7 @@ comment|//
 operator|.
 name|addEqualsExpression
 argument_list|(
-literal|"repositoryId"
+literal|"repositoryName"
 argument_list|,
 name|repositoryId
 argument_list|)
@@ -1335,7 +1305,7 @@ name|columnSlice
 operator|.
 name|getColumnByName
 argument_list|(
-literal|"repositoryId"
+literal|"repositoryName"
 argument_list|)
 operator|.
 name|getValue
@@ -1467,6 +1437,7 @@ name|MetadataRepositoryException
 block|{
 comment|// FIXME remove all datas attached to the repositoryId
 comment|// retrieve and delete all namespace with this repositoryId
+comment|// TODO use cql queries to delete all
 name|List
 argument_list|<
 name|String
@@ -1539,7 +1510,7 @@ comment|//
 operator|.
 name|setColumnNames
 argument_list|(
-literal|"repositoryId"
+literal|"repositoryName"
 argument_list|,
 literal|"name"
 argument_list|)
@@ -1547,7 +1518,7 @@ comment|//
 operator|.
 name|addEqualsExpression
 argument_list|(
-literal|"repositoryId"
+literal|"repositoryName"
 argument_list|,
 name|repositoryId
 argument_list|)
@@ -1716,13 +1687,16 @@ comment|//
 operator|.
 name|setColumnFamily
 argument_list|(
-literal|"repository"
+name|cassandraArchivaManager
+operator|.
+name|getRepositoryFamilyName
+argument_list|()
 argument_list|)
 comment|//
 operator|.
 name|setColumnNames
 argument_list|(
-literal|"name"
+literal|"repositoryName"
 argument_list|)
 comment|//
 operator|.
@@ -1793,7 +1767,7 @@ argument_list|()
 operator|.
 name|getColumnByName
 argument_list|(
-literal|"name"
+literal|"repositoryName"
 argument_list|)
 operator|.
 name|getValue
@@ -1891,7 +1865,10 @@ comment|//
 operator|.
 name|setColumnFamily
 argument_list|(
-literal|"namespace"
+name|cassandraArchivaManager
+operator|.
+name|getNamespaceFamilyName
+argument_list|()
 argument_list|)
 comment|//
 operator|.
@@ -1903,7 +1880,7 @@ comment|//
 operator|.
 name|addEqualsExpression
 argument_list|(
-literal|"repositoryId"
+literal|"repositoryName"
 argument_list|,
 name|repoId
 argument_list|)
@@ -2066,7 +2043,7 @@ comment|//
 operator|.
 name|addEqualsExpression
 argument_list|(
-literal|"repositoryId"
+literal|"repositoryName"
 argument_list|,
 name|repoId
 argument_list|)
@@ -2293,7 +2270,7 @@ comment|//
 operator|.
 name|addEqualsExpression
 argument_list|(
-literal|"repositoryId"
+literal|"repositoryName"
 argument_list|,
 name|repoId
 argument_list|)
@@ -2444,7 +2421,7 @@ comment|//
 operator|.
 name|addEqualsExpression
 argument_list|(
-literal|"repositoryId"
+literal|"repositoryName"
 argument_list|,
 name|repositoryId
 argument_list|)
@@ -2582,7 +2559,7 @@ name|CassandraUtils
 operator|.
 name|column
 argument_list|(
-literal|"repositoryId"
+literal|"repositoryName"
 argument_list|,
 name|repositoryId
 argument_list|)
@@ -2703,7 +2680,7 @@ comment|//
 operator|.
 name|addEqualsExpression
 argument_list|(
-literal|"repositoryId"
+literal|"repositoryName"
 argument_list|,
 name|repoId
 argument_list|)

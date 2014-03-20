@@ -680,7 +680,7 @@ argument_list|()
 operator|.
 name|toByteBuffer
 argument_list|(
-literal|"repositoryId"
+literal|"repositoryName"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -688,7 +688,7 @@ name|repositoryIdColumn
 operator|.
 name|setIndexName
 argument_list|(
-literal|"repositoryId"
+literal|"repositoryName"
 argument_list|)
 expr_stmt|;
 name|repositoryIdColumn
@@ -770,7 +770,7 @@ argument_list|()
 operator|.
 name|toByteBuffer
 argument_list|(
-literal|"name"
+literal|"repositoryName"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -778,7 +778,7 @@ name|nameColumn
 operator|.
 name|setIndexName
 argument_list|(
-literal|"name"
+literal|"repositoryName"
 argument_list|)
 expr_stmt|;
 name|nameColumn
@@ -918,7 +918,7 @@ argument_list|()
 operator|.
 name|toByteBuffer
 argument_list|(
-literal|"repositoryId"
+literal|"repositoryName"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -926,7 +926,7 @@ name|repositoryIdColumn
 operator|.
 name|setIndexName
 argument_list|(
-literal|"repositoryId"
+literal|"repositoryName"
 argument_list|)
 expr_stmt|;
 name|repositoryIdColumn

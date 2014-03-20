@@ -1031,7 +1031,7 @@ operator|.
 name|getRepository
 argument_list|()
 operator|.
-name|getId
+name|getName
 argument_list|()
 expr_stmt|;
 return|return

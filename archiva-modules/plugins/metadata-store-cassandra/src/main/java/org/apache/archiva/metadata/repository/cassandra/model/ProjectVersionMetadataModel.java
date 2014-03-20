@@ -200,7 +200,7 @@ specifier|public
 class|class
 name|ProjectVersionMetadataModel
 block|{
-comment|// repositoryId + namespace + projectId + id (version)
+comment|// repositoryName + namespace + projectId + id (version)
 annotation|@
 name|Id
 specifier|private
@@ -1071,7 +1071,7 @@ name|namespace
 decl_stmt|;
 specifier|private
 name|String
-name|repositoryId
+name|repositoryName
 decl_stmt|;
 specifier|private
 name|String
@@ -1105,14 +1105,14 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|repositoryId
+name|repositoryName
 operator|=
 name|namespace
 operator|.
 name|getRepository
 argument_list|()
 operator|.
-name|getId
+name|getName
 argument_list|()
 expr_stmt|;
 return|return
@@ -1147,7 +1147,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|repositoryId
+name|repositoryName
 operator|=
 name|repositoryId
 expr_stmt|;
@@ -1165,11 +1165,11 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|repositoryId
+name|repositoryName
 operator|=
 name|repository
 operator|.
-name|getId
+name|getName
 argument_list|()
 expr_stmt|;
 return|return
@@ -1225,7 +1225,7 @@ name|generateKey
 argument_list|(
 name|this
 operator|.
-name|repositoryId
+name|repositoryName
 argument_list|,
 name|this
 operator|.
