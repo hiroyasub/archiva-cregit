@@ -76,6 +76,14 @@ name|Cluster
 name|getCluster
 parameter_list|()
 function_decl|;
+name|String
+name|getRepositoryFamilyName
+parameter_list|()
+function_decl|;
+name|String
+name|getNamespaceFamilyName
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
