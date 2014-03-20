@@ -96,6 +96,10 @@ name|String
 name|getArtifactMetadataModelFamilyName
 parameter_list|()
 function_decl|;
+name|String
+name|getMetadataFacetModelFamilyName
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

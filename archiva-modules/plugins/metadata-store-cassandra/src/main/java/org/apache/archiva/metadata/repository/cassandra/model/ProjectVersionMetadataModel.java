@@ -195,8 +195,9 @@ name|Column
 argument_list|(
 name|name
 operator|=
-literal|"namespace"
+literal|"namespaceId"
 argument_list|)
+comment|// repositoryName
 specifier|private
 name|Namespace
 name|namespace
