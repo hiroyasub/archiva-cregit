@@ -172,7 +172,7 @@ end_comment
 begin_interface
 specifier|public
 interface|interface
-name|CassandraEntityManagerFactory
+name|CassandraArchivaManager
 block|{
 name|Keyspace
 name|getKeyspace

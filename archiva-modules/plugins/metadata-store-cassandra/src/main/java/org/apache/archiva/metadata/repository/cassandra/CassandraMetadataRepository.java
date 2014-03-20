@@ -561,8 +561,8 @@ argument_list|>
 name|metadataFacetFactories
 decl_stmt|;
 specifier|private
-name|CassandraEntityManagerFactory
-name|cassandraEntityManagerFactory
+name|CassandraArchivaManager
+name|cassandraArchivaManager
 decl_stmt|;
 specifier|public
 name|CassandraMetadataRepository
@@ -578,8 +578,8 @@ parameter_list|,
 name|ArchivaConfiguration
 name|configuration
 parameter_list|,
-name|CassandraEntityManagerFactory
-name|cassandraEntityManagerFactory
+name|CassandraArchivaManager
+name|cassandraArchivaManager
 parameter_list|)
 block|{
 name|this
@@ -596,9 +596,9 @@ name|configuration
 expr_stmt|;
 name|this
 operator|.
-name|cassandraEntityManagerFactory
+name|cassandraArchivaManager
 operator|=
-name|cassandraEntityManagerFactory
+name|cassandraArchivaManager
 expr_stmt|;
 block|}
 specifier|public
@@ -614,7 +614,7 @@ block|{
 return|return
 name|this
 operator|.
-name|cassandraEntityManagerFactory
+name|cassandraArchivaManager
 operator|.
 name|getRepositoryEntityManager
 argument_list|()
@@ -633,7 +633,7 @@ block|{
 return|return
 name|this
 operator|.
-name|cassandraEntityManagerFactory
+name|cassandraArchivaManager
 operator|.
 name|getNamespaceEntityManager
 argument_list|()
@@ -652,7 +652,7 @@ block|{
 return|return
 name|this
 operator|.
-name|cassandraEntityManagerFactory
+name|cassandraArchivaManager
 operator|.
 name|getProjectEntityManager
 argument_list|()
@@ -669,7 +669,7 @@ name|getArtifactMetadataModelEntityManager
 parameter_list|()
 block|{
 return|return
-name|cassandraEntityManagerFactory
+name|cassandraArchivaManager
 operator|.
 name|getArtifactMetadataModelEntityManager
 argument_list|()
@@ -688,7 +688,7 @@ block|{
 return|return
 name|this
 operator|.
-name|cassandraEntityManagerFactory
+name|cassandraArchivaManager
 operator|.
 name|getMetadataFacetModelEntityManager
 argument_list|()
@@ -707,7 +707,7 @@ block|{
 return|return
 name|this
 operator|.
-name|cassandraEntityManagerFactory
+name|cassandraArchivaManager
 operator|.
 name|getProjectVersionMetadataModelEntityManager
 argument_list|()

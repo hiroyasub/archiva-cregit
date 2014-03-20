@@ -238,8 +238,8 @@ decl_stmt|;
 annotation|@
 name|Inject
 specifier|private
-name|CassandraEntityManagerFactory
-name|cassandraEntityManagerFactory
+name|CassandraArchivaManager
+name|cassandraArchivaManager
 decl_stmt|;
 annotation|@
 name|PostConstruct
@@ -342,7 +342,7 @@ name|metadataFacetFactories
 argument_list|,
 name|configuration
 argument_list|,
-name|cassandraEntityManagerFactory
+name|cassandraArchivaManager
 argument_list|)
 decl_stmt|;
 return|return
