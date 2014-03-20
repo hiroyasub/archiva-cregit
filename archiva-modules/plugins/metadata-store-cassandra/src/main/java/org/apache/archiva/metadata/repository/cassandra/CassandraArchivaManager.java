@@ -84,6 +84,10 @@ name|String
 name|getNamespaceFamilyName
 parameter_list|()
 function_decl|;
+name|String
+name|getProjectFamilyName
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
