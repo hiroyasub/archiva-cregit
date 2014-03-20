@@ -581,8 +581,11 @@ operator|.
 name|getKeyspaceName
 argument_list|()
 argument_list|,
-literal|"namespace"
+comment|//
+name|getNamespaceFamilyName
+argument_list|()
 argument_list|,
+comment|//
 name|ComparatorType
 operator|.
 name|UTF8TYPE
@@ -725,8 +728,11 @@ operator|.
 name|getKeyspaceName
 argument_list|()
 argument_list|,
-literal|"repository"
+comment|//
+name|getRepositoryFamilyName
+argument_list|()
 argument_list|,
+comment|//
 name|ComparatorType
 operator|.
 name|UTF8TYPE
