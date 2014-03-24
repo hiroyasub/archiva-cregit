@@ -3384,7 +3384,7 @@ comment|//
 operator|.
 name|setColumnNames
 argument_list|(
-literal|"id"
+literal|"projectVersion"
 argument_list|)
 comment|//
 operator|.
@@ -3484,7 +3484,7 @@ operator|.
 name|getColumnSlice
 argument_list|()
 argument_list|,
-literal|"id"
+literal|"projectVersion"
 argument_list|)
 argument_list|)
 expr_stmt|;
