@@ -1994,7 +1994,6 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//assertEquals( Collections.singletonList( "other archive" ), mailingList.getOtherArchives() );
 name|Assertions
 operator|.
 name|assertThat
