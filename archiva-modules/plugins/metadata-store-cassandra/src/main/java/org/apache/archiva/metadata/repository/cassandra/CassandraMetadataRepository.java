@@ -3957,7 +3957,7 @@ comment|//
 operator|.
 name|setColumnNames
 argument_list|(
-literal|"id"
+literal|"projectVersion"
 argument_list|)
 comment|//
 operator|.
@@ -3987,13 +3987,14 @@ comment|//
 operator|.
 name|addEqualsExpression
 argument_list|(
-literal|"id"
+literal|"projectVersion"
 argument_list|,
 name|versionMetadata
 operator|.
 name|getId
 argument_list|()
 argument_list|)
+comment|//
 operator|.
 name|execute
 argument_list|()
@@ -4273,7 +4274,7 @@ name|cf
 argument_list|,
 name|column
 argument_list|(
-literal|"id"
+literal|"projectVersion"
 argument_list|,
 name|versionMetadata
 operator|.
@@ -4462,7 +4463,7 @@ name|updater
 operator|.
 name|setString
 argument_list|(
-literal|"id"
+literal|"projectVersion"
 argument_list|,
 name|versionMetadata
 operator|.
@@ -4709,7 +4710,7 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-literal|"id"
+literal|"projectVersion"
 argument_list|,
 literal|"description"
 argument_list|,
@@ -4755,7 +4756,7 @@ name|columnFamilyResult
 operator|.
 name|getString
 argument_list|(
-literal|"id"
+literal|"projectVersion"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6067,7 +6068,6 @@ block|}
 return|return
 name|versions
 return|;
-comment|/*        final Set<String> versions = new HashSet<String>();         // FIXME use cql query         getArtifactMetadataModelEntityManager().visitAll( new Function<ArtifactMetadataModel, Boolean>()         {             @Override             public Boolean apply( ArtifactMetadataModel artifactMetadataModel )             {                 if ( artifactMetadataModel != null )                 {                     if ( StringUtils.equals( repoId, artifactMetadataModel.getRepositoryId() )&& StringUtils.equals(                         namespace, artifactMetadataModel.getNamespace() )&& StringUtils.equals( projectId,                                                                                                  artifactMetadataModel.getProject() )&& StringUtils.equals( projectVersion, artifactMetadataModel.getProjectVersion() ) )                     {                         versions.add( artifactMetadataModel.getVersion() );                     }                 }                 return Boolean.TRUE;             }         } );          return versions;*/
 block|}
 comment|/**      * iterate over available facets to remove/add from the artifactMetadata      *      * @param facetedMetadata      * @param artifactMetadataModel only use for the key      */
 specifier|private
