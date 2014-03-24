@@ -357,7 +357,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-comment|/**      * Only remove {@link MetadataFacet} for the artifact      * @param repositoryId      * @param namespace      * @param project      * @param version      * @param metadataFacet      * @throws MetadataRepositoryException      * @since 1.4-M3      */
+comment|/**      * FIXME need a unit test!!!      * Only remove {@link MetadataFacet} for the artifact      * @param repositoryId      * @param namespace      * @param project      * @param version      * @param metadataFacet      * @throws MetadataRepositoryException      * @since 1.4-M3      */
 name|void
 name|removeArtifact
 parameter_list|(
