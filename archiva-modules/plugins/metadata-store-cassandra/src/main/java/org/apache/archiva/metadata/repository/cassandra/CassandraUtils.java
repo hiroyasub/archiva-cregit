@@ -361,7 +361,7 @@ if|if
 condition|(
 name|StringUtils
 operator|.
-name|isNotEmpty
+name|isEmpty
 argument_list|(
 name|columnName
 argument_list|)
@@ -420,7 +420,7 @@ if|if
 condition|(
 name|StringUtils
 operator|.
-name|isNotEmpty
+name|isEmpty
 argument_list|(
 name|columnName
 argument_list|)
@@ -487,7 +487,7 @@ if|if
 condition|(
 name|StringUtils
 operator|.
-name|isNotEmpty
+name|isEmpty
 argument_list|(
 name|columnName
 argument_list|)
@@ -559,7 +559,7 @@ if|if
 condition|(
 name|StringUtils
 operator|.
-name|isNotEmpty
+name|isEmpty
 argument_list|(
 name|columnName
 argument_list|)
