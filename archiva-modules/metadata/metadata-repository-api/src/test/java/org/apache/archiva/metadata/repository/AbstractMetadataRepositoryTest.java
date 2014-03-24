@@ -7621,7 +7621,9 @@ argument_list|(
 literal|"2.0"
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|Assertions
+operator|.
+name|assertThat
 argument_list|(
 name|repository
 operator|.
@@ -7635,10 +7637,13 @@ name|TEST_PROJECT
 argument_list|,
 name|TEST_PROJECT_VERSION
 argument_list|)
+argument_list|)
+operator|.
+name|isNotNull
+argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
-argument_list|)
 expr_stmt|;
 name|Assertions
 operator|.
