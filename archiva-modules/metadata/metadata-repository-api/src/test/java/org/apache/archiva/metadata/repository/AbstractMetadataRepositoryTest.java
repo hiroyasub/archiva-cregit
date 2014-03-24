@@ -7095,7 +7095,7 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
-name|List
+name|Collection
 argument_list|<
 name|ArtifactMetadata
 argument_list|>

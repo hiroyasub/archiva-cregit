@@ -308,7 +308,7 @@ parameter_list|()
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-name|List
+name|Collection
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
