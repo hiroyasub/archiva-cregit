@@ -5152,10 +5152,7 @@ name|column
 argument_list|(
 literal|"projectVersion"
 argument_list|,
-name|artifactMeta
-operator|.
-name|getProjectVersion
-argument_list|()
+name|projectVersion
 argument_list|)
 argument_list|)
 comment|//
@@ -5411,12 +5408,9 @@ name|cf
 argument_list|,
 name|column
 argument_list|(
-literal|"id"
+literal|"projectVersion"
 argument_list|,
-name|artifactMeta
-operator|.
-name|getId
-argument_list|()
+name|projectVersion
 argument_list|)
 argument_list|)
 comment|//
@@ -5826,7 +5820,6 @@ name|execute
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*artifactMetadataModel.setArtifactMetadataModelId(             new ArtifactMetadataModel.KeyBuilder().withId( versionMetadata.getId() ).withRepositoryId(                 repositoryId ).withNamespace( namespaceId ).withProjectVersion(                 versionMetadata.getVersion() ).withProject( projectId ).build()         );*/
 name|artifactMetadataModel
 operator|.
 name|setRepositoryId
@@ -5852,10 +5845,7 @@ name|artifactMetadataModel
 operator|.
 name|setProjectVersion
 argument_list|(
-name|artifactMeta
-operator|.
-name|getVersion
-argument_list|()
+name|projectVersion
 argument_list|)
 expr_stmt|;
 name|artifactMetadataModel
@@ -5895,7 +5885,6 @@ name|getTime
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//
 comment|// now facets
 name|updateFacets
 argument_list|(
@@ -5904,7 +5893,6 @@ argument_list|,
 name|artifactMetadataModel
 argument_list|)
 expr_stmt|;
-comment|/*        String namespaceKey =             new Namespace.KeyBuilder().withRepositoryId( repositoryId ).withNamespace( namespaceId ).build();         // create the namespace if not exists         Namespace namespace = getNamespaceEntityManager().get( namespaceKey );         if ( namespace == null )         {             namespace = updateOrAddNamespace( repositoryId, namespaceId );         }          // create the project if not exist         String projectKey = new Project.KeyBuilder().withNamespace( namespace ).withProjectId( projectId ).build();          Project project = getProjectEntityManager().get( projectKey );         if ( project == null )         {             project = new Project( projectKey, projectId, namespace );             try             {                 getProjectEntityManager().put( project );             }             catch ( PersistenceException e )             {                 throw new MetadataRepositoryException( e.getMessage(), e );             }         }          String key = new ArtifactMetadataModel.KeyBuilder().withNamespace( namespace ).withProject( projectId ).withId(             artifactMeta.getId() ).withProjectVersion( projectVersion ).build();          ArtifactMetadataModel artifactMetadataModel = getArtifactMetadataModelEntityManager().get( key );         if ( artifactMetadataModel == null )         {             artifactMetadataModel = new ArtifactMetadataModel( key, artifactMeta.getId(), repositoryId, namespaceId,                                                                artifactMeta.getProject(), projectVersion,                                                                artifactMeta.getVersion(),                                                                artifactMeta.getFileLastModified(),                                                                artifactMeta.getSize(), artifactMeta.getMd5(),                                                                artifactMeta.getSha1(), artifactMeta.getWhenGathered() );          }         else         {             artifactMetadataModel.setFileLastModified( artifactMeta.getFileLastModified().getTime() );             artifactMetadataModel.setWhenGathered( artifactMeta.getWhenGathered().getTime() );             artifactMetadataModel.setSize( artifactMeta.getSize() );             artifactMetadataModel.setMd5( artifactMeta.getMd5() );             artifactMetadataModel.setSha1( artifactMeta.getSha1() );             artifactMetadataModel.setVersion( artifactMeta.getVersion() );         }          try         {             getArtifactMetadataModelEntityManager().put( artifactMetadataModel );         }         catch ( PersistenceException e )         {             throw new MetadataRepositoryException( e.getMessage(), e );         }          key = new ProjectVersionMetadataModel.KeyBuilder().withRepository( repositoryId ).withNamespace(             namespace ).withProjectId( projectId ).withId( projectVersion ).build();          ProjectVersionMetadataModel projectVersionMetadataModel =             getProjectVersionMetadataModelEntityManager().get( key );          if ( projectVersionMetadataModel == null )         {             projectVersionMetadataModel = new ProjectVersionMetadataModel();             projectVersionMetadataModel.setRowId( key );             projectVersionMetadataModel.setProjectId( projectId );             projectVersionMetadataModel.setId( projectVersion );             projectVersionMetadataModel.setNamespace( namespace );              getProjectVersionMetadataModelEntityManager().put( projectVersionMetadataModel );          }          // now facets         updateFacets( artifactMeta, artifactMetadataModel );*/
 block|}
 annotation|@
 name|Override
@@ -5982,14 +5970,14 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getArtifactMetadataModelFamilyName
+name|getProjectVersionMetadataModelFamilyName
 argument_list|()
 argument_list|)
 comment|//
 operator|.
 name|setColumnNames
 argument_list|(
-literal|"version"
+literal|"projectVersion"
 argument_list|)
 comment|//
 operator|.
@@ -6023,6 +6011,7 @@ literal|"projectVersion"
 argument_list|,
 name|projectVersion
 argument_list|)
+comment|//
 operator|.
 name|execute
 argument_list|()
@@ -6070,7 +6059,7 @@ operator|.
 name|getColumnSlice
 argument_list|()
 argument_list|,
-literal|"version"
+literal|"projectVersion"
 argument_list|)
 argument_list|)
 expr_stmt|;

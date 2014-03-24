@@ -1216,7 +1216,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|Assertions
+operator|.
+name|assertThat
 argument_list|(
 name|repository
 operator|.
@@ -1231,8 +1233,13 @@ argument_list|,
 name|TEST_PROJECT_VERSION
 argument_list|)
 argument_list|)
+operator|.
+name|isNull
+argument_list|()
 expr_stmt|;
-name|assertNull
+name|Assertions
+operator|.
+name|assertThat
 argument_list|(
 name|repository
 operator|.
@@ -1245,6 +1252,9 @@ argument_list|,
 name|TEST_PROJECT
 argument_list|)
 argument_list|)
+operator|.
+name|isNull
+argument_list|()
 expr_stmt|;
 name|Assertions
 operator|.
