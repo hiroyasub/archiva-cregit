@@ -239,7 +239,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|fest
+name|assertj
+operator|.
+name|core
 operator|.
 name|util
 operator|.
@@ -437,9 +439,9 @@ begin_import
 import|import static
 name|org
 operator|.
-name|fest
+name|assertj
 operator|.
-name|assertions
+name|core
 operator|.
 name|api
 operator|.
@@ -2409,6 +2411,7 @@ literal|"repository.getRepositories() -> "
 operator|+
 name|repositories
 argument_list|,
+comment|//
 name|Sets
 operator|.
 name|newLinkedHashSet
@@ -2418,6 +2421,7 @@ argument_list|,
 name|OTHER_REPO_ID
 argument_list|)
 argument_list|,
+comment|//
 operator|new
 name|LinkedHashSet
 argument_list|<
@@ -2428,6 +2432,7 @@ name|repositories
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//
 block|}
 annotation|@
 name|Test

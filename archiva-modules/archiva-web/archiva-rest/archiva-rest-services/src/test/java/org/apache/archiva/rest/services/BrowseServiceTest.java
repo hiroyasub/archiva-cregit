@@ -195,9 +195,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|fest
+name|assertj
 operator|.
-name|assertions
+name|core
 operator|.
 name|data
 operator|.
@@ -273,9 +273,9 @@ begin_import
 import|import static
 name|org
 operator|.
-name|fest
+name|assertj
 operator|.
-name|assertions
+name|core
 operator|.
 name|api
 operator|.

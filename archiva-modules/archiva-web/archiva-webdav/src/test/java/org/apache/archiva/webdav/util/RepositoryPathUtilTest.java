@@ -47,20 +47,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|fest
-operator|.
-name|assertions
-operator|.
-name|api
-operator|.
-name|Assertions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -76,6 +62,22 @@ operator|.
 name|runner
 operator|.
 name|RunWith
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|assertj
+operator|.
+name|core
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertThat
 import|;
 end_import
 
@@ -109,8 +111,6 @@ name|href
 init|=
 literal|"/path/to/my/resource"
 decl_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|RepositoryPathUtil
@@ -130,8 +130,6 @@ name|href
 operator|=
 literal|"path/to/my/resource"
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|RepositoryPathUtil

@@ -206,16 +206,18 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|fest
+name|assertj
 operator|.
-name|assertions
+name|core
 operator|.
 name|api
 operator|.
 name|Assertions
+operator|.
+name|assertThat
 import|;
 end_import
 
@@ -640,8 +642,6 @@ argument_list|,
 name|artifacts
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|artifacts
@@ -672,8 +672,6 @@ argument_list|,
 name|SOURCE_REPO_ID
 argument_list|)
 decl_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|versionsList
@@ -811,8 +809,6 @@ argument_list|,
 name|SOURCE_REPO_ID
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|artifacts
@@ -837,8 +833,6 @@ argument_list|,
 name|SOURCE_REPO_ID
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|versionsList
@@ -916,8 +910,6 @@ argument_list|,
 name|artifacts
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|artifacts
@@ -948,8 +940,6 @@ argument_list|,
 name|SOURCE_REPO_ID
 argument_list|)
 decl_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|versionsList
@@ -1094,8 +1084,6 @@ argument_list|,
 name|SOURCE_REPO_ID
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|artifacts
@@ -1120,8 +1108,6 @@ argument_list|,
 name|SOURCE_REPO_ID
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|versionsList
@@ -1190,8 +1176,6 @@ argument_list|,
 name|SOURCE_REPO_ID
 argument_list|)
 decl_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|artifacts
@@ -1222,8 +1206,6 @@ argument_list|,
 name|SOURCE_REPO_ID
 argument_list|)
 decl_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|versionsList
@@ -1462,8 +1444,6 @@ argument_list|,
 name|artifacts
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|artifacts
@@ -1502,8 +1482,6 @@ argument_list|,
 name|versionsList
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|versionsList
@@ -1581,8 +1559,6 @@ argument_list|,
 name|browseResult
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|browseResult
@@ -1678,8 +1654,6 @@ argument_list|(
 name|browseResult
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|browseResult
@@ -1710,8 +1684,6 @@ argument_list|(
 name|browseResult
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|browseResult
@@ -1980,8 +1952,6 @@ argument_list|,
 name|artifacts
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|artifacts
@@ -2031,8 +2001,6 @@ argument_list|,
 literal|"org/apache/archiva/redback/components/spring-quartz/2.0-SNAPSHOT/spring-quartz-2.0-20120618.214127-1.pom"
 argument_list|)
 decl_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|artifactFile
@@ -2041,8 +2009,6 @@ operator|.
 name|exists
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|artifactFilemd5
@@ -2051,8 +2017,6 @@ operator|.
 name|exists
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|artifactFilepom
@@ -2127,8 +2091,6 @@ argument_list|,
 name|artifacts
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|artifacts
@@ -2145,8 +2107,6 @@ argument_list|(
 literal|8
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|artifactFile
@@ -2155,8 +2115,6 @@ operator|.
 name|doesNotExist
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|artifactFilemd5
@@ -2165,8 +2123,6 @@ operator|.
 name|doesNotExist
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|artifactFilepom

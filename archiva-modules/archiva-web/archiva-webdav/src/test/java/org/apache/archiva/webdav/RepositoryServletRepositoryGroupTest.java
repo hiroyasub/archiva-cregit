@@ -126,16 +126,18 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|fest
+name|assertj
 operator|.
-name|assertions
+name|core
 operator|.
 name|api
 operator|.
 name|Assertions
+operator|.
+name|assertThat
 import|;
 end_import
 
@@ -666,8 +668,6 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|response
@@ -681,7 +681,6 @@ argument_list|(
 literal|"first"
 argument_list|)
 expr_stmt|;
-comment|//assertEquals( "Expected file contents", "first", response.getContentAsString() );
 block|}
 comment|/*     * Test Case 3.c     */
 annotation|@
@@ -762,9 +761,6 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-comment|//assertEquals( "Expected file contents", "last", response.getContentAsString() );
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|response
@@ -1102,9 +1098,6 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-comment|/*         assertEquals( "Versions list size", 4, metadata.getAvailableVersions().size() );         assertTrue( "Versions list contains version 1.0", metadata.getAvailableVersions().contains( "1.0" ) );         assertTrue( "Versions list contains version 1.5", metadata.getAvailableVersions().contains( "1.5" ) );         assertTrue( "Versions list contains version 2.0", metadata.getAvailableVersions().contains( "2.0" ) );         assertTrue( "Versions list contains version 2.5", metadata.getAvailableVersions().contains( "2.5" ) );         */
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|metadata
@@ -1233,10 +1226,6 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-comment|//assertEquals( "add113b0d7f8c6adb92a5015a7a3701081edf998  maven-metadata-group-with-valid-repos.xml",
-comment|//              response.getContentAsString() );
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|response
@@ -1280,10 +1269,6 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-comment|//assertEquals( "5b85ea4aa5f52bb76760041a52f98de8  maven-metadata-group-with-valid-repos.xml",
-comment|//              response.getContentAsString().trim() );
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|response
@@ -1412,8 +1397,6 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|response
@@ -1451,9 +1434,6 @@ name|WebResponse
 name|response
 parameter_list|)
 block|{
-comment|//assertNotNull( "Should have recieved a response", response );
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|response
@@ -1462,10 +1442,6 @@ operator|.
 name|isNotNull
 argument_list|()
 expr_stmt|;
-comment|//assertEquals( "Should have been an 405/Method Not Allowed response code.",
-comment|//              HttpServletResponse.SC_METHOD_NOT_ALLOWED, response.getResponseCode() );
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|response

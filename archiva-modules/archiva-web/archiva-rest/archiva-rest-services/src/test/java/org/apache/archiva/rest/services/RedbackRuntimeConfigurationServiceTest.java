@@ -90,16 +90,18 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|fest
+name|assertj
 operator|.
-name|assertions
+name|core
 operator|.
 name|api
 operator|.
 name|Assertions
+operator|.
+name|assertThat
 import|;
 end_import
 
@@ -281,8 +283,6 @@ operator|.
 name|getUserManagerImplementationInformations
 argument_list|()
 decl_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|infos
@@ -334,8 +334,6 @@ operator|.
 name|getRbacManagerImplementationInformations
 argument_list|()
 decl_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|infos

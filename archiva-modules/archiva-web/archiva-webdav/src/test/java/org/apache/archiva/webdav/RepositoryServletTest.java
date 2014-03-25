@@ -103,20 +103,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|fest
-operator|.
-name|assertions
-operator|.
-name|api
-operator|.
-name|Assertions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Before
@@ -140,6 +126,22 @@ operator|.
 name|io
 operator|.
 name|File
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|assertj
+operator|.
+name|core
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertThat
 import|;
 end_import
 
@@ -561,8 +563,6 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|response

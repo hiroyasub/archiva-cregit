@@ -92,16 +92,18 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|fest
+name|assertj
 operator|.
-name|assertions
+name|core
 operator|.
 name|api
 operator|.
 name|Assertions
+operator|.
+name|assertThat
 import|;
 end_import
 
@@ -352,8 +354,6 @@ argument_list|(
 literal|"release"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|r
@@ -362,8 +362,6 @@ operator|.
 name|isNotNull
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|cmr
@@ -380,8 +378,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|cmr
@@ -411,8 +407,6 @@ argument_list|,
 literal|"org"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|n
@@ -421,8 +415,6 @@ operator|.
 name|isNotNull
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|n
@@ -452,8 +444,6 @@ argument_list|(
 literal|"release"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|r
@@ -462,8 +452,6 @@ operator|.
 name|isNotNull
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|cmr
@@ -491,8 +479,6 @@ argument_list|,
 literal|"org.apache"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|cmr
@@ -511,8 +497,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|cmr
@@ -558,8 +542,6 @@ argument_list|,
 name|projectMetadata
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|cmr
@@ -596,8 +578,6 @@ argument_list|,
 literal|"theproject"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|cmr
@@ -629,8 +609,6 @@ argument_list|(
 literal|"release"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|r
