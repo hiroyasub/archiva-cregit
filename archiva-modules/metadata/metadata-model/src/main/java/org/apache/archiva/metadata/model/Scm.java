@@ -177,6 +177,37 @@ operator|=
 name|connection
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Scm{"
+operator|+
+literal|"connection='"
+operator|+
+name|connection
+operator|+
+literal|'\''
+operator|+
+literal|", developerConnection='"
+operator|+
+name|developerConnection
+operator|+
+literal|'\''
+operator|+
+literal|", url='"
+operator|+
+name|url
+operator|+
+literal|'\''
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 

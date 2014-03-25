@@ -140,6 +140,31 @@ operator|=
 name|name
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Organization{"
+operator|+
+literal|"name='"
+operator|+
+name|name
+operator|+
+literal|'\''
+operator|+
+literal|", url='"
+operator|+
+name|url
+operator|+
+literal|'\''
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 

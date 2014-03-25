@@ -513,6 +513,75 @@ operator|=
 name|incomplete
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"ProjectVersionMetadata{"
+operator|+
+literal|"id='"
+operator|+
+name|id
+operator|+
+literal|'\''
+operator|+
+literal|", url='"
+operator|+
+name|url
+operator|+
+literal|'\''
+operator|+
+literal|", name='"
+operator|+
+name|name
+operator|+
+literal|'\''
+operator|+
+literal|", description='"
+operator|+
+name|description
+operator|+
+literal|'\''
+operator|+
+literal|", organization="
+operator|+
+name|organization
+operator|+
+literal|", issueManagement="
+operator|+
+name|issueManagement
+operator|+
+literal|", scm="
+operator|+
+name|scm
+operator|+
+literal|", ciManagement="
+operator|+
+name|ciManagement
+operator|+
+literal|", licenses="
+operator|+
+name|licenses
+operator|+
+literal|", mailingLists="
+operator|+
+name|mailingLists
+operator|+
+literal|", dependencies="
+operator|+
+name|dependencies
+operator|+
+literal|", incomplete="
+operator|+
+name|incomplete
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 

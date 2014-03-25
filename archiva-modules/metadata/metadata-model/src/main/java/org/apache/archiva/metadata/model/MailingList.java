@@ -252,6 +252,53 @@ return|return
 name|name
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"MailingList{"
+operator|+
+literal|"mainArchiveUrl='"
+operator|+
+name|mainArchiveUrl
+operator|+
+literal|'\''
+operator|+
+literal|", otherArchives="
+operator|+
+name|otherArchives
+operator|+
+literal|", name='"
+operator|+
+name|name
+operator|+
+literal|'\''
+operator|+
+literal|", postAddress='"
+operator|+
+name|postAddress
+operator|+
+literal|'\''
+operator|+
+literal|", subscribeAddress='"
+operator|+
+name|subscribeAddress
+operator|+
+literal|'\''
+operator|+
+literal|", unsubscribeAddress='"
+operator|+
+name|unsubscribeAddress
+operator|+
+literal|'\''
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 

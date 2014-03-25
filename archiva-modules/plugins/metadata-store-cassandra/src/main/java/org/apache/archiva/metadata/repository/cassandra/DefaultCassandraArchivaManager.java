@@ -380,13 +380,13 @@ specifier|private
 name|String
 name|artifactMetadataFamilyName
 init|=
-literal|"artifactmetadatamodel"
+literal|"artifactmetadata"
 decl_stmt|;
 specifier|private
 name|String
 name|metadataFacetFamilyName
 init|=
-literal|"metadatafacetmodel"
+literal|"metadatafacet"
 decl_stmt|;
 specifier|private
 name|String
