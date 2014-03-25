@@ -21,16 +21,6 @@ begin_import
 import|import
 name|javax
 operator|.
-name|persistence
-operator|.
-name|Entity
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
 name|xml
 operator|.
 name|bind
@@ -52,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Information about the issue management system used by the project.  *  * TODO considering moving this to a facet - avoid referring to it externally  */
+comment|/**  * Information about the issue management system used by the project.  *<p/>  * TODO considering moving this to a facet - avoid referring to it externally  */
 end_comment
 
 begin_class
@@ -79,6 +69,35 @@ specifier|private
 name|String
 name|url
 decl_stmt|;
+specifier|public
+name|IssueManagement
+parameter_list|()
+block|{
+comment|// no op
+block|}
+specifier|public
+name|IssueManagement
+parameter_list|(
+name|String
+name|system
+parameter_list|,
+name|String
+name|url
+parameter_list|)
+block|{
+name|this
+operator|.
+name|system
+operator|=
+name|system
+expr_stmt|;
+name|this
+operator|.
+name|url
+operator|=
+name|url
+expr_stmt|;
+block|}
 specifier|public
 name|String
 name|getUrl
