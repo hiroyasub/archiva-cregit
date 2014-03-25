@@ -1003,7 +1003,7 @@ argument_list|,
 comment|//
 name|cassandraArchivaManager
 operator|.
-name|getProjectVersionMetadataModelFamilyName
+name|getProjectVersionMetadataFamilyName
 argument_list|()
 argument_list|,
 name|StringSerializer
@@ -1074,7 +1074,7 @@ argument_list|,
 comment|//
 name|cassandraArchivaManager
 operator|.
-name|getArtifactMetadataModelFamilyName
+name|getArtifactMetadataFamilyName
 argument_list|()
 argument_list|,
 comment|//
@@ -1110,7 +1110,7 @@ argument_list|,
 comment|//
 name|cassandraArchivaManager
 operator|.
-name|getMetadataFacetModelFamilyName
+name|getMetadataFacetFamilyName
 argument_list|()
 argument_list|,
 comment|//
@@ -2062,7 +2062,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getProjectVersionMetadataModelFamilyName
+name|getProjectVersionMetadataFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -2164,7 +2164,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getArtifactMetadataModelFamilyName
+name|getArtifactMetadataFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -2258,7 +2258,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getMetadataFacetModelFamilyName
+name|getMetadataFacetFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -2655,7 +2655,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getProjectVersionMetadataModelFamilyName
+name|getProjectVersionMetadataFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -2749,7 +2749,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getArtifactMetadataModelFamilyName
+name|getArtifactMetadataFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -2835,7 +2835,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getMetadataFacetModelFamilyName
+name|getMetadataFacetFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -4097,7 +4097,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getProjectVersionMetadataModelFamilyName
+name|getProjectVersionMetadataFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -4195,7 +4195,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getArtifactMetadataModelFamilyName
+name|getArtifactMetadataFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -4337,7 +4337,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getProjectVersionMetadataModelFamilyName
+name|getProjectVersionMetadataFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -4910,7 +4910,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getProjectVersionMetadataModelFamilyName
+name|getProjectVersionMetadataFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -5166,7 +5166,7 @@ name|cf
 init|=
 name|cassandraArchivaManager
 operator|.
-name|getProjectVersionMetadataModelFamilyName
+name|getProjectVersionMetadataFamilyName
 argument_list|()
 decl_stmt|;
 name|Mutator
@@ -6431,7 +6431,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getMetadataFacetModelFamilyName
+name|getMetadataFacetFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -7538,7 +7538,7 @@ name|this
 operator|.
 name|cassandraArchivaManager
 operator|.
-name|getArtifactMetadataModelFamilyName
+name|getArtifactMetadataFamilyName
 argument_list|()
 decl_stmt|;
 comment|// create
@@ -7832,7 +7832,7 @@ name|this
 operator|.
 name|cassandraArchivaManager
 operator|.
-name|getProjectVersionMetadataModelFamilyName
+name|getProjectVersionMetadataFamilyName
 argument_list|()
 decl_stmt|;
 name|projectVersionMetadataModelTemplate
@@ -8065,7 +8065,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getProjectVersionMetadataModelFamilyName
+name|getProjectVersionMetadataFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -8198,7 +8198,7 @@ name|cf
 init|=
 name|cassandraArchivaManager
 operator|.
-name|getMetadataFacetModelFamilyName
+name|getMetadataFacetFamilyName
 argument_list|()
 decl_stmt|;
 for|for
@@ -8650,7 +8650,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getMetadataFacetModelFamilyName
+name|getMetadataFacetFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -8850,7 +8850,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getMetadataFacetModelFamilyName
+name|getMetadataFacetFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -9134,7 +9134,7 @@ name|this
 operator|.
 name|cassandraArchivaManager
 operator|.
-name|getMetadataFacetModelFamilyName
+name|getMetadataFacetFamilyName
 argument_list|()
 decl_stmt|;
 name|this
@@ -9299,7 +9299,7 @@ name|this
 operator|.
 name|cassandraArchivaManager
 operator|.
-name|getMetadataFacetModelFamilyName
+name|getMetadataFacetFamilyName
 argument_list|()
 decl_stmt|;
 name|this
@@ -9510,7 +9510,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getMetadataFacetModelFamilyName
+name|getMetadataFacetFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -9643,7 +9643,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getMetadataFacetModelFamilyName
+name|getMetadataFacetFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -9792,7 +9792,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getArtifactMetadataModelFamilyName
+name|getArtifactMetadataFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -10404,7 +10404,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getArtifactMetadataModelFamilyName
+name|getArtifactMetadataFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -10539,7 +10539,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getArtifactMetadataModelFamilyName
+name|getArtifactMetadataFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -10959,7 +10959,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getArtifactMetadataModelFamilyName
+name|getArtifactMetadataFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -11116,7 +11116,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getArtifactMetadataModelFamilyName
+name|getArtifactMetadataFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -11386,7 +11386,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getArtifactMetadataModelFamilyName
+name|getArtifactMetadataFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -11557,7 +11557,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getArtifactMetadataModelFamilyName
+name|getArtifactMetadataFamilyName
 argument_list|()
 argument_list|)
 comment|//
@@ -11889,7 +11889,7 @@ name|setColumnFamily
 argument_list|(
 name|cassandraArchivaManager
 operator|.
-name|getMetadataFacetModelFamilyName
+name|getMetadataFacetFamilyName
 argument_list|()
 argument_list|)
 comment|//
