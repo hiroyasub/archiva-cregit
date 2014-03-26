@@ -96,6 +96,7 @@ specifier|public
 name|License
 parameter_list|()
 block|{
+comment|// no op
 block|}
 specifier|public
 name|String
