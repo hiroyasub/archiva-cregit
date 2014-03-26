@@ -9661,6 +9661,7 @@ operator|.
 name|getProjectVersion
 argument_list|()
 argument_list|)
+comment|//
 operator|.
 name|addEqualsExpression
 argument_list|(
@@ -10646,15 +10647,6 @@ operator|!
 name|exists
 condition|)
 block|{
-comment|//metadataFacetModel = new MetadataFacetModel();
-comment|// we need to store the repositoryId
-comment|//ArtifactMetadataModel artifactMetadataModel = new ArtifactMetadataModel();
-comment|//artifactMetadataModel.setRepositoryId( repositoryId );
-comment|//metadataFacetModel.setArtifactMetadataModel( artifactMetadataModel );
-comment|//metadataFacetModel.setId( key );
-comment|//metadataFacetModel.setKey( entry.getKey() );
-comment|//metadataFacetModel.setFacetId( metadataFacet.getFacetId() );
-comment|//metadataFacetModel.setName( metadataFacet.getName() );
 name|String
 name|cf
 init|=

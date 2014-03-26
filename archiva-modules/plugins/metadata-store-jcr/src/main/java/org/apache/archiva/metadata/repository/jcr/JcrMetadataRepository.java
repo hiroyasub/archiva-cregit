@@ -5816,6 +5816,7 @@ name|isNodeType
 argument_list|(
 name|PROJECT_VERSION_NODE_TYPE
 argument_list|)
+comment|//
 operator|&&
 name|StringUtils
 operator|.

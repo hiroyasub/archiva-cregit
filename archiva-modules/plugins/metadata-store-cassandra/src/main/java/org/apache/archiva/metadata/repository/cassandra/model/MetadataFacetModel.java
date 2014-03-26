@@ -39,16 +39,6 @@ name|CassandraUtils
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|persistence
-operator|.
-name|Column
-import|;
-end_import
-
 begin_comment
 comment|/**  * Cassandra storage model for {@link org.apache.archiva.metadata.model.MetadataFacet}  *  * @author Olivier Lamy  * @since 2.0.0  */
 end_comment
@@ -58,49 +48,18 @@ specifier|public
 class|class
 name|MetadataFacetModel
 block|{
-comment|// id is repositoryId + namespaceId + projectId + facetId + name + mapKey
-comment|//@Column(name = "artifactMetadataModel")
-comment|//private ArtifactMetadataModel artifactMetadataModel;
-annotation|@
-name|Column
-argument_list|(
-name|name
-operator|=
-literal|"facetId"
-argument_list|)
 specifier|private
 name|String
 name|facetId
 decl_stmt|;
-annotation|@
-name|Column
-argument_list|(
-name|name
-operator|=
-literal|"key"
-argument_list|)
 specifier|private
 name|String
 name|key
 decl_stmt|;
-annotation|@
-name|Column
-argument_list|(
-name|name
-operator|=
-literal|"name"
-argument_list|)
 specifier|private
 name|String
 name|name
 decl_stmt|;
-annotation|@
-name|Column
-argument_list|(
-name|name
-operator|=
-literal|"value"
-argument_list|)
 specifier|private
 name|String
 name|value

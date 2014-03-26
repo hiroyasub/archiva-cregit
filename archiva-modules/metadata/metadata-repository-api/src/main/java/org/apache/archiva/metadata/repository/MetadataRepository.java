@@ -184,7 +184,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-comment|/**      * create the namespace in the repository. (if not exist)      * @param repositoryId      * @param namespace      * @throws MetadataRepositoryException      */
+comment|/**      * create the namespace in the repository. (if not exist)      *      * @param repositoryId      * @param namespace      * @throws MetadataRepositoryException      */
 name|void
 name|updateNamespace
 parameter_list|(
@@ -212,7 +212,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-comment|/**      *      * @param repositoryId      * @param facetId      * @return true if the repository datas for this facetId      * @since 1.4-M4      * @throws MetadataRepositoryException      */
+comment|/**      * @param repositoryId      * @param facetId      * @return true if the repository datas for this facetId      * @throws MetadataRepositoryException      * @since 1.4-M4      */
 name|boolean
 name|hasMetadataFacet
 parameter_list|(
@@ -279,7 +279,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-comment|/**      * if startTime or endTime are<code>null</code> they are not used for search      * @param repositoryId      * @param startTime can be<code>null</code>      * @param endTime can be<code>null</code>      * @return      * @throws MetadataRepositoryException      */
+comment|/**      * if startTime or endTime are<code>null</code> they are not used for search      *      * @param repositoryId      * @param startTime    can be<code>null</code>      * @param endTime      can be<code>null</code>      * @return      * @throws MetadataRepositoryException      */
 name|List
 argument_list|<
 name|ArtifactMetadata
@@ -357,7 +357,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-comment|/**      * FIXME need a unit test!!!      * Only remove {@link MetadataFacet} for the artifact      * @param repositoryId      * @param namespace      * @param project      * @param version      * @param metadataFacet      * @throws MetadataRepositoryException      * @since 1.4-M3      */
+comment|/**      * FIXME need a unit test!!!      * Only remove {@link MetadataFacet} for the artifact      *      * @param repositoryId      * @param namespace      * @param project      * @param version      * @param metadataFacet      * @throws MetadataRepositoryException      * @since 1.4-M3      */
 name|void
 name|removeArtifact
 parameter_list|(
@@ -414,7 +414,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-comment|/**      * basically just checking it exists not complete data returned      * @param repoId      * @param namespace      * @param projectId      * @return      * @throws MetadataResolutionException      */
+comment|/**      * basically just checking it exists not complete data returned      *      * @param repoId      * @param namespace      * @param projectId      * @return      * @throws MetadataResolutionException      */
 name|ProjectMetadata
 name|getProject
 parameter_list|(
@@ -503,7 +503,7 @@ parameter_list|)
 throws|throws
 name|MetadataResolutionException
 function_decl|;
-comment|/**      *      * @param repoId      * @param namespace      * @return {@link Collection} of child namespaces of the namespace argument      * @throws MetadataResolutionException      */
+comment|/**      * @param repoId      * @param namespace      * @return {@link Collection} of child namespaces of the namespace argument      * @throws MetadataResolutionException      */
 name|Collection
 argument_list|<
 name|String
@@ -519,6 +519,7 @@ parameter_list|)
 throws|throws
 name|MetadataResolutionException
 function_decl|;
+comment|/**      * @param repoId      * @param namespace      * @return      * @throws MetadataResolutionException      */
 name|Collection
 argument_list|<
 name|String
@@ -534,6 +535,7 @@ parameter_list|)
 throws|throws
 name|MetadataResolutionException
 function_decl|;
+comment|/**      * @param repoId      * @param namespace      * @param projectId      * @return      * @throws MetadataResolutionException      */
 name|Collection
 argument_list|<
 name|String
@@ -571,6 +573,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+comment|/**      * @param repoId      * @param namespace      * @param projectId      * @param projectVersion      * @return      * @throws MetadataResolutionException      */
 name|Collection
 argument_list|<
 name|ArtifactMetadata
@@ -592,7 +595,7 @@ parameter_list|)
 throws|throws
 name|MetadataResolutionException
 function_decl|;
-comment|/**      * remove a project      * @param repositoryId      * @param namespace      * @param projectId      * @throws MetadataRepositoryException      * @since 1.4-M4      */
+comment|/**      * remove a project      *      * @param repositoryId      * @param namespace      * @param projectId      * @throws MetadataRepositoryException      * @since 1.4-M4      */
 name|void
 name|removeProject
 parameter_list|(
