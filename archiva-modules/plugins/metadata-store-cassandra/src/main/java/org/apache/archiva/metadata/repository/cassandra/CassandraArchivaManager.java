@@ -108,6 +108,10 @@ name|String
 name|getLicenseFamilyName
 parameter_list|()
 function_decl|;
+name|String
+name|getDependencyFamilyName
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
