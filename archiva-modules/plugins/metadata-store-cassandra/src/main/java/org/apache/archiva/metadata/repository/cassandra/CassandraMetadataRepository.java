@@ -937,7 +937,7 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-name|projectVersionMetadataModelTemplate
+name|projectVersionMetadataTemplate
 decl_stmt|;
 specifier|private
 specifier|final
@@ -1037,7 +1037,7 @@ name|cassandraArchivaManager
 expr_stmt|;
 name|this
 operator|.
-name|projectVersionMetadataModelTemplate
+name|projectVersionMetadataTemplate
 operator|=
 operator|new
 name|ThriftColumnFamilyTemplate
@@ -2236,7 +2236,7 @@ control|)
 block|{
 name|this
 operator|.
-name|projectVersionMetadataModelTemplate
+name|projectVersionMetadataTemplate
 operator|.
 name|deleteRow
 argument_list|(
@@ -2821,7 +2821,7 @@ control|)
 block|{
 name|this
 operator|.
-name|projectVersionMetadataModelTemplate
+name|projectVersionMetadataTemplate
 operator|.
 name|deleteRow
 argument_list|(
@@ -4279,7 +4279,7 @@ control|)
 block|{
 name|this
 operator|.
-name|projectVersionMetadataModelTemplate
+name|projectVersionMetadataTemplate
 operator|.
 name|deleteRow
 argument_list|(
@@ -5313,7 +5313,7 @@ name|String
 argument_list|>
 name|mutator
 init|=
-name|projectVersionMetadataModelTemplate
+name|projectVersionMetadataTemplate
 operator|.
 name|createMutator
 argument_list|()
@@ -5716,7 +5716,7 @@ name|String
 argument_list|>
 name|updater
 init|=
-name|projectVersionMetadataModelTemplate
+name|projectVersionMetadataTemplate
 operator|.
 name|createUpdater
 argument_list|(
@@ -6083,7 +6083,7 @@ name|getDependencies
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|projectVersionMetadataModelTemplate
+name|projectVersionMetadataTemplate
 operator|.
 name|update
 argument_list|(
@@ -6310,7 +6310,7 @@ name|columnFamilyResult
 init|=
 name|this
 operator|.
-name|projectVersionMetadataModelTemplate
+name|projectVersionMetadataTemplate
 operator|.
 name|queryColumns
 argument_list|(
@@ -9164,7 +9164,7 @@ operator|.
 name|getProjectVersionMetadataFamilyName
 argument_list|()
 decl_stmt|;
-name|projectVersionMetadataModelTemplate
+name|projectVersionMetadataTemplate
 operator|.
 name|createMutator
 argument_list|()
@@ -12148,7 +12148,7 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|projectVersionMetadataModelTemplate
+name|projectVersionMetadataTemplate
 operator|.
 name|deleteRow
 argument_list|(
@@ -12791,7 +12791,7 @@ control|)
 block|{
 name|this
 operator|.
-name|projectVersionMetadataModelTemplate
+name|projectVersionMetadataTemplate
 operator|.
 name|deleteRow
 argument_list|(
