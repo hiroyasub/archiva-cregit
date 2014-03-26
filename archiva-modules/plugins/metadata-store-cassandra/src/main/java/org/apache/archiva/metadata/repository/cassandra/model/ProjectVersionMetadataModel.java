@@ -202,7 +202,7 @@ specifier|private
 name|Namespace
 name|namespace
 decl_stmt|;
-comment|/**      * id is the version      */
+comment|/**      * id is the id      */
 annotation|@
 name|Column
 argument_list|(
@@ -943,7 +943,7 @@ name|projectVersion
 decl_stmt|;
 specifier|private
 name|String
-name|version
+name|id
 decl_stmt|;
 specifier|public
 name|KeyBuilder
@@ -1058,17 +1058,17 @@ return|;
 block|}
 specifier|public
 name|KeyBuilder
-name|withVersion
+name|withId
 parameter_list|(
 name|String
-name|version
+name|id
 parameter_list|)
 block|{
 name|this
 operator|.
-name|version
+name|id
 operator|=
-name|version
+name|id
 expr_stmt|;
 return|return
 name|this
@@ -1103,7 +1103,7 @@ name|projectVersion
 argument_list|,
 name|this
 operator|.
-name|version
+name|id
 argument_list|)
 return|;
 block|}
