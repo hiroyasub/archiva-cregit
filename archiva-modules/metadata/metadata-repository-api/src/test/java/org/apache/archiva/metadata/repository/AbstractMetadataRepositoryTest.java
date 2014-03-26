@@ -497,7 +497,7 @@ name|TEST_REPO_ID
 init|=
 literal|"test"
 decl_stmt|;
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String
@@ -505,7 +505,7 @@ name|TEST_PROJECT
 init|=
 literal|"projectId"
 decl_stmt|;
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String
@@ -513,7 +513,7 @@ name|TEST_NAMESPACE
 init|=
 literal|"namespace"
 decl_stmt|;
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String
