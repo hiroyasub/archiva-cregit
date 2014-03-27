@@ -6582,14 +6582,7 @@ init|=
 name|metadataFacetFactory
 operator|.
 name|createMetadataFacet
-argument_list|(
-name|repoId
-argument_list|,
-name|entry
-operator|.
-name|getKey
-argument_list|()
-argument_list|)
+argument_list|( )
 decl_stmt|;
 name|metadataFacet
 operator|.
@@ -13446,19 +13439,7 @@ init|=
 name|metadataFacetFactory
 operator|.
 name|createMetadataFacet
-argument_list|(
-name|repoId
-argument_list|,
-name|facetModels
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|getName
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|Map
 argument_list|<
