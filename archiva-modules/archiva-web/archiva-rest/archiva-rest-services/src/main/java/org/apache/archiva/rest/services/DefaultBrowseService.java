@@ -2089,6 +2089,7 @@ name|getPackaging
 argument_list|()
 operator|!=
 literal|null
+comment|//
 operator|&&
 operator|!
 name|StringUtils
@@ -2127,6 +2128,7 @@ operator|.
 name|getName
 argument_list|()
 argument_list|)
+comment|//
 operator|&&
 operator|!
 name|StringUtils
@@ -2159,6 +2161,7 @@ name|getDescription
 argument_list|()
 operator|!=
 literal|null
+comment|//
 operator|&&
 operator|!
 name|StringUtils
@@ -2208,6 +2211,7 @@ name|getIssueManagement
 argument_list|()
 operator|!=
 literal|null
+comment|//
 operator|&&
 name|versionMetadata
 operator|.
@@ -2215,6 +2219,7 @@ name|getIssueManagement
 argument_list|()
 operator|!=
 literal|null
+comment|//
 operator|&&
 operator|!
 name|StringUtils
@@ -2258,6 +2263,7 @@ name|getCiManagement
 argument_list|()
 operator|!=
 literal|null
+comment|//
 operator|&&
 name|versionMetadata
 operator|.
@@ -2265,6 +2271,7 @@ name|getCiManagement
 argument_list|()
 operator|!=
 literal|null
+comment|//
 operator|&&
 operator|!
 name|StringUtils
@@ -2308,6 +2315,7 @@ name|getOrganization
 argument_list|()
 operator|!=
 literal|null
+comment|//
 operator|&&
 name|versionMetadata
 operator|.
@@ -2315,6 +2323,7 @@ name|getOrganization
 argument_list|()
 operator|!=
 literal|null
+comment|//
 operator|&&
 operator|!
 name|StringUtils
@@ -2358,6 +2367,7 @@ name|getUrl
 argument_list|()
 operator|!=
 literal|null
+comment|//
 operator|&&
 operator|!
 name|StringUtils
@@ -4361,6 +4371,7 @@ name|append
 argument_list|(
 literal|'-'
 argument_list|)
+comment|//
 operator|.
 name|append
 argument_list|(
@@ -4377,6 +4388,7 @@ operator|.
 name|SNAPSHOT
 argument_list|)
 argument_list|)
+comment|//
 operator|.
 name|append
 argument_list|(
@@ -4387,6 +4399,7 @@ name|append
 argument_list|(
 name|timeStamp
 argument_list|)
+comment|//
 operator|.
 name|append
 argument_list|(
@@ -4402,6 +4415,7 @@ argument_list|(
 name|buildNumber
 argument_list|)
 argument_list|)
+comment|//
 operator|.
 name|append
 argument_list|(
@@ -4420,6 +4434,7 @@ operator|+
 name|classifier
 operator|)
 argument_list|)
+comment|//
 operator|.
 name|append
 argument_list|(
@@ -4429,7 +4444,6 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-comment|/*File timeStampFile = new File( file.getParent(),                                                            artifactId + "-" + StringUtils.remove( version, "-"                                                                + VersionUtil.SNAPSHOT ) + "-" + timeStamp + "-"                                                                + Integer.toString( buildNumber )                                                                + ( StringUtils.isEmpty( classifier )                                                                ? ""                                                                : "-" + classifier ) + ".jar" );*/
 name|File
 name|timeStampFile
 init|=
@@ -4980,6 +4994,7 @@ argument_list|,
 literal|"/"
 argument_list|)
 condition|?
+comment|//
 name|StringUtils
 operator|.
 name|substringBeforeLast
@@ -5025,6 +5040,7 @@ name|isEmpty
 argument_list|(
 name|filterPath
 argument_list|)
+comment|//
 operator|&&
 operator|!
 name|artifactContentEntryMap
@@ -5033,6 +5049,7 @@ name|containsKey
 argument_list|(
 name|entryRootPath
 argument_list|)
+comment|//
 operator|&&
 name|depth
 operator|==
@@ -5075,6 +5092,7 @@ name|cleanedEntryName
 argument_list|,
 name|filterPath
 argument_list|)
+comment|//
 operator|&&
 operator|(
 name|depth
