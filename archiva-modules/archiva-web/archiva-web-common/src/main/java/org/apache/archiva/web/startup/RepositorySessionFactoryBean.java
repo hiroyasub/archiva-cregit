@@ -80,7 +80,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Olivier Lamy  * @since 2.0.1  */
+comment|/**  * @author Olivier Lamy  * @since 2.0.2  */
 end_comment
 
 begin_class
