@@ -32,6 +32,9 @@ end_import
 begin_class
 annotation|@
 name|Service
+argument_list|(
+literal|"repositorySessionFactory#beer"
+argument_list|)
 specifier|public
 class|class
 name|TestRepositorySessionFactory

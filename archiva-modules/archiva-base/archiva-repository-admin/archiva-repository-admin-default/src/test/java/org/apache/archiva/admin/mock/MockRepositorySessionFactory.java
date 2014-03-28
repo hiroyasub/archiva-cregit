@@ -237,7 +237,7 @@ begin_class
 annotation|@
 name|Service
 argument_list|(
-literal|"RepositorySessionFactory#mock"
+literal|"repositorySessionFactory#mock"
 argument_list|)
 specifier|public
 class|class

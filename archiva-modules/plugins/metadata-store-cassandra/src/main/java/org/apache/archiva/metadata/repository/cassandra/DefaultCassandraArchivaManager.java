@@ -199,6 +199,36 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|RepositorySessionFactoryBean
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -431,7 +461,6 @@ specifier|private
 name|String
 name|cassandraHost
 decl_stmt|;
-comment|// = System.getProperty( "cassandra.host", "localhost" );
 annotation|@
 name|Value
 argument_list|(
@@ -441,7 +470,6 @@ specifier|private
 name|String
 name|cassandraPort
 decl_stmt|;
-comment|// = System.getProperty( "cassandra.port", "9160" );
 annotation|@
 name|Value
 argument_list|(
@@ -451,7 +479,6 @@ specifier|private
 name|int
 name|maxActive
 decl_stmt|;
-comment|// = Integer.getInteger( "cassandra.maxActive", 20 );
 annotation|@
 name|Value
 argument_list|(
@@ -461,8 +488,6 @@ specifier|private
 name|String
 name|readConsistencyLevel
 decl_stmt|;
-comment|// =
-comment|//System.getProperty( "cassandra.readConsistencyLevel", HConsistencyLevel.QUORUM.name() );
 annotation|@
 name|Value
 argument_list|(
@@ -472,7 +497,6 @@ specifier|private
 name|String
 name|writeConsistencyLevel
 decl_stmt|;
-comment|//= System.getProperty( "cassandra.writeConsistencyLevel", HConsistencyLevel.QUORUM.name() );
 annotation|@
 name|Value
 argument_list|(
@@ -482,7 +506,6 @@ specifier|private
 name|int
 name|replicationFactor
 decl_stmt|;
-comment|// = Integer.getInteger( "cassandra.replicationFactor", 1 );
 annotation|@
 name|Value
 argument_list|(
@@ -492,7 +515,6 @@ specifier|private
 name|String
 name|keyspaceName
 decl_stmt|;
-comment|// = System.getProperty( "cassandra.keyspace.name", KEYSPACE_NAME );
 annotation|@
 name|Value
 argument_list|(
@@ -502,7 +524,12 @@ specifier|private
 name|String
 name|clusterName
 decl_stmt|;
-comment|// = System.getProperty( "cassandra.cluster.name", CLUSTER_NAME );
+annotation|@
+name|Inject
+specifier|private
+name|RepositorySessionFactoryBean
+name|repositorySessionFactoryBean
+decl_stmt|;
 annotation|@
 name|PostConstruct
 specifier|public
@@ -510,6 +537,25 @@ name|void
 name|initialize
 parameter_list|()
 block|{
+comment|// skip initialisation if not cassandra
+if|if
+condition|(
+operator|!
+name|StringUtils
+operator|.
+name|equals
+argument_list|(
+name|repositorySessionFactoryBean
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+literal|"cassandra"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 specifier|final
 name|CassandraHostConfigurator
 name|configurator

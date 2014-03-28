@@ -93,7 +93,7 @@ begin_class
 annotation|@
 name|Service
 argument_list|(
-literal|"repositorySessionFactory"
+literal|"repositorySessionFactory#test"
 argument_list|)
 specifier|public
 class|class
