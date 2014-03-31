@@ -301,22 +301,6 @@ name|metadata
 operator|.
 name|repository
 operator|.
-name|RepositorySessionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
 name|filter
 operator|.
 name|Filter
@@ -897,20 +881,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|wagon
-operator|.
-name|PathUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -1146,6 +1116,21 @@ implements|implements
 name|RepositoryStorage
 block|{
 specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOGGER
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|Maven2RepositoryStorage
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+specifier|private
 name|ModelBuilder
 name|builder
 decl_stmt|;
@@ -1210,21 +1195,6 @@ argument_list|)
 specifier|private
 name|PathParser
 name|pathParser
-decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|log
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|Maven2RepositoryStorage
-operator|.
-name|class
-argument_list|)
 decl_stmt|;
 specifier|private
 specifier|static
@@ -1346,8 +1316,8 @@ argument_list|(
 name|artifactVersion
 argument_list|)
 condition|)
-comment|// skygo trying to improve speed by honoring managed configuration MRM-1658
 block|{
+comment|// skygo trying to improve speed by honoring managed configuration MRM-1658
 if|if
 condition|(
 name|managedRepository
@@ -1516,8 +1486,8 @@ name|XMLException
 name|e
 parameter_list|)
 block|{
-comment|// unable to parse metadata - log it, and continue with the version as the original SNAPSHOT version
-name|log
+comment|// unable to parse metadata - LOGGER it, and continue with the version as the original SNAPSHOT version
+name|LOGGER
 operator|.
 name|warn
 argument_list|(
@@ -1921,7 +1891,7 @@ argument_list|)
 operator|)
 condition|)
 block|{
-name|log
+name|LOGGER
 operator|.
 name|warn
 argument_list|(
@@ -4935,7 +4905,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|log
+name|LOGGER
 operator|.
 name|error
 argument_list|(
@@ -4973,7 +4943,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|log
+name|LOGGER
 operator|.
 name|error
 argument_list|(
