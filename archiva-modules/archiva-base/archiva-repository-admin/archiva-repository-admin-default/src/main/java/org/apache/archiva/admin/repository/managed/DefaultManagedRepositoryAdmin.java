@@ -2123,7 +2123,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"skip error during removing repository from MetadatRepository:{}"
+literal|"skip error during removing repository from MetadataRepository:{}"
 argument_list|,
 name|e
 operator|.
