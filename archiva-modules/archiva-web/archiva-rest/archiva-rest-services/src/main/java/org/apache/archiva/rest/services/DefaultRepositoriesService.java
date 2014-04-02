@@ -5185,6 +5185,13 @@ argument_list|(
 name|cacheKey
 argument_list|)
 expr_stmt|;
+name|namespacesCache
+operator|.
+name|remove
+argument_list|(
+name|repositoryId
+argument_list|)
+expr_stmt|;
 name|metadataRepository
 operator|.
 name|save
