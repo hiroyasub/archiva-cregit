@@ -577,6 +577,7 @@ argument_list|(
 name|maxActive
 argument_list|)
 expr_stmt|;
+comment|//configurator.setCassandraThriftSocketTimeout(  );
 name|cluster
 operator|=
 name|HFactory
