@@ -709,6 +709,24 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|redback
+operator|.
+name|components
+operator|.
+name|cache
+operator|.
+name|Cache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|lang
@@ -744,6 +762,26 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
 import|;
 end_import
 
@@ -3387,8 +3425,8 @@ return|return
 name|namespaces
 return|;
 block|}
-comment|// FIXME this one need peformance improvement maybe a cache?
-specifier|public
+comment|// only use for testing purpose
+specifier|protected
 name|List
 argument_list|<
 name|String
@@ -6585,7 +6623,7 @@ init|=
 name|metadataFacetFactory
 operator|.
 name|createMetadataFacet
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|metadataFacet
 operator|.
