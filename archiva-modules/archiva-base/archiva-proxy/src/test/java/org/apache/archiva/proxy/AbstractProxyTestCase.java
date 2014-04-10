@@ -845,7 +845,9 @@ name|setManagedRepositories
 argument_list|(
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|ManagedRepositoryConfiguration
+argument_list|>
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -858,7 +860,9 @@ name|setRemoteRepositories
 argument_list|(
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|RemoteRepositoryConfiguration
+argument_list|>
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -871,7 +875,9 @@ name|setProxyConnectors
 argument_list|(
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|ProxyConnectorConfiguration
+argument_list|>
 argument_list|()
 argument_list|)
 expr_stmt|;
