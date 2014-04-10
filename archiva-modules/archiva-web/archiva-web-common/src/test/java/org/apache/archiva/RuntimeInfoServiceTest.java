@@ -278,6 +278,8 @@ return|return
 literal|"classpath*:META-INF/spring-context.xml,classpath:/spring-context-with-jcr.xml"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|String
 name|getRestServicesPath
