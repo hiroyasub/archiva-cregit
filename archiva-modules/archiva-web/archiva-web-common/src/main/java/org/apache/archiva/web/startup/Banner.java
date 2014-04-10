@@ -910,7 +910,7 @@ argument_list|)
 operator|.
 name|info
 argument_list|(
-literal|"{} {}, {}"
+literal|"{} {}{}"
 argument_list|,
 name|StringUtils
 operator|.
