@@ -292,7 +292,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryScannerInstance  *  *  */
+comment|/**  * RepositoryScannerInstance  */
 end_comment
 
 begin_class
@@ -412,22 +412,14 @@ name|consumerTimings
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|consumerCounts
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|this

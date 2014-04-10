@@ -1065,7 +1065,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 specifier|public
 name|Map
@@ -1095,14 +1094,7 @@ name|proxyConnectorMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|List
-argument_list|<
-name|ProxyConnector
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Iterator

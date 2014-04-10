@@ -79,11 +79,7 @@ name|facets
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|MetadataFacet
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Add a new facet to the metadata. If it already exists, it will be replaced.      *      * @param metadataFacet the facet to add      */

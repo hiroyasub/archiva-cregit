@@ -321,11 +321,7 @@ name|map
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|entries
 operator|.
@@ -2431,11 +2427,7 @@ name|inputMetadata
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|3
 argument_list|)

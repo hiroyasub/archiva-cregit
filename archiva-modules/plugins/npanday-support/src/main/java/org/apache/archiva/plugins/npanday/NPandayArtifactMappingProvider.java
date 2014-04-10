@@ -113,11 +113,7 @@ name|extensionToTypeMap
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 comment|// TODO: this could be one of many - we need to look up the artifact metadata from the POM instead
@@ -153,11 +149,7 @@ name|typeToExtensionMap
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|typeToExtensionMap

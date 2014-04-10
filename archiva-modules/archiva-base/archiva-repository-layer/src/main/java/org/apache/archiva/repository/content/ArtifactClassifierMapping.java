@@ -64,12 +64,10 @@ name|typeToClassifierMap
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-argument_list|()
+argument_list|<>
+argument_list|(
+literal|3
+argument_list|)
 expr_stmt|;
 name|typeToClassifierMap
 operator|.

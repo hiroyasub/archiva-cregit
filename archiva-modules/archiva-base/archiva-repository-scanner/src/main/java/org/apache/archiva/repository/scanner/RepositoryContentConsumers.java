@@ -477,11 +477,7 @@ name|consumerMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|KnownRepositoryContentConsumer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -533,11 +529,7 @@ name|consumerMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|InvalidRepositoryContentConsumer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -566,7 +558,7 @@ return|return
 name|consumerMap
 return|;
 block|}
-comment|/**      * Get the list of {@link KnownRepositoryContentConsumer} objects that are      * selected according to the active configuration.      *      * @return the list of {@link KnownRepositoryContentConsumer} that have been selected      *         by the active configuration.      */
+comment|/**      * Get the list of {@link KnownRepositoryContentConsumer} objects that are      * selected according to the active configuration.      *      * @return the list of {@link KnownRepositoryContentConsumer} that have been selected      * by the active configuration.      */
 specifier|public
 specifier|synchronized
 name|List
@@ -650,7 +642,7 @@ return|return
 name|ret
 return|;
 block|}
-comment|/**      * Get the list of {@link InvalidRepositoryContentConsumer} objects that are      * selected according to the active configuration.      *      * @return the list of {@link InvalidRepositoryContentConsumer} that have been selected      *         by the active configuration.      */
+comment|/**      * Get the list of {@link InvalidRepositoryContentConsumer} objects that are      * selected according to the active configuration.      *      * @return the list of {@link InvalidRepositoryContentConsumer} that have been selected      * by the active configuration.      */
 specifier|public
 specifier|synchronized
 name|List
@@ -734,7 +726,7 @@ return|return
 name|ret
 return|;
 block|}
-comment|/**      * Get the list of {@link KnownRepositoryContentConsumer} objects that are      * available and present in the classpath and as components in the IoC.      *      * @return the list of all available {@link KnownRepositoryContentConsumer} present in the classpath      *         and as a component in the IoC.      */
+comment|/**      * Get the list of {@link KnownRepositoryContentConsumer} objects that are      * available and present in the classpath and as components in the IoC.      *      * @return the list of all available {@link KnownRepositoryContentConsumer} present in the classpath      * and as a component in the IoC.      */
 specifier|public
 name|List
 argument_list|<
@@ -762,7 +754,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the list of {@link InvalidRepositoryContentConsumer} objects that are      * available and present in the classpath and as components in the IoC.      *      * @return the list of all available {@link InvalidRepositoryContentConsumer} present in the classpath      *         and as a component in the IoC.      */
+comment|/**      * Get the list of {@link InvalidRepositoryContentConsumer} objects that are      * available and present in the classpath and as components in the IoC.      *      * @return the list of all available {@link InvalidRepositoryContentConsumer} present in the classpath      * and as a component in the IoC.      */
 specifier|public
 name|List
 argument_list|<

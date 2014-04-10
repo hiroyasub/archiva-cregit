@@ -220,14 +220,12 @@ name|AbstractMonitoredConsumer
 implements|implements
 name|KnownRepositoryContentConsumer
 block|{
-comment|/**      * default-value="auto-rename"      */
 specifier|private
 name|String
 name|id
 init|=
 literal|"auto-rename"
 decl_stmt|;
-comment|/**      * default-value="Automatically rename common artifact mistakes."      */
 specifier|private
 name|String
 name|description
@@ -271,11 +269,7 @@ name|extensionRenameMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|public

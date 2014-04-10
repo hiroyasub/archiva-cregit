@@ -97,12 +97,10 @@ name|classifierAndExtensionToTypeMap
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-argument_list|()
+argument_list|<>
+argument_list|(
+literal|4
+argument_list|)
 expr_stmt|;
 comment|// Maven 2.2.1 supplied types (excluding defaults where extension == type and no classifier)
 name|classifierAndExtensionToTypeMap
@@ -145,11 +143,7 @@ name|typeToExtensionMap
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 comment|// Maven 2.2.1 supplied types (excluding defaults where extension == type and no classifier)

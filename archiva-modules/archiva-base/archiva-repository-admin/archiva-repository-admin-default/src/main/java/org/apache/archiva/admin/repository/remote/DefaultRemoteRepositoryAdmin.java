@@ -426,6 +426,7 @@ name|MavenIndexerUtils
 name|mavenIndexerUtils
 decl_stmt|;
 comment|// fields
+specifier|private
 name|List
 argument_list|<
 name|?
@@ -434,6 +435,7 @@ name|IndexCreator
 argument_list|>
 name|indexCreators
 decl_stmt|;
+specifier|private
 name|NexusIndexer
 name|indexer
 decl_stmt|;
@@ -1212,11 +1214,7 @@ name|map
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|RemoteRepository
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

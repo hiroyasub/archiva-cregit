@@ -1147,11 +1147,7 @@ name|repositoriesMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|ManagedRepository
-argument_list|>
+argument_list|<>
 argument_list|(
 name|managedRepositories
 operator|.

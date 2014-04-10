@@ -422,11 +422,7 @@ name|cleanedMetadataFacetFactories
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|MetadataFacetFactory
-argument_list|>
+argument_list|<>
 argument_list|(
 name|metadataFacetFactories
 operator|.
