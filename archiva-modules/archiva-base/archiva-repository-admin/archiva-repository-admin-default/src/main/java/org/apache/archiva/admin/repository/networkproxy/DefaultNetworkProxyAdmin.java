@@ -241,9 +241,7 @@ name|networkProxies
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|NetworkProxy
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getArchivaConfiguration
 argument_list|()

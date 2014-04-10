@@ -677,9 +677,7 @@ name|extraParametersEntries
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PropertyEntry
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for
@@ -873,9 +871,7 @@ name|extraHeadersEntries
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PropertyEntry
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for

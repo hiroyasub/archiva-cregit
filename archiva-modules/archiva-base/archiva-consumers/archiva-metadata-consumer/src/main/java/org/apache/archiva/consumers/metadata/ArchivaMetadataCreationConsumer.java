@@ -504,28 +504,24 @@ name|KnownRepositoryContentConsumer
 implements|,
 name|RegistryListener
 block|{
-comment|/**      * default-value="create-archiva-metadata"      */
 specifier|private
 name|String
 name|id
 init|=
 literal|"create-archiva-metadata"
 decl_stmt|;
-comment|/**      * default-value="Create basic metadata for Archiva to be able to reference the artifact"      */
 specifier|private
 name|String
 name|description
 init|=
 literal|"Create basic metadata for Archiva to be able to reference the artifact"
 decl_stmt|;
-comment|/**      */
 annotation|@
 name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      */
 annotation|@
 name|Inject
 specifier|private
@@ -545,9 +541,7 @@ name|includes
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|0
 argument_list|)

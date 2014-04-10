@@ -1172,9 +1172,7 @@ name|browseGroupResultEntries
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BrowseResultEntry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|namespaces
 operator|.
@@ -1421,9 +1419,7 @@ name|browseGroupResultEntries
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BrowseResultEntry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|namespaces
 operator|.
@@ -1564,9 +1560,7 @@ name|VersionsList
 argument_list|(
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|versions
 argument_list|)
@@ -1698,9 +1692,7 @@ name|sortedVersions
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|versions
 argument_list|)
@@ -2739,9 +2731,7 @@ name|references
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ProjectVersionReference
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// TODO: what if we get duplicates across repositories?
@@ -2839,9 +2829,7 @@ name|artifacts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Artifact
-argument_list|>
+argument_list|<>
 argument_list|(
 name|references
 operator|.
@@ -2983,9 +2971,7 @@ name|entries
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Entry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|map
 operator|.
@@ -3758,9 +3744,7 @@ name|artifactDownloadInfos
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Artifact
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|RepositorySession
@@ -3797,9 +3781,7 @@ name|artifacts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ArtifactMetadata
-argument_list|>
+argument_list|<>
 argument_list|(
 name|metadataResolver
 operator|.
@@ -5398,9 +5380,7 @@ name|sorted
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ArtifactContentEntry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|artifactContentEntryMap
 operator|.
@@ -5540,9 +5520,7 @@ name|currentList
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ArtifactContentEntry
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|currentList

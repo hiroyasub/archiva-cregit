@@ -1074,9 +1074,7 @@ name|informations
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|UserManagerImplementationInformation
-argument_list|>
+argument_list|<>
 argument_list|(
 name|beans
 operator|.
@@ -1234,9 +1232,7 @@ name|informations
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RBACManagerImplementationInformation
-argument_list|>
+argument_list|<>
 argument_list|(
 name|beans
 operator|.

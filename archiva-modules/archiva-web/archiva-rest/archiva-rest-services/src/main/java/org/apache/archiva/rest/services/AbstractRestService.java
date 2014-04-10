@@ -670,9 +670,7 @@ name|auditListeners
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AuditListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -1596,9 +1594,7 @@ name|artifacts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Artifact
-argument_list|>
+argument_list|<>
 argument_list|(
 name|artifactMetadatas
 operator|.

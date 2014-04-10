@@ -378,9 +378,7 @@ name|stats
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RepositoryStatistics
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -691,9 +689,6 @@ name|observableRepositories
 operator|=
 name|Collections
 operator|.
-expr|<
-name|String
-operator|>
 name|singletonList
 argument_list|(
 name|repository
@@ -708,9 +703,7 @@ name|problemArtifacts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RepositoryProblemFacet
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|MetadataRepository

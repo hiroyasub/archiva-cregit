@@ -121,9 +121,7 @@ name|userManagerImpls
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Field rbacManagerImpls.      */
@@ -140,9 +138,7 @@ name|rbacManagerImpls
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private

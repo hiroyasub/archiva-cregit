@@ -388,9 +388,7 @@ name|proxyConnectors
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ProxyConnector
-argument_list|>
+argument_list|<>
 argument_list|(
 name|proxyConnectorConfigurations
 operator|.
@@ -863,9 +861,7 @@ name|rawPatterns
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|patterns
 operator|.
@@ -1011,9 +1007,7 @@ name|connectors
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ProxyConnector
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1
 argument_list|)

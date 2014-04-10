@@ -105,9 +105,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AdminRepositoryConsumer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private

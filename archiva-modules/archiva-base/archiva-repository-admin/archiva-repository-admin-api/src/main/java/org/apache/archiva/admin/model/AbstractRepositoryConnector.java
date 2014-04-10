@@ -280,9 +280,7 @@ name|blackListPatterns
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|0
 argument_list|)
@@ -434,9 +432,7 @@ name|whiteListPatterns
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|0
 argument_list|)
@@ -706,9 +702,7 @@ name|policiesEntries
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PropertyEntry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getPolicies
 argument_list|()
@@ -806,9 +800,7 @@ name|propertiesEntries
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PropertyEntry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getProperties
 argument_list|()

@@ -174,7 +174,6 @@ name|YES
 init|=
 literal|"yes"
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
@@ -190,9 +189,7 @@ name|options
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|2
 argument_list|)

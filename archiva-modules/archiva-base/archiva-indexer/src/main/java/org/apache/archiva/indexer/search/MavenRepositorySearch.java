@@ -1638,9 +1638,7 @@ name|contexts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexingContext
-argument_list|>
+argument_list|<>
 argument_list|(
 name|ids
 operator|.
@@ -1987,9 +1985,7 @@ block|}
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|indexingContextIds
 argument_list|)

@@ -303,9 +303,7 @@ name|checksums
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Checksum
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|checksums

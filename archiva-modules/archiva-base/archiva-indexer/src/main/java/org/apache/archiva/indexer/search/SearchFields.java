@@ -77,9 +77,7 @@ name|repositories
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * contains osgi metadata Bundle-Version if available      *      * @since 1.4-M1      */

@@ -219,9 +219,7 @@ name|managedRepos
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ManagedRepository
-argument_list|>
+argument_list|<>
 argument_list|(
 name|managedRepoConfigs
 operator|.

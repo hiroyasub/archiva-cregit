@@ -245,9 +245,7 @@ name|allPolicies
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Policy
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getBeansOfType
 argument_list|(
@@ -612,9 +610,7 @@ name|policyInformations
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PolicyInformation
-argument_list|>
+argument_list|<>
 argument_list|(
 name|allPolicies
 operator|.

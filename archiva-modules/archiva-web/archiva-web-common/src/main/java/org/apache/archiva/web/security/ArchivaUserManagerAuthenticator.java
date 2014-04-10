@@ -477,9 +477,7 @@ name|userManagers
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|UserManager
-argument_list|>
+argument_list|<>
 argument_list|(
 name|userManagerImpls
 operator|.
@@ -580,9 +578,7 @@ name|authnResultErrors
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AuthenticationFailureCause
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

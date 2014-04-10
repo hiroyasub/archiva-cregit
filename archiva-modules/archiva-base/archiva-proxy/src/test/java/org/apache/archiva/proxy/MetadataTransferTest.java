@@ -766,9 +766,7 @@ name|setProxyConnectors
 argument_list|(
 operator|new
 name|ArrayList
-argument_list|<
-name|ProxyConnectorConfiguration
-argument_list|>
+argument_list|<>
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -819,9 +817,7 @@ name|setProxyConnectors
 argument_list|(
 operator|new
 name|ArrayList
-argument_list|<
-name|ProxyConnectorConfiguration
-argument_list|>
+argument_list|<>
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -1403,9 +1399,7 @@ name|setProxyConnectors
 argument_list|(
 operator|new
 name|ArrayList
-argument_list|<
-name|ProxyConnectorConfiguration
-argument_list|>
+argument_list|<>
 argument_list|( )
 argument_list|)
 expr_stmt|;

@@ -428,9 +428,7 @@ name|legacyArtifactPaths
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|LegacyArtifactPath
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getArchivaConfiguration
 argument_list|()
@@ -1435,9 +1433,7 @@ name|fileTypes
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FileType
-argument_list|>
+argument_list|<>
 argument_list|(
 name|configFileTypes
 operator|.
@@ -1496,9 +1492,7 @@ block|{
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getArchivaConfiguration
 argument_list|()
@@ -1527,9 +1521,7 @@ block|{
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getArchivaConfiguration
 argument_list|()
