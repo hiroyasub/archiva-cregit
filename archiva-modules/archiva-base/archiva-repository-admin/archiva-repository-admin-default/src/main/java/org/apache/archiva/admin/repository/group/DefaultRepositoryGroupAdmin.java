@@ -579,9 +579,7 @@ name|repositoriesGroups
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RepositoryGroup
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getArchivaConfiguration
 argument_list|()
@@ -1571,9 +1569,7 @@ name|repos
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|map
@@ -1705,9 +1701,7 @@ name|groups
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|map

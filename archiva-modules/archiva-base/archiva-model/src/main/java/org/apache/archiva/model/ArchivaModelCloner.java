@@ -383,9 +383,7 @@ name|ret
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ArtifactReference
-argument_list|>
+argument_list|<>
 argument_list|(
 name|artifactReferenceList
 operator|.
@@ -450,9 +448,7 @@ name|ret
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|simple
 operator|.

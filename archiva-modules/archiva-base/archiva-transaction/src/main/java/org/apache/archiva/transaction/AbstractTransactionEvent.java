@@ -160,11 +160,7 @@ name|backups
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|File
-argument_list|,
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -176,9 +172,7 @@ name|createdDirs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -190,9 +184,7 @@ name|createdFiles
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * {@link List}&lt;{@link Digester}&gt;      */
@@ -274,9 +266,7 @@ name|createDirs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|File
@@ -326,9 +316,6 @@ block|{
 name|File
 name|directory
 init|=
-operator|(
-name|File
-operator|)
 name|createDirs
 operator|.
 name|remove

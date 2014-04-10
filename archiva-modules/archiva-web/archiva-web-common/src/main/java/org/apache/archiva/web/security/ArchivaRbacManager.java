@@ -1148,9 +1148,7 @@ block|}
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|Role
-argument_list|>
+argument_list|<>
 argument_list|(
 name|allRoles
 operator|.
@@ -1641,9 +1639,7 @@ block|}
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|Permission
-argument_list|>
+argument_list|<>
 argument_list|(
 name|allPermissions
 operator|.
@@ -2105,9 +2101,7 @@ block|}
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|Operation
-argument_list|>
+argument_list|<>
 argument_list|(
 name|allOperations
 operator|.
@@ -2569,9 +2563,7 @@ block|}
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|Resource
-argument_list|>
+argument_list|<>
 argument_list|(
 name|allResources
 operator|.
@@ -3237,9 +3229,7 @@ block|}
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|UserAssignment
-argument_list|>
+argument_list|<>
 argument_list|(
 name|allUserAssignments
 operator|.
@@ -3272,9 +3262,7 @@ name|allUserAssignments
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|UserAssignment
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|boolean

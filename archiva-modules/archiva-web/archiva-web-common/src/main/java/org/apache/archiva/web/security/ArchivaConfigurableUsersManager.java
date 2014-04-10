@@ -1079,9 +1079,7 @@ name|users
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|User
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1154,9 +1152,7 @@ name|users
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|User
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1226,9 +1222,7 @@ name|users
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|User
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1299,9 +1293,7 @@ name|users
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|User
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1377,9 +1369,7 @@ name|users
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|User
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1445,9 +1435,7 @@ name|users
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|User
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

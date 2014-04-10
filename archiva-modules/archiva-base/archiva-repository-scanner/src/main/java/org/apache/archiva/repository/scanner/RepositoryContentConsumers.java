@@ -598,9 +598,7 @@ name|ret
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|KnownRepositoryContentConsumer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -684,9 +682,7 @@ name|ret
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InvalidRepositoryContentConsumer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -750,9 +746,7 @@ block|{
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|KnownRepositoryContentConsumer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|applicationContext
 operator|.
@@ -780,9 +774,7 @@ block|{
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|InvalidRepositoryContentConsumer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|applicationContext
 operator|.
@@ -857,9 +849,7 @@ name|clone
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|KnownRepositoryContentConsumer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|clone

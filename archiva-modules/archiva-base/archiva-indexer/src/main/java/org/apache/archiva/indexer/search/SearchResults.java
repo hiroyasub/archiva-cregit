@@ -140,9 +140,7 @@ block|{
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|SearchResultHit
-argument_list|>
+argument_list|<>
 argument_list|(
 name|hits
 operator|.

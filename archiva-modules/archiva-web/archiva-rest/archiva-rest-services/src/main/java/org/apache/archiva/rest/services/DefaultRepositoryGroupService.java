@@ -205,9 +205,7 @@ name|repositoriesGroups
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RepositoryGroup
-argument_list|>
+argument_list|<>
 argument_list|(
 name|repositoryGroupAdmin
 operator|.
@@ -255,9 +253,7 @@ argument_list|()
 argument_list|,
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|repoGroup
 operator|.
@@ -398,9 +394,7 @@ argument_list|()
 argument_list|,
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|repoGroup
 operator|.
@@ -497,9 +491,7 @@ argument_list|()
 argument_list|,
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|repoGroup
 operator|.

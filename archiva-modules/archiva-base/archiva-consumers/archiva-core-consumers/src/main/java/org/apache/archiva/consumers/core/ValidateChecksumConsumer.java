@@ -653,9 +653,7 @@ name|allDigesters
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Digester
-argument_list|>
+argument_list|<>
 argument_list|(
 name|digesterUtils
 operator|.
@@ -667,9 +665,7 @@ name|includes
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|allDigesters
 operator|.

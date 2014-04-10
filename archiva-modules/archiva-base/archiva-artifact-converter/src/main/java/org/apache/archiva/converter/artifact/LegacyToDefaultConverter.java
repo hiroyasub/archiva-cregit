@@ -665,27 +665,22 @@ specifier|private
 name|DigesterUtils
 name|digesterUtils
 decl_stmt|;
-comment|/**      *      */
 specifier|private
 name|ModelConverter
 name|translator
 decl_stmt|;
-comment|/**      *      */
 specifier|private
 name|ArtifactFactory
 name|artifactFactory
 decl_stmt|;
-comment|/**      *      */
 specifier|private
 name|ArtifactHandlerManager
 name|artifactHandlerManager
 decl_stmt|;
-comment|/**      * default-value="false"      */
 specifier|private
 name|boolean
 name|force
 decl_stmt|;
-comment|/**      * default-value="false"      */
 specifier|private
 name|boolean
 name|dryrun
@@ -3533,9 +3528,7 @@ name|messages
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1
 argument_list|)

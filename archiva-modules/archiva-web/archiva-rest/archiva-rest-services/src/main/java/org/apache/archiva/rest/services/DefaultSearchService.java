@@ -947,9 +947,7 @@ name|GroupIdList
 argument_list|(
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|repositorySearch
 operator|.
@@ -1097,9 +1095,7 @@ name|artifacts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Artifact
-argument_list|>
+argument_list|<>
 argument_list|(
 name|searchResults
 operator|.

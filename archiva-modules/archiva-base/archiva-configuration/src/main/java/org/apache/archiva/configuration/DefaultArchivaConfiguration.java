@@ -1240,9 +1240,7 @@ name|proxyConnectorList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ProxyConnectorConfiguration
-argument_list|>
+argument_list|<>
 argument_list|(
 name|config
 operator|.
@@ -3008,9 +3006,7 @@ name|knowContentConsumers
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|configuration
 operator|.
@@ -3095,9 +3091,7 @@ name|knowContentConsumers
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|configuration
 operator|.
@@ -3152,9 +3146,7 @@ name|knowContentConsumers
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|configuration
 operator|.

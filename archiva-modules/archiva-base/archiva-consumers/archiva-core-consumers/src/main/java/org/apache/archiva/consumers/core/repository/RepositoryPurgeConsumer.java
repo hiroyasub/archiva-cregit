@@ -430,7 +430,6 @@ name|description
 init|=
 literal|"Purge repository of old snapshots"
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -450,7 +449,6 @@ specifier|private
 name|ManagedRepositoryAdmin
 name|managedRepositoryAdmin
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -464,14 +462,12 @@ specifier|private
 name|RepositoryContentFactory
 name|repositoryContentFactory
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|MetadataTools
 name|metadataTools
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -494,9 +490,7 @@ name|includes
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
