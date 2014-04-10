@@ -445,9 +445,7 @@ name|expectedEvents
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AuditEvent
-argument_list|>
+argument_list|<>
 argument_list|(
 name|numEvents
 argument_list|)
@@ -672,9 +670,7 @@ name|expectedEvents
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AuditEvent
-argument_list|>
+argument_list|<>
 argument_list|(
 name|numEvents
 argument_list|)
@@ -905,9 +901,7 @@ name|events
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AuditEvent
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|eventNames
@@ -3889,9 +3883,7 @@ name|names
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|events
 operator|.

@@ -1071,9 +1071,7 @@ name|remoteRepositories
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RemoteRepository
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Map
@@ -1308,9 +1306,7 @@ name|treeEntries
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TreeEntry
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|TreeDependencyNodeVisitor

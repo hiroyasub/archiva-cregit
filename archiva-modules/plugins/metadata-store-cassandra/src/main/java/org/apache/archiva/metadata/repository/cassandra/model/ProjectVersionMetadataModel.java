@@ -229,9 +229,7 @@ name|licenses
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|License
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -243,9 +241,7 @@ name|mailingLists
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|MailingList
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -257,9 +253,7 @@ name|dependencies
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Dependency
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private

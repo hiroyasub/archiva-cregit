@@ -1625,9 +1625,7 @@ name|artifacts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ArtifactMetadata
-argument_list|>
+argument_list|<>
 argument_list|(
 name|springArtifacts
 argument_list|)
@@ -1938,9 +1936,7 @@ name|artifacts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ArtifactMetadata
-argument_list|>
+argument_list|<>
 argument_list|(
 name|testArtifacts
 argument_list|)
@@ -3927,9 +3923,7 @@ name|artifacts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ArtifactMetadata
-argument_list|>
+argument_list|<>
 argument_list|(
 name|storage
 operator|.
@@ -4095,9 +4089,7 @@ name|artifacts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ArtifactMetadata
-argument_list|>
+argument_list|<>
 argument_list|(
 name|storage
 operator|.
@@ -4559,9 +4551,7 @@ name|otherArchives
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|otherArchives

@@ -2351,9 +2351,7 @@ name|facets
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 try|try
@@ -3249,9 +3247,7 @@ name|artifacts
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ArtifactMetadata
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for
@@ -3355,9 +3351,7 @@ name|repositories
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|NodeIterator
@@ -3520,9 +3514,7 @@ name|artifacts
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ArtifactMetadata
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for
@@ -3708,9 +3700,7 @@ name|artifacts
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ArtifactMetadata
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for
@@ -5078,9 +5068,7 @@ name|references
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ProjectVersionReference
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// TODO: bind variables instead
@@ -6055,9 +6043,7 @@ name|artifacts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ArtifactMetadata
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 try|try
@@ -6868,9 +6854,7 @@ name|names
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 try|try

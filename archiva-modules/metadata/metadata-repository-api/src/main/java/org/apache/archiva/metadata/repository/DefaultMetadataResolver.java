@@ -965,9 +965,7 @@ name|namespaces
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|namespaces
 argument_list|)
@@ -1100,9 +1098,7 @@ name|exclusions
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|namespaces
 argument_list|)
@@ -1242,9 +1238,7 @@ name|namespaces
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|namespaces
 argument_list|)
@@ -1333,9 +1327,7 @@ name|exclusions
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|projects
 argument_list|)
@@ -1516,9 +1508,7 @@ name|projects
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|projects
 argument_list|)
@@ -1846,9 +1836,7 @@ name|projectVersions
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|projectVersions
 argument_list|)
@@ -2081,9 +2069,7 @@ name|artifacts
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ArtifactMetadata
-argument_list|>
+argument_list|<>
 argument_list|(
 name|artifacts
 argument_list|)
@@ -2168,9 +2154,7 @@ name|artifactIds
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

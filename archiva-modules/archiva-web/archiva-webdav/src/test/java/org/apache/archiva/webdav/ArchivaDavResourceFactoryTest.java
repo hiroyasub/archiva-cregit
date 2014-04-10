@@ -1548,9 +1548,7 @@ name|repoGroups
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RepositoryGroupConfiguration
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|RepositoryGroupConfiguration
@@ -1992,9 +1990,7 @@ name|repoGroups
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RepositoryGroupConfiguration
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|RepositoryGroupConfiguration

@@ -642,9 +642,7 @@ name|cfds
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ColumnFamilyDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// namespace table

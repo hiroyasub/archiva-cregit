@@ -101,10 +101,10 @@ name|READ_METHODS
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
-argument_list|()
+argument_list|<>
+argument_list|(
+literal|5
+argument_list|)
 expr_stmt|;
 name|READ_METHODS
 operator|.

@@ -1419,9 +1419,7 @@ name|auditListeners
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AuditListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -1715,9 +1713,7 @@ name|resourcesInAbsolutePath
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|boolean
@@ -1857,9 +1853,7 @@ name|repositories
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|repoGroupConfig
 operator|.
@@ -2720,9 +2714,7 @@ name|storedExceptions
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|DavException
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|String
@@ -5267,9 +5259,7 @@ name|mergedRepositoryContents
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// multiple repo types so we guess they are all the same type

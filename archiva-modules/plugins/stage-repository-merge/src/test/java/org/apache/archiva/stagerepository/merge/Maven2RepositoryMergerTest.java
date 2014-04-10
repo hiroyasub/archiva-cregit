@@ -336,9 +336,7 @@ name|metadata
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ArtifactMetadata
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|ArtifactMetadata
@@ -520,9 +518,7 @@ name|knownContentConsumers
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|knownContentConsumers
@@ -831,9 +827,7 @@ name|knownContentConsumers
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|knownContentConsumers

@@ -1394,9 +1394,7 @@ name|results
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RepositoryStatistics
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List

@@ -409,9 +409,7 @@ name|remoteRepositories
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RemoteRepository
-argument_list|>
+argument_list|<>
 argument_list|(
 name|archivaConfiguration
 operator|.
@@ -954,9 +952,7 @@ name|proxyConnectors
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ProxyConnector
-argument_list|>
+argument_list|<>
 argument_list|(
 name|proxyConnectorConfigurations
 operator|.
@@ -1169,9 +1165,7 @@ name|connectors
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ProxyConnector
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1
 argument_list|)
