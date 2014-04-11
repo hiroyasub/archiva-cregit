@@ -386,6 +386,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addChangeListener
@@ -414,6 +416,8 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Configuration
 name|getConfiguration
@@ -423,6 +427,8 @@ return|return
 name|configuration
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|save
@@ -494,6 +500,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addListener
@@ -510,6 +518,8 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeListener
@@ -526,6 +536,8 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isDefaulted
@@ -535,6 +547,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|reload

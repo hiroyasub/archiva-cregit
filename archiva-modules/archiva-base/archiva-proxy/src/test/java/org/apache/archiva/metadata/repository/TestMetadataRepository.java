@@ -162,6 +162,8 @@ name|TestMetadataRepository
 implements|implements
 name|MetadataRepository
 block|{
+annotation|@
+name|Override
 specifier|public
 name|ProjectMetadata
 name|getProject
@@ -180,6 +182,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ProjectVersionMetadata
 name|getProjectVersion
@@ -201,6 +205,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -228,6 +234,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -255,6 +263,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -273,6 +283,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -294,6 +306,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -315,6 +329,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -339,6 +355,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateProject
@@ -352,6 +370,8 @@ parameter_list|)
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateArtifact
@@ -374,6 +394,8 @@ parameter_list|)
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateProjectVersion
@@ -393,6 +415,8 @@ parameter_list|)
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateNamespace
@@ -406,6 +430,8 @@ parameter_list|)
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -427,6 +453,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|MetadataFacet
 name|getMetadataFacet
@@ -445,6 +473,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addMetadataFacet
@@ -458,6 +488,8 @@ parameter_list|)
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeMetadataFacets
@@ -471,6 +503,8 @@ parameter_list|)
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeMetadataFacet
@@ -487,6 +521,8 @@ parameter_list|)
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -511,6 +547,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -526,6 +564,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -547,6 +587,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeArtifact
@@ -569,6 +611,8 @@ parameter_list|)
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeRepository
@@ -579,6 +623,8 @@ parameter_list|)
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -606,6 +652,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|save
@@ -613,6 +661,8 @@ parameter_list|()
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close
@@ -620,6 +670,8 @@ parameter_list|()
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|revert
@@ -627,6 +679,8 @@ parameter_list|()
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|canObtainAccess
@@ -642,6 +696,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 parameter_list|<
 name|T
@@ -661,6 +717,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -679,6 +737,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeArtifact
@@ -707,6 +767,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeArtifact
@@ -726,6 +788,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeNamespace
@@ -740,6 +804,8 @@ throws|throws
 name|MetadataRepositoryException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeProjectVersion
@@ -760,6 +826,8 @@ throws|throws
 name|MetadataRepositoryException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeProject
@@ -782,6 +850,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasMetadataFacet

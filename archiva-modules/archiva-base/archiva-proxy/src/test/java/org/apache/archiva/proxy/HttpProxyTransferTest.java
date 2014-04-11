@@ -796,6 +796,8 @@ operator|new
 name|AbstractHandler
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|handle

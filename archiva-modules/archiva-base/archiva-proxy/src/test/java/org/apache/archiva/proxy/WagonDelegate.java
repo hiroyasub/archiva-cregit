@@ -324,6 +324,8 @@ specifier|private
 name|String
 name|contentToGet
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|get
@@ -367,6 +369,8 @@ name|destination
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|getIfNewer
@@ -423,6 +427,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|put
@@ -450,6 +456,8 @@ name|destination
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|putDirectory
@@ -477,6 +485,8 @@ name|destinationDirectory
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|resourceExists
@@ -503,6 +513,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -529,6 +541,8 @@ name|destinationDirectory
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|supportsDirectoryCopy
@@ -541,6 +555,8 @@ name|supportsDirectoryCopy
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setTimeout
@@ -551,6 +567,8 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getTimeout
@@ -560,6 +578,8 @@ return|return
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setReadTimeout
@@ -570,6 +590,8 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getReadTimeout
@@ -579,6 +601,8 @@ return|return
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Repository
 name|getRepository
@@ -591,6 +615,8 @@ name|getRepository
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|connect
@@ -611,6 +637,8 @@ name|source
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|connect
@@ -636,6 +664,8 @@ name|proxyInfo
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|connect
@@ -661,6 +691,8 @@ name|proxyInfoProvider
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|connect
@@ -686,6 +718,8 @@ name|authenticationInfo
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|connect
@@ -716,6 +750,8 @@ name|proxyInfo
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|connect
@@ -751,6 +787,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"deprecation"
 argument_list|)
+annotation|@
+name|Override
 specifier|public
 name|void
 name|openConnection
@@ -766,6 +804,8 @@ name|openConnection
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|disconnect
@@ -779,6 +819,8 @@ name|disconnect
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addSessionListener
@@ -795,6 +837,8 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeSessionListener
@@ -811,6 +855,8 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasSessionListener
@@ -828,6 +874,8 @@ name|listener
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addTransferListener
@@ -844,6 +892,8 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeTransferListener
@@ -860,6 +910,8 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasTransferListener
@@ -877,6 +929,8 @@ name|listener
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isInteractive
@@ -889,6 +943,8 @@ name|isInteractive
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setInteractive
