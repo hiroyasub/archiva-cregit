@@ -75,6 +75,8 @@ name|AuditEventFactory
 implements|implements
 name|MetadataFacetFactory
 block|{
+annotation|@
+name|Override
 specifier|public
 name|MetadataFacet
 name|createMetadataFacet
@@ -88,6 +90,8 @@ literal|"Must construct an audit event with a name"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|MetadataFacet
 name|createMetadataFacet

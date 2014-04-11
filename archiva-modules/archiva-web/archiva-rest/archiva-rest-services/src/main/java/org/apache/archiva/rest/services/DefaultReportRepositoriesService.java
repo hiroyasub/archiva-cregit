@@ -259,6 +259,8 @@ specifier|private
 name|RepositoryStatisticsManager
 name|repositoryStatisticsManager
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -599,6 +601,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<

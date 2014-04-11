@@ -1849,6 +1849,8 @@ argument_list|,
 name|Artifact
 argument_list|>
 block|{
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|configure

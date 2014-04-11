@@ -355,6 +355,8 @@ specifier|private
 name|RemoteRepositoryAdmin
 name|remoteRepositoryAdmin
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -431,6 +433,8 @@ return|return
 name|proxyConnectors
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ProxyConnector
 name|getProxyConnector
@@ -489,6 +493,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|addProxyConnector
@@ -632,6 +638,8 @@ name|TRUE
 return|;
 block|}
 comment|// FIXME take care of proxyConnectorRules !
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteProxyConnector
@@ -741,6 +749,8 @@ name|TRUE
 return|;
 block|}
 comment|// FIXME care take of proxyConnectorRules !
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|updateProxyConnector
@@ -905,6 +915,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<

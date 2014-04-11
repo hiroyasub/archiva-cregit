@@ -349,6 +349,8 @@ specifier|private
 name|RepositoryStatisticsManager
 name|repositoryStatisticsManager
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -420,6 +422,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ManagedRepository
 name|getManagedRepository
@@ -471,6 +475,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteManagedRepository
@@ -537,6 +543,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ManagedRepository
 name|addManagedRepository
@@ -617,6 +625,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|updateManagedRepository
@@ -676,6 +686,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|fileLocationExists
@@ -707,6 +719,8 @@ name|exists
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ArchivaRepositoryStatistics
 name|getManagedRepositoryStatistics
@@ -876,6 +890,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getPomSnippet

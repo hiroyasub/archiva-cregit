@@ -341,6 +341,8 @@ specifier|private
 name|RepositorySearch
 name|repositorySearch
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -447,6 +449,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -597,6 +601,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -741,6 +747,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -876,6 +884,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|GroupIdList
 name|getAllGroupIds
@@ -1036,6 +1046,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|StringList
 name|getObservablesRepoIds

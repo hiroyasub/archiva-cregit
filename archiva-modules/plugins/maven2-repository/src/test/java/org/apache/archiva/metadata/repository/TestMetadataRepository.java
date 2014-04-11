@@ -192,6 +192,8 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateProject
@@ -205,6 +207,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateArtifact
@@ -227,6 +231,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateProjectVersion
@@ -246,6 +252,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateNamespace
@@ -259,6 +267,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -285,6 +295,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|MetadataFacet
 name|getMetadataFacet
@@ -308,6 +320,8 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addMetadataFacet
@@ -332,6 +346,8 @@ name|metadataFacet
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeMetadataFacets
@@ -349,6 +365,8 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeMetadataFacet
@@ -365,6 +383,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -387,6 +407,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -400,6 +422,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -419,6 +443,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeArtifact
@@ -441,6 +467,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeRepository
@@ -451,6 +479,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -466,6 +496,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ProjectMetadata
 name|getProject
@@ -487,6 +519,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ProjectVersionMetadata
 name|getProjectVersion
@@ -511,6 +545,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -538,6 +574,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -565,6 +603,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -583,6 +623,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -604,6 +646,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -625,6 +669,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -649,6 +695,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -676,6 +724,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|save
@@ -683,6 +733,8 @@ parameter_list|()
 block|{
 comment|//
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close
@@ -690,6 +742,8 @@ parameter_list|()
 block|{
 comment|//
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|revert
@@ -697,6 +751,8 @@ parameter_list|()
 block|{
 comment|//
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|canObtainAccess
@@ -712,6 +768,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 parameter_list|<
 name|T
@@ -730,6 +788,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeArtifact
@@ -758,6 +818,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeArtifact
@@ -777,6 +839,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeNamespace
@@ -791,6 +855,8 @@ throws|throws
 name|MetadataRepositoryException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeProjectVersion
@@ -811,6 +877,8 @@ throws|throws
 name|MetadataRepositoryException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeProject
@@ -833,6 +901,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasMetadataFacet

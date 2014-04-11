@@ -410,6 +410,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -488,6 +490,8 @@ return|return
 name|legacyArtifactPaths
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addLegacyArtifactPath
@@ -554,6 +558,8 @@ name|auditInformation
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|deleteLegacyArtifactPath
@@ -632,6 +638,8 @@ name|auditInformation
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addFileTypePattern
@@ -739,6 +747,8 @@ name|auditInformation
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeFileTypePattern
@@ -817,6 +827,8 @@ name|auditInformation
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|FileType
 name|getFileType
@@ -874,6 +886,8 @@ name|class
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addFileType
@@ -960,6 +974,8 @@ name|configuration
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeFileType
@@ -1028,6 +1044,8 @@ name|configuration
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addKnownContentConsumer
@@ -1106,6 +1124,8 @@ name|auditInformation
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeKnownContentConsumer
@@ -1157,6 +1177,8 @@ name|auditInformation
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addInvalidContentConsumer
@@ -1235,6 +1257,8 @@ name|auditInformation
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeInvalidContentConsumer
@@ -1286,6 +1310,8 @@ name|auditInformation
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setKnownContentConsumers
@@ -1328,6 +1354,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setInvalidContentConsumers
@@ -1370,6 +1398,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -1479,6 +1509,8 @@ return|return
 name|fileTypes
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -1508,6 +1540,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -1537,6 +1571,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|OrganisationInformation
 name|getOrganisationInformation
@@ -1589,6 +1625,8 @@ name|class
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setOrganisationInformation
@@ -1670,6 +1708,8 @@ name|configuration
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|UiConfiguration
 name|getUiConfiguration
@@ -1733,6 +1773,8 @@ name|class
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateUiConfiguration
@@ -1804,6 +1846,8 @@ name|configuration
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|NetworkConfiguration
 name|getNetworkConfiguration
@@ -1856,6 +1900,8 @@ name|class
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setNetworkConfiguration

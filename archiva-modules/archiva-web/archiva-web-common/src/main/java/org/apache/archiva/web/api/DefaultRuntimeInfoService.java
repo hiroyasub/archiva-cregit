@@ -320,6 +320,8 @@ operator|=
 name|archivaRuntimeInfo
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ApplicationRuntimeInfo
 name|getApplicationRuntimeInfo
@@ -583,7 +585,10 @@ operator|)
 operator|+
 name|req
 operator|.
-name|getContextPath
+name|getContextP
+expr|@
+name|Override
+name|ath
 argument_list|()
 return|;
 block|}

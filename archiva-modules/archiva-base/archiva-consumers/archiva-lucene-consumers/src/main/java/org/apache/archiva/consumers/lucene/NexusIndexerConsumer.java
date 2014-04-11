@@ -642,6 +642,8 @@ operator|=
 name|managedRepositoryAdmin
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDescription
@@ -651,6 +653,8 @@ return|return
 literal|"Indexes the repository to provide search and IDE integration features"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getId
@@ -660,6 +664,8 @@ return|return
 literal|"index-content"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isPermanent
@@ -669,6 +675,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|beginScan
@@ -743,6 +751,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|beginScan
@@ -793,6 +803,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|processFile
@@ -873,6 +885,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|processFile
@@ -981,6 +995,8 @@ throw|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|completeScan
@@ -1093,6 +1109,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|completeScan
@@ -1112,6 +1130,8 @@ expr_stmt|;
 block|}
 comment|// else, do nothing as the context will be closed when indexing task is executed if not a repo scan request!
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -1127,6 +1147,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|afterConfigurationChange
@@ -1156,6 +1178,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|beforeConfigurationChange
@@ -1259,6 +1283,8 @@ name|initIncludes
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<

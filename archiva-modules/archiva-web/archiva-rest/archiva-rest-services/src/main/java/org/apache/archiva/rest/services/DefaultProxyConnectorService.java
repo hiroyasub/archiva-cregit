@@ -261,6 +261,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -320,6 +322,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ProxyConnector
 name|getProxyConnector
@@ -366,6 +370,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|addProxyConnector
@@ -423,6 +429,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteProxyConnector
@@ -480,6 +488,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|removeProxyConnector
@@ -535,6 +545,8 @@ name|proxyConnector
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|updateProxyConnector
@@ -592,6 +604,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<

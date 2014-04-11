@@ -426,6 +426,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * This environment check will unlock system administrator accounts that are locked on the restart of the      * application when the environment checks are processed.      *      * @param violations      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|validateEnvironment

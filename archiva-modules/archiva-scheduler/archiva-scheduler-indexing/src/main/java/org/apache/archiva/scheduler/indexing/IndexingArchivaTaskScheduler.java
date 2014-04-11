@@ -165,6 +165,8 @@ specifier|private
 name|TaskQueue
 name|indexingQueue
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|queueTask

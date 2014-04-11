@@ -408,6 +408,8 @@ name|RepositoryListener
 implements|,
 name|RepositoryArchivaTaskScheduler
 block|{
+annotation|@
+name|Override
 specifier|public
 name|ProjectMetadata
 name|readProjectMetadata
@@ -426,6 +428,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ProjectVersionMetadata
 name|readProjectVersionMetadata
@@ -444,6 +448,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -467,6 +473,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -493,6 +501,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -519,6 +529,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -548,6 +560,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -565,6 +579,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ArtifactMetadata
 name|readArtifactMetadataFromPath
@@ -582,6 +598,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|applyServerSideRelocation
@@ -596,6 +614,8 @@ throws|throws
 name|ProxyDownloadException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|deleteArtifact
@@ -620,6 +640,8 @@ name|id
 parameter_list|)
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addArtifact
@@ -641,6 +663,8 @@ name|metadata
 parameter_list|)
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addArtifactProblem
@@ -665,6 +689,8 @@ name|exception
 parameter_list|)
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isProcessingRepositoryTask
@@ -677,6 +703,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isProcessingRepositoryTask
@@ -689,6 +717,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|queueTask
@@ -700,6 +730,8 @@ throws|throws
 name|TaskQueueException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|unQueueTask

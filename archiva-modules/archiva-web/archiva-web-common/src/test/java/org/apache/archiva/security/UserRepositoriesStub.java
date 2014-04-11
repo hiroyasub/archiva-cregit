@@ -78,6 +78,8 @@ argument_list|(
 literal|"test-repo"
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|createMissingRepositoryRoles
@@ -89,6 +91,8 @@ throws|throws
 name|ArchivaSecurityException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -124,6 +128,8 @@ operator|=
 name|repoIds
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAuthorizedToUploadArtifacts
@@ -141,6 +147,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAuthorizedToDeleteArtifacts
@@ -156,6 +164,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -203,6 +213,8 @@ operator|=
 name|repoIds
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<

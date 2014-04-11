@@ -257,6 +257,8 @@ specifier|private
 name|FileLockManager
 name|fileLockManager
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|ArchivaRuntimeConfiguration
 name|getArchivaRuntimeConfiguration
@@ -293,6 +295,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|updateArchivaRuntimeConfiguration

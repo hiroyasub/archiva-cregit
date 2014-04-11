@@ -185,6 +185,8 @@ specifier|private
 name|RepositoryGroupAdmin
 name|repositoryGroupAdmin
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -312,6 +314,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RepositoryGroup
 name|getRepositoryGroup
@@ -355,6 +359,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|addRepositoryGroup
@@ -452,6 +458,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|updateRepositoryGroup
@@ -549,6 +557,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteRepositoryGroup
@@ -593,6 +603,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|addRepositoryToGroup
@@ -642,6 +654,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteRepositoryFromGroup

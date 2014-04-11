@@ -848,6 +848,8 @@ name|UTC_TIME_ZONE
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|afterConfigurationChange
@@ -877,6 +879,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|beforeConfigurationChange

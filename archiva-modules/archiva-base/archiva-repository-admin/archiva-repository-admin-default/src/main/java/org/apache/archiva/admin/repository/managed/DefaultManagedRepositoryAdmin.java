@@ -942,6 +942,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -1116,6 +1118,8 @@ return|return
 name|managedRepos
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -1180,6 +1184,8 @@ return|return
 name|repositoriesMap
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ManagedRepository
 name|getManagedRepository
@@ -1231,6 +1237,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|addManagedRepository
@@ -1776,6 +1784,8 @@ return|return
 name|repository
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteManagedRepository
@@ -2406,6 +2416,8 @@ operator|.
 name|TRUE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|updateManagedRepository
@@ -2944,6 +2956,8 @@ name|repository
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|IndexingContext
 name|createIndexContext

@@ -216,6 +216,8 @@ literal|"**/*.zip"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDescription
@@ -225,6 +227,8 @@ return|return
 name|description
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getId
@@ -234,6 +238,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isPermanent
@@ -243,6 +249,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -255,6 +263,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<

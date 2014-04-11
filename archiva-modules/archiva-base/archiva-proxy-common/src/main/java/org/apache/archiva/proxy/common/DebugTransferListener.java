@@ -92,6 +92,8 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|transferInitiated
@@ -127,6 +129,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|transferStarted
@@ -162,6 +166,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|transferProgress
@@ -204,6 +210,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|transferCompleted
@@ -239,6 +247,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|transferError
@@ -279,6 +289,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|debug

@@ -249,6 +249,8 @@ name|request
 decl_stmt|;
 annotation|@
 name|Before
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setUp

@@ -391,6 +391,8 @@ specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -561,6 +563,8 @@ return|return
 name|remoteRepositories
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RemoteRepository
 name|getRemoteRepository
@@ -604,6 +608,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteRemoteRepository
@@ -622,6 +628,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|addRemoteRepository
@@ -640,6 +648,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|updateRemoteRepository
@@ -658,6 +668,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -675,6 +687,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|IndexingContext
 name|createIndexContext
@@ -690,6 +704,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -705,6 +721,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -722,6 +740,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ManagedRepository
 name|getManagedRepository
@@ -839,6 +859,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteManagedRepository
@@ -860,6 +882,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|addManagedRepository
@@ -881,6 +905,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|updateManagedRepository
@@ -905,6 +931,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|IndexingContext
 name|createIndexContext
@@ -920,6 +948,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -995,6 +1025,8 @@ return|return
 name|proxyConnectors
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ProxyConnector
 name|getProxyConnector
@@ -1013,6 +1045,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|addProxyConnector
@@ -1031,6 +1065,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteProxyConnector
@@ -1049,6 +1085,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|updateProxyConnector
@@ -1066,6 +1104,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -1196,6 +1236,8 @@ return|return
 name|proxyConnectorMap
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -1211,6 +1253,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|NetworkProxy
 name|getNetworkProxy
@@ -1226,6 +1270,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addNetworkProxy
@@ -1241,6 +1287,8 @@ name|RepositoryAdminException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateNetworkProxy
@@ -1256,6 +1304,8 @@ name|RepositoryAdminException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|deleteNetworkProxy

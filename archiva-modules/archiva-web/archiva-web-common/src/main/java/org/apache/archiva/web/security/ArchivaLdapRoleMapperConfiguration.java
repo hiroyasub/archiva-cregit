@@ -278,6 +278,8 @@ specifier|private
 name|RedbackRuntimeConfigurationAdmin
 name|redbackRuntimeConfigurationAdmin
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addLdapMapping
@@ -374,6 +376,8 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+annotation|@
+name|Override
 block|}
 block|}
 specifier|public
@@ -483,7 +487,10 @@ name|MappingException
 argument_list|(
 name|e
 operator|.
-name|getMessage
+name|getMessa
+expr|@
+name|Override
+name|ge
 argument_list|()
 argument_list|,
 name|e
@@ -555,7 +562,10 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|MappingException
+name|MappingExceptio
+expr|@
+name|Override
+name|n
 argument_list|(
 name|e
 operator|.
@@ -674,6 +684,8 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
+expr|@
+name|Override
 name|MappingException
 argument_list|(
 name|e

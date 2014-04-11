@@ -75,6 +75,8 @@ name|RepositoryProblemFacetFactory
 implements|implements
 name|MetadataFacetFactory
 block|{
+annotation|@
+name|Override
 specifier|public
 name|MetadataFacet
 name|createMetadataFacet
@@ -86,6 +88,8 @@ name|RepositoryProblemFacet
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|MetadataFacet
 name|createMetadataFacet

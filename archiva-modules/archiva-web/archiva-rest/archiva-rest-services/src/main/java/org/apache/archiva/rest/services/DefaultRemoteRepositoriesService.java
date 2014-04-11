@@ -475,6 +475,8 @@ specifier|private
 name|NetworkProxyAdmin
 name|networkProxyAdmin
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -551,6 +553,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RemoteRepository
 name|getRemoteRepository
@@ -602,6 +606,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteRemoteRepository
@@ -663,6 +669,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|addRemoteRepository
@@ -724,6 +732,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|updateRemoteRepository

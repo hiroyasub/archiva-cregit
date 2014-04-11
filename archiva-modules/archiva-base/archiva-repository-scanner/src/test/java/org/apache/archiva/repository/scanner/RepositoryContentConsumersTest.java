@@ -1950,6 +1950,8 @@ operator|=
 name|invalidRepositoryContentConsumers
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getApplicationName
@@ -1959,6 +1961,8 @@ return|return
 literal|"foo"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|AutowireCapableBeanFactory
 name|getAutowireCapableBeanFactory
@@ -1974,6 +1978,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDisplayName
@@ -1987,6 +1993,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getId
@@ -2000,6 +2008,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ApplicationContext
 name|getParent
@@ -2013,6 +2023,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|long
 name|getStartupDate
@@ -2026,6 +2038,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|containsBeanDefinition
@@ -2042,6 +2056,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getBeanDefinitionCount
@@ -2055,6 +2071,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 index|[]
@@ -2069,6 +2087,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 index|[]
@@ -2086,6 +2106,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 index|[]
@@ -2109,6 +2131,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 name|getBeansOfType
@@ -2159,6 +2183,8 @@ literal|"Should not have been called"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 name|getBeansOfType
@@ -2183,6 +2209,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|containsBean
@@ -2199,6 +2227,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 index|[]
@@ -2216,6 +2246,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Object
 name|getBean
@@ -2234,6 +2266,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Object
 name|getBean
@@ -2255,6 +2289,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Object
 name|getBean
@@ -2277,6 +2313,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Class
 name|getType
@@ -2295,6 +2333,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isPrototype
@@ -2313,6 +2353,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isSingleton
@@ -2331,6 +2373,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isTypeMatch
@@ -2352,6 +2396,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|containsLocalBean
@@ -2368,6 +2414,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|BeanFactory
 name|getParentBeanFactory
@@ -2381,6 +2429,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getMessage
@@ -2407,6 +2457,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getMessage
@@ -2432,6 +2484,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getMessage
@@ -2453,6 +2507,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|publishEvent
@@ -2469,6 +2525,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Resource
 index|[]
@@ -2488,6 +2546,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ClassLoader
 name|getClassLoader
@@ -2501,6 +2561,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Resource
 name|getResource
@@ -2517,6 +2579,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 parameter_list|<
 name|T
@@ -2541,6 +2605,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -2569,6 +2635,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 parameter_list|<
 name|A
@@ -2596,6 +2664,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Environment
 name|getEnvironment

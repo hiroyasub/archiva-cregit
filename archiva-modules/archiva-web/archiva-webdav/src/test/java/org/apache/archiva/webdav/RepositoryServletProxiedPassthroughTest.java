@@ -151,6 +151,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|After
+annotation|@
+name|Override
 specifier|public
 name|void
 name|tearDown

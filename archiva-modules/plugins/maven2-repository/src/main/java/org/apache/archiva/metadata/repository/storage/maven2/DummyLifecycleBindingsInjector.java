@@ -94,6 +94,8 @@ name|DummyLifecycleBindingsInjector
 implements|implements
 name|LifecycleBindingsInjector
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|injectLifecycleBindings

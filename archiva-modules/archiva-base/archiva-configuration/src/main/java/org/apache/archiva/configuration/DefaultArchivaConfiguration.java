@@ -754,6 +754,8 @@ name|KEY
 init|=
 literal|"org.apache.archiva"
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|Configuration
 name|getConfiguration
@@ -1871,6 +1873,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Override
 specifier|public
 specifier|synchronized
 name|void
@@ -2618,6 +2622,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addListener
@@ -2643,6 +2649,8 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeListener
@@ -2668,6 +2676,8 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addChangeListener
@@ -3174,6 +3184,8 @@ block|}
 comment|// save ??
 comment|//save( configuration );
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|reload
@@ -3220,6 +3232,8 @@ name|initialize
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|beforeConfigurationChange
@@ -3236,6 +3250,8 @@ parameter_list|)
 block|{
 comment|// nothing to do here
 block|}
+annotation|@
+name|Override
 specifier|public
 specifier|synchronized
 name|void
@@ -3530,6 +3546,8 @@ return|return
 name|altConfigFilename
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isDefaulted

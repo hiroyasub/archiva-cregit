@@ -356,6 +356,8 @@ name|MemoryUserManager
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|SecuritySession
 name|authenticate
@@ -394,6 +396,8 @@ name|result
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|AuthorizationResult
 name|authorize
@@ -422,6 +426,8 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|AuthorizationResult
 name|authorize
@@ -453,6 +459,8 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getAuthenticatorId
@@ -462,6 +470,8 @@ return|return
 literal|"bypass-authenticator"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getAuthorizerId
@@ -471,6 +481,8 @@ return|return
 literal|"bypass-authorizer"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|KeyManager
 name|getKeyManager
@@ -480,6 +492,8 @@ return|return
 name|bypassKeyManager
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|UserSecurityPolicy
 name|getPolicy
@@ -489,6 +503,8 @@ return|return
 name|bypassPolicy
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getUserManagementId
@@ -498,6 +514,8 @@ return|return
 literal|"bypass-managementid"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|UserManager
 name|getUserManager
@@ -507,6 +525,8 @@ return|return
 name|bypassUserManager
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAuthenticated
@@ -526,6 +546,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAuthorized
@@ -544,6 +566,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAuthorized
@@ -565,6 +589,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|userManagerReadOnly

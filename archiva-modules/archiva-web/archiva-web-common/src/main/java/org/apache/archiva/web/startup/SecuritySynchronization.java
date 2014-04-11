@@ -577,6 +577,8 @@ return|return
 name|beans
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|afterConfigurationChange
@@ -636,6 +638,8 @@ name|propertyValue
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 block|}
 block|}
 specifier|public

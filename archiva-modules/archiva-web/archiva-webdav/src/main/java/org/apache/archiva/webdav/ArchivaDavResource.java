@@ -1026,6 +1026,8 @@ operator|=
 name|principal
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getComplianceClass
@@ -1035,6 +1037,8 @@ return|return
 name|COMPLIANCE_CLASS
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getSupportedMethods
@@ -1044,6 +1048,8 @@ return|return
 name|METHODS
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|exists
@@ -1056,6 +1062,8 @@ name|exists
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isCollection
@@ -1068,6 +1076,8 @@ name|isDirectory
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDisplayName
@@ -1096,6 +1106,8 @@ else|:
 name|resPath
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavResourceLocator
 name|getLocator
@@ -1114,6 +1126,8 @@ return|return
 name|localResource
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getResourcePath
@@ -1126,6 +1140,8 @@ name|getResourcePath
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getHref
@@ -1141,6 +1157,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|long
 name|getModificationTime
@@ -1153,6 +1171,8 @@ name|lastModified
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|spool
@@ -1339,6 +1359,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavPropertyName
 index|[]
@@ -1353,6 +1375,8 @@ name|getPropertyNames
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavProperty
 name|getProperty
@@ -1371,6 +1395,8 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavPropertySet
 name|getProperties
@@ -1381,6 +1407,8 @@ name|initProperties
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setProperty
@@ -1392,6 +1420,8 @@ throws|throws
 name|DavException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeProperty
@@ -1425,6 +1455,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Override
 specifier|public
 name|MultiStatusResponse
 name|alterProperties
@@ -1439,6 +1471,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavResource
 name|getCollection
@@ -1539,6 +1573,8 @@ return|return
 name|parent
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addMember
@@ -1838,6 +1874,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavResourceIterator
 name|getMembers
@@ -1977,6 +2015,8 @@ name|list
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeMember
@@ -2211,6 +2251,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|move
@@ -2366,6 +2408,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|copy
@@ -2544,6 +2588,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isLockable
@@ -2575,6 +2621,8 @@ name|scope
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasLock
@@ -2597,6 +2645,8 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ActiveLock
 name|getLock
@@ -2655,6 +2705,8 @@ return|return
 name|lock
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ActiveLock
 index|[]
@@ -2696,6 +2748,8 @@ literal|0
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ActiveLock
 name|lock
@@ -2757,6 +2811,8 @@ return|return
 name|lock
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ActiveLock
 name|refreshLock
@@ -2842,6 +2898,8 @@ return|return
 name|lock
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|unlock
@@ -2916,6 +2974,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addLockManager
@@ -2931,6 +2991,8 @@ operator|=
 name|lockManager
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavResourceFactory
 name|getFactory
@@ -2940,6 +3002,8 @@ return|return
 name|factory
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavSession
 name|getSession

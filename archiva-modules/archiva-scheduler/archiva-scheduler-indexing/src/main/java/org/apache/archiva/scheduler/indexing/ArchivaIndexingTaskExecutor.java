@@ -521,6 +521,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * depending on current {@link Task} you have.      * If {@link org.apache.archiva.scheduler.indexing.ArtifactIndexingTask.Action#FINISH}&amp;&amp; isExecuteOnEntireRepo:      * repository will be scanned.      *      * @param task      * @throws TaskExecutionException      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|executeTask

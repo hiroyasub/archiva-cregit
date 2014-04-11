@@ -679,6 +679,8 @@ literal|"content"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateProject
@@ -806,6 +808,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateProjectVersion
@@ -2013,6 +2017,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateNamespace
@@ -2087,6 +2093,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -2135,6 +2143,8 @@ return|return
 name|facets
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasMetadataFacet
@@ -2259,6 +2269,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|MetadataFacet
 name|getMetadataFacet
@@ -2428,6 +2440,8 @@ return|return
 name|metadataFacet
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addMetadataFacet
@@ -2511,6 +2525,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeMetadataFacets
@@ -2554,6 +2570,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeMetadataFacet
@@ -2606,6 +2624,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -2822,6 +2842,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -3364,6 +3386,8 @@ name|values
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|save
@@ -3371,6 +3395,8 @@ parameter_list|()
 block|{
 comment|// it's all instantly persisted
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close
@@ -3378,6 +3404,8 @@ parameter_list|()
 block|{
 comment|// nothing additional to close
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|revert
@@ -3391,6 +3419,8 @@ literal|"Attempted to revert a session, but the file-based repository storage do
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|canObtainAccess
@@ -3406,6 +3436,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 parameter_list|<
 name|T
@@ -3519,6 +3551,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -3567,6 +3601,8 @@ return|return
 name|repositories
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -3623,6 +3659,8 @@ return|return
 name|artifacts
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeNamespace
@@ -3683,6 +3721,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeArtifact
@@ -3892,6 +3932,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeArtifact
@@ -4091,6 +4133,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * FIXME implements this !!!!      *      * @param repositoryId      * @param namespace      * @param project      * @param projectVersion      * @param metadataFacet  will remove artifacts which have this {@link MetadataFacet} using equals      * @throws MetadataRepositoryException      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeArtifact
@@ -4121,6 +4165,8 @@ literal|"not implemented"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeRepository
@@ -4420,6 +4466,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateArtifact
@@ -4873,6 +4921,8 @@ return|return
 name|properties
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ProjectMetadata
 name|getProject
@@ -4967,6 +5017,8 @@ return|return
 name|project
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ProjectVersionMetadata
 name|getProjectVersion
@@ -6041,6 +6093,8 @@ return|return
 name|versionMetadata
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -6159,6 +6213,8 @@ return|return
 name|versions
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -6346,6 +6402,8 @@ return|return
 name|references
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -6366,6 +6424,8 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -6563,6 +6623,8 @@ name|namespaces
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -6659,6 +6721,8 @@ return|return
 name|projects
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -6762,6 +6826,8 @@ return|return
 name|projectVersions
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeProject
@@ -6835,6 +6901,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeProjectVersion
@@ -6986,6 +7054,8 @@ argument_list|<
 name|ArtifactMetadata
 argument_list|>
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compare
@@ -7059,6 +7129,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<

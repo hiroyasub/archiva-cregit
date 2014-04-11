@@ -2484,6 +2484,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|start
@@ -2492,6 +2494,8 @@ block|{
 block|}
 annotation|@
 name|PreDestroy
+annotation|@
+name|Override
 specifier|public
 name|void
 name|shutdown
@@ -2520,6 +2524,8 @@ return|return
 name|keyspace
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Cluster
 name|getCluster
@@ -2529,6 +2535,8 @@ return|return
 name|cluster
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getRepositoryFamilyName
@@ -2538,6 +2546,8 @@ return|return
 name|repositoryFamilyName
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getNamespaceFamilyName
@@ -2547,6 +2557,8 @@ return|return
 name|namespaceFamilyName
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getProjectFamilyName
@@ -2556,6 +2568,8 @@ return|return
 name|projectFamilyName
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getProjectVersionMetadataFamilyName
@@ -2565,6 +2579,8 @@ return|return
 name|projectVersionMetadataFamilyName
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getArtifactMetadataFamilyName
@@ -2574,6 +2590,8 @@ return|return
 name|artifactMetadataFamilyName
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getMetadataFacetFamilyName
@@ -2583,6 +2601,8 @@ return|return
 name|metadataFacetFamilyName
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getMailingListFamilyName
@@ -2592,6 +2612,8 @@ return|return
 name|mailingListFamilyName
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getLicenseFamilyName
@@ -2601,6 +2623,8 @@ return|return
 name|licenseFamilyName
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDependencyFamilyName

@@ -256,6 +256,8 @@ name|MockWagon
 implements|implements
 name|Wagon
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|get
@@ -325,6 +327,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|getIfNewer
@@ -349,6 +353,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|put
@@ -367,6 +373,8 @@ throws|,
 name|AuthorizationException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|putDirectory
@@ -385,6 +393,8 @@ throws|,
 name|AuthorizationException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|resourceExists
@@ -401,6 +411,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 name|getFileList
@@ -419,6 +431,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|supportsDirectoryCopy
@@ -428,6 +442,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Repository
 name|getRepository
@@ -437,6 +453,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|connect
@@ -450,6 +468,8 @@ throws|,
 name|AuthenticationException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|connect
@@ -466,6 +486,8 @@ throws|,
 name|AuthenticationException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|connect
@@ -482,6 +504,8 @@ throws|,
 name|AuthenticationException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|connect
@@ -498,6 +522,8 @@ throws|,
 name|AuthenticationException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|connect
@@ -517,6 +543,8 @@ throws|,
 name|AuthenticationException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|connect
@@ -536,6 +564,8 @@ throws|,
 name|AuthenticationException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|openConnection
@@ -546,6 +576,8 @@ throws|,
 name|AuthenticationException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|disconnect
@@ -554,6 +586,8 @@ throws|throws
 name|ConnectionException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setTimeout
@@ -563,6 +597,8 @@ name|i
 parameter_list|)
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getTimeout
@@ -572,6 +608,8 @@ return|return
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setReadTimeout
@@ -581,6 +619,8 @@ name|timeoutValue
 parameter_list|)
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getReadTimeout
@@ -590,6 +630,8 @@ return|return
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addSessionListener
@@ -599,6 +641,8 @@ name|sessionListener
 parameter_list|)
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeSessionListener
@@ -608,6 +652,8 @@ name|sessionListener
 parameter_list|)
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasSessionListener
@@ -620,6 +666,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addTransferListener
@@ -629,6 +677,8 @@ name|transferListener
 parameter_list|)
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeTransferListener
@@ -638,6 +688,8 @@ name|transferListener
 parameter_list|)
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasTransferListener
@@ -650,6 +702,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isInteractive
@@ -659,6 +713,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setInteractive

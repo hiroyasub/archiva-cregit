@@ -561,6 +561,8 @@ name|repositoryGroupId
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -664,6 +666,8 @@ return|return
 name|repositoriesGroups
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RepositoryGroup
 name|getRepositoryGroup
@@ -715,6 +719,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|addRepositoryGroup
@@ -858,6 +864,8 @@ operator|.
 name|TRUE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteRepositoryGroup
@@ -957,6 +965,8 @@ operator|.
 name|TRUE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|updateRepositoryGroup
@@ -1146,6 +1156,8 @@ operator|.
 name|TRUE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|addRepositoryToGroup
@@ -1264,6 +1276,8 @@ operator|.
 name|TRUE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteRepositoryFromGroup
@@ -1373,6 +1387,8 @@ operator|.
 name|TRUE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -1437,6 +1453,8 @@ return|return
 name|map
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -1568,6 +1586,8 @@ return|return
 name|map
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<

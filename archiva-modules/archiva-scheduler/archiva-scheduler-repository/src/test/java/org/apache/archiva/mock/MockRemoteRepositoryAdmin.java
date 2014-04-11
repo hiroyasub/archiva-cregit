@@ -148,6 +148,8 @@ specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -163,6 +165,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RemoteRepository
 name|getRemoteRepository
@@ -178,6 +182,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteRemoteRepository
@@ -196,6 +202,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|addRemoteRepository
@@ -214,6 +222,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|updateRemoteRepository
@@ -232,6 +242,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -273,6 +285,8 @@ operator|=
 name|archivaConfiguration
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|IndexingContext
 name|createIndexContext

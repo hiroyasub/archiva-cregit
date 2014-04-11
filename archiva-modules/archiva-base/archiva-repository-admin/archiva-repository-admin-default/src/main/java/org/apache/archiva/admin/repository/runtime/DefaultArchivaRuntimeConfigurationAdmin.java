@@ -531,6 +531,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ArchivaRuntimeConfiguration
 name|getArchivaRuntimeConfiguration
@@ -551,6 +553,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateArchivaRuntimeConfiguration

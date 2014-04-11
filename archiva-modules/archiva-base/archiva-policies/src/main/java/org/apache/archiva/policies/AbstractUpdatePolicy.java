@@ -251,6 +251,8 @@ name|String
 name|getUpdateMode
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -263,6 +265,8 @@ return|return
 name|options
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|applyPolicy

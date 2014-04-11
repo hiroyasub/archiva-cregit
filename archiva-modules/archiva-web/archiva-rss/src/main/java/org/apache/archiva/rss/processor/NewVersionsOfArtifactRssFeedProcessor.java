@@ -284,6 +284,8 @@ name|RssFeedGenerator
 name|generator
 decl_stmt|;
 comment|/**      * Process all versions of the artifact which had a rss feed request.      */
+annotation|@
+name|Override
 specifier|public
 name|SyndFeed
 name|process
@@ -715,6 +717,8 @@ name|entries
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getTitle
@@ -724,6 +728,8 @@ return|return
 name|title
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDescription

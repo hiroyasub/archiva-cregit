@@ -613,6 +613,8 @@ specifier|private
 name|LdapUserMapper
 name|ldapUserMapper
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|RedbackRuntimeConfiguration
 name|getRedbackRuntimeConfiguration
@@ -649,6 +651,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|updateRedbackRuntimeConfiguration
@@ -1024,6 +1028,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -1182,6 +1188,8 @@ return|return
 name|informations
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -1340,6 +1348,8 @@ return|return
 name|informations
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RedbackImplementationsInformations
 name|getRedbackImplementationsInformations
@@ -1359,6 +1369,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|checkLdapConnection
@@ -1436,6 +1448,8 @@ operator|.
 name|TRUE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|checkLdapConnection

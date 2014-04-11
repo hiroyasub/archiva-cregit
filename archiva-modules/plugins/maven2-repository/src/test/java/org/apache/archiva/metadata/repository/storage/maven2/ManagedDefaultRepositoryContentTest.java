@@ -714,6 +714,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Override
 specifier|public
 name|void
 name|testToPathOnNullArtifactReference

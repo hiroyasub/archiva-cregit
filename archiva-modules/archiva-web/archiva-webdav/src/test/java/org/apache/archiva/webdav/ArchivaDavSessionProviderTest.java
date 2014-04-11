@@ -670,6 +670,8 @@ name|HttpServletRequestMock
 implements|implements
 name|HttpServletRequest
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|authenticate
@@ -690,6 +692,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|login
@@ -711,6 +715,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|logout
@@ -726,6 +732,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -746,6 +754,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Part
 name|getPart
@@ -766,6 +776,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ServletContext
 name|getServletContext
@@ -779,6 +791,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|AsyncContext
 name|startAsync
@@ -794,6 +808,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|AsyncContext
 name|startAsync
@@ -815,6 +831,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAsyncStarted
@@ -828,6 +846,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAsyncSupported
@@ -841,6 +861,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|AsyncContext
 name|getAsyncContext
@@ -854,6 +876,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DispatcherType
 name|getDispatcherType
@@ -867,6 +891,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Object
 name|getAttribute
@@ -883,6 +909,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Enumeration
 name|getAttributeNames
@@ -896,6 +924,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getCharacterEncoding
@@ -909,6 +939,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getContentLength
@@ -922,6 +954,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getContentType
@@ -935,6 +969,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ServletInputStream
 name|getInputStream
@@ -950,6 +986,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getLocalAddr
@@ -963,6 +1001,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getLocalName
@@ -976,6 +1016,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getLocalPort
@@ -989,6 +1031,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Locale
 name|getLocale
@@ -1002,6 +1046,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Enumeration
 name|getLocales
@@ -1015,6 +1061,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getParameter
@@ -1031,6 +1079,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 name|getParameterMap
@@ -1044,6 +1094,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Enumeration
 name|getParameterNames
@@ -1057,6 +1109,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 index|[]
@@ -1074,6 +1128,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getProtocol
@@ -1087,6 +1143,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|BufferedReader
 name|getReader
@@ -1102,6 +1160,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getRealPath
@@ -1118,6 +1178,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getRemoteAddr
@@ -1131,6 +1193,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getRemoteHost
@@ -1144,6 +1208,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getRemotePort
@@ -1157,6 +1223,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RequestDispatcher
 name|getRequestDispatcher
@@ -1173,6 +1241,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getScheme
@@ -1182,6 +1252,8 @@ return|return
 literal|""
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getServerName
@@ -1195,6 +1267,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getServerPort
@@ -1208,6 +1282,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isSecure
@@ -1221,6 +1297,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeAttribute
@@ -1237,6 +1315,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setAttribute
@@ -1256,6 +1336,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setCharacterEncoding
@@ -1274,6 +1356,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getAuthType
@@ -1287,6 +1371,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getContextPath
@@ -1296,6 +1382,8 @@ return|return
 literal|"/"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Cookie
 index|[]
@@ -1310,6 +1398,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|long
 name|getDateHeader
@@ -1326,6 +1416,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getHeader
@@ -1338,6 +1430,8 @@ return|return
 literal|""
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Enumeration
 name|getHeaderNames
@@ -1351,6 +1445,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Enumeration
 name|getHeaders
@@ -1367,6 +1463,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getIntHeader
@@ -1383,6 +1481,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getMethod
@@ -1396,6 +1496,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getPathInfo
@@ -1409,6 +1511,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getPathTranslated
@@ -1422,6 +1526,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getQueryString
@@ -1435,6 +1541,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getRemoteUser
@@ -1448,6 +1556,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getRequestURI
@@ -1457,6 +1567,8 @@ return|return
 literal|"/"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|StringBuffer
 name|getRequestURL
@@ -1470,6 +1582,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getRequestedSessionId
@@ -1483,6 +1597,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getServletPath
@@ -1496,6 +1612,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|HttpSession
 name|getSession
@@ -1512,6 +1630,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|HttpSession
 name|getSession
@@ -1525,6 +1645,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Principal
 name|getUserPrincipal
@@ -1538,6 +1660,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isRequestedSessionIdFromCookie
@@ -1551,6 +1675,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isRequestedSessionIdFromURL
@@ -1564,6 +1690,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isRequestedSessionIdFromUrl
@@ -1577,6 +1705,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isRequestedSessionIdValid
@@ -1590,6 +1720,8 @@ literal|"Not supported yet."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isUserInRole
@@ -1613,6 +1745,8 @@ name|ServletAuthenticatorMock
 implements|implements
 name|ServletAuthenticator
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAuthenticated
@@ -1634,6 +1768,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAuthorized
@@ -1659,6 +1795,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAuthorized

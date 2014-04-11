@@ -258,6 +258,8 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|/**      * {@inheritDoc}      *      * @see org.apache.archiva.repository.content.PathParser#toArtifactReference(String)      */
+annotation|@
+name|Override
 specifier|public
 name|ArtifactReference
 name|toArtifactReference

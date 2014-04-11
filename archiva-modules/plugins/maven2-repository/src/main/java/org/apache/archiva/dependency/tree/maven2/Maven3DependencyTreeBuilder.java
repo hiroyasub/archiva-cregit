@@ -975,6 +975,8 @@ name|newInstance
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|buildDependencyTree
@@ -1269,6 +1271,8 @@ name|resolveRequest
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<

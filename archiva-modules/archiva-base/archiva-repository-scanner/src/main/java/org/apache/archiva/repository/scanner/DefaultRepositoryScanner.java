@@ -249,6 +249,8 @@ name|RepositoryScannerInstance
 argument_list|>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|RepositoryScanStatistics
 name|scan
@@ -336,6 +338,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RepositoryScanStatistics
 name|scan
@@ -661,6 +665,8 @@ return|return
 name|ids
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Set
 argument_list|<

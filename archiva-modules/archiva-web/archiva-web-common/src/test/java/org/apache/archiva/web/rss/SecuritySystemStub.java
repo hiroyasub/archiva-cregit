@@ -431,6 +431,8 @@ literal|"test-repo"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|SecuritySession
 name|authenticate
@@ -558,6 +560,8 @@ return|return
 name|session
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|AuthorizationResult
 name|authorize
@@ -575,6 +579,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|AuthorizationResult
 name|authorize
@@ -626,6 +632,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|KeyManager
 name|getKeyManager
@@ -635,6 +643,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|UserSecurityPolicy
 name|getPolicy
@@ -653,6 +663,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|UserManager
 name|getUserManager
@@ -663,6 +675,8 @@ operator|new
 name|UserManager
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDescriptionKey
@@ -672,6 +686,8 @@ return|return
 literal|"French wine is better than Australian wine !"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isFinalImplementation
@@ -681,6 +697,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|initialize
@@ -688,6 +706,8 @@ parameter_list|()
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isReadOnly
@@ -697,6 +717,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getId
@@ -706,6 +728,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addUserManagerListener
@@ -716,6 +740,8 @@ parameter_list|)
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeUserManagerListener
@@ -726,6 +752,8 @@ parameter_list|)
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|User
 name|createUser
@@ -744,6 +772,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|User
 name|createGuestUser
@@ -754,6 +784,8 @@ operator|new
 name|User
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getUsername
@@ -763,6 +795,8 @@ return|return
 literal|"guest"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setUsername
@@ -772,6 +806,8 @@ name|name
 parameter_list|)
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getFullName
@@ -781,6 +817,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setFullName
@@ -791,6 +829,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getEmail
@@ -801,6 +841,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setEmail
@@ -811,6 +853,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getPassword
@@ -821,6 +865,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setPassword
@@ -831,6 +877,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getEncodedPassword
@@ -841,6 +889,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setEncodedPassword
@@ -851,6 +901,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Date
 name|getLastPasswordChange
@@ -861,6 +913,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setLastPasswordChange
@@ -871,6 +925,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -884,6 +940,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setPreviousEncodedPasswords
@@ -897,6 +955,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addPreviousEncodedPassword
@@ -907,6 +967,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isPermanent
@@ -917,6 +979,8 @@ literal|false
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setPermanent
@@ -927,6 +991,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isLocked
@@ -937,6 +1003,8 @@ literal|false
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setLocked
@@ -947,6 +1015,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isPasswordChangeRequired
@@ -957,6 +1027,8 @@ literal|false
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setPasswordChangeRequired
@@ -967,6 +1039,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isValidated
@@ -977,6 +1051,8 @@ literal|false
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setValidated
@@ -987,6 +1063,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getCountFailedLoginAttempts
@@ -997,6 +1075,8 @@ literal|0
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setCountFailedLoginAttempts
@@ -1007,6 +1087,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Date
 name|getAccountCreationDate
@@ -1017,6 +1099,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setAccountCreationDate
@@ -1027,6 +1111,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Date
 name|getLastLoginDate
@@ -1037,6 +1123,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setLastLoginDate
@@ -1047,6 +1135,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getUserManagerId
@@ -1059,6 +1149,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|UserQuery
 name|createUserQuery
@@ -1069,6 +1161,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -1082,6 +1176,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -1098,6 +1194,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|User
 name|addUser
@@ -1111,6 +1209,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|User
 name|updateUser
@@ -1126,6 +1226,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|User
 name|findUser
@@ -1162,6 +1264,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|User
 name|getGuestUser
@@ -1174,6 +1278,8 @@ operator|new
 name|User
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getUsername
@@ -1183,6 +1289,8 @@ return|return
 literal|"guest"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setUsername
@@ -1192,6 +1300,8 @@ name|name
 parameter_list|)
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getFullName
@@ -1202,6 +1312,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setFullName
@@ -1212,6 +1324,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getEmail
@@ -1222,6 +1336,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setEmail
@@ -1232,6 +1348,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getPassword
@@ -1242,6 +1360,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setPassword
@@ -1252,6 +1372,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getEncodedPassword
@@ -1262,6 +1384,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setEncodedPassword
@@ -1272,6 +1396,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Date
 name|getLastPasswordChange
@@ -1282,6 +1408,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setLastPasswordChange
@@ -1292,6 +1420,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -1305,6 +1435,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setPreviousEncodedPasswords
@@ -1318,6 +1450,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addPreviousEncodedPassword
@@ -1328,6 +1462,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isPermanent
@@ -1338,6 +1474,8 @@ literal|false
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setPermanent
@@ -1348,6 +1486,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isLocked
@@ -1358,6 +1498,8 @@ literal|false
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setLocked
@@ -1368,6 +1510,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isPasswordChangeRequired
@@ -1378,6 +1522,8 @@ literal|false
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setPasswordChangeRequired
@@ -1388,6 +1534,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isValidated
@@ -1398,6 +1546,8 @@ literal|false
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setValidated
@@ -1408,6 +1558,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getCountFailedLoginAttempts
@@ -1418,6 +1570,8 @@ literal|0
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setCountFailedLoginAttempts
@@ -1428,6 +1582,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Date
 name|getAccountCreationDate
@@ -1438,6 +1594,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setAccountCreationDate
@@ -1448,6 +1606,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Date
 name|getLastLoginDate
@@ -1458,6 +1618,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setLastLoginDate
@@ -1468,6 +1630,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getUserManagerId
@@ -1480,6 +1644,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -1499,6 +1665,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -1518,6 +1686,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -1537,6 +1707,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -1553,6 +1725,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|userExists
@@ -1566,6 +1740,8 @@ literal|false
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|deleteUser
@@ -1578,6 +1754,8 @@ name|UserNotFoundException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addUserUnchecked
@@ -1588,6 +1766,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|eraseDatabase
@@ -1595,6 +1775,8 @@ parameter_list|()
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|User
 name|updateUser
@@ -1616,6 +1798,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAuthenticated
@@ -1634,6 +1818,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAuthorized
@@ -1651,6 +1837,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAuthorized
@@ -1685,6 +1873,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|userManagerReadOnly

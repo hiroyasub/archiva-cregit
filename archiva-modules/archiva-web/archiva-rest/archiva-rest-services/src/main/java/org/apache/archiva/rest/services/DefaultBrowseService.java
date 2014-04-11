@@ -1010,6 +1010,8 @@ name|ProjectVersionMetadata
 argument_list|>
 name|versionMetadataCache
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|BrowseResult
 name|getRootGroups
@@ -1217,6 +1219,8 @@ name|browseGroupResultEntries
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|BrowseResult
 name|browseGroupId
@@ -1510,6 +1514,8 @@ name|browseGroupResultEntries
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|VersionsList
 name|getVersionsList
@@ -1722,6 +1728,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ProjectVersionMetadata
 name|getProjectMetadata
@@ -1867,6 +1875,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ProjectVersionMetadata
 name|getProjectVersionMetadata
@@ -2577,6 +2587,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -2653,6 +2665,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -2701,6 +2715,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -2874,6 +2890,8 @@ return|return
 name|artifacts
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -3021,6 +3039,8 @@ return|return
 name|entries
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|addMetadata
@@ -3246,6 +3266,8 @@ operator|.
 name|TRUE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteMetadata
@@ -3451,6 +3473,8 @@ operator|.
 name|TRUE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -3699,6 +3723,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -3890,6 +3916,8 @@ return|return
 name|artifactDownloadInfos
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ArtifactContent
 name|getArtifactContentText
@@ -4242,6 +4270,8 @@ name|ArtifactContent
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|artifactAvailable
@@ -4762,6 +4792,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|artifactAvailable
@@ -4796,6 +4828,8 @@ name|repositoryId
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -4872,6 +4906,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|importMetadata

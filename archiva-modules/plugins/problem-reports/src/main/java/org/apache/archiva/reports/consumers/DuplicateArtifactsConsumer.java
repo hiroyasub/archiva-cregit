@@ -562,6 +562,8 @@ specifier|private
 name|RepositorySession
 name|repositorySession
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getId
@@ -571,6 +573,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDescription
@@ -580,6 +584,8 @@ return|return
 name|description
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isPermanent
@@ -589,6 +595,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -601,6 +609,8 @@ return|return
 name|includes
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -616,6 +626,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|beginScan
@@ -657,6 +669,8 @@ name|createSession
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|beginScan
@@ -681,6 +695,8 @@ name|whenGathered
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|processFile
@@ -1074,6 +1090,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|processFile
@@ -1093,6 +1111,8 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|completeScan
@@ -1104,6 +1124,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|completeScan
@@ -1116,6 +1138,8 @@ name|completeScan
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|afterConfigurationChange
@@ -1145,6 +1169,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|beforeConfigurationChange

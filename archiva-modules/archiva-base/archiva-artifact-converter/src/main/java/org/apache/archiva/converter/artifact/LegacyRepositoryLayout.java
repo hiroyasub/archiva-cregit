@@ -125,6 +125,8 @@ return|return
 literal|"legacy"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|pathOf
@@ -270,6 +272,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|pathOfLocalRepositoryMetadata
@@ -354,6 +358,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|pathOfRemoteRepositoryMetadata

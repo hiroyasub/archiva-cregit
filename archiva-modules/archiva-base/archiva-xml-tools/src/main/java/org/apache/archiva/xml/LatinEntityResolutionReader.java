@@ -123,6 +123,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Read characters into a portion of an array. This method will block until some input is available,       * an I/O error occurs, or the end of the stream is reached.      *       * @param destbuf Destination buffer      * @param offset Offset (in destination buffer) at which to start storing characters      * @param length Maximum number of characters to read      * @return The number of characters read, or -1 if the end of the stream has been reached      * @throws IOException if an I/O error occurs.      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|read
@@ -647,6 +649,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close

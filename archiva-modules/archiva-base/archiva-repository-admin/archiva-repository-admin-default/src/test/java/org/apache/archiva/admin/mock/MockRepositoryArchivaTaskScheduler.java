@@ -99,6 +99,8 @@ name|MockRepositoryArchivaTaskScheduler
 implements|implements
 name|RepositoryArchivaTaskScheduler
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isProcessingRepositoryTask
@@ -111,6 +113,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isProcessingRepositoryTask
@@ -123,6 +127,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|queueTask
@@ -135,6 +141,8 @@ name|TaskQueueException
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|unQueueTask

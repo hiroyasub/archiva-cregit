@@ -1370,6 +1370,8 @@ operator|.
 name|MD5
 block|}
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|scanRepository
@@ -1390,6 +1392,8 @@ name|fullScan
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|alreadyScanning
@@ -1407,6 +1411,8 @@ name|repositoryId
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|removeScanningTaskFromQueue
@@ -1462,6 +1468,8 @@ literal|false
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|scanRepositoryNow
@@ -1576,6 +1584,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|scheduleDownloadRemoteIndex
@@ -1643,6 +1653,8 @@ operator|.
 name|TRUE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|copyArtifact
@@ -3446,6 +3458,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|removeProjectVersion
@@ -3889,6 +3903,8 @@ operator|.
 name|TRUE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteArtifact
@@ -5044,6 +5060,8 @@ operator|.
 name|TRUE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteGroupId
@@ -5278,6 +5296,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteProject
@@ -5539,6 +5559,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|isAuthorizedToDeleteArtifacts
@@ -5613,6 +5635,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RepositoryScanStatistics
 name|scanRepositoryDirectoriesNow

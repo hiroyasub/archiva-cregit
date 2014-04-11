@@ -158,6 +158,8 @@ literal|false
 expr_stmt|;
 block|}
 comment|/**      * Close the session. Required to be called for all open sessions to ensure resources are properly released.      * If the session has been marked as dirty, it will be saved. This may save partial changes in the case of a typical      *<code>try { ... } finally { ... }</code> approach - if this is a problem, ensure you revert changes when an      * exception occurs.      *<b>can throw RuntimeException</b>      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close

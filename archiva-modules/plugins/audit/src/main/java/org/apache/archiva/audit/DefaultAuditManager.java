@@ -221,6 +221,8 @@ argument_list|(
 literal|"UTC"
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -389,6 +391,8 @@ return|return
 name|events
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addAuditEvent
@@ -427,6 +431,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|deleteAuditEvents
@@ -452,6 +458,8 @@ name|FACET_ID
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -492,6 +500,8 @@ name|endTime
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -689,6 +699,8 @@ name|AuditEvent
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compare
@@ -792,6 +804,8 @@ operator|=
 name|name
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compareTo

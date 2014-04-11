@@ -687,6 +687,8 @@ name|defaultRepositoryGroupAdmin
 decl_stmt|;
 annotation|@
 name|Before
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setUp
@@ -1132,6 +1134,8 @@ return|;
 block|}
 annotation|@
 name|After
+annotation|@
+name|Override
 specifier|public
 name|void
 name|tearDown
@@ -3259,6 +3263,8 @@ name|archivaConfiguration
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|boolean
 name|isAuthorized
@@ -3299,6 +3305,8 @@ literal|true
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|String
 name|getActivePrincipal
@@ -3317,6 +3325,8 @@ name|OverridingRepositoryProxyConnectors
 extends|extends
 name|DefaultRepositoryProxyConnectors
 block|{
+annotation|@
+name|Override
 specifier|public
 name|File
 name|fetchMetatadaFromProxies

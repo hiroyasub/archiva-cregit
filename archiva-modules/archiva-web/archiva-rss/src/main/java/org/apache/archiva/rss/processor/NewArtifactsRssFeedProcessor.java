@@ -297,6 +297,8 @@ literal|"GMT"
 argument_list|)
 decl_stmt|;
 comment|/**      * Process the newly discovered artifacts in the repository. Generate feeds for new artifacts in the repository and      * new versions of artifact.      */
+annotation|@
+name|Override
 specifier|public
 name|SyndFeed
 name|process
@@ -691,6 +693,8 @@ name|entries
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getTitle
@@ -700,6 +704,8 @@ return|return
 name|title
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDescription

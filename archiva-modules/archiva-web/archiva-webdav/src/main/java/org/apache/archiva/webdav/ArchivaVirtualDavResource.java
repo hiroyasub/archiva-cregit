@@ -569,6 +569,8 @@ name|DavPropertySet
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|spool
@@ -652,6 +654,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addLockManager
@@ -661,6 +665,8 @@ name|arg0
 parameter_list|)
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addMember
@@ -680,6 +686,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Override
 specifier|public
 name|MultiStatusResponse
 name|alterProperties
@@ -711,6 +719,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|copy
@@ -725,6 +735,8 @@ throws|throws
 name|DavException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|exists
@@ -735,6 +747,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ActiveLock
 name|getLock
@@ -750,6 +764,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ActiveLock
 index|[]
@@ -760,6 +776,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavResourceIterator
 name|getMembers
@@ -769,6 +787,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getSupportedMethods
@@ -778,6 +798,8 @@ return|return
 name|METHODS
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|long
 name|getModificationTime
@@ -787,6 +809,8 @@ return|return
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasLock
@@ -802,6 +826,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isCollection
@@ -811,6 +837,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isLockable
@@ -826,6 +854,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ActiveLock
 name|lock
@@ -840,6 +870,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|move
@@ -851,6 +883,8 @@ throws|throws
 name|DavException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ActiveLock
 name|refreshLock
@@ -868,6 +902,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeMember
@@ -879,6 +915,8 @@ throws|throws
 name|DavException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|unlock
@@ -890,6 +928,8 @@ throws|throws
 name|DavException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getComplianceClass
@@ -899,6 +939,8 @@ return|return
 name|COMPLIANCE_CLASS
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavResourceLocator
 name|getLocator
@@ -908,6 +950,8 @@ return|return
 name|locator
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getResourcePath
@@ -920,6 +964,8 @@ name|getResourcePath
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getHref
@@ -935,6 +981,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavResourceFactory
 name|getFactory
@@ -944,6 +992,8 @@ return|return
 name|factory
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDisplayName
@@ -972,6 +1022,8 @@ else|:
 name|resPath
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavSession
 name|getSession
@@ -981,6 +1033,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavPropertyName
 index|[]
@@ -995,6 +1049,8 @@ name|getPropertyNames
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavProperty
 name|getProperty
@@ -1015,6 +1071,8 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavPropertySet
 name|getProperties
@@ -1027,6 +1085,8 @@ return|return
 name|properties
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setProperty
@@ -1038,6 +1098,8 @@ throws|throws
 name|DavException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeProperty
@@ -1049,6 +1111,8 @@ throws|throws
 name|DavException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavResource
 name|getCollection

@@ -806,6 +806,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|configurationEvent
@@ -816,6 +818,8 @@ parameter_list|)
 block|{
 comment|// TODO remove jobs and add again
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|scheduleDownloadRemote
@@ -1163,6 +1167,8 @@ operator|=
 name|taskScheduler
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<

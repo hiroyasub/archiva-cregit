@@ -162,6 +162,8 @@ operator|=
 name|treeEntries
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|visitEnter
@@ -261,6 +263,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|visitLeave

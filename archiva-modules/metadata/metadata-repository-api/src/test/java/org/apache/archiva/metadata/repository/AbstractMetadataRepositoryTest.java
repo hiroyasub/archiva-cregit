@@ -647,6 +647,8 @@ operator|new
 name|MetadataFacetFactory
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|MetadataFacet
 name|createMetadataFacet
@@ -660,6 +662,8 @@ name|TEST_METADATA_VALUE
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|MetadataFacet
 name|createMetadataFacet
@@ -693,6 +697,8 @@ operator|new
 name|MetadataFacetFactory
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|MetadataFacet
 name|createMetadataFacet
@@ -708,6 +714,8 @@ name|TEST_VALUE
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|MetadataFacet
 name|createMetadataFacet
@@ -5034,6 +5042,8 @@ name|ArtifactMetadata
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compare
@@ -8749,6 +8759,8 @@ argument_list|<
 name|ArtifactMetadata
 argument_list|>
 block|{
+annotation|@
+name|Override
 specifier|public
 specifier|final
 name|int
@@ -8835,6 +8847,8 @@ operator|=
 name|date
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getName
@@ -8876,6 +8890,8 @@ return|return
 name|fmt
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getFacetId
@@ -8890,6 +8906,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -8907,6 +8925,8 @@ name|emptyMap
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|fromProperties
@@ -9018,6 +9038,8 @@ operator|=
 name|additionalProps
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getFacetId
@@ -9027,6 +9049,8 @@ return|return
 name|testFacetId
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getName
@@ -9036,6 +9060,8 @@ return|return
 name|TEST_NAME
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -9136,6 +9162,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|fromProperties

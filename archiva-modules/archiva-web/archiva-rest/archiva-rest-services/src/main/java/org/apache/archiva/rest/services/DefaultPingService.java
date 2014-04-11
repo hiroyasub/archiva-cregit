@@ -63,6 +63,8 @@ name|DefaultPingService
 implements|implements
 name|PingService
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|ping
@@ -72,6 +74,8 @@ return|return
 literal|"Yeah Baby It rocks!"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|pingWithAuthz

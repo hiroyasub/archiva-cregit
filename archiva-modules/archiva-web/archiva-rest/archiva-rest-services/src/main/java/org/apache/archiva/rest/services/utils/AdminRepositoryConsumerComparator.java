@@ -80,6 +80,8 @@ return|return
 name|INSTANCE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compare

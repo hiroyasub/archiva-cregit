@@ -148,6 +148,8 @@ specifier|private
 name|RemoteRepository
 name|repository
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getId
@@ -160,6 +162,8 @@ name|getId
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RemoteRepository
 name|getRepository
@@ -169,6 +173,8 @@ return|return
 name|repository
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RepositoryURL
 name|getURL
@@ -185,6 +191,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setRepository
@@ -261,6 +269,8 @@ name|path
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RepositoryURL
 name|toURL

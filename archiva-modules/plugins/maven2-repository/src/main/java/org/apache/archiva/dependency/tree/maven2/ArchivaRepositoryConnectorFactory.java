@@ -202,6 +202,8 @@ parameter_list|()
 block|{
 comment|// no op but empty constructor needed by aether
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RepositoryConnector
 name|newInstance
@@ -252,6 +254,8 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|get
@@ -281,6 +285,8 @@ literal|"get"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|put
@@ -310,6 +316,8 @@ literal|"put"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close

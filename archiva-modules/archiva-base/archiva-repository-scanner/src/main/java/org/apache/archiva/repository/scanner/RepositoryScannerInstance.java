@@ -613,6 +613,8 @@ return|return
 name|consumerCounts
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|directoryWalkStarting
@@ -648,6 +650,8 @@ name|triggerStart
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|directoryWalkStep
@@ -768,6 +772,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|directoryWalkFinished
@@ -844,6 +850,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Debug method from DirectoryWalker.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|debug

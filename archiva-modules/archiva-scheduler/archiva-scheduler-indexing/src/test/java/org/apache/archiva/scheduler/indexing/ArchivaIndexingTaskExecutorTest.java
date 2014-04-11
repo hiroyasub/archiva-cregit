@@ -517,6 +517,8 @@ name|managedRepositoryAdmin
 decl_stmt|;
 annotation|@
 name|Before
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setUp
@@ -619,6 +621,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|After
+annotation|@
+name|Override
 specifier|public
 name|void
 name|tearDown
@@ -1538,6 +1542,8 @@ operator|new
 name|FilenameFilter
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|accept

@@ -513,6 +513,8 @@ operator|new
 name|Object
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|init
@@ -1108,6 +1110,8 @@ operator|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|configurationEvent
@@ -1255,6 +1259,8 @@ return|return
 name|configuration
 return|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|boolean
 name|isPreconditionValid
@@ -1273,6 +1279,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavSessionProvider
 name|getDavSessionProvider
@@ -1282,6 +1290,8 @@ return|return
 name|sessionProvider
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setDavSessionProvider
@@ -1298,6 +1308,8 @@ operator|=
 name|davSessionProvider
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavLocatorFactory
 name|getLocatorFactory
@@ -1307,6 +1319,8 @@ return|return
 name|locatorFactory
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setLocatorFactory
@@ -1321,6 +1335,8 @@ operator|=
 name|davLocatorFactory
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavResourceFactory
 name|getResourceFactory
@@ -1330,6 +1346,8 @@ return|return
 name|resourceFactory
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setResourceFactory
@@ -1344,6 +1362,8 @@ operator|=
 name|davResourceFactory
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getAuthenticateHeaderValue

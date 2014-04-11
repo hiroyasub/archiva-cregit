@@ -93,6 +93,8 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|trace
@@ -151,6 +153,8 @@ argument_list|)
 expr_stmt|;
 return|return
 name|Boolean
+expr|@
+name|Override
 operator|.
 name|TRUE
 return|;
@@ -211,6 +215,8 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+annotation|@
+name|Override
 return|return
 name|Boolean
 operator|.
@@ -270,6 +276,8 @@ argument_list|(
 name|javascriptLog
 operator|.
 name|getMessage
+expr|@
+name|Override
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -329,7 +337,10 @@ name|toUse
 operator|.
 name|warn
 argument_list|(
-name|javascriptLog
+name|javascript
+expr|@
+name|Override
+name|Log
 operator|.
 name|getMessage
 argument_list|()

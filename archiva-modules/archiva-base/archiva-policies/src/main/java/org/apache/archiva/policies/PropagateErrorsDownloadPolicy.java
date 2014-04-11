@@ -207,6 +207,8 @@ name|IGNORE
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|applyPolicy
@@ -353,6 +355,8 @@ literal|"], please file a bug report."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDefaultOption
@@ -362,6 +366,8 @@ return|return
 name|QUEUE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getId
@@ -371,6 +377,8 @@ return|return
 literal|"propagate-errors"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getName
@@ -380,6 +388,8 @@ return|return
 literal|"On remote error"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<

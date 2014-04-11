@@ -61,6 +61,8 @@ argument_list|<
 name|AbstractRepository
 argument_list|>
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compare

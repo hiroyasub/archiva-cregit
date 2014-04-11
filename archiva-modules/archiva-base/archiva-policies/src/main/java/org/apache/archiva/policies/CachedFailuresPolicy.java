@@ -213,6 +213,8 @@ name|YES
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|applyPolicy
@@ -338,6 +340,8 @@ literal|"OK to fetch, check-failures detected no issues."
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDefaultOption
@@ -347,6 +351,8 @@ return|return
 name|NO
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getId
@@ -356,6 +362,8 @@ return|return
 literal|"cache-failures"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getName
@@ -365,6 +373,8 @@ return|return
 literal|"Cache failures"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<

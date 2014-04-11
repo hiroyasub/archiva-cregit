@@ -105,6 +105,8 @@ name|RoleManagerStub
 implements|implements
 name|RoleManager
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|loadRoleModel
@@ -117,6 +119,8 @@ name|RoleManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|loadRoleModel
@@ -129,6 +133,8 @@ name|RoleManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|createTemplatedRole
@@ -144,6 +150,8 @@ name|RoleManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeTemplatedRole
@@ -159,6 +167,8 @@ name|RoleManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateRole
@@ -177,6 +187,8 @@ name|RoleManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|assignRole
@@ -192,6 +204,8 @@ name|RoleManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|assignRoleByName
@@ -207,6 +221,8 @@ name|RoleManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|assignTemplatedRole
@@ -225,6 +241,8 @@ name|RoleManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|unassignRole
@@ -240,6 +258,8 @@ name|RoleManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|unassignRoleByName
@@ -255,6 +275,8 @@ name|RoleManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|roleExists
@@ -270,6 +292,8 @@ literal|false
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|templatedRoleExists
@@ -288,6 +312,8 @@ literal|false
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RedbackRoleModel
 name|getModel
@@ -298,6 +324,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|verifyTemplatedRole
@@ -313,6 +341,8 @@ name|RoleManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|initialize

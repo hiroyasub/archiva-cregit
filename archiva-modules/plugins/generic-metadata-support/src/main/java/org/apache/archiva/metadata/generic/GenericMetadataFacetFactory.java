@@ -77,6 +77,8 @@ name|GenericMetadataFacetFactory
 implements|implements
 name|MetadataFacetFactory
 block|{
+annotation|@
+name|Override
 specifier|public
 name|MetadataFacet
 name|createMetadataFacet
@@ -88,6 +90,8 @@ name|GenericMetadataFacet
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|MetadataFacet
 name|createMetadataFacet

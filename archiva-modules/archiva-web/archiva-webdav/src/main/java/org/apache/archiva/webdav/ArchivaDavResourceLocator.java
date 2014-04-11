@@ -263,6 +263,8 @@ operator|=
 name|path
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getRepositoryId
@@ -272,6 +274,8 @@ return|return
 name|repositoryId
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getPrefix
@@ -281,6 +285,8 @@ return|return
 name|prefix
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getResourcePath
@@ -290,6 +296,8 @@ return|return
 name|resourcePath
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getWorkspacePath
@@ -299,6 +307,8 @@ return|return
 literal|""
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getWorkspaceName
@@ -308,6 +318,8 @@ return|return
 literal|""
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isSameWorkspace
@@ -326,6 +338,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isSameWorkspace
@@ -344,6 +358,8 @@ name|workspaceName
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getHref
@@ -382,6 +398,8 @@ operator|+
 name|suffix
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isRootLocation
@@ -396,6 +414,8 @@ name|resourcePath
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavLocatorFactory
 name|getFactory
@@ -405,6 +425,8 @@ return|return
 name|davLocatorFactory
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getRepositoryPath
@@ -416,6 +438,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Computes the hash code from the href, which is built using the final fields prefix and resourcePath.      *      * @return the hash code      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|hashCode
@@ -429,6 +453,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Equality of path is achieved if the specified object is a<code>DavResourceLocator</code> object with the same      * hash code.      *      * @param obj the object to compare to      * @return<code>true</code> if the 2 objects are equal;<code>false</code> otherwise      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|equals

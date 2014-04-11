@@ -378,6 +378,8 @@ name|String
 argument_list|>
 name|includes
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getId
@@ -389,6 +391,8 @@ operator|.
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDescription
@@ -400,6 +404,8 @@ operator|.
 name|description
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isPermanent
@@ -409,6 +415,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|beginScan
@@ -436,6 +444,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|beginScan
@@ -460,6 +470,8 @@ name|whenGathered
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|completeScan
@@ -467,6 +479,8 @@ parameter_list|()
 block|{
 comment|/* nothing to do */
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|completeScan
@@ -479,6 +493,8 @@ name|completeScan
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -491,6 +507,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -505,6 +523,8 @@ operator|.
 name|includes
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|processFile
@@ -606,6 +626,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|processFile

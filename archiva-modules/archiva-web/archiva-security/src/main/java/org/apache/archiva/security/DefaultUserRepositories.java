@@ -351,6 +351,8 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -384,6 +386,8 @@ name|operation
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -489,6 +493,8 @@ return|return
 name|repoIds
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -803,6 +809,8 @@ name|user
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|createMissingRepositoryRoles
@@ -892,6 +900,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAuthorizedToUploadArtifacts
@@ -952,6 +962,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAuthorizedToDeleteArtifacts

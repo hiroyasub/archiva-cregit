@@ -424,6 +424,8 @@ literal|"exe"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|mapClassifierAndExtensionToType
@@ -445,6 +447,8 @@ name|ext
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|mapTypeToExtension

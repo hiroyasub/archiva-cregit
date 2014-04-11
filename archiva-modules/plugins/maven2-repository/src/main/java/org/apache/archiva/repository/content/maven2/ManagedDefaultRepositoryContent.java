@@ -384,6 +384,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|deleteVersion
@@ -442,6 +444,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|deleteProject
@@ -574,6 +578,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|deleteArtifact
@@ -679,6 +685,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|deleteGroupId
@@ -756,6 +764,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getId
@@ -768,6 +778,8 @@ name|getId
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Set
 argument_list|<
@@ -1010,6 +1022,8 @@ return|return
 name|foundArtifacts
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getRepoRoot
@@ -1022,6 +1036,8 @@ name|getLocation
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ManagedRepository
 name|getRepository
@@ -1032,6 +1048,8 @@ name|repository
 return|;
 block|}
 comment|/**      * Gather the Available Versions (on disk) for a specific Project Reference, based on filesystem      * information.      *      * @return the Set of available versions, based on the project reference.      * @throws org.apache.archiva.repository.layout.LayoutException      * @throws org.apache.archiva.repository.layout.LayoutException      */
+annotation|@
+name|Override
 specifier|public
 name|Set
 argument_list|<
@@ -1264,6 +1282,8 @@ return|return
 name|foundVersions
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Set
 argument_list|<
@@ -1513,6 +1533,8 @@ return|return
 name|foundVersions
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasContent
@@ -1541,6 +1563,8 @@ name|isFile
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasContent
@@ -1591,6 +1615,8 @@ literal|false
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasContent
@@ -1633,6 +1659,8 @@ literal|false
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setRepository
@@ -1721,6 +1749,8 @@ name|path
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|File
 name|toFile
@@ -1745,6 +1775,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|File
 name|toFile

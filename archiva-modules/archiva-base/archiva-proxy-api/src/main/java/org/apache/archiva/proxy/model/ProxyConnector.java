@@ -151,6 +151,8 @@ parameter_list|()
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isDisabled
@@ -160,6 +162,8 @@ return|return
 name|disabled
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setDisabled
@@ -175,6 +179,8 @@ operator|=
 name|disabled
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -205,6 +211,8 @@ operator|=
 name|blacklist
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ManagedRepositoryContent
 name|getSourceRepository
@@ -229,6 +237,8 @@ operator|=
 name|sourceRepository
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RemoteRepositoryContent
 name|getTargetRepository
@@ -253,6 +263,8 @@ operator|=
 name|targetRepository
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<

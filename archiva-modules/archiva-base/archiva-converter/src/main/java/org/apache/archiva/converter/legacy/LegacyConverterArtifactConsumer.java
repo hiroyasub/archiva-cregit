@@ -458,6 +458,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|beginScan
@@ -489,6 +491,8 @@ name|repository
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|beginScan
@@ -513,6 +517,8 @@ name|whenGathered
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|completeScan
@@ -520,6 +526,8 @@ parameter_list|()
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|completeScan
@@ -532,6 +540,8 @@ name|completeScan
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -544,6 +554,8 @@ return|return
 name|excludes
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -556,6 +568,8 @@ return|return
 name|includes
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|processFile
@@ -668,6 +682,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|processFile
@@ -687,6 +703,8 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDescription
@@ -696,6 +714,8 @@ return|return
 literal|"Legacy Artifact to Default Artifact Converter"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getId
@@ -705,6 +725,8 @@ return|return
 literal|"artifact-legacy-to-default-converter"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isPermanent

@@ -185,6 +185,8 @@ specifier|private
 name|RepositoryGroupAdmin
 name|repositoryGroupAdmin
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|managedRepositoryIdNotExists
@@ -223,6 +225,8 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+annotation|@
+name|Override
 block|}
 block|}
 specifier|public
@@ -257,7 +261,10 @@ name|ArchivaRestServiceException
 argument_list|(
 name|e
 operator|.
-name|getMessage
+name|getMessa
+expr|@
+name|Override
+name|ge
 argument_list|()
 argument_list|,
 name|e

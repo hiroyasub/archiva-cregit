@@ -99,6 +99,8 @@ name|MavenArtifactFacetFactory
 implements|implements
 name|MetadataFacetFactory
 block|{
+annotation|@
+name|Override
 specifier|public
 name|MetadataFacet
 name|createMetadataFacet
@@ -110,6 +112,8 @@ name|MavenArtifactFacet
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|MetadataFacet
 name|createMetadataFacet

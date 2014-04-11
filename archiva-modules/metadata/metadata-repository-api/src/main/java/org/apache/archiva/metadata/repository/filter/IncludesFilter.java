@@ -66,6 +66,8 @@ operator|=
 name|includes
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|accept

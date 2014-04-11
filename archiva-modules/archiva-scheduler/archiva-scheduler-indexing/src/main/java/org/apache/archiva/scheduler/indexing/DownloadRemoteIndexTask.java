@@ -703,6 +703,8 @@ name|getRemoteRepositoryAdmin
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|run
@@ -1578,6 +1580,8 @@ name|totalLength
 init|=
 literal|0
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|transferInitiated
@@ -1613,6 +1617,8 @@ name|resourceName
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|transferStarted
@@ -1653,6 +1659,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|transferProgress
@@ -1696,6 +1704,8 @@ operator|+=
 name|length
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|transferCompleted
@@ -1752,6 +1762,8 @@ literal|1000
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|transferError
@@ -1789,6 +1801,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|debug
@@ -1868,6 +1882,8 @@ operator|=
 name|remoteRepository
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|connect
@@ -1883,6 +1899,8 @@ name|IOException
 block|{
 comment|//no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|disconnect
@@ -1892,6 +1910,8 @@ name|IOException
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|InputStream
 name|retrieve

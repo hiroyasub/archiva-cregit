@@ -1241,6 +1241,8 @@ name|newInstance
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ProjectMetadata
 name|readProjectMetadata
@@ -1260,6 +1262,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ProjectVersionMetadata
 name|readProjectVersionMetadata
@@ -3301,6 +3305,8 @@ return|return
 name|ci
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -3474,6 +3480,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -3588,6 +3596,8 @@ return|return
 name|namespaces
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -3701,6 +3711,8 @@ return|return
 name|projects
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -3753,6 +3765,8 @@ name|filter
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -3883,6 +3897,8 @@ return|return
 name|artifacts
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ArtifactMetadata
 name|readArtifactMetadataFromPath
@@ -3981,6 +3997,8 @@ name|metadata
 return|;
 block|}
 comment|/**      * A relocation capable client will request the POM prior to the artifact, and will then read meta-data and do      * client side relocation. A simplier client (like maven 1) will only request the artifact and not use the      * metadatas.      *<p>      * For such clients, archiva does server-side relocation by reading itself the&lt;relocation&gt; element in      * metadatas and serving the expected artifact.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|applyServerSideRelocation
@@ -4267,6 +4285,8 @@ block|{
 comment|// Invalid POM : ignore
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getFilePath
@@ -4415,6 +4435,8 @@ return|return
 name|logicalResource
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getFilePathWithVersion
@@ -5243,6 +5265,8 @@ operator|=
 name|filter
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|accept
@@ -5339,6 +5363,8 @@ operator|=
 name|filter
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|accept
@@ -5509,6 +5535,8 @@ operator|=
 name|projectVersion
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|accept
@@ -5616,6 +5644,8 @@ operator|=
 name|pomFile
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|accept

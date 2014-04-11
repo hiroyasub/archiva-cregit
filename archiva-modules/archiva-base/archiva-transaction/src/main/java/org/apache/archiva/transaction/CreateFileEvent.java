@@ -117,6 +117,8 @@ operator|=
 name|destination
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|commit
@@ -175,6 +177,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|rollback

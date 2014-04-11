@@ -184,6 +184,8 @@ operator|=
 name|packaging
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getFacetId
@@ -193,6 +195,8 @@ return|return
 name|FACET_ID
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getName
@@ -203,6 +207,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -301,6 +307,8 @@ return|return
 name|properties
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|fromProperties

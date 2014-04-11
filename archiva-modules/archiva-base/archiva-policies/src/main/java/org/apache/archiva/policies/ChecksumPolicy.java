@@ -243,6 +243,8 @@ name|IGNORE
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|applyPolicy
@@ -526,6 +528,8 @@ literal|"], please file a bug report."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDefaultOption
@@ -535,6 +539,8 @@ return|return
 name|FIX
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getId
@@ -544,6 +550,8 @@ return|return
 literal|"checksum"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getName
@@ -553,6 +561,8 @@ return|return
 literal|"Checksum"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<

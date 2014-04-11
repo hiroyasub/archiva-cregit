@@ -81,6 +81,8 @@ name|MavenProjectFacetFactory
 implements|implements
 name|MetadataFacetFactory
 block|{
+annotation|@
+name|Override
 specifier|public
 name|MetadataFacet
 name|createMetadataFacet
@@ -92,6 +94,8 @@ name|MavenProjectFacet
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|MetadataFacet
 name|createMetadataFacet

@@ -149,6 +149,8 @@ name|processCount
 init|=
 literal|0
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|beginScan
@@ -164,6 +166,8 @@ name|ConsumerException
 block|{
 comment|/* do nothing */
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|beginScan
@@ -188,6 +192,8 @@ name|whenGathered
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|completeScan
@@ -195,6 +201,8 @@ parameter_list|()
 block|{
 comment|/* do nothing */
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|completeScan
@@ -207,6 +215,8 @@ name|completeScan
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -219,6 +229,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -231,6 +243,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|processFile
@@ -245,6 +259,8 @@ name|processCount
 operator|++
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|processFile
@@ -264,6 +280,8 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDescription
@@ -273,6 +291,8 @@ return|return
 literal|"Bad Content Scan Consumer (for testing)"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getId
@@ -282,6 +302,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isPermanent

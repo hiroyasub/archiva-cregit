@@ -304,6 +304,8 @@ specifier|private
 name|NexusIndexer
 name|nexusIndexer
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|contextInitialized
@@ -486,6 +488,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|contextDestroyed

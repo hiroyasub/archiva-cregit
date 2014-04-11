@@ -247,12 +247,16 @@ name|TestRBACManager
 implements|implements
 name|RBACManager
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|initialize
 parameter_list|()
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isFinalImplementation
@@ -262,6 +266,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDescriptionKey
@@ -271,6 +277,8 @@ return|return
 literal|"archiva.redback.rbacmanager.test"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addListener
@@ -280,6 +288,8 @@ name|listener
 parameter_list|)
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeListener
@@ -289,6 +299,8 @@ name|listener
 parameter_list|)
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Role
 name|createRole
@@ -301,6 +313,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|roleExists
@@ -313,6 +327,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|roleExists
@@ -325,6 +341,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Role
 name|saveRole
@@ -341,6 +359,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|saveRoles
@@ -357,6 +377,8 @@ throws|,
 name|RbacManagerException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Role
 name|getRole
@@ -373,6 +395,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -398,6 +422,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addChildRole
@@ -415,6 +441,8 @@ name|RbacManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -435,6 +463,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -455,6 +485,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -470,6 +502,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Set
 argument_list|<
@@ -490,6 +524,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeRole
@@ -506,6 +542,8 @@ name|RbacManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeRole
@@ -522,6 +560,8 @@ name|RbacManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Permission
 name|createPermission
@@ -537,6 +577,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Permission
 name|createPermission
@@ -558,6 +600,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|permissionExists
@@ -571,6 +615,8 @@ literal|false
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|permissionExists
@@ -584,6 +630,8 @@ literal|false
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Permission
 name|savePermission
@@ -601,6 +649,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Permission
 name|getPermission
@@ -618,6 +668,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -633,6 +685,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removePermission
@@ -649,6 +703,8 @@ name|RbacManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removePermission
@@ -665,6 +721,8 @@ name|RbacManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Operation
 name|createOperation
@@ -680,6 +738,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|operationExists
@@ -693,6 +753,8 @@ literal|false
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|operationExists
@@ -705,6 +767,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Operation
 name|saveOperation
@@ -721,6 +785,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Operation
 name|getOperation
@@ -737,6 +803,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -751,6 +819,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeOperation
@@ -766,6 +836,8 @@ throws|,
 name|RbacManagerException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeOperation
@@ -781,6 +853,8 @@ throws|,
 name|RbacManagerException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Resource
 name|createResource
@@ -795,6 +869,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|resourceExists
@@ -808,6 +884,8 @@ literal|false
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|resourceExists
@@ -821,6 +899,8 @@ literal|false
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Resource
 name|saveResource
@@ -838,6 +918,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Resource
 name|getResource
@@ -855,6 +937,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -870,6 +954,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeResource
@@ -886,6 +972,8 @@ name|RbacManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeResource
@@ -902,6 +990,8 @@ name|RbacManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|UserAssignment
 name|createUserAssignment
@@ -917,6 +1007,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|userAssignmentExists
@@ -930,6 +1022,8 @@ literal|false
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|userAssignmentExists
@@ -943,6 +1037,8 @@ literal|false
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|UserAssignment
 name|saveUserAssignment
@@ -960,6 +1056,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|UserAssignment
 name|getUserAssignment
@@ -977,6 +1075,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -992,6 +1092,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -1013,6 +1115,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeUserAssignment
@@ -1029,6 +1133,8 @@ name|RbacManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeUserAssignment
@@ -1045,6 +1151,8 @@ name|RbacManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -1065,6 +1173,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -1085,6 +1195,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -1105,6 +1217,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -1125,6 +1239,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -1145,6 +1261,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Set
 argument_list|<
@@ -1165,6 +1283,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -1190,6 +1310,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -1207,6 +1329,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Resource
 name|getGlobalResource
@@ -1219,6 +1343,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|eraseDatabase
@@ -1226,6 +1352,8 @@ parameter_list|()
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isReadOnly

@@ -161,6 +161,8 @@ operator|=
 name|project
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compareTo

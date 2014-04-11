@@ -86,6 +86,8 @@ operator|new
 name|ArtifactMetadataVersionComparator
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compare

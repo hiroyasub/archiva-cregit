@@ -171,6 +171,8 @@ specifier|private
 name|NetworkProxyAdmin
 name|networkProxyAdmin
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -230,6 +232,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|NetworkProxy
 name|getNetworkProxy
@@ -271,6 +275,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addNetworkProxy
@@ -324,6 +330,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateNetworkProxy
@@ -377,6 +385,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteNetworkProxy

@@ -79,6 +79,8 @@ name|RepositoryTask
 name|task
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
 name|void
 name|queueTask
 parameter_list|(

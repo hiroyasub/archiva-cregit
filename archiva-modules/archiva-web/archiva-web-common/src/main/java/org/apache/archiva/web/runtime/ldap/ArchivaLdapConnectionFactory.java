@@ -201,6 +201,8 @@ name|ldapConnectionConfiguration
 decl_stmt|;
 annotation|@
 name|PostConstruct
+annotation|@
+name|Override
 specifier|public
 name|void
 name|initialize

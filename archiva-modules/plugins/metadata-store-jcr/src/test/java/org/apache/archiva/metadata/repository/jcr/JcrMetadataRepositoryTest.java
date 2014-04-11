@@ -186,6 +186,8 @@ name|applicationContext
 decl_stmt|;
 annotation|@
 name|Before
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setUp
@@ -307,6 +309,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|After
+annotation|@
+name|Override
 specifier|public
 name|void
 name|tearDown

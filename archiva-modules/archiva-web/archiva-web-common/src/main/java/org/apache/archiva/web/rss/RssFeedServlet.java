@@ -664,6 +664,8 @@ specifier|private
 name|RepositorySessionFactory
 name|repositorySessionFactory
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|init
@@ -739,7 +741,10 @@ literal|"repositorySessionFactory"
 argument_list|,
 name|RepositorySessionFactory
 operator|.
-name|class
+name|cl
+expr|@
+name|Override
+name|ass
 argument_list|)
 expr_stmt|;
 block|}

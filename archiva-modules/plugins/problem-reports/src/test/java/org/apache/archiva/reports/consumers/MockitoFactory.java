@@ -75,6 +75,8 @@ operator|=
 name|type
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Object
 name|getObject
@@ -89,6 +91,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Class
 name|getObjectType
@@ -98,6 +102,8 @@ return|return
 name|type
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isSingleton

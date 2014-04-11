@@ -178,6 +178,8 @@ name|MockArchivaAdministration
 implements|implements
 name|ArchivaAdministration
 block|{
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -192,6 +194,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addLegacyArtifactPath
@@ -206,6 +210,8 @@ throws|throws
 name|RepositoryAdminException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|deleteLegacyArtifactPath
@@ -220,6 +226,8 @@ throws|throws
 name|RepositoryAdminException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addFileTypePattern
@@ -237,6 +245,8 @@ throws|throws
 name|RepositoryAdminException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeFileTypePattern
@@ -254,6 +264,8 @@ throws|throws
 name|RepositoryAdminException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -268,6 +280,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|FileType
 name|getFileType
@@ -282,6 +296,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addFileType
@@ -296,6 +312,8 @@ throws|throws
 name|RepositoryAdminException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeFileType
@@ -310,6 +328,8 @@ throws|throws
 name|RepositoryAdminException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addKnownContentConsumer
@@ -324,6 +344,8 @@ throws|throws
 name|RepositoryAdminException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setKnownContentConsumers
@@ -341,6 +363,8 @@ throws|throws
 name|RepositoryAdminException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -355,6 +379,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeKnownContentConsumer
@@ -369,6 +395,8 @@ throws|throws
 name|RepositoryAdminException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addInvalidContentConsumer
@@ -383,6 +411,8 @@ throws|throws
 name|RepositoryAdminException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setInvalidContentConsumers
@@ -400,6 +430,8 @@ throws|throws
 name|RepositoryAdminException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -414,6 +446,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeInvalidContentConsumer
@@ -428,6 +462,8 @@ throws|throws
 name|RepositoryAdminException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|OrganisationInformation
 name|getOrganisationInformation
@@ -439,6 +475,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setOrganisationInformation
@@ -450,6 +488,8 @@ throws|throws
 name|RepositoryAdminException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|UiConfiguration
 name|getUiConfiguration
@@ -461,6 +501,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateUiConfiguration
@@ -472,6 +514,8 @@ throws|throws
 name|RepositoryAdminException
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|NetworkConfiguration
 name|getNetworkConfiguration
@@ -483,6 +527,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setNetworkConfiguration

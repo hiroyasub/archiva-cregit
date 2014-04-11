@@ -792,6 +792,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Before
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setUp
@@ -2311,6 +2313,8 @@ operator|new
 name|MockHttpServletResponse
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getContentAsString

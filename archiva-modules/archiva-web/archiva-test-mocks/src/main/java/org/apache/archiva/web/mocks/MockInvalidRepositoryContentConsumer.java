@@ -125,6 +125,8 @@ name|MockInvalidRepositoryContentConsumer
 implements|implements
 name|InvalidRepositoryContentConsumer
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getId
@@ -134,6 +136,8 @@ return|return
 literal|"foo"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDescription
@@ -143,6 +147,8 @@ return|return
 literal|"the foo"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isPermanent
@@ -152,6 +158,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addConsumerMonitor
@@ -162,6 +170,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeConsumerMonitor
@@ -172,6 +182,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -185,6 +197,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -198,6 +212,8 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|beginScan
@@ -213,6 +229,8 @@ name|ConsumerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|beginScan
@@ -231,6 +249,8 @@ name|ConsumerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|processFile
@@ -243,6 +263,8 @@ name|ConsumerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|processFile
@@ -258,6 +280,8 @@ name|Exception
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|completeScan
@@ -265,6 +289,8 @@ parameter_list|()
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|completeScan
@@ -275,6 +301,8 @@ parameter_list|)
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isProcessUnmodified

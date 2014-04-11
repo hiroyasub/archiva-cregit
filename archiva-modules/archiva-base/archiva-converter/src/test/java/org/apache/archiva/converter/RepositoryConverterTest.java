@@ -314,6 +314,8 @@ name|plexusSisuBridge
 decl_stmt|;
 annotation|@
 name|Before
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setUp
@@ -459,6 +461,8 @@ argument_list|)
 expr_stmt|;
 comment|//repositoryConverter = (LegacyRepositoryConverter) lookup( LegacyRepositoryConverter.ROLE, "default" );
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|tearDown

@@ -131,6 +131,8 @@ extends|extends
 name|AbstractJob
 block|{
 comment|/**      * Execute the discoverer and the indexer.      *       * @param context      * @throws org.quartz.JobExecutionException      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|execute

@@ -77,6 +77,8 @@ name|FACET_ID
 init|=
 literal|"org.apache.archiva.metadata.generic"
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getFacetId
@@ -86,6 +88,8 @@ return|return
 name|FACET_ID
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getName
@@ -95,6 +99,8 @@ return|return
 literal|""
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|fromProperties
@@ -135,6 +141,8 @@ name|properties
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<

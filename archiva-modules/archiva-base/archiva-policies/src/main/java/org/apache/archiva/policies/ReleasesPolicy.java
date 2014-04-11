@@ -46,6 +46,8 @@ implements|implements
 name|PreDownloadPolicy
 block|{
 comment|/**      * Defaults to {@link AbstractUpdatePolicy#HOURLY}      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDefaultOption
@@ -57,6 +59,8 @@ operator|.
 name|HOURLY
 return|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|boolean
 name|isSnapshotPolicy
@@ -66,6 +70,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|String
 name|getUpdateMode
@@ -75,6 +81,8 @@ return|return
 literal|"releases"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getId
@@ -84,6 +92,8 @@ return|return
 literal|"releases"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getName

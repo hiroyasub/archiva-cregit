@@ -472,6 +472,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getMemoryStatus
@@ -557,6 +559,8 @@ operator|+
 literal|"M"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getCurrentServerTime
@@ -593,6 +597,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -712,6 +718,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -837,6 +845,8 @@ return|return
 name|cacheEntries
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|clearCache
@@ -896,6 +906,8 @@ operator|.
 name|TRUE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|clearAllCaches
@@ -926,6 +938,8 @@ operator|.
 name|TRUE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<

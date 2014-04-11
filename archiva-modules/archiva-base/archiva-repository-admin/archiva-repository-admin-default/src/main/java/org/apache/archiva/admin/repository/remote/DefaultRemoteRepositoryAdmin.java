@@ -588,6 +588,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -790,6 +792,8 @@ return|return
 name|remoteRepositories
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RemoteRepository
 name|getRemoteRepository
@@ -833,6 +837,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|addRemoteRepository
@@ -945,6 +951,8 @@ operator|.
 name|TRUE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteRemoteRepository
@@ -1080,6 +1088,8 @@ operator|.
 name|TRUE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|updateRemoteRepository
@@ -1188,6 +1198,8 @@ operator|.
 name|TRUE
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -1243,6 +1255,8 @@ return|return
 name|map
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|IndexingContext
 name|createIndexContext

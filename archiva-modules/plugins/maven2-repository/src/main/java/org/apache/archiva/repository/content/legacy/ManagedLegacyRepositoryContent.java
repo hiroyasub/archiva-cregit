@@ -309,6 +309,8 @@ specifier|private
 name|ManagedRepository
 name|repository
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|deleteVersion
@@ -565,6 +567,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|deleteProject
@@ -662,6 +666,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getId
@@ -674,6 +680,8 @@ name|getId
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Set
 argument_list|<
@@ -828,6 +836,8 @@ return|return
 name|foundArtifacts
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getRepoRoot
@@ -840,6 +850,8 @@ name|getLocation
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ManagedRepository
 name|getRepository
@@ -849,6 +861,8 @@ return|return
 name|repository
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Set
 argument_list|<
@@ -996,6 +1010,8 @@ return|return
 name|foundVersions
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Set
 argument_list|<
@@ -1143,6 +1159,8 @@ return|return
 name|foundVersions
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasContent
@@ -1171,6 +1189,8 @@ name|isFile
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasContent
@@ -1212,6 +1232,8 @@ literal|false
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasContent
@@ -1253,6 +1275,8 @@ literal|false
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setRepository
@@ -1329,6 +1353,8 @@ name|path
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|File
 name|toFile
@@ -1353,6 +1379,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|File
 name|toFile
@@ -1377,6 +1405,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toMetadataPath
@@ -1390,6 +1420,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toMetadataPath
@@ -1834,6 +1866,8 @@ operator|=
 name|fileTypes
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|deleteArtifact
@@ -1846,6 +1880,8 @@ name|ContentNotFoundException
 block|{
 comment|// TODO implements for legacy ??
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|deleteGroupId

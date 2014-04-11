@@ -79,6 +79,8 @@ specifier|private
 name|Configuration
 name|configuration
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|Configuration
 name|getConfiguration
@@ -88,6 +90,8 @@ return|return
 name|configuration
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|save
@@ -107,6 +111,8 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isDefaulted
@@ -116,6 +122,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addListener
@@ -126,6 +134,8 @@ parameter_list|)
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeListener
@@ -136,6 +146,8 @@ parameter_list|)
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addChangeListener
@@ -146,6 +158,8 @@ parameter_list|)
 block|{
 comment|// no op
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|reload

@@ -175,6 +175,8 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// FIXME: move to session
+annotation|@
+name|Override
 specifier|public
 name|void
 name|deleteArtifact
@@ -252,6 +254,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addArtifact
@@ -344,6 +348,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addArtifactProblem

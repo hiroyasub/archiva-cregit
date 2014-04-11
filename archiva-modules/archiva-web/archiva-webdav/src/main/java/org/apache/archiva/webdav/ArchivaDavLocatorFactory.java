@@ -84,6 +84,8 @@ name|ArchivaDavLocatorFactory
 implements|implements
 name|DavLocatorFactory
 block|{
+annotation|@
+name|Override
 specifier|public
 name|DavResourceLocator
 name|createResourceLocator
@@ -220,6 +222,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavResourceLocator
 name|createResourceLocator
@@ -247,6 +251,8 @@ literal|true
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DavResourceLocator
 name|createResourceLocator

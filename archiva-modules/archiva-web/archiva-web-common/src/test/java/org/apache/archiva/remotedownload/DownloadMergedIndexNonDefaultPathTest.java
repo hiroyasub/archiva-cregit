@@ -454,6 +454,8 @@ name|previousAppServerBase
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|String
 name|getSpringConfigLocation

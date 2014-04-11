@@ -93,6 +93,8 @@ init|=
 literal|' '
 decl_stmt|;
 comment|/**      * Creates a log message in the following format ...      * "{repository_id} {user_id} {remote_ip} \"{resource}\" \"{action}\""      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|auditEvent

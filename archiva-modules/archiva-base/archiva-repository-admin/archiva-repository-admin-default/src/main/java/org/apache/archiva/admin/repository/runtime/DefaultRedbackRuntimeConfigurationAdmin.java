@@ -499,6 +499,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|PostConstruct
+annotation|@
+name|Override
 specifier|public
 name|void
 name|initialize
@@ -1383,6 +1385,8 @@ literal|false
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RedbackRuntimeConfiguration
 name|getRedbackRuntimeConfiguration
@@ -1401,6 +1405,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateRedbackRuntimeConfiguration
@@ -2129,6 +2135,8 @@ name|res
 return|;
 block|}
 comment|// wrapper for UserConfiguration to intercept values (and store it not yet migrated)
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getString
@@ -2349,6 +2357,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getString
@@ -2563,6 +2573,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getInt
@@ -2679,6 +2691,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getInt
@@ -2823,6 +2837,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|getBoolean
@@ -3005,6 +3021,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|getBoolean
@@ -3218,6 +3236,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -3306,6 +3326,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getConcatenatedList
@@ -3397,6 +3419,8 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<

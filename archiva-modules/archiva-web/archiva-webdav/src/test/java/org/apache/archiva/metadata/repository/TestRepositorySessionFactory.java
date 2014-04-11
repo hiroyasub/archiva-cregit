@@ -45,6 +45,8 @@ specifier|private
 name|MetadataResolver
 name|resolver
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|RepositorySession
 name|createSession

@@ -516,6 +516,8 @@ name|previousAppServerBase
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|String
 name|getSpringConfigLocation
@@ -525,6 +527,8 @@ return|return
 literal|"classpath*:META-INF/spring-context.xml classpath*:spring-context-test-common.xml classpath*:spring-context-artifacts-download.xml"
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Before
 specifier|public
@@ -705,7 +709,10 @@ name|info
 argument_list|(
 literal|"redirect server port {}"
 argument_list|,
-name|redirectPort
+name|redirec
+expr|@
+name|Override
+name|tPort
 argument_list|)
 expr_stmt|;
 block|}

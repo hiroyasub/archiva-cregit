@@ -379,6 +379,8 @@ argument_list|>
 argument_list|>
 name|namespacesCache
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|ProjectVersionMetadata
 name|resolveProjectVersion
@@ -744,6 +746,8 @@ return|return
 name|metadata
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -794,6 +798,8 @@ name|projectVersion
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -1011,6 +1017,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -1275,6 +1283,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -1545,6 +1555,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -1873,6 +1885,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<

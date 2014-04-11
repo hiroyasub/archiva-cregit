@@ -290,6 +290,8 @@ operator|=
 name|artifactMappingProviders
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|File
 name|toFile
@@ -329,6 +331,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|File
 name|toFile
@@ -363,6 +367,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toPath
@@ -521,6 +527,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toPath
@@ -616,6 +624,8 @@ name|PATH_SEPARATOR
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|File
 name|toFile
@@ -645,6 +655,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|File
 name|toFile
@@ -688,6 +700,8 @@ name|PATH_SEPARATOR
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ArtifactMetadata
 name|getArtifactForPath
@@ -840,6 +854,8 @@ name|id
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ArtifactMetadata
 name|getArtifactFromId

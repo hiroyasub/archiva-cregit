@@ -54,6 +54,8 @@ operator|new
 name|TestMetadataResolver
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|RepositorySession
 name|createSession

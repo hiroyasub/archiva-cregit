@@ -176,6 +176,8 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasStatistics
@@ -197,6 +199,8 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RepositoryStatistics
 name|getLastStatistics
@@ -241,6 +245,8 @@ else|:
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addStatisticsAfterScan
@@ -325,6 +331,8 @@ name|repositoryStatistics
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|deleteStatistics
@@ -344,6 +352,8 @@ name|repositoryId
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<

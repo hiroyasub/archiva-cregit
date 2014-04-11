@@ -934,6 +934,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|clearLockFiles
@@ -1046,6 +1048,8 @@ argument_list|()
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getTimeout
@@ -1055,6 +1059,8 @@ return|return
 name|timeout
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setTimeout
@@ -1070,6 +1076,8 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isSkipLocking
@@ -1079,6 +1087,8 @@ return|return
 name|skipLocking
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setSkipLocking

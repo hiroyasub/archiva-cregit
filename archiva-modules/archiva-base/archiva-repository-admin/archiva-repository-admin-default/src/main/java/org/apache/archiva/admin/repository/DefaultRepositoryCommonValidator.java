@@ -272,6 +272,8 @@ name|Registry
 name|registry
 decl_stmt|;
 comment|/**      * @param abstractRepository      * @param update             in update mode if yes already exists won't be check      * @throws RepositoryAdminException      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|basicValidation
@@ -473,6 +475,8 @@ throw|;
 block|}
 block|}
 comment|/**      * validate cronExpression and location format      *      * @param managedRepository      * @since 1.4-M2      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|validateManagedRepository
@@ -581,6 +585,8 @@ throw|;
 block|}
 block|}
 comment|/**      * replace some interpolations ${appserver.base} with correct values      *      * @param directory      * @return      */
+annotation|@
+name|Override
 specifier|public
 name|String
 name|removeExpressions

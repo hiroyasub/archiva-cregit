@@ -175,6 +175,8 @@ specifier|private
 name|ProxyConnectorRuleAdmin
 name|proxyConnectorRuleAdmin
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -360,6 +362,8 @@ throw|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|addProxyConnectorRule
@@ -413,6 +417,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|deleteProxyConnectorRule
@@ -461,6 +467,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|updateProxyConnectorRule

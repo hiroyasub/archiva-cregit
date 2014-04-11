@@ -695,6 +695,8 @@ operator|=
 name|targetRepository
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ModelSource
 name|resolveModel
@@ -1125,6 +1127,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addRepository
@@ -1139,6 +1143,8 @@ comment|// we just ignore repositories outside of the current one for now
 comment|// TODO: it'd be nice to look them up from Archiva's set, but we want to do that by URL / mapping, not just the
 comment|//       ID since they will rarely match
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ModelResolver
 name|newCopy

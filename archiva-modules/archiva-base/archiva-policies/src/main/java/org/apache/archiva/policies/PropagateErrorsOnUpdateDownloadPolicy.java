@@ -158,6 +158,8 @@ name|NOT_PRESENT
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|applyPolicy
@@ -269,6 +271,8 @@ literal|"], please file a bug report."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getDefaultOption
@@ -278,6 +282,8 @@ return|return
 name|NOT_PRESENT
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getId
@@ -287,6 +293,8 @@ return|return
 literal|"propagate-errors-on-update"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getName
@@ -296,6 +304,8 @@ return|return
 literal|"Return error when"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<

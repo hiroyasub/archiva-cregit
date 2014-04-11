@@ -223,6 +223,8 @@ name|AbstractRepositoryAdmin
 implements|implements
 name|NetworkProxyAdmin
 block|{
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -286,6 +288,8 @@ return|return
 name|networkProxies
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|NetworkProxy
 name|getNetworkProxy
@@ -329,6 +333,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addNetworkProxy
@@ -420,6 +426,8 @@ name|configuration
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|updateNetworkProxy
@@ -523,6 +531,8 @@ name|configuration
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|deleteNetworkProxy

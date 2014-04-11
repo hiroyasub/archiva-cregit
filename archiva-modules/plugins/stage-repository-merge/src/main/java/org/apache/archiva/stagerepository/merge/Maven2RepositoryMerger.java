@@ -543,6 +543,8 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|merge
@@ -659,6 +661,8 @@ throw|;
 block|}
 block|}
 comment|// TODO when UI needs a subset to merge
+annotation|@
+name|Override
 specifier|public
 name|void
 name|merge
@@ -1796,6 +1800,8 @@ return|return
 name|metadata
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
