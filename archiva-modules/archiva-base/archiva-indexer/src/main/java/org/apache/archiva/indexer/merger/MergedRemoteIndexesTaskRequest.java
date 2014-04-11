@@ -153,9 +153,7 @@ name|MergedRemoteIndexesTaskRequest
 operator|)
 name|o
 decl_stmt|;
-if|if
-condition|(
-operator|!
+return|return
 name|indexMergerRequest
 operator|.
 name|equals
@@ -164,14 +162,6 @@ name|that
 operator|.
 name|indexMergerRequest
 argument_list|)
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-return|return
-literal|true
 return|;
 block|}
 annotation|@

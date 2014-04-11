@@ -586,6 +586,8 @@ name|proxyConnectorAdmin
 expr_stmt|;
 block|}
 comment|/**      * @see RepositorySearch#search(String, List, String, SearchResultLimits, List)      */
+annotation|@
+name|Override
 specifier|public
 name|SearchResults
 name|search
@@ -747,6 +749,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * @see RepositorySearch#search(String, SearchFields, SearchResultLimits)      */
+annotation|@
+name|Override
 specifier|public
 name|SearchResults
 name|search
@@ -1859,9 +1863,7 @@ name|indexingContextIds
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1991,6 +1993,8 @@ name|indexingContextIds
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Set
 argument_list|<
@@ -2012,9 +2016,7 @@ name|ids
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -2105,6 +2107,8 @@ return|return
 name|ids
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -2164,9 +2168,7 @@ name|allGroupIds
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

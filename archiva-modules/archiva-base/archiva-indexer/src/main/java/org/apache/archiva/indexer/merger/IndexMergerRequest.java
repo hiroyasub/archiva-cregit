@@ -554,9 +554,7 @@ name|IndexMergerRequest
 operator|)
 name|o
 decl_stmt|;
-if|if
-condition|(
-operator|!
+return|return
 name|groupId
 operator|.
 name|equals
@@ -565,14 +563,6 @@ name|that
 operator|.
 name|groupId
 argument_list|)
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-return|return
-literal|true
 return|;
 block|}
 annotation|@

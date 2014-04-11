@@ -114,6 +114,8 @@ argument_list|(
 name|INSTANCE
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|addArtifactInResult

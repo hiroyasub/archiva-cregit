@@ -492,6 +492,8 @@ name|nexusIndexer
 decl_stmt|;
 annotation|@
 name|Before
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setUp
@@ -731,6 +733,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|After
+annotation|@
+name|Override
 specifier|public
 name|void
 name|tearDown
@@ -1346,6 +1350,8 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|scanningStarted
@@ -1355,6 +1361,8 @@ name|ctx
 parameter_list|)
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|scanningFinished
@@ -1367,6 +1375,8 @@ name|result
 parameter_list|)
 block|{
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|artifactError
@@ -1396,6 +1406,8 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|artifactDiscovered
