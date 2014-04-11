@@ -199,6 +199,8 @@ operator|=
 name|applicationContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Wagon
 name|getWagon
@@ -346,8 +348,6 @@ operator|.
 name|getMethod
 argument_list|(
 literal|"getHttpHeaders"
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|Properties
@@ -361,8 +361,6 @@ operator|.
 name|invoke
 argument_list|(
 name|wagon
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 if|if

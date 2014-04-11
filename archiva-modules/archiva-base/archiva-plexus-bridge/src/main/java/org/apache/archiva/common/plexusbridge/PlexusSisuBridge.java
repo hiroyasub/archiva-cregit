@@ -502,8 +502,6 @@ operator|.
 name|invoke
 argument_list|(
 name|classLoader
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
