@@ -638,10 +638,10 @@ name|propertyValue
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
 annotation|@
 name|Override
-block|}
-block|}
 specifier|public
 name|void
 name|beforeConfigurationChange

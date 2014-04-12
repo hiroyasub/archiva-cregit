@@ -376,10 +376,10 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
+block|}
 annotation|@
 name|Override
-block|}
-block|}
 specifier|public
 name|void
 name|updateLdapMapping
@@ -487,10 +487,7 @@ name|MappingException
 argument_list|(
 name|e
 operator|.
-name|getMessa
-expr|@
-name|Override
-name|ge
+name|getMessage
 argument_list|()
 argument_list|,
 name|e
@@ -498,6 +495,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeLdapMapping
@@ -562,10 +561,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|MappingExceptio
-expr|@
-name|Override
-name|n
+name|MappingException
 argument_list|(
 name|e
 operator|.
@@ -577,6 +573,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -684,8 +682,6 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-expr|@
-name|Override
 name|MappingException
 argument_list|(
 name|e
@@ -698,6 +694,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setLdapGroupMappings

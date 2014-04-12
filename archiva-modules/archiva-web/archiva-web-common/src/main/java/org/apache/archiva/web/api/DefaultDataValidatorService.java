@@ -225,10 +225,10 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
+block|}
 annotation|@
 name|Override
-block|}
-block|}
 specifier|public
 name|Boolean
 name|remoteRepositoryIdNotExists
@@ -261,10 +261,7 @@ name|ArchivaRestServiceException
 argument_list|(
 name|e
 operator|.
-name|getMessa
-expr|@
-name|Override
-name|ge
+name|getMessage
 argument_list|()
 argument_list|,
 name|e
@@ -272,6 +269,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Boolean
 name|networkProxyIdNotExists

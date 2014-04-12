@@ -741,13 +741,12 @@ literal|"repositorySessionFactory"
 argument_list|,
 name|RepositorySessionFactory
 operator|.
-name|cl
-expr|@
-name|Override
-name|ass
+name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|doGet
