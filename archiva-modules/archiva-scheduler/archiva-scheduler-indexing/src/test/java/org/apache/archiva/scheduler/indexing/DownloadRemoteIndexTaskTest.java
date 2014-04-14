@@ -19,16 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -92,6 +82,22 @@ operator|.
 name|utils
 operator|.
 name|FileUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|test
+operator|.
+name|utils
+operator|.
+name|ArchivaSpringJUnit4ClassRunner
 import|;
 end_import
 
@@ -231,6 +237,20 @@ name|eclipse
 operator|.
 name|jetty
 operator|.
+name|server
+operator|.
+name|ServerConnector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
 name|servlet
 operator|.
 name|DefaultServlet
@@ -262,22 +282,6 @@ operator|.
 name|servlet
 operator|.
 name|ServletHolder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|assertj
-operator|.
-name|core
-operator|.
-name|api
-operator|.
-name|Assertions
-operator|.
-name|assertThat
 import|;
 end_import
 
@@ -424,18 +428,18 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|apache
+name|assertj
 operator|.
-name|archiva
+name|core
 operator|.
-name|test
+name|api
 operator|.
-name|utils
+name|Assertions
 operator|.
-name|ArchivaSpringJUnit4ClassRunner
+name|assertThat
 import|;
 end_import
 
@@ -556,7 +560,14 @@ name|this
 operator|.
 name|port
 operator|=
+name|ServerConnector
+operator|.
+name|class
+operator|.
+name|cast
+argument_list|(
 name|connector
+argument_list|)
 operator|.
 name|getLocalPort
 argument_list|()
