@@ -1415,9 +1415,7 @@ name|namespace
 argument_list|,
 operator|new
 name|ExcludesFilter
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|exclusions
 argument_list|)
