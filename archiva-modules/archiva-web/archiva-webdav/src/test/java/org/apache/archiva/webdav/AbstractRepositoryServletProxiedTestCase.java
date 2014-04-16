@@ -29,44 +29,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|gargoylesoftware
-operator|.
-name|htmlunit
-operator|.
-name|WebRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|gargoylesoftware
-operator|.
-name|htmlunit
-operator|.
-name|WebResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|Files
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -236,22 +198,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|assertj
-operator|.
-name|core
-operator|.
-name|api
-operator|.
-name|Assertions
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -305,8 +251,36 @@ name|Charset
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|assertj
+operator|.
+name|core
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertThat
+import|;
+end_import
+
 begin_comment
-comment|/**  * AbstractRepositoryServletProxiedTestCase  *  */
+comment|/**  * AbstractRepositoryServletProxiedTestCase  */
 end_comment
 
 begin_class
@@ -567,7 +541,12 @@ name|root
 operator|=
 name|Files
 operator|.
-name|createTempDir
+name|createTempDirectory
+argument_list|(
+literal|"temp"
+argument_list|)
+operator|.
+name|toFile
 argument_list|()
 expr_stmt|;
 comment|// new File( System.getProperty( "basedir" ) + "target/remote-repos/" + id + "/" );

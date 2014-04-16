@@ -17,20 +17,6 @@ end_comment
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|Files
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -993,6 +979,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -1084,7 +1082,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultRepositoryProxyConnectors  *  * TODO exception handling needs work - "not modified" is not really an exceptional case, and it has more layers than  * your average brown onion  */
+comment|/**  * DefaultRepositoryProxyConnectors  *<p/>  * TODO exception handling needs work - "not modified" is not really an exceptional case, and it has more layers than  * your average brown onion  */
 end_comment
 
 begin_class
@@ -4985,12 +4983,39 @@ name|ManagedRepositoryContent
 name|repository
 parameter_list|)
 block|{
+try|try
+block|{
 return|return
 name|Files
 operator|.
-name|createTempDir
+name|createTempDirectory
+argument_list|(
+literal|"temp"
+argument_list|)
+operator|.
+name|toFile
 argument_list|()
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 comment|/**      * Used to move the temporary file to its real destination. This is patterned from the way WagonManager handles its      * downloaded files.      *      * @param temp   The completed download file      * @param target The final location of the downloaded file      * @throws ProxyException when the temp file cannot replace the target file      */
 specifier|private

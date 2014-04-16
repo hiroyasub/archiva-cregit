@@ -17,20 +17,6 @@ end_comment
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|Files
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -208,6 +194,18 @@ operator|.
 name|io
 operator|.
 name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
 import|;
 end_import
 
@@ -439,7 +437,12 @@ name|tmpDir
 init|=
 name|Files
 operator|.
-name|createTempDir
+name|createTempDirectory
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
+name|toFile
 argument_list|()
 decl_stmt|;
 name|Server
