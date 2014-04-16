@@ -23,20 +23,6 @@ name|apache
 operator|.
 name|commons
 operator|.
-name|io
-operator|.
-name|IOUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
 name|lang
 operator|.
 name|StringUtils
@@ -246,7 +232,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * XMLReader - a set of common xml utility methods for reading content out of an xml file.   *  *  */
+comment|/**  * XMLReader - a set of common xml utility methods for reading content out of an xml file.  */
 end_comment
 
 begin_class
@@ -442,11 +428,6 @@ name|xmlUrl
 operator|=
 name|url
 expr_stmt|;
-name|InputStream
-name|in
-init|=
-literal|null
-decl_stmt|;
 name|SAXReader
 name|reader
 init|=
@@ -455,14 +436,16 @@ name|SAXReader
 argument_list|()
 decl_stmt|;
 try|try
-block|{
+init|(
+name|InputStream
 name|in
-operator|=
+init|=
 name|url
 operator|.
 name|openStream
 argument_list|()
-expr_stmt|;
+init|)
+block|{
 name|InputStreamReader
 name|inReader
 init|=
@@ -548,16 +531,6 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
-block|}
-finally|finally
-block|{
-name|IOUtils
-operator|.
-name|closeQuietly
-argument_list|(
-name|in
-argument_list|)
-expr_stmt|;
 block|}
 name|Element
 name|root

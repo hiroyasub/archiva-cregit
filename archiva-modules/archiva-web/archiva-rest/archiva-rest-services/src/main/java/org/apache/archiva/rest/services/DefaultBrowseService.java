@@ -4061,6 +4061,8 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|InputStream
 name|inputStream
 init|=
@@ -4070,8 +4072,7 @@ name|getInputStream
 argument_list|(
 name|zipEntry
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 return|return
 operator|new
@@ -4093,13 +4094,6 @@ block|{
 name|closeQuietly
 argument_list|(
 name|jarFile
-argument_list|)
-expr_stmt|;
-name|IOUtils
-operator|.
-name|closeQuietly
-argument_list|(
-name|inputStream
 argument_list|)
 expr_stmt|;
 block|}

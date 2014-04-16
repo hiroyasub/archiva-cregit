@@ -75,13 +75,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|archiva
 operator|.
-name|compress
+name|test
 operator|.
 name|utils
 operator|.
-name|IOUtils
+name|ArchivaBlockJUnit4ClassRunner
 import|;
 end_import
 
@@ -319,7 +319,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileInputStream
+name|IOException
 import|;
 end_import
 
@@ -327,9 +327,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|IOException
+name|file
+operator|.
+name|Files
 import|;
 end_import
 
@@ -364,22 +366,6 @@ operator|.
 name|zip
 operator|.
 name|ZipFile
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|test
-operator|.
-name|utils
-operator|.
-name|ArchivaBlockJUnit4ClassRunner
 import|;
 end_import
 
@@ -1083,15 +1069,14 @@ argument_list|,
 literal|"src/test/junit-4.9.jar"
 argument_list|)
 decl_stmt|;
-name|IOUtils
+name|Files
 operator|.
 name|copy
 argument_list|(
-operator|new
-name|FileInputStream
-argument_list|(
 name|jar
-argument_list|)
+operator|.
+name|toPath
+argument_list|()
 argument_list|,
 name|resp
 operator|.
