@@ -397,7 +397,7 @@ name|getLockingTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fileLockConfiguration
+name|fileLockManager
 operator|.
 name|setSkipLocking
 argument_list|(
