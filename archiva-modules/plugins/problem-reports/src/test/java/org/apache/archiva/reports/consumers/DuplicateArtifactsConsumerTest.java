@@ -293,6 +293,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|NoSuchFileException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -966,7 +978,7 @@ operator|.
 name|getCause
 argument_list|()
 operator|instanceof
-name|FileNotFoundException
+name|NoSuchFileException
 argument_list|)
 expr_stmt|;
 block|}
