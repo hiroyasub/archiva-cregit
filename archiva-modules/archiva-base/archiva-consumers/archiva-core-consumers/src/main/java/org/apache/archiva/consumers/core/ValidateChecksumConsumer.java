@@ -328,26 +328,22 @@ name|CHECKSUM_IO_ERROR
 init|=
 literal|"checksum-io-error"
 decl_stmt|;
-comment|/**      * default-value="validate-checksums"      */
 specifier|private
 name|String
 name|id
 init|=
 literal|"validate-checksums"
 decl_stmt|;
-comment|/**      * default-value="Validate checksums against file."      */
 specifier|private
 name|String
 name|description
 init|=
 literal|"Validate checksums against file."
 decl_stmt|;
-comment|/**      *      */
 specifier|private
 name|ChecksumFile
 name|checksum
 decl_stmt|;
-comment|/**      *      */
 specifier|private
 name|List
 argument_list|<
