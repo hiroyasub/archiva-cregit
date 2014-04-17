@@ -129,8 +129,6 @@ name|Inject
 annotation|@
 name|Named
 argument_list|(
-name|value
-operator|=
 literal|"remoteRepositoryContent#legacy"
 argument_list|)
 specifier|private

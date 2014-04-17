@@ -383,8 +383,6 @@ name|Inject
 annotation|@
 name|Named
 argument_list|(
-name|value
-operator|=
 literal|"archivaConfiguration#test"
 argument_list|)
 specifier|private

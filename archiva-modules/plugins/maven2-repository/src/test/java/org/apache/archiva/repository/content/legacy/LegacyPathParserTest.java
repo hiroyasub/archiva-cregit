@@ -186,8 +186,6 @@ argument_list|)
 annotation|@
 name|ContextConfiguration
 argument_list|(
-name|locations
-operator|=
 block|{
 literal|"classpath*:/META-INF/spring-context.xml"
 block|,
@@ -207,8 +205,6 @@ name|Inject
 annotation|@
 name|Named
 argument_list|(
-name|value
-operator|=
 literal|"archivaConfiguration#default"
 argument_list|)
 name|ArchivaConfiguration

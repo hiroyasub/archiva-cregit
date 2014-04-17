@@ -193,8 +193,6 @@ name|Inject
 annotation|@
 name|Named
 argument_list|(
-name|value
-operator|=
 literal|"repositoryStorage#maven2"
 argument_list|)
 specifier|private

@@ -212,8 +212,6 @@ argument_list|)
 annotation|@
 name|ContextConfiguration
 argument_list|(
-name|locations
-operator|=
 block|{
 literal|"classpath*:/META-INF/spring-context.xml"
 block|,
