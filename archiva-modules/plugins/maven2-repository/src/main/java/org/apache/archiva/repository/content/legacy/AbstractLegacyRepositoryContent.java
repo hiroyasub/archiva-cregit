@@ -245,8 +245,6 @@ name|Inject
 annotation|@
 name|Named
 argument_list|(
-name|value
-operator|=
 literal|"pathParser#legacy"
 argument_list|)
 specifier|private

@@ -995,16 +995,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileReader
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|FilenameFilter
 import|;
 end_import
@@ -1197,8 +1187,6 @@ name|Inject
 annotation|@
 name|Named
 argument_list|(
-name|value
-operator|=
 literal|"repositoryPathTranslator#maven2"
 argument_list|)
 specifier|private
@@ -1222,8 +1210,6 @@ name|Inject
 annotation|@
 name|Named
 argument_list|(
-name|value
-operator|=
 literal|"pathParser#default"
 argument_list|)
 specifier|private
@@ -4030,7 +4016,6 @@ return|return
 name|metadata
 return|;
 block|}
-comment|/**      * A relocation capable client will request the POM prior to the artifact, and will then read meta-data and do      * client side relocation. A simplier client (like maven 1) will only request the artifact and not use the      * metadatas.      *<p>      * For such clients, archiva does server-side relocation by reading itself the&lt;relocation&gt; element in      * metadatas and serving the expected artifact.      */
 annotation|@
 name|Override
 specifier|public

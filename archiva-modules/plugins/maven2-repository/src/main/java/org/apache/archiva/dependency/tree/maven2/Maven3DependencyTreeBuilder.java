@@ -892,8 +892,6 @@ name|Inject
 annotation|@
 name|Named
 argument_list|(
-name|value
-operator|=
 literal|"repositoryPathTranslator#maven2"
 argument_list|)
 specifier|private
