@@ -1428,7 +1428,12 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Processed Count (of invalid items)"
+literal|"Processed Count (of invalid items):"
+operator|+
+name|badconsumer
+operator|.
+name|getPaths
+argument_list|()
 argument_list|,
 literal|6
 argument_list|,
