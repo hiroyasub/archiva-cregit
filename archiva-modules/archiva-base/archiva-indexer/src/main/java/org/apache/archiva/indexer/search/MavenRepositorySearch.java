@@ -1524,6 +1524,23 @@ name|indexingContextIds
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|limits
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|limits
+operator|.
+name|getSelectedPage
+argument_list|()
+operator|<
+literal|1
+condition|)
+block|{
 name|request
 operator|.
 name|setCount
@@ -1548,6 +1565,8 @@ argument_list|)
 operator|)
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 name|FlatSearchResponse
 name|response
 init|=
@@ -3253,6 +3272,7 @@ operator|new
 name|SearchResults
 argument_list|()
 decl_stmt|;
+comment|// ( limits.getPageSize() * ( Math.max( 1, limits.getSelectedPage() ) ) );
 name|int
 name|fetchCount
 init|=

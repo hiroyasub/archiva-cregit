@@ -78,6 +78,7 @@ argument_list|)
 operator|)
 operator|+
 literal|":"
+comment|//
 operator|+
 operator|(
 name|StringUtils
@@ -98,6 +99,7 @@ argument_list|)
 operator|)
 operator|+
 literal|":"
+comment|//
 operator|+
 operator|(
 name|StringUtils
@@ -118,6 +120,7 @@ argument_list|)
 operator|)
 operator|+
 literal|":"
+comment|//
 operator|+
 operator|(
 name|StringUtils
