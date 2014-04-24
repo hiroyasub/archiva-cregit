@@ -5763,7 +5763,12 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Should have no warnings."
+literal|"Should have no warnings. "
+operator|+
+name|converter
+operator|.
+name|getWarnings
+argument_list|()
 argument_list|,
 literal|0
 argument_list|,
