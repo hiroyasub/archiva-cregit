@@ -1531,14 +1531,15 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// we apply limits only when first page asked
 if|if
 condition|(
 name|limits
 operator|.
 name|getSelectedPage
 argument_list|()
-operator|<
-literal|1
+operator|==
+literal|0
 condition|)
 block|{
 name|request

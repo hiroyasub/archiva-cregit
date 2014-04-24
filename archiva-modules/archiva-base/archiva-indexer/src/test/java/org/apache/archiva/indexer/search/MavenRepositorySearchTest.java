@@ -4724,7 +4724,9 @@ init|=
 operator|new
 name|SearchResultLimits
 argument_list|(
-literal|0
+name|SearchResultLimits
+operator|.
+name|ALL_PAGES
 argument_list|)
 decl_stmt|;
 name|limits
