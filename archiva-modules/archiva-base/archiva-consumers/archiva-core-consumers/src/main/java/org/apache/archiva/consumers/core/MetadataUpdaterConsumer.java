@@ -476,35 +476,30 @@ name|id
 init|=
 literal|"metadata-updater"
 decl_stmt|;
-comment|/**      * default-value="Update / Create maven-metadata.xml files"      */
 specifier|private
 name|String
 name|description
 init|=
 literal|"Update / Create maven-metadata.xml files"
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|RepositoryContentFactory
 name|repositoryFactory
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|MetadataTools
 name|metadataTools
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private

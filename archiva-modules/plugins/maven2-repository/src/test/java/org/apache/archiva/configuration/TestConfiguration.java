@@ -162,6 +162,18 @@ annotation|@
 name|Override
 specifier|public
 name|void
+name|removeChangeListener
+parameter_list|(
+name|RegistryListener
+name|listener
+parameter_list|)
+block|{
+comment|// no op
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
 name|reload
 parameter_list|()
 block|{

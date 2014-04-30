@@ -98,9 +98,16 @@ name|ConfigurationListener
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Add a registry listener to notify of events in plexus-registry.      *      * @param listener the listener      *                 TODO: Remove in future.      */
+comment|/**      * Add a registry listener to notify of events in spring-registry.      *      * @param listener the listener      *                 TODO: Remove in future.      */
 name|void
 name|addChangeListener
+parameter_list|(
+name|RegistryListener
+name|listener
+parameter_list|)
+function_decl|;
+name|void
+name|removeChangeListener
 parameter_list|(
 name|RegistryListener
 name|listener
