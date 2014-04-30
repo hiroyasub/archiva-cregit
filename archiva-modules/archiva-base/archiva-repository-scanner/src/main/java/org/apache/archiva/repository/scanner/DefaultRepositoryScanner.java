@@ -233,7 +233,7 @@ annotation|@
 name|Inject
 specifier|private
 name|RepositoryContentConsumers
-name|consumerUtil
+name|repositoryContentConsumers
 decl_stmt|;
 specifier|private
 name|Set
@@ -272,7 +272,7 @@ name|KnownRepositoryContentConsumer
 argument_list|>
 name|knownContentConsumers
 init|=
-name|consumerUtil
+name|repositoryContentConsumers
 operator|.
 name|getSelectedKnownConsumers
 argument_list|()
@@ -283,7 +283,7 @@ name|InvalidRepositoryContentConsumer
 argument_list|>
 name|invalidContentConsumers
 init|=
-name|consumerUtil
+name|repositoryContentConsumers
 operator|.
 name|getSelectedInvalidConsumers
 argument_list|()
