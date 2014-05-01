@@ -371,14 +371,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|ArtifactConverter
 name|artifactConverter
 decl_stmt|;
-comment|/**      *      */
 specifier|private
 name|ArtifactFactory
 name|artifactFactory
