@@ -800,6 +800,16 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
+name|limits
+operator|.
+name|setPageSize
+argument_list|(
+name|searchRequest
+operator|.
+name|getPageSize
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// if no repos set we use ones available for the user
 if|if
 condition|(
