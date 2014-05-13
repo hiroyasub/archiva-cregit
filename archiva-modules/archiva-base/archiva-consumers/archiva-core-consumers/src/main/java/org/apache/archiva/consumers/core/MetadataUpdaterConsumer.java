@@ -453,8 +453,8 @@ extends|extends
 name|AbstractMonitoredConsumer
 implements|implements
 name|KnownRepositoryContentConsumer
-implements|,
-name|RegistryListener
+comment|// it's prototype bean so we assume configuration won't change during a run
+comment|//, RegistryListener
 block|{
 specifier|private
 name|Logger
@@ -1319,55 +1319,7 @@ return|return
 literal|false
 return|;
 block|}
-annotation|@
-name|Override
-specifier|public
-name|void
-name|afterConfigurationChange
-parameter_list|(
-name|Registry
-name|registry
-parameter_list|,
-name|String
-name|propertyName
-parameter_list|,
-name|Object
-name|propertyValue
-parameter_list|)
-block|{
-if|if
-condition|(
-name|ConfigurationNames
-operator|.
-name|isRepositoryScanning
-argument_list|(
-name|propertyName
-argument_list|)
-condition|)
-block|{
-name|initIncludes
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-annotation|@
-name|Override
-specifier|public
-name|void
-name|beforeConfigurationChange
-parameter_list|(
-name|Registry
-name|registry
-parameter_list|,
-name|String
-name|propertyName
-parameter_list|,
-name|Object
-name|propertyValue
-parameter_list|)
-block|{
-comment|/* do nothing here */
-block|}
+comment|/*     @Override     public void afterConfigurationChange( Registry registry, String propertyName, Object propertyValue )     {         if ( ConfigurationNames.isRepositoryScanning( propertyName ) )         {             initIncludes();         }     }      @Override     public void beforeConfigurationChange( Registry registry, String propertyName, Object propertyValue )     {         // do nothing here     }     */
 specifier|private
 name|void
 name|initIncludes
@@ -1377,9 +1329,7 @@ name|includes
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|filetypes
 operator|.
@@ -1399,13 +1349,7 @@ name|void
 name|initialize
 parameter_list|()
 block|{
-name|configuration
-operator|.
-name|addChangeListener
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
+comment|//configuration.addChangeListener( this );
 name|initIncludes
 argument_list|()
 expr_stmt|;
