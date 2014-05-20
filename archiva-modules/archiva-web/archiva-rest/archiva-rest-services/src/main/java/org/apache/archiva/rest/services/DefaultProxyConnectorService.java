@@ -219,12 +219,6 @@ name|AbstractRestService
 implements|implements
 name|ProxyConnectorService
 block|{
-annotation|@
-name|Inject
-specifier|private
-name|ProxyConnectorAdmin
-name|proxyConnectorAdmin
-decl_stmt|;
 specifier|private
 name|List
 argument_list|<
