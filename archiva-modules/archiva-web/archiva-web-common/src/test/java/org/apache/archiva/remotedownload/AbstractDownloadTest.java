@@ -631,6 +631,7 @@ extends|extends
 name|TestCase
 block|{
 specifier|protected
+specifier|final
 name|Logger
 name|log
 init|=
