@@ -88,7 +88,7 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|assertj
@@ -98,8 +98,6 @@ operator|.
 name|api
 operator|.
 name|Assertions
-operator|.
-name|assertThat
 import|;
 end_import
 
@@ -140,6 +138,22 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|assertj
+operator|.
+name|core
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertThat
 import|;
 end_import
 
@@ -958,7 +972,18 @@ operator|.
 name|getVersion
 argument_list|()
 decl_stmt|;
-name|assertEquals
+name|Assertions
+operator|.
+name|assertThat
+argument_list|(
+name|artifact
+operator|.
+name|getUrl
+argument_list|()
+argument_list|)
+comment|//
+operator|.
+name|isEqualTo
 argument_list|(
 literal|"http://localhost:"
 operator|+
@@ -973,11 +998,6 @@ operator|+
 name|version
 operator|+
 literal|".jar"
-argument_list|,
-name|artifact
-operator|.
-name|getUrl
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
