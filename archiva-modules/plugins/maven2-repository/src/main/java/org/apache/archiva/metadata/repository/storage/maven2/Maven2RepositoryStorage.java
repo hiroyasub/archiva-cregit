@@ -1124,7 +1124,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Maven 2 repository format storage implementation. This class currently takes parameters to indicate the repository to  * deal with rather than being instantiated per-repository.  * FIXME: instantiate one per repository and allocate permanently from a factory (which can be obtained within the session).  *<p>  * The session is passed in as an argument to obtain any necessary resources, rather than the class being instantiated  * within the session in the context of a single managed repository's resolution needs.  *<p>  */
+comment|/**  * Maven 2 repository format storage implementation. This class currently takes parameters to indicate the repository to  * deal with rather than being instantiated per-repository.  * FIXME: instantiate one per repository and allocate permanently from a factory (which can be obtained within the session).  *<p/>  * The session is passed in as an argument to obtain any necessary resources, rather than the class being instantiated  * within the session in the context of a single managed repository's resolution needs.  *<p/>  */
 end_comment
 
 begin_class
@@ -4636,10 +4636,12 @@ name|replace
 argument_list|(
 name|filePath
 argument_list|,
+comment|//
 name|artifactReference
 operator|.
 name|getArtifactId
 argument_list|()
+comment|//
 operator|+
 literal|"-"
 operator|+
@@ -4648,10 +4650,12 @@ operator|.
 name|getVersion
 argument_list|()
 argument_list|,
+comment|//
 name|artifactReference
 operator|.
 name|getArtifactId
 argument_list|()
+comment|//
 operator|+
 literal|"-"
 operator|+
@@ -4670,10 +4674,12 @@ name|VersionUtil
 operator|.
 name|SNAPSHOT
 argument_list|)
+comment|//
 operator|+
 literal|"-"
 operator|+
 name|timestamp
+comment|//
 operator|+
 literal|"-"
 operator|+
