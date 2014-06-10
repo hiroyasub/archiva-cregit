@@ -3415,6 +3415,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// Maven Centric part ask evaluation if -SNAPSHOT
+comment|// MRM-1846 test if read method to prevent issue with maven 2.2.1 and uniqueVersion false
 name|String
 name|path
 init|=
