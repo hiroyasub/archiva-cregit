@@ -1216,24 +1216,14 @@ name|isCollection
 argument_list|()
 condition|)
 block|{
-comment|//outputContext.setContentLength( localResource.length() );
 name|outputContext
 operator|.
-name|setProperty
-argument_list|(
-name|DavConstants
-operator|.
-name|HEADER_CONTENT_LENGTH
-argument_list|,
-name|Long
-operator|.
-name|toString
+name|setContentLength
 argument_list|(
 name|localResource
 operator|.
 name|length
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|outputContext
@@ -1689,23 +1679,13 @@ argument_list|)
 throw|;
 block|}
 comment|// TODO: a bad deployment shouldn't delete an existing file - do we need to write to a temporary location first?
-comment|//long expectedContentLength = inputContext.getContentLength();
 name|long
 name|expectedContentLength
 init|=
-name|Long
-operator|.
-name|parseLong
-argument_list|(
 name|inputContext
 operator|.
-name|getProperty
-argument_list|(
-name|DavConstants
-operator|.
-name|HEADER_CONTENT_LENGTH
-argument_list|)
-argument_list|)
+name|getContentLength
+argument_list|()
 decl_stmt|;
 name|long
 name|actualContentLength
