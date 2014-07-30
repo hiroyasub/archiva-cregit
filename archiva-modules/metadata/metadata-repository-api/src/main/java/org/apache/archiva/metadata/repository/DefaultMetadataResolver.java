@@ -379,6 +379,11 @@ argument_list|<
 name|RepositoryListener
 argument_list|>
 name|listeners
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
 decl_stmt|;
 comment|/**      * Cache used for namespaces      */
 annotation|@
