@@ -301,6 +301,22 @@ name|org
 operator|.
 name|springframework
 operator|.
+name|beans
+operator|.
+name|factory
+operator|.
+name|annotation
+operator|.
+name|Autowired
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
 name|context
 operator|.
 name|annotation
@@ -508,6 +524,13 @@ decl_stmt|;
 comment|/**      *      */
 annotation|@
 name|Inject
+annotation|@
+name|Autowired
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
 specifier|private
 name|List
 argument_list|<
