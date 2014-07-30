@@ -307,6 +307,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -373,6 +383,11 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|Inject
+annotation|@
+name|Named
+argument_list|(
+literal|"artifactConverter#legacy-to-default"
+argument_list|)
 specifier|private
 name|ArtifactConverter
 name|artifactConverter
