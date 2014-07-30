@@ -7,7 +7,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|reports
+name|metadata
+operator|.
+name|model
+operator|.
+name|facets
 package|;
 end_package
 
