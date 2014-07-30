@@ -297,18 +297,26 @@ name|configuration
 decl_stmt|;
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|propertyNameTriggers
 init|=
 operator|new
 name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|includes
 init|=
 operator|new
 name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** current repository being scanned */
@@ -642,6 +650,7 @@ name|propertyNameTriggers
 operator|=
 operator|new
 name|ArrayList
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|propertyNameTriggers
@@ -714,6 +723,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getExcludes
 parameter_list|()
 block|{
@@ -723,6 +735,9 @@ return|;
 block|}
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getIncludes
 parameter_list|()
 block|{
