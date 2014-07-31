@@ -61,7 +61,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|audit
+name|metadata
+operator|.
+name|model
+operator|.
+name|facets
 operator|.
 name|AuditEvent
 import|;

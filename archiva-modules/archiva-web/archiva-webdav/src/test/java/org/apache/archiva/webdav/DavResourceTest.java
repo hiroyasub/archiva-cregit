@@ -51,7 +51,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|audit
+name|repository
+operator|.
+name|events
 operator|.
 name|AuditListener
 import|;

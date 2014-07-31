@@ -111,7 +111,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|audit
+name|metadata
+operator|.
+name|model
+operator|.
+name|facets
 operator|.
 name|AuditEvent
 import|;
@@ -125,7 +129,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|audit
+name|repository
+operator|.
+name|events
 operator|.
 name|AuditListener
 import|;
