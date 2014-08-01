@@ -738,7 +738,14 @@ name|repo
 operator|.
 name|setId
 argument_list|(
-literal|"cliRepo"
+operator|new
+name|File
+argument_list|(
+name|path
+argument_list|)
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|repo
