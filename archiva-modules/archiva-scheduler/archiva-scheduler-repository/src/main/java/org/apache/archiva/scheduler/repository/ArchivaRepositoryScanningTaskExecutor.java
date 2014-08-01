@@ -420,6 +420,9 @@ class|class
 name|ArchivaRepositoryScanningTaskExecutor
 implements|implements
 name|TaskExecutor
+argument_list|<
+name|RepositoryTask
+argument_list|>
 block|{
 specifier|private
 name|Logger
@@ -505,7 +508,7 @@ specifier|public
 name|void
 name|executeTask
 parameter_list|(
-name|Task
+name|RepositoryTask
 name|task
 parameter_list|)
 throws|throws
@@ -526,18 +529,10 @@ name|task
 operator|=
 name|task
 expr_stmt|;
-name|RepositoryTask
-name|repoTask
-init|=
-operator|(
-name|RepositoryTask
-operator|)
-name|task
-decl_stmt|;
 name|String
 name|repoId
 init|=
-name|repoTask
+name|task
 operator|.
 name|getRepositoryId
 argument_list|()
@@ -573,7 +568,7 @@ decl_stmt|;
 comment|// execute consumers on resource file if set
 if|if
 condition|(
-name|repoTask
+name|task
 operator|.
 name|getResourceFile
 argument_list|()
@@ -587,7 +582,7 @@ name|debug
 argument_list|(
 literal|"Executing task from queue with job name: {}"
 argument_list|,
-name|repoTask
+name|task
 argument_list|)
 expr_stmt|;
 name|consumers
@@ -596,12 +591,12 @@ name|executeConsumers
 argument_list|(
 name|arepo
 argument_list|,
-name|repoTask
+name|task
 operator|.
 name|getResourceFile
 argument_list|()
 argument_list|,
-name|repoTask
+name|task
 operator|.
 name|isUpdateRelatedArtifacts
 argument_list|()
@@ -616,7 +611,7 @@ name|info
 argument_list|(
 literal|"Executing task from queue with job name: {}"
 argument_list|,
-name|repoTask
+name|task
 argument_list|)
 expr_stmt|;
 comment|// otherwise, execute consumers on whole repository
@@ -670,7 +665,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|repoTask
+name|task
 operator|.
 name|isScanAll
 argument_list|()
@@ -861,7 +856,7 @@ name|info
 argument_list|(
 literal|"Finished repository task: {}"
 argument_list|,
-name|repoTask
+name|task
 argument_list|)
 expr_stmt|;
 name|this
