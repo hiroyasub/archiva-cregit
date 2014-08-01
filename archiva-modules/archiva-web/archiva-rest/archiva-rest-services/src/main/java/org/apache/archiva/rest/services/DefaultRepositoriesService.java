@@ -1435,6 +1435,21 @@ name|String
 name|repositoryId
 parameter_list|)
 block|{
+comment|// check queue first to make sure it doesn't get dequeued between calls
+if|if
+condition|(
+name|repositoryTaskScheduler
+operator|.
+name|isProcessingRepositoryTask
+argument_list|(
+name|repositoryId
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
 for|for
 control|(
 name|RepositoryScannerInstance
@@ -1468,12 +1483,7 @@ return|;
 block|}
 block|}
 return|return
-name|repositoryTaskScheduler
-operator|.
-name|isProcessingRepositoryTask
-argument_list|(
-name|repositoryId
-argument_list|)
+literal|false
 return|;
 block|}
 annotation|@
