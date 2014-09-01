@@ -1821,6 +1821,8 @@ argument_list|,
 name|locator
 argument_list|,
 name|davResource
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 return|return
@@ -2030,6 +2032,8 @@ argument_list|,
 name|locator
 argument_list|,
 name|resource
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 return|return
@@ -2642,6 +2646,8 @@ argument_list|,
 name|locator
 argument_list|,
 name|resource
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// compatibility with MRM-440 to ensure browsing the repository works ok
@@ -4669,6 +4675,9 @@ name|locator
 parameter_list|,
 name|DavResource
 name|resource
+parameter_list|,
+name|boolean
+name|group
 parameter_list|)
 block|{
 comment|// [MRM-503] - Metadata file need Pragma:no-cache response
@@ -4816,6 +4825,35 @@ name|getTime
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+if|else if
+condition|(
+name|group
+condition|)
+block|{
+if|if
+condition|(
+name|resource
+operator|instanceof
+name|ArchivaVirtualDavResource
+condition|)
+block|{
+comment|//MRM-1854 here we have a directory so force "Last-Modified"
+name|response
+operator|.
+name|setDateHeader
+argument_list|(
+literal|"Last-Modified"
+argument_list|,
+operator|new
+name|Date
+argument_list|()
+operator|.
+name|getTime
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
