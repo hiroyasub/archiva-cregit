@@ -630,6 +630,7 @@ operator|.
 name|getAvailableKnownConsumers
 argument_list|( )
 argument_list|,
+comment|//
 name|consumerUtil
 operator|.
 name|getAvailableInvalidConsumers
@@ -2122,6 +2123,36 @@ parameter_list|,
 name|boolean
 name|allowEagerInit
 parameter_list|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported yet."
+argument_list|)
+throw|;
+block|}
+annotation|@
+name|Override
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|getBean
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|aClass
+parameter_list|,
+name|Object
+modifier|...
+name|objects
+parameter_list|)
+throws|throws
+name|BeansException
 block|{
 throw|throw
 operator|new
