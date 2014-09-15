@@ -299,6 +299,24 @@ name|archiva
 operator|.
 name|metadata
 operator|.
+name|model
+operator|.
+name|facets
+operator|.
+name|RepositoryProblemFacet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
 name|repository
 operator|.
 name|filter
@@ -518,24 +536,6 @@ operator|.
 name|model
 operator|.
 name|RepositoryProxyConnectors
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|model
-operator|.
-name|facets
-operator|.
-name|RepositoryProblemFacet
 import|;
 end_import
 
@@ -4630,6 +4630,22 @@ operator|.
 name|getTimestamp
 argument_list|()
 decl_stmt|;
+comment|// MRM-1846
+if|if
+condition|(
+name|buildNumber
+operator|<
+literal|1
+operator|&&
+name|timestamp
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|filePath
+return|;
+block|}
 comment|// org/apache/archiva/archiva-checksum/1.4-M4-SNAPSHOT/archiva-checksum-1.4-M4-SNAPSHOT.jar
 comment|// ->  archiva-checksum-1.4-M4-20130425.081822-1.jar
 name|filePath

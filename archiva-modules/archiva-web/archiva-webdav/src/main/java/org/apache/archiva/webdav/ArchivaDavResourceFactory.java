@@ -3231,9 +3231,11 @@ parameter_list|(
 name|ArchivaDavResourceLocator
 name|archivaLocator
 parameter_list|,
+comment|//
 name|ManagedRepositoryContent
 name|managedRepositoryContent
 parameter_list|,
+comment|//
 name|String
 name|contextPath
 parameter_list|)
@@ -3295,6 +3297,7 @@ operator|.
 name|getResourcePath
 argument_list|()
 argument_list|,
+comment|//
 name|managedRepositoryContent
 argument_list|)
 return|;
