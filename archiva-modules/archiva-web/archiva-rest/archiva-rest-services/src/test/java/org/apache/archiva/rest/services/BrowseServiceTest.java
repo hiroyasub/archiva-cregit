@@ -1842,6 +1842,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|scanRepo
+argument_list|(
+name|TEST_REPO_ID
+argument_list|)
+expr_stmt|;
+name|waitForScanToComplete
+argument_list|(
+name|TEST_REPO_ID
+argument_list|)
+expr_stmt|;
 name|deleteTestRepo
 argument_list|(
 name|TEST_REPO_ID
