@@ -1003,6 +1003,17 @@ name|LayoutException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Unable to convert path [{}] to an internal project reference: "
+argument_list|,
+name|path
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|triggerConsumerWarning
 argument_list|(
 name|TYPE_METADATA_BAD_INTERNAL_REF
@@ -1026,6 +1037,17 @@ name|RepositoryMetadataException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Unable to write project metadat for artifact [{}]:"
+argument_list|,
+name|path
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|triggerConsumerError
 argument_list|(
 name|TYPE_METADATA_WRITE_FAILURE
@@ -1049,6 +1071,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Project metadata not written due to IO warning: "
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|triggerConsumerWarning
 argument_list|(
 name|TYPE_METADATA_IO
@@ -1068,6 +1099,15 @@ name|ContentNotFoundException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Project metadata not written because no versions were found to update: "
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|triggerConsumerWarning
 argument_list|(
 name|TYPE_METADATA_IO
@@ -1229,6 +1269,17 @@ name|LayoutException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Unable to convert path [{}] to an internal version reference: "
+argument_list|,
+name|path
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|triggerConsumerWarning
 argument_list|(
 name|TYPE_METADATA_BAD_INTERNAL_REF
@@ -1252,6 +1303,17 @@ name|RepositoryMetadataException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Unable to write version metadata for artifact [{}]: "
+argument_list|,
+name|path
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|triggerConsumerError
 argument_list|(
 name|TYPE_METADATA_WRITE_FAILURE
@@ -1275,6 +1337,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Version metadata not written due to IO warning: "
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|triggerConsumerWarning
 argument_list|(
 name|TYPE_METADATA_IO
@@ -1294,6 +1365,15 @@ name|ContentNotFoundException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Version metadata not written because no versions were found to update: "
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|triggerConsumerWarning
 argument_list|(
 name|TYPE_METADATA_IO

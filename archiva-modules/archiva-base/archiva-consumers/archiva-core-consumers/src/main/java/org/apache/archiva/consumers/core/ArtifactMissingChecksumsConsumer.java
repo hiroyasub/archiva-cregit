@@ -211,6 +211,26 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -304,6 +324,19 @@ name|KnownRepositoryContentConsumer
 comment|// it's prototype bean so we assume configuration won't change during a run
 comment|//, RegistryListener
 block|{
+specifier|private
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|ArtifactMissingChecksumsConsumer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 name|String
 name|id
@@ -690,6 +723,18 @@ argument_list|(
 name|checksumAlgorithm
 argument_list|)
 expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Fixed checksum file {}"
+argument_list|,
+name|checksumFile
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|triggerConsumerInfo
 argument_list|(
 literal|"Fixed checksum file "
@@ -708,6 +753,17 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Cannot calculate checksum for file {} :"
+argument_list|,
+name|checksumFile
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|triggerConsumerError
 argument_list|(
 name|TYPE_CHECKSUM_CANNOT_CALC
@@ -755,6 +811,18 @@ literal|0
 index|]
 argument_list|)
 expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Created missing checksum file {}"
+argument_list|,
+name|checksumFile
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|triggerConsumerInfo
 argument_list|(
 literal|"Created missing checksum file "
@@ -772,6 +840,17 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Cannot create checksum for file {} :"
+argument_list|,
+name|checksumFile
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|triggerConsumerError
 argument_list|(
 name|TYPE_CHECKSUM_CANNOT_CREATE
@@ -792,6 +871,18 @@ block|}
 block|}
 else|else
 block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Checksum file {} is not a file. "
+argument_list|,
+name|checksumFile
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|triggerConsumerWarning
 argument_list|(
 name|TYPE_CHECKSUM_NOT_FILE

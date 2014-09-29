@@ -195,6 +195,26 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -296,6 +316,19 @@ name|AbstractMonitoredConsumer
 implements|implements
 name|KnownRepositoryContentConsumer
 block|{
+specifier|private
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|ValidateChecksumConsumer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 specifier|static
 specifier|final
@@ -557,6 +590,15 @@ name|checksumFile
 argument_list|)
 condition|)
 block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"The checksum for {} is invalid."
+argument_list|,
+name|checksumFile
+argument_list|)
+expr_stmt|;
 name|triggerConsumerWarning
 argument_list|(
 name|NOT_VALID_CHECKSUM
@@ -576,6 +618,15 @@ name|FileNotFoundException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"File not found during checksum validation: "
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|triggerConsumerError
 argument_list|(
 name|CHECKSUM_NOT_FOUND
@@ -595,6 +646,15 @@ name|DigesterException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Digester failure during checksum validation on {}"
+argument_list|,
+name|checksumFile
+argument_list|)
+expr_stmt|;
 name|triggerConsumerError
 argument_list|(
 name|CHECKSUM_DIGESTER_FAILURE
@@ -611,6 +671,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Checksum I/O error during validation on {}"
+argument_list|,
+name|checksumFile
+argument_list|)
+expr_stmt|;
 name|triggerConsumerError
 argument_list|(
 name|CHECKSUM_IO_ERROR

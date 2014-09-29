@@ -119,6 +119,26 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -220,6 +240,19 @@ name|AbstractMonitoredConsumer
 implements|implements
 name|KnownRepositoryContentConsumer
 block|{
+specifier|private
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|AutoRenameConsumer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 name|String
 name|id
@@ -609,6 +642,19 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Unable to rename {} to {} :"
+argument_list|,
+name|path
+argument_list|,
+name|correctedPath
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|triggerConsumerWarning
 argument_list|(
 name|RENAME_FAILURE
@@ -632,6 +678,18 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"(Auto) Removing File: {} "
+argument_list|,
+name|file
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|triggerConsumerInfo
 argument_list|(
 literal|"(Auto) Removing File: "

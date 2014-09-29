@@ -183,6 +183,26 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -266,6 +286,19 @@ name|KnownRepositoryContentConsumer
 implements|,
 name|RegistryListener
 block|{
+specifier|private
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|AutoRemoveConsumer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * default-value="auto-remove"      */
 specifier|private
 name|String
@@ -488,6 +521,18 @@ name|exists
 argument_list|()
 condition|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"(Auto) Removing File: {}"
+argument_list|,
+name|file
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|triggerConsumerInfo
 argument_list|(
 literal|"(Auto) Removing File: "
