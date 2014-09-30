@@ -252,18 +252,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Files
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -276,6 +264,16 @@ operator|.
 name|Assertions
 operator|.
 name|assertThat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Rule
 import|;
 end_import
 
@@ -458,6 +456,16 @@ name|RemoteRepoInfo
 name|remoteSnapshots
 decl_stmt|;
 annotation|@
+name|Rule
+specifier|public
+name|ArchivaTemporaryFolderRule
+name|repoRootInternali
+init|=
+operator|new
+name|ArchivaTemporaryFolderRule
+argument_list|()
+decl_stmt|;
+annotation|@
 name|Before
 annotation|@
 name|Override
@@ -539,16 +547,12 @@ name|repo
 operator|.
 name|root
 operator|=
-name|Files
+name|repoRootInternali
 operator|.
-name|createTempDirectory
-argument_list|(
-literal|"temp"
-argument_list|)
-operator|.
-name|toFile
+name|getRoot
 argument_list|()
 expr_stmt|;
+comment|/*Files.createTempDirectory(             "temp" ).toFile();*/
 comment|// new File( System.getProperty( "basedir" ) + "target/remote-repos/" + id + "/" );
 comment|// Remove exising root contents.
 if|if
