@@ -173,7 +173,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"http://repo.maven.apache.org/maven2"
+literal|"https://repo.maven.apache.org/maven2"
 argument_list|,
 name|central
 operator|.
