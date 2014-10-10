@@ -738,17 +738,6 @@ return|return
 literal|"artifact-legacy-to-default-converter"
 return|;
 block|}
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|isPermanent
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 specifier|public
 name|void
 name|setExcludes

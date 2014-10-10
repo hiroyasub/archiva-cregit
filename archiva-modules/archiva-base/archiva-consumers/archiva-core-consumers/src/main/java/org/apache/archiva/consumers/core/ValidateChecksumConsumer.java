@@ -436,17 +436,6 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|boolean
-name|isPermanent
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
 name|void
 name|beginScan
 parameter_list|(

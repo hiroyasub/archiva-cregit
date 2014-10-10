@@ -394,17 +394,6 @@ annotation|@
 name|Override
 specifier|public
 name|boolean
-name|isPermanent
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|boolean
 name|isProcessUnmodified
 parameter_list|()
 block|{

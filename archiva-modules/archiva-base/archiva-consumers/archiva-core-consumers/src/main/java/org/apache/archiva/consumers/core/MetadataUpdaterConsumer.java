@@ -1388,17 +1388,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|isPermanent
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 comment|/*     @Override     public void afterConfigurationChange( Registry registry, String propertyName, Object propertyValue )     {         if ( ConfigurationNames.isRepositoryScanning( propertyName ) )         {             initIncludes();         }     }      @Override     public void beforeConfigurationChange( Registry registry, String propertyName, Object propertyValue )     {         // do nothing here     }     */
 specifier|private
 name|void

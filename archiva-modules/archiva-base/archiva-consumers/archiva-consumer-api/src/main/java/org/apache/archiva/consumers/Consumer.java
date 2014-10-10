@@ -35,11 +35,6 @@ name|String
 name|getDescription
 parameter_list|()
 function_decl|;
-comment|/**      * Flag indicating permanance of consumer. (if it can be disabled or not)      *       * @return true indicating that consumer is permanent and cannot be disabled.       */
-name|boolean
-name|isPermanent
-parameter_list|()
-function_decl|;
 comment|/**      * Add a consumer monitor to the consumer.      *       * @param monitor the monitor to add.      */
 name|void
 name|addConsumerMonitor

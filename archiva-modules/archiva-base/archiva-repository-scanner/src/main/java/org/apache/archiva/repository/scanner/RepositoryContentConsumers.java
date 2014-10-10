@@ -661,11 +661,6 @@ operator|.
 name|getId
 argument_list|()
 argument_list|)
-operator|||
-name|consumer
-operator|.
-name|isPermanent
-argument_list|()
 condition|)
 block|{
 name|ret
@@ -805,11 +800,6 @@ operator|.
 name|getId
 argument_list|()
 argument_list|)
-operator|||
-name|consumer
-operator|.
-name|isPermanent
-argument_list|()
 condition|)
 block|{
 name|ret
