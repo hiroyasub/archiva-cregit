@@ -640,10 +640,6 @@ name|class
 argument_list|)
 decl_stmt|;
 specifier|private
-name|RssFeedProcessor
-name|processor
-decl_stmt|;
-specifier|private
 name|WebApplicationContext
 name|wac
 decl_stmt|;
@@ -907,6 +903,11 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|RssFeedProcessor
+name|processor
+init|=
+literal|null
+decl_stmt|;
 try|try
 block|{
 name|Map

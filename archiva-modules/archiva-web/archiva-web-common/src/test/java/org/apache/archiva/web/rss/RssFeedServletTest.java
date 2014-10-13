@@ -1787,7 +1787,7 @@ annotation|@
 name|Ignore
 specifier|public
 name|void
-name|XXX_testInvalidRequest
+name|testInvalidRequest
 parameter_list|()
 throws|throws
 name|Exception
@@ -1857,7 +1857,7 @@ annotation|@
 name|Ignore
 specifier|public
 name|void
-name|XXX_testInvalidAuthenticationRequest
+name|testInvalidAuthenticationRequest
 parameter_list|()
 throws|throws
 name|Exception
@@ -1972,7 +1972,7 @@ annotation|@
 name|Ignore
 specifier|public
 name|void
-name|XXX_testUnauthorizedRequest
+name|testUnauthorizedRequest
 parameter_list|()
 throws|throws
 name|Exception
