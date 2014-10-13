@@ -276,7 +276,6 @@ name|desc
 init|=
 literal|"These are the new versions of artifact "
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
