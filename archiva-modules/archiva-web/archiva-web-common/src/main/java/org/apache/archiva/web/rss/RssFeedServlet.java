@@ -910,6 +910,34 @@ operator|==
 literal|0
 condition|)
 block|{
+comment|// we receive feeds?babla=ded which is not correct
+if|if
+condition|(
+name|StringUtils
+operator|.
+name|countMatches
+argument_list|(
+name|url
+argument_list|,
+literal|"feeds?"
+argument_list|)
+operator|>
+literal|0
+condition|)
+block|{
+name|res
+operator|.
+name|sendError
+argument_list|(
+name|HttpServletResponse
+operator|.
+name|SC_BAD_REQUEST
+argument_list|,
+literal|"Invalid request url."
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|repoId
 operator|=
 name|StringUtils

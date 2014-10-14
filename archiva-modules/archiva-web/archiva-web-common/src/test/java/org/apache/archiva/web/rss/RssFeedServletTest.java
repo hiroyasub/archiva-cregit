@@ -1784,7 +1784,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Ignore
+name|Test
 specifier|public
 name|void
 name|testInvalidRequest
@@ -1792,8 +1792,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//RssFeedServlet servlet =
-comment|//    (RssFeedServlet) client.newInvocation( "http://localhost/feeds?invalid_param=xxx" ).getServlet();
 name|MockHttpServletRequest
 name|request
 init|=
