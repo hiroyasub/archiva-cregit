@@ -205,7 +205,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-specifier|protected
+specifier|private
 specifier|final
 name|MessageDigest
 name|md
