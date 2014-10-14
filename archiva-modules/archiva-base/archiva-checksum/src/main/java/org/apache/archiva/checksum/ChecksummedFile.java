@@ -79,16 +79,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -169,6 +159,7 @@ class|class
 name|ChecksummedFile
 block|{
 specifier|private
+specifier|final
 name|Logger
 name|log
 init|=

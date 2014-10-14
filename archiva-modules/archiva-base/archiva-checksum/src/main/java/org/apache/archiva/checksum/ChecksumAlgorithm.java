@@ -150,16 +150,19 @@ throw|;
 block|}
 comment|/**      * The MessageDigest algorithm for this hash.      */
 specifier|private
+specifier|final
 name|String
 name|algorithm
 decl_stmt|;
 comment|/**      * The file extension for this ChecksumAlgorithm.      */
 specifier|private
+specifier|final
 name|String
 name|ext
 decl_stmt|;
 comment|/**      * The checksum type, the key that you see in checksum files.      */
 specifier|private
+specifier|final
 name|String
 name|type
 decl_stmt|;
