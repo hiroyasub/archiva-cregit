@@ -1964,7 +1964,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Ignore
+name|Test
 specifier|public
 name|void
 name|testUnauthorizedRequest
@@ -2002,7 +2002,6 @@ argument_list|(
 literal|"GET"
 argument_list|)
 expr_stmt|;
-comment|//WebRequest request = new GetMethodWebRequest( "http://localhost/feeds/unauthorized-repo" );
 name|Base64
 name|encoder
 init|=
