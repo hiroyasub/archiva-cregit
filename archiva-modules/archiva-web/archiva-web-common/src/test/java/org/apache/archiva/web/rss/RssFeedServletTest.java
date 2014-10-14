@@ -1852,7 +1852,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Ignore
+name|Test
 specifier|public
 name|void
 name|testInvalidAuthenticationRequest
@@ -1860,9 +1860,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//RssFeedServlet servlet =
-comment|//    (RssFeedServlet) client.newInvocation( "http://localhost/feeds/unauthorized-repo" ).getServlet();
-comment|//WebRequest request = new GetMethodWebRequest( "http://localhost/feeds/unauthorized-repo" );
 name|MockHttpServletRequest
 name|request
 init|=
