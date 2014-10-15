@@ -49,6 +49,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -139,16 +149,18 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|nio
 operator|.
-name|Test
+name|charset
+operator|.
+name|Charset
 import|;
 end_import
 
 begin_comment
-comment|/**  * LatinEntityResolutionReaderTest  *  *  */
+comment|/**  * LatinEntityResolutionReaderTest  */
 end_comment
 
 begin_class
@@ -913,7 +925,12 @@ name|InputStreamReader
 argument_list|(
 name|in
 argument_list|,
+name|Charset
+operator|.
+name|forName
+argument_list|(
 literal|"UTF-8"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|LatinEntityResolutionReader
