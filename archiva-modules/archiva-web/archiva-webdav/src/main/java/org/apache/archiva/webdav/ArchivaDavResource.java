@@ -2172,7 +2172,7 @@ name|DavResource
 name|member
 parameter_list|,
 name|String
-name|event
+name|action
 parameter_list|)
 throws|throws
 name|DavException
@@ -2214,7 +2214,7 @@ name|principal
 argument_list|,
 name|path
 argument_list|,
-name|event
+name|action
 argument_list|)
 decl_stmt|;
 name|auditEvent

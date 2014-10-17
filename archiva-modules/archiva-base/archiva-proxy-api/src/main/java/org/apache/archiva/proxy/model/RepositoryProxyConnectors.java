@@ -102,8 +102,8 @@ throws|throws
 name|ProxyDownloadException
 function_decl|;
 comment|/**      * Performs the metadata fetch operation against the target repositories      * of the provided source repository.      *       * If the metadata is found, it is downloaded and placed into the source repository      * filesystem.      *       * @param repository the source repository to use. (must be a managed repository)      * @param logicalPath the metadata to fetch.      * @return the file that was obtained, or null if no content was obtained      */
-name|File
-name|fetchMetatadaFromProxies
+name|ProxyFetchResult
+name|fetchMetadataFromProxies
 parameter_list|(
 name|ManagedRepositoryContent
 name|repository

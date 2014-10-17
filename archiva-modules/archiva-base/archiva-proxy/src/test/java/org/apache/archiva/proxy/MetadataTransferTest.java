@@ -195,6 +195,22 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|proxy
+operator|.
+name|model
+operator|.
+name|ProxyFetchResult
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|repository
 operator|.
 name|metadata
@@ -499,7 +515,7 @@ name|downloadedFile
 init|=
 name|proxyHandler
 operator|.
-name|fetchMetatadaFromProxies
+name|fetchMetadataFromProxies
 argument_list|(
 name|managedDefaultRepository
 argument_list|,
@@ -510,6 +526,9 @@ argument_list|(
 name|metadata
 argument_list|)
 argument_list|)
+operator|.
+name|getFile
+argument_list|()
 decl_stmt|;
 name|assertNull
 argument_list|(
@@ -3824,7 +3843,7 @@ name|downloadedFile
 init|=
 name|proxyHandler
 operator|.
-name|fetchMetatadaFromProxies
+name|fetchMetadataFromProxies
 argument_list|(
 name|managedDefaultRepository
 argument_list|,
@@ -3835,6 +3854,9 @@ argument_list|(
 name|metadata
 argument_list|)
 argument_list|)
+operator|.
+name|getFile
+argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -3903,7 +3925,7 @@ name|downloadedFile
 init|=
 name|proxyHandler
 operator|.
-name|fetchMetatadaFromProxies
+name|fetchMetadataFromProxies
 argument_list|(
 name|managedDefaultRepository
 argument_list|,
@@ -3914,6 +3936,9 @@ argument_list|(
 name|metadata
 argument_list|)
 argument_list|)
+operator|.
+name|getFile
+argument_list|()
 decl_stmt|;
 name|assertNull
 argument_list|(
@@ -3961,7 +3986,7 @@ name|downloadedFile
 init|=
 name|proxyHandler
 operator|.
-name|fetchMetatadaFromProxies
+name|fetchMetadataFromProxies
 argument_list|(
 name|managedDefaultRepository
 argument_list|,
@@ -3972,6 +3997,9 @@ argument_list|(
 name|metadata
 argument_list|)
 argument_list|)
+operator|.
+name|getFile
+argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -4040,7 +4068,7 @@ name|downloadedFile
 init|=
 name|proxyHandler
 operator|.
-name|fetchMetatadaFromProxies
+name|fetchMetadataFromProxies
 argument_list|(
 name|managedDefaultRepository
 argument_list|,
@@ -4051,6 +4079,9 @@ argument_list|(
 name|metadata
 argument_list|)
 argument_list|)
+operator|.
+name|getFile
+argument_list|()
 decl_stmt|;
 name|assertNull
 argument_list|(

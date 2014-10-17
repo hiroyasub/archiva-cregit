@@ -473,6 +473,22 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|proxy
+operator|.
+name|model
+operator|.
+name|ProxyFetchResult
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|redback
 operator|.
 name|authentication
@@ -3619,7 +3635,6 @@ operator|.
 name|exists
 argument_list|()
 decl_stmt|;
-comment|// Attempt to fetch the resource from any defined proxy.
 name|boolean
 name|fromProxy
 init|=
@@ -3746,7 +3761,7 @@ name|fromProxy
 condition|)
 block|{
 name|String
-name|event
+name|action
 init|=
 operator|(
 name|previouslyExisted
@@ -3798,7 +3813,7 @@ operator|.
 name|getPath
 argument_list|()
 argument_list|,
-name|event
+name|action
 argument_list|,
 name|activePrincipal
 argument_list|)
@@ -4353,14 +4368,15 @@ block|{
 return|return
 name|connectors
 operator|.
-name|fetchMetatadaFromProxies
+name|fetchMetadataFromProxies
 argument_list|(
 name|managedRepository
 argument_list|,
 name|path
 argument_list|)
-operator|!=
-literal|null
+operator|.
+name|isModified
+argument_list|()
 return|;
 block|}
 comment|// Is it an Archetype Catalog?
