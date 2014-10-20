@@ -28,7 +28,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A result from a proxy fetch operation.  */
+comment|/**  * A result from a proxy fetch operation.  *  * @since 2.1.2  */
 end_comment
 
 begin_class
@@ -37,10 +37,12 @@ class|class
 name|ProxyFetchResult
 block|{
 comment|//The file returned
+specifier|private
 name|File
 name|file
 decl_stmt|;
 comment|//Was the local file modified by the fetch?
+specifier|private
 name|boolean
 name|modified
 decl_stmt|;
