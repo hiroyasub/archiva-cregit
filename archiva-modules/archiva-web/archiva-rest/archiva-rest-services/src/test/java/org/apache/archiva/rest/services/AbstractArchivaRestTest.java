@@ -1542,6 +1542,7 @@ name|boolean
 name|useXml
 parameter_list|)
 block|{
+comment|// START SNIPPET: cxf-browseservice-creation
 name|BrowseService
 name|service
 init|=
@@ -1682,6 +1683,7 @@ block|}
 return|return
 name|service
 return|;
+comment|// END SNIPPET: cxf-browseservice-creation
 block|}
 specifier|protected
 name|SearchService
