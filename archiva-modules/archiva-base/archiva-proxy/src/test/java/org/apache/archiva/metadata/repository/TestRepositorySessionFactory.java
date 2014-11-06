@@ -97,8 +97,9 @@ operator|new
 name|RepositorySession
 argument_list|(
 operator|new
-name|TestMetadataRepository
+name|AbstractMetadataRepository
 argument_list|()
+block|{}
 argument_list|,
 name|resolver
 argument_list|)

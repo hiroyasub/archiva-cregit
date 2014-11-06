@@ -44,6 +44,11 @@ block|{
 specifier|private
 name|MetadataRepository
 name|repository
+init|=
+operator|new
+name|AbstractMetadataRepository
+argument_list|()
+block|{}
 decl_stmt|;
 specifier|private
 name|MetadataResolver
@@ -60,9 +65,7 @@ return|return
 operator|new
 name|RepositorySession
 argument_list|(
-operator|new
-name|TestMetadataRepository
-argument_list|()
+name|repository
 argument_list|,
 name|resolver
 argument_list|)
