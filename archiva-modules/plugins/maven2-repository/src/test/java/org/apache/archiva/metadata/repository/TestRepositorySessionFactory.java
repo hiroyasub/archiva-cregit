@@ -43,8 +43,9 @@ name|MetadataRepository
 name|metadataRepository
 init|=
 operator|new
-name|TestMetadataRepository
+name|AbstractMetadataRepository
 argument_list|()
+block|{}
 decl_stmt|;
 specifier|private
 name|MetadataResolver
