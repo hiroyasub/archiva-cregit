@@ -1219,7 +1219,7 @@ argument_list|>
 name|proxyConnectorMap
 init|=
 operator|new
-name|HashMap
+name|ConcurrentHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -2695,9 +2695,14 @@ name|ProxyConnector
 argument_list|>
 name|connectors
 init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
 name|getProxyConnectors
 argument_list|(
 name|repository
+argument_list|)
 argument_list|)
 decl_stmt|;
 for|for
