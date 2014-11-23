@@ -330,7 +330,9 @@ operator|.
 name|cmr
 expr_stmt|;
 name|clearReposAndNamespace
-argument_list|()
+argument_list|(
+name|cassandraArchivaManager
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * ensure all dependant tables are cleaned up (mailinglist, license, dependencies)      *      * @throws Exception      */
@@ -483,7 +485,9 @@ throws|throws
 name|Exception
 block|{
 name|clearReposAndNamespace
-argument_list|()
+argument_list|(
+name|cassandraArchivaManager
+argument_list|)
 expr_stmt|;
 name|super
 operator|.
@@ -491,10 +495,13 @@ name|tearDown
 argument_list|()
 expr_stmt|;
 block|}
-specifier|protected
+specifier|static
 name|void
 name|clearReposAndNamespace
-parameter_list|()
+parameter_list|(
+name|CassandraArchivaManager
+name|cassandraArchivaManager
+parameter_list|)
 throws|throws
 name|Exception
 block|{
