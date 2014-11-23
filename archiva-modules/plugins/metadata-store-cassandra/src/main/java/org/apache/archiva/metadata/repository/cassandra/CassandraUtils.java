@@ -489,7 +489,7 @@ name|ColumnSlice
 argument_list|<
 name|String
 argument_list|,
-name|Long
+name|?
 argument_list|>
 name|columnSlice
 parameter_list|,
@@ -519,6 +519,14 @@ name|Long
 argument_list|>
 name|hColumn
 init|=
+operator|(
+name|HColumn
+argument_list|<
+name|String
+argument_list|,
+name|Long
+argument_list|>
+operator|)
 name|columnSlice
 operator|.
 name|getColumnByName
@@ -541,6 +549,9 @@ return|;
 block|}
 specifier|public
 specifier|static
+parameter_list|<
+name|T
+parameter_list|>
 name|String
 name|getAsStringValue
 parameter_list|(
@@ -548,7 +559,7 @@ name|ColumnSlice
 argument_list|<
 name|String
 argument_list|,
-name|Long
+name|T
 argument_list|>
 name|columnSlice
 parameter_list|,
@@ -582,7 +593,7 @@ name|HColumn
 argument_list|<
 name|String
 argument_list|,
-name|Long
+name|T
 argument_list|>
 name|hColumn
 init|=
