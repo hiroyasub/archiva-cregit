@@ -2395,6 +2395,16 @@ name|getUrl
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|metadata
+operator|.
+name|setProperties
+argument_list|(
+name|model
+operator|.
+name|getProperties
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|MavenProjectFacet
 name|facet
 init|=
