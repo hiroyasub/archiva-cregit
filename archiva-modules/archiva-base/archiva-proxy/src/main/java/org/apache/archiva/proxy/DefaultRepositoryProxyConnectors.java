@@ -1097,6 +1097,18 @@ name|ConcurrentHashMap
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentMap
+import|;
+end_import
+
 begin_comment
 comment|/**  * DefaultRepositoryProxyConnectors  *<p/>  * TODO exception handling needs work - "not modified" is not really an exceptional case, and it has more layers than  * your average brown onion  */
 end_comment
@@ -1207,7 +1219,7 @@ name|UrlFailureCache
 name|urlFailureCache
 decl_stmt|;
 specifier|private
-name|Map
+name|ConcurrentMap
 argument_list|<
 name|String
 argument_list|,
@@ -1224,7 +1236,7 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|private
-name|Map
+name|ConcurrentMap
 argument_list|<
 name|String
 argument_list|,
@@ -5701,13 +5713,6 @@ name|ManagedRepositoryContent
 name|repository
 parameter_list|)
 block|{
-synchronized|synchronized
-init|(
-name|this
-operator|.
-name|proxyConnectorMap
-init|)
-block|{
 name|List
 argument_list|<
 name|ProxyConnector
@@ -5755,7 +5760,6 @@ expr_stmt|;
 return|return
 name|ret
 return|;
-block|}
 block|}
 annotation|@
 name|Override
