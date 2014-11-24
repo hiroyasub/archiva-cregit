@@ -265,7 +265,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// olamy with spring the "id" is now "metadataFacetFactory#hint"
+comment|// olamy with spring the ID.toString() is now "metadataFacetFactory#hint"
 comment|// whereas was only hint with plexus so let remove  metadataFacetFactory#
 name|metadataFacetFactories
 operator|=
