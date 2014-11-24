@@ -62,7 +62,7 @@ argument_list|)
 block|,
 name|KEY
 argument_list|(
-literal|"key"
+literal|"facetKey"
 argument_list|)
 block|,
 name|VALUE
