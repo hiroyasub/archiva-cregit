@@ -5758,7 +5758,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
 name|ret
+argument_list|)
 return|;
 block|}
 annotation|@
