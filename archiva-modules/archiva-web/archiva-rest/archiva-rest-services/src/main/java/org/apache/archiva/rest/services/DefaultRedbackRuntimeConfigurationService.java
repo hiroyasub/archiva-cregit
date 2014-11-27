@@ -624,11 +624,25 @@ name|ArchivaRestServiceException
 block|{
 try|try
 block|{
-return|return
+name|RedbackRuntimeConfiguration
+name|redbackRuntimeConfiguration
+init|=
 name|redbackRuntimeConfigurationAdmin
 operator|.
 name|getRedbackRuntimeConfiguration
 argument_list|()
+decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"getRedbackRuntimeConfiguration -> {}"
+argument_list|,
+name|redbackRuntimeConfiguration
+argument_list|)
+expr_stmt|;
+return|return
+name|redbackRuntimeConfiguration
 return|;
 block|}
 catch|catch

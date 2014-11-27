@@ -3476,9 +3476,7 @@ name|keysSet
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|keys
 argument_list|)

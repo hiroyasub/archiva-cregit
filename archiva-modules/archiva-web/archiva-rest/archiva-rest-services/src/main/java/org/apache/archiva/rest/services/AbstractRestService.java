@@ -702,6 +702,7 @@ class|class
 name|AbstractRestService
 block|{
 specifier|protected
+specifier|final
 name|Logger
 name|log
 init|=

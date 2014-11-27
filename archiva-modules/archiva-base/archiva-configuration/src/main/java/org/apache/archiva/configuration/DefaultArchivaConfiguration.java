@@ -1977,6 +1977,7 @@ name|startsWith
 argument_list|(
 literal|"repositories"
 argument_list|)
+comment|//
 operator|||
 name|key
 operator|.
@@ -1984,6 +1985,7 @@ name|startsWith
 argument_list|(
 literal|"proxyConnectors"
 argument_list|)
+comment|//
 operator|||
 name|key
 operator|.
@@ -1991,6 +1993,7 @@ name|startsWith
 argument_list|(
 literal|"networkProxies"
 argument_list|)
+comment|//
 operator|||
 name|key
 operator|.
@@ -1998,6 +2001,7 @@ name|startsWith
 argument_list|(
 literal|"repositoryScanning"
 argument_list|)
+comment|//
 operator|||
 name|key
 operator|.
@@ -2005,6 +2009,7 @@ name|startsWith
 argument_list|(
 literal|"remoteRepositories"
 argument_list|)
+comment|//
 operator|||
 name|key
 operator|.
@@ -2012,6 +2017,7 @@ name|startsWith
 argument_list|(
 literal|"managedRepositories"
 argument_list|)
+comment|//
 operator|||
 name|key
 operator|.
@@ -2020,6 +2026,7 @@ argument_list|(
 literal|"repositoryGroups"
 argument_list|)
 condition|)
+comment|//
 block|{
 name|foundList
 operator|=
