@@ -48,7 +48,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * DataRefreshTask - task for discovering changes in the repository  * and updating all associated data.  *  *  */
+comment|/**  * DataRefreshTask - task for discovering changes in the repository  * and updating all associated data.  */
 end_comment
 
 begin_class
@@ -74,6 +74,49 @@ specifier|private
 name|boolean
 name|scanAll
 decl_stmt|;
+specifier|public
+name|RepositoryTask
+parameter_list|()
+block|{
+comment|// no op
+block|}
+specifier|public
+name|RepositoryTask
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|repositoryId
+operator|=
+name|repositoryId
+expr_stmt|;
+block|}
+specifier|public
+name|RepositoryTask
+parameter_list|(
+name|String
+name|repositoryId
+parameter_list|,
+name|boolean
+name|scanAll
+parameter_list|)
+block|{
+name|this
+operator|.
+name|repositoryId
+operator|=
+name|repositoryId
+expr_stmt|;
+name|this
+operator|.
+name|scanAll
+operator|=
+name|scanAll
+expr_stmt|;
+block|}
 specifier|public
 name|boolean
 name|isScanAll
