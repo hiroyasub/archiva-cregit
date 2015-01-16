@@ -474,6 +474,39 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"WagonFactoryRequest{"
+operator|+
+literal|"protocol='"
+operator|+
+name|protocol
+operator|+
+literal|'\''
+operator|+
+literal|", headers="
+operator|+
+name|headers
+operator|+
+literal|", userAgent='"
+operator|+
+name|userAgent
+operator|+
+literal|'\''
+operator|+
+literal|", networkProxy="
+operator|+
+name|networkProxy
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 

@@ -548,23 +548,7 @@ argument_list|(
 literal|'\''
 argument_list|)
 expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", password='"
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|password
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|'\''
-argument_list|)
-expr_stmt|;
+comment|//sb.append( ", password='" ).append( password ).append( '\'' );
 name|sb
 operator|.
 name|append
