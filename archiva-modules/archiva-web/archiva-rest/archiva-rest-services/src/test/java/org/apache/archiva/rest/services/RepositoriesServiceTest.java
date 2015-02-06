@@ -193,41 +193,21 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|cxf
-operator|.
-name|jaxrs
-operator|.
-name|client
-operator|.
-name|ServerWebApplicationException
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|assertj
-operator|.
-name|core
-operator|.
-name|api
-operator|.
-name|Assertions
-operator|.
-name|assertThat
+name|Test
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|junit
+name|ws
 operator|.
-name|Test
+name|rs
+operator|.
+name|ForbiddenException
 import|;
 end_import
 
@@ -251,6 +231,22 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|assertj
+operator|.
+name|core
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertThat
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Olivier Lamy  */
 end_comment
@@ -267,7 +263,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ServerWebApplicationException
+name|ForbiddenException
 operator|.
 name|class
 argument_list|)
@@ -298,7 +294,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ServerWebApplicationException
+name|ForbiddenException
 name|e
 parameter_list|)
 block|{
@@ -307,6 +303,9 @@ argument_list|(
 literal|403
 argument_list|,
 name|e
+operator|.
+name|getResponse
+argument_list|()
 operator|.
 name|getStatus
 argument_list|()
@@ -407,7 +406,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ServerWebApplicationException
+name|ForbiddenException
 operator|.
 name|class
 argument_list|)
@@ -480,7 +479,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ServerWebApplicationException
+name|ForbiddenException
 name|e
 parameter_list|)
 block|{
@@ -489,6 +488,9 @@ argument_list|(
 literal|403
 argument_list|,
 name|e
+operator|.
+name|getResponse
+argument_list|()
 operator|.
 name|getStatus
 argument_list|()
@@ -504,7 +506,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ServerWebApplicationException
+name|ForbiddenException
 operator|.
 name|class
 argument_list|)
@@ -570,7 +572,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ServerWebApplicationException
+name|ForbiddenException
 name|e
 parameter_list|)
 block|{
@@ -581,6 +583,9 @@ argument_list|,
 literal|400
 argument_list|,
 name|e
+operator|.
+name|getResponse
+argument_list|()
 operator|.
 name|getStatus
 argument_list|()
