@@ -661,7 +661,6 @@ literal|0
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|/// http://localhost:57168/repository/1400639145722/org/apache/archiva/archiva-test/1.0/archiva-test-1.0.jar
 name|Assert
 operator|.
 name|assertEquals
