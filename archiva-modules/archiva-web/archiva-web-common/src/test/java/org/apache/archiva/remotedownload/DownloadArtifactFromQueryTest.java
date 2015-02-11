@@ -660,28 +660,6 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
-name|assertEquals
-argument_list|(
-name|Response
-operator|.
-name|Status
-operator|.
-name|TEMPORARY_REDIRECT
-operator|.
-name|getStatusCode
-argument_list|()
-argument_list|,
-name|response
-operator|.
-name|getStatus
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|//String location = String.class.cast( response.getMetadata().get( "Location" ).get( 0 ) );
-comment|//Assert.assertEquals( "http://localhost:" + port + "/repository/" + id
-comment|//                         + "/org/apache/archiva/archiva-test/1.0/archiva-test-1.0.jar", location );
 block|}
 catch|catch
 parameter_list|(
@@ -784,53 +762,6 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
-name|assertEquals
-argument_list|(
-name|Response
-operator|.
-name|Status
-operator|.
-name|TEMPORARY_REDIRECT
-operator|.
-name|getStatusCode
-argument_list|()
-argument_list|,
-name|response
-operator|.
-name|getStatus
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|String
-name|location
-init|=
-name|String
-operator|.
-name|class
-operator|.
-name|cast
-argument_list|(
-name|response
-operator|.
-name|getMetadata
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|"Location"
-argument_list|)
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-argument_list|)
-decl_stmt|;
-comment|/// http://localhost:57168/repository/1400639145722/org/apache/archiva/archiva-test/1.0/archiva-test-1.0.jar
-comment|//Assert.assertEquals( "http://localhost:" + port + "/repository/" + id
-comment|//                         + "/org/apache/archiva/archiva-test/2.0/archiva-test-2.0.jar", location );
 block|}
 catch|catch
 parameter_list|(
