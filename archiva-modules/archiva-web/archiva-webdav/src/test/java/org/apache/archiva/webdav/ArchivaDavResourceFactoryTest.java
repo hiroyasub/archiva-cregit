@@ -291,24 +291,6 @@ name|repository
 operator|.
 name|content
 operator|.
-name|legacy
-operator|.
-name|LegacyPathParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|content
-operator|.
 name|maven2
 operator|.
 name|ManagedDefaultRepositoryContent
@@ -2489,15 +2471,7 @@ name|repoRequest
 init|=
 operator|new
 name|RepositoryRequest
-argument_list|(
-operator|new
-name|LegacyPathParser
-argument_list|(
-name|this
-operator|.
-name|archivaConfiguration
-argument_list|)
-argument_list|)
+argument_list|( )
 decl_stmt|;
 name|resourceFactory
 operator|.
@@ -2787,15 +2761,7 @@ name|repoRequest
 init|=
 operator|new
 name|RepositoryRequest
-argument_list|(
-operator|new
-name|LegacyPathParser
-argument_list|(
-name|this
-operator|.
-name|archivaConfiguration
-argument_list|)
-argument_list|)
+argument_list|( )
 decl_stmt|;
 name|resourceFactory
 operator|.
@@ -3054,15 +3020,7 @@ name|repoRequest
 init|=
 operator|new
 name|RepositoryRequest
-argument_list|(
-operator|new
-name|LegacyPathParser
-argument_list|(
-name|this
-operator|.
-name|archivaConfiguration
-argument_list|)
-argument_list|)
+argument_list|( )
 decl_stmt|;
 name|resourceFactory
 operator|.
