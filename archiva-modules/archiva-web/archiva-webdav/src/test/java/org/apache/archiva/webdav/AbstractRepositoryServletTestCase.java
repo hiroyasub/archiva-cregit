@@ -732,14 +732,6 @@ init|=
 literal|"internal"
 decl_stmt|;
 specifier|protected
-specifier|static
-specifier|final
-name|String
-name|REPOID_LEGACY
-init|=
-literal|"legacy"
-decl_stmt|;
-specifier|protected
 name|File
 name|repoRootInternal
 decl_stmt|;
@@ -933,24 +925,6 @@ operator|.
 name|getManagedRepository
 argument_list|(
 name|REPOID_INTERNAL
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|config
-operator|.
-name|addManagedRepository
-argument_list|(
-name|createManagedRepository
-argument_list|(
-name|REPOID_LEGACY
-argument_list|,
-literal|"Legacy Format Test Repo"
-argument_list|,
-name|repoRootLegacy
-argument_list|,
-literal|"legacy"
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1966,7 +1940,6 @@ block|{
 return|return
 name|unauthenticatedRepositoryServlet
 return|;
-comment|/*         Container[] childs = context.findChildren();         for ( Container container : childs )         {             if ( StringUtils.equals( container.getName(), name ) )             {                 Tomcat.ExistingStandardWrapper esw = Tomcat.ExistingStandardWrapper.class.cast( container );                 Servlet servlet = esw.loadServlet();                  return servlet;             }         }         return null;*/
 block|}
 specifier|protected
 name|String
@@ -1977,8 +1950,6 @@ return|return
 literal|"classpath*:/META-INF/spring-context.xml,classpath*:spring-context.xml"
 return|;
 block|}
-comment|/*     protected ServletUnitClient getServletUnitClient()         throws Exception     {         if ( servletUnitClient != null )         {             return servletUnitClient;         }         servletRunner = new ServletRunner( new File( "src/test/resources/WEB-INF/web.xml" ) );          servletRunner.registerServlet( "/repository/*", UnauthenticatedRepositoryServlet.class.getName() );          servletUnitClient = servletRunner.newClient();          return servletUnitClient;     }*/
-comment|/*     protected<P extends Page> P page(final String path) throws IOException {         return newClient().getPage(base.toExternalForm() + "repository/" + path);     }     */
 specifier|protected
 specifier|static
 name|WebClient

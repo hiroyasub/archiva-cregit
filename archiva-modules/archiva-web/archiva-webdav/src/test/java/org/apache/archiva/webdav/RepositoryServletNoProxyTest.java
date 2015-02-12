@@ -120,7 +120,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryServletTest  *  *  */
+comment|/**  * RepositoryServletTest  */
 end_comment
 
 begin_class
@@ -369,21 +369,9 @@ operator|+
 literal|"commons-lang/jars/commons-lang-2.1.jar.sha1"
 argument_list|)
 decl_stmt|;
-name|assertResponseOK
+name|assertResponseNotFound
 argument_list|(
 name|response
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Expected file contents"
-argument_list|,
-literal|"dummy-checksum"
-argument_list|,
-name|response
-operator|.
-name|getContentAsString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -775,21 +763,9 @@ operator|+
 literal|"commons-lang/jars/commons-lang-2.1.jar"
 argument_list|)
 decl_stmt|;
-name|assertResponseOK
+name|assertResponseNotFound
 argument_list|(
 name|response
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Expected file contents"
-argument_list|,
-name|expectedArtifactContents
-argument_list|,
-name|response
-operator|.
-name|getContentAsString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1109,21 +1085,9 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
-name|assertResponseOK
+name|assertResponseNotFound
 argument_list|(
 name|response
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Expected file contents"
-argument_list|,
-name|expectedArtifactContents
-argument_list|,
-name|response
-operator|.
-name|getContentAsString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1294,21 +1258,9 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
-name|assertResponseOK
+name|assertResponseNotFound
 argument_list|(
 name|response
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Expected file contents"
-argument_list|,
-name|expectedContents
-argument_list|,
-name|response
-operator|.
-name|getContentAsString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2114,21 +2066,9 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
-name|assertResponseOK
+name|assertResponseNotFound
 argument_list|(
 name|response
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Expected file contents"
-argument_list|,
-name|expectedArtifactContents
-argument_list|,
-name|response
-operator|.
-name|getContentAsString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -570,10 +570,11 @@ operator|.
 name|getContentAsString
 argument_list|()
 argument_list|)
+comment|//
 operator|.
 name|contains
 argument_list|(
-literal|"Invalid path to Artifact: legacy paths should have an expected type ending in [s] in the second part of the path."
+literal|"Legacy Maven1 repository not supported anymore."
 argument_list|)
 expr_stmt|;
 block|}
