@@ -836,15 +836,6 @@ literal|"target/test-repository/managed/"
 operator|+
 name|name
 decl_stmt|;
-name|File
-name|repoLocation
-init|=
-operator|new
-name|File
-argument_list|(
-name|repoPath
-argument_list|)
-decl_stmt|;
 name|managedDefaultRepository
 operator|=
 name|createRepository
@@ -918,6 +909,9 @@ comment|// to prevent windauze file leaking
 name|removeMavenIndexes
 argument_list|()
 expr_stmt|;
+name|ManagedRepositoryAdmin
+name|managedRepositoryAdmin
+init|=
 name|applicationContext
 operator|.
 name|getBean
@@ -926,6 +920,38 @@ name|ManagedRepositoryAdmin
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|managedRepositoryAdmin
+operator|.
+name|getManagedRepository
+argument_list|(
+name|repoConfig
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+name|managedRepositoryAdmin
+operator|.
+name|deleteManagedRepository
+argument_list|(
+name|repoConfig
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+literal|null
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+name|managedRepositoryAdmin
 operator|.
 name|addManagedRepository
 argument_list|(
@@ -1001,7 +1027,7 @@ operator|=
 name|EasyMock
 operator|.
 name|createNiceControl
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|wagonMock
 operator|=
@@ -2875,14 +2901,13 @@ argument_list|()
 condition|)
 block|{
 comment|// This is just a warning.
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
-literal|"[WARN] Skipping setup of testable managed repository, source dir does not exist: "
-operator|+
+literal|"[WARN] Skipping setup of testable managed repository, source dir does not exist: {}"
+argument_list|,
+comment|//
 name|sourceDir
 argument_list|)
 expr_stmt|;
