@@ -912,21 +912,9 @@ argument_list|(
 literal|"/repository/internal/commons-lang/jars/commons-lang-2.1-SNAPSHOT.jar"
 argument_list|)
 decl_stmt|;
-name|assertResponseOK
+name|assertResponseNotFound
 argument_list|(
 name|response
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Expected file contents"
-argument_list|,
-name|expectedArtifactContents
-argument_list|,
-name|response
-operator|.
-name|getContentAsString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

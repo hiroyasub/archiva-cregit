@@ -191,21 +191,9 @@ name|request
 argument_list|)
 decl_stmt|;
 comment|// --- Verification
-name|assertResponseOK
+name|assertResponseNotFound
 argument_list|(
 name|response
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Expected remote file contents"
-argument_list|,
-name|expectedRemoteContents
-argument_list|,
-name|response
-operator|.
-name|getContentAsString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
