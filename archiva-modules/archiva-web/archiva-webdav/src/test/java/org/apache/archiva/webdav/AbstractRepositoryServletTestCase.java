@@ -2784,10 +2784,12 @@ name|assertEquals
 argument_list|(
 literal|"Should have been an OK response code"
 argument_list|,
+comment|//
 name|HttpServletResponse
 operator|.
 name|SC_OK
 argument_list|,
+comment|//
 name|response
 operator|.
 name|getStatusCode
