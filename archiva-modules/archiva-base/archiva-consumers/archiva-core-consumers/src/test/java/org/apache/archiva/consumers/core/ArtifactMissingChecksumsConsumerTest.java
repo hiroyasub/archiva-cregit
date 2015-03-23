@@ -294,7 +294,6 @@ operator|+
 literal|".sha1"
 argument_list|)
 decl_stmt|;
-comment|// new File( repoConfig.getLocation(), path + ".sha1" );
 name|Path
 name|md5FilePath
 init|=
@@ -312,7 +311,6 @@ operator|+
 literal|".md5"
 argument_list|)
 decl_stmt|;
-comment|// new File( repoConfig.getLocation(), path + ".md5" );
 name|Files
 operator|.
 name|deleteIfExists
@@ -327,8 +325,6 @@ argument_list|(
 name|md5FilePath
 argument_list|)
 expr_stmt|;
-comment|//sha1File.delete();
-comment|//md5File.delete();
 name|Assertions
 operator|.
 name|assertThat
@@ -342,7 +338,6 @@ operator|.
 name|doesNotExist
 argument_list|()
 expr_stmt|;
-comment|// assertFalse( sha1File.exists() );
 name|Assertions
 operator|.
 name|assertThat
@@ -356,7 +351,6 @@ operator|.
 name|doesNotExist
 argument_list|()
 expr_stmt|;
-comment|// assertFalse( md5File.exists() );
 name|consumer
 operator|.
 name|beginScan
@@ -392,7 +386,17 @@ operator|.
 name|exists
 argument_list|()
 expr_stmt|;
-comment|// assertTrue( sha1File.exists() );
+name|long
+name|sha1LastModified
+init|=
+name|sha1Path
+operator|.
+name|toFile
+argument_list|()
+operator|.
+name|lastModified
+argument_list|()
+decl_stmt|;
 name|Assertions
 operator|.
 name|assertThat
@@ -406,7 +410,93 @@ operator|.
 name|exists
 argument_list|()
 expr_stmt|;
-comment|//assertTrue( md5File.exists() );
+name|long
+name|md5LastModified
+init|=
+name|md5FilePath
+operator|.
+name|toFile
+argument_list|()
+operator|.
+name|lastModified
+argument_list|()
+decl_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|consumer
+operator|.
+name|processFile
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
+name|Assertions
+operator|.
+name|assertThat
+argument_list|(
+name|sha1Path
+operator|.
+name|toFile
+argument_list|()
+argument_list|)
+operator|.
+name|exists
+argument_list|()
+expr_stmt|;
+name|Assertions
+operator|.
+name|assertThat
+argument_list|(
+name|md5FilePath
+operator|.
+name|toFile
+argument_list|()
+argument_list|)
+operator|.
+name|exists
+argument_list|()
+expr_stmt|;
+name|Assertions
+operator|.
+name|assertThat
+argument_list|(
+name|sha1Path
+operator|.
+name|toFile
+argument_list|()
+operator|.
+name|lastModified
+argument_list|()
+argument_list|)
+operator|.
+name|isEqualTo
+argument_list|(
+name|sha1LastModified
+argument_list|)
+expr_stmt|;
+name|Assertions
+operator|.
+name|assertThat
+argument_list|(
+name|md5FilePath
+operator|.
+name|toFile
+argument_list|()
+operator|.
+name|lastModified
+argument_list|()
+argument_list|)
+operator|.
+name|isEqualTo
+argument_list|(
+name|md5LastModified
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -464,7 +554,6 @@ name|path
 init|=
 literal|"/incorrect-checksums/1.0/incorrect-checksums-1.0.jar"
 decl_stmt|;
-comment|// new File( repoConfig.getLocation(), path + ".sha1" );
 name|Path
 name|sha1Path
 init|=
@@ -482,7 +571,6 @@ operator|+
 literal|".sha1"
 argument_list|)
 decl_stmt|;
-comment|//new File( repoConfig.getLocation(), path + ".md5" );
 name|Path
 name|md5Path
 init|=

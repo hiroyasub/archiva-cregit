@@ -603,14 +603,13 @@ name|repositoryDir
 argument_list|,
 name|path
 operator|+
-literal|"."
-operator|+
 name|checksumAlgorithm
 operator|.
 name|getExt
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|//+ "."
 if|if
 condition|(
 name|checksumFile
