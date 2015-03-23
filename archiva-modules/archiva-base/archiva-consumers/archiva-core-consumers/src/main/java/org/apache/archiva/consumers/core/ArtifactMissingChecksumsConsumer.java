@@ -603,6 +603,8 @@ name|repositoryDir
 argument_list|,
 name|path
 operator|+
+literal|"."
+operator|+
 name|checksumAlgorithm
 operator|.
 name|getExt
