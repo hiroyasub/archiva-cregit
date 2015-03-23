@@ -17,6 +17,36 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|IOUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|output
+operator|.
+name|NullOutputStream
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -75,38 +105,8 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|io
-operator|.
-name|IOUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|io
-operator|.
-name|output
-operator|.
-name|NullOutputStream
-import|;
-end_import
-
 begin_comment
-comment|/**  * Checksum - simple checksum hashing routines.   *  *  */
+comment|/**  * Checksum - simple checksum hashing routines.  */
 end_comment
 
 begin_class
@@ -351,6 +351,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|DigestInputStream
 name|dig
 init|=
@@ -361,7 +363,8 @@ name|stream
 argument_list|,
 name|md
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|IOUtils
 operator|.
 name|copy
@@ -373,6 +376,7 @@ name|NullOutputStream
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|this
 return|;

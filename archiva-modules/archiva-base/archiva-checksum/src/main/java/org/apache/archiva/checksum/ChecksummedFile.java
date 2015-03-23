@@ -150,7 +150,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ChecksummedFile  *  *<p>Terminology:</p>  *<dl>  *<dt>Checksum File</dt>  *<dd>The file that contains the previously calculated checksum value for the reference file.  * This is a text file with the extension ".sha1" or ".md5", and contains a single entry  * consisting of an optional reference filename, and a checksum string.  *</dd>  *<dt>Reference File</dt>  *<dd>The file that is being referenced in the checksum file.</dd>  *</dl>  *  *  */
+comment|/**  * ChecksummedFile  *<p/>  *<p>Terminology:</p>  *<dl>  *<dt>Checksum File</dt>  *<dd>The file that contains the previously calculated checksum value for the reference file.  * This is a text file with the extension ".sha1" or ".md5", and contains a single entry  * consisting of an optional reference filename, and a checksum string.  *</dd>  *<dt>Reference File</dt>  *<dd>The file that is being referenced in the checksum file.</dd>  *</dl>  */
 end_comment
 
 begin_class
@@ -170,6 +170,19 @@ argument_list|(
 name|ChecksummedFile
 operator|.
 name|class
+argument_list|)
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|Pattern
+name|METADATA_PATTERN
+init|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+literal|"maven-metadata-\\S*.xml"
 argument_list|)
 decl_stmt|;
 specifier|private
@@ -329,7 +342,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      *<p>      * Given a checksum file, check to see if the file it represents is valid according to the checksum.      *</p>      *      *<p>      * NOTE: Only supports single file checksums of type MD5 or SHA1.      *</p>      *      * @param algorithm the algorithms to check for.      * @return true if the checksum is valid for the file it represents. or if the checksum file does not exist.      * @throws IOException if the reading of the checksumFile or the file it refers to fails.      */
+comment|/**      *<p>      * Given a checksum file, check to see if the file it represents is valid according to the checksum.      *</p>      *<p/>      *<p>      * NOTE: Only supports single file checksums of type MD5 or SHA1.      *</p>      *      * @param algorithm the algorithms to check for.      * @return true if the checksum is valid for the file it represents. or if the checksum file does not exist.      * @throws IOException if the reading of the checksumFile or the file it refers to fails.      */
 specifier|public
 name|boolean
 name|isValidChecksum
@@ -884,20 +897,10 @@ name|path
 parameter_list|)
 block|{
 comment|// check if it is a remote metadata file
-name|Pattern
-name|pattern
-init|=
-name|Pattern
-operator|.
-name|compile
-argument_list|(
-literal|"maven-metadata-\\S*.xml"
-argument_list|)
-decl_stmt|;
 name|Matcher
 name|m
 init|=
-name|pattern
+name|METADATA_PATTERN
 operator|.
 name|matcher
 argument_list|(
@@ -955,7 +958,7 @@ argument_list|)
 operator|)
 return|;
 block|}
-comment|/**      * Parse a checksum string.      *<p>      * Validate the expected path, and expected checksum algorithm, then return      * the trimmed checksum hex string.      *</p>      * @param rawChecksumString      * @param expectedHash      * @param expectedPath      * @return      * @throws IOException      */
+comment|/**      * Parse a checksum string.      *<p>      * Validate the expected path, and expected checksum algorithm, then return      * the trimmed checksum hex string.      *</p>      *      * @param rawChecksumString      * @param expectedHash      * @param expectedPath      * @return      * @throws IOException      */
 specifier|public
 name|String
 name|parseChecksum
