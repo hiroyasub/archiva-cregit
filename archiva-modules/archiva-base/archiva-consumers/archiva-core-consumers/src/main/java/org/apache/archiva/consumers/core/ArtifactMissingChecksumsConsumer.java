@@ -137,6 +137,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -156,26 +176,6 @@ operator|.
 name|stereotype
 operator|.
 name|Service
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
 import|;
 end_import
 
@@ -250,7 +250,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArtifactMissingChecksumsConsumer - Create missing and/or fix invalid checksums for the artifact.  *  *  */
+comment|/**  * ArtifactMissingChecksumsConsumer - Create missing and/or fix invalid checksums for the artifact.  */
 end_comment
 
 begin_class
@@ -603,13 +603,14 @@ name|repositoryDir
 argument_list|,
 name|path
 operator|+
+literal|"."
+operator|+
 name|checksumAlgorithm
 operator|.
 name|getExt
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|//+ "."
 if|if
 condition|(
 name|checksumFile

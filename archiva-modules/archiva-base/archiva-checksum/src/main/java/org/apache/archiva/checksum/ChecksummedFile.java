@@ -326,6 +326,7 @@ operator|.
 name|toPath
 argument_list|()
 argument_list|,
+comment|//
 operator|(
 name|checksum
 operator|+
@@ -340,12 +341,12 @@ operator|.
 name|getBytes
 argument_list|()
 argument_list|,
+comment|//
 name|StandardOpenOption
 operator|.
 name|CREATE_NEW
 argument_list|)
 expr_stmt|;
-comment|//FileUtils.writeStringToFile( checksumFile, checksum + "  " + referenceFile.getName() );
 return|return
 name|checksumFile
 return|;
