@@ -271,6 +271,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|http
+operator|.
+name|impl
+operator|.
+name|conn
+operator|.
+name|PoolingHttpClientConnectionManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|wagon
@@ -364,7 +380,7 @@ implements|implements
 name|ArchivaAdministration
 block|{
 specifier|private
-name|PoolingClientConnectionManager
+name|PoolingHttpClientConnectionManager
 name|poolingClientConnectionManager
 decl_stmt|;
 annotation|@
@@ -1997,7 +2013,7 @@ block|{
 comment|// back to default values
 name|HttpWagon
 operator|.
-name|setUseClientManagerPooled
+name|setPersistentPool
 argument_list|(
 literal|true
 argument_list|)
@@ -2005,7 +2021,7 @@ expr_stmt|;
 name|poolingClientConnectionManager
 operator|=
 operator|new
-name|PoolingClientConnectionManager
+name|PoolingHttpClientConnectionManager
 argument_list|()
 expr_stmt|;
 name|poolingClientConnectionManager
@@ -2024,7 +2040,7 @@ argument_list|)
 expr_stmt|;
 name|HttpWagon
 operator|.
-name|setConnectionManagerPooled
+name|setPoolingHttpClientConnectionManager
 argument_list|(
 name|poolingClientConnectionManager
 argument_list|)
@@ -2034,7 +2050,7 @@ else|else
 block|{
 name|HttpWagon
 operator|.
-name|setUseClientManagerPooled
+name|setPersistentPool
 argument_list|(
 name|networkConfiguration
 operator|.
@@ -2045,7 +2061,7 @@ expr_stmt|;
 name|poolingClientConnectionManager
 operator|=
 operator|new
-name|PoolingClientConnectionManager
+name|PoolingHttpClientConnectionManager
 argument_list|()
 expr_stmt|;
 name|poolingClientConnectionManager
@@ -2070,7 +2086,7 @@ argument_list|)
 expr_stmt|;
 name|HttpWagon
 operator|.
-name|setConnectionManagerPooled
+name|setPoolingHttpClientConnectionManager
 argument_list|(
 name|poolingClientConnectionManager
 argument_list|)
