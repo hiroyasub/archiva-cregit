@@ -111,6 +111,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|test
+operator|.
+name|utils
+operator|.
+name|ArchivaSpringJUnit4ClassRunner
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|lang
@@ -252,6 +268,18 @@ operator|.
 name|context
 operator|.
 name|NoSuchMessageException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|core
+operator|.
+name|ResolvableType
 import|;
 end_import
 
@@ -410,22 +438,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|test
-operator|.
-name|utils
-operator|.
-name|ArchivaSpringJUnit4ClassRunner
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -438,7 +450,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryContentConsumersTest  *  *  */
+comment|/**  * RepositoryContentConsumersTest  */
 end_comment
 
 begin_class
@@ -490,7 +502,7 @@ name|repo
 init|=
 operator|new
 name|ManagedRepository
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|repo
 operator|.
@@ -513,7 +525,7 @@ argument_list|(
 name|location
 operator|.
 name|getAbsolutePath
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -539,7 +551,7 @@ name|repo
 init|=
 operator|new
 name|RemoteRepository
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|repo
 operator|.
@@ -569,7 +581,7 @@ block|}
 specifier|private
 name|RepositoryContentConsumers
 name|lookupRepositoryConsumers
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -628,13 +640,13 @@ argument_list|(
 name|consumerUtil
 operator|.
 name|getAvailableKnownConsumers
-argument_list|( )
+argument_list|()
 argument_list|,
 comment|//
 name|consumerUtil
 operator|.
 name|getAvailableInvalidConsumers
-argument_list|( )
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|consumerUtilStub
@@ -651,7 +663,7 @@ argument_list|(
 name|consumerUtil
 operator|.
 name|getSelectedInvalidConsumers
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|consumerUtilStub
@@ -661,7 +673,7 @@ argument_list|(
 name|consumerUtil
 operator|.
 name|getSelectedKnownConsumers
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|consumerUtilStub
@@ -687,7 +699,7 @@ name|Test
 specifier|public
 name|void
 name|testGetSelectedKnownIds
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -695,7 +707,7 @@ name|RepositoryContentConsumers
 name|consumerutil
 init|=
 name|lookupRepositoryConsumers
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|String
 name|expectedKnownIds
@@ -734,7 +746,7 @@ init|=
 name|consumerutil
 operator|.
 name|getSelectedKnownConsumerIds
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -756,7 +768,7 @@ argument_list|,
 name|knownConsumers
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for
@@ -790,7 +802,7 @@ name|Test
 specifier|public
 name|void
 name|testGetSelectedInvalidIds
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -798,7 +810,7 @@ name|RepositoryContentConsumers
 name|consumerutil
 init|=
 name|lookupRepositoryConsumers
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|String
 name|expectedInvalidIds
@@ -820,7 +832,7 @@ init|=
 name|consumerutil
 operator|.
 name|getSelectedInvalidConsumerIds
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -840,7 +852,7 @@ argument_list|,
 name|invalidConsumers
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for
@@ -874,7 +886,7 @@ name|Test
 specifier|public
 name|void
 name|testGetSelectedKnownConsumerMap
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -882,7 +894,7 @@ name|RepositoryContentConsumers
 name|consumerutil
 init|=
 name|lookupRepositoryConsumers
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|String
 name|expectedSelectedKnownIds
@@ -914,7 +926,7 @@ init|=
 name|consumerutil
 operator|.
 name|getSelectedKnownConsumersMap
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -936,7 +948,7 @@ argument_list|,
 name|knownConsumerMap
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for
@@ -981,7 +993,7 @@ argument_list|,
 name|consumer
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -991,7 +1003,7 @@ name|Test
 specifier|public
 name|void
 name|testGetSelectedInvalidConsumerMap
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -999,7 +1011,7 @@ name|RepositoryContentConsumers
 name|consumerutil
 init|=
 name|lookupRepositoryConsumers
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|String
 name|expectedSelectedInvalidIds
@@ -1023,7 +1035,7 @@ init|=
 name|consumerutil
 operator|.
 name|getSelectedInvalidConsumersMap
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -1043,7 +1055,7 @@ argument_list|,
 name|invalidConsumerMap
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for
@@ -1088,7 +1100,7 @@ argument_list|,
 name|consumer
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1098,7 +1110,7 @@ name|Test
 specifier|public
 name|void
 name|testGetAvailableKnownList
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -1106,7 +1118,7 @@ name|RepositoryContentConsumers
 name|consumerutil
 init|=
 name|lookupRepositoryConsumers
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|String
 name|expectedKnownIds
@@ -1142,7 +1154,7 @@ init|=
 name|consumerutil
 operator|.
 name|getAvailableKnownConsumers
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -1162,7 +1174,7 @@ argument_list|,
 name|knownConsumers
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|List
@@ -1193,7 +1205,7 @@ operator|+
 name|consumer
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 operator|+
 literal|"] returned by .getAvailableKnownConsumers() is unexpected."
 argument_list|,
@@ -1204,7 +1216,7 @@ argument_list|(
 name|consumer
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1215,7 +1227,7 @@ name|Test
 specifier|public
 name|void
 name|testGetAvailableInvalidList
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -1223,7 +1235,7 @@ name|RepositoryContentConsumers
 name|consumerutil
 init|=
 name|lookupRepositoryConsumers
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|String
 name|expectedInvalidIds
@@ -1247,7 +1259,7 @@ init|=
 name|consumerutil
 operator|.
 name|getAvailableInvalidConsumers
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -1267,7 +1279,7 @@ argument_list|,
 name|invalidConsumers
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|List
@@ -1298,7 +1310,7 @@ operator|+
 name|consumer
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 operator|+
 literal|"] returned by .getAvailableInvalidConsumers() is unexpected."
 argument_list|,
@@ -1309,7 +1321,7 @@ argument_list|(
 name|consumer
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1320,7 +1332,7 @@ name|Test
 specifier|public
 name|void
 name|testExecution
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -1328,13 +1340,13 @@ name|IMocksControl
 name|knownControl
 init|=
 name|createNiceControl
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|RepositoryContentConsumers
 name|consumers
 init|=
 name|lookupRepositoryConsumers
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|KnownRepositoryContentConsumer
 name|selectedKnownConsumer
@@ -1490,7 +1502,7 @@ argument_list|(
 name|System
 operator|.
 name|currentTimeMillis
-argument_list|( )
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|startTime
@@ -1516,7 +1528,7 @@ argument_list|(
 name|selectedKnownConsumer
 operator|.
 name|getIncludes
-argument_list|( )
+argument_list|()
 argument_list|)
 operator|.
 name|andReturn
@@ -1544,7 +1556,7 @@ expr_stmt|;
 name|knownControl
 operator|.
 name|replay
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|selectedInvalidConsumer
 operator|.
@@ -1560,7 +1572,7 @@ expr_stmt|;
 name|invalidControl
 operator|.
 name|replay
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|consumers
 operator|.
@@ -1576,22 +1588,22 @@ expr_stmt|;
 name|knownControl
 operator|.
 name|verify
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|invalidControl
 operator|.
 name|verify
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|knownControl
 operator|.
 name|reset
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|invalidControl
 operator|.
 name|reset
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|File
 name|notIncludedTestFile
@@ -1637,7 +1649,7 @@ argument_list|(
 name|selectedKnownConsumer
 operator|.
 name|getIncludes
-argument_list|( )
+argument_list|()
 argument_list|)
 operator|.
 name|andReturn
@@ -1653,7 +1665,7 @@ expr_stmt|;
 name|knownControl
 operator|.
 name|replay
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|selectedInvalidConsumer
 operator|.
@@ -1694,7 +1706,7 @@ expr_stmt|;
 name|invalidControl
 operator|.
 name|replay
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|consumers
 operator|.
@@ -1710,22 +1722,22 @@ expr_stmt|;
 name|knownControl
 operator|.
 name|verify
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|invalidControl
 operator|.
 name|verify
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|knownControl
 operator|.
 name|reset
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|invalidControl
 operator|.
 name|reset
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|File
 name|excludedTestFile
@@ -1768,7 +1780,7 @@ expr_stmt|;
 name|knownControl
 operator|.
 name|replay
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|selectedInvalidConsumer
 operator|.
@@ -1809,7 +1821,7 @@ expr_stmt|;
 name|invalidControl
 operator|.
 name|replay
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|consumers
 operator|.
@@ -1825,12 +1837,12 @@ expr_stmt|;
 name|knownControl
 operator|.
 name|verify
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|invalidControl
 operator|.
 name|verify
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Create an OS specific version of the filepath.      * Provide path in unix "/" format.      */
@@ -1878,7 +1890,7 @@ name|map
 init|=
 operator|new
 name|HashMap
-argument_list|( )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -1967,7 +1979,7 @@ name|Override
 specifier|public
 name|AutowireCapableBeanFactory
 name|getAutowireCapableBeanFactory
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|IllegalStateException
 block|{
@@ -1984,7 +1996,7 @@ name|Override
 specifier|public
 name|String
 name|getDisplayName
-parameter_list|( )
+parameter_list|()
 block|{
 throw|throw
 operator|new
@@ -1999,7 +2011,7 @@ name|Override
 specifier|public
 name|String
 name|getId
-parameter_list|( )
+parameter_list|()
 block|{
 throw|throw
 operator|new
@@ -2014,7 +2026,7 @@ name|Override
 specifier|public
 name|ApplicationContext
 name|getParent
-parameter_list|( )
+parameter_list|()
 block|{
 throw|throw
 operator|new
@@ -2029,7 +2041,7 @@ name|Override
 specifier|public
 name|long
 name|getStartupDate
-parameter_list|( )
+parameter_list|()
 block|{
 throw|throw
 operator|new
@@ -2062,7 +2074,7 @@ name|Override
 specifier|public
 name|int
 name|getBeanDefinitionCount
-parameter_list|( )
+parameter_list|()
 block|{
 throw|throw
 operator|new
@@ -2078,7 +2090,7 @@ specifier|public
 name|String
 index|[]
 name|getBeanDefinitionNames
-parameter_list|( )
+parameter_list|()
 block|{
 throw|throw
 operator|new
@@ -2450,7 +2462,7 @@ name|Override
 specifier|public
 name|BeanFactory
 name|getParentBeanFactory
-parameter_list|( )
+parameter_list|()
 block|{
 throw|throw
 operator|new
@@ -2582,7 +2594,7 @@ name|Override
 specifier|public
 name|ClassLoader
 name|getClassLoader
-parameter_list|( )
+parameter_list|()
 block|{
 throw|throw
 operator|new
@@ -2728,6 +2740,56 @@ name|String
 index|[
 literal|0
 index|]
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|publishEvent
+parameter_list|(
+name|Object
+name|o
+parameter_list|)
+block|{
+comment|// no op
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+index|[]
+name|getBeanNamesForType
+parameter_list|(
+name|ResolvableType
+name|resolvableType
+parameter_list|)
+block|{
+return|return
+operator|new
+name|String
+index|[
+literal|0
+index|]
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isTypeMatch
+parameter_list|(
+name|String
+name|s
+parameter_list|,
+name|ResolvableType
+name|resolvableType
+parameter_list|)
+throws|throws
+name|NoSuchBeanDefinitionException
+block|{
+return|return
+literal|false
 return|;
 block|}
 block|}
