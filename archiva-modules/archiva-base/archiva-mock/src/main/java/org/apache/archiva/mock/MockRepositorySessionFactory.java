@@ -107,6 +107,30 @@ name|MockRepositorySessionFactory
 implements|implements
 name|RepositorySessionFactory
 block|{
+specifier|private
+name|MetadataRepository
+name|repository
+init|=
+operator|new
+name|AbstractMetadataRepository
+argument_list|()
+block|{     }
+decl_stmt|;
+specifier|public
+name|void
+name|setRepository
+parameter_list|(
+name|MetadataRepository
+name|repository
+parameter_list|)
+block|{
+name|this
+operator|.
+name|repository
+operator|=
+name|repository
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -118,7 +142,7 @@ return|return
 operator|new
 name|RepositorySession
 argument_list|(
-literal|null
+name|repository
 argument_list|,
 literal|null
 argument_list|)
@@ -149,10 +173,7 @@ name|getRepository
 parameter_list|()
 block|{
 return|return
-operator|new
-name|AbstractMetadataRepository
-argument_list|()
-block|{                 }
+name|repository
 return|;
 block|}
 block|}

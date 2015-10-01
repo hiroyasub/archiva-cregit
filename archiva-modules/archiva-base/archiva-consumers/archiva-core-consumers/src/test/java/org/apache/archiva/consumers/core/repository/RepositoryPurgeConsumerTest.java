@@ -201,11 +201,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|metadata
+name|mock
 operator|.
-name|repository
-operator|.
-name|TestRepositorySessionFactory
+name|MockRepositorySessionFactory
 import|;
 end_import
 
@@ -363,14 +361,14 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|TestRepositorySessionFactory
+name|MockRepositorySessionFactory
 name|factory
 init|=
 name|applicationContext
 operator|.
 name|getBean
 argument_list|(
-name|TestRepositorySessionFactory
+name|MockRepositorySessionFactory
 operator|.
 name|class
 argument_list|)

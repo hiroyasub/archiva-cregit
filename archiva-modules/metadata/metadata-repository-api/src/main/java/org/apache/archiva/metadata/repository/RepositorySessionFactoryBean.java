@@ -55,18 +55,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|stereotype
-operator|.
-name|Service
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -77,10 +65,6 @@ end_import
 
 begin_comment
 comment|/**  * @author Olivier Lamy  * @since 2.0.2  */
-end_comment
-
-begin_comment
-comment|//@Service("repositorySessionFactoryBean#default")
 end_comment
 
 begin_class
@@ -220,8 +204,12 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"create RepositorySessionFactory instance of {}"
+literal|"create RepositorySessionFactory with id {} instance of {}"
 argument_list|,
+comment|//
+name|id
+argument_list|,
+comment|//
 name|repositorySessionFactory
 operator|.
 name|getClass
