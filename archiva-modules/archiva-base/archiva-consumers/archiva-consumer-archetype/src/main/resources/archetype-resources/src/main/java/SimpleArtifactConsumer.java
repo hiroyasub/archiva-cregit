@@ -404,21 +404,18 @@ name|id
 init|=
 literal|"simple-artifact-consumer"
 decl_stmt|;
-comment|/**      *      */
 specifier|private
 name|String
 name|description
 init|=
 literal|"Simple consumer to illustrate how to consume the contents of a repository."
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
 name|FileTypes
 name|filetypes
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
