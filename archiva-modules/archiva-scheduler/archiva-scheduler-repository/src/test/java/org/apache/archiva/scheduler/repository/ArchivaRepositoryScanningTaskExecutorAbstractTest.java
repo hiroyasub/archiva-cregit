@@ -83,7 +83,9 @@ name|metadata
 operator|.
 name|repository
 operator|.
-name|TestRepositorySessionFactory
+name|stats
+operator|.
+name|RepositoryStatisticsManager
 import|;
 end_import
 
@@ -95,13 +97,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|metadata
+name|mock
 operator|.
-name|repository
-operator|.
-name|stats
-operator|.
-name|RepositoryStatisticsManager
+name|MockRepositorySessionFactory
 import|;
 end_import
 
@@ -122,6 +120,22 @@ operator|.
 name|execution
 operator|.
 name|TaskExecutor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|test
+operator|.
+name|utils
+operator|.
+name|ArchivaSpringJUnit4ClassRunner
 import|;
 end_import
 
@@ -168,6 +182,20 @@ operator|.
 name|runner
 operator|.
 name|RunWith
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|test
+operator|.
+name|annotation
+operator|.
+name|DirtiesContext
 import|;
 end_import
 
@@ -236,22 +264,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|test
-operator|.
-name|utils
-operator|.
-name|ArchivaSpringJUnit4ClassRunner
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -263,22 +275,8 @@ name|mock
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|test
-operator|.
-name|annotation
-operator|.
-name|DirtiesContext
-import|;
-end_import
-
 begin_comment
-comment|/**  * ArchivaRepositoryScanningTaskExecutorPhase1Test  *  *  */
+comment|/**  * ArchivaRepositoryScanningTaskExecutorPhase1Test  */
 end_comment
 
 begin_class
@@ -377,10 +375,10 @@ name|Named
 argument_list|(
 name|value
 operator|=
-literal|"repositorySessionFactory#test"
+literal|"repositorySessionFactory#mock"
 argument_list|)
 specifier|private
-name|TestRepositorySessionFactory
+name|MockRepositorySessionFactory
 name|factory
 decl_stmt|;
 specifier|protected
