@@ -7,8 +7,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
-operator|.
 name|mock
 package|;
 end_package
@@ -154,7 +152,7 @@ return|return
 operator|new
 name|AbstractMetadataRepository
 argument_list|()
-block|{}
+block|{                 }
 return|;
 block|}
 block|}
