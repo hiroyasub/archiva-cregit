@@ -319,6 +319,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -443,6 +453,11 @@ name|managedRepositoryAdmin
 decl_stmt|;
 annotation|@
 name|Inject
+annotation|@
+name|Named
+argument_list|(
+literal|"proxyConnectorAdmin#default"
+argument_list|)
 specifier|protected
 name|ProxyConnectorAdmin
 name|proxyConnectorAdmin
