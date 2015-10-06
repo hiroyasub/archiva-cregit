@@ -453,11 +453,6 @@ name|managedRepositoryAdmin
 decl_stmt|;
 annotation|@
 name|Inject
-annotation|@
-name|Named
-argument_list|(
-literal|"proxyConnectorAdmin#default"
-argument_list|)
 specifier|protected
 name|ProxyConnectorAdmin
 name|proxyConnectorAdmin
