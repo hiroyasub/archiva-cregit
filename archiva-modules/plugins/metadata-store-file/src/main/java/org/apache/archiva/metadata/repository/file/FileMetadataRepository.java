@@ -2777,6 +2777,8 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 block|{
+try|try
+block|{
 comment|// TODO: this is quite slow - if we are to persist with this repository implementation we should build an index
 comment|//  of this information (eg. in Lucene, as before)
 name|List
@@ -2829,6 +2831,26 @@ expr_stmt|;
 return|return
 name|artifacts
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataResolutionException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|MetadataRepositoryException
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 specifier|private
 name|void
