@@ -523,16 +523,14 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Beginning scan of repository ["
-operator|+
+literal|"Beginning scan of repository [{}]"
+argument_list|,
 name|this
 operator|.
 name|repository
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 name|repositorySession
@@ -578,20 +576,16 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Processing entry ["
-operator|+
+literal|"Processing entry [{}] from repository [{}]"
+argument_list|,
 name|path
-operator|+
-literal|"] from repository ["
-operator|+
+argument_list|,
 name|this
 operator|.
 name|repository
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 try|try
