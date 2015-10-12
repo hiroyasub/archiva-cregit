@@ -1011,24 +1011,6 @@ name|targetArtifactFile
 argument_list|)
 expr_stmt|;
 comment|// pom file copying
-name|String
-name|fileName
-init|=
-name|artifactMetadata
-operator|.
-name|getProject
-argument_list|()
-operator|+
-literal|"-"
-operator|+
-name|artifactMetadata
-operator|.
-name|getVersion
-argument_list|()
-operator|+
-literal|".pom"
-decl_stmt|;
-comment|// pom file copying
 comment|// TODO need to use path translator to get the pom file path
 comment|//        String fileName = artifactMetadata.getProject() + "-" + artifactMetadata.getVersion() + ".pom";
 comment|//

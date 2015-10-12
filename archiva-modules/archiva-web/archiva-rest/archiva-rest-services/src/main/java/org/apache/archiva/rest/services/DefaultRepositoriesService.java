@@ -2568,14 +2568,12 @@ operator|.
 name|MAVEN_METADATA
 argument_list|)
 decl_stmt|;
-name|ArchivaRepositoryMetadata
-name|versionMetadata
-init|=
+comment|/* unused */
 name|getMetadata
 argument_list|(
 name|versionMetadataFile
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -2872,6 +2870,15 @@ argument_list|()
 operator|+
 literal|"\'"
 decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"copyArtifact {}"
+argument_list|,
+name|msg
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

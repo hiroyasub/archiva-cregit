@@ -1668,15 +1668,6 @@ argument_list|(
 name|depFilter
 argument_list|)
 expr_stmt|;
-name|LocalRepository
-name|localRepo
-init|=
-operator|new
-name|LocalRepository
-argument_list|(
-name|localRepoDir
-argument_list|)
-decl_stmt|;
 name|session
 operator|.
 name|setLocalRepositoryManager
@@ -1688,9 +1679,6 @@ name|localRepoDir
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// system.newLocalRepositoryManager( localRepo ) );
-comment|//session.setTransferListener(  );
-comment|//session.setRepositoryListener( n );
 return|return
 name|session
 return|;
