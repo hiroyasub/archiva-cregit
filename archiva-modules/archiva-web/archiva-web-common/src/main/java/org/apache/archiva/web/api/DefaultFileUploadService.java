@@ -1348,8 +1348,7 @@ operator|!
 name|removed
 condition|)
 block|{
-name|removed
-operator|=
+comment|/* unused */
 name|getSessionFileMetadatas
 argument_list|()
 operator|.
