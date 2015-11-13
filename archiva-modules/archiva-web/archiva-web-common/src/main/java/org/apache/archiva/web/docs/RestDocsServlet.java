@@ -340,6 +340,11 @@ name|document
 operator|.
 name|body
 argument_list|()
+operator|.
+name|child
+argument_list|(
+literal|0
+argument_list|)
 decl_stmt|;
 name|Elements
 name|links
@@ -548,10 +553,10 @@ name|body
 operator|.
 name|select
 argument_list|(
-literal|"div[class=container-fluid]"
+literal|"div[id=main]"
 argument_list|)
 operator|.
-name|last
+name|first
 argument_list|()
 argument_list|)
 expr_stmt|;
