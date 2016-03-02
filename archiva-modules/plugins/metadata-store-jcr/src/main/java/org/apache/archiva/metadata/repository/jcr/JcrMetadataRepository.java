@@ -343,6 +343,16 @@ name|javax
 operator|.
 name|jcr
 operator|.
+name|InvalidItemStateException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jcr
+operator|.
 name|NamespaceRegistry
 import|;
 end_import
@@ -6689,6 +6699,28 @@ argument_list|()
 operator|.
 name|save
 argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InvalidItemStateException
+name|e
+parameter_list|)
+block|{
+comment|// olamy this might happen when deleting a repo while is under scanning
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"skip InvalidItemStateException:"
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
