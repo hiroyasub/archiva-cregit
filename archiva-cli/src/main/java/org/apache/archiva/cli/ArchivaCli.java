@@ -354,7 +354,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaCli  *<p/>  *<p/>  * TODO add back reading of archiva.xml from a given location  */
+comment|/**  * ArchivaCli  *  * TODO add back reading of archiva.xml from a given location  */
 end_comment
 
 begin_class

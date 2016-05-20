@@ -416,7 +416,7 @@ operator|=
 name|archivaConfiguration
 expr_stmt|;
 block|}
-comment|/**      * Get the list of patterns for a specified filetype.      *<p/>      *<p/>      * You will always get a list.  In this order.      *<ul>      *<li>The Configured List</li>      *<li>The Default List</li>      *<li>A single item list of<code>&quot;**&#47;*&quot;</code></li>      *</ul>      *      * @param id the id to lookup.      * @return the list of patterns.      */
+comment|/**      * Get the list of patterns for a specified filetype.      * You will always get a list.  In this order.      *<ul>      *<li>The Configured List</li>      *<li>The Default List</li>      *<li>A single item list of<code>&quot;**&#47;*&quot;</code></li>      *</ul>      *      * @param id the id to lookup.      * @return the list of patterns.      */
 specifier|public
 name|List
 argument_list|<

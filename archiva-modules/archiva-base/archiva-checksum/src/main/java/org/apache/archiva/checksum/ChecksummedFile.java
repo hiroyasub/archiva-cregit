@@ -162,7 +162,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ChecksummedFile  *<p/>  *<p>Terminology:</p>  *<dl>  *<dt>Checksum File</dt>  *<dd>The file that contains the previously calculated checksum value for the reference file.  * This is a text file with the extension ".sha1" or ".md5", and contains a single entry  * consisting of an optional reference filename, and a checksum string.  *</dd>  *<dt>Reference File</dt>  *<dd>The file that is being referenced in the checksum file.</dd>  *</dl>  */
+comment|/**  * ChecksummedFile  *<p>Terminology:</p>  *<dl>  *<dt>Checksum File</dt>  *<dd>The file that contains the previously calculated checksum value for the reference file.  * This is a text file with the extension ".sha1" or ".md5", and contains a single entry  * consisting of an optional reference filename, and a checksum string.  *</dd>  *<dt>Reference File</dt>  *<dd>The file that is being referenced in the checksum file.</dd>  *</dl>  */
 end_comment
 
 begin_class
@@ -378,7 +378,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      *<p>      * Given a checksum file, check to see if the file it represents is valid according to the checksum.      *</p>      *<p/>      *<p>      * NOTE: Only supports single file checksums of type MD5 or SHA1.      *</p>      *      * @param algorithm the algorithms to check for.      * @return true if the checksum is valid for the file it represents. or if the checksum file does not exist.      * @throws IOException if the reading of the checksumFile or the file it refers to fails.      */
+comment|/**      *<p>      * Given a checksum file, check to see if the file it represents is valid according to the checksum.      *</p>      *<p>      * NOTE: Only supports single file checksums of type MD5 or SHA1.      *</p>      *      * @param algorithm the algorithms to check for.      * @return true if the checksum is valid for the file it represents. or if the checksum file does not exist.      * @throws IOException if the reading of the checksumFile or the file it refers to fails.      */
 specifier|public
 name|boolean
 name|isValidChecksum
