@@ -447,6 +447,11 @@ argument_list|(
 name|TEST_REPO_ID
 argument_list|)
 expr_stmt|;
+name|waitForScanToComplete
+argument_list|(
+name|TEST_REPO_ID
+argument_list|)
+expr_stmt|;
 name|BrowseService
 name|browseService
 init|=
@@ -563,6 +568,11 @@ block|{
 try|try
 block|{
 name|scanRepo
+argument_list|(
+name|TEST_REPO_ID
+argument_list|)
+expr_stmt|;
+name|waitForScanToComplete
 argument_list|(
 name|TEST_REPO_ID
 argument_list|)
@@ -2006,6 +2016,11 @@ throws|throws
 name|Exception
 block|{
 name|scanRepo
+argument_list|(
+name|TEST_REPO_ID
+argument_list|)
+expr_stmt|;
+name|waitForScanToComplete
 argument_list|(
 name|TEST_REPO_ID
 argument_list|)
