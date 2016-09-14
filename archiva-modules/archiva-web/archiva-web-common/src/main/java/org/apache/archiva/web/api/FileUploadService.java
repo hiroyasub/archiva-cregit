@@ -391,6 +391,10 @@ argument_list|)
 annotation|@
 name|RedbackAuthorization
 argument_list|(
+name|resource
+operator|=
+literal|"{repositoryId}"
+argument_list|,
 name|permissions
 operator|=
 name|ArchivaRoleConstants
