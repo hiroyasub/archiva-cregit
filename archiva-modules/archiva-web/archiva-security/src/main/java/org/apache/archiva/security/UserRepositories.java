@@ -143,6 +143,23 @@ name|AccessDeniedException
 throws|,
 name|PrincipalNotFoundException
 function_decl|;
+comment|/**      *      * Returns a list of repositories for which the user has the manager role.      *      * @param principal      * @since 2.2.2      * @return      * @throws ArchivaSecurityException      * @throws AccessDeniedException      * @throws PrincipalNotFoundException      */
+name|List
+argument_list|<
+name|ManagedRepository
+argument_list|>
+name|getManagableRepositories
+parameter_list|(
+name|String
+name|principal
+parameter_list|)
+throws|throws
+name|ArchivaSecurityException
+throws|,
+name|AccessDeniedException
+throws|,
+name|PrincipalNotFoundException
+function_decl|;
 block|}
 end_interface
 
