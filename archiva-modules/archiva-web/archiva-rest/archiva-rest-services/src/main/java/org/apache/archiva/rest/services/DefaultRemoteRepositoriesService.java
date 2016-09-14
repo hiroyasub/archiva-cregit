@@ -1030,11 +1030,12 @@ name|proxyInfo
 argument_list|)
 expr_stmt|;
 comment|// we only check connectivity as remote repo can be empty
+comment|// MRM-1909: Wagon implementation appends a slash already
 name|wagon
 operator|.
 name|getFileList
 argument_list|(
-literal|"/"
+literal|""
 argument_list|)
 expr_stmt|;
 return|return
