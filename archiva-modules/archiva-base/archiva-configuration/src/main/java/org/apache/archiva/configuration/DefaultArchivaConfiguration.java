@@ -2063,6 +2063,13 @@ expr_stmt|;
 comment|// [MRM-661] Due to a bug in the modello registry writer, we need to take these out by hand. They'll be put back by the writer.
 if|if
 condition|(
+name|section
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
 name|configuration
 operator|.
 name|getManagedRepositories
@@ -2070,10 +2077,6 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
-operator|&&
-name|section
-operator|!=
-literal|null
 condition|)
 block|{
 name|section
@@ -2093,10 +2096,6 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
-operator|&&
-name|section
-operator|!=
-literal|null
 condition|)
 block|{
 name|section
@@ -2116,10 +2115,6 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
-operator|&&
-name|section
-operator|!=
-literal|null
 condition|)
 block|{
 name|section
@@ -2139,10 +2134,6 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
-operator|&&
-name|section
-operator|!=
-literal|null
 condition|)
 block|{
 name|section
@@ -2162,10 +2153,6 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
-operator|&&
-name|section
-operator|!=
-literal|null
 condition|)
 block|{
 name|section
@@ -2185,10 +2172,6 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
-operator|&&
-name|section
-operator|!=
-literal|null
 condition|)
 block|{
 name|section
@@ -2221,10 +2204,6 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
-operator|&&
-name|section
-operator|!=
-literal|null
 condition|)
 block|{
 name|section
@@ -2247,10 +2226,6 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
-operator|&&
-name|section
-operator|!=
-literal|null
 condition|)
 block|{
 name|section
@@ -2278,6 +2253,7 @@ operator|.
 name|save
 argument_list|()
 expr_stmt|;
+block|}
 name|this
 operator|.
 name|configuration
