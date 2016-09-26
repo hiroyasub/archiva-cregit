@@ -467,7 +467,7 @@ name|proxy
 operator|.
 name|model
 operator|.
-name|ProxyFetchResult
+name|ProxyConnector
 import|;
 end_import
 
@@ -483,7 +483,7 @@ name|proxy
 operator|.
 name|model
 operator|.
-name|ProxyConnector
+name|ProxyFetchResult
 import|;
 end_import
 
@@ -1029,16 +1029,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|LinkedHashMap
 import|;
 end_import
@@ -1106,6 +1096,18 @@ operator|.
 name|concurrent
 operator|.
 name|ConcurrentMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
 import|;
 end_import
 
@@ -5479,9 +5481,15 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Convert seconds to milliseconds
-name|int
+name|long
 name|timeoutInMilliseconds
 init|=
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+operator|.
+name|convert
+argument_list|(
 name|remoteRepository
 operator|.
 name|getRepository
@@ -5489,8 +5497,12 @@ argument_list|()
 operator|.
 name|getTimeout
 argument_list|()
-operator|*
-literal|1000
+argument_list|,
+comment|//
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
 decl_stmt|;
 comment|// Set timeout  read and connect
 comment|// FIXME olamy having 2 config values
@@ -5498,6 +5510,9 @@ name|wagon
 operator|.
 name|setReadTimeout
 argument_list|(
+operator|(
+name|int
+operator|)
 name|timeoutInMilliseconds
 argument_list|)
 expr_stmt|;
@@ -5505,6 +5520,9 @@ name|wagon
 operator|.
 name|setTimeout
 argument_list|(
+operator|(
+name|int
+operator|)
 name|timeoutInMilliseconds
 argument_list|)
 expr_stmt|;
@@ -5779,6 +5797,7 @@ name|isNetworkProxy
 argument_list|(
 name|propertyName
 argument_list|)
+comment|//
 operator|||
 name|ConfigurationNames
 operator|.
@@ -5786,6 +5805,7 @@ name|isManagedRepositories
 argument_list|(
 name|propertyName
 argument_list|)
+comment|//
 operator|||
 name|ConfigurationNames
 operator|.
@@ -5793,6 +5813,7 @@ name|isRemoteRepositories
 argument_list|(
 name|propertyName
 argument_list|)
+comment|//
 operator|||
 name|ConfigurationNames
 operator|.
@@ -5801,6 +5822,7 @@ argument_list|(
 name|propertyName
 argument_list|)
 condition|)
+comment|//
 block|{
 name|initConnectorsAndNetworkProxies
 argument_list|()
