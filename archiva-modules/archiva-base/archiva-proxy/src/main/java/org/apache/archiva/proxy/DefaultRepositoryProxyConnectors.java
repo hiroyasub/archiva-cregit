@@ -5076,11 +5076,8 @@ parameter_list|)
 throws|throws
 name|ProxyException
 block|{
-comment|// TODO file lock library
 name|Lock
 name|lock
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -5246,24 +5243,7 @@ block|}
 catch|catch
 parameter_list|(
 name|FileLockException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|ProxyException
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|FileLockTimeoutException
 name|e
 parameter_list|)
