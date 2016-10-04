@@ -1045,11 +1045,47 @@ range|:
 name|authenticators
 control|)
 block|{
+try|try
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Initializing authenticatior "
+operator|+
+name|authenticator
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|authenticator
 operator|.
 name|initialize
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Initialization of authenticator failed "
+operator|+
+name|authenticator
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// users cache
 name|usersCache
