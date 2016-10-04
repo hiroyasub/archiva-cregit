@@ -430,6 +430,12 @@ name|UserManager
 argument_list|>
 name|userManagers
 decl_stmt|;
+specifier|private
+name|boolean
+name|valid
+init|=
+literal|false
+decl_stmt|;
 annotation|@
 name|PostConstruct
 annotation|@
@@ -496,6 +502,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|valid
+operator|=
+literal|true
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -503,10 +513,12 @@ name|RepositoryAdminException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|AuthenticationException
+name|log
+operator|.
+name|error
 argument_list|(
+literal|"Error during repository initialization "
+operator|+
 name|e
 operator|.
 name|getMessage
@@ -514,7 +526,8 @@ argument_list|()
 argument_list|,
 name|e
 argument_list|)
-throw|;
+expr_stmt|;
+comment|// throw new AuthenticationException( e.getMessage(), e );
 block|}
 block|}
 annotation|@
@@ -1129,6 +1142,15 @@ parameter_list|()
 block|{
 return|return
 literal|"ArchivaUserManagerAuthenticator"
+return|;
+block|}
+specifier|public
+name|boolean
+name|isValid
+parameter_list|()
+block|{
+return|return
+name|valid
 return|;
 block|}
 block|}
