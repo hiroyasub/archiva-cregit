@@ -1185,7 +1185,6 @@ name|newEx
 throw|;
 block|}
 block|}
-comment|//check repositories roles are here !!!
 return|return
 name|Boolean
 operator|.
