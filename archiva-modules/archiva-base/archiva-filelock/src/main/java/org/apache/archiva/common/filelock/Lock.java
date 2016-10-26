@@ -328,6 +328,12 @@ return|return
 name|this
 operator|.
 name|fileLock
+operator|!=
+literal|null
+operator|&&
+name|this
+operator|.
+name|fileLock
 operator|.
 name|isValid
 argument_list|()
