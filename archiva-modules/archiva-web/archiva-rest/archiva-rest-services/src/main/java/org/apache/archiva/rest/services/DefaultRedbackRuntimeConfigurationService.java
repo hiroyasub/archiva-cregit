@@ -550,7 +550,7 @@ name|Named
 argument_list|(
 name|value
 operator|=
-literal|"userManager#configurable"
+literal|"userManager#default"
 argument_list|)
 specifier|private
 name|UserManager
