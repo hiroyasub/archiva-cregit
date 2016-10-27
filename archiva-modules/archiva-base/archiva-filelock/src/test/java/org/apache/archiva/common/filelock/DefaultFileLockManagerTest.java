@@ -1121,7 +1121,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"thread7"
+literal|"thread9"
 argument_list|)
 expr_stmt|;
 name|Lock
@@ -1259,7 +1259,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"thread8 ok"
+literal|"thread10 ok"
 argument_list|)
 expr_stmt|;
 name|success
