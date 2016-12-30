@@ -166,7 +166,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"jdo"
+literal|"jpa"
 argument_list|,
 name|redbackRuntimeConfiguration
 operator|.
@@ -200,7 +200,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"jdo"
+literal|"jpa"
 argument_list|,
 name|redbackRuntimeConfiguration
 operator|.
@@ -299,7 +299,7 @@ argument_list|(
 operator|new
 name|UserManagerImplementationInformation
 argument_list|(
-literal|"jdo"
+literal|"jpa"
 argument_list|,
 literal|null
 argument_list|,
@@ -350,7 +350,7 @@ argument_list|(
 operator|new
 name|RBACManagerImplementationInformation
 argument_list|(
-literal|"jdo"
+literal|"jpa"
 argument_list|,
 literal|null
 argument_list|,
