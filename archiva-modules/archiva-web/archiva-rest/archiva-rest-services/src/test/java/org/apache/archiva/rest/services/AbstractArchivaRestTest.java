@@ -1677,6 +1677,7 @@ name|authzHeader
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Set the Referer header to your archiva server url
 name|WebClient
 operator|.
 name|client
@@ -1844,6 +1845,7 @@ name|authzHeader
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Set the Referer header to your archiva server url
 name|WebClient
 operator|.
 name|client
