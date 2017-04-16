@@ -133,6 +133,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|nio
 operator|.
 name|file
@@ -311,6 +321,8 @@ argument_list|(
 name|file
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|Files
 operator|.
 name|copy
@@ -333,6 +345,28 @@ operator|.
 name|REPLACE_EXISTING
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"Copy failed "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// On windows a FileSystemException is thrown
+comment|// We ignore this
+block|}
 name|lock
 operator|=
 name|fileLockManager
