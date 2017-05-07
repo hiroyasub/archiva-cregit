@@ -4515,11 +4515,6 @@ argument_list|,
 literal|"test-configuration"
 argument_list|)
 decl_stmt|;
-name|archivaConfiguration
-operator|.
-name|reload
-argument_list|()
-expr_stmt|;
 name|Configuration
 name|configuration
 init|=
