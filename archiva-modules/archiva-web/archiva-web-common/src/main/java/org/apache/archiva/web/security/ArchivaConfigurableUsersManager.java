@@ -405,6 +405,13 @@ expr_stmt|;
 block|}
 name|this
 operator|.
+name|usersCache
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
 name|useUsersCache
 operator|=
 name|redbackRuntimeConfigurationAdmin
@@ -1336,7 +1343,7 @@ name|getId
 parameter_list|()
 block|{
 return|return
-literal|null
+literal|"archiva-configurable"
 return|;
 block|}
 annotation|@

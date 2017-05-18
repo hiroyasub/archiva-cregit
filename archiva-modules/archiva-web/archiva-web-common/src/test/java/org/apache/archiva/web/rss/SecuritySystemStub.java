@@ -317,9 +317,11 @@ name|redback
 operator|.
 name|users
 operator|.
-name|jdo
+name|jpa
 operator|.
-name|JdoUser
+name|model
+operator|.
+name|JpaUser
 import|;
 end_import
 
@@ -507,7 +509,7 @@ name|User
 name|user
 init|=
 operator|new
-name|JdoUser
+name|JpaUser
 argument_list|()
 decl_stmt|;
 name|user

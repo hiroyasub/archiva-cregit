@@ -550,7 +550,7 @@ name|Named
 argument_list|(
 name|value
 operator|=
-literal|"userManager#configurable"
+literal|"userManager#default"
 argument_list|)
 specifier|private
 name|UserManager
@@ -1185,7 +1185,6 @@ name|newEx
 throw|;
 block|}
 block|}
-comment|//check repositories roles are here !!!
 return|return
 name|Boolean
 operator|.
