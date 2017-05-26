@@ -926,7 +926,7 @@ name|httpWagon
 operator|.
 name|get
 argument_list|(
-literal|"/repository/internal/junit/junit/4.9/junit-4.9.jar"
+literal|"repository/internal/junit/junit/4.9/junit-4.9.jar"
 argument_list|,
 name|file
 argument_list|)
