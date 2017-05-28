@@ -269,6 +269,11 @@ operator|!
 name|acquired
 condition|)
 block|{
+comment|// Make sure that not a bad lock is returned, if a exception was thrown.
+name|lock
+operator|=
+literal|null
+expr_stmt|;
 if|if
 condition|(
 name|timeout
@@ -340,7 +345,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"read lock file exist continue wait"
 argument_list|)
@@ -375,10 +380,49 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// We are not returning an existing lock. If the lock is not
+comment|// exclusive, another thread may release the lock and the client
+comment|// knows nothing about it.
+comment|// The only atomic operation is the putIfAbsent operation, so if
+comment|// this returns null everything is OK, otherwise we should start at
+comment|// the beginning.
+name|current
+operator|=
+name|lockFiles
+operator|.
+name|putIfAbsent
+argument_list|(
+name|file
+argument_list|,
+name|lock
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|current
+operator|==
+literal|null
+condition|)
+block|{
+comment|// Success
 name|acquired
 operator|=
 literal|true
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// We try again
+name|lock
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|lock
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -449,7 +493,7 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"openLock {}:{}"
 argument_list|,
@@ -465,30 +509,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-name|Lock
-name|current
-init|=
-name|lockFiles
-operator|.
-name|putIfAbsent
-argument_list|(
-name|file
-argument_list|,
-name|lock
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|current
-operator|!=
-literal|null
-condition|)
-block|{
-name|lock
-operator|=
-name|current
-expr_stmt|;
 block|}
 return|return
 name|lock
@@ -557,6 +577,11 @@ operator|!
 name|acquired
 condition|)
 block|{
+comment|// Make sure that not a bad lock is returned, if a exception was thrown.
+name|lock
+operator|=
+literal|null
+expr_stmt|;
 if|if
 condition|(
 name|timeout
@@ -630,7 +655,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"write lock file exist continue wait"
 argument_list|)
@@ -663,10 +688,49 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// We are not returning an existing lock. If the lock is not
+comment|// exclusive, another thread may release the lock and the client
+comment|// knows nothing about it.
+comment|// The only atomic operation is the putIfAbsent operation, so if
+comment|// this returns null everything is OK, otherwise we should start at
+comment|// the beginning.
+name|current
+operator|=
+name|lockFiles
+operator|.
+name|putIfAbsent
+argument_list|(
+name|file
+argument_list|,
+name|lock
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|current
+operator|==
+literal|null
+condition|)
+block|{
+comment|// Success
 name|acquired
 operator|=
 literal|true
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// We try again
+name|lock
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|lock
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -737,7 +801,7 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"openLock {}:{}"
 argument_list|,
@@ -753,30 +817,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-name|Lock
-name|current
-init|=
-name|lockFiles
-operator|.
-name|putIfAbsent
-argument_list|(
-name|file
-argument_list|,
-name|lock
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|current
-operator|!=
-literal|null
-condition|)
-block|{
-name|lock
-operator|=
-name|current
-expr_stmt|;
 block|}
 return|return
 name|lock
