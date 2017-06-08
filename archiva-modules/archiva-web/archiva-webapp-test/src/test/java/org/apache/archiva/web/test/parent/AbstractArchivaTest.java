@@ -582,10 +582,13 @@ name|void
 name|logout
 parameter_list|()
 block|{
-name|clickLinkWithText
+name|clickLinkWithLocator
 argument_list|(
-literal|"Logout"
+literal|"logout-link-a"
 argument_list|)
+expr_stmt|;
+name|waitPage
+argument_list|()
 expr_stmt|;
 name|assertTextNotPresent
 argument_list|(

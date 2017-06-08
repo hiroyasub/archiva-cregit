@@ -101,6 +101,26 @@ name|Statement
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Olivier Lamy  */
 end_comment
@@ -113,6 +133,19 @@ implements|implements
 name|MethodRule
 comment|//TestRule
 block|{
+specifier|final
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|ArchivaSeleniumExecutionRule
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|// FIXME cerate a separate TestRule for open and close calls ?
 specifier|public
 name|Selenium
@@ -161,6 +194,28 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Exception thrown in Selenium test: "
+operator|+
+name|e
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" - "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|String
 name|fileName
 init|=

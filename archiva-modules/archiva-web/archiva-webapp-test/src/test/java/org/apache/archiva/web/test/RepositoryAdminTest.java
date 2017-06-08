@@ -55,6 +55,32 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|openqa
+operator|.
+name|selenium
+operator|.
+name|JavascriptExecutor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|openqa
+operator|.
+name|selenium
+operator|.
+name|htmlunit
+operator|.
+name|HtmlUnitDriver
+import|;
+end_import
+
 begin_comment
 comment|/**  * Based on LoginTest of Emmanuel Venisse test.  *  * @author skygo  *  */
 end_comment
@@ -92,7 +118,7 @@ expr_stmt|;
 comment|// add custom repo
 name|assertTextPresent
 argument_list|(
-literal|"Repositories Administration "
+literal|"Repositories Administration"
 argument_list|)
 expr_stmt|;
 name|clickLinkWithXPath
@@ -167,20 +193,31 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|getSelenium
-argument_list|()
-operator|.
-name|select
+name|selectValue
 argument_list|(
 literal|"sourceRepoId"
 argument_list|,
 literal|"internal"
 argument_list|)
 expr_stmt|;
-name|getSelenium
+comment|// Workaround
+comment|// TODO: Check after upgrade of htmlunit, bootstrap or jquery
+comment|// TODO: Check whats wrong here
+operator|(
+operator|(
+name|JavascriptExecutor
+operator|)
+name|getWebDriver
 argument_list|()
+operator|)
 operator|.
-name|select
+name|executeScript
+argument_list|(
+literal|"$('#targetRepoId').show();"
+argument_list|)
+expr_stmt|;
+comment|// End of Workaround
+name|selectValue
 argument_list|(
 literal|"targetRepoId"
 argument_list|,
@@ -223,13 +260,13 @@ name|assertTrue
 argument_list|(
 literal|"First repo is myrepo"
 argument_list|,
-name|getSelenium
-argument_list|()
+name|findElement
+argument_list|(
+literal|"//div[@id='proxy-connector-edit-order-div']/div[1]"
+argument_list|)
 operator|.
 name|getText
-argument_list|(
-literal|"xpath=//div[@id='proxy-connector-edit-order-div']/div[1]"
-argument_list|)
+argument_list|()
 operator|.
 name|contains
 argument_list|(
@@ -243,13 +280,13 @@ name|assertTrue
 argument_list|(
 literal|"Second repo is central"
 argument_list|,
-name|getSelenium
-argument_list|()
+name|findElement
+argument_list|(
+literal|"//div[@id='proxy-connector-edit-order-div']/div[2]"
+argument_list|)
 operator|.
 name|getText
-argument_list|(
-literal|"xpath=//div[@id='proxy-connector-edit-order-div']/div[2]"
-argument_list|)
+argument_list|()
 operator|.
 name|contains
 argument_list|(
