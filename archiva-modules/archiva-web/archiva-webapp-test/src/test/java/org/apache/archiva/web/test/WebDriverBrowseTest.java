@@ -423,17 +423,6 @@ name|fileName
 argument_list|,
 name|getDriver
 argument_list|()
-argument_list|,
-parameter_list|(
-name|a
-parameter_list|)
-lambda|->
-name|super
-operator|.
-name|takeScreenShot
-argument_list|(
-name|a
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

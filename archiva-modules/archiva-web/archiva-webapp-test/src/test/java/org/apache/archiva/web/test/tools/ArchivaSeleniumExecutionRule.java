@@ -146,11 +146,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// FIXME cerate a separate TestRule for open and close calls ?
-specifier|public
-name|Selenium
-name|selenium
-decl_stmt|;
 specifier|public
 name|Statement
 name|apply

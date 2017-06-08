@@ -568,10 +568,10 @@ name|void
 name|goToHomePage
 parameter_list|()
 block|{
-name|getSelenium
+name|getWebDriver
 argument_list|()
 operator|.
-name|open
+name|get
 argument_list|(
 name|baseUrl
 argument_list|)
