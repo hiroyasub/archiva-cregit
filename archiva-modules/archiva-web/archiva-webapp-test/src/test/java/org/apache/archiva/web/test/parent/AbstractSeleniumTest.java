@@ -347,7 +347,7 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-literal|"tomcat.maven.http.port"
+literal|"container.http.port"
 argument_list|)
 operator|+
 literal|"/archiva/index.html?request_lang=en"
@@ -401,7 +401,7 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-literal|"remoteSelenium"
+literal|"seleniumRemote"
 argument_list|,
 literal|"false"
 argument_list|)
