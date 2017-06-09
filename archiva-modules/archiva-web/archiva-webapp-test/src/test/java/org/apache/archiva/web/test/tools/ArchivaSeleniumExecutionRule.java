@@ -162,6 +162,28 @@ parameter_list|)
 block|{
 try|try
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Test "
+operator|+
+name|method
+operator|.
+name|getDeclaringClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"#"
+operator|+
+name|method
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 operator|(
 operator|(
 name|AbstractSeleniumTest
@@ -208,6 +230,18 @@ operator|+
 name|e
 operator|.
 name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Method "
+operator|+
+name|method
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
