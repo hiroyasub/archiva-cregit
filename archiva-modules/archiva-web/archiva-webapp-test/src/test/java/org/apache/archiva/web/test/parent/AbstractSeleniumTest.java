@@ -1809,10 +1809,10 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
+name|title
+argument_list|,
 name|getTitle
 argument_list|()
-argument_list|,
-name|title
 argument_list|)
 expr_stmt|;
 block|}
