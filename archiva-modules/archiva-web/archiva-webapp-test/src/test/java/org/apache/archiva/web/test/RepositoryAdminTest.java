@@ -181,15 +181,7 @@ name|void
 name|testManagedRepository
 parameter_list|()
 block|{
-name|login
-argument_list|(
-name|getAdminUsername
-argument_list|()
-argument_list|,
-name|getAdminPassword
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// login( getAdminUsername(), getAdminPassword() );
 name|WebDriverWait
 name|wait
 init|=
