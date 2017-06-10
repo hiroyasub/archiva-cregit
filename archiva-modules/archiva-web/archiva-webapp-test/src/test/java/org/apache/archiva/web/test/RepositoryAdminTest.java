@@ -272,9 +272,9 @@ name|visibilityOfElementLocated
 argument_list|(
 name|By
 operator|.
-name|id
+name|xpath
 argument_list|(
-literal|"remote-repositories-view-a"
+literal|"//table[@id='remote-repositories-table']//td[contains(text(),'central')]"
 argument_list|)
 argument_list|)
 argument_list|,
