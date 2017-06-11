@@ -3008,6 +3008,9 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// Elements may be stale and throw an exception, if the location is requested
+try|try
+block|{
 name|Point
 name|elLoc
 init|=
@@ -3033,6 +3036,21 @@ name|getY
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e2
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Could not determine location"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|ex
 operator|=

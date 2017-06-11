@@ -501,6 +501,11 @@ operator|.
 name|click
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|valid
+condition|)
+block|{
 name|wait
 operator|.
 name|until
@@ -524,18 +529,25 @@ literal|" created."
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertElementPresent
+name|wait
+operator|.
+name|until
+argument_list|(
+name|ExpectedConditions
+operator|.
+name|visibilityOfElementLocated
+argument_list|(
+name|By
+operator|.
+name|id
 argument_list|(
 literal|"users-grid-user-id-"
 operator|+
 name|userName
 argument_list|)
+argument_list|)
+argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-condition|)
-block|{
 comment|//String[] columnValues = { userName, fullName, emailAd };
 comment|//assertElementPresent( XPathExpressionUtil.getTableRow( columnValues ) );
 block|}
