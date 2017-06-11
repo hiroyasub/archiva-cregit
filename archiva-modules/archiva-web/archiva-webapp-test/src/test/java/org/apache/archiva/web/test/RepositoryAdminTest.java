@@ -581,25 +581,18 @@ literal|"myrepoid"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|clickLinkWithXPath
+name|tryClick
+argument_list|(
+name|By
+operator|.
+name|xpath
 argument_list|(
 literal|"//i[contains(@class,'icon-resize-vertical')]//ancestor::a"
 argument_list|)
-expr_stmt|;
-comment|// This is needed here for HTMLUnit Tests. Currently do not know why, wait is not working for the
-comment|// list entries down
-name|waitPage
-argument_list|()
-expr_stmt|;
-name|el
-operator|=
-name|wait
-operator|.
-name|until
-argument_list|(
+argument_list|,
 name|ExpectedConditions
 operator|.
-name|presenceOfElementLocated
+name|visibilityOfAllElementsLocatedBy
 argument_list|(
 name|By
 operator|.
@@ -608,8 +601,19 @@ argument_list|(
 literal|"proxy-connector-edit-order-div"
 argument_list|)
 argument_list|)
+argument_list|,
+literal|"Edit order view not visible"
+argument_list|,
+literal|3
+argument_list|,
+literal|10
 argument_list|)
 expr_stmt|;
+comment|// clickLinkWithXPath( "//i[contains(@class,'icon-resize-vertical')]//ancestor::a");
+comment|// This is needed here for HTMLUnit Tests. Currently do not know why, wait is not working for the
+comment|// list entries down
+comment|// waitPage();
+comment|// el = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("proxy-connector-edit-order-div")));
 name|assertTextPresent
 argument_list|(
 literal|"internal"
