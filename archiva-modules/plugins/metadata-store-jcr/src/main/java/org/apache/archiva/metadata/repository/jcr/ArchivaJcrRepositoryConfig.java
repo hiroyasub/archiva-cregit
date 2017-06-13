@@ -80,6 +80,34 @@ specifier|public
 class|class
 name|ArchivaJcrRepositoryConfig
 block|{
+comment|// Recommended to avoid inconsistencies caused by race conditions.
+static|static
+block|{
+if|if
+condition|(
+operator|!
+name|System
+operator|.
+name|getProperties
+argument_list|( )
+operator|.
+name|containsKey
+argument_list|(
+literal|"org.apache.jackrabbit.core.state.validatehierarchy"
+argument_list|)
+condition|)
+block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"org.apache.jackrabbit.core.state.validatehierarchy"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 specifier|public
 specifier|static
 name|RepositoryConfig
