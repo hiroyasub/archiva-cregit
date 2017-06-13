@@ -792,12 +792,11 @@ name|void
 name|goToHomePage
 parameter_list|()
 block|{
-name|getWebDriver
-argument_list|()
-operator|.
-name|get
+name|loadPage
 argument_list|(
 name|baseUrl
+argument_list|,
+literal|30
 argument_list|)
 expr_stmt|;
 block|}
