@@ -103,7 +103,7 @@ specifier|public
 class|class
 name|ArchivaRepositoryScanningTaskExecutorPhase1Test
 extends|extends
-name|ArchivaRepositoryScanningTaskExecutorAbstractTest
+name|AbstractArchivaRepositoryScanningTaskExecutorTest
 block|{
 comment|// Split of ArchivaRepositoryScanningTaskExecutorTest should be executed first
 comment|// to avoid testConsumer in unknown state if member of Phase2 all ready executed

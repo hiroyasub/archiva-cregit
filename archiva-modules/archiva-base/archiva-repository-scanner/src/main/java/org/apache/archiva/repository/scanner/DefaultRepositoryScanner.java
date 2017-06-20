@@ -268,9 +268,7 @@ name|inProgressScans
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|RepositoryScannerInstance
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
