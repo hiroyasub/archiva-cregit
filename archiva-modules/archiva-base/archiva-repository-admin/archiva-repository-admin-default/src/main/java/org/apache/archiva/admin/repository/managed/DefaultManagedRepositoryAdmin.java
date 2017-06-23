@@ -783,6 +783,9 @@ argument_list|>
 name|namespacesCache
 decl_stmt|;
 comment|// fields
+annotation|@
+name|Inject
+specifier|private
 name|List
 argument_list|<
 name|?
@@ -791,6 +794,9 @@ name|IndexCreator
 argument_list|>
 name|indexCreators
 decl_stmt|;
+annotation|@
+name|Inject
+specifier|private
 name|NexusIndexer
 name|indexer
 decl_stmt|;
@@ -805,46 +811,15 @@ name|RepositoryAdminException
 throws|,
 name|RoleManagerException
 block|{
-try|try
-block|{
-name|indexCreators
-operator|=
-name|mavenIndexerUtils
-operator|.
-name|getAllIndexCreators
-argument_list|()
-expr_stmt|;
-name|indexer
-operator|=
-name|plexusSisuBridge
-operator|.
-name|lookup
-argument_list|(
-name|NexusIndexer
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|PlexusSisuBridgeException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RepositoryAdminException
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
+comment|//        try
+comment|//        {
+comment|//            indexCreators = mavenIndexerUtils.getAllIndexCreators();
+comment|//            indexer = plexusSisuBridge.lookup( NexusIndexer.class );
+comment|//        }
+comment|//        catch ( PlexusSisuBridgeException e )
+comment|//        {
+comment|//            throw new RepositoryAdminException( e.getMessage(), e );
+comment|//        }
 comment|// initialize index context on start and check roles here
 for|for
 control|(
