@@ -142,8 +142,8 @@ decl_stmt|;
 annotation|@
 name|Inject
 specifier|private
-name|PlexusSisuBridge
-name|plexusSisuBridge
+name|NexusIndexer
+name|nexusIndexer
 decl_stmt|;
 annotation|@
 name|PreDestroy
@@ -161,18 +161,6 @@ argument_list|(
 literal|"cleanup IndexingContext"
 argument_list|)
 expr_stmt|;
-name|NexusIndexer
-name|nexusIndexer
-init|=
-name|plexusSisuBridge
-operator|.
-name|lookup
-argument_list|(
-name|NexusIndexer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 for|for
 control|(
 name|IndexingContext

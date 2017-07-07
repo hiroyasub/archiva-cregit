@@ -139,7 +139,8 @@ name|isBlank
 argument_list|(
 name|artifact
 operator|.
-name|classifier
+name|getClassifier
+argument_list|()
 argument_list|)
 return|;
 block|}
