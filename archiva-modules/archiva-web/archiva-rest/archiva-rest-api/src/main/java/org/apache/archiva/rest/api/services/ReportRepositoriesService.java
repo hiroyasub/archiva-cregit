@@ -51,6 +51,8 @@ name|repository
 operator|.
 name|stats
 operator|.
+name|model
+operator|.
 name|RepositoryStatistics
 import|;
 end_import

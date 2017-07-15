@@ -85,6 +85,8 @@ name|repository
 operator|.
 name|stats
 operator|.
+name|model
+operator|.
 name|RepositoryStatisticsManager
 import|;
 end_import
@@ -143,20 +145,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -184,16 +172,6 @@ operator|.
 name|junit
 operator|.
 name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|BeforeClass
 import|;
 end_import
 
@@ -274,16 +252,6 @@ operator|.
 name|util
 operator|.
 name|Calendar
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 

@@ -675,7 +675,7 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-specifier|protected
+specifier|public
 specifier|static
 name|Map
 argument_list|<

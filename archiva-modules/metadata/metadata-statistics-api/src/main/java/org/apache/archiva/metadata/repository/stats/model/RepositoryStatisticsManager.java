@@ -12,6 +12,8 @@ operator|.
 name|repository
 operator|.
 name|stats
+operator|.
+name|model
 package|;
 end_package
 
@@ -70,6 +72,10 @@ operator|.
 name|List
 import|;
 end_import
+
+begin_comment
+comment|/**  * The statistics manager is the central entry point for handling repository  * statistics data.  *  *  */
+end_comment
 
 begin_interface
 specifier|public

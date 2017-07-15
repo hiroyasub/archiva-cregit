@@ -303,6 +303,8 @@ name|repository
 operator|.
 name|stats
 operator|.
+name|model
+operator|.
 name|RepositoryStatisticsManager
 import|;
 end_import
