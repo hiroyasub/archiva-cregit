@@ -301,6 +301,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|index
+operator|.
+name|shaded
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|IndexUpgrader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|easymock
 operator|.
 name|EasyMock
@@ -1347,6 +1367,7 @@ name|IndexingContext
 name|ctx
 parameter_list|)
 block|{
+comment|//
 block|}
 annotation|@
 name|Override
@@ -1361,6 +1382,7 @@ name|ScanningResult
 name|result
 parameter_list|)
 block|{
+comment|// no op
 block|}
 annotation|@
 name|Override
@@ -1409,6 +1431,16 @@ name|debug
 argument_list|(
 literal|"artifactDiscovered {}:{}"
 argument_list|,
+comment|//
+name|ac
+operator|.
+name|getArtifact
+argument_list|()
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
 name|ac
 operator|.
 name|getArtifact
@@ -1417,6 +1449,16 @@ operator|.
 name|getPath
 argument_list|()
 argument_list|,
+comment|//
+name|ac
+operator|.
+name|getArtifact
+argument_list|()
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
 name|ac
 operator|.
 name|getArtifactInfo

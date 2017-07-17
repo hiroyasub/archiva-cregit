@@ -1248,6 +1248,16 @@ name|IndexPackingRequest
 argument_list|(
 name|context
 argument_list|,
+comment|//
+name|context
+operator|.
+name|acquireIndexSearcher
+argument_list|()
+operator|.
+name|getIndexReader
+argument_list|()
+argument_list|,
+comment|//
 name|context
 operator|.
 name|getIndexDirectoryFile
