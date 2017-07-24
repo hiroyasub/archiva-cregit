@@ -111,54 +111,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|common
-operator|.
-name|plexusbridge
-operator|.
-name|MavenIndexerUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|common
-operator|.
-name|plexusbridge
-operator|.
-name|PlexusSisuBridge
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|common
-operator|.
-name|plexusbridge
-operator|.
-name|PlexusSisuBridgeException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|configuration
 operator|.
 name|Configuration
@@ -745,12 +697,6 @@ name|repositoryStatisticsManager
 decl_stmt|;
 annotation|@
 name|Inject
-specifier|private
-name|MavenIndexerUtils
-name|mavenIndexerUtils
-decl_stmt|;
-annotation|@
-name|Inject
 specifier|protected
 name|RoleManager
 name|roleManager
@@ -805,15 +751,6 @@ name|RepositoryAdminException
 throws|,
 name|RoleManagerException
 block|{
-comment|//        try
-comment|//        {
-comment|//            indexCreators = mavenIndexerUtils.getAllIndexCreators();
-comment|//            indexer = plexusSisuBridge.lookup( NexusIndexer.class );
-comment|//        }
-comment|//        catch ( PlexusSisuBridgeException e )
-comment|//        {
-comment|//            throw new RepositoryAdminException( e.getMessage(), e );
-comment|//        }
 comment|// initialize index context on start and check roles here
 for|for
 control|(
@@ -3875,30 +3812,6 @@ operator|.
 name|repositoryTaskScheduler
 operator|=
 name|repositoryTaskScheduler
-expr_stmt|;
-block|}
-specifier|public
-name|MavenIndexerUtils
-name|getMavenIndexerUtils
-parameter_list|()
-block|{
-return|return
-name|mavenIndexerUtils
-return|;
-block|}
-specifier|public
-name|void
-name|setMavenIndexerUtils
-parameter_list|(
-name|MavenIndexerUtils
-name|mavenIndexerUtils
-parameter_list|)
-block|{
-name|this
-operator|.
-name|mavenIndexerUtils
-operator|=
-name|mavenIndexerUtils
 expr_stmt|;
 block|}
 specifier|public

@@ -75,22 +75,6 @@ name|common
 operator|.
 name|plexusbridge
 operator|.
-name|MavenIndexerUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|common
-operator|.
-name|plexusbridge
-operator|.
 name|PlexusSisuBridge
 import|;
 end_import
@@ -293,7 +277,7 @@ name|index
 operator|.
 name|context
 operator|.
-name|IndexingContext
+name|IndexCreator
 import|;
 end_import
 
@@ -307,13 +291,9 @@ name|maven
 operator|.
 name|index
 operator|.
-name|shaded
+name|context
 operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|IndexUpgrader
+name|IndexingContext
 import|;
 end_import
 
@@ -520,8 +500,11 @@ name|plexusSisuBridge
 decl_stmt|;
 annotation|@
 name|Inject
-name|MavenIndexerUtils
-name|mavenIndexerUtils
+name|List
+argument_list|<
+name|IndexCreator
+argument_list|>
+name|indexCreators
 decl_stmt|;
 annotation|@
 name|Inject
@@ -636,7 +619,7 @@ operator|=
 name|EasyMock
 operator|.
 name|createControl
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|archivaConfig
 operator|=
@@ -686,18 +669,9 @@ name|nexusIndexer
 argument_list|,
 name|defaultManagedRepositoryAdmin
 argument_list|,
-name|mavenIndexerUtils
-argument_list|,
 name|defaultProxyConnectorAdmin
 argument_list|,
 name|queryCreator
-argument_list|)
-expr_stmt|;
-name|defaultManagedRepositoryAdmin
-operator|.
-name|setMavenIndexerUtils
-argument_list|(
-name|mavenIndexerUtils
 argument_list|)
 expr_stmt|;
 name|defaultManagedRepositoryAdmin
@@ -711,10 +685,7 @@ name|defaultManagedRepositoryAdmin
 operator|.
 name|setIndexCreators
 argument_list|(
-name|mavenIndexerUtils
-operator|.
-name|getAllIndexCreators
-argument_list|()
+name|indexCreators
 argument_list|)
 expr_stmt|;
 name|config
@@ -1198,10 +1169,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|search
-operator|.
-name|getAllIndexCreators
-argument_list|()
+name|indexCreators
 argument_list|)
 expr_stmt|;
 comment|// minimize datas in memory

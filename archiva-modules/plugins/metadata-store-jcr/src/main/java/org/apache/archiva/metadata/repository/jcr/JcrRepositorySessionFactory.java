@@ -427,7 +427,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// skip initialisation if not cassandra
+comment|// skip initialisation if not jcr
 if|if
 condition|(
 operator|!
