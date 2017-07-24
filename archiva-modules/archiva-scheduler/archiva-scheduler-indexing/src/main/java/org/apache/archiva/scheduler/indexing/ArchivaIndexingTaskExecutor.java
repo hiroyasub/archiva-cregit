@@ -605,6 +605,7 @@ name|debug
 argument_list|(
 literal|"Creating indexing context on resource: {}"
 argument_list|,
+comment|//
 operator|(
 name|indexingTask
 operator|.
