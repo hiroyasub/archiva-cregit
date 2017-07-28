@@ -39,6 +39,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|time
+operator|.
+name|StopWatch
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|jackrabbit
 operator|.
 name|JcrConstants
@@ -625,57 +641,51 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|LinkedBlockingQueue
+name|Executors
 import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|concurrent
+name|archiva
 operator|.
-name|ThreadFactory
+name|metadata
+operator|.
+name|repository
+operator|.
+name|jcr
+operator|.
+name|RepositoryFactory
+operator|.
+name|StoreType
+operator|.
+name|IN_MEMORY_TYPE
 import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|concurrent
+name|archiva
 operator|.
-name|ThreadPoolExecutor
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|metadata
 operator|.
-name|util
+name|repository
 operator|.
-name|concurrent
+name|jcr
 operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|RepositoryFactory
 operator|.
-name|util
+name|StoreType
 operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicInteger
+name|SEGMENT_FILE_TYPE
 import|;
 end_import
 
@@ -710,6 +720,7 @@ specifier|public
 class|class
 name|RepositoryFactory
 block|{
+specifier|private
 name|Logger
 name|log
 init|=
@@ -722,23 +733,20 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+specifier|private
+name|FileStore
+name|fileStore
+decl_stmt|;
 specifier|public
-specifier|static
-specifier|final
-name|String
+enum|enum
+name|StoreType
+block|{
 name|SEGMENT_FILE_TYPE
-init|=
-literal|"oak-segment-tar"
-decl_stmt|;
-specifier|public
-specifier|static
-specifier|final
-name|String
+block|,
 name|IN_MEMORY_TYPE
-init|=
-literal|"oak-memory"
-decl_stmt|;
-name|String
+block|;     }
+specifier|private
+name|StoreType
 name|storeType
 init|=
 name|SEGMENT_FILE_TYPE
@@ -756,7 +764,7 @@ decl_stmt|;
 specifier|public
 name|Repository
 name|createRepository
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|IOException
 throws|,
@@ -768,16 +776,12 @@ decl_stmt|;
 if|if
 condition|(
 name|SEGMENT_FILE_TYPE
-operator|.
-name|equals
-argument_list|(
+operator|==
 name|storeType
-argument_list|)
 condition|)
 block|{
-name|FileStore
-name|fs
-init|=
+name|fileStore
+operator|=
 name|FileStoreBuilder
 operator|.
 name|fileStoreBuilder
@@ -785,33 +789,30 @@ argument_list|(
 name|repositoryPath
 operator|.
 name|toFile
-argument_list|( )
+argument_list|()
 argument_list|)
 operator|.
 name|build
-argument_list|( )
-decl_stmt|;
+argument_list|()
+expr_stmt|;
 name|nodeStore
 operator|=
 name|SegmentNodeStoreBuilders
 operator|.
 name|builder
 argument_list|(
-name|fs
+name|fileStore
 argument_list|)
 operator|.
 name|build
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 if|else if
 condition|(
 name|IN_MEMORY_TYPE
-operator|.
-name|equals
-argument_list|(
+operator|==
 name|storeType
-argument_list|)
 condition|)
 block|{
 name|nodeStore
@@ -856,7 +857,7 @@ name|with
 argument_list|(
 operator|new
 name|RepositoryInitializer
-argument_list|( )
+argument_list|()
 block|{
 annotation|@
 name|Override
@@ -1002,15 +1003,20 @@ name|of
 argument_list|(
 literal|"archiva:projectVersion"
 argument_list|,
+comment|//
 literal|"archiva:artifact"
 argument_list|,
+comment|//
 literal|"archiva:facet"
 argument_list|,
+comment|//
 literal|"archiva:namespace"
 argument_list|,
+comment|//
 literal|"archiva:project"
 argument_list|)
 argument_list|,
+comment|//
 name|Type
 operator|.
 name|STRINGS
@@ -1025,11 +1031,13 @@ name|child
 argument_list|(
 literal|"archiva:projectVersion"
 argument_list|)
+comment|//
 operator|.
 name|child
 argument_list|(
 literal|"properties"
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1043,6 +1051,7 @@ name|Type
 operator|.
 name|NAME
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1059,6 +1068,7 @@ name|Type
 operator|.
 name|STRINGS
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1066,11 +1076,13 @@ literal|"indexNodeName"
 argument_list|,
 literal|true
 argument_list|)
+comment|//
 operator|.
 name|child
 argument_list|(
 literal|"allProps"
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1141,11 +1153,13 @@ name|child
 argument_list|(
 literal|"archiva:artifact"
 argument_list|)
+comment|//
 operator|.
 name|child
 argument_list|(
 literal|"properties"
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1159,6 +1173,7 @@ name|Type
 operator|.
 name|NAME
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1175,6 +1190,7 @@ name|Type
 operator|.
 name|STRINGS
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1187,6 +1203,7 @@ name|child
 argument_list|(
 literal|"allProps"
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1256,11 +1273,13 @@ name|child
 argument_list|(
 literal|"archiva:facet"
 argument_list|)
+comment|//
 operator|.
 name|child
 argument_list|(
 literal|"properties"
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1274,6 +1293,7 @@ name|Type
 operator|.
 name|NAME
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1290,6 +1310,7 @@ name|Type
 operator|.
 name|STRINGS
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1297,11 +1318,13 @@ literal|"indexNodeName"
 argument_list|,
 literal|true
 argument_list|)
+comment|//
 operator|.
 name|child
 argument_list|(
 literal|"allProps"
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1371,11 +1394,13 @@ name|child
 argument_list|(
 literal|"archiva:namespace"
 argument_list|)
+comment|//
 operator|.
 name|child
 argument_list|(
 literal|"properties"
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1389,6 +1414,7 @@ name|Type
 operator|.
 name|NAME
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1405,6 +1431,7 @@ name|Type
 operator|.
 name|STRINGS
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1412,11 +1439,13 @@ literal|"indexNodeName"
 argument_list|,
 literal|true
 argument_list|)
+comment|//
 operator|.
 name|child
 argument_list|(
 literal|"allProps"
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1486,11 +1515,13 @@ name|child
 argument_list|(
 literal|"archiva:project"
 argument_list|)
+comment|//
 operator|.
 name|child
 argument_list|(
 literal|"properties"
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1504,6 +1535,7 @@ name|Type
 operator|.
 name|NAME
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1520,6 +1552,7 @@ name|Type
 operator|.
 name|STRINGS
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1527,11 +1560,13 @@ literal|"indexNodeName"
 argument_list|,
 literal|true
 argument_list|)
+comment|//
 operator|.
 name|child
 argument_list|(
 literal|"allProps"
 argument_list|)
+comment|//
 operator|.
 name|setProperty
 argument_list|(
@@ -1597,12 +1632,10 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Index: "
-operator|+
+literal|"Index: {} myIndex {}"
+argument_list|,
 name|lucene
-operator|+
-literal|" myIndex "
-operator|+
+argument_list|,
 name|lucene
 operator|.
 name|getChildNode
@@ -1615,8 +1648,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"myIndex "
-operator|+
+literal|"myIndex {}"
+argument_list|,
 name|lucene
 operator|.
 name|getChildNode
@@ -1675,8 +1708,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Queue Index "
-operator|+
+literal|"Queue Index {}"
+argument_list|,
 name|indexDir
 operator|.
 name|toString
@@ -1713,7 +1746,7 @@ init|=
 name|Mounts
 operator|.
 name|defaultMountInfoProvider
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|IndexTracker
 name|tracker
@@ -1774,6 +1807,7 @@ comment|//        builder.getBackgroundObserver();
 name|LuceneIndexEditorProvider
 name|editorProvider
 init|=
+comment|//
 operator|new
 name|LuceneIndexEditorProvider
 argument_list|(
@@ -1781,6 +1815,7 @@ literal|null
 argument_list|,
 name|tracker
 argument_list|,
+comment|//
 operator|new
 name|ExtractedTextCache
 argument_list|(
@@ -1789,6 +1824,7 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|,
+comment|//
 literal|null
 argument_list|,
 name|mountInfoProvider
@@ -1805,12 +1841,10 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Oak: "
-operator|+
+literal|"Oak: {} with nodeStore {}"
+argument_list|,
 name|oak
-operator|+
-literal|" with nodeStore "
-operator|+
+argument_list|,
 name|nodeStore
 argument_list|)
 expr_stmt|;
@@ -1827,6 +1861,7 @@ name|with
 argument_list|(
 name|editorProvider
 argument_list|)
+comment|//
 operator|.
 name|with
 argument_list|(
@@ -1835,6 +1870,7 @@ name|Observer
 operator|)
 name|provider
 argument_list|)
+comment|//
 operator|.
 name|with
 argument_list|(
@@ -1849,14 +1885,21 @@ name|QueryIndexProvider
 operator|)
 name|provider
 argument_list|)
-operator|.
-name|withAsyncIndexing
-argument_list|(
-literal|"async"
-argument_list|,
-literal|5
-argument_list|)
 decl_stmt|;
+comment|//
+comment|//.withAsyncIndexing( "async", 5 );
+name|StopWatch
+name|stopWatch
+init|=
+operator|new
+name|StopWatch
+argument_list|()
+decl_stmt|;
+name|stopWatch
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|Repository
 name|r
 init|=
@@ -1865,39 +1908,58 @@ operator|.
 name|createRepository
 argument_list|()
 decl_stmt|;
-try|try
-block|{
-name|Thread
+name|stopWatch
 operator|.
-name|currentThread
+name|stop
 argument_list|()
+expr_stmt|;
+name|log
 operator|.
-name|sleep
+name|info
 argument_list|(
-literal|1000
+literal|"time to create jcr repository: {} ms"
+argument_list|,
+name|stopWatch
+operator|.
+name|getTime
+argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|e
-parameter_list|)
-block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|( )
-expr_stmt|;
-block|}
+comment|//        try
+comment|//        {
+comment|//            Thread.currentThread().sleep( 1000 );
+comment|//        }
+comment|//        catch ( InterruptedException e )
+comment|//        {
+comment|//            log.error( e.getMessage(), e );
+comment|//        }
 return|return
 name|r
 return|;
 block|}
 specifier|public
-name|String
+name|void
+name|close
+parameter_list|()
+block|{
+if|if
+condition|(
+name|fileStore
+operator|!=
+literal|null
+condition|)
+block|{
+name|fileStore
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+specifier|public
+name|StoreType
 name|getStoreType
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|storeType
@@ -1907,7 +1969,7 @@ specifier|public
 name|void
 name|setStoreType
 parameter_list|(
-name|String
+name|StoreType
 name|storeType
 parameter_list|)
 block|{
@@ -1921,7 +1983,7 @@ block|}
 specifier|public
 name|Path
 name|getRepositoryPath
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|repositoryPath
@@ -1992,11 +2054,29 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
 name|e
 operator|.
-name|printStackTrace
-argument_list|( )
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"cannot create directory:"
+operator|+
+name|repositoryPath
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 block|}
 block|}
@@ -2005,169 +2085,47 @@ name|ExecutorService
 name|createExecutor
 parameter_list|()
 block|{
-name|ThreadPoolExecutor
-name|executor
-init|=
-operator|new
-name|ThreadPoolExecutor
-argument_list|(
-literal|0
-argument_list|,
-literal|5
-argument_list|,
-literal|60L
-argument_list|,
-name|TimeUnit
-operator|.
-name|SECONDS
-argument_list|,
-operator|new
-name|LinkedBlockingQueue
-argument_list|<
-name|Runnable
-argument_list|>
-argument_list|()
-argument_list|,
-operator|new
-name|ThreadFactory
-argument_list|()
-block|{
-specifier|private
-specifier|final
-name|AtomicInteger
-name|counter
-init|=
-operator|new
-name|AtomicInteger
-argument_list|()
-decl_stmt|;
-specifier|private
-specifier|final
-name|Thread
-operator|.
-name|UncaughtExceptionHandler
-name|handler
-init|=
-operator|new
-name|Thread
-operator|.
-name|UncaughtExceptionHandler
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|uncaughtException
-parameter_list|(
-name|Thread
-name|t
-parameter_list|,
-name|Throwable
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Error occurred in asynchronous processing "
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-decl_stmt|;
-annotation|@
-name|Override
-specifier|public
-name|Thread
-name|newThread
-parameter_list|(
-annotation|@
-name|Nonnull
-name|Runnable
-name|r
-parameter_list|)
-block|{
-name|Thread
-name|thread
-init|=
-operator|new
-name|Thread
-argument_list|(
-name|r
-argument_list|,
-name|createName
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|thread
-operator|.
-name|setDaemon
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|thread
-operator|.
-name|setPriority
-argument_list|(
-name|Thread
-operator|.
-name|MIN_PRIORITY
-argument_list|)
-expr_stmt|;
-name|thread
-operator|.
-name|setUncaughtExceptionHandler
-argument_list|(
-name|handler
-argument_list|)
-expr_stmt|;
 return|return
-name|thread
-return|;
-block|}
-specifier|private
-name|String
-name|createName
-parameter_list|()
-block|{
-return|return
-literal|"oak-lucene-"
-operator|+
-name|counter
+name|Executors
 operator|.
-name|getAndIncrement
+name|newCachedThreadPool
 argument_list|()
 return|;
-block|}
-block|}
-argument_list|)
-decl_stmt|;
-name|executor
-operator|.
-name|setKeepAliveTime
-argument_list|(
-literal|1
-argument_list|,
-name|TimeUnit
-operator|.
-name|MINUTES
-argument_list|)
-expr_stmt|;
-name|executor
-operator|.
-name|allowCoreThreadTimeOut
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-return|return
-name|executor
-return|;
+comment|//
+comment|//        ThreadPoolExecutor executor =
+comment|//            new ThreadPoolExecutor( 0, 5, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue<>(),
+comment|//                                    new ThreadFactory()
+comment|//                                    {
+comment|//                                        private final AtomicInteger counter = new AtomicInteger();
+comment|//
+comment|//                                        private final Thread.UncaughtExceptionHandler handler =
+comment|//                                            new Thread.UncaughtExceptionHandler()
+comment|//                                            {
+comment|//                                                @Override
+comment|//                                                public void uncaughtException( Thread t, Throwable e )
+comment|//                                                {
+comment|//                                                    log.warn( "Error occurred in asynchronous processing ", e );
+comment|//                                                }
+comment|//                                            };
+comment|//
+comment|//                                        @Override
+comment|//                                        public Thread newThread( @Nonnull Runnable r )
+comment|//                                        {
+comment|//                                            Thread thread = new Thread( r, createName() );
+comment|//                                            thread.setDaemon( true );
+comment|//                                            thread.setPriority( Thread.MIN_PRIORITY );
+comment|//                                            thread.setUncaughtExceptionHandler( handler );
+comment|//                                            return thread;
+comment|//                                        }
+comment|//
+comment|//                                        private String createName()
+comment|//                                        {
+comment|//                                            return "oak-lucene-" + counter.getAndIncrement();
+comment|//                                        }
+comment|//                                    } );
+comment|//        executor.setKeepAliveTime( 1, TimeUnit.MINUTES );
+comment|//        executor.allowCoreThreadTimeOut( true );
+comment|//        return executor;
 block|}
 block|}
 end_class
