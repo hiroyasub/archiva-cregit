@@ -41,9 +41,7 @@ name|apache
 operator|.
 name|maven
 operator|.
-name|index
-operator|.
-name|shaded
+name|index_shaded
 operator|.
 name|lucene
 operator|.
