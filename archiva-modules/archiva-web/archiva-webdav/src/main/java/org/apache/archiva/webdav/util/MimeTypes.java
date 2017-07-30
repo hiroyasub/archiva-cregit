@@ -377,12 +377,10 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Unable to load mime map "
-operator|+
+literal|"Unable to load mime map {} : {}"
+argument_list|,
 name|resourceName
-operator|+
-literal|" : "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -554,8 +552,8 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Unable to read mime types from input stream : "
-operator|+
+literal|"Unable to read mime types from input stream : {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

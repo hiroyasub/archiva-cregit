@@ -517,8 +517,8 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Error during repository initialization "
-operator|+
+literal|"Error during repository initialization {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

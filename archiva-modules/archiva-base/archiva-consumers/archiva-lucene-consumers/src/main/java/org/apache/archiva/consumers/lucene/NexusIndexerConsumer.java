@@ -1082,12 +1082,10 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Error queueing task: "
-operator|+
+literal|"Error queueing task: {}: {}"
+argument_list|,
 name|task
-operator|+
-literal|": "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage

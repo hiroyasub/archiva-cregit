@@ -523,11 +523,11 @@ argument_list|)
 operator|.
 name|error
 argument_list|(
-literal|"You are building and testing  with {appserver.base}: \n "
-operator|+
-name|path
+literal|"You are building and testing  with {appserver.base}: \n {}"
 operator|+
 literal|" containing space. Consider relocating."
+argument_list|,
+name|path
 argument_list|)
 expr_stmt|;
 block|}

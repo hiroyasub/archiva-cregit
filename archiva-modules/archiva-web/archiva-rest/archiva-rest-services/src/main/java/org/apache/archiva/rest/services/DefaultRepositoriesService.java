@@ -2186,8 +2186,8 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"error reading permission: "
-operator|+
+literal|"error reading permission: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -2263,8 +2263,8 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"error reading permission: "
-operator|+
+literal|"error reading permission: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -2402,12 +2402,9 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"cannot find artifact "
-operator|+
+literal|"cannot find artifact {}"
+argument_list|,
 name|artifactTransferRequest
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -2452,12 +2449,9 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"cannot find artifact "
-operator|+
+literal|"cannot find artifact {}"
+argument_list|,
 name|artifactTransferRequest
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -2890,8 +2884,8 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"RepositoryException: "
-operator|+
+literal|"RepositoryException: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -2923,8 +2917,8 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"RepositoryAdminException: "
-operator|+
+literal|"RepositoryAdminException: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -2956,8 +2950,8 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"IOException: "
-operator|+
+literal|"IOException: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -3043,14 +3037,14 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Unable to queue repository task to execute consumers on resource file ['"
+literal|"Unable to queue repository task to execute consumers on resource file ['{}"
 operator|+
+literal|"']."
+argument_list|,
 name|localFile
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|"']."
 argument_list|)
 expr_stmt|;
 block|}

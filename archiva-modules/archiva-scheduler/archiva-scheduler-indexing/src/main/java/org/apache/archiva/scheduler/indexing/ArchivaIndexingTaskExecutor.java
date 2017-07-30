@@ -735,8 +735,8 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Error occurred while creating context: "
-operator|+
+literal|"Error occurred while creating context: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1258,12 +1258,10 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Error occurred while executing indexing task '"
-operator|+
+literal|"Error occurred while executing indexing task '{}': {}"
+argument_list|,
 name|indexingTask
-operator|+
-literal|"': "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1382,12 +1380,10 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Error occurred while executing indexing task '"
-operator|+
+literal|"Error occurred while executing indexing task '{}': {}"
+argument_list|,
 name|indexingTask
-operator|+
-literal|"': "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage

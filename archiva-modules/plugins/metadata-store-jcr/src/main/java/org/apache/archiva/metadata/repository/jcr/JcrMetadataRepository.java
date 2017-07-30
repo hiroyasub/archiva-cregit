@@ -6785,8 +6785,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"skip InvalidItemStateException:"
-operator|+
+literal|"skip InvalidItemStateException:{}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -7475,8 +7475,8 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Attempted to load unknown project version metadata facet: "
-operator|+
+literal|"Attempted to load unknown project version metadata facet: {}"
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;

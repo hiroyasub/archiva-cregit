@@ -2800,11 +2800,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Creating Archiva Cassandra '"
-operator|+
+literal|"Creating Archiva Cassandra '{}' keyspace."
+argument_list|,
 name|keyspaceName
-operator|+
-literal|"' keyspace."
 argument_list|)
 expr_stmt|;
 name|cluster
