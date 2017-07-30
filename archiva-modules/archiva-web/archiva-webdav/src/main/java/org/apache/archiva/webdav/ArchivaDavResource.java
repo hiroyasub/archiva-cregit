@@ -2536,7 +2536,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"{}{}' copied to '{}' (current user '{)')"
+literal|"{}{}' copied to '{}' (current user '{}')"
 argument_list|,
 operator|(
 name|isCollection
