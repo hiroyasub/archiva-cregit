@@ -356,8 +356,8 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Copy failed "
-operator|+
+literal|"Copy failed {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -387,8 +387,8 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Exception from filesystem "
-operator|+
+literal|"Exception from filesystem {}"
+argument_list|,
 name|ex
 operator|.
 name|getMessage

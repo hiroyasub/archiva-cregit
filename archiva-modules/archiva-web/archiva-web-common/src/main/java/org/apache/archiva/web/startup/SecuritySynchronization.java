@@ -805,8 +805,8 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Unable to create roles for configured repositories: "
-operator|+
+literal|"Unable to create roles for configured repositories: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

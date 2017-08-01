@@ -375,8 +375,8 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Error during initialization of LdapConnectionFactory "
-operator|+
+literal|"Error during initialization of LdapConnectionFactory {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

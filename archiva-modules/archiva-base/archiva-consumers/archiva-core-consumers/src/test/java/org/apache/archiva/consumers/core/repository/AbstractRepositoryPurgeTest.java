@@ -661,11 +661,9 @@ argument_list|)
 operator|.
 name|error
 argument_list|(
-literal|"You are building and testing with a path: \n "
-operator|+
+literal|"You are building and testing with a path: \n {} containing space. Consider relocating."
+argument_list|,
 name|path
-operator|+
-literal|" containing space. Consider relocating."
 argument_list|)
 expr_stmt|;
 return|return

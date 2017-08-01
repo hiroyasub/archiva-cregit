@@ -3365,14 +3365,14 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Unable to queue repository task to execute consumers on resource file ['"
+literal|"Unable to queue repository task to execute consumers on resource file ['{}"
 operator|+
+literal|"']."
+argument_list|,
 name|localFile
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|"']."
 argument_list|)
 expr_stmt|;
 block|}

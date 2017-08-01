@@ -1608,7 +1608,7 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"ParseException in repository scanning cron expression, disabling repository scanning for '': {}"
+literal|"ParseException in repository scanning cron expression, disabling repository scanning for '{}': {}"
 argument_list|,
 name|repoConfig
 operator|.

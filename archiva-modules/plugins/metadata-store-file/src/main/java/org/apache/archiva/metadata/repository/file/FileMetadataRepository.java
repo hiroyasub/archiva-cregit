@@ -3404,8 +3404,8 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Attempted to load unknown artifact metadata facet: "
-operator|+
+literal|"Attempted to load unknown artifact metadata facet: {}"
+argument_list|,
 name|facetId
 argument_list|)
 expr_stmt|;

@@ -303,19 +303,17 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Consumer ["
+literal|"Consumer [{}] had an error when processing file ["
 operator|+
+literal|"{}]: {}"
+argument_list|,
 name|id
-operator|+
-literal|"] had an error when processing file ["
-operator|+
+argument_list|,
 name|basefile
 operator|.
 name|getAbsolutePath
 argument_list|()
-operator|+
-literal|"]: "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage

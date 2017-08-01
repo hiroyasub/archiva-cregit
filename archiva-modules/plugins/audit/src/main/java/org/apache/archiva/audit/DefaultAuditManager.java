@@ -692,8 +692,8 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Invalid audit event found in the metadata repository: "
-operator|+
+literal|"Invalid audit event found in the metadata repository: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

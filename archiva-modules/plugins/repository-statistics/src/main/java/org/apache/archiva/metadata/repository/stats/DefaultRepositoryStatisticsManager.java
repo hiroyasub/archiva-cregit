@@ -815,8 +815,8 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Invalid scan result found in the metadata repository: "
-operator|+
+literal|"Invalid scan result found in the metadata repository: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

@@ -393,9 +393,6 @@ argument_list|(
 literal|"skip error loading properties {}"
 argument_list|,
 name|resourceName
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -2554,8 +2554,10 @@ argument_list|(
 literal|"transfer.error"
 argument_list|)
 argument_list|,
-literal|"Transfer error from repository \""
+literal|"Transfer error from repository \"{}"
 operator|+
+literal|"\" for resource {}, continuing to next repository. Error message: {}"
+argument_list|,
 name|targetRepository
 operator|.
 name|getRepository
@@ -2563,12 +2565,8 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|"\" for resource "
-operator|+
+argument_list|,
 name|path
-operator|+
-literal|", continuing to next repository. Error message: {}"
 argument_list|,
 name|e
 operator|.
@@ -4109,14 +4107,14 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Unable to queue repository task to execute consumers on resource file ['"
+literal|"Unable to queue repository task to execute consumers on resource file ['{}"
 operator|+
+literal|"']."
+argument_list|,
 name|localFile
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|"']."
 argument_list|)
 expr_stmt|;
 block|}

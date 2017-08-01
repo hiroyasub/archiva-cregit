@@ -2965,12 +2965,10 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Unable to create "
-operator|+
+literal|"Unable to create {} file: {}"
+argument_list|,
 name|filetype
-operator|+
-literal|" file: "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage

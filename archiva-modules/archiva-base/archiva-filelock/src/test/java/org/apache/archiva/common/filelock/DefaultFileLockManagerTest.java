@@ -557,8 +557,8 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Error occured "
-operator|+
+literal|"Error occured {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -667,8 +667,8 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Error occured "
-operator|+
+literal|"Error occured {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -807,8 +807,8 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Error occured "
-operator|+
+literal|"Error occured {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -917,8 +917,8 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Error occured "
-operator|+
+literal|"Error occured {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1027,8 +1027,8 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Error occured "
-operator|+
+literal|"Error occured {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1162,8 +1162,8 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Error occured "
-operator|+
+literal|"Error occured {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1272,8 +1272,8 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Error occured "
-operator|+
+literal|"Error occured {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1407,8 +1407,8 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Error occured "
-operator|+
+literal|"Error occured {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1517,8 +1517,8 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Error occured "
-operator|+
+literal|"Error occured {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1652,8 +1652,8 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Error occured "
-operator|+
+literal|"Error occured {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
