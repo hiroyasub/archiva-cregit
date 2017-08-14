@@ -186,6 +186,19 @@ return|return
 name|repositorySessionFactory
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getId
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|beanId
+return|;
+block|}
 block|}
 end_class
 
