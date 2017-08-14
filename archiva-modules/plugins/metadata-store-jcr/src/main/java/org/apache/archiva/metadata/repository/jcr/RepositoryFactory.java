@@ -738,6 +738,10 @@ name|FileStore
 name|fileStore
 decl_stmt|;
 specifier|private
+name|NodeStore
+name|nodeStore
+decl_stmt|;
+specifier|private
 name|ExecutorService
 name|executorService
 decl_stmt|;
@@ -778,9 +782,6 @@ block|{
 name|createExecutor
 argument_list|()
 expr_stmt|;
-name|NodeStore
-name|nodeStore
-decl_stmt|;
 if|if
 condition|(
 name|SEGMENT_FILE_TYPE
@@ -811,6 +812,15 @@ name|builder
 argument_list|(
 name|fileStore
 argument_list|)
+comment|//
+operator|.
+name|withStatisticsProvider
+argument_list|(
+name|StatisticsProvider
+operator|.
+name|NOOP
+argument_list|)
+comment|//
 operator|.
 name|build
 argument_list|()

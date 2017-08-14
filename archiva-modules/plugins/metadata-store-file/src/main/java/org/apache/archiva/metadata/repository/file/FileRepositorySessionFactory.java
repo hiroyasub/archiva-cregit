@@ -217,7 +217,6 @@ name|FileRepositorySessionFactory
 implements|implements
 name|RepositorySessionFactory
 block|{
-comment|/**      *      */
 specifier|private
 name|Map
 argument_list|<
@@ -227,7 +226,6 @@ name|MetadataFacetFactory
 argument_list|>
 name|metadataFacetFactories
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 annotation|@
@@ -241,7 +239,6 @@ specifier|private
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|Inject
 specifier|private
@@ -361,6 +358,15 @@ argument_list|,
 name|metadataResolver
 argument_list|)
 return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|close
+parameter_list|()
+block|{
+comment|// no op
 block|}
 block|}
 end_class
