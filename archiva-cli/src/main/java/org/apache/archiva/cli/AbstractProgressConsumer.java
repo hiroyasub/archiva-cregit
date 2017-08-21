@@ -179,14 +179,12 @@ operator|==
 literal|0
 condition|)
 block|{
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"Files Processed: "
-operator|+
+literal|"Files Processed: {}"
+argument_list|,
 name|count
 argument_list|)
 expr_stmt|;
@@ -220,19 +218,15 @@ name|void
 name|completeScan
 parameter_list|()
 block|{
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"Final Count of Artifacts processed by "
-operator|+
+literal|"Final Count of Artifacts processed by {} : {}"
+argument_list|,
 name|getId
 argument_list|()
-operator|+
-literal|": "
-operator|+
+argument_list|,
 name|count
 argument_list|)
 expr_stmt|;

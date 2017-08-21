@@ -209,6 +209,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -354,7 +374,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ArchivaCli  *  * TODO add back reading of archiva.xml from a given location  */
+comment|/**  * ArchivaCli  *<p>  * TODO add back reading of archiva.xml from a given location  */
 end_comment
 
 begin_class
@@ -396,6 +416,21 @@ name|String
 name|POM_PROPERTIES
 init|=
 literal|"/META-INF/maven/org.apache.archiva/archiva-cli/pom.properties"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOGGER
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|ArchivaCli
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 specifier|private
 specifier|static
@@ -520,16 +555,16 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-name|System
+name|LOGGER
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
 name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|Args
@@ -610,14 +645,12 @@ operator|.
 name|version
 condition|)
 block|{
-name|System
+name|LOGGER
 operator|.
-name|out
-operator|.
-name|print
+name|info
 argument_list|(
-literal|"Version: "
-operator|+
+literal|"Version: {}"
+argument_list|,
 name|getVersion
 argument_list|()
 argument_list|)
@@ -654,11 +687,9 @@ operator|==
 literal|null
 condition|)
 block|{
-name|System
+name|LOGGER
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
 literal|"The repository must be specified."
 argument_list|)
@@ -853,14 +884,10 @@ operator|.
 name|FRESH_SCAN
 argument_list|)
 decl_stmt|;
-name|System
+name|LOGGER
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"\n"
-operator|+
 name|stats
 operator|.
 name|toDump
@@ -876,13 +903,16 @@ name|RepositoryScannerException
 name|e
 parameter_list|)
 block|{
+name|LOGGER
+operator|.
+name|error
+argument_list|(
 name|e
 operator|.
-name|printStackTrace
-argument_list|(
-name|System
-operator|.
-name|err
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -942,17 +972,13 @@ name|specifiedConsumer
 argument_list|)
 condition|)
 block|{
-name|System
+name|LOGGER
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
-literal|"Specified consumer ["
-operator|+
+literal|"Specified consumer [{}] not found."
+argument_list|,
 name|specifiedConsumer
-operator|+
-literal|"] not found."
 argument_list|)
 expr_stmt|;
 name|dumpAvailableConsumers
@@ -999,11 +1025,9 @@ init|=
 name|getConsumers
 argument_list|()
 decl_stmt|;
-name|System
+name|LOGGER
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|".\\ Available Consumer List \\.______________________________"
 argument_list|)
@@ -1042,25 +1066,20 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
-name|System
+name|LOGGER
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"  "
-operator|+
+literal|"  {} : {} ({})"
+argument_list|,
+comment|//
 name|consumerHint
-operator|+
-literal|": "
-operator|+
+argument_list|,
 name|consumer
 operator|.
 name|getDescription
 argument_list|()
-operator|+
-literal|" ("
-operator|+
+argument_list|,
 name|consumer
 operator|.
 name|getClass
@@ -1068,8 +1087,6 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1256,18 +1273,14 @@ name|TARGET_REPO_PATH
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|System
+name|LOGGER
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"Converting "
-operator|+
+literal|"Converting {} to {}"
+argument_list|,
 name|oldRepositoryPath
-operator|+
-literal|" to "
-operator|+
+argument_list|,
 name|newRepositoryPath
 argument_list|)
 expr_stmt|;
