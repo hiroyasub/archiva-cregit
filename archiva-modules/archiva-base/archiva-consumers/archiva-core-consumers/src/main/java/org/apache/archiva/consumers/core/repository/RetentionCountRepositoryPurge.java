@@ -191,6 +191,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -394,6 +404,13 @@ name|size
 argument_list|()
 condition|)
 block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"No deletion, because retention count is higher than actual number of artifacts."
+argument_list|)
+expr_stmt|;
 comment|// Done. nothing to do here. skip it.
 return|return;
 block|}
@@ -406,6 +423,17 @@ name|size
 argument_list|()
 operator|-
 name|retentionCount
+decl_stmt|;
+name|Set
+argument_list|<
+name|ArtifactReference
+argument_list|>
+name|artifactsToDelete
+init|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -425,14 +453,29 @@ condition|)
 block|{
 break|break;
 block|}
-name|doPurgeAllRelated
+name|artifactsToDelete
+operator|.
+name|addAll
+argument_list|(
+name|repository
+operator|.
+name|getRelatedArtifacts
+argument_list|(
+name|getNewArtifactReference
 argument_list|(
 name|artifact
 argument_list|,
 name|version
 argument_list|)
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
+name|purge
+argument_list|(
+name|artifactsToDelete
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 catch|catch
@@ -460,13 +503,21 @@ name|ContentNotFoundException
 name|e
 parameter_list|)
 block|{
-comment|// Nothing to do here.
-comment|// TODO: Log this condition?
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Repostory artifact not found {}"
+argument_list|,
+name|path
+argument_list|)
+expr_stmt|;
 block|}
 block|}
+comment|/*      * Returns a new artifact reference with different version      */
 specifier|private
-name|void
-name|doPurgeAllRelated
+name|ArtifactReference
+name|getNewArtifactReference
 parameter_list|(
 name|ArtifactReference
 name|reference
@@ -531,36 +582,9 @@ name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|Set
-argument_list|<
-name|ArtifactReference
-argument_list|>
-name|related
-init|=
-name|repository
-operator|.
-name|getRelatedArtifacts
-argument_list|(
+return|return
 name|artifact
-argument_list|)
-decl_stmt|;
-name|purge
-argument_list|(
-name|related
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ContentNotFoundException
-name|e
-parameter_list|)
-block|{
-comment|// Nothing to do here.
-comment|// TODO: Log this?
-block|}
+return|;
 block|}
 block|}
 end_class
