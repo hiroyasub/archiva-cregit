@@ -218,7 +218,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AutoRenameConsumer  *  *  */
+comment|/**  * AutoRenameConsumer  */
 end_comment
 
 begin_class
@@ -303,11 +303,11 @@ init|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 specifier|public
 name|AutoRenameConsumer
-parameter_list|()
+parameter_list|( )
 block|{
 name|includes
 operator|.
@@ -363,7 +363,7 @@ name|Override
 specifier|public
 name|String
 name|getId
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|this
@@ -376,7 +376,7 @@ name|Override
 specifier|public
 name|String
 name|getDescription
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|this
@@ -409,7 +409,7 @@ argument_list|(
 name|repository
 operator|.
 name|getLocation
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -444,7 +444,7 @@ name|Override
 specifier|public
 name|void
 name|completeScan
-parameter_list|()
+parameter_list|( )
 block|{
 comment|/* do nothing */
 block|}
@@ -459,7 +459,7 @@ name|executeOnEntireRepo
 parameter_list|)
 block|{
 name|completeScan
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 annotation|@
@@ -470,7 +470,7 @@ argument_list|<
 name|String
 argument_list|>
 name|getExcludes
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 literal|null
@@ -484,7 +484,7 @@ argument_list|<
 name|String
 argument_list|>
 name|getIncludes
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|includes
@@ -520,7 +520,7 @@ condition|(
 name|file
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|Iterator
@@ -534,17 +534,17 @@ operator|.
 name|extensionRenameMap
 operator|.
 name|keySet
-argument_list|()
+argument_list|( )
 operator|.
 name|iterator
-argument_list|()
+argument_list|( )
 decl_stmt|;
 while|while
 condition|(
 name|itExtensions
 operator|.
 name|hasNext
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|String
@@ -553,7 +553,7 @@ init|=
 name|itExtensions
 operator|.
 name|next
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -589,12 +589,12 @@ argument_list|,
 name|path
 operator|.
 name|length
-argument_list|()
+argument_list|( )
 operator|-
 name|extension
 operator|.
 name|length
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|+
 name|fixedExtension
@@ -661,7 +661,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -676,7 +676,7 @@ argument_list|,
 name|file
 operator|.
 name|getAbsolutePath
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|triggerConsumerInfo
@@ -686,13 +686,13 @@ operator|+
 name|file
 operator|.
 name|getAbsolutePath
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|file
 operator|.
 name|delete
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}

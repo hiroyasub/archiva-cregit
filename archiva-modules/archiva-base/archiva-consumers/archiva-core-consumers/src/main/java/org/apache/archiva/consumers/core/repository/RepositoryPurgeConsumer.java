@@ -507,7 +507,7 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 specifier|private
 name|RepositoryPurge
@@ -541,7 +541,7 @@ init|=
 name|Collections
 operator|.
 name|emptyList
-argument_list|()
+argument_list|( )
 decl_stmt|;
 annotation|@
 name|Inject
@@ -558,7 +558,7 @@ name|Override
 specifier|public
 name|String
 name|getId
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|this
@@ -571,7 +571,7 @@ name|Override
 specifier|public
 name|String
 name|getDescription
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|this
@@ -587,11 +587,11 @@ argument_list|<
 name|String
 argument_list|>
 name|getExcludes
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|getDefaultArtifactExclusions
-argument_list|()
+argument_list|( )
 return|;
 block|}
 annotation|@
@@ -602,7 +602,7 @@ argument_list|<
 name|String
 argument_list|>
 name|getIncludes
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|this
@@ -639,7 +639,7 @@ argument_list|(
 name|repository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -658,7 +658,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -679,7 +679,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -690,14 +690,14 @@ operator|=
 name|repositorySessionFactory
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 expr_stmt|;
 if|if
 condition|(
 name|repository
 operator|.
 name|getDaysOlder
-argument_list|()
+argument_list|( )
 operator|!=
 literal|0
 condition|)
@@ -712,12 +712,12 @@ argument_list|,
 name|repository
 operator|.
 name|getDaysOlder
-argument_list|()
+argument_list|( )
 argument_list|,
 name|repository
 operator|.
 name|getRetentionCount
-argument_list|()
+argument_list|( )
 argument_list|,
 name|repositorySession
 argument_list|,
@@ -737,7 +737,7 @@ argument_list|,
 name|repository
 operator|.
 name|getRetentionCount
-argument_list|()
+argument_list|( )
 argument_list|,
 name|repositorySession
 argument_list|,
@@ -768,7 +768,7 @@ operator|=
 name|repository
 operator|.
 name|isDeleteReleasedSnapshots
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 annotation|@
@@ -845,7 +845,7 @@ argument_list|(
 name|rpe
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|rpe
 argument_list|)
@@ -878,12 +878,12 @@ name|Override
 specifier|public
 name|void
 name|completeScan
-parameter_list|()
+parameter_list|( )
 block|{
 name|repositorySession
 operator|.
 name|close
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 annotation|@
@@ -897,7 +897,7 @@ name|executeOnEntireRepo
 parameter_list|)
 block|{
 name|completeScan
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 annotation|@
@@ -927,7 +927,7 @@ argument_list|)
 condition|)
 block|{
 name|initIncludes
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -952,7 +952,7 @@ block|}
 specifier|private
 name|void
 name|initIncludes
-parameter_list|()
+parameter_list|( )
 block|{
 name|includes
 operator|=
@@ -976,7 +976,7 @@ name|PostConstruct
 specifier|public
 name|void
 name|initialize
-parameter_list|()
+parameter_list|( )
 block|{
 name|configuration
 operator|.
@@ -986,7 +986,7 @@ name|this
 argument_list|)
 expr_stmt|;
 name|initIncludes
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 annotation|@
@@ -994,7 +994,7 @@ name|Override
 specifier|public
 name|boolean
 name|isProcessUnmodified
-parameter_list|()
+parameter_list|( )
 block|{
 comment|// we need to check all files for deletion, especially if not modified
 return|return
@@ -1004,7 +1004,7 @@ block|}
 specifier|public
 name|ArchivaConfiguration
 name|getConfiguration
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|configuration
@@ -1028,7 +1028,7 @@ block|}
 specifier|public
 name|RepositoryContentFactory
 name|getRepositoryContentFactory
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|repositoryContentFactory
@@ -1052,7 +1052,7 @@ block|}
 specifier|public
 name|MetadataTools
 name|getMetadataTools
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|metadataTools
@@ -1076,7 +1076,7 @@ block|}
 specifier|public
 name|FileTypes
 name|getFiletypes
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|filetypes
@@ -1100,7 +1100,7 @@ block|}
 specifier|public
 name|RepositoryPurge
 name|getRepoPurge
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|repoPurge
@@ -1124,7 +1124,7 @@ block|}
 specifier|public
 name|RepositoryPurge
 name|getCleanUp
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|cleanUp
@@ -1148,7 +1148,7 @@ block|}
 specifier|public
 name|boolean
 name|isDeleteReleasedSnapshots
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|deleteReleasedSnapshots
@@ -1172,7 +1172,7 @@ block|}
 specifier|public
 name|RepositorySessionFactory
 name|getRepositorySessionFactory
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|repositorySessionFactory
@@ -1196,7 +1196,7 @@ block|}
 specifier|public
 name|RepositorySession
 name|getRepositorySession
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|repositorySession

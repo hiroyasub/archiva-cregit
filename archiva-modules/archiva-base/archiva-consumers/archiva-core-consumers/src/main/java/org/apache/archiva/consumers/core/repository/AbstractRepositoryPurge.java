@@ -1919,7 +1919,7 @@ argument_list|,
 name|path
 operator|.
 name|toString
-argument_list|()
+argument_list|( )
 argument_list|,
 name|AuditEvent
 operator|.
@@ -1944,7 +1944,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1966,7 +1966,7 @@ init|=
 name|artifactFile
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -1988,10 +1988,10 @@ init|=
 name|artifactFile
 operator|.
 name|getFileName
-argument_list|()
+argument_list|( )
 operator|.
 name|toString
-argument_list|()
+argument_list|( )
 decl_stmt|;
 try|try
 block|{
@@ -2012,10 +2012,10 @@ lambda|->
 name|path
 operator|.
 name|getFileName
-argument_list|()
+argument_list|( )
 operator|.
 name|toString
-argument_list|()
+argument_list|( )
 operator|.
 name|startsWith
 argument_list|(
@@ -2055,7 +2055,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)

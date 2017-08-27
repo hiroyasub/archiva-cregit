@@ -379,7 +379,7 @@ name|filetypes
 expr_stmt|;
 comment|//configuration.addChangeListener( this );
 name|initIncludes
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 annotation|@
@@ -387,7 +387,7 @@ name|Override
 specifier|public
 name|String
 name|getId
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|this
@@ -400,7 +400,7 @@ name|Override
 specifier|public
 name|String
 name|getDescription
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|this
@@ -433,7 +433,7 @@ argument_list|(
 name|repo
 operator|.
 name|getLocation
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -468,7 +468,7 @@ name|Override
 specifier|public
 name|void
 name|completeScan
-parameter_list|()
+parameter_list|( )
 block|{
 comment|/* do nothing */
 block|}
@@ -483,7 +483,7 @@ name|executeOnEntireRepo
 parameter_list|)
 block|{
 name|completeScan
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 annotation|@
@@ -494,11 +494,11 @@ argument_list|<
 name|String
 argument_list|>
 name|getExcludes
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|getDefaultArtifactExclusions
-argument_list|()
+argument_list|( )
 return|;
 block|}
 annotation|@
@@ -509,7 +509,7 @@ argument_list|<
 name|String
 argument_list|>
 name|getIncludes
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|includes
@@ -608,7 +608,7 @@ operator|+
 name|checksumAlgorithm
 operator|.
 name|getExt
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 if|if
@@ -616,7 +616,7 @@ condition|(
 name|checksumFile
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|checksum
@@ -661,7 +661,7 @@ argument_list|,
 name|checksumFile
 operator|.
 name|getAbsolutePath
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|triggerConsumerInfo
@@ -671,7 +671,7 @@ operator|+
 name|checksumFile
 operator|.
 name|getAbsolutePath
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -706,7 +706,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -717,7 +717,7 @@ operator|!
 name|checksumFile
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|checksum
@@ -746,7 +746,7 @@ argument_list|,
 name|checksumFile
 operator|.
 name|getAbsolutePath
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|triggerConsumerInfo
@@ -756,7 +756,7 @@ operator|+
 name|checksumFile
 operator|.
 name|getAbsolutePath
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -790,7 +790,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -806,7 +806,7 @@ argument_list|,
 name|checksumFile
 operator|.
 name|getAbsolutePath
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|triggerConsumerWarning
@@ -818,7 +818,7 @@ operator|+
 name|checksumFile
 operator|.
 name|getAbsolutePath
-argument_list|()
+argument_list|( )
 operator|+
 literal|" is not a file."
 argument_list|)
@@ -829,7 +829,7 @@ comment|/*     @Override     public void afterConfigurationChange( Registry regi
 specifier|private
 name|void
 name|initIncludes
-parameter_list|()
+parameter_list|( )
 block|{
 name|includes
 operator|=
@@ -853,11 +853,11 @@ name|PostConstruct
 specifier|public
 name|void
 name|initialize
-parameter_list|()
+parameter_list|( )
 block|{
 comment|//configuration.addChangeListener( this );
 name|initIncludes
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}

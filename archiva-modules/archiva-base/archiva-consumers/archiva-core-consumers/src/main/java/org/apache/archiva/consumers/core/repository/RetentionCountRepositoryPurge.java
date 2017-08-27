@@ -288,7 +288,7 @@ argument_list|(
 name|repository
 operator|.
 name|getRepoRoot
-argument_list|()
+argument_list|( )
 argument_list|,
 name|path
 argument_list|)
@@ -299,7 +299,7 @@ operator|!
 name|artifactFile
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 return|return;
@@ -323,7 +323,7 @@ argument_list|(
 name|artifact
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -332,7 +332,7 @@ name|reference
 init|=
 operator|new
 name|VersionedReference
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|reference
 operator|.
@@ -341,7 +341,7 @@ argument_list|(
 name|artifact
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|reference
@@ -351,7 +351,7 @@ argument_list|(
 name|artifact
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|reference
@@ -361,7 +361,7 @@ argument_list|(
 name|artifact
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|List
@@ -391,7 +391,7 @@ argument_list|,
 name|VersionComparator
 operator|.
 name|getInstance
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 if|if
@@ -401,7 +401,7 @@ operator|>
 name|versions
 operator|.
 name|size
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|log
@@ -420,7 +420,7 @@ init|=
 name|versions
 operator|.
 name|size
-argument_list|()
+argument_list|( )
 operator|-
 name|retentionCount
 decl_stmt|;
@@ -433,7 +433,7 @@ init|=
 operator|new
 name|HashSet
 argument_list|<>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 for|for
 control|(
@@ -491,7 +491,7 @@ argument_list|(
 name|le
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|le
 argument_list|)
@@ -533,7 +533,7 @@ name|artifact
 init|=
 operator|new
 name|ArtifactReference
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|artifact
 operator|.
@@ -542,7 +542,7 @@ argument_list|(
 name|reference
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|artifact
@@ -552,7 +552,7 @@ argument_list|(
 name|reference
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|artifact
@@ -569,7 +569,7 @@ argument_list|(
 name|reference
 operator|.
 name|getClassifier
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|artifact
@@ -579,7 +579,7 @@ argument_list|(
 name|reference
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 return|return

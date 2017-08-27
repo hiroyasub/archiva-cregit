@@ -476,7 +476,7 @@ argument_list|(
 name|repository
 operator|.
 name|getRepoRoot
-argument_list|()
+argument_list|( )
 argument_list|,
 name|path
 argument_list|)
@@ -487,7 +487,7 @@ operator|!
 name|artifactFile
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 comment|// Nothing to do here, file doesn't exist, skip it.
@@ -513,7 +513,7 @@ argument_list|(
 name|artifactRef
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -525,7 +525,7 @@ name|reference
 init|=
 operator|new
 name|ProjectReference
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|reference
 operator|.
@@ -534,7 +534,7 @@ argument_list|(
 name|artifactRef
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|reference
@@ -544,7 +544,7 @@ argument_list|(
 name|artifactRef
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 comment|// Gether the released versions
@@ -557,7 +557,7 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|List
 argument_list|<
@@ -568,7 +568,7 @@ init|=
 name|managedRepositoryAdmin
 operator|.
 name|getManagedRepositories
-argument_list|()
+argument_list|( )
 decl_stmt|;
 for|for
 control|(
@@ -583,7 +583,7 @@ condition|(
 name|repo
 operator|.
 name|isReleases
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 try|try
@@ -598,7 +598,7 @@ argument_list|(
 name|repo
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 for|for
@@ -662,7 +662,7 @@ argument_list|,
 name|VersionComparator
 operator|.
 name|getInstance
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 comment|// Now clean out any version that is earlier than the highest released version.
@@ -676,7 +676,7 @@ name|versionRef
 init|=
 operator|new
 name|VersionedReference
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|versionRef
 operator|.
@@ -685,7 +685,7 @@ argument_list|(
 name|artifactRef
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|versionRef
@@ -695,7 +695,7 @@ argument_list|(
 name|artifactRef
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|MetadataRepository
@@ -704,7 +704,7 @@ init|=
 name|repositorySession
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -719,7 +719,7 @@ argument_list|(
 name|artifactRef
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 condition|)
@@ -731,7 +731,7 @@ argument_list|(
 name|artifactRef
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|repository
@@ -758,27 +758,27 @@ argument_list|,
 name|repository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifactRef
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifactRef
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifactRef
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifactFile
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -789,22 +789,22 @@ argument_list|(
 name|repository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifactRef
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifactRef
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifactRef
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|needsMetadataUpdate
@@ -837,7 +837,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -858,7 +858,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -875,7 +875,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -913,7 +913,7 @@ name|versionRef
 init|=
 operator|new
 name|VersionedReference
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|versionRef
 operator|.
@@ -922,7 +922,7 @@ argument_list|(
 name|artifact
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|versionRef
@@ -932,7 +932,7 @@ argument_list|(
 name|artifact
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|versionRef
@@ -942,7 +942,7 @@ argument_list|(
 name|artifact
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|ProjectReference
@@ -950,7 +950,7 @@ name|projectRef
 init|=
 operator|new
 name|ProjectReference
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|projectRef
 operator|.
@@ -959,7 +959,7 @@ argument_list|(
 name|artifact
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|projectRef
@@ -969,7 +969,7 @@ argument_list|(
 name|artifact
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 try|try

@@ -32,10 +32,10 @@ name|Exception
 block|{
 specifier|public
 name|RepositoryPurgeException
-parameter_list|()
+parameter_list|( )
 block|{
 name|super
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 specifier|public

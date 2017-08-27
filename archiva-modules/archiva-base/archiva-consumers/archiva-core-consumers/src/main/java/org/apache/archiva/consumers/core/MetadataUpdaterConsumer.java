@@ -382,7 +382,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MetadataUpdaterConsumer will create and update the metadata present within the repository.  *  *  */
+comment|/**  * MetadataUpdaterConsumer will create and update the metadata present within the repository.  */
 end_comment
 
 begin_class
@@ -513,7 +513,7 @@ name|Override
 specifier|public
 name|String
 name|getDescription
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|description
@@ -524,7 +524,7 @@ name|Override
 specifier|public
 name|String
 name|getId
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|id
@@ -576,7 +576,7 @@ argument_list|(
 name|repoConfig
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|this
@@ -589,7 +589,7 @@ argument_list|(
 name|repository
 operator|.
 name|getRepoRoot
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|this
@@ -599,7 +599,7 @@ operator|=
 name|System
 operator|.
 name|currentTimeMillis
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 catch|catch
@@ -615,7 +615,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -634,7 +634,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -672,7 +672,7 @@ name|Override
 specifier|public
 name|void
 name|completeScan
-parameter_list|()
+parameter_list|( )
 block|{
 comment|/* do nothing here */
 block|}
@@ -687,7 +687,7 @@ name|executeOnEntireRepo
 parameter_list|)
 block|{
 name|completeScan
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 annotation|@
@@ -698,11 +698,11 @@ argument_list|<
 name|String
 argument_list|>
 name|getExcludes
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|getDefaultArtifactExclusions
-argument_list|()
+argument_list|( )
 return|;
 block|}
 annotation|@
@@ -713,7 +713,7 @@ argument_list|<
 name|String
 argument_list|>
 name|getIncludes
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|this
@@ -789,7 +789,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -832,7 +832,7 @@ name|projectRef
 init|=
 operator|new
 name|ProjectReference
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|projectRef
 operator|.
@@ -841,7 +841,7 @@ argument_list|(
 name|artifact
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|projectRef
@@ -851,7 +851,7 @@ argument_list|(
 name|artifact
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 try|try
@@ -886,13 +886,13 @@ condition|(
 name|projectMetadata
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 operator|&&
 operator|(
 name|projectMetadata
 operator|.
 name|lastModified
-argument_list|()
+argument_list|( )
 operator|>=
 name|this
 operator|.
@@ -977,7 +977,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1011,7 +1011,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1039,7 +1039,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1067,7 +1067,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1088,7 +1088,7 @@ name|versionRef
 init|=
 operator|new
 name|VersionedReference
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|versionRef
 operator|.
@@ -1097,7 +1097,7 @@ argument_list|(
 name|artifact
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|versionRef
@@ -1107,7 +1107,7 @@ argument_list|(
 name|artifact
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|versionRef
@@ -1117,7 +1117,7 @@ argument_list|(
 name|artifact
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 try|try
@@ -1152,13 +1152,13 @@ condition|(
 name|projectMetadata
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 operator|&&
 operator|(
 name|projectMetadata
 operator|.
 name|lastModified
-argument_list|()
+argument_list|( )
 operator|>=
 name|this
 operator|.
@@ -1243,7 +1243,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1277,7 +1277,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1305,7 +1305,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1333,7 +1333,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1342,7 +1342,7 @@ comment|/*     @Override     public void afterConfigurationChange( Registry regi
 specifier|private
 name|void
 name|initIncludes
-parameter_list|()
+parameter_list|( )
 block|{
 name|includes
 operator|=
@@ -1366,11 +1366,11 @@ name|PostConstruct
 specifier|public
 name|void
 name|initialize
-parameter_list|()
+parameter_list|( )
 block|{
 comment|//configuration.addChangeListener( this );
 name|initIncludes
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}

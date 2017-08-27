@@ -294,7 +294,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ValidateChecksumConsumer - validate the provided checksum against the file it represents.  *  *  */
+comment|/**  * ValidateChecksumConsumer - validate the provided checksum against the file it represents.  */
 end_comment
 
 begin_class
@@ -412,7 +412,7 @@ name|Override
 specifier|public
 name|String
 name|getId
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|this
@@ -425,7 +425,7 @@ name|Override
 specifier|public
 name|String
 name|getDescription
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|this
@@ -458,7 +458,7 @@ argument_list|(
 name|repository
 operator|.
 name|getLocation
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -493,7 +493,7 @@ name|Override
 specifier|public
 name|void
 name|completeScan
-parameter_list|()
+parameter_list|( )
 block|{
 comment|/* nothing to do */
 block|}
@@ -508,7 +508,7 @@ name|executeOnEntireRepo
 parameter_list|)
 block|{
 name|completeScan
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 annotation|@
@@ -519,7 +519,7 @@ argument_list|<
 name|String
 argument_list|>
 name|getExcludes
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 literal|null
@@ -533,7 +533,7 @@ argument_list|<
 name|String
 argument_list|>
 name|getIncludes
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|this
@@ -625,7 +625,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -706,7 +706,7 @@ name|PostConstruct
 specifier|public
 name|void
 name|initialize
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|PlexusSisuBridgeException
 block|{
@@ -734,7 +734,7 @@ argument_list|(
 name|digesterUtils
 operator|.
 name|getAllDigesters
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|includes
@@ -746,7 +746,7 @@ argument_list|(
 name|allDigesters
 operator|.
 name|size
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 for|for
@@ -766,7 +766,7 @@ operator|+
 name|digester
 operator|.
 name|getFilenameExtension
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}

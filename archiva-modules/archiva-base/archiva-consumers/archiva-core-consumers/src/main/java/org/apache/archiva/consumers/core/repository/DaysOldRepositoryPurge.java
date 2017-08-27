@@ -390,7 +390,7 @@ argument_list|(
 name|repository
 operator|.
 name|getRepoRoot
-argument_list|()
+argument_list|( )
 argument_list|,
 name|path
 argument_list|)
@@ -401,7 +401,7 @@ operator|!
 name|artifactFile
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 return|return;
@@ -446,7 +446,7 @@ name|reference
 init|=
 operator|new
 name|VersionedReference
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|reference
 operator|.
@@ -455,7 +455,7 @@ argument_list|(
 name|artifact
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|reference
@@ -465,7 +465,7 @@ argument_list|(
 name|artifact
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|reference
@@ -475,7 +475,7 @@ argument_list|(
 name|artifact
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|List
@@ -505,7 +505,7 @@ argument_list|,
 name|VersionComparator
 operator|.
 name|getInstance
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 if|if
@@ -515,7 +515,7 @@ operator|>
 name|versions
 operator|.
 name|size
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 comment|// Done. nothing to do here. skip it.
@@ -527,7 +527,7 @@ init|=
 name|versions
 operator|.
 name|size
-argument_list|()
+argument_list|( )
 operator|-
 name|retentionCount
 decl_stmt|;
@@ -540,7 +540,7 @@ init|=
 operator|new
 name|HashSet
 argument_list|<>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 for|for
 control|(
@@ -570,7 +570,7 @@ argument_list|(
 name|artifactFile
 operator|.
 name|getAbsolutePath
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|newArtifactReference
@@ -600,7 +600,7 @@ argument_list|(
 name|newArtifactReference
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -609,12 +609,12 @@ condition|(
 name|newArtifactFile
 operator|.
 name|lastModified
-argument_list|()
+argument_list|( )
 operator|<
 name|olderThanThisDate
 operator|.
 name|getTimeInMillis
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|artifactsToDelete
@@ -641,7 +641,7 @@ argument_list|(
 name|newArtifactReference
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -653,7 +653,7 @@ argument_list|(
 name|newArtifactReference
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 if|if
@@ -661,12 +661,12 @@ condition|(
 name|timestampCal
 operator|.
 name|getTimeInMillis
-argument_list|()
+argument_list|( )
 operator|<
 name|olderThanThisDate
 operator|.
 name|getTimeInMillis
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|artifactsToDelete
@@ -703,7 +703,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -724,7 +724,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -756,7 +756,7 @@ condition|(
 name|m
 operator|.
 name|matches
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|Matcher
@@ -781,7 +781,7 @@ condition|(
 name|mtimestamp
 operator|.
 name|matches
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|String
