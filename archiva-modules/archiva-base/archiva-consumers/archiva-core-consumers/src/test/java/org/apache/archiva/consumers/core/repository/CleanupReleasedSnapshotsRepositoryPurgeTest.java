@@ -207,16 +207,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|mockito
-operator|.
-name|ArgumentCaptor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|test
