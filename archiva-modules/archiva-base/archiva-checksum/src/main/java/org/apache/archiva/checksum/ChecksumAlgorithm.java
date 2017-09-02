@@ -17,16 +17,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -36,6 +26,18 @@ operator|.
 name|io
 operator|.
 name|FilenameUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -71,7 +73,7 @@ specifier|static
 name|ChecksumAlgorithm
 name|getByExtension
 parameter_list|(
-name|File
+name|Path
 name|file
 parameter_list|)
 block|{
@@ -84,7 +86,10 @@ name|getExtension
 argument_list|(
 name|file
 operator|.
-name|getName
+name|getFileName
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 operator|.
@@ -141,7 +146,7 @@ literal|"Filename "
 operator|+
 name|file
 operator|.
-name|getName
+name|getFileName
 argument_list|()
 operator|+
 literal|" has no associated extension."
