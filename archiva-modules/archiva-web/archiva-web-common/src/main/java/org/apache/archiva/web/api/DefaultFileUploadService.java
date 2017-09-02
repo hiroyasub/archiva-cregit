@@ -3698,6 +3698,9 @@ argument_list|(
 name|projectMetadata
 argument_list|,
 name|projectMetadataFile
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -3838,6 +3841,9 @@ argument_list|(
 name|metadata
 argument_list|,
 name|metadataFile
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if

@@ -6319,6 +6319,9 @@ argument_list|(
 name|mergedMetadata
 argument_list|,
 name|outputFile
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|createChecksumFile

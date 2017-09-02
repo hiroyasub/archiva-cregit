@@ -1138,9 +1138,6 @@ name|toFile
 argument_list|(
 name|reference
 argument_list|)
-operator|.
-name|toPath
-argument_list|( )
 decl_stmt|;
 for|for
 control|(

@@ -1051,6 +1051,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -4216,7 +4228,7 @@ name|pomReference
 argument_list|)
 expr_stmt|;
 comment|// Open and read the POM from the managed repo
-name|File
+name|Path
 name|pom
 init|=
 name|managedRepository
@@ -4229,10 +4241,12 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|pom
+name|Files
 operator|.
 name|exists
-argument_list|()
+argument_list|(
+name|pom
+argument_list|)
 condition|)
 block|{
 return|return;
@@ -4255,9 +4269,6 @@ operator|.
 name|newBufferedReader
 argument_list|(
 name|pom
-operator|.
-name|toPath
-argument_list|()
 argument_list|,
 name|Charset
 operator|.

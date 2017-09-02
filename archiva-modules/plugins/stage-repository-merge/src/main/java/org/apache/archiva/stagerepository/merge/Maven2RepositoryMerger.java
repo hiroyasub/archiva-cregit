@@ -1637,6 +1637,9 @@ argument_list|(
 name|projectMetadata
 argument_list|,
 name|projectMetaDataFileIntargetRepo
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1718,6 +1721,9 @@ argument_list|(
 name|versionMetadata
 argument_list|,
 name|versionMetaDataFileInTargetRepo
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

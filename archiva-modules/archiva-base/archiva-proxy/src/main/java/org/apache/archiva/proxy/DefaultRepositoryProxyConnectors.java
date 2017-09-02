@@ -3538,6 +3538,9 @@ name|toFile
 argument_list|(
 name|artifact
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 return|;
 block|}
 comment|/**      * Simple method to test if the file exists on the local disk.      *      * @param file the file to test. (may be null)      * @return true if file exists. false if the file param is null, doesn't exist, or is not of type File.      */

@@ -109,9 +109,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -276,7 +278,7 @@ throws|throws
 name|LayoutException
 function_decl|;
 comment|/**      * Given an {@link ArtifactReference}, return the file reference to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
-name|File
+name|Path
 name|toFile
 parameter_list|(
 name|ArtifactReference
@@ -284,7 +286,7 @@ name|reference
 parameter_list|)
 function_decl|;
 comment|/**      * Given an {@link ArchivaArtifact}, return the file reference to the artifact.      *      * @param reference the archiva artifact to use.      * @return the relative path to the artifact.      */
-name|File
+name|Path
 name|toFile
 parameter_list|(
 name|ArchivaArtifact
