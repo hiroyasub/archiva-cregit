@@ -2352,9 +2352,6 @@ operator|new
 name|ChecksummedFile
 argument_list|(
 name|metadataFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|checksum
@@ -3057,9 +3054,6 @@ operator|new
 name|ChecksummedFile
 argument_list|(
 name|metadataFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|checksum
@@ -3917,9 +3911,6 @@ operator|new
 name|ChecksummedFile
 argument_list|(
 name|metadataFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|checksum

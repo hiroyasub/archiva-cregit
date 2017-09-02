@@ -594,8 +594,9 @@ init|=
 operator|new
 name|ChecksummedFile
 argument_list|(
-operator|new
-name|File
+name|Paths
+operator|.
+name|get
 argument_list|(
 name|repoConfig
 operator|.

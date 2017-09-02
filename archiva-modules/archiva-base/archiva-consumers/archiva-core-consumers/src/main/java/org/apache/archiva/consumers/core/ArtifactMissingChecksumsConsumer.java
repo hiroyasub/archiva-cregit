@@ -625,6 +625,9 @@ operator|new
 name|ChecksummedFile
 argument_list|(
 name|artifactFile
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 try|try
@@ -726,6 +729,9 @@ operator|new
 name|ChecksummedFile
 argument_list|(
 name|artifactFile
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 try|try

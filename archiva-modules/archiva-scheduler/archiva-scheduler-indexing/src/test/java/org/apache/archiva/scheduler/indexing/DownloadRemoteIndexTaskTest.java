@@ -65,7 +65,7 @@ name|common
 operator|.
 name|utils
 operator|.
-name|FileUtil
+name|FileUtils
 import|;
 end_import
 
@@ -848,7 +848,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|FileUtil
+name|FileUtils
 operator|.
 name|getBasedir
 argument_list|()

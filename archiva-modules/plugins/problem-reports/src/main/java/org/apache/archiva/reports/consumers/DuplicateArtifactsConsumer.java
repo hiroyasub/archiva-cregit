@@ -727,6 +727,9 @@ operator|new
 name|ChecksummedFile
 argument_list|(
 name|artifactFile
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 decl_stmt|;
 try|try

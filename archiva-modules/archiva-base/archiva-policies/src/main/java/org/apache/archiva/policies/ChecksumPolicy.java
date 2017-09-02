@@ -380,6 +380,9 @@ operator|new
 name|ChecksummedFile
 argument_list|(
 name|localFile
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -475,6 +478,9 @@ operator|new
 name|ChecksummedFile
 argument_list|(
 name|localFile
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
