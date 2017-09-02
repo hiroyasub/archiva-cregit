@@ -4774,9 +4774,6 @@ name|managedRepositoryContent
 argument_list|,
 name|path
 argument_list|)
-operator|.
-name|toPath
-argument_list|()
 expr_stmt|;
 if|if
 condition|(

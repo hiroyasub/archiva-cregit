@@ -3354,6 +3354,9 @@ operator|new
 name|ProxyFetchResult
 argument_list|(
 name|target
+operator|.
+name|toPath
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)

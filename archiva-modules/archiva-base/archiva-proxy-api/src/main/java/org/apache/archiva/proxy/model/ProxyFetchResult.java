@@ -21,9 +21,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -38,7 +40,7 @@ name|ProxyFetchResult
 block|{
 comment|//The file returned
 specifier|private
-name|File
+name|Path
 name|file
 decl_stmt|;
 comment|//Was the local file modified by the fetch?
@@ -49,7 +51,7 @@ decl_stmt|;
 specifier|public
 name|ProxyFetchResult
 parameter_list|(
-name|File
+name|Path
 name|file
 parameter_list|,
 name|boolean
@@ -70,7 +72,7 @@ name|modified
 expr_stmt|;
 block|}
 specifier|public
-name|File
+name|Path
 name|getFile
 parameter_list|()
 block|{

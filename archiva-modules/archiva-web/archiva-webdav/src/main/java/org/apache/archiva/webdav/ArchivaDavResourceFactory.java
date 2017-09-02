@@ -1281,6 +1281,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -4275,7 +4287,7 @@ name|path
 argument_list|)
 condition|)
 block|{
-name|File
+name|Path
 name|proxiedFile
 init|=
 name|connectors
@@ -4339,7 +4351,7 @@ argument_list|)
 condition|)
 block|{
 comment|// FIXME we must implement a merge of remote archetype catalog from remote servers.
-name|File
+name|Path
 name|proxiedFile
 init|=
 name|connectors
@@ -4418,7 +4430,7 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
-name|File
+name|Path
 name|proxiedFile
 init|=
 name|connectors
