@@ -243,9 +243,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -378,10 +380,10 @@ specifier|public
 name|void
 name|convertLegacyRepository
 parameter_list|(
-name|File
+name|Path
 name|legacyRepositoryDirectory
 parameter_list|,
-name|File
+name|Path
 name|repositoryDirectory
 parameter_list|,
 name|List
@@ -403,6 +405,9 @@ operator|.
 name|toUrl
 argument_list|(
 name|repositoryDirectory
+operator|.
+name|toFile
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|ManagedRepository
@@ -432,7 +437,10 @@ name|setLocation
 argument_list|(
 name|legacyRepositoryDirectory
 operator|.
-name|getAbsolutePath
+name|toAbsolutePath
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;

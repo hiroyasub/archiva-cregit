@@ -51,6 +51,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|UncheckedIOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|nio
 operator|.
 name|charset
@@ -230,6 +240,19 @@ condition|(
 operator|!
 name|Files
 operator|.
+name|exists
+argument_list|(
+name|dir
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
+if|if
+condition|(
+operator|!
+name|Files
+operator|.
 name|isDirectory
 argument_list|(
 name|dir
@@ -241,12 +264,20 @@ operator|new
 name|IOException
 argument_list|(
 literal|"Given path is not a directory "
+operator|+
+name|dir
 argument_list|)
 throw|;
 block|}
 name|boolean
 name|result
 init|=
+literal|true
+decl_stmt|;
+try|try
+block|{
+name|result
+operator|=
 name|Files
 operator|.
 name|walk
@@ -259,7 +290,7 @@ argument_list|(
 name|Comparator
 operator|.
 name|reverseOrder
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|map
@@ -289,15 +320,26 @@ return|;
 block|}
 catch|catch
 parameter_list|(
+name|UncheckedIOException
+decl||
 name|IOException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"File could not be deleted {}"
+argument_list|,
+name|file
+argument_list|)
+expr_stmt|;
 return|return
 name|Optional
 operator|.
 name|empty
-argument_list|()
+argument_list|( )
 return|;
 block|}
 block|}
@@ -309,7 +351,24 @@ name|Optional
 operator|::
 name|isPresent
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|UncheckedIOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"File deletion failed "
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 operator|!
@@ -436,7 +495,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Return the base directory       * @return      */
+comment|/**      * Return the base directory      * @return      */
 specifier|public
 specifier|static
 name|String

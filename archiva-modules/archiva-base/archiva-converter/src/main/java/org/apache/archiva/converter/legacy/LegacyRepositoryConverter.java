@@ -35,9 +35,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -64,10 +66,10 @@ comment|/**      * Convert a legacy repository to a modern repository. This mean
 name|void
 name|convertLegacyRepository
 parameter_list|(
-name|File
+name|Path
 name|legacyRepositoryDirectory
 parameter_list|,
-name|File
+name|Path
 name|destinationRepositoryDirectory
 parameter_list|,
 name|List
