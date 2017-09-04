@@ -377,7 +377,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"/.indexer"
+literal|".indexer"
 argument_list|,
 name|repositoryGroupAdmin
 operator|.
@@ -1698,7 +1698,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"/.indexer"
+literal|".indexer"
 argument_list|,
 name|repositoryGroupAdmin
 operator|.

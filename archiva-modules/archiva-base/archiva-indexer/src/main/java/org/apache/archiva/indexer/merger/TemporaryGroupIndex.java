@@ -23,7 +23,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
+name|Serializable
 import|;
 end_import
 
@@ -31,9 +31,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|Serializable
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -70,7 +72,7 @@ name|getTime
 argument_list|()
 decl_stmt|;
 specifier|private
-name|File
+name|Path
 name|directory
 decl_stmt|;
 specifier|private
@@ -88,7 +90,7 @@ decl_stmt|;
 specifier|public
 name|TemporaryGroupIndex
 parameter_list|(
-name|File
+name|Path
 name|directory
 parameter_list|,
 name|String
@@ -154,7 +156,7 @@ name|this
 return|;
 block|}
 specifier|public
-name|File
+name|Path
 name|getDirectory
 parameter_list|()
 block|{
@@ -166,7 +168,7 @@ specifier|public
 name|TemporaryGroupIndex
 name|setDirectory
 parameter_list|(
-name|File
+name|Path
 name|directory
 parameter_list|)
 block|{

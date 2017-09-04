@@ -41,9 +41,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -104,7 +106,7 @@ argument_list|,
 name|Collections
 operator|.
 expr|<
-name|File
+name|Path
 operator|>
 name|emptyList
 argument_list|()

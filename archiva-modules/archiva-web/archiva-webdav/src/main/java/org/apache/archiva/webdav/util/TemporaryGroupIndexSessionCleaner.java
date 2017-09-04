@@ -324,7 +324,7 @@ operator|.
 name|getDirectory
 argument_list|()
 operator|.
-name|getAbsolutePath
+name|toAbsolutePath
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -37,9 +37,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -59,7 +61,7 @@ parameter_list|(
 name|RepositoryGroup
 name|repositoryGroup
 parameter_list|,
-name|File
+name|Path
 name|directory
 parameter_list|)
 function_decl|;

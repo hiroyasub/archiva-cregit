@@ -21,9 +21,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -68,14 +70,14 @@ specifier|private
 name|String
 name|mergedIndexPath
 init|=
-literal|"/.indexer"
+literal|".indexer"
 decl_stmt|;
 specifier|private
 name|int
 name|mergedIndexTtl
 decl_stmt|;
 specifier|private
-name|File
+name|Path
 name|mergedIndexDirectory
 decl_stmt|;
 specifier|private
@@ -298,7 +300,7 @@ name|mergedIndexTtl
 expr_stmt|;
 block|}
 specifier|public
-name|File
+name|Path
 name|getMergedIndexDirectory
 parameter_list|()
 block|{
@@ -310,7 +312,7 @@ specifier|public
 name|void
 name|setMergedIndexDirectory
 parameter_list|(
-name|File
+name|Path
 name|mergedIndexDirectory
 parameter_list|)
 block|{
@@ -325,7 +327,7 @@ specifier|public
 name|IndexMergerRequest
 name|mergedIndexDirectory
 parameter_list|(
-name|File
+name|Path
 name|mergedIndexDirectory
 parameter_list|)
 block|{

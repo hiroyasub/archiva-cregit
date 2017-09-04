@@ -99,7 +99,7 @@ specifier|private
 name|String
 name|mergedIndexPath
 init|=
-literal|"/.indexer"
+literal|".indexer"
 decl_stmt|;
 comment|/**      * The TTL (time to live) of the repo group's merged index.      */
 specifier|private

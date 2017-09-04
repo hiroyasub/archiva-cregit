@@ -71,6 +71,18 @@ name|File
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Olivier Lamy  */
 end_comment
@@ -93,7 +105,7 @@ parameter_list|(
 name|RepositoryGroup
 name|repositoryGroup
 parameter_list|,
-name|File
+name|Path
 name|directory
 parameter_list|)
 block|{
