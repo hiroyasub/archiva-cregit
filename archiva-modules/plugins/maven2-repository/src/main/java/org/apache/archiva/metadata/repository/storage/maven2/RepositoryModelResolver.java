@@ -971,6 +971,9 @@ operator|.
 name|read
 argument_list|(
 name|mavenMetadata
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SnapshotVersion
@@ -1431,6 +1434,9 @@ operator|.
 name|read
 argument_list|(
 name|tmpMetadataResource
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// re-adjust to timestamp if present, otherwise retain the original -SNAPSHOT filename

@@ -4723,7 +4723,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Apply the policies.      *      * @param policies  the map of policies to execute. (Map of String policy keys, to {@link DownloadPolicy} objects)      * @param settings  the map of settings for the policies to execute. (Map of String policy keys, to String policy      *                  setting)      * @param request   the request properties (utilized by the {@link DownloadPolicy#applyPolicy(String, Properties, File)}      *                  )      * @param localFile the local file (utilized by the {@link DownloadPolicy#applyPolicy(String, Properties, File)})      * @throws PolicyViolationException      */
+comment|/**      * Apply the policies.      *      * @param policies  the map of policies to execute. (Map of String policy keys, to {@link DownloadPolicy} objects)      * @param settings  the map of settings for the policies to execute. (Map of String policy keys, to String policy      *                  setting)      * @param request   the request properties (utilized by the {@link DownloadPolicy#applyPolicy(String, Properties, Path)}      *                  )      * @param localFile the local file (utilized by the {@link DownloadPolicy#applyPolicy(String, Properties, Path)})      * @throws PolicyViolationException      */
 specifier|private
 name|void
 name|validatePolicies
@@ -4845,9 +4845,6 @@ argument_list|,
 name|request
 argument_list|,
 name|localFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -5016,9 +5013,6 @@ argument_list|,
 name|request
 argument_list|,
 name|localFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|,
 name|exception
 argument_list|,

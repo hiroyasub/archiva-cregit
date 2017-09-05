@@ -1924,9 +1924,6 @@ operator|.
 name|read
 argument_list|(
 name|metadataFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|)
 return|;
 block|}
@@ -2028,9 +2025,6 @@ operator|.
 name|read
 argument_list|(
 name|metadataFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|)
 return|;
 block|}
@@ -2135,9 +2129,6 @@ operator|.
 name|read
 argument_list|(
 name|metadataFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|)
 return|;
 block|}
@@ -2571,9 +2562,6 @@ operator|.
 name|read
 argument_list|(
 name|file
-operator|.
-name|toFile
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -2804,9 +2792,6 @@ operator|.
 name|read
 argument_list|(
 name|metadataFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|)
 operator|.
 name|getPlugins
@@ -3458,9 +3443,6 @@ operator|.
 name|read
 argument_list|(
 name|metadataFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

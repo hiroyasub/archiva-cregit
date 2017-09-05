@@ -4192,9 +4192,6 @@ operator|.
 name|read
 argument_list|(
 name|actualFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|RepositoryMetadataWriter

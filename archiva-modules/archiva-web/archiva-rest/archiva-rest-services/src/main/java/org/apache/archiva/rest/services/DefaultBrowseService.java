@@ -4579,9 +4579,6 @@ operator|.
 name|read
 argument_list|(
 name|metadataFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|int

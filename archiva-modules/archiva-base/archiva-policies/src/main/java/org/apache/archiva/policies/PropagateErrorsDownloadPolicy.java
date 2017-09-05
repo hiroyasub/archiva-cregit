@@ -65,9 +65,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -219,7 +221,7 @@ parameter_list|,
 name|Properties
 name|request
 parameter_list|,
-name|File
+name|Path
 name|localFile
 parameter_list|,
 name|Exception

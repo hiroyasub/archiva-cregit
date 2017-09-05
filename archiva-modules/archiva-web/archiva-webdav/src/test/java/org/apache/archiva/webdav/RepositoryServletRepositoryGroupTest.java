@@ -1087,6 +1087,9 @@ operator|.
 name|read
 argument_list|(
 name|returnedMetadata
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertResponseOK

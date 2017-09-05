@@ -1761,6 +1761,9 @@ operator|.
 name|read
 argument_list|(
 name|metadataFile
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

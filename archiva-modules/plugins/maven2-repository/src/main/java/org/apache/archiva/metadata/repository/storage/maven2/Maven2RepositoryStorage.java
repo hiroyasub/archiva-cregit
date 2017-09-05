@@ -1481,6 +1481,9 @@ operator|.
 name|read
 argument_list|(
 name|metadataFile
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// re-adjust to timestamp if present, otherwise retain the original -SNAPSHOT filename
@@ -4713,6 +4716,9 @@ operator|.
 name|read
 argument_list|(
 name|metadataFile
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|int
@@ -5358,6 +5364,9 @@ operator|.
 name|read
 argument_list|(
 name|metadataFile
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
