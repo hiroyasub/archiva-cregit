@@ -599,6 +599,9 @@ name|task
 operator|.
 name|getResourceFile
 argument_list|()
+operator|.
+name|toPath
+argument_list|()
 argument_list|,
 name|task
 operator|.
