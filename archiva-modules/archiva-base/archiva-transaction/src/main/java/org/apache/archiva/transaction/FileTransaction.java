@@ -17,11 +17,15 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|codehaus
 operator|.
-name|File
+name|plexus
+operator|.
+name|digest
+operator|.
+name|Digester
 import|;
 end_import
 
@@ -32,6 +36,18 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -52,20 +68,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|digest
-operator|.
-name|Digester
 import|;
 end_import
 
@@ -220,10 +222,10 @@ specifier|public
 name|void
 name|copyFile
 parameter_list|(
-name|File
+name|Path
 name|source
 parameter_list|,
-name|File
+name|Path
 name|destination
 parameter_list|,
 name|List
@@ -259,7 +261,7 @@ parameter_list|(
 name|String
 name|content
 parameter_list|,
-name|File
+name|Path
 name|destination
 parameter_list|,
 name|List

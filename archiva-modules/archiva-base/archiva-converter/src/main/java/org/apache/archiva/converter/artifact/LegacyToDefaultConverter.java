@@ -1389,9 +1389,6 @@ argument_list|(
 name|contents
 argument_list|,
 name|targetFile
-operator|.
-name|toFile
-argument_list|( )
 argument_list|,
 name|digesters
 argument_list|)
@@ -1598,9 +1595,6 @@ name|toString
 argument_list|()
 argument_list|,
 name|targetFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|,
 name|digesters
 argument_list|)
@@ -2117,14 +2111,8 @@ operator|.
 name|copyFile
 argument_list|(
 name|sourceFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|,
 name|targetFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|,
 name|digesters
 argument_list|)
@@ -3018,9 +3006,6 @@ name|toString
 argument_list|()
 argument_list|,
 name|file
-operator|.
-name|toFile
-argument_list|()
 argument_list|,
 name|digesters
 argument_list|)
@@ -3508,9 +3493,6 @@ name|toString
 argument_list|()
 argument_list|,
 name|pomFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|,
 name|digesters
 argument_list|)
