@@ -19,9 +19,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -187,7 +189,7 @@ parameter_list|()
 throws|throws
 name|XMLException
 block|{
-name|File
+name|Path
 name|xmlFile
 init|=
 name|getExampleXml
@@ -247,7 +249,7 @@ parameter_list|()
 throws|throws
 name|XMLException
 block|{
-name|File
+name|Path
 name|xmlFile
 init|=
 name|getExampleXml
@@ -303,7 +305,7 @@ parameter_list|()
 throws|throws
 name|XMLException
 block|{
-name|File
+name|Path
 name|xmlFile
 init|=
 name|getExampleXml
@@ -359,7 +361,7 @@ parameter_list|()
 throws|throws
 name|XMLException
 block|{
-name|File
+name|Path
 name|xmlFile
 init|=
 name|getExampleXml
@@ -416,7 +418,7 @@ parameter_list|()
 throws|throws
 name|XMLException
 block|{
-name|File
+name|Path
 name|xmlFile
 init|=
 name|getExampleXml

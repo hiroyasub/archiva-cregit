@@ -223,9 +223,6 @@ argument_list|(
 literal|"metadata"
 argument_list|,
 name|metadataFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// invoke this to remove namespaces, see MRM-1136

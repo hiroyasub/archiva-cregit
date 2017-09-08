@@ -73,16 +73,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|FileReader
 import|;
 end_import
@@ -156,6 +146,18 @@ operator|.
 name|charset
 operator|.
 name|Charset
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -259,7 +261,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|File
+name|Path
 name|exampleFile
 init|=
 name|getExampleXml
@@ -274,6 +276,9 @@ operator|new
 name|FileReader
 argument_list|(
 name|exampleFile
+operator|.
+name|toFile
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|BufferedReader
@@ -367,7 +372,7 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|File
+name|Path
 name|inputFile
 init|=
 name|getExampleXml
@@ -382,6 +387,9 @@ operator|new
 name|FileReader
 argument_list|(
 name|inputFile
+operator|.
+name|toFile
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|LatinEntityResolutionReader
@@ -453,7 +461,7 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|File
+name|Path
 name|inputFile
 init|=
 name|getExampleXml
@@ -468,6 +476,9 @@ operator|new
 name|FileReader
 argument_list|(
 name|inputFile
+operator|.
+name|toFile
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|LatinEntityResolutionReader
@@ -881,7 +892,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|File
+name|Path
 name|inputFile
 init|=
 name|getExampleXml
@@ -906,6 +917,9 @@ name|URL
 name|url
 init|=
 name|inputFile
+operator|.
+name|toUri
+argument_list|()
 operator|.
 name|toURL
 argument_list|()
