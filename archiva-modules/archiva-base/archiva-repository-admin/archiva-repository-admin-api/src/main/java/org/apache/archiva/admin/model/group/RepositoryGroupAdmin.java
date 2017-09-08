@@ -73,9 +73,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -234,7 +236,7 @@ parameter_list|()
 throws|throws
 name|RepositoryAdminException
 function_decl|;
-name|File
+name|Path
 name|getMergedIndexDirectory
 parameter_list|(
 name|String
