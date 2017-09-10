@@ -219,9 +219,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Files
 import|;
 end_import
 
@@ -233,7 +235,19 @@ name|nio
 operator|.
 name|file
 operator|.
-name|Files
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Paths
 import|;
 end_import
 
@@ -341,8 +355,9 @@ name|repoServer
 init|=
 name|buildStaticServer
 argument_list|(
-operator|new
-name|File
+name|Paths
+operator|.
+name|get
 argument_list|(
 name|System
 operator|.
@@ -350,8 +365,8 @@ name|getProperty
 argument_list|(
 literal|"basedir"
 argument_list|)
-operator|+
-literal|"/src/test/repositories/test-repo"
+argument_list|,
+literal|"src/test/repositories/test-repo"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -474,7 +489,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|File
+name|Path
 name|tmpDir
 init|=
 name|Files
@@ -483,9 +498,6 @@ name|createTempDirectory
 argument_list|(
 literal|"test"
 argument_list|)
-operator|.
-name|toFile
-argument_list|()
 decl_stmt|;
 name|Server
 name|repoServer
@@ -598,6 +610,16 @@ argument_list|(
 literal|"id-new"
 argument_list|)
 expr_stmt|;
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|common
+operator|.
+name|utils
+operator|.
 name|FileUtils
 operator|.
 name|deleteQuietly
@@ -695,7 +717,7 @@ specifier|protected
 name|Server
 name|buildStaticServer
 parameter_list|(
-name|File
+name|Path
 name|path
 parameter_list|)
 block|{
@@ -738,7 +760,10 @@ name|setResourceBase
 argument_list|(
 name|path
 operator|.
-name|getAbsolutePath
+name|toAbsolutePath
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
