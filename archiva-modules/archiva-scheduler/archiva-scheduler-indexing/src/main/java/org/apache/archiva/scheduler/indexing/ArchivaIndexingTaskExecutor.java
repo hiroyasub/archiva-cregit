@@ -359,7 +359,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
+name|IOException
 import|;
 end_import
 
@@ -367,9 +367,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|IOException
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -616,9 +618,6 @@ name|indexingTask
 operator|.
 name|getResourceFile
 argument_list|()
-operator|.
-name|getPath
-argument_list|()
 operator|)
 argument_list|)
 expr_stmt|;
@@ -690,7 +689,7 @@ throw|;
 block|}
 try|try
 block|{
-name|File
+name|Path
 name|artifactFile
 init|=
 name|indexingTask
@@ -725,6 +724,9 @@ argument_list|(
 name|context
 argument_list|,
 name|artifactFile
+operator|.
+name|toFile
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -740,7 +742,10 @@ if|if
 condition|(
 name|artifactFile
 operator|.
-name|getPath
+name|getFileName
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 operator|.
 name|endsWith
@@ -1146,9 +1151,6 @@ condition|?
 name|indexingTask
 operator|.
 name|getResourceFile
-argument_list|()
-operator|.
-name|getPath
 argument_list|()
 else|:
 literal|" none "

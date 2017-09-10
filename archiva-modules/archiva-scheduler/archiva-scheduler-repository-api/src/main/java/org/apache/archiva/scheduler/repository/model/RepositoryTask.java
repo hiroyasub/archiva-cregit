@@ -37,9 +37,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -63,7 +65,7 @@ name|String
 name|repositoryId
 decl_stmt|;
 specifier|private
-name|File
+name|Path
 name|resourceFile
 decl_stmt|;
 specifier|private
@@ -177,7 +179,7 @@ literal|0
 return|;
 block|}
 specifier|public
-name|File
+name|Path
 name|getResourceFile
 parameter_list|()
 block|{
@@ -189,7 +191,7 @@ specifier|public
 name|void
 name|setResourceFile
 parameter_list|(
-name|File
+name|Path
 name|resourceFile
 parameter_list|)
 block|{

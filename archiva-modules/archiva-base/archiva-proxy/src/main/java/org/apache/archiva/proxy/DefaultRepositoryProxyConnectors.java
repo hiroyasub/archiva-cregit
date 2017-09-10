@@ -3876,9 +3876,6 @@ operator|.
 name|setResourceFile
 argument_list|(
 name|localFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|task

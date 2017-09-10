@@ -782,9 +782,6 @@ argument_list|(
 name|repository
 argument_list|,
 name|artifactFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|,
 name|ArtifactIndexingTask
 operator|.
@@ -883,9 +880,6 @@ argument_list|(
 name|repository
 argument_list|,
 name|artifactFile
-operator|.
-name|toFile
-argument_list|()
 argument_list|,
 name|ArtifactIndexingTask
 operator|.

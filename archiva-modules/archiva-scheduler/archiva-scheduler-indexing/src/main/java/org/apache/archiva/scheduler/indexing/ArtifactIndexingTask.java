@@ -73,9 +73,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -103,7 +105,7 @@ name|repository
 decl_stmt|;
 specifier|private
 specifier|final
-name|File
+name|Path
 name|resourceFile
 decl_stmt|;
 specifier|private
@@ -135,7 +137,7 @@ parameter_list|(
 name|ManagedRepository
 name|repository
 parameter_list|,
-name|File
+name|Path
 name|resourceFile
 parameter_list|,
 name|Action
@@ -176,7 +178,7 @@ parameter_list|(
 name|ManagedRepository
 name|repository
 parameter_list|,
-name|File
+name|Path
 name|resourceFile
 parameter_list|,
 name|Action
@@ -213,7 +215,7 @@ parameter_list|(
 name|ManagedRepository
 name|repository
 parameter_list|,
-name|File
+name|Path
 name|resourceFile
 parameter_list|,
 name|Action
@@ -304,7 +306,7 @@ literal|0
 return|;
 block|}
 specifier|public
-name|File
+name|Path
 name|getResourceFile
 parameter_list|()
 block|{
