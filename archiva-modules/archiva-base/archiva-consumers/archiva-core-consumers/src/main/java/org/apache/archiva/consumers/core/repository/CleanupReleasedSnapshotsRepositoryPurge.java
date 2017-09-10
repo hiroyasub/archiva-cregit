@@ -333,7 +333,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
+name|IOException
 import|;
 end_import
 
@@ -341,9 +341,35 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|IOException
+name|file
+operator|.
+name|Files
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Paths
 import|;
 end_import
 
@@ -467,11 +493,12 @@ name|RepositoryPurgeException
 block|{
 try|try
 block|{
-name|File
+name|Path
 name|artifactFile
 init|=
-operator|new
-name|File
+name|Paths
+operator|.
+name|get
 argument_list|(
 name|repository
 operator|.
@@ -484,10 +511,12 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|artifactFile
+name|Files
 operator|.
 name|exists
-argument_list|( )
+argument_list|(
+name|artifactFile
+argument_list|)
 condition|)
 block|{
 comment|// Nothing to do here, file doesn't exist, skip it.
@@ -777,8 +806,11 @@ argument_list|( )
 argument_list|,
 name|artifactFile
 operator|.
-name|getName
-argument_list|( )
+name|getFileName
+argument_list|()
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

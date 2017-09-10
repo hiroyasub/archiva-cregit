@@ -177,16 +177,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -212,6 +202,18 @@ operator|.
 name|file
 operator|.
 name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Paths
 import|;
 end_import
 
@@ -415,11 +417,12 @@ name|RepositoryPurgeException
 block|{
 try|try
 block|{
-name|File
+name|Path
 name|artifactFile
 init|=
-operator|new
-name|File
+name|Paths
+operator|.
+name|get
 argument_list|(
 name|repository
 operator|.
@@ -432,10 +435,12 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|artifactFile
+name|Files
 operator|.
 name|exists
-argument_list|( )
+argument_list|(
+name|artifactFile
+argument_list|)
 condition|)
 block|{
 return|return;
@@ -603,8 +608,11 @@ name|toArtifactReference
 argument_list|(
 name|artifactFile
 operator|.
-name|getAbsolutePath
+name|toAbsolutePath
 argument_list|( )
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|newArtifactReference

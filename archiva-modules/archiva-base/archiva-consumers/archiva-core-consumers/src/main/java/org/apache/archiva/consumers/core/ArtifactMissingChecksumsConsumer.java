@@ -205,7 +205,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
+name|IOException
 import|;
 end_import
 
@@ -213,9 +213,35 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|IOException
+name|file
+operator|.
+name|Files
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Paths
 import|;
 end_import
 
@@ -336,7 +362,7 @@ init|=
 literal|"checksum-create-failure"
 decl_stmt|;
 specifier|private
-name|File
+name|Path
 name|repositoryDir
 decl_stmt|;
 specifier|private
@@ -427,8 +453,9 @@ name|this
 operator|.
 name|repositoryDir
 operator|=
-operator|new
-name|File
+name|Paths
+operator|.
+name|get
 argument_list|(
 name|repo
 operator|.
@@ -578,29 +605,23 @@ name|ChecksumAlgorithm
 name|checksumAlgorithm
 parameter_list|)
 block|{
-name|File
+name|Path
 name|artifactFile
 init|=
-operator|new
-name|File
-argument_list|(
-name|this
-operator|.
 name|repositoryDir
-argument_list|,
+operator|.
+name|resolve
+argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
-name|File
+name|Path
 name|checksumFile
 init|=
-operator|new
-name|File
-argument_list|(
-name|this
-operator|.
 name|repositoryDir
-argument_list|,
+operator|.
+name|resolve
+argument_list|(
 name|path
 operator|+
 literal|"."
@@ -613,10 +634,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|checksumFile
+name|Files
 operator|.
 name|exists
-argument_list|( )
+argument_list|(
+name|checksumFile
+argument_list|)
 condition|)
 block|{
 name|checksum
@@ -625,9 +648,6 @@ operator|new
 name|ChecksummedFile
 argument_list|(
 name|artifactFile
-operator|.
-name|toPath
-argument_list|()
 argument_list|)
 expr_stmt|;
 try|try
@@ -663,7 +683,7 @@ literal|"Fixed checksum file {}"
 argument_list|,
 name|checksumFile
 operator|.
-name|getAbsolutePath
+name|toAbsolutePath
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -673,7 +693,7 @@ literal|"Fixed checksum file "
 operator|+
 name|checksumFile
 operator|.
-name|getAbsolutePath
+name|toAbsolutePath
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -717,10 +737,12 @@ block|}
 if|else if
 condition|(
 operator|!
-name|checksumFile
+name|Files
 operator|.
 name|exists
-argument_list|( )
+argument_list|(
+name|checksumFile
+argument_list|)
 condition|)
 block|{
 name|checksum
@@ -729,9 +751,6 @@ operator|new
 name|ChecksummedFile
 argument_list|(
 name|artifactFile
-operator|.
-name|toPath
-argument_list|()
 argument_list|)
 expr_stmt|;
 try|try
@@ -751,7 +770,7 @@ literal|"Created missing checksum file {}"
 argument_list|,
 name|checksumFile
 operator|.
-name|getAbsolutePath
+name|toAbsolutePath
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -761,7 +780,7 @@ literal|"Created missing checksum file "
 operator|+
 name|checksumFile
 operator|.
-name|getAbsolutePath
+name|toAbsolutePath
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -811,7 +830,7 @@ literal|"Checksum file {} is not a file. "
 argument_list|,
 name|checksumFile
 operator|.
-name|getAbsolutePath
+name|toAbsolutePath
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -823,7 +842,7 @@ literal|"Checksum file "
 operator|+
 name|checksumFile
 operator|.
-name|getAbsolutePath
+name|toAbsolutePath
 argument_list|( )
 operator|+
 literal|" is not a file."
