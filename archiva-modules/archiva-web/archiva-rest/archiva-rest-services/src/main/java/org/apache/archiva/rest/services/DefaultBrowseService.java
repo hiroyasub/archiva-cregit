@@ -715,20 +715,6 @@ name|commons
 operator|.
 name|io
 operator|.
-name|FileUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|io
-operator|.
 name|IOUtils
 import|;
 end_import
@@ -790,16 +776,6 @@ operator|.
 name|core
 operator|.
 name|Response
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
 import|;
 end_import
 
