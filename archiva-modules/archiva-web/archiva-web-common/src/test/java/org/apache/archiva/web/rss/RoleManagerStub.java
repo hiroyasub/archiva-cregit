@@ -29,7 +29,7 @@ name|redback
 operator|.
 name|role
 operator|.
-name|RoleManagerException
+name|RoleManager
 import|;
 end_import
 
@@ -45,7 +45,7 @@ name|redback
 operator|.
 name|role
 operator|.
-name|RoleManager
+name|RoleManagerException
 import|;
 end_import
 

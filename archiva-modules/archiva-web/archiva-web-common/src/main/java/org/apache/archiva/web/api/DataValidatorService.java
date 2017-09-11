@@ -25,13 +25,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|rest
+name|redback
 operator|.
-name|api
+name|authorization
 operator|.
-name|services
-operator|.
-name|ArchivaRestServiceException
+name|RedbackAuthorization
 import|;
 end_import
 
@@ -43,11 +41,13 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|redback
+name|rest
 operator|.
-name|authorization
+name|api
 operator|.
-name|RedbackAuthorization
+name|services
+operator|.
+name|ArchivaRestServiceException
 import|;
 end_import
 

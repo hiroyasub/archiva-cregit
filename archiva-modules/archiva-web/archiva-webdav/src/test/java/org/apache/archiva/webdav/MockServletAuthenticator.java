@@ -23,9 +23,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|security
+name|redback
 operator|.
-name|ArchivaServletAuthenticator
+name|authorization
+operator|.
+name|UnauthorizedException
 import|;
 end_import
 
@@ -37,11 +39,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|redback
+name|security
 operator|.
-name|authorization
-operator|.
-name|UnauthorizedException
+name|ArchivaServletAuthenticator
 import|;
 end_import
 

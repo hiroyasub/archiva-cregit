@@ -18,18 +18,6 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|assertEquals
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.

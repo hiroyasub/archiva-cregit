@@ -17,11 +17,17 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|List
+name|archiva
+operator|.
+name|redback
+operator|.
+name|rbac
+operator|.
+name|RBACManager
 import|;
 end_import
 
@@ -79,22 +85,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|redback
-operator|.
-name|rbac
-operator|.
-name|RBACManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -140,6 +130,16 @@ operator|.
 name|inject
 operator|.
 name|Named
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
