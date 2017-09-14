@@ -55,6 +55,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|test
+operator|.
+name|utils
+operator|.
+name|ArchivaSpringJUnit4ClassRunner
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Rule
@@ -113,16 +129,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|inject
@@ -133,17 +139,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|nio
 operator|.
-name|archiva
+name|file
 operator|.
-name|test
-operator|.
-name|utils
-operator|.
-name|ArchivaSpringJUnit4ClassRunner
+name|Path
 import|;
 end_import
 
@@ -199,7 +201,7 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|File
+name|Path
 name|location
 parameter_list|)
 block|{
@@ -230,7 +232,10 @@ name|setLocation
 argument_list|(
 name|location
 operator|.
-name|getAbsolutePath
+name|toAbsolutePath
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -294,7 +299,7 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|File
+name|Path
 name|location
 parameter_list|,
 name|String
@@ -330,7 +335,10 @@ name|setLocation
 argument_list|(
 name|location
 operator|.
-name|getAbsolutePath
+name|toAbsolutePath
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;

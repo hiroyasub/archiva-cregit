@@ -136,22 +136,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|assertj
-operator|.
-name|core
-operator|.
-name|api
-operator|.
-name|Assertions
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -221,9 +205,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Paths
 import|;
 end_import
 
@@ -244,6 +230,22 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|assertj
+operator|.
+name|core
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertThat
 import|;
 end_import
 
@@ -370,13 +372,17 @@ name|repoConfig
 operator|.
 name|setLocation
 argument_list|(
-operator|new
-name|File
+name|Paths
+operator|.
+name|get
 argument_list|(
 literal|"target/test-repository"
 argument_list|)
 operator|.
-name|getAbsolutePath
+name|toAbsolutePath
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
