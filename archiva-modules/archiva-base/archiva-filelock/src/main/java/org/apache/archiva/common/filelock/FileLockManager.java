@@ -23,7 +23,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
+name|FileNotFoundException
 import|;
 end_import
 
@@ -31,9 +31,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|FileNotFoundException
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -50,7 +52,7 @@ comment|/**      *      * @param file      * @return      * @throws FileLockExce
 name|Lock
 name|writeFileLock
 parameter_list|(
-name|File
+name|Path
 name|file
 parameter_list|)
 throws|throws
@@ -62,7 +64,7 @@ comment|/**      *      * @param file      * @return      * @throws FileLockExce
 name|Lock
 name|readFileLock
 parameter_list|(
-name|File
+name|Path
 name|file
 parameter_list|)
 throws|throws

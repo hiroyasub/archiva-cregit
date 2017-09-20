@@ -1070,9 +1070,6 @@ operator|.
 name|readFileLock
 argument_list|(
 name|localResource
-operator|.
-name|toFile
-argument_list|()
 argument_list|)
 decl_stmt|;
 try|try
@@ -1087,9 +1084,6 @@ argument_list|(
 name|lock
 operator|.
 name|getFile
-argument_list|()
-operator|.
-name|toPath
 argument_list|()
 argument_list|)
 init|)
