@@ -307,9 +307,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|NoSuchFileException
 import|;
 end_import
 
@@ -321,7 +323,7 @@ name|nio
 operator|.
 name|file
 operator|.
-name|NoSuchFileException
+name|Paths
 import|;
 end_import
 
@@ -536,13 +538,17 @@ name|config
 operator|.
 name|setLocation
 argument_list|(
-operator|new
-name|File
+name|Paths
+operator|.
+name|get
 argument_list|(
 literal|"target/test-repository"
 argument_list|)
 operator|.
-name|getAbsolutePath
+name|toAbsolutePath
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;

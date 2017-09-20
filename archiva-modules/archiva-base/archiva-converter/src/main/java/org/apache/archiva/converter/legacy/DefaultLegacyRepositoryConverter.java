@@ -405,9 +405,6 @@ operator|.
 name|toUrl
 argument_list|(
 name|repositoryDirectory
-operator|.
-name|toFile
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|ManagedRepository

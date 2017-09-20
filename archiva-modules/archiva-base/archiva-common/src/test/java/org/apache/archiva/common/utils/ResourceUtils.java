@@ -37,16 +37,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -58,6 +48,30 @@ operator|.
 name|net
 operator|.
 name|URL
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Paths
 import|;
 end_import
 
@@ -73,7 +87,7 @@ block|{
 comment|/**      * Lookup resource at the given path relative to the root of the classpath and if it exists return a file object      * that can be used to access it.      *<p>      * At test time the contents of both the src/resources and test/resources dirs are available at the root of the      * classpath.      *<p>      * To retrieve the file src/test/resources/sometest/test.properties use getResource("/sometest/test.properties").      *       * @param resourcePath the path to the resource relative to the root of the classpath      * @return File a file object pointing to the resource on the classpath or null if the resource cannot be found      */
 specifier|public
 specifier|static
-name|File
+name|Path
 name|getResource
 parameter_list|(
 name|String
@@ -94,7 +108,7 @@ block|}
 comment|/**      * Lookup resource at the given path relative to the root of the classpath and if it exists return a file object      * that can be used to access it.      *<p>      * At test time the contents of both the src/resources and test/resources dirs are available at the root of the      * classpath.      *<p>      * To retrieve the file src/test/resources/sometest/test.properties use getResource("/sometest/test.properties").      *       * @param resourcePath the path to the resource relative to the root of the classpath      * @param classloader the classloader who's classpath should be searched for the resource      * @return File a file object pointing to the resource on the classpath or null if the resource cannot be found      */
 specifier|public
 specifier|static
-name|File
+name|Path
 name|getResource
 parameter_list|(
 name|String
@@ -106,7 +120,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|File
+name|Path
 name|testResource
 init|=
 literal|null
@@ -168,8 +182,9 @@ throw|;
 block|}
 name|testResource
 operator|=
-operator|new
-name|File
+name|Paths
+operator|.
+name|get
 argument_list|(
 name|resourceUrl
 operator|.

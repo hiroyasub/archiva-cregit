@@ -3856,9 +3856,6 @@ name|toString
 argument_list|()
 argument_list|,
 name|destDir
-operator|.
-name|toFile
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|log
