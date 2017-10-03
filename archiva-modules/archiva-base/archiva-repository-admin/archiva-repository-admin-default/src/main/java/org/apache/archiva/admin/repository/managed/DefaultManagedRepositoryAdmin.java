@@ -963,7 +963,7 @@ argument_list|()
 argument_list|,
 name|repoConfig
 operator|.
-name|getDaysOlder
+name|getRetentionTime
 argument_list|()
 argument_list|,
 name|repoConfig
@@ -1322,7 +1322,7 @@ name|String
 name|indexDir
 parameter_list|,
 name|int
-name|daysOlder
+name|retentionTime
 parameter_list|,
 name|int
 name|retentionCount
@@ -1433,9 +1433,9 @@ argument_list|)
 expr_stmt|;
 name|repository
 operator|.
-name|setDaysOlder
+name|setRetentionTime
 argument_list|(
-name|daysOlder
+name|retentionTime
 argument_list|)
 expr_stmt|;
 name|repository
@@ -3387,11 +3387,11 @@ argument_list|)
 expr_stmt|;
 name|stagingRepository
 operator|.
-name|setDaysOlder
+name|setRetentionTime
 argument_list|(
 name|repository
 operator|.
-name|getDaysOlder
+name|getRetentionTime
 argument_list|()
 argument_list|)
 expr_stmt|;

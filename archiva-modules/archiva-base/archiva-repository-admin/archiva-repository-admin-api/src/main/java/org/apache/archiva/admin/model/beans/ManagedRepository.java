@@ -106,7 +106,7 @@ decl_stmt|;
 comment|/**      * default model value      */
 specifier|private
 name|int
-name|daysOlder
+name|retentionTime
 init|=
 literal|100
 decl_stmt|;
@@ -174,7 +174,7 @@ name|boolean
 name|scanned
 parameter_list|,
 name|int
-name|daysOlder
+name|retentionTime
 parameter_list|,
 name|int
 name|retentionCount
@@ -241,9 +241,9 @@ name|scanned
 expr_stmt|;
 name|this
 operator|.
-name|daysOlder
+name|retentionTime
 operator|=
-name|daysOlder
+name|retentionTime
 expr_stmt|;
 name|this
 operator|.
@@ -299,7 +299,7 @@ name|boolean
 name|scanned
 parameter_list|,
 name|int
-name|daysOlder
+name|retentionTime
 parameter_list|,
 name|int
 name|retentionCount
@@ -339,7 +339,7 @@ name|indexDir
 argument_list|,
 name|scanned
 argument_list|,
-name|daysOlder
+name|retentionTime
 argument_list|,
 name|retentionCount
 argument_list|,
@@ -540,7 +540,7 @@ name|getDaysOlder
 parameter_list|()
 block|{
 return|return
-name|daysOlder
+name|retentionTime
 return|;
 block|}
 specifier|public
@@ -548,14 +548,14 @@ name|void
 name|setDaysOlder
 parameter_list|(
 name|int
-name|daysOlder
+name|retentionTime
 parameter_list|)
 block|{
 name|this
 operator|.
-name|daysOlder
+name|retentionTime
 operator|=
-name|daysOlder
+name|retentionTime
 expr_stmt|;
 block|}
 specifier|public
@@ -808,12 +808,12 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", daysOlder="
+literal|", retentionTime="
 argument_list|)
 operator|.
 name|append
 argument_list|(
-name|daysOlder
+name|retentionTime
 argument_list|)
 expr_stmt|;
 name|sb

@@ -296,7 +296,7 @@ argument_list|()
 argument_list|,
 name|repoConfig
 operator|.
-name|getDaysOlder
+name|getRetentionTime
 argument_list|()
 argument_list|,
 name|repoConfig

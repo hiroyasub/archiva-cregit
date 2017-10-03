@@ -336,7 +336,7 @@ name|timestampParser
 decl_stmt|;
 specifier|private
 name|int
-name|daysOlder
+name|retentionTime
 decl_stmt|;
 specifier|private
 name|int
@@ -349,7 +349,7 @@ name|ManagedRepositoryContent
 name|repository
 parameter_list|,
 name|int
-name|daysOlder
+name|retentionTime
 parameter_list|,
 name|int
 name|retentionCount
@@ -375,9 +375,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|daysOlder
+name|retentionTime
 operator|=
-name|daysOlder
+name|retentionTime
 expr_stmt|;
 name|this
 operator|.
@@ -476,7 +476,7 @@ operator|.
 name|DATE
 argument_list|,
 operator|-
-name|daysOlder
+name|retentionTime
 argument_list|)
 expr_stmt|;
 comment|// respect retention count
