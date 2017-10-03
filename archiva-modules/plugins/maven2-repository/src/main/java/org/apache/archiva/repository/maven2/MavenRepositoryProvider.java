@@ -342,9 +342,10 @@ name|cfg
 operator|.
 name|getRefreshCronExpression
 argument_list|()
+expr_stmt|;
 name|StagingRepositoryFeature
 name|feature
-operator|=
+init|=
 name|repo
 operator|.
 name|getFeature
@@ -356,7 +357,7 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 return|return
 literal|null
 return|;
