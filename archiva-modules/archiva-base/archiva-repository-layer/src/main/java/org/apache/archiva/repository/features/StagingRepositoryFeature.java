@@ -59,6 +59,11 @@ literal|false
 decl_stmt|;
 specifier|public
 name|StagingRepositoryFeature
+parameter_list|()
+block|{
+block|}
+specifier|public
+name|StagingRepositoryFeature
 parameter_list|(
 name|ManagedRepository
 name|stagingRepository
@@ -84,7 +89,7 @@ annotation|@
 name|Override
 specifier|public
 name|StagingRepositoryFeature
-name|getFeature
+name|get
 parameter_list|()
 block|{
 return|return

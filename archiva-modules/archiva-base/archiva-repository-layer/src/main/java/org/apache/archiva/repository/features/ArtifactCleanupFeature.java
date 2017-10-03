@@ -66,6 +66,11 @@ literal|2
 decl_stmt|;
 specifier|public
 name|ArtifactCleanupFeature
+parameter_list|()
+block|{
+block|}
+specifier|public
+name|ArtifactCleanupFeature
 parameter_list|(
 name|boolean
 name|deleteReleasedSnapshots
@@ -100,7 +105,7 @@ annotation|@
 name|Override
 specifier|public
 name|ArtifactCleanupFeature
-name|getFeature
+name|get
 parameter_list|()
 block|{
 return|return

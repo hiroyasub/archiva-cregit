@@ -104,7 +104,7 @@ argument_list|)
 return|;
 block|}
 name|T
-name|getFeature
+name|get
 parameter_list|()
 function_decl|;
 block|}

@@ -61,7 +61,7 @@ annotation|@
 name|Override
 specifier|public
 name|RemoteIndexFeature
-name|getFeature
+name|get
 parameter_list|()
 block|{
 return|return

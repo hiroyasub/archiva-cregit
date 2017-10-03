@@ -39,6 +39,11 @@ literal|false
 decl_stmt|;
 specifier|public
 name|IndexCreationFeature
+parameter_list|()
+block|{
+block|}
+specifier|public
+name|IndexCreationFeature
 parameter_list|(
 name|boolean
 name|skipPackedIndexCreation
@@ -55,7 +60,7 @@ annotation|@
 name|Override
 specifier|public
 name|IndexCreationFeature
-name|getFeature
+name|get
 parameter_list|()
 block|{
 return|return

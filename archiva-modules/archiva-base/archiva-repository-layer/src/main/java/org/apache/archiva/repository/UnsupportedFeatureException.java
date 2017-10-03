@@ -16,7 +16,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * This exception is thrown if a given feature is not supported by the repository.  *  */
+comment|/**  * This exception is thrown if a given feature is not supported by the repository.  * This is a runtime exception.  *  */
 end_comment
 
 begin_class
@@ -24,7 +24,7 @@ specifier|public
 class|class
 name|UnsupportedFeatureException
 extends|extends
-name|Exception
+name|RuntimeException
 block|{
 specifier|public
 name|UnsupportedFeatureException
