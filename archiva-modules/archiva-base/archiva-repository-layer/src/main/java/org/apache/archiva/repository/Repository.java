@@ -134,12 +134,9 @@ name|boolean
 name|isScanned
 parameter_list|()
 function_decl|;
-comment|/**      * The definition when the scheduler should run to scan this repository.      * @return      */
-name|List
-argument_list|<
-name|ScheduleDefinition
-argument_list|>
-name|getSchedulingTimes
+comment|/**      * Returns the definition, when the repository jobs are executed.      * This must return a valid a cron string.      *      * @See http://www.quartz-scheduler.org/api/2.2.1/org/quartz/CronExpression.html      *      * @return      */
+name|String
+name|getSchedulingDefinition
 parameter_list|()
 function_decl|;
 comment|/**      * Returns true, if this repository has a index available      * @return      */

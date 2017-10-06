@@ -114,45 +114,15 @@ name|boolean
 name|scanned
 parameter_list|)
 function_decl|;
-comment|/**      * Adds a scheduling time at the given index.      * @param index the index where time should be set      * @param scheduleDefinition the scheduling definition to add      */
+comment|/**      * Sets the scheduling definition, that defines the times, when the regular repository      * jobs are started. The<code>cronExpression</code> must be a valid      * quartz cron definition.      *      * @See http://www.quartz-scheduler.org/api/2.2.1/org/quartz/CronExpression.html      *      * @param cronExpression the cron expression.      * @throws IllegalArgumentException if the cron expression is not valid.      */
 name|void
-name|addSchedulingTime
+name|setSchedulingDefinition
 parameter_list|(
-name|int
-name|index
-parameter_list|,
-name|ScheduleDefinition
-name|scheduleDefinition
+name|String
+name|cronExpression
 parameter_list|)
-function_decl|;
-comment|/**      * Adds a scheduling time to the end of the list.      * @param scheduleDefinition the scheduling definition to set      */
-name|void
-name|addSchedulingTime
-parameter_list|(
-name|ScheduleDefinition
-name|scheduleDefinition
-parameter_list|)
-function_decl|;
-comment|/**      * Removes the scheduling time definition from the list.      * @param scheduleDefinition the scheduling definition to remove.      */
-name|void
-name|removeSchedulingTime
-parameter_list|(
-name|ScheduleDefinition
-name|scheduleDefinition
-parameter_list|)
-function_decl|;
-comment|/**      * Removes the scheduling time definition add the given index.      *      * @param index the index to remove      */
-name|void
-name|removeSchedulingTime
-parameter_list|(
-name|int
-name|index
-parameter_list|)
-function_decl|;
-comment|/**      * Clears the list of scheduling definitions.      */
-name|void
-name|clearSchedulingTimes
-parameter_list|()
+throws|throws
+name|IllegalArgumentException
 function_decl|;
 comment|/**      * Set true, if the repository has indexes stored.      * @param hasIndex true, if the repository has indexes, otherwise false.      */
 name|void
