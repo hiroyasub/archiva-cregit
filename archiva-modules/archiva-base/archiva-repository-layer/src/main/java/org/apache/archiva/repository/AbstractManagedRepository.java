@@ -111,7 +111,9 @@ return|return
 name|content
 return|;
 block|}
-specifier|protected
+annotation|@
+name|Override
+specifier|public
 name|void
 name|setContent
 parameter_list|(

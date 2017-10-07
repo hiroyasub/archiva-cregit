@@ -86,16 +86,6 @@ name|Duration
 name|getTimeout
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the time duration after that downloads from the remote repository are aborted.      * @return      */
-name|Duration
-name|getDownloadTimeout
-parameter_list|()
-function_decl|;
-comment|/**      * Returns the id of the proxy, that is used for accessing the remote repository.      * @return The proxy id.      */
-name|String
-name|getProxyId
-parameter_list|()
-function_decl|;
 block|}
 end_interface
 

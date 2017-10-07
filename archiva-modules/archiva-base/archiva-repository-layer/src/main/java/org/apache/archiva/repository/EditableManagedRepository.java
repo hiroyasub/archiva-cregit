@@ -36,6 +36,14 @@ name|boolean
 name|blocksRedeployment
 parameter_list|)
 function_decl|;
+comment|/**      * Sets the content      * @param content      */
+name|void
+name|setContent
+parameter_list|(
+name|ManagedRepositoryContent
+name|content
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

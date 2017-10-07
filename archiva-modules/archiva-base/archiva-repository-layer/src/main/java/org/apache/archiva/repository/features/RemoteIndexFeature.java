@@ -27,6 +27,16 @@ name|URI
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|time
+operator|.
+name|Duration
+import|;
+end_import
+
 begin_comment
 comment|/**  * Feature for remote index download.  */
 end_comment
@@ -56,6 +66,23 @@ name|boolean
 name|downloadRemoteIndexOnStartup
 init|=
 literal|false
+decl_stmt|;
+specifier|private
+name|Duration
+name|downloadTimeout
+init|=
+name|Duration
+operator|.
+name|ofSeconds
+argument_list|(
+literal|600
+argument_list|)
+decl_stmt|;
+specifier|private
+name|String
+name|proxyId
+init|=
+literal|""
 decl_stmt|;
 annotation|@
 name|Override
@@ -143,6 +170,60 @@ operator|.
 name|downloadRemoteIndexOnStartup
 operator|=
 name|downloadRemoteIndexOnStartup
+expr_stmt|;
+block|}
+comment|/**      * Returns the timeout after that the remote index download is aborted.      * @return the time duration after that, the download is aborted.      */
+specifier|public
+name|Duration
+name|getDownloadTimeout
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|downloadTimeout
+return|;
+block|}
+comment|/**      * Sets the timeout after that a remote index download will be aborted.      * @param timeout The duration      */
+specifier|public
+name|void
+name|setDownloadTimeout
+parameter_list|(
+name|Duration
+name|timeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|downloadTimeout
+operator|=
+name|timeout
+expr_stmt|;
+block|}
+comment|/**      * Returns the id of the proxy, that should be used to download the remote index.      * @return The proxy id      */
+specifier|public
+name|String
+name|getProxyId
+parameter_list|( )
+block|{
+return|return
+name|proxyId
+return|;
+block|}
+comment|/**      * Sets the id of the proxy that should be used to download the remote index.      * @param proxyId      */
+specifier|public
+name|void
+name|setProxyId
+parameter_list|(
+name|String
+name|proxyId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxyId
+operator|=
+name|proxyId
 expr_stmt|;
 block|}
 block|}

@@ -120,20 +120,12 @@ name|Duration
 name|duration
 parameter_list|)
 function_decl|;
-comment|/**      * Sets the maximum duration for downloads from the remote repository.      *      * @param duration The amount of time after that a download is aborted.      */
+comment|/**      * Sets the content.      * @param content      */
 name|void
-name|setDownloadTimeout
+name|setContent
 parameter_list|(
-name|Duration
-name|duration
-parameter_list|)
-function_decl|;
-comment|/**      * Sets the proxy id that is used for requests to the remote repository.      *      * @param proxyId The id of the proxy.      */
-name|void
-name|setProxyId
-parameter_list|(
-name|String
-name|proxyId
+name|RemoteRepositoryContent
+name|content
 parameter_list|)
 function_decl|;
 block|}

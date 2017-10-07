@@ -45,6 +45,14 @@ argument_list|<
 name|StagingRepositoryFeature
 argument_list|>
 block|{
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|STAGING_REPO_POSTFIX
+init|=
+literal|"-stage"
+decl_stmt|;
 specifier|private
 name|ManagedRepository
 name|stagingRepository

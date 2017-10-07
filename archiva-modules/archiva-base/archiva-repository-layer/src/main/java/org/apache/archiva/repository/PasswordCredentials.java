@@ -16,15 +16,75 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Credentials used to login to a remote repository.  */
+comment|/**  * Simple credentials that hold username and password  */
 end_comment
 
-begin_interface
+begin_class
 specifier|public
-interface|interface
+class|class
+name|PasswordCredentials
+implements|implements
 name|RepositoryCredentials
-block|{   }
-end_interface
+block|{
+name|String
+name|username
+decl_stmt|;
+name|char
+index|[]
+name|password
+decl_stmt|;
+specifier|public
+name|String
+name|getUsername
+parameter_list|( )
+block|{
+return|return
+name|username
+return|;
+block|}
+specifier|public
+name|void
+name|setUsername
+parameter_list|(
+name|String
+name|username
+parameter_list|)
+block|{
+name|this
+operator|.
+name|username
+operator|=
+name|username
+expr_stmt|;
+block|}
+specifier|public
+name|char
+index|[]
+name|getPassword
+parameter_list|( )
+block|{
+return|return
+name|password
+return|;
+block|}
+specifier|public
+name|void
+name|setPassword
+parameter_list|(
+name|char
+index|[]
+name|password
+parameter_list|)
+block|{
+name|this
+operator|.
+name|password
+operator|=
+name|password
+expr_stmt|;
+block|}
+block|}
+end_class
 
 end_unit
 
