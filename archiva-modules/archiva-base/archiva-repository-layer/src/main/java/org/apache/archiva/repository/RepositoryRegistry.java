@@ -483,11 +483,16 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Could not create managed repository "
-operator|+
+literal|"Could not create managed repository {}: {}"
+argument_list|,
 name|repoConfig
 operator|.
 name|getId
+argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getMessage
 argument_list|()
 argument_list|,
 name|e
@@ -713,6 +718,8 @@ name|repositoryType
 argument_list|)
 condition|)
 block|{
+try|try
+block|{
 name|remoteRepos
 operator|.
 name|put
@@ -735,6 +742,33 @@ name|repoConfig
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Could not create repository {} from config: {}"
+argument_list|,
+name|repoConfig
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 return|return

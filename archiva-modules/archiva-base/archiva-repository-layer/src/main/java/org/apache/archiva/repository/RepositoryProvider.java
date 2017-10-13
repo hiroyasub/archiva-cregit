@@ -75,6 +75,8 @@ parameter_list|(
 name|ManagedRepositoryConfiguration
 name|configuration
 parameter_list|)
+throws|throws
+name|RepositoryException
 function_decl|;
 name|RemoteRepository
 name|createRemoteInstance
@@ -82,6 +84,8 @@ parameter_list|(
 name|RemoteRepositoryConfiguration
 name|configuration
 parameter_list|)
+throws|throws
+name|RepositoryException
 function_decl|;
 block|}
 end_interface

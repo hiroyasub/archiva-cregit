@@ -132,14 +132,6 @@ name|boolean
 name|hasIndex
 parameter_list|)
 function_decl|;
-comment|/**      * Sets the path to the index directory. May be a relative or absolute URI.      * @param indexPath the path      */
-name|void
-name|setIndexPath
-parameter_list|(
-name|URI
-name|indexPath
-parameter_list|)
-function_decl|;
 comment|/**      * Sets the layout string.      * @param layout      */
 name|void
 name|setLayout
@@ -147,27 +139,6 @@ parameter_list|(
 name|String
 name|layout
 parameter_list|)
-function_decl|;
-comment|/**      * Adds an active release scheme. Release schemes may be combined.      * @param scheme the scheme to add.      */
-name|void
-name|addActiveReleaseScheme
-parameter_list|(
-name|ReleaseScheme
-name|scheme
-parameter_list|)
-function_decl|;
-comment|/**      * Removes an active release scheme from the set.      * @param scheme the scheme to remove.      */
-name|void
-name|removeActiveReleaseScheme
-parameter_list|(
-name|ReleaseScheme
-name|scheme
-parameter_list|)
-function_decl|;
-comment|/**      * Clears all active release schemes.      */
-name|void
-name|clearActiveReleaseSchemes
-parameter_list|()
 function_decl|;
 block|}
 end_interface

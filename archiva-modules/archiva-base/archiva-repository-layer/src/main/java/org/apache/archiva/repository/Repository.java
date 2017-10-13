@@ -144,22 +144,9 @@ name|boolean
 name|hasIndex
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the path to the index parent folder. May be a HTTP URL or a file path.      * @return      */
-name|URI
-name|getIndexPath
-parameter_list|()
-function_decl|;
 comment|/**      * Returns a layout definition. The returned string may be implementation specific and is not      * standardized.      *      * @return      */
 name|String
 name|getLayout
-parameter_list|()
-function_decl|;
-comment|/**      * Returns the release schemes that are active by this repository. E.g. for maven repositories      * this may either be a release repository, a snapshot repository or a combined repository.      * @return      */
-name|Set
-argument_list|<
-name|ReleaseScheme
-argument_list|>
-name|getActiveReleaseSchemes
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the capabilities of the repository implementation.      * @return      */

@@ -44,6 +44,27 @@ name|ManagedRepositoryContent
 name|content
 parameter_list|)
 function_decl|;
+comment|/**      * Adds an active release scheme. Release schemes may be combined.      * @param scheme the scheme to add.      */
+name|void
+name|addActiveReleaseScheme
+parameter_list|(
+name|ReleaseScheme
+name|scheme
+parameter_list|)
+function_decl|;
+comment|/**      * Removes an active release scheme from the set.      * @param scheme the scheme to remove.      */
+name|void
+name|removeActiveReleaseScheme
+parameter_list|(
+name|ReleaseScheme
+name|scheme
+parameter_list|)
+function_decl|;
+comment|/**      * Clears all active release schemes.      */
+name|void
+name|clearActiveReleaseSchemes
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
