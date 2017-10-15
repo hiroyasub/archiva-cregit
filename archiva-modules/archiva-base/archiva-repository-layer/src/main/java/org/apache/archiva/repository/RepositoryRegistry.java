@@ -77,6 +77,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -141,6 +155,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collections
 import|;
 end_import
@@ -182,6 +206,44 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|locks
+operator|.
+name|ReentrantReadWriteLock
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Stream
 import|;
 end_import
 
@@ -245,7 +307,23 @@ init|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|(  )
+argument_list|( )
+decl_stmt|;
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|ManagedRepository
+argument_list|>
+name|uManagedRepository
+init|=
+name|Collections
+operator|.
+name|unmodifiableMap
+argument_list|(
+name|managedRepositories
+argument_list|)
 decl_stmt|;
 specifier|private
 name|Map
@@ -259,25 +337,87 @@ init|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|(  )
+argument_list|( )
+decl_stmt|;
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|RemoteRepository
+argument_list|>
+name|uRemoteRepositories
+init|=
+name|Collections
+operator|.
+name|unmodifiableMap
+argument_list|(
+name|remoteRepositories
+argument_list|)
+decl_stmt|;
+specifier|private
+name|ReentrantReadWriteLock
+name|rwLock
+init|=
+operator|new
+name|ReentrantReadWriteLock
+argument_list|( )
 decl_stmt|;
 annotation|@
 name|PostConstruct
 specifier|private
 name|void
 name|initialize
-parameter_list|()
+parameter_list|( )
+block|{
+name|rwLock
+operator|.
+name|writeLock
+argument_list|( )
+operator|.
+name|lock
+argument_list|( )
+expr_stmt|;
+try|try
 block|{
 name|managedRepositories
-operator|=
+operator|.
+name|clear
+argument_list|( )
+expr_stmt|;
+name|managedRepositories
+operator|.
+name|putAll
+argument_list|(
 name|getManagedRepositoriesFromConfig
-argument_list|()
+argument_list|( )
+argument_list|)
 expr_stmt|;
 name|remoteRepositories
-operator|=
-name|getRemoteRepositoriesFromConfig
-argument_list|()
+operator|.
+name|clear
+argument_list|( )
 expr_stmt|;
+name|remoteRepositories
+operator|.
+name|putAll
+argument_list|(
+name|getRemoteRepositoriesFromConfig
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|rwLock
+operator|.
+name|writeLock
+argument_list|( )
+operator|.
+name|unlock
+argument_list|( )
+expr_stmt|;
+block|}
 block|}
 specifier|private
 name|Map
@@ -287,7 +427,7 @@ argument_list|,
 name|RepositoryProvider
 argument_list|>
 name|getProviderMap
-parameter_list|()
+parameter_list|( )
 block|{
 name|Map
 argument_list|<
@@ -300,7 +440,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|(  )
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -325,7 +465,7 @@ range|:
 name|provider
 operator|.
 name|provides
-argument_list|()
+argument_list|( )
 control|)
 block|{
 name|map
@@ -352,7 +492,7 @@ argument_list|,
 name|ManagedRepository
 argument_list|>
 name|getManagedRepositoriesFromConfig
-parameter_list|()
+parameter_list|( )
 block|{
 name|List
 argument_list|<
@@ -361,13 +501,13 @@ argument_list|>
 name|managedRepoConfigs
 init|=
 name|getArchivaConfiguration
-argument_list|()
+argument_list|( )
 operator|.
 name|getConfiguration
-argument_list|()
+argument_list|( )
 operator|.
 name|getManagedRepositories
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -380,7 +520,7 @@ return|return
 name|Collections
 operator|.
 name|emptyMap
-argument_list|()
+argument_list|( )
 return|;
 block|}
 name|Map
@@ -398,7 +538,7 @@ argument_list|(
 name|managedRepoConfigs
 operator|.
 name|size
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|Map
@@ -488,12 +628,12 @@ argument_list|,
 name|repoConfig
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -553,29 +693,24 @@ name|class
 argument_list|)
 operator|.
 name|get
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
 name|feature
 operator|.
 name|isStageRepoNeeded
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|ManagedRepository
 name|stageRepo
 init|=
-name|getManagedRepository
+name|getStageRepository
 argument_list|(
-name|repo
-operator|.
-name|getId
-argument_list|()
-operator|+
-name|StagingRepositoryFeature
-operator|.
-name|STAGING_REPO_POSTFIX
+name|provider
+argument_list|,
+name|cfg
 argument_list|)
 decl_stmt|;
 name|feature
@@ -620,6 +755,55 @@ name|repo
 return|;
 block|}
 specifier|private
+name|ManagedRepository
+name|getStageRepository
+parameter_list|(
+name|RepositoryProvider
+name|provider
+parameter_list|,
+name|ManagedRepositoryConfiguration
+name|baseRepoCfg
+parameter_list|)
+throws|throws
+name|RepositoryException
+block|{
+name|ManagedRepository
+name|stageRepo
+init|=
+name|getManagedRepository
+argument_list|(
+name|baseRepoCfg
+operator|.
+name|getId
+argument_list|( )
+operator|+
+name|StagingRepositoryFeature
+operator|.
+name|STAGING_REPO_POSTFIX
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|stageRepo
+operator|==
+literal|null
+condition|)
+block|{
+name|stageRepo
+operator|=
+name|provider
+operator|.
+name|createStagingInstance
+argument_list|(
+name|baseRepoCfg
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|stageRepo
+return|;
+block|}
+specifier|private
 name|Map
 argument_list|<
 name|String
@@ -627,7 +811,7 @@ argument_list|,
 name|RemoteRepository
 argument_list|>
 name|getRemoteRepositoriesFromConfig
-parameter_list|()
+parameter_list|( )
 block|{
 name|List
 argument_list|<
@@ -636,13 +820,13 @@ argument_list|>
 name|remoteRepoConfigs
 init|=
 name|getArchivaConfiguration
-argument_list|()
+argument_list|( )
 operator|.
 name|getConfiguration
-argument_list|()
+argument_list|( )
 operator|.
 name|getRemoteRepositories
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -655,7 +839,7 @@ return|return
 name|Collections
 operator|.
 name|emptyMap
-argument_list|()
+argument_list|( )
 return|;
 block|}
 name|Map
@@ -673,7 +857,7 @@ argument_list|(
 name|remoteRepoConfigs
 operator|.
 name|size
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|Map
@@ -727,7 +911,7 @@ argument_list|(
 name|repoConfig
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|providerMap
 operator|.
@@ -758,12 +942,12 @@ argument_list|,
 name|repoConfig
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -778,7 +962,7 @@ block|}
 specifier|private
 name|ArchivaConfiguration
 name|getArchivaConfiguration
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|this
@@ -787,99 +971,94 @@ name|archivaConfiguration
 return|;
 block|}
 specifier|public
-name|List
+name|Collection
 argument_list|<
 name|Repository
 argument_list|>
 name|getRepositories
-parameter_list|()
+parameter_list|( )
 block|{
-name|ArrayList
-argument_list|<
-name|Repository
-argument_list|>
-name|li
-init|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|(  )
-decl_stmt|;
-name|li
+name|rwLock
 operator|.
-name|addAll
+name|readLock
+argument_list|( )
+operator|.
+name|lock
+argument_list|( )
+expr_stmt|;
+try|try
+block|{
+return|return
+name|Stream
+operator|.
+name|concat
 argument_list|(
 name|managedRepositories
 operator|.
 name|values
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|li
+argument_list|( )
 operator|.
-name|addAll
-argument_list|(
+name|stream
+argument_list|( )
+argument_list|,
 name|remoteRepositories
 operator|.
 name|values
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|Collections
+argument_list|( )
 operator|.
-name|unmodifiableList
+name|stream
+argument_list|( )
+argument_list|)
+operator|.
+name|collect
 argument_list|(
-name|li
+name|Collectors
+operator|.
+name|toList
+argument_list|( )
 argument_list|)
 return|;
 block|}
+finally|finally
+block|{
+name|rwLock
+operator|.
+name|readLock
+argument_list|( )
+operator|.
+name|unlock
+argument_list|( )
+expr_stmt|;
+block|}
+block|}
 specifier|public
-name|List
+name|Collection
 argument_list|<
 name|ManagedRepository
 argument_list|>
 name|getManagedRepositories
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
-name|Collections
-operator|.
-name|unmodifiableList
-argument_list|(
-operator|new
-name|ArrayList
-argument_list|(
-name|managedRepositories
+name|uManagedRepository
 operator|.
 name|values
-argument_list|()
-argument_list|)
-argument_list|)
+argument_list|( )
 return|;
 block|}
 specifier|public
-name|List
+name|Collection
 argument_list|<
 name|RemoteRepository
 argument_list|>
 name|getRemoteRepositories
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
-name|Collections
-operator|.
-name|unmodifiableList
-argument_list|(
-operator|new
-name|ArrayList
-argument_list|(
-name|remoteRepositories
+name|uRemoteRepositories
 operator|.
 name|values
-argument_list|()
-argument_list|)
-argument_list|)
+argument_list|( )
 return|;
 block|}
 specifier|public
@@ -890,9 +1069,58 @@ name|String
 name|repoId
 parameter_list|)
 block|{
+name|rwLock
+operator|.
+name|readLock
+argument_list|( )
+operator|.
+name|lock
+argument_list|( )
+expr_stmt|;
+try|try
+block|{
+if|if
+condition|(
+name|managedRepositories
+operator|.
+name|containsKey
+argument_list|(
+name|repoId
+argument_list|)
+condition|)
+block|{
 return|return
-literal|null
+name|managedRepositories
+operator|.
+name|get
+argument_list|(
+name|repoId
+argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+name|remoteRepositories
+operator|.
+name|get
+argument_list|(
+name|repoId
+argument_list|)
+return|;
+block|}
+block|}
+finally|finally
+block|{
+name|rwLock
+operator|.
+name|readLock
+argument_list|( )
+operator|.
+name|unlock
+argument_list|( )
+expr_stmt|;
+block|}
 block|}
 specifier|public
 name|ManagedRepository
@@ -902,9 +1130,36 @@ name|String
 name|repoId
 parameter_list|)
 block|{
+name|rwLock
+operator|.
+name|readLock
+argument_list|()
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+try|try
+block|{
 return|return
-literal|null
+name|managedRepositories
+operator|.
+name|get
+argument_list|(
+name|repoId
+argument_list|)
 return|;
+block|}
+finally|finally
+block|{
+name|rwLock
+operator|.
+name|readLock
+argument_list|()
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 specifier|public
 name|RemoteRepository
@@ -914,9 +1169,122 @@ name|String
 name|repoId
 parameter_list|)
 block|{
+name|rwLock
+operator|.
+name|readLock
+argument_list|()
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+try|try
+block|{
 return|return
-literal|null
+name|remoteRepositories
+operator|.
+name|get
+argument_list|(
+name|repoId
+argument_list|)
 return|;
+block|}
+finally|finally
+block|{
+name|rwLock
+operator|.
+name|readLock
+argument_list|()
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+specifier|public
+name|void
+name|addRepository
+parameter_list|(
+name|ManagedRepository
+name|managedRepository
+parameter_list|)
+block|{
+name|rwLock
+operator|.
+name|writeLock
+argument_list|( )
+operator|.
+name|lock
+argument_list|( )
+expr_stmt|;
+try|try
+block|{
+name|managedRepositories
+operator|.
+name|put
+argument_list|(
+name|managedRepository
+operator|.
+name|getId
+argument_list|( )
+argument_list|,
+name|managedRepository
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|rwLock
+operator|.
+name|writeLock
+argument_list|( )
+operator|.
+name|unlock
+argument_list|( )
+expr_stmt|;
+block|}
+block|}
+specifier|public
+name|void
+name|addRepository
+parameter_list|(
+name|RemoteRepository
+name|remoteRepository
+parameter_list|)
+block|{
+name|rwLock
+operator|.
+name|writeLock
+argument_list|( )
+operator|.
+name|lock
+argument_list|( )
+expr_stmt|;
+try|try
+block|{
+name|remoteRepositories
+operator|.
+name|put
+argument_list|(
+name|remoteRepository
+operator|.
+name|getId
+argument_list|( )
+argument_list|,
+name|remoteRepository
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|rwLock
+operator|.
+name|writeLock
+argument_list|( )
+operator|.
+name|unlock
+argument_list|( )
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

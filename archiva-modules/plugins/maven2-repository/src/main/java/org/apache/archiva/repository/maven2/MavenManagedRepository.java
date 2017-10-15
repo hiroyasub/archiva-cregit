@@ -549,6 +549,20 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|hasIndex
+parameter_list|( )
+block|{
+return|return
+name|indexCreationFeature
+operator|.
+name|hasIndex
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

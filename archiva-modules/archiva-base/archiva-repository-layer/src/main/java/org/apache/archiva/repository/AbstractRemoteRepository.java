@@ -150,6 +150,13 @@ decl_stmt|;
 specifier|private
 name|Duration
 name|timeout
+init|=
+name|Duration
+operator|.
+name|ofSeconds
+argument_list|(
+literal|60
+argument_list|)
 decl_stmt|;
 specifier|private
 name|String

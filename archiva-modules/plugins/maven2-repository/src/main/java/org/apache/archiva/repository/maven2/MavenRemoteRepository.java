@@ -218,6 +218,7 @@ name|AbstractRemoteRepository
 implements|implements
 name|RemoteRepository
 block|{
+specifier|final
 specifier|private
 name|RemoteIndexFeature
 name|remoteIndexFeature
@@ -225,6 +226,15 @@ init|=
 operator|new
 name|RemoteIndexFeature
 argument_list|()
+decl_stmt|;
+specifier|final
+specifier|private
+name|IndexCreationFeature
+name|indexCreationFeature
+init|=
+operator|new
+name|IndexCreationFeature
+argument_list|(  )
 decl_stmt|;
 specifier|private
 specifier|static
@@ -271,6 +281,13 @@ name|String
 index|[]
 block|{
 name|RemoteIndexFeature
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+block|,
+name|IndexCreationFeature
 operator|.
 name|class
 operator|.
@@ -341,6 +358,20 @@ block|}
 annotation|@
 name|Override
 specifier|public
+name|boolean
+name|hasIndex
+parameter_list|( )
+block|{
+return|return
+name|remoteIndexFeature
+operator|.
+name|hasIndex
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
 name|RepositoryCapabilities
 name|getCapabilities
 parameter_list|( )
@@ -397,6 +428,28 @@ operator|)
 name|remoteIndexFeature
 return|;
 block|}
+if|else if
+condition|(
+name|IndexCreationFeature
+operator|.
+name|class
+operator|.
+name|equals
+argument_list|(
+name|clazz
+argument_list|)
+condition|)
+block|{
+return|return
+operator|(
+name|RepositoryFeature
+argument_list|<
+name|T
+argument_list|>
+operator|)
+name|indexCreationFeature
+return|;
+block|}
 else|else
 block|{
 throw|throw
@@ -430,6 +483,15 @@ block|{
 if|if
 condition|(
 name|RemoteIndexFeature
+operator|.
+name|class
+operator|.
+name|equals
+argument_list|(
+name|clazz
+argument_list|)
+operator|||
+name|IndexCreationFeature
 operator|.
 name|class
 operator|.

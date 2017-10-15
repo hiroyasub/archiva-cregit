@@ -124,14 +124,6 @@ parameter_list|)
 throws|throws
 name|IllegalArgumentException
 function_decl|;
-comment|/**      * Set true, if the repository has indexes stored.      * @param hasIndex true, if the repository has indexes, otherwise false.      */
-name|void
-name|setIndex
-parameter_list|(
-name|boolean
-name|hasIndex
-parameter_list|)
-function_decl|;
 comment|/**      * Sets the layout string.      * @param layout      */
 name|void
 name|setLayout

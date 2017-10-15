@@ -255,12 +255,6 @@ init|=
 literal|"0 0 02 * *"
 decl_stmt|;
 specifier|private
-name|boolean
-name|index
-init|=
-literal|true
-decl_stmt|;
-specifier|private
 name|String
 name|layout
 decl_stmt|;
@@ -514,14 +508,11 @@ block|}
 annotation|@
 name|Override
 specifier|public
+specifier|abstract
 name|boolean
 name|hasIndex
 parameter_list|( )
-block|{
-return|return
-name|index
-return|;
-block|}
+function_decl|;
 annotation|@
 name|Override
 specifier|public
@@ -748,23 +739,6 @@ operator|.
 name|scanned
 operator|=
 name|scanned
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|void
-name|setIndex
-parameter_list|(
-name|boolean
-name|hasIndex
-parameter_list|)
-block|{
-name|this
-operator|.
-name|index
-operator|=
-name|hasIndex
 expr_stmt|;
 block|}
 annotation|@
