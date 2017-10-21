@@ -22,6 +22,16 @@ specifier|public
 interface|interface
 name|RepositorySessionFactory
 block|{
+specifier|public
+name|void
+name|open
+parameter_list|()
+function_decl|;
+specifier|public
+name|boolean
+name|isOpen
+parameter_list|()
+function_decl|;
 name|RepositorySession
 name|createSession
 parameter_list|()
