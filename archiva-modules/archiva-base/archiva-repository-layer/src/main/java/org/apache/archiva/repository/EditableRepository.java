@@ -83,6 +83,14 @@ parameter_list|)
 throws|throws
 name|UnsupportedURIException
 function_decl|;
+comment|/**      * Sets the base uri for relative location uris.      *      * @param baseUri      */
+name|void
+name|setBaseUri
+parameter_list|(
+name|URI
+name|baseUri
+parameter_list|)
+function_decl|;
 comment|/**      * Adds a failover location for the repository.      *      * @param location The location that should be used as failover.      * @throws UnsupportedURIException if the URI scheme is not supported by the repository type.      */
 name|void
 name|addFailoverLocation

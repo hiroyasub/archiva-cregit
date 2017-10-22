@@ -121,6 +121,11 @@ name|URI
 name|getLocation
 parameter_list|()
 function_decl|;
+comment|/**      * This returns the absolute location uri of this repository. Some repository locations may be relative to      * the base repository directory or uri. This returns the absolute path of the repository.      * If the location is absolute already this method returns the same URI as getLocation().      *      * @return the absolute uri of the location.      */
+name|URI
+name|getAbsoluteLocation
+parameter_list|()
+function_decl|;
 comment|/**      * A repository may allow additional locations that can be used, if the primary location is not available.      * @return      */
 name|Set
 argument_list|<
