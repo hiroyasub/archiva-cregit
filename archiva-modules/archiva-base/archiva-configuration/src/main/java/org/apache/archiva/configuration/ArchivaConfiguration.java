@@ -51,6 +51,26 @@ name|RegistryListener
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  * Configuration holder for the model read from the registry.  */
 end_comment
@@ -116,6 +136,21 @@ function_decl|;
 comment|/**      * reload configuration from file included registry      *      * @since 1.4-M1      */
 name|void
 name|reload
+parameter_list|()
+function_decl|;
+specifier|public
+name|Locale
+name|getDefaultLocale
+parameter_list|()
+function_decl|;
+specifier|public
+name|List
+argument_list|<
+name|Locale
+operator|.
+name|LanguageRange
+argument_list|>
+name|getLanguagePriorities
 parameter_list|()
 function_decl|;
 block|}
