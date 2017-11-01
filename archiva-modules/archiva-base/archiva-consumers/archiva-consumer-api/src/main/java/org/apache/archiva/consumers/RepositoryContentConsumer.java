@@ -23,11 +23,7 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
-operator|.
-name|model
-operator|.
-name|beans
+name|repository
 operator|.
 name|ManagedRepository
 import|;
@@ -84,6 +80,14 @@ comment|/**      *<p>      * Event that triggers at the beginning of a scan.    
 name|void
 name|beginScan
 parameter_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|ManagedRepository
 name|repository
 parameter_list|,
