@@ -27,24 +27,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
-operator|.
-name|model
-operator|.
-name|beans
-operator|.
-name|RemoteRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|model
 operator|.
 name|ArtifactReference
@@ -62,6 +44,20 @@ operator|.
 name|model
 operator|.
 name|RepositoryURL
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|RemoteRepository
 import|;
 end_import
 
@@ -122,14 +118,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RemoteDefaultRepositoryContent  *  *  */
+comment|/**  * RemoteDefaultRepositoryContent  */
 end_comment
 
 begin_class
 annotation|@
 name|Service
 argument_list|(
-literal|"remoteRepositoryContent#default"
+literal|"remoteRepositoryContent#maven"
 argument_list|)
 annotation|@
 name|Scope
@@ -153,13 +149,13 @@ name|Override
 specifier|public
 name|String
 name|getId
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|repository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 return|;
 block|}
 annotation|@
@@ -167,7 +163,7 @@ name|Override
 specifier|public
 name|RemoteRepository
 name|getRepository
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|repository
@@ -178,7 +174,9 @@ name|Override
 specifier|public
 name|RepositoryURL
 name|getURL
-parameter_list|()
+parameter_list|( )
+block|{
+try|try
 block|{
 return|return
 operator|new
@@ -186,10 +184,40 @@ name|RepositoryURL
 argument_list|(
 name|repository
 operator|.
-name|getUrl
-argument_list|()
+name|getLocation
+argument_list|( )
+operator|.
+name|toString
+argument_list|( )
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Could not convert location url {}"
+argument_list|,
+name|repository
+operator|.
+name|getLocation
+argument_list|( )
+argument_list|)
+expr_stmt|;
+return|return
+operator|new
+name|RepositoryURL
+argument_list|(
+literal|""
+argument_list|)
+return|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -229,13 +257,23 @@ operator|!=
 literal|null
 operator|)
 operator|&&
+name|repository
+operator|.
+name|getLocation
+argument_list|()
+operator|!=
+literal|null
+operator|&&
 name|path
 operator|.
 name|startsWith
 argument_list|(
 name|repository
 operator|.
-name|getUrl
+name|getLocation
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 condition|)
@@ -251,11 +289,14 @@ name|substring
 argument_list|(
 name|repository
 operator|.
-name|getUrl
+name|getLocation
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 operator|.
 name|length
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 return|;
@@ -284,8 +325,8 @@ name|url
 init|=
 name|repository
 operator|.
-name|getUrl
-argument_list|()
+name|getLocation
+argument_list|( )
 operator|+
 name|toPath
 argument_list|(

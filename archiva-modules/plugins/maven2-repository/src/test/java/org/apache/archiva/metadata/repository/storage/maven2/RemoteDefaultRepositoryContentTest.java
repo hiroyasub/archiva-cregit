@@ -29,13 +29,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
-operator|.
 name|model
 operator|.
-name|beans
-operator|.
-name|RemoteRepository
+name|ArtifactReference
 import|;
 end_import
 
@@ -47,9 +43,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|model
+name|repository
 operator|.
-name|ArtifactReference
+name|RemoteRepository
 import|;
 end_import
 
