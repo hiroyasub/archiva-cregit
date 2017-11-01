@@ -73,6 +73,24 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|content
+operator|.
+name|maven2
+operator|.
+name|RemoteDefaultRepositoryContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|layout
 operator|.
 name|LayoutException
@@ -109,6 +127,16 @@ name|Named
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * RemoteDefaultRepositoryContentTest  */
 end_comment
@@ -122,11 +150,15 @@ name|AbstractDefaultRepositoryContentTestCase
 block|{
 annotation|@
 name|Inject
-annotation|@
-name|Named
-argument_list|(
-literal|"remoteRepositoryContent#default"
-argument_list|)
+specifier|private
+name|List
+argument_list|<
+name|?
+extends|extends
+name|ArtifactMappingProvider
+argument_list|>
+name|artifactMappingProviders
+decl_stmt|;
 specifier|private
 name|RemoteRepositoryContent
 name|repoContent
@@ -152,6 +184,14 @@ argument_list|,
 literal|"http://repo1.maven.org/maven2/"
 argument_list|)
 decl_stmt|;
+name|repoContent
+operator|=
+operator|new
+name|RemoteDefaultRepositoryContent
+argument_list|(
+name|artifactMappingProviders
+argument_list|)
+expr_stmt|;
 comment|//repoContent = (RemoteRepositoryContent) lookup( RemoteRepositoryContent.class, "default" );
 name|repoContent
 operator|.

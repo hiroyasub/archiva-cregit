@@ -1007,8 +1007,6 @@ name|repositoryContentFactory
 operator|.
 name|getManagedRepositoryContent
 argument_list|(
-name|cfg
-argument_list|,
 name|repo
 argument_list|)
 argument_list|)
@@ -1366,8 +1364,6 @@ name|repositoryContentFactory
 operator|.
 name|getRemoteRepositoryContent
 argument_list|(
-name|cfg
-argument_list|,
 name|repo
 argument_list|)
 argument_list|)

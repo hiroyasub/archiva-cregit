@@ -117,6 +117,8 @@ begin_interface
 specifier|public
 interface|interface
 name|ManagedRepositoryContent
+extends|extends
+name|RepositoryContent
 block|{
 comment|/**      * Delete from the managed repository all files / directories associated with the      * provided version reference.      *      * @param reference the version reference to delete.      * @throws ContentNotFoundException      */
 name|void
@@ -185,14 +187,6 @@ name|getRepoRoot
 parameter_list|()
 function_decl|;
 comment|/**      * Get the repository configuration associated with this      * repository content.      *      * @return the repository that is associated with this repository content.      */
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
 name|ManagedRepository
 name|getRepository
 parameter_list|()
@@ -265,16 +259,6 @@ name|ManagedRepository
 name|repo
 parameter_list|)
 function_decl|;
-comment|/**      * Given a repository relative path to a filename, return the {@link VersionedReference} object suitable for the path.      *      * @param path the path relative to the repository base dir for the artifact.      * @return the {@link ArtifactReference} representing the path.  (or null if path cannot be converted to      *         a {@link ArtifactReference})      * @throws LayoutException if there was a problem converting the path to an artifact.      */
-name|ArtifactReference
-name|toArtifactReference
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-throws|throws
-name|LayoutException
-function_decl|;
 comment|/**      * Given an {@link ArtifactReference}, return the file reference to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
 name|Path
 name|toFile
@@ -304,14 +288,6 @@ name|String
 name|toMetadataPath
 parameter_list|(
 name|VersionedReference
-name|reference
-parameter_list|)
-function_decl|;
-comment|/**      * Given an {@link ArtifactReference}, return the relative path to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
-name|String
-name|toPath
-parameter_list|(
-name|ArtifactReference
 name|reference
 parameter_list|)
 function_decl|;
