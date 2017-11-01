@@ -333,6 +333,14 @@ parameter_list|(
 name|String
 name|requestPath
 parameter_list|,
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|ManagedRepository
 name|managedRepository
 parameter_list|)
