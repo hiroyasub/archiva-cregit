@@ -101,6 +101,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Olivier Lamy  */
 end_comment
@@ -1076,6 +1086,11 @@ return|return
 operator|new
 name|RemoteRepository
 argument_list|(
+name|Locale
+operator|.
+name|getDefault
+argument_list|( )
+argument_list|,
 literal|"id-new"
 argument_list|,
 literal|"new one"
@@ -1102,6 +1117,11 @@ return|return
 operator|new
 name|RemoteRepository
 argument_list|(
+name|Locale
+operator|.
+name|getDefault
+argument_list|( )
+argument_list|,
 literal|"id-maven1"
 argument_list|,
 literal|"Maven1"
@@ -1128,6 +1148,11 @@ return|return
 operator|new
 name|RemoteRepository
 argument_list|(
+name|Locale
+operator|.
+name|getDefault
+argument_list|( )
+argument_list|,
 literal|"id-oracle"
 argument_list|,
 literal|"Oracle"

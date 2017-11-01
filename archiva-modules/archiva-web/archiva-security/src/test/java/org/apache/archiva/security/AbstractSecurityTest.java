@@ -215,6 +215,20 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|repository
+operator|.
+name|RepositoryRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|security
 operator|.
 name|common
@@ -478,6 +492,12 @@ name|archivaConfiguration
 decl_stmt|;
 annotation|@
 name|Inject
+specifier|private
+name|RepositoryRegistry
+name|repositoryRegistry
+decl_stmt|;
+annotation|@
+name|Inject
 specifier|protected
 name|UserRepositories
 name|userRepos
@@ -563,6 +583,11 @@ name|repoConfig
 argument_list|)
 expr_stmt|;
 block|}
+name|repositoryRegistry
+operator|.
+name|reload
+argument_list|()
+expr_stmt|;
 comment|// Add repo roles to security.
 name|userRepos
 operator|.

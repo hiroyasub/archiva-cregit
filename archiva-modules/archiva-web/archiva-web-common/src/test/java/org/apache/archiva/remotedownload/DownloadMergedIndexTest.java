@@ -326,6 +326,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -573,7 +583,12 @@ name|managedRepository
 init|=
 operator|new
 name|ManagedRepository
+argument_list|(
+name|Locale
+operator|.
+name|getDefault
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|managedRepository
 operator|.
@@ -785,7 +800,12 @@ name|managedRepository
 operator|=
 operator|new
 name|ManagedRepository
+argument_list|(
+name|Locale
+operator|.
+name|getDefault
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|managedRepository
 operator|.
@@ -868,7 +888,12 @@ name|remoteRepository
 init|=
 operator|new
 name|RemoteRepository
+argument_list|(
+name|Locale
+operator|.
+name|getDefault
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|remoteRepository
 operator|.

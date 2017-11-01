@@ -268,6 +268,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -2507,6 +2517,11 @@ return|return
 operator|new
 name|ManagedRepository
 argument_list|(
+name|Locale
+operator|.
+name|getDefault
+argument_list|()
+argument_list|,
 name|id
 argument_list|,
 name|id

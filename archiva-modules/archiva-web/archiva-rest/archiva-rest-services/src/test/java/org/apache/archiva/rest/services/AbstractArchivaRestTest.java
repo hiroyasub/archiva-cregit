@@ -331,6 +331,16 @@ name|Date
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Olivier Lamy  */
 end_comment
@@ -1834,6 +1844,11 @@ return|return
 operator|new
 name|ManagedRepository
 argument_list|(
+name|Locale
+operator|.
+name|getDefault
+argument_list|()
+argument_list|,
 literal|"TEST"
 argument_list|,
 literal|"test"
@@ -2435,7 +2450,12 @@ name|managedRepository
 init|=
 operator|new
 name|ManagedRepository
+argument_list|(
+name|Locale
+operator|.
+name|getDefault
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|managedRepository
 operator|.

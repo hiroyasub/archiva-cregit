@@ -217,6 +217,16 @@ name|Paths
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Olivier Lamy  */
 end_comment
@@ -440,7 +450,12 @@ name|managedRepository
 init|=
 operator|new
 name|ManagedRepository
+argument_list|(
+name|Locale
+operator|.
+name|getDefault
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|managedRepository
 operator|.

@@ -574,6 +574,11 @@ argument_list|(
 name|repoRootInvalid
 argument_list|)
 expr_stmt|;
+name|repositoryRegistry
+operator|.
+name|reload
+argument_list|()
+expr_stmt|;
 name|saveConfiguration
 argument_list|(
 name|archivaConfiguration
