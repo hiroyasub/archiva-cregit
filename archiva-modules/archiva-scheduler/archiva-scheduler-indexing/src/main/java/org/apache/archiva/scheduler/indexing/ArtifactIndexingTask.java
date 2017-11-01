@@ -25,13 +25,13 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
+name|redback
 operator|.
-name|model
+name|components
 operator|.
-name|beans
+name|taskqueue
 operator|.
-name|ManagedRepository
+name|Task
 import|;
 end_import
 
@@ -43,13 +43,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|redback
+name|repository
 operator|.
-name|components
-operator|.
-name|taskqueue
-operator|.
-name|Task
+name|ManagedRepository
 import|;
 end_import
 

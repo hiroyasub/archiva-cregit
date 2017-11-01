@@ -25,11 +25,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
+name|repository
 operator|.
-name|model
-operator|.
-name|RepositoryAdminException
+name|ManagedRepository
 import|;
 end_import
 
@@ -45,9 +43,7 @@ name|admin
 operator|.
 name|model
 operator|.
-name|beans
-operator|.
-name|ManagedRepository
+name|RepositoryAdminException
 import|;
 end_import
 
@@ -170,6 +166,20 @@ operator|.
 name|model
 operator|.
 name|RepositoryStatisticsManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|RepositoryRegistry
 import|;
 end_import
 
@@ -443,6 +453,11 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|Inject
+name|RepositoryRegistry
+name|repositoryRegistry
+decl_stmt|;
+annotation|@
+name|Inject
 specifier|private
 name|ManagedRepositoryAdmin
 name|managedRepositoryAdmin
@@ -562,7 +577,7 @@ block|}
 name|ManagedRepository
 name|arepo
 init|=
-name|managedRepositoryAdmin
+name|repositoryRegistry
 operator|.
 name|getManagedRepository
 argument_list|(

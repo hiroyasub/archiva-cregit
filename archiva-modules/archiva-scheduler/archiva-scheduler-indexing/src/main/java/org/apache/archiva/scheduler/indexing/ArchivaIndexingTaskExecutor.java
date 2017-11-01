@@ -45,24 +45,6 @@ name|admin
 operator|.
 name|model
 operator|.
-name|beans
-operator|.
-name|ManagedRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|admin
-operator|.
-name|model
-operator|.
 name|managed
 operator|.
 name|ManagedRepositoryAdmin
@@ -124,6 +106,36 @@ operator|.
 name|execution
 operator|.
 name|TaskExecutor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|ManagedRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|features
+operator|.
+name|IndexCreationFeature
 import|;
 end_import
 
@@ -455,7 +467,7 @@ init|=
 name|indexingTask
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|IndexingContext
 name|context
@@ -463,7 +475,7 @@ init|=
 name|indexingTask
 operator|.
 name|getContext
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -478,13 +490,13 @@ argument_list|(
 name|indexingTask
 operator|.
 name|getAction
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|&&
 name|indexingTask
 operator|.
 name|isExecuteOnEntireRepo
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 try|try
@@ -495,7 +507,7 @@ init|=
 name|System
 operator|.
 name|currentTimeMillis
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|nexusIndexer
 operator|.
@@ -508,7 +520,7 @@ argument_list|,
 name|indexingTask
 operator|.
 name|isOnlyUpdate
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|long
@@ -517,7 +529,7 @@ init|=
 name|System
 operator|.
 name|currentTimeMillis
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|log
 operator|.
@@ -528,12 +540,12 @@ argument_list|,
 name|repository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|indexingTask
 operator|.
 name|isOnlyUpdate
-argument_list|()
+argument_list|( )
 argument_list|,
 operator|(
 name|end
@@ -570,7 +582,7 @@ argument_list|,
 name|repository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|finishIndexingTask
@@ -592,7 +604,7 @@ operator|!
 name|indexingTask
 operator|.
 name|isExecuteOnEntireRepo
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 try|try
@@ -608,7 +620,7 @@ operator|(
 name|indexingTask
 operator|.
 name|getResourceFile
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 condition|?
@@ -617,7 +629,7 @@ else|:
 name|indexingTask
 operator|.
 name|getResourceFile
-argument_list|()
+argument_list|( )
 operator|)
 argument_list|)
 expr_stmt|;
@@ -646,7 +658,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -658,7 +670,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -674,7 +686,7 @@ operator|||
 name|context
 operator|.
 name|getIndexDirectory
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 condition|)
@@ -695,7 +707,7 @@ init|=
 name|indexingTask
 operator|.
 name|getResourceFile
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -726,7 +738,7 @@ argument_list|,
 name|artifactFile
 operator|.
 name|toFile
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 if|if
@@ -743,10 +755,10 @@ condition|(
 name|artifactFile
 operator|.
 name|getFileName
-argument_list|()
+argument_list|( )
 operator|.
 name|toString
-argument_list|()
+argument_list|( )
 operator|.
 name|endsWith
 argument_list|(
@@ -757,7 +769,7 @@ block|{
 name|ac
 operator|.
 name|getArtifactInfo
-argument_list|()
+argument_list|( )
 operator|.
 name|setFileExtension
 argument_list|(
@@ -767,7 +779,7 @@ expr_stmt|;
 name|ac
 operator|.
 name|getArtifactInfo
-argument_list|()
+argument_list|( )
 operator|.
 name|setPackaging
 argument_list|(
@@ -777,7 +789,7 @@ expr_stmt|;
 name|ac
 operator|.
 name|getArtifactInfo
-argument_list|()
+argument_list|( )
 operator|.
 name|setClassifier
 argument_list|(
@@ -790,7 +802,7 @@ condition|(
 name|indexingTask
 operator|.
 name|getAction
-argument_list|()
+argument_list|( )
 operator|.
 name|equals
 argument_list|(
@@ -810,7 +822,7 @@ name|q
 init|=
 operator|new
 name|BooleanQuery
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|q
 operator|.
@@ -830,10 +842,10 @@ argument_list|(
 name|ac
 operator|.
 name|getArtifactInfo
-argument_list|()
+argument_list|( )
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 argument_list|,
@@ -862,10 +874,10 @@ argument_list|(
 name|ac
 operator|.
 name|getArtifactInfo
-argument_list|()
+argument_list|( )
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 argument_list|,
@@ -894,10 +906,10 @@ argument_list|(
 name|ac
 operator|.
 name|getArtifactInfo
-argument_list|()
+argument_list|( )
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 argument_list|,
@@ -913,10 +925,10 @@ condition|(
 name|ac
 operator|.
 name|getArtifactInfo
-argument_list|()
+argument_list|( )
 operator|.
 name|getClassifier
-argument_list|()
+argument_list|( )
 operator|!=
 literal|null
 condition|)
@@ -939,10 +951,10 @@ argument_list|(
 name|ac
 operator|.
 name|getArtifactInfo
-argument_list|()
+argument_list|( )
 operator|.
 name|getClassifier
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 argument_list|,
@@ -959,10 +971,10 @@ condition|(
 name|ac
 operator|.
 name|getArtifactInfo
-argument_list|()
+argument_list|( )
 operator|.
 name|getPackaging
-argument_list|()
+argument_list|( )
 operator|!=
 literal|null
 condition|)
@@ -985,10 +997,10 @@ argument_list|(
 name|ac
 operator|.
 name|getArtifactInfo
-argument_list|()
+argument_list|( )
 operator|.
 name|getPackaging
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 argument_list|,
@@ -1026,10 +1038,10 @@ condition|(
 name|flatSearchResponse
 operator|.
 name|getResults
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|log
@@ -1041,7 +1053,7 @@ argument_list|,
 name|ac
 operator|.
 name|getArtifactInfo
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|nexusIndexer
@@ -1065,7 +1077,7 @@ argument_list|,
 name|ac
 operator|.
 name|getArtifactInfo
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 comment|// TODO check if update exists !!
@@ -1091,12 +1103,12 @@ block|}
 name|context
 operator|.
 name|updateTimestamp
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|context
 operator|.
 name|commit
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 else|else
@@ -1110,7 +1122,7 @@ argument_list|,
 name|ac
 operator|.
 name|getArtifactInfo
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|nexusIndexer
@@ -1132,7 +1144,7 @@ operator|!
 name|indexingTask
 operator|.
 name|isExecuteOnEntireRepo
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|log
@@ -1144,14 +1156,14 @@ argument_list|,
 name|indexingTask
 operator|.
 name|getResourceFile
-argument_list|()
+argument_list|( )
 operator|!=
 literal|null
 condition|?
 name|indexingTask
 operator|.
 name|getResourceFile
-argument_list|()
+argument_list|( )
 else|:
 literal|" none "
 argument_list|)
@@ -1184,7 +1196,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1226,15 +1238,42 @@ block|{
 name|context
 operator|.
 name|optimize
-argument_list|()
+argument_list|( )
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|repository
 operator|.
+name|supportsFeature
+argument_list|(
+name|IndexCreationFeature
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
+name|IndexCreationFeature
+name|icf
+init|=
+name|repository
+operator|.
+name|getFeature
+argument_list|(
+name|IndexCreationFeature
+operator|.
+name|class
+argument_list|)
+operator|.
+name|get
+argument_list|( )
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|icf
+operator|.
 name|isSkipPackedIndexCreation
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|IndexPackingRequest
@@ -1249,16 +1288,16 @@ comment|//
 name|context
 operator|.
 name|acquireIndexSearcher
-argument_list|()
+argument_list|( )
 operator|.
 name|getIndexReader
-argument_list|()
+argument_list|( )
 argument_list|,
 comment|//
 name|context
 operator|.
 name|getIndexDirectoryFile
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|indexPacker
@@ -1284,9 +1323,20 @@ argument_list|,
 name|context
 operator|.
 name|getIndexDirectoryFile
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"skip packed index creation"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1316,7 +1366,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 throw|throw
