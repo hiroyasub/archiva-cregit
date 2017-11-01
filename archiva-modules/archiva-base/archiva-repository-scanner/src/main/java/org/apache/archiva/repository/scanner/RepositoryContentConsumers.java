@@ -59,13 +59,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
+name|common
 operator|.
-name|model
+name|utils
 operator|.
-name|beans
-operator|.
-name|ManagedRepository
+name|BaseFile
 import|;
 end_import
 
@@ -81,7 +79,7 @@ name|common
 operator|.
 name|utils
 operator|.
-name|BaseFile
+name|PathUtil
 import|;
 end_import
 
@@ -158,6 +156,20 @@ operator|.
 name|registry
 operator|.
 name|RegistryListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|ManagedRepository
 import|;
 end_import
 
@@ -326,6 +338,18 @@ operator|.
 name|file
 operator|.
 name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Paths
 import|;
 end_import
 
@@ -976,15 +1000,28 @@ argument_list|)
 expr_stmt|;
 comment|// yuck. In case you can't read this, it says
 comment|// "process the file if the consumer has it in the includes list, and not in the excludes list"
+name|Path
+name|repoPath
+init|=
+name|PathUtil
+operator|.
+name|getPathFromUri
+argument_list|(
+name|repository
+operator|.
+name|getLocation
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|BaseFile
 name|baseFile
 init|=
 operator|new
 name|BaseFile
 argument_list|(
-name|repository
+name|repoPath
 operator|.
-name|getLocation
+name|toString
 argument_list|()
 argument_list|,
 name|localFile

@@ -79,6 +79,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Olivier Lamy  */
 end_comment
@@ -134,6 +144,27 @@ name|expect
 argument_list|(
 name|archivaConfig
 operator|.
+name|getDefaultLocale
+argument_list|()
+argument_list|)
+operator|.
+name|andReturn
+argument_list|(
+name|Locale
+operator|.
+name|getDefault
+argument_list|( )
+argument_list|)
+operator|.
+name|anyTimes
+argument_list|()
+expr_stmt|;
+name|EasyMock
+operator|.
+name|expect
+argument_list|(
+name|archivaConfig
+operator|.
 name|getConfiguration
 argument_list|()
 argument_list|)
@@ -143,12 +174,8 @@ argument_list|(
 name|config
 argument_list|)
 operator|.
-name|times
-argument_list|(
-literal|1
-argument_list|,
-literal|2
-argument_list|)
+name|anyTimes
+argument_list|()
 expr_stmt|;
 name|archivaConfigControl
 operator|.

@@ -25,13 +25,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
+name|common
 operator|.
-name|model
+name|utils
 operator|.
-name|beans
-operator|.
-name|ManagedRepository
+name|BaseFile
 import|;
 end_import
 
@@ -47,7 +45,7 @@ name|common
 operator|.
 name|utils
 operator|.
-name|BaseFile
+name|PathUtil
 import|;
 end_import
 
@@ -92,6 +90,20 @@ operator|.
 name|functors
 operator|.
 name|ConsumerWantsFilePredicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|ManagedRepository
 import|;
 end_import
 
@@ -1072,15 +1084,28 @@ name|increaseFileCount
 argument_list|()
 empty_stmt|;
 comment|// consume files regardless - the predicate will check the timestamp
+name|Path
+name|repoPath
+init|=
+name|PathUtil
+operator|.
+name|getPathFromUri
+argument_list|(
+name|repository
+operator|.
+name|getLocation
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|BaseFile
 name|basefile
 init|=
 operator|new
 name|BaseFile
 argument_list|(
-name|repository
+name|repoPath
 operator|.
-name|getLocation
+name|toString
 argument_list|()
 argument_list|,
 name|file

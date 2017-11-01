@@ -412,7 +412,7 @@ operator|.
 name|getRepository
 argument_list|()
 operator|.
-name|getUrl
+name|getLocation
 argument_list|()
 argument_list|)
 operator|.
