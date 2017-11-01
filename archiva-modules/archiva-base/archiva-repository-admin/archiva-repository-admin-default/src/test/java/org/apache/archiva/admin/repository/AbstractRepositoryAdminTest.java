@@ -365,6 +365,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -585,10 +595,30 @@ name|String
 name|repoLocation
 parameter_list|)
 block|{
+name|String
+name|repoLocationStr
+init|=
+name|Paths
+operator|.
+name|get
+argument_list|(
+name|repoLocation
+argument_list|,
+literal|".index"
+argument_list|)
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
 return|return
 operator|new
 name|ManagedRepository
 argument_list|(
+name|Locale
+operator|.
+name|getDefault
+argument_list|( )
+argument_list|,
 name|repoId
 argument_list|,
 literal|"test repo"
@@ -605,9 +635,7 @@ literal|true
 argument_list|,
 literal|"0 0 * * * ?"
 argument_list|,
-name|repoLocation
-operator|+
-literal|"/.index"
+name|repoLocationStr
 argument_list|,
 literal|false
 argument_list|,
@@ -754,7 +782,12 @@ name|remoteRepository
 init|=
 operator|new
 name|RemoteRepository
+argument_list|(
+name|Locale
+operator|.
+name|getDefault
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|remoteRepository
 operator|.

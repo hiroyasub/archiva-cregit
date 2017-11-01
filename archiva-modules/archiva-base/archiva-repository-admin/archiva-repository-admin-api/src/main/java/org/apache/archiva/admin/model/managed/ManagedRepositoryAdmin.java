@@ -206,6 +206,23 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 function_decl|;
+name|IndexingContext
+name|createIndexContext
+parameter_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|ManagedRepository
+name|repository
+parameter_list|)
+throws|throws
+name|RepositoryAdminException
+function_decl|;
 block|}
 end_interface
 

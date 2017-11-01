@@ -127,6 +127,16 @@ name|Arrays
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Olivier Lamy  */
 end_comment
@@ -369,7 +379,12 @@ name|remoteRepository
 init|=
 operator|new
 name|RemoteRepository
+argument_list|(
+name|Locale
+operator|.
+name|getDefault
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|remoteRepository
 operator|.
@@ -640,7 +655,12 @@ name|remoteRepository
 init|=
 operator|new
 name|RemoteRepository
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|getDefault
+argument_list|( )
+argument_list|)
 decl_stmt|;
 name|remoteRepository
 operator|.

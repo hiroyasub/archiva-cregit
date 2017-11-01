@@ -43,6 +43,16 @@ name|Serializable
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Olivier Lamy  * @since 1.4-M1  */
 end_comment
@@ -106,7 +116,7 @@ decl_stmt|;
 comment|/**      * default model value      */
 specifier|private
 name|int
-name|retentionTime
+name|retentionPeriod
 init|=
 literal|100
 decl_stmt|;
@@ -138,11 +148,34 @@ specifier|public
 name|ManagedRepository
 parameter_list|()
 block|{
-comment|// no op
+name|super
+argument_list|(
+name|Locale
+operator|.
+name|getDefault
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|ManagedRepository
 parameter_list|(
+name|Locale
+name|defaultLocale
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|defaultLocale
+argument_list|)
+expr_stmt|;
+block|}
+specifier|public
+name|ManagedRepository
+parameter_list|(
+name|Locale
+name|defaultLocale
+parameter_list|,
 name|String
 name|id
 parameter_list|,
@@ -174,7 +207,7 @@ name|boolean
 name|scanned
 parameter_list|,
 name|int
-name|retentionTime
+name|retentionPeriod
 parameter_list|,
 name|int
 name|retentionCount
@@ -188,6 +221,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|defaultLocale
+argument_list|,
 name|id
 argument_list|,
 name|name
@@ -241,9 +276,9 @@ name|scanned
 expr_stmt|;
 name|this
 operator|.
-name|retentionTime
+name|retentionPeriod
 operator|=
-name|retentionTime
+name|retentionPeriod
 expr_stmt|;
 name|this
 operator|.
@@ -268,6 +303,9 @@ comment|/**      * @since 1.4-M3      */
 specifier|public
 name|ManagedRepository
 parameter_list|(
+name|Locale
+name|defaultLocale
+parameter_list|,
 name|String
 name|id
 parameter_list|,
@@ -299,7 +337,7 @@ name|boolean
 name|scanned
 parameter_list|,
 name|int
-name|retentionTime
+name|retentionPeriod
 parameter_list|,
 name|int
 name|retentionCount
@@ -319,6 +357,8 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
+name|defaultLocale
+argument_list|,
 name|id
 argument_list|,
 name|name
@@ -339,7 +379,7 @@ name|indexDir
 argument_list|,
 name|scanned
 argument_list|,
-name|retentionTime
+name|retentionPeriod
 argument_list|,
 name|retentionCount
 argument_list|,
@@ -536,26 +576,26 @@ expr_stmt|;
 block|}
 specifier|public
 name|int
-name|getDaysOlder
+name|getRetentionPeriod
 parameter_list|()
 block|{
 return|return
-name|retentionTime
+name|retentionPeriod
 return|;
 block|}
 specifier|public
 name|void
-name|setDaysOlder
+name|setRetentionPeriod
 parameter_list|(
 name|int
-name|retentionTime
+name|periodInDays
 parameter_list|)
 block|{
 name|this
 operator|.
-name|retentionTime
+name|retentionPeriod
 operator|=
-name|retentionTime
+name|periodInDays
 expr_stmt|;
 block|}
 specifier|public
@@ -808,12 +848,12 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", retentionTime="
+literal|", retentionPeriod="
 argument_list|)
 operator|.
 name|append
 argument_list|(
-name|retentionTime
+name|retentionPeriod
 argument_list|)
 expr_stmt|;
 name|sb
