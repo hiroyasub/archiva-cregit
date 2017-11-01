@@ -41,6 +41,16 @@ name|URI
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URISyntaxException
+import|;
+end_import
+
 begin_comment
 comment|/**  *  * This feature provides some information about index creation.  *  */
 end_comment
@@ -69,6 +79,32 @@ specifier|public
 name|IndexCreationFeature
 parameter_list|()
 block|{
+try|try
+block|{
+name|this
+operator|.
+name|indexPath
+operator|=
+operator|new
+name|URI
+argument_list|(
+literal|".indexer"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|URISyntaxException
+name|e
+parameter_list|)
+block|{
+comment|// This may not happen.
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
 block|}
 specifier|public
 name|IndexCreationFeature

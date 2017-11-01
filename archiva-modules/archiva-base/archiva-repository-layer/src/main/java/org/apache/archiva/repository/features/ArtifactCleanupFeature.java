@@ -49,7 +49,7 @@ literal|false
 decl_stmt|;
 specifier|private
 name|Period
-name|retentionTime
+name|retentionPeriod
 init|=
 name|Period
 operator|.
@@ -76,7 +76,7 @@ name|boolean
 name|deleteReleasedSnapshots
 parameter_list|,
 name|Period
-name|retentionTime
+name|retentionPeriod
 parameter_list|,
 name|int
 name|retentionCount
@@ -90,9 +90,9 @@ name|deleteReleasedSnapshots
 expr_stmt|;
 name|this
 operator|.
-name|retentionTime
+name|retentionPeriod
 operator|=
-name|retentionTime
+name|retentionPeriod
 expr_stmt|;
 name|this
 operator|.
@@ -141,27 +141,27 @@ block|}
 comment|/**      * Returns the amount of time after that, the (snapshot) artifacts can be deleted.      *      * @return The time period after that the artifacts can be deleted.      */
 specifier|public
 name|Period
-name|getRetentionTime
+name|getRetentionPeriod
 parameter_list|()
 block|{
 return|return
-name|retentionTime
+name|retentionPeriod
 return|;
 block|}
-comment|/**      * Sets time period, after that artifacts can be deleted.      * @param retentionTime      */
+comment|/**      * Sets time period, after that artifacts can be deleted.      * @param retentionPeriod      */
 specifier|public
 name|void
-name|setRetentionTime
+name|setRetentionPeriod
 parameter_list|(
 name|Period
-name|retentionTime
+name|retentionPeriod
 parameter_list|)
 block|{
 name|this
 operator|.
-name|retentionTime
+name|retentionPeriod
 operator|=
-name|retentionTime
+name|retentionPeriod
 expr_stmt|;
 block|}
 comment|/**      * Sets the number of (snapshot) artifacts that should be kept, even if they are older      * than the retention time.      * @return The number of artifacts for a version that should be kept      */

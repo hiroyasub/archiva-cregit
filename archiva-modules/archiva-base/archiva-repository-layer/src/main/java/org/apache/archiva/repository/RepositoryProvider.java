@@ -54,7 +54,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * This interface must be implemented by the repository implementations. These  * are responsible for creating the instances.  *  */
+comment|/**  *  * This interface must be implemented by the repository implementations. The repository provider knows all  * about the repositories and should be the only part that uses the repository specific classes and libraries  * (e.g. the maven libraries).  *  * Newly created instances should always be filled with default values that make sense. null values should  * be avoided.  *  * References like staging repositories must not be set.  *  *  */
 end_comment
 
 begin_interface
@@ -62,6 +62,7 @@ specifier|public
 interface|interface
 name|RepositoryProvider
 block|{
+comment|/**      * Returns the types of repositories this provider can handle.      *      * @return the set of supported repository types      */
 name|Set
 argument_list|<
 name|RepositoryType
@@ -69,6 +70,7 @@ argument_list|>
 name|provides
 parameter_list|()
 function_decl|;
+comment|/**      * Creates a editable managed repository instance. The provider must not check the uniqueness of the      * id parameter and must not track the already created instances. Each call to this method will create      * a new instance.      *      * @param id the repository identifier      * @param name the repository name      * @return a new created managed repository instance      */
 name|EditableManagedRepository
 name|createManagedInstance
 parameter_list|(
@@ -79,6 +81,7 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
+comment|/**      * Creates a editable remote repository instance. The provider must not check the uniqueness of the      * id parameter and must not track the already created instances. Each call to this method will create      * a new instance.      *      * @param id the repository identifier      * @param name the repository name      * @return a new created remote repository instance      */
 name|EditableRemoteRepository
 name|createRemoteInstance
 parameter_list|(
@@ -89,6 +92,7 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
+comment|/**      * Creates a new managed repository instance from the given configuration. All attributes are filled from the      * provided configuration object.      *      * @param configuration the repository configuration that contains the repository data      * @return a new created managed repository instance      * @throws RepositoryException if some of the configuration values are not valid      */
 name|ManagedRepository
 name|createManagedInstance
 parameter_list|(
@@ -98,6 +102,7 @@ parameter_list|)
 throws|throws
 name|RepositoryException
 function_decl|;
+comment|/**      * Updates the given managed repository instance from the given configuration. All attributes are filled from the      * provided configuration object.      *      * @param repo the repository instance that should be updated      * @param configuration the repository configuration that contains the repository data      * @throws RepositoryException if some of the configuration values are not valid      */
 name|void
 name|updateManagedInstance
 parameter_list|(
@@ -110,6 +115,7 @@ parameter_list|)
 throws|throws
 name|RepositoryException
 function_decl|;
+comment|/**      * Creates a new managed staging repository instance from the given configuration. All attributes are filled from the      * provided configuration object.      *      * @param baseConfiguration the repository configuration of the base repository that references the staging repository      * @return a new created managed staging repository instance      * @throws RepositoryException if some of the configuration values are not valid      */
 name|ManagedRepository
 name|createStagingInstance
 parameter_list|(
@@ -119,6 +125,7 @@ parameter_list|)
 throws|throws
 name|RepositoryException
 function_decl|;
+comment|/**      * Creates a new remote repository instance from the given configuration. All attributes are filled from the      * provided configuration object.      *      * @param configuration the repository configuration that contains the repository data      * @return a new created remote repository instance      * @throws RepositoryException if some of the configuration values are not valid      */
 name|RemoteRepository
 name|createRemoteInstance
 parameter_list|(
@@ -128,6 +135,7 @@ parameter_list|)
 throws|throws
 name|RepositoryException
 function_decl|;
+comment|/**      * Updates the given remote repository instance from the given configuration. All attributes are filled from the      * provided configuration object.      *      * @param repo the repository instance that should be updated      * @param configuration the repository configuration that contains the repository data      * @throws RepositoryException if some of the configuration values are not valid      */
 name|void
 name|updateRemoteInstance
 parameter_list|(
@@ -140,6 +148,7 @@ parameter_list|)
 throws|throws
 name|RepositoryException
 function_decl|;
+comment|/**      * Returns a configuration object from the given remote repository instance.      *      * @param remoteRepository the remote repository instance      * @return the repository configuration with all the data that is stored in the repository instance      * @throws RepositoryException if the data cannot be converted      */
 name|RemoteRepositoryConfiguration
 name|getRemoteConfiguration
 parameter_list|(
@@ -149,6 +158,7 @@ parameter_list|)
 throws|throws
 name|RepositoryException
 function_decl|;
+comment|/**      * Returns a configuration object from the given managed repository instance.      *      * @param managedRepository the managed repository instance      * @return the repository configuration with all the data that is stored in the repository instance      * @throws RepositoryException if the data cannot be converted      */
 name|ManagedRepositoryConfiguration
 name|getManagedConfiguration
 parameter_list|(
