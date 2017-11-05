@@ -23,11 +23,25 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
+name|archiva
 operator|.
-name|index
+name|model
 operator|.
-name|ArtifactInfo
+name|ArchivaArtifactModel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|model
+operator|.
+name|ArtifactReference
 import|;
 end_import
 
@@ -53,7 +67,7 @@ block|{
 name|boolean
 name|addArtifactInResult
 parameter_list|(
-name|ArtifactInfo
+name|ArchivaArtifactModel
 name|artifact
 parameter_list|,
 name|Map

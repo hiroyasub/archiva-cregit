@@ -19,22 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|admin
-operator|.
-name|model
-operator|.
-name|RepositoryAdminException
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -140,7 +124,7 @@ name|String
 name|managedRepoId
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|RepositorySearchException
 function_decl|;
 block|}
 end_interface
