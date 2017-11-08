@@ -43,6 +43,20 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|LayoutException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|ManagedRepositoryContent
 import|;
 end_import
@@ -60,22 +74,6 @@ operator|.
 name|content
 operator|.
 name|PathParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|layout
-operator|.
-name|LayoutException
 import|;
 end_import
 
@@ -132,7 +130,7 @@ parameter_list|()
 block|{
 comment|// no op
 block|}
-comment|/**      * Takes an incoming requested path (in "/" format) and gleans the layout      * and ArtifactReference appropriate for that content.      *      * @param requestedPath the relative path to the content.      * @return the ArtifactReference for the requestedPath.      * @throws org.apache.archiva.repository.layout.LayoutException if the request path is not layout valid.      */
+comment|/**      * Takes an incoming requested path (in "/" format) and gleans the layout      * and ArtifactReference appropriate for that content.      *      * @param requestedPath the relative path to the content.      * @return the ArtifactReference for the requestedPath.      * @throws LayoutException if the request path is not layout valid.      */
 specifier|public
 name|ArtifactReference
 name|toArtifactReference
@@ -594,7 +592,7 @@ operator|==
 literal|3
 return|;
 block|}
-comment|/**      * Adjust the requestedPath to conform to the native layout of the provided {@link org.apache.archiva.repository.ManagedRepositoryContent}.      *      * @param requestedPath the incoming requested path.      * @param repository    the repository to adjust to.      * @return the adjusted (to native) path.      * @throws org.apache.archiva.repository.layout.LayoutException if the path cannot be parsed.      */
+comment|/**      * Adjust the requestedPath to conform to the native layout of the provided {@link org.apache.archiva.repository.ManagedRepositoryContent}.      *      * @param requestedPath the incoming requested path.      * @param repository    the repository to adjust to.      * @return the adjusted (to native) path.      * @throws LayoutException if the path cannot be parsed.      */
 specifier|public
 name|String
 name|toNativePath

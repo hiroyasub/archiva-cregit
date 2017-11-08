@@ -23,68 +23,50 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|model
+name|indexer
 operator|.
-name|ArtifactReference
+name|ArchivaIndexingContext
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|archiva
-operator|.
-name|model
-operator|.
-name|VersionedReference
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|layout
-operator|.
-name|LayoutException
+name|Set
 import|;
 end_import
 
 begin_comment
-comment|/**  * Common aspects of content provider interfaces  */
+comment|/**  * Represents a managed repository, that is readable and writable.  */
 end_comment
 
 begin_interface
 specifier|public
 interface|interface
-name|RepositoryContent
+name|ManagedRepository
+extends|extends
+name|Repository
 block|{
-comment|/**      * Given a repository relative path to a filename, return the {@link VersionedReference} object suitable for the path.      *      * @param path the path relative to the repository base dir for the artifact.      * @return the {@link ArtifactReference} representing the path.  (or null if path cannot be converted to      *         a {@link ArtifactReference})      * @throws LayoutException if there was a problem converting the path to an artifact.      */
-name|ArtifactReference
-name|toArtifactReference
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-throws|throws
-name|LayoutException
+comment|/**      * Returns the interface to access the contents of this repository.      *      * @return The repository content.      */
+name|ManagedRepositoryContent
+name|getContent
+parameter_list|()
 function_decl|;
-comment|/**      * Given an {@link ArtifactReference}, return the relative path to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
-name|String
-name|toPath
-parameter_list|(
-name|ArtifactReference
-name|reference
-parameter_list|)
+comment|/**      * Returns true, if repeated deployments of the same artifact with the same version throws exceptions.      * @return      */
+name|boolean
+name|blocksRedeployments
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the release schemes that are active by this repository. E.g. for maven repositories      * this may either be a release repository, a snapshot repository or a combined repository.      * @return      */
+name|Set
+argument_list|<
+name|ReleaseScheme
+argument_list|>
+name|getActiveReleaseSchemes
+parameter_list|()
 function_decl|;
 block|}
 end_interface

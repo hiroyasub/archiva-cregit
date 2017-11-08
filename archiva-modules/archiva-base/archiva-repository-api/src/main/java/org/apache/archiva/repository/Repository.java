@@ -23,6 +23,20 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|indexer
+operator|.
+name|ArchivaIndexingContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|repository
 operator|.
 name|features
@@ -201,6 +215,11 @@ name|T
 argument_list|>
 name|clazz
 parameter_list|)
+function_decl|;
+comment|/**      * Returns a indexing context.      * @return      * @throws UnsupportedOperationException      */
+name|ArchivaIndexingContext
+name|getIndexingContext
+parameter_list|()
 function_decl|;
 block|}
 end_interface

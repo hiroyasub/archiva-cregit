@@ -8,8 +8,6 @@ operator|.
 name|archiva
 operator|.
 name|repository
-operator|.
-name|layout
 package|;
 end_package
 
@@ -25,56 +23,55 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|common
+name|model
 operator|.
-name|ArchivaException
+name|ArtifactReference
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|model
+operator|.
+name|VersionedReference
 import|;
 end_import
 
 begin_comment
-comment|/**  * LayoutException   *  *  */
+comment|/**  * Common aspects of content provider interfaces  */
 end_comment
 
-begin_class
+begin_interface
 specifier|public
-class|class
-name|LayoutException
-extends|extends
-name|ArchivaException
+interface|interface
+name|RepositoryContent
 block|{
-specifier|public
-name|LayoutException
+comment|/**      * Given a repository relative path to a filename, return the {@link VersionedReference} object suitable for the path.      *      * @param path the path relative to the repository base dir for the artifact.      * @return the {@link ArtifactReference} representing the path.  (or null if path cannot be converted to      *         a {@link ArtifactReference})      * @throws LayoutException if there was a problem converting the path to an artifact.      */
+name|ArtifactReference
+name|toArtifactReference
 parameter_list|(
 name|String
-name|message
-parameter_list|,
-name|Throwable
-name|cause
+name|path
 parameter_list|)
-block|{
-name|super
-argument_list|(
-name|message
-argument_list|,
-name|cause
-argument_list|)
-expr_stmt|;
-block|}
-specifier|public
+throws|throws
 name|LayoutException
-parameter_list|(
+function_decl|;
+comment|/**      * Given an {@link ArtifactReference}, return the relative path to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
 name|String
-name|message
+name|toPath
+parameter_list|(
+name|ArtifactReference
+name|reference
 parameter_list|)
-block|{
-name|super
-argument_list|(
-name|message
-argument_list|)
-expr_stmt|;
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

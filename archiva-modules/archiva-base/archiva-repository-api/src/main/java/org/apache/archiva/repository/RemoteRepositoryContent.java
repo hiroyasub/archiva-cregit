@@ -43,22 +43,6 @@ name|RepositoryURL
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|layout
-operator|.
-name|LayoutException
-import|;
-end_import
-
 begin_comment
 comment|/**  * RemoteRepositoryContent interface for interacting with a remote repository in an abstract way,   * without the need for processing based on URLs, or working with the database.   *  *  */
 end_comment

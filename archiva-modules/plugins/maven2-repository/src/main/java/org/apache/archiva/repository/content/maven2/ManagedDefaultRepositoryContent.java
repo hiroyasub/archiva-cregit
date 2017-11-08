@@ -169,6 +169,20 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|LayoutException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|ManagedRepositoryContent
 import|;
 end_import
@@ -184,22 +198,6 @@ operator|.
 name|repository
 operator|.
 name|RepositoryException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|layout
-operator|.
-name|LayoutException
 import|;
 end_import
 
@@ -1312,7 +1310,7 @@ return|return
 name|repository
 return|;
 block|}
-comment|/**      * Gather the Available Versions (on disk) for a specific Project Reference, based on filesystem      * information.      *      * @return the Set of available versions, based on the project reference.      * @throws org.apache.archiva.repository.layout.LayoutException      * @throws org.apache.archiva.repository.layout.LayoutException      */
+comment|/**      * Gather the Available Versions (on disk) for a specific Project Reference, based on filesystem      * information.      *      * @return the Set of available versions, based on the project reference.      * @throws LayoutException      * @throws LayoutException      */
 annotation|@
 name|Override
 specifier|public
@@ -2085,7 +2083,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Convert a path to an artifact reference.      *      * @param path the path to convert. (relative or full location path)      * @throws org.apache.archiva.repository.layout.LayoutException if the path cannot be converted to an artifact reference.      */
+comment|/**      * Convert a path to an artifact reference.      *      * @param path the path to convert. (relative or full location path)      * @throws LayoutException if the path cannot be converted to an artifact reference.      */
 end_comment
 
 begin_function
@@ -2271,7 +2269,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Get the first Artifact found in the provided VersionedReference location.      *      * @param reference the reference to the versioned reference to search within      * @return the ArtifactReference to the first artifact located within the versioned reference. or null if      *         no artifact was found within the versioned reference.      * @throws java.io.IOException     if the versioned reference is invalid (example: doesn't exist, or isn't a directory)      * @throws org.apache.archiva.repository.layout.LayoutException      */
+comment|/**      * Get the first Artifact found in the provided VersionedReference location.      *      * @param reference the reference to the versioned reference to search within      * @return the ArtifactReference to the first artifact located within the versioned reference. or null if      *         no artifact was found within the versioned reference.      * @throws java.io.IOException     if the versioned reference is invalid (example: doesn't exist, or isn't a directory)      * @throws LayoutException      */
 end_comment
 
 begin_function

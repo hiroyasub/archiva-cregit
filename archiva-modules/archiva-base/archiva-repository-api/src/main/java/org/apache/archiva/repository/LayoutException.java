@@ -17,45 +17,62 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Set
+name|archiva
+operator|.
+name|common
+operator|.
+name|ArchivaException
 import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a managed repository, that is readable and writable.  */
+comment|/**  * LayoutException   *  *  */
 end_comment
 
-begin_interface
+begin_class
 specifier|public
-interface|interface
-name|ManagedRepository
+class|class
+name|LayoutException
 extends|extends
-name|Repository
+name|ArchivaException
 block|{
-comment|/**      * Returns the interface to access the contents of this repository.      *      * @return The repository content.      */
-name|ManagedRepositoryContent
-name|getContent
-parameter_list|()
-function_decl|;
-comment|/**      * Returns true, if repeated deployments of the same artifact with the same version throws exceptions.      * @return      */
-name|boolean
-name|blocksRedeployments
-parameter_list|()
-function_decl|;
-comment|/**      * Returns the release schemes that are active by this repository. E.g. for maven repositories      * this may either be a release repository, a snapshot repository or a combined repository.      * @return      */
-name|Set
-argument_list|<
-name|ReleaseScheme
-argument_list|>
-name|getActiveReleaseSchemes
-parameter_list|()
-function_decl|;
+specifier|public
+name|LayoutException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
 block|}
-end_interface
+specifier|public
+name|LayoutException
+parameter_list|(
+name|String
+name|message
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+end_class
 
 end_unit
 

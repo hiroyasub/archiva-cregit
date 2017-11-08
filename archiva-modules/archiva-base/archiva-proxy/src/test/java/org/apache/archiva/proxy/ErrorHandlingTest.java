@@ -123,8 +123,6 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|layout
-operator|.
 name|LayoutException
 import|;
 end_import
