@@ -39,6 +39,20 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|Repository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|RepositoryType
 import|;
 end_import
@@ -119,6 +133,14 @@ name|supportsRepository
 parameter_list|(
 name|RepositoryType
 name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Creates the indexing context for the given repository.      * @param repository the repository for which the index context should be created      * @return the index context      */
+name|ArchivaIndexingContext
+name|createContext
+parameter_list|(
+name|Repository
+name|repository
 parameter_list|)
 function_decl|;
 block|}

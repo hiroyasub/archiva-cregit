@@ -129,6 +129,7 @@ name|Inject
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
+specifier|public
 name|ArchivaIndexManager
 name|getIndexManager
 parameter_list|(
