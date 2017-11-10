@@ -61,6 +61,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|URI
@@ -79,6 +89,8 @@ parameter_list|(
 name|ArchivaIndexingContext
 name|context
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Rescans the whole repository, this index is associated to.      * @param context      * @param update      */
 name|void
@@ -90,6 +102,8 @@ parameter_list|,
 name|boolean
 name|update
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Updates the index from the remote url.      * @param context      * @param remoteUpdateUri      * @param fullUpdate      */
 name|void
@@ -104,6 +118,8 @@ parameter_list|,
 name|boolean
 name|fullUpdate
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Adds a artifact to the index.      * @param context      * @param artifactReference      */
 name|void
@@ -115,6 +131,8 @@ parameter_list|,
 name|ArtifactReference
 name|artifactReference
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Removes a artifact from the index.      * @param context      * @param artifactReference      */
 name|void
@@ -126,6 +144,8 @@ parameter_list|,
 name|ArtifactReference
 name|artifactReference
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Returns true, if this manager is able to apply the index actions for the given repository type.      * @param type      * @return      */
 name|boolean
@@ -142,6 +162,8 @@ parameter_list|(
 name|Repository
 name|repository
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 block|}
 end_interface

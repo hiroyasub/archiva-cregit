@@ -77,6 +77,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|time
+operator|.
+name|ZonedDateTime
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Set
@@ -111,6 +121,8 @@ comment|/**      * Returns true, if the index has no entries or is not initializ
 name|boolean
 name|isEmpty
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Writes the last changes to the index.      * @throws IOException      */
 name|void
@@ -184,6 +196,8 @@ name|String
 argument_list|>
 name|getGroups
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Updates the timestamp of the index.      * @param save      * @throws IOException      */
 name|void
@@ -202,7 +216,7 @@ parameter_list|(
 name|boolean
 name|save
 parameter_list|,
-name|LocalDateTime
+name|ZonedDateTime
 name|time
 parameter_list|)
 throws|throws

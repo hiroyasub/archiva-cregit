@@ -9,6 +9,8 @@ name|archiva
 operator|.
 name|indexer
 operator|.
+name|maven
+operator|.
 name|search
 package|;
 end_package
@@ -118,6 +120,22 @@ operator|.
 name|plexusbridge
 operator|.
 name|PlexusSisuBridgeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|search
+operator|.
+name|*
 import|;
 end_import
 
