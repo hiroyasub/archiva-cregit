@@ -187,7 +187,7 @@ argument_list|>
 name|clazz
 parameter_list|)
 throws|throws
-name|UnsupportedOperationException
+name|UnsupportedBaseContextException
 function_decl|;
 comment|/**      * Returns the list of groups that are assigned to this index      * @return      */
 name|Set

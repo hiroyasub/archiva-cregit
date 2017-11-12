@@ -90,7 +90,7 @@ name|ArchivaIndexingContext
 name|context
 parameter_list|)
 throws|throws
-name|IOException
+name|IndexUpdateFailedException
 function_decl|;
 comment|/**      * Rescans the whole repository, this index is associated to.      * @param context      * @param update      */
 name|void
@@ -103,7 +103,7 @@ name|boolean
 name|update
 parameter_list|)
 throws|throws
-name|IOException
+name|IndexUpdateFailedException
 function_decl|;
 comment|/**      * Updates the index from the remote url.      * @param context      * @param remoteUpdateUri      * @param fullUpdate      */
 name|void
@@ -119,7 +119,7 @@ name|boolean
 name|fullUpdate
 parameter_list|)
 throws|throws
-name|IOException
+name|IndexUpdateFailedException
 function_decl|;
 comment|/**      * Adds a artifact to the index.      * @param context      * @param artifactReference      */
 name|void
@@ -132,7 +132,7 @@ name|ArtifactReference
 name|artifactReference
 parameter_list|)
 throws|throws
-name|IOException
+name|IndexUpdateFailedException
 function_decl|;
 comment|/**      * Removes a artifact from the index.      * @param context      * @param artifactReference      */
 name|void
@@ -145,7 +145,7 @@ name|ArtifactReference
 name|artifactReference
 parameter_list|)
 throws|throws
-name|IOException
+name|IndexUpdateFailedException
 function_decl|;
 comment|/**      * Returns true, if this manager is able to apply the index actions for the given repository type.      * @param type      * @return      */
 name|boolean
@@ -163,7 +163,7 @@ name|Repository
 name|repository
 parameter_list|)
 throws|throws
-name|IOException
+name|IndexCreationFailedException
 function_decl|;
 block|}
 end_interface
