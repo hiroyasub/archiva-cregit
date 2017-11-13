@@ -77,6 +77,28 @@ name|URI
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
 begin_interface
 specifier|public
 interface|interface
@@ -121,27 +143,33 @@ parameter_list|)
 throws|throws
 name|IndexUpdateFailedException
 function_decl|;
-comment|/**      * Adds a artifact to the index.      * @param context      * @param artifactReference      */
+comment|/**      * Adds a list of artifacts to the index.      * @param context      * @param artifactReference      */
 name|void
-name|addArtifactToIndex
+name|addArtifactsToIndex
 parameter_list|(
 name|ArchivaIndexingContext
 name|context
 parameter_list|,
-name|ArtifactReference
+name|Collection
+argument_list|<
+name|Path
+argument_list|>
 name|artifactReference
 parameter_list|)
 throws|throws
 name|IndexUpdateFailedException
 function_decl|;
-comment|/**      * Removes a artifact from the index.      * @param context      * @param artifactReference      */
+comment|/**      * Removes a list of artifacts from the index.      * @param context      * @param artifactReference      */
 name|void
-name|removeArtifactFromIndex
+name|removeArtifactsFromIndex
 parameter_list|(
 name|ArchivaIndexingContext
 name|context
 parameter_list|,
-name|ArtifactReference
+name|Collection
+argument_list|<
+name|Path
+argument_list|>
 name|artifactReference
 parameter_list|)
 throws|throws
