@@ -170,6 +170,18 @@ name|Path
 name|getAppServerBaseDir
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the base directory for repositories that have a relative location path set.      * @return      */
+specifier|public
+name|Path
+name|getRepositoryBaseDir
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the data directory where repositories and metadata reside      * @return      */
+specifier|public
+name|Path
+name|getDataDirectory
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
