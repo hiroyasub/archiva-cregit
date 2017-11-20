@@ -23,20 +23,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|model
-operator|.
-name|ArtifactReference
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|repository
 operator|.
 name|Repository
@@ -61,31 +47,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|URI
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Path
 import|;
 end_import
 
@@ -114,15 +78,12 @@ parameter_list|)
 throws|throws
 name|IndexUpdateFailedException
 function_decl|;
-comment|/**      * Rescans the whole repository, this index is associated to.      * @param context      * @param update      */
+comment|/**      * Rescans the whole repository, this index is associated to.      * @param context      *      */
 name|void
 name|scan
 parameter_list|(
 name|ArchivaIndexingContext
 name|context
-parameter_list|,
-name|boolean
-name|update
 parameter_list|)
 throws|throws
 name|IndexUpdateFailedException
@@ -152,7 +113,7 @@ name|context
 parameter_list|,
 name|Collection
 argument_list|<
-name|Path
+name|URI
 argument_list|>
 name|artifactReference
 parameter_list|)
@@ -168,7 +129,7 @@ name|context
 parameter_list|,
 name|Collection
 argument_list|<
-name|Path
+name|URI
 argument_list|>
 name|artifactReference
 parameter_list|)
