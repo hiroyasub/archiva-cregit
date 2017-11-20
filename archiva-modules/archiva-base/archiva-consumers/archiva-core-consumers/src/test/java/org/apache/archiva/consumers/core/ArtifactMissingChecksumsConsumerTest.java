@@ -224,6 +224,16 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+name|Path
+name|basePath
+init|=
+name|Paths
+operator|.
+name|get
+argument_list|(
+literal|"target/test-classes"
+argument_list|)
+decl_stmt|;
 name|repoConfig
 operator|=
 operator|new
@@ -232,6 +242,8 @@ argument_list|(
 literal|"test-repo"
 argument_list|,
 literal|"Test Repository"
+argument_list|,
+name|basePath
 argument_list|)
 expr_stmt|;
 name|repoConfig
@@ -245,11 +257,11 @@ name|repoConfig
 operator|.
 name|setLocation
 argument_list|(
-name|Paths
+name|basePath
 operator|.
-name|get
+name|resolve
 argument_list|(
-literal|"target/test-classes/test-repo/"
+literal|"test-repo/"
 argument_list|)
 operator|.
 name|toUri

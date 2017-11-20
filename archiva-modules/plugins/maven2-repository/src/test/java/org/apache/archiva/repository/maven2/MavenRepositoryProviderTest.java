@@ -313,6 +313,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Paths
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|time
 operator|.
 name|Duration
@@ -1510,6 +1522,13 @@ argument_list|(
 literal|"test01"
 argument_list|,
 literal|"My Test repo"
+argument_list|,
+name|Paths
+operator|.
+name|get
+argument_list|(
+literal|"target/repositories"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|repo
@@ -1862,6 +1881,13 @@ argument_list|(
 literal|"test01"
 argument_list|,
 literal|"My Test repo"
+argument_list|,
+name|Paths
+operator|.
+name|get
+argument_list|(
+literal|"target/remotes"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|repo

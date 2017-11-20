@@ -683,6 +683,13 @@ argument_list|(
 literal|"test-repo"
 argument_list|,
 literal|"Test Repository"
+argument_list|,
+name|Paths
+operator|.
+name|get
+argument_list|(
+literal|"target/test-classes"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|repositoryConfig

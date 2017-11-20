@@ -819,6 +819,16 @@ argument_list|(
 name|MANAGED_ID
 argument_list|,
 literal|"Default Managed Repository"
+argument_list|,
+name|Paths
+operator|.
+name|get
+argument_list|(
+name|repoPath
+argument_list|)
+operator|.
+name|getParent
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|repo

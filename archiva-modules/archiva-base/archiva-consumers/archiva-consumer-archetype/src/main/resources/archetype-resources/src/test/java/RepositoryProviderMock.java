@@ -295,6 +295,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Paths
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|time
 operator|.
 name|Duration
@@ -416,6 +428,13 @@ argument_list|(
 name|id
 argument_list|,
 name|name
+argument_list|,
+name|Paths
+operator|.
+name|get
+argument_list|(
+literal|"target/repositories"
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -439,6 +458,13 @@ argument_list|(
 name|id
 argument_list|,
 name|name
+argument_list|,
+name|Paths
+operator|.
+name|get
+argument_list|(
+literal|"target/remotes"
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -469,6 +495,13 @@ name|configuration
 operator|.
 name|getName
 argument_list|( )
+argument_list|,
+name|Paths
+operator|.
+name|get
+argument_list|(
+literal|"target/repositories"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|updateManagedInstance
@@ -807,6 +840,13 @@ name|configuration
 operator|.
 name|getName
 argument_list|( )
+argument_list|,
+name|Paths
+operator|.
+name|get
+argument_list|(
+literal|"target/repositories"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|updateManagedInstance
@@ -847,6 +887,13 @@ name|configuration
 operator|.
 name|getName
 argument_list|( )
+argument_list|,
+name|Paths
+operator|.
+name|get
+argument_list|(
+literal|"target/remotes"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|updateRemoteInstance

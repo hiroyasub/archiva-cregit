@@ -418,6 +418,11 @@ argument_list|(
 name|id
 argument_list|,
 name|name
+argument_list|,
+name|location
+operator|.
+name|getParent
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|repo
@@ -462,6 +467,13 @@ argument_list|(
 name|id
 argument_list|,
 name|name
+argument_list|,
+name|Paths
+operator|.
+name|get
+argument_list|(
+literal|"remotes"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|repo

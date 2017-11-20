@@ -1202,6 +1202,11 @@ argument_list|(
 literal|"test001"
 argument_list|,
 literal|"Test repo"
+argument_list|,
+name|archivaConfiguration
+operator|.
+name|getRepositoryBaseDir
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|managedRepository
@@ -1252,6 +1257,11 @@ argument_list|(
 literal|"central"
 argument_list|,
 literal|"Test repo"
+argument_list|,
+name|archivaConfiguration
+operator|.
+name|getRepositoryBaseDir
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|managedRepository
@@ -1304,6 +1314,11 @@ argument_list|(
 literal|"internal"
 argument_list|,
 literal|"Test repo"
+argument_list|,
+name|archivaConfiguration
+operator|.
+name|getRepositoryBaseDir
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|managedRepository
@@ -1803,6 +1818,11 @@ argument_list|(
 literal|"test001"
 argument_list|,
 literal|"Test repo"
+argument_list|,
+name|archivaConfiguration
+operator|.
+name|getRemoteRepositoryBaseDir
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|remoteRepository
@@ -1863,6 +1883,11 @@ argument_list|(
 literal|"internal"
 argument_list|,
 literal|"Test repo"
+argument_list|,
+name|archivaConfiguration
+operator|.
+name|getRemoteRepositoryBaseDir
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|remoteRepository
@@ -1917,6 +1942,11 @@ argument_list|(
 literal|"central"
 argument_list|,
 literal|"Test repo"
+argument_list|,
+name|archivaConfiguration
+operator|.
+name|getRemoteRepositoryBaseDir
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|remoteRepository

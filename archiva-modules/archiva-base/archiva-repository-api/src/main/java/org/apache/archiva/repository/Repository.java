@@ -59,6 +59,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -135,9 +147,9 @@ name|URI
 name|getLocation
 parameter_list|()
 function_decl|;
-comment|/**      * This returns the absolute location uri of this repository. Some repository locations may be relative to      * the base repository directory or uri. This returns the absolute path of the repository.      * If the location is absolute already this method returns the same URI as getLocation().      *      * @return the absolute uri of the location.      */
-name|URI
-name|getAbsoluteLocation
+comment|/**      * Returns the local path that this repository uses, if it stores data locally. You should keep in      * mind, that repository implementations may not store any data in this directory. E.g. if the      * repository data is handled by a database. So the content of this directory is very implementation      * specific. Users of this directory must know about the repository file layout if they use this      * path.      *      * Repository implementations should always return a valid path, even if there is no locally stored data.      *      * Some extensions may use the path to store their own repository specific data, e.g. statistics, metadata,...      *      * @return the filesystem path to the repository.      */
+name|Path
+name|getLocalPath
 parameter_list|()
 function_decl|;
 comment|/**      * A repository may allow additional locations that can be used, if the primary location is not available.      * @return      */

@@ -436,6 +436,13 @@ argument_list|(
 literal|"test-consumer-repository"
 argument_list|,
 literal|"Test-Consumer-Repository"
+argument_list|,
+name|Paths
+operator|.
+name|get
+argument_list|(
+literal|"target/repositories"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|testRepository

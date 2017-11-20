@@ -176,6 +176,12 @@ name|Path
 name|getRepositoryBaseDir
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the base directory for remote repositories      * @return      */
+specifier|public
+name|Path
+name|getRemoteRepositoryBaseDir
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the data directory where repositories and metadata reside      * @return      */
 specifier|public
 name|Path

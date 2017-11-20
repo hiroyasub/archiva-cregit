@@ -2147,6 +2147,11 @@ argument_list|(
 name|id
 argument_list|,
 name|name
+argument_list|,
+name|archivaConfiguration
+operator|.
+name|getRepositoryBaseDir
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|repo

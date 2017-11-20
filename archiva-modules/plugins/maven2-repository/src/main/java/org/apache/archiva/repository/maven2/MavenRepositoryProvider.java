@@ -543,7 +543,7 @@ init|=
 operator|new
 name|HashSet
 argument_list|<>
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 static|static
 block|{
@@ -565,7 +565,7 @@ argument_list|<
 name|RepositoryType
 argument_list|>
 name|provides
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|TYPES
@@ -591,6 +591,11 @@ argument_list|(
 name|id
 argument_list|,
 name|name
+argument_list|,
+name|archivaConfiguration
+operator|.
+name|getRepositoryBaseDir
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -614,6 +619,11 @@ argument_list|(
 name|id
 argument_list|,
 name|name
+argument_list|,
+name|archivaConfiguration
+operator|.
+name|getRemoteRepositoryBaseDir
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -825,6 +835,11 @@ name|cfg
 operator|.
 name|getName
 argument_list|()
+argument_list|,
+name|archivaConfiguration
+operator|.
+name|getRepositoryBaseDir
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|updateManagedInstance
@@ -898,15 +913,10 @@ expr_stmt|;
 name|Path
 name|repoDir
 init|=
-name|PathUtil
-operator|.
-name|getPathFromUri
-argument_list|(
 name|repo
 operator|.
-name|getAbsoluteLocation
+name|getLocalPath
 argument_list|()
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -952,7 +962,7 @@ literal|"Could not create directory {} for repository {}"
 argument_list|,
 name|repo
 operator|.
-name|getAbsoluteLocation
+name|getLocalPath
 argument_list|()
 argument_list|,
 name|repo
@@ -971,7 +981,7 @@ literal|"Could not create directory for repository "
 operator|+
 name|repo
 operator|.
-name|getAbsoluteLocation
+name|getLocalPath
 argument_list|()
 argument_list|)
 throw|;
@@ -1081,7 +1091,7 @@ name|class
 argument_list|)
 operator|.
 name|get
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|indexCreationFeature
 operator|.
@@ -1336,12 +1346,17 @@ argument_list|(
 name|cfg
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|,
 name|cfg
 operator|.
 name|getName
-argument_list|( )
+argument_list|()
+argument_list|,
+name|archivaConfiguration
+operator|.
+name|getRemoteRepositoryBaseDir
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|updateRemoteInstance
@@ -1602,7 +1617,7 @@ argument_list|(
 name|cfg
 operator|.
 name|getRemoteIndexUrl
-argument_list|( )
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1622,7 +1637,7 @@ operator|+
 name|cfg
 operator|.
 name|getRemoteIndexUrl
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|remoteIndexFeature
@@ -1700,10 +1715,10 @@ argument_list|(
 name|cfg
 operator|.
 name|getPassword
-argument_list|( )
+argument_list|()
 operator|.
 name|toCharArray
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|credentials
@@ -1928,7 +1943,7 @@ init|=
 name|remoteRepository
 operator|.
 name|getLoginCredentials
-argument_list|( )
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -2856,63 +2871,16 @@ parameter_list|)
 throws|throws
 name|RepositoryException
 block|{
-name|String
-name|baseUriStr
-init|=
-name|archivaConfiguration
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|getArchivaRuntimeConfiguration
-argument_list|()
-operator|.
-name|getRepositoryBaseDirectory
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|baseUriStr
-operator|==
-literal|null
-condition|)
-block|{
-name|baseUriStr
-operator|=
-name|Paths
-operator|.
-name|get
-argument_list|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"appserver.base"
-argument_list|)
-argument_list|)
-operator|.
-name|resolve
-argument_list|(
-literal|"repositories"
-argument_list|)
-operator|.
-name|normalize
-argument_list|()
-operator|.
-name|toString
-argument_list|()
-expr_stmt|;
-block|}
-try|try
-block|{
 name|URI
 name|baseUri
 init|=
-operator|new
-name|URI
-argument_list|(
-name|baseUriStr
-argument_list|)
+name|archivaConfiguration
+operator|.
+name|getRepositoryBaseDir
+argument_list|()
+operator|.
+name|toUri
+argument_list|()
 decl_stmt|;
 name|repo
 operator|.
@@ -2921,39 +2889,6 @@ argument_list|(
 name|baseUri
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|URISyntaxException
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|error
-argument_list|(
-literal|"Could not set base URI {}: {}"
-argument_list|,
-name|baseUriStr
-argument_list|,
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-throw|throw
-operator|new
-name|RepositoryException
-argument_list|(
-literal|"Could not set base URI "
-operator|+
-name|baseUriStr
-argument_list|)
-throw|;
-block|}
 name|repo
 operator|.
 name|setName
@@ -2998,7 +2933,7 @@ block|}
 specifier|public
 name|ArchivaConfiguration
 name|getArchivaConfiguration
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|archivaConfiguration

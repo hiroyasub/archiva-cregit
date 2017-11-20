@@ -800,6 +800,16 @@ name|toString
 argument_list|()
 argument_list|,
 literal|"Archiva CLI Provided Repo"
+argument_list|,
+name|Paths
+operator|.
+name|get
+argument_list|(
+name|path
+argument_list|)
+operator|.
+name|getParent
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|repo

@@ -67,6 +67,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Locale
@@ -184,6 +196,9 @@ name|id
 parameter_list|,
 name|String
 name|name
+parameter_list|,
+name|Path
+name|basePath
 parameter_list|)
 block|{
 name|super
@@ -195,6 +210,8 @@ argument_list|,
 name|id
 argument_list|,
 name|name
+argument_list|,
+name|basePath
 argument_list|)
 expr_stmt|;
 name|initFeatures
@@ -215,6 +232,9 @@ name|id
 parameter_list|,
 name|String
 name|name
+parameter_list|,
+name|Path
+name|basePath
 parameter_list|)
 block|{
 name|super
@@ -226,6 +246,8 @@ argument_list|,
 name|id
 argument_list|,
 name|name
+argument_list|,
+name|basePath
 argument_list|)
 expr_stmt|;
 name|initFeatures
