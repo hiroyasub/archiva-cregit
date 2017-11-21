@@ -88,15 +88,12 @@ parameter_list|)
 throws|throws
 name|IndexUpdateFailedException
 function_decl|;
-comment|/**      * Updates the index from the remote url.      * @param context      * @param remoteUpdateUri      * @param fullUpdate      */
+comment|/**      * Updates the index from the remote url.      * @param context      * @param fullUpdate      */
 name|void
 name|update
 parameter_list|(
 name|ArchivaIndexingContext
 name|context
-parameter_list|,
-name|URI
-name|remoteUpdateUri
 parameter_list|,
 name|boolean
 name|fullUpdate

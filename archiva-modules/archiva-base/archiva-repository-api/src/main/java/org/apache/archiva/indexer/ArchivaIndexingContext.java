@@ -155,6 +155,13 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Closes the context without deleting the files.      * Is identical to<code>close(false)</code>      * @throws IOException      */
+name|void
+name|close
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
 comment|/**      * Removes all entries from the index. After this method finished,      * isEmpty() should return true.      * @throws IOException      */
 name|void
 name|purge

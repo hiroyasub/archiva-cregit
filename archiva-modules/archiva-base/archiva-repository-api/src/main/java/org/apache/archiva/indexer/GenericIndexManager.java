@@ -118,9 +118,6 @@ parameter_list|(
 name|ArchivaIndexingContext
 name|context
 parameter_list|,
-name|URI
-name|remoteUpdateUri
-parameter_list|,
 name|boolean
 name|fullUpdate
 parameter_list|)
