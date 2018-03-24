@@ -225,6 +225,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|RepositoryRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|collections
@@ -349,15 +363,8 @@ name|ProxyConnectorAdmin
 block|{
 annotation|@
 name|Inject
-specifier|private
-name|ManagedRepositoryAdmin
-name|managedRepositoryAdmin
-decl_stmt|;
-annotation|@
-name|Inject
-specifier|private
-name|RemoteRepositoryAdmin
-name|remoteRepositoryAdmin
+name|RepositoryRegistry
+name|repositoryRegistry
 decl_stmt|;
 annotation|@
 name|Override
@@ -1190,7 +1197,7 @@ block|{
 comment|// validate source a Managed target a Remote
 if|if
 condition|(
-name|managedRepositoryAdmin
+name|repositoryRegistry
 operator|.
 name|getManagedRepository
 argument_list|(
@@ -1220,7 +1227,7 @@ throw|;
 block|}
 if|if
 condition|(
-name|remoteRepositoryAdmin
+name|repositoryRegistry
 operator|.
 name|getRemoteRepository
 argument_list|(

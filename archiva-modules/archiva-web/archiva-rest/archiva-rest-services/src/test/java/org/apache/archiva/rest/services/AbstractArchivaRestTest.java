@@ -2566,7 +2566,7 @@ argument_list|(
 literal|"java.io.tmpdir"
 argument_list|)
 operator|+
-literal|"/target/.index-"
+literal|"/.index-"
 operator|+
 name|Long
 operator|.

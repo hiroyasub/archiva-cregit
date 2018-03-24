@@ -298,7 +298,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"src/test"
+literal|"target/repos"
 argument_list|,
 name|TEST_REPO_1
 argument_list|,
@@ -329,7 +329,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"src/test"
+literal|"target/repos"
 argument_list|,
 name|TEST_REPO_1
 argument_list|,
@@ -360,7 +360,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"src/test"
+literal|"target/repos"
 argument_list|,
 name|TEST_REPO_1
 argument_list|,
@@ -422,7 +422,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"src/test/"
+literal|"target/repos/"
 operator|+
 name|TEST_REPO_1
 operator|+
@@ -453,7 +453,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"src/test/"
+literal|"target/repos/"
 operator|+
 name|TEST_REPO_1
 operator|+
@@ -484,7 +484,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"src/test/"
+literal|"target/repos/"
 operator|+
 name|TEST_REPO_1
 operator|+
@@ -515,7 +515,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"src/test/"
+literal|"target/repos/"
 operator|+
 name|TEST_REPO_1
 operator|+
@@ -546,7 +546,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"src/test/"
+literal|"target/repos/"
 operator|+
 name|TEST_REPO_1
 operator|+
@@ -577,7 +577,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"src/test/"
+literal|"target/repos/"
 operator|+
 name|TEST_REPO_1
 operator|+
@@ -608,7 +608,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"src/test/"
+literal|"target/repos/"
 operator|+
 name|TEST_REPO_1
 operator|+
@@ -670,7 +670,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"src/test/"
+literal|"target/repos/"
 operator|+
 name|TEST_REPO_1
 operator|+
@@ -701,7 +701,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"src/test/"
+literal|"target/repos/"
 operator|+
 name|TEST_REPO_1
 operator|+
@@ -732,7 +732,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"src/test/"
+literal|"target/repos/"
 operator|+
 name|TEST_REPO_1
 operator|+
@@ -2145,7 +2145,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"src/test/"
+literal|"target/repos/"
 operator|+
 name|TEST_REPO_2
 operator|+
@@ -2176,7 +2176,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"src/test/"
+literal|"target/repos/"
 operator|+
 name|TEST_REPO_2
 operator|+
@@ -2329,6 +2329,11 @@ literal|"jar"
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|hit
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"org.apache.archiva"
@@ -2944,7 +2949,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"src/test/"
+literal|"target/repos/"
 operator|+
 name|TEST_REPO_2
 operator|+
@@ -2975,7 +2980,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"src/test/"
+literal|"target/repos/"
 operator|+
 name|TEST_REPO_2
 operator|+
@@ -3482,7 +3487,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"src/test/"
+literal|"target/repos/"
 operator|+
 name|TEST_REPO_1
 operator|+
@@ -3513,7 +3518,7 @@ operator|.
 name|getBasedir
 argument_list|()
 argument_list|,
-literal|"src/test/"
+literal|"target/repos/"
 operator|+
 name|TEST_REPO_1
 operator|+
@@ -5211,6 +5216,16 @@ argument_list|(
 literal|"target/repo-release"
 argument_list|)
 decl_stmt|;
+name|FileUtils
+operator|.
+name|deleteDirectory
+argument_list|(
+name|repo
+operator|.
+name|toFile
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Path
 name|indexDirectory
 init|=
@@ -5261,7 +5276,7 @@ argument_list|)
 expr_stmt|;
 name|createIndex
 argument_list|(
-literal|"repo-release"
+name|REPO_RELEASE
 argument_list|,
 name|Collections
 operator|.
@@ -5269,51 +5284,13 @@ name|emptyList
 argument_list|()
 argument_list|,
 literal|false
-argument_list|)
-expr_stmt|;
-name|nexusIndexer
-operator|.
-name|addIndexingContext
-argument_list|(
-name|REPO_RELEASE
-argument_list|,
-name|REPO_RELEASE
-argument_list|,
-name|repo
-operator|.
-name|toFile
-argument_list|()
 argument_list|,
 name|indexDirectory
-operator|.
-name|toFile
-argument_list|()
-argument_list|,
-name|repo
-operator|.
-name|toUri
-argument_list|()
-operator|.
-name|toURL
-argument_list|()
-operator|.
-name|toExternalForm
-argument_list|()
-argument_list|,
-name|indexDirectory
-operator|.
-name|toUri
-argument_list|()
-operator|.
-name|toURL
-argument_list|()
-operator|.
-name|toString
-argument_list|()
-argument_list|,
-name|indexCreators
 argument_list|)
 expr_stmt|;
+comment|//        indexer.addIndexingContext( REPO_RELEASE, REPO_RELEASE, repo.toFile(), indexDirectory.toFile(),
+comment|//                                         repo.toUri().toURL().toExternalForm(),
+comment|//                                         indexDirectory.toUri().toURL().toString(), indexCreators );
 name|SearchResultLimits
 name|limits
 init|=

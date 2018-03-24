@@ -7,7 +7,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|indexer
+name|repository
+operator|.
+name|mock
 package|;
 end_package
 
@@ -23,9 +25,51 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|repository
+name|indexer
 operator|.
-name|Repository
+name|ArchivaIndexManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|ArchivaIndexingContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|IndexCreationFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|IndexUpdateFailedException
 import|;
 end_import
 
@@ -39,7 +83,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|RepositoryEvent
+name|Repository
 import|;
 end_import
 
@@ -89,15 +133,19 @@ name|Collection
 import|;
 end_import
 
+begin_comment
+comment|/**  * @author Martin Stockhammer<martin_s@apache.org>  */
+end_comment
+
 begin_class
 annotation|@
 name|Service
 argument_list|(
-literal|"indexManager#none"
+literal|"archivaIndexManager#maven"
 argument_list|)
 specifier|public
 class|class
-name|GenericIndexManager
+name|ArchivaIndexManagerMock
 implements|implements
 name|ArchivaIndexManager
 block|{
@@ -110,6 +158,8 @@ parameter_list|(
 name|ArchivaIndexingContext
 name|context
 parameter_list|)
+throws|throws
+name|IndexUpdateFailedException
 block|{
 block|}
 annotation|@
@@ -121,6 +171,8 @@ parameter_list|(
 name|ArchivaIndexingContext
 name|context
 parameter_list|)
+throws|throws
+name|IndexUpdateFailedException
 block|{
 block|}
 annotation|@
@@ -135,6 +187,8 @@ parameter_list|,
 name|boolean
 name|fullUpdate
 parameter_list|)
+throws|throws
+name|IndexUpdateFailedException
 block|{
 block|}
 annotation|@
@@ -152,6 +206,8 @@ name|URI
 argument_list|>
 name|artifactReference
 parameter_list|)
+throws|throws
+name|IndexUpdateFailedException
 block|{
 block|}
 annotation|@
@@ -169,6 +225,8 @@ name|URI
 argument_list|>
 name|artifactReference
 parameter_list|)
+throws|throws
+name|IndexUpdateFailedException
 block|{
 block|}
 annotation|@
@@ -182,7 +240,7 @@ name|type
 parameter_list|)
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 annotation|@
@@ -194,6 +252,8 @@ parameter_list|(
 name|Repository
 name|repository
 parameter_list|)
+throws|throws
+name|IndexCreationFailedException
 block|{
 return|return
 literal|null

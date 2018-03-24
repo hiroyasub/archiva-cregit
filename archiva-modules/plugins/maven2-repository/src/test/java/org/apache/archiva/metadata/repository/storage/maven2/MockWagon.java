@@ -281,7 +281,7 @@ init|=
 name|getBasedir
 argument_list|()
 operator|+
-literal|"/target/test-classes/"
+literal|"/src/test/resources/"
 operator|+
 name|s
 decl_stmt|;

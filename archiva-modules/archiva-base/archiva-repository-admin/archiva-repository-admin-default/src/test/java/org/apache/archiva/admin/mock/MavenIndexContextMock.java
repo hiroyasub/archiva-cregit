@@ -7,9 +7,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|indexer
+name|admin
 operator|.
-name|maven
+name|mock
 package|;
 end_package
 
@@ -142,7 +142,7 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|MavenIndexContext
+name|MavenIndexContextMock
 implements|implements
 name|ArchivaIndexingContext
 block|{
@@ -154,7 +154,7 @@ specifier|private
 name|Repository
 name|repository
 decl_stmt|;
-name|MavenIndexContext
+name|MavenIndexContextMock
 parameter_list|(
 name|Repository
 name|repository

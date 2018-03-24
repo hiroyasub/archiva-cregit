@@ -333,7 +333,7 @@ argument_list|()
 operator|.
 name|resolve
 argument_list|(
-literal|"repositories"
+literal|""
 argument_list|)
 return|;
 block|}
@@ -364,6 +364,13 @@ block|{
 if|if
 condition|(
 name|configuration
+operator|!=
+literal|null
+operator|&&
+name|configuration
+operator|.
+name|getArchivaRuntimeConfiguration
+argument_list|()
 operator|!=
 literal|null
 operator|&&
@@ -404,7 +411,7 @@ argument_list|()
 operator|.
 name|resolve
 argument_list|(
-literal|"data"
+literal|""
 argument_list|)
 return|;
 block|}

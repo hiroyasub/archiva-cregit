@@ -49,6 +49,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|URI
@@ -105,6 +115,8 @@ begin_interface
 specifier|public
 interface|interface
 name|Repository
+extends|extends
+name|RepositoryEventHandler
 block|{
 comment|/**      * Return the identifier of the repository. Repository identifier should be unique at least      * for the same type.      * @return The identifier.      */
 name|String
@@ -231,6 +243,11 @@ function_decl|;
 comment|/**      * Returns a indexing context.      * @return      * @throws UnsupportedOperationException      */
 name|ArchivaIndexingContext
 name|getIndexingContext
+parameter_list|()
+function_decl|;
+comment|/**      * Closes all resources that are opened by this repository.      */
+name|void
+name|close
 parameter_list|()
 function_decl|;
 block|}

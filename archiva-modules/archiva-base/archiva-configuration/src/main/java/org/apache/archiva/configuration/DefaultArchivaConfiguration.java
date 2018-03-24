@@ -2838,6 +2838,10 @@ argument_list|(
 name|configuration
 argument_list|)
 expr_stmt|;
+name|isConfigurationDefaulted
+operator|=
+literal|false
+expr_stmt|;
 name|triggerEvent
 argument_list|(
 name|ConfigurationEvent

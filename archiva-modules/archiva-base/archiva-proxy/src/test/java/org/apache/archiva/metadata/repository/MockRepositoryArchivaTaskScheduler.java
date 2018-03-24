@@ -91,7 +91,7 @@ begin_class
 annotation|@
 name|Service
 argument_list|(
-literal|"archivaTaskScheduler#repository"
+literal|"archivaTaskScheduler#repositoryMock"
 argument_list|)
 specifier|public
 class|class

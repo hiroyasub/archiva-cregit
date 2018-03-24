@@ -695,6 +695,11 @@ specifier|protected
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
+annotation|@
+name|Inject
+name|RepositoryRegistry
+name|repositoryRegistry
+decl_stmt|;
 specifier|protected
 specifier|static
 specifier|final
@@ -814,10 +819,6 @@ argument_list|)
 decl_stmt|;
 name|WagonDelegate
 name|delegate
-decl_stmt|;
-specifier|protected
-name|RepositoryRegistry
-name|repositoryRegistry
 decl_stmt|;
 annotation|@
 name|Inject
@@ -989,17 +990,6 @@ expr_stmt|;
 comment|// to prevent windauze file leaking
 name|removeMavenIndexes
 argument_list|()
-expr_stmt|;
-name|repositoryRegistry
-operator|=
-name|applicationContext
-operator|.
-name|getBean
-argument_list|(
-name|RepositoryRegistry
-operator|.
-name|class
-argument_list|)
 expr_stmt|;
 name|repositoryRegistry
 operator|.

@@ -61,6 +61,8 @@ begin_interface
 specifier|public
 interface|interface
 name|RepositoryProvider
+extends|extends
+name|RepositoryEventListener
 block|{
 comment|/**      * Returns the types of repositories this provider can handle.      *      * @return the set of supported repository types      */
 name|Set

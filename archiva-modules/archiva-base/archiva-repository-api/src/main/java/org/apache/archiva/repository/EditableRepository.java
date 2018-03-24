@@ -17,6 +17,20 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|ArchivaIndexingContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|net
@@ -138,6 +152,14 @@ name|setLayout
 parameter_list|(
 name|String
 name|layout
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the indexing context reference.      * @param context      */
+name|void
+name|setIndexingContext
+parameter_list|(
+name|ArchivaIndexingContext
+name|context
 parameter_list|)
 function_decl|;
 block|}

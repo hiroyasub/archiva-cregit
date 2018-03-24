@@ -584,7 +584,7 @@ name|repositoryRegistry
 operator|.
 name|removeRepository
 argument_list|(
-name|managedRepository
+name|TEST_REPO_ID
 argument_list|)
 expr_stmt|;
 name|repositoryRegistry
@@ -1221,7 +1221,7 @@ name|repositoryRegistry
 operator|.
 name|removeRepository
 argument_list|(
-name|managedRepository
+name|TEST_REPO_ID
 argument_list|)
 expr_stmt|;
 name|repositoryRegistry
@@ -1742,7 +1742,7 @@ name|repositoryRegistry
 operator|.
 name|removeRepository
 argument_list|(
-name|managedRepository
+name|TEST_REPO_ID
 argument_list|)
 expr_stmt|;
 name|repositoryRegistry
