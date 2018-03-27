@@ -479,7 +479,7 @@ operator|=
 operator|new
 name|IndexCreationFeature
 argument_list|(
-name|id
+name|this
 argument_list|,
 name|this
 argument_list|)
