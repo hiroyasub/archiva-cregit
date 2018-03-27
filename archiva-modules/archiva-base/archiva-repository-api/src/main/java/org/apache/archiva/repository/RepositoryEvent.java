@@ -42,7 +42,7 @@ name|EventType
 name|type
 decl_stmt|;
 specifier|final
-name|String
+name|Repository
 name|repo
 decl_stmt|;
 specifier|final
@@ -63,7 +63,7 @@ parameter_list|(
 name|EventType
 name|type
 parameter_list|,
-name|String
+name|Repository
 name|repo
 parameter_list|,
 name|T
@@ -116,6 +116,7 @@ name|name
 parameter_list|()
 function_decl|;
 block|}
+specifier|public
 name|EventType
 name|getType
 parameter_list|()
@@ -125,8 +126,9 @@ name|type
 return|;
 block|}
 empty_stmt|;
-name|String
-name|getRepositoryId
+specifier|public
+name|Repository
+name|getRepository
 parameter_list|()
 block|{
 return|return
@@ -134,6 +136,7 @@ name|repo
 return|;
 block|}
 empty_stmt|;
+specifier|public
 name|T
 name|getValue
 parameter_list|()
@@ -142,6 +145,7 @@ return|return
 name|value
 return|;
 block|}
+specifier|public
 name|T
 name|getOldValue
 parameter_list|()

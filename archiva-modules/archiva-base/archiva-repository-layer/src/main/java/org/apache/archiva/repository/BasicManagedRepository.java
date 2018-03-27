@@ -315,9 +315,6 @@ operator|new
 name|IndexCreationFeature
 argument_list|(
 name|this
-operator|.
-name|getId
-argument_list|()
 argument_list|,
 name|this
 argument_list|)

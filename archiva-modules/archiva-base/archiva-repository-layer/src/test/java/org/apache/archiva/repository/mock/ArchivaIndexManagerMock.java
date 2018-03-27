@@ -294,6 +294,17 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|updateLocalIndexPath
+parameter_list|(
+name|Repository
+name|repo
+parameter_list|)
+block|{
+block|}
 block|}
 end_class
 

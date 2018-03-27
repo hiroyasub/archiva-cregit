@@ -71,6 +71,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collection
@@ -187,6 +199,15 @@ name|repo
 parameter_list|)
 throws|throws
 name|IndexCreationFailedException
+function_decl|;
+comment|/**      * Returns the local path where the index is stored.      * @return      */
+specifier|public
+name|void
+name|updateLocalIndexPath
+parameter_list|(
+name|Repository
+name|repo
+parameter_list|)
 function_decl|;
 block|}
 end_interface
