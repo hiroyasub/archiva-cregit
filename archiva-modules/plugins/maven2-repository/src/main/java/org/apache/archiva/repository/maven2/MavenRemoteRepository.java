@@ -578,6 +578,34 @@ literal|false
 return|;
 block|}
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|super
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|", remoteIndexFeature="
+operator|+
+name|remoteIndexFeature
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|", indexCreationFeature="
+operator|+
+name|indexCreationFeature
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

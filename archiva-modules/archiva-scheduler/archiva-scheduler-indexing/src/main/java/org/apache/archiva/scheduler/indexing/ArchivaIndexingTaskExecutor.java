@@ -459,12 +459,6 @@ decl_stmt|;
 annotation|@
 name|Inject
 specifier|private
-name|ManagedRepositoryAdmin
-name|managedRepositoryAdmin
-decl_stmt|;
-annotation|@
-name|Inject
-specifier|private
 name|NexusIndexer
 name|nexusIndexer
 decl_stmt|;
@@ -1332,6 +1326,13 @@ name|TaskExecutionException
 block|{
 try|try
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Finishing indexing"
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|optimize
@@ -1371,8 +1372,32 @@ name|icf
 operator|.
 name|isSkipPackedIndexCreation
 argument_list|( )
+operator|&&
+name|icf
+operator|.
+name|getLocalPackedIndexPath
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Creating packed index from {} on {}"
+argument_list|,
+name|context
+operator|.
+name|getIndexDirectoryFile
+argument_list|()
+argument_list|,
+name|icf
+operator|.
+name|getLocalPackedIndexPath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|IndexPackingRequest
 name|request
 init|=
@@ -1391,10 +1416,13 @@ name|getIndexReader
 argument_list|( )
 argument_list|,
 comment|//
-name|context
+name|icf
 operator|.
-name|getIndexDirectoryFile
-argument_list|( )
+name|getLocalPackedIndexPath
+argument_list|()
+operator|.
+name|toFile
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|indexPacker
@@ -1415,12 +1443,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Index file packaged at '{}'."
+literal|"Index file packed at '{}'."
 argument_list|,
-name|context
+name|icf
 operator|.
-name|getIndexDirectoryFile
-argument_list|( )
+name|getLocalPackedIndexPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

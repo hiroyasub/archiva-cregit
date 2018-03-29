@@ -995,7 +995,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertTrue
 argument_list|(
 name|Files
 operator|.
@@ -1264,7 +1264,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertTrue
 argument_list|(
 name|Files
 operator|.
@@ -1448,7 +1448,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertTrue
 argument_list|(
 name|Files
 operator|.
@@ -1604,7 +1604,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertTrue
 argument_list|(
 name|Files
 operator|.
@@ -1676,20 +1676,20 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|Path
-name|indexerDirectory
+name|indexDirectory
 init|=
 name|basePath
 operator|.
 name|resolve
 argument_list|(
-literal|".indexer"
+literal|".index"
 argument_list|)
 decl_stmt|;
 name|Files
 operator|.
 name|list
 argument_list|(
-name|indexerDirectory
+name|indexDirectory
 argument_list|)
 operator|.
 name|filter
@@ -1867,7 +1867,7 @@ name|Files
 operator|.
 name|exists
 argument_list|(
-name|indexerDirectory
+name|indexDirectory
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1894,7 +1894,7 @@ name|Files
 operator|.
 name|exists
 argument_list|(
-name|indexerDirectory
+name|indexDirectory
 operator|.
 name|resolve
 argument_list|(
@@ -1914,7 +1914,7 @@ name|Files
 operator|.
 name|exists
 argument_list|(
-name|indexerDirectory
+name|indexDirectory
 operator|.
 name|resolve
 argument_list|(
@@ -1937,7 +1937,7 @@ name|basePath
 operator|.
 name|resolve
 argument_list|(
-literal|".indexer/tmp"
+literal|".index/tmp"
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -1957,7 +1957,7 @@ name|DefaultIndexUpdater
 operator|.
 name|FileFetcher
 argument_list|(
-name|indexerDirectory
+name|indexDirectory
 operator|.
 name|toFile
 argument_list|()

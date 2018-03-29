@@ -159,6 +159,11 @@ specifier|private
 name|String
 name|indexDirectory
 decl_stmt|;
+comment|/*      * @since 3.0.0      */
+specifier|private
+name|String
+name|packedIndexDirectory
+decl_stmt|;
 specifier|private
 name|String
 name|toStringCache
@@ -471,6 +476,12 @@ name|String
 name|indexDirectory
 parameter_list|)
 block|{
+name|this
+operator|.
+name|toStringCache
+operator|=
+literal|null
+expr_stmt|;
 name|this
 operator|.
 name|indexDirectory
@@ -834,11 +845,43 @@ name|String
 name|type
 parameter_list|)
 block|{
+name|toStringCache
+operator|=
+literal|null
+expr_stmt|;
 name|this
 operator|.
 name|type
 operator|=
 name|type
+expr_stmt|;
+block|}
+specifier|public
+name|String
+name|getPackedIndexDirectory
+parameter_list|()
+block|{
+return|return
+name|packedIndexDirectory
+return|;
+block|}
+specifier|public
+name|void
+name|setPackedIndexDirectory
+parameter_list|(
+name|String
+name|packedIndexDirectory
+parameter_list|)
+block|{
+name|toStringCache
+operator|=
+literal|null
+expr_stmt|;
+name|this
+operator|.
+name|packedIndexDirectory
+operator|=
+name|packedIndexDirectory
 expr_stmt|;
 block|}
 annotation|@
@@ -880,7 +923,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"{id='"
+literal|"{ id=\""
 argument_list|)
 operator|.
 name|append
@@ -890,14 +933,14 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|'\''
+literal|'"'
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|", type='"
+literal|", type=\""
 argument_list|)
 operator|.
 name|append
@@ -907,14 +950,14 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|'\''
+literal|'"'
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|", name='"
+literal|", name=\""
 argument_list|)
 operator|.
 name|append
@@ -927,14 +970,14 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|'\''
+literal|'"'
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|", layout='"
+literal|", layout=\""
 argument_list|)
 operator|.
 name|append
@@ -944,14 +987,14 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|'\''
+literal|'"'
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|", indexDirectory='"
+literal|", indexDirectory=\""
 argument_list|)
 operator|.
 name|append
@@ -961,14 +1004,31 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|'\''
+literal|'"'
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|", description='"
+literal|", packedIndexDirectory=\""
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|packedIndexDirectory
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|'"'
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", description=\""
 argument_list|)
 operator|.
 name|append
@@ -981,7 +1041,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|'\''
+literal|'"'
 argument_list|)
 expr_stmt|;
 name|sb

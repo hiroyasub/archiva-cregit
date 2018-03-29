@@ -1574,6 +1574,15 @@ argument_list|(
 name|remoteRepository
 argument_list|)
 decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Adding remote repo {}"
+argument_list|,
+name|remoteRepositoryConfiguration
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|repositoryRegistry

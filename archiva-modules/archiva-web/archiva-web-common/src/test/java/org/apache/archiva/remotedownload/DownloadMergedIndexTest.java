@@ -935,7 +935,7 @@ literal|"http://localhost:"
 operator|+
 name|port
 operator|+
-literal|"/repository/test-group/.indexer"
+literal|"/repository/test-group/.index"
 argument_list|)
 expr_stmt|;
 name|remoteRepository
