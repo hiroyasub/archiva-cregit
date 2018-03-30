@@ -229,16 +229,6 @@ name|MediaType
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author Olivier Lamy  * @since 1.4-M1  */
 end_comment

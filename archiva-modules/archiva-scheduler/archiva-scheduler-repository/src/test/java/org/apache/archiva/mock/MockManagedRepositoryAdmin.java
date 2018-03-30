@@ -89,20 +89,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|archiva
 operator|.
 name|configuration
@@ -131,13 +117,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
+name|commons
 operator|.
-name|index
+name|lang
 operator|.
-name|context
-operator|.
-name|IndexingContext
+name|StringUtils
 import|;
 end_import
 

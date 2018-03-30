@@ -37,18 +37,6 @@ name|URI
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Paths
-import|;
-end_import
-
 begin_comment
 comment|/**  * BaseFile - convenient File object that tracks the Base Directory and can provide relative path values  * for the file object based on that Base Directory value.  *  *  */
 end_comment

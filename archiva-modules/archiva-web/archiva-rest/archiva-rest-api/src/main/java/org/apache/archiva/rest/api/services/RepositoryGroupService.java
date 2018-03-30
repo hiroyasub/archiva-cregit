@@ -45,11 +45,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|security
+name|redback
 operator|.
-name|common
+name|authorization
 operator|.
-name|ArchivaRoleConstants
+name|RedbackAuthorization
 import|;
 end_import
 
@@ -61,11 +61,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|redback
+name|security
 operator|.
-name|authorization
+name|common
 operator|.
-name|RedbackAuthorization
+name|ArchivaRoleConstants
 import|;
 end_import
 

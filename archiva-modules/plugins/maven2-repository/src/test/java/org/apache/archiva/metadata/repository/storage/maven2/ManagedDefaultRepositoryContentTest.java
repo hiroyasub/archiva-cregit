@@ -145,11 +145,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|content
-operator|.
-name|maven2
-operator|.
-name|ManagedDefaultRepositoryContent
+name|LayoutException
 import|;
 end_import
 
@@ -163,7 +159,11 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|LayoutException
+name|content
+operator|.
+name|maven2
+operator|.
+name|ManagedDefaultRepositoryContent
 import|;
 end_import
 

@@ -167,9 +167,11 @@ name|archiva
 operator|.
 name|redback
 operator|.
-name|users
+name|components
 operator|.
-name|User
+name|registry
+operator|.
+name|Registry
 import|;
 end_import
 
@@ -183,11 +185,9 @@ name|archiva
 operator|.
 name|redback
 operator|.
-name|components
+name|users
 operator|.
-name|registry
-operator|.
-name|Registry
+name|User
 import|;
 end_import
 

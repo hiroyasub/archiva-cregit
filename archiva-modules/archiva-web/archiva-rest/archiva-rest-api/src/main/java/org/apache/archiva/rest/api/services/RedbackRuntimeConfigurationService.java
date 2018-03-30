@@ -33,7 +33,7 @@ name|model
 operator|.
 name|beans
 operator|.
-name|RedbackRuntimeConfiguration
+name|LdapConfiguration
 import|;
 end_import
 
@@ -51,7 +51,7 @@ name|model
 operator|.
 name|beans
 operator|.
-name|LdapConfiguration
+name|RedbackRuntimeConfiguration
 import|;
 end_import
 

@@ -37,16 +37,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|AutoCloseable
-import|;
-end_import
-
 begin_comment
 comment|/**  * The repository session provides a single interface to accessing Archiva repositories. It provides access to three  * resources:  *<ul>  *<li>{@link MetadataRepository} - the metadata content repository for read/write access, in its current state (no  * remote resources will be retrieved in the process</li>  *<li>{@link MetadataResolver} - access to resolve metadata content, accommodating metadata not yet stored or up to  * date in the content repository (i.e. virtualised repositories, remote proxied content, or metadata in a different  * model format in the repository storage)</li>  *<li>{@link org.apache.archiva.metadata.repository.storage.RepositoryStorage} - access to the physical storage of a  * repository and the source artifacts and project models</li>  *</ul>  */
 end_comment

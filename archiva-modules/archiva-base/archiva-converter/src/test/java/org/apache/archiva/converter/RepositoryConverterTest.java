@@ -49,6 +49,20 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|configuration
+operator|.
+name|ManagedRepositoryConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|converter
 operator|.
 name|legacy
@@ -63,11 +77,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|archiva
 operator|.
-name|io
+name|test
 operator|.
-name|FileUtils
+name|utils
+operator|.
+name|ArchivaSpringJUnit4ClassRunner
 import|;
 end_import
 
@@ -77,11 +93,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|archiva
+name|commons
 operator|.
-name|configuration
+name|io
 operator|.
-name|ManagedRepositoryConfiguration
+name|FileUtils
 import|;
 end_import
 
@@ -264,22 +280,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|test
-operator|.
-name|utils
-operator|.
-name|ArchivaSpringJUnit4ClassRunner
 import|;
 end_import
 

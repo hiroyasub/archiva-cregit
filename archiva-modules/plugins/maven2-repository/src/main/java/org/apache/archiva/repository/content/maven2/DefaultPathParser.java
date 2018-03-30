@@ -155,9 +155,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|content
-operator|.
-name|PathParser
+name|LayoutException
 import|;
 end_import
 
@@ -171,7 +169,9 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|LayoutException
+name|content
+operator|.
+name|PathParser
 import|;
 end_import
 

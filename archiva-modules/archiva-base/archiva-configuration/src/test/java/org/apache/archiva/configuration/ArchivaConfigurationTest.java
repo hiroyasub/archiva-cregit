@@ -67,18 +67,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|custommonkey
-operator|.
-name|xmlunit
-operator|.
-name|XMLAssert
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -238,16 +226,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 

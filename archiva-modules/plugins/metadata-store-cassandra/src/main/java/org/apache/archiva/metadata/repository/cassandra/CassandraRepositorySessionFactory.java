@@ -155,16 +155,6 @@ begin_import
 import|import
 name|javax
 operator|.
-name|annotation
-operator|.
-name|PostConstruct
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
 name|inject
 operator|.
 name|Inject
@@ -198,20 +188,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicBoolean
 import|;
 end_import
 

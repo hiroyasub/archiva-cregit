@@ -22,6 +22,24 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|cassandra
+operator|.
+name|CassandraUtils
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -40,24 +58,6 @@ operator|.
 name|ColumnNames
 operator|.
 name|*
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
-name|cassandra
-operator|.
-name|CassandraUtils
 import|;
 end_import
 

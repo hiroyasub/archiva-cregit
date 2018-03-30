@@ -149,20 +149,6 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ManagedRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
 name|scanner
 operator|.
 name|RepositoryScanStatistics
@@ -362,16 +348,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Locale
 import|;
 end_import
 

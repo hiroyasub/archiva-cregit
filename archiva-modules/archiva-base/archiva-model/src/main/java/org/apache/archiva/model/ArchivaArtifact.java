@@ -21,11 +21,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|archiva
 operator|.
-name|lang
+name|common
 operator|.
-name|StringUtils
+name|utils
+operator|.
+name|VersionUtil
 import|;
 end_import
 
@@ -35,13 +37,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|archiva
+name|commons
 operator|.
-name|common
+name|lang
 operator|.
-name|utils
-operator|.
-name|VersionUtil
+name|StringUtils
 import|;
 end_import
 
