@@ -41,13 +41,11 @@ name|apache
 operator|.
 name|maven
 operator|.
-name|index_shaded
+name|index
 operator|.
-name|lucene
+name|updater
 operator|.
-name|store
-operator|.
-name|Directory
+name|IndexUpdateSideEffect
 import|;
 end_import
 
@@ -59,11 +57,13 @@ name|apache
 operator|.
 name|maven
 operator|.
-name|index
+name|index_shaded
 operator|.
-name|updater
+name|lucene
 operator|.
-name|IndexUpdateSideEffect
+name|store
+operator|.
+name|Directory
 import|;
 end_import
 
