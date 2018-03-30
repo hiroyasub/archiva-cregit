@@ -502,6 +502,14 @@ argument_list|,
 name|remoteSelenium
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
+name|assertNotNull
+argument_list|(
+name|getWebDriver
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|getWebDriver
 argument_list|()
 operator|.
@@ -518,18 +526,27 @@ name|assertAdminCreated
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * this method is called by the Rule after executing a tests      */
+comment|/**      * this method is called by the Rule after executing a test      */
 specifier|public
 name|void
 name|close
 parameter_list|()
 block|{
+if|if
+condition|(
 name|getWebDriver
 argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|getWebDriver
+argument_list|( )
 operator|.
 name|close
-argument_list|()
+argument_list|( )
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Initialize selenium      */
 specifier|public

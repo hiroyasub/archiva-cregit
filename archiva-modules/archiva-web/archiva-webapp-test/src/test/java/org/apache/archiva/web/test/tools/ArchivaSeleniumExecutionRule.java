@@ -264,6 +264,15 @@ name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Screenshot: "
+operator|+
+name|fileName
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|RuntimeException
