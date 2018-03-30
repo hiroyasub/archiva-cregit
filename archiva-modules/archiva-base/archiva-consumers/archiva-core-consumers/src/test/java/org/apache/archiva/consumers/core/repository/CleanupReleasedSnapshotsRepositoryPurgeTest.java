@@ -545,9 +545,6 @@ argument_list|(
 name|archivaConfiguration
 argument_list|)
 expr_stmt|;
-name|removeMavenIndexes
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -568,16 +565,6 @@ argument_list|(
 name|RepositoryRegistry
 operator|.
 name|class
-argument_list|)
-decl_stmt|;
-name|ManagedRepository
-name|managedRepository
-init|=
-name|repositoryRegistry
-operator|.
-name|getManagedRepository
-argument_list|(
-name|TEST_REPO_ID
 argument_list|)
 decl_stmt|;
 name|repositoryRegistry
