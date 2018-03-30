@@ -1491,20 +1491,6 @@ literal|"No search fields set."
 argument_list|)
 throw|;
 block|}
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"CLAUSES "
-operator|+
-name|q
-operator|.
-name|getClauses
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|q
@@ -1515,6 +1501,18 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"CLAUSES "
+argument_list|,
+name|q
+operator|.
+name|getClauses
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|BooleanClause
@@ -1526,14 +1524,12 @@ name|getClauses
 argument_list|()
 control|)
 block|{
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Clause "
-operator|+
+argument_list|,
 name|cl
 argument_list|)
 expr_stmt|;
