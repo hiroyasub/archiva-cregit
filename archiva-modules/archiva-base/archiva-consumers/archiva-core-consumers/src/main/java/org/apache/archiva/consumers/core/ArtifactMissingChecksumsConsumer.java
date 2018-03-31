@@ -626,6 +626,11 @@ name|checksumAlgorithm
 operator|.
 name|getExt
 argument_list|( )
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -646,8 +651,6 @@ argument_list|(
 name|artifactFile
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 if|if
 condition|(
 operator|!
@@ -690,41 +693,6 @@ operator|+
 name|checksumFile
 operator|.
 name|toAbsolutePath
-argument_list|( )
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|error
-argument_list|(
-literal|"Cannot calculate checksum for file {} :"
-argument_list|,
-name|checksumFile
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-name|triggerConsumerError
-argument_list|(
-name|TYPE_CHECKSUM_CANNOT_CALC
-argument_list|,
-literal|"Cannot calculate checksum for file "
-operator|+
-name|checksumFile
-operator|+
-literal|": "
-operator|+
-name|e
-operator|.
-name|getMessage
 argument_list|( )
 argument_list|)
 expr_stmt|;

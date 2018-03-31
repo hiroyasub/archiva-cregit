@@ -24,7 +24,7 @@ specifier|public
 class|class
 name|ChecksumValidationException
 extends|extends
-name|Exception
+name|RuntimeException
 block|{
 specifier|public
 enum|enum
@@ -37,6 +37,8 @@ block|,
 name|READ_ERROR
 block|,
 name|FILE_NOT_FOUND
+block|,
+name|BAD_CHECKSUM_FILE_REF
 block|}
 empty_stmt|;
 specifier|final
