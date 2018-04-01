@@ -45,7 +45,7 @@ name|apache
 operator|.
 name|commons
 operator|.
-name|collections
+name|collections4
 operator|.
 name|Predicate
 import|;

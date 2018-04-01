@@ -339,7 +339,7 @@ name|apache
 operator|.
 name|commons
 operator|.
-name|collections
+name|collections4
 operator|.
 name|CollectionUtils
 import|;
@@ -353,7 +353,7 @@ name|apache
 operator|.
 name|commons
 operator|.
-name|collections
+name|collections4
 operator|.
 name|ListUtils
 import|;
@@ -367,7 +367,7 @@ name|apache
 operator|.
 name|commons
 operator|.
-name|collections
+name|collections4
 operator|.
 name|MapUtils
 import|;

@@ -235,7 +235,7 @@ name|apache
 operator|.
 name|commons
 operator|.
-name|collections
+name|collections4
 operator|.
 name|Closure
 import|;
@@ -249,7 +249,7 @@ name|apache
 operator|.
 name|commons
 operator|.
-name|collections
+name|collections4
 operator|.
 name|CollectionUtils
 import|;
@@ -263,7 +263,21 @@ name|apache
 operator|.
 name|commons
 operator|.
-name|collections
+name|collections4
+operator|.
+name|IterableUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|collections4
 operator|.
 name|functors
 operator|.
@@ -1008,18 +1022,18 @@ init|=
 name|getSelectedInvalidConsumers
 argument_list|()
 decl_stmt|;
-name|CollectionUtils
+name|IterableUtils
 operator|.
-name|forAllDo
+name|forEach
 argument_list|(
 name|selectedKnownConsumers
 argument_list|,
 name|triggerBeginScan
 argument_list|)
 expr_stmt|;
-name|CollectionUtils
+name|IterableUtils
 operator|.
-name|forAllDo
+name|forEach
 argument_list|(
 name|selectedInvalidConsumers
 argument_list|,
@@ -1107,16 +1121,16 @@ name|processIfWanted
 init|=
 name|IfClosure
 operator|.
-name|getInstance
+name|ifClosure
 argument_list|(
 name|predicate
 argument_list|,
 name|closure
 argument_list|)
 decl_stmt|;
-name|CollectionUtils
+name|IterableUtils
 operator|.
-name|forAllDo
+name|forEach
 argument_list|(
 name|selectedKnownConsumers
 argument_list|,
@@ -1134,9 +1148,9 @@ literal|0
 condition|)
 block|{
 comment|// Nothing known processed this file.  It is invalid!
-name|CollectionUtils
+name|IterableUtils
 operator|.
-name|forAllDo
+name|forEach
 argument_list|(
 name|selectedInvalidConsumers
 argument_list|,
@@ -1155,9 +1169,9 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-name|CollectionUtils
+name|IterableUtils
 operator|.
-name|forAllDo
+name|forEach
 argument_list|(
 name|selectedKnownConsumers
 argument_list|,
@@ -1167,7 +1181,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|/* TODO: This is never called by the repository scanner instance, so not calling here either - but it probably should be?                         CollectionUtils.forAllDo( availableKnownConsumers, triggerCompleteScan );                         CollectionUtils.forAllDo( availableInvalidConsumers, triggerCompleteScan );             */
+comment|/* TODO: This is never called by the repository scanner instance, so not calling here either - but it probably should be?                         IterableUtils.forEach( availableKnownConsumers, triggerCompleteScan );                         IterableUtils.forEach( availableInvalidConsumers, triggerCompleteScan );             */
 name|releaseSelectedKnownConsumers
 argument_list|(
 name|selectedKnownConsumers

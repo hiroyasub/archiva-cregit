@@ -966,7 +966,7 @@ literal|1
 argument_list|,
 name|response
 operator|.
-name|getTotalHits
+name|getTotalHitsCount
 argument_list|()
 argument_list|)
 expr_stmt|;
