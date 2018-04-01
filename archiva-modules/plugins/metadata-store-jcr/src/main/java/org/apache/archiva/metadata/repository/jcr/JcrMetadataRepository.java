@@ -8580,7 +8580,8 @@ operator|.
 name|getQueryManager
 argument_list|()
 decl_stmt|;
-comment|// TODO: JCR-SQL2 query will not complete on a large repo in Jackrabbit 2.2.0 - see JCR-2835
+comment|// TODO: Check, if this is still the case - Switched to Jackrabbit OAK with archiva 3.0
+comment|// Former statement: JCR-SQL2 query will not complete on a large repo in Jackrabbit 2.2.0 - see JCR-2835
 comment|//    Using the JCR-SQL2 variants gives
 comment|//      "org.apache.lucene.search.BooleanQuery$TooManyClauses: maxClauseCount is set to 1024"
 comment|//            String whereClause = "WHERE ISDESCENDANTNODE([/repositories/" + repositoryId + "/content])";
@@ -8589,11 +8590,11 @@ comment|//                                                    Query.JCR_SQL2 );
 name|String
 name|whereClause
 init|=
-literal|"WHERE jcr:path LIKE '/repositories/"
+literal|"WHERE ISDESCENDANTNODE([/repositories/"
 operator|+
 name|repositoryId
 operator|+
-literal|"/content/%'"
+literal|"/content])"
 decl_stmt|;
 name|Query
 name|query
@@ -8602,13 +8603,13 @@ name|queryManager
 operator|.
 name|createQuery
 argument_list|(
-literal|"SELECT size FROM archiva:artifact "
+literal|"SELECT size FROM [archiva:artifact] "
 operator|+
 name|whereClause
 argument_list|,
 name|Query
 operator|.
-name|SQL
+name|JCR_SQL2
 argument_list|)
 decl_stmt|;
 name|QueryResult
@@ -8825,15 +8826,15 @@ name|queryManager
 operator|.
 name|createQuery
 argument_list|(
-literal|"SELECT * FROM archiva:project "
+literal|"SELECT * FROM [archiva:project] "
 operator|+
 name|whereClause
 operator|+
-literal|" ORDER BY jcr:score"
+literal|" ORDER BY [jcr:score]"
 argument_list|,
 name|Query
 operator|.
-name|SQL
+name|JCR_SQL2
 argument_list|)
 expr_stmt|;
 name|repositoryStatistics
@@ -8860,15 +8861,15 @@ name|queryManager
 operator|.
 name|createQuery
 argument_list|(
-literal|"SELECT * FROM archiva:namespace "
+literal|"SELECT * FROM [archiva:namespace] "
 operator|+
 name|whereClause
 operator|+
-literal|" AND namespace IS NOT NULL ORDER BY jcr:score"
+literal|" AND namespace IS NOT NULL ORDER BY [jcr:score]"
 argument_list|,
 name|Query
 operator|.
-name|SQL
+name|JCR_SQL2
 argument_list|)
 expr_stmt|;
 name|repositoryStatistics
