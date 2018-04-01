@@ -631,6 +631,8 @@ name|hashFile
 operator|.
 name|toFile
 argument_list|()
+argument_list|,
+literal|"UTF-8"
 argument_list|)
 decl_stmt|;
 name|hashContents
@@ -703,6 +705,8 @@ name|toFile
 argument_list|()
 argument_list|,
 literal|"sha1sum: redback-authz-open.jar: No such file or directory"
+argument_list|,
+literal|"UTF-8"
 argument_list|)
 expr_stmt|;
 name|ChecksummedFile

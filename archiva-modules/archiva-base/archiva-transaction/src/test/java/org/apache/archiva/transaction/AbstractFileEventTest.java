@@ -408,6 +408,13 @@ name|file
 operator|.
 name|toFile
 argument_list|()
+argument_list|,
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 return|;
 block|}

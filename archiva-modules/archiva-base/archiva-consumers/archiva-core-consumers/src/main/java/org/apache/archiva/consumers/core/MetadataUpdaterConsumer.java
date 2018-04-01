@@ -675,25 +675,6 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|RepositoryNotFoundException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|ConsumerException
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|( )
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
 name|RepositoryException
 name|e
 parameter_list|)
