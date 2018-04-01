@@ -930,6 +930,11 @@ name|remoteRepository
 return|;
 block|}
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
 name|Override
 specifier|public
 name|void
@@ -1216,8 +1221,6 @@ parameter_list|(
 name|ManagedRepository
 name|managedRepository
 parameter_list|)
-throws|throws
-name|RepositoryException
 block|{
 name|ManagedRepositoryConfiguration
 name|configuration
@@ -1485,8 +1488,6 @@ parameter_list|(
 name|RemoteRepository
 name|remoteRepository
 parameter_list|)
-throws|throws
-name|RepositoryException
 block|{
 name|RemoteRepositoryConfiguration
 name|configuration

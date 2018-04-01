@@ -966,6 +966,7 @@ implements|implements
 name|BrowseService
 block|{
 specifier|private
+specifier|final
 name|Charset
 name|ARTIFACT_CONTENT_ENCODING
 init|=
@@ -6447,6 +6448,11 @@ block|}
 block|}
 specifier|public
 name|Cache
+argument_list|<
+name|String
+argument_list|,
+name|ProjectVersionMetadata
+argument_list|>
 name|getVersionMetadataCache
 parameter_list|()
 block|{
@@ -6459,6 +6465,11 @@ name|void
 name|setVersionMetadataCache
 parameter_list|(
 name|Cache
+argument_list|<
+name|String
+argument_list|,
+name|ProjectVersionMetadata
+argument_list|>
 name|versionMetadataCache
 parameter_list|)
 block|{

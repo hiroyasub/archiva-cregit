@@ -857,6 +857,9 @@ decl_stmt|;
 specifier|private
 specifier|final
 name|ArchivaTaskScheduler
+argument_list|<
+name|RepositoryTask
+argument_list|>
 name|scheduler
 decl_stmt|;
 specifier|private
@@ -3256,6 +3259,7 @@ name|add
 argument_list|(
 operator|new
 name|DefaultDavProperty
+argument_list|<>
 argument_list|(
 name|DavPropertyName
 operator|.
@@ -3293,6 +3297,7 @@ name|add
 argument_list|(
 operator|new
 name|DefaultDavProperty
+argument_list|<>
 argument_list|(
 name|DavPropertyName
 operator|.
@@ -3325,6 +3330,7 @@ name|add
 argument_list|(
 operator|new
 name|DefaultDavProperty
+argument_list|<>
 argument_list|(
 name|DavPropertyName
 operator|.
@@ -3413,6 +3419,7 @@ name|add
 argument_list|(
 operator|new
 name|DefaultDavProperty
+argument_list|<>
 argument_list|(
 name|DavPropertyName
 operator|.
@@ -3428,6 +3435,7 @@ name|add
 argument_list|(
 operator|new
 name|DefaultDavProperty
+argument_list|<>
 argument_list|(
 name|DavPropertyName
 operator|.
@@ -3445,6 +3453,7 @@ name|add
 argument_list|(
 operator|new
 name|DefaultDavProperty
+argument_list|<>
 argument_list|(
 name|DavPropertyName
 operator|.
@@ -3488,6 +3497,7 @@ name|add
 argument_list|(
 operator|new
 name|DefaultDavProperty
+argument_list|<>
 argument_list|(
 name|DavPropertyName
 operator|.

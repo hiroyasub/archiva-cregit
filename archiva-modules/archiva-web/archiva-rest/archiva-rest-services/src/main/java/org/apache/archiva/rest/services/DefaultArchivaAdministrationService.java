@@ -257,20 +257,6 @@ name|commons
 operator|.
 name|collections4
 operator|.
-name|CollectionUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|collections4
-operator|.
 name|IterableUtils
 import|;
 end_import
@@ -1091,14 +1077,12 @@ block|{
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|archivaAdministration
 operator|.
 name|getKnownContentConsumers
-argument_list|()
+argument_list|( )
 argument_list|)
 return|;
 block|}
@@ -1139,14 +1123,12 @@ block|{
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|archivaAdministration
 operator|.
 name|getInvalidContentConsumers
-argument_list|()
+argument_list|( )
 argument_list|)
 return|;
 block|}
@@ -1536,16 +1518,14 @@ operator|.
 name|getList
 argument_list|()
 decl_stmt|;
-name|Collections
+name|knownContentConsumers
 operator|.
 name|sort
 argument_list|(
-name|knownContentConsumers
-argument_list|,
 name|AdminRepositoryConsumerComparator
 operator|.
 name|getInstance
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 return|return
@@ -1621,16 +1601,14 @@ operator|.
 name|getList
 argument_list|()
 decl_stmt|;
-name|Collections
+name|invalidContentConsumers
 operator|.
 name|sort
 argument_list|(
-name|invalidContentConsumers
-argument_list|,
 name|AdminRepositoryConsumerComparator
 operator|.
 name|getInstance
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 return|return

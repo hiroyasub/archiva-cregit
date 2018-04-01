@@ -143,6 +143,11 @@ end_comment
 
 begin_class
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+annotation|@
 name|RunWith
 argument_list|(
 name|ArchivaBlockJUnit4ClassRunner

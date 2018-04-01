@@ -1262,6 +1262,7 @@ name|add
 argument_list|(
 operator|new
 name|DefaultDavProperty
+argument_list|<>
 argument_list|(
 name|DavPropertyName
 operator|.
@@ -1299,6 +1300,7 @@ name|add
 argument_list|(
 operator|new
 name|DefaultDavProperty
+argument_list|<>
 argument_list|(
 name|DavPropertyName
 operator|.
@@ -1331,6 +1333,7 @@ name|add
 argument_list|(
 operator|new
 name|DefaultDavProperty
+argument_list|<>
 argument_list|(
 name|DavPropertyName
 operator|.
@@ -1375,6 +1378,7 @@ name|add
 argument_list|(
 operator|new
 name|DefaultDavProperty
+argument_list|<>
 argument_list|(
 name|DavPropertyName
 operator|.
@@ -1390,6 +1394,7 @@ name|add
 argument_list|(
 operator|new
 name|DefaultDavProperty
+argument_list|<>
 argument_list|(
 name|DavPropertyName
 operator|.
@@ -1405,6 +1410,7 @@ name|add
 argument_list|(
 operator|new
 name|DefaultDavProperty
+argument_list|<>
 argument_list|(
 name|DavPropertyName
 operator|.

@@ -86,7 +86,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AddAdminRepoConsumerClosure   *  *  */
+comment|/**  * AddAdminRepoConsumerClosure  */
 end_comment
 
 begin_class
@@ -95,6 +95,9 @@ class|class
 name|AddAdminRepoConsumerClosure
 implements|implements
 name|Closure
+argument_list|<
+name|RepositoryContentConsumer
+argument_list|>
 block|{
 specifier|private
 name|List
@@ -106,7 +109,7 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 specifier|private
 name|List
@@ -138,16 +141,9 @@ specifier|public
 name|void
 name|execute
 parameter_list|(
-name|Object
+name|RepositoryContentConsumer
 name|input
 parameter_list|)
-block|{
-if|if
-condition|(
-name|input
-operator|instanceof
-name|RepositoryContentConsumer
-condition|)
 block|{
 name|RepositoryContentConsumer
 name|consumer
@@ -169,7 +165,7 @@ argument_list|(
 name|consumer
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|AdminRepositoryConsumer
@@ -177,7 +173,7 @@ name|adminconsumer
 init|=
 operator|new
 name|AdminRepositoryConsumer
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|adminconsumer
 operator|.
@@ -193,7 +189,7 @@ argument_list|(
 name|consumer
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|adminconsumer
@@ -203,7 +199,7 @@ argument_list|(
 name|consumer
 operator|.
 name|getDescription
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|list
@@ -214,14 +210,13 @@ name|adminconsumer
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 specifier|public
 name|List
 argument_list|<
 name|AdminRepositoryConsumer
 argument_list|>
 name|getList
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|list

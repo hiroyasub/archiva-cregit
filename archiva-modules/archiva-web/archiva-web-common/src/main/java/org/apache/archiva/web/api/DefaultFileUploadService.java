@@ -974,6 +974,9 @@ literal|"archivaTaskScheduler#repository"
 argument_list|)
 specifier|private
 name|ArchivaTaskScheduler
+argument_list|<
+name|RepositoryTask
+argument_list|>
 name|scheduler
 decl_stmt|;
 specifier|private
@@ -1017,6 +1020,8 @@ argument_list|()
 operator|.
 name|getInputStream
 argument_list|()
+argument_list|,
+literal|"UTF-8"
 argument_list|)
 return|;
 block|}
@@ -1267,6 +1272,11 @@ argument_list|>
 name|getSessionFilesList
 parameter_list|()
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|List
 argument_list|<
 name|FileMetadata
@@ -1459,6 +1469,7 @@ name|fileMetadatas
 init|=
 operator|new
 name|ArrayList
+argument_list|<>
 argument_list|(
 name|getSessionFileMetadatas
 argument_list|()
@@ -1513,6 +1524,11 @@ parameter_list|()
 throws|throws
 name|ArchivaRestServiceException
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|List
 argument_list|<
 name|FileMetadata
