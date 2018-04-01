@@ -1011,6 +1011,15 @@ argument_list|,
 name|metadataXml
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|metadataXml
+argument_list|)
+expr_stmt|;
 name|XMLAssert
 operator|.
 name|assertXpathsEqual
