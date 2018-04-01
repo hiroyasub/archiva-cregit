@@ -311,7 +311,7 @@ name|testSource
 argument_list|,
 name|testDest
 argument_list|,
-name|digesters
+name|checksumAlgorithms
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -446,7 +446,7 @@ name|testSource
 argument_list|,
 name|testDest
 argument_list|,
-name|digesters
+name|checksumAlgorithms
 argument_list|)
 decl_stmt|;
 name|String
@@ -547,7 +547,7 @@ name|testSource
 argument_list|,
 name|testDest
 argument_list|,
-name|digesters
+name|checksumAlgorithms
 argument_list|)
 decl_stmt|;
 name|assertFalse

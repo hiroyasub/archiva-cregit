@@ -19,6 +19,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|checksum
+operator|.
+name|ChecksumAlgorithm
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -217,7 +231,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @param source      * @param destination      * @param digesters   {@link List}&lt;{@link org.codehaus.plexus.digest.Digester}&gt; digesters to use for checksumming      */
+comment|/**      * @param source      * @param destination      * @param checksumAlgorithms   The checksum algorithms      */
 specifier|public
 name|void
 name|copyFile
@@ -230,11 +244,9 @@ name|destination
 parameter_list|,
 name|List
 argument_list|<
-name|?
-extends|extends
-name|Digester
+name|ChecksumAlgorithm
 argument_list|>
-name|digesters
+name|checksumAlgorithms
 parameter_list|)
 block|{
 name|events
@@ -248,12 +260,12 @@ name|source
 argument_list|,
 name|destination
 argument_list|,
-name|digesters
+name|checksumAlgorithms
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @param content      * @param destination      * @param digesters   {@link List}&lt;{@link org.codehaus.plexus.digest.Digester}&gt; digesters to use for checksumming      */
+comment|/**      * @param content      * @param destination      * @param checksumAlgorithms   Checksum algorithms      */
 specifier|public
 name|void
 name|createFile
@@ -266,11 +278,9 @@ name|destination
 parameter_list|,
 name|List
 argument_list|<
-name|?
-extends|extends
-name|Digester
+name|ChecksumAlgorithm
 argument_list|>
-name|digesters
+name|checksumAlgorithms
 parameter_list|)
 block|{
 name|events
@@ -284,7 +294,7 @@ name|content
 argument_list|,
 name|destination
 argument_list|,
-name|digesters
+name|checksumAlgorithms
 argument_list|)
 argument_list|)
 expr_stmt|;

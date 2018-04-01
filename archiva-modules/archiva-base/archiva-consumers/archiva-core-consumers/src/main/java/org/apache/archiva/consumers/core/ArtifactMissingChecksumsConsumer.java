@@ -664,14 +664,9 @@ condition|)
 block|{
 name|checksum
 operator|.
-name|fixChecksums
+name|fixChecksum
 argument_list|(
-operator|new
-name|ChecksumAlgorithm
-index|[]
-block|{
 name|checksumAlgorithm
-block|}
 argument_list|)
 expr_stmt|;
 name|log

@@ -21,11 +21,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|archiva
 operator|.
-name|io
+name|checksum
 operator|.
-name|FileUtils
+name|ChecksumAlgorithm
 import|;
 end_import
 
@@ -33,13 +33,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|apache
 operator|.
-name|plexus
+name|commons
 operator|.
-name|digest
+name|io
 operator|.
-name|Digester
+name|FileUtils
 import|;
 end_import
 
@@ -120,7 +120,7 @@ specifier|final
 name|Path
 name|destination
 decl_stmt|;
-comment|/**      *       * @param source      * @param destination      * @param digesters {@link List}&lt;{@link Digester}&gt; digesters to use for checksumming       */
+comment|/**      *       * @param source      * @param destination      * @param checksumAlgorithms The checksum algorithms      */
 specifier|public
 name|CopyFileEvent
 parameter_list|(
@@ -132,16 +132,14 @@ name|destination
 parameter_list|,
 name|List
 argument_list|<
-name|?
-extends|extends
-name|Digester
+name|ChecksumAlgorithm
 argument_list|>
-name|digesters
+name|checksumAlgorithms
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|digesters
+name|checksumAlgorithms
 argument_list|)
 expr_stmt|;
 name|this
@@ -220,18 +218,18 @@ name|IOException
 block|{
 for|for
 control|(
-name|Digester
-name|digester
+name|ChecksumAlgorithm
+name|checksumAlgorithm
 range|:
-name|getDigesters
+name|getChecksumAlgorithms
 argument_list|()
 control|)
 block|{
 name|copyChecksum
 argument_list|(
-name|getDigesterFileExtension
+name|getChecksumFileExtension
 argument_list|(
-name|digester
+name|checksumAlgorithm
 argument_list|)
 argument_list|)
 expr_stmt|;

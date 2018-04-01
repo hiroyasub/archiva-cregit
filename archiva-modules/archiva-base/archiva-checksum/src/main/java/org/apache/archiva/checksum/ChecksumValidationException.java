@@ -39,6 +39,8 @@ block|,
 name|FILE_NOT_FOUND
 block|,
 name|BAD_CHECKSUM_FILE_REF
+block|,
+name|BAD_CHECKSUM_FILE
 block|}
 empty_stmt|;
 specifier|final

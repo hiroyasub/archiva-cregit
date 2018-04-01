@@ -19,6 +19,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|checksum
+operator|.
+name|ChecksumAlgorithm
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|plexus
@@ -94,7 +108,7 @@ specifier|final
 name|String
 name|content
 decl_stmt|;
-comment|/**      *       * @param content      * @param destination      * @param digesters {@link List}&lt;{@link Digester}&gt; digesters to use for checksumming       */
+comment|/**      *       * @param content      * @param destination      * @param checksumAlgorithms {@link List}&lt;{@link Digester}&gt; digesters to use for checksumming      */
 specifier|public
 name|CreateFileEvent
 parameter_list|(
@@ -106,16 +120,14 @@ name|destination
 parameter_list|,
 name|List
 argument_list|<
-name|?
-extends|extends
-name|Digester
+name|ChecksumAlgorithm
 argument_list|>
-name|digesters
+name|checksumAlgorithms
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|digesters
+name|checksumAlgorithms
 argument_list|)
 expr_stmt|;
 name|this

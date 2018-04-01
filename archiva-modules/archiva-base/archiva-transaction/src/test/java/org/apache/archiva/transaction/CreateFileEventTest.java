@@ -137,7 +137,7 @@ literal|"file contents"
 argument_list|,
 name|testFile
 argument_list|,
-name|digesters
+name|checksumAlgorithms
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -294,7 +294,7 @@ literal|"modified contents"
 argument_list|,
 name|testFile
 argument_list|,
-name|digesters
+name|checksumAlgorithms
 argument_list|)
 decl_stmt|;
 name|String
@@ -396,7 +396,7 @@ literal|"file contents"
 argument_list|,
 name|testFile
 argument_list|,
-name|digesters
+name|checksumAlgorithms
 argument_list|)
 decl_stmt|;
 name|assertFalse
