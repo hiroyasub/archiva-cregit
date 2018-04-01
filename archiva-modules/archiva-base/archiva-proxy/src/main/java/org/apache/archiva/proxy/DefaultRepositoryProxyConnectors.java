@@ -1280,6 +1280,9 @@ literal|"archivaTaskScheduler#repository"
 argument_list|)
 specifier|private
 name|ArchivaTaskScheduler
+argument_list|<
+name|RepositoryTask
+argument_list|>
 name|scheduler
 decl_stmt|;
 annotation|@

@@ -69,6 +69,9 @@ class|class
 name|ProxyConnectorSelectionPredicate
 implements|implements
 name|Predicate
+argument_list|<
+name|ProxyConnectorConfiguration
+argument_list|>
 block|{
 specifier|private
 name|String
@@ -107,7 +110,7 @@ specifier|public
 name|boolean
 name|evaluate
 parameter_list|(
-name|Object
+name|ProxyConnectorConfiguration
 name|object
 parameter_list|)
 block|{

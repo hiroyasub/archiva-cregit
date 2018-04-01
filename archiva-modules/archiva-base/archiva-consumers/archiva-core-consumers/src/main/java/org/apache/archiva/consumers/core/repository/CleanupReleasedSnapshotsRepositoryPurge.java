@@ -804,7 +804,7 @@ condition|)
 block|{
 name|updateMetadata
 argument_list|(
-name|artifactRef
+name|path
 argument_list|)
 expr_stmt|;
 block|}
@@ -870,74 +870,10 @@ specifier|private
 name|void
 name|updateMetadata
 parameter_list|(
-name|ArtifactReference
-name|artifact
+name|String
+name|path
 parameter_list|)
 block|{
-name|VersionedReference
-name|versionRef
-init|=
-operator|new
-name|VersionedReference
-argument_list|( )
-decl_stmt|;
-name|versionRef
-operator|.
-name|setGroupId
-argument_list|(
-name|artifact
-operator|.
-name|getGroupId
-argument_list|( )
-argument_list|)
-expr_stmt|;
-name|versionRef
-operator|.
-name|setArtifactId
-argument_list|(
-name|artifact
-operator|.
-name|getArtifactId
-argument_list|( )
-argument_list|)
-expr_stmt|;
-name|versionRef
-operator|.
-name|setVersion
-argument_list|(
-name|artifact
-operator|.
-name|getVersion
-argument_list|( )
-argument_list|)
-expr_stmt|;
-name|ProjectReference
-name|projectRef
-init|=
-operator|new
-name|ProjectReference
-argument_list|( )
-decl_stmt|;
-name|projectRef
-operator|.
-name|setGroupId
-argument_list|(
-name|artifact
-operator|.
-name|getGroupId
-argument_list|( )
-argument_list|)
-expr_stmt|;
-name|projectRef
-operator|.
-name|setArtifactId
-argument_list|(
-name|artifact
-operator|.
-name|getArtifactId
-argument_list|( )
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|metadataTools
@@ -946,81 +882,13 @@ name|updateMetadata
 argument_list|(
 name|repository
 argument_list|,
-name|versionRef
+name|path
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ContentNotFoundException
-name|e
-parameter_list|)
-block|{
-comment|// Ignore. (Just means we have no snapshot versions left to reference).
-block|}
-catch|catch
-parameter_list|(
 name|RepositoryMetadataException
-name|e
-parameter_list|)
-block|{
-comment|// Ignore.
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// Ignore.
-block|}
-catch|catch
-parameter_list|(
-name|LayoutException
-name|e
-parameter_list|)
-block|{
-comment|// Ignore.
-block|}
-try|try
-block|{
-name|metadataTools
-operator|.
-name|updateMetadata
-argument_list|(
-name|repository
-argument_list|,
-name|projectRef
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ContentNotFoundException
-name|e
-parameter_list|)
-block|{
-comment|// Ignore. (Just means we have no snapshot versions left to reference).
-block|}
-catch|catch
-parameter_list|(
-name|RepositoryMetadataException
-name|e
-parameter_list|)
-block|{
-comment|// Ignore.
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// Ignore.
-block|}
-catch|catch
-parameter_list|(
-name|LayoutException
 name|e
 parameter_list|)
 block|{

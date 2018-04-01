@@ -1049,10 +1049,16 @@ literal|true
 argument_list|)
 expr_stmt|;
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|header
 init|=
 operator|new
 name|HashMap
+argument_list|<>
 argument_list|(  )
 decl_stmt|;
 name|header
@@ -1081,10 +1087,16 @@ name|header
 argument_list|)
 expr_stmt|;
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|params
 init|=
 operator|new
 name|HashMap
+argument_list|<>
 argument_list|(  )
 decl_stmt|;
 name|params

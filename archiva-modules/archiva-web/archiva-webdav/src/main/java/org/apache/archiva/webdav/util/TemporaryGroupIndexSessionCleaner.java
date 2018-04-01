@@ -271,6 +271,11 @@ name|HttpSessionEvent
 name|httpSessionEvent
 parameter_list|)
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|Map
 argument_list|<
 name|String

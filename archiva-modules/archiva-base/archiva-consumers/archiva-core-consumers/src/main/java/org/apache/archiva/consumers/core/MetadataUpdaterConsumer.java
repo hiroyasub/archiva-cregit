@@ -985,7 +985,7 @@ name|this
 operator|.
 name|repository
 argument_list|,
-name|projectRef
+name|metadataPath
 argument_list|)
 expr_stmt|;
 name|log
@@ -1002,40 +1002,6 @@ name|toPath
 argument_list|(
 name|projectRef
 argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|LayoutException
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Unable to convert path [{}] to an internal project reference: "
-argument_list|,
-name|path
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-name|triggerConsumerWarning
-argument_list|(
-name|TYPE_METADATA_BAD_INTERNAL_REF
-argument_list|,
-literal|"Unable to convert path ["
-operator|+
-name|path
-operator|+
-literal|"] to an internal project reference: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1093,34 +1059,6 @@ argument_list|(
 name|TYPE_METADATA_IO
 argument_list|,
 literal|"Project metadata not written due to IO warning: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|( )
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ContentNotFoundException
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Project metadata not written because no versions were found to update: "
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-name|triggerConsumerWarning
-argument_list|(
-name|TYPE_METADATA_IO
-argument_list|,
-literal|"Project metadata not written because no versions were found to update: "
 operator|+
 name|e
 operator|.
@@ -1257,7 +1195,7 @@ name|this
 operator|.
 name|repository
 argument_list|,
-name|versionRef
+name|metadataPath
 argument_list|)
 expr_stmt|;
 name|log
@@ -1274,40 +1212,6 @@ name|toPath
 argument_list|(
 name|versionRef
 argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|LayoutException
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Unable to convert path [{}] to an internal version reference: "
-argument_list|,
-name|path
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-name|triggerConsumerWarning
-argument_list|(
-name|TYPE_METADATA_BAD_INTERNAL_REF
-argument_list|,
-literal|"Unable to convert path ["
-operator|+
-name|path
-operator|+
-literal|"] to an internal version reference: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1365,34 +1269,6 @@ argument_list|(
 name|TYPE_METADATA_IO
 argument_list|,
 literal|"Version metadata not written due to IO warning: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|( )
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ContentNotFoundException
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Version metadata not written because no versions were found to update: "
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-name|triggerConsumerWarning
-argument_list|(
-name|TYPE_METADATA_IO
-argument_list|,
-literal|"Version metadata not written because no versions were found to update: "
 operator|+
 name|e
 operator|.

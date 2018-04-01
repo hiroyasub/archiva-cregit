@@ -207,7 +207,7 @@ name|commons
 operator|.
 name|collections4
 operator|.
-name|CollectionUtils
+name|IterableUtils
 import|;
 end_import
 
@@ -1076,10 +1076,7 @@ name|targetId
 argument_list|)
 decl_stmt|;
 return|return
-operator|(
-name|ProxyConnectorConfiguration
-operator|)
-name|CollectionUtils
+name|IterableUtils
 operator|.
 name|find
 argument_list|(

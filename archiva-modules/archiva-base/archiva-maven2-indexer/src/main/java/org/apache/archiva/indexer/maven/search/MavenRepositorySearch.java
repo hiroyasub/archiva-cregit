@@ -965,6 +965,11 @@ return|;
 block|}
 comment|/**      * @see RepositorySearch#search(String, SearchFields, SearchResultLimits)      */
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+annotation|@
 name|Override
 specifier|public
 name|SearchResults
@@ -1997,7 +2002,7 @@ literal|null
 operator|||
 name|response
 operator|.
-name|getTotalHits
+name|getTotalHitsCount
 argument_list|()
 operator|==
 literal|0
