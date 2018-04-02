@@ -972,6 +972,7 @@ name|key
 range|:
 operator|new
 name|ArrayList
+argument_list|<>
 argument_list|(
 name|properties
 operator|.
@@ -1667,14 +1668,12 @@ name|facetIds
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|versionMetadata
 operator|.
 name|getFacetIds
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|facetIds
@@ -1873,6 +1872,7 @@ name|key
 range|:
 operator|new
 name|ArrayList
+argument_list|<>
 argument_list|(
 name|properties
 operator|.
@@ -2653,6 +2653,7 @@ name|key
 range|:
 operator|new
 name|ArrayList
+argument_list|<>
 argument_list|(
 name|properties
 operator|.
@@ -2979,12 +2980,10 @@ name|endTime
 argument_list|)
 expr_stmt|;
 block|}
-name|Collections
+name|artifacts
 operator|.
 name|sort
 argument_list|(
-name|artifacts
-argument_list|,
 operator|new
 name|ArtifactComparator
 argument_list|()
@@ -3645,6 +3644,7 @@ name|key
 range|:
 operator|new
 name|ArrayList
+argument_list|<>
 argument_list|(
 name|properties
 operator|.
@@ -4263,6 +4263,7 @@ name|key
 range|:
 operator|new
 name|ArrayList
+argument_list|<>
 argument_list|(
 name|properties
 operator|.
@@ -4464,6 +4465,7 @@ name|key
 range|:
 operator|new
 name|ArrayList
+argument_list|<>
 argument_list|(
 name|properties
 operator|.
@@ -5246,14 +5248,12 @@ name|facetIds
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|artifact
 operator|.
 name|getFacetIds
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|String
@@ -6185,9 +6185,6 @@ name|setOtherArchives
 argument_list|(
 name|Collections
 operator|.
-expr|<
-name|String
-operator|>
 name|emptyList
 argument_list|()
 argument_list|)
@@ -6558,6 +6555,7 @@ name|key
 range|:
 operator|new
 name|ArrayList
+argument_list|<>
 argument_list|(
 name|properties
 operator|.
@@ -6730,10 +6728,8 @@ name|versions
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
-argument_list|()
+argument_list|<>
+argument_list|( )
 decl_stmt|;
 for|for
 control|(
@@ -8088,11 +8084,10 @@ name|project
 argument_list|)
 control|)
 block|{
-for|for
-control|(
-name|ArtifactMetadata
-name|artifact
-range|:
+name|artifacts
+operator|.
+name|addAll
+argument_list|(
 name|getArtifacts
 argument_list|(
 name|repoId
@@ -8103,16 +8098,8 @@ name|project
 argument_list|,
 name|version
 argument_list|)
-control|)
-block|{
-name|artifacts
-operator|.
-name|add
-argument_list|(
-name|artifact
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -8134,8 +8121,6 @@ parameter_list|,
 name|boolean
 name|exact
 parameter_list|)
-throws|throws
-name|MetadataRepositoryException
 block|{
 throw|throw
 operator|new
@@ -8166,8 +8151,6 @@ parameter_list|,
 name|boolean
 name|exact
 parameter_list|)
-throws|throws
-name|MetadataRepositoryException
 block|{
 throw|throw
 operator|new

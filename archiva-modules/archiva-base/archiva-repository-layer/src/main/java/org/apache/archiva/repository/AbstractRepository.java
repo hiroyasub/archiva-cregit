@@ -819,6 +819,11 @@ name|getCapabilities
 parameter_list|( )
 function_decl|;
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
 name|Override
 specifier|public
 parameter_list|<
@@ -1130,6 +1135,11 @@ operator|=
 name|cronExpression
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|protected
 parameter_list|<
 name|T

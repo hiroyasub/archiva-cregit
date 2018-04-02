@@ -186,6 +186,7 @@ name|supportedReleaseSchemes
 operator|=
 operator|new
 name|HashSet
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for

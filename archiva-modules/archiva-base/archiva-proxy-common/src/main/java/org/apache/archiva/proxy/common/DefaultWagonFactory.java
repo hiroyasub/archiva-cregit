@@ -333,6 +333,11 @@ block|{
 try|try
 block|{
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Wagon
+argument_list|>
 name|clazz
 init|=
 name|wagon

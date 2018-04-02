@@ -913,7 +913,8 @@ block|{
 return|return
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|emptyMap
+argument_list|()
 return|;
 block|}
 name|Map
@@ -1831,16 +1832,6 @@ name|EditableRemoteRepository
 operator|)
 name|repo
 decl_stmt|;
-if|if
-condition|(
-name|repo
-operator|.
-name|getContent
-argument_list|()
-operator|==
-literal|null
-condition|)
-block|{
 name|editableRepo
 operator|.
 name|setContent
@@ -1853,7 +1844,6 @@ name|repo
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|repo
@@ -2968,8 +2958,6 @@ literal|null
 decl_stmt|;
 name|RemoteRepositoryConfiguration
 name|newCfg
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{

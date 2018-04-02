@@ -204,10 +204,16 @@ argument_list|()
 expr_stmt|;
 block|}
 specifier|protected
+parameter_list|<
+name|T
+parameter_list|>
 name|void
 name|raiseEvent
 parameter_list|(
 name|RepositoryEvent
+argument_list|<
+name|T
+argument_list|>
 name|event
 parameter_list|)
 block|{
