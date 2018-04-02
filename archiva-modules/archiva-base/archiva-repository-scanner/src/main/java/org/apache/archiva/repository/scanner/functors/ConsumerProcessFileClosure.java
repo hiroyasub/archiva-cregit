@@ -94,7 +94,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ConsumerProcessFileClosure   *  */
+comment|/**  * ConsumerProcessFileClosure  */
 end_comment
 
 begin_class
@@ -103,6 +103,9 @@ class|class
 name|ConsumerProcessFileClosure
 implements|implements
 name|Closure
+argument_list|<
+name|RepositoryContentConsumer
+argument_list|>
 block|{
 specifier|private
 name|Logger
@@ -149,16 +152,9 @@ specifier|public
 name|void
 name|execute
 parameter_list|(
-name|Object
+name|RepositoryContentConsumer
 name|input
 parameter_list|)
-block|{
-if|if
-condition|(
-name|input
-operator|instanceof
-name|RepositoryContentConsumer
-condition|)
 block|{
 name|RepositoryContentConsumer
 name|consumer
@@ -174,7 +170,7 @@ init|=
 name|consumer
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 decl_stmt|;
 try|try
 block|{
@@ -193,7 +189,7 @@ init|=
 name|System
 operator|.
 name|currentTimeMillis
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|consumer
 operator|.
@@ -202,7 +198,7 @@ argument_list|(
 name|basefile
 operator|.
 name|getRelativePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|executeOnEntireRepo
 argument_list|)
@@ -213,7 +209,7 @@ init|=
 name|System
 operator|.
 name|currentTimeMillis
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -298,7 +294,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|/* Intentionally Catch all exceptions.                  * So that the discoverer processing can continue.                  */
+comment|/* Intentionally Catch all exceptions.              * So that the discoverer processing can continue.              */
 name|log
 operator|.
 name|error
@@ -312,23 +308,22 @@ argument_list|,
 name|basefile
 operator|.
 name|getAbsolutePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 specifier|public
 name|BaseFile
 name|getBasefile
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|basefile
@@ -352,7 +347,7 @@ block|}
 specifier|public
 name|boolean
 name|isExecuteOnEntireRepo
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|executeOnEntireRepo
@@ -416,7 +411,7 @@ block|}
 specifier|public
 name|Logger
 name|getLogger
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|log

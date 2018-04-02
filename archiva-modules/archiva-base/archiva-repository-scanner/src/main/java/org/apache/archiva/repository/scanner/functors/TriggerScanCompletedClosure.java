@@ -91,6 +91,9 @@ class|class
 name|TriggerScanCompletedClosure
 implements|implements
 name|Closure
+argument_list|<
+name|RepositoryContentConsumer
+argument_list|>
 block|{
 specifier|private
 name|Logger
@@ -158,16 +161,9 @@ specifier|public
 name|void
 name|execute
 parameter_list|(
-name|Object
+name|RepositoryContentConsumer
 name|input
 parameter_list|)
-block|{
-if|if
-condition|(
-name|input
-operator|instanceof
-name|RepositoryContentConsumer
-condition|)
 block|{
 name|RepositoryContentConsumer
 name|consumer
@@ -193,15 +189,14 @@ argument_list|,
 name|consumer
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|repository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class

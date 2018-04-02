@@ -106,7 +106,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TriggerBeginScanClosure   *  *  */
+comment|/**  * TriggerBeginScanClosure  */
 end_comment
 
 begin_class
@@ -115,6 +115,9 @@ class|class
 name|TriggerBeginScanClosure
 implements|implements
 name|Closure
+argument_list|<
+name|RepositoryContentConsumer
+argument_list|>
 block|{
 specifier|private
 name|Logger
@@ -212,16 +215,9 @@ specifier|public
 name|void
 name|execute
 parameter_list|(
-name|Object
+name|RepositoryContentConsumer
 name|input
 parameter_list|)
-block|{
-if|if
-condition|(
-name|input
-operator|instanceof
-name|RepositoryContentConsumer
-condition|)
 block|{
 name|RepositoryContentConsumer
 name|consumer
@@ -260,17 +256,16 @@ argument_list|,
 name|consumer
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

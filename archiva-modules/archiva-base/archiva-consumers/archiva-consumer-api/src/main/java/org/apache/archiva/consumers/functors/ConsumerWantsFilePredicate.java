@@ -189,6 +189,9 @@ class|class
 name|ConsumerWantsFilePredicate
 implements|implements
 name|Predicate
+argument_list|<
+name|RepositoryContentConsumer
+argument_list|>
 block|{
 specifier|private
 name|BaseFile
@@ -225,13 +228,13 @@ operator|.
 name|getLogger
 argument_list|(
 name|getClass
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 comment|/**      * @deprecated use constructor with ManagedRepository      */
 specifier|public
 name|ConsumerWantsFilePredicate
-parameter_list|()
+parameter_list|( )
 block|{
 comment|// no-op
 block|}
@@ -255,7 +258,7 @@ specifier|public
 name|boolean
 name|evaluate
 parameter_list|(
-name|Object
+name|RepositoryContentConsumer
 name|object
 parameter_list|)
 block|{
@@ -264,13 +267,6 @@ name|satisfies
 init|=
 literal|false
 decl_stmt|;
-if|if
-condition|(
-name|object
-operator|instanceof
-name|RepositoryContentConsumer
-condition|)
-block|{
 name|RepositoryContentConsumer
 name|consumer
 init|=
@@ -292,7 +288,7 @@ argument_list|(
 name|basefile
 operator|.
 name|getRelativePath
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 condition|)
@@ -311,7 +307,7 @@ operator|!
 name|consumer
 operator|.
 name|isProcessUnmodified
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 comment|// Timestamp finished points to the last successful scan, not this current one.
@@ -320,7 +316,7 @@ condition|(
 name|basefile
 operator|.
 name|lastModified
-argument_list|()
+argument_list|( )
 operator|<
 name|changesSince
 condition|)
@@ -333,7 +329,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
 return|return
 name|satisfies
 return|;
@@ -341,7 +336,7 @@ block|}
 specifier|public
 name|BaseFile
 name|getBasefile
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|basefile
@@ -350,7 +345,7 @@ block|}
 specifier|public
 name|int
 name|getWantedFileCount
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|wantedFileCount
@@ -359,7 +354,7 @@ block|}
 specifier|public
 name|boolean
 name|isCaseSensitive
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|isCaseSensitive
@@ -422,7 +417,7 @@ init|=
 name|consumer
 operator|.
 name|getExcludes
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -495,14 +490,14 @@ name|class
 argument_list|)
 operator|.
 name|get
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
 name|icf
 operator|.
 name|getIndexPath
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 condition|)
@@ -615,7 +610,7 @@ range|:
 name|consumer
 operator|.
 name|getIncludes
-argument_list|()
+argument_list|( )
 control|)
 block|{
 if|if

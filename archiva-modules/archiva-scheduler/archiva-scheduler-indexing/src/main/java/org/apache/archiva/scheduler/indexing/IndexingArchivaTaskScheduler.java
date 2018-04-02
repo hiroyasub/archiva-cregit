@@ -163,6 +163,9 @@ literal|"taskQueue#indexing"
 argument_list|)
 specifier|private
 name|TaskQueue
+argument_list|<
+name|ArtifactIndexingTask
+argument_list|>
 name|indexingQueue
 decl_stmt|;
 annotation|@

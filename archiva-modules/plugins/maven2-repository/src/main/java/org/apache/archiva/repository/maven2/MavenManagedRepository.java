@@ -255,6 +255,18 @@ name|Locale
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
 begin_comment
 comment|/**  * Maven2 managed repository implementation.  */
 end_comment
@@ -472,6 +484,11 @@ return|return
 name|CAPABILITIES
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 annotation|@
 name|Override
 specifier|public
