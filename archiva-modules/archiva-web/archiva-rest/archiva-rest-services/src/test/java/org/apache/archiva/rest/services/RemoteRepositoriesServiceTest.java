@@ -1095,7 +1095,7 @@ literal|"id-new"
 argument_list|,
 literal|"new one"
 argument_list|,
-literal|"http://foo.com"
+literal|"http://www.apache.org"
 argument_list|,
 literal|"default"
 argument_list|,
