@@ -817,12 +817,6 @@ decl_stmt|;
 annotation|@
 name|Inject
 specifier|protected
-name|ManagedRepositoryAdmin
-name|managedRepositoryAdmin
-decl_stmt|;
-annotation|@
-name|Inject
-specifier|protected
 name|RepositoryRegistry
 name|repositoryRegistry
 decl_stmt|;
