@@ -1292,6 +1292,8 @@ name|String
 argument_list|,
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Permission
 argument_list|>
 argument_list|>

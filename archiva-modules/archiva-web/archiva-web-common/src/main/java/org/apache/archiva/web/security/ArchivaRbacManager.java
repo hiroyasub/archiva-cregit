@@ -1207,6 +1207,8 @@ try|try
 block|{
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Role
 argument_list|>
 name|roles
@@ -1706,6 +1708,8 @@ try|try
 block|{
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Permission
 argument_list|>
 name|permissions
@@ -2174,6 +2178,8 @@ try|try
 block|{
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Operation
 argument_list|>
 name|operations
@@ -2642,6 +2648,8 @@ try|try
 block|{
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Resource
 argument_list|>
 name|resources
@@ -3274,6 +3282,8 @@ try|try
 block|{
 name|List
 argument_list|<
+name|?
+extends|extends
 name|UserAssignment
 argument_list|>
 name|userAssignments
@@ -3449,6 +3459,8 @@ try|try
 block|{
 name|List
 argument_list|<
+name|?
+extends|extends
 name|UserAssignment
 argument_list|>
 name|userAssignments
