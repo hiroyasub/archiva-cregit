@@ -42,7 +42,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * @deprecated ProxyConnectorConfigurationOrderComparator  */
+comment|/**  *  * Was marked as deprecated before, but is still used.  *  */
 end_comment
 
 begin_class
