@@ -1063,7 +1063,8 @@ comment|//noinspection unchecked
 return|return
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|emptyMap
+argument_list|()
 return|;
 block|}
 block|}
@@ -1124,6 +1125,11 @@ return|return
 name|repo
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|private
 name|void
 name|updateRepositoryReferences
@@ -1578,7 +1584,8 @@ comment|//noinspection unchecked
 return|return
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|emptyMap
+argument_list|()
 return|;
 block|}
 name|Map
@@ -1730,7 +1737,8 @@ comment|//noinspection unchecked
 return|return
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|emptyMap
+argument_list|()
 return|;
 block|}
 block|}
@@ -1791,6 +1799,11 @@ return|return
 name|repo
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|private
 name|void
 name|updateRepositoryReferences
@@ -2619,6 +2632,11 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Adds a new repository or updates the repository with the same id. The given configuration object is updated, but      * the configuration is not saved.      *      * @param managedRepositoryConfiguration the new or changed repository configuration      * @param configuration the configuration object      * @return the new or updated repository      * @throws RepositoryException if the configuration cannot be saved or updated      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|ManagedRepository
 name|putRepository
@@ -3466,6 +3484,11 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Adds a new repository or updates the repository with the same id. The given configuration object is updated, but      * the configuration is not saved.      *      * @param remoteRepositoryConfiguration the new or changed repository configuration      * @param configuration the configuration object      * @return the new or updated repository      * @throws RepositoryException if the configuration cannot be saved or updated      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|RemoteRepository
 name|putRepository
@@ -3670,6 +3693,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|void
 name|removeRepository
@@ -4347,6 +4375,11 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Resets the indexing context of a given repository.      *      * @param repo      * @throws IndexUpdateFailedException      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|void
 name|resetIndexingContext
@@ -4495,6 +4528,11 @@ return|return
 name|cloned
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 parameter_list|<
 name|T
@@ -4744,6 +4782,11 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 annotation|@
 name|Override
 specifier|public

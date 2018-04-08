@@ -664,6 +664,7 @@ implements|,
 name|RegistryListener
 block|{
 specifier|private
+specifier|final
 name|Logger
 name|log
 init|=

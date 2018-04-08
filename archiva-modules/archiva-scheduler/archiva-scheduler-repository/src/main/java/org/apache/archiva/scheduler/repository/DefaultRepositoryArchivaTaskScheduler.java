@@ -530,6 +530,9 @@ literal|"taskQueue#repository-scanning"
 argument_list|)
 specifier|private
 name|TaskQueue
+argument_list|<
+name|RepositoryTask
+argument_list|>
 name|repositoryScanningQueue
 decl_stmt|;
 annotation|@

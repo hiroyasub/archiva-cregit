@@ -95,6 +95,11 @@ name|UrlFailureCache
 block|{
 specifier|private
 name|Cache
+argument_list|<
+name|String
+argument_list|,
+name|Date
+argument_list|>
 name|urlCache
 decl_stmt|;
 annotation|@
@@ -108,6 +113,11 @@ argument_list|(
 literal|"cache#url-failures-cache"
 argument_list|)
 name|Cache
+argument_list|<
+name|String
+argument_list|,
+name|Date
+argument_list|>
 name|urlCache
 parameter_list|)
 block|{
