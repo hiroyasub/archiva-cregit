@@ -10,6 +10,8 @@ operator|.
 name|scheduler
 operator|.
 name|indexing
+operator|.
+name|maven
 package|;
 end_package
 
@@ -130,6 +132,22 @@ operator|.
 name|features
 operator|.
 name|IndexCreationFeature
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|scheduler
+operator|.
+name|indexing
+operator|.
+name|ArtifactIndexingTask
 import|;
 end_import
 

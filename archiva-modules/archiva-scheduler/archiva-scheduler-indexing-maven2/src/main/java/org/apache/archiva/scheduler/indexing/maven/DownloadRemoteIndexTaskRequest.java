@@ -10,6 +10,8 @@ operator|.
 name|scheduler
 operator|.
 name|indexing
+operator|.
+name|maven
 package|;
 end_package
 

@@ -791,6 +791,8 @@ name|scheduler
 operator|.
 name|indexing
 operator|.
+name|maven
+operator|.
 name|ArchivaIndexingTaskExecutor
 import|;
 end_import
