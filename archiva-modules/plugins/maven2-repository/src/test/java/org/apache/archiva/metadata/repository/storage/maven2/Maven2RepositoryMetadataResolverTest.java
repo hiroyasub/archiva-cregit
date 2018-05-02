@@ -3947,8 +3947,6 @@ argument_list|(
 literal|"com"
 argument_list|,
 literal|"org"
-argument_list|,
-literal|"remotes"
 argument_list|)
 argument_list|,
 name|storage

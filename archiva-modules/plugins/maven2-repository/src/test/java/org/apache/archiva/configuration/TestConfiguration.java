@@ -411,7 +411,7 @@ argument_list|()
 operator|.
 name|resolve
 argument_list|(
-literal|""
+literal|"data"
 argument_list|)
 return|;
 block|}
