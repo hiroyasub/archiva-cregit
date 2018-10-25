@@ -646,7 +646,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>  * Implementation of configuration holder that retrieves it from the registry.  *</p>  *<p>  * The registry layers and merges the 2 configuration files: user, and application server.  *</p>  *<p>  * Instead of relying on the model defaults, if the registry is empty a default configuration file is loaded and  * applied from a resource. The defaults are not loaded into the registry as the lists (eg repositories) could no longer  * be removed if that was the case.  *</p>  *<p>  * When saving the configuration, it is saved to the location it was read from. If it was read from the defaults, it  * will be saved to the user location.  * However, if the configuration contains information from both sources, an exception is raised as this is currently  * unsupported. The reason for this is that it is not possible to identify where to re-save elements, and can result  * in list configurations (eg repositories) becoming inconsistent.  *</p>  *<p>  * If the configuration is outdated, it will be upgraded when it is loaded. This is done by checking the version flag  * before reading it from the registry.  *  * FIXME: The synchronization must be improved, the current impl may lead to inconsistent data or multiple getConfiguration() calls (martin_s@apache.org)  *</p>  */
+comment|/**  *<p>  * Implementation of configuration holder that retrieves it from the registry.  *</p>  *<p>  * The registry layers and merges the 2 configuration files: user, and application server.  *</p>  *<p>  * Instead of relying on the model defaults, if the registry is empty a default configuration file is loaded and  * applied from a resource. The defaults are not loaded into the registry as the lists (eg repositories) could no longer  * be removed if that was the case.  *</p>  *<p>  * When saving the configuration, it is saved to the location it was read from. If it was read from the defaults, it  * will be saved to the user location.  * However, if the configuration contains information from both sources, an exception is raised as this is currently  * unsupported. The reason for this is that it is not possible to identify where to re-save elements, and can result  * in list configurations (eg repositories) becoming inconsistent.  *</p>  *<p>  * If the configuration is outdated, it will be upgraded when it is loaded. This is done by checking the version flag  * before reading it from the registry.  *<p>  * FIXME: The synchronization must be improved, the current impl may lead to inconsistent data or multiple getConfiguration() calls (martin_s@apache.org)  *</p>  */
 end_comment
 
 begin_class
@@ -824,7 +824,7 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<>
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 specifier|private
 specifier|volatile
@@ -3462,7 +3462,7 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-literal|"archiva.user.configFileName"
+name|USER_CONFIG_PROPERTY
 argument_list|)
 decl_stmt|;
 if|if
@@ -3482,6 +3482,33 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|String
+name|userConfigFileNameEnv
+init|=
+name|System
+operator|.
+name|getenv
+argument_list|(
+name|USER_CONFIG_ENVVAR
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|StringUtils
+operator|.
+name|isNotBlank
+argument_list|(
+name|userConfigFileNameEnv
+argument_list|)
+condition|)
+block|{
+name|userConfigFilename
+operator|=
+name|userConfigFileNameEnv
+expr_stmt|;
+block|}
+else|else
+block|{
 name|userConfigFilename
 operator|=
 name|expressionEvaluator
@@ -3491,6 +3518,7 @@ argument_list|(
 name|userConfigFilename
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|altConfigFilename
 operator|=
@@ -3947,7 +3975,7 @@ name|Override
 specifier|public
 name|Locale
 name|getDefaultLocale
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|defaultLocale
@@ -3963,7 +3991,7 @@ operator|.
 name|LanguageRange
 argument_list|>
 name|getLanguagePriorities
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|languagePriorities

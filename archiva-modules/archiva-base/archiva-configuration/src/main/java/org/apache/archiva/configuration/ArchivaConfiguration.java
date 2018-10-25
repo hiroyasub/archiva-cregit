@@ -92,6 +92,16 @@ specifier|public
 interface|interface
 name|ArchivaConfiguration
 block|{
+name|String
+name|USER_CONFIG_PROPERTY
+init|=
+literal|"archiva.user.configFileName"
+decl_stmt|;
+name|String
+name|USER_CONFIG_ENVVAR
+init|=
+literal|"ARCHIVA_USER_CONFIG_FILE"
+decl_stmt|;
 comment|/**      * Get the configuration.      *      * @return the configuration      */
 name|Configuration
 name|getConfiguration
