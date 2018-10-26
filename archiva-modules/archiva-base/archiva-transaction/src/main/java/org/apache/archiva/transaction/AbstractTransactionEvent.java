@@ -59,20 +59,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|digest
-operator|.
-name|Digester
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -251,7 +237,6 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|/**      * {@link List}&lt;{@link Digester}&gt;      */
 specifier|private
 name|List
 argument_list|<

@@ -55,6 +55,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|eclipse
+operator|.
+name|aether
+operator|.
+name|graph
+operator|.
+name|DependencyVisitor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|modelmapper
 operator|.
 name|ModelMapper
@@ -77,7 +91,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|sonatype
+name|eclipse
 operator|.
 name|aether
 operator|.
@@ -91,7 +105,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|sonatype
+name|eclipse
 operator|.
 name|aether
 operator|.
@@ -136,7 +150,7 @@ decl_stmt|;
 specifier|private
 name|org
 operator|.
-name|sonatype
+name|eclipse
 operator|.
 name|aether
 operator|.

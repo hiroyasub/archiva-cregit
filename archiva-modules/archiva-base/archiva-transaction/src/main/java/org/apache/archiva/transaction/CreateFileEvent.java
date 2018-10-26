@@ -31,20 +31,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|digest
-operator|.
-name|Digester
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -108,7 +94,7 @@ specifier|final
 name|String
 name|content
 decl_stmt|;
-comment|/**      *       * @param content      * @param destination      * @param checksumAlgorithms {@link List}&lt;{@link Digester}&gt; digesters to use for checksumming      */
+comment|/**      *       * @param content      * @param destination      * @param checksumAlgorithms digesters to use for checksumming      */
 specifier|public
 name|CreateFileEvent
 parameter_list|(

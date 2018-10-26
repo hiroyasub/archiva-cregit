@@ -39,7 +39,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|sonatype
+name|eclipse
 operator|.
 name|aether
 operator|.
