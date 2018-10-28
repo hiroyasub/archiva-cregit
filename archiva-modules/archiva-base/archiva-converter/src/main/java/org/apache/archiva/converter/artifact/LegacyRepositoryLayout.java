@@ -97,11 +97,40 @@ name|ArtifactRepositoryLayout
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|component
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author jdcasey  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+name|role
+operator|=
+name|ArtifactRepositoryLayout
+operator|.
+name|class
+argument_list|,
+name|hint
+operator|=
+literal|"legacy"
+argument_list|)
 specifier|public
 class|class
 name|LegacyRepositoryLayout

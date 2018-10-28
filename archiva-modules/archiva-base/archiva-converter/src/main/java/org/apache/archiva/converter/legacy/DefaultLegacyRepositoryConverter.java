@@ -197,6 +197,22 @@ name|artifact
 operator|.
 name|repository
 operator|.
+name|MavenArtifactRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|repository
+operator|.
 name|layout
 operator|.
 name|ArtifactRepositoryLayout
@@ -304,10 +320,7 @@ implements|implements
 name|LegacyRepositoryConverter
 block|{
 comment|/**      *      */
-specifier|private
-name|ArtifactRepositoryFactory
-name|artifactRepositoryFactory
-decl_stmt|;
+comment|// private ArtifactRepositoryFactory artifactRepositoryFactory;
 comment|/**      *      */
 specifier|private
 name|ArtifactRepositoryLayout
@@ -345,17 +358,7 @@ parameter_list|)
 throws|throws
 name|PlexusSisuBridgeException
 block|{
-name|artifactRepositoryFactory
-operator|=
-name|plexusSisuBridge
-operator|.
-name|lookup
-argument_list|(
-name|ArtifactRepositoryFactory
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
+comment|// artifactRepositoryFactory = plexusSisuBridge.lookup( ArtifactRepositoryFactory.class );
 name|defaultLayout
 operator|=
 name|plexusSisuBridge
@@ -442,9 +445,8 @@ expr_stmt|;
 name|ArtifactRepository
 name|repository
 init|=
-name|artifactRepositoryFactory
-operator|.
-name|createArtifactRepository
+operator|new
+name|MavenArtifactRepository
 argument_list|(
 literal|"default"
 argument_list|,
