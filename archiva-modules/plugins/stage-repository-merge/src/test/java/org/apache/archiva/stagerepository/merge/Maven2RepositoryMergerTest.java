@@ -468,8 +468,35 @@ argument_list|,
 literal|"com/example/test/test-artifact/1.0-SNAPSHOT/test-artifact-1.0-20100308.230825-1.pom"
 argument_list|)
 decl_stmt|;
+for|for
+control|(
+name|Path
+name|testArtifact
+range|:
+operator|new
+name|Path
+index|[]
+block|{
+name|mergedArtifact
+block|,
+name|mavenMetadata
+block|,
+name|pom
+block|}
+control|)
+block|{
+name|Files
+operator|.
+name|deleteIfExists
+argument_list|(
+name|testArtifact
+argument_list|)
+expr_stmt|;
+block|}
 name|assertFalse
 argument_list|(
+literal|"Artifact file exists already"
+argument_list|,
 name|Files
 operator|.
 name|exists
@@ -480,6 +507,8 @@ argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
+literal|"Metadata file exists already"
+argument_list|,
 name|Files
 operator|.
 name|exists
@@ -490,6 +519,8 @@ argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
+literal|"Pom File exists already"
+argument_list|,
 name|Files
 operator|.
 name|exists

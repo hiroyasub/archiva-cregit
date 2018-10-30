@@ -1654,11 +1654,26 @@ operator|.
 name|getLocalIndexPath
 argument_list|()
 decl_stmt|;
+for|for
+control|(
+name|Path
+name|dir
+range|:
+operator|new
+name|Path
+index|[]
+block|{
+name|packedIndexDirectory
+block|,
+name|indexerDirectory
+block|}
+control|)
+block|{
 name|Files
 operator|.
 name|list
 argument_list|(
-name|packedIndexDirectory
+name|dir
 argument_list|)
 operator|.
 name|filter
@@ -1714,12 +1729,13 @@ block|{
 name|e
 operator|.
 name|printStackTrace
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
-block|)
-class|;
+block_content|)
+function|;
+block|}
 end_class
 
 begin_decl_stmt
