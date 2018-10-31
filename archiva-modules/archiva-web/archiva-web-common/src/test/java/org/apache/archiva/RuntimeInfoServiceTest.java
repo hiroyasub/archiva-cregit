@@ -354,7 +354,8 @@ argument_list|)
 condition|?
 literal|"http://localhost:"
 operator|+
-name|port
+name|getServerPort
+argument_list|()
 else|:
 name|baseUrlSysProps
 return|;

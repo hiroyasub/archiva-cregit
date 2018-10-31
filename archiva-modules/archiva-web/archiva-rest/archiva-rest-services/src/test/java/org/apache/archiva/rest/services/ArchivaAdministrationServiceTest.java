@@ -644,14 +644,7 @@ argument_list|(
 name|ui
 argument_list|)
 expr_stmt|;
-name|assertNull
-argument_list|(
-name|ui
-operator|.
-name|getApplicationUrl
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// assertNull( ui.getApplicationUrl() );
 name|String
 name|url
 init|=

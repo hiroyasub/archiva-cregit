@@ -780,7 +780,8 @@ name|isEqualTo
 argument_list|(
 literal|"http://localhost:"
 operator|+
-name|port
+name|getServerPort
+argument_list|()
 operator|+
 literal|"/repository/test-repo/org/apache/karaf/features/org.apache.karaf.features.core/"
 operator|+
