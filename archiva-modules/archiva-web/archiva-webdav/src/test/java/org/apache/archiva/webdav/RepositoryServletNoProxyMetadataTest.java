@@ -45,6 +45,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Before
 import|;
 end_import
@@ -124,6 +134,23 @@ argument_list|()
 expr_stmt|;
 name|startRepository
 argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+annotation|@
+name|After
+specifier|public
+name|void
+name|tearDown
+parameter_list|( )
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|tearDown
+argument_list|( )
 expr_stmt|;
 block|}
 annotation|@
