@@ -315,11 +315,49 @@ name|ExclusionDependencySelector
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
+begin_comment
+comment|/**  * Some static utility methods that are used by different classes.  */
+end_comment
+
 begin_class
 specifier|public
 class|class
 name|MavenUtil
 block|{
+specifier|static
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|MavenUtil
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|/**      * Creates a new aether repository system session for the given directory and assigns the      * repository to this session.      *      * @param localRepoDir The repository directory      * @return The newly created session object.      */
 specifier|public
 specifier|static
 name|RepositorySystemSession
@@ -399,16 +437,26 @@ name|NoLocalRepositoryManagerException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Could not assign the repository manager to the session: {}"
+argument_list|,
 name|e
 operator|.
-name|printStackTrace
-argument_list|( )
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 return|return
 name|session
 return|;
 block|}
+comment|/**      * Finds the      * @return      */
 specifier|public
 specifier|static
 name|RepositorySystem
