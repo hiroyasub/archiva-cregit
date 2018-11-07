@@ -273,7 +273,7 @@ name|repository
 operator|.
 name|maven2
 operator|.
-name|MavenUtil
+name|MavenSystemManager
 import|;
 end_import
 
@@ -346,22 +346,6 @@ operator|.
 name|bridge
 operator|.
 name|MavenRepositorySystem
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|model
-operator|.
-name|building
-operator|.
-name|DefaultModelBuilderFactory
 import|;
 end_import
 
@@ -665,6 +649,11 @@ annotation|@
 name|Inject
 name|RepositoryRegistry
 name|repositoryRegistry
+decl_stmt|;
+annotation|@
+name|Inject
+name|MavenSystemManager
+name|mavenSystemManager
 decl_stmt|;
 annotation|@
 name|PostConstruct
@@ -1100,15 +1089,15 @@ block|{
 name|RepositorySystem
 name|system
 init|=
-name|MavenUtil
+name|mavenSystemManager
 operator|.
-name|newRepositorySystem
+name|getRepositorySystem
 argument_list|()
 decl_stmt|;
 name|RepositorySystemSession
 name|session
 init|=
-name|MavenUtil
+name|MavenSystemManager
 operator|.
 name|newRepositorySystemSession
 argument_list|(
