@@ -388,6 +388,15 @@ comment|//await().atMost(20, TimeUnit.SECONDS).until($("#topbar-menu")).present(
 name|await
 argument_list|()
 operator|.
+name|atMost
+argument_list|(
+literal|10
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+operator|.
 name|untilPredicate
 argument_list|(
 parameter_list|(
