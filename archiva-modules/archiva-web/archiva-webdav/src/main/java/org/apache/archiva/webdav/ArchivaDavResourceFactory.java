@@ -459,7 +459,7 @@ name|proxy
 operator|.
 name|model
 operator|.
-name|RepositoryProxyConnectors
+name|RepositoryProxyHandler
 import|;
 end_import
 
@@ -1454,7 +1454,7 @@ operator|=
 literal|"repositoryProxyConnectors#default"
 argument_list|)
 specifier|private
-name|RepositoryProxyConnectors
+name|RepositoryProxyHandler
 name|connectors
 decl_stmt|;
 annotation|@
@@ -7267,7 +7267,7 @@ specifier|public
 name|void
 name|setConnectors
 parameter_list|(
-name|RepositoryProxyConnectors
+name|RepositoryProxyHandler
 name|connectors
 parameter_list|)
 block|{

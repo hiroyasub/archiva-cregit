@@ -265,7 +265,9 @@ name|archiva
 operator|.
 name|proxy
 operator|.
-name|DefaultRepositoryProxyConnectors
+name|maven
+operator|.
+name|MavenRepositoryProxyHandler
 import|;
 end_import
 
@@ -1471,7 +1473,7 @@ operator|.
 name|setConnectors
 argument_list|(
 operator|new
-name|OverridingRepositoryProxyConnectors
+name|OverridingRepositoryProxyHandler
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4049,9 +4051,9 @@ return|;
 block|}
 block|}
 class|class
-name|OverridingRepositoryProxyConnectors
+name|OverridingRepositoryProxyHandler
 extends|extends
-name|DefaultRepositoryProxyConnectors
+name|MavenRepositoryProxyHandler
 block|{
 annotation|@
 name|Override

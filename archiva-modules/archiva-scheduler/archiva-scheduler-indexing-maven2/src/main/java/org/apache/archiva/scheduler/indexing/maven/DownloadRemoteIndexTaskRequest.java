@@ -27,13 +27,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
+name|proxy
 operator|.
-name|model
+name|maven
 operator|.
-name|beans
-operator|.
-name|NetworkProxy
+name|WagonFactory
 import|;
 end_import
 
@@ -47,9 +45,9 @@ name|archiva
 operator|.
 name|proxy
 operator|.
-name|common
+name|model
 operator|.
-name|WagonFactory
+name|NetworkProxy
 import|;
 end_import
 

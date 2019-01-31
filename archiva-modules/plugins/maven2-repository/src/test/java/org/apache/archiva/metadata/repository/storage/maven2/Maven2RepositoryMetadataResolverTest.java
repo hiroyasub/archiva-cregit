@@ -331,7 +331,7 @@ name|archiva
 operator|.
 name|proxy
 operator|.
-name|common
+name|maven
 operator|.
 name|WagonFactory
 import|;
@@ -347,7 +347,7 @@ name|archiva
 operator|.
 name|proxy
 operator|.
-name|common
+name|maven
 operator|.
 name|WagonFactoryRequest
 import|;

@@ -63,11 +63,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
+name|proxy
 operator|.
 name|model
-operator|.
-name|beans
 operator|.
 name|ProxyConnectorRuleType
 import|;

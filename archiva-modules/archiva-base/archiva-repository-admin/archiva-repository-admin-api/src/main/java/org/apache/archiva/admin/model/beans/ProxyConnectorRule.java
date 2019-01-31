@@ -21,6 +21,22 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|proxy
+operator|.
+name|model
+operator|.
+name|ProxyConnectorRuleType
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
