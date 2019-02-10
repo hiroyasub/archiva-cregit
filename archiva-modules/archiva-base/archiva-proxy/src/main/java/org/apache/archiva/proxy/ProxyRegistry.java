@@ -134,6 +134,14 @@ name|RepositoryType
 name|type
 parameter_list|)
 function_decl|;
+comment|/**      * Returns true, if there are proxy handler registered for the given type.      *      * @param type The repository type      * @return True, if a handler is registered, otherwise false.      */
+name|boolean
+name|hasHandler
+parameter_list|(
+name|RepositoryType
+name|type
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the list of all proxy connectors.      * @return      */
 specifier|public
 name|List

@@ -2126,6 +2126,13 @@ argument_list|)
 expr_stmt|;
 name|connectorConfig
 operator|.
+name|setProxyId
+argument_list|(
+name|sourceRepoId
+argument_list|)
+expr_stmt|;
+name|connectorConfig
+operator|.
 name|addPolicy
 argument_list|(
 name|ProxyConnectorConfiguration

@@ -2457,9 +2457,16 @@ argument_list|)
 expr_stmt|;
 name|copyTestArtifactWithParent
 argument_list|(
+literal|"src/test/resources/com/example/test/test-artifact-parent"
+argument_list|,
+literal|"target/test-repository/com/example/test/test-artifact-parent"
+argument_list|)
+expr_stmt|;
+name|copyTestArtifactWithParent
+argument_list|(
 literal|"src/test/resources/com/example/test/test-snapshot-artifact-root"
 argument_list|,
-literal|"target/test-repositorys/com/example/test/test-snapshot-artifact-root"
+literal|"target/test-repository/com/example/test/test-snapshot-artifact-root"
 argument_list|)
 expr_stmt|;
 name|ReadMetadataRequest

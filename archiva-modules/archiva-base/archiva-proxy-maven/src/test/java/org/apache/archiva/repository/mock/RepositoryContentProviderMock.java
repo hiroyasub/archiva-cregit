@@ -167,7 +167,9 @@ block|{
 return|return
 operator|new
 name|RemoteRepositoryContentMock
-argument_list|()
+argument_list|(
+name|repository
+argument_list|)
 return|;
 block|}
 annotation|@
@@ -185,7 +187,9 @@ block|{
 return|return
 operator|new
 name|ManagedRepositoryContentMock
-argument_list|()
+argument_list|(
+name|repository
+argument_list|)
 return|;
 block|}
 annotation|@

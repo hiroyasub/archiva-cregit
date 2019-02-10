@@ -161,7 +161,9 @@ annotation|@
 name|ContextConfiguration
 argument_list|(
 block|{
-literal|"classpath*:/META-INF/spring-context.xml"
+literal|"classpath*:/spring-context-storage.xml"
+block|,
+literal|"classpath*:META-INF/spring-context.xml"
 block|}
 argument_list|)
 specifier|public

@@ -946,6 +946,20 @@ argument_list|,
 literal|"target/test-repository/com/example/test/test-artifact-module-a"
 argument_list|)
 expr_stmt|;
+name|copyTestArtifactWithParent
+argument_list|(
+literal|"src/test/resources/com/example/test/test-artifact-parent"
+argument_list|,
+literal|"target/test-repository/com/example/test/test-artifact-parent"
+argument_list|)
+expr_stmt|;
+name|copyTestArtifactWithParent
+argument_list|(
+literal|"target/test-classes/com/example/test/test-artifact-root"
+argument_list|,
+literal|"target/test-repository/com/example/test/test-artifact-root"
+argument_list|)
+expr_stmt|;
 name|ProjectVersionMetadata
 name|metadata
 init|=
@@ -1561,8 +1575,20 @@ argument_list|,
 literal|"target/test-repository/com/example/test/test-snapshot-artifact-module-a"
 argument_list|)
 expr_stmt|;
-comment|//copyTestArtifactWithParent( "target/test-classes/com/example/test/test-snapshot-artifact-root",
-comment|//                            "target/test-repository/com/example/test/test-snapshot-artifact-root" );
+name|copyTestArtifactWithParent
+argument_list|(
+literal|"src/test/resources/com/example/test/test-artifact-parent"
+argument_list|,
+literal|"target/test-repository/com/example/test/test-artifact-parent"
+argument_list|)
+expr_stmt|;
+name|copyTestArtifactWithParent
+argument_list|(
+literal|"target/test-classes/com/example/test/test-snapshot-artifact-root"
+argument_list|,
+literal|"target/test-repository/com/example/test/test-snapshot-artifact-root"
+argument_list|)
+expr_stmt|;
 name|ProjectVersionMetadata
 name|metadata
 init|=

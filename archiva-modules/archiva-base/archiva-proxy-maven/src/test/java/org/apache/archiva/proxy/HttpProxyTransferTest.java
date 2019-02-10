@@ -754,19 +754,6 @@ argument_list|(
 name|destRepoDir
 argument_list|)
 expr_stmt|;
-name|managedDefaultRepository
-operator|=
-name|createRepository
-argument_list|(
-name|MANAGED_ID
-argument_list|,
-literal|"Default Managed Repository"
-argument_list|,
-name|repoPath
-argument_list|,
-literal|"default"
-argument_list|)
-expr_stmt|;
 name|Handler
 name|handler
 init|=
@@ -1009,6 +996,20 @@ argument_list|(
 name|proxyConfig
 argument_list|)
 expr_stmt|;
+operator|(
+operator|(
+name|MockConfiguration
+operator|)
+name|config
+operator|)
+operator|.
+name|triggerChange
+argument_list|(
+literal|"networkProxies.networkProxy(0).host"
+argument_list|,
+literal|"localhost"
+argument_list|)
+expr_stmt|;
 comment|// Setup target (proxied to) repository.
 name|RemoteRepositoryConfiguration
 name|repoConfig
@@ -1055,6 +1056,24 @@ argument_list|(
 name|repoConfig
 argument_list|)
 expr_stmt|;
+name|repositoryRegistry
+operator|.
+name|reload
+argument_list|()
+expr_stmt|;
+name|managedDefaultRepository
+operator|=
+name|createRepository
+argument_list|(
+name|MANAGED_ID
+argument_list|,
+literal|"Default Managed Repository"
+argument_list|,
+name|repoPath
+argument_list|,
+literal|"default"
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|After
@@ -1089,6 +1108,8 @@ operator|.
 name|getProperty
 argument_list|(
 literal|"http.proxyHost"
+argument_list|,
+literal|""
 argument_list|)
 argument_list|)
 operator|.
@@ -1104,6 +1125,8 @@ operator|.
 name|getProperty
 argument_list|(
 literal|"http.proxyPort"
+argument_list|,
+literal|""
 argument_list|)
 argument_list|)
 operator|.
@@ -1280,6 +1303,8 @@ operator|.
 name|getProperty
 argument_list|(
 literal|"http.proxyHost"
+argument_list|,
+literal|""
 argument_list|)
 argument_list|)
 operator|.
@@ -1295,6 +1320,8 @@ operator|.
 name|getProperty
 argument_list|(
 literal|"http.proxyPort"
+argument_list|,
+literal|""
 argument_list|)
 argument_list|)
 operator|.
