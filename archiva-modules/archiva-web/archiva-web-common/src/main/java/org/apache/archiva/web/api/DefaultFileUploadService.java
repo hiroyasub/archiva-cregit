@@ -1342,6 +1342,23 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 block|{
+comment|// we make sure, that there are no other path components in the filename:
+name|String
+name|checkedFileName
+init|=
+name|Paths
+operator|.
+name|get
+argument_list|(
+name|fileName
+argument_list|)
+operator|.
+name|getFileName
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
 name|Path
 name|file
 init|=
@@ -1355,7 +1372,7 @@ argument_list|()
 operator|.
 name|resolve
 argument_list|(
-name|fileName
+name|checkedFileName
 argument_list|)
 decl_stmt|;
 name|log
@@ -1396,7 +1413,8 @@ operator|!
 name|removed
 condition|)
 block|{
-comment|/* unused */
+name|removed
+operator|=
 name|getSessionFileMetadatas
 argument_list|()
 operator|.
@@ -1413,6 +1431,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|removed
+condition|)
+block|{
 try|try
 block|{
 name|Files
@@ -1422,6 +1445,11 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
+return|return
+name|Boolean
+operator|.
+name|TRUE
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -1445,6 +1473,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|Boolean
