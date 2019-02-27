@@ -285,6 +285,18 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|ws
+operator|.
+name|rs
+operator|.
+name|ClientErrorException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -815,11 +827,23 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ArchivaRestServiceException
+name|ClientErrorException
 name|e
 parameter_list|)
 block|{
-comment|// OK
+name|assertEquals
+argument_list|(
+literal|422
+argument_list|,
+name|e
+operator|.
+name|getResponse
+argument_list|()
+operator|.
+name|getStatus
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 finally|finally
@@ -1564,7 +1588,7 @@ argument_list|(
 operator|new
 name|ContentDisposition
 argument_list|(
-literal|"form-data; filename=\"/../TestFile.FileExt\"; name=\"files[]\""
+literal|"form-data; filename=\"TestFile.FileExt\"; name=\"files[]\""
 argument_list|)
 argument_list|)
 operator|.
@@ -1641,11 +1665,23 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ArchivaRestServiceException
+name|ClientErrorException
 name|e
 parameter_list|)
 block|{
-comment|// OK
+name|assertEquals
+argument_list|(
+literal|422
+argument_list|,
+name|e
+operator|.
+name|getResponse
+argument_list|()
+operator|.
+name|getStatus
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 name|assertFalse
 argument_list|(
