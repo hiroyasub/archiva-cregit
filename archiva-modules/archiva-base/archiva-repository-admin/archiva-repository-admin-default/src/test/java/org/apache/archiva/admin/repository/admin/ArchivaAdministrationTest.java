@@ -1402,6 +1402,59 @@ annotation|@
 name|Test
 specifier|public
 name|void
+name|badOrganisationName
+parameter_list|( )
+block|{
+try|try
+block|{
+name|OrganisationInformation
+name|newOrganisationInformation
+init|=
+operator|new
+name|OrganisationInformation
+argument_list|( )
+decl_stmt|;
+name|newOrganisationInformation
+operator|.
+name|setName
+argument_list|(
+literal|"/><svg/onload=alert(/url_xss/)>Test Org\""
+argument_list|)
+expr_stmt|;
+name|archivaAdministration
+operator|.
+name|setOrganisationInformation
+argument_list|(
+name|newOrganisationInformation
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"/&gt;&lt;svg/onload=alert(/url_xss/)&gt;Test Org&quot;"
+argument_list|,
+name|archivaAdministration
+operator|.
+name|getOrganisationInformation
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RepositoryAdminException
+name|e
+parameter_list|)
+block|{
+comment|// OK
+block|}
+block|}
+annotation|@
+name|Test
+specifier|public
+name|void
 name|uiConfiguration
 parameter_list|()
 throws|throws
