@@ -1300,7 +1300,7 @@ name|newOrganisationInformation
 operator|.
 name|setLogoLocation
 argument_list|(
-literal|"'/><svg/onload=alert(/logoLocation_xss/)>"
+literal|"http://www.foo.com'/><svg/onload=alert(/logoLocation_xss/)>"
 argument_list|)
 expr_stmt|;
 name|newOrganisationInformation
@@ -1359,7 +1359,7 @@ name|newOrganisationInformation
 operator|.
 name|setUrl
 argument_list|(
-literal|"'/><svg/onload=alert(/url_xss/)>"
+literal|"http://foo.com'/><svg/onload=alert(/url_xss/)>"
 argument_list|)
 expr_stmt|;
 name|newOrganisationInformation
