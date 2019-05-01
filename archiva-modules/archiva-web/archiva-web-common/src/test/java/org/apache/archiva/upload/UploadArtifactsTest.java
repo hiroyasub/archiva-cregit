@@ -39,6 +39,20 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|configuration
+operator|.
+name|ArchivaConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|redback
 operator|.
 name|rest
@@ -267,6 +281,26 @@ name|org
 operator|.
 name|junit
 operator|.
+name|AfterClass
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|BeforeClass
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -379,12 +413,79 @@ name|UploadArtifactsTest
 extends|extends
 name|AbstractRestServicesTest
 block|{
+specifier|private
+specifier|static
+name|String
+name|PREVIOUS_ARCHIVA_PATH
+decl_stmt|;
+annotation|@
+name|BeforeClass
+specifier|public
+specifier|static
+name|void
+name|initConfigurationPath
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|PREVIOUS_ARCHIVA_PATH
+operator|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+name|ArchivaConfiguration
+operator|.
+name|USER_CONFIG_PROPERTY
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|setProperty
+argument_list|(
+name|ArchivaConfiguration
+operator|.
+name|USER_CONFIG_PROPERTY
+argument_list|,
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"test.resources.path/"
+argument_list|)
+operator|+
+literal|"archiva.xml"
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|AfterClass
+specifier|public
+specifier|static
+name|void
+name|restoreConfigurationPath
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+name|ArchivaConfiguration
+operator|.
+name|USER_CONFIG_PROPERTY
+argument_list|,
+name|PREVIOUS_ARCHIVA_PATH
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 specifier|protected
 name|String
 name|getSpringConfigLocation
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 literal|"classpath*:META-INF/spring-context.xml,classpath:/spring-context-test-upload.xml"
@@ -395,7 +496,7 @@ name|Override
 specifier|protected
 name|String
 name|getRestServicesPath
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 literal|"restServices"
@@ -404,7 +505,7 @@ block|}
 specifier|protected
 name|String
 name|getBaseUrl
-parameter_list|( )
+parameter_list|()
 block|{
 name|String
 name|baseUrlSysProps
@@ -435,7 +536,7 @@ block|}
 specifier|private
 name|FileUploadService
 name|getUploadService
-parameter_list|( )
+parameter_list|()
 block|{
 name|FileUploadService
 name|service
@@ -445,12 +546,12 @@ operator|.
 name|create
 argument_list|(
 name|getBaseUrl
-argument_list|( )
+argument_list|()
 operator|+
 literal|"/"
 operator|+
 name|getRestServicesPath
-argument_list|( )
+argument_list|()
 operator|+
 literal|"/archivaUiServices/"
 argument_list|,
@@ -464,7 +565,7 @@ name|singletonList
 argument_list|(
 operator|new
 name|JacksonJaxbJsonProvider
-argument_list|( )
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -477,10 +578,10 @@ argument_list|,
 name|service
 operator|.
 name|getClass
-argument_list|( )
+argument_list|()
 operator|.
 name|getName
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|WebClient
@@ -536,7 +637,7 @@ name|service
 argument_list|)
 operator|.
 name|getRequestContext
-argument_list|( )
+argument_list|()
 operator|.
 name|put
 argument_list|(
@@ -631,7 +732,7 @@ name|Test
 specifier|public
 name|void
 name|clearUploadedFiles
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -639,12 +740,12 @@ name|FileUploadService
 name|service
 init|=
 name|getUploadService
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|service
 operator|.
 name|clearUploadedFiles
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -652,7 +753,7 @@ name|Test
 specifier|public
 name|void
 name|uploadFile
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|IOException
 throws|,
@@ -662,7 +763,7 @@ name|FileUploadService
 name|service
 init|=
 name|getUploadService
-argument_list|( )
+argument_list|()
 decl_stmt|;
 try|try
 block|{
@@ -682,7 +783,7 @@ name|fileAttachment
 init|=
 operator|new
 name|AttachmentBuilder
-argument_list|( )
+argument_list|()
 operator|.
 name|object
 argument_list|(
@@ -704,17 +805,17 @@ operator|+
 name|file
 operator|.
 name|getFileName
-argument_list|( )
+argument_list|()
 operator|.
 name|toString
-argument_list|( )
+argument_list|()
 operator|+
 literal|"\"; name=\"files[]\""
 argument_list|)
 argument_list|)
 operator|.
 name|build
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|MultipartBody
 name|body
@@ -738,7 +839,7 @@ block|{
 name|service
 operator|.
 name|clearUploadedFiles
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -747,7 +848,7 @@ name|Test
 specifier|public
 name|void
 name|failUploadFileWithBadFileName
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|IOException
 throws|,
@@ -757,7 +858,7 @@ name|FileUploadService
 name|service
 init|=
 name|getUploadService
-argument_list|( )
+argument_list|()
 decl_stmt|;
 try|try
 block|{
@@ -777,7 +878,7 @@ name|fileAttachment
 init|=
 operator|new
 name|AttachmentBuilder
-argument_list|( )
+argument_list|()
 operator|.
 name|object
 argument_list|(
@@ -799,7 +900,7 @@ argument_list|)
 argument_list|)
 operator|.
 name|build
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|MultipartBody
 name|body
@@ -851,7 +952,7 @@ block|{
 name|service
 operator|.
 name|clearUploadedFiles
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -860,7 +961,7 @@ name|Test
 specifier|public
 name|void
 name|uploadAndDeleteFile
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|IOException
 throws|,
@@ -870,7 +971,7 @@ name|FileUploadService
 name|service
 init|=
 name|getUploadService
-argument_list|( )
+argument_list|()
 decl_stmt|;
 try|try
 block|{
@@ -890,7 +991,7 @@ name|fileAttachment
 init|=
 operator|new
 name|AttachmentBuilder
-argument_list|( )
+argument_list|()
 operator|.
 name|object
 argument_list|(
@@ -912,17 +1013,17 @@ operator|+
 name|file
 operator|.
 name|getFileName
-argument_list|( )
+argument_list|()
 operator|.
 name|toString
-argument_list|( )
+argument_list|()
 operator|+
 literal|"\"; name=\"files[]\""
 argument_list|)
 argument_list|)
 operator|.
 name|build
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|MultipartBody
 name|body
@@ -947,10 +1048,10 @@ argument_list|(
 name|file
 operator|.
 name|getFileName
-argument_list|( )
+argument_list|()
 operator|.
 name|toString
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -959,7 +1060,7 @@ block|{
 name|service
 operator|.
 name|clearUploadedFiles
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -968,7 +1069,7 @@ name|Test
 specifier|public
 name|void
 name|failUploadAndDeleteWrongFile
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|IOException
 throws|,
@@ -978,7 +1079,7 @@ name|FileUploadService
 name|service
 init|=
 name|getUploadService
-argument_list|( )
+argument_list|()
 decl_stmt|;
 try|try
 block|{
@@ -998,7 +1099,7 @@ name|fileAttachment
 init|=
 operator|new
 name|AttachmentBuilder
-argument_list|( )
+argument_list|()
 operator|.
 name|object
 argument_list|(
@@ -1020,17 +1121,17 @@ operator|+
 name|file
 operator|.
 name|getFileName
-argument_list|( )
+argument_list|()
 operator|.
 name|toString
-argument_list|( )
+argument_list|()
 operator|+
 literal|"\"; name=\"files[]\""
 argument_list|)
 argument_list|)
 operator|.
 name|build
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|MultipartBody
 name|body
@@ -1059,10 +1160,10 @@ operator|+
 name|file
 operator|.
 name|getFileName
-argument_list|( )
+argument_list|()
 operator|.
 name|toString
-argument_list|( )
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1072,7 +1173,7 @@ block|{
 name|service
 operator|.
 name|clearUploadedFiles
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -1081,7 +1182,7 @@ name|Test
 specifier|public
 name|void
 name|failUploadAndDeleteFileInOtherDir
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|IOException
 throws|,
@@ -1098,7 +1199,7 @@ name|FileUploadService
 name|service
 init|=
 name|getUploadService
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|Path
 name|file
@@ -1121,7 +1222,7 @@ literal|"target/testDelete"
 argument_list|)
 operator|.
 name|toAbsolutePath
-argument_list|( )
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -1146,10 +1247,10 @@ init|=
 name|SystemUtils
 operator|.
 name|getJavaIoTmpDir
-argument_list|( )
+argument_list|()
 operator|.
 name|toPath
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|testFile
 operator|=
@@ -1173,7 +1274,7 @@ argument_list|,
 name|testFile
 operator|.
 name|toAbsolutePath
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|log
@@ -1185,7 +1286,7 @@ argument_list|,
 name|tempDir
 operator|.
 name|toAbsolutePath
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -1208,7 +1309,7 @@ argument_list|(
 name|testFile
 operator|.
 name|toAbsolutePath
-argument_list|( )
+argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1217,7 +1318,7 @@ name|fileAttachment
 init|=
 operator|new
 name|AttachmentBuilder
-argument_list|( )
+argument_list|()
 operator|.
 name|object
 argument_list|(
@@ -1239,17 +1340,17 @@ operator|+
 name|file
 operator|.
 name|getFileName
-argument_list|( )
+argument_list|()
 operator|.
 name|toString
-argument_list|( )
+argument_list|()
 operator|+
 literal|"\"; name=\"files[]\""
 argument_list|)
 argument_list|)
 operator|.
 name|build
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|MultipartBody
 name|body
@@ -1279,7 +1380,7 @@ operator|+
 name|relativePath
 operator|.
 name|toString
-argument_list|( )
+argument_list|()
 argument_list|,
 literal|"UTF-8"
 argument_list|)
@@ -1350,40 +1451,35 @@ name|Test
 specifier|public
 name|void
 name|failSaveFileWithBadParams
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|IOException
 throws|,
 name|ArchivaRestServiceException
 block|{
+name|Path
+name|path
+init|=
+name|Paths
+operator|.
+name|get
+argument_list|(
+literal|"target/appserver-base/repositories/internal/data/repositories/internal/org/apache/archiva/archiva-model/1.2/archiva-model-1.2.jar"
+argument_list|)
+decl_stmt|;
+name|Files
+operator|.
+name|deleteIfExists
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
 name|FileUploadService
 name|service
 init|=
 name|getUploadService
-argument_list|( )
+argument_list|()
 decl_stmt|;
-name|Path
-name|targetFile
-init|=
-name|Paths
-operator|.
-name|get
-argument_list|(
-literal|"target/test/test-testSave.4"
-argument_list|)
-decl_stmt|;
-name|Path
-name|targetPom
-init|=
-name|Paths
-operator|.
-name|get
-argument_list|(
-literal|"target/test/test-testSave.pom"
-argument_list|)
-decl_stmt|;
-try|try
-block|{
 name|Path
 name|file
 init|=
@@ -1394,105 +1490,12 @@ argument_list|(
 literal|"src/test/repositories/snapshot-repo/org/apache/archiva/archiva-model/1.4-M4-SNAPSHOT/archiva-model-1.4-M4-20130425.081822-1.jar"
 argument_list|)
 decl_stmt|;
-name|Path
-name|targetDir
-init|=
-name|Paths
-operator|.
-name|get
-argument_list|(
-literal|"target/appserver-base/test/testSave"
-argument_list|)
-operator|.
-name|toAbsolutePath
-argument_list|( )
-decl_stmt|;
-name|Path
-name|repoDir
-init|=
-name|Paths
-operator|.
-name|get
-argument_list|(
-literal|"target/appserver-base/repositories/internal/org"
-argument_list|)
-decl_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Repo dir {}"
-argument_list|,
-name|repoDir
-operator|.
-name|toAbsolutePath
-argument_list|()
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|Files
-operator|.
-name|exists
-argument_list|(
-name|repoDir
-argument_list|)
-condition|)
-name|Files
-operator|.
-name|createDirectories
-argument_list|(
-name|repoDir
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|Files
-operator|.
-name|exists
-argument_list|(
-name|repoDir
-argument_list|)
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|Files
-operator|.
-name|exists
-argument_list|(
-name|targetDir
-argument_list|)
-condition|)
-name|Files
-operator|.
-name|createDirectories
-argument_list|(
-name|targetDir
-argument_list|)
-expr_stmt|;
-name|Files
-operator|.
-name|deleteIfExists
-argument_list|(
-name|targetFile
-argument_list|)
-expr_stmt|;
-name|Files
-operator|.
-name|deleteIfExists
-argument_list|(
-name|targetPom
-argument_list|)
-expr_stmt|;
 name|Attachment
 name|fileAttachment
 init|=
 operator|new
 name|AttachmentBuilder
-argument_list|( )
+argument_list|()
 operator|.
 name|object
 argument_list|(
@@ -1509,12 +1512,12 @@ argument_list|(
 operator|new
 name|ContentDisposition
 argument_list|(
-literal|"form-data; filename=\"archiva-model-1.2.jar\"; name=\"files[]\""
+literal|"form-data; filename=\"archiva-model.jar\"; name=\"files[]\""
 argument_list|)
 argument_list|)
 operator|.
 name|build
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|MultipartBody
 name|body
@@ -1525,26 +1528,11 @@ argument_list|(
 name|fileAttachment
 argument_list|)
 decl_stmt|;
-name|FileMetadata
-name|meta
-init|=
 name|service
 operator|.
 name|post
 argument_list|(
 name|body
-argument_list|)
-decl_stmt|;
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Metadata {}"
-argument_list|,
-name|meta
-operator|.
-name|toString
-argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -1555,7 +1543,7 @@ name|save
 argument_list|(
 literal|"internal"
 argument_list|,
-literal|"org.archiva"
+literal|"org.apache.archiva"
 argument_list|,
 literal|"archiva-model"
 argument_list|,
@@ -1571,7 +1559,7 @@ name|fileAttachment
 operator|=
 operator|new
 name|AttachmentBuilder
-argument_list|( )
+argument_list|()
 operator|.
 name|object
 argument_list|(
@@ -1593,7 +1581,7 @@ argument_list|)
 argument_list|)
 operator|.
 name|build
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|body
 operator|=
@@ -1603,15 +1591,16 @@ argument_list|(
 name|fileAttachment
 argument_list|)
 expr_stmt|;
+name|FileMetadata
 name|meta
-operator|=
+init|=
 name|service
 operator|.
 name|post
 argument_list|(
 name|body
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|log
 operator|.
 name|debug
@@ -1621,7 +1610,7 @@ argument_list|,
 name|meta
 operator|.
 name|toString
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 try|try
@@ -1699,36 +1688,24 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-finally|finally
-block|{
-comment|// service.clearUploadedFiles( );
-name|Files
-operator|.
-name|deleteIfExists
-argument_list|(
-name|targetFile
-argument_list|)
-expr_stmt|;
-name|Files
-operator|.
-name|deleteIfExists
-argument_list|(
-name|targetPom
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 annotation|@
 name|Test
 specifier|public
 name|void
 name|saveFile
-parameter_list|( )
+parameter_list|()
 throws|throws
 name|IOException
 throws|,
 name|ArchivaRestServiceException
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Starting saveFile()"
+argument_list|)
+expr_stmt|;
 name|Path
 name|path
 init|=
@@ -1739,6 +1716,36 @@ argument_list|(
 literal|"target/appserver-base/repositories/internal/data/repositories/internal/org/apache/archiva/archiva-model/1.2/archiva-model-1.2.jar"
 argument_list|)
 decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Jar exists: {}"
+argument_list|,
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|path
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|Files
+operator|.
+name|deleteIfExists
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
+name|path
+operator|=
+name|Paths
+operator|.
+name|get
+argument_list|(
+literal|"target/appserver-base/repositories/internal/data/repositories/internal/org/apache/archiva/archiva-model/1.2/archiva-model-1.2.pom"
+argument_list|)
+expr_stmt|;
 name|Files
 operator|.
 name|deleteIfExists
@@ -1750,8 +1757,13 @@ name|FileUploadService
 name|service
 init|=
 name|getUploadService
-argument_list|( )
+argument_list|()
 decl_stmt|;
+name|service
+operator|.
+name|clearUploadedFiles
+argument_list|()
+expr_stmt|;
 name|Path
 name|file
 init|=
@@ -1762,13 +1774,27 @@ argument_list|(
 literal|"src/test/repositories/snapshot-repo/org/apache/archiva/archiva-model/1.4-M4-SNAPSHOT/archiva-model-1.4-M4-20130425.081822-1.jar"
 argument_list|)
 decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Upload file exists: {}"
+argument_list|,
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|file
+argument_list|)
+argument_list|)
+expr_stmt|;
 specifier|final
 name|Attachment
 name|fileAttachment
 init|=
 operator|new
 name|AttachmentBuilder
-argument_list|( )
+argument_list|()
 operator|.
 name|object
 argument_list|(
@@ -1790,7 +1816,7 @@ argument_list|)
 argument_list|)
 operator|.
 name|build
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|MultipartBody
 name|body

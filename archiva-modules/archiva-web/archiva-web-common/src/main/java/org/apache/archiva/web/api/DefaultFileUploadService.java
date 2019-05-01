@@ -737,43 +737,7 @@ name|nio
 operator|.
 name|file
 operator|.
-name|Files
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Path
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Paths
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|StandardCopyOption
+name|*
 import|;
 end_import
 
@@ -1415,6 +1379,15 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Deleting file {}"
+argument_list|,
+name|fileName
+argument_list|)
+expr_stmt|;
 comment|// we make sure, that there are no other path components in the filename:
 name|String
 name|checkedFileName
@@ -2266,6 +2239,13 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Saving POM"
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|boolean
@@ -2501,6 +2481,13 @@ name|pomFilename
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Finished Saving POM"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -2508,6 +2495,18 @@ name|IOException
 name|ie
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"IOException for POM {}"
+argument_list|,
+name|ie
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|ArchivaRestServiceException
@@ -2538,6 +2537,18 @@ name|RepositoryException
 name|rep
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"RepositoryException for POM {}"
+argument_list|,
+name|rep
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|ArchivaRestServiceException
@@ -2568,6 +2579,18 @@ name|RepositoryAdminException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"RepositoryAdminException for POM {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|ArchivaRestServiceException
@@ -2621,12 +2644,27 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Saving file"
+argument_list|)
+expr_stmt|;
 try|try
 block|{
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|ManagedRepository
 name|repoConfig
 init|=
-name|managedRepositoryAdmin
+name|repositoryRegistry
 operator|.
 name|getManagedRepository
 argument_list|(
@@ -2700,7 +2738,7 @@ name|repositoryFactory
 operator|.
 name|getManagedRepositoryContent
 argument_list|(
-name|repositoryId
+name|repoConfig
 argument_list|)
 decl_stmt|;
 name|String
@@ -2746,7 +2784,10 @@ name|repoConfig
 operator|.
 name|getLocation
 argument_list|()
-argument_list|,
+argument_list|)
+operator|.
+name|resolve
+argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
@@ -2985,7 +3026,7 @@ argument_list|)
 operator|&&
 name|repoConfig
 operator|.
-name|isBlockRedeployments
+name|blocksRedeployments
 argument_list|()
 condition|)
 block|{
@@ -3344,6 +3385,23 @@ name|RepositoryNotFoundException
 name|re
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"RepositoryNotFoundException during save {}"
+argument_list|,
+name|re
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|re
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
 throw|throw
 operator|new
 name|ArchivaRestServiceException
@@ -3374,6 +3432,18 @@ name|RepositoryException
 name|rep
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"RepositoryException during save {}"
+argument_list|,
+name|rep
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|ArchivaRestServiceException
@@ -3404,6 +3474,18 @@ name|RepositoryAdminException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"RepositoryAdminException during save {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|ArchivaRestServiceException
@@ -3434,6 +3516,18 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"IOException during save {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|ArchivaRestServiceException
