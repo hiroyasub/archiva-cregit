@@ -27,6 +27,20 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|configuration
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|redback
 operator|.
 name|components
@@ -37,9 +51,15 @@ name|Registry
 import|;
 end_import
 
-begin_comment
-comment|// Util imports
-end_comment
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
+import|;
+end_import
 
 begin_import
 import|import
@@ -47,363 +67,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|List
 import|;
 end_import
 
 begin_comment
-comment|// Model class imports
+comment|// Util imports
 end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|Configuration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|AbstractRepositoryConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|RemoteRepositoryConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|ManagedRepositoryConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|LegacyArtifactPath
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|RepositoryGroupConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|RepositoryCheckPath
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|AbstractRepositoryConnectorConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|ProxyConnectorRuleConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|ProxyConnectorConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|SyncConnectorConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|NetworkProxyConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|RepositoryScanningConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|FileType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|OrganisationInformation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|WebappConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|UserInterfaceOptions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|NetworkConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|ArchivaRuntimeConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|RedbackRuntimeConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|ArchivaDefaultConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|LdapConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|FileLockConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|CacheConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
-name|LdapGroupMapping
-import|;
-end_import
+begin_comment
+comment|// Model class imports
+end_comment
 
 begin_comment
 comment|/**  * Generate Redback Registry input mechanism for model 'Configuration'.  */
@@ -491,7 +165,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -602,7 +276,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -1400,7 +1074,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -1511,7 +1185,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -1622,7 +1296,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -1733,7 +1407,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -1844,7 +1518,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -1955,7 +1629,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -2066,7 +1740,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -2199,7 +1873,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -2310,7 +1984,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -2421,7 +2095,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -2556,7 +2230,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -2691,7 +2365,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -2802,7 +2476,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -3007,7 +2681,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -3118,7 +2792,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -3229,7 +2903,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -3340,7 +3014,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -3451,7 +3125,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -3562,7 +3236,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -3673,7 +3347,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -3784,7 +3458,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -3917,7 +3591,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -4124,7 +3798,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -4355,7 +4029,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -4466,7 +4140,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -4577,7 +4251,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -4688,7 +4362,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -4799,7 +4473,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -4910,7 +4584,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -5021,7 +4695,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -5154,7 +4828,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -5265,7 +4939,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -5398,7 +5072,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -5509,7 +5183,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -5644,7 +5318,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -5814,7 +5488,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -5925,7 +5599,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -6058,7 +5732,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -6169,7 +5843,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -6280,7 +5954,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -6557,7 +6231,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -6668,7 +6342,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -6901,7 +6575,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -7012,7 +6686,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -7123,7 +6797,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -7400,7 +7074,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -7511,7 +7185,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -7622,7 +7296,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -7733,7 +7407,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -7844,7 +7518,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -8121,7 +7795,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -8232,7 +7906,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -8343,7 +8017,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -8478,7 +8152,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -8589,7 +8263,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -8918,7 +8592,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -9088,7 +8762,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -9199,7 +8873,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -9310,7 +8984,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -9556,7 +9230,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -9845,7 +9519,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -9956,7 +9630,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -10067,7 +9741,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -10178,7 +9852,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -10289,7 +9963,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -10801,7 +10475,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -10960,7 +10634,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -11071,7 +10745,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -11182,7 +10856,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -11293,7 +10967,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -11404,7 +11078,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -11515,7 +11189,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -11931,7 +11605,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(  )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
