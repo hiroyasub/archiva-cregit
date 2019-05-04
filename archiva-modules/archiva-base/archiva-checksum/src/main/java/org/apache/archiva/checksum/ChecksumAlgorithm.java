@@ -122,7 +122,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Enumeration of available ChecksumAlgorithm techniques.  *  *  */
+comment|/**  * Enumeration of available ChecksumAlgorithm techniques.  *  * Each algorithm represents a message digest algorithm and has a unique type.  * The type string may be used in the hash files (FreeBSD and OpenSSL add the type to the hash file)  *  * There are multiple file extensions. The first one is considered the default extension.  *  */
 end_comment
 
 begin_enum
@@ -156,11 +156,11 @@ name|SHA256
 argument_list|(
 literal|"SHA-256"
 argument_list|,
-literal|"SHA2"
-argument_list|,
-literal|"sha2"
+literal|"SHA256"
 argument_list|,
 literal|"sha256"
+argument_list|,
+literal|"sha2"
 argument_list|,
 literal|"sha-256"
 argument_list|)
@@ -169,11 +169,11 @@ name|SHA384
 argument_list|(
 literal|"SHA-384"
 argument_list|,
-literal|"SHA3"
-argument_list|,
-literal|"sha3"
+literal|"SHA384"
 argument_list|,
 literal|"sha384"
+argument_list|,
+literal|"sha3"
 argument_list|,
 literal|"sha-384"
 argument_list|)
@@ -182,11 +182,11 @@ name|SHA512
 argument_list|(
 literal|"SHA-512"
 argument_list|,
-literal|"SHA5"
-argument_list|,
-literal|"sha5"
+literal|"SHA512"
 argument_list|,
 literal|"sha512"
+argument_list|,
+literal|"sha5"
 argument_list|,
 literal|"sha-512"
 argument_list|)
@@ -298,6 +298,9 @@ operator|.
 name|put
 argument_list|(
 name|extString
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|,
 name|alg
 argument_list|)
@@ -311,7 +314,7 @@ name|Set
 argument_list|<
 name|String
 argument_list|>
-name|getExtensions
+name|getAllExtensions
 parameter_list|()
 block|{
 return|return
@@ -327,7 +330,7 @@ specifier|final
 name|String
 name|algorithm
 decl_stmt|;
-comment|/**      * The file extension for this ChecksumAlgorithm.      */
+comment|/**      * The file extensions for this ChecksumAlgorithm.      */
 specifier|private
 specifier|final
 name|List
@@ -342,7 +345,7 @@ specifier|final
 name|String
 name|type
 decl_stmt|;
-comment|/**      * Construct a ChecksumAlgorithm      *       * @param algorithm the MessageDigest algorithm      * @param ext the file extension.      * @param type the checksum type.      */
+comment|/**      * Construct a ChecksumAlgorithm      *       * @param algorithm the MessageDigest algorithm      * @param type a unique identifier for the type      * @param ext the list of file extensions      */
 specifier|private
 name|ChecksumAlgorithm
 parameter_list|(
@@ -381,6 +384,7 @@ operator|=
 name|type
 expr_stmt|;
 block|}
+comment|/**      * Returns the message digest algorithm identifier      * @return      */
 specifier|public
 name|String
 name|getAlgorithm
@@ -390,6 +394,7 @@ return|return
 name|algorithm
 return|;
 block|}
+comment|/**      * Returns the list of extensions      * @return      */
 specifier|public
 name|List
 argument_list|<
@@ -402,6 +407,7 @@ return|return
 name|ext
 return|;
 block|}
+comment|/**      * Returns the checksum identifier      * @return      */
 specifier|public
 name|String
 name|getType
@@ -409,6 +415,21 @@ parameter_list|()
 block|{
 return|return
 name|type
+return|;
+block|}
+comment|/**      * Returns the default extension of the current algorithm      * @return      */
+specifier|public
+name|String
+name|getDefaultExtension
+parameter_list|()
+block|{
+return|return
+name|ext
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
 return|;
 block|}
 block|}

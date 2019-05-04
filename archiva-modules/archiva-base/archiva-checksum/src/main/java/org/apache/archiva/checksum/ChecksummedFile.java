@@ -53,13 +53,11 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|java
 operator|.
-name|xml
+name|io
 operator|.
-name|bind
-operator|.
-name|ValidationException
+name|FileNotFoundException
 import|;
 end_import
 
@@ -384,10 +382,12 @@ argument_list|(
 name|checksumAlgorithm
 argument_list|)
 decl_stmt|;
-name|checksum
+name|ChecksumUtil
 operator|.
 name|update
 argument_list|(
+name|checksum
+argument_list|,
 name|referenceFile
 argument_list|)
 expr_stmt|;
@@ -398,10 +398,10 @@ name|getChecksum
 argument_list|( )
 return|;
 block|}
-comment|/**      * Creates a checksum file of the provided referenceFile.      *      * @param checksumAlgorithm the hash to use.      * @return the checksum File that was created.      * @throws IOException if there was a problem either reading the referenceFile, or writing the checksum file.      */
+comment|/**      * Writes a checksum file for the referenceFile.      *      * @param checksumAlgorithm the hash to use.      * @return the checksum File that was created.      * @throws IOException if there was a problem either reading the referenceFile, or writing the checksum file.      */
 specifier|public
 name|Path
-name|createChecksum
+name|writeFile
 parameter_list|(
 name|ChecksumAlgorithm
 name|checksumAlgorithm
@@ -425,13 +425,8 @@ literal|"."
 operator|+
 name|checksumAlgorithm
 operator|.
-name|getExt
-argument_list|( )
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
+name|getDefaultExtension
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Files
@@ -483,7 +478,7 @@ return|return
 name|checksumFile
 return|;
 block|}
-comment|/**      * Get the checksum file for the reference file and hash.      *      * @param checksumAlgorithm the hash that we are interested in.      * @return the checksum file to return      */
+comment|/**      * Get the checksum file for the reference file and hash.      * It returns a file for the given checksum, if one exists with one of the possible extensions.      * If it does not exist, a default path will be returned.      *      * @param checksumAlgorithm the hash that we are interested in.      * @return the checksum file to return      */
 specifier|public
 name|Path
 name|getChecksumFile
@@ -552,13 +547,8 @@ literal|"."
 operator|+
 name|checksumAlgorithm
 operator|.
-name|getExt
-argument_list|( )
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
+name|getDefaultExtension
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -632,7 +622,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Checks if the checksums are valid for the referenced file.      * This method throws only exceptions, if throwExceptions is true. Otherwise false will be returned instead.      * @param algorithms The algorithms to verify      * @param throwExceptions If true, exceptions will be thrown, otherwise false will be returned, if a exception occurred.      * @return True, if it is valid, otherwise false.      * @throws ChecksumValidationException      */
+comment|/**      * Checks if the checksum files are valid for the referenced file.      * It tries to find a checksum file for each algorithm in the same directory as the referenceFile.      * The method returns true, if at least one checksum file exists for one of the given algorithms      * and all existing checksum files are valid.      *      * This method throws only exceptions, if throwExceptions is true. Otherwise false will be returned instead.      *      * It verifies only the existing checksum files. If the checksum file for a particular algorithm does not exist,      * but others exist and are valid, it will return true.      *      * @param algorithms The algorithms to verify      * @param throwExceptions If true, exceptions will be thrown, otherwise false will be returned, if a exception occurred.      * @return True, if it is valid for all existing checksum files, otherwise false.      * @throws ChecksumValidationException      */
 specifier|public
 name|boolean
 name|isValidChecksums
@@ -654,88 +644,25 @@ argument_list|<
 name|Checksum
 argument_list|>
 name|checksums
-init|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|(
-name|algorithms
-operator|.
-name|size
-argument_list|()
-argument_list|)
 decl_stmt|;
-comment|// Create checksum object for each algorithm.
-for|for
-control|(
-name|ChecksumAlgorithm
-name|checksumAlgorithm
-range|:
-name|algorithms
-control|)
-block|{
-name|Path
-name|checksumFile
-init|=
-name|getChecksumFile
-argument_list|(
-name|checksumAlgorithm
-argument_list|)
-decl_stmt|;
-comment|// Only add algorithm if checksum file exists.
-if|if
-condition|(
-name|Files
-operator|.
-name|exists
-argument_list|(
-name|checksumFile
-argument_list|)
-condition|)
-block|{
-name|checksums
-operator|.
-name|add
-argument_list|(
-operator|new
-name|Checksum
-argument_list|(
-name|checksumAlgorithm
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-comment|// Any checksums?
-if|if
-condition|(
-name|checksums
-operator|.
-name|isEmpty
-argument_list|( )
-condition|)
-block|{
-comment|// No checksum objects, no checksum files, default to is invalid.
-return|return
-literal|false
-return|;
-block|}
 comment|// Parse file once, for all checksums.
 try|try
 block|{
-name|Checksum
-operator|.
-name|update
-argument_list|(
 name|checksums
-argument_list|,
+operator|=
+name|ChecksumUtil
+operator|.
+name|initializeChecksums
+argument_list|(
 name|referenceFile
+argument_list|,
+name|algorithms
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ChecksumValidationException
+name|IOException
 name|e
 parameter_list|)
 block|{
@@ -756,9 +683,43 @@ condition|(
 name|throwExceptions
 condition|)
 block|{
-throw|throw
+if|if
+condition|(
 name|e
+operator|instanceof
+name|FileNotFoundException
+condition|)
+block|{
+throw|throw
+operator|new
+name|ChecksumValidationException
+argument_list|(
+name|ChecksumValidationException
+operator|.
+name|ValidationError
+operator|.
+name|FILE_NOT_FOUND
+argument_list|,
+name|e
+argument_list|)
 throw|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ChecksumValidationException
+argument_list|(
+name|ChecksumValidationException
+operator|.
+name|ValidationError
+operator|.
+name|READ_ERROR
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 else|else
 block|{
@@ -772,6 +733,14 @@ name|valid
 init|=
 literal|true
 decl_stmt|;
+name|boolean
+name|fileExists
+init|=
+literal|false
+decl_stmt|;
+comment|// No file exists -> return false
+comment|// if at least one file exists:
+comment|// -> all existing files must be valid
 comment|// check the checksum files
 try|try
 block|{
@@ -799,6 +768,20 @@ argument_list|(
 name|checksumAlgorithm
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|checksumFile
+argument_list|)
+condition|)
+block|{
+name|fileExists
+operator|=
+literal|true
+expr_stmt|;
 name|String
 name|expectedChecksum
 init|=
@@ -811,28 +794,22 @@ argument_list|,
 name|referenceFile
 operator|.
 name|getFileName
-argument_list|( )
+argument_list|()
 operator|.
 name|toString
-argument_list|( )
+argument_list|()
 argument_list|,
 name|FILE_ENCODING
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-operator|!
+name|valid
+operator|&=
 name|checksum
 operator|.
 name|compare
 argument_list|(
 name|expectedChecksum
 argument_list|)
-condition|)
-block|{
-name|valid
-operator|=
-literal|false
 expr_stmt|;
 block|}
 block|}
@@ -872,6 +849,8 @@ return|;
 block|}
 block|}
 return|return
+name|fileExists
+operator|&&
 name|valid
 return|;
 block|}
@@ -885,7 +864,7 @@ name|referenceFile
 return|;
 block|}
 specifier|public
-name|boolean
+name|UpdateStatusList
 name|fixChecksum
 parameter_list|(
 name|ChecksumAlgorithm
@@ -904,9 +883,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Fix or create checksum files for the reference file.      *      * @param algorithms the hashes to check for.      * @return true if checksums were created successfully.      */
+comment|/**      * Writes a checksum file, if it does not exist or if it exists and has a different      * checksum value.      *      * @param algorithms the hashes to check for.      * @return true if checksums were created successfully.      */
 specifier|public
-name|boolean
+name|UpdateStatusList
 name|fixChecksums
 parameter_list|(
 name|List
@@ -916,73 +895,41 @@ argument_list|>
 name|algorithms
 parameter_list|)
 block|{
+name|UpdateStatusList
+name|result
+init|=
+name|UpdateStatusList
+operator|.
+name|INITIALIZE
+argument_list|(
+name|algorithms
+argument_list|)
+decl_stmt|;
 name|List
 argument_list|<
 name|Checksum
 argument_list|>
 name|checksums
-init|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|(
-name|algorithms
-operator|.
-name|size
-argument_list|()
-argument_list|)
 decl_stmt|;
-comment|// Create checksum object for each algorithm.
-for|for
-control|(
-name|ChecksumAlgorithm
-name|checksumAlgorithm
-range|:
-name|algorithms
-control|)
-block|{
-name|checksums
-operator|.
-name|add
-argument_list|(
-operator|new
-name|Checksum
-argument_list|(
-name|checksumAlgorithm
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-comment|// Any checksums?
-if|if
-condition|(
-name|checksums
-operator|.
-name|isEmpty
-argument_list|( )
-condition|)
-block|{
-comment|// No checksum objects, no checksum files, default to is valid.
-return|return
-literal|true
-return|;
-block|}
 try|try
 block|{
 comment|// Parse file once, for all checksums.
-name|Checksum
-operator|.
-name|update
-argument_list|(
 name|checksums
+operator|=
+name|ChecksumUtil
+operator|.
+name|initializeChecksums
+argument_list|(
+name|getReferenceFile
+argument_list|()
 argument_list|,
-name|referenceFile
+name|algorithms
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ChecksumValidationException
+name|IOException
 name|e
 parameter_list|)
 block|{
@@ -998,8 +945,29 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+name|result
+operator|.
+name|setTotalError
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 return|return
-literal|false
+name|result
+return|;
+block|}
+comment|// Any checksums?
+if|if
+condition|(
+name|checksums
+operator|.
+name|isEmpty
+argument_list|( )
+condition|)
+block|{
+comment|// No checksum objects, no checksum files, default to is valid.
+return|return
+name|result
 return|;
 block|}
 name|boolean
@@ -1091,7 +1059,7 @@ name|expectedChecksum
 argument_list|)
 condition|)
 block|{
-comment|// create checksum (again)
+comment|// overwrite checksum file
 name|writeChecksumFile
 argument_list|(
 name|checksumFile
@@ -1102,6 +1070,17 @@ name|checksum
 operator|.
 name|getChecksum
 argument_list|( )
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|setStatus
+argument_list|(
+name|checksumAlgorithm
+argument_list|,
+name|UpdateStatus
+operator|.
+name|UPDATED
 argument_list|)
 expr_stmt|;
 block|}
@@ -1118,6 +1097,17 @@ name|checksum
 operator|.
 name|getChecksum
 argument_list|( )
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|setStatus
+argument_list|(
+name|checksumAlgorithm
+argument_list|,
+name|UpdateStatus
+operator|.
+name|CREATED
 argument_list|)
 expr_stmt|;
 block|}
@@ -1140,14 +1130,19 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-name|valid
-operator|=
-literal|false
+name|result
+operator|.
+name|setErrorStatus
+argument_list|(
+name|checksumAlgorithm
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 block|}
 return|return
-name|valid
+name|result
 return|;
 block|}
 specifier|private
@@ -1259,7 +1254,7 @@ argument_list|)
 operator|)
 return|;
 block|}
-comment|/**      * Parse a checksum string.      *<p>      * Validate the expected path, and expected checksum algorithm, then return      * the trimmed checksum hex string.      *</p>      *      * @param checksumFile The file where the checksum is stored      * @param expectedHash The checksum algorithm to check      * @param expectedPath The filename of the reference file      * @return      * @throws IOException      */
+comment|/**      * Parse a checksum string.      *<p>      * Validate the expected path, and expected checksum algorithm, then return      * the trimmed checksum hex string.      *</p>      *      * @param checksumFile The file where the checksum is stored      * @param checksumAlgorithm The checksum algorithm to check      * @param fileName The filename of the reference file      * @return      * @throws IOException      */
 specifier|public
 name|String
 name|parseChecksum
@@ -1268,10 +1263,10 @@ name|Path
 name|checksumFile
 parameter_list|,
 name|ChecksumAlgorithm
-name|expectedHash
+name|checksumAlgorithm
 parameter_list|,
 name|String
-name|expectedPath
+name|fileName
 parameter_list|,
 name|Charset
 name|encoding
@@ -1286,7 +1281,7 @@ name|parseChecksumFile
 argument_list|(
 name|checksumFile
 argument_list|,
-name|expectedHash
+name|checksumAlgorithm
 argument_list|,
 name|encoding
 argument_list|)
@@ -1306,7 +1301,7 @@ operator|.
 name|getFileReference
 argument_list|( )
 argument_list|,
-name|expectedPath
+name|fileName
 argument_list|)
 condition|)
 block|{
@@ -1325,7 +1320,7 @@ argument_list|( )
 operator|+
 literal|"' in the checksum file does not match expected file: '"
 operator|+
-name|expectedPath
+name|fileName
 operator|+
 literal|"'"
 argument_list|)
@@ -1367,7 +1362,7 @@ name|Path
 name|checksumFile
 parameter_list|,
 name|ChecksumAlgorithm
-name|expectedHash
+name|checksumAlgorithm
 parameter_list|,
 name|Charset
 name|encoding
@@ -1411,7 +1406,7 @@ comment|// Free-BSD / openssl
 name|String
 name|regex
 init|=
-name|expectedHash
+name|checksumAlgorithm
 operator|.
 name|getType
 argument_list|( )

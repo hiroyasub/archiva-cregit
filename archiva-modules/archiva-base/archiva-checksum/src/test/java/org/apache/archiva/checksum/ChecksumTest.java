@@ -17,16 +17,6 @@ end_comment
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -85,27 +75,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|ByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|ByteBuffer
 import|;
 end_import
 
@@ -409,7 +379,7 @@ operator|+
 literal|"I'm just going to ask where they're going and hook up with 'em later. - Mitch Hedberg"
 argument_list|)
 expr_stmt|;
-name|Checksum
+name|ChecksumUtil
 operator|.
 name|update
 argument_list|(

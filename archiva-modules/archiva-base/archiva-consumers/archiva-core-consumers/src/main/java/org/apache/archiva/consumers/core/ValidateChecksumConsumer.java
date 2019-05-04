@@ -711,7 +711,7 @@ name|extensions
 init|=
 name|ChecksumAlgorithm
 operator|.
-name|getExtensions
+name|getAllExtensions
 argument_list|()
 decl_stmt|;
 name|includes
