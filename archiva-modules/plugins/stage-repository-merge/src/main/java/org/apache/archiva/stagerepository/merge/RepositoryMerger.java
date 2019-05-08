@@ -57,10 +57,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
 name|filter
 operator|.
 name|Filter

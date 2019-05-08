@@ -189,10 +189,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
 name|filter
 operator|.
 name|AllFilter
@@ -206,10 +202,6 @@ operator|.
 name|apache
 operator|.
 name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
 operator|.
 name|filter
 operator|.
