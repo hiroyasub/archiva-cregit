@@ -54,6 +54,11 @@ argument_list|>
 name|getActiveReleaseSchemes
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the request info object, which you can use for gathering information from the web request path.      * @return Instance of a request info object that corresponds to this repository      */
+name|RepositoryRequestInfo
+name|getRequestInfo
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

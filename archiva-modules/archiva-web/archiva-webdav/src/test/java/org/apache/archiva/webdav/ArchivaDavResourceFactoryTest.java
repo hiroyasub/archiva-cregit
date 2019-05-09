@@ -455,7 +455,7 @@ name|content
 operator|.
 name|maven2
 operator|.
-name|RepositoryRequest
+name|MavenRepositoryRequestInfo
 import|;
 end_import
 
@@ -869,7 +869,7 @@ name|IMocksControl
 name|repoRequestControl
 decl_stmt|;
 specifier|private
-name|RepositoryRequest
+name|MavenRepositoryRequestInfo
 name|repoRequest
 decl_stmt|;
 specifier|private
@@ -1393,7 +1393,7 @@ name|repoRequestControl
 operator|.
 name|createMock
 argument_list|(
-name|RepositoryRequest
+name|MavenRepositoryRequestInfo
 operator|.
 name|class
 argument_list|)
@@ -1415,20 +1415,6 @@ operator|.
 name|setArchivaConfiguration
 argument_list|(
 name|archivaConfiguration
-argument_list|)
-expr_stmt|;
-name|resourceFactory
-operator|.
-name|setRepositoryFactory
-argument_list|(
-name|repoFactory
-argument_list|)
-expr_stmt|;
-name|resourceFactory
-operator|.
-name|setRepositoryRequest
-argument_list|(
-name|repoRequest
 argument_list|)
 expr_stmt|;
 name|proxyRegistry
@@ -2044,7 +2030,7 @@ name|expect
 argument_list|(
 name|repoRequest
 operator|.
-name|isDefault
+name|getLayout
 argument_list|(
 literal|"org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar"
 argument_list|)
@@ -2052,7 +2038,7 @@ argument_list|)
 operator|.
 name|andReturn
 argument_list|(
-literal|false
+literal|"legacy"
 argument_list|)
 expr_stmt|;
 name|expect
@@ -2077,8 +2063,6 @@ operator|.
 name|toNativePath
 argument_list|(
 literal|"org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar"
-argument_list|,
-name|internalRepo
 argument_list|)
 argument_list|)
 operator|.
@@ -2477,7 +2461,7 @@ name|expect
 argument_list|(
 name|repoRequest
 operator|.
-name|isDefault
+name|getLayout
 argument_list|(
 literal|"org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar"
 argument_list|)
@@ -2485,7 +2469,7 @@ argument_list|)
 operator|.
 name|andReturn
 argument_list|(
-literal|false
+literal|"legacy"
 argument_list|)
 expr_stmt|;
 name|expect
@@ -2510,8 +2494,6 @@ operator|.
 name|toNativePath
 argument_list|(
 literal|"org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar"
-argument_list|,
-name|internalRepo
 argument_list|)
 argument_list|)
 operator|.
@@ -2926,7 +2908,7 @@ name|expect
 argument_list|(
 name|repoRequest
 operator|.
-name|isDefault
+name|getLayout
 argument_list|(
 literal|"org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar"
 argument_list|)
@@ -2934,7 +2916,7 @@ argument_list|)
 operator|.
 name|andReturn
 argument_list|(
-literal|false
+literal|"legacy"
 argument_list|)
 operator|.
 name|times
@@ -2969,8 +2951,6 @@ operator|.
 name|toNativePath
 argument_list|(
 literal|"org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar"
-argument_list|,
-name|internalRepo
 argument_list|)
 argument_list|)
 operator|.
@@ -3004,8 +2984,6 @@ operator|.
 name|toNativePath
 argument_list|(
 literal|"org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar"
-argument_list|,
-name|localMirrorRepo
 argument_list|)
 argument_list|)
 operator|.
@@ -3168,20 +3146,18 @@ name|INTERNAL_REPO
 argument_list|)
 decl_stmt|;
 comment|// use actual object (this performs the isMetadata, isDefault and isSupportFile check!)
-name|RepositoryRequest
+name|MavenRepositoryRequestInfo
 name|repoRequest
 init|=
 operator|new
-name|RepositoryRequest
-argument_list|( )
-decl_stmt|;
-name|resourceFactory
-operator|.
-name|setRepositoryRequest
+name|MavenRepositoryRequestInfo
 argument_list|(
-name|repoRequest
+name|internalRepo
+operator|.
+name|getRepository
+argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 try|try
 block|{
 name|archivaConfigurationControl
@@ -3452,21 +3428,6 @@ argument_list|(
 name|INTERNAL_REPO
 argument_list|)
 decl_stmt|;
-comment|// use actual object (this performs the isMetadata, isDefault and isSupportFile check!)
-name|RepositoryRequest
-name|repoRequest
-init|=
-operator|new
-name|RepositoryRequest
-argument_list|( )
-decl_stmt|;
-name|resourceFactory
-operator|.
-name|setRepositoryRequest
-argument_list|(
-name|repoRequest
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|archivaConfigurationControl
@@ -3767,21 +3728,6 @@ name|ArchivaDavLocatorFactory
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// use actual object (this performs the isMetadata, isDefault and isSupportFile check!)
-name|RepositoryRequest
-name|repoRequest
-init|=
-operator|new
-name|RepositoryRequest
-argument_list|( )
-decl_stmt|;
-name|resourceFactory
-operator|.
-name|setRepositoryRequest
-argument_list|(
-name|repoRequest
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|archivaConfigurationControl

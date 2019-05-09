@@ -333,6 +333,17 @@ return|return
 name|CAPABILITIES
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|RepositoryRequestInfo
+name|getRequestInfo
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 end_class
 

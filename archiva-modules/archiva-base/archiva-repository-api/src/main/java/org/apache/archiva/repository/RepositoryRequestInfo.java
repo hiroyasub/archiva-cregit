@@ -105,12 +105,14 @@ name|requestPath
 parameter_list|)
 function_decl|;
 comment|/**      * Adjust the requestedPath to conform to the native layout of the provided {@link org.apache.archiva.repository.ManagedRepositoryContent}.      *      * @param requestPath the incoming requested path.      * @return the adjusted (to native) path.      * @throws LayoutException if the path cannot be parsed.      */
-name|void
+name|String
 name|toNativePath
 parameter_list|(
 name|String
 name|requestPath
 parameter_list|)
+throws|throws
+name|LayoutException
 function_decl|;
 comment|/**      * Extension method that allows to provide different features that are not supported by all      * repository types.      *      * @param clazz The feature class that is requested      * @param<T>   This is the class of the feature      * @return The feature implementation for this repository instance, if it is supported      * @throws UnsupportedFeatureException if the feature is not supported by this repository type      */
 parameter_list|<
