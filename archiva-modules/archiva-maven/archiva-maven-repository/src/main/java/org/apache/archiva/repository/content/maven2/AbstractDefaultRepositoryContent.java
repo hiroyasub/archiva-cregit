@@ -357,6 +357,8 @@ operator|=
 name|artifactMappingProviders
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ArtifactReference
 name|toArtifactReference
