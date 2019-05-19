@@ -45,6 +45,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
+name|RepositoryGroupConfiguration
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -86,6 +100,17 @@ function_decl|;
 comment|/**      * Creates a editable remote repository instance. The provider must not check the uniqueness of the      * id parameter and must not track the already created instances. Each call to this method will create      * a new instance.      *      * @param id the repository identifier      * @param name the repository name      * @return a new created remote repository instance      */
 name|EditableRemoteRepository
 name|createRemoteInstance
+parameter_list|(
+name|String
+name|id
+parameter_list|,
+name|String
+name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Creates a editable repository group. . The provider must not check the uniqueness of the      * id parameter and must not track the already created instances. Each call to this method will create      * a new instance.      *      * @param id the repository identifier      * @param name the repository name      * @return A new instance of the repository group implementation      */
+name|EditableRepositoryGroup
+name|createRepositoryGroup
 parameter_list|(
 name|String
 name|id
@@ -150,6 +175,29 @@ parameter_list|)
 throws|throws
 name|RepositoryException
 function_decl|;
+comment|/**      * Creates a new repository group instance from the given configuration. All attributes are filled from the      * provided configuration object.      *      * @param configuration the repository group configuration      * @return a new created repository group instance      * @throws RepositoryException if some of the configuration values are not valid      */
+name|RepositoryGroup
+name|createRepositoryGroup
+parameter_list|(
+name|RepositoryGroupConfiguration
+name|configuration
+parameter_list|)
+throws|throws
+name|RepositoryException
+function_decl|;
+comment|/**      * Updates the given remote repository instance from the given configuration. All attributes are filled from the      * provided configuration object.      *      * @param repositoryGroup the repository group instance that should be updated      * @param configuration the repository group configuration that contains the group data      * @throws RepositoryException if some of the configuration values are not valid      */
+name|void
+name|updateRepositoryGroupInstance
+parameter_list|(
+name|EditableRepositoryGroup
+name|repositoryGroup
+parameter_list|,
+name|RepositoryGroupConfiguration
+name|configuration
+parameter_list|)
+throws|throws
+name|RepositoryException
+function_decl|;
 comment|/**      * Returns a configuration object from the given remote repository instance.      *      * @param remoteRepository the remote repository instance      * @return the repository configuration with all the data that is stored in the repository instance      * @throws RepositoryException if the data cannot be converted      */
 name|RemoteRepositoryConfiguration
 name|getRemoteConfiguration
@@ -166,6 +214,16 @@ name|getManagedConfiguration
 parameter_list|(
 name|ManagedRepository
 name|managedRepository
+parameter_list|)
+throws|throws
+name|RepositoryException
+function_decl|;
+comment|/**      * Returns a configuration object from the given repository group instance.      *      * @param repositoryGroup the repository group      * @return the repository group configuration with all the data that is stored in the repository instance      * @throws RepositoryException if the data cannot be converted      */
+name|RepositoryGroupConfiguration
+name|getRepositoryGroupConfiguration
+parameter_list|(
+name|RepositoryGroup
+name|repositoryGroup
 parameter_list|)
 throws|throws
 name|RepositoryException
