@@ -1397,6 +1397,15 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+specifier|protected
+name|Path
+name|getRepositoryBase
+parameter_list|()
+block|{
+return|return
+name|repositoryBase
+return|;
+block|}
 block|}
 end_class
 
