@@ -93,6 +93,11 @@ specifier|private
 name|String
 name|remoteRepositoryBaseDirectory
 decl_stmt|;
+comment|/**      * The base directory for local storage of repository group files.      * If not set, it's ${dataDirectory}/groups      */
+specifier|private
+name|String
+name|repositoryGroupBaseDirectory
+decl_stmt|;
 comment|/**      * The default language used for setting internationalized      * strings.      */
 specifier|private
 name|String
@@ -211,6 +216,18 @@ name|repositoryBaseDirectory
 return|;
 block|}
 comment|//-- String getRepositoryBaseDirectory()
+comment|/**      * Get the base directory for local storage of repository group data.      * If not set it's ${dataDirectory}/groups      *      * @return The path to the directory. Either a absolute path, or a path      * relative to ${dataDirectory}      */
+specifier|public
+name|String
+name|getRepositoryGroupBaseDirectory
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|repositoryGroupBaseDirectory
+return|;
+block|}
 comment|/**      * Get the url failure cache configuration.      *       * @return CacheConfiguration      */
 specifier|public
 name|CacheConfiguration
@@ -326,6 +343,21 @@ name|repositoryBaseDirectory
 expr_stmt|;
 block|}
 comment|//-- void setRepositoryBaseDirectory( String )
+specifier|public
+name|void
+name|setRepositoryGroupBaseDirectory
+parameter_list|(
+name|String
+name|repositoryGroupBaseDirectory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|repositoryGroupBaseDirectory
+operator|=
+name|repositoryGroupBaseDirectory
+expr_stmt|;
+block|}
 comment|/**      * Set the url failure cache configuration.      *       * @param urlFailureCacheConfiguration      */
 specifier|public
 name|void

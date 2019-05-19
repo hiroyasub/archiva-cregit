@@ -192,6 +192,12 @@ name|Path
 name|getRemoteRepositoryBaseDir
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the base directory for repository group files.      * @return      */
+specifier|public
+name|Path
+name|getRepositoryGroupBaseDir
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the data directory where repositories and metadata reside      * @return      */
 specifier|public
 name|Path
