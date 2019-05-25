@@ -611,6 +611,8 @@ argument_list|(
 name|repository
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|storage
 operator|=
 operator|new
@@ -622,6 +624,34 @@ argument_list|,
 name|lockManager
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Could not initialize the filesystem storage to repository: {}"
+argument_list|,
+name|getRepoDir
+argument_list|()
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Fatal error. Could not initialize the filesystem storage for "
+operator|+
+name|getRepoDir
+argument_list|()
+argument_list|)
+throw|;
+block|}
 block|}
 specifier|public
 name|ManagedDefaultRepositoryContent
@@ -672,6 +702,8 @@ argument_list|(
 name|repository
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|storage
 operator|=
 operator|new
@@ -683,6 +715,34 @@ argument_list|,
 name|lockManager
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Could not initialize the filesystem storage to repository: {}"
+argument_list|,
+name|getRepoDir
+argument_list|()
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Fatal error. Could not initialize the filesystem storage for "
+operator|+
+name|getRepoDir
+argument_list|()
+argument_list|)
+throw|;
+block|}
 block|}
 specifier|private
 name|Path
