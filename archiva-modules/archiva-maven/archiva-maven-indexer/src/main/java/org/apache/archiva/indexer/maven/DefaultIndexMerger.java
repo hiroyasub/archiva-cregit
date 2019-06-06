@@ -45,7 +45,37 @@ name|archiva
 operator|.
 name|indexer
 operator|.
+name|ArchivaIndexingContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
 name|UnsupportedBaseContextException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|maven
+operator|.
+name|MavenIndexContext
 import|;
 end_import
 
@@ -547,7 +577,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|IndexingContext
+name|ArchivaIndexingContext
 name|buildMergedIndex
 parameter_list|(
 name|IndexMergerRequest
@@ -896,7 +926,18 @@ end_expr_stmt
 
 begin_return
 return|return
+operator|new
+name|MavenIndexContext
+argument_list|(
+name|repositoryRegistry
+operator|.
+name|getRepositoryGroup
+argument_list|(
+name|groupId
+argument_list|)
+argument_list|,
 name|mergedCtx
+argument_list|)
 return|;
 end_return
 

@@ -5155,6 +5155,20 @@ literal|"name"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|value
+operator|.
+name|setType
+argument_list|(
+name|registry
+operator|.
+name|getString
+argument_list|(
+name|prefix
+operator|+
+literal|"type"
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|//String mergedIndexPath = registry.getString( prefix + "mergedIndexPath", value.getMergedIndexPath() );
 name|List
 argument_list|<

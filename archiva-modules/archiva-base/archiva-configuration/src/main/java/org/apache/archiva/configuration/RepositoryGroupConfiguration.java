@@ -74,6 +74,13 @@ specifier|private
 name|String
 name|name
 decl_stmt|;
+comment|/**      *      *             The repository type. Currently only MAVEN type      * is known.      *      */
+specifier|private
+name|String
+name|type
+init|=
+literal|"MAVEN"
+decl_stmt|;
 comment|/**      * The path of the merged index.      */
 specifier|private
 name|String
@@ -343,6 +350,30 @@ operator|.
 name|name
 operator|=
 name|name
+expr_stmt|;
+block|}
+specifier|public
+name|String
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+return|;
+block|}
+specifier|public
+name|void
+name|setType
+parameter_list|(
+name|String
+name|type
+parameter_list|)
+block|{
+name|this
+operator|.
+name|type
+operator|=
+name|type
 expr_stmt|;
 block|}
 block|}

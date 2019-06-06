@@ -23,13 +23,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
+name|archiva
 operator|.
-name|index
+name|indexer
 operator|.
-name|context
-operator|.
-name|IndexingContext
+name|ArchivaIndexingContext
 import|;
 end_import
 
@@ -144,7 +142,7 @@ operator|.
 name|getIndexMerger
 argument_list|()
 decl_stmt|;
-name|IndexingContext
+name|ArchivaIndexingContext
 name|indexingContext
 init|=
 name|indexMerger

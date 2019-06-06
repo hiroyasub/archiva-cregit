@@ -23,11 +23,7 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
-operator|.
-name|model
-operator|.
-name|beans
+name|repository
 operator|.
 name|RepositoryGroup
 import|;
