@@ -10,8 +10,6 @@ operator|.
 name|indexer
 operator|.
 name|maven
-operator|.
-name|merger
 package|;
 end_package
 

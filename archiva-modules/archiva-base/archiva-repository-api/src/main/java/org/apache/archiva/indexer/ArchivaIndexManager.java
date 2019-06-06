@@ -174,7 +174,7 @@ parameter_list|)
 throws|throws
 name|IndexCreationFailedException
 function_decl|;
-comment|/**      * Returns the local path where the index is stored.      * @return      */
+comment|/**      * Updates the local path where the index is stored using the repository information.      * @return      */
 specifier|public
 name|void
 name|updateLocalIndexPath

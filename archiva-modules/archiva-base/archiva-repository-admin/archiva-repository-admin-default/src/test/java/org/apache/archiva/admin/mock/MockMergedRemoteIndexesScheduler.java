@@ -43,7 +43,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|scheduler
+name|indexer
+operator|.
+name|merger
 operator|.
 name|MergedRemoteIndexesScheduler
 import|;

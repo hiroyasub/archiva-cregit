@@ -7,7 +7,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|scheduler
+name|indexer
+operator|.
+name|merger
 package|;
 end_package
 

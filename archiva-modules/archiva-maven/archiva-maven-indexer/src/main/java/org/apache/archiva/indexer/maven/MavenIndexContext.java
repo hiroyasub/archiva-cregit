@@ -154,6 +154,7 @@ specifier|private
 name|Repository
 name|repository
 decl_stmt|;
+specifier|protected
 name|MavenIndexContext
 parameter_list|(
 name|Repository
