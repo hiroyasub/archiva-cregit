@@ -80,13 +80,6 @@ name|repoId
 parameter_list|)
 function_decl|;
 name|void
-name|setMergedIndexPath
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-function_decl|;
-name|void
 name|setMergedIndexTTL
 parameter_list|(
 name|int

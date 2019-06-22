@@ -94,11 +94,6 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the path to the merged index      * @return      */
-name|StorageAsset
-name|getMergedIndexPath
-parameter_list|()
-function_decl|;
 comment|/**      * Returns the time to live in seconds for the merged index.      *      * @return      */
 name|int
 name|getMergedIndexTTL

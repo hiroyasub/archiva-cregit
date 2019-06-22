@@ -25,13 +25,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
+name|indexer
 operator|.
-name|model
+name|merger
 operator|.
-name|beans
-operator|.
-name|RepositoryGroup
+name|MergedRemoteIndexesScheduler
 import|;
 end_import
 
@@ -43,11 +41,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|indexer
+name|repository
 operator|.
-name|merger
-operator|.
-name|MergedRemoteIndexesScheduler
+name|RepositoryGroup
 import|;
 end_import
 

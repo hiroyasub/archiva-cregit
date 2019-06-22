@@ -1303,9 +1303,6 @@ init|=
 operator|new
 name|IndexWriter
 argument_list|(
-name|getContent
-argument_list|()
-argument_list|,
 name|asset
 argument_list|,
 name|logicalResource

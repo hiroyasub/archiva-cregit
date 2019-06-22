@@ -160,8 +160,6 @@ name|super
 argument_list|(
 name|applicationContext
 argument_list|,
-name|plexusSisuBridge
-argument_list|,
 name|archivaConfiguration
 argument_list|)
 expr_stmt|;

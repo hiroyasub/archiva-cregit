@@ -123,6 +123,22 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|content
+operator|.
+name|StorageAsset
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|features
 operator|.
 name|IndexCreationFeature
@@ -1638,7 +1654,7 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-name|Path
+name|StorageAsset
 name|packedIndexDirectory
 init|=
 name|icf
@@ -1646,7 +1662,7 @@ operator|.
 name|getLocalPackedIndexPath
 argument_list|()
 decl_stmt|;
-name|Path
+name|StorageAsset
 name|indexerDirectory
 init|=
 name|icf
@@ -1656,11 +1672,11 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|Path
+name|StorageAsset
 name|dir
 range|:
 operator|new
-name|Path
+name|StorageAsset
 index|[]
 block|{
 name|packedIndexDirectory
@@ -1669,11 +1685,29 @@ name|indexerDirectory
 block|}
 control|)
 block|{
+if|if
+condition|(
+name|dir
+operator|.
+name|getFilePath
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|Path
+name|localDirPath
+init|=
+name|dir
+operator|.
+name|getFilePath
+argument_list|()
+decl_stmt|;
 name|Files
 operator|.
 name|list
 argument_list|(
-name|dir
+name|localDirPath
 argument_list|)
 operator|.
 name|filter
@@ -1683,10 +1717,10 @@ lambda|->
 name|path
 operator|.
 name|getFileName
-argument_list|()
+argument_list|( )
 operator|.
 name|toString
-argument_list|()
+argument_list|( )
 operator|.
 name|startsWith
 argument_list|(
@@ -1729,12 +1763,13 @@ block|{
 name|e
 operator|.
 name|printStackTrace
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
 block_content|)
-function|;
+empty_stmt|;
+block|}
 block|}
 end_class
 
@@ -1848,6 +1883,9 @@ operator|.
 name|exists
 argument_list|(
 name|packedIndexDirectory
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1861,6 +1899,9 @@ operator|.
 name|exists
 argument_list|(
 name|indexerDirectory
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1889,6 +1930,9 @@ name|exists
 argument_list|(
 name|packedIndexDirectory
 operator|.
+name|getFilePath
+argument_list|()
+operator|.
 name|resolve
 argument_list|(
 literal|"nexus-maven-repository-index.properties"
@@ -1909,6 +1953,9 @@ name|exists
 argument_list|(
 name|packedIndexDirectory
 operator|.
+name|getFilePath
+argument_list|()
+operator|.
 name|resolve
 argument_list|(
 literal|"nexus-maven-repository-index.gz"
@@ -1926,6 +1973,9 @@ operator|.
 name|exists
 argument_list|(
 name|packedIndexDirectory
+operator|.
+name|getFilePath
+argument_list|()
 operator|.
 name|resolve
 argument_list|(
@@ -1956,6 +2006,9 @@ operator|.
 name|FileFetcher
 argument_list|(
 name|packedIndexDirectory
+operator|.
+name|getFilePath
+argument_list|()
 operator|.
 name|toFile
 argument_list|()

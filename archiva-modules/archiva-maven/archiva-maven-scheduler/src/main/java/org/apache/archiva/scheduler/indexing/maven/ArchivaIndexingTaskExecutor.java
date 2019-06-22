@@ -1511,6 +1511,16 @@ name|getLocalPackedIndexPath
 argument_list|( )
 operator|!=
 literal|null
+operator|&&
+name|icf
+operator|.
+name|getLocalIndexPath
+argument_list|()
+operator|.
+name|getFilePath
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|log
@@ -1552,6 +1562,9 @@ name|icf
 operator|.
 name|getLocalPackedIndexPath
 argument_list|( )
+operator|.
+name|getFilePath
+argument_list|()
 operator|.
 name|toFile
 argument_list|( )

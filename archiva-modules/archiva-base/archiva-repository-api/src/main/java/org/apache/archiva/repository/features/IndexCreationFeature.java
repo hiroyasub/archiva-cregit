@@ -51,6 +51,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|StorageAsset
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|lang
@@ -138,11 +154,11 @@ name|URI
 name|packedIndexPath
 decl_stmt|;
 specifier|private
-name|Path
+name|StorageAsset
 name|localIndexPath
 decl_stmt|;
 specifier|private
-name|Path
+name|StorageAsset
 name|localPackedIndexPath
 decl_stmt|;
 specifier|private
@@ -371,7 +387,7 @@ return|;
 block|}
 comment|/**      * Returns the path where the index is stored physically.      *      * @return      */
 specifier|public
-name|Path
+name|StorageAsset
 name|getLocalIndexPath
 parameter_list|()
 block|{
@@ -384,7 +400,7 @@ specifier|public
 name|void
 name|setLocalIndexPath
 parameter_list|(
-name|Path
+name|StorageAsset
 name|localIndexPath
 parameter_list|)
 block|{
@@ -446,7 +462,7 @@ expr_stmt|;
 block|}
 comment|/**      * Returns the directory where the packed index is stored.      * @return      */
 specifier|public
-name|Path
+name|StorageAsset
 name|getLocalPackedIndexPath
 parameter_list|()
 block|{
@@ -459,7 +475,7 @@ specifier|public
 name|void
 name|setLocalPackedIndexPath
 parameter_list|(
-name|Path
+name|StorageAsset
 name|localPackedIndexPath
 parameter_list|)
 block|{

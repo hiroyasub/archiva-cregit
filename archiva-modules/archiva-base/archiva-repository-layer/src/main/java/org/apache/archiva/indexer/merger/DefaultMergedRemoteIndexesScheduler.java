@@ -51,6 +51,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|features
+operator|.
+name|IndexCreationFeature
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|lang
@@ -317,6 +333,51 @@ operator|.
 name|getRepositories
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|repositoryGroup
+operator|.
+name|supportsFeature
+argument_list|(
+name|IndexCreationFeature
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
+name|IndexCreationFeature
+name|indexCreationFeature
+init|=
+name|repositoryGroup
+operator|.
+name|getFeature
+argument_list|(
+name|IndexCreationFeature
+operator|.
+name|class
+argument_list|)
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+name|Path
+name|indexPath
+init|=
+name|indexCreationFeature
+operator|.
+name|getLocalIndexPath
+argument_list|()
+operator|.
+name|getFilePath
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|indexPath
+operator|!=
+literal|null
+condition|)
+block|{
 name|IndexMergerRequest
 name|indexMergerRequest
 init|=
@@ -326,7 +387,7 @@ argument_list|(
 name|repositories
 operator|.
 name|stream
-argument_list|()
+argument_list|( )
 operator|.
 name|map
 argument_list|(
@@ -335,7 +396,7 @@ lambda|->
 name|r
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|collect
@@ -343,7 +404,7 @@ argument_list|(
 name|Collectors
 operator|.
 name|toList
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|,
 literal|true
@@ -351,23 +412,17 @@ argument_list|,
 name|repositoryGroup
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
-name|repositoryGroup
-operator|.
-name|getMergedIndexPath
-argument_list|()
-operator|.
-name|getFilePath
-argument_list|()
+name|indexPath
 operator|.
 name|toString
-argument_list|()
+argument_list|( )
 argument_list|,
 name|repositoryGroup
 operator|.
 name|getMergedIndexTTL
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|mergedIndexDirectory
@@ -395,12 +450,12 @@ argument_list|,
 name|repositoryGroup
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|repositoryGroup
 operator|.
 name|getSchedulingDefinition
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|ScheduledFuture
@@ -426,11 +481,48 @@ argument_list|(
 name|repositoryGroup
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|scheduledFuture
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|error
+argument_list|(
+literal|"Requested index merger for repository group {} with non local index path {}"
+argument_list|,
+name|repositoryGroup
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|indexCreationFeature
+operator|.
+name|getLocalIndexPath
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|error
+argument_list|(
+literal|"Scheduling merged index for repository group {}, but it does not support IndexCreationFeature."
+argument_list|,
+name|repositoryGroup
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
