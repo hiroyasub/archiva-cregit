@@ -2371,6 +2371,13 @@ name|repository
 operator|=
 name|repo
 expr_stmt|;
+if|if
+condition|(
+name|repo
+operator|!=
+literal|null
+condition|)
+block|{
 name|this
 operator|.
 name|repoDir
@@ -2404,6 +2411,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_function
