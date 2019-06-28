@@ -2622,7 +2622,7 @@ argument_list|(
 operator|new
 name|URI
 argument_list|(
-literal|"file://.index-abc"
+literal|".index-abc"
 argument_list|)
 argument_list|,
 name|indexCreationFeature

@@ -702,6 +702,13 @@ argument_list|(
 name|repository
 argument_list|)
 expr_stmt|;
+specifier|final
+name|Path
+name|repositoryDir
+init|=
+name|getRepoDir
+argument_list|()
+decl_stmt|;
 try|try
 block|{
 name|storage
@@ -709,8 +716,7 @@ operator|=
 operator|new
 name|FilesystemStorage
 argument_list|(
-name|getRepoDir
-argument_list|()
+name|repositoryDir
 argument_list|,
 name|lockManager
 argument_list|)
@@ -726,10 +732,16 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Could not initialize the filesystem storage to repository: {}"
+literal|"Could not initialize the filesystem storage to repository {}: {}"
 argument_list|,
-name|getRepoDir
+name|repositoryDir
+argument_list|,
+name|e
+operator|.
+name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -738,7 +750,13 @@ name|RuntimeException
 argument_list|(
 literal|"Fatal error. Could not initialize the filesystem storage for "
 operator|+
-name|getRepoDir
+name|repositoryDir
+operator|+
+literal|": "
+operator|+
+name|e
+operator|.
+name|getMessage
 argument_list|()
 argument_list|)
 throw|;
