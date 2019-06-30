@@ -79,6 +79,38 @@ name|Set
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|ArchivaIndexManager
+operator|.
+name|DEFAULT_INDEX_PATH
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|ArchivaIndexManager
+operator|.
+name|DEFAULT_PACKED_INDEX_PATH
+import|;
+end_import
+
 begin_comment
 comment|/**  * RepositoryScanner  *  *  */
 end_comment
@@ -106,7 +138,7 @@ literal|"bin/**"
 block|,
 literal|"reports/**"
 block|,
-literal|".index"
+name|DEFAULT_PACKED_INDEX_PATH
 block|,
 literal|".reports/**"
 block|,
@@ -132,7 +164,7 @@ literal|"**/CHANGELOG*"
 block|,
 literal|"**/KEYS*"
 block|,
-literal|".indexer"
+name|DEFAULT_INDEX_PATH
 block|}
 decl_stmt|;
 comment|/**      * Scan the repository for content changes.      *<p>      * Internally, this will use the as-configured known and invalid consumer lists.      *      * @param repository   the repository to change.      * @param changesSince the timestamp to use as a threshold on what is considered new or changed.      *                     (To have all content be taken into consideration regardless of timestamp,      *                     use the {@link #FRESH_SCAN} constant)      * @return the statistics for this scan.      * @throws RepositoryScannerException if there was a fundamental problem with getting the discoverer started.      */

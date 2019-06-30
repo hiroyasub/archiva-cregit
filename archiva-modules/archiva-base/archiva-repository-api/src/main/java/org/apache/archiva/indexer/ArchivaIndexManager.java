@@ -106,6 +106,16 @@ specifier|public
 interface|interface
 name|ArchivaIndexManager
 block|{
+name|String
+name|DEFAULT_INDEX_PATH
+init|=
+literal|".indexer"
+decl_stmt|;
+name|String
+name|DEFAULT_PACKED_INDEX_PATH
+init|=
+literal|".index"
+decl_stmt|;
 comment|/**      * Compresses the index to a more dense packed format.      * @param context      */
 name|void
 name|pack

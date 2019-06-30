@@ -95,7 +95,7 @@ name|mergedIndexTtl
 init|=
 literal|30
 decl_stmt|;
-comment|/**      *       *           When to run the index merging for this group.      *           No default value.      *                 */
+comment|/**      *       *           When to run the index merging for this group.      *      */
 specifier|private
 name|String
 name|cronExpression

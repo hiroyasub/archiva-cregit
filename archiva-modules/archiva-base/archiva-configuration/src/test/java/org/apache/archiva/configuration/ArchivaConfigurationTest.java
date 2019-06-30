@@ -205,6 +205,18 @@ name|nio
 operator|.
 name|file
 operator|.
+name|FileSystems
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
 name|Files
 import|;
 end_import
@@ -2898,7 +2910,7 @@ name|ArchivaConfiguration
 operator|.
 name|USER_CONFIG_PROPERTY
 argument_list|,
-literal|"${basedir}/target/*intentionally:invalid*/.m2/archiva-user.xml"
+literal|"/../../..//*intentionally:invalid*/.m2/archiva-user.xml"
 argument_list|)
 expr_stmt|;
 name|ArchivaConfiguration

@@ -59,24 +59,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|redback
-operator|.
-name|components
-operator|.
-name|taskqueue
-operator|.
-name|TaskQueueException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|repository
 operator|.
 name|LayoutException
@@ -93,21 +75,9 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ManagedRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|content
 operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|ManagedRepositoryContent
+name|RepositoryStorage
 import|;
 end_import
 
@@ -222,20 +192,6 @@ operator|.
 name|util
 operator|.
 name|MimeTypes
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|io
-operator|.
-name|FileUtils
 import|;
 end_import
 
@@ -605,18 +561,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|DateTime
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -729,16 +673,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -762,18 +696,6 @@ operator|.
 name|stream
 operator|.
 name|Collectors
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Stream
 import|;
 end_import
 
@@ -833,8 +755,8 @@ name|remoteAddr
 decl_stmt|;
 specifier|private
 specifier|final
-name|ManagedRepository
-name|repository
+name|RepositoryStorage
+name|repositoryStorage
 decl_stmt|;
 specifier|private
 specifier|final
@@ -894,8 +816,8 @@ parameter_list|,
 name|String
 name|logicalResource
 parameter_list|,
-name|ManagedRepository
-name|repository
+name|RepositoryStorage
+name|repositoryStorage
 parameter_list|,
 name|DavSession
 name|session
@@ -955,9 +877,9 @@ expr_stmt|;
 comment|// TODO: push into locator as well as moving any references out of the resource factory
 name|this
 operator|.
-name|repository
+name|repositoryStorage
 operator|=
-name|repository
+name|repositoryStorage
 expr_stmt|;
 comment|// TODO: these should be pushed into the repository layer, along with the physical file operations in this class
 name|this
@@ -988,8 +910,8 @@ parameter_list|,
 name|String
 name|logicalResource
 parameter_list|,
-name|ManagedRepository
-name|repository
+name|RepositoryStorage
+name|repositoryStorage
 parameter_list|,
 name|String
 name|remoteAddr
@@ -1027,7 +949,7 @@ name|localResource
 argument_list|,
 name|logicalResource
 argument_list|,
-name|repository
+name|repositoryStorage
 argument_list|,
 name|session
 argument_list|,
@@ -1054,18 +976,6 @@ name|principal
 operator|=
 name|principal
 expr_stmt|;
-block|}
-specifier|private
-name|ManagedRepositoryContent
-name|getContent
-parameter_list|()
-block|{
-return|return
-name|repository
-operator|.
-name|getContent
-argument_list|()
-return|;
 block|}
 annotation|@
 name|Override
@@ -1263,8 +1173,7 @@ name|hasStream
 argument_list|()
 condition|)
 block|{
-name|getContent
-argument_list|()
+name|repositoryStorage
 operator|.
 name|consumeData
 argument_list|(
@@ -1773,8 +1682,7 @@ block|}
 name|StorageAsset
 name|member
 init|=
-name|getContent
-argument_list|( )
+name|repositoryStorage
 operator|.
 name|addAsset
 argument_list|(
@@ -1896,8 +1804,7 @@ block|{
 name|StorageAsset
 name|member
 init|=
-name|getContent
-argument_list|( )
+name|repositoryStorage
 operator|.
 name|addAsset
 argument_list|(
@@ -2198,8 +2105,7 @@ name|isContainer
 argument_list|()
 condition|)
 block|{
-name|getContent
-argument_list|()
+name|repositoryStorage
 operator|.
 name|removeAsset
 argument_list|(
@@ -2218,8 +2124,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getContent
-argument_list|()
+name|repositoryStorage
 operator|.
 name|removeAsset
 argument_list|(
@@ -2430,8 +2335,7 @@ name|this
 operator|.
 name|asset
 operator|=
-name|getContent
-argument_list|()
+name|repositoryStorage
 operator|.
 name|moveAsset
 argument_list|(
@@ -2466,8 +2370,7 @@ name|this
 operator|.
 name|asset
 operator|=
-name|getContent
-argument_list|()
+name|repositoryStorage
 operator|.
 name|moveAsset
 argument_list|(
@@ -2616,8 +2519,7 @@ name|isCollection
 argument_list|()
 condition|)
 block|{
-name|getContent
-argument_list|()
+name|repositoryStorage
 operator|.
 name|copyAsset
 argument_list|(
@@ -2648,8 +2550,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getContent
-argument_list|()
+name|repositoryStorage
 operator|.
 name|copyAsset
 argument_list|(

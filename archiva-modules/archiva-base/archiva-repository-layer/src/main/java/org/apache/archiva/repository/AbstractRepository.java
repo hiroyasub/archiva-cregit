@@ -1109,6 +1109,16 @@ name|String
 name|cronExpression
 parameter_list|)
 block|{
+if|if
+condition|(
+name|StringUtils
+operator|.
+name|isNotEmpty
+argument_list|(
+name|cronExpression
+argument_list|)
+condition|)
+block|{
 name|CronParser
 name|parser
 init|=
@@ -1126,8 +1136,9 @@ name|cronExpression
 argument_list|)
 operator|.
 name|validate
-argument_list|()
+argument_list|( )
 expr_stmt|;
+block|}
 name|this
 operator|.
 name|schedulingDefinition

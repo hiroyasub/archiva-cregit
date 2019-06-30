@@ -63,6 +63,22 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|ArchivaIndexManager
+operator|.
+name|DEFAULT_INDEX_PATH
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Olivier Lamy  * @since 1.4-M1  */
 end_comment
@@ -99,7 +115,7 @@ specifier|private
 name|String
 name|mergedIndexPath
 init|=
-literal|".indexer"
+name|DEFAULT_INDEX_PATH
 decl_stmt|;
 comment|/**      * The TTL (time to live) of the repo group's merged index.      */
 specifier|private

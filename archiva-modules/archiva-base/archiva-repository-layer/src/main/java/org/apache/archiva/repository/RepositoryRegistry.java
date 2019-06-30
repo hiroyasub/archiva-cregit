@@ -297,6 +297,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|LinkedHashMap
 import|;
 end_import
@@ -318,6 +328,16 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -356,6 +376,22 @@ operator|.
 name|stream
 operator|.
 name|Stream
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|ArchivaIndexManager
+operator|.
+name|DEFAULT_INDEX_PATH
 import|;
 end_import
 
@@ -899,6 +935,33 @@ range|:
 name|managedRepoConfigs
 control|)
 block|{
+if|if
+condition|(
+name|managedRepos
+operator|.
+name|containsKey
+argument_list|(
+name|repoConfig
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Duplicate repository definitions for {} in config found."
+argument_list|,
+name|repoConfig
+operator|.
+name|getId
+argument_list|( )
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 name|RepositoryType
 name|repositoryType
 init|=
@@ -3774,7 +3837,7 @@ name|repositoryGroupConfiguration
 operator|.
 name|setMergedIndexPath
 argument_list|(
-literal|".indexer"
+name|DEFAULT_INDEX_PATH
 argument_list|)
 expr_stmt|;
 block|}

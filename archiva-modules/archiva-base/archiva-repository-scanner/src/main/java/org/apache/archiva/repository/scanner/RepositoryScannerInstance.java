@@ -1175,6 +1175,17 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
+name|Path
+name|relativeFile
+init|=
+name|basePath
+operator|.
+name|relativize
+argument_list|(
+name|file
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|excludeMatcher
@@ -1190,7 +1201,7 @@ name|m
 operator|.
 name|matches
 argument_list|(
-name|file
+name|relativeFile
 argument_list|)
 argument_list|)
 operator|&&
@@ -1207,7 +1218,7 @@ name|m
 operator|.
 name|matches
 argument_list|(
-name|file
+name|relativeFile
 argument_list|)
 argument_list|)
 condition|)

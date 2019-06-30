@@ -107,6 +107,38 @@ name|Path
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|ArchivaIndexManager
+operator|.
+name|DEFAULT_INDEX_PATH
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|ArchivaIndexManager
+operator|.
+name|DEFAULT_PACKED_INDEX_PATH
+import|;
+end_import
+
 begin_comment
 comment|/**  *  * This feature provides some information about index creation.  *  */
 end_comment
@@ -123,22 +155,6 @@ argument_list|<
 name|IndexCreationFeature
 argument_list|>
 block|{
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|DEFAULT_INDEX_PATH
-init|=
-literal|".indexer"
-decl_stmt|;
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|DEFAULT_PACKED_INDEX_PATH
-init|=
-literal|".index"
-decl_stmt|;
 specifier|private
 name|boolean
 name|skipPackedIndexCreation

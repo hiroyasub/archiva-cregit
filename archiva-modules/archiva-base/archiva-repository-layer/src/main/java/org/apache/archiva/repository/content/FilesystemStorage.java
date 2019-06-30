@@ -672,6 +672,8 @@ argument_list|(
 name|path
 argument_list|)
 argument_list|,
+name|basePath
+argument_list|,
 name|container
 argument_list|)
 return|;
@@ -752,6 +754,8 @@ argument_list|(
 name|destination
 argument_list|)
 argument_list|,
+name|basePath
+argument_list|,
 name|container
 argument_list|)
 decl_stmt|;
@@ -809,6 +813,8 @@ name|getAssetPath
 argument_list|(
 name|destination
 argument_list|)
+argument_list|,
+name|basePath
 argument_list|,
 name|container
 argument_list|)

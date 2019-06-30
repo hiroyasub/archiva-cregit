@@ -298,6 +298,10 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
+literal|".index/"
+argument_list|,
+literal|".indexer/"
+argument_list|,
 literal|"commons-lang/"
 argument_list|,
 literal|"net/"

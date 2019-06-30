@@ -543,6 +543,22 @@ name|Locale
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|ArchivaIndexManager
+operator|.
+name|DEFAULT_INDEX_PATH
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Olivier Lamy  */
 end_comment
@@ -1352,7 +1368,7 @@ name|repositoryConfig
 operator|.
 name|setIndexDir
 argument_list|(
-literal|".indexer"
+name|DEFAULT_INDEX_PATH
 argument_list|)
 expr_stmt|;
 return|return

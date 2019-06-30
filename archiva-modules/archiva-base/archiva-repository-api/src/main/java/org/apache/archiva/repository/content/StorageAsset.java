@@ -179,6 +179,16 @@ parameter_list|()
 throws|throws
 name|UnsupportedOperationException
 function_decl|;
+comment|/**      * Returns true, if there is a parent to this asset.      * @return      */
+name|boolean
+name|hasParent
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the parent of this asset.      * @return The asset, or<code>null</code>, if it does not exist.      */
+name|StorageAsset
+name|getParent
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
