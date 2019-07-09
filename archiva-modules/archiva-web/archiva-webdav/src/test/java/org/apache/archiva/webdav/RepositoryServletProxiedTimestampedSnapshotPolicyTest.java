@@ -623,6 +623,9 @@ expr_stmt|;
 name|setupCleanInternalRepo
 argument_list|()
 expr_stmt|;
+name|saveConfiguration
+argument_list|()
+expr_stmt|;
 name|String
 name|resourcePath
 init|=

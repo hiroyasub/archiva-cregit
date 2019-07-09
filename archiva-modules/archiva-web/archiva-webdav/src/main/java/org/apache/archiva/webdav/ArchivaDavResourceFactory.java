@@ -3668,29 +3668,17 @@ try|try
 block|{
 comment|// Perform an adjustment of the resource to the managed
 comment|// repository expected path.
-name|String
-name|localResourcePath
-init|=
-name|managedRepository
-operator|.
-name|getRequestInfo
-argument_list|()
-operator|.
-name|toNativePath
-argument_list|(
-name|logicalResource
-operator|.
-name|getPath
-argument_list|()
-argument_list|)
-decl_stmt|;
+comment|// String localResourcePath = managedRepository.getRequestInfo().toNativePath( logicalResource.getPath() );
 name|resourceAsset
 operator|=
 name|managedRepositoryContent
 operator|.
 name|getAsset
 argument_list|(
-name|localResourcePath
+name|logicalResource
+operator|.
+name|getPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|resource

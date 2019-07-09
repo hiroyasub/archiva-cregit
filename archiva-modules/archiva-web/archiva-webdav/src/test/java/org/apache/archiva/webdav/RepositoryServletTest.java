@@ -47,24 +47,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
-operator|.
-name|model
-operator|.
-name|beans
-operator|.
-name|ManagedRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|configuration
 operator|.
 name|ArchivaConfiguration
@@ -96,6 +78,20 @@ operator|.
 name|configuration
 operator|.
 name|ManagedRepositoryConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|ManagedRepository
 import|;
 end_import
 
@@ -325,6 +321,14 @@ argument_list|(
 name|archivaConfiguration
 argument_list|)
 expr_stmt|;
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|ManagedRepository
 name|repository
 init|=
@@ -608,7 +612,7 @@ comment|//
 operator|.
 name|contains
 argument_list|(
-literal|"Legacy Maven1 repository not supported anymore."
+literal|"Resource does not exist"
 argument_list|)
 expr_stmt|;
 block|}
