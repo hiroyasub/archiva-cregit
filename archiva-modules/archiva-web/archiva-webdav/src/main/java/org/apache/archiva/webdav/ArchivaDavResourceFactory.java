@@ -2808,7 +2808,7 @@ name|asset
 argument_list|,
 name|requestedFileName
 argument_list|,
-literal|null
+name|repoGroup
 argument_list|,
 name|request
 operator|.
