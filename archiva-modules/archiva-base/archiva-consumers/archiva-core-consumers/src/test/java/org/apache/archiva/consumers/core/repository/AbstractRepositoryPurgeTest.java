@@ -773,6 +773,8 @@ name|repoName
 parameter_list|)
 throws|throws
 name|URISyntaxException
+throws|,
+name|IOException
 block|{
 name|Path
 name|basePath
@@ -792,8 +794,9 @@ argument_list|()
 decl_stmt|;
 name|config
 operator|=
-operator|new
 name|BasicManagedRepository
+operator|.
+name|newFilesystemInstance
 argument_list|(
 name|repoId
 argument_list|,

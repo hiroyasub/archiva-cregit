@@ -646,8 +646,9 @@ decl_stmt|;
 name|BasicManagedRepository
 name|repositoryConfig
 init|=
-operator|new
 name|BasicManagedRepository
+operator|.
+name|newFilesystemInstance
 argument_list|(
 literal|"test-repo"
 argument_list|,

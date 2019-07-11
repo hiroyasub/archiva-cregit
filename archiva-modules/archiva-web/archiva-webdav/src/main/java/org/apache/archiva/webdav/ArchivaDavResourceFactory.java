@@ -3502,7 +3502,7 @@ decl_stmt|;
 name|StorageAsset
 name|repoAsset
 init|=
-name|managedRepositoryContent
+name|managedRepository
 operator|.
 name|getAsset
 argument_list|(
@@ -3521,7 +3521,7 @@ name|repoAsset
 argument_list|,
 name|path
 argument_list|,
-name|managedRepositoryContent
+name|managedRepository
 argument_list|,
 name|request
 operator|.
@@ -3671,7 +3671,7 @@ comment|// repository expected path.
 comment|// String localResourcePath = managedRepository.getRequestInfo().toNativePath( logicalResource.getPath() );
 name|resourceAsset
 operator|=
-name|managedRepositoryContent
+name|managedRepository
 operator|.
 name|getAsset
 argument_list|(
@@ -3693,7 +3693,7 @@ operator|.
 name|getPath
 argument_list|()
 argument_list|,
-name|managedRepositoryContent
+name|managedRepository
 argument_list|,
 name|request
 operator|.
@@ -4291,7 +4291,7 @@ block|}
 name|StorageAsset
 name|resourceAsset
 init|=
-name|managedRepositoryContent
+name|repo
 operator|.
 name|getAsset
 argument_list|(
@@ -4310,9 +4310,6 @@ argument_list|,
 name|logicalResource
 argument_list|,
 name|repo
-operator|.
-name|getContent
-argument_list|()
 argument_list|,
 name|davSession
 argument_list|,
@@ -6041,7 +6038,7 @@ comment|// Path resourceFile = Paths.get( managedRepository.getRepoRoot(), logic
 name|StorageAsset
 name|resourceFile
 init|=
-name|managedRepository
+name|repo
 operator|.
 name|getAsset
 argument_list|(

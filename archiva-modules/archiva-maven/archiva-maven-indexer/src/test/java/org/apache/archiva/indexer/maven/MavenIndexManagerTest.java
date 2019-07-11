@@ -1319,8 +1319,9 @@ argument_list|)
 expr_stmt|;
 name|repository
 operator|=
-operator|new
 name|MavenManagedRepository
+operator|.
+name|newLocalInstance
 argument_list|(
 literal|"test-repo"
 argument_list|,
@@ -1334,17 +1335,7 @@ literal|"target/repositories"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|repository
-operator|.
-name|setLocation
-argument_list|(
-operator|new
-name|URI
-argument_list|(
-literal|"test-repo"
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// repository.setLocation(new URI("test-repo"));
 name|IndexCreationFeature
 name|icf
 init|=
@@ -1419,8 +1410,9 @@ argument_list|()
 decl_stmt|;
 name|repositoryRemote
 operator|=
-operator|new
 name|MavenRemoteRepository
+operator|.
+name|newLocalInstance
 argument_list|(
 literal|"test-repo"
 argument_list|,

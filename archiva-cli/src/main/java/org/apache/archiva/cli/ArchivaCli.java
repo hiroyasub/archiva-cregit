@@ -754,13 +754,14 @@ parameter_list|)
 throws|throws
 name|ConsumerException
 throws|,
-name|MalformedURLException
+name|IOException
 block|{
 name|BasicManagedRepository
 name|repo
 init|=
-operator|new
 name|BasicManagedRepository
+operator|.
+name|newFilesystemInstance
 argument_list|(
 name|Paths
 operator|.

@@ -400,8 +400,9 @@ argument_list|()
 expr_stmt|;
 name|testRepository
 operator|=
-operator|new
 name|BasicManagedRepository
+operator|.
+name|newFilesystemInstance
 argument_list|(
 literal|"test-consumer-repository"
 argument_list|,

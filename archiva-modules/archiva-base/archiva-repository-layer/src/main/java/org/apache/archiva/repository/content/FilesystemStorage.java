@@ -919,6 +919,15 @@ return|return
 name|newAsset
 return|;
 block|}
+specifier|public
+name|FileLockManager
+name|getFileLockManager
+parameter_list|()
+block|{
+return|return
+name|fileLockManager
+return|;
+block|}
 block|}
 end_class
 

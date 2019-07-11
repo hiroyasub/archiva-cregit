@@ -209,8 +209,6 @@ interface|interface
 name|ManagedRepositoryContent
 extends|extends
 name|RepositoryContent
-extends|,
-name|RepositoryStorage
 block|{
 comment|/**      * Delete from the managed repository all files / directories associated with the      * provided version reference.      *      * @param reference the version reference to delete.      * @throws ContentNotFoundException      */
 name|void

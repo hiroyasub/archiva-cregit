@@ -1817,8 +1817,9 @@ block|{
 name|ManagedRepository
 name|repo
 init|=
-operator|new
 name|BasicManagedRepository
+operator|.
+name|newFilesystemInstance
 argument_list|(
 name|id
 argument_list|,

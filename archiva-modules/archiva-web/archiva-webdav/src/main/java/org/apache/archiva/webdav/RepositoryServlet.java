@@ -1036,9 +1036,6 @@ name|repoDir
 init|=
 name|repo
 operator|.
-name|getContent
-argument_list|()
-operator|.
 name|getAsset
 argument_list|(
 literal|""

@@ -246,8 +246,9 @@ argument_list|)
 decl_stmt|;
 name|repoConfig
 operator|=
-operator|new
 name|BasicManagedRepository
+operator|.
+name|newFilesystemInstance
 argument_list|(
 literal|"test-repo"
 argument_list|,

@@ -488,8 +488,9 @@ decl_stmt|;
 name|BasicManagedRepository
 name|legacyRepository
 init|=
-operator|new
 name|BasicManagedRepository
+operator|.
+name|newFilesystemInstance
 argument_list|(
 literal|"legacy"
 argument_list|,

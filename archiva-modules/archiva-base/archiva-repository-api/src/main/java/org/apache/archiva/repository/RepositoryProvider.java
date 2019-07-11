@@ -61,6 +61,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Set
@@ -96,6 +106,8 @@ parameter_list|,
 name|String
 name|name
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Creates a editable remote repository instance. The provider must not check the uniqueness of the      * id parameter and must not track the already created instances. Each call to this method will create      * a new instance.      *      * @param id the repository identifier      * @param name the repository name      * @return a new created remote repository instance      */
 name|EditableRemoteRepository

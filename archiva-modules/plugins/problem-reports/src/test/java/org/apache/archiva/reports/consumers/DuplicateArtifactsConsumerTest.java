@@ -519,8 +519,9 @@ argument_list|)
 expr_stmt|;
 name|config
 operator|=
-operator|new
 name|BasicManagedRepository
+operator|.
+name|newFilesystemInstance
 argument_list|(
 name|TEST_REPO
 argument_list|,

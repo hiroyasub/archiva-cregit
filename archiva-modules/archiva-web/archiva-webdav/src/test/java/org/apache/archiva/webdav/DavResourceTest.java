@@ -631,8 +631,9 @@ argument_list|)
 expr_stmt|;
 name|repository
 operator|=
-operator|new
 name|MavenManagedRepository
+operator|.
+name|newLocalInstance
 argument_list|(
 literal|"repo001"
 argument_list|,
@@ -812,9 +813,6 @@ argument_list|,
 name|logicalPath
 argument_list|,
 name|repository
-operator|.
-name|getContent
-argument_list|()
 argument_list|,
 name|session
 argument_list|,
@@ -1838,9 +1836,6 @@ argument_list|,
 literal|"/"
 argument_list|,
 name|repository
-operator|.
-name|getContent
-argument_list|()
 argument_list|,
 name|session
 argument_list|,

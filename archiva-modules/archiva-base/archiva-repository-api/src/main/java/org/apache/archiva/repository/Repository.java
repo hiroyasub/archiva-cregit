@@ -39,6 +39,22 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|content
+operator|.
+name|RepositoryStorage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|features
 operator|.
 name|RepositoryFeature
@@ -97,6 +113,8 @@ interface|interface
 name|Repository
 extends|extends
 name|RepositoryEventHandler
+extends|,
+name|RepositoryStorage
 block|{
 comment|/**      * Return the identifier of the repository. Repository identifier should be unique at least      * for the same type.      * @return The identifier.      */
 name|String

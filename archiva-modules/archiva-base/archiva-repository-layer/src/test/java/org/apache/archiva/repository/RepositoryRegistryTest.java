@@ -1196,8 +1196,9 @@ block|{
 name|BasicManagedRepository
 name|managedRepository
 init|=
-operator|new
 name|BasicManagedRepository
+operator|.
+name|newFilesystemInstance
 argument_list|(
 literal|"test001"
 argument_list|,
@@ -1251,8 +1252,9 @@ argument_list|)
 expr_stmt|;
 name|managedRepository
 operator|=
-operator|new
 name|BasicManagedRepository
+operator|.
+name|newFilesystemInstance
 argument_list|(
 literal|"central"
 argument_list|,
@@ -1308,8 +1310,9 @@ comment|// OK
 block|}
 name|managedRepository
 operator|=
-operator|new
 name|BasicManagedRepository
+operator|.
+name|newFilesystemInstance
 argument_list|(
 literal|"internal"
 argument_list|,
@@ -1812,8 +1815,9 @@ block|{
 name|BasicRemoteRepository
 name|remoteRepository
 init|=
-operator|new
 name|BasicRemoteRepository
+operator|.
+name|newFilesystemInstance
 argument_list|(
 literal|"test001"
 argument_list|,
@@ -1877,8 +1881,9 @@ argument_list|)
 expr_stmt|;
 name|remoteRepository
 operator|=
-operator|new
 name|BasicRemoteRepository
+operator|.
+name|newFilesystemInstance
 argument_list|(
 literal|"internal"
 argument_list|,
@@ -1936,8 +1941,9 @@ comment|// OK
 block|}
 name|remoteRepository
 operator|=
-operator|new
 name|BasicRemoteRepository
+operator|.
+name|newFilesystemInstance
 argument_list|(
 literal|"central"
 argument_list|,
