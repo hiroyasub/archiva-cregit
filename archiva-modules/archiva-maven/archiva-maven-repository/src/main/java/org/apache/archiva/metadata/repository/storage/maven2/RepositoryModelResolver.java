@@ -902,7 +902,12 @@ name|newRepositorySystemSession
 argument_list|(
 name|managedRepository
 operator|.
-name|getLocalPath
+name|getAsset
+argument_list|(
+literal|""
+argument_list|)
+operator|.
+name|getFilePath
 argument_list|()
 operator|.
 name|toString
@@ -2015,7 +2020,12 @@ name|resource
 init|=
 name|targetRepository
 operator|.
-name|getLocalPath
+name|getAsset
+argument_list|(
+literal|""
+argument_list|)
+operator|.
+name|getFilePath
 argument_list|()
 operator|.
 name|resolve

@@ -1320,7 +1320,12 @@ name|repoDir
 init|=
 name|managedRepo
 operator|.
-name|getLocalPath
+name|getAsset
+argument_list|(
+literal|""
+argument_list|)
+operator|.
+name|getFilePath
 argument_list|()
 decl_stmt|;
 name|Path

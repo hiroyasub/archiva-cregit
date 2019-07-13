@@ -1049,7 +1049,12 @@ name|repoDir
 init|=
 name|repo
 operator|.
-name|getLocalPath
+name|getAsset
+argument_list|(
+literal|""
+argument_list|)
+operator|.
+name|getFilePath
 argument_list|()
 decl_stmt|;
 if|if
@@ -1094,10 +1099,7 @@ name|error
 argument_list|(
 literal|"Could not create directory {} for repository {}"
 argument_list|,
-name|repo
-operator|.
-name|getLocalPath
-argument_list|()
+name|repoDir
 argument_list|,
 name|repo
 operator|.
@@ -1113,10 +1115,7 @@ name|RepositoryException
 argument_list|(
 literal|"Could not create directory for repository "
 operator|+
-name|repo
-operator|.
-name|getLocalPath
-argument_list|()
+name|repoDir
 argument_list|)
 throw|;
 block|}
