@@ -1698,7 +1698,7 @@ argument_list|()
 expr_stmt|;
 name|member
 operator|.
-name|storeDataFile
+name|replaceDataFromFile
 argument_list|(
 name|tempFile
 argument_list|)

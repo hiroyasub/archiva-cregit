@@ -19,6 +19,22 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|StorageAsset
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|nio
@@ -40,7 +56,7 @@ name|ProxyFetchResult
 block|{
 comment|//The file returned
 specifier|private
-name|Path
+name|StorageAsset
 name|file
 decl_stmt|;
 comment|//Was the local file modified by the fetch?
@@ -51,7 +67,7 @@ decl_stmt|;
 specifier|public
 name|ProxyFetchResult
 parameter_list|(
-name|Path
+name|StorageAsset
 name|file
 parameter_list|,
 name|boolean
@@ -72,7 +88,7 @@ name|modified
 expr_stmt|;
 block|}
 specifier|public
-name|Path
+name|StorageAsset
 name|getFile
 parameter_list|()
 block|{

@@ -17,13 +17,17 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|nio
+name|apache
 operator|.
-name|file
+name|archiva
 operator|.
-name|Path
+name|repository
+operator|.
+name|content
+operator|.
+name|StorageAsset
 import|;
 end_import
 
@@ -68,7 +72,7 @@ parameter_list|,
 name|Properties
 name|request
 parameter_list|,
-name|Path
+name|StorageAsset
 name|localFile
 parameter_list|,
 name|Exception

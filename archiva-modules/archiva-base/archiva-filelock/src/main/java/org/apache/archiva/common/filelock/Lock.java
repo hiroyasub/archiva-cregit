@@ -141,6 +141,8 @@ begin_class
 specifier|public
 class|class
 name|Lock
+implements|implements
+name|Closeable
 block|{
 specifier|private
 name|Path
@@ -397,7 +399,7 @@ operator|!=
 literal|null
 return|;
 block|}
-specifier|protected
+specifier|public
 name|void
 name|close
 parameter_list|()

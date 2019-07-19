@@ -21,6 +21,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|StorageAsset
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|lang
@@ -50,18 +66,6 @@ operator|.
 name|file
 operator|.
 name|Files
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Path
 import|;
 end_import
 
@@ -184,7 +188,7 @@ parameter_list|,
 name|Properties
 name|request
 parameter_list|,
-name|Path
+name|StorageAsset
 name|localFile
 parameter_list|,
 name|Exception
@@ -267,12 +271,10 @@ block|{
 comment|// cancel the exception if the file exists
 return|return
 operator|!
-name|Files
+name|localFile
 operator|.
 name|exists
-argument_list|(
-name|localFile
-argument_list|)
+argument_list|()
 return|;
 block|}
 throw|throw

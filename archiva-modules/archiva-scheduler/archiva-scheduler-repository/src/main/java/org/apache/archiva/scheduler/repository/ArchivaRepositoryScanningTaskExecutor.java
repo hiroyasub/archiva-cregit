@@ -582,6 +582,17 @@ argument_list|,
 name|task
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|task
+operator|.
+name|getResourceFile
+argument_list|()
+operator|.
+name|isFileBased
+argument_list|()
+condition|)
+block|{
 name|consumers
 operator|.
 name|executeConsumers
@@ -591,14 +602,18 @@ argument_list|,
 name|task
 operator|.
 name|getResourceFile
+argument_list|( )
+operator|.
+name|getFilePath
 argument_list|()
 argument_list|,
 name|task
 operator|.
 name|isUpdateRelatedArtifacts
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{

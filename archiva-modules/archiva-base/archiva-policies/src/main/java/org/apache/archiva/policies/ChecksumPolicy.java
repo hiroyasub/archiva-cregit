@@ -63,6 +63,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|StorageAsset
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|lang
@@ -309,7 +325,7 @@ parameter_list|,
 name|Properties
 name|request
 parameter_list|,
-name|Path
+name|StorageAsset
 name|localFile
 parameter_list|)
 throws|throws
@@ -395,12 +411,10 @@ block|}
 if|if
 condition|(
 operator|!
-name|Files
+name|localFile
 operator|.
 name|exists
-argument_list|(
-name|localFile
-argument_list|)
+argument_list|()
 condition|)
 block|{
 comment|// Local File does not exist.
@@ -412,7 +426,7 @@ literal|"Checksum policy failure, local file "
 operator|+
 name|localFile
 operator|.
-name|toAbsolutePath
+name|getPath
 argument_list|()
 operator|+
 literal|" does not exist to check."
@@ -427,6 +441,11 @@ name|equals
 argument_list|(
 name|policySetting
 argument_list|)
+operator|&&
+name|localFile
+operator|.
+name|isFileBased
+argument_list|()
 condition|)
 block|{
 name|ChecksummedFile
@@ -436,6 +455,9 @@ operator|new
 name|ChecksummedFile
 argument_list|(
 name|localFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -497,9 +519,12 @@ block|}
 block|}
 try|try
 block|{
-name|Files
+name|localFile
 operator|.
-name|deleteIfExists
+name|getStorage
+argument_list|()
+operator|.
+name|removeAsset
 argument_list|(
 name|localFile
 argument_list|)
@@ -531,7 +556,7 @@ literal|"deleting checksum files and local file "
 operator|+
 name|localFile
 operator|.
-name|toAbsolutePath
+name|getPath
 argument_list|()
 operator|+
 literal|"."
@@ -546,6 +571,11 @@ name|equals
 argument_list|(
 name|policySetting
 argument_list|)
+operator|&&
+name|localFile
+operator|.
+name|isFileBased
+argument_list|()
 condition|)
 block|{
 name|ChecksummedFile
@@ -555,6 +585,9 @@ operator|new
 name|ChecksummedFile
 argument_list|(
 name|localFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -595,7 +628,7 @@ literal|"yet unable to update checksums for local file "
 operator|+
 name|localFile
 operator|.
-name|toAbsolutePath
+name|getPath
 argument_list|()
 operator|+
 literal|"."

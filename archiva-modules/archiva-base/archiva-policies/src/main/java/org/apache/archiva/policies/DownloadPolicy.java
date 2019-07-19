@@ -17,13 +17,17 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|nio
+name|apache
 operator|.
-name|file
+name|archiva
 operator|.
-name|Path
+name|repository
+operator|.
+name|content
+operator|.
+name|StorageAsset
 import|;
 end_import
 
@@ -48,7 +52,7 @@ name|DownloadPolicy
 extends|extends
 name|Policy
 block|{
-comment|/**      * Apply the download policy.      *       * @param policySetting the policy setting.      * @param request the list of request properties that the policy might use.      * @param localFile      *       * @throws PolicyViolationException if the policy has been violated.      */
+comment|/**      * Apply the download policy.      *       * @param policySetting the policy setting.      * @param request the list of request properties that the policy might use.      * @param localFile      *      * @throws PolicyViolationException if the policy has been violated.      */
 name|void
 name|applyPolicy
 parameter_list|(
@@ -58,7 +62,7 @@ parameter_list|,
 name|Properties
 name|request
 parameter_list|,
-name|Path
+name|StorageAsset
 name|localFile
 parameter_list|)
 throws|throws

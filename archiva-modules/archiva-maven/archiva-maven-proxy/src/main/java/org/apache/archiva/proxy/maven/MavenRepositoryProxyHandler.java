@@ -153,6 +153,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|StorageAsset
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|lang
@@ -633,7 +649,7 @@ name|proxies
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @param connector      * @param remoteRepository      * @param tmpMd5      * @param tmpSha1      * @param tmpResource      * @param url      * @param remotePath      * @param resource      * @param workingDirectory      * @param repository      * @throws ProxyException      * @throws NotModifiedException      */
+comment|/**      * @param connector      * @param remoteRepository      * @param tmpResource      * @param checksumFiles      * @param url      * @param remotePath      * @param resource      * @param workingDirectory      * @param repository      * @throws ProxyException      * @throws NotModifiedException      */
 specifier|protected
 name|void
 name|transferResources
@@ -645,13 +661,11 @@ name|RemoteRepositoryContent
 name|remoteRepository
 parameter_list|,
 name|Path
-name|tmpMd5
-parameter_list|,
-name|Path
-name|tmpSha1
-parameter_list|,
-name|Path
 name|tmpResource
+parameter_list|,
+name|Path
+index|[]
+name|checksumFiles
 parameter_list|,
 name|String
 name|url
@@ -659,7 +673,7 @@ parameter_list|,
 name|String
 name|remotePath
 parameter_list|,
-name|Path
+name|StorageAsset
 name|resource
 parameter_list|,
 name|Path
@@ -862,6 +876,9 @@ argument_list|,
 name|repository
 argument_list|,
 name|resource
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|,
 name|workingDirectory
 argument_list|,
@@ -871,6 +888,46 @@ expr_stmt|;
 comment|// TODO: these should be used to validate the download based on the policies, not always downloaded
 comment|// to
 comment|// save on connections since md5 is rarely used
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|checksumFiles
+operator|.
+name|length
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|String
+name|ext
+init|=
+literal|"."
+operator|+
+name|StringUtils
+operator|.
+name|substringAfterLast
+argument_list|(
+name|checksumFiles
+index|[
+name|i
+index|]
+operator|.
+name|getFileName
+argument_list|( )
+operator|.
+name|toString
+argument_list|( )
+argument_list|,
+literal|"."
+argument_list|)
+decl_stmt|;
 name|transferChecksum
 argument_list|(
 name|wagon
@@ -882,33 +939,19 @@ argument_list|,
 name|repository
 argument_list|,
 name|resource
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|,
-name|workingDirectory
+name|ext
 argument_list|,
-literal|".sha1"
-argument_list|,
-name|tmpSha1
+name|checksumFiles
+index|[
+name|i
+index|]
 argument_list|)
 expr_stmt|;
-name|transferChecksum
-argument_list|(
-name|wagon
-argument_list|,
-name|remoteRepository
-argument_list|,
-name|remotePath
-argument_list|,
-name|repository
-argument_list|,
-name|resource
-argument_list|,
-name|workingDirectory
-argument_list|,
-literal|".md5"
-argument_list|,
-name|tmpMd5
-argument_list|)
-expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
@@ -1055,7 +1098,7 @@ name|destFile
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      *<p>      * Quietly transfer the checksum file from the remote repository to the local file.      *</p>      *      * @param wagon            the wagon instance (should already be connected) to use.      * @param remoteRepository the remote repository to transfer from.      * @param remotePath       the remote path to the resource to get.      * @param repository       the managed repository that will hold the file      * @param resource         the local file that should contain the downloaded contents      * @param tmpDirectory     the temporary directory to download to      * @param ext              the type of checksum to transfer (example: ".md5" or ".sha1")      * @throws ProxyException if copying the downloaded file into place did not succeed.      */
+comment|/**      *<p>      * Quietly transfer the checksum file from the remote repository to the local file.      *</p>      *      * @param wagon            the wagon instance (should already be connected) to use.      * @param remoteRepository the remote repository to transfer from.      * @param remotePath       the remote path to the resource to get.      * @param repository       the managed repository that will hold the file      * @param resource         the local file that should contain the downloaded contents      * @param ext              the type of checksum to transfer (example: ".md5" or ".sha1")      * @throws ProxyException if copying the downloaded file into place did not succeed.      */
 specifier|protected
 name|void
 name|transferChecksum
@@ -1074,9 +1117,6 @@ name|repository
 parameter_list|,
 name|Path
 name|resource
-parameter_list|,
-name|Path
-name|tmpDirectory
 parameter_list|,
 name|String
 name|ext

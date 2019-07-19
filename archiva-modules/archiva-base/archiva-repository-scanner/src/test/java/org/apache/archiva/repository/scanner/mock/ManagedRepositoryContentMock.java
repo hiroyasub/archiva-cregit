@@ -151,7 +151,7 @@ name|repository
 operator|.
 name|content
 operator|.
-name|FilesystemStorage
+name|StorageAsset
 import|;
 end_import
 
@@ -166,18 +166,6 @@ operator|.
 name|lang
 operator|.
 name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Path
 import|;
 end_import
 
@@ -1386,7 +1374,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Path
+name|StorageAsset
 name|toFile
 parameter_list|(
 name|ArtifactReference
@@ -1413,7 +1401,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Path
+name|StorageAsset
 name|toFile
 parameter_list|(
 name|ArchivaArtifact

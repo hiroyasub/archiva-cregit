@@ -35,6 +35,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|StorageAsset
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|nio
@@ -65,7 +81,7 @@ name|String
 name|repositoryId
 decl_stmt|;
 specifier|private
-name|Path
+name|StorageAsset
 name|resourceFile
 decl_stmt|;
 specifier|private
@@ -179,7 +195,7 @@ literal|0
 return|;
 block|}
 specifier|public
-name|Path
+name|StorageAsset
 name|getResourceFile
 parameter_list|()
 block|{
@@ -191,7 +207,7 @@ specifier|public
 name|void
 name|setResourceFile
 parameter_list|(
-name|Path
+name|StorageAsset
 name|resourceFile
 parameter_list|)
 block|{

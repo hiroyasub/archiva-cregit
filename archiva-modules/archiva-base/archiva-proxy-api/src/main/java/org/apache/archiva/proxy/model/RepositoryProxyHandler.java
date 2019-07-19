@@ -75,13 +75,17 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|nio
+name|apache
 operator|.
-name|file
+name|archiva
 operator|.
-name|Path
+name|repository
+operator|.
+name|content
+operator|.
+name|StorageAsset
 import|;
 end_import
 
@@ -122,7 +126,7 @@ name|supports
 parameter_list|()
 function_decl|;
 comment|/**      * Performs the artifact fetch operation against the target repositories      * of the provided source repository.      *       * If the artifact is found, it is downloaded and placed into the source repository      * filesystem.      *       * @param repository the source repository to use. (must be a managed repository)      * @param artifact the artifact to fetch.      * @return the file that was obtained, or null if no content was obtained      * @throws ProxyDownloadException if there was a problem fetching the content from the target repositories.      */
-name|Path
+name|StorageAsset
 name|fetchFromProxies
 parameter_list|(
 name|ManagedRepositoryContent
@@ -146,7 +150,7 @@ name|logicalPath
 parameter_list|)
 function_decl|;
 comment|/**      * Performs the fetch operation against the target repositories      * of the provided source repository.      *       * @param managedRepository the source repository to use. (must be a managed repository)      * @param path the path of the resource to fetch      * @return the file that was obtained, or null if no content was obtained      */
-name|Path
+name|StorageAsset
 name|fetchFromProxies
 parameter_list|(
 name|ManagedRepositoryContent

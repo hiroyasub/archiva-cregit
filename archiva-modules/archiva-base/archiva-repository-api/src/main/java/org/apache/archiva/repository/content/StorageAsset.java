@@ -53,6 +53,30 @@ name|java
 operator|.
 name|nio
 operator|.
+name|channels
+operator|.
+name|ReadableByteChannel
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|channels
+operator|.
+name|WritableByteChannel
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
 name|file
 operator|.
 name|Path
@@ -100,6 +124,11 @@ specifier|public
 interface|interface
 name|StorageAsset
 block|{
+comment|/**      * Returns the storage this asset belongs to.      * @return      */
+name|RepositoryStorage
+name|getStorage
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the complete path relative to the repository to the given asset.      *      * @return A path starting with '/' that uniquely identifies the asset in the repository.      */
 name|String
 name|getPath
@@ -120,7 +149,7 @@ name|boolean
 name|isContainer
 parameter_list|()
 function_decl|;
-comment|/**      * List the child assets.      *      * @return The list of children. If there are no children, a empty list will be returned.      */
+comment|/**      * List the child assets.      *      * @return The list of children. If there are no children and if the asset is not a container, a empty list will be returned.      */
 name|List
 argument_list|<
 name|StorageAsset
@@ -133,16 +162,33 @@ name|long
 name|getSize
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the input stream of the artifact content.      * It will throw a IOException, if the stream could not be created.      * Implementations should create a new stream instance for each invocation.      *      * @return The InputStream representing the content of the artifact.      * @throws IOException      */
+comment|/**      * Returns the input stream of the artifact content.      * It will throw a IOException, if the stream could not be created.      * Implementations should create a new stream instance for each invocation and make sure that the      * stream is proper closed after usage.      *      * @return The InputStream representing the content of the artifact.      * @throws IOException      */
 name|InputStream
-name|getData
+name|getReadStream
 parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      *      * Returns an output stream where you can write data to the asset.      *      * @param replace If true, the original data will be replaced, otherwise the data will be appended.      * @return The OutputStream where the data can be written.      * @throws IOException      */
+comment|/**      * Returns a NIO representation of the data.      *      * @return A channel to the asset data.      * @throws IOException      */
+name|ReadableByteChannel
+name|getReadChannel
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      *      * Returns an output stream where you can write data to the asset. The operation is not locked or synchronized.      * User of this method have to make sure, that the stream is proper closed after usage.      *      * @param replace If true, the original data will be replaced, otherwise the data will be appended.      * @return The OutputStream where the data can be written.      * @throws IOException      */
 name|OutputStream
-name|writeData
+name|getWriteStream
+parameter_list|(
+name|boolean
+name|replace
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Returns a NIO representation of the asset where you can write the data.      *      * @param replace True, if the content should be replaced by the data written to the stream.      * @return The Channel for writing the data.      * @throws IOException      */
+name|WritableByteChannel
+name|getWriteChannel
 parameter_list|(
 name|boolean
 name|replace
@@ -152,7 +198,7 @@ name|IOException
 function_decl|;
 comment|/**      * Replaces the content. The implementation may do an atomic move operation, or keep a backup. If      * the operation fails, the implementation should try to restore the old data, if possible.      *      * The original file may be deleted, if the storage was successful.      *      * @param newData Replaces the data by the content of the given file.      */
 name|boolean
-name|storeDataFile
+name|replaceDataFromFile
 parameter_list|(
 name|Path
 name|newData
@@ -172,12 +218,17 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns the real path to the asset, if it exist. Not all implementations may implement this method.      *      * @return The filesystem path to the asset.      * @throws UnsupportedOperationException      */
+comment|/**      * Returns the real path to the asset, if it exist. Not all implementations may implement this method.      * The method throws {@link UnsupportedOperationException}, if and only if {@link #isFileBased()} returns false.      *      * @return The filesystem path to the asset.      * @throws UnsupportedOperationException If the underlying storage is not file based.      */
 name|Path
 name|getFilePath
 parameter_list|()
 throws|throws
 name|UnsupportedOperationException
+function_decl|;
+comment|/**      * Returns true, if the asset can return a file path for the given asset. If this is true, the  {@link #getFilePath()}      * will not throw a {@link UnsupportedOperationException}      *      * @return      */
+name|boolean
+name|isFileBased
+parameter_list|()
 function_decl|;
 comment|/**      * Returns true, if there is a parent to this asset.      * @return      */
 name|boolean

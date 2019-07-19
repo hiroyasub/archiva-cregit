@@ -77,18 +77,6 @@ name|java
 operator|.
 name|nio
 operator|.
-name|charset
-operator|.
-name|Charset
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
 name|file
 operator|.
 name|Files
@@ -743,7 +731,7 @@ name|is
 init|=
 name|asset
 operator|.
-name|getData
+name|getReadStream
 argument_list|()
 init|)
 block|{
@@ -804,7 +792,7 @@ name|is
 init|=
 name|asset
 operator|.
-name|getData
+name|getReadStream
 argument_list|()
 decl_stmt|;
 name|assertFalse
@@ -865,7 +853,7 @@ name|os
 init|=
 name|asset
 operator|.
-name|writeData
+name|getWriteStream
 argument_list|(
 literal|true
 argument_list|)
@@ -945,7 +933,7 @@ name|os
 init|=
 name|asset
 operator|.
-name|writeData
+name|getWriteStream
 argument_list|(
 literal|false
 argument_list|)
@@ -1011,7 +999,7 @@ name|os
 init|=
 name|asset
 operator|.
-name|writeData
+name|getWriteStream
 argument_list|(
 literal|true
 argument_list|)
@@ -1092,7 +1080,7 @@ expr_stmt|;
 block|}
 name|asset
 operator|.
-name|storeDataFile
+name|replaceDataFromFile
 argument_list|(
 name|dataFile
 argument_list|)
