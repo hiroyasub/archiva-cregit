@@ -9,7 +9,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|content
+name|storage
 package|;
 end_package
 
@@ -103,20 +103,8 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Consumer
-import|;
-end_import
-
 begin_comment
-comment|/**  * A instance of this interface represents information about an specific asset in a repository.  * The asset may be an real artifact, a directory, or a virtual asset.  *  * Each asset has a unique path relative to the repository.  *  * The implementation may read the data directly from the filesystem or underlying storage implementation.  *  * @author Martin Stockhammer<martin_s@apache.org>  */
+comment|/**  * A instance of this interface represents information about a specific asset in a repository.  * The asset may be an real artifact, a directory, or a virtual asset.  *  * Each asset has a unique path relative to the repository.  *  * The implementation may read the data directly from the filesystem or underlying storage implementation.  *  * @author Martin Stockhammer<martin_s@apache.org>  */
 end_comment
 
 begin_interface
@@ -239,6 +227,14 @@ comment|/**      * Returns the parent of this asset.      * @return The asset, o
 name|StorageAsset
 name|getParent
 parameter_list|()
+function_decl|;
+comment|/**      * Returns the asset relative to the given path      * @param toPath      * @return      */
+name|StorageAsset
+name|resolve
+parameter_list|(
+name|String
+name|toPath
+parameter_list|)
 function_decl|;
 block|}
 end_interface

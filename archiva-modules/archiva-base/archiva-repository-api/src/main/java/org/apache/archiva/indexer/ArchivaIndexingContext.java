@@ -31,6 +31,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|storage
+operator|.
+name|StorageAsset
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -89,7 +105,7 @@ name|getRepository
 parameter_list|()
 function_decl|;
 comment|/**      * The path where the index is stored.      * @return      */
-name|URI
+name|StorageAsset
 name|getPath
 parameter_list|()
 function_decl|;

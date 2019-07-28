@@ -141,6 +141,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|nio
 operator|.
 name|file
@@ -201,6 +211,8 @@ name|testGroupMetadata
 parameter_list|()
 throws|throws
 name|XMLException
+throws|,
+name|IOException
 block|{
 name|Path
 name|metadataFile
@@ -400,6 +412,8 @@ name|testProjectMetadata
 parameter_list|()
 throws|throws
 name|XMLException
+throws|,
+name|IOException
 block|{
 name|Path
 name|metadataFile
@@ -508,6 +522,8 @@ name|testProjectVersionMetadata
 parameter_list|()
 throws|throws
 name|XMLException
+throws|,
+name|IOException
 block|{
 name|Path
 name|metadataFile

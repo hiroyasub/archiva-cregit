@@ -51,23 +51,27 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
 operator|.
-name|stereotype
+name|archiva
 operator|.
-name|Service
+name|repository
+operator|.
+name|storage
+operator|.
+name|StorageAsset
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|nio
+name|springframework
 operator|.
-name|file
+name|stereotype
 operator|.
-name|Path
+name|Service
 import|;
 end_import
 
@@ -93,7 +97,7 @@ parameter_list|(
 name|RepositoryGroup
 name|repositoryGroup
 parameter_list|,
-name|Path
+name|StorageAsset
 name|directory
 parameter_list|)
 block|{

@@ -33,13 +33,17 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|nio
+name|apache
 operator|.
-name|file
+name|archiva
 operator|.
-name|Path
+name|repository
+operator|.
+name|storage
+operator|.
+name|StorageAsset
 import|;
 end_import
 
@@ -52,14 +56,14 @@ specifier|public
 interface|interface
 name|MergedRemoteIndexesScheduler
 block|{
-comment|/**      * will check if this repository group need to a schedule a cron to download/merge      * remote indexes      * @param repositoryGroup      */
+comment|/**      * will check if this repository group need to a schedule a cron to download/merge      * remote indexes      * @param repositoryGroup      * @param directory      */
 name|void
 name|schedule
 parameter_list|(
 name|RepositoryGroup
 name|repositoryGroup
 parameter_list|,
-name|Path
+name|StorageAsset
 name|directory
 parameter_list|)
 function_decl|;

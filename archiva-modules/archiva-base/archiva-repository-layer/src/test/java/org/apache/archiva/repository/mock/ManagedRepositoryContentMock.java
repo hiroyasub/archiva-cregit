@@ -153,7 +153,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|content
+name|storage
 operator|.
 name|StorageAsset
 import|;

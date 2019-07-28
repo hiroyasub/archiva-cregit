@@ -107,6 +107,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|storage
+operator|.
+name|StorageAsset
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|wagon
@@ -323,7 +339,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -436,7 +452,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -465,6 +481,9 @@ argument_list|(
 name|expectedFile
 argument_list|,
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -569,7 +588,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -598,6 +617,9 @@ argument_list|(
 name|expectedFile
 argument_list|,
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -702,7 +724,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -731,6 +753,9 @@ argument_list|(
 name|expectedFile
 argument_list|,
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -835,7 +860,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -864,6 +889,9 @@ argument_list|(
 name|expectedFile
 argument_list|,
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -968,7 +996,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -997,6 +1025,9 @@ argument_list|(
 name|expectedFile
 argument_list|,
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -1101,7 +1132,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -1116,6 +1147,9 @@ decl_stmt|;
 name|assertNotDownloaded
 argument_list|(
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertChecksums
@@ -1213,7 +1247,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -1242,6 +1276,9 @@ argument_list|(
 name|expectedFile
 argument_list|,
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -1346,7 +1383,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -1361,6 +1398,9 @@ decl_stmt|;
 name|assertNotDownloaded
 argument_list|(
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertChecksums
@@ -1458,7 +1498,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -1488,6 +1528,9 @@ argument_list|(
 name|expectedFile
 argument_list|,
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -1592,7 +1635,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -1607,6 +1650,9 @@ decl_stmt|;
 name|assertNotDownloaded
 argument_list|(
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertChecksums
@@ -1704,7 +1750,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -1733,6 +1779,9 @@ argument_list|(
 name|expectedFile
 argument_list|,
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -1837,7 +1886,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -1866,6 +1915,9 @@ argument_list|(
 name|expectedFile
 argument_list|,
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -1970,7 +2022,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -1999,6 +2051,9 @@ argument_list|(
 name|expectedFile
 argument_list|,
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -2103,7 +2158,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -2132,6 +2187,9 @@ argument_list|(
 name|expectedFile
 argument_list|,
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -2365,7 +2423,7 @@ operator|.
 name|replay
 argument_list|()
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -2475,6 +2533,9 @@ argument_list|(
 name|expectedFile
 argument_list|,
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -2578,7 +2639,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -2607,6 +2668,9 @@ argument_list|(
 name|expectedFile
 argument_list|,
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -2711,7 +2775,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -2726,6 +2790,9 @@ decl_stmt|;
 name|assertNotDownloaded
 argument_list|(
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertNoTempFiles
@@ -2829,7 +2896,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -2858,6 +2925,9 @@ argument_list|(
 name|expectedFile
 argument_list|,
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|,
 name|proxied1File
 argument_list|)

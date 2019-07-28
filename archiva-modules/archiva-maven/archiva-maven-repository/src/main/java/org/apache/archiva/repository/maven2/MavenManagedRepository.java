@@ -89,25 +89,9 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|content
+name|storage
 operator|.
 name|FilesystemStorage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|content
-operator|.
-name|RepositoryStorage
 import|;
 end_import
 
@@ -264,18 +248,6 @@ operator|.
 name|util
 operator|.
 name|Locale
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Function
 import|;
 end_import
 

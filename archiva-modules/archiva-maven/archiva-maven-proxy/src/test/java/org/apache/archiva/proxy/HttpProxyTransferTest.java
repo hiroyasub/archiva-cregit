@@ -207,6 +207,22 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|repository
+operator|.
+name|storage
+operator|.
+name|StorageAsset
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|test
 operator|.
 name|utils
@@ -1172,7 +1188,7 @@ name|path
 argument_list|)
 decl_stmt|;
 comment|// Attempt the proxy fetch.
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler
@@ -1219,6 +1235,9 @@ operator|.
 name|exists
 argument_list|(
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1233,6 +1252,9 @@ argument_list|(
 name|expectedFile
 argument_list|,
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1247,6 +1269,9 @@ argument_list|(
 name|expectedFile
 argument_list|,
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1276,6 +1301,9 @@ operator|.
 name|readFileToString
 argument_list|(
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 operator|.
 name|toFile
 argument_list|()

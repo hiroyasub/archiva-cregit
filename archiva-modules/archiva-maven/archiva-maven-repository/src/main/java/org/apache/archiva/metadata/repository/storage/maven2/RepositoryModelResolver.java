@@ -229,6 +229,22 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|repository
+operator|.
+name|storage
+operator|.
+name|StorageAsset
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|xml
 operator|.
 name|XMLException
@@ -728,7 +744,7 @@ name|VersionRangeResolver
 name|versionRangeResolver
 decl_stmt|;
 specifier|private
-name|Path
+name|StorageAsset
 name|basedir
 decl_stmt|;
 specifier|private
@@ -784,7 +800,7 @@ decl_stmt|;
 specifier|public
 name|RepositoryModelResolver
 parameter_list|(
-name|Path
+name|StorageAsset
 name|basedir
 parameter_list|,
 name|RepositoryPathTranslator
@@ -839,14 +855,11 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|Paths
-operator|.
-name|get
-argument_list|(
 name|managedRepository
 operator|.
-name|getLocation
-argument_list|()
+name|getAsset
+argument_list|(
+literal|""
 argument_list|)
 argument_list|,
 name|pathTranslator
@@ -967,7 +980,7 @@ operator|+
 literal|".pom"
 decl_stmt|;
 comment|// TODO: we need to convert 1.0-20091120.112233-1 type paths to baseVersion for the below call - add a test
-name|Path
+name|StorageAsset
 name|model
 init|=
 name|pathTranslator
@@ -988,12 +1001,10 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|Files
+name|model
 operator|.
 name|exists
-argument_list|(
-name|model
-argument_list|)
+argument_list|()
 condition|)
 block|{
 comment|/**              *              */
@@ -1081,12 +1092,10 @@ if|if
 condition|(
 name|success
 operator|&&
-name|Files
+name|model
 operator|.
 name|exists
-argument_list|(
-name|model
-argument_list|)
+argument_list|()
 condition|)
 block|{
 name|log
@@ -1097,7 +1106,7 @@ literal|"Model '{}' successfully retrieved from remote repository '{}'"
 argument_list|,
 name|model
 operator|.
-name|toAbsolutePath
+name|getPath
 argument_list|()
 argument_list|,
 name|remoteRepository
@@ -1123,7 +1132,7 @@ literal|"An exception was caught while attempting to retrieve model '{}' from re
 argument_list|,
 name|model
 operator|.
-name|toAbsolutePath
+name|getPath
 argument_list|()
 argument_list|,
 name|remoteRepository
@@ -1152,7 +1161,7 @@ literal|"An exception was caught while attempting to retrieve model '{}' from re
 argument_list|,
 name|model
 operator|.
-name|toAbsolutePath
+name|getPath
 argument_list|()
 argument_list|,
 name|remoteRepository
@@ -1175,6 +1184,9 @@ operator|new
 name|FileModelSource
 argument_list|(
 name|model
+operator|.
+name|getFilePath
+argument_list|()
 operator|.
 name|toFile
 argument_list|()
@@ -1830,7 +1842,7 @@ argument_list|,
 name|version
 argument_list|)
 expr_stmt|;
-name|Path
+name|StorageAsset
 name|model
 init|=
 name|basedir
@@ -1843,16 +1855,17 @@ decl_stmt|;
 comment|//model = pathTranslator.toFile( basedir, groupId, artifactId, lastVersion, filename );
 if|if
 condition|(
-name|Files
+name|model
 operator|.
 name|exists
-argument_list|(
-name|model
-argument_list|)
+argument_list|()
 condition|)
 block|{
 return|return
 name|model
+operator|.
+name|getFilePath
+argument_list|()
 return|;
 block|}
 block|}
@@ -1860,6 +1873,8 @@ block|}
 catch|catch
 parameter_list|(
 name|XMLException
+decl||
+name|IOException
 name|e
 parameter_list|)
 block|{

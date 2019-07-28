@@ -19,6 +19,22 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|storage
+operator|.
+name|StorageAsset
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|nio
@@ -93,7 +109,7 @@ name|int
 name|mergedIndexTtl
 decl_stmt|;
 specifier|private
-name|Path
+name|StorageAsset
 name|mergedIndexDirectory
 decl_stmt|;
 specifier|private
@@ -316,7 +332,7 @@ name|mergedIndexTtl
 expr_stmt|;
 block|}
 specifier|public
-name|Path
+name|StorageAsset
 name|getMergedIndexDirectory
 parameter_list|()
 block|{
@@ -328,7 +344,7 @@ specifier|public
 name|void
 name|setMergedIndexDirectory
 parameter_list|(
-name|Path
+name|StorageAsset
 name|mergedIndexDirectory
 parameter_list|)
 block|{
@@ -343,7 +359,7 @@ specifier|public
 name|IndexMergerRequest
 name|mergedIndexDirectory
 parameter_list|(
-name|Path
+name|StorageAsset
 name|mergedIndexDirectory
 parameter_list|)
 block|{

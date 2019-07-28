@@ -9,7 +9,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|content
+name|storage
 package|;
 end_package
 
@@ -96,7 +96,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Repository storage gives access to the files and directories on the storage.  * The storage may be on a filesystem but can be any other storage system.  *  * This API is low level repository access. If you use this API you must  * either have knowledge about the specific repository layout or use the structure  * as it is, e.g. for browsing.  *  * It is the decision of the implementation, if this API provides access to all elements, or  * just a selected view.  *  * Checking access is not part of this API.  */
+comment|/**  *  * This is the low level API to access artifacts in a repository. Each artifact is represented  * by one storage asset. Each asset can be accessed by a path that is independent on the underlying storage  * implementation. Paths always use '/' as path separator. The path is local to the repository and  * is unique for each asset.  * The storage API knows nothing about the repository layout or repository specific metadata.  * If you use this API you must either have knowledge about the specific repository layout or use the structure  * as it is, e.g. for browsing.  *  * The base implementation for the storage uses a directory structure on the local filesystem.  *  *  * It is the decision of the repository type specific implementation, if this API provides access to all elements, that  * is really stored or just a selected view.  *  * Checking access is not part of this API.  */
 end_comment
 
 begin_interface
@@ -210,7 +210,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Moves the asset to the given location and returns the asset object for the destination.      *      * @param origin The original asset      * @param destination The destination path pointing to the new asset.      * @param copyOptions The copy options.      * @return The asset representation of the moved object.      */
+comment|/**      * Moves the asset to the given location and returns the asset object for the destination. Moves only assets that      * belong to the same storage instance. It will throw a IOException if the assets are from differents storage      * instances.      *      * @param origin The original asset      * @param destination The destination path pointing to the new asset.      * @param copyOptions The copy options.      * @return The asset representation of the moved object.      */
 name|StorageAsset
 name|moveAsset
 parameter_list|(
@@ -227,7 +227,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Moves the asset to the new path.      *      * @param origin The original asset      * @param destination The destination asset.      * @param copyOptions The copy options (e.g. {@link java.nio.file.StandardCopyOption#REPLACE_EXISTING}      * @throws IOException If it was not possible to copy the asset.      */
+comment|/**      * Moves the asset to the given location and returns the asset object for the destination. Moves only assets that      * belong to the same storage instance. It will throw a IOException if the assets are from differents storage      * instances.      * *      * @param origin The original asset      * @param destination The destination path.      * @param copyOptions The copy options (e.g. {@link java.nio.file.StandardCopyOption#REPLACE_EXISTING}      * @throws IOException If it was not possible to copy the asset.      */
 name|void
 name|moveAsset
 parameter_list|(
@@ -244,7 +244,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Copies the given asset to the new destination.      *      * @param origin The original asset      * @param destination The path to the new asset      * @param copyOptions The copy options, e.g. (e.g. {@link java.nio.file.StandardCopyOption#REPLACE_EXISTING}      * @return The asset representation of the copied object      * @throws IOException If it was not possible to copy the asset      */
+comment|/**      * Copies the given asset to the new destination. Copies only assets that belong to the same storage instance.      * It will throw a IOException if the assets are from differents storage instances.      *      * @param origin The original asset      * @param destination The path to the new asset      * @param copyOptions The copy options, e.g. (e.g. {@link java.nio.file.StandardCopyOption#REPLACE_EXISTING}      * @return The asset representation of the copied object      * @throws IOException If it was not possible to copy the asset      */
 name|StorageAsset
 name|copyAsset
 parameter_list|(
@@ -261,7 +261,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Copies the given asset to the new destination.      *      * @param origin The original asset      * @param destination The path to the new asset      * @param copyOptions The copy options, e.g. (e.g. {@link java.nio.file.StandardCopyOption#REPLACE_EXISTING}      * @throws IOException If it was not possible to copy the asset      */
+comment|/**      * Copies the given asset to the new destination. Copies only assets that belong to the same storage instance.      * It will throw a IOException if the assets are from differents storage instances.      *      * @param origin The original asset      * @param destination The path to the new asset      * @param copyOptions The copy options, e.g. (e.g. {@link java.nio.file.StandardCopyOption#REPLACE_EXISTING}      * @throws IOException If it was not possible to copy the asset      */
 name|void
 name|copyAsset
 parameter_list|(

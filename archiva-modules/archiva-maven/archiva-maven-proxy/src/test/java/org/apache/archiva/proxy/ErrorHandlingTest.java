@@ -133,6 +133,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|storage
+operator|.
+name|StorageAsset
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|wagon
@@ -2636,7 +2652,7 @@ name|replay
 argument_list|()
 expr_stmt|;
 comment|// Attempt the proxy fetch.
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 literal|null
@@ -2720,6 +2736,9 @@ expr_stmt|;
 name|assertNotDownloaded
 argument_list|(
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2739,7 +2758,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|performDownload
@@ -2764,6 +2783,9 @@ argument_list|(
 name|expectedFile
 argument_list|,
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -2779,7 +2801,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|performDownload
@@ -2790,11 +2812,14 @@ decl_stmt|;
 name|assertNotDownloaded
 argument_list|(
 name|downloadedFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 specifier|private
-name|Path
+name|StorageAsset
 name|performDownload
 parameter_list|(
 name|String
@@ -2811,7 +2836,7 @@ name|replay
 argument_list|()
 expr_stmt|;
 comment|// Attempt the proxy fetch.
-name|Path
+name|StorageAsset
 name|downloadedFile
 init|=
 name|proxyHandler

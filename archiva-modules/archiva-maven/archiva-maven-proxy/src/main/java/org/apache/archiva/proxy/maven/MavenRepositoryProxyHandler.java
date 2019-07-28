@@ -157,7 +157,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|content
+name|storage
 operator|.
 name|StorageAsset
 import|;
@@ -660,10 +660,10 @@ parameter_list|,
 name|RemoteRepositoryContent
 name|remoteRepository
 parameter_list|,
-name|Path
+name|StorageAsset
 name|tmpResource
 parameter_list|,
-name|Path
+name|StorageAsset
 index|[]
 name|checksumFiles
 parameter_list|,
@@ -919,10 +919,7 @@ index|[
 name|i
 index|]
 operator|.
-name|getFileName
-argument_list|( )
-operator|.
-name|toString
+name|getName
 argument_list|( )
 argument_list|,
 literal|"."
@@ -949,6 +946,9 @@ name|checksumFiles
 index|[
 name|i
 index|]
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1076,7 +1076,7 @@ parameter_list|,
 name|Path
 name|tmpDirectory
 parameter_list|,
-name|Path
+name|StorageAsset
 name|destFile
 parameter_list|)
 throws|throws
@@ -1095,6 +1095,9 @@ argument_list|,
 name|resource
 argument_list|,
 name|destFile
+operator|.
+name|getFilePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

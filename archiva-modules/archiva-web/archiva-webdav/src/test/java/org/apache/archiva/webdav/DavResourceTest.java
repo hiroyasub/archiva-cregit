@@ -95,7 +95,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|content
+name|storage
 operator|.
 name|FilesystemAsset
 import|;
@@ -802,6 +802,8 @@ argument_list|(
 operator|new
 name|FilesystemAsset
 argument_list|(
+name|repository
+argument_list|,
 name|logicalPath
 argument_list|,
 name|file
@@ -1825,6 +1827,8 @@ argument_list|(
 operator|new
 name|FilesystemAsset
 argument_list|(
+name|repository
+argument_list|,
 literal|"/"
 argument_list|,
 name|baseDir

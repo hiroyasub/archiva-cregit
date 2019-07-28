@@ -19,6 +19,22 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|storage
+operator|.
+name|StorageAsset
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -72,7 +88,7 @@ name|getTime
 argument_list|()
 decl_stmt|;
 specifier|private
-name|Path
+name|StorageAsset
 name|directory
 decl_stmt|;
 specifier|private
@@ -90,7 +106,7 @@ decl_stmt|;
 specifier|public
 name|TemporaryGroupIndex
 parameter_list|(
-name|Path
+name|StorageAsset
 name|directory
 parameter_list|,
 name|String
@@ -156,7 +172,7 @@ name|this
 return|;
 block|}
 specifier|public
-name|Path
+name|StorageAsset
 name|getDirectory
 parameter_list|()
 block|{
@@ -168,7 +184,7 @@ specifier|public
 name|TemporaryGroupIndex
 name|setDirectory
 parameter_list|(
-name|Path
+name|StorageAsset
 name|directory
 parameter_list|)
 block|{

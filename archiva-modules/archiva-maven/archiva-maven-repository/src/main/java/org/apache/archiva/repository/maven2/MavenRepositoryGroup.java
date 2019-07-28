@@ -73,7 +73,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|content
+name|storage
 operator|.
 name|FilesystemStorage
 import|;
@@ -122,18 +122,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Files
 import|;
 end_import
 
