@@ -594,6 +594,11 @@ name|location
 operator|.
 name|getParent
 argument_list|()
+operator|.
+name|resolve
+argument_list|(
+name|id
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|repo

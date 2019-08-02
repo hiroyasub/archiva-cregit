@@ -512,6 +512,11 @@ name|get
 argument_list|(
 literal|"target/repositories"
 argument_list|)
+operator|.
+name|resolve
+argument_list|(
+name|id
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -620,6 +625,14 @@ operator|.
 name|get
 argument_list|(
 literal|"target/repositories"
+argument_list|)
+operator|.
+name|resolve
+argument_list|(
+name|configuration
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -980,13 +993,18 @@ argument_list|,
 name|configuration
 operator|.
 name|getName
-argument_list|( )
+argument_list|()
 argument_list|,
 name|Paths
 operator|.
 name|get
 argument_list|(
 literal|"target/repositories"
+argument_list|)
+operator|.
+name|resolve
+argument_list|(
+name|id
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1387,7 +1405,12 @@ throw|throw
 operator|new
 name|RepositoryException
 argument_list|(
-literal|"Error"
+literal|"Error while updating remote instance: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|,
 name|e
 argument_list|)

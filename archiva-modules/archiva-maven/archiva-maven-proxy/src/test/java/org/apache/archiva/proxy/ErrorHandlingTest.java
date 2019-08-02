@@ -2736,9 +2736,6 @@ expr_stmt|;
 name|assertNotDownloaded
 argument_list|(
 name|downloadedFile
-operator|.
-name|getFilePath
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2812,9 +2809,6 @@ decl_stmt|;
 name|assertNotDownloaded
 argument_list|(
 name|downloadedFile
-operator|.
-name|getFilePath
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

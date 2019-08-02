@@ -595,23 +595,7 @@ return|return
 literal|false
 return|;
 block|}
-if|if
-condition|(
-operator|!
-name|repositoryId
-operator|.
-name|equals
-argument_list|(
-name|that
-operator|.
-name|repositoryId
-argument_list|)
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
+comment|/**          * We cannot compare in different repositories, if this is in here         if ( !repositoryId.equals( that.repositoryId ) )         {             return false;         }          **/
 if|if
 condition|(
 name|sha1

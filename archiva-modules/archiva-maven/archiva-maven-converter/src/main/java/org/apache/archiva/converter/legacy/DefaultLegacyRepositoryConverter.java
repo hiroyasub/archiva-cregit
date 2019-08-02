@@ -481,9 +481,6 @@ argument_list|,
 literal|"Legacy Repository"
 argument_list|,
 name|repositoryDirectory
-operator|.
-name|getParent
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|legacyRepository

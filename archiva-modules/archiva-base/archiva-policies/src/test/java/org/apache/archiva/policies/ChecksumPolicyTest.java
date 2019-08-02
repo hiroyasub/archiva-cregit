@@ -1603,9 +1603,9 @@ block|}
 name|StorageAsset
 name|localAsset
 init|=
-name|fs
+name|destDir
 operator|.
-name|getAsset
+name|resolve
 argument_list|(
 literal|"artifact.jar"
 argument_list|)

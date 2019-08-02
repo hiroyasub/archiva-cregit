@@ -413,6 +413,15 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|this
+operator|.
+name|fileLock
+operator|!=
+literal|null
+condition|)
+block|{
 name|this
 operator|.
 name|fileLock
@@ -420,6 +429,7 @@ operator|.
 name|release
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -432,6 +442,8 @@ operator|=
 name|e
 expr_stmt|;
 block|}
+finally|finally
+block|{
 name|closeQuietly
 argument_list|(
 name|fileChannel
@@ -447,6 +459,7 @@ name|currentThread
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|ioException

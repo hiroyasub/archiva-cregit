@@ -418,6 +418,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Creates a filesystem based repository instance. The path is built by basePath/repository-id      *      * @param id The repository id      * @param name The name of the repository      * @param repositoryPath The path to the repository      * @return The repository instance      * @throws IOException      */
 specifier|public
 specifier|static
 name|BasicManagedRepository
@@ -430,7 +431,7 @@ name|String
 name|name
 parameter_list|,
 name|Path
-name|basePath
+name|repositoryPath
 parameter_list|)
 throws|throws
 name|IOException
@@ -448,12 +449,7 @@ init|=
 operator|new
 name|FilesystemStorage
 argument_list|(
-name|basePath
-operator|.
-name|resolve
-argument_list|(
-name|id
-argument_list|)
+name|repositoryPath
 argument_list|,
 name|lockManager
 argument_list|)

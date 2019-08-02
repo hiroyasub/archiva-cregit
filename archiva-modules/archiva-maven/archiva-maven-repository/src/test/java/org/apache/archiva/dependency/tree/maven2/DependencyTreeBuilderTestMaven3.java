@@ -127,6 +127,20 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|repository
+operator|.
+name|RepositoryRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|test
 operator|.
 name|utils
@@ -332,6 +346,11 @@ name|ArchivaConfiguration
 name|config
 decl_stmt|;
 annotation|@
+name|Inject
+name|RepositoryRegistry
+name|repositoryRegistry
+decl_stmt|;
+annotation|@
 name|Before
 annotation|@
 name|Override
@@ -399,6 +418,11 @@ name|save
 argument_list|(
 name|configuration
 argument_list|)
+expr_stmt|;
+name|repositoryRegistry
+operator|.
+name|reload
+argument_list|()
 expr_stmt|;
 comment|//artifactFactory = ((DefaultDependencyTreeBuilder)this.builder).getFactory();
 block|}

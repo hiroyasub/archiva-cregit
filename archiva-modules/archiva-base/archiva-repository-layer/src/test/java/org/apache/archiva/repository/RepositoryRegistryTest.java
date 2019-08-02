@@ -1208,6 +1208,11 @@ name|archivaConfiguration
 operator|.
 name|getRepositoryBaseDir
 argument_list|()
+operator|.
+name|resolve
+argument_list|(
+literal|"test001"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|managedRepository
@@ -1264,6 +1269,11 @@ name|archivaConfiguration
 operator|.
 name|getRepositoryBaseDir
 argument_list|()
+operator|.
+name|resolve
+argument_list|(
+literal|"central"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|managedRepository
@@ -1322,6 +1332,11 @@ name|archivaConfiguration
 operator|.
 name|getRepositoryBaseDir
 argument_list|()
+operator|.
+name|resolve
+argument_list|(
+literal|"internal"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|managedRepository

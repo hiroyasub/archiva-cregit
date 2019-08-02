@@ -190,6 +190,15 @@ literal|"sha5"
 argument_list|,
 literal|"sha-512"
 argument_list|)
+block|,
+name|ASC
+argument_list|(
+literal|"ASC"
+argument_list|,
+literal|"ASC"
+argument_list|,
+literal|"asc"
+argument_list|)
 block|;
 specifier|public
 specifier|static

@@ -51,6 +51,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URI
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|nio
 operator|.
 name|channels
@@ -104,6 +114,21 @@ specifier|public
 interface|interface
 name|RepositoryStorage
 block|{
+comment|/**      * Returns a URI representation of the storage location.      *      * @return The URI that is pointing to the storage.      */
+name|URI
+name|getLocation
+parameter_list|()
+function_decl|;
+comment|/**      * Updates the base location of the repository storage. The method does not move any data.      * It just points to the new location. Artifacts may not be accessible anymore if the data has      * not been moved or copied. Assets retrieved before the relocation may still be pointing to the      * old location.      *      * @param newLocation The URI to the new location      *      * @throws IOException If the repository cannot be relocated      */
+name|void
+name|updateLocation
+parameter_list|(
+name|URI
+name|newLocation
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 comment|/**      * Returns information about a specific storage asset.      * @param path      * @return      */
 name|StorageAsset
 name|getAsset

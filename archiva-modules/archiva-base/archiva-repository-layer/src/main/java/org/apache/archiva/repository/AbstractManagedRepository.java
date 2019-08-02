@@ -121,10 +121,6 @@ argument_list|(
 name|activeReleaseSchemes
 argument_list|)
 decl_stmt|;
-specifier|private
-name|RepositoryStorage
-name|storage
-decl_stmt|;
 specifier|public
 name|AbstractManagedRepository
 parameter_list|(
@@ -151,12 +147,6 @@ name|name
 argument_list|,
 name|storage
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|storage
-operator|=
-name|storage
 expr_stmt|;
 block|}
 specifier|public
@@ -190,12 +180,6 @@ name|name
 argument_list|,
 name|storage
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|storage
-operator|=
-name|storage
 expr_stmt|;
 block|}
 annotation|@

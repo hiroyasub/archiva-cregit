@@ -255,6 +255,11 @@ argument_list|,
 literal|"Test Repository"
 argument_list|,
 name|basePath
+operator|.
+name|resolve
+argument_list|(
+literal|"test-repo"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|repoConfig

@@ -1039,7 +1039,7 @@ operator|.
 name|getParent
 argument_list|()
 operator|.
-name|toString
+name|getFilePath
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1706,7 +1706,7 @@ parameter_list|,
 name|String
 name|version
 parameter_list|,
-name|String
+name|Path
 name|parentDirectory
 parameter_list|)
 block|{
@@ -1714,12 +1714,10 @@ comment|// reading metadata if there
 name|Path
 name|mavenMetadata
 init|=
-name|Paths
-operator|.
-name|get
-argument_list|(
 name|parentDirectory
-argument_list|,
+operator|.
+name|resolve
+argument_list|(
 name|METADATA_FILENAME
 argument_list|)
 decl_stmt|;
@@ -1873,8 +1871,6 @@ block|}
 catch|catch
 parameter_list|(
 name|XMLException
-decl||
-name|IOException
 name|e
 parameter_list|)
 block|{

@@ -1572,7 +1572,7 @@ argument_list|(
 operator|new
 name|URI
 argument_list|(
-literal|"file:///this.is/a/test"
+literal|"target/this.is/a/test"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1754,7 +1754,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"/this.is/a/test"
+literal|"target/this.is/a/test"
 argument_list|,
 name|cfg
 operator|.

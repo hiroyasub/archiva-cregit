@@ -803,6 +803,11 @@ argument_list|,
 name|repoName
 argument_list|,
 name|basePath
+operator|.
+name|resolve
+argument_list|(
+name|repoId
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|config

@@ -289,9 +289,6 @@ decl_stmt|;
 name|assertNotDownloaded
 argument_list|(
 name|downloadedFile
-operator|.
-name|getFilePath
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertNoTempFiles
@@ -616,9 +613,6 @@ comment|// Should not have downloaded as managed is newer than remote.
 name|assertNotDownloaded
 argument_list|(
 name|downloadedFile
-operator|.
-name|getFilePath
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertNoTempFiles
@@ -850,9 +844,6 @@ decl_stmt|;
 name|assertNotDownloaded
 argument_list|(
 name|downloadedFile
-operator|.
-name|getFilePath
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertNotModified

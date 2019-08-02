@@ -784,9 +784,6 @@ name|get
 argument_list|(
 name|path
 argument_list|)
-operator|.
-name|getParent
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|repo

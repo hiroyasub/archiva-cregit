@@ -655,6 +655,11 @@ argument_list|,
 literal|"Test Repository"
 argument_list|,
 name|baseDir
+operator|.
+name|resolve
+argument_list|(
+literal|"test-repo"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|Path

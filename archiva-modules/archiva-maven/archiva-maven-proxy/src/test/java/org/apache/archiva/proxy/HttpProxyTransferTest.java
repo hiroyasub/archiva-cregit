@@ -650,6 +650,11 @@ name|get
 argument_list|(
 name|path
 argument_list|)
+operator|.
+name|resolve
+argument_list|(
+name|id
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|repositoryRegistry

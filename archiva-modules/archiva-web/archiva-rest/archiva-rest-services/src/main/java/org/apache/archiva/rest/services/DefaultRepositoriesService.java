@@ -1081,29 +1081,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|OutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|OutputStreamWriter
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Files
 import|;
 end_import
 
@@ -2507,7 +2485,7 @@ name|lastIndex
 argument_list|)
 decl_stmt|;
 name|StorageAsset
-name|targetPath
+name|targetDir
 init|=
 name|target
 operator|.
@@ -2562,19 +2540,19 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|targetPath
+name|targetDir
 operator|.
 name|exists
 argument_list|()
 condition|)
 block|{
-name|targetPath
+name|targetDir
 operator|=
 name|target
 operator|.
 name|addAsset
 argument_list|(
-name|targetPath
+name|targetDir
 operator|.
 name|getPath
 argument_list|()
@@ -2582,7 +2560,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|targetPath
+name|targetDir
 operator|.
 name|create
 argument_list|()
@@ -2623,7 +2601,10 @@ name|target
 operator|.
 name|getAsset
 argument_list|(
-name|targetPath
+name|targetDir
+operator|.
+name|getPath
+argument_list|()
 operator|+
 literal|"/"
 operator|+
@@ -2664,11 +2645,7 @@ else|else
 block|{
 name|copyFile
 argument_list|(
-name|source
-argument_list|,
 name|artifactFile
-argument_list|,
-name|target
 argument_list|,
 name|targetFile
 argument_list|,
@@ -2778,7 +2755,7 @@ name|target
 operator|.
 name|getAsset
 argument_list|(
-name|targetPath
+name|targetDir
 operator|.
 name|getPath
 argument_list|()
@@ -2790,11 +2767,7 @@ argument_list|)
 decl_stmt|;
 name|copyFile
 argument_list|(
-name|source
-argument_list|,
 name|pomFile
-argument_list|,
-name|target
 argument_list|,
 name|targetPomFile
 argument_list|,
@@ -2831,7 +2804,7 @@ name|updateProjectMetadata
 argument_list|(
 name|target
 argument_list|,
-name|targetPath
+name|targetDir
 argument_list|,
 name|lastUpdatedTimestamp
 argument_list|,
@@ -3106,8 +3079,6 @@ block|}
 catch|catch
 parameter_list|(
 name|XMLException
-decl||
-name|IOException
 name|e
 parameter_list|)
 block|{
@@ -3160,14 +3131,8 @@ specifier|private
 name|void
 name|copyFile
 parameter_list|(
-name|RepositoryStorage
-name|sourceStorage
-parameter_list|,
 name|StorageAsset
 name|sourceFile
-parameter_list|,
-name|RepositoryStorage
-name|targetStorage
 parameter_list|,
 name|StorageAsset
 name|targetPath
@@ -4439,6 +4404,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|targetPath
 operator|.
 name|exists
@@ -4456,6 +4422,9 @@ argument_list|,
 name|targetPath
 argument_list|)
 expr_stmt|;
+return|return
+literal|false
+return|;
 block|}
 comment|// TODO: this should be in the storage mechanism so that it is all tied together
 comment|// delete from file system
@@ -4513,7 +4482,6 @@ name|artifactRef
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 name|StorageAsset
 name|metadataFile
 init|=
@@ -4546,6 +4514,7 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|Collection
 argument_list|<

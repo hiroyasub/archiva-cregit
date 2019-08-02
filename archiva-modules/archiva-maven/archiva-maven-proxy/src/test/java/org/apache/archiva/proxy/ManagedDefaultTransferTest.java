@@ -562,6 +562,11 @@ argument_list|,
 name|path
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|downloadedFile
+argument_list|)
+expr_stmt|;
 name|assertFileEquals
 argument_list|(
 name|expectedFile
@@ -647,7 +652,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|".asc"
+literal|".sha256"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -880,9 +885,6 @@ decl_stmt|;
 name|assertNotDownloaded
 argument_list|(
 name|downloadedFile
-operator|.
-name|getFilePath
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertNotModified
@@ -1023,9 +1025,6 @@ decl_stmt|;
 name|assertNotDownloaded
 argument_list|(
 name|downloadedFile
-operator|.
-name|getFilePath
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertNotModified
@@ -2049,9 +2048,6 @@ decl_stmt|;
 name|assertNotDownloaded
 argument_list|(
 name|downloadedFile
-operator|.
-name|getFilePath
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|wagonMockControl

@@ -559,6 +559,11 @@ name|get
 argument_list|(
 literal|"target/test-classes"
 argument_list|)
+operator|.
+name|resolve
+argument_list|(
+literal|"test-repo"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|repositoryConfig

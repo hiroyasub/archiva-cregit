@@ -533,6 +533,11 @@ name|get
 argument_list|(
 literal|"target"
 argument_list|)
+operator|.
+name|resolve
+argument_list|(
+name|TEST_REPO
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|config

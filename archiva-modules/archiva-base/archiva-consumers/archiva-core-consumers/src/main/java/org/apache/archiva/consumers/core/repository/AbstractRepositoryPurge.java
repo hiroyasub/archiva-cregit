@@ -2031,12 +2031,12 @@ block|{
 if|if
 condition|(
 operator|!
-name|artifactFile
+name|a
 operator|.
 name|isContainer
 argument_list|()
 operator|&&
-name|artifactFile
+name|a
 operator|.
 name|getName
 argument_list|()
