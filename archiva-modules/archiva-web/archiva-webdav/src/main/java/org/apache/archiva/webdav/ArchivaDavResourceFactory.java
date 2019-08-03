@@ -2732,10 +2732,7 @@ name|asset
 init|=
 name|temporaryIndexDirectory
 operator|.
-name|getStorage
-argument_list|()
-operator|.
-name|getAsset
+name|resolve
 argument_list|(
 name|requestedFileName
 argument_list|)

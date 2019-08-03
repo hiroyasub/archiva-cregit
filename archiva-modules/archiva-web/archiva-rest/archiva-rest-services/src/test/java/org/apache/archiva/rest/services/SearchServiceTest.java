@@ -1185,7 +1185,13 @@ name|createAndIndexRepo
 argument_list|(
 name|TEST_REPO
 argument_list|,
+name|getProjectDirectory
+argument_list|()
+operator|.
+name|resolve
+argument_list|(
 literal|"src/test/repo-with-classifier-only"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|SearchService
@@ -1404,7 +1410,13 @@ name|createAndIndexRepo
 argument_list|(
 name|TEST_REPO
 argument_list|,
+name|getProjectDirectory
+argument_list|( )
+operator|.
+name|resolve
+argument_list|(
 literal|"src/test/repo-with-osgi"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|waitForScanToComplete
