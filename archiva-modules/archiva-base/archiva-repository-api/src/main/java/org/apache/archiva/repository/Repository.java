@@ -63,6 +63,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|storage
+operator|.
+name|StorageAsset
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|net
@@ -157,8 +173,8 @@ name|URI
 name|getLocation
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the local path that this repository uses, if it stores data locally. You should keep in      * mind, that repository implementations may not store any data in this directory. E.g. if the      * repository data is handled by a database. So the content of this directory is very implementation      * specific. Users of this directory must know about the repository file layout if they use this      * path.      *      * Repository implementations should always return a valid path, even if there is no locally stored data.      *      * Some extensions may use the path to store their own repository specific data, e.g. statistics, metadata,...      *      * @return the filesystem path to the repository.      */
-name|Path
+comment|/**      * Returns a storage representation to the local data stored for this repository.      * The repository implementation may not store the real artifacts in this path. The directory structure      * is completely implementation dependant.      *      */
+name|StorageAsset
 name|getLocalPath
 parameter_list|()
 function_decl|;

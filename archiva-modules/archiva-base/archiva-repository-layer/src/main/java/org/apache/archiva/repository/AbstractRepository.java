@@ -778,7 +778,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Path
+name|StorageAsset
 name|getLocalPath
 parameter_list|()
 block|{
@@ -789,21 +789,7 @@ name|getAsset
 argument_list|(
 literal|""
 argument_list|)
-operator|.
-name|getFilePath
-argument_list|()
 return|;
-comment|//        Path localPath;
-comment|//        if (StringUtils.isEmpty(getLocation().getScheme()) || "file".equals(getLocation().getScheme()) ) {
-comment|//            localPath = PathUtil.getPathFromUri(getLocation());
-comment|//            if (localPath.isAbsolute()) {
-comment|//                return localPath;
-comment|//            } else {
-comment|//                return repositoryBase.resolve(localPath);
-comment|//            }
-comment|//        } else {
-comment|//            return repositoryBase.resolve(getId());
-comment|//        }
 block|}
 annotation|@
 name|Override

@@ -33,6 +33,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|storage
+operator|.
+name|StorageAsset
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|net
@@ -527,7 +543,7 @@ comment|/**      * Remote repositories resolve always relative to the base direc
 annotation|@
 name|Override
 specifier|public
-name|Path
+name|StorageAsset
 name|getLocalPath
 parameter_list|()
 block|{
@@ -539,9 +555,6 @@ name|getAsset
 argument_list|(
 literal|""
 argument_list|)
-operator|.
-name|getFilePath
-argument_list|()
 return|;
 block|}
 annotation|@
