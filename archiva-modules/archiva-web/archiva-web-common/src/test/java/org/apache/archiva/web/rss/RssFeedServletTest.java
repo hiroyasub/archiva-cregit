@@ -529,10 +529,10 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-literal|"test.resources.path/"
+literal|"test.resources.path"
 argument_list|)
 operator|+
-literal|"empty-archiva.xml"
+literal|"/empty-archiva.xml"
 argument_list|)
 expr_stmt|;
 block|}
