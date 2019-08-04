@@ -105,6 +105,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|RepositorySession
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -124,13 +140,16 @@ name|RepositoryWalkingStatisticsProvider
 implements|implements
 name|RepositoryStatisticsProvider
 block|{
-comment|/**      * Walks each namespace of the given repository id and counts the artifacts.      *      * @param metadataRepository The repository implementation      * @param repositoryId The repository Id      * @param repositoryStatistics The statistics object that must be populated      * @throws MetadataRepositoryException Throws the repository exception, if an error occurs while accessing the repository.      */
+comment|/**      * Walks each namespace of the given repository id and counts the artifacts.      *      *      * @param repositorySession      * @param metadataRepository The repository implementation      * @param repositoryId The repository Id      * @param repositoryStatistics The statistics object that must be populated      * @throws MetadataRepositoryException Throws the repository exception, if an error occurs while accessing the repository.      */
 annotation|@
 name|Override
 specifier|public
 name|void
 name|populateStatistics
 parameter_list|(
+name|RepositorySession
+name|repositorySession
+parameter_list|,
 name|MetadataRepository
 name|metadataRepository
 parameter_list|,
@@ -153,7 +172,7 @@ range|:
 name|metadataRepository
 operator|.
 name|getRootNamespaces
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|)
 control|)
@@ -218,7 +237,7 @@ range|:
 name|metadataRepository
 operator|.
 name|getNamespaces
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|ns
@@ -250,7 +269,7 @@ init|=
 name|metadataRepository
 operator|.
 name|getProjects
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|ns
@@ -308,7 +327,7 @@ range|:
 name|metadataRepository
 operator|.
 name|getProjectVersions
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|ns
@@ -325,7 +344,7 @@ range|:
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|ns

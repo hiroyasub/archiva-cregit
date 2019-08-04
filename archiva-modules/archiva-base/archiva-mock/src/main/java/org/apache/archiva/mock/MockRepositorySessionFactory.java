@@ -75,7 +75,39 @@ name|metadata
 operator|.
 name|repository
 operator|.
+name|MetadataRepositoryException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
 name|MetadataResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|MetadataSessionException
 import|;
 end_import
 
@@ -190,6 +222,8 @@ specifier|public
 name|RepositorySession
 name|createSession
 parameter_list|()
+throws|throws
+name|MetadataRepositoryException
 block|{
 return|return
 operator|new
@@ -215,6 +249,8 @@ specifier|public
 name|void
 name|save
 parameter_list|()
+throws|throws
+name|MetadataSessionException
 block|{
 comment|// no op
 block|}

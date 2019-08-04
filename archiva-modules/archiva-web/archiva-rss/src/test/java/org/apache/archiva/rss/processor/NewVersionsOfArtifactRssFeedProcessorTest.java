@@ -465,7 +465,7 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getProjectVersions
-argument_list|(
+argument_list|( ,
 name|TEST_REPO
 argument_list|,
 name|GROUP_ID
@@ -493,7 +493,7 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|TEST_REPO
 argument_list|,
 name|GROUP_ID
@@ -519,7 +519,7 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|TEST_REPO
 argument_list|,
 name|GROUP_ID
@@ -545,7 +545,7 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|TEST_REPO
 argument_list|,
 name|GROUP_ID

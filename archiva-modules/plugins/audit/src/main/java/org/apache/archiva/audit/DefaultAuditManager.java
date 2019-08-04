@@ -289,7 +289,7 @@ init|=
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|AuditEvent
@@ -383,7 +383,7 @@ operator|)
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|(
+argument_list|( ,
 name|record
 operator|.
 name|repositoryId
@@ -438,7 +438,7 @@ block|{
 name|repository
 operator|.
 name|addMetadataFacet
-argument_list|(
+argument_list|( ,
 name|event
 operator|.
 name|getRepositoryId
@@ -467,7 +467,7 @@ block|{
 name|metadataRepository
 operator|.
 name|removeMetadataFacets
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|AuditEvent
@@ -576,7 +576,7 @@ init|=
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|AuditEvent
@@ -645,7 +645,7 @@ operator|)
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|AuditEvent

@@ -355,7 +355,7 @@ decl_stmt|;
 comment|// set up namespaces, etc.
 name|JcrMetadataRepository
 operator|.
-name|initialize
+name|initializeNodeTypes
 argument_list|(
 name|session
 argument_list|)

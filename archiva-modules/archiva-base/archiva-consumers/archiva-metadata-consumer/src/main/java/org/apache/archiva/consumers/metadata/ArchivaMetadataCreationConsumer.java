@@ -709,11 +709,30 @@ block|{
 name|RepositorySession
 name|repositorySession
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|repositorySession
+operator|=
 name|repositorySessionFactory
 operator|.
 name|createSession
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataRepositoryException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
 try|try
 block|{
 comment|// note that we do minimal processing including checksums and POM information for performance of
@@ -920,7 +939,7 @@ expr_stmt|;
 name|metadataRepository
 operator|.
 name|updateArtifact
-argument_list|(
+argument_list|( ,
 name|repoId
 argument_list|,
 name|project
@@ -946,7 +965,7 @@ block|{
 name|metadataRepository
 operator|.
 name|updateProjectVersion
-argument_list|(
+argument_list|( ,
 name|repoId
 argument_list|,
 name|project
@@ -966,7 +985,7 @@ block|}
 name|metadataRepository
 operator|.
 name|updateProject
-argument_list|(
+argument_list|( ,
 name|repoId
 argument_list|,
 name|project
@@ -1044,6 +1063,50 @@ name|repositorySession
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|MetadataSessionException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|MetadataSessionException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
 expr_stmt|;
 block|}
 block|}

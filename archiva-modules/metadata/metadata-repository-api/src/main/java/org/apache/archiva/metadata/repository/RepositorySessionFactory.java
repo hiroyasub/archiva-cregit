@@ -22,19 +22,19 @@ specifier|public
 interface|interface
 name|RepositorySessionFactory
 block|{
-specifier|public
 name|void
 name|open
-parameter_list|()
+parameter_list|( )
 function_decl|;
-specifier|public
 name|boolean
 name|isOpen
-parameter_list|()
+parameter_list|( )
 function_decl|;
 name|RepositorySession
 name|createSession
 parameter_list|()
+throws|throws
+name|MetadataRepositoryException
 function_decl|;
 name|void
 name|close

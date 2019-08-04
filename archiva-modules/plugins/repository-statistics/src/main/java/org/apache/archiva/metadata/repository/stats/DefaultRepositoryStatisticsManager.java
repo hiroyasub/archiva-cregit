@@ -340,7 +340,7 @@ return|return
 name|metadataRepository
 operator|.
 name|hasMetadataFacet
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -386,7 +386,7 @@ init|=
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -448,7 +448,7 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|RepositoryStatistics
@@ -585,7 +585,7 @@ name|metadataRepository
 operator|)
 operator|.
 name|populateStatistics
-argument_list|(
+argument_list|( ,
 name|metadataRepository
 argument_list|,
 name|repositoryId
@@ -599,7 +599,7 @@ block|{
 name|walkingProvider
 operator|.
 name|populateStatistics
-argument_list|(
+argument_list|( ,
 name|metadataRepository
 argument_list|,
 name|repositoryId
@@ -627,7 +627,7 @@ expr_stmt|;
 name|metadataRepository
 operator|.
 name|addMetadataFacet
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|repositoryStatistics
@@ -652,7 +652,7 @@ block|{
 name|metadataRepository
 operator|.
 name|removeMetadataFacets
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -705,7 +705,7 @@ init|=
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -786,7 +786,7 @@ operator|)
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|DefaultRepositoryStatistics

@@ -1242,11 +1242,30 @@ block|}
 name|RepositorySession
 name|repositorySession
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|repositorySession
+operator|=
 name|repositorySessionFactory
 operator|.
 name|createSession
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataRepositoryException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
 name|MetadataRepository
 name|metadataRepository
 init|=
@@ -1288,7 +1307,7 @@ init|=
 name|metadataRepository
 operator|.
 name|getArtifactsByChecksum
-argument_list|(
+argument_list|( ,
 name|repoId
 argument_list|,
 name|checksumSearch

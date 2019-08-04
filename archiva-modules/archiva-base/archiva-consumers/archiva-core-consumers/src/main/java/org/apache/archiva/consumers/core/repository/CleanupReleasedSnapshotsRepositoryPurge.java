@@ -770,7 +770,7 @@ block|}
 name|metadataRepository
 operator|.
 name|removeProjectVersion
-argument_list|(
+argument_list|( ,
 name|repository
 operator|.
 name|getId

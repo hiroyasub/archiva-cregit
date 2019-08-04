@@ -53,6 +53,22 @@ name|MetadataRepositoryException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|RepositorySession
+import|;
+end_import
+
 begin_comment
 comment|/**  *  * This interface is used for populating statistics data. It should be implemented  * by metadata store implementations in the MetadataRepository class, if the store  * implementation can provide a faster implementation than walking the tree.  *  * @author Martin Stockhammer  * @since 2.3  */
 end_comment
@@ -62,10 +78,13 @@ specifier|public
 interface|interface
 name|RepositoryStatisticsProvider
 block|{
-comment|/**      * Populate the statistics object with the statistics data of this repository.      *      * @param repository The current metadata repository implementation      * @param repositoryId The repository Id      * @param statistics The statistics object that should be filled.      * @throws MetadataRepositoryException Is thrown, if an error occurs while accessing the repository      */
+comment|/**      * Populate the statistics object with the statistics data of this repository.      *      *      * @param repositorySession      * @param repository The current metadata repository implementation      * @param repositoryId The repository Id      * @param statistics The statistics object that should be filled.      * @throws MetadataRepositoryException Is thrown, if an error occurs while accessing the repository      */
 name|void
 name|populateStatistics
 parameter_list|(
+name|RepositorySession
+name|repositorySession
+parameter_list|,
 name|MetadataRepository
 name|repository
 parameter_list|,

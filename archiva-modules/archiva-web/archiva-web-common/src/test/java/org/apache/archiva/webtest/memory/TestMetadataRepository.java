@@ -51,6 +51,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|RepositorySession
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -342,6 +358,9 @@ name|String
 argument_list|>
 name|getProjectVersions
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
@@ -365,6 +384,9 @@ name|String
 argument_list|>
 name|getMetadataFacets
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repodId
 parameter_list|,
@@ -385,6 +407,9 @@ specifier|public
 name|void
 name|removeMetadataFacet
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
@@ -406,6 +431,9 @@ name|ArtifactMetadata
 argument_list|>
 name|getArtifactsByDateRange
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
@@ -448,6 +476,9 @@ name|ArtifactMetadata
 argument_list|>
 name|getArtifacts
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repoId
 parameter_list|,
@@ -474,6 +505,9 @@ name|ArtifactMetadata
 argument_list|>
 name|getArtifacts
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|String
 name|repositoryId
 parameter_list|)

@@ -670,7 +670,7 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|TEST_REPO_ID
 argument_list|,
 name|projectNs
@@ -708,7 +708,7 @@ argument_list|()
 argument_list|)
 operator|.
 name|removeProjectVersion
-argument_list|(
+argument_list|( ,
 name|eq
 argument_list|(
 name|TEST_REPO_ID
@@ -759,7 +759,7 @@ argument_list|)
 argument_list|)
 operator|.
 name|removeArtifact
-argument_list|(
+argument_list|( ,
 name|metadataArg
 operator|.
 name|capture
@@ -1255,7 +1255,7 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|TEST_REPO_ID
 argument_list|,
 name|projectNs
@@ -1293,7 +1293,7 @@ argument_list|()
 argument_list|)
 operator|.
 name|removeProjectVersion
-argument_list|(
+argument_list|( ,
 name|eq
 argument_list|(
 name|TEST_REPO_ID
@@ -1344,7 +1344,7 @@ argument_list|)
 argument_list|)
 operator|.
 name|removeArtifact
-argument_list|(
+argument_list|( ,
 name|metadataArg
 operator|.
 name|capture
@@ -1839,7 +1839,7 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|TEST_REPO_ID
 argument_list|,
 name|projectNs
@@ -1877,7 +1877,7 @@ argument_list|()
 argument_list|)
 operator|.
 name|removeProjectVersion
-argument_list|(
+argument_list|( ,
 name|eq
 argument_list|(
 name|TEST_REPO_ID
@@ -1928,7 +1928,7 @@ argument_list|)
 argument_list|)
 operator|.
 name|removeArtifact
-argument_list|(
+argument_list|( ,
 name|metadataArg
 operator|.
 name|capture

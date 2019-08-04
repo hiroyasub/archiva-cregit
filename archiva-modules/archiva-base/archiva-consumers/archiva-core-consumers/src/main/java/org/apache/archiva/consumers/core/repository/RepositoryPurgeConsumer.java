@@ -615,6 +615,8 @@ operator|.
 name|getContent
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|repositorySession
 operator|=
 name|repositorySessionFactory
@@ -622,6 +624,29 @@ operator|.
 name|createSession
 argument_list|( )
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|MetadataRepositoryException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|repository

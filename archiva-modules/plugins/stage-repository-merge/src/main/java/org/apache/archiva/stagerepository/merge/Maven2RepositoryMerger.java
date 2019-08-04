@@ -645,7 +645,7 @@ init|=
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|sourceRepoId
 argument_list|)
 decl_stmt|;
@@ -769,7 +769,7 @@ init|=
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|sourceRepoId
 argument_list|)
 decl_stmt|;
@@ -2028,7 +2028,7 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|targetRepo
 argument_list|)
 argument_list|)
@@ -2053,7 +2053,7 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|sourceRepo
 argument_list|)
 argument_list|)

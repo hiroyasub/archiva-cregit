@@ -3706,11 +3706,30 @@ block|}
 name|RepositorySession
 name|repositorySession
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|repositorySession
+operator|=
 name|repositorySessionFactory
 operator|.
 name|createSession
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataRepositoryException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
 try|try
 block|{
 name|ManagedRepositoryContent
@@ -3840,7 +3859,7 @@ init|=
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|namespace
@@ -3861,7 +3880,7 @@ block|{
 name|metadataRepository
 operator|.
 name|removeArtifact
-argument_list|(
+argument_list|( ,
 name|artifactMetadata
 argument_list|,
 name|version
@@ -3871,7 +3890,7 @@ block|}
 name|metadataRepository
 operator|.
 name|removeProjectVersion
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|namespace
@@ -3962,6 +3981,28 @@ name|repositorySession
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|MetadataSessionException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
 expr_stmt|;
 block|}
 return|return
@@ -4149,11 +4190,30 @@ decl_stmt|;
 name|RepositorySession
 name|repositorySession
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|repositorySession
+operator|=
 name|repositorySessionFactory
 operator|.
 name|createSession
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataRepositoryException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
 try|try
 block|{
 name|Date
@@ -4550,7 +4610,7 @@ operator|=
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|artifact
@@ -4574,7 +4634,7 @@ operator|=
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|artifact
@@ -4627,7 +4687,7 @@ init|=
 name|metadataRepository
 operator|.
 name|getProjectVersions
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|artifact
@@ -4664,7 +4724,7 @@ expr_stmt|;
 name|metadataRepository
 operator|.
 name|removeProjectVersion
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|artifact
@@ -4834,7 +4894,7 @@ expr_stmt|;
 name|metadataRepository
 operator|.
 name|removeArtifact
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|groupId
@@ -4863,7 +4923,7 @@ block|{
 name|metadataRepository
 operator|.
 name|removeArtifact
-argument_list|(
+argument_list|( ,
 name|artifactMetadata
 argument_list|,
 name|VersionUtil
@@ -4883,7 +4943,7 @@ block|{
 name|metadataRepository
 operator|.
 name|removeArtifact
-argument_list|(
+argument_list|( ,
 name|artifactMetadata
 operator|.
 name|getRepositoryId
@@ -5097,6 +5157,28 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|MetadataSessionException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
 return|return
 name|Boolean
 operator|.
@@ -5186,11 +5268,30 @@ block|}
 name|RepositorySession
 name|repositorySession
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|repositorySession
+operator|=
 name|repositorySessionFactory
 operator|.
 name|createSession
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataRepositoryException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
 try|try
 block|{
 name|ManagedRepositoryContent
@@ -5219,7 +5320,7 @@ decl_stmt|;
 name|metadataRepository
 operator|.
 name|removeNamespace
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|groupId
@@ -5445,11 +5546,30 @@ block|}
 name|RepositorySession
 name|repositorySession
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|repositorySession
+operator|=
 name|repositorySessionFactory
 operator|.
 name|createSession
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataRepositoryException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
 try|try
 block|{
 name|ManagedRepositoryContent
@@ -5537,7 +5657,7 @@ decl_stmt|;
 name|metadataRepository
 operator|.
 name|removeProject
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|groupId

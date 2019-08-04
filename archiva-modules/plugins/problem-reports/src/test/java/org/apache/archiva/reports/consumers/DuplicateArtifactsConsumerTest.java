@@ -648,7 +648,7 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifactsByChecksum
-argument_list|(
+argument_list|( ,
 name|TEST_REPO
 argument_list|,
 name|TEST_CHECKSUM
@@ -697,7 +697,7 @@ argument_list|()
 argument_list|)
 operator|.
 name|addMetadataFacet
-argument_list|(
+argument_list|( ,
 name|eq
 argument_list|(
 name|TEST_REPO
@@ -740,7 +740,7 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifactsByChecksum
-argument_list|(
+argument_list|( ,
 name|TEST_REPO
 argument_list|,
 name|TEST_CHECKSUM
@@ -806,7 +806,7 @@ name|metadataRepository
 argument_list|)
 operator|.
 name|addMetadataFacet
-argument_list|(
+argument_list|( ,
 name|eq
 argument_list|(
 name|TEST_REPO
@@ -846,7 +846,7 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifactsByChecksum
-argument_list|(
+argument_list|( ,
 name|TEST_REPO
 argument_list|,
 name|TEST_CHECKSUM
@@ -910,7 +910,7 @@ name|metadataRepository
 argument_list|)
 operator|.
 name|addMetadataFacet
-argument_list|(
+argument_list|( ,
 name|eq
 argument_list|(
 name|TEST_REPO
@@ -1005,7 +1005,7 @@ argument_list|()
 argument_list|)
 operator|.
 name|addMetadataFacet
-argument_list|(
+argument_list|( ,
 name|eq
 argument_list|(
 name|TEST_REPO
@@ -1063,7 +1063,7 @@ argument_list|()
 argument_list|)
 operator|.
 name|addMetadataFacet
-argument_list|(
+argument_list|( ,
 name|eq
 argument_list|(
 name|TEST_REPO
@@ -1093,7 +1093,7 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifactsByChecksum
-argument_list|(
+argument_list|( ,
 name|eq
 argument_list|(
 name|TEST_REPO
@@ -1172,7 +1172,7 @@ argument_list|()
 argument_list|)
 operator|.
 name|addMetadataFacet
-argument_list|(
+argument_list|( ,
 name|eq
 argument_list|(
 name|TEST_REPO

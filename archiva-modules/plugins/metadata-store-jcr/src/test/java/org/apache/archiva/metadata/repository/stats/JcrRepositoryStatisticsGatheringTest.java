@@ -678,7 +678,7 @@ expr_stmt|;
 comment|// set up namespaces, etc.
 name|JcrMetadataRepository
 operator|.
-name|initialize
+name|initializeNodeTypes
 argument_list|(
 name|session
 argument_list|)
@@ -875,7 +875,7 @@ expr_stmt|;
 name|repository
 operator|.
 name|populateStatistics
-argument_list|(
+argument_list|( ,
 name|repository
 argument_list|,
 name|TEST_REPO

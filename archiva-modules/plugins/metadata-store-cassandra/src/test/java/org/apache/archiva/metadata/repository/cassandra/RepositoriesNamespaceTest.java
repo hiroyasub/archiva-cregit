@@ -347,7 +347,7 @@ block|{
 name|cmr
 operator|.
 name|updateNamespace
-argument_list|(
+argument_list|( ,
 literal|"release"
 argument_list|,
 literal|"org"
@@ -437,7 +437,7 @@ expr_stmt|;
 name|cmr
 operator|.
 name|updateNamespace
-argument_list|(
+argument_list|( ,
 literal|"release"
 argument_list|,
 literal|"org.apache"
@@ -481,7 +481,7 @@ expr_stmt|;
 name|cmr
 operator|.
 name|removeNamespace
-argument_list|(
+argument_list|( ,
 literal|"release"
 argument_list|,
 literal|"org.apache"
@@ -544,7 +544,7 @@ expr_stmt|;
 name|cmr
 operator|.
 name|updateProject
-argument_list|(
+argument_list|( ,
 literal|"release"
 argument_list|,
 name|projectMetadata
@@ -555,7 +555,7 @@ argument_list|(
 name|cmr
 operator|.
 name|getProjects
-argument_list|(
+argument_list|( ,
 literal|"release"
 argument_list|,
 literal|"org"
@@ -578,7 +578,7 @@ expr_stmt|;
 name|cmr
 operator|.
 name|removeProject
-argument_list|(
+argument_list|( ,
 literal|"release"
 argument_list|,
 literal|"org"
@@ -591,7 +591,7 @@ argument_list|(
 name|cmr
 operator|.
 name|getProjects
-argument_list|(
+argument_list|( ,
 literal|"release"
 argument_list|,
 literal|"org"
@@ -604,7 +604,7 @@ expr_stmt|;
 name|cmr
 operator|.
 name|removeRepository
-argument_list|(
+argument_list|( ,
 literal|"release"
 argument_list|)
 expr_stmt|;

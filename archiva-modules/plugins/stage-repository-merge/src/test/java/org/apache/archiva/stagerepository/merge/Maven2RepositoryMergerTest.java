@@ -643,7 +643,7 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|TEST_REPO_ID
 argument_list|)
 argument_list|)
@@ -671,7 +671,7 @@ name|metadataRepository
 argument_list|)
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|TEST_REPO_ID
 argument_list|)
 expr_stmt|;
@@ -931,7 +931,7 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|sourceRepoId
 argument_list|)
 argument_list|)
@@ -946,7 +946,7 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|TEST_REPO_ID
 argument_list|)
 argument_list|)
@@ -981,7 +981,7 @@ name|metadataRepository
 argument_list|)
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|TEST_REPO_ID
 argument_list|)
 expr_stmt|;

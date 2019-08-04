@@ -289,30 +289,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Files
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Path
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Collection
@@ -1118,7 +1094,7 @@ argument_list|,
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|repository
 operator|.
 name|getId
@@ -1520,11 +1496,36 @@ argument_list|,
 name|metaRemovalList
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|repositorySession
 operator|.
 name|save
 argument_list|( )
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|MetadataSessionException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|/*      * Purges the metadata. First removes the artifacts. After that empty versions will be removed.      */
@@ -1668,7 +1669,7 @@ operator|=
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|repository
 operator|.
 name|getId
@@ -1703,7 +1704,7 @@ block|{
 name|metadataRepository
 operator|.
 name|removeProjectVersion
-argument_list|(
+argument_list|( ,
 name|repository
 operator|.
 name|getId
@@ -1877,7 +1878,7 @@ expr_stmt|;
 name|metadataRepository
 operator|.
 name|removeArtifact
-argument_list|(
+argument_list|( ,
 name|repository
 operator|.
 name|getId
@@ -1904,7 +1905,7 @@ block|{
 name|metadataRepository
 operator|.
 name|removeArtifact
-argument_list|(
+argument_list|( ,
 name|artifactMetadata
 argument_list|,
 name|artifactInfo

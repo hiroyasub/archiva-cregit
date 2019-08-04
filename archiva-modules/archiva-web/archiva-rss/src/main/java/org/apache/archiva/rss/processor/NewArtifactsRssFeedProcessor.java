@@ -416,7 +416,7 @@ operator|=
 name|metadataRepository
 operator|.
 name|getArtifactsByDateRange
-argument_list|(
+argument_list|( ,
 name|repoId
 argument_list|,
 name|greaterThanThisDate

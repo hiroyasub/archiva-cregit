@@ -364,7 +364,7 @@ operator|.
 name|cmr
 operator|.
 name|removeProjectVersion
-argument_list|(
+argument_list|( ,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -379,7 +379,7 @@ argument_list|(
 name|repository
 operator|.
 name|getProjectVersion
-argument_list|(
+argument_list|( ,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE

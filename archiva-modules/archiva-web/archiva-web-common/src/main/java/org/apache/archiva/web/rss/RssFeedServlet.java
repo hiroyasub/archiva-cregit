@@ -1402,6 +1402,28 @@ name|USER_NOT_AUTHORIZED
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|MetadataRepositoryException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Basic authentication.      *      * @param req      * @param repositoryId TODO      * @param groupId      TODO      * @param artifactId   TODO      * @return      */
 specifier|private

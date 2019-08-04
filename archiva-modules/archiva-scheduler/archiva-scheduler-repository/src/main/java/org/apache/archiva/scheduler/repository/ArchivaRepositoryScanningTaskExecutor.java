@@ -859,6 +859,28 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|MetadataSessionException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
 comment|//                log.info( "Scanning for removed repository content" );
 comment|//                metadataRepository.findAllProjects();
 comment|// FIXME: do something
@@ -909,6 +931,18 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataRepositoryException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
 block|}
 block|}
 specifier|public

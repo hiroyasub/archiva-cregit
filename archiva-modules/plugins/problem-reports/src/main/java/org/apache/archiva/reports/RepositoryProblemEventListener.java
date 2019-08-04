@@ -239,7 +239,7 @@ block|{
 name|metadataRepository
 operator|.
 name|removeMetadataFacet
-argument_list|(
+argument_list|( ,
 name|repositoryId
 argument_list|,
 name|RepositoryProblemFacet
@@ -328,7 +328,7 @@ decl_stmt|;
 name|metadataRepository
 operator|.
 name|removeMetadataFacet
-argument_list|(
+argument_list|( ,
 name|repoId
 argument_list|,
 name|RepositoryProblemFacet
@@ -454,7 +454,7 @@ name|getRepository
 argument_list|()
 operator|.
 name|addMetadataFacet
-argument_list|(
+argument_list|( ,
 name|repoId
 argument_list|,
 name|problem

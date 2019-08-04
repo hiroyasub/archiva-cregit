@@ -442,6 +442,8 @@ name|metadataRepository
 operator|.
 name|getProjectVersion
 argument_list|(
+name|session
+argument_list|,
 name|repoId
 argument_list|,
 name|namespace
@@ -604,6 +606,8 @@ name|metadataRepository
 operator|.
 name|updateProjectVersion
 argument_list|(
+name|session
+argument_list|,
 name|repoId
 argument_list|,
 name|namespace
@@ -812,6 +816,8 @@ name|metadataRepository
 operator|.
 name|getProjectReferences
 argument_list|(
+name|session
+argument_list|,
 name|repoId
 argument_list|,
 name|namespace
@@ -880,6 +886,8 @@ name|metadataRepository
 operator|.
 name|getRootNamespaces
 argument_list|(
+name|session
+argument_list|,
 name|repoId
 argument_list|)
 expr_stmt|;
@@ -941,6 +949,8 @@ name|metadataRepository
 operator|.
 name|updateNamespace
 argument_list|(
+name|session
+argument_list|,
 name|repoId
 argument_list|,
 name|n
@@ -1107,6 +1117,8 @@ name|metadataRepository
 operator|.
 name|getNamespaces
 argument_list|(
+name|session
+argument_list|,
 name|repoId
 argument_list|,
 name|namespace
@@ -1143,6 +1155,8 @@ name|metadataRepository
 operator|.
 name|getProjects
 argument_list|(
+name|session
+argument_list|,
 name|repoId
 argument_list|,
 name|namespace
@@ -1209,6 +1223,8 @@ name|metadataRepository
 operator|.
 name|updateNamespace
 argument_list|(
+name|session
+argument_list|,
 name|repoId
 argument_list|,
 name|namespace
@@ -1348,6 +1364,8 @@ name|metadataRepository
 operator|.
 name|getProjects
 argument_list|(
+name|session
+argument_list|,
 name|repoId
 argument_list|,
 name|namespace
@@ -1401,6 +1419,8 @@ name|metadataRepository
 operator|.
 name|getNamespaces
 argument_list|(
+name|session
+argument_list|,
 name|repoId
 argument_list|,
 name|namespace
@@ -1502,6 +1522,8 @@ name|metadataRepository
 operator|.
 name|updateProject
 argument_list|(
+name|session
+argument_list|,
 name|repoId
 argument_list|,
 name|projectMetadata
@@ -1621,6 +1643,8 @@ name|metadataRepository
 operator|.
 name|getProjectVersions
 argument_list|(
+name|session
+argument_list|,
 name|repoId
 argument_list|,
 name|namespace
@@ -1751,6 +1775,8 @@ name|metadataRepository
 operator|.
 name|updateProjectVersion
 argument_list|(
+name|session
+argument_list|,
 name|repoId
 argument_list|,
 name|namespace
@@ -1954,6 +1980,8 @@ name|metadataRepository
 operator|.
 name|getArtifacts
 argument_list|(
+name|session
+argument_list|,
 name|repoId
 argument_list|,
 name|namespace
@@ -2062,6 +2090,8 @@ name|metadataRepository
 operator|.
 name|updateArtifact
 argument_list|(
+name|session
+argument_list|,
 name|repoId
 argument_list|,
 name|namespace

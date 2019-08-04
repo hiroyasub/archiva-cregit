@@ -665,6 +665,8 @@ name|getLocation
 argument_list|()
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|repositorySession
 operator|=
 name|repositorySessionFactory
@@ -672,6 +674,19 @@ operator|.
 name|createSession
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataRepositoryException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -793,7 +808,7 @@ operator|=
 name|metadataRepository
 operator|.
 name|getArtifactsByChecksum
-argument_list|(
+argument_list|( ,
 name|repoId
 argument_list|,
 name|checksumSha1
@@ -1064,7 +1079,7 @@ block|{
 name|metadataRepository
 operator|.
 name|addMetadataFacet
-argument_list|(
+argument_list|( ,
 name|repoId
 argument_list|,
 name|problem

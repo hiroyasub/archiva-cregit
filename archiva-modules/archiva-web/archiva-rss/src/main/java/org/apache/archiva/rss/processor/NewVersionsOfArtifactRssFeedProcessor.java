@@ -402,7 +402,7 @@ init|=
 name|metadataRepository
 operator|.
 name|getProjectVersions
-argument_list|(
+argument_list|( ,
 name|repoId
 argument_list|,
 name|groupId
@@ -425,7 +425,7 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|(
+argument_list|( ,
 name|repoId
 argument_list|,
 name|groupId
