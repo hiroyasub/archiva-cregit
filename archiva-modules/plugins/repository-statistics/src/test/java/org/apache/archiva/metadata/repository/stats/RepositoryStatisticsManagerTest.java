@@ -91,6 +91,38 @@ name|metadata
 operator|.
 name|repository
 operator|.
+name|RepositorySession
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|RepositorySessionFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
 name|stats
 operator|.
 name|model
@@ -369,6 +401,14 @@ name|createTimestampFormat
 argument_list|()
 decl_stmt|;
 specifier|private
+name|RepositorySessionFactory
+name|repositorySessionFactory
+decl_stmt|;
+specifier|private
+name|IMocksControl
+name|factoryControl
+decl_stmt|;
+specifier|private
 specifier|static
 name|SimpleDateFormat
 name|createTimestampFormat
@@ -435,6 +475,22 @@ operator|.
 name|createMock
 argument_list|(
 name|MetadataRepository
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|factoryControl
+operator|=
+name|createControl
+argument_list|()
+expr_stmt|;
+name|repositorySessionFactory
+operator|=
+name|factoryControl
+operator|.
+name|createMock
+argument_list|(
+name|RepositorySessionFactory
 operator|.
 name|class
 argument_list|)
@@ -541,12 +597,25 @@ argument_list|(
 literal|56229
 argument_list|)
 expr_stmt|;
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|expect
 argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -572,7 +641,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -588,6 +659,7 @@ argument_list|(
 name|stats
 argument_list|)
 expr_stmt|;
+block|}
 name|metadataRepositoryControl
 operator|.
 name|replay
@@ -719,12 +791,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+decl_stmt|;
 name|expect
 argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -817,10 +899,20 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+decl_stmt|;
 name|metadataRepository
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|stats
@@ -831,7 +923,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -858,7 +952,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -1063,10 +1159,20 @@ literal|6000
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+decl_stmt|;
 name|metadataRepository
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|stats1
@@ -1099,7 +1205,9 @@ decl_stmt|;
 name|metadataRepository
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|stats2
@@ -1110,7 +1218,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -1142,7 +1252,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -1164,7 +1276,9 @@ expr_stmt|;
 name|metadataRepository
 operator|.
 name|removeMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -1177,7 +1291,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -1290,12 +1406,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+decl_stmt|;
 name|expect
 argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -1323,7 +1449,9 @@ expr_stmt|;
 name|metadataRepository
 operator|.
 name|removeMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -1478,12 +1606,22 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+decl_stmt|;
 name|expect
 argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -1513,7 +1651,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -1754,12 +1894,22 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+decl_stmt|;
 name|expect
 argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -1788,7 +1938,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -1823,7 +1975,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -2079,12 +2233,22 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+decl_stmt|;
 name|expect
 argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -2113,7 +2277,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -2148,7 +2314,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -2413,12 +2581,22 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+decl_stmt|;
 name|expect
 argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -2447,7 +2625,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -2482,7 +2662,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -2517,7 +2699,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -2797,12 +2981,22 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+decl_stmt|;
 name|expect
 argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -2922,6 +3116,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+decl_stmt|;
 name|DefaultRepositoryStatistics
 name|stats
 init|=
@@ -2935,7 +3137,9 @@ decl_stmt|;
 name|metadataRepository
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|stats
@@ -3175,6 +3379,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -3195,7 +3407,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getRootNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 argument_list|)
@@ -3217,7 +3431,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getProjects
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"com"
@@ -3240,7 +3456,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"com"
@@ -3262,7 +3480,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"com.example"
@@ -3285,7 +3505,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getProjects
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"com.example"
@@ -3307,7 +3529,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getProjectVersions
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"com.example"
@@ -3333,7 +3557,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"com.example"
@@ -3379,7 +3605,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"com.example"
@@ -3425,7 +3653,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org"
@@ -3449,7 +3679,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache"
@@ -3473,7 +3705,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getProjects
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache"
@@ -3496,7 +3730,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.archiva"
@@ -3519,7 +3755,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getProjects
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.archiva"
@@ -3543,7 +3781,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getProjectVersions
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.archiva"
@@ -3569,7 +3809,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.archiva"
@@ -3615,7 +3857,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.archiva"
@@ -3661,7 +3905,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getProjectVersions
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.archiva"
@@ -3687,7 +3933,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.archiva"
@@ -3733,7 +3981,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.archiva"
@@ -3779,7 +4029,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.maven"
@@ -3802,7 +4054,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getProjects
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.maven"
@@ -3824,7 +4078,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getProjectVersions
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.maven"
@@ -3848,7 +4104,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.maven"
@@ -3894,7 +4152,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.codehaus"
@@ -3916,7 +4176,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getProjects
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org"
@@ -3939,7 +4201,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getProjects
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.codehaus"
@@ -3962,7 +4226,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.codehaus.plexus"
@@ -3985,7 +4251,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getProjects
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.codehaus.plexus"
@@ -4007,7 +4275,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getProjectVersions
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.codehaus.plexus"
@@ -4035,7 +4305,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.codehaus.plexus"
@@ -4081,7 +4353,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.codehaus.plexus"
@@ -4127,7 +4401,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.codehaus.plexus"

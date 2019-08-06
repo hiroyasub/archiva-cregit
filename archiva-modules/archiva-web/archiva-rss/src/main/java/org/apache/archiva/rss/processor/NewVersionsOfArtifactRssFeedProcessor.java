@@ -75,7 +75,7 @@ name|metadata
 operator|.
 name|repository
 operator|.
-name|MetadataRepository
+name|*
 import|;
 end_import
 
@@ -87,11 +87,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|metadata
-operator|.
 name|repository
 operator|.
-name|MetadataRepositoryException
+name|Repository
 import|;
 end_import
 
@@ -103,11 +101,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|metadata
-operator|.
 name|repository
 operator|.
-name|MetadataResolutionException
+name|RepositoryRegistry
 import|;
 end_import
 
@@ -282,6 +278,18 @@ specifier|private
 name|RssFeedGenerator
 name|generator
 decl_stmt|;
+annotation|@
+name|Inject
+specifier|private
+name|RepositoryRegistry
+name|repositoryRegistry
+decl_stmt|;
+annotation|@
+name|Inject
+specifier|private
+name|RepositorySessionFactory
+name|repositorySessionFactory
+decl_stmt|;
 comment|/**      * Process all versions of the artifact which had a rss feed request.      */
 annotation|@
 name|Override
@@ -381,18 +389,36 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 for|for
 control|(
-name|String
-name|repoId
+name|Repository
+name|repo
 range|:
-name|metadataRepository
+name|repositoryRegistry
 operator|.
 name|getRepositories
 argument_list|()
 control|)
 block|{
+specifier|final
+name|String
+name|repoId
+init|=
+name|repo
+operator|.
+name|getId
+argument_list|()
+decl_stmt|;
 name|Collection
 argument_list|<
 name|String
@@ -402,7 +428,9 @@ init|=
 name|metadataRepository
 operator|.
 name|getProjectVersions
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|repoId
 argument_list|,
 name|groupId
@@ -425,7 +453,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|repoId
 argument_list|,
 name|groupId

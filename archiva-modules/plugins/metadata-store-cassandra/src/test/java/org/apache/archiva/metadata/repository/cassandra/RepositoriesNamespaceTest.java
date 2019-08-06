@@ -347,7 +347,9 @@ block|{
 name|cmr
 operator|.
 name|updateNamespace
-argument_list|( ,
+argument_list|(
+literal|null
+argument_list|,
 literal|"release"
 argument_list|,
 literal|"org"
@@ -369,22 +371,6 @@ argument_list|)
 operator|.
 name|isNotNull
 argument_list|()
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|cmr
-operator|.
-name|getRepositories
-argument_list|()
-argument_list|)
-operator|.
-name|isNotEmpty
-argument_list|()
-operator|.
-name|hasSize
-argument_list|(
-literal|1
-argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -437,7 +423,9 @@ expr_stmt|;
 name|cmr
 operator|.
 name|updateNamespace
-argument_list|( ,
+argument_list|(
+literal|null
+argument_list|,
 literal|"release"
 argument_list|,
 literal|"org.apache"
@@ -481,7 +469,9 @@ expr_stmt|;
 name|cmr
 operator|.
 name|removeNamespace
-argument_list|( ,
+argument_list|(
+literal|null
+argument_list|,
 literal|"release"
 argument_list|,
 literal|"org.apache"
@@ -544,7 +534,9 @@ expr_stmt|;
 name|cmr
 operator|.
 name|updateProject
-argument_list|( ,
+argument_list|(
+literal|null
+argument_list|,
 literal|"release"
 argument_list|,
 name|projectMetadata
@@ -555,7 +547,9 @@ argument_list|(
 name|cmr
 operator|.
 name|getProjects
-argument_list|( ,
+argument_list|(
+literal|null
+argument_list|,
 literal|"release"
 argument_list|,
 literal|"org"
@@ -578,7 +572,9 @@ expr_stmt|;
 name|cmr
 operator|.
 name|removeProject
-argument_list|( ,
+argument_list|(
+literal|null
+argument_list|,
 literal|"release"
 argument_list|,
 literal|"org"
@@ -591,7 +587,9 @@ argument_list|(
 name|cmr
 operator|.
 name|getProjects
-argument_list|( ,
+argument_list|(
+literal|null
+argument_list|,
 literal|"release"
 argument_list|,
 literal|"org"
@@ -604,7 +602,9 @@ expr_stmt|;
 name|cmr
 operator|.
 name|removeRepository
-argument_list|( ,
+argument_list|(
+literal|null
+argument_list|,
 literal|"release"
 argument_list|)
 expr_stmt|;

@@ -69,6 +69,38 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|RepositorySession
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|RepositorySessionFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -94,6 +126,16 @@ operator|.
 name|stereotype
 operator|.
 name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
 import|;
 end_import
 
@@ -240,6 +282,11 @@ literal|"UTC"
 argument_list|)
 decl_stmt|;
 annotation|@
+name|Inject
+name|RepositorySessionFactory
+name|repositorySessionFactory
+decl_stmt|;
+annotation|@
 name|Override
 specifier|public
 name|List
@@ -259,6 +306,17 @@ name|repositoryIds
 parameter_list|)
 throws|throws
 name|MetadataRepositoryException
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 comment|// TODO: consider a more efficient implementation that directly gets the last ten from the content repository
 name|List
@@ -289,7 +347,9 @@ init|=
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|repositoryId
 argument_list|,
 name|AuditEvent
@@ -383,7 +443,9 @@ operator|)
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|record
 operator|.
 name|repositoryId
@@ -409,6 +471,7 @@ return|return
 name|events
 return|;
 block|}
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -424,6 +487,17 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 comment|// ignore those with no repository - they will still be logged to the textual audit log
 if|if
 condition|(
@@ -438,7 +512,9 @@ block|{
 name|repository
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|event
 operator|.
 name|getRepositoryId
@@ -447,6 +523,7 @@ argument_list|,
 name|event
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
@@ -464,10 +541,23 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|metadataRepository
 operator|.
 name|removeMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|repositoryId
 argument_list|,
 name|AuditEvent
@@ -475,6 +565,7 @@ operator|.
 name|FACET_ID
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -548,6 +639,17 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|List
 argument_list|<
 name|AuditEvent
@@ -576,7 +678,9 @@ init|=
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|repositoryId
 argument_list|,
 name|AuditEvent
@@ -645,7 +749,9 @@ operator|)
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|repositoryId
 argument_list|,
 name|AuditEvent
@@ -751,6 +857,7 @@ expr_stmt|;
 return|return
 name|results
 return|;
+block|}
 block|}
 specifier|private
 specifier|static

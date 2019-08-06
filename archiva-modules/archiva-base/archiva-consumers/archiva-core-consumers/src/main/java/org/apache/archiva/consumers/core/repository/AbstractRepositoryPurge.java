@@ -99,55 +99,7 @@ name|metadata
 operator|.
 name|repository
 operator|.
-name|MetadataRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
-name|MetadataRepositoryException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
-name|MetadataResolutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
-name|RepositorySession
+name|*
 import|;
 end_import
 
@@ -1094,7 +1046,9 @@ argument_list|,
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repository
 operator|.
 name|getId
@@ -1640,11 +1594,33 @@ argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
-name|metadataRepository
+try|try
+block|{
+name|repositorySession
 operator|.
 name|save
 argument_list|( )
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataSessionException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Could not save sesion {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|Collection
 argument_list|<
 name|ArtifactMetadata
@@ -1669,7 +1645,9 @@ operator|=
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repository
 operator|.
 name|getId
@@ -1704,7 +1682,9 @@ block|{
 name|metadataRepository
 operator|.
 name|removeProjectVersion
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repository
 operator|.
 name|getId
@@ -1763,11 +1743,33 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|metadataRepository
+try|try
+block|{
+name|repositorySession
 operator|.
 name|save
 argument_list|( )
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataSessionException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Could not save sesion {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/*      * Removes the artifact from the metadataRepository. If a classifier is set, the facet will be removed.      */
 specifier|private
@@ -1878,7 +1880,9 @@ expr_stmt|;
 name|metadataRepository
 operator|.
 name|removeArtifact
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repository
 operator|.
 name|getId
@@ -1893,11 +1897,33 @@ argument_list|,
 name|mavenArtifactFacetToCompare
 argument_list|)
 expr_stmt|;
-name|metadataRepository
+try|try
+block|{
+name|repositorySession
 operator|.
 name|save
 argument_list|( )
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MetadataSessionException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Could not save session {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 else|else
@@ -1905,7 +1931,9 @@ block|{
 name|metadataRepository
 operator|.
 name|removeArtifact
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|artifactMetadata
 argument_list|,
 name|artifactInfo

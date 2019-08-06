@@ -808,7 +808,9 @@ operator|=
 name|metadataRepository
 operator|.
 name|getArtifactsByChecksum
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repoId
 argument_list|,
 name|checksumSha1
@@ -1079,7 +1081,9 @@ block|{
 name|metadataRepository
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repoId
 argument_list|,
 name|problem

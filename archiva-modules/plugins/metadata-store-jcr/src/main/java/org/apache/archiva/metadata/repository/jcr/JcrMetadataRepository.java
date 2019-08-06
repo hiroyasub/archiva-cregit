@@ -7539,9 +7539,11 @@ block|{
 return|return
 name|searchArtifacts
 argument_list|(
-literal|null
+name|session
 argument_list|,
 name|repositoryId
+argument_list|,
+literal|null
 argument_list|,
 name|text
 argument_list|,

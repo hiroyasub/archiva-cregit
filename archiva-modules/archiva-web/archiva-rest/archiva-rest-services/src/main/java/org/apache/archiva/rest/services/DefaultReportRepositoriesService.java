@@ -799,7 +799,9 @@ range|:
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repoId
 argument_list|,
 name|RepositoryProblemFacet
@@ -817,7 +819,9 @@ operator|)
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repoId
 argument_list|,
 name|RepositoryProblemFacet

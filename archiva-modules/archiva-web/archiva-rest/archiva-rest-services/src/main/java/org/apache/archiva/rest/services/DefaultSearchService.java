@@ -1307,7 +1307,9 @@ init|=
 name|metadataRepository
 operator|.
 name|getArtifactsByChecksum
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repoId
 argument_list|,
 name|checksumSearch

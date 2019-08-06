@@ -851,14 +851,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-finally|finally
-block|{
-name|repositorySession
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 catch|catch
 parameter_list|(
 name|org
@@ -879,6 +871,14 @@ name|e
 operator|.
 name|printStackTrace
 argument_list|( )
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|repositorySession
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|//                log.info( "Scanning for removed repository content" );

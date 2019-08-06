@@ -496,6 +496,9 @@ name|Inject
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
+name|RepositorySessionFactory
+name|repositorySessionFactory
+decl_stmt|;
 annotation|@
 name|Before
 annotation|@
@@ -563,6 +566,15 @@ operator|=
 name|mock
 argument_list|(
 name|MetadataRepository
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|repositorySessionFactory
+operator|=
+name|mock
+argument_list|(
+name|RepositorySessionFactory
 operator|.
 name|class
 argument_list|)
@@ -643,12 +655,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+decl_stmt|;
 name|when
 argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifactsByChecksum
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO
 argument_list|,
 name|TEST_CHECKSUM
@@ -697,7 +719,9 @@ argument_list|()
 argument_list|)
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|eq
 argument_list|(
 name|TEST_REPO
@@ -735,12 +759,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+decl_stmt|;
 name|when
 argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifactsByChecksum
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO
 argument_list|,
 name|TEST_CHECKSUM
@@ -806,7 +840,9 @@ name|metadataRepository
 argument_list|)
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|eq
 argument_list|(
 name|TEST_REPO
@@ -841,12 +877,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+decl_stmt|;
 name|when
 argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifactsByChecksum
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO
 argument_list|,
 name|TEST_CHECKSUM
@@ -910,7 +956,9 @@ name|metadataRepository
 argument_list|)
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|eq
 argument_list|(
 name|TEST_REPO
@@ -996,6 +1044,14 @@ name|completeScan
 argument_list|()
 expr_stmt|;
 block|}
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+decl_stmt|;
 name|verify
 argument_list|(
 name|metadataRepository
@@ -1005,7 +1061,9 @@ argument_list|()
 argument_list|)
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|eq
 argument_list|(
 name|TEST_REPO
@@ -1054,6 +1112,14 @@ operator|.
 name|completeScan
 argument_list|()
 expr_stmt|;
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+decl_stmt|;
 name|verify
 argument_list|(
 name|metadataRepository
@@ -1063,7 +1129,9 @@ argument_list|()
 argument_list|)
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|eq
 argument_list|(
 name|TEST_REPO
@@ -1088,12 +1156,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+decl_stmt|;
 name|when
 argument_list|(
 name|metadataRepository
 operator|.
 name|getArtifactsByChecksum
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|eq
 argument_list|(
 name|TEST_REPO
@@ -1172,7 +1250,9 @@ argument_list|()
 argument_list|)
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|eq
 argument_list|(
 name|TEST_REPO

@@ -57,6 +57,38 @@ name|org
 operator|.
 name|apache
 operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|DefaultMetadataResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|MetadataResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|jackrabbit
 operator|.
 name|oak
@@ -214,10 +246,6 @@ name|JcrMetadataRepositoryTest
 extends|extends
 name|AbstractMetadataRepositoryTest
 block|{
-specifier|private
-name|JcrMetadataRepository
-name|jcrMetadataRepository
-decl_stmt|;
 annotation|@
 name|Inject
 specifier|private
@@ -331,68 +359,67 @@ init|=
 name|createTestMetadataFacetFactories
 argument_list|()
 decl_stmt|;
-comment|// TODO: probably don't need to use Spring for this
-name|jcrMetadataRepository
-operator|=
-operator|new
-name|JcrMetadataRepository
-argument_list|(
-name|factories
-argument_list|,
-name|jcrRepository
-argument_list|)
-expr_stmt|;
-try|try
-block|{
-name|Session
-name|session
+comment|//        // TODO: probably don't need to use Spring for this
+comment|//        jcrMetadataRepository = new JcrMetadataRepository( factories, jcrRepository );
+comment|//
+comment|//        try
+comment|//        {
+comment|//            Session session = jcrMetadataRepository.login();
+comment|//
+comment|//            // set up namespaces, etc.
+comment|//            JcrMetadataRepository.initializeNodeTypes( session );
+comment|//
+comment|//            // removing content is faster than deleting and re-copying the files from target/jcr
+comment|//            session.getRootNode().getNode( "repositories" ).remove();
+comment|//            session.save();
+comment|//        }
+comment|//        catch ( RepositoryException e )
+comment|//        {
+comment|//            // ignore
+comment|//        }
+comment|// this.repository = jcrMetadataRepository;
+name|JcrRepositorySessionFactory
+name|jcrSessionFactory
 init|=
-name|jcrMetadataRepository
-operator|.
-name|getJcrSession
+operator|new
+name|JcrRepositorySessionFactory
 argument_list|()
 decl_stmt|;
-comment|// set up namespaces, etc.
-name|JcrMetadataRepository
+name|jcrSessionFactory
 operator|.
-name|initializeNodeTypes
+name|setMetadataResolver
 argument_list|(
-name|session
+operator|new
+name|DefaultMetadataResolver
+argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// removing content is faster than deleting and re-copying the files from target/jcr
-name|session
+name|jcrSessionFactory
 operator|.
-name|getRootNode
-argument_list|()
-operator|.
-name|getNode
+name|setMetadataFacetFactories
 argument_list|(
-literal|"repositories"
+name|factories
 argument_list|)
+expr_stmt|;
+name|jcrSessionFactory
 operator|.
-name|remove
+name|open
 argument_list|()
 expr_stmt|;
-name|session
+name|this
 operator|.
-name|save
-argument_list|()
+name|sessionFactory
+operator|=
+name|jcrSessionFactory
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RepositoryException
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 name|this
 operator|.
 name|repository
 operator|=
-name|jcrMetadataRepository
+name|jcrSessionFactory
+operator|.
+name|getMetadataRepository
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -406,7 +433,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|jcrMetadataRepository
+name|repository
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|sessionFactory
 operator|.
 name|close
 argument_list|()

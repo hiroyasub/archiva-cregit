@@ -572,7 +572,9 @@ init|=
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|sourceRepositoryId
 argument_list|)
 decl_stmt|;
@@ -770,7 +772,9 @@ init|=
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|sourceRepositoryId
 argument_list|)
 decl_stmt|;

@@ -109,6 +109,22 @@ name|metadata
 operator|.
 name|repository
 operator|.
+name|RepositorySessionFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
 name|storage
 operator|.
 name|RepositoryStorageMetadataException
@@ -163,6 +179,16 @@ name|Service
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
 begin_comment
 comment|/**  * Process repository management events and respond appropriately.  *  */
 end_comment
@@ -191,6 +217,12 @@ name|RepositoryProblemEventListener
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+annotation|@
+name|Inject
+specifier|private
+name|RepositorySessionFactory
+name|repositorySessionFactory
 decl_stmt|;
 comment|// FIXME: move to session
 annotation|@
@@ -235,11 +267,22 @@ name|id
 argument_list|)
 decl_stmt|;
 try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|metadataRepository
 operator|.
 name|removeMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|repositoryId
 argument_list|,
 name|RepositoryProblemFacet
@@ -328,7 +371,9 @@ decl_stmt|;
 name|metadataRepository
 operator|.
 name|removeMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|repoId
 argument_list|,
 name|RepositoryProblemFacet
@@ -454,7 +499,9 @@ name|getRepository
 argument_list|()
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|repoId
 argument_list|,
 name|problem

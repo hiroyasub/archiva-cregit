@@ -207,71 +207,7 @@ name|metadata
 operator|.
 name|repository
 operator|.
-name|MetadataRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
-name|MetadataRepositoryException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
-name|MetadataResolutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
-name|RepositorySession
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
-name|RepositorySessionFactory
+name|*
 import|;
 end_import
 
@@ -3859,7 +3795,9 @@ init|=
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repositoryId
 argument_list|,
 name|namespace
@@ -3880,7 +3818,9 @@ block|{
 name|metadataRepository
 operator|.
 name|removeArtifact
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|artifactMetadata
 argument_list|,
 name|version
@@ -3890,7 +3830,9 @@ block|}
 name|metadataRepository
 operator|.
 name|removeProjectVersion
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repositoryId
 argument_list|,
 name|namespace
@@ -3972,37 +3914,37 @@ throw|;
 block|}
 finally|finally
 block|{
+try|try
+block|{
 name|repositorySession
 operator|.
 name|save
 argument_list|()
 expr_stmt|;
-name|repositorySession
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
 name|MetadataSessionException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Session save failed {}"
+argument_list|,
 name|e
 operator|.
-name|printStackTrace
-argument_list|( )
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|repositorySession
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 return|return
@@ -4610,7 +4552,9 @@ operator|=
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repositoryId
 argument_list|,
 name|artifact
@@ -4634,7 +4578,9 @@ operator|=
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repositoryId
 argument_list|,
 name|artifact
@@ -4687,7 +4633,9 @@ init|=
 name|metadataRepository
 operator|.
 name|getProjectVersions
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repositoryId
 argument_list|,
 name|artifact
@@ -4724,7 +4672,9 @@ expr_stmt|;
 name|metadataRepository
 operator|.
 name|removeProjectVersion
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repositoryId
 argument_list|,
 name|artifact
@@ -4894,7 +4844,9 @@ expr_stmt|;
 name|metadataRepository
 operator|.
 name|removeArtifact
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repositoryId
 argument_list|,
 name|groupId
@@ -4906,7 +4858,7 @@ argument_list|,
 name|mavenArtifactFacetToCompare
 argument_list|)
 expr_stmt|;
-name|metadataRepository
+name|repositorySession
 operator|.
 name|save
 argument_list|()
@@ -4923,7 +4875,9 @@ block|{
 name|metadataRepository
 operator|.
 name|removeArtifact
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|artifactMetadata
 argument_list|,
 name|VersionUtil
@@ -4943,7 +4897,9 @@ block|{
 name|metadataRepository
 operator|.
 name|removeArtifact
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|artifactMetadata
 operator|.
 name|getRepositoryId
@@ -5101,6 +5057,8 @@ block|}
 catch|catch
 parameter_list|(
 name|MetadataResolutionException
+decl||
+name|MetadataSessionException
 name|e
 parameter_list|)
 block|{
@@ -5146,37 +5104,37 @@ throw|;
 block|}
 finally|finally
 block|{
+try|try
+block|{
 name|repositorySession
 operator|.
 name|save
 argument_list|()
 expr_stmt|;
-name|repositorySession
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
 name|MetadataSessionException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Could not save sesion {}"
+argument_list|,
 name|e
 operator|.
-name|printStackTrace
-argument_list|( )
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|repositorySession
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 return|return
@@ -5320,7 +5278,9 @@ decl_stmt|;
 name|metadataRepository
 operator|.
 name|removeNamespace
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repositoryId
 argument_list|,
 name|groupId
@@ -5350,7 +5310,7 @@ argument_list|(
 name|repositoryId
 argument_list|)
 expr_stmt|;
-name|metadataRepository
+name|repositorySession
 operator|.
 name|save
 argument_list|()
@@ -5359,6 +5319,8 @@ block|}
 catch|catch
 parameter_list|(
 name|MetadataRepositoryException
+decl||
+name|MetadataSessionException
 name|e
 parameter_list|)
 block|{
@@ -5657,7 +5619,9 @@ decl_stmt|;
 name|metadataRepository
 operator|.
 name|removeProject
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repositoryId
 argument_list|,
 name|groupId
@@ -5665,7 +5629,7 @@ argument_list|,
 name|projectId
 argument_list|)
 expr_stmt|;
-name|metadataRepository
+name|repositorySession
 operator|.
 name|save
 argument_list|()
@@ -5674,6 +5638,8 @@ block|}
 catch|catch
 parameter_list|(
 name|MetadataRepositoryException
+decl||
+name|MetadataSessionException
 name|e
 parameter_list|)
 block|{

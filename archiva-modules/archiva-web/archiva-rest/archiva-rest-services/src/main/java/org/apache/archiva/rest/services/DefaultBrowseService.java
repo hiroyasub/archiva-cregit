@@ -1754,6 +1754,25 @@ return|return
 name|versionMetadata
 return|;
 block|}
+catch|catch
+parameter_list|(
+name|MetadataRepositoryException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ArchivaRestServiceException
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 finally|finally
 block|{
 if|if
@@ -1769,18 +1788,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|MetadataRepositoryException
-name|e
-parameter_list|)
-block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|( )
-expr_stmt|;
 block|}
 block|}
 annotation|@
@@ -2453,6 +2460,8 @@ block|}
 catch|catch
 parameter_list|(
 name|MetadataResolutionException
+decl||
+name|MetadataRepositoryException
 name|e
 parameter_list|)
 block|{
@@ -2493,18 +2502,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|MetadataRepositoryException
-name|e
-parameter_list|)
-block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|( )
-expr_stmt|;
 block|}
 block|}
 annotation|@
@@ -3204,7 +3201,9 @@ decl_stmt|;
 name|metadataRepository
 operator|.
 name|updateProjectVersion
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repositoryId
 argument_list|,
 name|groupId
@@ -3223,6 +3222,8 @@ block|}
 catch|catch
 parameter_list|(
 name|MetadataRepositoryException
+decl||
+name|MetadataSessionException
 name|e
 parameter_list|)
 block|{
@@ -3266,18 +3267,6 @@ name|repositorySession
 operator|.
 name|close
 argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|MetadataSessionException
-name|e
-parameter_list|)
-block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|( )
 expr_stmt|;
 block|}
 return|return
@@ -3442,7 +3431,9 @@ decl_stmt|;
 name|metadataRepository
 operator|.
 name|updateProjectVersion
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repositoryId
 argument_list|,
 name|groupId
@@ -3461,6 +3452,8 @@ block|}
 catch|catch
 parameter_list|(
 name|MetadataRepositoryException
+decl||
+name|MetadataSessionException
 name|e
 parameter_list|)
 block|{
@@ -3504,18 +3497,6 @@ name|repositorySession
 operator|.
 name|close
 argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|MetadataSessionException
-name|e
-parameter_list|)
-block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|( )
 expr_stmt|;
 block|}
 return|return
@@ -4964,7 +4945,9 @@ name|getRepository
 argument_list|()
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repositoryId
 argument_list|)
 decl_stmt|;
@@ -5067,7 +5050,9 @@ name|getRepository
 argument_list|()
 operator|.
 name|getArtifactsByProjectVersionMetadata
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|key
 argument_list|,
 name|value
@@ -5174,7 +5159,9 @@ name|getRepository
 argument_list|()
 operator|.
 name|getArtifactsByMetadata
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|key
 argument_list|,
 name|value
@@ -5281,7 +5268,9 @@ name|getRepository
 argument_list|()
 operator|.
 name|getArtifactsByProperty
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|key
 argument_list|,
 name|value
@@ -5474,7 +5463,9 @@ name|getRepository
 argument_list|()
 operator|.
 name|searchArtifacts
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repositoryId
 argument_list|,
 name|text
@@ -5590,7 +5581,9 @@ name|getRepository
 argument_list|()
 operator|.
 name|searchArtifacts
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repositoryId
 argument_list|,
 name|key

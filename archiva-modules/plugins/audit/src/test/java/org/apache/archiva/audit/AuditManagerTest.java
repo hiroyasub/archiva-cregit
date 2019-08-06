@@ -81,6 +81,52 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|RepositorySession
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|RepositorySessionFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|Repository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|test
 operator|.
 name|utils
@@ -278,6 +324,10 @@ name|MetadataRepository
 name|metadataRepository
 decl_stmt|;
 specifier|private
+name|RepositorySessionFactory
+name|repositorySessionFactory
+decl_stmt|;
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -345,6 +395,10 @@ name|DecimalFormat
 argument_list|(
 literal|"000"
 argument_list|)
+decl_stmt|;
+specifier|private
+name|IMocksControl
+name|factoryControl
 decl_stmt|;
 specifier|private
 specifier|static
@@ -415,6 +469,24 @@ operator|.
 name|createMock
 argument_list|(
 name|MetadataRepository
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|factoryControl
+operator|=
+name|EasyMock
+operator|.
+name|createControl
+argument_list|()
+expr_stmt|;
+name|repositorySessionFactory
+operator|=
+name|factoryControl
+operator|.
+name|createMock
+argument_list|(
+name|RepositorySessionFactory
 operator|.
 name|class
 argument_list|)
@@ -506,6 +578,17 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|EasyMock
 operator|.
 name|expect
@@ -513,7 +596,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -555,7 +640,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -574,6 +661,7 @@ argument_list|(
 name|event
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|metadataRepositoryControl
 operator|.
@@ -726,6 +814,17 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|EasyMock
 operator|.
 name|expect
@@ -733,7 +832,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -765,7 +866,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -784,6 +887,7 @@ argument_list|(
 name|event
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|metadataRepositoryControl
 operator|.
@@ -1028,6 +1132,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|EasyMock
 operator|.
 name|expect
@@ -1035,7 +1150,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -1061,7 +1178,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID_2
 argument_list|,
 name|AuditEvent
@@ -1105,7 +1224,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|event
 operator|.
 name|getRepositoryId
@@ -1127,6 +1248,7 @@ argument_list|(
 name|event
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|metadataRepositoryControl
 operator|.
@@ -1241,6 +1363,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|EasyMock
 operator|.
 name|expect
@@ -1248,7 +1381,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -1268,6 +1403,7 @@ name|emptyList
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|metadataRepositoryControl
 operator|.
 name|replay
@@ -1318,15 +1454,29 @@ name|Date
 argument_list|()
 argument_list|)
 decl_stmt|;
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|metadataRepository
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|event
 argument_list|)
 expr_stmt|;
+block|}
 name|metadataRepositoryControl
 operator|.
 name|replay
@@ -1403,10 +1553,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|metadataRepository
 operator|.
 name|removeMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -1414,6 +1577,7 @@ operator|.
 name|FACET_ID
 argument_list|)
 expr_stmt|;
+block|}
 name|metadataRepositoryControl
 operator|.
 name|replay
@@ -1506,6 +1670,17 @@ literal|1000
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|EasyMock
 operator|.
 name|expect
@@ -1513,7 +1688,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -1553,7 +1730,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -1572,6 +1751,7 @@ argument_list|(
 name|expectedEvent
 argument_list|)
 expr_stmt|;
+block|}
 name|metadataRepositoryControl
 operator|.
 name|replay
@@ -1734,6 +1914,17 @@ argument_list|(
 name|ts3
 argument_list|)
 decl_stmt|;
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|EasyMock
 operator|.
 name|expect
@@ -1741,7 +1932,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -1780,7 +1973,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -1806,7 +2001,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -1825,6 +2022,7 @@ argument_list|(
 name|expectedEvent3
 argument_list|)
 expr_stmt|;
+block|}
 name|metadataRepositoryControl
 operator|.
 name|replay
@@ -2000,6 +2198,17 @@ literal|1000
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|EasyMock
 operator|.
 name|expect
@@ -2007,7 +2216,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -2046,7 +2257,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -2072,7 +2285,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -2091,6 +2306,7 @@ argument_list|(
 name|expectedEvent2
 argument_list|)
 expr_stmt|;
+block|}
 name|metadataRepositoryControl
 operator|.
 name|replay
@@ -2280,6 +2496,17 @@ argument_list|(
 name|ts3
 argument_list|)
 decl_stmt|;
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|EasyMock
 operator|.
 name|expect
@@ -2287,7 +2514,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -2326,7 +2555,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -2352,7 +2583,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -2378,7 +2611,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -2397,6 +2632,7 @@ argument_list|(
 name|expectedEvent3
 argument_list|)
 expr_stmt|;
+block|}
 name|metadataRepositoryControl
 operator|.
 name|replay
@@ -2606,6 +2842,17 @@ argument_list|(
 name|ts3
 argument_list|)
 decl_stmt|;
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|EasyMock
 operator|.
 name|expect
@@ -2613,7 +2860,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -2652,7 +2901,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -2678,7 +2929,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -2704,7 +2957,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -2723,6 +2978,7 @@ argument_list|(
 name|expectedEvent3
 argument_list|)
 expr_stmt|;
+block|}
 name|metadataRepositoryControl
 operator|.
 name|replay
@@ -2902,6 +3158,17 @@ literal|1000
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|EasyMock
 operator|.
 name|expect
@@ -2909,7 +3176,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -2948,7 +3217,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -2974,7 +3245,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -3000,7 +3273,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -3019,6 +3294,7 @@ argument_list|(
 name|expectedEvent3
 argument_list|)
 expr_stmt|;
+block|}
 name|metadataRepositoryControl
 operator|.
 name|replay
@@ -3164,6 +3440,17 @@ argument_list|(
 name|ts3
 argument_list|)
 decl_stmt|;
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|EasyMock
 operator|.
 name|expect
@@ -3171,7 +3458,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -3205,7 +3494,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID_2
 argument_list|,
 name|AuditEvent
@@ -3234,7 +3525,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -3260,7 +3553,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID_2
 argument_list|,
 name|AuditEvent
@@ -3286,7 +3581,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -3305,6 +3602,7 @@ argument_list|(
 name|expectedEvent3
 argument_list|)
 expr_stmt|;
+block|}
 name|metadataRepositoryControl
 operator|.
 name|replay
@@ -3514,6 +3812,17 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|EasyMock
 operator|.
 name|expect
@@ -3521,7 +3830,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|AuditEvent
@@ -3544,6 +3855,7 @@ name|name3
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|metadataRepositoryControl
 operator|.
 name|replay

@@ -63,6 +63,38 @@ name|metadata
 operator|.
 name|repository
 operator|.
+name|RepositorySession
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
+name|RepositorySessionFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
+name|repository
+operator|.
 name|stats
 operator|.
 name|model
@@ -201,6 +233,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|text
@@ -322,6 +364,11 @@ name|RepositoryWalkingStatisticsProvider
 argument_list|()
 decl_stmt|;
 annotation|@
+name|Inject
+name|RepositorySessionFactory
+name|repositorySessionFactory
+decl_stmt|;
+annotation|@
 name|Override
 specifier|public
 name|boolean
@@ -336,11 +383,24 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 return|return
 name|metadataRepository
 operator|.
 name|hasMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|repositoryId
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -348,6 +408,7 @@ operator|.
 name|FACET_ID
 argument_list|)
 return|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -376,6 +437,17 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 comment|// TODO: consider a more efficient implementation that directly gets the last one from the content repository
 name|List
 argument_list|<
@@ -386,7 +458,9 @@ init|=
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|repositoryId
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -448,7 +522,9 @@ argument_list|(
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|repositoryId
 argument_list|,
 name|RepositoryStatistics
@@ -487,6 +563,7 @@ literal|null
 return|;
 block|}
 block|}
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -513,6 +590,17 @@ name|newFiles
 parameter_list|)
 throws|throws
 name|MetadataRepositoryException
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|DefaultRepositoryStatistics
 name|repositoryStatistics
@@ -585,7 +673,9 @@ name|metadataRepository
 operator|)
 operator|.
 name|populateStatistics
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|metadataRepository
 argument_list|,
 name|repositoryId
@@ -599,7 +689,9 @@ block|{
 name|walkingProvider
 operator|.
 name|populateStatistics
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|metadataRepository
 argument_list|,
 name|repositoryId
@@ -627,12 +719,15 @@ expr_stmt|;
 name|metadataRepository
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|repositoryId
 argument_list|,
 name|repositoryStatistics
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -649,10 +744,23 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|metadataRepository
 operator|.
 name|removeMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|repositoryId
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -660,6 +768,7 @@ operator|.
 name|FACET_ID
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -685,6 +794,17 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|repositorySessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|List
 argument_list|<
 name|RepositoryStatistics
@@ -705,7 +825,9 @@ init|=
 name|metadataRepository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|repositoryId
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -786,7 +908,9 @@ operator|)
 name|metadataRepository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|repositoryId
 argument_list|,
 name|DefaultRepositoryStatistics
@@ -829,6 +953,7 @@ block|}
 return|return
 name|results
 return|;
+block|}
 block|}
 specifier|private
 specifier|static

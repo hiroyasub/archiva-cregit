@@ -172,13 +172,17 @@ range|:
 name|metadataRepository
 operator|.
 name|getRootNamespaces
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repositoryId
 argument_list|)
 control|)
 block|{
 name|walkRepository
 argument_list|(
+name|repositorySession
+argument_list|,
 name|metadataRepository
 argument_list|,
 name|repositoryStatistics
@@ -214,6 +218,9 @@ specifier|private
 name|void
 name|walkRepository
 parameter_list|(
+name|RepositorySession
+name|repositorySession
+parameter_list|,
 name|MetadataRepository
 name|metadataRepository
 parameter_list|,
@@ -237,7 +244,9 @@ range|:
 name|metadataRepository
 operator|.
 name|getNamespaces
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repositoryId
 argument_list|,
 name|ns
@@ -246,6 +255,8 @@ control|)
 block|{
 name|walkRepository
 argument_list|(
+name|repositorySession
+argument_list|,
 name|metadataRepository
 argument_list|,
 name|stats
@@ -269,7 +280,9 @@ init|=
 name|metadataRepository
 operator|.
 name|getProjects
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repositoryId
 argument_list|,
 name|ns
@@ -327,7 +340,9 @@ range|:
 name|metadataRepository
 operator|.
 name|getProjectVersions
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repositoryId
 argument_list|,
 name|ns
@@ -344,7 +359,9 @@ range|:
 name|metadataRepository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|repositorySession
+argument_list|,
 name|repositoryId
 argument_list|,
 name|ns

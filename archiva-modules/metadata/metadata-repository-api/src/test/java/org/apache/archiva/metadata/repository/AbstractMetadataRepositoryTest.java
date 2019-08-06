@@ -71,7 +71,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|ArtifactMetadata
+name|*
 import|;
 end_import
 
@@ -83,187 +83,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|metadata
+name|repository
 operator|.
-name|model
-operator|.
-name|CiManagement
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|model
-operator|.
-name|Dependency
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|model
-operator|.
-name|IssueManagement
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|model
-operator|.
-name|License
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|model
-operator|.
-name|MailingList
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|model
-operator|.
-name|MetadataFacet
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|model
-operator|.
-name|MetadataFacetFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|model
-operator|.
-name|Organization
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|model
-operator|.
-name|ProjectMetadata
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|model
-operator|.
-name|ProjectVersionMetadata
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|model
-operator|.
-name|ProjectVersionReference
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|model
-operator|.
-name|Scm
+name|Repository
 import|;
 end_import
 
@@ -280,20 +102,6 @@ operator|.
 name|utils
 operator|.
 name|ArchivaSpringJUnit4ClassRunner
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|assertj
-operator|.
-name|core
-operator|.
-name|util
-operator|.
-name|Sets
 import|;
 end_import
 
@@ -369,117 +177,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Calendar
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Comparator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|LinkedHashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|TimeZone
+name|*
 import|;
 end_import
 
@@ -538,6 +236,10 @@ name|MetadataRepository
 name|repository
 decl_stmt|;
 specifier|protected
+name|RepositorySessionFactory
+name|sessionFactory
+decl_stmt|;
+specifier|protected
 specifier|static
 specifier|final
 name|String
@@ -551,7 +253,7 @@ specifier|final
 name|String
 name|TEST_PROJECT
 init|=
-literal|"projectId"
+literal|"myproject"
 decl_stmt|;
 specifier|protected
 specifier|static
@@ -559,7 +261,7 @@ specifier|final
 name|String
 name|TEST_NAMESPACE
 init|=
-literal|"namespace"
+literal|"mytest"
 decl_stmt|;
 specifier|protected
 specifier|static
@@ -709,7 +411,7 @@ literal|500
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * Runs the assert method until the assert is successful or the number of retries       * is reached. Needed because the JCR Oak index update is asynchronous, so updates       * may not be visible immediately after the modification.      */
+comment|/*      * Runs the assert method until the assert is successful or the number of retries      * is reached. Needed because the JCR Oak index update is asynchronous, so updates      * may not be visible immediately after the modification.      */
 specifier|private
 name|void
 name|tryAssert
@@ -981,6 +683,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|Collection
 argument_list|<
 name|String
@@ -990,7 +703,9 @@ init|=
 name|repository
 operator|.
 name|getRootNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 decl_stmt|;
@@ -1006,6 +721,7 @@ name|isEmpty
 argument_list|()
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -1015,12 +731,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|assertThat
 argument_list|(
 name|repository
 operator|.
 name|getRootNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 argument_list|)
@@ -1034,7 +763,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateNamespace
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -1045,7 +776,9 @@ argument_list|(
 name|repository
 operator|.
 name|getRootNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 argument_list|)
@@ -1069,7 +802,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|removeNamespace
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -1080,7 +815,9 @@ argument_list|(
 name|repository
 operator|.
 name|getRootNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 argument_list|)
@@ -1092,6 +829,7 @@ name|isEmpty
 argument_list|()
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -1101,12 +839,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|assertNull
 argument_list|(
 name|repository
 operator|.
 name|getProject
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -1120,7 +871,9 @@ argument_list|(
 name|repository
 operator|.
 name|getRootNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 argument_list|)
@@ -1155,7 +908,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProject
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|project
@@ -1166,7 +921,9 @@ operator|=
 name|repository
 operator|.
 name|getProject
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -1204,7 +961,9 @@ init|=
 name|repository
 operator|.
 name|getRootNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 decl_stmt|;
@@ -1230,6 +989,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -1239,12 +999,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|assertNull
 argument_list|(
 name|repository
 operator|.
 name|getProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -1260,7 +1033,9 @@ argument_list|(
 name|repository
 operator|.
 name|getProject
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -1274,7 +1049,9 @@ argument_list|(
 name|repository
 operator|.
 name|getRootNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 argument_list|)
@@ -1302,7 +1079,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -1317,7 +1096,9 @@ operator|=
 name|repository
 operator|.
 name|getProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -1347,7 +1128,9 @@ init|=
 name|repository
 operator|.
 name|getRootNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 decl_stmt|;
@@ -1378,7 +1161,9 @@ init|=
 name|repository
 operator|.
 name|getProject
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -1412,6 +1197,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -1420,6 +1206,17 @@ name|testGetArtifactOnly
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|assertThat
 argument_list|(
@@ -1430,7 +1227,9 @@ argument_list|(
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -1453,7 +1252,9 @@ argument_list|(
 name|repository
 operator|.
 name|getProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -1472,7 +1273,9 @@ argument_list|(
 name|repository
 operator|.
 name|getProject
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -1489,7 +1292,9 @@ argument_list|(
 name|repository
 operator|.
 name|getRootNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 argument_list|)
@@ -1509,7 +1314,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -1530,7 +1337,9 @@ init|=
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -1557,7 +1366,9 @@ argument_list|(
 name|repository
 operator|.
 name|getRootNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 argument_list|)
@@ -1584,7 +1395,9 @@ init|=
 name|repository
 operator|.
 name|getProject
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -1618,7 +1431,9 @@ init|=
 name|repository
 operator|.
 name|getProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -1639,6 +1454,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -1647,6 +1463,17 @@ name|testUpdateProjectVersionMetadataWithNoOtherArchives
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -1704,7 +1531,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -1719,7 +1548,9 @@ operator|=
 name|repository
 operator|.
 name|getProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -1811,6 +1642,7 @@ name|isEmpty
 argument_list|()
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -1819,6 +1651,17 @@ name|testUpdateProjectVersionMetadataWithAllElements
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -2120,7 +1963,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -2135,7 +1980,9 @@ operator|=
 name|repository
 operator|.
 name|getProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -2586,74 +2433,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-specifier|public
-name|void
-name|testGetRepositories
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// currently set up this way so the behaviour of both the test and the mock config return the same repository
-comment|// set as the File implementation just uses the config rather than the content
-name|repository
-operator|.
-name|updateNamespace
-argument_list|( ,
-name|TEST_REPO_ID
-argument_list|,
-literal|"namespace"
-argument_list|)
-expr_stmt|;
-name|repository
-operator|.
-name|updateNamespace
-argument_list|( ,
-name|OTHER_REPO_ID
-argument_list|,
-literal|"namespace"
-argument_list|)
-expr_stmt|;
-name|Collection
-argument_list|<
-name|String
-argument_list|>
-name|repositories
-init|=
-name|repository
-operator|.
-name|getRepositories
-argument_list|()
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"repository.getRepositories() -> "
-operator|+
-name|repositories
-argument_list|,
-comment|//
-name|Sets
-operator|.
-name|newLinkedHashSet
-argument_list|(
-name|TEST_REPO_ID
-argument_list|,
-name|OTHER_REPO_ID
-argument_list|)
-argument_list|,
-comment|//
-operator|new
-name|LinkedHashSet
-argument_list|<
-name|String
-argument_list|>
-argument_list|(
-name|repositories
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|//
 block|}
 annotation|@
 name|Test
@@ -2663,6 +2442,17 @@ name|testUpdateProjectVersionMetadataIncomplete
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -2688,7 +2478,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -2703,7 +2495,9 @@ operator|=
 name|repository
 operator|.
 name|getProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -2825,6 +2619,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -2833,6 +2628,17 @@ name|testUpdateProjectVersionMetadataWithExistingFacets
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -2867,7 +2673,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -2882,7 +2690,9 @@ operator|=
 name|repository
 operator|.
 name|getProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -2923,7 +2733,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -2938,7 +2750,9 @@ operator|=
 name|repository
 operator|.
 name|getProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -2987,6 +2801,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -2995,6 +2810,17 @@ name|testUpdateProjectVersionMetadataWithNoExistingFacets
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -3013,7 +2839,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -3028,7 +2856,9 @@ operator|=
 name|repository
 operator|.
 name|getProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -3068,7 +2898,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -3083,7 +2915,9 @@ operator|=
 name|repository
 operator|.
 name|getProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -3108,6 +2942,7 @@ name|isEmpty
 argument_list|()
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -3116,6 +2951,17 @@ name|testUpdateProjectVersionMetadataWithExistingFacetsFacetPropertyWasRemoved
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -3176,7 +3022,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -3191,7 +3039,9 @@ operator|=
 name|repository
 operator|.
 name|getProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -3296,7 +3146,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -3311,7 +3163,9 @@ operator|=
 name|repository
 operator|.
 name|getProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -3371,6 +3225,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -3379,6 +3234,17 @@ name|testGetArtifactsDoesntReturnProjectVersionMetadataFacets
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ProjectVersionMetadata
 name|versionMetadata
@@ -3415,7 +3281,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -3434,7 +3302,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -3446,7 +3316,7 @@ argument_list|,
 name|artifactMetadata
 argument_list|)
 expr_stmt|;
-name|repository
+name|session
 operator|.
 name|save
 argument_list|()
@@ -3460,7 +3330,9 @@ init|=
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -3492,7 +3364,9 @@ operator|=
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 expr_stmt|;
@@ -3518,7 +3392,9 @@ operator|=
 name|repository
 operator|.
 name|getArtifactsByChecksum
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_SHA1
@@ -3546,7 +3422,9 @@ operator|=
 name|repository
 operator|.
 name|getArtifactsByChecksum
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_MD5
@@ -3574,7 +3452,9 @@ operator|=
 name|repository
 operator|.
 name|getArtifactsByDateRange
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|null
@@ -3600,6 +3480,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -3608,6 +3489,17 @@ name|testUpdateArtifactMetadataWithExistingFacetsFacetPropertyWasRemoved
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ArtifactMetadata
 name|metadata
@@ -3660,7 +3552,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -3681,7 +3575,9 @@ init|=
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -3820,7 +3716,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -3837,7 +3735,9 @@ operator|=
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -3940,6 +3840,7 @@ literal|"deleteKey"
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -3948,6 +3849,17 @@ name|testUpdateArtifactMetadataWithExistingFacets
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ArtifactMetadata
 name|metadata
@@ -3974,7 +3886,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -3991,7 +3905,9 @@ operator|=
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -4030,7 +3946,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -4047,7 +3965,9 @@ operator|=
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -4102,6 +4022,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -4110,6 +4031,17 @@ name|testUpdateArtifactMetadataWithNoExistingFacets
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ArtifactMetadata
 name|metadata
@@ -4120,7 +4052,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -4137,7 +4071,9 @@ operator|=
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -4184,7 +4120,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -4201,7 +4139,9 @@ operator|=
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -4241,6 +4181,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -4250,10 +4191,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|repository
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 operator|new
@@ -4272,7 +4226,9 @@ operator|)
 name|repository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4292,6 +4248,7 @@ name|test
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -4301,12 +4258,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|assertNull
 argument_list|(
 name|repository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4315,6 +4285,7 @@ name|TEST_NAME
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
@@ -4325,10 +4296,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|repository
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 operator|new
@@ -4343,7 +4327,9 @@ argument_list|(
 name|repository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4352,6 +4338,7 @@ name|UNKNOWN
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
@@ -4362,10 +4349,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|repository
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 operator|new
@@ -4381,7 +4381,9 @@ init|=
 name|repository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4401,6 +4403,7 @@ name|metadataFacet
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -4410,12 +4413,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|assertNull
 argument_list|(
 name|repository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|UNKNOWN
@@ -4424,6 +4440,7 @@ name|TEST_NAME
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
@@ -4434,10 +4451,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|repository
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 operator|new
@@ -4459,13 +4489,16 @@ argument_list|,
 name|repository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
@@ -4476,6 +4509,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|List
 argument_list|<
 name|String
@@ -4485,7 +4529,9 @@ init|=
 name|repository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4500,6 +4546,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -4509,10 +4556,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|repository
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 operator|new
@@ -4531,7 +4591,9 @@ init|=
 name|repository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4548,7 +4610,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|removeMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4559,7 +4623,9 @@ operator|=
 name|repository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4574,6 +4640,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -4582,6 +4649,17 @@ name|testRemoveFacetsWhenEmpty
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|List
 argument_list|<
@@ -4592,7 +4670,9 @@ init|=
 name|repository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4609,7 +4689,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|removeMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4620,7 +4702,9 @@ operator|=
 name|repository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4635,6 +4719,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -4644,16 +4729,30 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 comment|// testing no exception
 name|repository
 operator|.
 name|removeMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|UNKNOWN
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
@@ -4664,11 +4763,24 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 comment|// testing no exception
 name|repository
 operator|.
 name|removeMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|UNKNOWN
@@ -4676,6 +4788,7 @@ argument_list|,
 name|TEST_NAME
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
@@ -4685,6 +4798,17 @@ name|testRemoveFacet
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|TestMetadataFacet
 name|metadataFacet
@@ -4698,7 +4822,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|metadataFacet
@@ -4711,7 +4837,9 @@ argument_list|,
 name|repository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4729,7 +4857,9 @@ init|=
 name|repository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4746,7 +4876,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|removeMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4759,7 +4891,9 @@ argument_list|(
 name|repository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4773,7 +4907,9 @@ operator|=
 name|repository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4788,6 +4924,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -4796,6 +4933,17 @@ name|testRemoveFacetWhenEmpty
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|List
 argument_list|<
@@ -4806,7 +4954,9 @@ init|=
 name|repository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4828,7 +4978,9 @@ argument_list|(
 name|repository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4843,7 +4995,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|removeMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4856,7 +5010,9 @@ operator|=
 name|repository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4878,7 +5034,9 @@ argument_list|(
 name|repository
 operator|.
 name|getMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
@@ -4891,6 +5049,7 @@ name|isNull
 argument_list|()
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -4900,12 +5059,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|assertFalse
 argument_list|(
 name|repository
 operator|.
 name|hasMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|KindOfRepositoryStatistics
@@ -4918,6 +5090,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -4927,12 +5100,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|assertFalse
 argument_list|(
 name|repository
 operator|.
 name|hasMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|KindOfRepositoryStatistics
@@ -4955,7 +5141,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 operator|new
@@ -4975,7 +5163,9 @@ argument_list|(
 name|repository
 operator|.
 name|hasMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|KindOfRepositoryStatistics
@@ -5001,7 +5191,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 operator|new
@@ -5030,7 +5222,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|addMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 operator|new
@@ -5054,7 +5248,9 @@ init|=
 name|repository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|KindOfRepositoryStatistics
@@ -5086,7 +5282,9 @@ argument_list|(
 name|repository
 operator|.
 name|hasMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|KindOfRepositoryStatistics
@@ -5101,7 +5299,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|removeMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|KindOfRepositoryStatistics
@@ -5117,7 +5317,9 @@ argument_list|(
 name|repository
 operator|.
 name|hasMetadataFacet
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|KindOfRepositoryStatistics
@@ -5134,7 +5336,9 @@ operator|=
 name|repository
 operator|.
 name|getMetadataFacets
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|KindOfRepositoryStatistics
@@ -5157,6 +5361,7 @@ name|isEmpty
 argument_list|()
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -5165,6 +5370,17 @@ name|testGetArtifacts
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ArtifactMetadata
 name|artifact1
@@ -5183,7 +5399,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -5198,7 +5416,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -5219,7 +5439,9 @@ init|=
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -5283,6 +5505,7 @@ name|actual
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -5291,6 +5514,17 @@ name|testGetArtifactVersions
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ArtifactMetadata
 name|artifact1
@@ -5363,7 +5597,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -5378,7 +5614,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -5399,7 +5637,9 @@ init|=
 name|repository
 operator|.
 name|getArtifactVersions
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -5428,6 +5668,7 @@ name|version2
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -5436,6 +5677,17 @@ name|testGetArtifactVersionsMultipleArtifactsSingleVersion
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ArtifactMetadata
 name|artifact1
@@ -5478,7 +5730,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -5493,7 +5747,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -5514,7 +5770,9 @@ init|=
 name|repository
 operator|.
 name|getArtifactVersions
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -5546,6 +5804,7 @@ name|TEST_PROJECT_VERSION
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -5554,6 +5813,17 @@ name|testGetArtifactsByDateRangeOpen
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -5564,7 +5834,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -5576,7 +5848,7 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
-name|repository
+name|session
 operator|.
 name|save
 argument_list|()
@@ -5590,7 +5862,9 @@ init|=
 name|repository
 operator|.
 name|getArtifactsByDateRange
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|null
@@ -5611,6 +5885,7 @@ name|artifacts
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -5619,6 +5894,17 @@ name|testGetArtifactsByDateRangeSparseNamespace
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|String
 name|namespace
@@ -5641,7 +5927,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|namespace
@@ -5653,7 +5941,7 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
-name|repository
+name|session
 operator|.
 name|save
 argument_list|()
@@ -5667,7 +5955,9 @@ init|=
 name|repository
 operator|.
 name|getArtifactsByDateRange
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|null
@@ -5692,6 +5982,7 @@ name|artifacts
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
@@ -5702,6 +5993,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|ArtifactMetadata
 name|artifact
 init|=
@@ -5711,7 +6013,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -5723,7 +6027,7 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
-name|repository
+name|session
 operator|.
 name|save
 argument_list|()
@@ -5754,7 +6058,9 @@ init|=
 name|repository
 operator|.
 name|getArtifactsByDateRange
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|date
@@ -5774,6 +6080,7 @@ argument_list|,
 name|artifacts
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
@@ -5784,6 +6091,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|ArtifactMetadata
 name|artifact
 init|=
@@ -5793,7 +6111,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -5831,7 +6151,9 @@ init|=
 name|repository
 operator|.
 name|getArtifactsByDateRange
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|date
@@ -5850,6 +6172,7 @@ operator|.
 name|isEmpty
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
@@ -5860,6 +6183,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|ArtifactMetadata
 name|artifact
 init|=
@@ -5869,7 +6203,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -5881,7 +6217,7 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
-name|repository
+name|session
 operator|.
 name|save
 argument_list|()
@@ -5929,7 +6265,9 @@ init|=
 name|repository
 operator|.
 name|getArtifactsByDateRange
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|lower
@@ -5950,6 +6288,7 @@ name|artifacts
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -5958,6 +6297,17 @@ name|testGetArtifactsByDateRangeUpperBound
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -5968,7 +6318,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -5980,7 +6332,7 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
-name|repository
+name|session
 operator|.
 name|save
 argument_list|()
@@ -6011,7 +6363,9 @@ init|=
 name|repository
 operator|.
 name|getArtifactsByDateRange
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|null
@@ -6032,6 +6386,7 @@ name|artifacts
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -6040,6 +6395,17 @@ name|testGetArtifactsByDateRangeUpperBoundOutOfRange
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -6050,7 +6416,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -6062,7 +6430,7 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
-name|repository
+name|session
 operator|.
 name|save
 argument_list|()
@@ -6093,7 +6461,9 @@ init|=
 name|repository
 operator|.
 name|getArtifactsByDateRange
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|null
@@ -6113,6 +6483,7 @@ name|isEmpty
 argument_list|()
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -6121,6 +6492,17 @@ name|testGetArtifactsByRepoId
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -6131,7 +6513,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -6143,7 +6527,7 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
-name|repository
+name|session
 operator|.
 name|save
 argument_list|()
@@ -6162,7 +6546,9 @@ init|=
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 decl_stmt|;
@@ -6182,6 +6568,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -6191,121 +6578,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArtifactMetadata
-name|artifact
+try|try
+init|(
+name|RepositorySession
+name|session
 init|=
-name|createArtifact
+name|sessionFactory
+operator|.
+name|createSession
 argument_list|()
-decl_stmt|;
-name|repository
-operator|.
-name|updateArtifact
-argument_list|( ,
-name|TEST_REPO_ID
-argument_list|,
-name|TEST_NAMESPACE
-argument_list|,
-name|TEST_PROJECT
-argument_list|,
-name|TEST_PROJECT_VERSION
-argument_list|,
-name|artifact
-argument_list|)
-expr_stmt|;
-name|ArtifactMetadata
-name|secondArtifact
-init|=
-name|createArtifact
-argument_list|()
-decl_stmt|;
-name|secondArtifact
-operator|.
-name|setRepositoryId
-argument_list|(
-name|OTHER_REPO_ID
-argument_list|)
-expr_stmt|;
-name|repository
-operator|.
-name|updateArtifact
-argument_list|( ,
-name|OTHER_REPO_ID
-argument_list|,
-name|TEST_NAMESPACE
-argument_list|,
-name|TEST_PROJECT
-argument_list|,
-name|TEST_PROJECT_VERSION
-argument_list|,
-name|secondArtifact
-argument_list|)
-expr_stmt|;
-name|repository
-operator|.
-name|save
-argument_list|()
-expr_stmt|;
-comment|// test it restricts to the appropriate repository
-name|tryAssert
-argument_list|(
-parameter_list|()
-lambda|->
-name|assertEquals
-argument_list|(
-name|Collections
-operator|.
-name|singletonList
-argument_list|(
-name|artifact
-argument_list|)
-argument_list|,
-name|repository
-operator|.
-name|getArtifacts
-argument_list|(
-block_content|, TEST_REPO_ID
-argument_list|)
-block_content|)
-block|)
-class|;
-end_class
-
-begin_expr_stmt
-name|tryAssert
-argument_list|(
-parameter_list|()
-lambda|->
-name|assertEquals
-argument_list|(
-name|Collections
-operator|.
-name|singletonList
-argument_list|(
-name|secondArtifact
-argument_list|)
-argument_list|,
-name|repository
-operator|.
-name|getArtifacts
-argument_list|(
-block_content|, OTHER_REPO_ID
-argument_list|)
-end_expr_stmt
-
-begin_empty_stmt
-unit|))
-empty_stmt|;
-end_empty_stmt
-
-begin_function
-unit|}       @
-name|Test
-specifier|public
-name|void
-name|testGetArtifactsByDateRangeMultipleCopies
-parameter_list|()
-throws|throws
-name|Exception
+init|)
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -6316,7 +6598,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -6344,7 +6628,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|OTHER_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -6356,7 +6642,136 @@ argument_list|,
 name|secondArtifact
 argument_list|)
 expr_stmt|;
+name|session
+operator|.
+name|save
+argument_list|()
+expr_stmt|;
+comment|// test it restricts to the appropriate repository
+name|tryAssert
+argument_list|(
+parameter_list|()
+lambda|->
+name|assertEquals
+argument_list|(
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
+name|artifact
+argument_list|)
+argument_list|,
 name|repository
+operator|.
+name|getArtifacts
+argument_list|(
+name|session
+argument_list|,
+name|TEST_REPO_ID
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|()
+lambda|->
+name|assertEquals
+argument_list|(
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
+name|secondArtifact
+argument_list|)
+argument_list|,
+name|repository
+operator|.
+name|getArtifacts
+argument_list|(
+name|session
+argument_list|,
+name|OTHER_REPO_ID
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Test
+specifier|public
+name|void
+name|testGetArtifactsByDateRangeMultipleCopies
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
+name|ArtifactMetadata
+name|artifact
+init|=
+name|createArtifact
+argument_list|()
+decl_stmt|;
+name|repository
+operator|.
+name|updateArtifact
+argument_list|(
+name|session
+argument_list|,
+name|TEST_REPO_ID
+argument_list|,
+name|TEST_NAMESPACE
+argument_list|,
+name|TEST_PROJECT
+argument_list|,
+name|TEST_PROJECT_VERSION
+argument_list|,
+name|artifact
+argument_list|)
+expr_stmt|;
+name|ArtifactMetadata
+name|secondArtifact
+init|=
+name|createArtifact
+argument_list|()
+decl_stmt|;
+name|secondArtifact
+operator|.
+name|setRepositoryId
+argument_list|(
+name|OTHER_REPO_ID
+argument_list|)
+expr_stmt|;
+name|repository
+operator|.
+name|updateArtifact
+argument_list|(
+name|session
+argument_list|,
+name|OTHER_REPO_ID
+argument_list|,
+name|TEST_NAMESPACE
+argument_list|,
+name|TEST_PROJECT
+argument_list|,
+name|TEST_PROJECT_VERSION
+argument_list|,
+name|secondArtifact
+argument_list|)
+expr_stmt|;
+name|session
 operator|.
 name|save
 argument_list|()
@@ -6374,7 +6789,9 @@ argument_list|,
 name|repository
 operator|.
 name|getArtifactsByDateRange
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|null
@@ -6395,7 +6812,9 @@ argument_list|,
 name|repository
 operator|.
 name|getArtifactsByDateRange
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|OTHER_REPO_ID
 argument_list|,
 literal|null
@@ -6405,9 +6824,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -6417,6 +6834,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|ArtifactMetadata
 name|artifact
 init|=
@@ -6426,7 +6854,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -6454,7 +6884,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|OTHER_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -6466,7 +6898,7 @@ argument_list|,
 name|secondArtifact
 argument_list|)
 expr_stmt|;
-name|repository
+name|session
 operator|.
 name|save
 argument_list|()
@@ -6488,7 +6920,9 @@ argument_list|(
 name|repository
 operator|.
 name|getArtifactsByChecksum
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_SHA1
@@ -6512,7 +6946,9 @@ argument_list|(
 name|repository
 operator|.
 name|getArtifactsByChecksum
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|OTHER_REPO_ID
 argument_list|,
 name|TEST_SHA1
@@ -6536,7 +6972,9 @@ argument_list|(
 name|repository
 operator|.
 name|getArtifactsByChecksum
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_MD5
@@ -6560,7 +6998,9 @@ argument_list|(
 name|repository
 operator|.
 name|getArtifactsByChecksum
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|OTHER_REPO_ID
 argument_list|,
 name|TEST_MD5
@@ -6569,9 +7009,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -6581,10 +7019,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|repository
 operator|.
 name|updateNamespace
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.maven.shared"
@@ -6599,7 +7050,9 @@ init|=
 name|repository
 operator|.
 name|getRootNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 decl_stmt|;
@@ -6629,7 +7082,9 @@ operator|=
 name|repository
 operator|.
 name|getNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org"
@@ -6661,7 +7116,9 @@ operator|=
 name|repository
 operator|.
 name|getNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache"
@@ -6693,7 +7150,9 @@ operator|=
 name|repository
 operator|.
 name|getNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.maven"
@@ -6721,9 +7180,7 @@ literal|"shared"
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -6733,6 +7190,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|String
 name|namespace
 init|=
@@ -6741,7 +7209,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|updateNamespace
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|namespace
@@ -6764,7 +7234,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|namespace
@@ -6783,7 +7255,9 @@ init|=
 name|repository
 operator|.
 name|getNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|namespace
@@ -6801,9 +7275,7 @@ name|isEmpty
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -6812,6 +7284,17 @@ name|testGetProjectsWithOtherNamespacesPresent
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ProjectMetadata
 name|projectMetadata
@@ -6837,7 +7320,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProject
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|projectMetadata
@@ -6846,7 +7331,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateNamespace
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.maven.shared"
@@ -6861,7 +7348,9 @@ init|=
 name|repository
 operator|.
 name|getProjects
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.maven"
@@ -6889,9 +7378,7 @@ name|TEST_PROJECT
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -6900,6 +7387,17 @@ name|testGetProjectVersionsWithOtherNamespacesPresent
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 comment|// an unusual case but technically possible where a project namespace matches another project's name
 name|ProjectVersionMetadata
@@ -6919,7 +7417,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.maven"
@@ -6932,7 +7432,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.maven."
@@ -6953,7 +7455,9 @@ init|=
 name|repository
 operator|.
 name|getProjectVersions
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.maven."
@@ -6984,7 +7488,9 @@ operator|=
 name|repository
 operator|.
 name|getProjectVersions
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.apache.maven"
@@ -7009,9 +7515,7 @@ name|TEST_PROJECT_VERSION
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -7021,68 +7525,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArtifactMetadata
-name|artifact
+try|try
+init|(
+name|RepositorySession
+name|session
 init|=
-name|createArtifact
+name|sessionFactory
+operator|.
+name|createSession
 argument_list|()
-decl_stmt|;
-name|repository
-operator|.
-name|updateArtifact
-argument_list|( ,
-name|TEST_REPO_ID
-argument_list|,
-name|TEST_NAMESPACE
-argument_list|,
-name|TEST_PROJECT
-argument_list|,
-name|TEST_PROJECT_VERSION
-argument_list|,
-name|artifact
-argument_list|)
-expr_stmt|;
-name|repository
-operator|.
-name|save
-argument_list|()
-expr_stmt|;
-name|assertEquals
-argument_list|(
-name|Collections
-operator|.
-name|singletonList
-argument_list|(
-name|artifact
-argument_list|)
-argument_list|,
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|(
-name|repository
-operator|.
-name|getArtifactsByChecksum
-argument_list|( ,
-name|TEST_REPO_ID
-argument_list|,
-name|TEST_MD5
-argument_list|)
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-
-begin_function
-annotation|@
-name|Test
-specifier|public
-name|void
-name|testGetArtifactsByChecksumSingleResultSha1
-parameter_list|()
-throws|throws
-name|Exception
+init|)
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -7093,7 +7545,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -7105,7 +7559,7 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
-name|repository
+name|session
 operator|.
 name|save
 argument_list|()
@@ -7126,7 +7580,85 @@ argument_list|(
 name|repository
 operator|.
 name|getArtifactsByChecksum
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
+name|TEST_REPO_ID
+argument_list|,
+name|TEST_MD5
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Test
+specifier|public
+name|void
+name|testGetArtifactsByChecksumSingleResultSha1
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
+name|ArtifactMetadata
+name|artifact
+init|=
+name|createArtifact
+argument_list|()
+decl_stmt|;
+name|repository
+operator|.
+name|updateArtifact
+argument_list|(
+name|session
+argument_list|,
+name|TEST_REPO_ID
+argument_list|,
+name|TEST_NAMESPACE
+argument_list|,
+name|TEST_PROJECT
+argument_list|,
+name|TEST_PROJECT_VERSION
+argument_list|,
+name|artifact
+argument_list|)
+expr_stmt|;
+name|session
+operator|.
+name|save
+argument_list|()
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
+name|artifact
+argument_list|)
+argument_list|,
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
+name|repository
+operator|.
+name|getArtifactsByChecksum
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_SHA1
@@ -7135,9 +7667,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -7146,6 +7676,17 @@ name|testGetArtifactsByChecksumDeepNamespace
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -7168,7 +7709,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|namespace
@@ -7180,7 +7723,7 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
-name|repository
+name|session
 operator|.
 name|save
 argument_list|()
@@ -7206,19 +7749,16 @@ name|repository
 operator|.
 name|getArtifactsByChecksum
 argument_list|(
-block_content|, TEST_REPO_ID
+name|session
+argument_list|,
+name|TEST_REPO_ID
 argument_list|,
 name|TEST_SHA1
 argument_list|)
-block_content|)
-end_function
-
-begin_empty_stmt
-unit|))
-empty_stmt|;
-end_empty_stmt
-
-begin_expr_stmt
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|tryAssert
 argument_list|(
 parameter_list|()
@@ -7240,19 +7780,19 @@ name|repository
 operator|.
 name|getArtifactsByChecksum
 argument_list|(
-block_content|, TEST_REPO_ID
+name|session
+argument_list|,
+name|TEST_REPO_ID
 argument_list|,
 name|TEST_MD5
 argument_list|)
-end_expr_stmt
-
-begin_empty_stmt
-unit|) ) )
-empty_stmt|;
-end_empty_stmt
-
-begin_function
-unit|}      @
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
 name|Test
 specifier|public
 name|void
@@ -7260,6 +7800,17 @@ name|testGetArtifactsByChecksumMultipleResult
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ArtifactMetadata
 name|artifact1
@@ -7270,7 +7821,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -7303,7 +7856,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -7315,7 +7870,7 @@ argument_list|,
 name|artifact2
 argument_list|)
 expr_stmt|;
-name|repository
+name|session
 operator|.
 name|save
 argument_list|()
@@ -7338,7 +7893,9 @@ argument_list|(
 name|repository
 operator|.
 name|getArtifactsByChecksum
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_SHA1
@@ -7391,7 +7948,9 @@ argument_list|(
 name|repository
 operator|.
 name|getArtifactsByChecksum
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_MD5
@@ -7427,9 +7986,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -7438,6 +7995,17 @@ name|testGetArtifactsByChecksumNoResult
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -7448,7 +8016,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -7469,7 +8039,9 @@ init|=
 name|repository
 operator|.
 name|getArtifactsByChecksum
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"not checksum"
@@ -7487,9 +8059,7 @@ name|isEmpty
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -7499,8 +8069,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|createArtifactWithGenericMetadataFacet
 argument_list|(
+name|session
+argument_list|,
 literal|10
 argument_list|)
 expr_stmt|;
@@ -7513,7 +8096,9 @@ init|=
 name|repository
 operator|.
 name|getArtifactsByProjectVersionMetadata
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_METADATA_KEY
 argument_list|,
 name|TEST_METADATA_VALUE
@@ -7582,9 +8167,7 @@ name|TEST_REPO_ID
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -7594,8 +8177,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|createArtifactWithGenericMetadataFacet
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
 argument_list|()
+init|)
+block|{
+name|createArtifactWithGenericMetadataFacet
+argument_list|(
+name|session
+argument_list|)
 expr_stmt|;
 name|Collection
 argument_list|<
@@ -7606,7 +8202,9 @@ init|=
 name|repository
 operator|.
 name|getArtifactsByProjectVersionMetadata
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_METADATA_KEY
 argument_list|,
 name|TEST_METADATA_VALUE
@@ -7645,9 +8243,7 @@ name|isNotEmpty
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -7657,8 +8253,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|createArtifactWithGenericMetadataFacet
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
 argument_list|()
+init|)
+block|{
+name|createArtifactWithGenericMetadataFacet
+argument_list|(
+name|session
+argument_list|)
 expr_stmt|;
 name|Collection
 argument_list|<
@@ -7669,7 +8278,9 @@ init|=
 name|repository
 operator|.
 name|getArtifactsByProjectVersionMetadata
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_METADATA_KEY
 argument_list|,
 name|TEST_METADATA_VALUE
@@ -7688,9 +8299,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -7700,8 +8309,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|createArtifactWithMavenArtifactFacet
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
 argument_list|()
+init|)
+block|{
+name|createArtifactWithMavenArtifactFacet
+argument_list|(
+name|session
+argument_list|)
 expr_stmt|;
 name|tryAssert
 argument_list|(
@@ -7717,7 +8339,9 @@ init|=
 name|repository
 operator|.
 name|getArtifactsByMetadata
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 literal|"foo"
 argument_list|,
 name|TEST_METADATA_VALUE
@@ -7827,9 +8451,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -7839,8 +8461,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|createArtifactWithData
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
 argument_list|()
+init|)
+block|{
+name|createArtifactWithData
+argument_list|(
+name|session
+argument_list|)
 expr_stmt|;
 comment|// only works on JCR implementation
 comment|// Collection<ArtifactMetadata> artifactsByProperty = repository.getArtifactsByProperty( "org.name", TEST_ORGANIZATION.getName(), TEST_REPO_ID );
@@ -7853,7 +8488,9 @@ init|=
 name|repository
 operator|.
 name|getArtifactsByProperty
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 literal|"url"
 argument_list|,
 name|TEST_URL
@@ -7922,9 +8559,7 @@ name|TEST_REPO_ID
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -7934,10 +8569,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|repository
 operator|.
 name|updateNamespace
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -7967,7 +8615,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProject
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|project1
@@ -7997,7 +8647,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProject
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|project2
@@ -8019,7 +8671,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8047,7 +8701,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8059,7 +8715,7 @@ argument_list|,
 name|artifact2
 argument_list|)
 expr_stmt|;
-name|repository
+name|session
 operator|.
 name|save
 argument_list|()
@@ -8108,7 +8764,9 @@ argument_list|(
 name|repository
 operator|.
 name|getArtifactsByDateRange
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|null
@@ -8141,7 +8799,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|removeRepository
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 expr_stmt|;
@@ -8150,7 +8810,9 @@ argument_list|(
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 operator|.
@@ -8163,7 +8825,9 @@ argument_list|(
 name|repository
 operator|.
 name|getRootNamespaces
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 operator|.
@@ -8172,9 +8836,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -8183,6 +8845,17 @@ name|testDeleteArtifact
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -8204,7 +8877,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8221,7 +8896,9 @@ argument_list|(
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8240,7 +8917,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8261,7 +8940,9 @@ init|=
 name|repository
 operator|.
 name|getProjectVersions
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8304,7 +8985,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|removeArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8324,7 +9007,9 @@ operator|=
 name|repository
 operator|.
 name|getProjectVersions
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8367,7 +9052,9 @@ argument_list|(
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8389,7 +9076,9 @@ argument_list|(
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8409,9 +9098,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -8420,6 +9107,17 @@ name|deleteArtifact
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -8441,7 +9139,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8456,7 +9156,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8477,7 +9179,9 @@ init|=
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8507,7 +9211,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|removeArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8527,7 +9233,9 @@ operator|=
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8549,9 +9257,7 @@ name|isEmpty
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -8560,6 +9266,17 @@ name|deleteVersion
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -8581,7 +9298,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8596,7 +9315,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8617,7 +9338,9 @@ init|=
 name|repository
 operator|.
 name|getProjectVersions
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8644,7 +9367,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|removeProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8659,7 +9384,9 @@ operator|=
 name|repository
 operator|.
 name|getProjectVersions
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8679,9 +9406,7 @@ name|isEmpty
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -8690,6 +9415,17 @@ name|deleteProject
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -8711,7 +9447,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8726,7 +9464,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8745,7 +9485,9 @@ argument_list|,
 name|repository
 operator|.
 name|getProjectVersions
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8760,7 +9502,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|removeProject
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8777,7 +9521,9 @@ init|=
 name|repository
 operator|.
 name|getProjectVersions
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8797,9 +9543,7 @@ name|isEmpty
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -8808,6 +9552,17 @@ name|deleteSnapshotVersion
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ArtifactMetadata
 name|artifactOne
@@ -8858,7 +9613,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8919,7 +9676,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8940,7 +9699,9 @@ init|=
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -8978,7 +9739,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|removeArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|artifactOne
 argument_list|,
 literal|"2.0-SNAPSHOT"
@@ -8989,7 +9752,9 @@ operator|=
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -9018,7 +9783,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|removeArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|artifactTwo
 argument_list|,
 literal|"2.0-SNAPSHOT"
@@ -9029,7 +9796,9 @@ operator|=
 name|repository
 operator|.
 name|getArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -9051,9 +9820,7 @@ name|isEmpty
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -9062,6 +9829,17 @@ name|testgetProjectReferences
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
 block|{
 name|ProjectVersionMetadata
 name|metadata
@@ -9240,7 +10018,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -9250,7 +10030,7 @@ argument_list|,
 name|metadata
 argument_list|)
 expr_stmt|;
-name|repository
+name|session
 operator|.
 name|save
 argument_list|()
@@ -9260,7 +10040,9 @@ operator|=
 name|repository
 operator|.
 name|getProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -9279,7 +10061,9 @@ init|=
 name|repository
 operator|.
 name|getProjectReferences
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|d
@@ -9340,9 +10124,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -9352,7 +10134,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
 name|createArtifactWithData
+argument_list|(
+name|session
+argument_list|)
+expr_stmt|;
+name|session
+operator|.
+name|refreshAndDiscard
 argument_list|()
 expr_stmt|;
 name|Collection
@@ -9364,7 +10164,9 @@ init|=
 name|repository
 operator|.
 name|searchArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"url"
@@ -9386,9 +10188,7 @@ name|isNotEmpty
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -9398,8 +10198,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|createArtifactWithData
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
 argument_list|()
+init|)
+block|{
+name|createArtifactWithData
+argument_list|(
+name|session
+argument_list|)
 expr_stmt|;
 name|Collection
 argument_list|<
@@ -9410,7 +10223,9 @@ init|=
 name|repository
 operator|.
 name|searchArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"url"
@@ -9436,7 +10251,9 @@ operator|=
 name|repository
 operator|.
 name|searchArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 literal|"org.name"
@@ -9458,9 +10275,7 @@ name|isEmpty
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -9470,8 +10285,55 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|createArtifactWithGenericMetadataFacet
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
 argument_list|()
+init|)
+block|{
+name|createArtifactWithGenericMetadataFacet
+argument_list|(
+name|session
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Thread.currentThread().sleep(5000);
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
+argument_list|()
+init|)
+block|{
+name|session
+operator|.
+name|refresh
+argument_list|()
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|repository
+operator|.
+name|getRootNamespaces
+argument_list|(
+name|session
+argument_list|,
+name|TEST_REPO_ID
+argument_list|)
+argument_list|)
 expr_stmt|;
 name|Collection
 argument_list|<
@@ -9482,7 +10344,9 @@ init|=
 name|repository
 operator|.
 name|searchArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_METADATA_KEY
@@ -9504,9 +10368,7 @@ name|isNotEmpty
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -9516,8 +10378,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|createArtifactWithGenericMetadataFacet
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
 argument_list|()
+init|)
+block|{
+name|createArtifactWithGenericMetadataFacet
+argument_list|(
+name|session
+argument_list|)
 expr_stmt|;
 name|tryAssert
 argument_list|(
@@ -9533,7 +10408,9 @@ init|=
 name|repository
 operator|.
 name|searchArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 literal|null
 argument_list|,
 name|TEST_METADATA_KEY
@@ -9558,9 +10435,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -9570,8 +10445,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|createArtifactWithGenericMetadataFacet
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
 argument_list|()
+init|)
+block|{
+name|createArtifactWithGenericMetadataFacet
+argument_list|(
+name|session
+argument_list|)
 expr_stmt|;
 comment|// only works in JCR
 comment|// Collection<ArtifactMetadata> artifactsByProperty = repository.searchArtifacts( TEST_URL, TEST_REPO_ID, false );
@@ -9584,7 +10472,9 @@ init|=
 name|repository
 operator|.
 name|searchArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_METADATA_VALUE
@@ -9604,9 +10494,7 @@ name|isNotEmpty
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -9616,8 +10504,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|createArtifactWithGenericMetadataFacet
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
 argument_list|()
+init|)
+block|{
+name|createArtifactWithGenericMetadataFacet
+argument_list|(
+name|session
+argument_list|)
 expr_stmt|;
 comment|// only works in JCR
 comment|// Collection<ArtifactMetadata> artifactsByProperty = repository.searchArtifacts( TEST_URL, TEST_REPO_ID, true );
@@ -9630,7 +10531,9 @@ init|=
 name|repository
 operator|.
 name|searchArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_METADATA_VALUE
@@ -9654,7 +10557,9 @@ operator|=
 name|repository
 operator|.
 name|searchArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_METADATA_VALUE
@@ -9679,9 +10584,7 @@ name|isEmpty
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -9691,8 +10594,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|createArtifactWithGenericMetadataFacet
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|sessionFactory
+operator|.
+name|createSession
 argument_list|()
+init|)
+block|{
+name|createArtifactWithGenericMetadataFacet
+argument_list|(
+name|session
+argument_list|)
 expr_stmt|;
 name|Collection
 argument_list|<
@@ -9703,7 +10619,9 @@ init|=
 name|repository
 operator|.
 name|searchArtifacts
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_METADATA_VALUE
@@ -9723,9 +10641,7 @@ name|isNotEmpty
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-
-begin_function
+block|}
 specifier|private
 specifier|static
 name|ProjectMetadata
@@ -9739,9 +10655,6 @@ name|TEST_NAMESPACE
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|private
 specifier|static
 name|ProjectMetadata
@@ -9776,31 +10689,35 @@ return|return
 name|project
 return|;
 block|}
-end_function
-
-begin_function
-specifier|private
-name|void
-name|createArtifactWithGenericMetadataFacet
-parameter_list|()
-throws|throws
-name|MetadataRepositoryException
-throws|,
-name|MetadataResolutionException
-block|{
-name|createArtifactWithGenericMetadataFacet
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-
-begin_function
 specifier|private
 name|void
 name|createArtifactWithGenericMetadataFacet
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|)
+throws|throws
+name|MetadataRepositoryException
+throws|,
+name|MetadataResolutionException
+throws|,
+name|MetadataSessionException
+block|{
+name|createArtifactWithGenericMetadataFacet
+argument_list|(
+name|session
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+specifier|private
+name|void
+name|createArtifactWithGenericMetadataFacet
+parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|int
 name|artifacts
 parameter_list|)
@@ -9808,6 +10725,8 @@ throws|throws
 name|MetadataRepositoryException
 throws|,
 name|MetadataResolutionException
+throws|,
+name|MetadataSessionException
 block|{
 name|MetadataFacet
 name|metadataFacet
@@ -9847,6 +10766,8 @@ argument_list|)
 expr_stmt|;
 name|createArtifactWithFacet
 argument_list|(
+name|session
+argument_list|,
 name|artifacts
 argument_list|,
 literal|null
@@ -9855,31 +10776,35 @@ name|metadataFacet
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
-specifier|private
-name|void
-name|createArtifactWithMavenArtifactFacet
-parameter_list|()
-throws|throws
-name|MetadataRepositoryException
-throws|,
-name|MetadataResolutionException
-block|{
-name|createArtifactWithMavenArtifactFacet
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-
-begin_function
 specifier|private
 name|void
 name|createArtifactWithMavenArtifactFacet
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|)
+throws|throws
+name|MetadataRepositoryException
+throws|,
+name|MetadataResolutionException
+throws|,
+name|MetadataSessionException
+block|{
+name|createArtifactWithMavenArtifactFacet
+argument_list|(
+name|session
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+specifier|private
+name|void
+name|createArtifactWithMavenArtifactFacet
+parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|int
 name|artifacts
 parameter_list|)
@@ -9887,6 +10812,8 @@ throws|throws
 name|MetadataRepositoryException
 throws|,
 name|MetadataResolutionException
+throws|,
+name|MetadataSessionException
 block|{
 name|TestMetadataFacet
 name|facet
@@ -9899,6 +10826,8 @@ argument_list|)
 decl_stmt|;
 name|createArtifactWithFacet
 argument_list|(
+name|session
+argument_list|,
 name|artifacts
 argument_list|,
 name|facet
@@ -9907,13 +10836,13 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 specifier|private
 name|void
 name|createArtifactWithFacet
 parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|,
 name|int
 name|artifacts
 parameter_list|,
@@ -9927,6 +10856,8 @@ throws|throws
 name|MetadataRepositoryException
 throws|,
 name|MetadataResolutionException
+throws|,
+name|MetadataSessionException
 block|{
 for|for
 control|(
@@ -9967,7 +10898,9 @@ block|}
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -9993,7 +10926,9 @@ init|=
 name|repository
 operator|.
 name|getProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -10027,7 +10962,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -10038,23 +10975,25 @@ name|metadata
 argument_list|)
 expr_stmt|;
 block|}
-name|repository
+name|session
 operator|.
 name|save
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 specifier|private
 name|void
 name|createArtifactWithData
-parameter_list|()
+parameter_list|(
+name|RepositorySession
+name|session
+parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 throws|,
 name|MetadataResolutionException
+throws|,
+name|MetadataSessionException
 block|{
 name|ArtifactMetadata
 name|artifact
@@ -10065,7 +11004,9 @@ decl_stmt|;
 name|repository
 operator|.
 name|updateArtifact
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -10083,7 +11024,9 @@ init|=
 name|repository
 operator|.
 name|getProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -10110,7 +11053,9 @@ expr_stmt|;
 name|repository
 operator|.
 name|updateProjectVersion
-argument_list|( ,
+argument_list|(
+name|session
+argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_NAMESPACE
@@ -10120,15 +11065,12 @@ argument_list|,
 name|metadata
 argument_list|)
 expr_stmt|;
-name|repository
+name|session
 operator|.
 name|save
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 specifier|private
 specifier|static
 name|ArtifactMetadata
@@ -10142,9 +11084,6 @@ literal|"jar"
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 specifier|private
 specifier|static
 name|ArtifactMetadata
@@ -10248,9 +11187,6 @@ return|return
 name|artifact
 return|;
 block|}
-end_function
-
-begin_class
 specifier|private
 specifier|static
 class|class
@@ -10291,9 +11227,6 @@ argument_list|)
 return|;
 block|}
 block|}
-end_class
-
-begin_class
 specifier|private
 specifier|static
 class|class
@@ -10448,9 +11381,6 @@ block|{
 comment|// no op
 block|}
 block|}
-end_class
-
-begin_class
 specifier|private
 specifier|static
 class|class
@@ -10886,8 +11816,8 @@ literal|0
 return|;
 block|}
 block|}
+block|}
 end_class
 
-unit|}
 end_unit
 
