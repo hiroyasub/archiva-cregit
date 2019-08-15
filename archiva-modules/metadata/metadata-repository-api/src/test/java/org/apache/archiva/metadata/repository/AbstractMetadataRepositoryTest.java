@@ -111,6 +111,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -144,6 +154,20 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|format
+operator|.
+name|annotation
+operator|.
+name|NumberFormat
 import|;
 end_import
 
@@ -232,14 +256,6 @@ init|=
 literal|"other-repo"
 decl_stmt|;
 specifier|protected
-name|MetadataRepository
-name|repository
-decl_stmt|;
-specifier|protected
-name|RepositorySessionFactory
-name|sessionFactory
-decl_stmt|;
-specifier|protected
 specifier|static
 specifier|final
 name|String
@@ -279,7 +295,7 @@ name|TEST_PROJECT_VERSION_2_0
 init|=
 literal|"2.0"
 decl_stmt|;
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String
@@ -374,24 +390,24 @@ operator|.
 name|getLogger
 argument_list|(
 name|getClass
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 comment|/*      * Used by tryAssert to allow to throw exceptions in the lambda expression.      */
 annotation|@
 name|FunctionalInterface
-specifier|private
+specifier|protected
 interface|interface
 name|AssertFunction
 block|{
 name|void
 name|accept
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 function_decl|;
 block|}
-specifier|private
+specifier|protected
 name|void
 name|tryAssert
 parameter_list|(
@@ -405,13 +421,25 @@ name|tryAssert
 argument_list|(
 name|func
 argument_list|,
-literal|5
+literal|20
 argument_list|,
 literal|500
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * Runs the assert method until the assert is successful or the number of retries      * is reached. Needed because the JCR Oak index update is asynchronous, so updates      * may not be visible immediately after the modification.      */
+specifier|protected
+specifier|abstract
+name|RepositorySessionFactory
+name|getSessionFactory
+parameter_list|( )
+function_decl|;
+specifier|protected
+specifier|abstract
+name|MetadataRepository
+name|getRepository
+parameter_list|( )
+function_decl|;
+comment|/*      * Runs the assert method until the assert is successful or the number of retries      * is reached. This is needed because the JCR Oak index update is asynchronous, so updates      * may not be visible immediately after the modification.      */
 specifier|private
 name|void
 name|tryAssert
@@ -451,7 +479,7 @@ block|{
 name|func
 operator|.
 name|accept
-argument_list|()
+argument_list|( )
 expr_stmt|;
 return|return;
 block|}
@@ -470,7 +498,7 @@ expr_stmt|;
 name|Thread
 operator|.
 name|currentThread
-argument_list|()
+argument_list|( )
 operator|.
 name|sleep
 argument_list|(
@@ -481,13 +509,32 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Retrying assert "
-operator|+
+literal|"Retrying assert {}: {}"
+argument_list|,
 name|retry
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Retries: {}, Exception: {}"
+argument_list|,
+name|retry
+argument_list|,
+name|t
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|retry
@@ -527,6 +574,20 @@ operator|)
 name|t
 throw|;
 block|}
+if|else if
+condition|(
+name|t
+operator|instanceof
+name|Error
+condition|)
+block|{
+throw|throw
+operator|(
+name|Error
+operator|)
+name|t
+throw|;
+block|}
 block|}
 block|}
 specifier|public
@@ -538,7 +599,7 @@ argument_list|,
 name|MetadataFacetFactory
 argument_list|>
 name|createTestMetadataFacetFactories
-parameter_list|()
+parameter_list|( )
 block|{
 name|Map
 argument_list|<
@@ -551,7 +612,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|factories
 operator|.
@@ -561,14 +622,14 @@ name|TEST_FACET_ID
 argument_list|,
 operator|new
 name|MetadataFacetFactory
-argument_list|()
+argument_list|( )
 block|{
 annotation|@
 name|Override
 specifier|public
 name|MetadataFacet
 name|createMetadataFacet
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 operator|new
@@ -611,14 +672,14 @@ literal|""
 argument_list|,
 operator|new
 name|MetadataFacetFactory
-argument_list|()
+argument_list|( )
 block|{
 annotation|@
 name|Override
 specifier|public
 name|MetadataFacet
 name|createMetadataFacet
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 operator|new
@@ -667,7 +728,7 @@ name|FACET_ID
 argument_list|,
 operator|new
 name|GenericMetadataFacetFactory
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 return|return
@@ -679,7 +740,7 @@ name|Test
 specifier|public
 name|void
 name|testRootNamespaceWithNoMetadataRepository
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -688,11 +749,17 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
+block|{
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
 block|{
 name|Collection
 argument_list|<
@@ -700,7 +767,8 @@ name|String
 argument_list|>
 name|namespaces
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getRootNamespaces
 argument_list|(
@@ -715,10 +783,13 @@ name|namespaces
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -727,7 +798,7 @@ name|Test
 specifier|public
 name|void
 name|testGetNamespaceOnly
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -736,15 +807,22 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
+block|{
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
 block|{
 name|assertThat
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getRootNamespaces
 argument_list|(
@@ -755,12 +833,16 @@ argument_list|)
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 expr_stmt|;
-name|repository
+block|}
+argument_list|)
+expr_stmt|;
+name|getRepository
+argument_list|( )
 operator|.
 name|updateNamespace
 argument_list|(
@@ -771,9 +853,15 @@ argument_list|,
 name|TEST_NAMESPACE
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|assertThat
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getRootNamespaces
 argument_list|(
@@ -784,10 +872,10 @@ argument_list|)
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|contains
 argument_list|(
@@ -799,7 +887,11 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|repository
+block|}
+argument_list|)
+expr_stmt|;
+name|getRepository
+argument_list|( )
 operator|.
 name|removeNamespace
 argument_list|(
@@ -810,9 +902,15 @@ argument_list|,
 name|TEST_NAMESPACE
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|assertThat
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getRootNamespaces
 argument_list|(
@@ -823,10 +921,13 @@ argument_list|)
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -835,7 +936,7 @@ name|Test
 specifier|public
 name|void
 name|testGetProjectOnly
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -844,15 +945,22 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
+block|{
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
 block|{
 name|assertNull
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProject
 argument_list|(
@@ -868,7 +976,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getRootNamespaces
 argument_list|(
@@ -879,17 +988,20 @@ argument_list|)
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 name|ProjectMetadata
 name|project
 init|=
 operator|new
 name|ProjectMetadata
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|project
 operator|.
@@ -905,7 +1017,8 @@ argument_list|(
 name|TEST_NAMESPACE
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProject
 argument_list|(
@@ -916,9 +1029,16 @@ argument_list|,
 name|project
 argument_list|)
 expr_stmt|;
-name|project
-operator|=
-name|repository
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
+name|ProjectMetadata
+name|proj
+init|=
+name|getRepository
+argument_list|( )
 operator|.
 name|getProject
 argument_list|(
@@ -930,35 +1050,44 @@ name|TEST_NAMESPACE
 argument_list|,
 name|TEST_PROJECT
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertEquals
 argument_list|(
 name|TEST_PROJECT
 argument_list|,
-name|project
+name|proj
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 name|TEST_NAMESPACE
 argument_list|,
-name|project
+name|proj
 operator|.
 name|getNamespace
-argument_list|()
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 comment|// test that namespace is also constructed
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|String
 argument_list|>
 name|namespaces
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getRootNamespaces
 argument_list|(
@@ -973,10 +1102,10 @@ name|namespaces
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|contains
 argument_list|(
@@ -989,13 +1118,16 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
 specifier|public
 name|void
 name|testGetProjectVersionOnly
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -1004,15 +1136,22 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
+block|{
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
 block|{
 name|assertNull
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersion
 argument_list|(
@@ -1030,7 +1169,8 @@ argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProject
 argument_list|(
@@ -1046,7 +1186,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getRootNamespaces
 argument_list|(
@@ -1057,17 +1198,20 @@ argument_list|)
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 name|ProjectVersionMetadata
 name|metadata
 init|=
 operator|new
 name|ProjectVersionMetadata
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|metadata
 operator|.
@@ -1076,7 +1220,8 @@ argument_list|(
 name|TEST_PROJECT_VERSION
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProjectVersion
 argument_list|(
@@ -1093,7 +1238,8 @@ argument_list|)
 expr_stmt|;
 name|metadata
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersion
 argument_list|(
@@ -1115,9 +1261,14 @@ argument_list|,
 name|metadata
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 comment|// test that namespace and project is also constructed
 name|Collection
 argument_list|<
@@ -1125,7 +1276,8 @@ name|String
 argument_list|>
 name|namespaces
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getRootNamespaces
 argument_list|(
@@ -1140,10 +1292,10 @@ name|namespaces
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -1155,10 +1307,19 @@ argument_list|(
 name|TEST_NAMESPACE
 argument_list|)
 expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|ProjectMetadata
 name|projectMetadata
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProject
 argument_list|(
@@ -1183,7 +1344,7 @@ argument_list|,
 name|projectMetadata
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1193,7 +1354,10 @@ argument_list|,
 name|projectMetadata
 operator|.
 name|getNamespace
-argument_list|()
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1203,7 +1367,7 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifactOnly
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -1212,11 +1376,17 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
+block|{
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
 block|{
 name|assertThat
 argument_list|(
@@ -1224,7 +1394,8 @@ operator|new
 name|ArrayList
 argument_list|<>
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -1242,14 +1413,15 @@ argument_list|)
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersion
 argument_list|(
@@ -1266,11 +1438,12 @@ argument_list|)
 argument_list|)
 operator|.
 name|isNull
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProject
 argument_list|(
@@ -1285,11 +1458,12 @@ argument_list|)
 argument_list|)
 operator|.
 name|isNull
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getRootNamespaces
 argument_list|(
@@ -1300,18 +1474,22 @@ argument_list|)
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 name|ArtifactMetadata
 name|metadata
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -1328,13 +1506,19 @@ argument_list|,
 name|metadata
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifacts
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -1363,7 +1547,8 @@ expr_stmt|;
 comment|// test that namespace, project and project version is also constructed
 name|assertThat
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getRootNamespaces
 argument_list|(
@@ -1374,10 +1559,10 @@ argument_list|)
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|contains
 argument_list|(
@@ -1392,7 +1577,8 @@ expr_stmt|;
 name|ProjectMetadata
 name|projectMetadata
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProject
 argument_list|(
@@ -1412,7 +1598,7 @@ argument_list|,
 name|projectMetadata
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1422,13 +1608,14 @@ argument_list|,
 name|projectMetadata
 operator|.
 name|getNamespace
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|ProjectVersionMetadata
 name|projectVersionMetadata
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersion
 argument_list|(
@@ -1450,7 +1637,10 @@ argument_list|,
 name|projectVersionMetadata
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1460,7 +1650,7 @@ name|Test
 specifier|public
 name|void
 name|testUpdateProjectVersionMetadataWithNoOtherArchives
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -1469,10 +1659,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ProjectVersionMetadata
@@ -1480,7 +1671,7 @@ name|metadata
 init|=
 operator|new
 name|ProjectVersionMetadata
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|metadata
 operator|.
@@ -1494,7 +1685,7 @@ name|mailingList
 init|=
 operator|new
 name|MailingList
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|mailingList
 operator|.
@@ -1513,7 +1704,7 @@ expr|<
 name|String
 operator|>
 name|emptyList
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|metadata
@@ -1528,7 +1719,8 @@ name|mailingList
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProjectVersion
 argument_list|(
@@ -1545,7 +1737,8 @@ argument_list|)
 expr_stmt|;
 name|metadata
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersion
 argument_list|(
@@ -1567,7 +1760,7 @@ argument_list|,
 name|metadata
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|List
@@ -1579,7 +1772,7 @@ init|=
 name|metadata
 operator|.
 name|getMailingLists
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -1587,10 +1780,10 @@ name|mailingLists
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -1602,7 +1795,7 @@ operator|=
 name|metadata
 operator|.
 name|getMailingLists
-argument_list|()
+argument_list|( )
 operator|.
 name|get
 argument_list|(
@@ -1616,7 +1809,7 @@ argument_list|,
 name|mailingList
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|List
@@ -1628,7 +1821,7 @@ init|=
 name|mailingList
 operator|.
 name|getOtherArchives
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -1636,10 +1829,10 @@ name|others
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -1648,7 +1841,7 @@ name|Test
 specifier|public
 name|void
 name|testUpdateProjectVersionMetadataWithAllElements
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -1657,10 +1850,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ProjectVersionMetadata
@@ -1668,7 +1862,7 @@ name|metadata
 init|=
 operator|new
 name|ProjectVersionMetadata
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|metadata
 operator|.
@@ -1703,7 +1897,7 @@ name|mailingList
 init|=
 operator|new
 name|MailingList
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|mailingList
 operator|.
@@ -1769,7 +1963,7 @@ name|scm
 init|=
 operator|new
 name|Scm
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|scm
 operator|.
@@ -1804,7 +1998,7 @@ name|ci
 init|=
 operator|new
 name|CiManagement
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|ci
 operator|.
@@ -1832,7 +2026,7 @@ name|tracker
 init|=
 operator|new
 name|IssueManagement
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|tracker
 operator|.
@@ -1867,7 +2061,7 @@ name|l
 init|=
 operator|new
 name|License
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|l
 operator|.
@@ -1895,7 +2089,7 @@ name|d
 init|=
 operator|new
 name|Dependency
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|d
 operator|.
@@ -1960,7 +2154,8 @@ argument_list|(
 name|d
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProjectVersion
 argument_list|(
@@ -1977,7 +2172,8 @@ argument_list|)
 expr_stmt|;
 name|metadata
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersion
 argument_list|(
@@ -1999,7 +2195,7 @@ argument_list|,
 name|metadata
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2009,7 +2205,7 @@ argument_list|,
 name|metadata
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2019,7 +2215,7 @@ argument_list|,
 name|metadata
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2029,7 +2225,7 @@ argument_list|,
 name|metadata
 operator|.
 name|getDescription
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2039,7 +2235,7 @@ argument_list|,
 name|metadata
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2049,10 +2245,10 @@ argument_list|,
 name|metadata
 operator|.
 name|getScm
-argument_list|()
+argument_list|( )
 operator|.
 name|getConnection
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2062,10 +2258,10 @@ argument_list|,
 name|metadata
 operator|.
 name|getScm
-argument_list|()
+argument_list|( )
 operator|.
 name|getDeveloperConnection
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2075,10 +2271,10 @@ argument_list|,
 name|metadata
 operator|.
 name|getScm
-argument_list|()
+argument_list|( )
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2088,10 +2284,10 @@ argument_list|,
 name|metadata
 operator|.
 name|getCiManagement
-argument_list|()
+argument_list|( )
 operator|.
 name|getSystem
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2101,10 +2297,10 @@ argument_list|,
 name|metadata
 operator|.
 name|getCiManagement
-argument_list|()
+argument_list|( )
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2114,10 +2310,10 @@ argument_list|,
 name|metadata
 operator|.
 name|getIssueManagement
-argument_list|()
+argument_list|( )
 operator|.
 name|getSystem
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2127,10 +2323,10 @@ argument_list|,
 name|metadata
 operator|.
 name|getIssueManagement
-argument_list|()
+argument_list|( )
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2138,15 +2334,15 @@ argument_list|(
 name|TEST_ORGANIZATION
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|,
 name|metadata
 operator|.
 name|getOrganization
-argument_list|()
+argument_list|( )
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2154,15 +2350,15 @@ argument_list|(
 name|TEST_ORGANIZATION
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|,
 name|metadata
 operator|.
 name|getOrganization
-argument_list|()
+argument_list|( )
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2172,10 +2368,10 @@ argument_list|,
 name|metadata
 operator|.
 name|getMailingLists
-argument_list|()
+argument_list|( )
 operator|.
 name|size
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|MailingList
@@ -2184,7 +2380,7 @@ init|=
 name|metadata
 operator|.
 name|getMailingLists
-argument_list|()
+argument_list|( )
 operator|.
 name|get
 argument_list|(
@@ -2196,12 +2392,12 @@ argument_list|(
 name|mailingList
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|,
 name|retrievedMailingList
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2209,12 +2405,12 @@ argument_list|(
 name|mailingList
 operator|.
 name|getMainArchiveUrl
-argument_list|()
+argument_list|( )
 argument_list|,
 name|retrievedMailingList
 operator|.
 name|getMainArchiveUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2222,12 +2418,12 @@ argument_list|(
 name|mailingList
 operator|.
 name|getPostAddress
-argument_list|()
+argument_list|( )
 argument_list|,
 name|retrievedMailingList
 operator|.
 name|getPostAddress
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2235,12 +2431,12 @@ argument_list|(
 name|mailingList
 operator|.
 name|getSubscribeAddress
-argument_list|()
+argument_list|( )
 argument_list|,
 name|retrievedMailingList
 operator|.
 name|getSubscribeAddress
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2248,12 +2444,12 @@ argument_list|(
 name|mailingList
 operator|.
 name|getUnsubscribeAddress
-argument_list|()
+argument_list|( )
 argument_list|,
 name|retrievedMailingList
 operator|.
 name|getUnsubscribeAddress
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -2261,16 +2457,16 @@ argument_list|(
 name|retrievedMailingList
 operator|.
 name|getOtherArchives
-argument_list|()
+argument_list|( )
 argument_list|)
 comment|//
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 comment|//
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 comment|//
 operator|.
 name|hasSize
@@ -2291,10 +2487,10 @@ argument_list|,
 name|metadata
 operator|.
 name|getLicenses
-argument_list|()
+argument_list|( )
 operator|.
 name|size
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|l
@@ -2302,7 +2498,7 @@ operator|=
 name|metadata
 operator|.
 name|getLicenses
-argument_list|()
+argument_list|( )
 operator|.
 name|get
 argument_list|(
@@ -2316,7 +2512,7 @@ argument_list|,
 name|l
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2326,7 +2522,7 @@ argument_list|,
 name|l
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2336,10 +2532,10 @@ argument_list|,
 name|metadata
 operator|.
 name|getDependencies
-argument_list|()
+argument_list|( )
 operator|.
 name|size
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|d
@@ -2347,7 +2543,7 @@ operator|=
 name|metadata
 operator|.
 name|getDependencies
-argument_list|()
+argument_list|( )
 operator|.
 name|get
 argument_list|(
@@ -2361,7 +2557,7 @@ argument_list|,
 name|d
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2371,7 +2567,7 @@ argument_list|,
 name|d
 operator|.
 name|getClassifier
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2381,7 +2577,7 @@ argument_list|,
 name|d
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2391,7 +2587,7 @@ argument_list|,
 name|d
 operator|.
 name|getScope
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2401,7 +2597,7 @@ argument_list|,
 name|d
 operator|.
 name|getSystemPath
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2411,7 +2607,7 @@ argument_list|,
 name|d
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2421,7 +2617,7 @@ argument_list|,
 name|d
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -2429,7 +2625,7 @@ argument_list|(
 name|d
 operator|.
 name|isOptional
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -2439,7 +2635,7 @@ name|Test
 specifier|public
 name|void
 name|testUpdateProjectVersionMetadataIncomplete
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -2448,10 +2644,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ProjectVersionMetadata
@@ -2459,7 +2656,7 @@ name|metadata
 init|=
 operator|new
 name|ProjectVersionMetadata
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|metadata
 operator|.
@@ -2475,7 +2672,8 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProjectVersion
 argument_list|(
@@ -2490,9 +2688,16 @@ argument_list|,
 name|metadata
 argument_list|)
 expr_stmt|;
-name|metadata
-operator|=
-name|repository
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
+name|ProjectVersionMetadata
+name|metadata1
+init|=
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersion
 argument_list|(
@@ -2506,116 +2711,123 @@ name|TEST_PROJECT
 argument_list|,
 name|TEST_PROJECT_VERSION
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|metadata
+name|metadata1
 operator|.
 name|isIncomplete
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
-name|metadata
+name|metadata1
 operator|.
 name|getCiManagement
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
-name|metadata
+name|metadata1
 operator|.
 name|getScm
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
-name|metadata
+name|metadata1
 operator|.
 name|getIssueManagement
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
-name|metadata
+name|metadata1
 operator|.
 name|getOrganization
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertEquals
 argument_list|(
-name|metadata
+literal|""
+argument_list|,
+name|metadata1
 operator|.
 name|getDescription
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertEquals
 argument_list|(
-name|metadata
+literal|""
+argument_list|,
+name|metadata1
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 name|TEST_PROJECT_VERSION
 argument_list|,
-name|metadata
+name|metadata1
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 name|TEST_PROJECT_VERSION
 argument_list|,
-name|metadata
+name|metadata1
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|metadata
+name|metadata1
 operator|.
 name|getMailingLists
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|metadata
+name|metadata1
 operator|.
 name|getLicenses
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|metadata
+name|metadata1
 operator|.
 name|getDependencies
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2625,7 +2837,7 @@ name|Test
 specifier|public
 name|void
 name|testUpdateProjectVersionMetadataWithExistingFacets
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -2634,10 +2846,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ProjectVersionMetadata
@@ -2645,7 +2858,7 @@ name|metadata
 init|=
 operator|new
 name|ProjectVersionMetadata
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|metadata
 operator|.
@@ -2670,7 +2883,8 @@ argument_list|(
 name|facet
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProjectVersion
 argument_list|(
@@ -2685,9 +2899,16 @@ argument_list|,
 name|metadata
 argument_list|)
 expr_stmt|;
-name|metadata
-operator|=
-name|repository
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
+name|ProjectVersionMetadata
+name|metadata1
+init|=
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersion
 argument_list|(
@@ -2701,7 +2922,7 @@ name|TEST_PROJECT
 argument_list|,
 name|TEST_PROJECT_VERSION
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertEquals
 argument_list|(
 name|Collections
@@ -2711,17 +2932,20 @@ argument_list|(
 name|TEST_FACET_ID
 argument_list|)
 argument_list|,
-name|metadata
+name|metadata1
 operator|.
 name|getFacetIds
-argument_list|()
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 name|metadata
 operator|=
 operator|new
 name|ProjectVersionMetadata
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|metadata
 operator|.
@@ -2730,7 +2954,8 @@ argument_list|(
 name|TEST_PROJECT_VERSION
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProjectVersion
 argument_list|(
@@ -2745,9 +2970,16 @@ argument_list|,
 name|metadata
 argument_list|)
 expr_stmt|;
-name|metadata
-operator|=
-name|repository
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
+name|ProjectVersionMetadata
+name|metadata2
+init|=
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersion
 argument_list|(
@@ -2761,7 +2993,7 @@ name|TEST_PROJECT
 argument_list|,
 name|TEST_PROJECT_VERSION
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertEquals
 argument_list|(
 name|Collections
@@ -2771,10 +3003,10 @@ argument_list|(
 name|TEST_FACET_ID
 argument_list|)
 argument_list|,
-name|metadata
+name|metadata2
 operator|.
 name|getFacetIds
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|TestMetadataFacet
@@ -2783,7 +3015,7 @@ init|=
 operator|(
 name|TestMetadataFacet
 operator|)
-name|metadata
+name|metadata2
 operator|.
 name|getFacet
 argument_list|(
@@ -2797,7 +3029,10 @@ argument_list|,
 name|testFacet
 operator|.
 name|getValue
-argument_list|()
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2807,7 +3042,7 @@ name|Test
 specifier|public
 name|void
 name|testUpdateProjectVersionMetadataWithNoExistingFacets
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -2816,10 +3051,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ProjectVersionMetadata
@@ -2827,7 +3063,7 @@ name|metadata
 init|=
 operator|new
 name|ProjectVersionMetadata
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|metadata
 operator|.
@@ -2836,7 +3072,8 @@ argument_list|(
 name|TEST_PROJECT_VERSION
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProjectVersion
 argument_list|(
@@ -2851,9 +3088,16 @@ argument_list|,
 name|metadata
 argument_list|)
 expr_stmt|;
-name|metadata
-operator|=
-name|repository
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
+name|ProjectVersionMetadata
+name|metadata1
+init|=
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersion
 argument_list|(
@@ -2867,26 +3111,48 @@ name|TEST_PROJECT
 argument_list|,
 name|TEST_PROJECT_VERSION
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertThat
 argument_list|(
-name|metadata
+name|metadata1
 operator|.
 name|getFacetIds
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|ProjectVersionMetadata
+name|metadata1
+init|=
+name|getRepository
+argument_list|( )
+operator|.
+name|getProjectVersion
+argument_list|(
+name|session
+argument_list|,
+name|TEST_REPO_ID
+argument_list|,
+name|TEST_NAMESPACE
+argument_list|,
+name|TEST_PROJECT
+argument_list|,
+name|TEST_PROJECT_VERSION
+argument_list|)
+decl_stmt|;
 name|metadata
 operator|=
 operator|new
 name|ProjectVersionMetadata
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|metadata
 operator|.
@@ -2895,7 +3161,8 @@ argument_list|(
 name|TEST_PROJECT_VERSION
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProjectVersion
 argument_list|(
@@ -2910,9 +3177,16 @@ argument_list|,
 name|metadata
 argument_list|)
 expr_stmt|;
-name|metadata
-operator|=
-name|repository
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
+name|ProjectVersionMetadata
+name|metadata2
+init|=
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersion
 argument_list|(
@@ -2926,20 +3200,23 @@ name|TEST_PROJECT
 argument_list|,
 name|TEST_PROJECT_VERSION
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertThat
 argument_list|(
-name|metadata
+name|metadata2
 operator|.
 name|getFacetIds
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -2948,7 +3225,7 @@ name|Test
 specifier|public
 name|void
 name|testUpdateProjectVersionMetadataWithExistingFacetsFacetPropertyWasRemoved
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -2957,10 +3234,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ProjectVersionMetadata
@@ -2968,7 +3246,7 @@ name|metadata
 init|=
 operator|new
 name|ProjectVersionMetadata
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|metadata
 operator|.
@@ -2988,7 +3266,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|additionalProps
 operator|.
@@ -3019,7 +3297,8 @@ argument_list|(
 name|facet
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProjectVersion
 argument_list|(
@@ -3034,9 +3313,16 @@ argument_list|,
 name|metadata
 argument_list|)
 expr_stmt|;
-name|metadata
-operator|=
-name|repository
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
+name|ProjectVersionMetadata
+name|metad
+init|=
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersion
 argument_list|(
@@ -3050,20 +3336,20 @@ name|TEST_PROJECT
 argument_list|,
 name|TEST_PROJECT_VERSION
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertThat
 argument_list|(
-name|metadata
+name|metad
 operator|.
 name|getFacetIds
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -3075,13 +3361,35 @@ argument_list|(
 name|TEST_FACET_ID
 argument_list|)
 expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|ProjectVersionMetadata
+name|metad
+init|=
+name|getRepository
+argument_list|( )
+operator|.
+name|getProjectVersion
+argument_list|(
+name|session
+argument_list|,
+name|TEST_REPO_ID
+argument_list|,
+name|TEST_NAMESPACE
+argument_list|,
+name|TEST_PROJECT
+argument_list|,
+name|TEST_PROJECT_VERSION
+argument_list|)
+decl_stmt|;
 name|TestMetadataFacet
 name|testFacet
 init|=
 operator|(
 name|TestMetadataFacet
 operator|)
-name|metadata
+name|metad
 operator|.
 name|getFacet
 argument_list|(
@@ -3099,7 +3407,7 @@ init|=
 name|testFacet
 operator|.
 name|toProperties
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -3131,7 +3439,7 @@ argument_list|,
 name|testFacet
 operator|.
 name|getValue
-argument_list|()
+argument_list|( )
 argument_list|,
 name|facetProperties
 argument_list|)
@@ -3143,7 +3451,8 @@ argument_list|(
 name|newTestFacet
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProjectVersion
 argument_list|(
@@ -3158,9 +3467,16 @@ argument_list|,
 name|metadata
 argument_list|)
 expr_stmt|;
-name|metadata
-operator|=
-name|repository
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
+name|ProjectVersionMetadata
+name|metad2
+init|=
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersion
 argument_list|(
@@ -3174,20 +3490,20 @@ name|TEST_PROJECT
 argument_list|,
 name|TEST_PROJECT_VERSION
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertThat
 argument_list|(
-name|metadata
+name|metad2
 operator|.
 name|getFacetIds
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -3199,29 +3515,33 @@ argument_list|(
 name|TEST_FACET_ID
 argument_list|)
 expr_stmt|;
-name|testFacet
-operator|=
+name|TestMetadataFacet
+name|testFacet2
+init|=
 operator|(
 name|TestMetadataFacet
 operator|)
-name|metadata
+name|metad2
 operator|.
 name|getFacet
 argument_list|(
 name|TEST_FACET_ID
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertFalse
 argument_list|(
-name|testFacet
+name|testFacet2
 operator|.
 name|toProperties
-argument_list|()
+argument_list|( )
 operator|.
 name|containsKey
 argument_list|(
 literal|"deleteKey"
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -3231,7 +3551,7 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifactsDoesntReturnProjectVersionMetadataFacets
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -3240,10 +3560,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ProjectVersionMetadata
@@ -3251,7 +3572,7 @@ name|versionMetadata
 init|=
 operator|new
 name|ProjectVersionMetadata
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|versionMetadata
 operator|.
@@ -3278,7 +3599,8 @@ argument_list|(
 name|facet
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProjectVersion
 argument_list|(
@@ -3297,9 +3619,10 @@ name|ArtifactMetadata
 name|artifactMetadata
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -3319,15 +3642,21 @@ expr_stmt|;
 name|session
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifacts
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -3361,7 +3690,8 @@ argument_list|)
 expr_stmt|;
 name|artifacts
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -3389,7 +3719,8 @@ argument_list|)
 expr_stmt|;
 name|artifacts
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByChecksum
 argument_list|(
@@ -3419,7 +3750,8 @@ argument_list|)
 expr_stmt|;
 name|artifacts
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByChecksum
 argument_list|(
@@ -3449,7 +3781,8 @@ argument_list|)
 expr_stmt|;
 name|artifacts
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByDateRange
 argument_list|(
@@ -3480,13 +3813,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
 specifier|public
 name|void
 name|testUpdateArtifactMetadataWithExistingFacetsFacetPropertyWasRemoved
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -3495,17 +3831,18 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|metadata
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|Map
 argument_list|<
@@ -3518,7 +3855,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|additionalProps
 operator|.
@@ -3549,7 +3886,8 @@ argument_list|(
 name|facet
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -3566,13 +3904,19 @@ argument_list|,
 name|metadata
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifacts
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -3593,25 +3937,50 @@ name|artifacts
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|Collection
+argument_list|<
+name|ArtifactMetadata
+argument_list|>
+name|artifacts
+init|=
+name|getRepository
+argument_list|( )
+operator|.
+name|getArtifacts
+argument_list|(
+name|session
+argument_list|,
+name|TEST_REPO_ID
+argument_list|,
+name|TEST_NAMESPACE
+argument_list|,
+name|TEST_PROJECT
+argument_list|,
+name|TEST_PROJECT_VERSION
+argument_list|)
+decl_stmt|;
 name|metadata
 operator|=
 name|artifacts
 operator|.
 name|iterator
-argument_list|()
+argument_list|( )
 operator|.
 name|next
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|Collection
 argument_list|<
@@ -3622,7 +3991,7 @@ init|=
 name|metadata
 operator|.
 name|getFacetIds
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -3630,10 +3999,10 @@ name|ids
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -3669,7 +4038,7 @@ init|=
 name|testFacet
 operator|.
 name|toProperties
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -3701,7 +4070,7 @@ argument_list|,
 name|testFacet
 operator|.
 name|getValue
-argument_list|()
+argument_list|( )
 argument_list|,
 name|facetProperties
 argument_list|)
@@ -3713,7 +4082,8 @@ argument_list|(
 name|newTestFacet
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -3730,9 +4100,24 @@ argument_list|,
 name|metadata
 argument_list|)
 expr_stmt|;
-name|artifacts
-operator|=
-name|repository
+name|session
+operator|.
+name|save
+argument_list|( )
+expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
+name|Collection
+argument_list|<
+name|ArtifactMetadata
+argument_list|>
+name|artifacts1
+init|=
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -3746,39 +4131,64 @@ name|TEST_PROJECT
 argument_list|,
 name|TEST_PROJECT_VERSION
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertThat
 argument_list|(
-name|artifacts
+name|artifacts1
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|Collection
+argument_list|<
+name|ArtifactMetadata
+argument_list|>
+name|artifacts1
+init|=
+name|getRepository
+argument_list|( )
+operator|.
+name|getArtifacts
+argument_list|(
+name|session
+argument_list|,
+name|TEST_REPO_ID
+argument_list|,
+name|TEST_NAMESPACE
+argument_list|,
+name|TEST_PROJECT
+argument_list|,
+name|TEST_PROJECT_VERSION
+argument_list|)
+decl_stmt|;
 name|metadata
 operator|=
 name|artifacts
 operator|.
 name|iterator
-argument_list|()
+argument_list|( )
 operator|.
 name|next
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|ids
 operator|=
 name|metadata
 operator|.
 name|getFacetIds
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -3786,10 +4196,10 @@ name|ids
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -3824,7 +4234,7 @@ init|=
 name|testFacet
 operator|.
 name|toProperties
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -3832,7 +4242,7 @@ name|props
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|doesNotContainKey
 argument_list|(
@@ -3846,7 +4256,7 @@ name|Test
 specifier|public
 name|void
 name|testUpdateArtifactMetadataWithExistingFacets
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -3855,17 +4265,18 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|metadata
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|MetadataFacet
 name|facet
@@ -3883,7 +4294,8 @@ argument_list|(
 name|facet
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -3902,7 +4314,8 @@ argument_list|)
 expr_stmt|;
 name|metadata
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -3918,10 +4331,10 @@ name|TEST_PROJECT_VERSION
 argument_list|)
 operator|.
 name|iterator
-argument_list|()
+argument_list|( )
 operator|.
 name|next
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -3935,15 +4348,16 @@ argument_list|,
 name|metadata
 operator|.
 name|getFacetIds
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|metadata
 operator|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -3962,7 +4376,8 @@ argument_list|)
 expr_stmt|;
 name|metadata
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -3978,10 +4393,10 @@ name|TEST_PROJECT_VERSION
 argument_list|)
 operator|.
 name|iterator
-argument_list|()
+argument_list|( )
 operator|.
 name|next
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -3995,7 +4410,7 @@ argument_list|,
 name|metadata
 operator|.
 name|getFacetIds
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|TestMetadataFacet
@@ -4018,7 +4433,7 @@ argument_list|,
 name|testFacet
 operator|.
 name|getValue
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -4028,7 +4443,7 @@ name|Test
 specifier|public
 name|void
 name|testUpdateArtifactMetadataWithNoExistingFacets
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -4037,19 +4452,21 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|metadata
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -4066,9 +4483,16 @@ argument_list|,
 name|metadata
 argument_list|)
 expr_stmt|;
-name|metadata
-operator|=
-name|repository
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
+name|ArtifactMetadata
+name|metadata2
+init|=
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -4084,11 +4508,11 @@ name|TEST_PROJECT_VERSION
 argument_list|)
 operator|.
 name|iterator
-argument_list|()
+argument_list|( )
 operator|.
 name|next
-argument_list|()
-expr_stmt|;
+argument_list|( )
+decl_stmt|;
 name|assertEquals
 argument_list|(
 name|Collections
@@ -4097,7 +4521,7 @@ expr|<
 name|String
 operator|>
 name|emptyList
-argument_list|()
+argument_list|( )
 argument_list|,
 operator|new
 name|ArrayList
@@ -4105,19 +4529,47 @@ argument_list|<
 name|String
 argument_list|>
 argument_list|(
-name|metadata
+name|metadata2
 operator|.
 name|getFacetIds
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|metadata
+operator|=
+name|getRepository
+argument_list|( )
+operator|.
+name|getArtifacts
+argument_list|(
+name|session
+argument_list|,
+name|TEST_REPO_ID
+argument_list|,
+name|TEST_NAMESPACE
+argument_list|,
+name|TEST_PROJECT
+argument_list|,
+name|TEST_PROJECT_VERSION
+argument_list|)
+operator|.
+name|iterator
+argument_list|( )
+operator|.
+name|next
+argument_list|( )
 expr_stmt|;
 name|metadata
 operator|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -4134,9 +4586,16 @@ argument_list|,
 name|metadata
 argument_list|)
 expr_stmt|;
-name|metadata
-operator|=
-name|repository
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
+name|ArtifactMetadata
+name|metadata3
+init|=
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -4152,11 +4611,11 @@ name|TEST_PROJECT_VERSION
 argument_list|)
 operator|.
 name|iterator
-argument_list|()
+argument_list|( )
 operator|.
 name|next
-argument_list|()
-expr_stmt|;
+argument_list|( )
+decl_stmt|;
 name|assertEquals
 argument_list|(
 name|Collections
@@ -4165,7 +4624,7 @@ expr|<
 name|String
 operator|>
 name|emptyList
-argument_list|()
+argument_list|( )
 argument_list|,
 operator|new
 name|ArrayList
@@ -4173,11 +4632,14 @@ argument_list|<
 name|String
 argument_list|>
 argument_list|(
-name|metadata
+name|metadata3
 operator|.
 name|getFacetIds
-argument_list|()
+argument_list|( )
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -4187,7 +4649,7 @@ name|Test
 specifier|public
 name|void
 name|testGetMetadataFacet
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -4196,13 +4658,15 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|addMetadataFacet
 argument_list|(
@@ -4223,7 +4687,8 @@ init|=
 operator|(
 name|TestMetadataFacet
 operator|)
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacet
 argument_list|(
@@ -4254,7 +4719,7 @@ name|Test
 specifier|public
 name|void
 name|testGetMetadataFacetWhenEmpty
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -4263,15 +4728,21 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
 name|assertNull
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacet
 argument_list|(
@@ -4284,6 +4755,7 @@ argument_list|,
 name|TEST_NAME
 argument_list|)
 argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -4292,7 +4764,7 @@ name|Test
 specifier|public
 name|void
 name|testGetMetadataFacetWhenUnknownName
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -4301,13 +4773,15 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|addMetadataFacet
 argument_list|(
@@ -4322,9 +4796,14 @@ name|TEST_VALUE
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
 name|assertNull
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacet
 argument_list|(
@@ -4337,6 +4816,7 @@ argument_list|,
 name|UNKNOWN
 argument_list|)
 argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -4345,7 +4825,7 @@ name|Test
 specifier|public
 name|void
 name|testGetMetadataFacetWhenDefaultValue
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -4354,13 +4834,15 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|addMetadataFacet
 argument_list|(
@@ -4375,10 +4857,16 @@ literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|MetadataFacet
 name|metadataFacet
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacet
 argument_list|(
@@ -4403,13 +4891,16 @@ name|metadataFacet
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
 specifier|public
 name|void
 name|testGetMetadataFacetWhenUnknownFacetId
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -4418,15 +4909,17 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|assertNull
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacet
 argument_list|(
@@ -4447,7 +4940,7 @@ name|Test
 specifier|public
 name|void
 name|testGetMetadataFacets
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -4456,13 +4949,15 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|addMetadataFacet
 argument_list|(
@@ -4486,7 +4981,8 @@ argument_list|(
 name|TEST_NAME
 argument_list|)
 argument_list|,
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacets
 argument_list|(
@@ -4505,7 +5001,7 @@ name|Test
 specifier|public
 name|void
 name|testGetMetadataFacetsWhenEmpty
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -4514,11 +5010,17 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
+block|{
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
 block|{
 name|List
 argument_list|<
@@ -4526,7 +5028,8 @@ name|String
 argument_list|>
 name|facets
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacets
 argument_list|(
@@ -4542,7 +5045,10 @@ argument_list|(
 name|facets
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -4552,7 +5058,7 @@ name|Test
 specifier|public
 name|void
 name|testRemoveFacets
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -4561,13 +5067,15 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|addMetadataFacet
 argument_list|(
@@ -4588,7 +5096,8 @@ name|String
 argument_list|>
 name|facets
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacets
 argument_list|(
@@ -4604,10 +5113,11 @@ argument_list|(
 name|facets
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|removeMetadataFacets
 argument_list|(
@@ -4620,7 +5130,8 @@ argument_list|)
 expr_stmt|;
 name|facets
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacets
 argument_list|(
@@ -4636,7 +5147,7 @@ argument_list|(
 name|facets
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -4646,7 +5157,7 @@ name|Test
 specifier|public
 name|void
 name|testRemoveFacetsWhenEmpty
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -4655,10 +5166,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|List
@@ -4667,7 +5179,8 @@ name|String
 argument_list|>
 name|facets
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacets
 argument_list|(
@@ -4683,10 +5196,11 @@ argument_list|(
 name|facets
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|removeMetadataFacets
 argument_list|(
@@ -4697,9 +5211,19 @@ argument_list|,
 name|TEST_FACET_ID
 argument_list|)
 expr_stmt|;
-name|facets
-operator|=
-name|repository
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|facets1
+init|=
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacets
 argument_list|(
@@ -4709,13 +5233,16 @@ name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertTrue
 argument_list|(
-name|facets
+name|facets1
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -4725,7 +5252,7 @@ name|Test
 specifier|public
 name|void
 name|testRemoveFacetsWhenUnknown
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -4734,14 +5261,16 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 comment|// testing no exception
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|removeMetadataFacets
 argument_list|(
@@ -4759,7 +5288,7 @@ name|Test
 specifier|public
 name|void
 name|testRemoveFacetWhenUnknown
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -4768,14 +5297,16 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 comment|// testing no exception
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|removeMetadataFacet
 argument_list|(
@@ -4795,7 +5326,7 @@ name|Test
 specifier|public
 name|void
 name|testRemoveFacet
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -4804,10 +5335,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|TestMetadataFacet
@@ -4819,7 +5351,8 @@ argument_list|(
 name|TEST_VALUE
 argument_list|)
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|addMetadataFacet
 argument_list|(
@@ -4834,7 +5367,8 @@ name|assertEquals
 argument_list|(
 name|metadataFacet
 argument_list|,
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacet
 argument_list|(
@@ -4854,7 +5388,8 @@ name|String
 argument_list|>
 name|facets
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacets
 argument_list|(
@@ -4870,10 +5405,11 @@ argument_list|(
 name|facets
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|removeMetadataFacet
 argument_list|(
@@ -4888,7 +5424,8 @@ argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacet
 argument_list|(
@@ -4904,7 +5441,8 @@ argument_list|)
 expr_stmt|;
 name|facets
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacets
 argument_list|(
@@ -4920,7 +5458,7 @@ argument_list|(
 name|facets
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -4930,7 +5468,7 @@ name|Test
 specifier|public
 name|void
 name|testRemoveFacetWhenEmpty
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -4939,11 +5477,17 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
+block|{
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
 block|{
 name|List
 argument_list|<
@@ -4951,7 +5495,8 @@ name|String
 argument_list|>
 name|facets
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacets
 argument_list|(
@@ -4968,14 +5513,15 @@ name|facets
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacet
 argument_list|(
@@ -4990,9 +5536,13 @@ argument_list|)
 argument_list|)
 operator|.
 name|isNull
-argument_list|()
+argument_list|( )
 expr_stmt|;
-name|repository
+block|}
+argument_list|)
+expr_stmt|;
+name|getRepository
+argument_list|( )
 operator|.
 name|removeMetadataFacet
 argument_list|(
@@ -5005,9 +5555,19 @@ argument_list|,
 name|TEST_NAME
 argument_list|)
 expr_stmt|;
-name|facets
-operator|=
-name|repository
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|facets2
+init|=
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacets
 argument_list|(
@@ -5017,21 +5577,22 @@ name|TEST_REPO_ID
 argument_list|,
 name|TEST_FACET_ID
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertThat
 argument_list|(
-name|facets
+name|facets2
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacet
 argument_list|(
@@ -5046,7 +5607,10 @@ argument_list|)
 argument_list|)
 operator|.
 name|isNull
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -5055,7 +5619,7 @@ name|Test
 specifier|public
 name|void
 name|hasMetadataFacetStart
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -5064,15 +5628,17 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|assertFalse
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|hasMetadataFacet
 argument_list|(
@@ -5085,7 +5651,7 @@ operator|.
 name|class
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5096,7 +5662,7 @@ name|Test
 specifier|public
 name|void
 name|hasMetadataFacet
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -5105,15 +5671,17 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|assertFalse
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|hasMetadataFacet
 argument_list|(
@@ -5126,7 +5694,7 @@ operator|.
 name|class
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5136,9 +5704,10 @@ init|=
 name|Calendar
 operator|.
 name|getInstance
-argument_list|()
+argument_list|( )
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|addMetadataFacet
 argument_list|(
@@ -5154,13 +5723,14 @@ argument_list|,
 name|cal
 operator|.
 name|getTime
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|hasMetadataFacet
 argument_list|(
@@ -5173,7 +5743,7 @@ operator|.
 name|class
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5188,7 +5758,8 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|addMetadataFacet
 argument_list|(
@@ -5204,7 +5775,7 @@ argument_list|,
 name|cal
 operator|.
 name|getTime
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5219,7 +5790,8 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|addMetadataFacet
 argument_list|(
@@ -5235,7 +5807,7 @@ argument_list|,
 name|cal
 operator|.
 name|getTime
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5245,7 +5817,8 @@ name|String
 argument_list|>
 name|facets
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacets
 argument_list|(
@@ -5258,7 +5831,7 @@ operator|.
 name|class
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -5267,10 +5840,10 @@ name|facets
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -5279,7 +5852,8 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|hasMetadataFacet
 argument_list|(
@@ -5292,11 +5866,12 @@ operator|.
 name|class
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|removeMetadataFacets
 argument_list|(
@@ -5309,12 +5884,13 @@ operator|.
 name|class
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|hasMetadataFacet
 argument_list|(
@@ -5327,13 +5903,14 @@ operator|.
 name|class
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|facets
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getMetadataFacets
 argument_list|(
@@ -5346,7 +5923,7 @@ operator|.
 name|class
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -5355,10 +5932,10 @@ name|facets
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -5367,7 +5944,7 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifacts
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -5376,17 +5953,18 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact1
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|ArtifactMetadata
 name|artifact2
@@ -5396,7 +5974,8 @@ argument_list|(
 literal|"pom"
 argument_list|)
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -5413,7 +5992,8 @@ argument_list|,
 name|artifact1
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -5430,13 +6010,19 @@ argument_list|,
 name|artifact2
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifacts
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -5479,14 +6065,14 @@ lambda|->
 name|o1
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 operator|.
 name|compareTo
 argument_list|(
 name|o2
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5505,13 +6091,16 @@ name|actual
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
 specifier|public
 name|void
 name|testGetArtifactVersions
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -5520,17 +6109,18 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact1
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|String
 name|version1
@@ -5544,7 +6134,7 @@ argument_list|(
 name|artifact1
 operator|.
 name|getProject
-argument_list|()
+argument_list|( )
 operator|+
 literal|"-"
 operator|+
@@ -5564,7 +6154,7 @@ name|ArtifactMetadata
 name|artifact2
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|String
 name|version2
@@ -5578,7 +6168,7 @@ argument_list|(
 name|artifact2
 operator|.
 name|getProject
-argument_list|()
+argument_list|( )
 operator|+
 literal|"-"
 operator|+
@@ -5594,7 +6184,8 @@ argument_list|(
 name|version2
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -5611,7 +6202,8 @@ argument_list|,
 name|artifact1
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -5628,13 +6220,19 @@ argument_list|,
 name|artifact2
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|String
 argument_list|>
 name|versions
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactVersions
 argument_list|(
@@ -5655,10 +6253,10 @@ name|versions
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|contains
 argument_list|(
@@ -5668,13 +6266,16 @@ name|version2
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
 specifier|public
 name|void
 name|testGetArtifactVersionsMultipleArtifactsSingleVersion
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -5683,17 +6284,18 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact1
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|artifact1
 operator|.
@@ -5712,7 +6314,7 @@ name|ArtifactMetadata
 name|artifact2
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|artifact2
 operator|.
@@ -5727,7 +6329,8 @@ operator|+
 literal|"-sources.jar"
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -5744,7 +6347,8 @@ argument_list|,
 name|artifact1
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -5761,13 +6365,19 @@ argument_list|,
 name|artifact2
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|String
 argument_list|>
 name|versions
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactVersions
 argument_list|(
@@ -5788,10 +6398,10 @@ name|versions
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -5804,13 +6414,16 @@ name|TEST_PROJECT_VERSION
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
 specifier|public
 name|void
 name|testGetArtifactsByDateRangeOpen
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -5819,19 +6432,21 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -5851,15 +6466,21 @@ expr_stmt|;
 name|session
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifacts
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByDateRange
 argument_list|(
@@ -5885,13 +6506,16 @@ name|artifacts
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
 specifier|public
 name|void
 name|testGetArtifactsByDateRangeSparseNamespace
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -5900,10 +6524,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|String
@@ -5915,7 +6540,7 @@ name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|artifact
 operator|.
@@ -5924,7 +6549,8 @@ argument_list|(
 name|namespace
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -5944,15 +6570,21 @@ expr_stmt|;
 name|session
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifacts
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByDateRange
 argument_list|(
@@ -5967,7 +6599,7 @@ argument_list|)
 decl_stmt|;
 name|tryAssert
 argument_list|(
-parameter_list|()
+parameter_list|( )
 lambda|->
 name|assertEquals
 argument_list|(
@@ -5980,6 +6612,9 @@ argument_list|)
 argument_list|,
 name|artifacts
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -5989,7 +6624,7 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifactsByDateRangeLowerBound
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -5998,19 +6633,21 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -6030,7 +6667,7 @@ expr_stmt|;
 name|session
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|Date
 name|date
@@ -6041,21 +6678,27 @@ argument_list|(
 name|artifact
 operator|.
 name|getWhenGathered
-argument_list|()
+argument_list|( )
 operator|.
 name|getTime
-argument_list|()
+argument_list|( )
 operator|-
 literal|10000
 argument_list|)
 decl_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifacts
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByDateRange
 argument_list|(
@@ -6078,6 +6721,9 @@ name|artifact
 argument_list|)
 argument_list|,
 name|artifacts
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -6087,7 +6733,7 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifactsByDateRangeLowerBoundOutOfRange
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -6096,19 +6742,21 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -6134,21 +6782,27 @@ argument_list|(
 name|artifact
 operator|.
 name|getWhenGathered
-argument_list|()
+argument_list|( )
 operator|.
 name|getTime
-argument_list|()
+argument_list|( )
 operator|+
 literal|10000
 argument_list|)
 decl_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifacts
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByDateRange
 argument_list|(
@@ -6167,10 +6821,13 @@ name|artifacts
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -6179,7 +6836,7 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifactsByDateRangeLowerAndUpperBound
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -6188,19 +6845,21 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -6220,7 +6879,7 @@ expr_stmt|;
 name|session
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|Date
 name|lower
@@ -6231,10 +6890,10 @@ argument_list|(
 name|artifact
 operator|.
 name|getWhenGathered
-argument_list|()
+argument_list|( )
 operator|.
 name|getTime
-argument_list|()
+argument_list|( )
 operator|-
 literal|10000
 argument_list|)
@@ -6248,21 +6907,27 @@ argument_list|(
 name|artifact
 operator|.
 name|getWhenGathered
-argument_list|()
+argument_list|( )
 operator|.
 name|getTime
-argument_list|()
+argument_list|( )
 operator|+
 literal|10000
 argument_list|)
 decl_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifacts
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByDateRange
 argument_list|(
@@ -6285,6 +6950,9 @@ name|artifact
 argument_list|)
 argument_list|,
 name|artifacts
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -6294,7 +6962,7 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifactsByDateRangeUpperBound
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -6303,19 +6971,21 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -6335,7 +7005,7 @@ expr_stmt|;
 name|session
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|Date
 name|upper
@@ -6346,21 +7016,27 @@ argument_list|(
 name|artifact
 operator|.
 name|getWhenGathered
-argument_list|()
+argument_list|( )
 operator|.
 name|getTime
-argument_list|()
+argument_list|( )
 operator|+
 literal|10000
 argument_list|)
 decl_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifacts
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByDateRange
 argument_list|(
@@ -6386,13 +7062,16 @@ name|artifacts
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
 specifier|public
 name|void
 name|testGetArtifactsByDateRangeUpperBoundOutOfRange
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -6401,19 +7080,21 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -6433,7 +7114,7 @@ expr_stmt|;
 name|session
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|Date
 name|upper
@@ -6444,21 +7125,27 @@ argument_list|(
 name|artifact
 operator|.
 name|getWhenGathered
-argument_list|()
+argument_list|( )
 operator|.
 name|getTime
-argument_list|()
+argument_list|( )
 operator|-
 literal|10000
 argument_list|)
 decl_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifacts
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByDateRange
 argument_list|(
@@ -6477,10 +7164,13 @@ name|artifacts
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -6489,28 +7179,32 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifactsByRepoId
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
+name|ArtifactMetadata
+name|artifact
+decl_stmt|;
 try|try
 init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
-name|ArtifactMetadata
 name|artifact
-init|=
+operator|=
 name|createArtifact
-argument_list|()
-decl_stmt|;
-name|repository
+argument_list|( )
+expr_stmt|;
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -6530,20 +7224,39 @@ expr_stmt|;
 name|session
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
+block|}
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|getSessionFactory
+argument_list|( )
+operator|.
+name|createSession
+argument_list|( )
+init|)
+block|{
 name|tryAssert
 argument_list|(
-parameter_list|()
+parameter_list|( )
 lambda|->
 block|{
+name|session
+operator|.
+name|refreshAndDiscard
+argument_list|( )
+expr_stmt|;
 name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifacts
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -6574,7 +7287,7 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifactsByRepoIdMultipleCopies
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -6583,19 +7296,21 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -6616,7 +7331,7 @@ name|ArtifactMetadata
 name|secondArtifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|secondArtifact
 operator|.
@@ -6625,7 +7340,8 @@ argument_list|(
 name|OTHER_REPO_ID
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -6645,12 +7361,12 @@ expr_stmt|;
 name|session
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
 comment|// test it restricts to the appropriate repository
 name|tryAssert
 argument_list|(
-parameter_list|()
+parameter_list|( )
 lambda|->
 name|assertEquals
 argument_list|(
@@ -6661,7 +7377,8 @@ argument_list|(
 name|artifact
 argument_list|)
 argument_list|,
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -6674,7 +7391,7 @@ argument_list|)
 expr_stmt|;
 name|tryAssert
 argument_list|(
-parameter_list|()
+parameter_list|( )
 lambda|->
 name|assertEquals
 argument_list|(
@@ -6685,7 +7402,8 @@ argument_list|(
 name|secondArtifact
 argument_list|)
 argument_list|,
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -6703,7 +7421,7 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifactsByDateRangeMultipleCopies
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -6712,19 +7430,21 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -6745,7 +7465,7 @@ name|ArtifactMetadata
 name|secondArtifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|secondArtifact
 operator|.
@@ -6754,7 +7474,8 @@ argument_list|(
 name|OTHER_REPO_ID
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -6774,8 +7495,13 @@ expr_stmt|;
 name|session
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 comment|// test it restricts to the appropriate repository
 name|assertEquals
 argument_list|(
@@ -6786,7 +7512,8 @@ argument_list|(
 name|artifact
 argument_list|)
 argument_list|,
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByDateRange
 argument_list|(
@@ -6800,6 +7527,14 @@ literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|assertEquals
 argument_list|(
 name|Collections
@@ -6809,7 +7544,8 @@ argument_list|(
 name|secondArtifact
 argument_list|)
 argument_list|,
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByDateRange
 argument_list|(
@@ -6821,6 +7557,9 @@ literal|null
 argument_list|,
 literal|null
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -6830,7 +7569,7 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifactsByChecksumMultipleCopies
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -6839,19 +7578,21 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -6872,7 +7613,7 @@ name|ArtifactMetadata
 name|secondArtifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|secondArtifact
 operator|.
@@ -6881,7 +7622,8 @@ argument_list|(
 name|OTHER_REPO_ID
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -6901,8 +7643,13 @@ expr_stmt|;
 name|session
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 comment|// test it restricts to the appropriate repository
 name|assertEquals
 argument_list|(
@@ -6917,7 +7664,8 @@ operator|new
 name|ArrayList
 argument_list|<>
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByChecksum
 argument_list|(
@@ -6930,6 +7678,14 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|assertEquals
 argument_list|(
 name|Collections
@@ -6943,7 +7699,8 @@ operator|new
 name|ArrayList
 argument_list|<>
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByChecksum
 argument_list|(
@@ -6956,6 +7713,14 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|assertEquals
 argument_list|(
 name|Collections
@@ -6969,7 +7734,8 @@ operator|new
 name|ArrayList
 argument_list|<>
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByChecksum
 argument_list|(
@@ -6982,6 +7748,14 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|assertEquals
 argument_list|(
 name|Collections
@@ -6995,7 +7769,8 @@ operator|new
 name|ArrayList
 argument_list|<>
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByChecksum
 argument_list|(
@@ -7009,13 +7784,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
 specifier|public
 name|void
 name|testGetNamespacesWithSparseDepth
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -7024,13 +7802,15 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateNamespace
 argument_list|(
@@ -7041,13 +7821,19 @@ argument_list|,
 literal|"org.apache.maven.shared"
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|String
 argument_list|>
 name|namespaces
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getRootNamespaces
 argument_list|(
@@ -7062,10 +7848,10 @@ name|namespaces
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -7079,7 +7865,8 @@ argument_list|)
 expr_stmt|;
 name|namespaces
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getNamespaces
 argument_list|(
@@ -7096,10 +7883,10 @@ name|namespaces
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -7113,7 +7900,8 @@ argument_list|)
 expr_stmt|;
 name|namespaces
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getNamespaces
 argument_list|(
@@ -7130,10 +7918,10 @@ name|namespaces
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -7147,7 +7935,8 @@ argument_list|)
 expr_stmt|;
 name|namespaces
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getNamespaces
 argument_list|(
@@ -7164,10 +7953,10 @@ name|namespaces
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -7180,13 +7969,16 @@ literal|"shared"
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
 specifier|public
 name|void
 name|testGetNamespacesWithProjectsPresent
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -7195,10 +7987,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|String
@@ -7206,7 +7999,8 @@ name|namespace
 init|=
 literal|"org.apache.maven.shared"
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateNamespace
 argument_list|(
@@ -7222,7 +8016,7 @@ name|metadata
 init|=
 operator|new
 name|ProjectVersionMetadata
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|metadata
 operator|.
@@ -7231,7 +8025,8 @@ argument_list|(
 name|TEST_PROJECT_VERSION
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProjectVersion
 argument_list|(
@@ -7252,7 +8047,8 @@ name|String
 argument_list|>
 name|namespaces
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getNamespaces
 argument_list|(
@@ -7269,10 +8065,10 @@ name|namespaces
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -7281,7 +8077,7 @@ name|Test
 specifier|public
 name|void
 name|testGetProjectsWithOtherNamespacesPresent
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -7290,10 +8086,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ProjectMetadata
@@ -7301,7 +8098,7 @@ name|projectMetadata
 init|=
 operator|new
 name|ProjectMetadata
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|projectMetadata
 operator|.
@@ -7317,7 +8114,8 @@ argument_list|(
 literal|"org.apache.maven"
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProject
 argument_list|(
@@ -7328,7 +8126,8 @@ argument_list|,
 name|projectMetadata
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateNamespace
 argument_list|(
@@ -7345,7 +8144,8 @@ name|String
 argument_list|>
 name|projects
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjects
 argument_list|(
@@ -7362,10 +8162,10 @@ name|projects
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -7384,7 +8184,7 @@ name|Test
 specifier|public
 name|void
 name|testGetProjectVersionsWithOtherNamespacesPresent
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -7393,10 +8193,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 comment|// an unusual case but technically possible where a project namespace matches another project's name
@@ -7405,7 +8206,7 @@ name|versionMetadata
 init|=
 operator|new
 name|ProjectVersionMetadata
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|versionMetadata
 operator|.
@@ -7414,7 +8215,8 @@ argument_list|(
 name|TEST_PROJECT_VERSION
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProjectVersion
 argument_list|(
@@ -7429,7 +8231,8 @@ argument_list|,
 name|versionMetadata
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProjectVersion
 argument_list|(
@@ -7452,7 +8255,8 @@ name|String
 argument_list|>
 name|versions
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersions
 argument_list|(
@@ -7473,10 +8277,10 @@ name|versions
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|contains
 argument_list|(
@@ -7485,7 +8289,8 @@ argument_list|)
 expr_stmt|;
 name|versions
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersions
 argument_list|(
@@ -7504,10 +8309,10 @@ name|versions
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|contains
 argument_list|(
@@ -7521,7 +8326,7 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifactsByChecksumSingleResultMd5
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -7530,19 +8335,21 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -7562,7 +8369,7 @@ expr_stmt|;
 name|session
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -7577,7 +8384,8 @@ operator|new
 name|ArrayList
 argument_list|<>
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByChecksum
 argument_list|(
@@ -7597,7 +8405,7 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifactsByChecksumSingleResultSha1
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -7606,19 +8414,21 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -7638,7 +8448,7 @@ expr_stmt|;
 name|session
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -7653,7 +8463,8 @@ operator|new
 name|ArrayList
 argument_list|<>
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByChecksum
 argument_list|(
@@ -7673,7 +8484,7 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifactsByChecksumDeepNamespace
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -7682,17 +8493,18 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|String
 name|namespace
@@ -7706,7 +8518,8 @@ argument_list|(
 name|namespace
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -7726,11 +8539,11 @@ expr_stmt|;
 name|session
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|tryAssert
 argument_list|(
-parameter_list|()
+parameter_list|( )
 lambda|->
 name|assertEquals
 argument_list|(
@@ -7745,7 +8558,8 @@ operator|new
 name|ArrayList
 argument_list|<>
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByChecksum
 argument_list|(
@@ -7761,7 +8575,7 @@ argument_list|)
 expr_stmt|;
 name|tryAssert
 argument_list|(
-parameter_list|()
+parameter_list|( )
 lambda|->
 name|assertEquals
 argument_list|(
@@ -7776,7 +8590,8 @@ operator|new
 name|ArrayList
 argument_list|<>
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByChecksum
 argument_list|(
@@ -7797,7 +8612,7 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifactsByChecksumMultipleResult
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -7806,19 +8621,21 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact1
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -7844,7 +8661,7 @@ name|ArtifactMetadata
 name|artifact2
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|artifact2
 operator|.
@@ -7853,7 +8670,8 @@ argument_list|(
 name|newProjectId
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -7873,11 +8691,11 @@ expr_stmt|;
 name|session
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|tryAssert
 argument_list|(
-parameter_list|()
+parameter_list|( )
 lambda|->
 block|{
 name|List
@@ -7890,7 +8708,8 @@ operator|new
 name|ArrayList
 argument_list|<>
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByChecksum
 argument_list|(
@@ -7910,7 +8729,7 @@ name|artifacts
 argument_list|,
 operator|new
 name|ArtifactMetadataComparator
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -7932,7 +8751,7 @@ argument_list|)
 expr_stmt|;
 name|tryAssert
 argument_list|(
-parameter_list|()
+parameter_list|( )
 lambda|->
 block|{
 name|ArrayList
@@ -7945,7 +8764,8 @@ operator|new
 name|ArrayList
 argument_list|<>
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByChecksum
 argument_list|(
@@ -7965,7 +8785,7 @@ name|artifacts
 argument_list|,
 operator|new
 name|ArtifactMetadataComparator
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -7992,7 +8812,7 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifactsByChecksumNoResult
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -8001,19 +8821,21 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -8030,13 +8852,19 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifactsByChecksum
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByChecksum
 argument_list|(
@@ -8053,10 +8881,13 @@ name|artifactsByChecksum
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -8065,7 +8896,7 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifactsByProjectVersionMetadata
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -8074,10 +8905,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|createArtifactWithGenericMetadataFacet
@@ -8087,13 +8919,19 @@ argument_list|,
 literal|10
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifactsByMetadata
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByProjectVersionMetadata
 argument_list|(
@@ -8122,22 +8960,28 @@ init|=
 name|artifactsByMetadata
 operator|.
 name|iterator
-argument_list|()
+argument_list|( )
 operator|.
 name|next
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|assertThat
 argument_list|(
 name|artifactMetadata
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"projectId-1.0.jar"
+name|TEST_PROJECT
+operator|+
+literal|"-"
+operator|+
+name|TEST_PROJECT_VERSION
+operator|+
+literal|".jar"
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -8145,7 +8989,7 @@ argument_list|(
 name|artifactMetadata
 operator|.
 name|getSha1
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|isEqualTo
@@ -8158,12 +9002,15 @@ argument_list|(
 name|artifactMetadata
 operator|.
 name|getRepositoryId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|isEqualTo
 argument_list|(
 name|TEST_REPO_ID
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -8173,7 +9020,7 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifactsByProjectVersionMetadataNoRepository
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -8182,10 +9029,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|createArtifactWithGenericMetadataFacet
@@ -8193,13 +9041,19 @@ argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifactsByMetadata
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByProjectVersionMetadata
 argument_list|(
@@ -8227,20 +9081,23 @@ argument_list|(
 name|artifactsByMetadata
 operator|.
 name|iterator
-argument_list|()
+argument_list|( )
 operator|.
 name|next
-argument_list|()
+argument_list|( )
 operator|.
 name|getRepositoryId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -8249,7 +9106,7 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifactsByProjectVersionMetadataAllRepositories
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -8258,10 +9115,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|createArtifactWithGenericMetadataFacet
@@ -8269,13 +9127,19 @@ argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifactsByMetadata
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByProjectVersionMetadata
 argument_list|(
@@ -8299,13 +9163,16 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
 specifier|public
 name|void
 name|testGetArtifactsByMetadataAllRepositories
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -8314,10 +9181,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|createArtifactWithMavenArtifactFacet
@@ -8327,7 +9195,7 @@ argument_list|)
 expr_stmt|;
 name|tryAssert
 argument_list|(
-parameter_list|()
+parameter_list|( )
 lambda|->
 block|{
 name|Collection
@@ -8336,7 +9204,8 @@ name|ArtifactMetadata
 argument_list|>
 name|artifactsByMetadata
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByMetadata
 argument_list|(
@@ -8365,22 +9234,28 @@ init|=
 name|artifactsByMetadata
 operator|.
 name|iterator
-argument_list|()
+argument_list|( )
 operator|.
 name|next
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|assertThat
 argument_list|(
 name|artifactMetadata
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"projectId-1.0.jar"
+name|TEST_PROJECT
+operator|+
+literal|"-"
+operator|+
+name|TEST_PROJECT_VERSION
+operator|+
+literal|".jar"
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -8388,7 +9263,7 @@ argument_list|(
 name|artifactMetadata
 operator|.
 name|getSha1
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|isEqualTo
@@ -8401,7 +9276,7 @@ argument_list|(
 name|artifactMetadata
 operator|.
 name|getRepositoryId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|isEqualTo
@@ -8425,14 +9300,14 @@ name|facet
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|assertThat
 argument_list|(
 name|facet
 operator|.
 name|toProperties
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|isEqualTo
@@ -8457,7 +9332,7 @@ name|Test
 specifier|public
 name|void
 name|testGetArtifactsByPropertySingleResult
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -8466,10 +9341,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|createArtifactWithData
@@ -8478,14 +9354,20 @@ name|session
 argument_list|)
 expr_stmt|;
 comment|// only works on JCR implementation
-comment|// Collection<ArtifactMetadata> artifactsByProperty = repository.getArtifactsByProperty( "org.name", TEST_ORGANIZATION.getName(), TEST_REPO_ID );
+comment|// Collection<ArtifactMetadata> artifactsByProperty = getRepository().getArtifactsByProperty( "org.name", TEST_ORGANIZATION.getName(), TEST_REPO_ID );
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifactsByProperty
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByProperty
 argument_list|(
@@ -8514,22 +9396,28 @@ init|=
 name|artifactsByProperty
 operator|.
 name|iterator
-argument_list|()
+argument_list|( )
 operator|.
 name|next
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|assertThat
 argument_list|(
 name|artifactMetadata
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"projectId-1.0.jar"
+name|TEST_PROJECT
+operator|+
+literal|"-"
+operator|+
+name|TEST_PROJECT_VERSION
+operator|+
+literal|".jar"
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -8537,7 +9425,7 @@ argument_list|(
 name|artifactMetadata
 operator|.
 name|getSha1
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|isEqualTo
@@ -8550,12 +9438,15 @@ argument_list|(
 name|artifactMetadata
 operator|.
 name|getRepositoryId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|isEqualTo
 argument_list|(
 name|TEST_REPO_ID
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -8565,7 +9456,7 @@ name|Test
 specifier|public
 name|void
 name|testDeleteRepository
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -8574,13 +9465,15 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateNamespace
 argument_list|(
@@ -8596,7 +9489,7 @@ name|project1
 init|=
 operator|new
 name|ProjectMetadata
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|project1
 operator|.
@@ -8612,7 +9505,8 @@ argument_list|(
 literal|"project1"
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProject
 argument_list|(
@@ -8628,7 +9522,7 @@ name|project2
 init|=
 operator|new
 name|ProjectMetadata
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|project2
 operator|.
@@ -8644,7 +9538,8 @@ argument_list|(
 literal|"project2"
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProject
 argument_list|(
@@ -8659,7 +9554,7 @@ name|ArtifactMetadata
 name|artifact1
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|artifact1
 operator|.
@@ -8668,7 +9563,8 @@ argument_list|(
 literal|"project1"
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -8689,7 +9585,7 @@ name|ArtifactMetadata
 name|artifact2
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|artifact2
 operator|.
@@ -8698,7 +9594,8 @@ argument_list|(
 literal|"project2"
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -8718,7 +9615,7 @@ expr_stmt|;
 name|session
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|List
 argument_list|<
@@ -8743,12 +9640,12 @@ name|expected
 argument_list|,
 operator|new
 name|ArtifactMetadataComparator
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|tryAssert
 argument_list|(
-parameter_list|()
+parameter_list|( )
 lambda|->
 block|{
 name|List
@@ -8761,7 +9658,8 @@ operator|new
 name|ArrayList
 argument_list|<>
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifactsByDateRange
 argument_list|(
@@ -8783,7 +9681,7 @@ name|actual
 argument_list|,
 operator|new
 name|ArtifactMetadataComparator
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -8796,7 +9694,8 @@ expr_stmt|;
 block|}
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|removeRepository
 argument_list|(
@@ -8805,9 +9704,15 @@ argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|assertTrue
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -8817,12 +9722,13 @@ name|TEST_REPO_ID
 argument_list|)
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getRootNamespaces
 argument_list|(
@@ -8832,7 +9738,10 @@ name|TEST_REPO_ID
 argument_list|)
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -8842,7 +9751,7 @@ name|Test
 specifier|public
 name|void
 name|testDeleteArtifact
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -8851,17 +9760,18 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|artifact
 operator|.
@@ -8874,7 +9784,8 @@ literal|"value"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -8893,7 +9804,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -8914,7 +9826,8 @@ argument_list|(
 name|artifact
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -8937,7 +9850,8 @@ name|String
 argument_list|>
 name|versions
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersions
 argument_list|(
@@ -8965,10 +9879,10 @@ name|versions
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -8982,7 +9896,8 @@ argument_list|,
 literal|"2.0"
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|removeArtifact
 argument_list|(
@@ -8999,12 +9914,13 @@ argument_list|,
 name|artifact
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|versions
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersions
 argument_list|(
@@ -9032,10 +9948,10 @@ name|versions
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -9049,7 +9965,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -9066,14 +9983,15 @@ argument_list|)
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -9090,7 +10008,7 @@ argument_list|)
 argument_list|)
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -9104,7 +10022,7 @@ name|Test
 specifier|public
 name|void
 name|deleteArtifact
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -9113,17 +10031,18 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|artifact
 operator|.
@@ -9136,7 +10055,8 @@ literal|"value"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -9153,7 +10073,8 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -9170,13 +10091,19 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifacts
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -9208,7 +10135,11 @@ name|artifacts
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|repository
+block|}
+argument_list|)
+expr_stmt|;
+name|getRepository
+argument_list|( )
 operator|.
 name|removeArtifact
 argument_list|(
@@ -9225,12 +10156,22 @@ argument_list|,
 name|artifact
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
+name|Collection
+argument_list|<
+name|ArtifactMetadata
+argument_list|>
 name|artifacts
-operator|=
-name|repository
+init|=
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -9244,17 +10185,20 @@ name|TEST_PROJECT
 argument_list|,
 name|TEST_PROJECT_VERSION
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|artifacts
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -9263,7 +10207,7 @@ name|Test
 specifier|public
 name|void
 name|deleteVersion
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -9272,17 +10216,18 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|artifact
 operator|.
@@ -9295,7 +10240,8 @@ literal|"value"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -9312,7 +10258,8 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -9329,13 +10276,19 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|String
 argument_list|>
 name|versions
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersions
 argument_list|(
@@ -9354,17 +10307,21 @@ name|versions
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|repository
+block|}
+argument_list|)
+expr_stmt|;
+name|getRepository
+argument_list|( )
 operator|.
 name|removeProjectVersion
 argument_list|(
@@ -9379,9 +10336,19 @@ argument_list|,
 name|TEST_PROJECT_VERSION
 argument_list|)
 expr_stmt|;
-name|versions
-operator|=
-name|repository
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|versions1
+init|=
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersions
 argument_list|(
@@ -9393,17 +10360,20 @@ name|TEST_NAMESPACE
 argument_list|,
 name|TEST_PROJECT
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertThat
 argument_list|(
-name|versions
+name|versions1
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -9412,7 +10382,7 @@ name|Test
 specifier|public
 name|void
 name|deleteProject
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -9421,17 +10391,18 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|artifact
 operator|.
@@ -9444,7 +10415,8 @@ literal|"value"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -9461,7 +10433,8 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -9482,7 +10455,8 @@ name|assertEquals
 argument_list|(
 literal|1
 argument_list|,
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersions
 argument_list|(
@@ -9496,10 +10470,11 @@ name|TEST_PROJECT
 argument_list|)
 operator|.
 name|size
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|removeProject
 argument_list|(
@@ -9518,7 +10493,8 @@ name|String
 argument_list|>
 name|versions
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersions
 argument_list|(
@@ -9537,10 +10513,10 @@ name|versions
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -9549,7 +10525,7 @@ name|Test
 specifier|public
 name|void
 name|deleteSnapshotVersion
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -9558,17 +10534,18 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ArtifactMetadata
 name|artifactOne
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|artifactOne
 operator|.
@@ -9610,7 +10587,8 @@ operator|+
 literal|"jar"
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -9631,7 +10609,7 @@ name|ArtifactMetadata
 name|artifactTwo
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|artifactTwo
 operator|.
@@ -9673,7 +10651,8 @@ operator|+
 literal|"jar"
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -9696,7 +10675,8 @@ name|ArtifactMetadata
 argument_list|>
 name|artifactMetadatas
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -9717,10 +10697,10 @@ name|artifactMetadatas
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -9736,7 +10716,8 @@ argument_list|,
 name|artifactMetadatas
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|removeArtifact
 argument_list|(
@@ -9749,7 +10730,8 @@ argument_list|)
 expr_stmt|;
 name|artifactMetadatas
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -9770,17 +10752,18 @@ name|artifactMetadatas
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|removeArtifact
 argument_list|(
@@ -9793,7 +10776,8 @@ argument_list|)
 expr_stmt|;
 name|artifactMetadatas
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getArtifacts
 argument_list|(
@@ -9814,10 +10798,10 @@ name|artifactMetadatas
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -9826,7 +10810,7 @@ name|Test
 specifier|public
 name|void
 name|testgetProjectReferences
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -9835,10 +10819,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|ProjectVersionMetadata
@@ -9846,7 +10831,7 @@ name|metadata
 init|=
 operator|new
 name|ProjectVersionMetadata
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|metadata
 operator|.
@@ -9881,7 +10866,7 @@ name|d
 init|=
 operator|new
 name|Dependency
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|d
 operator|.
@@ -9950,7 +10935,7 @@ name|d
 operator|=
 operator|new
 name|Dependency
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|d
 operator|.
@@ -10015,7 +11000,8 @@ argument_list|(
 name|d
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProjectVersion
 argument_list|(
@@ -10033,11 +11019,12 @@ expr_stmt|;
 name|session
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|metadata
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersion
 argument_list|(
@@ -10052,13 +11039,25 @@ argument_list|,
 name|TEST_PROJECT_VERSION
 argument_list|)
 expr_stmt|;
+specifier|final
+name|Dependency
+name|dd
+init|=
+name|d
+decl_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|ProjectVersionReference
 argument_list|>
 name|references
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectReferences
 argument_list|(
@@ -10066,20 +11065,20 @@ name|session
 argument_list|,
 name|TEST_REPO_ID
 argument_list|,
-name|d
+name|dd
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|,
-name|d
+name|dd
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|,
-name|d
+name|dd
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|log
@@ -10097,7 +11096,7 @@ name|references
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -10124,13 +11123,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
 specifier|public
 name|void
 name|testSearchArtifactsByKey
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -10139,10 +11141,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|createArtifactWithData
@@ -10150,18 +11153,37 @@ argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
+block|}
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|getSessionFactory
+argument_list|( )
+operator|.
+name|createSession
+argument_list|( )
+init|)
+block|{
 name|session
 operator|.
 name|refreshAndDiscard
-argument_list|()
+argument_list|( )
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifactsByProperty
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|searchArtifacts
 argument_list|(
@@ -10182,10 +11204,13 @@ name|artifactsByProperty
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -10194,7 +11219,7 @@ name|Test
 specifier|public
 name|void
 name|testSearchArtifactsByKeyExact
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -10203,10 +11228,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|createArtifactWithData
@@ -10214,13 +11240,37 @@ argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
+block|}
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|getSessionFactory
+argument_list|( )
+operator|.
+name|createSession
+argument_list|( )
+init|)
+block|{
+name|session
+operator|.
+name|refreshAndDiscard
+argument_list|( )
+expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifactsByProperty
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|searchArtifacts
 argument_list|(
@@ -10240,15 +11290,23 @@ argument_list|(
 name|artifactsByProperty
 argument_list|)
 operator|.
+name|describedAs
+argument_list|(
+literal|"Artifact search by url=%s must give a result."
+argument_list|,
+name|TEST_URL
+argument_list|)
+operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|artifactsByProperty
 operator|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|searchArtifacts
 argument_list|(
@@ -10268,11 +11326,19 @@ argument_list|(
 name|artifactsByProperty
 argument_list|)
 operator|.
+name|describedAs
+argument_list|(
+literal|"Artifact search by text org.name='pache' must be empty"
+argument_list|)
+operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -10281,7 +11347,7 @@ name|Test
 specifier|public
 name|void
 name|testSearchArtifactsByFacetKey
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -10290,10 +11356,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|createArtifactWithGenericMetadataFacet
@@ -10301,47 +11368,19 @@ argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-block|}
-comment|// Thread.currentThread().sleep(5000);
-try|try
-init|(
-name|RepositorySession
-name|session
-init|=
-name|sessionFactory
-operator|.
-name|createSession
-argument_list|()
-init|)
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
 block|{
-name|session
-operator|.
-name|refresh
-argument_list|()
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|repository
-operator|.
-name|getRootNamespaces
-argument_list|(
-name|session
-argument_list|,
-name|TEST_REPO_ID
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|Collection
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifactsByProperty
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|searchArtifacts
 argument_list|(
@@ -10362,10 +11401,13 @@ name|artifactsByProperty
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -10374,7 +11416,7 @@ name|Test
 specifier|public
 name|void
 name|testSearchArtifactsByFacetKeyAllRepos
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -10383,10 +11425,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|createArtifactWithGenericMetadataFacet
@@ -10396,7 +11439,7 @@ argument_list|)
 expr_stmt|;
 name|tryAssert
 argument_list|(
-parameter_list|()
+parameter_list|( )
 lambda|->
 block|{
 name|Collection
@@ -10405,7 +11448,8 @@ name|ArtifactMetadata
 argument_list|>
 name|artifactsByProperty
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|searchArtifacts
 argument_list|(
@@ -10426,10 +11470,10 @@ name|artifactsByProperty
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 argument_list|)
@@ -10441,7 +11485,7 @@ name|Test
 specifier|public
 name|void
 name|testSearchArtifactsFullText
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -10450,10 +11494,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|createArtifactWithGenericMetadataFacet
@@ -10462,14 +11507,20 @@ name|session
 argument_list|)
 expr_stmt|;
 comment|// only works in JCR
-comment|// Collection<ArtifactMetadata> artifactsByProperty = repository.searchArtifacts( TEST_URL, TEST_REPO_ID, false );
+comment|// Collection<ArtifactMetadata> artifactsByProperty = getRepository().searchArtifacts( TEST_URL, TEST_REPO_ID, false );
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifactsByProperty
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|searchArtifacts
 argument_list|(
@@ -10488,10 +11539,13 @@ name|artifactsByProperty
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -10500,7 +11554,7 @@ name|Test
 specifier|public
 name|void
 name|testSearchArtifactsFullTextExact
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -10509,10 +11563,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|createArtifactWithGenericMetadataFacet
@@ -10521,14 +11576,20 @@ name|session
 argument_list|)
 expr_stmt|;
 comment|// only works in JCR
-comment|// Collection<ArtifactMetadata> artifactsByProperty = repository.searchArtifacts( TEST_URL, TEST_REPO_ID, true );
+comment|// Collection<ArtifactMetadata> artifactsByProperty = getRepository().searchArtifacts( TEST_URL, TEST_REPO_ID, true );
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifactsByProperty
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|searchArtifacts
 argument_list|(
@@ -10547,14 +11608,27 @@ name|artifactsByProperty
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
+name|Collection
+argument_list|<
+name|ArtifactMetadata
+argument_list|>
 name|artifactsByProperty
-operator|=
-name|repository
+init|=
+name|getRepository
+argument_list|( )
 operator|.
 name|searchArtifacts
 argument_list|(
@@ -10571,17 +11645,20 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|artifactsByProperty
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -10590,7 +11667,7 @@ name|Test
 specifier|public
 name|void
 name|testSearchArtifactsFullTextByFacet
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -10599,10 +11676,11 @@ init|(
 name|RepositorySession
 name|session
 init|=
-name|sessionFactory
+name|getSessionFactory
+argument_list|( )
 operator|.
 name|createSession
-argument_list|()
+argument_list|( )
 init|)
 block|{
 name|createArtifactWithGenericMetadataFacet
@@ -10610,13 +11688,19 @@ argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|Collection
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
 name|artifactsByProperty
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|searchArtifacts
 argument_list|(
@@ -10635,10 +11719,13 @@ name|artifactsByProperty
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -10646,7 +11733,7 @@ specifier|private
 specifier|static
 name|ProjectMetadata
 name|createProject
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|createProject
@@ -10669,7 +11756,7 @@ name|project
 init|=
 operator|new
 name|ProjectMetadata
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|project
 operator|.
@@ -10733,7 +11820,7 @@ name|metadataFacet
 init|=
 operator|new
 name|GenericMetadataFacet
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|Map
 argument_list|<
@@ -10746,7 +11833,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|properties
 operator|.
@@ -10878,7 +11965,7 @@ name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -10895,7 +11982,8 @@ name|artifactFacet
 argument_list|)
 expr_stmt|;
 block|}
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -10923,7 +12011,8 @@ block|{
 name|ProjectVersionMetadata
 name|metadata
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersion
 argument_list|(
@@ -10959,7 +12048,8 @@ argument_list|(
 name|TEST_URL
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProjectVersion
 argument_list|(
@@ -10978,10 +12068,10 @@ block|}
 name|session
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
-specifier|private
+specifier|protected
 name|void
 name|createArtifactWithData
 parameter_list|(
@@ -10999,9 +12089,10 @@ name|ArtifactMetadata
 name|artifact
 init|=
 name|createArtifact
-argument_list|()
+argument_list|( )
 decl_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateArtifact
 argument_list|(
@@ -11021,7 +12112,8 @@ expr_stmt|;
 name|ProjectVersionMetadata
 name|metadata
 init|=
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|getProjectVersion
 argument_list|(
@@ -11050,7 +12142,8 @@ argument_list|(
 name|TEST_URL
 argument_list|)
 expr_stmt|;
-name|repository
+name|getRepository
+argument_list|( )
 operator|.
 name|updateProjectVersion
 argument_list|(
@@ -11068,14 +12161,14 @@ expr_stmt|;
 name|session
 operator|.
 name|save
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 specifier|private
 specifier|static
 name|ArtifactMetadata
 name|createArtifact
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|createArtifact
@@ -11098,7 +12191,7 @@ name|artifact
 init|=
 operator|new
 name|ArtifactMetadata
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|artifact
 operator|.
@@ -11121,7 +12214,7 @@ name|setWhenGathered
 argument_list|(
 operator|new
 name|Date
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|artifact
@@ -11152,7 +12245,7 @@ argument_list|(
 name|System
 operator|.
 name|currentTimeMillis
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|artifact
@@ -11215,14 +12308,14 @@ return|return
 name|a
 operator|.
 name|getProject
-argument_list|()
+argument_list|( )
 operator|.
 name|compareTo
 argument_list|(
 name|b
 operator|.
 name|getProject
-argument_list|()
+argument_list|( )
 argument_list|)
 return|;
 block|}
@@ -11290,11 +12383,11 @@ name|Override
 specifier|public
 name|String
 name|getName
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|createNameFormat
-argument_list|()
+argument_list|( )
 operator|.
 name|format
 argument_list|(
@@ -11306,7 +12399,7 @@ specifier|private
 specifier|static
 name|SimpleDateFormat
 name|createNameFormat
-parameter_list|()
+parameter_list|( )
 block|{
 name|SimpleDateFormat
 name|fmt
@@ -11333,7 +12426,7 @@ name|Override
 specifier|public
 name|String
 name|getFacetId
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|KindOfRepositoryStatistics
@@ -11341,7 +12434,7 @@ operator|.
 name|class
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 return|;
 block|}
 annotation|@
@@ -11354,13 +12447,13 @@ argument_list|,
 name|String
 argument_list|>
 name|toProperties
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|Collections
 operator|.
 name|emptyMap
-argument_list|()
+argument_list|( )
 return|;
 block|}
 annotation|@
@@ -11481,7 +12574,7 @@ name|Override
 specifier|public
 name|String
 name|getFacetId
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|testFacetId
@@ -11492,7 +12585,7 @@ name|Override
 specifier|public
 name|String
 name|getName
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|TEST_NAME
@@ -11508,7 +12601,7 @@ argument_list|,
 name|String
 argument_list|>
 name|toProperties
-parameter_list|()
+parameter_list|( )
 block|{
 if|if
 condition|(
@@ -11548,7 +12641,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|props
 operator|.
@@ -11567,7 +12660,7 @@ range|:
 name|additionalProps
 operator|.
 name|keySet
-argument_list|()
+argument_list|( )
 control|)
 block|{
 name|props
@@ -11596,7 +12689,7 @@ return|return
 name|Collections
 operator|.
 name|emptyMap
-argument_list|()
+argument_list|( )
 return|;
 block|}
 block|}
@@ -11658,7 +12751,7 @@ operator|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 for|for
@@ -11669,7 +12762,7 @@ range|:
 name|properties
 operator|.
 name|keySet
-argument_list|()
+argument_list|( )
 control|)
 block|{
 name|additionalProps
@@ -11691,7 +12784,7 @@ block|}
 specifier|public
 name|String
 name|getValue
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|value
@@ -11702,7 +12795,7 @@ name|Override
 specifier|public
 name|String
 name|toString
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 literal|"TestMetadataFacet{"
@@ -11744,12 +12837,12 @@ operator|==
 literal|null
 operator|||
 name|getClass
-argument_list|()
+argument_list|( )
 operator|!=
 name|o
 operator|.
 name|getClass
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 return|return
@@ -11800,7 +12893,7 @@ name|Override
 specifier|public
 name|int
 name|hashCode
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|value
@@ -11810,7 +12903,7 @@ condition|?
 name|value
 operator|.
 name|hashCode
-argument_list|()
+argument_list|( )
 else|:
 literal|0
 return|;

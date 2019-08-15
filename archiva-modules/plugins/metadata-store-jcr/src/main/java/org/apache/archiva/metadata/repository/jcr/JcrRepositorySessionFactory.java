@@ -298,7 +298,7 @@ name|RepositorySessionFactoryBean
 name|repositorySessionFactoryBean
 decl_stmt|;
 specifier|private
-name|RepositoryFactory
+name|OakRepositoryFactory
 name|repositoryFactory
 decl_stmt|;
 specifier|private
@@ -318,7 +318,7 @@ try|try
 block|{
 return|return
 operator|new
-name|JcrSession
+name|JcrRepositorySession
 argument_list|(
 name|jcrMetadataRepository
 argument_list|,
@@ -355,6 +355,10 @@ name|this
 operator|.
 name|metadataResolver
 operator|==
+literal|null
+operator|&&
+name|applicationContext
+operator|!=
 literal|null
 condition|)
 block|{
@@ -539,7 +543,7 @@ block|{
 name|repositoryFactory
 operator|=
 operator|new
-name|RepositoryFactory
+name|OakRepositoryFactory
 argument_list|()
 expr_stmt|;
 comment|// FIXME this need to be configurable
@@ -617,11 +621,11 @@ argument_list|)
 expr_stmt|;
 try|try
 init|(
-name|JcrSession
+name|JcrRepositorySession
 name|session
 init|=
 operator|new
-name|JcrSession
+name|JcrRepositorySession
 argument_list|(
 name|jcrMetadataRepository
 argument_list|,
@@ -686,6 +690,13 @@ name|void
 name|shutdown
 parameter_list|()
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Shutting down JcrRepositorySessionFactory"
+argument_list|)
+expr_stmt|;
 name|repositoryFactory
 operator|.
 name|close

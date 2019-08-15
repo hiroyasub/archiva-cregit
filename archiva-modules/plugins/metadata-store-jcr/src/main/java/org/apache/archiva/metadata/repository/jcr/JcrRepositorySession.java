@@ -114,7 +114,7 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|JcrSession
+name|JcrRepositorySession
 extends|extends
 name|RepositorySession
 implements|implements
@@ -130,7 +130,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|JcrSession
+name|JcrRepositorySession
 operator|.
 name|class
 argument_list|)
@@ -144,7 +144,7 @@ name|JcrMetadataRepository
 name|repository
 decl_stmt|;
 specifier|public
-name|JcrSession
+name|JcrRepositorySession
 parameter_list|(
 name|JcrMetadataRepository
 name|metadataRepository
