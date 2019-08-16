@@ -374,9 +374,6 @@ specifier|public
 name|boolean
 name|hasStatistics
 parameter_list|(
-name|MetadataRepository
-name|metadataRepository
-parameter_list|,
 name|String
 name|repositoryId
 parameter_list|)
@@ -394,6 +391,15 @@ name|createSession
 argument_list|()
 init|)
 block|{
+specifier|final
+name|MetadataRepository
+name|metadataRepository
+init|=
+name|session
+operator|.
+name|getRepository
+argument_list|( )
+decl_stmt|;
 return|return
 name|metadataRepository
 operator|.
@@ -416,9 +422,6 @@ specifier|public
 name|RepositoryStatistics
 name|getLastStatistics
 parameter_list|(
-name|MetadataRepository
-name|metadataRepository
-parameter_list|,
 name|String
 name|repositoryId
 parameter_list|)
@@ -448,6 +451,15 @@ name|createSession
 argument_list|()
 init|)
 block|{
+specifier|final
+name|MetadataRepository
+name|metadataRepository
+init|=
+name|session
+operator|.
+name|getRepository
+argument_list|( )
+decl_stmt|;
 comment|// TODO: consider a more efficient implementation that directly gets the last one from the content repository
 name|List
 argument_list|<
@@ -570,9 +582,6 @@ specifier|public
 name|void
 name|addStatisticsAfterScan
 parameter_list|(
-name|MetadataRepository
-name|metadataRepository
-parameter_list|,
 name|String
 name|repositoryId
 parameter_list|,
@@ -602,6 +611,15 @@ name|createSession
 argument_list|()
 init|)
 block|{
+specifier|final
+name|MetadataRepository
+name|metadataRepository
+init|=
+name|session
+operator|.
+name|getRepository
+argument_list|( )
+decl_stmt|;
 name|DefaultRepositoryStatistics
 name|repositoryStatistics
 init|=
@@ -735,9 +753,6 @@ specifier|public
 name|void
 name|deleteStatistics
 parameter_list|(
-name|MetadataRepository
-name|metadataRepository
-parameter_list|,
 name|String
 name|repositoryId
 parameter_list|)
@@ -755,6 +770,15 @@ name|createSession
 argument_list|()
 init|)
 block|{
+specifier|final
+name|MetadataRepository
+name|metadataRepository
+init|=
+name|session
+operator|.
+name|getRepository
+argument_list|( )
+decl_stmt|;
 name|metadataRepository
 operator|.
 name|removeMetadataFacets
@@ -779,9 +803,6 @@ name|RepositoryStatistics
 argument_list|>
 name|getStatisticsInRange
 parameter_list|(
-name|MetadataRepository
-name|metadataRepository
-parameter_list|,
 name|String
 name|repositoryId
 parameter_list|,
@@ -805,6 +826,15 @@ name|createSession
 argument_list|()
 init|)
 block|{
+specifier|final
+name|MetadataRepository
+name|metadataRepository
+init|=
+name|session
+operator|.
+name|getRepository
+argument_list|( )
+decl_stmt|;
 name|List
 argument_list|<
 name|RepositoryStatistics
@@ -982,6 +1012,30 @@ expr_stmt|;
 return|return
 name|fmt
 return|;
+block|}
+specifier|public
+name|RepositorySessionFactory
+name|getRepositorySessionFactory
+parameter_list|( )
+block|{
+return|return
+name|repositorySessionFactory
+return|;
+block|}
+specifier|public
+name|void
+name|setRepositorySessionFactory
+parameter_list|(
+name|RepositorySessionFactory
+name|repositorySessionFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|repositorySessionFactory
+operator|=
+name|repositorySessionFactory
+expr_stmt|;
 block|}
 block|}
 end_class

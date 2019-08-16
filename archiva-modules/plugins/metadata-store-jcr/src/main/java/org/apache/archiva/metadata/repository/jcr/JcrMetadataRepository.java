@@ -8272,6 +8272,11 @@ decl_stmt|;
 if|if
 condition|(
 name|key
+operator|==
+literal|null
+operator|||
+operator|(
+name|key
 operator|!=
 literal|null
 operator|&&
@@ -8285,6 +8290,7 @@ name|key
 argument_list|)
 operator|>=
 literal|0
+operator|)
 condition|)
 block|{
 comment|// We search only for project version properties if the key is a valid property name

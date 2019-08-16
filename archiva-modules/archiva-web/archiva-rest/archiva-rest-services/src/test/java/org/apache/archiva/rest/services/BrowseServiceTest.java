@@ -1804,6 +1804,11 @@ argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|List
 argument_list|<
 name|Artifact
@@ -1827,10 +1832,10 @@ name|artifactDownloadInfos
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -1838,6 +1843,9 @@ literal|3
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: get-artifacts-by-project-version-metadata
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -1848,6 +1856,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
 name|BrowseService
 name|browseService
 init|=
@@ -1875,12 +1884,23 @@ argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|List
 argument_list|<
 name|Artifact
 argument_list|>
 name|artifactDownloadInfos
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|artifactDownloadInfos
+operator|=
 name|browseService
 operator|.
 name|getArtifactsByProjectVersionMetadata
@@ -1891,21 +1911,41 @@ literal|"bordeaux"
 argument_list|,
 literal|null
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ArchivaRestServiceException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|AssertionError
+argument_list|(
+literal|"ArchivaRestServiceException"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 name|assertThat
 argument_list|(
 name|artifactDownloadInfos
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
 literal|3
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1984,6 +2024,11 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|List
 argument_list|<
 name|Artifact
@@ -2007,14 +2052,17 @@ name|artifactDownloadInfos
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
 literal|7
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: search-artifacts

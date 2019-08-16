@@ -1252,6 +1252,30 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+specifier|public
+name|RepositorySessionFactory
+name|getRepositorySessionFactory
+parameter_list|( )
+block|{
+return|return
+name|repositorySessionFactory
+return|;
+block|}
+specifier|public
+name|void
+name|setRepositorySessionFactory
+parameter_list|(
+name|RepositorySessionFactory
+name|repositorySessionFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|repositorySessionFactory
+operator|=
+name|repositorySessionFactory
+expr_stmt|;
+block|}
 block|}
 end_class
 

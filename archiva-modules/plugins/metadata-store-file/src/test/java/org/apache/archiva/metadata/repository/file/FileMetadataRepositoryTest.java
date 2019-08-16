@@ -230,7 +230,9 @@ specifier|private
 name|RepositorySessionFactory
 name|sessionFactory
 init|=
-literal|null
+operator|new
+name|FileRepositorySessionFactory
+argument_list|()
 decl_stmt|;
 annotation|@
 name|Override

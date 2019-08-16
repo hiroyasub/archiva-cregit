@@ -136,6 +136,10 @@ block|{
 specifier|private
 name|Configuration
 name|configuration
+init|=
+operator|new
+name|Configuration
+argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
@@ -190,11 +194,7 @@ name|ConfigurationListener
 name|listener
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
+comment|// throw new UnsupportedOperationException();
 block|}
 annotation|@
 name|Override
@@ -222,11 +222,7 @@ name|RegistryListener
 name|listener
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
+comment|// throw new UnsupportedOperationException();
 block|}
 annotation|@
 name|Override
@@ -397,6 +393,13 @@ block|{
 if|if
 condition|(
 name|configuration
+operator|!=
+literal|null
+operator|&&
+name|configuration
+operator|.
+name|getArchivaRuntimeConfiguration
+argument_list|()
 operator|!=
 literal|null
 operator|&&

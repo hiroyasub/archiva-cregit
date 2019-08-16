@@ -1264,8 +1264,6 @@ name|repositoryStatisticsManager
 operator|.
 name|hasStatistics
 argument_list|(
-name|metadataRepository
-argument_list|,
 name|repoConfig
 operator|.
 name|getId

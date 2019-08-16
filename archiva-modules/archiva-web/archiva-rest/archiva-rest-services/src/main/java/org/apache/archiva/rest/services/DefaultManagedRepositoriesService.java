@@ -844,8 +844,6 @@ name|repositoryStatisticsManager
 operator|.
 name|getLastStatistics
 argument_list|(
-name|metadataRepository
-argument_list|,
 name|repositoryId
 argument_list|)
 expr_stmt|;

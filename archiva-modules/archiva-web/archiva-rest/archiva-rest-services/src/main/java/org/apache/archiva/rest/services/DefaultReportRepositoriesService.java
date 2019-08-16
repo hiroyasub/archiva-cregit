@@ -428,8 +428,6 @@ name|repositoryStatisticsManager
 operator|.
 name|getLastStatistics
 argument_list|(
-name|metadataRepository
-argument_list|,
 name|repo
 argument_list|)
 argument_list|)
@@ -562,8 +560,6 @@ name|repositoryStatisticsManager
 operator|.
 name|getStatisticsInRange
 argument_list|(
-name|metadataRepository
-argument_list|,
 name|repositoryId
 argument_list|,
 name|startDate

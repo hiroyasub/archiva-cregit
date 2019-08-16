@@ -322,8 +322,6 @@ name|repositoryStatisticsManager
 operator|.
 name|getLastStatistics
 argument_list|(
-name|metadataRepository
-argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 decl_stmt|;
@@ -498,8 +496,6 @@ name|repositoryStatisticsManager
 operator|.
 name|getLastStatistics
 argument_list|(
-name|metadataRepository
-argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 decl_stmt|;
@@ -714,8 +710,6 @@ name|repositoryStatisticsManager
 operator|.
 name|getLastStatistics
 argument_list|(
-name|metadataRepository
-argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 decl_stmt|;
@@ -930,8 +924,6 @@ name|repositoryStatisticsManager
 operator|.
 name|getLastStatistics
 argument_list|(
-name|metadataRepository
-argument_list|,
 name|TEST_REPO_ID
 argument_list|)
 decl_stmt|;
@@ -1006,8 +998,6 @@ name|repositoryStatisticsManager
 operator|.
 name|addStatisticsAfterScan
 argument_list|(
-name|metadataRepository
-argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 comment|//
@@ -1161,8 +1151,6 @@ name|repositoryStatisticsManager
 operator|.
 name|addStatisticsAfterScan
 argument_list|(
-name|metadataRepository
-argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 comment|//

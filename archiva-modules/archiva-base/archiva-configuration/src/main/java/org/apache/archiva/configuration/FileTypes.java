@@ -376,6 +376,11 @@ specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
+specifier|public
+name|FileTypes
+parameter_list|()
+block|{
+block|}
 comment|/**      * Map of default values for the file types.      */
 specifier|private
 name|Map

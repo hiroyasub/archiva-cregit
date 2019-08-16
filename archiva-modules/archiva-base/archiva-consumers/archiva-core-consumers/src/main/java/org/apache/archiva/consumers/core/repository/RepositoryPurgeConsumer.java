@@ -641,11 +641,20 @@ name|MetadataRepositoryException
 name|e
 parameter_list|)
 block|{
+throw|throw
+operator|new
+name|ConsumerException
+argument_list|(
+literal|"Could not create session: "
+operator|+
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|( )
-expr_stmt|;
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 if|if
 condition|(
@@ -1194,30 +1203,6 @@ operator|.
 name|repositorySessionFactory
 operator|=
 name|repositorySessionFactory
-expr_stmt|;
-block|}
-specifier|public
-name|RepositorySession
-name|getRepositorySession
-parameter_list|( )
-block|{
-return|return
-name|repositorySession
-return|;
-block|}
-specifier|public
-name|void
-name|setRepositorySession
-parameter_list|(
-name|RepositorySession
-name|repositorySession
-parameter_list|)
-block|{
-name|this
-operator|.
-name|repositorySession
-operator|=
-name|repositorySession
 expr_stmt|;
 block|}
 block|}

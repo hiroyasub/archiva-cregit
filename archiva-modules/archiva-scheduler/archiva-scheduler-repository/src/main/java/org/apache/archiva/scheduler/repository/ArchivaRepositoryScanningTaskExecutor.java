@@ -690,8 +690,6 @@ name|repositoryStatisticsManager
 operator|.
 name|getLastStatistics
 argument_list|(
-name|metadataRepository
-argument_list|,
 name|repoId
 argument_list|)
 decl_stmt|;
@@ -800,8 +798,6 @@ name|repositoryStatisticsManager
 operator|.
 name|addStatisticsAfterScan
 argument_list|(
-name|metadataRepository
-argument_list|,
 name|repoId
 argument_list|,
 name|stats

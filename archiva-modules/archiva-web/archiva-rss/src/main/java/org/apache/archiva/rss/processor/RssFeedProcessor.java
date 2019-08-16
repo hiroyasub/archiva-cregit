@@ -49,22 +49,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
-name|MetadataRepository
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -107,9 +91,6 @@ argument_list|,
 name|String
 argument_list|>
 name|reqParams
-parameter_list|,
-name|MetadataRepository
-name|metadataRepository
 parameter_list|)
 throws|throws
 name|FeedException
