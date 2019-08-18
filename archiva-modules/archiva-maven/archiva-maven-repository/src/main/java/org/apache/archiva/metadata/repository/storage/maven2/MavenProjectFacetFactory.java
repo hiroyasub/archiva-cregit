@@ -33,7 +33,7 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|MetadataFacet
+name|MetadataFacetFactory
 import|;
 end_import
 
@@ -49,7 +49,9 @@ name|metadata
 operator|.
 name|model
 operator|.
-name|MetadataFacetFactory
+name|facets
+operator|.
+name|AbstractMetadataFacetFactory
 import|;
 end_import
 
@@ -78,13 +80,28 @@ argument_list|)
 specifier|public
 class|class
 name|MavenProjectFacetFactory
-implements|implements
-name|MetadataFacetFactory
+extends|extends
+name|AbstractMetadataFacetFactory
+argument_list|<
+name|MavenProjectFacet
+argument_list|>
 block|{
+specifier|public
+name|MavenProjectFacetFactory
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|MavenProjectFacet
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 specifier|public
-name|MetadataFacet
+name|MavenProjectFacet
 name|createMetadataFacet
 parameter_list|()
 block|{
@@ -97,7 +114,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|MetadataFacet
+name|MavenProjectFacet
 name|createMetadataFacet
 parameter_list|(
 name|String

@@ -2707,9 +2707,6 @@ block|{
 return|return
 name|rule
 operator|.
-name|sync
-argument_list|()
-operator|.
 name|indexNodeName
 argument_list|( )
 operator|.
@@ -3227,6 +3224,20 @@ argument_list|(
 name|FACET_NODE_TYPE
 argument_list|)
 argument_list|)
+operator|.
+name|property
+argument_list|(
+literal|"facetId"
+argument_list|)
+operator|.
+name|propertyIndex
+argument_list|()
+operator|.
+name|analyzed
+argument_list|()
+operator|.
+name|ordered
+argument_list|()
 expr_stmt|;
 name|idxBuilder
 operator|.
