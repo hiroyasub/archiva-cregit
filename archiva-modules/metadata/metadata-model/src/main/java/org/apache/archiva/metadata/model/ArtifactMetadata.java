@@ -443,6 +443,7 @@ return|return
 literal|false
 return|;
 block|}
+comment|// We allow some
 if|if
 condition|(
 name|fileLastModified
