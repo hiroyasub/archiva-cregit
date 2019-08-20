@@ -5250,6 +5250,16 @@ name|size
 argument_list|( )
 argument_list|)
 expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|result
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|TEST_NAME
@@ -5402,6 +5412,16 @@ name|result
 operator|.
 name|size
 argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|result
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 for|for
