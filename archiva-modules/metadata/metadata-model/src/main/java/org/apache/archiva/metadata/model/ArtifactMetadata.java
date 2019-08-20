@@ -35,6 +35,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|time
+operator|.
+name|ZonedDateTime
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Date
@@ -111,7 +121,7 @@ name|sha1
 decl_stmt|;
 comment|/**      * When the artifact was found in the repository storage and added to the metadata content repository.      */
 specifier|private
-name|Date
+name|ZonedDateTime
 name|whenGathered
 decl_stmt|;
 specifier|public
@@ -233,7 +243,7 @@ specifier|public
 name|void
 name|setWhenGathered
 parameter_list|(
-name|Date
+name|ZonedDateTime
 name|whenGathered
 parameter_list|)
 block|{
@@ -275,7 +285,7 @@ name|sha1
 expr_stmt|;
 block|}
 specifier|public
-name|Date
+name|ZonedDateTime
 name|getWhenGathered
 parameter_list|()
 block|{
@@ -660,11 +670,17 @@ condition|?
 operator|!
 name|whenGathered
 operator|.
+name|toInstant
+argument_list|()
+operator|.
 name|equals
 argument_list|(
 name|that
 operator|.
 name|whenGathered
+operator|.
+name|toInstant
+argument_list|()
 argument_list|)
 else|:
 name|that
