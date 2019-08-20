@@ -99,36 +99,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|index_shaded
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|packed
-operator|.
-name|DirectMonotonicReader
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|time
-operator|.
-name|LocalDateTime
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|time
@@ -144,16 +114,6 @@ operator|.
 name|util
 operator|.
 name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
 import|;
 end_import
 
@@ -379,7 +339,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-comment|/**      * Returns the facet instance using the proper class.      *      * @param session The repository session      * @param repositoryId The repository      * @param clazz The facet object class      * @param name The name of the facet      * @param<T> The facet object      * @return The facet instance if it exists.      * @throws MetadataRepositoryException      */
+comment|/**      * Returns the facet instance for the given class, which is stored on repository level for the given name.      * If the given name does not point to a instance that can be represented by this class,<code>null</code> will be returned.      * If the facet is not found the method returns<code>null</code>.      *      * @param session The repository session      * @param repositoryId The id of the repository      * @param clazz The facet object class      * @param name The name of the facet (name or path)      * @param<T> The type of the facet object      * @return The facet instance, if it exists.      * @throws MetadataRepositoryException      */
 parameter_list|<
 name|T
 extends|extends
@@ -406,6 +366,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+comment|/**      * Adss a facet to the repository level.      *      * @param session The repository session      * @param repositoryId The id of the repository      * @param metadataFacet The facet to add      * @throws MetadataRepositoryException if the facet cannot be stored.      */
 name|void
 name|addMetadataFacet
 parameter_list|(
@@ -421,6 +382,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+comment|/**      * Removes all facets with the given facetId from the repository level.      *      * @param session The repository session      * @param repositoryId The id of the repository      * @param facetId The facet id      * @throws MetadataRepositoryException if the removal fails      */
 name|void
 name|removeMetadataFacets
 parameter_list|(
@@ -436,6 +398,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+comment|/**      * Removes the given facet from the repository level, if it exists.      *      * @param session The repository session      * @param repositoryId The id of the repository      * @param facetId The facet id      * @param name The facet name or path      */
 name|void
 name|removeMetadataFacet
 parameter_list|(
@@ -467,15 +430,16 @@ parameter_list|,
 name|String
 name|repositoryId
 parameter_list|,
-name|Date
+name|ZonedDateTime
 name|startTime
 parameter_list|,
-name|Date
+name|ZonedDateTime
 name|endTime
 parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+comment|/**      * Returns all the artifacts      * @param session      * @param repositoryId      * @param startTime      * @param endTime      * @return      * @throws MetadataRepositoryException      */
 name|Stream
 argument_list|<
 name|ArtifactMetadata
