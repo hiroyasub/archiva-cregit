@@ -5602,7 +5602,10 @@ operator|.
 name|getFileLastModified
 argument_list|()
 operator|.
-name|getTime
+name|toInstant
+argument_list|()
+operator|.
+name|toEpochMilli
 argument_list|()
 argument_list|)
 argument_list|)
