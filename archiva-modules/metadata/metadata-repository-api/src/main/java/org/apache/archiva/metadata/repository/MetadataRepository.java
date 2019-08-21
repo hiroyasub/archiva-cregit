@@ -117,6 +117,16 @@ name|java
 operator|.
 name|time
 operator|.
+name|ZoneId
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|time
+operator|.
 name|ZonedDateTime
 import|;
 end_import
@@ -154,7 +164,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Metadata repository provides information about artifact metadata. It does not provide the artifact data itself.  * It may be possible to use the same backend for metadata and storage, but this depends on the backends and they are  * provided by different APIs.  *  * The motivation for this API is to provide fast access to the repository metadata and fulltext search. Also dependencies  * are stored in this repository.  *  * The methods here do not update the artifacts itself. They are only updating the data in the metadata repository.  * That means, if you want to update some artifact, you should make sure to update the artifact itself and the metadata  * repository (either directly or by repository scanning).  *  * Currently we are providing JCR, File based and Cassandra as backend for the metadata.  *  * The metadata repository uses sessions for accessing the data. Please make sure to always close the sessions after using it.  * Best idiom for using the sessions:  *<code>  * try(RepositorySession session = sessionFactory.createSession() {  *     // do your stuff  * }  *</code>  *  * It is implementation dependent, if the sessions are really used by the backend. E.g. the file based implementation ignores  * the sessions completely.  *  * Sessions should be closed immediately after usage. If it is expensive to open a session for a given backend. The backend  * should provide a session pool if possible. There are methods for refreshing a session if needed.  *  * You should avoid stacking sessions, that means, do not create a new session in the same thread, when a session is opened already.  *  * Some backend implementations (JCR) update the metadata in the background, that means update of the metadata is not reflected  * immediately.  *  * The base metadata coordinates are:  *<ul>  *<li>Repository ID: The identifier of the repository, where the artifact resides</li>  *<li>Namespace: This is a hierarchical coordinate for locating the projects. E.g. this corresponds to the groupId in maven.</li>  *<li>Project ID: The project itself</li>  *<li>Version: Each project may have different versions.</li>  *<li>Artifact: Artifacts correspond to files / blob data. Each artifact has additional metadata, like name, version, modification time, ...</li>  *</ul>  *  * As the repository connects to some backend either locally or remote, the access to the repository may fail. The methods capsule the  * backend errors into<code>{@link MetadataRepositoryException}</code>.  *  * Facets are the way to provide additional metadata that is not part of the base API. It depends on the repository type (e.g. Maven, NPM,  * not the metadata backend) what facets are stored in addition to the standard metadata.  * Facets have a specific facet ID that represents the schema for the data stored. For creating specific objects for a given  * facet id the<code>{@link org.apache.archiva.metadata.model.MetadataFacetFactory}</code> is used.  * For each facet id there may exist multiple facet instances on each level. Facet instances are identified by their name, which may be  * a hierarchical path.  * The data in each facet instance is stored in properties (key-value pairs). The properties are converted into / from the specific  * facet object.  *  * Facets can be stored on repository, project, version and artifact level.  *  */
+comment|/**  * A Metadata repository provides information about artifact metadata. It does not provide the artifact data itself.  * It may be possible to use the same backend for metadata and storage, but this depends on the backends and they are  * provided by different APIs.  *  * The motivation for this API is to provide fast access to the repository metadata and fulltext search. Also dependencies  * are stored in this repository.  *  * The methods here do not update the artifacts itself. They are only updating the data in the metadata repository.  * That means, if you want to update some artifact, you should make sure to update the artifact itself and the metadata  * repository (either directly or by repository scanning).  *  * Currently we are providing JCR, File based and Cassandra as backend for the metadata.  *  * The metadata repository uses sessions for accessing the data. Please make sure to always close the sessions after using it.  * Best idiom for using the sessions:  *<code>  * try(RepositorySession session = sessionFactory.createSession() {  *     // do your stuff  * }  *</code>  *  * It is implementation dependent, if the sessions are really used by the backend. E.g. the file based implementation ignores  * the sessions completely.  *  * Sessions should be closed immediately after usage. If it is expensive to open a session for a given backend. The backend  * should provide a session pool if possible. There are methods for refreshing a session if needed.  *  * You should avoid stacking sessions, that means, do not create a new session in the same thread, when a session is opened already.  *  * Some backend implementations (JCR) update the metadata in the background, that means update of the metadata is not reflected  * immediately.  *  * The base metadata coordinates are:  *<ul>  *<li>Repository ID: The identifier of the repository, where the artifact resides</li>  *<li>Namespace: This is a hierarchical coordinate for locating the projects. E.g. this corresponds to the groupId in maven.</li>  *<li>Project ID: The project itself</li>  *<li>Version: Each project may have different versions.</li>  *<li>Artifact: Artifacts correspond to files / blob data. Each artifact has additional metadata, like name, version, modification time, ...</li>  *</ul>  *  * As the repository connects to some backend either locally or remote, the access to the repository may fail. The methods capsule the  * backend errors into<code>{@link MetadataRepositoryException}</code>.  *  * Facets are the way to provide additional metadata that is not part of the base API. It depends on the repository type (e.g. Maven, NPM,  * not the metadata backend) what facets are stored in addition to the standard metadata.  * Facets have a specific facet ID that represents the schema for the data stored. For creating specific objects for a given  * facet id the<code>{@link org.apache.archiva.metadata.model.MetadataFacetFactory}</code> is used.  * For each facet id there may exist multiple facet instances on each level. Facet instances are identified by their name, which may be  * a hierarchical path.  * The data in each facet instance is stored in properties (key-value pairs). The properties are converted into / from the specific  * facet object.  *  * Facets can be stored on repository, project, version and artifact level.  *  * For retrieving artifacts there are methods that return lists and streaming based methods. Some implementations (e.g. JCR) use  * lazy loading for the retrieved objects. So the streaming methods may be faster and use less memory than the list based methods.  * But for some backends there is no difference.  *  */
 end_comment
 
 begin_interface
@@ -260,6 +270,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+comment|/**      *      * The same as      * @see #getMetadataFacetStream(RepositorySession, String, Class, QueryParameter queryParameter)      * but uses default query parameters.      *      * There is no limitation of the number of result objects returned, but implementations may have a hard upper bound for      * the number of results.      *      * @param session      * @param repositoryId      * @param facetClazz      * @param<T>      * @return      * @throws MetadataRepositoryException      * @since 3.0      */
 parameter_list|<
 name|T
 extends|extends
@@ -286,6 +297,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+comment|/**      * Returns a stream of MetadataFacet elements that match the given facet class.      * Implementations should order the resulting stream by facet name.      *      *      * @param session The repository session      * @param repositoryId The repository id      * @param facetClazz The class of the facet      * @param<T> The facet type      * @return      * @throws MetadataRepositoryException      * @since 3.0      */
 parameter_list|<
 name|T
 extends|extends
@@ -315,7 +327,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-comment|/**      * Returns true, if there is facet data stored for the given id on the repository. The facet data itself      * may be empty. It's just checking if there is data stored for the given facet id.      *      * @param session The repository session      * @param repositoryId The repository id      * @param facetId The facet id      * @return true if there is data stored this facetId on repository level.      * @throws MetadataRepositoryException if something goes wrong      * @since 1.4-M4      */
+comment|/**      * Returns true, if there is facet data stored for the given facet id on the repository on repository level. The facet data itself      * may be empty. It's just checking if there is an object stored for the given facet id.      *      * @param session The repository session      * @param repositoryId The repository id      * @param facetId The facet id      * @return true if there is data stored this facetId on repository level.      * @throws MetadataRepositoryException if something goes wrong      * @since 1.4-M4      */
 name|boolean
 name|hasMetadataFacet
 parameter_list|(
@@ -350,7 +362,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-comment|/**      * Returns the facet instance for the given class, which is stored on repository level for the given name.      * If the given name does not point to a instance that can be represented by this class,<code>null</code> will be returned.      * If the facet is not found the method returns<code>null</code>.      *      * @param session The repository session      * @param repositoryId The id of the repository      * @param clazz The facet object class      * @param name The name of the facet (name or path)      * @param<T> The type of the facet object      * @return The facet instance, if it exists.      * @throws MetadataRepositoryException      */
+comment|/**      * Returns the facet instance for the given class, which is stored on repository level for the given name.      * If the given name does not point to a instance that can be represented by this class,<code>null</code> will be returned.      * If the facet is not found the method returns<code>null</code>.      *      * @param session The repository session      * @param repositoryId The id of the repository      * @param clazz The facet object class      * @param name The name of the facet (name or path)      * @param<T> The type of the facet object      * @return The facet instance, if it exists.      * @throws MetadataRepositoryException if the data cannot be retrieved from the backend      * @since 3.0      */
 parameter_list|<
 name|T
 extends|extends
@@ -377,7 +389,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-comment|/**      * Adss a facet to the repository level.      *      * @param session The repository session      * @param repositoryId The id of the repository      * @param metadataFacet The facet to add      * @throws MetadataRepositoryException if the facet cannot be stored.      */
+comment|/**      * Adds a facet to the repository level.      *      * @param session The repository session      * @param repositoryId The id of the repository      * @param metadataFacet The facet to add      * @throws MetadataRepositoryException if the facet cannot be stored.      */
 name|void
 name|addMetadataFacet
 parameter_list|(
@@ -428,7 +440,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-comment|/**      * if startTime or endTime are<code>null</code> they are not used for search      *      *      * @param session      * @param repositoryId      * @param startTime    can be<code>null</code>      * @param endTime      can be<code>null</code>      * @return      * @throws MetadataRepositoryException      */
+comment|/**      * Is the same as {@link #getArtifactsByDateRange(RepositorySession, String, ZonedDateTime, ZonedDateTime, QueryParameter)}, but      * uses default query parameters.      *      */
 name|List
 argument_list|<
 name|ArtifactMetadata
@@ -450,6 +462,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+comment|/**      *      * Searches for artifacts where the 'whenGathered' attribute value is between the given start and end time.      * If start or end time or both are<code>null</code>, the time range for the search is unbounded for this parameter.      *      *      * @param session The repository session      * @param repositoryId The repository id      * @param startTime    The start time/date as zoned date, can be<code>null</code>      * @param endTime      The end time/date as zoned date, can be<code>null</code>      * @param queryParameter Additional parameters for the query that affect ordering and returned results      * @return The list of metadata objects for the found instances.      * @throws MetadataRepositoryException if the query fails.      * @since 3.0      */
 name|List
 argument_list|<
 name|ArtifactMetadata
@@ -474,7 +487,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-comment|/**      * Returns all the artifacts      * @param session      * @param repositoryId      * @param startTime      * @param endTime      * @return      * @throws MetadataRepositoryException      */
+comment|/**      * Returns all the artifacts who's 'whenGathered' attribute value is inside the given time range (inclusive) as stream of objects.      *      * Implementations should return a stream of sorted objects. The objects should be sorted by the 'whenGathered' date in ascending order.      *      * @param session The repository session      * @param repositoryId The repository id      * @param startTime The start time, can be<code>null</code>      * @param endTime The end time, can be<code>null</code>      * @return A stream of artifact metadata objects.      * @throws MetadataRepositoryException      * @since 3.0      */
 name|Stream
 argument_list|<
 name|ArtifactMetadata
@@ -496,6 +509,7 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
+comment|/**      * Returns all the artifacts who's 'whenGathered' attribute value is inside the given time range (inclusive) as stream of objects.      *      * If no sort attributes are given by the queryParameter, the result is sorted by the 'whenGathered' date.      *      * @param session The repository session      * @param repositoryId The repository id      * @param startTime The start time, can be<code>null</code>      * @param endTime The end time, can be<code>null</code>      * @param queryParameter Additional parameters for the query that affect ordering and number of returned results.      * @return A stream of artifact metadata objects.      * @throws MetadataRepositoryException      * @since 3.0      */
 name|Stream
 argument_list|<
 name|ArtifactMetadata
@@ -520,7 +534,8 @@ parameter_list|)
 throws|throws
 name|MetadataRepositoryException
 function_decl|;
-name|Collection
+comment|/**      * Returns the artifacts that match the given checksum. All checksum types are searched.      *      * @param session The repository session      * @param repositoryId  The repository id      * @param checksum The checksum as string of numbers      * @return The list of artifacts that match the given checksum.      * @throws MetadataRepositoryException      */
+name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
