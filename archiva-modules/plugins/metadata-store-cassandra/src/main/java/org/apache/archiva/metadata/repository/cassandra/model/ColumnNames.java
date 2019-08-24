@@ -129,6 +129,16 @@ name|WHEN_GATHERED
 argument_list|(
 literal|"whenGathered"
 argument_list|)
+block|,
+name|CHECKSUM_ALG
+argument_list|(
+literal|"checksumAlgorithm"
+argument_list|)
+block|,
+name|CHECKSUM_VALUE
+argument_list|(
+literal|"checksumValue"
+argument_list|)
 block|;
 specifier|private
 specifier|final

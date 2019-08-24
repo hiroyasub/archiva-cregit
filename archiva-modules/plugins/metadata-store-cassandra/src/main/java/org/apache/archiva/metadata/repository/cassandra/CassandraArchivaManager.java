@@ -112,6 +112,10 @@ name|String
 name|getDependencyFamilyName
 parameter_list|()
 function_decl|;
+name|String
+name|getChecksumFamilyName
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

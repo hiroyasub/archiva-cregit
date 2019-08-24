@@ -252,16 +252,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -352,6 +342,14 @@ name|super
 operator|.
 name|setUp
 argument_list|()
+expr_stmt|;
+name|assertMaxTries
+operator|=
+literal|1
+expr_stmt|;
+name|assertRetrySleepMs
+operator|=
+literal|10
 expr_stmt|;
 name|Path
 name|directory
