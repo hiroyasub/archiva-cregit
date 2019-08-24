@@ -839,16 +839,6 @@ name|java
 operator|.
 name|time
 operator|.
-name|ZoneId
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|time
-operator|.
 name|ZonedDateTime
 import|;
 end_import
@@ -12771,7 +12761,7 @@ return|return
 name|artifactMetadatas
 return|;
 block|}
-comment|/**      * For documentation see {@link MetadataRepository#getArtifactsByDateRangeStream(RepositorySession, String, ZonedDateTime, ZonedDateTime, QueryParameter)}      *      * This implementation orders the stream. It does not order the query in the backend.      *      * @param session The repository session      * @param repositoryId The repository id      * @param startTime The start time, can be<code>null</code>      * @param endTime The end time, can be<code>null</code>      * @param queryParameter Additional parameters for the query that affect ordering and number of returned results.      * @return      * @throws MetadataRepositoryException      * @see MetadataRepository#getArtifactsByDateRangeStream      */
+comment|/**      * For documentation see {@link MetadataRepository#getArtifactByDateRangeStream(RepositorySession, String, ZonedDateTime, ZonedDateTime, QueryParameter)}      *      * This implementation orders the stream. It does not order the query in the backend.      *      * @param session The repository session      * @param repositoryId The repository id      * @param startTime The start time, can be<code>null</code>      * @param endTime The end time, can be<code>null</code>      * @param queryParameter Additional parameters for the query that affect ordering and number of returned results.      * @return      * @throws MetadataRepositoryException      * @see MetadataRepository#getArtifactByDateRangeStream      */
 annotation|@
 name|Override
 specifier|public
@@ -12779,7 +12769,7 @@ name|Stream
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
-name|getArtifactsByDateRangeStream
+name|getArtifactByDateRangeStream
 parameter_list|(
 name|RepositorySession
 name|session

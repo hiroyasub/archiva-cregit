@@ -4541,7 +4541,7 @@ name|Stream
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
-name|getArtifactsByDateRangeStream
+name|getArtifactByDateRangeStream
 parameter_list|(
 name|RepositorySession
 name|session

@@ -302,6 +302,14 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+name|assertMaxTries
+operator|=
+literal|1
+expr_stmt|;
+name|assertRetrySleepMs
+operator|=
+literal|10
+expr_stmt|;
 name|Path
 name|directory
 init|=
