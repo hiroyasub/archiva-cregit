@@ -108,6 +108,11 @@ name|DEPENDENCY_NODE_TYPE
 init|=
 literal|"archiva:dependency"
 decl_stmt|;
+name|String
+name|CHECKSUM_NODE_TYPE
+init|=
+literal|"archiva:checksum"
+decl_stmt|;
 comment|// Must be alphabetically ordered!
 name|String
 index|[]

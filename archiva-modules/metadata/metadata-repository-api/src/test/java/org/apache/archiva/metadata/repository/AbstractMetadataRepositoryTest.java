@@ -7126,18 +7126,6 @@ parameter_list|( )
 throws|throws
 name|Exception
 block|{
-try|try
-init|(
-name|RepositorySession
-name|session
-init|=
-name|getSessionFactory
-argument_list|( )
-operator|.
-name|createSession
-argument_list|( )
-init|)
-block|{
 name|ArtifactMetadata
 name|artifact1
 init|=
@@ -7152,6 +7140,18 @@ argument_list|(
 literal|"pom"
 argument_list|)
 decl_stmt|;
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|getSessionFactory
+argument_list|( )
+operator|.
+name|createSession
+argument_list|( )
+init|)
+block|{
 name|getRepository
 argument_list|( )
 operator|.
@@ -7188,6 +7188,19 @@ argument_list|,
 name|artifact2
 argument_list|)
 expr_stmt|;
+block|}
+try|try
+init|(
+name|RepositorySession
+name|session
+init|=
+name|getSessionFactory
+argument_list|( )
+operator|.
+name|createSession
+argument_list|( )
+init|)
+block|{
 name|tryAssert
 argument_list|(
 parameter_list|( )
@@ -7258,6 +7271,16 @@ name|toList
 argument_list|( )
 argument_list|)
 decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|actual
+operator|.
+name|size
+argument_list|( )
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|Arrays
@@ -9642,6 +9665,10 @@ operator|.
 name|save
 argument_list|( )
 expr_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|()
+lambda|->
 name|assertEquals
 argument_list|(
 name|Collections
@@ -9665,6 +9692,7 @@ argument_list|,
 name|TEST_REPO_ID
 argument_list|,
 name|TEST_SHA256
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)

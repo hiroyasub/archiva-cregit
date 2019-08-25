@@ -1424,26 +1424,6 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-specifier|protected
-name|QueryParameter
-name|getParameterOrDefault
-parameter_list|(
-name|QueryParameter
-name|queryParameter
-parameter_list|)
-block|{
-return|return
-name|queryParameter
-operator|==
-literal|null
-condition|?
-operator|new
-name|QueryParameter
-argument_list|( )
-else|:
-name|queryParameter
-return|;
-block|}
 annotation|@
 name|Override
 specifier|public
@@ -1786,10 +1766,9 @@ name|startTime
 argument_list|,
 name|endTime
 argument_list|,
-name|getParameterOrDefault
-argument_list|(
-literal|null
-argument_list|)
+operator|new
+name|QueryParameter
+argument_list|(  )
 argument_list|)
 return|;
 block|}
@@ -1820,10 +1799,9 @@ name|session
 argument_list|,
 name|repositoryId
 argument_list|,
-name|getParameterOrDefault
-argument_list|(
-literal|null
-argument_list|)
+operator|new
+name|QueryParameter
+argument_list|(  )
 argument_list|)
 return|;
 block|}
@@ -1872,10 +1850,9 @@ name|projectId
 argument_list|,
 name|projectVersion
 argument_list|,
-name|getParameterOrDefault
-argument_list|(
-literal|null
-argument_list|)
+operator|new
+name|QueryParameter
+argument_list|(  )
 argument_list|)
 return|;
 block|}
