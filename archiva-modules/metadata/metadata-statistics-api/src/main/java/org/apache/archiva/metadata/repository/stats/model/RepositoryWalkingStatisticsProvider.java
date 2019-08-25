@@ -243,7 +243,7 @@ name|namespace
 range|:
 name|metadataRepository
 operator|.
-name|getNamespaces
+name|getChildNamespaces
 argument_list|(
 name|repositorySession
 argument_list|,

@@ -3817,7 +3817,7 @@ control|)
 block|{
 name|metadataRepository
 operator|.
-name|removeArtifact
+name|removeTimestampedArtifact
 argument_list|(
 name|repositorySession
 argument_list|,
@@ -4843,7 +4843,7 @@ argument_list|)
 expr_stmt|;
 name|metadataRepository
 operator|.
-name|removeArtifact
+name|removeFacetFromArtifact
 argument_list|(
 name|repositorySession
 argument_list|,
@@ -4874,7 +4874,7 @@ condition|)
 block|{
 name|metadataRepository
 operator|.
-name|removeArtifact
+name|removeTimestampedArtifact
 argument_list|(
 name|repositorySession
 argument_list|,

@@ -1349,7 +1349,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// metadataRepository.removeArtifact( artifactMetadata, baseVersion );
+comment|// metadataRepository.removeTimestampedArtifact( artifactMetadata, baseVersion );
 name|metaRemovalList
 operator|.
 name|put
@@ -1879,7 +1879,7 @@ argument_list|)
 expr_stmt|;
 name|metadataRepository
 operator|.
-name|removeArtifact
+name|removeFacetFromArtifact
 argument_list|(
 name|repositorySession
 argument_list|,
@@ -1930,7 +1930,7 @@ else|else
 block|{
 name|metadataRepository
 operator|.
-name|removeArtifact
+name|removeTimestampedArtifact
 argument_list|(
 name|repositorySession
 argument_list|,

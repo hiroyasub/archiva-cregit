@@ -5049,7 +5049,7 @@ operator|.
 name|getRepository
 argument_list|()
 operator|.
-name|getArtifactsByProjectVersionMetadata
+name|getArtifactsByProjectVersionFacet
 argument_list|(
 name|repositorySession
 argument_list|,
@@ -5158,7 +5158,7 @@ operator|.
 name|getRepository
 argument_list|()
 operator|.
-name|getArtifactsByMetadata
+name|getArtifactsByAttribute
 argument_list|(
 name|repositorySession
 argument_list|,
@@ -5267,7 +5267,7 @@ operator|.
 name|getRepository
 argument_list|()
 operator|.
-name|getArtifactsByProperty
+name|getArtifactsByProjectVersionAttribute
 argument_list|(
 name|repositorySession
 argument_list|,

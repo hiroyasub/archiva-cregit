@@ -3611,7 +3611,9 @@ control|(
 name|String
 name|namespace
 range|:
-name|getNamespaces
+name|this
+operator|.
+name|getChildNamespaces
 argument_list|(
 name|session
 argument_list|,
@@ -4387,54 +4389,6 @@ parameter_list|()
 block|{
 comment|// nothing additional to close
 block|}
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|canObtainAccess
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|aClass
-parameter_list|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-parameter_list|<
-name|T
-parameter_list|>
-name|T
-name|obtainAccess
-parameter_list|(
-name|RepositorySession
-name|session
-parameter_list|,
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|aClass
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Access using "
-operator|+
-name|aClass
-operator|+
-literal|" is not supported on the file metadata storage"
-argument_list|)
-throw|;
-block|}
 specifier|private
 name|void
 name|updateArtifactFacets
@@ -4676,7 +4630,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|removeArtifact
+name|removeTimestampedArtifact
 parameter_list|(
 name|RepositorySession
 name|session
@@ -5117,7 +5071,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|removeArtifact
+name|removeFacetFromArtifact
 parameter_list|(
 name|RepositorySession
 name|session
@@ -5218,7 +5172,7 @@ name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
-name|getArtifactsByProjectVersionMetadata
+name|getArtifactsByProjectVersionFacet
 parameter_list|(
 name|RepositorySession
 name|session
@@ -5250,7 +5204,7 @@ name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
-name|getArtifactsByMetadata
+name|getArtifactsByAttribute
 parameter_list|(
 name|RepositorySession
 name|session
@@ -5282,7 +5236,7 @@ name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
-name|getArtifactsByProperty
+name|getArtifactsByProjectVersionAttribute
 parameter_list|(
 name|RepositorySession
 name|session
@@ -5303,7 +5257,7 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"getArtifactsByProperty not yet implemented in File backend"
+literal|"getArtifactsByProjectVersionAttribute not yet implemented in File backend"
 argument_list|)
 throw|;
 block|}
@@ -7480,7 +7434,9 @@ throws|throws
 name|MetadataResolutionException
 block|{
 return|return
-name|getNamespaces
+name|this
+operator|.
+name|getChildNamespaces
 argument_list|(
 name|session
 argument_list|,
@@ -7636,7 +7592,7 @@ name|Collection
 argument_list|<
 name|String
 argument_list|>
-name|getNamespaces
+name|getChildNamespaces
 parameter_list|(
 name|RepositorySession
 name|session
@@ -8990,7 +8946,9 @@ control|(
 name|String
 name|namespace
 range|:
-name|getNamespaces
+name|this
+operator|.
+name|getChildNamespaces
 argument_list|(
 name|session
 argument_list|,

@@ -745,7 +745,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// for the getArtifactsByProjectVersionMetadata tests
+comment|// for the getArtifactsByProjectVersionFacet tests
 name|factories
 operator|.
 name|add
@@ -9151,7 +9151,7 @@ operator|=
 name|getRepository
 argument_list|( )
 operator|.
-name|getNamespaces
+name|getChildNamespaces
 argument_list|(
 name|session
 argument_list|,
@@ -9186,7 +9186,7 @@ operator|=
 name|getRepository
 argument_list|( )
 operator|.
-name|getNamespaces
+name|getChildNamespaces
 argument_list|(
 name|session
 argument_list|,
@@ -9221,7 +9221,7 @@ operator|=
 name|getRepository
 argument_list|( )
 operator|.
-name|getNamespaces
+name|getChildNamespaces
 argument_list|(
 name|session
 argument_list|,
@@ -9333,7 +9333,7 @@ init|=
 name|getRepository
 argument_list|( )
 operator|.
-name|getNamespaces
+name|getChildNamespaces
 argument_list|(
 name|session
 argument_list|,
@@ -10309,7 +10309,7 @@ init|=
 name|getRepository
 argument_list|( )
 operator|.
-name|getArtifactsByProjectVersionMetadata
+name|getArtifactsByProjectVersionFacet
 argument_list|(
 name|session
 argument_list|,
@@ -10431,7 +10431,7 @@ init|=
 name|getRepository
 argument_list|( )
 operator|.
-name|getArtifactsByProjectVersionMetadata
+name|getArtifactsByProjectVersionFacet
 argument_list|(
 name|session
 argument_list|,
@@ -10517,7 +10517,7 @@ init|=
 name|getRepository
 argument_list|( )
 operator|.
-name|getArtifactsByProjectVersionMetadata
+name|getArtifactsByProjectVersionFacet
 argument_list|(
 name|session
 argument_list|,
@@ -10583,7 +10583,7 @@ init|=
 name|getRepository
 argument_list|( )
 operator|.
-name|getArtifactsByMetadata
+name|getArtifactsByAttribute
 argument_list|(
 name|session
 argument_list|,
@@ -10728,7 +10728,7 @@ name|session
 argument_list|)
 expr_stmt|;
 comment|// only works on JCR implementation
-comment|// Collection<ArtifactMetadata> artifactsByProperty = getRepository().getArtifactsByProperty( "org.name", TEST_ORGANIZATION.getName(), TEST_REPO_ID );
+comment|// Collection<ArtifactMetadata> artifactsByProperty = getRepository().getArtifactsByProjectVersionAttribute( "org.name", TEST_ORGANIZATION.getName(), TEST_REPO_ID );
 name|tryAssert
 argument_list|(
 parameter_list|( )
@@ -10743,7 +10743,7 @@ init|=
 name|getRepository
 argument_list|( )
 operator|.
-name|getArtifactsByProperty
+name|getArtifactsByProjectVersionAttribute
 argument_list|(
 name|session
 argument_list|,
@@ -12093,7 +12093,7 @@ expr_stmt|;
 name|getRepository
 argument_list|( )
 operator|.
-name|removeArtifact
+name|removeTimestampedArtifact
 argument_list|(
 name|session
 argument_list|,
@@ -12139,7 +12139,7 @@ expr_stmt|;
 name|getRepository
 argument_list|( )
 operator|.
-name|removeArtifact
+name|removeTimestampedArtifact
 argument_list|(
 name|session
 argument_list|,

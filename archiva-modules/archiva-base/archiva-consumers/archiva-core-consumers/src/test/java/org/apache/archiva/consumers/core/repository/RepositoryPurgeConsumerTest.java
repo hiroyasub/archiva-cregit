@@ -147,20 +147,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|mock
-operator|.
-name|MockRepositorySessionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|repository
 operator|.
 name|RepositoryRegistry
@@ -1267,7 +1253,7 @@ literal|2
 argument_list|)
 argument_list|)
 operator|.
-name|removeArtifact
+name|removeTimestampedArtifact
 argument_list|(
 name|eq
 argument_list|(
@@ -2003,7 +1989,7 @@ literal|2
 argument_list|)
 argument_list|)
 operator|.
-name|removeArtifact
+name|removeTimestampedArtifact
 argument_list|(
 name|eq
 argument_list|(
@@ -2516,7 +2502,7 @@ name|never
 argument_list|()
 argument_list|)
 operator|.
-name|removeArtifact
+name|removeTimestampedArtifact
 argument_list|(
 name|eq
 argument_list|(
@@ -2538,7 +2524,7 @@ name|never
 argument_list|()
 argument_list|)
 operator|.
-name|removeArtifact
+name|removeFacetFromArtifact
 argument_list|(
 name|eq
 argument_list|(
@@ -3036,7 +3022,7 @@ name|never
 argument_list|()
 argument_list|)
 operator|.
-name|removeArtifact
+name|removeTimestampedArtifact
 argument_list|(
 name|eq
 argument_list|(

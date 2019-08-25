@@ -3931,7 +3931,7 @@ name|expect
 argument_list|(
 name|metadataRepository
 operator|.
-name|getNamespaces
+name|getChildNamespaces
 argument_list|(
 name|session
 argument_list|,
@@ -3955,7 +3955,7 @@ name|expect
 argument_list|(
 name|metadataRepository
 operator|.
-name|getNamespaces
+name|getChildNamespaces
 argument_list|(
 name|session
 argument_list|,
@@ -4128,7 +4128,7 @@ name|expect
 argument_list|(
 name|metadataRepository
 operator|.
-name|getNamespaces
+name|getChildNamespaces
 argument_list|(
 name|session
 argument_list|,
@@ -4154,7 +4154,7 @@ name|expect
 argument_list|(
 name|metadataRepository
 operator|.
-name|getNamespaces
+name|getChildNamespaces
 argument_list|(
 name|session
 argument_list|,
@@ -4205,7 +4205,7 @@ name|expect
 argument_list|(
 name|metadataRepository
 operator|.
-name|getNamespaces
+name|getChildNamespaces
 argument_list|(
 name|session
 argument_list|,
@@ -4504,7 +4504,7 @@ name|expect
 argument_list|(
 name|metadataRepository
 operator|.
-name|getNamespaces
+name|getChildNamespaces
 argument_list|(
 name|session
 argument_list|,
@@ -4627,7 +4627,7 @@ name|expect
 argument_list|(
 name|metadataRepository
 operator|.
-name|getNamespaces
+name|getChildNamespaces
 argument_list|(
 name|session
 argument_list|,
@@ -4701,7 +4701,7 @@ name|expect
 argument_list|(
 name|metadataRepository
 operator|.
-name|getNamespaces
+name|getChildNamespaces
 argument_list|(
 name|session
 argument_list|,

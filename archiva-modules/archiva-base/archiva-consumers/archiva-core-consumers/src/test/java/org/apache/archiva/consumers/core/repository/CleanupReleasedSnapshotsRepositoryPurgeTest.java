@@ -2222,7 +2222,7 @@ name|never
 argument_list|()
 argument_list|)
 operator|.
-name|removeArtifact
+name|removeTimestampedArtifact
 argument_list|(
 name|eq
 argument_list|(
@@ -2252,7 +2252,7 @@ name|never
 argument_list|()
 argument_list|)
 operator|.
-name|removeArtifact
+name|removeFacetFromArtifact
 argument_list|(
 name|eq
 argument_list|(

@@ -838,7 +838,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|removeArtifact
+name|removeTimestampedArtifact
 argument_list|(
 name|eq
 argument_list|(
@@ -1435,7 +1435,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|removeArtifact
+name|removeTimestampedArtifact
 argument_list|(
 name|eq
 argument_list|(
@@ -2031,7 +2031,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|removeArtifact
+name|removeTimestampedArtifact
 argument_list|(
 name|eq
 argument_list|(

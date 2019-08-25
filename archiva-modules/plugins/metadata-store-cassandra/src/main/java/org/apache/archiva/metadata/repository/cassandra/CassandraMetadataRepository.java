@@ -3267,7 +3267,7 @@ name|Collection
 argument_list|<
 name|String
 argument_list|>
-name|getNamespaces
+name|getChildNamespaces
 parameter_list|(
 name|RepositorySession
 name|session
@@ -13657,7 +13657,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Project version and artifact level metadata are stored in the same place, no distinctions in Cassandra      * implementation, just calls {@link MetadataRepository#getArtifactsByMetadata(RepositorySession, String, String, String)}      */
+comment|/**      * Project version and artifact level metadata are stored in the same place, no distinctions in Cassandra      * implementation, just calls {@link MetadataRepository#getArtifactsByAttribute(RepositorySession, String, String, String)}      */
 annotation|@
 name|Override
 specifier|public
@@ -13665,7 +13665,7 @@ name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
-name|getArtifactsByProjectVersionMetadata
+name|getArtifactsByProjectVersionFacet
 parameter_list|(
 name|RepositorySession
 name|session
@@ -13683,7 +13683,9 @@ throws|throws
 name|MetadataRepositoryException
 block|{
 return|return
-name|getArtifactsByMetadata
+name|this
+operator|.
+name|getArtifactsByAttribute
 argument_list|(
 name|session
 argument_list|,
@@ -13702,7 +13704,7 @@ name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
-name|getArtifactsByMetadata
+name|getArtifactsByAttribute
 parameter_list|(
 name|RepositorySession
 name|session
@@ -14103,7 +14105,7 @@ name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
-name|getArtifactsByProperty
+name|getArtifactsByProjectVersionAttribute
 parameter_list|(
 name|RepositorySession
 name|session
@@ -14358,7 +14360,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"removeArtifact repositoryId: '{}', namespace: '{}', project: '{}', version: '{}', id: '{}'"
+literal|"removeTimestampedArtifact repositoryId: '{}', namespace: '{}', project: '{}', version: '{}', id: '{}'"
 argument_list|,
 name|repositoryId
 argument_list|,
@@ -14473,7 +14475,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|removeArtifact
+name|removeTimestampedArtifact
 parameter_list|(
 name|RepositorySession
 name|session
@@ -14491,7 +14493,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"removeArtifact repositoryId: '{}', namespace: '{}', project: '{}', version: '{}', id: '{}'"
+literal|"removeTimestampedArtifact repositoryId: '{}', namespace: '{}', project: '{}', version: '{}', id: '{}'"
 argument_list|,
 name|artifactMetadata
 operator|.
@@ -14579,7 +14581,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|removeArtifact
+name|removeFacetFromArtifact
 parameter_list|(
 name|RepositorySession
 name|session
@@ -16313,56 +16315,6 @@ literal|"close"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|canObtainAccess
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|aClass
-parameter_list|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-parameter_list|<
-name|T
-parameter_list|>
-name|T
-name|obtainAccess
-parameter_list|(
-name|RepositorySession
-name|session
-parameter_list|,
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|aClass
-parameter_list|)
-throws|throws
-name|MetadataRepositoryException
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Access using "
-operator|+
-name|aClass
-operator|+
-literal|" is not supported on the cassandra metadata storage"
-argument_list|)
-throw|;
-block|}
 specifier|private
 specifier|static
 class|class
@@ -16389,7 +16341,7 @@ operator|.
 name|MODEL_MAPPER
 return|;
 block|}
-comment|/**      * This implementation just calls getArtifactsByMetadata( null, text, repositoryId ). We can't search artifacts by      * any property.      */
+comment|/**      * This implementation just calls getArtifactsByAttribute( null, text, repositoryId ). We can't search artifacts by      * any property.      */
 annotation|@
 name|Override
 specifier|public
@@ -16419,7 +16371,9 @@ throws|throws
 name|MetadataRepositoryException
 block|{
 return|return
-name|getArtifactsByMetadata
+name|this
+operator|.
+name|getArtifactsByAttribute
 argument_list|(
 name|session
 argument_list|,
@@ -16482,7 +16436,9 @@ name|artifacts
 operator|.
 name|addAll
 argument_list|(
-name|getArtifactsByMetadata
+name|this
+operator|.
+name|getArtifactsByAttribute
 argument_list|(
 name|session
 argument_list|,
@@ -16498,7 +16454,9 @@ name|artifacts
 operator|.
 name|addAll
 argument_list|(
-name|getArtifactsByProperty
+name|this
+operator|.
+name|getArtifactsByProjectVersionAttribute
 argument_list|(
 name|session
 argument_list|,
