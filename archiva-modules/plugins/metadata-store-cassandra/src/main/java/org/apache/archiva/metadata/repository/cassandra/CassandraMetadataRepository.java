@@ -825,6 +825,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|ParametersAreNonnullByDefault
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|time
@@ -978,6 +988,8 @@ comment|/**  * @author Olivier Lamy  * @since 2.0.0  */
 end_comment
 
 begin_class
+annotation|@
+name|ParametersAreNonnullByDefault
 specifier|public
 class|class
 name|CassandraMetadataRepository
