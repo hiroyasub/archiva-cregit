@@ -793,7 +793,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -826,7 +826,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|ProjectVersionReference
 argument_list|>
@@ -859,7 +859,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -883,7 +883,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -910,7 +910,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -937,7 +937,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1228,7 +1228,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>

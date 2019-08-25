@@ -3796,7 +3796,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
@@ -4354,10 +4354,15 @@ block|}
 block|}
 block|}
 return|return
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
 name|artifacts
 operator|.
 name|values
 argument_list|()
+argument_list|)
 return|;
 block|}
 catch|catch
@@ -7059,7 +7064,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -7177,7 +7182,12 @@ expr_stmt|;
 block|}
 block|}
 return|return
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
 name|versions
+argument_list|)
 return|;
 block|}
 catch|catch
@@ -7203,7 +7213,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|ProjectVersionReference
 argument_list|>
@@ -7418,7 +7428,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -7588,7 +7598,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -7857,7 +7867,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -8024,7 +8034,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>

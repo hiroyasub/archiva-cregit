@@ -3114,7 +3114,7 @@ comment|// FIXME this one need peformance improvement maybe a cache?
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -3256,14 +3256,19 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
 name|namespaces
+argument_list|)
 return|;
 block|}
 comment|// FIXME this one need peformance improvement maybe a cache?
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -3866,7 +3871,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -4017,7 +4022,12 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
 name|projects
+argument_list|)
 return|;
 block|}
 annotation|@
@@ -4315,7 +4325,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -4499,7 +4509,12 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
 name|versions
+argument_list|)
 return|;
 block|}
 annotation|@
@@ -9979,7 +9994,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -10150,10 +10165,15 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
 name|versions
+argument_list|)
 return|;
 block|}
-comment|/**      * iterate over available facets to remove/add from the artifactMetadata      *      * @param facetedMetadata      * @param artifactMetadataModel only use for the key      */
+comment|/*      * iterate over available facets to remove/add from the artifactMetadata      *      * @param facetedMetadata      * @param artifactMetadataModel only use for the key      */
 specifier|private
 name|void
 name|updateFacets
@@ -14920,7 +14940,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|ProjectVersionReference
 argument_list|>
@@ -15498,7 +15518,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>

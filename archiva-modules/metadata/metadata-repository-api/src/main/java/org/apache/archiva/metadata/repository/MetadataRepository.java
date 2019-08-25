@@ -147,16 +147,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -899,7 +889,7 @@ throws|throws
 name|MetadataResolutionException
 function_decl|;
 comment|/**      * Returns all artifact version strings for a given project version. This is for snapshot versions and returns the timestamped      * versions, if available.      *      * @param session        The repository session.      * @param repoId         The repository id.      * @param namespace      The namespace '.'-separated      * @param projectId      The project name.      * @param projectVersion The project version.      * @return A list of version strings, or a empty list if no versions are found, or this is not a snapshot version.      * @throws MetadataResolutionException if the retrieval of the metadata failed.      */
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -924,7 +914,7 @@ throws|throws
 name|MetadataResolutionException
 function_decl|;
 comment|/**      * Retrieve project references from the metadata repository. Note that this is not built into the content model for      * a project version as a reference may be present (due to reverse-lookup of dependencies) before the actual      * project is, and we want to avoid adding a stub model to the content repository.      *      * @param session        The repository session.      * @param repoId         The repository ID to look within      * @param namespace      The namespace of the project to get references to      * @param projectId      The identifier of the project to get references to      * @param projectVersion The version of the project to get references to      * @return a list of project references      * @throws MetadataResolutionException if the version could not be found.      */
-name|Collection
+name|List
 argument_list|<
 name|ProjectVersionReference
 argument_list|>
@@ -949,7 +939,7 @@ throws|throws
 name|MetadataResolutionException
 function_decl|;
 comment|/**      * Returns the names of the root namespaces stored for this repository.      *      * @param session The repository session.      * @param repoId  The repository id.      * @return A list of namespace names, or empty list, if no namespace is stored for this repository.      * @throws MetadataResolutionException If the retrieval failed.      */
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -964,8 +954,8 @@ parameter_list|)
 throws|throws
 name|MetadataResolutionException
 function_decl|;
-comment|/**      * Returns the list of namespace names that are children of the given namespace. It does not descend recursively.      *      * @param session   The repository session.      * @param repoId    The repository id.      * @param namespace The parent namespace '.'-separated.      * @return {@link Collection} of child namespace names, or a empty list, if there are no children for the given parent namespace.      * @throws MetadataResolutionException if the retrieval failed.      */
-name|Collection
+comment|/**      * Returns the list of namespace names that are children of the given namespace. It does not descend recursively.      *      * @param session   The repository session.      * @param repoId    The repository id.      * @param namespace The parent namespace '.'-separated.      * @return {@link List} of child namespace names, or a empty list, if there are no children for the given parent namespace.      * @throws MetadataResolutionException if the retrieval failed.      */
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -984,7 +974,7 @@ throws|throws
 name|MetadataResolutionException
 function_decl|;
 comment|/**      * Return the project names that of all projects stored under the given namespace.      *      * @param session   The repository session.      * @param repoId    The repository id.      * @param namespace The namespace '.'-separated.      * @return The list of project names or empty list if no project exists at the given namespace.      * @throws MetadataResolutionException if the retrieval failed.      */
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1003,7 +993,7 @@ throws|throws
 name|MetadataResolutionException
 function_decl|;
 comment|/**      * Returns the names of all versions stored under the given project.      *      * @param session   The repository session.      * @param repoId    The repository id.      * @param namespace The namespace '.'-separated.      * @param projectId The project name.      * @return The list of versions or a empty list, if not version was found.      * @throws MetadataResolutionException if the retrieval failed.      */
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1047,7 +1037,7 @@ throws|throws
 name|MetadataRepositoryException
 function_decl|;
 comment|/**      * Returns the metadata of all artifacts stored for the given project version.      *      * @param session        The repository session.      * @param repoId         The repository id.      * @param namespace      The namespace '.'-separated.      * @param projectId      The project name.      * @param projectVersion The project version.      * @return The list of artifact metadata objects, or a empty list, if no artifact exists for this version.      * @throws MetadataResolutionException if the retrieval failed.      */
-name|Collection
+name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>

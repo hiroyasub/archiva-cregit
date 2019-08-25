@@ -101,16 +101,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collections
 import|;
 end_import
@@ -390,7 +380,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -489,7 +479,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|ArtifactMetadata
 argument_list|>
