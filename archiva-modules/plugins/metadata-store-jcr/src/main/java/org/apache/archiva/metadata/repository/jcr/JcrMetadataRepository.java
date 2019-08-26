@@ -10746,7 +10746,11 @@ name|queryManager
 operator|.
 name|createQuery
 argument_list|(
-literal|"SELECT size FROM [archiva:artifact] "
+literal|"SELECT type,size FROM ["
+operator|+
+name|ARTIFACT_NODE_TYPE
+operator|+
+literal|"] "
 operator|+
 name|whereClause
 argument_list|,
@@ -10806,6 +10810,15 @@ operator|.
 name|getNode
 argument_list|()
 decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Result node {}"
+argument_list|,
+name|n
+argument_list|)
+expr_stmt|;
 name|totalSize
 operator|+=
 name|row
