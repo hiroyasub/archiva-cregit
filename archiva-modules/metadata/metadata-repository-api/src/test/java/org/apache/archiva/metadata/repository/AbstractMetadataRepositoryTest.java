@@ -5329,6 +5329,11 @@ name|createSession
 argument_list|( )
 init|)
 block|{
+name|session
+operator|.
+name|refreshAndDiscard
+argument_list|()
+expr_stmt|;
 name|tryAssert
 argument_list|(
 parameter_list|( )
@@ -5535,6 +5540,11 @@ name|createSession
 argument_list|( )
 init|)
 block|{
+name|session
+operator|.
+name|refreshAndDiscard
+argument_list|()
+expr_stmt|;
 name|tryAssert
 argument_list|(
 parameter_list|( )

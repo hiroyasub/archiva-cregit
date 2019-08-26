@@ -3246,6 +3246,12 @@ argument_list|()
 operator|.
 name|ordered
 argument_list|()
+operator|.
+name|nullCheckEnabled
+argument_list|()
+operator|.
+name|notNullCheckEnabled
+argument_list|()
 expr_stmt|;
 name|idxBuilder
 operator|.
