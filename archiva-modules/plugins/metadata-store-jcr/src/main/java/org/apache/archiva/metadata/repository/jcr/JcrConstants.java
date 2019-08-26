@@ -113,6 +113,21 @@ name|CHECKSUM_NODE_TYPE
 init|=
 literal|"archiva:checksum"
 decl_stmt|;
+name|String
+name|CHECKSUMS_FOLDER_TYPE
+init|=
+literal|"archiva:checksums"
+decl_stmt|;
+name|String
+name|FACETS_FOLDER_TYPE
+init|=
+literal|"archiva:facets"
+decl_stmt|;
+name|String
+name|FACET_ID_CONTAINER_TYPE
+init|=
+literal|"archiva:facetIdContainer"
+decl_stmt|;
 comment|// Must be alphabetically ordered!
 name|String
 index|[]

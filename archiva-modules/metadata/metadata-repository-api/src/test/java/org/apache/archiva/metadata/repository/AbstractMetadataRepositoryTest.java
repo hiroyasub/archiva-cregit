@@ -5447,7 +5447,7 @@ expr_stmt|;
 block|}
 block|}
 argument_list|,
-literal|3
+literal|5
 argument_list|,
 literal|500
 argument_list|)
@@ -5655,7 +5655,7 @@ expr_stmt|;
 block|}
 block|}
 argument_list|,
-literal|3
+literal|5
 argument_list|,
 literal|500
 argument_list|)
