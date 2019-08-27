@@ -4414,7 +4414,7 @@ argument_list|()
 condition|)
 block|{
 comment|//throw new ContentNotFoundException(
-comment|//    artifact.getGroupId() + ":" + artifact.getArtifactId() + ":" + artifact.getVersion() );
+comment|//    artifact.getNamespace() + ":" + artifact.getArtifactId() + ":" + artifact.getVersion() );
 name|log
 operator|.
 name|warn

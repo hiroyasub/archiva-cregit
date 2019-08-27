@@ -92,7 +92,12 @@ decl_stmt|;
 comment|/**      * The Maven group ID of the dependency.      */
 specifier|private
 name|String
-name|groupId
+name|namespace
+decl_stmt|;
+comment|/**      * The project id      */
+specifier|private
+name|String
+name|projectId
 decl_stmt|;
 comment|/**      * The version of the artifact to depend on. If this refers to a project version then the repository implementation      * may choose the most appropriate artifact version to use.      */
 specifier|private
@@ -236,7 +241,7 @@ expr_stmt|;
 block|}
 specifier|public
 name|void
-name|setGroupId
+name|setNamespace
 parameter_list|(
 name|String
 name|groupId
@@ -244,7 +249,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|groupId
+name|namespace
 operator|=
 name|groupId
 expr_stmt|;
@@ -284,12 +289,36 @@ return|;
 block|}
 specifier|public
 name|String
-name|getGroupId
+name|getNamespace
 parameter_list|()
 block|{
 return|return
-name|groupId
+name|namespace
 return|;
+block|}
+specifier|public
+name|String
+name|getProjectId
+parameter_list|()
+block|{
+return|return
+name|projectId
+return|;
+block|}
+specifier|public
+name|void
+name|setProjectId
+parameter_list|(
+name|String
+name|projectId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|projectId
+operator|=
+name|projectId
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -414,12 +443,12 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", groupId='"
+literal|", namespace='"
 argument_list|)
 operator|.
 name|append
 argument_list|(
-name|groupId
+name|namespace
 argument_list|)
 operator|.
 name|append

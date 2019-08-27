@@ -2847,7 +2847,7 @@ name|groupId
 argument_list|,
 name|dependency
 operator|.
-name|getGroupId
+name|getNamespace
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -2263,7 +2263,7 @@ argument_list|)
 expr_stmt|;
 name|newDependency
 operator|.
-name|setGroupId
+name|setNamespace
 argument_list|(
 name|dependency
 operator|.

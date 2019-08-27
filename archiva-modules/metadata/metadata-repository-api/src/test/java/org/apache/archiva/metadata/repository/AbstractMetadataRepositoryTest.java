@@ -2131,7 +2131,7 @@ argument_list|)
 expr_stmt|;
 name|d
 operator|.
-name|setGroupId
+name|setNamespace
 argument_list|(
 literal|"groupId"
 argument_list|)
@@ -2600,7 +2600,7 @@ literal|"groupId"
 argument_list|,
 name|d
 operator|.
-name|getGroupId
+name|getNamespace
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -12268,7 +12268,7 @@ argument_list|)
 expr_stmt|;
 name|d
 operator|.
-name|setGroupId
+name|setNamespace
 argument_list|(
 literal|"groupId"
 argument_list|)
@@ -12337,7 +12337,7 @@ argument_list|)
 expr_stmt|;
 name|d
 operator|.
-name|setGroupId
+name|setNamespace
 argument_list|(
 literal|"groupId"
 argument_list|)
@@ -12451,7 +12451,7 @@ name|TEST_REPO_ID
 argument_list|,
 name|dd
 operator|.
-name|getGroupId
+name|getNamespace
 argument_list|( )
 argument_list|,
 name|dd

@@ -8617,7 +8617,7 @@ argument_list|()
 argument_list|,
 name|dependency
 operator|.
-name|getGroupId
+name|getNamespace
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -8967,7 +8967,7 @@ argument_list|)
 expr_stmt|;
 name|dependency
 operator|.
-name|setGroupId
+name|setNamespace
 argument_list|(
 name|columnFamilyResult
 operator|.
