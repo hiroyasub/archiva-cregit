@@ -2911,10 +2911,10 @@ name|of
 argument_list|(
 name|REPOSITORY_NODE_TYPE
 argument_list|,
-name|NAMESPACE_NODE_TYPE
+name|NAMESPACE_MIXIN_TYPE
 argument_list|,
 comment|//
-name|PROJECT_NODE_TYPE
+name|PROJECT_MIXIN_TYPE
 argument_list|,
 name|PROJECT_VERSION_NODE_TYPE
 argument_list|,
@@ -2975,7 +2975,7 @@ name|idxBuilder
 operator|.
 name|indexRule
 argument_list|(
-name|NAMESPACE_NODE_TYPE
+name|NAMESPACE_MIXIN_TYPE
 argument_list|)
 argument_list|)
 operator|.
@@ -2996,7 +2996,7 @@ name|idxBuilder
 operator|.
 name|indexRule
 argument_list|(
-name|PROJECT_NODE_TYPE
+name|PROJECT_MIXIN_TYPE
 argument_list|)
 argument_list|)
 operator|.
@@ -3377,7 +3377,7 @@ name|idxBuilder
 operator|.
 name|indexRule
 argument_list|(
-name|MIXIN_META_LICENSE
+name|LICENSE_NODE_TYPE
 argument_list|)
 operator|.
 name|property
@@ -3406,7 +3406,7 @@ name|idxBuilder
 operator|.
 name|indexRule
 argument_list|(
-name|MIXIN_META_MAILINGLIST
+name|MAILINGLIST_NODE_TYPE
 argument_list|)
 operator|.
 name|property
