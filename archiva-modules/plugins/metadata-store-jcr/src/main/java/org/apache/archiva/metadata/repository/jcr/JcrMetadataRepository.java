@@ -2177,6 +2177,7 @@ name|getProjectId
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// TODO: Fixig
 name|Node
 name|refNode
 init|=
@@ -10757,6 +10758,29 @@ parameter_list|)
 throws|throws
 name|RepositoryException
 block|{
+if|if
+condition|(
+name|namespace
+operator|==
+literal|null
+operator|||
+name|projectId
+operator|==
+literal|null
+operator|||
+name|projectVersion
+operator|==
+literal|null
+operator|||
+name|id
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 name|Node
 name|root
 init|=
