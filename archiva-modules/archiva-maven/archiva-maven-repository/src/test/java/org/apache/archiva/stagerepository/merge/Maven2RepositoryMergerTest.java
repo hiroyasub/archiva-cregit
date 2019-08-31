@@ -271,6 +271,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|nio
@@ -353,7 +363,7 @@ operator|=
 block|{
 literal|"classpath*:/META-INF/spring-context.xml"
 block|,
-literal|"classpath*:/spring-context.xml"
+literal|"classpath*:/spring-context-merge.xml"
 block|}
 argument_list|)
 specifier|public
@@ -378,6 +388,11 @@ name|repositoryMerger
 decl_stmt|;
 annotation|@
 name|Inject
+annotation|@
+name|Named
+argument_list|(
+literal|"archivaConfiguration#default"
+argument_list|)
 name|ArchivaConfiguration
 name|configuration
 decl_stmt|;

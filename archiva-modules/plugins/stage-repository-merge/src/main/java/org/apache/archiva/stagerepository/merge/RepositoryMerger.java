@@ -65,6 +65,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|RepositoryType
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -78,6 +92,13 @@ specifier|public
 interface|interface
 name|RepositoryMerger
 block|{
+name|boolean
+name|supportsRepository
+parameter_list|(
+name|RepositoryType
+name|type
+parameter_list|)
+function_decl|;
 name|void
 name|merge
 parameter_list|(
