@@ -398,10 +398,19 @@ name|MetadataRepositoryException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Error while creating repository session {}"
+argument_list|,
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|( )
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 try|try
