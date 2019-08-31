@@ -1394,6 +1394,8 @@ argument_list|,
 name|exc
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|basePath
@@ -1410,8 +1412,37 @@ name|basePath
 argument_list|)
 condition|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Finishing walk from visitFileFailed"
+argument_list|)
+expr_stmt|;
 name|finishWalk
-argument_list|()
+argument_list|( )
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Error during visitFileFailed handling: {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 return|return
