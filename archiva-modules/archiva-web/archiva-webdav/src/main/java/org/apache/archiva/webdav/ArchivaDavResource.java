@@ -17,24 +17,6 @@ end_comment
 
 begin_import
 import|import
-name|edu
-operator|.
-name|emory
-operator|.
-name|mathcs
-operator|.
-name|backport
-operator|.
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -664,6 +646,16 @@ operator|.
 name|format
 operator|.
 name|DateTimeFormatter
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
