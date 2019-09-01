@@ -1969,6 +1969,11 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+name|tryAssert
+argument_list|(
+parameter_list|( )
+lambda|->
+block|{
 name|List
 argument_list|<
 name|Artifact
@@ -1992,10 +1997,10 @@ name|artifactDownloadInfos
 argument_list|)
 operator|.
 name|isNotNull
-argument_list|()
+argument_list|( )
 operator|.
 name|isNotEmpty
-argument_list|()
+argument_list|( )
 operator|.
 name|hasSize
 argument_list|(
@@ -2003,6 +2008,9 @@ literal|7
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: get-artifacts-by-property
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
