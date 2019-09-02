@@ -39,9 +39,9 @@ name|apache
 operator|.
 name|commons
 operator|.
-name|lang
+name|lang3
 operator|.
-name|StringEscapeUtils
+name|StringUtils
 import|;
 end_import
 
@@ -53,9 +53,9 @@ name|apache
 operator|.
 name|commons
 operator|.
-name|lang
+name|text
 operator|.
-name|StringUtils
+name|StringEscapeUtils
 import|;
 end_import
 
@@ -286,15 +286,17 @@ literal|".xsd"
 argument_list|)
 condition|)
 block|{
-name|StringEscapeUtils
-operator|.
-name|escapeXml
-argument_list|(
 name|resp
 operator|.
 name|getWriter
 argument_list|()
-argument_list|,
+operator|.
+name|write
+argument_list|(
+name|StringEscapeUtils
+operator|.
+name|escapeXml11
+argument_list|(
 name|IOUtils
 operator|.
 name|toString
@@ -302,6 +304,7 @@ argument_list|(
 name|is
 argument_list|,
 literal|"UTF-8"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

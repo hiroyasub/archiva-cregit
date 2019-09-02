@@ -171,7 +171,7 @@ name|apache
 operator|.
 name|commons
 operator|.
-name|lang
+name|text
 operator|.
 name|StringEscapeUtils
 import|;
@@ -185,7 +185,7 @@ name|apache
 operator|.
 name|commons
 operator|.
-name|lang
+name|lang3
 operator|.
 name|StringUtils
 import|;
@@ -1705,7 +1705,7 @@ block|{
 return|return
 name|StringEscapeUtils
 operator|.
-name|escapeHtml
+name|escapeHtml4
 argument_list|(
 name|StringUtils
 operator|.
