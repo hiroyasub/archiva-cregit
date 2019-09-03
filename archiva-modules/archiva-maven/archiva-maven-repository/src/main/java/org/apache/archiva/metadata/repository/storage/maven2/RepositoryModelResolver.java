@@ -2608,10 +2608,14 @@ name|networkProxy
 operator|.
 name|setPassword
 argument_list|(
+operator|new
+name|String
+argument_list|(
 name|proxyConnector
 operator|.
 name|getPassword
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|String

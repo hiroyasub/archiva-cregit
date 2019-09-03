@@ -207,6 +207,10 @@ name|Collectors
 import|;
 end_import
 
+begin_comment
+comment|/**  * Default proxy registry implementation. Uses the archiva configuration for accessing and storing the  * proxy information.  *  */
+end_comment
+
 begin_class
 annotation|@
 name|Service
@@ -222,6 +226,7 @@ implements|,
 name|ConfigurationListener
 block|{
 specifier|private
+specifier|static
 specifier|final
 name|Logger
 name|log
@@ -457,6 +462,9 @@ argument_list|(
 name|networkProxyConfig
 operator|.
 name|getPassword
+argument_list|()
+operator|.
+name|toCharArray
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -1205,12 +1205,16 @@ name|proxyInfo
 operator|.
 name|setPassword
 argument_list|(
+operator|new
+name|String
+argument_list|(
 name|this
 operator|.
 name|networkProxy
 operator|.
 name|getPassword
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

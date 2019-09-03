@@ -97,6 +97,10 @@ name|Map
 import|;
 end_import
 
+begin_comment
+comment|/**  * A proxy registry is central access point for accessing a proxy. It gives access to the proxy handlers  * that are registered for the different repository types.  *  * @author Martin Stockhammer<martin_s@apache.org>  */
+end_comment
+
 begin_interface
 specifier|public
 interface|interface
