@@ -666,19 +666,6 @@ name|Named
 argument_list|(
 name|value
 operator|=
-literal|"repositoryContentFactory#default"
-argument_list|)
-specifier|private
-name|RepositoryContentFactory
-name|repositoryFactory
-decl_stmt|;
-annotation|@
-name|Inject
-annotation|@
-name|Named
-argument_list|(
-name|value
-operator|=
 literal|"metadataTools#default"
 argument_list|)
 specifier|private
@@ -944,9 +931,6 @@ operator|.
 name|setSourceRepository
 argument_list|(
 name|repo
-operator|.
-name|getContent
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|RemoteRepository
@@ -988,9 +972,6 @@ operator|.
 name|setTargetRepository
 argument_list|(
 name|rRepo
-operator|.
-name|getContent
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|connector
@@ -1654,7 +1635,7 @@ condition|)
 block|{
 continue|continue;
 block|}
-name|RemoteRepositoryContent
+name|RemoteRepository
 name|targetRepository
 init|=
 name|connector
@@ -1678,6 +1659,9 @@ name|String
 name|targetPath
 init|=
 name|targetRepository
+operator|.
+name|getContent
+argument_list|()
 operator|.
 name|toPath
 argument_list|(
@@ -1712,6 +1696,9 @@ argument_list|(
 name|connector
 argument_list|,
 name|targetRepository
+operator|.
+name|getContent
+argument_list|()
 argument_list|,
 name|targetPath
 argument_list|,
@@ -1770,9 +1757,6 @@ argument_list|)
 argument_list|,
 name|targetRepository
 operator|.
-name|getRepository
-argument_list|()
-operator|.
 name|getId
 argument_list|()
 argument_list|)
@@ -1798,9 +1782,6 @@ name|artifact
 argument_list|)
 argument_list|,
 name|targetRepository
-operator|.
-name|getRepository
-argument_list|()
 operator|.
 name|getId
 argument_list|()
@@ -1829,6 +1810,9 @@ argument_list|,
 name|artifact
 argument_list|,
 name|targetRepository
+operator|.
+name|getContent
+argument_list|()
 argument_list|,
 name|localFile
 argument_list|,
@@ -1972,7 +1956,7 @@ condition|)
 block|{
 continue|continue;
 block|}
-name|RemoteRepositoryContent
+name|RemoteRepository
 name|targetRepository
 init|=
 name|connector
@@ -2007,6 +1991,9 @@ argument_list|(
 name|connector
 argument_list|,
 name|targetRepository
+operator|.
+name|getContent
+argument_list|()
 argument_list|,
 name|targetPath
 argument_list|,
@@ -2060,9 +2047,6 @@ name|path
 argument_list|,
 name|targetRepository
 operator|.
-name|getRepository
-argument_list|()
-operator|.
 name|getId
 argument_list|()
 argument_list|)
@@ -2084,9 +2068,6 @@ name|path
 argument_list|,
 name|targetRepository
 operator|.
-name|getRepository
-argument_list|()
-operator|.
 name|getId
 argument_list|()
 argument_list|)
@@ -2105,9 +2086,6 @@ argument_list|(
 literal|"Transfer error from repository {} for resource {}, continuing to next repository. Error message: {}"
 argument_list|,
 name|targetRepository
-operator|.
-name|getRepository
-argument_list|()
 operator|.
 name|getId
 argument_list|()
@@ -2136,9 +2114,6 @@ operator|+
 literal|"\" for resource {}, continuing to next repository. Error message: {}"
 argument_list|,
 name|targetRepository
-operator|.
-name|getRepository
-argument_list|()
 operator|.
 name|getId
 argument_list|()
@@ -2257,7 +2232,7 @@ condition|)
 block|{
 continue|continue;
 block|}
-name|RemoteRepositoryContent
+name|RemoteRepository
 name|targetRepository
 init|=
 name|connector
@@ -2273,6 +2248,9 @@ argument_list|(
 name|repository
 argument_list|,
 name|targetRepository
+operator|.
+name|getContent
+argument_list|()
 argument_list|,
 name|logicalPath
 argument_list|)
@@ -2292,6 +2270,9 @@ argument_list|(
 name|connector
 argument_list|,
 name|targetRepository
+operator|.
+name|getContent
+argument_list|()
 argument_list|,
 name|logicalPath
 argument_list|,
@@ -2336,9 +2317,6 @@ name|logicalPath
 argument_list|,
 name|targetRepository
 operator|.
-name|getRepository
-argument_list|()
-operator|.
 name|getId
 argument_list|()
 argument_list|,
@@ -2362,9 +2340,6 @@ name|logicalPath
 argument_list|,
 name|targetRepository
 operator|.
-name|getRepository
-argument_list|()
-operator|.
 name|getId
 argument_list|()
 argument_list|,
@@ -2385,9 +2360,6 @@ argument_list|(
 literal|"Transfer error from repository {} for versioned Metadata {}, continuing to next repository. Error message: {}"
 argument_list|,
 name|targetRepository
-operator|.
-name|getRepository
-argument_list|()
 operator|.
 name|getId
 argument_list|()
@@ -3247,9 +3219,6 @@ operator|.
 name|getSourceRepository
 argument_list|()
 operator|.
-name|getRepository
-argument_list|()
-operator|.
 name|getId
 argument_list|()
 argument_list|,
@@ -3296,8 +3265,6 @@ name|repository
 parameter_list|)
 throws|throws
 name|ProxyException
-throws|,
-name|NotModifiedException
 function_decl|;
 specifier|private
 name|void
@@ -4422,30 +4389,6 @@ operator|.
 name|archivaConfiguration
 operator|=
 name|archivaConfiguration
-expr_stmt|;
-block|}
-specifier|public
-name|RepositoryContentFactory
-name|getRepositoryFactory
-parameter_list|()
-block|{
-return|return
-name|repositoryFactory
-return|;
-block|}
-specifier|public
-name|void
-name|setRepositoryFactory
-parameter_list|(
-name|RepositoryContentFactory
-name|repositoryFactory
-parameter_list|)
-block|{
-name|this
-operator|.
-name|repositoryFactory
-operator|=
-name|repositoryFactory
 expr_stmt|;
 block|}
 specifier|public

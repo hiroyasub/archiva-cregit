@@ -27,7 +27,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ManagedRepositoryContent
+name|ManagedRepository
 import|;
 end_import
 
@@ -41,7 +41,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|RemoteRepositoryContent
+name|RemoteRepository
 import|;
 end_import
 
@@ -56,7 +56,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RepositoryConnector   *  *  */
+comment|/**  *  * A RepositoryConnector maps a managed repository to a remote repository.  *  *  */
 end_comment
 
 begin_interface
@@ -64,11 +64,11 @@ specifier|public
 interface|interface
 name|RepositoryConnector
 block|{
-name|ManagedRepositoryContent
+name|ManagedRepository
 name|getSourceRepository
 parameter_list|()
 function_decl|;
-name|RemoteRepositoryContent
+name|RemoteRepository
 name|getTargetRepository
 parameter_list|()
 function_decl|;
