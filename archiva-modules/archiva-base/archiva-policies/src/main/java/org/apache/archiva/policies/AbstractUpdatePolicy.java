@@ -130,6 +130,8 @@ specifier|public
 specifier|abstract
 class|class
 name|AbstractUpdatePolicy
+extends|extends
+name|AbstractPolicy
 implements|implements
 name|PreDownloadPolicy
 block|{
@@ -146,7 +148,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * The ALWAYS policy setting means that the artifact is always uipdated from the remote repo.      */
+comment|/**      * The ALWAYS policy setting means that the artifact is always updated from the remote repo.      */
 specifier|public
 specifier|static
 specifier|final
@@ -182,7 +184,7 @@ name|HOURLY
 init|=
 literal|"hourly"
 decl_stmt|;
-comment|/**      * The ONCE policy means that the artifact retrieval occurs only if the      * local artifact is not present.  This means that the retreival can only      * occur once.      */
+comment|/**      * The ONCE policy means that the artifact retrieval occurs only if the      * local artifact is not present.  This means that the retrieval can only      * occur once.      */
 specifier|public
 specifier|static
 specifier|final
@@ -209,6 +211,16 @@ specifier|public
 name|AbstractUpdatePolicy
 parameter_list|()
 block|{
+name|super
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|setOptionPrefix
+argument_list|(
+literal|"update.option."
+argument_list|)
+expr_stmt|;
 name|options
 operator|.
 name|add

@@ -45,6 +45,14 @@ name|AbstractUpdatePolicy
 implements|implements
 name|PreDownloadPolicy
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ID
+init|=
+literal|"snapshots"
+decl_stmt|;
 comment|/**      * Defaults to {@link AbstractUpdatePolicy#HOURLY}      */
 annotation|@
 name|Override
@@ -89,18 +97,7 @@ name|getId
 parameter_list|()
 block|{
 return|return
-literal|"snapshots"
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|String
-name|getName
-parameter_list|()
-block|{
-return|return
-literal|"Snapshots"
+name|ID
 return|;
 block|}
 block|}

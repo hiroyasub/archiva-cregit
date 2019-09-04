@@ -130,6 +130,8 @@ argument_list|)
 specifier|public
 class|class
 name|PropagateErrorsDownloadPolicy
+extends|extends
+name|AbstractPolicy
 implements|implements
 name|DownloadErrorPolicy
 block|{
@@ -145,6 +147,14 @@ name|PropagateErrorsDownloadPolicy
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ID
+init|=
+literal|"propagate-errors"
 decl_stmt|;
 comment|/**      * Signifies any error should stop searching for other proxies.      */
 specifier|public
@@ -162,7 +172,7 @@ specifier|final
 name|String
 name|QUEUE
 init|=
-literal|"queue error"
+literal|"queue-error"
 decl_stmt|;
 comment|/**      * Ignore errors and treat as if it were not found.      */
 specifier|public
@@ -380,18 +390,7 @@ name|getId
 parameter_list|()
 block|{
 return|return
-literal|"propagate-errors"
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|String
-name|getName
-parameter_list|()
-block|{
-return|return
-literal|"On remote error"
+name|ID
 return|;
 block|}
 annotation|@

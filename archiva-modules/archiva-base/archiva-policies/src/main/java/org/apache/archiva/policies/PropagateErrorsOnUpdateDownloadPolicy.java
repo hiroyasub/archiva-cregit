@@ -110,9 +110,19 @@ argument_list|)
 specifier|public
 class|class
 name|PropagateErrorsOnUpdateDownloadPolicy
+extends|extends
+name|AbstractPolicy
 implements|implements
 name|DownloadErrorPolicy
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ID
+init|=
+literal|"propagate-errors-on-update"
+decl_stmt|;
 comment|/**      * Signifies any error should cause a failure whether the artifact is already present or not.      */
 specifier|public
 specifier|static
@@ -129,9 +139,11 @@ specifier|final
 name|String
 name|NOT_PRESENT
 init|=
-literal|"artifact not already present"
+literal|"artifact-not-present"
 decl_stmt|;
 specifier|private
+specifier|static
+specifier|final
 name|List
 argument_list|<
 name|String
@@ -296,18 +308,7 @@ name|getId
 parameter_list|()
 block|{
 return|return
-literal|"propagate-errors-on-update"
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|String
-name|getName
-parameter_list|()
-block|{
-return|return
-literal|"Return error when"
+name|ID
 return|;
 block|}
 annotation|@

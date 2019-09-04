@@ -25,11 +25,40 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|MissingResourceException
+import|;
+end_import
+
+begin_comment
+comment|/**  * This is a generic interface for policies. Policies define different actions to apply to artifacts during the  * repository lifecycle, e.g. download, upload, errors.  */
+end_comment
+
 begin_interface
 specifier|public
 interface|interface
 name|Policy
 block|{
+name|String
+name|RESOURCE_BUNDLE
+init|=
+literal|"archiva_policies"
+decl_stmt|;
 comment|/**      * Get the list of options for this policy.      *      * @return the list of options for this policy.      */
 name|List
 argument_list|<
@@ -48,10 +77,52 @@ name|String
 name|getId
 parameter_list|()
 function_decl|;
-comment|/**      * Get the display name for this policy.      *      * TODO todo i18n      *      * @return the name for this policy      */
+comment|/**      * Get the display name for this policy.      *      * @return the name for this policy      */
 name|String
 name|getName
 parameter_list|()
+function_decl|;
+comment|/**      * Get the policy name in the language of the given locale.      * @param locale The locale      * @return The policy name      */
+name|String
+name|getName
+parameter_list|(
+name|Locale
+name|locale
+parameter_list|)
+function_decl|;
+comment|/**      * Return a description of the policy.      * @param locale The language      * @return The description      */
+name|String
+name|getDescription
+parameter_list|(
+name|Locale
+name|locale
+parameter_list|)
+function_decl|;
+comment|/**      * Returns a description for the given option.      * @param locale The locale for the description.      * @param option The option to ask the description for.      * @return A description of the option in the requested language.      * @throws MissingResourceException if the option is not known by this policy.      */
+name|String
+name|getOptionDescription
+parameter_list|(
+name|Locale
+name|locale
+parameter_list|,
+name|String
+name|option
+parameter_list|)
+throws|throws
+name|MissingResourceException
+function_decl|;
+comment|/**      * Returns a name for the given option.      * @param locale The locale for the name      * @param option  The option identifier      * @return  A name in the requested language.      * @throws MissingResourceException if the option is not known by this policy.      */
+name|String
+name|getOptionName
+parameter_list|(
+name|Locale
+name|locale
+parameter_list|,
+name|String
+name|option
+parameter_list|)
+throws|throws
+name|MissingResourceException
 function_decl|;
 block|}
 end_interface

@@ -146,6 +146,8 @@ argument_list|)
 specifier|public
 class|class
 name|CachedFailuresPolicy
+extends|extends
+name|AbstractPolicy
 implements|implements
 name|PreDownloadPolicy
 block|{
@@ -161,6 +163,14 @@ name|CachedFailuresPolicy
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ID
+init|=
+literal|"cache-failures"
 decl_stmt|;
 comment|/**      * The NO policy setting means that the the existence of old failures is<strong>not</strong> checked.      * All resource requests are allowed thru to the remote repo.      */
 specifier|public
@@ -204,6 +214,9 @@ specifier|public
 name|CachedFailuresPolicy
 parameter_list|()
 block|{
+name|super
+argument_list|()
+expr_stmt|;
 name|options
 operator|.
 name|add
@@ -365,18 +378,7 @@ name|getId
 parameter_list|()
 block|{
 return|return
-literal|"cache-failures"
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|String
-name|getName
-parameter_list|()
-block|{
-return|return
-literal|"Cache failures"
+name|ID
 return|;
 block|}
 annotation|@

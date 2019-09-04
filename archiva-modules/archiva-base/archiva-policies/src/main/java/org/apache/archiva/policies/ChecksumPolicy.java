@@ -206,6 +206,8 @@ argument_list|)
 specifier|public
 class|class
 name|ChecksumPolicy
+extends|extends
+name|AbstractPolicy
 implements|implements
 name|PostDownloadPolicy
 block|{
@@ -221,6 +223,14 @@ name|ChecksumPolicy
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ID
+init|=
+literal|"checksum"
 decl_stmt|;
 comment|/**      * The IGNORE policy indicates that if the checksum policy is ignored, and      * the state of, contents of, or validity of the checksum files are not      * checked.      */
 specifier|public
@@ -291,6 +301,9 @@ specifier|public
 name|ChecksumPolicy
 parameter_list|()
 block|{
+name|super
+argument_list|()
+expr_stmt|;
 name|options
 operator|.
 name|add
@@ -667,18 +680,7 @@ name|getId
 parameter_list|()
 block|{
 return|return
-literal|"checksum"
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|String
-name|getName
-parameter_list|()
-block|{
-return|return
-literal|"Checksum"
+name|ID
 return|;
 block|}
 annotation|@
