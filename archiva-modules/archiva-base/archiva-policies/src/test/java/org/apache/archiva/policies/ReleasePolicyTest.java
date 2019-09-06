@@ -1538,7 +1538,7 @@ specifier|private
 name|void
 name|assertReleasesPolicy
 parameter_list|(
-name|String
+name|PolicyOption
 name|setting
 parameter_list|,
 name|String
@@ -1740,7 +1740,7 @@ specifier|private
 name|void
 name|assertReleasesPolicyViolation
 parameter_list|(
-name|String
+name|PolicyOption
 name|setting
 parameter_list|,
 name|String
@@ -1854,7 +1854,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"always"
+name|UpdateOption
+operator|.
+name|ALWAYS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1870,7 +1872,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"never"
+name|UpdateOption
+operator|.
+name|NEVER
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1886,7 +1890,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"daily"
+name|UpdateOption
+operator|.
+name|DAILY
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1902,7 +1908,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"hourly"
+name|UpdateOption
+operator|.
+name|HOURLY
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1918,7 +1926,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"once"
+name|UpdateOption
+operator|.
+name|ONCE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1932,7 +1942,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"always"
+name|UpdateOption
+operator|.
+name|ALWAYS
 argument_list|)
 operator|.
 name|contains
@@ -1951,7 +1963,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"never"
+name|UpdateOption
+operator|.
+name|NEVER
 argument_list|)
 operator|.
 name|contains
@@ -1970,7 +1984,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"daily"
+name|UpdateOption
+operator|.
+name|DAILY
 argument_list|)
 operator|.
 name|contains
@@ -1989,7 +2005,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"hourly"
+name|UpdateOption
+operator|.
+name|HOURLY
 argument_list|)
 operator|.
 name|contains
@@ -2008,7 +2026,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"once"
+name|UpdateOption
+operator|.
+name|ONCE
 argument_list|)
 operator|.
 name|contains
@@ -2027,7 +2047,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"xxxx"
+name|StandardOption
+operator|.
+name|NOOP
 argument_list|)
 expr_stmt|;
 comment|// Exception should be thrown

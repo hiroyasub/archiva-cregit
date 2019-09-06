@@ -57,7 +57,7 @@ comment|/**      * Defaults to {@link AbstractUpdatePolicy#HOURLY}      */
 annotation|@
 name|Override
 specifier|public
-name|String
+name|PolicyOption
 name|getDefaultOption
 parameter_list|()
 block|{

@@ -62,13 +62,13 @@ decl_stmt|;
 comment|/**      * Get the list of options for this policy.      *      * @return the list of options for this policy.      */
 name|List
 argument_list|<
-name|String
+name|PolicyOption
 argument_list|>
 name|getOptions
 parameter_list|()
 function_decl|;
 comment|/**      * Get the default option for this policy.      *      * @return the default policy for this policy.      */
-name|String
+name|PolicyOption
 name|getDefaultOption
 parameter_list|()
 function_decl|;
@@ -105,7 +105,7 @@ parameter_list|(
 name|Locale
 name|locale
 parameter_list|,
-name|String
+name|PolicyOption
 name|option
 parameter_list|)
 throws|throws
@@ -118,7 +118,7 @@ parameter_list|(
 name|Locale
 name|locale
 parameter_list|,
-name|String
+name|PolicyOption
 name|option
 parameter_list|)
 throws|throws

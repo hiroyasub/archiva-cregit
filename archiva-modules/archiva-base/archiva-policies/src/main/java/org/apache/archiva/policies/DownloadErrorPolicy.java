@@ -66,7 +66,7 @@ comment|/**      * Apply the download error policy.      *      * @param policyS
 name|boolean
 name|applyPolicy
 parameter_list|(
-name|String
+name|PolicyOption
 name|policySetting
 parameter_list|,
 name|Properties

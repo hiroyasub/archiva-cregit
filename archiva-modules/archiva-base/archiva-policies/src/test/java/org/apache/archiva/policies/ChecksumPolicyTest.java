@@ -23,6 +23,20 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|checksum
+operator|.
+name|Checksum
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|common
 operator|.
 name|filelock
@@ -1233,7 +1247,7 @@ specifier|private
 name|String
 name|createMessage
 parameter_list|(
-name|String
+name|PolicyOption
 name|settingType
 parameter_list|,
 name|String
@@ -1262,6 +1276,9 @@ operator|.
 name|append
 argument_list|(
 name|settingType
+operator|.
+name|getId
+argument_list|()
 operator|.
 name|toUpperCase
 argument_list|()
@@ -1746,7 +1763,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"fail"
+name|ChecksumOption
+operator|.
+name|FAIL
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1762,7 +1781,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"fix"
+name|ChecksumOption
+operator|.
+name|FIX
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1778,7 +1799,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"ignore"
+name|ChecksumOption
+operator|.
+name|IGNORE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1792,7 +1815,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"fail"
+name|ChecksumOption
+operator|.
+name|FAIL
 argument_list|)
 operator|.
 name|contains
@@ -1811,7 +1836,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"fix"
+name|ChecksumOption
+operator|.
+name|FIX
 argument_list|)
 operator|.
 name|contains
@@ -1830,7 +1857,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"ignore"
+name|ChecksumOption
+operator|.
+name|IGNORE
 argument_list|)
 operator|.
 name|contains
@@ -1849,7 +1878,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"xxxx"
+name|StandardOption
+operator|.
+name|NOOP
 argument_list|)
 expr_stmt|;
 comment|// Exception should be thrown

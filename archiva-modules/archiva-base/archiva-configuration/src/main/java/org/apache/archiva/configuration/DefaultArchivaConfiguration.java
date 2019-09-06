@@ -1580,6 +1580,9 @@ operator|=
 name|AbstractUpdatePolicy
 operator|.
 name|ALWAYS
+operator|.
+name|getId
+argument_list|()
 expr_stmt|;
 block|}
 if|else if
@@ -1597,6 +1600,9 @@ operator|=
 name|AbstractUpdatePolicy
 operator|.
 name|NEVER
+operator|.
+name|getId
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -1625,6 +1631,9 @@ operator|=
 name|CachedFailuresPolicy
 operator|.
 name|NO
+operator|.
+name|getId
+argument_list|()
 expr_stmt|;
 block|}
 if|else if
@@ -1642,6 +1651,9 @@ operator|=
 name|CachedFailuresPolicy
 operator|.
 name|YES
+operator|.
+name|getId
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -1670,6 +1682,9 @@ operator|=
 name|ChecksumPolicy
 operator|.
 name|IGNORE
+operator|.
+name|getId
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -1710,6 +1725,9 @@ operator|=
 name|policy
 operator|.
 name|getDefaultOption
+argument_list|()
+operator|.
+name|getId
 argument_list|()
 expr_stmt|;
 block|}

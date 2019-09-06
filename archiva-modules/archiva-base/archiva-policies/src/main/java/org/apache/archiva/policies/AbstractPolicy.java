@@ -241,6 +241,16 @@ operator|.
 name|stream
 argument_list|()
 operator|.
+name|map
+argument_list|(
+name|o
+lambda|->
+name|o
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+operator|.
 name|collect
 argument_list|(
 name|Collectors
@@ -262,7 +272,7 @@ parameter_list|(
 name|Locale
 name|locale
 parameter_list|,
-name|String
+name|PolicyOption
 name|option
 parameter_list|)
 block|{
@@ -278,6 +288,9 @@ name|getOptionPrefix
 argument_list|()
 operator|+
 name|option
+operator|.
+name|getId
+argument_list|()
 operator|+
 literal|".description"
 argument_list|)
@@ -292,7 +305,7 @@ parameter_list|(
 name|Locale
 name|locale
 parameter_list|,
-name|String
+name|PolicyOption
 name|option
 parameter_list|)
 block|{
@@ -308,6 +321,9 @@ name|getOptionPrefix
 argument_list|()
 operator|+
 name|option
+operator|.
+name|getId
+argument_list|()
 operator|+
 literal|".name"
 argument_list|)

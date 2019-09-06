@@ -3110,6 +3110,9 @@ argument_list|,
 name|ChecksumPolicy
 operator|.
 name|IGNORE
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|connectorConfig
@@ -3123,6 +3126,9 @@ argument_list|,
 name|ReleasesPolicy
 operator|.
 name|ALWAYS
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|connectorConfig
@@ -3136,6 +3142,9 @@ argument_list|,
 name|SnapshotsPolicy
 operator|.
 name|ALWAYS
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|connectorConfig
@@ -3149,6 +3158,9 @@ argument_list|,
 name|CachedFailuresPolicy
 operator|.
 name|NO
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|int

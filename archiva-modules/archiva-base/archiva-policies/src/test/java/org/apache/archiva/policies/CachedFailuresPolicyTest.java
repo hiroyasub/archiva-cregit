@@ -559,7 +559,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"yes"
+name|StandardOption
+operator|.
+name|YES
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -575,7 +577,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"no"
+name|StandardOption
+operator|.
+name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -589,7 +593,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"yes"
+name|StandardOption
+operator|.
+name|YES
 argument_list|)
 operator|.
 name|contains
@@ -608,7 +614,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"no"
+name|StandardOption
+operator|.
+name|NO
 argument_list|)
 operator|.
 name|contains
@@ -627,7 +635,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"xxxx"
+name|StandardOption
+operator|.
+name|NOOP
 argument_list|)
 expr_stmt|;
 comment|// Exception should be thrown

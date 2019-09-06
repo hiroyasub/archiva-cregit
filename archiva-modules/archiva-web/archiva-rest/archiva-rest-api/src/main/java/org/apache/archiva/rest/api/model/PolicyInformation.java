@@ -21,6 +21,20 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|policies
+operator|.
+name|PolicyOption
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -74,12 +88,12 @@ block|{
 specifier|private
 name|List
 argument_list|<
-name|String
+name|PolicyOption
 argument_list|>
 name|options
 decl_stmt|;
 specifier|private
-name|String
+name|PolicyOption
 name|defaultOption
 decl_stmt|;
 specifier|private
@@ -101,11 +115,11 @@ name|PolicyInformation
 parameter_list|(
 name|List
 argument_list|<
-name|String
+name|PolicyOption
 argument_list|>
 name|options
 parameter_list|,
-name|String
+name|PolicyOption
 name|defaultOption
 parameter_list|,
 name|String
@@ -143,7 +157,7 @@ block|}
 specifier|public
 name|List
 argument_list|<
-name|String
+name|PolicyOption
 argument_list|>
 name|getOptions
 parameter_list|()
@@ -158,7 +172,7 @@ name|setOptions
 parameter_list|(
 name|List
 argument_list|<
-name|String
+name|PolicyOption
 argument_list|>
 name|options
 parameter_list|)
@@ -171,7 +185,7 @@ name|options
 expr_stmt|;
 block|}
 specifier|public
-name|String
+name|PolicyOption
 name|getDefaultOption
 parameter_list|()
 block|{
@@ -183,7 +197,7 @@ specifier|public
 name|void
 name|setDefaultOption
 parameter_list|(
-name|String
+name|PolicyOption
 name|defaultOption
 parameter_list|)
 block|{

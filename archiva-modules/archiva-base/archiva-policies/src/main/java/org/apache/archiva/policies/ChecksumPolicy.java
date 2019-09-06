@@ -236,28 +236,34 @@ comment|/**      * The IGNORE policy indicates that if the checksum policy is ig
 specifier|public
 specifier|static
 specifier|final
-name|String
+name|ChecksumOption
 name|IGNORE
 init|=
-literal|"ignore"
+name|ChecksumOption
+operator|.
+name|IGNORE
 decl_stmt|;
 comment|/**      * The FAIL policy indicates that if the checksum does not match the      * downloaded file, then remove the downloaded artifact, and checksum      * files, and fail the transfer to the client side.      */
 specifier|public
 specifier|static
 specifier|final
-name|String
+name|ChecksumOption
 name|FAIL
 init|=
-literal|"fail"
+name|ChecksumOption
+operator|.
+name|FAIL
 decl_stmt|;
 comment|/**      * The FIX policy indicates that if the checksum does not match the      * downloaded file, then fix the checksum file locally, and return      * to the client side the corrected checksum.      */
 specifier|public
 specifier|static
 specifier|final
-name|String
+name|ChecksumOption
 name|FIX
 init|=
-literal|"fix"
+name|ChecksumOption
+operator|.
+name|FIX
 decl_stmt|;
 specifier|private
 name|List
@@ -286,7 +292,7 @@ decl_stmt|;
 specifier|private
 name|List
 argument_list|<
-name|String
+name|PolicyOption
 argument_list|>
 name|options
 init|=
@@ -332,7 +338,7 @@ specifier|public
 name|void
 name|applyPolicy
 parameter_list|(
-name|String
+name|PolicyOption
 name|policySetting
 parameter_list|,
 name|Properties
@@ -664,7 +670,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|String
+name|PolicyOption
 name|getDefaultOption
 parameter_list|()
 block|{
@@ -688,7 +694,7 @@ name|Override
 specifier|public
 name|List
 argument_list|<
-name|String
+name|PolicyOption
 argument_list|>
 name|getOptions
 parameter_list|()

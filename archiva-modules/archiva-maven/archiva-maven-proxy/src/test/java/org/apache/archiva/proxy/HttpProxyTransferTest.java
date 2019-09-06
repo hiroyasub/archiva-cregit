@@ -1415,6 +1415,9 @@ argument_list|,
 name|ChecksumPolicy
 operator|.
 name|FIX
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|connectorConfig
@@ -1428,6 +1431,9 @@ argument_list|,
 name|ReleasesPolicy
 operator|.
 name|ONCE
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|connectorConfig
@@ -1441,6 +1447,9 @@ argument_list|,
 name|SnapshotsPolicy
 operator|.
 name|ONCE
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|connectorConfig
@@ -1454,6 +1463,9 @@ argument_list|,
 name|CachedFailuresPolicy
 operator|.
 name|NO
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|connectorConfig
@@ -1467,6 +1479,9 @@ argument_list|,
 name|PropagateErrorsDownloadPolicy
 operator|.
 name|QUEUE
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|connectorConfig
@@ -1480,6 +1495,9 @@ argument_list|,
 name|PropagateErrorsOnUpdateDownloadPolicy
 operator|.
 name|NOT_PRESENT
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|int

@@ -549,7 +549,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"always"
+name|DownloadErrorOption
+operator|.
+name|ALWAYS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -565,7 +567,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"not-present"
+name|DownloadErrorOption
+operator|.
+name|NOT_PRESENT
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -579,7 +583,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"always"
+name|DownloadErrorOption
+operator|.
+name|ALWAYS
 argument_list|)
 operator|.
 name|contains
@@ -598,7 +604,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"not-present"
+name|DownloadErrorOption
+operator|.
+name|NOT_PRESENT
 argument_list|)
 operator|.
 name|contains
@@ -617,7 +625,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"xxxx"
+name|StandardOption
+operator|.
+name|NOOP
 argument_list|)
 expr_stmt|;
 comment|// Exception should be thrown

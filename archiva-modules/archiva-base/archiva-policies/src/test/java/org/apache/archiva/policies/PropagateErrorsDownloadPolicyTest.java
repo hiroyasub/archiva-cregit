@@ -573,7 +573,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"stop"
+name|DownloadErrorOption
+operator|.
+name|STOP
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -589,7 +591,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"queue-error"
+name|DownloadErrorOption
+operator|.
+name|QUEUE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -605,7 +609,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"ignore"
+name|DownloadErrorOption
+operator|.
+name|IGNORE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -619,7 +625,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"stop"
+name|DownloadErrorOption
+operator|.
+name|STOP
 argument_list|)
 operator|.
 name|contains
@@ -638,7 +646,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"queue-error"
+name|DownloadErrorOption
+operator|.
+name|QUEUE
 argument_list|)
 operator|.
 name|contains
@@ -657,7 +667,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"ignore"
+name|DownloadErrorOption
+operator|.
+name|IGNORE
 argument_list|)
 operator|.
 name|contains
@@ -676,7 +688,9 @@ name|Locale
 operator|.
 name|US
 argument_list|,
-literal|"xxxx"
+name|StandardOption
+operator|.
+name|NOOP
 argument_list|)
 expr_stmt|;
 comment|// Exception should be thrown

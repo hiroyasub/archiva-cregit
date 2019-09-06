@@ -3402,7 +3402,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Apply the policies.      *      * @param policies  the map of policies to execute. (Map of String policy keys, to {@link DownloadPolicy} objects)      * @param settings  the map of settings for the policies to execute. (Map of String policy keys, to String policy      *                  setting)      * @param request   the request properties (utilized by the {@link DownloadPolicy#applyPolicy(String, Properties, StorageAsset)}      *                  )      * @param localFile the local file (utilized by the {@link DownloadPolicy#applyPolicy(String, Properties, StorageAsset)})      * @throws PolicyViolationException      */
+comment|/**      * Apply the policies.      *      * @param policies  the map of policies to execute. (Map of String policy keys, to {@link DownloadPolicy} objects)      * @param settings  the map of settings for the policies to execute. (Map of String policy keys, to String policy      *                  setting)      * @param request   the request properties (utilized by the {@link DownloadPolicy#applyPolicy(PolicyOption, Properties, StorageAsset)}      *                  )      * @param localFile the local file (utilized by the {@link DownloadPolicy#applyPolicy(PolicyOption, Properties, StorageAsset)})      * @throws PolicyViolationException      */
 specifier|private
 name|void
 name|validatePolicies
@@ -3479,20 +3479,12 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
-name|String
-name|defaultSetting
+name|PolicyOption
+name|option
 init|=
-name|policy
+name|PolicyUtil
 operator|.
-name|getDefaultOption
-argument_list|()
-decl_stmt|;
-name|String
-name|setting
-init|=
-name|StringUtils
-operator|.
-name|defaultString
+name|findOption
 argument_list|(
 name|settings
 operator|.
@@ -3501,7 +3493,7 @@ argument_list|(
 name|key
 argument_list|)
 argument_list|,
-name|defaultSetting
+name|policy
 argument_list|)
 decl_stmt|;
 name|log
@@ -3512,7 +3504,7 @@ literal|"Applying [{}] policy with [{}]"
 argument_list|,
 name|key
 argument_list|,
-name|setting
+name|option
 argument_list|)
 expr_stmt|;
 try|try
@@ -3521,7 +3513,7 @@ name|policy
 operator|.
 name|applyPolicy
 argument_list|(
-name|setting
+name|option
 argument_list|,
 name|request
 argument_list|,
@@ -3646,20 +3638,12 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
-name|String
-name|defaultSetting
+name|PolicyOption
+name|option
 init|=
-name|policy
+name|PolicyUtil
 operator|.
-name|getDefaultOption
-argument_list|()
-decl_stmt|;
-name|String
-name|setting
-init|=
-name|StringUtils
-operator|.
-name|defaultString
+name|findOption
 argument_list|(
 name|settings
 operator|.
@@ -3668,7 +3652,7 @@ argument_list|(
 name|key
 argument_list|)
 argument_list|,
-name|defaultSetting
+name|policy
 argument_list|)
 decl_stmt|;
 name|log
@@ -3679,7 +3663,7 @@ literal|"Applying [{}] policy with [{}]"
 argument_list|,
 name|key
 argument_list|,
-name|setting
+name|option
 argument_list|)
 expr_stmt|;
 try|try
@@ -3691,7 +3675,7 @@ name|policy
 operator|.
 name|applyPolicy
 argument_list|(
-name|setting
+name|option
 argument_list|,
 name|request
 argument_list|,

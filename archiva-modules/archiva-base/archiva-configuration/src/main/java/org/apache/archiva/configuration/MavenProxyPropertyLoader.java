@@ -521,6 +521,9 @@ argument_list|,
 name|SnapshotsPolicy
 operator|.
 name|DAILY
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|proxyConnector
@@ -534,6 +537,9 @@ argument_list|,
 name|ReleasesPolicy
 operator|.
 name|ALWAYS
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|configuration
