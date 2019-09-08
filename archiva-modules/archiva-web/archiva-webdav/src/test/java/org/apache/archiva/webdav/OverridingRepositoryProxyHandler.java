@@ -57,7 +57,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ManagedRepositoryContent
+name|ManagedRepository
 import|;
 end_import
 
@@ -101,30 +101,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Path
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Paths
-import|;
-end_import
-
 begin_class
 class|class
 name|OverridingRepositoryProxyHandler
@@ -155,7 +131,7 @@ specifier|public
 name|ProxyFetchResult
 name|fetchMetadataFromProxies
 parameter_list|(
-name|ManagedRepositoryContent
+name|ManagedRepository
 name|repository
 parameter_list|,
 name|String
@@ -166,9 +142,6 @@ name|StorageAsset
 name|target
 init|=
 name|repository
-operator|.
-name|getRepository
-argument_list|()
 operator|.
 name|getAsset
 argument_list|(

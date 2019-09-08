@@ -3940,7 +3940,7 @@ specifier|public
 name|void
 name|applyServerSideRelocation
 parameter_list|(
-name|ManagedRepositoryContent
+name|ManagedRepository
 name|managedRepository
 parameter_list|,
 name|ArtifactReference
@@ -4014,9 +4014,6 @@ name|repositoryType
 init|=
 name|managedRepository
 operator|.
-name|getRepository
-argument_list|()
-operator|.
 name|getType
 argument_list|()
 decl_stmt|;
@@ -4076,6 +4073,9 @@ name|StorageAsset
 name|pom
 init|=
 name|managedRepository
+operator|.
+name|getContent
+argument_list|()
 operator|.
 name|toFile
 argument_list|(

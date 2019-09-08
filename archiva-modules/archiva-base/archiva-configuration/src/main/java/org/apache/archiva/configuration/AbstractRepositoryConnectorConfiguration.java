@@ -129,7 +129,7 @@ specifier|public
 name|void
 name|addPolicy
 parameter_list|(
-name|Object
+name|String
 name|key
 parameter_list|,
 name|String
@@ -153,7 +153,7 @@ specifier|public
 name|void
 name|addProperty
 parameter_list|(
-name|Object
+name|String
 name|key
 parameter_list|,
 name|String
@@ -243,6 +243,11 @@ operator|.
 name|util
 operator|.
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|getPolicies
 parameter_list|()
 block|{
@@ -282,6 +287,11 @@ operator|.
 name|util
 operator|.
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|getProperties
 parameter_list|()
 block|{

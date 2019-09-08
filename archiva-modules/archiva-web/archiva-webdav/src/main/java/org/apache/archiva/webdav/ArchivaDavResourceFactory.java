@@ -3592,7 +3592,7 @@ name|fromProxy
 init|=
 name|fetchContentFromProxies
 argument_list|(
-name|managedRepositoryContent
+name|managedRepository
 argument_list|,
 name|request
 argument_list|,
@@ -4314,7 +4314,7 @@ specifier|private
 name|boolean
 name|fetchContentFromProxies
 parameter_list|(
-name|ManagedRepositoryContent
+name|ManagedRepository
 name|managedRepository
 parameter_list|,
 name|DavServletRequest
@@ -4343,9 +4343,6 @@ name|hasHandler
 argument_list|(
 name|managedRepository
 operator|.
-name|getRepository
-argument_list|()
-operator|.
 name|getType
 argument_list|()
 argument_list|)
@@ -4363,9 +4360,6 @@ literal|"No proxy handler found for repository type "
 operator|+
 name|managedRepository
 operator|.
-name|getRepository
-argument_list|()
-operator|.
 name|getType
 argument_list|()
 argument_list|)
@@ -4375,9 +4369,6 @@ name|RepositoryRequestInfo
 name|repositoryRequestInfo
 init|=
 name|managedRepository
-operator|.
-name|getRepository
-argument_list|()
 operator|.
 name|getRequestInfo
 argument_list|()
@@ -4390,9 +4381,6 @@ operator|.
 name|getHandler
 argument_list|(
 name|managedRepository
-operator|.
-name|getRepository
-argument_list|()
 operator|.
 name|getType
 argument_list|()
@@ -4528,9 +4516,6 @@ name|repositoryLayout
 init|=
 name|managedRepository
 operator|.
-name|getRepository
-argument_list|()
-operator|.
 name|getLayout
 argument_list|()
 decl_stmt|;
@@ -4578,6 +4563,9 @@ operator|.
 name|setPath
 argument_list|(
 name|managedRepository
+operator|.
+name|getContent
+argument_list|()
 operator|.
 name|toPath
 argument_list|(

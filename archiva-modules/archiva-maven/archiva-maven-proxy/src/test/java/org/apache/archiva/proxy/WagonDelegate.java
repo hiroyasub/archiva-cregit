@@ -1056,6 +1056,14 @@ condition|(
 name|contentToGet
 operator|==
 literal|null
+operator|&&
+operator|!
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|destination
+argument_list|)
 condition|)
 block|{
 name|Files
@@ -1066,7 +1074,12 @@ name|destination
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+if|else if
+condition|(
+name|contentToGet
+operator|!=
+literal|null
+condition|)
 block|{
 name|org
 operator|.
@@ -1113,6 +1126,12 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+specifier|public
+name|void
+name|cleanup
+parameter_list|()
+block|{
 block|}
 block|}
 end_class

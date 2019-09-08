@@ -64,14 +64,17 @@ specifier|public
 interface|interface
 name|RepositoryConnector
 block|{
+comment|/**      * Returns the local repository that is connected to the remote.      * @return The local managed repository.      */
 name|ManagedRepository
 name|getSourceRepository
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the remote repository that is connected to the local.      * @return The remote repository.      */
 name|RemoteRepository
 name|getTargetRepository
 parameter_list|()
 function_decl|;
+comment|/**      * Returns a list of paths that are not fetched from the remote repository.      * @return A list of paths.      */
 name|List
 argument_list|<
 name|String
@@ -79,6 +82,7 @@ argument_list|>
 name|getBlacklist
 parameter_list|()
 function_decl|;
+comment|/**      * Returns a list of paths that are fetched from the remote repository, even if a      * parent path is in the blacklist.      *      * @return The list of paths.      */
 name|List
 argument_list|<
 name|String
@@ -86,16 +90,20 @@ argument_list|>
 name|getWhitelist
 parameter_list|()
 function_decl|;
+comment|/**      * Returns true, if this connector is enabled, otherwise false.      * @return True, if enabled.      */
 name|boolean
-name|isDisabled
+name|isEnabled
 parameter_list|()
 function_decl|;
+comment|/**      * Enables this connector, if it was disabled before, otherwise does nothing.      */
 name|void
-name|setDisabled
-parameter_list|(
-name|boolean
-name|disabled
-parameter_list|)
+name|enable
+parameter_list|()
+function_decl|;
+comment|/**      * Disables this connector, if it was enabled before, otherwise does nothing.      */
+name|void
+name|disable
+parameter_list|()
 function_decl|;
 block|}
 end_interface

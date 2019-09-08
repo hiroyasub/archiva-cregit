@@ -147,7 +147,6 @@ name|type
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the list of all proxy connectors.      * @return      */
-specifier|public
 name|List
 argument_list|<
 name|org
@@ -163,10 +162,9 @@ operator|.
 name|ProxyConnector
 argument_list|>
 name|getProxyConnectors
-parameter_list|()
+parameter_list|( )
 function_decl|;
 comment|/**      * Returns a map of connector lists with the source repository id as key      * @return A map with source repository ids as key and list of corresponding proxy connector objects as value.      */
-specifier|public
 name|Map
 argument_list|<
 name|String
@@ -177,6 +175,11 @@ name|ProxyConnector
 argument_list|>
 argument_list|>
 name|getProxyConnectorAsMap
+parameter_list|( )
+function_decl|;
+comment|/**      * Reloads the proxies from the configuration.      */
+name|void
+name|reload
 parameter_list|()
 function_decl|;
 block|}

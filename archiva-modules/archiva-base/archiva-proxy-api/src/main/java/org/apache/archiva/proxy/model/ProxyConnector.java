@@ -25,6 +25,34 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|policies
+operator|.
+name|Policy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|policies
+operator|.
+name|PolicyOption
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|repository
 operator|.
 name|ManagedRepository
@@ -41,35 +69,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ManagedRepositoryContent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
 name|RemoteRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|RemoteRepositoryContent
 import|;
 end_import
 
@@ -120,7 +120,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This represents a connector for a repository to repository proxy.  */
+comment|/**  * This represents a connector for a repository to a remote repository that is proxied.  */
 end_comment
 
 begin_class
@@ -163,15 +163,15 @@ decl_stmt|;
 specifier|private
 name|Map
 argument_list|<
-name|String
+name|Policy
 argument_list|,
-name|String
+name|PolicyOption
 argument_list|>
 name|policies
 decl_stmt|;
 specifier|private
 name|boolean
-name|disabled
+name|enabled
 decl_stmt|;
 specifier|private
 name|Map
@@ -188,34 +188,49 @@ parameter_list|()
 block|{
 comment|// no op
 block|}
+comment|/**      * @see RepositoryConnector#isEnabled()      */
 annotation|@
 name|Override
 specifier|public
 name|boolean
-name|isDisabled
+name|isEnabled
 parameter_list|()
 block|{
 return|return
-name|disabled
+name|enabled
 return|;
 block|}
+comment|/**      * @see RepositoryConnector#enable()      */
 annotation|@
 name|Override
 specifier|public
 name|void
-name|setDisabled
-parameter_list|(
-name|boolean
-name|disabled
-parameter_list|)
+name|enable
+parameter_list|()
 block|{
 name|this
 operator|.
-name|disabled
+name|enabled
 operator|=
-name|disabled
+literal|true
 expr_stmt|;
 block|}
+comment|/**      * @see RepositoryConnector#disable()      */
+annotation|@
+name|Override
+specifier|public
+name|void
+name|disable
+parameter_list|( )
+block|{
+name|this
+operator|.
+name|enabled
+operator|=
+literal|false
+expr_stmt|;
+block|}
+comment|/**      * @see RepositoryConnector#getBlacklist()      */
 annotation|@
 name|Override
 specifier|public
@@ -230,6 +245,7 @@ return|return
 name|blacklist
 return|;
 block|}
+comment|/**      * Sets the blacklist. The list is a string of paths.      *      * @param blacklist List of paths.      */
 specifier|public
 name|void
 name|setBlacklist
@@ -248,6 +264,7 @@ operator|=
 name|blacklist
 expr_stmt|;
 block|}
+comment|/**      * @see RepositoryConnector#getSourceRepository()      */
 annotation|@
 name|Override
 specifier|public
@@ -259,6 +276,7 @@ return|return
 name|sourceRepository
 return|;
 block|}
+comment|/**      * Sets the source repository.      * @param sourceRepository The managed repository which is the local representation of the proxy.      */
 specifier|public
 name|void
 name|setSourceRepository
@@ -274,6 +292,7 @@ operator|=
 name|sourceRepository
 expr_stmt|;
 block|}
+comment|/**      * @see ProxyConnector#getTargetRepository()      */
 annotation|@
 name|Override
 specifier|public
@@ -285,6 +304,7 @@ return|return
 name|targetRepository
 return|;
 block|}
+comment|/**      * Sets the target repository.      * @param targetRepository The remote repository, where the artifacts are downloaded from.      */
 specifier|public
 name|void
 name|setTargetRepository
@@ -300,6 +320,7 @@ operator|=
 name|targetRepository
 expr_stmt|;
 block|}
+comment|/**      * @see ProxyConnector#getWhitelist()      */
 annotation|@
 name|Override
 specifier|public
@@ -314,6 +335,7 @@ return|return
 name|whitelist
 return|;
 block|}
+comment|/**      * Sets the list of paths that are proxied.      * @param whitelist List of paths.      */
 specifier|public
 name|void
 name|setWhitelist
@@ -332,12 +354,13 @@ operator|=
 name|whitelist
 expr_stmt|;
 block|}
+comment|/**      * Returns the policies that are defined      * @return      */
 specifier|public
 name|Map
 argument_list|<
-name|String
+name|Policy
 argument_list|,
-name|String
+name|PolicyOption
 argument_list|>
 name|getPolicies
 parameter_list|()
@@ -346,15 +369,16 @@ return|return
 name|policies
 return|;
 block|}
+comment|/**      * Sets policies that set the behaviour of this proxy connector.      * @param policies A map of policies with each option.      */
 specifier|public
 name|void
 name|setPolicies
 parameter_list|(
 name|Map
 argument_list|<
-name|String
+name|Policy
 argument_list|,
-name|String
+name|PolicyOption
 argument_list|>
 name|policies
 parameter_list|)
@@ -366,6 +390,31 @@ operator|=
 name|policies
 expr_stmt|;
 block|}
+comment|/**      * Adds a new policy.      * @param policy The policy to add.      * @param option  The option for the policy.      */
+specifier|public
+name|void
+name|addPolicy
+parameter_list|(
+name|Policy
+name|policy
+parameter_list|,
+name|PolicyOption
+name|option
+parameter_list|)
+block|{
+name|this
+operator|.
+name|policies
+operator|.
+name|put
+argument_list|(
+name|policy
+argument_list|,
+name|option
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Returns the id of this proxy connector.      * @return The id string.      */
 specifier|public
 name|String
 name|getProxyId
@@ -375,6 +424,7 @@ return|return
 name|proxyId
 return|;
 block|}
+comment|/**      * Sets the id of this proxy connector.      * @param proxyId A id string.      */
 specifier|public
 name|void
 name|setProxyId
@@ -476,7 +526,7 @@ argument_list|)
 expr_stmt|;
 name|Iterator
 argument_list|<
-name|String
+name|Policy
 argument_list|>
 name|keys
 init|=
@@ -504,6 +554,9 @@ init|=
 name|keys
 operator|.
 name|next
+argument_list|()
+operator|.
+name|getId
 argument_list|()
 decl_stmt|;
 name|sb
@@ -557,29 +610,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-specifier|public
-name|void
-name|setPolicy
-parameter_list|(
-name|String
-name|policyId
-parameter_list|,
-name|String
-name|policySetting
-parameter_list|)
-block|{
-name|this
-operator|.
-name|policies
-operator|.
-name|put
-argument_list|(
-name|policyId
-argument_list|,
-name|policySetting
-argument_list|)
-expr_stmt|;
-block|}
+comment|/**      * Returns a number that orders the proxy connectors numerically.      * @return The order number of this connector.      */
 specifier|public
 name|int
 name|getOrder
@@ -589,6 +620,7 @@ return|return
 name|order
 return|;
 block|}
+comment|/**      * Set the order number of this proxy connector.      *      * @param order The order number.      */
 specifier|public
 name|void
 name|setOrder
@@ -604,6 +636,7 @@ operator|=
 name|order
 expr_stmt|;
 block|}
+comment|/**      * Returns additional properties defined for this connector.      * @return Map of key, value pairs.      */
 specifier|public
 name|Map
 argument_list|<
@@ -618,6 +651,7 @@ return|return
 name|properties
 return|;
 block|}
+comment|/**      * Sets additional properties for this connector.      * @param properties Map of key, value pairs.      */
 specifier|public
 name|void
 name|setProperties

@@ -350,6 +350,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)
@@ -442,6 +445,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)
@@ -546,6 +552,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|path
 argument_list|)
@@ -748,6 +757,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)
@@ -878,6 +890,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|path
 argument_list|)
@@ -1018,6 +1033,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)
@@ -1145,6 +1163,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)
@@ -1286,6 +1307,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)
@@ -1392,6 +1416,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)
@@ -1564,6 +1591,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)
@@ -1670,6 +1700,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)
@@ -1742,7 +1775,9 @@ literal|"badproxied"
 argument_list|,
 literal|"Bad Proxied"
 argument_list|,
-literal|"test://bad.machine.com/repo/"
+literal|""
+operator|+
+literal|"http://bad.machine.com/repo/"
 argument_list|,
 literal|"default"
 argument_list|)
@@ -1815,6 +1850,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)
@@ -1905,7 +1943,7 @@ literal|"badproxied1"
 argument_list|,
 literal|"Bad Proxied 1"
 argument_list|,
-literal|"test://bad.machine.com/repo/"
+literal|"http://bad.machine.com/repo/"
 argument_list|,
 literal|"default"
 argument_list|)
@@ -1916,7 +1954,7 @@ literal|"badproxied2"
 argument_list|,
 literal|"Bad Proxied 2"
 argument_list|,
-literal|"test://dead.machine.com/repo/"
+literal|"http://dead.machine.com/repo/"
 argument_list|,
 literal|"default"
 argument_list|)
@@ -2041,6 +2079,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)

@@ -4763,6 +4763,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedRepositoryContent
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|path
 argument_list|)
@@ -4799,6 +4802,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedRepositoryContent
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|pomPath
 argument_list|)

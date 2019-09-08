@@ -282,6 +282,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)
@@ -371,6 +374,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)
@@ -494,6 +500,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)
@@ -605,6 +614,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)
@@ -724,6 +736,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)
@@ -837,6 +852,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)
@@ -974,6 +992,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)
@@ -1082,6 +1103,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)
@@ -1207,6 +1231,9 @@ operator|.
 name|fetchFromProxies
 argument_list|(
 name|managedDefaultRepository
+operator|.
+name|getRepository
+argument_list|()
 argument_list|,
 name|artifact
 argument_list|)
