@@ -1619,20 +1619,6 @@ argument_list|(
 name|repoId
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"REPOSITORY "
-operator|+
-name|repo
-operator|.
-name|getLocation
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|assertNotNull
 argument_list|(
 name|repo

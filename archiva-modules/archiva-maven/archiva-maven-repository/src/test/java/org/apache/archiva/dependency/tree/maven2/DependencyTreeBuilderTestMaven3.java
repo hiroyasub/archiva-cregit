@@ -414,6 +414,17 @@ argument_list|)
 expr_stmt|;
 name|config
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getProxyConnectors
+argument_list|()
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|config
+operator|.
 name|save
 argument_list|(
 name|configuration
