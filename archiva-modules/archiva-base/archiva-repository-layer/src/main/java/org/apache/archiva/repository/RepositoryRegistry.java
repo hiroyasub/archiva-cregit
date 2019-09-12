@@ -39,63 +39,7 @@ name|archiva
 operator|.
 name|indexer
 operator|.
-name|ArchivaIndexManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|indexer
-operator|.
-name|ArchivaIndexingContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|indexer
-operator|.
-name|IndexCreationFailedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|indexer
-operator|.
-name|IndexManagerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|indexer
-operator|.
-name|IndexUpdateFailedException
+name|*
 import|;
 end_import
 
@@ -114,6 +58,22 @@ operator|.
 name|registry
 operator|.
 name|RegistryException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|events
+operator|.
+name|*
 import|;
 end_import
 
@@ -257,67 +217,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|LinkedHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
+name|*
 import|;
 end_import
 
@@ -376,7 +276,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Registry for repositories. This is the central entry point for repositories. It provides methods for  * retrieving, adding and removing repositories.  *  * The modification methods addXX and removeXX persist the changes immediately to the configuration. If the  * configuration save fails the changes are rolled back.  *  * TODO: Audit events  */
+comment|/**  * Registry for repositories. This is the central entry point for repositories. It provides methods for  * retrieving, adding and removing repositories.  *<p>  * The modification methods addXX and removeXX persist the changes immediately to the configuration. If the  * configuration save fails the changes are rolled back.  *<p>  * TODO: Audit events  */
 end_comment
 
 begin_class
@@ -454,6 +354,23 @@ decl_stmt|;
 specifier|private
 name|Map
 argument_list|<
+name|EventType
+argument_list|,
+name|List
+argument_list|<
+name|RepositoryEventListener
+argument_list|>
+argument_list|>
+name|typeListenerMap
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
+specifier|private
+name|Map
+argument_list|<
 name|String
 argument_list|,
 name|ManagedRepository
@@ -463,7 +380,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|( )
+argument_list|()
 decl_stmt|;
 specifier|private
 name|Map
@@ -493,7 +410,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|( )
+argument_list|()
 decl_stmt|;
 specifier|private
 name|Map
@@ -547,7 +464,14 @@ name|rwLock
 init|=
 operator|new
 name|ReentrantReadWriteLock
-argument_list|( )
+argument_list|()
+decl_stmt|;
+specifier|private
+specifier|volatile
+name|boolean
+name|ignoreConfigEvents
+init|=
+literal|false
 decl_stmt|;
 specifier|public
 name|void
@@ -569,15 +493,15 @@ name|PostConstruct
 specifier|private
 name|void
 name|initialize
-parameter_list|( )
+parameter_list|()
 block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|lock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -608,15 +532,10 @@ block|}
 name|managedRepositories
 operator|.
 name|clear
-argument_list|( )
+argument_list|()
 expr_stmt|;
-name|managedRepositories
-operator|.
-name|putAll
-argument_list|(
-name|getManagedRepositoriesFromConfig
-argument_list|( )
-argument_list|)
+name|updateManagedRepositoriesFromConfig
+argument_list|()
 expr_stmt|;
 for|for
 control|(
@@ -638,27 +557,34 @@ block|}
 name|remoteRepositories
 operator|.
 name|clear
-argument_list|( )
+argument_list|()
 expr_stmt|;
-name|remoteRepositories
-operator|.
-name|putAll
-argument_list|(
-name|getRemoteRepositoriesFromConfig
-argument_list|( )
-argument_list|)
+name|updateRemoteRepositoriesFromConfig
+argument_list|()
 expr_stmt|;
 name|repositoryGroups
 operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|RepositoryGroup
+argument_list|>
+name|repositoryGroups
+init|=
+name|getRepositorGroupsFromConfig
+argument_list|()
+decl_stmt|;
+name|this
+operator|.
 name|repositoryGroups
 operator|.
 name|putAll
 argument_list|(
-name|getRepositorGroupsFromConfig
-argument_list|()
+name|repositoryGroups
 argument_list|)
 expr_stmt|;
 comment|// archivaConfiguration.addChangeListener(this);
@@ -675,12 +601,27 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|unlock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
+name|pushEvent
+argument_list|(
+operator|new
+name|RepositoryRegistryEvent
+argument_list|(
+name|RepositoryRegistryEvent
+operator|.
+name|RegistryEventType
+operator|.
+name|RELOADED
+argument_list|,
+name|this
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|PreDestroy
@@ -706,6 +647,11 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+name|managedRepositories
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|RemoteRepository
@@ -723,6 +669,26 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+name|remoteRepositories
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|pushEvent
+argument_list|(
+operator|new
+name|RepositoryRegistryEvent
+argument_list|(
+name|RepositoryRegistryEvent
+operator|.
+name|RegistryEventType
+operator|.
+name|DESTROYED
+argument_list|,
+name|this
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 specifier|private
 name|Map
@@ -732,7 +698,7 @@ argument_list|,
 name|RepositoryProvider
 argument_list|>
 name|createProviderMap
-parameter_list|( )
+parameter_list|()
 block|{
 name|Map
 argument_list|<
@@ -745,7 +711,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|( )
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -770,7 +736,7 @@ range|:
 name|provider
 operator|.
 name|provides
-argument_list|( )
+argument_list|()
 control|)
 block|{
 name|map
@@ -803,7 +769,7 @@ return|return
 name|repositoryProviders
 operator|.
 name|stream
-argument_list|( )
+argument_list|()
 operator|.
 name|filter
 argument_list|(
@@ -812,7 +778,7 @@ lambda|->
 name|repositoryProvider
 operator|.
 name|provides
-argument_list|( )
+argument_list|()
 operator|.
 name|contains
 argument_list|(
@@ -821,11 +787,11 @@ argument_list|)
 argument_list|)
 operator|.
 name|findFirst
-argument_list|( )
+argument_list|()
 operator|.
 name|orElseThrow
 argument_list|(
-parameter_list|( )
+parameter_list|()
 lambda|->
 operator|new
 name|RepositoryException
@@ -838,14 +804,9 @@ argument_list|)
 return|;
 block|}
 specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|ManagedRepository
-argument_list|>
-name|getManagedRepositoriesFromConfig
-parameter_list|( )
+name|void
+name|updateManagedRepositoriesFromConfig
+parameter_list|()
 block|{
 try|try
 block|{
@@ -856,13 +817,13 @@ argument_list|>
 name|managedRepoConfigs
 init|=
 name|getArchivaConfiguration
-argument_list|( )
+argument_list|()
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 operator|.
 name|getManagedRepositories
-argument_list|( )
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -871,31 +832,8 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
-return|;
+return|return;
 block|}
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|ManagedRepository
-argument_list|>
-name|managedRepos
-init|=
-operator|new
-name|LinkedHashMap
-argument_list|<>
-argument_list|(
-name|managedRepoConfigs
-operator|.
-name|size
-argument_list|( )
-argument_list|)
-decl_stmt|;
 name|Map
 argument_list|<
 name|RepositoryType
@@ -905,7 +843,7 @@ argument_list|>
 name|providerMap
 init|=
 name|createProviderMap
-argument_list|( )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -917,7 +855,7 @@ control|)
 block|{
 if|if
 condition|(
-name|managedRepos
+name|managedRepositories
 operator|.
 name|containsKey
 argument_list|(
@@ -937,7 +875,7 @@ argument_list|,
 name|repoConfig
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -952,7 +890,7 @@ argument_list|(
 name|repoConfig
 operator|.
 name|getType
-argument_list|( )
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -982,16 +920,33 @@ argument_list|,
 name|repoConfig
 argument_list|)
 decl_stmt|;
-name|managedRepos
+name|managedRepositories
 operator|.
 name|put
 argument_list|(
 name|repo
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|,
 name|repo
+argument_list|)
+expr_stmt|;
+name|pushEvent
+argument_list|(
+operator|new
+name|LifecycleEvent
+argument_list|(
+name|LifecycleEvent
+operator|.
+name|LifecycleEventType
+operator|.
+name|REGISTERED
+argument_list|,
+name|this
+argument_list|,
+name|repo
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1010,12 +965,12 @@ argument_list|,
 name|repoConfig
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|( )
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
@@ -1023,9 +978,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-return|return
-name|managedRepos
-return|;
+return|return;
 block|}
 catch|catch
 parameter_list|(
@@ -1048,12 +1001,7 @@ name|e
 argument_list|)
 expr_stmt|;
 comment|//noinspection unchecked
-return|return
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
-return|;
+return|return;
 block|}
 block|}
 specifier|private
@@ -1093,7 +1041,7 @@ argument_list|)
 decl_stmt|;
 name|repo
 operator|.
-name|addListener
+name|register
 argument_list|(
 name|this
 argument_list|)
@@ -1111,6 +1059,22 @@ argument_list|)
 expr_stmt|;
 return|return
 name|repo
+return|;
+block|}
+specifier|private
+name|String
+name|getStagingId
+parameter_list|(
+name|String
+name|repoId
+parameter_list|)
+block|{
+return|return
+name|repoId
+operator|+
+name|StagingRepositoryFeature
+operator|.
+name|STAGING_REPO_POSTFIX
 return|;
 block|}
 annotation|@
@@ -1174,14 +1138,14 @@ name|class
 argument_list|)
 operator|.
 name|get
-argument_list|( )
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
 name|feature
 operator|.
 name|isStageRepoNeeded
-argument_list|( )
+argument_list|()
 operator|&&
 name|feature
 operator|.
@@ -1194,6 +1158,26 @@ block|{
 name|ManagedRepository
 name|stageRepo
 init|=
+name|getManagedRepository
+argument_list|(
+name|getStagingId
+argument_list|(
+name|repo
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|stageRepo
+operator|==
+literal|null
+condition|)
+block|{
+name|stageRepo
+operator|=
 name|getStagingRepository
 argument_list|(
 name|provider
@@ -1202,7 +1186,7 @@ name|cfg
 argument_list|,
 name|configuration
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|managedRepositories
 operator|.
 name|put
@@ -1212,13 +1196,6 @@ operator|.
 name|getId
 argument_list|()
 argument_list|,
-name|stageRepo
-argument_list|)
-expr_stmt|;
-name|feature
-operator|.
-name|setStagingRepository
-argument_list|(
 name|stageRepo
 argument_list|)
 expr_stmt|;
@@ -1242,6 +1219,31 @@ name|configuration
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+name|feature
+operator|.
+name|setStagingRepository
+argument_list|(
+name|stageRepo
+argument_list|)
+expr_stmt|;
+name|pushEvent
+argument_list|(
+operator|new
+name|LifecycleEvent
+argument_list|(
+name|LifecycleEvent
+operator|.
+name|LifecycleEventType
+operator|.
+name|REGISTERED
+argument_list|,
+name|this
+argument_list|,
+name|stageRepo
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 if|if
@@ -1279,6 +1281,16 @@ name|getManagedRepositoryContent
 argument_list|(
 name|repo
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|editableRepo
+operator|.
+name|getContent
+argument_list|()
+operator|.
+name|setRepository
+argument_list|(
+name|editableRepo
 argument_list|)
 expr_stmt|;
 block|}
@@ -1452,14 +1464,13 @@ name|stageRepo
 init|=
 name|getManagedRepository
 argument_list|(
+name|getStagingId
+argument_list|(
 name|baseRepoCfg
 operator|.
 name|getId
-argument_list|( )
-operator|+
-name|StagingRepositoryFeature
-operator|.
-name|STAGING_REPO_POSTFIX
+argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -1535,14 +1546,9 @@ name|stageRepo
 return|;
 block|}
 specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|RemoteRepository
-argument_list|>
-name|getRemoteRepositoriesFromConfig
-parameter_list|( )
+name|void
+name|updateRemoteRepositoriesFromConfig
+parameter_list|()
 block|{
 try|try
 block|{
@@ -1553,13 +1559,13 @@ argument_list|>
 name|remoteRepoConfigs
 init|=
 name|getArchivaConfiguration
-argument_list|( )
+argument_list|()
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 operator|.
 name|getRemoteRepositories
-argument_list|( )
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -1569,31 +1575,8 @@ literal|null
 condition|)
 block|{
 comment|//noinspection unchecked
-return|return
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
-return|;
+return|return;
 block|}
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|RemoteRepository
-argument_list|>
-name|remoteRepos
-init|=
-operator|new
-name|LinkedHashMap
-argument_list|<>
-argument_list|(
-name|remoteRepoConfigs
-operator|.
-name|size
-argument_list|( )
-argument_list|)
-decl_stmt|;
 name|Map
 argument_list|<
 name|RepositoryType
@@ -1603,7 +1586,7 @@ argument_list|>
 name|providerMap
 init|=
 name|createProviderMap
-argument_list|( )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -1623,7 +1606,7 @@ argument_list|(
 name|repoConfig
 operator|.
 name|getType
-argument_list|( )
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -1656,16 +1639,33 @@ argument_list|,
 name|repoConfig
 argument_list|)
 decl_stmt|;
-name|remoteRepos
+name|remoteRepositories
 operator|.
 name|put
 argument_list|(
 name|repoConfig
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|,
 name|remoteRepository
+argument_list|)
+expr_stmt|;
+name|pushEvent
+argument_list|(
+operator|new
+name|LifecycleEvent
+argument_list|(
+name|LifecycleEvent
+operator|.
+name|LifecycleEventType
+operator|.
+name|REGISTERED
+argument_list|,
+name|this
+argument_list|,
+name|remoteRepository
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1684,12 +1684,12 @@ argument_list|,
 name|repoConfig
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|( )
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
@@ -1697,9 +1697,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-return|return
-name|remoteRepos
-return|;
+return|return;
 block|}
 catch|catch
 parameter_list|(
@@ -1722,12 +1720,7 @@ name|e
 argument_list|)
 expr_stmt|;
 comment|//noinspection unchecked
-return|return
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
-return|;
+return|return;
 block|}
 block|}
 specifier|private
@@ -1767,7 +1760,7 @@ argument_list|)
 decl_stmt|;
 name|repo
 operator|.
-name|addListener
+name|register
 argument_list|(
 name|this
 argument_list|)
@@ -1880,7 +1873,7 @@ argument_list|,
 name|RepositoryGroup
 argument_list|>
 name|getRepositorGroupsFromConfig
-parameter_list|( )
+parameter_list|()
 block|{
 try|try
 block|{
@@ -1891,10 +1884,10 @@ argument_list|>
 name|repositoryGroupConfigurations
 init|=
 name|getArchivaConfiguration
-argument_list|( )
+argument_list|()
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 operator|.
 name|getRepositoryGroups
 argument_list|()
@@ -1928,7 +1921,7 @@ argument_list|(
 name|repositoryGroupConfigurations
 operator|.
 name|size
-argument_list|( )
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Map
@@ -1940,7 +1933,7 @@ argument_list|>
 name|providerMap
 init|=
 name|createProviderMap
-argument_list|( )
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -1960,7 +1953,7 @@ argument_list|(
 name|repoConfig
 operator|.
 name|getType
-argument_list|( )
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -1997,7 +1990,7 @@ argument_list|(
 name|repo
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|,
 name|repo
 argument_list|)
@@ -2018,12 +2011,12 @@ argument_list|,
 name|repoConfig
 operator|.
 name|getId
-argument_list|( )
+argument_list|()
 argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|( )
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
@@ -2088,7 +2081,7 @@ argument_list|)
 decl_stmt|;
 name|repositoryGroup
 operator|.
-name|addListener
+name|register
 argument_list|(
 name|this
 argument_list|)
@@ -2171,7 +2164,7 @@ block|}
 specifier|private
 name|ArchivaConfiguration
 name|getArchivaConfiguration
-parameter_list|( )
+parameter_list|()
 block|{
 return|return
 name|this
@@ -2186,15 +2179,15 @@ argument_list|<
 name|Repository
 argument_list|>
 name|getRepositories
-parameter_list|( )
+parameter_list|()
 block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|( )
+argument_list|()
 operator|.
 name|lock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -2206,18 +2199,18 @@ argument_list|(
 name|managedRepositories
 operator|.
 name|values
-argument_list|( )
+argument_list|()
 operator|.
 name|stream
-argument_list|( )
+argument_list|()
 argument_list|,
 name|remoteRepositories
 operator|.
 name|values
-argument_list|( )
+argument_list|()
 operator|.
 name|stream
-argument_list|( )
+argument_list|()
 argument_list|)
 operator|.
 name|collect
@@ -2225,7 +2218,7 @@ argument_list|(
 name|Collectors
 operator|.
 name|toList
-argument_list|( )
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -2234,10 +2227,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|( )
+argument_list|()
 operator|.
 name|unlock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -2248,7 +2241,7 @@ argument_list|<
 name|ManagedRepository
 argument_list|>
 name|getManagedRepositories
-parameter_list|( )
+parameter_list|()
 block|{
 name|rwLock
 operator|.
@@ -2264,7 +2257,7 @@ return|return
 name|uManagedRepository
 operator|.
 name|values
-argument_list|( )
+argument_list|()
 return|;
 block|}
 finally|finally
@@ -2286,7 +2279,7 @@ argument_list|<
 name|RemoteRepository
 argument_list|>
 name|getRemoteRepositories
-parameter_list|( )
+parameter_list|()
 block|{
 name|rwLock
 operator|.
@@ -2302,7 +2295,7 @@ return|return
 name|uRemoteRepositories
 operator|.
 name|values
-argument_list|( )
+argument_list|()
 return|;
 block|}
 finally|finally
@@ -2366,10 +2359,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|( )
+argument_list|()
 operator|.
 name|lock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -2465,10 +2458,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|( )
+argument_list|()
 operator|.
 name|unlock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -2484,10 +2477,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|( )
+argument_list|()
 operator|.
 name|lock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -2505,10 +2498,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|( )
+argument_list|()
 operator|.
 name|unlock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -2524,10 +2517,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|( )
+argument_list|()
 operator|.
 name|lock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -2545,10 +2538,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|( )
+argument_list|()
 operator|.
 name|unlock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -2591,6 +2584,42 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|/*      * The<code>ignoreConfigEvents</code> works only for synchronized configuration events.      * If the configuration throws async events, we cannot know, if the event is caused by this instance or another thread.      */
+specifier|private
+name|void
+name|saveConfiguration
+parameter_list|(
+name|Configuration
+name|configuration
+parameter_list|)
+throws|throws
+name|IndeterminateConfigurationException
+throws|,
+name|RegistryException
+block|{
+name|ignoreConfigEvents
+operator|=
+literal|true
+expr_stmt|;
+try|try
+block|{
+name|getArchivaConfiguration
+argument_list|()
+operator|.
+name|save
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|ignoreConfigEvents
+operator|=
+literal|false
+expr_stmt|;
+block|}
+block|}
 comment|/**      * Adds a new repository to the current list, or replaces the repository definition with      * the same id, if it exists already.      * The change is saved to the configuration immediately.      *      * @param managedRepository the new repository.      * @throws RepositoryException if the new repository could not be saved to the configuration.      */
 specifier|public
 name|ManagedRepository
@@ -2605,10 +2634,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|lock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -2695,10 +2724,10 @@ name|Configuration
 name|configuration
 init|=
 name|getArchivaConfiguration
-argument_list|( )
+argument_list|()
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|updateRepositoryReferences
 argument_list|(
@@ -2743,12 +2772,26 @@ argument_list|(
 name|newCfg
 argument_list|)
 expr_stmt|;
-name|getArchivaConfiguration
-argument_list|( )
-operator|.
-name|save
+name|saveConfiguration
 argument_list|(
 name|configuration
+argument_list|)
+expr_stmt|;
+name|pushEvent
+argument_list|(
+operator|new
+name|LifecycleEvent
+argument_list|(
+name|LifecycleEvent
+operator|.
+name|LifecycleEventType
+operator|.
+name|REGISTERED
+argument_list|,
+name|this
+argument_list|,
+name|managedRepository
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -2813,7 +2856,7 @@ operator|(
 name|e
 operator|.
 name|getMessage
-argument_list|( )
+argument_list|()
 operator|==
 literal|null
 condition|?
@@ -2835,10 +2878,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|unlock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -2856,10 +2899,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|lock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -2935,10 +2978,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|getArchivaConfiguration
-argument_list|()
-operator|.
-name|save
+name|saveConfiguration
 argument_list|(
 name|configuration
 argument_list|)
@@ -3017,14 +3057,14 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|unlock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Adds a new repository or updates the repository with the same id. The given configuration object is updated, but      * the configuration is not saved.      *      * @param managedRepositoryConfiguration the new or changed repository configuration      * @param configuration the configuration object      * @return the new or updated repository      * @throws RepositoryException if the configuration cannot be saved or updated      */
+comment|/**      * Adds a new repository or updates the repository with the same id. The given configuration object is updated, but      * the configuration is not saved.      *      * @param managedRepositoryConfiguration the new or changed repository configuration      * @param configuration                  the configuration object      * @return the new or updated repository      * @throws RepositoryException if the configuration cannot be saved or updated      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -3046,10 +3086,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|lock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -3150,7 +3190,7 @@ argument_list|)
 expr_stmt|;
 name|repo
 operator|.
-name|addListener
+name|register
 argument_list|(
 name|this
 argument_list|)
@@ -3186,6 +3226,23 @@ argument_list|,
 name|configuration
 argument_list|)
 expr_stmt|;
+name|pushEvent
+argument_list|(
+operator|new
+name|LifecycleEvent
+argument_list|(
+name|LifecycleEvent
+operator|.
+name|LifecycleEventType
+operator|.
+name|REGISTERED
+argument_list|,
+name|this
+argument_list|,
+name|repo
+argument_list|)
+argument_list|)
+expr_stmt|;
 return|return
 name|repo
 return|;
@@ -3195,10 +3252,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|unlock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -3216,10 +3273,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|lock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -3284,10 +3341,10 @@ name|Configuration
 name|configuration
 init|=
 name|getArchivaConfiguration
-argument_list|( )
+argument_list|()
 operator|.
 name|getConfiguration
-argument_list|( )
+argument_list|()
 decl_stmt|;
 name|updateRepositoryReferences
 argument_list|(
@@ -3330,10 +3387,7 @@ argument_list|(
 name|newCfg
 argument_list|)
 expr_stmt|;
-name|getArchivaConfiguration
-argument_list|( )
-operator|.
-name|save
+name|saveConfiguration
 argument_list|(
 name|configuration
 argument_list|)
@@ -3400,7 +3454,7 @@ operator|(
 name|e
 operator|.
 name|getMessage
-argument_list|( )
+argument_list|()
 operator|==
 literal|null
 condition|?
@@ -3422,10 +3476,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|unlock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -3443,10 +3497,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|lock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -3522,10 +3576,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|getArchivaConfiguration
-argument_list|()
-operator|.
-name|save
+name|saveConfiguration
 argument_list|(
 name|configuration
 argument_list|)
@@ -3604,14 +3655,14 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|unlock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Adds a new repository group or updates the repository group with the same id. The given configuration object is updated, but      * the configuration is not saved.      *      * @param repositoryGroupConfiguration the new or changed repository configuration      * @param configuration the configuration object      * @return the new or updated repository      * @throws RepositoryException if the configuration cannot be saved or updated      */
+comment|/**      * Adds a new repository group or updates the repository group with the same id. The given configuration object is updated, but      * the configuration is not saved.      *      * @param repositoryGroupConfiguration the new or changed repository configuration      * @param configuration                the configuration object      * @return the new or updated repository      * @throws RepositoryException if the configuration cannot be saved or updated      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -3633,10 +3684,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|lock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -3742,7 +3793,7 @@ argument_list|)
 expr_stmt|;
 name|repo
 operator|.
-name|addListener
+name|register
 argument_list|(
 name|this
 argument_list|)
@@ -3785,10 +3836,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|unlock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -4018,10 +4069,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|lock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -4154,6 +4205,23 @@ argument_list|(
 name|newCfg
 argument_list|)
 expr_stmt|;
+name|pushEvent
+argument_list|(
+operator|new
+name|LifecycleEvent
+argument_list|(
+name|LifecycleEvent
+operator|.
+name|LifecycleEventType
+operator|.
+name|REGISTERED
+argument_list|,
+name|this
+argument_list|,
+name|remoteRepository
+argument_list|)
+argument_list|)
+expr_stmt|;
 return|return
 name|remoteRepository
 return|;
@@ -4256,7 +4324,7 @@ operator|(
 name|e
 operator|.
 name|getMessage
-argument_list|( )
+argument_list|()
 operator|==
 literal|null
 condition|?
@@ -4278,10 +4346,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|unlock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -4299,10 +4367,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|lock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -4327,10 +4395,7 @@ argument_list|,
 name|configuration
 argument_list|)
 decl_stmt|;
-name|getArchivaConfiguration
-argument_list|()
-operator|.
-name|save
+name|saveConfiguration
 argument_list|(
 name|configuration
 argument_list|)
@@ -4371,7 +4436,7 @@ operator|(
 name|e
 operator|.
 name|getMessage
-argument_list|( )
+argument_list|()
 operator|==
 literal|null
 condition|?
@@ -4393,10 +4458,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|unlock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -4414,10 +4479,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|lock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -4493,10 +4558,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|getArchivaConfiguration
-argument_list|()
-operator|.
-name|save
+name|saveConfiguration
 argument_list|(
 name|configuration
 argument_list|)
@@ -4575,14 +4637,14 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|unlock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Adds a new repository or updates the repository with the same id. The given configuration object is updated, but      * the configuration is not saved.      *      * @param remoteRepositoryConfiguration the new or changed repository configuration      * @param configuration the configuration object      * @return the new or updated repository      * @throws RepositoryException if the configuration cannot be saved or updated      */
+comment|/**      * Adds a new repository or updates the repository with the same id. The given configuration object is updated, but      * the configuration is not saved.      *      * @param remoteRepositoryConfiguration the new or changed repository configuration      * @param configuration                 the configuration object      * @return the new or updated repository      * @throws RepositoryException if the configuration cannot be saved or updated      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -4604,10 +4666,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|lock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -4708,7 +4770,7 @@ argument_list|)
 expr_stmt|;
 name|repo
 operator|.
-name|addListener
+name|register
 argument_list|(
 name|this
 argument_list|)
@@ -4744,6 +4806,23 @@ argument_list|,
 name|configuration
 argument_list|)
 expr_stmt|;
+name|pushEvent
+argument_list|(
+operator|new
+name|LifecycleEvent
+argument_list|(
+name|LifecycleEvent
+operator|.
+name|LifecycleEventType
+operator|.
+name|REGISTERED
+argument_list|,
+name|this
+argument_list|,
+name|repo
+argument_list|)
+argument_list|)
+expr_stmt|;
 return|return
 name|repo
 return|;
@@ -4753,10 +4832,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|( )
+argument_list|()
 operator|.
 name|unlock
-argument_list|( )
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -4992,15 +5071,29 @@ name|cfg
 argument_list|)
 expr_stmt|;
 block|}
-name|getArchivaConfiguration
-argument_list|()
-operator|.
-name|save
+name|saveConfiguration
 argument_list|(
 name|configuration
 argument_list|)
 expr_stmt|;
 block|}
+name|pushEvent
+argument_list|(
+operator|new
+name|LifecycleEvent
+argument_list|(
+name|LifecycleEvent
+operator|.
+name|LifecycleEventType
+operator|.
+name|UNREGISTERED
+argument_list|,
+name|this
+argument_list|,
+name|repo
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -5218,6 +5311,23 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|pushEvent
+argument_list|(
+operator|new
+name|LifecycleEvent
+argument_list|(
+name|LifecycleEvent
+operator|.
+name|LifecycleEventType
+operator|.
+name|UNREGISTERED
+argument_list|,
+name|this
+argument_list|,
+name|repo
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -5332,10 +5442,7 @@ name|cfg
 argument_list|)
 expr_stmt|;
 block|}
-name|getArchivaConfiguration
-argument_list|()
-operator|.
-name|save
+name|saveConfiguration
 argument_list|(
 name|configuration
 argument_list|)
@@ -5684,15 +5791,29 @@ argument_list|,
 name|configuration
 argument_list|)
 expr_stmt|;
-name|getArchivaConfiguration
-argument_list|()
-operator|.
-name|save
+name|saveConfiguration
 argument_list|(
 name|configuration
 argument_list|)
 expr_stmt|;
 block|}
+name|pushEvent
+argument_list|(
+operator|new
+name|LifecycleEvent
+argument_list|(
+name|LifecycleEvent
+operator|.
+name|LifecycleEventType
+operator|.
+name|UNREGISTERED
+argument_list|,
+name|this
+argument_list|,
+name|repo
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -5826,6 +5947,23 @@ name|configuration
 argument_list|)
 expr_stmt|;
 block|}
+name|pushEvent
+argument_list|(
+operator|new
+name|LifecycleEvent
+argument_list|(
+name|LifecycleEvent
+operator|.
+name|LifecycleEventType
+operator|.
+name|UNREGISTERED
+argument_list|,
+name|this
+argument_list|,
+name|repo
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -5995,7 +6133,7 @@ argument_list|)
 decl_stmt|;
 name|cloned
 operator|.
-name|addListener
+name|register
 argument_list|(
 name|this
 argument_list|)
@@ -6169,7 +6307,7 @@ argument_list|)
 decl_stmt|;
 name|cloned
 operator|.
-name|addListener
+name|register
 argument_list|(
 name|this
 argument_list|)
@@ -6188,12 +6326,23 @@ name|ConfigurationEvent
 name|event
 parameter_list|)
 block|{
+comment|// Note: the ignoreConfigEvents flag does not work, if the config events are asynchronous.
+if|if
+condition|(
+operator|!
+name|ignoreConfigEvents
+condition|)
+block|{
+name|reload
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
 specifier|public
 name|void
-name|addListener
+name|register
 parameter_list|(
 name|RepositoryEventListener
 name|listener
@@ -6227,7 +6376,120 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|removeListener
+name|register
+parameter_list|(
+name|RepositoryEventListener
+name|listener
+parameter_list|,
+name|EventType
+name|type
+parameter_list|)
+block|{
+name|List
+argument_list|<
+name|RepositoryEventListener
+argument_list|>
+name|listeners
+decl_stmt|;
+if|if
+condition|(
+name|typeListenerMap
+operator|.
+name|containsKey
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+name|listeners
+operator|=
+name|typeListenerMap
+operator|.
+name|get
+argument_list|(
+name|type
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|listeners
+operator|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+expr_stmt|;
+name|typeListenerMap
+operator|.
+name|put
+argument_list|(
+name|type
+argument_list|,
+name|listeners
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|listeners
+operator|.
+name|contains
+argument_list|(
+name|listener
+argument_list|)
+condition|)
+block|{
+name|listeners
+operator|.
+name|add
+argument_list|(
+name|listener
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|register
+parameter_list|(
+name|RepositoryEventListener
+name|listener
+parameter_list|,
+name|Set
+argument_list|<
+name|?
+extends|extends
+name|EventType
+argument_list|>
+name|types
+parameter_list|)
+block|{
+for|for
+control|(
+name|EventType
+name|type
+range|:
+name|types
+control|)
+block|{
+name|register
+argument_list|(
+name|listener
+argument_list|,
+name|type
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|unregister
 parameter_list|(
 name|RepositoryEventListener
 name|listener
@@ -6242,6 +6504,28 @@ argument_list|(
 name|listener
 argument_list|)
 expr_stmt|;
+for|for
+control|(
+name|List
+argument_list|<
+name|RepositoryEventListener
+argument_list|>
+name|listeners
+range|:
+name|typeListenerMap
+operator|.
+name|values
+argument_list|()
+control|)
+block|{
+name|listeners
+operator|.
+name|remove
+argument_list|(
+name|listener
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -6257,6 +6541,13 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
+name|typeListenerMap
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|SuppressWarnings
@@ -6266,19 +6557,24 @@ argument_list|)
 annotation|@
 name|Override
 specifier|public
-parameter_list|<
-name|T
-parameter_list|>
 name|void
 name|raise
 parameter_list|(
-name|RepositoryEvent
-argument_list|<
-name|T
-argument_list|>
+name|Event
 name|event
 parameter_list|)
 block|{
+comment|// To avoid event cycles:
+if|if
+condition|(
+name|sameOriginator
+argument_list|(
+name|event
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 if|if
 condition|(
 name|event
@@ -6286,13 +6582,21 @@ operator|instanceof
 name|IndexCreationEvent
 condition|)
 block|{
+name|IndexCreationEvent
+name|idxEvent
+init|=
+operator|(
+name|IndexCreationEvent
+operator|)
+name|event
+decl_stmt|;
 if|if
 condition|(
 name|managedRepositories
 operator|.
 name|containsKey
 argument_list|(
-name|event
+name|idxEvent
 operator|.
 name|getRepository
 argument_list|()
@@ -6305,7 +6609,7 @@ name|remoteRepositories
 operator|.
 name|containsKey
 argument_list|(
-name|event
+name|idxEvent
 operator|.
 name|getRepository
 argument_list|()
@@ -6321,7 +6625,7 @@ init|=
 operator|(
 name|EditableRepository
 operator|)
-name|event
+name|idxEvent
 operator|.
 name|getRepository
 argument_list|()
@@ -6415,13 +6719,141 @@ block|}
 block|}
 block|}
 block|}
+comment|// We propagate all events to our listeners
+name|pushEvent
+argument_list|(
+name|event
+operator|.
+name|recreate
+argument_list|(
+name|this
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+specifier|private
+name|boolean
+name|sameOriginator
+parameter_list|(
+name|Event
+name|event
+parameter_list|)
+block|{
+if|if
+condition|(
+name|event
+operator|.
+name|getOriginator
+argument_list|()
+operator|==
+name|this
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+if|else if
+condition|(
+name|event
+operator|.
+name|hasPreviousEvent
+argument_list|()
+condition|)
+block|{
+return|return
+name|sameOriginator
+argument_list|(
+name|event
+operator|.
+name|getPreviousEvent
+argument_list|()
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
+specifier|private
+name|void
+name|pushEvent
+parameter_list|(
+name|Event
+argument_list|<
+name|RepositoryRegistry
+argument_list|>
+name|event
+parameter_list|)
+block|{
+name|callListeners
+argument_list|(
+name|event
+argument_list|,
+name|listeners
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|typeListenerMap
+operator|.
+name|containsKey
+argument_list|(
+name|event
+operator|.
+name|getType
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|callListeners
+argument_list|(
+name|event
+argument_list|,
+name|typeListenerMap
+operator|.
+name|get
+argument_list|(
+name|event
+operator|.
+name|getType
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+specifier|private
+name|void
+name|callListeners
+parameter_list|(
+specifier|final
+name|Event
+argument_list|<
+name|RepositoryRegistry
+argument_list|>
+name|event
+parameter_list|,
+specifier|final
+name|List
+argument_list|<
+name|RepositoryEventListener
+argument_list|>
+name|evtListeners
+parameter_list|)
+block|{
 for|for
 control|(
 name|RepositoryEventListener
 name|listener
 range|:
-name|listeners
+name|evtListeners
 control|)
+block|{
+try|try
 block|{
 name|listener
 operator|.
@@ -6430,6 +6862,30 @@ argument_list|(
 name|event
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Could not raise event {} on listener {}: {}"
+argument_list|,
+name|event
+argument_list|,
+name|listener
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}

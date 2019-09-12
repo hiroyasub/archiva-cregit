@@ -59,6 +59,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|events
+operator|.
+name|RepositoryEventListener
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io

@@ -27,7 +27,9 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|RepositoryEvent
+name|events
+operator|.
+name|Event
 import|;
 end_import
 
@@ -40,6 +42,8 @@ operator|.
 name|archiva
 operator|.
 name|repository
+operator|.
+name|events
 operator|.
 name|RepositoryEventListener
 import|;
@@ -203,17 +207,11 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-specifier|protected
-parameter_list|<
-name|T
-parameter_list|>
+specifier|public
 name|void
-name|raiseEvent
+name|pushEvent
 parameter_list|(
-name|RepositoryEvent
-argument_list|<
-name|T
-argument_list|>
+name|Event
 name|event
 parameter_list|)
 block|{
