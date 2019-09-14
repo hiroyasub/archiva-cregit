@@ -9,7 +9,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|features
+name|events
 package|;
 end_package
 
@@ -28,38 +28,6 @@ operator|.
 name|repository
 operator|.
 name|Repository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|events
-operator|.
-name|EventType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|events
-operator|.
-name|RepositoryValueEvent
 import|;
 end_import
 

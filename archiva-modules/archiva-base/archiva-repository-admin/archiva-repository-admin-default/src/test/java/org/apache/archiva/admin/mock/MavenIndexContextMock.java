@@ -211,6 +211,12 @@ implements|implements
 name|ArchivaIndexingContext
 block|{
 specifier|private
+name|boolean
+name|open
+init|=
+literal|true
+decl_stmt|;
+specifier|private
 name|IndexingContext
 name|delegate
 decl_stmt|;
@@ -415,6 +421,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|open
+operator|=
+literal|false
+expr_stmt|;
 try|try
 block|{
 name|delegate
@@ -443,6 +453,10 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|open
+operator|=
+literal|false
+expr_stmt|;
 try|try
 block|{
 name|delegate
@@ -461,6 +475,17 @@ parameter_list|)
 block|{
 comment|// Ignore missing directory
 block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isOpen
+parameter_list|()
+block|{
+return|return
+name|open
+return|;
 block|}
 annotation|@
 name|Override

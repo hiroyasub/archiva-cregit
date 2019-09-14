@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Created by martin on 30.09.17.  */
+comment|/**  *  * The repository feature holds information about specific features. The may not be available by all repository implementations.  * Features should be simple objects for storing additional data, the should not implement too much functionality.  * Additional functionality the uses the information in the feature objects should be implemented in the specific repository  * provider and repository implementations, or in the repository registry if it is generic.  *  * But features may throw events, if it's data is changed.  *  *  * This interface is to get access to a concrete feature by accessing the generic interface.  *  * @param<T> the concrete feature implementation.  *  * @author Martin Stockhammer<martin_s@apache.org>  * @since 3.0  */
 end_comment
 
 begin_interface
@@ -34,6 +34,7 @@ name|T
 parameter_list|>
 parameter_list|>
 block|{
+comment|/**      * Unique Identifier of this feature. Each feature implementation has its own unique identifier.      *      * @return the identifier string which should be unique for the implementation class.      */
 specifier|default
 name|String
 name|getId
@@ -49,6 +50,7 @@ name|getName
 argument_list|()
 return|;
 block|}
+comment|/**      * Tells, if this instance is a feature of the given identifier.      *      * @param featureId the feature identifier string to check      * @return true, if this instance is a instance with the feature id, otherwise<code>false</code>      */
 specifier|default
 name|boolean
 name|isFeature
@@ -72,6 +74,7 @@ name|featureId
 argument_list|)
 return|;
 block|}
+comment|/**      * Tells, if the this instance is a feature of the given feature class.      *      * @param clazz The class to check against.      * @param<K> the concrete feature implementation.      * @return      */
 specifier|default
 parameter_list|<
 name|K
@@ -103,6 +106,7 @@ name|clazz
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns the concrete feature instance.      * @return the feature instance.      */
 name|T
 name|get
 parameter_list|()

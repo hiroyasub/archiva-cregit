@@ -2617,50 +2617,9 @@ argument_list|(
 name|TEST_REPO_1
 argument_list|)
 expr_stmt|;
-name|EasyMock
-operator|.
-name|expect
-argument_list|(
-name|archivaConfig
-operator|.
-name|getDefaultLocale
-argument_list|()
-argument_list|)
-operator|.
-name|andReturn
-argument_list|(
-name|Locale
-operator|.
-name|getDefault
-argument_list|( )
-argument_list|)
-operator|.
-name|anyTimes
-argument_list|()
-expr_stmt|;
-name|EasyMock
-operator|.
-name|expect
-argument_list|(
-name|archivaConfig
-operator|.
-name|getConfiguration
-argument_list|()
-argument_list|)
-operator|.
-name|andReturn
-argument_list|(
-name|config
-argument_list|)
-operator|.
-name|anyTimes
-argument_list|()
-expr_stmt|;
-name|archivaConfigControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
+comment|// EasyMock.expect( archivaConfig.getDefaultLocale() ).andReturn( Locale.getDefault( ) ).anyTimes();
+comment|// EasyMock.expect( archivaConfig.getConfiguration()).andReturn(config).anyTimes();
+comment|// archivaConfigControl.replay();
 name|SearchResults
 name|results
 init|=
@@ -2727,11 +2686,7 @@ argument_list|(
 literal|"non-existing-repo"
 argument_list|)
 expr_stmt|;
-name|archivaConfigControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
+comment|// archivaConfigControl.replay();
 name|SearchResults
 name|results
 init|=
@@ -3827,50 +3782,9 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|EasyMock
-operator|.
-name|expect
-argument_list|(
-name|archivaConfig
-operator|.
-name|getDefaultLocale
-argument_list|()
-argument_list|)
-operator|.
-name|andReturn
-argument_list|(
-name|Locale
-operator|.
-name|getDefault
-argument_list|( )
-argument_list|)
-operator|.
-name|anyTimes
-argument_list|()
-expr_stmt|;
-name|EasyMock
-operator|.
-name|expect
-argument_list|(
-name|archivaConfig
-operator|.
-name|getConfiguration
-argument_list|()
-argument_list|)
-operator|.
-name|andReturn
-argument_list|(
-name|config
-argument_list|)
-operator|.
-name|anyTimes
-argument_list|()
-expr_stmt|;
-name|archivaConfigControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
+comment|// EasyMock.expect( archivaConfig.getDefaultLocale() ).andReturn( Locale.getDefault( ) ).anyTimes();
+comment|// EasyMock.expect( archivaConfig.getConfiguration()).andReturn(config).anyTimes();
+comment|// archivaConfigControl.replay();
 name|search
 operator|.
 name|search
@@ -3989,50 +3903,9 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|EasyMock
-operator|.
-name|expect
-argument_list|(
-name|archivaConfig
-operator|.
-name|getDefaultLocale
-argument_list|()
-argument_list|)
-operator|.
-name|andReturn
-argument_list|(
-name|Locale
-operator|.
-name|getDefault
-argument_list|( )
-argument_list|)
-operator|.
-name|anyTimes
-argument_list|()
-expr_stmt|;
-name|EasyMock
-operator|.
-name|expect
-argument_list|(
-name|archivaConfig
-operator|.
-name|getConfiguration
-argument_list|()
-argument_list|)
-operator|.
-name|andReturn
-argument_list|(
-name|config
-argument_list|)
-operator|.
-name|anyTimes
-argument_list|()
-expr_stmt|;
-name|archivaConfigControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
+comment|// EasyMock.expect( archivaConfig.getDefaultLocale() ).andReturn( Locale.getDefault( ) ).anyTimes();
+comment|// EasyMock.expect( archivaConfig.getConfiguration()).andReturn(config).anyTimes();
+comment|// archivaConfigControl.replay();
 name|search
 operator|.
 name|search
@@ -4819,50 +4692,9 @@ argument_list|(
 name|selectedRepos
 argument_list|)
 expr_stmt|;
-name|EasyMock
-operator|.
-name|expect
-argument_list|(
-name|archivaConfig
-operator|.
-name|getDefaultLocale
-argument_list|()
-argument_list|)
-operator|.
-name|andReturn
-argument_list|(
-name|Locale
-operator|.
-name|getDefault
-argument_list|( )
-argument_list|)
-operator|.
-name|anyTimes
-argument_list|()
-expr_stmt|;
-name|EasyMock
-operator|.
-name|expect
-argument_list|(
-name|archivaConfig
-operator|.
-name|getConfiguration
-argument_list|()
-argument_list|)
-operator|.
-name|andReturn
-argument_list|(
-name|config
-argument_list|)
-operator|.
-name|anyTimes
-argument_list|()
-expr_stmt|;
-name|archivaConfigControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
+comment|// EasyMock.expect( archivaConfig.getDefaultLocale() ).andReturn( Locale.getDefault( ) ).anyTimes();
+comment|// EasyMock.expect( archivaConfig.getConfiguration()).andReturn(config).anyTimes();
+comment|// archivaConfigControl.replay();
 name|SearchResults
 name|results
 init|=
@@ -5373,27 +5205,7 @@ argument_list|(
 literal|300
 argument_list|)
 expr_stmt|;
-name|EasyMock
-operator|.
-name|expect
-argument_list|(
-name|archivaConfig
-operator|.
-name|getDefaultLocale
-argument_list|()
-argument_list|)
-operator|.
-name|andReturn
-argument_list|(
-name|Locale
-operator|.
-name|getDefault
-argument_list|( )
-argument_list|)
-operator|.
-name|anyTimes
-argument_list|()
-expr_stmt|;
+comment|// EasyMock.expect( archivaConfig.getDefaultLocale() ).andReturn( Locale.getDefault( ) ).anyTimes();
 name|EasyMock
 operator|.
 name|expect

@@ -268,6 +268,11 @@ name|void
 name|close
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the current status of this repository.      *      * @return<code>true</code>, if repository has not been closed, otherwise<code>false</code>      */
+name|boolean
+name|isOpen
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

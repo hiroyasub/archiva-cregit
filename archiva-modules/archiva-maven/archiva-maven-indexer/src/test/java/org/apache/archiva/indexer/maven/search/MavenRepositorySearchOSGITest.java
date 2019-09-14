@@ -249,27 +249,7 @@ name|TEST_REPO_1
 argument_list|)
 decl_stmt|;
 comment|// search artifactId
-name|EasyMock
-operator|.
-name|expect
-argument_list|(
-name|archivaConfig
-operator|.
-name|getDefaultLocale
-argument_list|()
-argument_list|)
-operator|.
-name|andReturn
-argument_list|(
-name|Locale
-operator|.
-name|getDefault
-argument_list|( )
-argument_list|)
-operator|.
-name|anyTimes
-argument_list|()
-expr_stmt|;
+comment|// EasyMock.expect( archivaConfig.getDefaultLocale() ).andReturn( Locale.getDefault( ) ).anyTimes();
 name|EasyMock
 operator|.
 name|expect

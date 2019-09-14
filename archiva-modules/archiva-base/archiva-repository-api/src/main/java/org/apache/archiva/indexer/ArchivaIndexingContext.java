@@ -154,6 +154,11 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Returns the status of this context. This method will return<code>false</code>, after the {@link #close()} method      * has been called.      *      * @return<code>true</code>, if the<code>close()</code> method has not been called, otherwise<code>false</code>      */
+name|boolean
+name|isOpen
+parameter_list|()
+function_decl|;
 comment|/**      * Removes all entries from the index. After this method finished,      * isEmpty() should return true.      * @throws IOException      */
 name|void
 name|purge

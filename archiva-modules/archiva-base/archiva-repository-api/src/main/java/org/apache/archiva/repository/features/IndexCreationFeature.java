@@ -43,6 +43,22 @@ name|repository
 operator|.
 name|events
 operator|.
+name|IndexCreationEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|events
+operator|.
 name|RepositoryEventListener
 import|;
 end_import
@@ -130,7 +146,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * This feature provides some information about index creation.  *  */
+comment|/**  *  * This feature provides information about index creation.  *  * Repositories that support this feature are able to create indexes and download them from remote repositories.  *  * Repositories may have a normal and packed index. A normal index is used by repository search utilities, the packed  * index is for downloading purpose.  *  * A index may have a remote and a local representation. The remote representation is used for downloading and  * updating the local representation.  *  * The feature is throwing a {@link IndexCreationEvent}, if the URI of the index has been changed.  *  */
 end_comment
 
 begin_class
@@ -175,7 +191,7 @@ specifier|public
 name|IndexCreationFeature
 parameter_list|(
 name|Repository
-name|repoId
+name|repository
 parameter_list|,
 name|RepositoryEventListener
 name|listener
@@ -190,7 +206,7 @@ name|this
 operator|.
 name|repo
 operator|=
-name|repoId
+name|repository
 expr_stmt|;
 try|try
 block|{
@@ -316,7 +332,7 @@ operator|=
 name|skipPackedIndexCreation
 expr_stmt|;
 block|}
-comment|/**      * Returns the path that is used to store the index.      * @return the uri (may be relative or absolute)      */
+comment|/**      * Returns the path that is used to store the index. The path may be a absolute URI or relative to the      * base URI of the repository.      *      * @return the uri (may be relative or absolute)      */
 specifier|public
 name|URI
 name|getIndexPath
@@ -326,7 +342,7 @@ return|return
 name|indexPath
 return|;
 block|}
-comment|/**      * Sets the path that is used to store the index.      * @param indexPath the uri to the index path (may be relative)      */
+comment|/**      * Sets the path that is used to store the index. The path may be either absolute or a      * path that is relative to the repository storage path (either a local or remote path).      *      * @param indexPath the uri to the index path (may be relative)      */
 specifier|public
 name|void
 name|setIndexPath
@@ -334,6 +350,31 @@ parameter_list|(
 name|URI
 name|indexPath
 parameter_list|)
+block|{
+if|if
+condition|(
+operator|(
+name|this
+operator|.
+name|indexPath
+operator|==
+literal|null
+operator|&&
+name|indexPath
+operator|!=
+literal|null
+operator|)
+operator|||
+operator|!
+name|this
+operator|.
+name|indexPath
+operator|.
+name|equals
+argument_list|(
+name|indexPath
+argument_list|)
+condition|)
 block|{
 name|URI
 name|oldVal
@@ -367,6 +408,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Returns true, if this repository has a index defined.      *      * @return<code>true</code>, if a index path is set, otherwise<code>false</code>      */
 specifier|public
 name|boolean
 name|hasIndex
@@ -403,7 +446,7 @@ return|return
 name|localIndexPath
 return|;
 block|}
-comment|/**      * Sets the path where the index is stored physically. This method should only be used by the      * MavenIndexProvider implementations.      *      * @param localIndexPath      */
+comment|/**      * Sets the path where the index is stored locally.      *      * @param localIndexPath      */
 specifier|public
 name|void
 name|setLocalIndexPath
@@ -429,7 +472,7 @@ return|return
 name|packedIndexPath
 return|;
 block|}
-comment|/**      * Sets the path (relative or absolute) of the packed index.      * @param packedIndexPath      */
+comment|/**      * Sets the path (relative or absolute) of the packed index.      *      * Throws a {@link IndexCreationEvent.Index#PACKED_INDEX_URI_CHANGE}, if the value changes.      *      * @param packedIndexPath the new path uri for the packed index      */
 specifier|public
 name|void
 name|setPackedIndexPath
