@@ -5129,7 +5129,7 @@ name|repo
 operator|.
 name|resolve
 argument_list|(
-literal|".index"
+literal|".indexer"
 argument_list|)
 decl_stmt|;
 name|FileUtils
