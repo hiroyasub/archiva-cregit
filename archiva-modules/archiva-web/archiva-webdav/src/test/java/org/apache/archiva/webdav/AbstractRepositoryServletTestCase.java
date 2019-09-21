@@ -1286,11 +1286,19 @@ block|}
 block|}
 finally|finally
 block|{
+if|if
+condition|(
+name|ctx
+operator|!=
+literal|null
+condition|)
+block|{
 name|ctx
 operator|.
 name|close
-argument_list|(  )
+argument_list|( )
 expr_stmt|;
+block|}
 block|}
 name|CacheManager
 operator|.
@@ -3258,7 +3266,7 @@ name|utils
 operator|.
 name|FileUtils
 operator|.
-name|deleteDirectory
+name|deleteQuietly
 argument_list|(
 name|repoRootInternal
 argument_list|)
@@ -3286,7 +3294,7 @@ name|utils
 operator|.
 name|FileUtils
 operator|.
-name|deleteDirectory
+name|deleteQuietly
 argument_list|(
 name|repoRootLegacy
 argument_list|)
@@ -3324,7 +3332,7 @@ name|utils
 operator|.
 name|FileUtils
 operator|.
-name|deleteDirectory
+name|deleteQuietly
 argument_list|(
 name|Paths
 operator|.

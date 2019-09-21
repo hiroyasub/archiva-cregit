@@ -321,6 +321,13 @@ argument_list|(
 name|archivaConfiguration
 argument_list|)
 expr_stmt|;
+name|repositoryRegistry
+operator|.
+name|removeRepository
+argument_list|(
+name|REPOID_INTERNAL
+argument_list|)
+expr_stmt|;
 name|org
 operator|.
 name|apache
@@ -513,13 +520,13 @@ name|path
 init|=
 name|REQUEST_PATH
 operator|+
-literal|".index/filecontent/segments.gen"
+literal|".indexer/filecontent/segments.gen"
 decl_stmt|;
 name|populateRepo
 argument_list|(
 name|repoRootInternal
 argument_list|,
-literal|".index/filecontent/segments.gen"
+literal|".indexer/filecontent/segments.gen"
 argument_list|,
 literal|"index file"
 argument_list|)
@@ -574,7 +581,7 @@ name|path
 init|=
 name|REQUEST_PATH
 operator|+
-literal|".index/filecontent/foo.bar"
+literal|".indexer/filecontent/foo.bar"
 decl_stmt|;
 name|WebRequest
 name|request
