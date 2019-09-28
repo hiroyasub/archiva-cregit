@@ -19,7 +19,19 @@ begin_import
 import|import
 name|org
 operator|.
-name|dom4j
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
 operator|.
 name|Element
 import|;
@@ -29,9 +41,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|w3c
 operator|.
-name|Test
+name|dom
+operator|.
+name|Node
 import|;
 end_import
 
@@ -84,7 +98,7 @@ name|assertElementTexts
 parameter_list|(
 name|List
 argument_list|<
-name|Element
+name|Node
 argument_list|>
 name|elementList
 parameter_list|,
@@ -120,7 +134,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|Element
+name|Node
 name|element
 range|:
 name|elementList
@@ -132,7 +146,10 @@ name|add
 argument_list|(
 name|element
 operator|.
-name|getTextTrim
+name|getTextContent
+argument_list|()
+operator|.
+name|trim
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -210,7 +227,7 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|Element
+name|Node
 argument_list|>
 name|fruits
 init|=
@@ -270,7 +287,7 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|Element
+name|Node
 argument_list|>
 name|names
 init|=
@@ -326,7 +343,7 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|Element
+name|Node
 argument_list|>
 name|names
 init|=
@@ -382,7 +399,7 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|Element
+name|Node
 argument_list|>
 name|names
 init|=
@@ -445,6 +462,9 @@ expr_stmt|;
 name|Element
 name|groupId
 init|=
+operator|(
+name|Element
+operator|)
 name|reader
 operator|.
 name|getElement
@@ -463,7 +483,10 @@ literal|"org.codehaus.mojo"
 argument_list|,
 name|groupId
 operator|.
-name|getTextTrim
+name|getTextContent
+argument_list|()
+operator|.
+name|trim
 argument_list|()
 argument_list|)
 expr_stmt|;

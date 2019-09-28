@@ -1143,18 +1143,6 @@ argument_list|(
 literal|"target/test-classes/retrievedMetadataFile.xml"
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|response
-operator|.
-name|getContentAsString
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|org
 operator|.
 name|apache
@@ -1357,7 +1345,7 @@ argument_list|)
 operator|.
 name|startsWith
 argument_list|(
-literal|"add113b0d7f8c6adb92a5015a7a3701081edf998"
+literal|"f8a7a858a46887368adf0b30874de1f807d91453"
 argument_list|)
 expr_stmt|;
 comment|// request the md5 checksum of the metadata
@@ -1400,7 +1388,7 @@ argument_list|)
 operator|.
 name|startsWith
 argument_list|(
-literal|"5b85ea4aa5f52bb76760041a52f98de8"
+literal|"cec864b66849153dd45fddb7cdde12b2"
 argument_list|)
 expr_stmt|;
 block|}
