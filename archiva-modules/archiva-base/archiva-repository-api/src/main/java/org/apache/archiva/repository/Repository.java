@@ -41,7 +41,7 @@ name|repository
 operator|.
 name|events
 operator|.
-name|RepositoryEventHandler
+name|RepositoryEventSource
 import|;
 end_import
 
@@ -132,7 +132,7 @@ specifier|public
 interface|interface
 name|Repository
 extends|extends
-name|RepositoryEventHandler
+name|RepositoryEventSource
 extends|,
 name|RepositoryStorage
 block|{
