@@ -7,7 +7,7 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|repository
+name|metadata
 operator|.
 name|audit
 package|;
@@ -32,22 +32,6 @@ operator|.
 name|facets
 operator|.
 name|AuditEvent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|events
-operator|.
-name|AuditListener
 import|;
 end_import
 

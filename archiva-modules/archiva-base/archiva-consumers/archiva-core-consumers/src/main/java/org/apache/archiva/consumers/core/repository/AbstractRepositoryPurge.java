@@ -153,9 +153,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|repository
+name|metadata
 operator|.
-name|event
+name|audit
 operator|.
 name|RepositoryListener
 import|;

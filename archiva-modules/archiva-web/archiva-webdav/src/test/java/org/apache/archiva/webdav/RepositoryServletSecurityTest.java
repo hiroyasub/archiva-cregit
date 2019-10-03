@@ -235,7 +235,7 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|repository
+name|metadata
 operator|.
 name|audit
 operator|.
