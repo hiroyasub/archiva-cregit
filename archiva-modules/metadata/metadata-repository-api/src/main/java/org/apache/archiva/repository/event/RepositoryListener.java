@@ -9,7 +9,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|events
+name|event
 package|;
 end_package
 

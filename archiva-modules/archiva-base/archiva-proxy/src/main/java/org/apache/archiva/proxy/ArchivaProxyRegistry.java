@@ -211,9 +211,7 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|repository
-operator|.
-name|events
+name|event
 operator|.
 name|EventHandler
 import|;
@@ -229,7 +227,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|events
+name|event
 operator|.
 name|RepositoryRegistryEvent
 import|;

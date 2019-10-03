@@ -235,7 +235,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|events
+name|event
 operator|.
 name|RepositoryListener
 import|;

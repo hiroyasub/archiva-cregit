@@ -19,51 +19,59 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|archiva
-operator|.
-name|event
-operator|.
-name|Event
+name|Test
 import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|util
+name|junit
 operator|.
-name|EventListener
+name|Assert
+operator|.
+name|*
 import|;
 end_import
 
 begin_comment
-comment|/**  * A listener that accepts events.  */
+comment|/**  * @author Martin Stockhammer<martin_s@apache.org>  */
 end_comment
 
-begin_interface
+begin_class
 specifier|public
-interface|interface
-name|EventHandler
-parameter_list|<
-name|T
-extends|extends
-name|Event
-parameter_list|>
-extends|extends
-name|EventListener
+class|class
+name|EventManagerTest
 block|{
+annotation|@
+name|Test
+specifier|public
 name|void
-name|handle
-parameter_list|(
-name|T
-name|event
-parameter_list|)
-function_decl|;
+name|registerEventHandler
+parameter_list|( )
+block|{
 block|}
-end_interface
+annotation|@
+name|Test
+specifier|public
+name|void
+name|unregisterEventHandler
+parameter_list|( )
+block|{
+block|}
+annotation|@
+name|Test
+specifier|public
+name|void
+name|fireEvent
+parameter_list|( )
+block|{
+block|}
+block|}
+end_class
 
 end_unit
 

@@ -169,7 +169,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|events
+name|event
 operator|.
 name|RepositoryListener
 import|;
@@ -474,18 +474,6 @@ operator|.
 name|Mockito
 operator|.
 name|mock
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
-operator|.
-name|when
 import|;
 end_import
 

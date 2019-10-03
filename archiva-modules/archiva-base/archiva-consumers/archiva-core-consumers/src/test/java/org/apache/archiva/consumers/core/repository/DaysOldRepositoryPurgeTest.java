@@ -45,7 +45,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|events
+name|event
 operator|.
 name|RepositoryListener
 import|;
@@ -64,22 +64,6 @@ operator|.
 name|features
 operator|.
 name|ArtifactCleanupFeature
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang3
-operator|.
-name|time
-operator|.
-name|DateUtils
 import|;
 end_import
 
