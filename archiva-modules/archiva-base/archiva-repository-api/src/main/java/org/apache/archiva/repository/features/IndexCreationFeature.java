@@ -43,7 +43,7 @@ name|repository
 operator|.
 name|events
 operator|.
-name|IndexCreationEvent
+name|RepositoryIndexEvent
 import|;
 end_import
 
@@ -59,7 +59,7 @@ name|repository
 operator|.
 name|events
 operator|.
-name|RepositoryEventListener
+name|EventHandler
 import|;
 end_import
 
@@ -146,7 +146,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * This feature provides information about index creation.  *  * Repositories that support this feature are able to create indexes and download them from remote repositories.  *  * Repositories may have a normal and packed index. A normal index is used by repository search utilities, the packed  * index is for downloading purpose.  *  * A index may have a remote and a local representation. The remote representation is used for downloading and  * updating the local representation.  *  * The feature is throwing a {@link IndexCreationEvent}, if the URI of the index has been changed.  *  */
+comment|/**  *  * This feature provides information about index creation.  *  * Repositories that support this feature are able to create indexes and download them from remote repositories.  *  * Repositories may have a normal and packed index. A normal index is used by repository search utilities, the packed  * index is for downloading purpose.  *  * A index may have a remote and a local representation. The remote representation is used for downloading and  * updating the local representation.  *  * The feature is throwing a {@link RepositoryIndexEvent}, if the URI of the index has been changed.  *  */
 end_comment
 
 begin_class
@@ -193,7 +193,7 @@ parameter_list|(
 name|Repository
 name|repository
 parameter_list|,
-name|RepositoryEventListener
+name|EventHandler
 name|listener
 parameter_list|)
 block|{
@@ -391,7 +391,7 @@ name|indexPath
 expr_stmt|;
 name|pushEvent
 argument_list|(
-name|IndexCreationEvent
+name|RepositoryIndexEvent
 operator|.
 name|indexUriChange
 argument_list|(
@@ -472,7 +472,7 @@ return|return
 name|packedIndexPath
 return|;
 block|}
-comment|/**      * Sets the path (relative or absolute) of the packed index.      *      * Throws a {@link IndexCreationEvent.Index#PACKED_INDEX_URI_CHANGE}, if the value changes.      *      * @param packedIndexPath the new path uri for the packed index      */
+comment|/**      * Sets the path (relative or absolute) of the packed index.      *      * Throws a {@link RepositoryIndexEvent.Index#PACKED_INDEX_URI_CHANGE}, if the value changes.      *      * @param packedIndexPath the new path uri for the packed index      */
 specifier|public
 name|void
 name|setPackedIndexPath
@@ -496,7 +496,7 @@ name|packedIndexPath
 expr_stmt|;
 name|pushEvent
 argument_list|(
-name|IndexCreationEvent
+name|RepositoryIndexEvent
 operator|.
 name|packedIndexUriChange
 argument_list|(

@@ -45,7 +45,7 @@ name|repository
 operator|.
 name|events
 operator|.
-name|RepositoryEventListener
+name|EventHandler
 import|;
 end_import
 
@@ -87,7 +87,7 @@ block|{
 specifier|private
 name|List
 argument_list|<
-name|RepositoryEventListener
+name|EventHandler
 argument_list|>
 name|listener
 init|=
@@ -102,7 +102,7 @@ block|{
 block|}
 name|AbstractFeature
 parameter_list|(
-name|RepositoryEventListener
+name|EventHandler
 name|listener
 parameter_list|)
 block|{
@@ -120,7 +120,7 @@ name|AbstractFeature
 parameter_list|(
 name|Collection
 argument_list|<
-name|RepositoryEventListener
+name|EventHandler
 argument_list|>
 name|listeners
 parameter_list|)
@@ -139,7 +139,7 @@ specifier|public
 name|void
 name|addListener
 parameter_list|(
-name|RepositoryEventListener
+name|EventHandler
 name|listener
 parameter_list|)
 block|{
@@ -180,7 +180,7 @@ specifier|public
 name|void
 name|removeListener
 parameter_list|(
-name|RepositoryEventListener
+name|EventHandler
 name|listener
 parameter_list|)
 block|{
@@ -217,7 +217,7 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|RepositoryEventListener
+name|EventHandler
 name|listr
 range|:
 name|listener
@@ -225,7 +225,7 @@ control|)
 block|{
 name|listr
 operator|.
-name|raise
+name|handle
 argument_list|(
 name|event
 argument_list|)

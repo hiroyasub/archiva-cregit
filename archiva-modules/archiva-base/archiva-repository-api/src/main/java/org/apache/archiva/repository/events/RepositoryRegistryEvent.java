@@ -17,6 +17,10 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *  http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
+begin_comment
+comment|/**  * Repository registry events are raised by the repository registry itself.  */
+end_comment
+
 begin_class
 specifier|public
 class|class
@@ -24,6 +28,16 @@ name|RepositoryRegistryEvent
 extends|extends
 name|Event
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|4740127827269612094L
+decl_stmt|;
+comment|/**      * All repository registry events      */
 specifier|public
 specifier|static
 name|EventType
@@ -35,13 +49,14 @@ init|=
 operator|new
 name|EventType
 argument_list|(
-name|Event
+name|EventType
 operator|.
-name|ANY
+name|ROOT
 argument_list|,
 literal|"REGISTRY"
 argument_list|)
 decl_stmt|;
+comment|/**      * When the registry has reloaded the registry data from the configuration      */
 specifier|public
 specifier|static
 name|EventType
@@ -58,6 +73,7 @@ argument_list|,
 literal|"REGISTRY.RELOADED"
 argument_list|)
 decl_stmt|;
+comment|/**      * When the registry was destroyed. Repository instances may still be referenced, but are not updated.      */
 specifier|public
 specifier|static
 name|EventType
@@ -72,6 +88,23 @@ argument_list|(
 name|ANY
 argument_list|,
 literal|"REGISTRY.DESTROYED"
+argument_list|)
+decl_stmt|;
+comment|/**      * When the registry was initialized      */
+specifier|public
+specifier|static
+name|EventType
+argument_list|<
+name|RepositoryRegistryEvent
+argument_list|>
+name|INITIALIZED
+init|=
+operator|new
+name|EventType
+argument_list|(
+name|ANY
+argument_list|,
+literal|"REGISTRY.INITIALIZED"
 argument_list|)
 decl_stmt|;
 specifier|public

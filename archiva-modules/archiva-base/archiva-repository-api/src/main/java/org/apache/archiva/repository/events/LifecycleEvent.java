@@ -31,6 +31,10 @@ name|Repository
 import|;
 end_import
 
+begin_comment
+comment|/**  * Raises events about the repository lifecycle. The following events are raised:  *<ul>  *<li>REGISTERED: a repository has been registered by the repository registry</li>  *<li>UNREGISTERED: a repository has been removed by the repository registry</li>  *<li>UPDATED: A repository attribute was updated</li>  *</ul>  */
+end_comment
+
 begin_class
 specifier|public
 class|class
@@ -38,6 +42,15 @@ name|LifecycleEvent
 extends|extends
 name|RepositoryEvent
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|2520982087439428714L
+decl_stmt|;
 specifier|public
 specifier|static
 name|EventType

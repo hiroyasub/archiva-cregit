@@ -215,7 +215,7 @@ name|repository
 operator|.
 name|events
 operator|.
-name|RepositoryEventListener
+name|EventHandler
 import|;
 end_import
 
@@ -342,7 +342,7 @@ name|ArchivaProxyRegistry
 implements|implements
 name|ProxyRegistry
 implements|,
-name|RepositoryEventListener
+name|EventHandler
 argument_list|<
 name|RepositoryRegistryEvent
 argument_list|>
@@ -504,7 +504,7 @@ argument_list|()
 expr_stmt|;
 name|repositoryRegistry
 operator|.
-name|register
+name|registerEventHandler
 argument_list|(
 name|RepositoryRegistryEvent
 operator|.
@@ -1260,7 +1260,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|raise
+name|handle
 parameter_list|(
 name|RepositoryRegistryEvent
 name|event

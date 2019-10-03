@@ -31,6 +31,10 @@ name|Repository
 import|;
 end_import
 
+begin_comment
+comment|/**  * A repository event is specific to a repository and holds a reference to the repository that  * is related to this event.  */
+end_comment
+
 begin_class
 specifier|public
 class|class
@@ -38,6 +42,14 @@ name|RepositoryEvent
 extends|extends
 name|Event
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|4676673476606414834L
+decl_stmt|;
 specifier|public
 specifier|static
 specifier|final
@@ -55,7 +67,7 @@ name|Event
 operator|.
 name|ANY
 argument_list|,
-literal|"REPOSITORY.UPDATED"
+literal|"REPOSITORY"
 argument_list|)
 decl_stmt|;
 specifier|private

@@ -41,21 +41,34 @@ name|URI
 import|;
 end_import
 
+begin_comment
+comment|/**  * These events are thrown, when index information has changed.  */
+end_comment
+
 begin_class
 specifier|public
 class|class
-name|IndexCreationEvent
+name|RepositoryIndexEvent
 extends|extends
 name|RepositoryValueEvent
 argument_list|<
 name|URI
 argument_list|>
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|7801989699524776524L
+decl_stmt|;
 specifier|public
 specifier|static
 name|EventType
 argument_list|<
-name|IndexCreationEvent
+name|RepositoryIndexEvent
 argument_list|>
 name|ANY
 init|=
@@ -74,7 +87,7 @@ specifier|public
 specifier|static
 name|EventType
 argument_list|<
-name|IndexCreationEvent
+name|RepositoryIndexEvent
 argument_list|>
 name|INDEX_URI_CHANGED
 init|=
@@ -91,7 +104,7 @@ specifier|public
 specifier|static
 name|EventType
 argument_list|<
-name|IndexCreationEvent
+name|RepositoryIndexEvent
 argument_list|>
 name|PACKED_INDEX_URI_CHANGED
 init|=
@@ -104,13 +117,13 @@ argument_list|,
 literal|"REPOSITORY.VALUE.INDEX.PACKED_URI_CHANGED"
 argument_list|)
 decl_stmt|;
-name|IndexCreationEvent
+name|RepositoryIndexEvent
 parameter_list|(
 name|EventType
 argument_list|<
 name|?
 extends|extends
-name|IndexCreationEvent
+name|RepositoryIndexEvent
 argument_list|>
 name|type
 parameter_list|,
@@ -138,6 +151,8 @@ argument_list|,
 name|oldValue
 argument_list|,
 name|value
+argument_list|,
+literal|"index.uri"
 argument_list|)
 expr_stmt|;
 block|}
@@ -147,7 +162,7 @@ specifier|final
 parameter_list|<
 name|O
 parameter_list|>
-name|IndexCreationEvent
+name|RepositoryIndexEvent
 name|indexUriChange
 parameter_list|(
 name|O
@@ -165,7 +180,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|IndexCreationEvent
+name|RepositoryIndexEvent
 argument_list|(
 name|INDEX_URI_CHANGED
 argument_list|,
@@ -185,7 +200,7 @@ specifier|final
 parameter_list|<
 name|O
 parameter_list|>
-name|IndexCreationEvent
+name|RepositoryIndexEvent
 name|packedIndexUriChange
 parameter_list|(
 name|O
@@ -203,7 +218,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|IndexCreationEvent
+name|RepositoryIndexEvent
 argument_list|(
 name|PACKED_INDEX_URI_CHANGED
 argument_list|,

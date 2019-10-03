@@ -69,7 +69,7 @@ name|repository
 operator|.
 name|events
 operator|.
-name|RepositoryEventListener
+name|EventHandler
 import|;
 end_import
 
@@ -102,7 +102,7 @@ specifier|public
 interface|interface
 name|RepositoryProvider
 extends|extends
-name|RepositoryEventListener
+name|EventHandler
 block|{
 comment|/**      * Returns the types of repositories this provider can handle.      *      * @return the set of supported repository types      */
 name|Set

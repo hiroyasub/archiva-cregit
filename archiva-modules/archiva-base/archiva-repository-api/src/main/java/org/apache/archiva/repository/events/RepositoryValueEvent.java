@@ -32,7 +32,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Repository event. Repository events are used for providing information about repository changes.  *  * @param<V>  */
+comment|/**  * Repository value events are used for providing information about repository attribute changes.  * The value event gives information of the attribute value before and after the change.  *  * @param<V> The type of the changed attribute  */
 end_comment
 
 begin_class
@@ -45,6 +45,14 @@ parameter_list|>
 extends|extends
 name|RepositoryEvent
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|4176597620699304794L
+decl_stmt|;
 specifier|public
 specifier|static
 specifier|final
@@ -64,7 +72,7 @@ name|RepositoryEvent
 operator|.
 name|ANY
 argument_list|,
-literal|"REPOSITORY.VALUE.UPDATED"
+literal|"REPOSITORY.VALUE"
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -74,6 +82,10 @@ decl_stmt|;
 specifier|final
 name|V
 name|oldValue
+decl_stmt|;
+specifier|final
+name|String
+name|attributeName
 decl_stmt|;
 specifier|public
 name|RepositoryValueEvent
@@ -100,6 +112,9 @@ name|oldValue
 parameter_list|,
 name|V
 name|value
+parameter_list|,
+name|String
+name|attributeName
 parameter_list|)
 block|{
 name|super
@@ -123,6 +138,12 @@ name|oldValue
 operator|=
 name|oldValue
 expr_stmt|;
+name|this
+operator|.
+name|attributeName
+operator|=
+name|attributeName
+expr_stmt|;
 block|}
 specifier|public
 name|V
@@ -140,6 +161,15 @@ parameter_list|()
 block|{
 return|return
 name|oldValue
+return|;
+block|}
+specifier|public
+name|String
+name|getAttributeName
+parameter_list|()
+block|{
+return|return
+name|attributeName
 return|;
 block|}
 block|}
