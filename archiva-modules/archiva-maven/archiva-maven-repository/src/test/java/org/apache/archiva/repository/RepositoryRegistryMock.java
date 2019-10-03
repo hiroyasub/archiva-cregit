@@ -40,7 +40,7 @@ specifier|public
 class|class
 name|RepositoryRegistryMock
 extends|extends
-name|RepositoryRegistry
+name|ArchivaRepositoryRegistry
 block|{
 specifier|private
 name|Map

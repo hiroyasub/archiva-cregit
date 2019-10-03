@@ -77,7 +77,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|RepositoryRegistry
+name|ArchivaRepositoryRegistry
 import|;
 end_import
 
@@ -163,16 +163,6 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Locale
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author Olivier Lamy  */
 end_comment
@@ -186,7 +176,7 @@ name|AbstractMavenRepositorySearch
 block|{
 annotation|@
 name|Inject
-name|RepositoryRegistry
+name|ArchivaRepositoryRegistry
 name|repositoryRegistry
 decl_stmt|;
 annotation|@

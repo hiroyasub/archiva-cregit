@@ -103,7 +103,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|RepositoryRegistry
+name|ArchivaRepositoryRegistry
 import|;
 end_import
 
@@ -226,7 +226,7 @@ name|TestCase
 block|{
 annotation|@
 name|Autowired
-name|RepositoryRegistry
+name|ArchivaRepositoryRegistry
 name|repositoryRegistry
 decl_stmt|;
 annotation|@

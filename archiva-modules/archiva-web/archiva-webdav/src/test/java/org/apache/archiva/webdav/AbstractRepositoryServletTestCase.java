@@ -129,7 +129,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ManagedRepository
+name|ArchivaRepositoryRegistry
 import|;
 end_import
 
@@ -143,7 +143,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|RepositoryRegistry
+name|ManagedRepository
 import|;
 end_import
 
@@ -775,7 +775,7 @@ name|applicationContext
 decl_stmt|;
 annotation|@
 name|Inject
-name|RepositoryRegistry
+name|ArchivaRepositoryRegistry
 name|repositoryRegistry
 decl_stmt|;
 specifier|protected

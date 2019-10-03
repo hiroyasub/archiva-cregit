@@ -71,7 +71,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|RepositoryRegistry
+name|ArchivaRepositoryRegistry
 import|;
 end_import
 
@@ -474,7 +474,7 @@ name|MavenIndexManagerTest
 block|{
 annotation|@
 name|Inject
-name|RepositoryRegistry
+name|ArchivaRepositoryRegistry
 name|repositoryRegistry
 decl_stmt|;
 specifier|private

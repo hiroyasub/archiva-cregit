@@ -175,7 +175,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|Repository
+name|ArchivaRepositoryRegistry
 import|;
 end_import
 
@@ -189,7 +189,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|RepositoryRegistry
+name|Repository
 import|;
 end_import
 
@@ -649,7 +649,7 @@ name|artifactContextProducer
 decl_stmt|;
 annotation|@
 name|Inject
-name|RepositoryRegistry
+name|ArchivaRepositoryRegistry
 name|repositoryRegistry
 decl_stmt|;
 annotation|@

@@ -111,6 +111,20 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|ArchivaRepositoryRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|ManagedRepository
 import|;
 end_import
@@ -579,7 +593,7 @@ name|applicationContext
 operator|.
 name|getBean
 argument_list|(
-name|RepositoryRegistry
+name|ArchivaRepositoryRegistry
 operator|.
 name|class
 argument_list|)
@@ -625,7 +639,7 @@ name|applicationContext
 operator|.
 name|getBean
 argument_list|(
-name|RepositoryRegistry
+name|ArchivaRepositoryRegistry
 operator|.
 name|class
 argument_list|)
@@ -1136,7 +1150,7 @@ name|applicationContext
 operator|.
 name|getBean
 argument_list|(
-name|RepositoryRegistry
+name|ArchivaRepositoryRegistry
 operator|.
 name|class
 argument_list|)
@@ -1273,7 +1287,7 @@ name|applicationContext
 operator|.
 name|getBean
 argument_list|(
-name|RepositoryRegistry
+name|ArchivaRepositoryRegistry
 operator|.
 name|class
 argument_list|)
@@ -1808,7 +1822,7 @@ name|applicationContext
 operator|.
 name|getBean
 argument_list|(
-name|RepositoryRegistry
+name|ArchivaRepositoryRegistry
 operator|.
 name|class
 argument_list|)

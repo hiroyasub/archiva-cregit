@@ -341,16 +341,16 @@ literal|"repositoryRegistry"
 argument_list|)
 specifier|public
 class|class
-name|RepositoryRegistry
+name|ArchivaRepositoryRegistry
 implements|implements
 name|ConfigurationListener
-implements|,
-name|EventSource
 implements|,
 name|EventHandler
 argument_list|<
 name|Event
 argument_list|>
+implements|,
+name|RepositoryRegistry
 block|{
 specifier|private
 specifier|static
@@ -507,7 +507,7 @@ init|=
 literal|false
 decl_stmt|;
 specifier|public
-name|RepositoryRegistry
+name|ArchivaRepositoryRegistry
 parameter_list|()
 block|{
 name|this
@@ -521,6 +521,8 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setArchivaConfiguration
@@ -1371,6 +1373,8 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|ArchivaIndexManager
 name|getIndexManager
@@ -2179,13 +2183,15 @@ name|archivaConfiguration
 return|;
 block|}
 comment|/**      * Returns all repositories that are registered. There is no defined order of the returned repositories.      *      * @return a list of managed and remote repositories      */
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
 name|Repository
 argument_list|>
 name|getRepositories
-parameter_list|()
+parameter_list|( )
 block|{
 name|rwLock
 operator|.
@@ -2241,13 +2247,15 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Returns only the managed repositories. There is no defined order of the returned repositories.      *      * @return a list of managed repositories      */
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
 name|ManagedRepository
 argument_list|>
 name|getManagedRepositories
-parameter_list|()
+parameter_list|( )
 block|{
 name|rwLock
 operator|.
@@ -2279,13 +2287,15 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Returns only the remote repositories. There is no defined order of the returned repositories.      *      * @return a list of remote repositories      */
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
 name|RemoteRepository
 argument_list|>
 name|getRemoteRepositories
-parameter_list|()
+parameter_list|( )
 block|{
 name|rwLock
 operator|.
@@ -2316,13 +2326,15 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
 name|RepositoryGroup
 argument_list|>
 name|getRepositoryGroups
-parameter_list|()
+parameter_list|( )
 block|{
 name|rwLock
 operator|.
@@ -2354,6 +2366,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Returns the repository with the given id. The returned repository may be a managed or remote repository.      * It returns null, if no repository is registered with the given id.      *      * @param repoId the repository id      * @return the repository if found, otherwise null      */
+annotation|@
+name|Override
 specifier|public
 name|Repository
 name|getRepository
@@ -2472,6 +2486,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Convenience method, that returns the managed repository with the given id.      * It returns null, if no managed repository is registered with this id.      *      * @param repoId the repository id      * @return the managed repository if found, otherwise null      */
+annotation|@
+name|Override
 specifier|public
 name|ManagedRepository
 name|getManagedRepository
@@ -2512,6 +2528,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Convenience method, that returns the remote repository with the given id.      * It returns null, if no remote repository is registered with this id.      *      * @param repoId the repository id      * @return the remote repository if found, otherwise null      */
+annotation|@
+name|Override
 specifier|public
 name|RemoteRepository
 name|getRemoteRepository
@@ -2551,6 +2569,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RepositoryGroup
 name|getRepositoryGroup
@@ -2627,6 +2647,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Adds a new repository to the current list, or replaces the repository definition with      * the same id, if it exists already.      * The change is saved to the configuration immediately.      *      * @param managedRepository the new repository.      * @throws RepositoryException if the new repository could not be saved to the configuration.      */
+annotation|@
+name|Override
 specifier|public
 name|ManagedRepository
 name|putRepository
@@ -2920,6 +2942,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Adds a new repository or updates the repository with the same id, if it exists already.      * The configuration is saved immediately.      *      * @param managedRepositoryConfiguration the repository configuration      * @return the updated or created repository      * @throws RepositoryException if an error occurs, or the configuration is not valid.      */
+annotation|@
+name|Override
 specifier|public
 name|ManagedRepository
 name|putRepository
@@ -3099,6 +3123,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Adds a new repository or updates the repository with the same id. The given configuration object is updated, but      * the configuration is not saved.      *      * @param managedRepositoryConfiguration the new or changed managed repository configuration      * @param configuration                  the configuration object (may be<code>null</code>)      * @return the new or updated repository      * @throws RepositoryException if the configuration cannot be saved or updated      */
+annotation|@
+name|Override
 specifier|public
 name|ManagedRepository
 name|putRepository
@@ -3315,6 +3341,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Adds a new repository group to the current list, or replaces the repository group definition with      * the same id, if it exists already.      * The change is saved to the configuration immediately.      *      * @param repositoryGroup the new repository group.      * @throws RepositoryException if the new repository group could not be saved to the configuration.      */
+annotation|@
+name|Override
 specifier|public
 name|RepositoryGroup
 name|putRepositoryGroup
@@ -3543,6 +3571,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Adds a new repository group or updates the repository with the same id, if it exists already.      * The configuration is saved immediately.      *      * @param repositoryGroupConfiguration the repository configuration      * @return the updated or created repository      * @throws RepositoryException if an error occurs, or the configuration is not valid.      */
+annotation|@
+name|Override
 specifier|public
 name|RepositoryGroup
 name|putRepositoryGroup
@@ -3722,6 +3752,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Adds a new repository group or updates the repository group with the same id. The given configuration object is updated, but      * the configuration is not saved.      *      * @param repositoryGroupConfiguration The configuration of the new or changed repository group.      * @param configuration                The configuration object. If it is<code>null</code>, the configuration is not saved.      * @return The new or updated repository group      * @throws RepositoryException if the configuration cannot be saved or updated      */
+annotation|@
+name|Override
 specifier|public
 name|RepositoryGroup
 name|putRepositoryGroup
@@ -4116,6 +4148,8 @@ name|repositoryGroupConfiguration
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|RemoteRepository
 name|putRepository
@@ -4445,6 +4479,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Adds a remote repository, or overwrites the repository definition with the same id, if it exists already.      * The modification is saved to the configuration immediately.      *      * @param remoteRepository the remote repository to add      * @throws RepositoryException if an error occurs during configuration save      */
+annotation|@
+name|Override
 specifier|public
 name|RemoteRepository
 name|putRepository
@@ -4557,6 +4593,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Adds a new repository or updates the repository with the same id, if it exists already.      * The configuration is saved immediately.      *      * @param remoteRepositoryConfiguration the repository configuration      * @return the updated or created repository      * @throws RepositoryException if an error occurs, or the configuration is not valid.      */
+annotation|@
+name|Override
 specifier|public
 name|RemoteRepository
 name|putRepository
@@ -4736,6 +4774,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Adds a new repository or updates the repository with the same id. The given configuration object is updated, but      * the configuration is not saved.      *      * @param remoteRepositoryConfiguration the new or changed repository configuration      * @param configuration                 the configuration object      * @return the new or updated repository      * @throws RepositoryException if the configuration cannot be saved or updated      */
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -4956,6 +4996,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeRepository
@@ -4988,6 +5030,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeRepository
@@ -5079,6 +5123,8 @@ throw|;
 block|}
 block|}
 comment|/**      * Removes a managed repository from the registry and configuration, if it exists.      * The change is saved to the configuration immediately.      *      * @param managedRepository the managed repository to remove      * @throws RepositoryException if a error occurs during configuration save      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeRepository
@@ -5331,6 +5377,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeRepository
@@ -5469,6 +5517,8 @@ block|}
 block|}
 block|}
 comment|/**      * Removes a repository group from the registry and configuration, if it exists.      * The change is saved to the configuration immediately.      *      * @param repositoryGroup the repository group to remove      * @throws RepositoryException if a error occurs during configuration save      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeRepositoryGroup
@@ -5645,6 +5695,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeRepositoryGroup
@@ -5859,6 +5911,8 @@ block|}
 block|}
 block|}
 comment|/**      * Removes the remote repository from the registry and configuration.      * The change is saved to the configuration immediately.      *      * @param remoteRepository the remote repository to remove      * @throws RepositoryException if a error occurs during configuration save      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeRepository
@@ -6027,6 +6081,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|removeRepository
@@ -6137,16 +6193,20 @@ block|}
 block|}
 block|}
 comment|/**      * Reloads the registry from the configuration.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|reload
-parameter_list|()
+parameter_list|( )
 block|{
 name|initialize
 argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Resets the indexing context of a given repository.      *      * @param repository The repository      * @throws IndexUpdateFailedException If the index could not be resetted.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|resetIndexingContext
@@ -6206,6 +6266,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Creates a new repository instance with the same settings as this one. The cloned repository is not      * registered or saved to the configuration.      *      * @param repo The origin repository      * @return The cloned repository.      */
+annotation|@
+name|Override
 specifier|public
 name|ManagedRepository
 name|clone
@@ -6299,6 +6361,8 @@ return|return
 name|cloned
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 parameter_list|<
 name|T
@@ -6379,6 +6443,8 @@ throw|;
 block|}
 block|}
 comment|/**      * Creates a new repository instance with the same settings as this one. The cloned repository is not      * registered or saved to the configuration.      *      * @param repo The origin repository      * @return The cloned repository.      */
+annotation|@
+name|Override
 specifier|public
 name|RemoteRepository
 name|clone
