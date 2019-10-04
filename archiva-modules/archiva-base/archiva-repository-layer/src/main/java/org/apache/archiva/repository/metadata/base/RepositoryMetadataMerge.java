@@ -9,9 +9,9 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|internal
-operator|.
 name|metadata
+operator|.
+name|base
 package|;
 end_package
 
@@ -72,6 +72,22 @@ operator|.
 name|model
 operator|.
 name|SnapshotVersion
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|metadata
+operator|.
+name|RepositoryMetadataException
 import|;
 end_import
 

@@ -167,6 +167,8 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|base
+operator|.
 name|BasicManagedRepository
 import|;
 end_import

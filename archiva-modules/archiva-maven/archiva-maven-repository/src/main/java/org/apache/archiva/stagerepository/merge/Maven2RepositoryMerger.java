@@ -305,6 +305,8 @@ name|repository
 operator|.
 name|metadata
 operator|.
+name|base
+operator|.
 name|RepositoryMetadataWriter
 import|;
 end_import

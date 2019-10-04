@@ -275,6 +275,8 @@ name|indexer
 operator|.
 name|merger
 operator|.
+name|base
+operator|.
 name|MergedRemoteIndexesTask
 import|;
 end_import
@@ -290,6 +292,8 @@ operator|.
 name|indexer
 operator|.
 name|merger
+operator|.
+name|base
 operator|.
 name|MergedRemoteIndexesTaskRequest
 import|;
@@ -823,6 +827,8 @@ name|repository
 operator|.
 name|metadata
 operator|.
+name|base
+operator|.
 name|MetadataTools
 import|;
 end_import
@@ -855,6 +861,8 @@ name|repository
 operator|.
 name|metadata
 operator|.
+name|base
+operator|.
 name|RepositoryMetadataMerge
 import|;
 end_import
@@ -870,6 +878,8 @@ operator|.
 name|repository
 operator|.
 name|metadata
+operator|.
+name|base
 operator|.
 name|RepositoryMetadataWriter
 import|;

@@ -9,9 +9,9 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|internal
-operator|.
 name|content
+operator|.
+name|base
 package|;
 end_package
 

@@ -337,6 +337,8 @@ name|repository
 operator|.
 name|content
 operator|.
+name|base
+operator|.
 name|ArtifactUtil
 import|;
 end_import
@@ -352,6 +354,8 @@ operator|.
 name|repository
 operator|.
 name|metadata
+operator|.
+name|base
 operator|.
 name|MetadataTools
 import|;
@@ -384,6 +388,8 @@ operator|.
 name|repository
 operator|.
 name|metadata
+operator|.
+name|base
 operator|.
 name|RepositoryMetadataWriter
 import|;
@@ -824,18 +830,6 @@ operator|.
 name|concurrent
 operator|.
 name|CopyOnWriteArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Collectors
 import|;
 end_import
 

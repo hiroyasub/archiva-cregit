@@ -17,6 +17,22 @@ end_comment
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|base
+operator|.
+name|ArchivaRepositoryRegistry
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util

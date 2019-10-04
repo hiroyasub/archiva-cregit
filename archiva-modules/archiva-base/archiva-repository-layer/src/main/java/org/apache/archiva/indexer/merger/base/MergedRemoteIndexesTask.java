@@ -10,6 +10,8 @@ operator|.
 name|indexer
 operator|.
 name|merger
+operator|.
+name|base
 package|;
 end_package
 
@@ -28,6 +30,38 @@ operator|.
 name|indexer
 operator|.
 name|ArchivaIndexingContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|merger
+operator|.
+name|IndexMerger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|merger
+operator|.
+name|IndexMergerException
 import|;
 end_import
 

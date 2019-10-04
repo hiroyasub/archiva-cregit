@@ -215,6 +215,8 @@ name|repository
 operator|.
 name|metadata
 operator|.
+name|base
+operator|.
 name|MetadataTools
 import|;
 end_import
@@ -246,6 +248,8 @@ operator|.
 name|repository
 operator|.
 name|metadata
+operator|.
+name|base
 operator|.
 name|RepositoryMetadataWriter
 import|;

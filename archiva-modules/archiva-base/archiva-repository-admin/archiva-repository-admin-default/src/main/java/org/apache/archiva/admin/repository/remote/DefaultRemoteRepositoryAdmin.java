@@ -185,6 +185,8 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|base
+operator|.
 name|PasswordCredentials
 import|;
 end_import

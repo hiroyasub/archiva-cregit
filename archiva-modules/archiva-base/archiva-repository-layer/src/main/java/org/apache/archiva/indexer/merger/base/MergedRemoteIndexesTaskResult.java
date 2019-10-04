@@ -10,6 +10,8 @@ operator|.
 name|indexer
 operator|.
 name|merger
+operator|.
+name|base
 package|;
 end_package
 

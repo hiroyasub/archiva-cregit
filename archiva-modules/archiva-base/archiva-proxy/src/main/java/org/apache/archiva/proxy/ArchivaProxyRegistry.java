@@ -157,6 +157,8 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|base
+operator|.
 name|ArchivaRepositoryRegistry
 import|;
 end_import
