@@ -19,9 +19,9 @@ begin_import
 import|import
 name|com
 operator|.
-name|sun
+name|rometools
 operator|.
-name|syndication
+name|rome
 operator|.
 name|feed
 operator|.
@@ -35,9 +35,9 @@ begin_import
 import|import
 name|com
 operator|.
-name|sun
+name|rometools
 operator|.
-name|syndication
+name|rome
 operator|.
 name|feed
 operator|.
