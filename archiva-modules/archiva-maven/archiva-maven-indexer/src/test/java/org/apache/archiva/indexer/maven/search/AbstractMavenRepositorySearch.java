@@ -1414,6 +1414,8 @@ argument_list|,
 name|scan
 argument_list|,
 literal|null
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1435,6 +1437,9 @@ name|scan
 parameter_list|,
 name|Path
 name|indexDir
+parameter_list|,
+name|boolean
+name|copyFiles
 parameter_list|)
 throws|throws
 name|Exception
@@ -1694,6 +1699,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|copyFiles
+condition|)
+block|{
 name|Path
 name|repo
 init|=
@@ -1754,6 +1764,7 @@ name|toFile
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|archivaConfigControl
 operator|.
 name|reset
