@@ -317,19 +317,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
-name|TimeZone
-name|GMT_TIME_ZONE
-init|=
-name|TimeZone
-operator|.
-name|getTimeZone
-argument_list|(
-literal|"GMT"
-argument_list|)
-decl_stmt|;
 comment|/**      * Process the newly discovered artifacts in the repository. Generate feeds for new artifacts in the repository and      * new versions of artifact.      */
 annotation|@
 name|Override
@@ -401,12 +388,7 @@ init|=
 name|ZonedDateTime
 operator|.
 name|now
-argument_list|(
-name|GMT_TIME_ZONE
-operator|.
-name|toZoneId
 argument_list|()
-argument_list|)
 operator|.
 name|minusDays
 argument_list|(
