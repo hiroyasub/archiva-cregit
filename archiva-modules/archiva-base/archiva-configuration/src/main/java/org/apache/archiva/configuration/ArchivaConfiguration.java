@@ -23,8 +23,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|redback
-operator|.
 name|components
 operator|.
 name|registry
@@ -40,8 +38,6 @@ operator|.
 name|apache
 operator|.
 name|archiva
-operator|.
-name|redback
 operator|.
 name|components
 operator|.
@@ -107,7 +103,7 @@ name|Configuration
 name|getConfiguration
 parameter_list|()
 function_decl|;
-comment|/**      * Save any updated configuration.      *      * @param configuration the configuration to save      * @throws org.apache.archiva.redback.components.registry.RegistryException      *          if there is a problem saving the registry data      * @throws IndeterminateConfigurationException      *          if the configuration cannot be saved because it was read from two sources      */
+comment|/**      * Save any updated configuration.      *      * @param configuration the configuration to save      * @throws org.apache.archiva.components.registry.RegistryException      *          if there is a problem saving the registry data      * @throws IndeterminateConfigurationException      *          if the configuration cannot be saved because it was read from two sources      */
 name|void
 name|save
 parameter_list|(

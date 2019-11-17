@@ -117,8 +117,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|redback
-operator|.
 name|components
 operator|.
 name|evaluator
@@ -134,8 +132,6 @@ operator|.
 name|apache
 operator|.
 name|archiva
-operator|.
-name|redback
 operator|.
 name|components
 operator|.
@@ -153,8 +149,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|redback
-operator|.
 name|components
 operator|.
 name|evaluator
@@ -170,8 +164,6 @@ operator|.
 name|apache
 operator|.
 name|archiva
-operator|.
-name|redback
 operator|.
 name|components
 operator|.
@@ -191,8 +183,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|redback
-operator|.
 name|components
 operator|.
 name|registry
@@ -208,8 +198,6 @@ operator|.
 name|apache
 operator|.
 name|archiva
-operator|.
-name|redback
 operator|.
 name|components
 operator|.
@@ -227,8 +215,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|redback
-operator|.
 name|components
 operator|.
 name|registry
@@ -244,8 +230,6 @@ operator|.
 name|apache
 operator|.
 name|archiva
-operator|.
-name|redback
 operator|.
 name|components
 operator|.
