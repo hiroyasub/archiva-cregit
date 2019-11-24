@@ -179,8 +179,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|redback
-operator|.
 name|components
 operator|.
 name|scheduler
@@ -196,8 +194,6 @@ operator|.
 name|apache
 operator|.
 name|archiva
-operator|.
-name|redback
 operator|.
 name|components
 operator|.
