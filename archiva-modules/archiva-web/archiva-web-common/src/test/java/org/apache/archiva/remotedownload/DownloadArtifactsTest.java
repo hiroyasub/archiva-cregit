@@ -1184,7 +1184,7 @@ literal|"</head><body>\n"
 operator|+
 literal|"<h1>Found</h1>\n"
 operator|+
-literal|"<p>The document has moved<a href=\"http://repo.maven.apache.org/maven2/junit/junit/4.9/junit-4.9.jar\">here</a>.</p>\n"
+literal|"<p>The document has moved<a href=\"https://repo.maven.apache.org/maven2/junit/junit/4.9/junit-4.9.jar\">here</a>.</p>\n"
 operator|+
 literal|"</body></html>\n"
 operator|+
