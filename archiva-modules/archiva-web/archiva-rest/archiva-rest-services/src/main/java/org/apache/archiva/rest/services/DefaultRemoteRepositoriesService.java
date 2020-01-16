@@ -748,7 +748,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"ignore scheduleDownloadRemote for repo with id {} as not exists"
+literal|"Remote repository {} does not exist. Connectivity check returns false."
 argument_list|,
 name|repositoryId
 argument_list|)
@@ -800,12 +800,14 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"your remote repository is configured to download remote index trought a proxy we cannot find id:{}"
+literal|"A network proxy {} was configured for repository {}. But the proxy with the given id does not exist."
 argument_list|,
 name|remoteRepository
 operator|.
 name|getRemoteDownloadNetworkProxyId
 argument_list|()
+argument_list|,
+name|repositoryId
 argument_list|)
 expr_stmt|;
 block|}
