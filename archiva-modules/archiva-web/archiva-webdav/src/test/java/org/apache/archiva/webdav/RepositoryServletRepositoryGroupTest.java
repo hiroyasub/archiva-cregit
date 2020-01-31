@@ -1170,10 +1170,17 @@ name|getContentAsString
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|MavenMetadataReader
+name|metadataReader
+init|=
+operator|new
+name|MavenMetadataReader
+argument_list|( )
+decl_stmt|;
 name|ArchivaRepositoryMetadata
 name|metadata
 init|=
-name|MavenMetadataReader
+name|metadataReader
 operator|.
 name|read
 argument_list|(

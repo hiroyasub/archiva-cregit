@@ -129,6 +129,38 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|metadata
+operator|.
+name|MetadataReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|storage
+operator|.
+name|StorageAsset
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -148,6 +180,7 @@ name|RepositoryRegistry
 extends|extends
 name|EventSource
 block|{
+comment|/**      * Set the configuration for the registry      * @param archivaConfiguration      */
 name|void
 name|setArchivaConfiguration
 parameter_list|(
@@ -155,6 +188,7 @@ name|ArchivaConfiguration
 name|archivaConfiguration
 parameter_list|)
 function_decl|;
+comment|/**      * Return the index manager for the given repository type      * @param type the repository type      * @return the index manager, if it exists      */
 name|ArchivaIndexManager
 name|getIndexManager
 parameter_list|(
@@ -162,6 +196,17 @@ name|RepositoryType
 name|type
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the metadatareader for the given repository type      * @param type the repository type      * @return the metadata reader instance      */
+name|MetadataReader
+name|getMetadataReader
+parameter_list|(
+name|RepositoryType
+name|type
+parameter_list|)
+throws|throws
+name|UnsupportedRepositoryTypeException
+function_decl|;
+comment|/**      * Returns all registered repositories      * @return the list of repositories      */
 name|Collection
 argument_list|<
 name|Repository
@@ -169,6 +214,7 @@ argument_list|>
 name|getRepositories
 parameter_list|( )
 function_decl|;
+comment|/**      * Returns all managed repositories      * @return the list of managed repositories      */
 name|Collection
 argument_list|<
 name|ManagedRepository
@@ -454,6 +500,14 @@ name|newId
 parameter_list|)
 throws|throws
 name|RepositoryException
+function_decl|;
+comment|/**      * Return the repository that stores the given asset.      * @param asset the asset      * @return the repository or<code>null</code> if no matching repository is found      */
+name|Repository
+name|getRepositoryOfAsset
+parameter_list|(
+name|StorageAsset
+name|asset
+parameter_list|)
 function_decl|;
 block|}
 end_interface

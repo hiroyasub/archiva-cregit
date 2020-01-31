@@ -4288,7 +4288,12 @@ decl_stmt|;
 name|ArchivaRepositoryMetadata
 name|metadata
 init|=
-name|MavenMetadataReader
+name|metadataTools
+operator|.
+name|getMetadataReader
+argument_list|(
+literal|null
+argument_list|)
 operator|.
 name|read
 argument_list|(

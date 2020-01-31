@@ -77,20 +77,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|xml
-operator|.
-name|XMLException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -106,16 +92,6 @@ operator|.
 name|runner
 operator|.
 name|RunWith
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -168,9 +144,7 @@ name|void
 name|testLoadSimple
 parameter_list|()
 throws|throws
-name|XMLException
-throws|,
-name|IOException
+name|RepositoryMetadataException
 block|{
 name|Path
 name|defaultRepoDir
@@ -192,10 +166,17 @@ argument_list|(
 literal|"org/apache/maven/shared/maven-downloader/maven-metadata.xml"
 argument_list|)
 decl_stmt|;
+name|MavenMetadataReader
+name|metadataReader
+init|=
+operator|new
+name|MavenMetadataReader
+argument_list|( )
+decl_stmt|;
 name|ArchivaRepositoryMetadata
 name|metadata
 init|=
-name|MavenMetadataReader
+name|metadataReader
 operator|.
 name|read
 argument_list|(
@@ -296,9 +277,7 @@ name|void
 name|testLoadComplex
 parameter_list|()
 throws|throws
-name|XMLException
-throws|,
-name|IOException
+name|RepositoryMetadataException
 block|{
 name|Path
 name|defaultRepoDir
@@ -320,10 +299,17 @@ argument_list|(
 literal|"org/apache/maven/samplejar/maven-metadata.xml"
 argument_list|)
 decl_stmt|;
+name|MavenMetadataReader
+name|metadataReader
+init|=
+operator|new
+name|MavenMetadataReader
+argument_list|( )
+decl_stmt|;
 name|ArchivaRepositoryMetadata
 name|metadata
 init|=
-name|MavenMetadataReader
+name|metadataReader
 operator|.
 name|read
 argument_list|(

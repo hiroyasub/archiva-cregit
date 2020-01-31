@@ -231,9 +231,9 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|storage
+name|metadata
 operator|.
-name|StorageAsset
+name|RepositoryMetadataException
 import|;
 end_import
 
@@ -245,9 +245,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|xml
+name|repository
 operator|.
-name|XMLException
+name|storage
+operator|.
+name|StorageAsset
 import|;
 end_import
 
@@ -675,18 +677,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Paths
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|HashMap
@@ -794,6 +784,10 @@ name|MavenSystemManager
 name|mavenSystemManager
 decl_stmt|;
 specifier|private
+name|MavenMetadataReader
+name|metadataReader
+decl_stmt|;
+specifier|private
 name|ManagedRepository
 name|managedRepository
 decl_stmt|;
@@ -851,6 +845,9 @@ name|targetRepository
 parameter_list|,
 name|MavenSystemManager
 name|mavenSystemManager
+parameter_list|,
+name|MavenMetadataReader
+name|metadataReader
 parameter_list|)
 block|{
 name|this
@@ -948,6 +945,12 @@ operator|.
 name|mavenSystemManager
 operator|=
 name|mavenSystemManager
+expr_stmt|;
+name|this
+operator|.
+name|metadataReader
+operator|=
+name|metadataReader
 expr_stmt|;
 block|}
 annotation|@
@@ -1736,7 +1739,7 @@ block|{
 name|ArchivaRepositoryMetadata
 name|archivaRepositoryMetadata
 init|=
-name|MavenMetadataReader
+name|metadataReader
 operator|.
 name|read
 argument_list|(
@@ -1870,7 +1873,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|XMLException
+name|RepositoryMetadataException
 name|e
 parameter_list|)
 block|{
@@ -1953,6 +1956,8 @@ argument_list|,
 name|targetRepository
 argument_list|,
 name|mavenSystemManager
+argument_list|,
+name|metadataReader
 argument_list|)
 return|;
 block|}
@@ -1986,9 +1991,9 @@ name|ResourceDoesNotExistException
 throws|,
 name|WagonFactoryException
 throws|,
-name|XMLException
-throws|,
 name|IOException
+throws|,
+name|RepositoryMetadataException
 block|{
 name|boolean
 name|success
@@ -2227,7 +2232,7 @@ expr_stmt|;
 name|ArchivaRepositoryMetadata
 name|metadata
 init|=
-name|MavenMetadataReader
+name|metadataReader
 operator|.
 name|read
 argument_list|(

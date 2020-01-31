@@ -83,11 +83,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|test
+name|repository
 operator|.
-name|utils
+name|metadata
 operator|.
-name|ArchivaBlockJUnit4ClassRunner
+name|RepositoryMetadataException
 import|;
 end_import
 
@@ -99,9 +99,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|xml
+name|test
 operator|.
-name|XMLException
+name|utils
+operator|.
+name|ArchivaBlockJUnit4ClassRunner
 import|;
 end_import
 
@@ -134,16 +136,6 @@ operator|.
 name|runner
 operator|.
 name|RunWith
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -210,9 +202,7 @@ name|void
 name|testGroupMetadata
 parameter_list|()
 throws|throws
-name|XMLException
-throws|,
-name|IOException
+name|RepositoryMetadataException
 block|{
 name|Path
 name|metadataFile
@@ -224,10 +214,17 @@ argument_list|(
 literal|"org/apache/maven/plugins/maven-metadata.xml"
 argument_list|)
 decl_stmt|;
+name|MavenMetadataReader
+name|metadataReader
+init|=
+operator|new
+name|MavenMetadataReader
+argument_list|( )
+decl_stmt|;
 name|ArchivaRepositoryMetadata
 name|metadata
 init|=
-name|MavenMetadataReader
+name|metadataReader
 operator|.
 name|read
 argument_list|(
@@ -411,9 +408,7 @@ name|void
 name|testProjectMetadata
 parameter_list|()
 throws|throws
-name|XMLException
-throws|,
-name|IOException
+name|RepositoryMetadataException
 block|{
 name|Path
 name|metadataFile
@@ -425,10 +420,17 @@ argument_list|(
 literal|"org/apache/maven/shared/maven-downloader/maven-metadata.xml"
 argument_list|)
 decl_stmt|;
+name|MavenMetadataReader
+name|metadataReader
+init|=
+operator|new
+name|MavenMetadataReader
+argument_list|( )
+decl_stmt|;
 name|ArchivaRepositoryMetadata
 name|metadata
 init|=
-name|MavenMetadataReader
+name|metadataReader
 operator|.
 name|read
 argument_list|(
@@ -521,9 +523,7 @@ name|void
 name|testProjectVersionMetadata
 parameter_list|()
 throws|throws
-name|XMLException
-throws|,
-name|IOException
+name|RepositoryMetadataException
 block|{
 name|Path
 name|metadataFile
@@ -535,10 +535,17 @@ argument_list|(
 literal|"org/apache/apache/5-SNAPSHOT/maven-metadata.xml"
 argument_list|)
 decl_stmt|;
+name|MavenMetadataReader
+name|metadataReader
+init|=
+operator|new
+name|MavenMetadataReader
+argument_list|( )
+decl_stmt|;
 name|ArchivaRepositoryMetadata
 name|metadata
 init|=
-name|MavenMetadataReader
+name|metadataReader
 operator|.
 name|read
 argument_list|(
