@@ -6834,8 +6834,24 @@ name|StorageAsset
 name|asset
 parameter_list|)
 block|{
+if|if
+condition|(
+name|asset
+operator|instanceof
+name|Repository
+condition|)
+block|{
 return|return
-name|getManagedRepositories
+operator|(
+name|Repository
+operator|)
+name|asset
+return|;
+block|}
+else|else
+block|{
+return|return
+name|getRepositories
 argument_list|( )
 operator|.
 name|stream
@@ -6872,6 +6888,7 @@ argument_list|(
 literal|null
 argument_list|)
 return|;
+block|}
 block|}
 annotation|@
 name|Override
