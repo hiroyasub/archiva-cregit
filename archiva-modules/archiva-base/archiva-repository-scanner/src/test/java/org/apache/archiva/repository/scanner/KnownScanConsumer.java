@@ -286,6 +286,15 @@ parameter_list|)
 throws|throws
 name|ConsumerException
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Processing {}"
+argument_list|,
+name|path
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|processCount
