@@ -17,40 +17,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
-operator|.
-name|model
-operator|.
-name|RepositoryAdminException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|admin
-operator|.
-name|model
-operator|.
-name|managed
-operator|.
-name|ManagedRepositoryAdmin
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|metadata
 operator|.
 name|repository
@@ -267,17 +233,9 @@ name|Date
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
-operator|.
-name|*
-import|;
-end_import
+begin_comment
+comment|// import static org.mockito.Mockito.*;
+end_comment
 
 begin_comment
 comment|/**  *<code>SimpleArtifactConsumerTest</code>  */
@@ -311,12 +269,6 @@ name|Inject
 specifier|private
 name|SimpleArtifactConsumer
 name|consumer
-decl_stmt|;
-annotation|@
-name|Inject
-specifier|private
-name|ManagedRepositoryAdmin
-name|managedRepositoryAdmin
 decl_stmt|;
 annotation|@
 name|Inject
@@ -369,8 +321,6 @@ name|void
 name|setUpMockRepository
 parameter_list|()
 throws|throws
-name|RepositoryAdminException
-throws|,
 name|IOException
 throws|,
 name|RepositoryException
