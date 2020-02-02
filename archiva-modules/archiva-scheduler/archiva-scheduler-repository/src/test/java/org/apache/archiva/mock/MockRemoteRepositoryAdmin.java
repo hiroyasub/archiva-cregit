@@ -103,13 +103,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
+name|archiva
 operator|.
-name|index
+name|indexer
 operator|.
-name|context
-operator|.
-name|IndexingContext
+name|ArchivaIndexingContext
 import|;
 end_import
 
@@ -288,7 +286,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|IndexingContext
+name|ArchivaIndexingContext
 name|createIndexContext
 parameter_list|(
 name|RemoteRepository

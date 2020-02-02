@@ -181,20 +181,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|validator
-operator|.
-name|GenericValidator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|stereotype
@@ -223,6 +209,18 @@ name|Named
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Pattern
+import|;
+end_import
+
 begin_comment
 comment|/**  * apply basic repository validation : id and name.  * Check if already exists.  *  * @author Olivier Lamy  * @since 1.4-M1  */
 end_comment
@@ -236,6 +234,47 @@ name|DefaultRepositoryCommonValidator
 implements|implements
 name|RepositoryCommonValidator
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|Pattern
+name|REPOSITORY_ID_VALID_EXPRESSION_PATTERN
+init|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+name|REPOSITORY_ID_VALID_EXPRESSION
+argument_list|)
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|Pattern
+name|REPOSITORY_NAME_VALID_EXPRESSION_PATTERN
+init|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+name|REPOSITORY_NAME_VALID_EXPRESSION
+argument_list|)
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|Pattern
+name|REPOSITORY_LOCATION_VALID_EXPRESSION_PATTERN
+init|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+name|ManagedRepositoryAdmin
+operator|.
+name|REPOSITORY_LOCATION_VALID_EXPRESSION
+argument_list|)
+decl_stmt|;
 annotation|@
 name|Inject
 specifier|private
@@ -287,7 +326,7 @@ init|=
 name|archivaConfiguration
 operator|.
 name|getConfiguration
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|String
 name|repoId
@@ -295,7 +334,7 @@ init|=
 name|abstractRepository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -308,7 +347,7 @@ condition|(
 name|config
 operator|.
 name|getManagedRepositoriesAsMap
-argument_list|()
+argument_list|( )
 operator|.
 name|containsKey
 argument_list|(
@@ -333,7 +372,7 @@ condition|(
 name|config
 operator|.
 name|getRepositoryGroupsAsMap
-argument_list|()
+argument_list|( )
 operator|.
 name|containsKey
 argument_list|(
@@ -358,7 +397,7 @@ condition|(
 name|config
 operator|.
 name|getRemoteRepositoriesAsMap
-argument_list|()
+argument_list|( )
 operator|.
 name|containsKey
 argument_list|(
@@ -400,14 +439,15 @@ block|}
 if|if
 condition|(
 operator|!
-name|GenericValidator
+name|REPOSITORY_ID_VALID_EXPRESSION_PATTERN
 operator|.
-name|matchRegexp
+name|matcher
 argument_list|(
 name|repoId
-argument_list|,
-name|REPOSITORY_ID_VALID_EXPRESSION
 argument_list|)
+operator|.
+name|matches
+argument_list|( )
 condition|)
 block|{
 throw|throw
@@ -424,7 +464,7 @@ init|=
 name|abstractRepository
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -447,14 +487,15 @@ block|}
 if|if
 condition|(
 operator|!
-name|GenericValidator
+name|REPOSITORY_NAME_VALID_EXPRESSION_PATTERN
 operator|.
-name|matchRegexp
+name|matcher
 argument_list|(
 name|name
-argument_list|,
-name|REPOSITORY_NAME_VALID_EXPRESSION
 argument_list|)
+operator|.
+name|matches
+argument_list|( )
 condition|)
 block|{
 throw|throw
@@ -487,7 +528,7 @@ init|=
 name|managedRepository
 operator|.
 name|getCronExpression
-argument_list|()
+argument_list|( )
 decl_stmt|;
 comment|// FIXME : olamy can be empty to avoid scheduled scan ?
 if|if
@@ -505,7 +546,7 @@ name|validator
 init|=
 operator|new
 name|CronExpressionValidator
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -547,22 +588,21 @@ argument_list|(
 name|managedRepository
 operator|.
 name|getLocation
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
 operator|!
-name|GenericValidator
+name|REPOSITORY_LOCATION_VALID_EXPRESSION_PATTERN
 operator|.
-name|matchRegexp
+name|matcher
 argument_list|(
 name|repoLocation
-argument_list|,
-name|ManagedRepositoryAdmin
-operator|.
-name|REPOSITORY_LOCATION_VALID_EXPRESSION
 argument_list|)
+operator|.
+name|matches
+argument_list|()
 condition|)
 block|{
 throw|throw
@@ -601,7 +641,7 @@ argument_list|,
 literal|"${appserver.base}"
 argument_list|,
 name|getRegistry
-argument_list|()
+argument_list|( )
 operator|.
 name|getString
 argument_list|(
@@ -622,7 +662,7 @@ argument_list|,
 literal|"${appserver.home}"
 argument_list|,
 name|getRegistry
-argument_list|()
+argument_list|( )
 operator|.
 name|getString
 argument_list|(
@@ -639,7 +679,7 @@ block|}
 specifier|public
 name|ArchivaConfiguration
 name|getArchivaConfiguration
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|archivaConfiguration
@@ -663,7 +703,7 @@ block|}
 specifier|public
 name|Registry
 name|getRegistry
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|registry

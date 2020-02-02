@@ -55,20 +55,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|validator
-operator|.
-name|GenericValidator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -84,6 +70,18 @@ operator|.
 name|runner
 operator|.
 name|RunWith
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Pattern
 import|;
 end_import
 
@@ -112,21 +110,32 @@ name|void
 name|testGenericValidator
 parameter_list|()
 block|{
-comment|// Be sure M
-name|assertFalse
-argument_list|(
-literal|"A repo location cannot contains space"
-argument_list|,
-name|GenericValidator
+name|Pattern
+name|pattern
+init|=
+name|Pattern
 operator|.
-name|matchRegexp
+name|compile
 argument_list|(
-literal|"/opt/ testme/"
-argument_list|,
 name|ManagedRepositoryAdmin
 operator|.
 name|REPOSITORY_LOCATION_VALID_EXPRESSION
 argument_list|)
+decl_stmt|;
+comment|// Checks only the pattern
+name|assertFalse
+argument_list|(
+literal|"A repo location cannot contains space"
+argument_list|,
+name|pattern
+operator|.
+name|matcher
+argument_list|(
+literal|"/opt/ testme/"
+argument_list|)
+operator|.
+name|matches
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

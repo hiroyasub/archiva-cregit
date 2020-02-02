@@ -75,13 +75,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|maven
+name|archiva
 operator|.
-name|index
+name|indexer
 operator|.
-name|context
-operator|.
-name|IndexingContext
+name|ArchivaIndexingContext
 import|;
 end_import
 
@@ -180,7 +178,7 @@ throws|throws
 name|RepositoryAdminException
 function_decl|;
 comment|/**      * @param repository      * @return      * @throws RepositoryAdminException      * @since 1.4-M2      */
-name|IndexingContext
+name|ArchivaIndexingContext
 name|createIndexContext
 parameter_list|(
 name|RemoteRepository
