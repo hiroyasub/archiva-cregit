@@ -415,16 +415,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|annotation
-operator|.
-name|ParametersAreNonnullByDefault
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -722,8 +712,6 @@ comment|/**  * File implementation of the metadata repository. It uses property 
 end_comment
 
 begin_class
-annotation|@
-name|ParametersAreNonnullByDefault
 specifier|public
 class|class
 name|FileMetadataRepository
