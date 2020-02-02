@@ -25,11 +25,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|admin
+name|configuration
 operator|.
-name|model
-operator|.
-name|RepositoryAdminException
+name|FileTypes
 import|;
 end_import
 
@@ -41,9 +39,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|configuration
+name|consumers
 operator|.
-name|FileTypes
+name|ConsumerException
 import|;
 end_import
 
@@ -349,7 +347,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|RepositoryAdminException
+name|ConsumerException
 name|e
 parameter_list|)
 block|{
@@ -360,7 +358,7 @@ argument_list|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)

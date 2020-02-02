@@ -107,6 +107,20 @@ name|archiva
 operator|.
 name|consumers
 operator|.
+name|ConsumerException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|consumers
+operator|.
 name|InvalidRepositoryContentConsumer
 import|;
 end_import
@@ -250,20 +264,6 @@ operator|.
 name|collections4
 operator|.
 name|Closure
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|collections4
-operator|.
-name|CollectionUtils
 import|;
 end_import
 
@@ -507,7 +507,9 @@ argument_list|>
 name|getSelectedKnownConsumerIds
 parameter_list|()
 throws|throws
-name|RepositoryAdminException
+name|ConsumerException
+block|{
+try|try
 block|{
 return|return
 name|archivaAdministration
@@ -515,6 +517,26 @@ operator|.
 name|getKnownContentConsumers
 argument_list|()
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|RepositoryAdminException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ConsumerException
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 comment|/**      *<p>      * Get the list of Ids associated with those {@link InvalidRepositoryContentConsumer} that have      * been selected in the configuration to execute.      *</p>      *<p>      * NOTE: This list can be larger and contain entries that might not exist or be available      * in the classpath, or as a component.      *</p>      *      * @return the list of consumer ids that have been selected by the configuration.      */
 specifier|public
@@ -525,7 +547,9 @@ argument_list|>
 name|getSelectedInvalidConsumerIds
 parameter_list|()
 throws|throws
-name|RepositoryAdminException
+name|ConsumerException
+block|{
+try|try
 block|{
 return|return
 name|archivaAdministration
@@ -533,6 +557,26 @@ operator|.
 name|getInvalidContentConsumers
 argument_list|()
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|RepositoryAdminException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ConsumerException
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 comment|/**      * Get the map of {@link String} ids to {@link KnownRepositoryContentConsumer} implementations,      * for those consumers that have been selected according to the active configuration.      *      * @return the map of String ids to {@link KnownRepositoryContentConsumer} objects.      */
 specifier|public
@@ -545,7 +589,7 @@ argument_list|>
 name|getSelectedKnownConsumersMap
 parameter_list|()
 throws|throws
-name|RepositoryAdminException
+name|ConsumerException
 block|{
 name|Map
 argument_list|<
@@ -597,7 +641,7 @@ argument_list|>
 name|getSelectedInvalidConsumersMap
 parameter_list|()
 throws|throws
-name|RepositoryAdminException
+name|ConsumerException
 block|{
 name|Map
 argument_list|<
@@ -647,7 +691,7 @@ argument_list|>
 name|getSelectedKnownConsumers
 parameter_list|()
 throws|throws
-name|RepositoryAdminException
+name|ConsumerException
 block|{
 comment|// FIXME only for testing
 if|if
@@ -786,7 +830,7 @@ argument_list|>
 name|getSelectedInvalidConsumers
 parameter_list|()
 throws|throws
-name|RepositoryAdminException
+name|ConsumerException
 block|{
 comment|// FIXME only for testing
 if|if
@@ -817,9 +861,28 @@ name|String
 argument_list|>
 name|invalidSelected
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|invalidSelected
+operator|=
 name|getSelectedInvalidConsumerIds
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ConsumerException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
 for|for
 control|(
 name|InvalidRepositoryContentConsumer
@@ -911,7 +974,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * A convienence method to execute all of the active selected consumers for a      * particular arbitrary file.      * NOTE: Make sure that there is no repository scanning task executing before invoking this so as to prevent      * the index writer/reader of the current index-content consumer executing from getting closed. For an example,      * see ArchivaDavResource#executeConsumers( File ).      *      * @param repository             the repository configuration to use.      * @param localFile              the local file to execute the consumers against.      * @param updateRelatedArtifacts TODO      */
+comment|/**      * A convienence method to execute all of the active selected consumers for a      * particular arbitrary file.      * NOTE: Make sure that there is no repository scanning task executing before invoking this so as to prevent      * the index writer/reader of the current index-content consumer executing from getting closed. For an example,      * see ArchivaDavResource#executeConsumers( File ).      *  @param repository             the repository configuration to use.      * @param localFile              the local file to execute the consumers against.      * @param updateRelatedArtifacts TODO      */
 specifier|public
 name|void
 name|executeConsumers
@@ -926,7 +989,7 @@ name|boolean
 name|updateRelatedArtifacts
 parameter_list|)
 throws|throws
-name|RepositoryAdminException
+name|ConsumerException
 block|{
 name|List
 argument_list|<
