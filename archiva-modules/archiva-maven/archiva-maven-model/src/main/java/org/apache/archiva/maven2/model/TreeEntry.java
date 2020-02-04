@@ -19,15 +19,15 @@ end_comment
 
 begin_import
 import|import
-name|com
+name|javax
 operator|.
-name|fasterxml
+name|xml
 operator|.
-name|jackson
+name|bind
 operator|.
 name|annotation
 operator|.
-name|JsonIgnore
+name|XmlRootElement
 import|;
 end_import
 
@@ -41,7 +41,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlRootElement
+name|XmlTransient
 import|;
 end_import
 
@@ -109,8 +109,6 @@ specifier|private
 name|Artifact
 name|artifact
 decl_stmt|;
-annotation|@
-name|JsonIgnore
 specifier|private
 name|TreeEntry
 name|parent
@@ -190,7 +188,7 @@ name|childs
 expr_stmt|;
 block|}
 annotation|@
-name|JsonIgnore
+name|XmlTransient
 specifier|public
 name|TreeEntry
 name|getParent
@@ -200,8 +198,6 @@ return|return
 name|parent
 return|;
 block|}
-annotation|@
-name|JsonIgnore
 specifier|public
 name|void
 name|setParent
