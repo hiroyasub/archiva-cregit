@@ -93,6 +93,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -108,6 +118,48 @@ name|ManagedRepositoryContent
 extends|extends
 name|RepositoryContent
 block|{
+comment|/**      * Returns the version reference for the given coordinates.      * @param groupId the group id      * @param artifactId the artifact id      * @param version the version number      * @return a version reference      */
+name|VersionedReference
+name|toVersion
+parameter_list|(
+name|String
+name|groupId
+parameter_list|,
+name|String
+name|artifactId
+parameter_list|,
+name|String
+name|version
+parameter_list|)
+function_decl|;
+comment|/**      * Return the version reference the artifact is part of.      *      * @param artifactReference The artifact reference      * @return the version reference      */
+name|VersionedReference
+name|toVersion
+parameter_list|(
+name|ArtifactReference
+name|artifactReference
+parameter_list|)
+function_decl|;
+comment|/**      * Returns a artifact reference for the given coordinates.      * @param groupId the group id      * @param artifactId the artifact id      * @param version the version      * @param type the type      * @param classifier the classifier      * @return a artifact reference object      */
+name|ArtifactReference
+name|toArtifact
+parameter_list|(
+name|String
+name|groupId
+parameter_list|,
+name|String
+name|artifactId
+parameter_list|,
+name|String
+name|version
+parameter_list|,
+name|String
+name|type
+parameter_list|,
+name|String
+name|classifier
+parameter_list|)
+function_decl|;
 comment|/**      * Delete from the managed repository all files / directories associated with the      * provided version reference.      *      * @param reference the version reference to delete.      * @throws ContentNotFoundException      */
 name|void
 name|deleteVersion
@@ -156,8 +208,8 @@ name|String
 name|getId
 parameter_list|()
 function_decl|;
-comment|/**      *<p>      * Gather up the list of related artifacts to the ArtifactReference provided.      * This typically inclues the pom files, and those things with      * classifiers (such as doc, source code, test libs, etc...)      *</p>      *<p>      *<strong>NOTE:</strong> Some layouts (such as maven 1 "legacy") are not compatible with this query.      *</p>      *      * @param reference the reference to work off of.      * @return the set of ArtifactReferences for related artifacts.      * @throws ContentNotFoundException if the initial artifact reference does not exist within the repository.      */
-name|Set
+comment|/**      *<p>      * Gather up the list of related artifacts to the ArtifactReference provided.      * This typically includes the pom files, and those things with      * classifiers (such as doc, source code, test libs, etc...). Even if the classifier      * is set in the artifact reference, it may return artifacts with different classifiers.      *</p>      *<p>      *<strong>NOTE:</strong> Some layouts (such as maven 1 "legacy") are not compatible with this query.      *</p>      *      * @param reference the reference to work off of.      * @return the list of ArtifactReferences for related artifacts, if      * @throws ContentNotFoundException if the initial artifact reference does not exist within the repository.      */
+name|List
 argument_list|<
 name|ArtifactReference
 argument_list|>
@@ -168,6 +220,38 @@ name|reference
 parameter_list|)
 throws|throws
 name|ContentNotFoundException
+throws|,
+name|LayoutException
+function_decl|;
+comment|/**      * Returns all the assets that belong to a given artifact type. The list returned contain      * all the files that correspond to the given artifact reference.      * This method is the same as {@link #getRelatedArtifacts(ArtifactReference)} but may also return      * e.g. hash files.      *      * @param reference      * @return      */
+name|List
+argument_list|<
+name|StorageAsset
+argument_list|>
+name|getRelatedAssets
+parameter_list|(
+name|ArtifactReference
+name|reference
+parameter_list|)
+throws|throws
+name|ContentNotFoundException
+throws|,
+name|LayoutException
+function_decl|;
+comment|/**      * Returns all artifacts that belong to a given version      * @param reference the version reference      * @return the list of artifacts or a empty list      */
+name|List
+argument_list|<
+name|ArtifactReference
+argument_list|>
+name|getArtifacts
+parameter_list|(
+name|VersionedReference
+name|reference
+parameter_list|)
+throws|throws
+name|ContentNotFoundException
+throws|,
+name|LayoutException
 function_decl|;
 comment|/**      *<p>      * Convenience method to get the repository (on disk) root directory.      *</p>      *<p>      * Equivalent to calling<code>.getRepository().getLocation()</code>      *</p>      *      * @return the repository (on disk) root directory.      */
 name|String
@@ -235,14 +319,6 @@ comment|/**      * Set the repository configuration to associate with this      
 name|void
 name|setRepository
 parameter_list|(
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
 name|ManagedRepository
 name|repo
 parameter_list|)
