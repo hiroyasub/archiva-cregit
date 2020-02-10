@@ -604,7 +604,12 @@ name|repository
 operator|.
 name|getRelatedArtifacts
 argument_list|(
+name|repository
+operator|.
+name|toVersion
+argument_list|(
 name|newArtifactReference
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -656,7 +661,12 @@ name|repository
 operator|.
 name|getRelatedArtifacts
 argument_list|(
+name|repository
+operator|.
+name|toVersion
+argument_list|(
 name|newArtifactReference
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -705,6 +715,26 @@ operator|.
 name|getMessage
 argument_list|( )
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|ContentAccessException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
 expr_stmt|;
 block|}
 block|}

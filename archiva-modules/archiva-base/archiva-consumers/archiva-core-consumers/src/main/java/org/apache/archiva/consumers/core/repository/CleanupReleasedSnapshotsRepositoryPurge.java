@@ -869,6 +869,26 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|ContentAccessException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
 block|}
 comment|/*      * TODO: Uses a deprecated API, but if we use the API with location string, it does not work as expected      * -> not sure what needs to be changed here.      */
 annotation|@

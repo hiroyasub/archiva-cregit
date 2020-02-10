@@ -1470,6 +1470,13 @@ argument_list|)
 expr_stmt|;
 name|artifact
 operator|.
+name|setType
+argument_list|(
+literal|"javadoc"
+argument_list|)
+expr_stmt|;
+name|artifact
+operator|.
 name|setContext
 argument_list|(
 name|SOURCE_REPO_ID

@@ -132,7 +132,15 @@ name|String
 name|version
 parameter_list|)
 function_decl|;
-comment|/**      * Return the version reference the artifact is part of.      *      * @param artifactReference The artifact reference      * @return the version reference      */
+comment|/**      * Returns the version reference that represents the generic version, which means that      * snapshot versions are converted to<VERSION>-SNAPSHOT      * @param artifactReference the artifact reference      * @return the generic version      */
+name|VersionedReference
+name|toGenericVersion
+parameter_list|(
+name|ArtifactReference
+name|artifactReference
+parameter_list|)
+function_decl|;
+comment|/**      * Return the version reference that matches exactly the version string of the artifact      *      * @param artifactReference The artifact reference      * @return the version reference      */
 name|VersionedReference
 name|toVersion
 parameter_list|(
@@ -169,6 +177,8 @@ name|reference
 parameter_list|)
 throws|throws
 name|ContentNotFoundException
+throws|,
+name|ContentAccessException
 function_decl|;
 comment|/**      * delete a specified artifact from the repository      *      * @param artifactReference      * @throws ContentNotFoundException      */
 name|void
@@ -179,6 +189,8 @@ name|artifactReference
 parameter_list|)
 throws|throws
 name|ContentNotFoundException
+throws|,
+name|ContentAccessException
 function_decl|;
 comment|/**      * @param groupId      * @throws ContentNotFoundException      * @since 1.4-M3      */
 name|void
@@ -189,6 +201,8 @@ name|groupId
 parameter_list|)
 throws|throws
 name|ContentNotFoundException
+throws|,
+name|ContentAccessException
 function_decl|;
 comment|/**      *      * @param namespace groupId for maven      * @param projectId artifactId for maven      * @throws ContentNotFoundException      */
 name|void
@@ -201,14 +215,28 @@ name|String
 name|projectId
 parameter_list|)
 throws|throws
-name|RepositoryException
+name|ContentNotFoundException
+throws|,
+name|ContentAccessException
+function_decl|;
+comment|/**      * Deletes a project      * @param reference      */
+name|void
+name|deleteProject
+parameter_list|(
+name|ProjectReference
+name|reference
+parameter_list|)
+throws|throws
+name|ContentNotFoundException
+throws|,
+name|ContentAccessException
 function_decl|;
 comment|/**      *<p>      * Convenience method to get the repository id.      *</p>      *<p>      * Equivalent to calling<code>.getRepository().getId()</code>      *</p>      *      * @return the repository id.      */
 name|String
 name|getId
 parameter_list|()
 function_decl|;
-comment|/**      *<p>      * Gather up the list of related artifacts to the ArtifactReference provided.      * This typically includes the pom files, and those things with      * classifiers (such as doc, source code, test libs, etc...). Even if the classifier      * is set in the artifact reference, it may return artifacts with different classifiers.      *</p>      *<p>      *<strong>NOTE:</strong> Some layouts (such as maven 1 "legacy") are not compatible with this query.      *</p>      *      * @param reference the reference to work off of.      * @return the list of ArtifactReferences for related artifacts, if      * @throws ContentNotFoundException if the initial artifact reference does not exist within the repository.      */
+comment|/**      *<p>      * Gather up the list of related artifacts to the ArtifactReference provided.      * If type and / or classifier of the reference is set, this returns only a list of artifacts that is directly      * related to the given artifact, like checksums.      * If type and classifier is<code>null</code> it will return the same artifacts as       * {@link #getRelatedArtifacts(VersionedReference)}      *</p>      *<p>      *<strong>NOTE:</strong> Some layouts (such as maven 1 "legacy") are not compatible with this query.      *</p>      *      * @param reference the reference to work off of.      * @return the list of ArtifactReferences for related artifacts, if      * @throws ContentNotFoundException if the initial artifact reference does not exist within the repository.      * @see #getRelatedArtifacts(VersionedReference)      */
 name|List
 argument_list|<
 name|ArtifactReference
@@ -222,6 +250,25 @@ throws|throws
 name|ContentNotFoundException
 throws|,
 name|LayoutException
+throws|,
+name|ContentAccessException
+function_decl|;
+comment|/**      *<p>      * Gather up the list of related artifacts to the ArtifactReference provided.      * This typically includes the pom files, and those things with      * classifiers (such as doc, source code, test libs, etc...). Even if the classifier      * is set in the artifact reference, it may return artifacts with different classifiers.      *</p>      *<p>      *<strong>NOTE:</strong> Some layouts (such as maven 1 "legacy") are not compatible with this query.      *</p>      *      * @param reference the reference to work off of.      * @return the list of ArtifactReferences for related artifacts, if      * @throws ContentNotFoundException if the initial artifact reference does not exist within the repository.      */
+name|List
+argument_list|<
+name|ArtifactReference
+argument_list|>
+name|getRelatedArtifacts
+parameter_list|(
+name|VersionedReference
+name|reference
+parameter_list|)
+throws|throws
+name|ContentNotFoundException
+throws|,
+name|LayoutException
+throws|,
+name|ContentAccessException
 function_decl|;
 comment|/**      * Returns all the assets that belong to a given artifact type. The list returned contain      * all the files that correspond to the given artifact reference.      * This method is the same as {@link #getRelatedArtifacts(ArtifactReference)} but may also return      * e.g. hash files.      *      * @param reference      * @return      */
 name|List
@@ -237,6 +284,8 @@ throws|throws
 name|ContentNotFoundException
 throws|,
 name|LayoutException
+throws|,
+name|ContentAccessException
 function_decl|;
 comment|/**      * Returns all artifacts that belong to a given version      * @param reference the version reference      * @return the list of artifacts or a empty list      */
 name|List
@@ -252,6 +301,8 @@ throws|throws
 name|ContentNotFoundException
 throws|,
 name|LayoutException
+throws|,
+name|ContentAccessException
 function_decl|;
 comment|/**      *<p>      * Convenience method to get the repository (on disk) root directory.      *</p>      *<p>      * Equivalent to calling<code>.getRepository().getLocation()</code>      *</p>      *      * @return the repository (on disk) root directory.      */
 name|String
@@ -277,6 +328,8 @@ throws|throws
 name|ContentNotFoundException
 throws|,
 name|LayoutException
+throws|,
+name|ContentAccessException
 function_decl|;
 comment|/**      *<p>      * Given a specific {@link VersionedReference}, return the list of available versions for that      * versioned reference.      *</p>      *<p>      *<strong>NOTE:</strong> This is really only useful when working with SNAPSHOTs.      *</p>      *      * @param reference the versioned reference to work off of.      * @return the set of versions found.      * @throws ContentNotFoundException if the versioned reference does not exist within the repository.      */
 name|Set
@@ -290,6 +343,10 @@ name|reference
 parameter_list|)
 throws|throws
 name|ContentNotFoundException
+throws|,
+name|ContentAccessException
+throws|,
+name|LayoutException
 function_decl|;
 comment|/**      * Determines if the artifact referenced exists in the repository.      *      * @param reference the artifact reference to check for.      * @return true if the artifact referenced exists.      */
 name|boolean
@@ -298,6 +355,8 @@ parameter_list|(
 name|ArtifactReference
 name|reference
 parameter_list|)
+throws|throws
+name|ContentAccessException
 function_decl|;
 comment|/**      * Determines if the project referenced exists in the repository.      *      * @param reference the project reference to check for.      * @return true it the project referenced exists.      */
 name|boolean
@@ -306,6 +365,8 @@ parameter_list|(
 name|ProjectReference
 name|reference
 parameter_list|)
+throws|throws
+name|ContentAccessException
 function_decl|;
 comment|/**      * Determines if the version reference exists in the repository.      *      * @param reference the version reference to check for.      * @return true if the version referenced exists.      */
 name|boolean
@@ -314,6 +375,8 @@ parameter_list|(
 name|VersionedReference
 name|reference
 parameter_list|)
+throws|throws
+name|ContentAccessException
 function_decl|;
 comment|/**      * Set the repository configuration to associate with this      * repository content.      *      * @param repo the repository to associate with this repository content.      */
 name|void
@@ -321,6 +384,14 @@ name|setRepository
 parameter_list|(
 name|ManagedRepository
 name|repo
+parameter_list|)
+function_decl|;
+comment|/**      * Given an {@link ArtifactReference}, return the file reference to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
+name|StorageAsset
+name|toFile
+parameter_list|(
+name|VersionedReference
+name|reference
 parameter_list|)
 function_decl|;
 comment|/**      * Given an {@link ArtifactReference}, return the file reference to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */

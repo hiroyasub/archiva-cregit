@@ -16,7 +16,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * ContentNotFoundException is thrown in response for requests for content that is not the repository.   *  *  */
+comment|/**  *  * ContentNotFoundException is thrown in response for requests for content that is not in the repository.  *  */
 end_comment
 
 begin_class

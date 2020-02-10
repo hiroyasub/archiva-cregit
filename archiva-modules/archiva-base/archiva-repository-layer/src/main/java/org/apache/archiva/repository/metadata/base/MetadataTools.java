@@ -365,20 +365,6 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|Repository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
 name|RepositoryRegistry
 import|;
 end_import
@@ -442,20 +428,6 @@ operator|.
 name|storage
 operator|.
 name|StorageAsset
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|xml
-operator|.
-name|XMLException
 import|;
 end_import
 
@@ -944,13 +916,40 @@ name|String
 argument_list|>
 name|foundVersions
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|foundVersions
+operator|=
 name|managedRepository
 operator|.
 name|getVersions
 argument_list|(
 name|reference
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|ContentAccessException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
 comment|// Next gather up the referenced 'latest' versions found in any proxied repositories
 comment|// maven-metadata-${proxyId}.xml files that may be present.
 comment|// Does this repository have a set of remote proxied repositories?
@@ -2521,13 +2520,40 @@ name|String
 argument_list|>
 name|allVersions
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|allVersions
+operator|=
 name|managedRepository
 operator|.
 name|getVersions
 argument_list|(
 name|reference
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|ContentAccessException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
 comment|// Gather up all plugins found in the managed repository.
 comment|// TODO: do we know this information instead?
 comment|//        Set<Plugin> allPlugins = managedRepository.getPlugins( reference );

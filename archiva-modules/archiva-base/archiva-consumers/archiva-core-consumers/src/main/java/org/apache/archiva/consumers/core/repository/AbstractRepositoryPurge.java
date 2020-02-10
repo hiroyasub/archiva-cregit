@@ -1222,6 +1222,26 @@ argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|ContentAccessException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
 name|boolean
 name|snapshotVersion
 init|=
