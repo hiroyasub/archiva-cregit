@@ -69,6 +69,24 @@ name|artifactId
 return|;
 block|}
 comment|//-- String getArtifactId()
+specifier|public
+name|VersionedReference
+name|artifactId
+parameter_list|(
+name|String
+name|artifactId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|artifactId
+operator|=
+name|artifactId
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Get the Group ID of the repository content.      *       * @return String      */
 specifier|public
 name|String
@@ -82,6 +100,24 @@ name|groupId
 return|;
 block|}
 comment|//-- String getGroupId()
+specifier|public
+name|VersionedReference
+name|groupId
+parameter_list|(
+name|String
+name|groupId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|groupId
+operator|=
+name|groupId
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Get the version of the repository content.      *       * @return String      */
 specifier|public
 name|String
@@ -95,6 +131,24 @@ name|version
 return|;
 block|}
 comment|//-- String getVersion()
+specifier|public
+name|VersionedReference
+name|version
+parameter_list|(
+name|String
+name|version
+parameter_list|)
+block|{
+name|this
+operator|.
+name|version
+operator|=
+name|version
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Set the Artifact ID of the repository content.      *       * @param artifactId      */
 specifier|public
 name|void

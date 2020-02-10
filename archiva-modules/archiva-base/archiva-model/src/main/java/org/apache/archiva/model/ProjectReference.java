@@ -64,6 +64,24 @@ name|artifactId
 return|;
 block|}
 comment|//-- String getArtifactId()
+specifier|public
+name|ProjectReference
+name|artifactId
+parameter_list|(
+name|String
+name|artifactId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|artifactId
+operator|=
+name|artifactId
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Get the Group ID of the project reference.      *       * @return String      */
 specifier|public
 name|String
@@ -77,6 +95,24 @@ name|groupId
 return|;
 block|}
 comment|//-- String getGroupId()
+specifier|public
+name|ProjectReference
+name|groupId
+parameter_list|(
+name|String
+name|groupId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|groupId
+operator|=
+name|groupId
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Set the Artifact ID of the project reference.      *       * @param artifactId      */
 specifier|public
 name|void

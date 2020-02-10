@@ -79,6 +79,24 @@ name|artifactId
 return|;
 block|}
 comment|//-- String getArtifactId()
+specifier|public
+name|ArtifactReference
+name|artifactId
+parameter_list|(
+name|String
+name|artifactId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|artifactId
+operator|=
+name|artifactId
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Get the classifier for this artifact.      *       * @return String      */
 specifier|public
 name|String
@@ -92,6 +110,24 @@ name|classifier
 return|;
 block|}
 comment|//-- String getClassifier()
+specifier|public
+name|ArtifactReference
+name|classifier
+parameter_list|(
+name|String
+name|classifier
+parameter_list|)
+block|{
+name|this
+operator|.
+name|classifier
+operator|=
+name|classifier
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Get the Group ID of the repository content.      *       * @return String      */
 specifier|public
 name|String
@@ -105,6 +141,24 @@ name|groupId
 return|;
 block|}
 comment|//-- String getGroupId()
+specifier|public
+name|ArtifactReference
+name|groupId
+parameter_list|(
+name|String
+name|groupId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|groupId
+operator|=
+name|groupId
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Get the type of artifact.      *       * @return String      */
 specifier|public
 name|String
@@ -118,6 +172,24 @@ name|type
 return|;
 block|}
 comment|//-- String getType()
+specifier|public
+name|ArtifactReference
+name|type
+parameter_list|(
+name|String
+name|type
+parameter_list|)
+block|{
+name|this
+operator|.
+name|type
+operator|=
+name|type
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Get the version of the repository content.      *       * @return String      */
 specifier|public
 name|String
@@ -131,6 +203,24 @@ name|version
 return|;
 block|}
 comment|//-- String getVersion()
+specifier|public
+name|ArtifactReference
+name|version
+parameter_list|(
+name|String
+name|version
+parameter_list|)
+block|{
+name|this
+operator|.
+name|version
+operator|=
+name|version
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Set the Artifact ID of the repository content.      *       * @param artifactId      */
 specifier|public
 name|void
