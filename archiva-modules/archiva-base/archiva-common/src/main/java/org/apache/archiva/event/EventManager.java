@@ -68,7 +68,7 @@ specifier|private
 specifier|static
 specifier|final
 name|Logger
-name|log
+name|LOG
 init|=
 name|LoggerFactory
 operator|.
@@ -362,7 +362,7 @@ name|e
 parameter_list|)
 block|{
 comment|// We catch all errors from handlers
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(

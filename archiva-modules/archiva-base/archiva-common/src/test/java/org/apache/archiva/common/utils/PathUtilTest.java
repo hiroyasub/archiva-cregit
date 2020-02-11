@@ -65,6 +65,20 @@ name|Paths
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|FilenameUtils
+import|;
+end_import
+
 begin_comment
 comment|/**  * PathUtilTest   *  *  */
 end_comment
@@ -83,7 +97,12 @@ parameter_list|()
 block|{
 name|assertEquals
 argument_list|(
+name|FilenameUtils
+operator|.
+name|separatorsToSystem
+argument_list|(
 literal|"path/to/resource.xml"
+argument_list|)
 argument_list|,
 name|PathUtil
 operator|.
@@ -103,7 +122,12 @@ parameter_list|()
 block|{
 name|assertEquals
 argument_list|(
+name|FilenameUtils
+operator|.
+name|separatorsToSystem
+argument_list|(
 literal|"path/to/resource.xml"
+argument_list|)
 argument_list|,
 name|PathUtil
 operator|.
