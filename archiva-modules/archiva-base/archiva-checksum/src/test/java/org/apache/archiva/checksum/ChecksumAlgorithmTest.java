@@ -17,16 +17,6 @@ end_comment
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -75,6 +65,16 @@ name|Paths
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
 begin_comment
 comment|/**  * ChecksumAlgorithmTest  *  *  */
 end_comment
@@ -90,8 +90,6 @@ argument_list|)
 specifier|public
 class|class
 name|ChecksumAlgorithmTest
-extends|extends
-name|TestCase
 block|{
 annotation|@
 name|Test
@@ -100,6 +98,8 @@ name|void
 name|testGetHashByExtensionSha1
 parameter_list|()
 block|{
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|ChecksumAlgorithm
@@ -119,6 +119,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|ChecksumAlgorithm
@@ -146,6 +148,8 @@ name|void
 name|testGetHashByExtensionMd5
 parameter_list|()
 block|{
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|ChecksumAlgorithm
@@ -165,6 +169,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|ChecksumAlgorithm
@@ -206,6 +212,8 @@ literal|"something.jar"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|fail
 argument_list|(
 literal|"Expected "
