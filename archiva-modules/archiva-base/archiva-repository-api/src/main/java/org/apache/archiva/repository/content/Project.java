@@ -27,7 +27,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|RepositoryContent
+name|ManagedRepositoryContent
 import|;
 end_import
 
@@ -41,31 +41,9 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|UnsupportedConversionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|storage
 operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|UnsupportedRepositoryTypeException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
+name|StorageAsset
 import|;
 end_import
 
@@ -91,8 +69,13 @@ name|getId
 parameter_list|()
 function_decl|;
 comment|/**      * The repository this project is part of.      * @return the repository content      */
-name|RepositoryContent
+name|ManagedRepositoryContent
 name|getRepository
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the asset that corresponds to this project.      * It depends of the implementation, if the asset provides additional information about the      * project or not.      *      * @return the repository asset that represents this project      */
+name|StorageAsset
+name|getAsset
 parameter_list|()
 function_decl|;
 block|}
