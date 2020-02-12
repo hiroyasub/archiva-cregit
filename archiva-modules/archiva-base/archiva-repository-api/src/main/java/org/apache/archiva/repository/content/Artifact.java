@@ -88,11 +88,6 @@ name|Version
 name|getVersion
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the project this artifact is part of.      * @return the project object      */
-name|Project
-name|getProject
-parameter_list|()
-function_decl|;
 comment|/**      * Returns the type of the artifact. The type is some hint about the usage of the artifact.      * Implementations may always return a empty string, if it is not used.      *      * @return the type of the artifact. Returns never<code>null</code>, but may be empty string      */
 name|String
 name|getType
