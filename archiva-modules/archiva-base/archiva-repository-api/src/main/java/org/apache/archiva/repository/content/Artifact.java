@@ -66,10 +66,7 @@ specifier|public
 interface|interface
 name|Artifact
 extends|extends
-name|Comparable
-argument_list|<
-name|Artifact
-argument_list|>
+name|ContentItem
 block|{
 comment|/**      * The namespace is the location of the artifact.      * E.g. for maven artifacts it is the groupId.      * The namespace may be empty. Which means that is the base or root namespace.      *      * @return the namespace of the artifact. Never returns<code>null</code>.      */
 name|String
@@ -184,50 +181,6 @@ comment|/**      * Returns the storage representation of the artifact. The asset
 name|StorageAsset
 name|getAsset
 parameter_list|()
-function_decl|;
-comment|/**      * Returns additional attributes of the artifact. Implementations may add additional attributes, e.g. author name      * or creation date. Specific implementation attributes can be accessed either by the {@link #getAttributes()} method      * or by a specific implementation class (see {@link #adapt(Class)}. Use via the adapter is type safe.      *      * @return a map of attribute key, value pairs      */
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|getAttributes
-parameter_list|()
-function_decl|;
-comment|/**      * Returns the repository type specific implementation      * @param clazz the specific implementation class      * @param<T> the class or interface      * @return the specific project implementation      */
-parameter_list|<
-name|T
-extends|extends
-name|Artifact
-parameter_list|>
-name|T
-name|adapt
-parameter_list|(
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|clazz
-parameter_list|)
-throws|throws
-name|UnsupportedRepositoryTypeException
-function_decl|;
-comment|/**      * Returns<code>true</code>, if this project supports the given adaptor class.      * @param clazz the class to convert this project to      * @param<T> the type      * @return<code>true/code>, if the implementation is supported, otherwise false      */
-parameter_list|<
-name|T
-extends|extends
-name|Artifact
-parameter_list|>
-name|boolean
-name|supports
-parameter_list|(
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|clazz
-parameter_list|)
 function_decl|;
 block|}
 end_interface

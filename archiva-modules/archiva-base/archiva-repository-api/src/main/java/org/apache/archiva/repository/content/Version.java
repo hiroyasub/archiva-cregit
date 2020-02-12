@@ -66,10 +66,7 @@ specifier|public
 interface|interface
 name|Version
 extends|extends
-name|Comparable
-argument_list|<
-name|Version
-argument_list|>
+name|ContentItem
 block|{
 comment|/**      * Returns the version string.      *      * @return the version string      */
 name|String
@@ -85,50 +82,6 @@ comment|/**      * Each version is attached to a project.      * @return the att
 name|Project
 name|getProject
 parameter_list|()
-function_decl|;
-comment|/**      * Returns additional attributes.      * @return the map of attribute key, value pairs      */
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|getAttributes
-parameter_list|()
-function_decl|;
-comment|/**      * Returns the repository type specific implementation      * @param clazz the specific implementation class      * @param<T> the class or interface      * @return the specific project implementation      */
-parameter_list|<
-name|T
-extends|extends
-name|Project
-parameter_list|>
-name|T
-name|adapt
-parameter_list|(
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|clazz
-parameter_list|)
-throws|throws
-name|UnsupportedRepositoryTypeException
-function_decl|;
-comment|/**      * Returns<code>true</code>, if this project supports the given adaptor class.      * @param clazz the class to convert this project to      * @param<T> the type      * @return<code>true/code>, if the implementation is supported, otherwise false      */
-parameter_list|<
-name|T
-extends|extends
-name|Project
-parameter_list|>
-name|boolean
-name|supports
-parameter_list|(
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|clazz
-parameter_list|)
 function_decl|;
 block|}
 end_interface
