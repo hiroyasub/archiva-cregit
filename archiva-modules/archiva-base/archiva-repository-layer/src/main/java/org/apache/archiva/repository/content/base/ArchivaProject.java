@@ -29,7 +29,35 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|ManagedRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|ManagedRepositoryContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|RepositoryContent
 import|;
 end_import
 
@@ -101,7 +129,7 @@ name|String
 name|id
 decl_stmt|;
 specifier|private
-name|ManagedRepositoryContent
+name|RepositoryContent
 name|repositoryContent
 decl_stmt|;
 specifier|private
@@ -164,7 +192,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|ManagedRepositoryContent
+name|RepositoryContent
 name|getRepository
 parameter_list|( )
 block|{
@@ -278,7 +306,7 @@ specifier|public
 name|OptBuilder
 name|withRepository
 parameter_list|(
-name|ManagedRepositoryContent
+name|RepositoryContent
 name|repository
 parameter_list|)
 block|{
@@ -398,14 +426,29 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|project
+operator|.
+name|getRepository
+argument_list|()
+operator|instanceof
+name|ManagedRepositoryContent
+condition|)
+block|{
 name|project
 operator|.
 name|asset
 operator|=
+operator|(
+operator|(
+name|ManagedRepositoryContent
+operator|)
 name|project
 operator|.
 name|getRepository
 argument_list|( )
+operator|)
 operator|.
 name|getRepository
 argument_list|( )
@@ -415,6 +458,7 @@ argument_list|(
 literal|""
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|project

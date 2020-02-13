@@ -315,16 +315,8 @@ name|version
 operator|.
 name|project
 operator|.
-name|getRepository
-argument_list|( )
-operator|.
-name|getRepository
-argument_list|()
-operator|.
 name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+argument_list|( )
 expr_stmt|;
 block|}
 return|return

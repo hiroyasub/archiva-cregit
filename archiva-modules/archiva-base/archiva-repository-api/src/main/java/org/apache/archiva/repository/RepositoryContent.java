@@ -43,6 +43,22 @@ name|VersionedReference
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|ItemSelector
+import|;
+end_import
+
 begin_comment
 comment|/**  * Common aspects of content provider interfaces  */
 end_comment
@@ -68,6 +84,14 @@ name|toPath
 parameter_list|(
 name|ArtifactReference
 name|reference
+parameter_list|)
+function_decl|;
+comment|/**      * Return the path, that represents the item specified by the selector.      * @param selector the selector with the artifact coordinates      * @return the path to the content item      */
+name|String
+name|toPath
+parameter_list|(
+name|ItemSelector
+name|selector
 parameter_list|)
 function_decl|;
 block|}

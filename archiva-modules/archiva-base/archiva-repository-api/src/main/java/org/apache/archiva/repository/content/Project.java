@@ -27,7 +27,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ManagedRepositoryContent
+name|RepositoryContent
 import|;
 end_import
 
@@ -69,7 +69,7 @@ name|getId
 parameter_list|()
 function_decl|;
 comment|/**      * The repository this project is part of.      * @return the repository content      */
-name|ManagedRepositoryContent
+name|RepositoryContent
 name|getRepository
 parameter_list|()
 function_decl|;
