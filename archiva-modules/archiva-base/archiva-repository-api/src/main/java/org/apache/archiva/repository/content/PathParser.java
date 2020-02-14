@@ -64,6 +64,16 @@ parameter_list|)
 throws|throws
 name|LayoutException
 function_decl|;
+comment|/**      * Return a item selector for the given path.      * @param path the path relative to the repository      * @return a item selector instance      * @throws LayoutException if the path does not reference a valid item      */
+name|ItemSelector
+name|toItemSelector
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+throws|throws
+name|LayoutException
+function_decl|;
 block|}
 end_interface
 

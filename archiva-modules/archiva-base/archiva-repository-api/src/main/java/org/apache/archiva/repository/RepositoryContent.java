@@ -94,6 +94,16 @@ name|ItemSelector
 name|selector
 parameter_list|)
 function_decl|;
+comment|/**      * Return a item selector that matches the given path. This is kind of reverse method for the {@link #toPath(ItemSelector)}      * method and fills the selector with the known information. It may not make sense for every path, and the following      * must<b>not be true</b>:      *<pre>      *  selector.equals(r.toItemSelector(r.toPath(selector)))      *</pre>      *      * The methods on the ManagedRepository give more reliable results.      *      * @param path the repository path      * @return a item selector that would select the given path      */
+name|ItemSelector
+name|toItemSelector
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+throws|throws
+name|LayoutException
+function_decl|;
 block|}
 end_interface
 
