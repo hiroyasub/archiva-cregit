@@ -512,10 +512,7 @@ argument_list|( )
 operator|+
 literal|"."
 operator|+
-name|checksumAlgorithm
-operator|.
-name|getExt
-argument_list|( )
+name|ext
 argument_list|)
 decl_stmt|;
 if|if
@@ -1165,7 +1162,7 @@ name|writeStringToFile
 argument_list|(
 name|checksumFile
 argument_list|,
-name|FILE_ENCODING
+name|encoding
 argument_list|,
 name|checksumHex
 operator|+

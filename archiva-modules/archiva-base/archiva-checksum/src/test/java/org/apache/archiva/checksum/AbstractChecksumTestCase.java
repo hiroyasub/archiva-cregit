@@ -17,16 +17,6 @@ end_comment
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -115,6 +105,38 @@ name|Paths
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Rule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|rules
+operator|.
+name|TestName
+import|;
+end_import
+
 begin_comment
 comment|/**  * AbstractChecksumTestCase  *  *  */
 end_comment
@@ -131,9 +153,17 @@ specifier|public
 specifier|abstract
 class|class
 name|AbstractChecksumTestCase
-extends|extends
-name|TestCase
 block|{
+annotation|@
+name|Rule
+specifier|public
+name|TestName
+name|name
+init|=
+operator|new
+name|TestName
+argument_list|()
+decl_stmt|;
 specifier|public
 name|Path
 name|getTestOutputDir
@@ -153,7 +183,9 @@ argument_list|()
 argument_list|,
 literal|"target/test-output/"
 operator|+
-name|getName
+name|name
+operator|.
+name|getMethodName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -184,6 +216,8 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|Assert
+operator|.
 name|fail
 argument_list|(
 literal|"Unable to create test output directory: "
@@ -244,6 +278,8 @@ name|file
 argument_list|)
 condition|)
 block|{
+name|Assert
+operator|.
 name|fail
 argument_list|(
 literal|"Test Resource does not exist: "

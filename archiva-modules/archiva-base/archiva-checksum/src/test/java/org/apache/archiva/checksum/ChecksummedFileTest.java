@@ -155,6 +155,26 @@ name|Arrays
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
 begin_comment
 comment|/**  * ChecksummedFileTest  *  *  */
 end_comment
@@ -205,7 +225,7 @@ literal|"UTF-8"
 argument_list|)
 decl_stmt|;
 annotation|@
-name|Before
+name|After
 specifier|public
 name|void
 name|cleanTestDir
@@ -494,6 +514,8 @@ operator|.
 name|MD5
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|expectedChecksum
@@ -545,6 +567,8 @@ operator|.
 name|SHA1
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|expectedChecksum
@@ -600,6 +624,8 @@ operator|.
 name|SHA1
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 literal|"ChecksumAlgorithm file should exist."
@@ -644,6 +670,8 @@ argument_list|(
 name|hashContents
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"2bb14b388973351b0a4dfe11d171965f59cc61a1  redback-authz-open.jar"
@@ -718,6 +746,8 @@ argument_list|(
 name|jarFile
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertFalse
 argument_list|(
 literal|"ChecksummedFile.isValid(SHA1) == false"
@@ -749,6 +779,8 @@ name|SHA1
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|1
@@ -762,6 +794,8 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertFalse
 argument_list|(
 name|fixed
@@ -774,6 +808,8 @@ operator|.
 name|ERROR
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 literal|"ChecksummedFile.fixChecksums() == true"
@@ -796,6 +832,8 @@ operator|.
 name|UPDATED
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 literal|"ChecksummedFile.isValid(SHA1) == true"
@@ -832,6 +870,8 @@ literal|"test.jar"
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"test.jar.sha1"
@@ -885,6 +925,8 @@ argument_list|(
 name|jarFile
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 literal|"ChecksummedFile.isValid(SHA1)"
@@ -955,6 +997,8 @@ argument_list|(
 name|jarFile
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertFalse
 argument_list|(
 literal|"ChecksummedFile.isValid(SHA1)"
@@ -1002,6 +1046,8 @@ argument_list|(
 name|jarFile
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertFalse
 argument_list|(
 literal|"ChecksummedFile.isValid(SHA1,MD5)"
@@ -1058,6 +1104,8 @@ argument_list|(
 name|jarFile
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 literal|"ChecksummedFile.isValid(SHA1,MD5)"
@@ -1114,6 +1162,8 @@ argument_list|(
 name|jarFile
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 literal|"ChecksummedFile.isValid(SHA1)"
@@ -1208,6 +1258,8 @@ argument_list|,
 name|FILE_ENCODING
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"Checksum doesn't match"
@@ -1288,6 +1340,8 @@ argument_list|,
 name|FILE_ENCODING
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"Checksum doesn't match"
@@ -1368,6 +1422,8 @@ argument_list|,
 name|FILE_ENCODING
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"Checksum doesn't match"
@@ -1448,6 +1504,8 @@ argument_list|,
 name|FILE_ENCODING
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"Checksum doesn't match"
@@ -1469,6 +1527,8 @@ operator|.
 name|printStackTrace
 argument_list|()
 expr_stmt|;
+name|Assert
+operator|.
 name|fail
 argument_list|(
 literal|"IOException should not occur."
@@ -1546,6 +1606,8 @@ argument_list|,
 name|FILE_ENCODING
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"Checksum doesn't match"
@@ -1567,6 +1629,8 @@ operator|.
 name|printStackTrace
 argument_list|()
 expr_stmt|;
+name|Assert
+operator|.
 name|fail
 argument_list|(
 literal|"IOException should not occur."

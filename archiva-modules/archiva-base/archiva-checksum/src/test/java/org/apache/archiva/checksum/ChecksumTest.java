@@ -123,6 +123,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
 begin_comment
 comment|/**  * ChecksumTest  *  *  */
 end_comment
@@ -180,6 +190,8 @@ operator|.
 name|SHA1
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"Checksum.algorithm"
@@ -219,6 +231,8 @@ operator|.
 name|MD5
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"Checksum.algorithm"
@@ -284,6 +298,8 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"Checksum"
@@ -388,6 +404,8 @@ argument_list|,
 name|checkFile
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"Checksum SHA1"
@@ -400,6 +418,8 @@ name|getChecksum
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"Checksum MD5"
@@ -431,6 +451,8 @@ operator|.
 name|SHA1
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"Checksum unset"
@@ -478,6 +500,8 @@ operator|.
 name|getChecksum
 argument_list|()
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"Expected"
@@ -493,6 +517,8 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"Checksum unset"
@@ -543,6 +569,8 @@ operator|-
 literal|10
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"Expected"
