@@ -37,6 +37,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|lang3
+operator|.
+name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -119,6 +133,12 @@ init|=
 literal|null
 decl_stmt|;
 specifier|private
+name|String
+name|extension
+init|=
+literal|null
+decl_stmt|;
+specifier|private
 name|Map
 argument_list|<
 name|String
@@ -129,19 +149,19 @@ name|attributes
 decl_stmt|;
 specifier|private
 name|ArchivaItemSelector
-parameter_list|()
+parameter_list|( )
 block|{
 block|}
 specifier|public
 specifier|static
 name|Builder
 name|builder
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 operator|new
 name|Builder
-argument_list|()
+argument_list|( )
 return|;
 block|}
 specifier|public
@@ -309,9 +329,27 @@ name|this
 return|;
 block|}
 specifier|public
+name|Builder
+name|withExtension
+parameter_list|(
+name|String
+name|extension
+parameter_list|)
+block|{
+name|selector
+operator|.
+name|extension
+operator|=
+name|extension
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+specifier|public
 name|ArchivaItemSelector
 name|build
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|selector
@@ -487,6 +525,20 @@ block|}
 annotation|@
 name|Override
 specifier|public
+name|String
+name|getExtension
+parameter_list|(
+name|String
+name|extension
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
 name|Map
 argument_list|<
 name|String
@@ -541,9 +593,25 @@ operator|&&
 name|attributes
 operator|.
 name|size
-argument_list|()
+argument_list|( )
 operator|>
 literal|0
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|hasExtension
+parameter_list|( )
+block|{
+return|return
+name|StringUtils
+operator|.
+name|isNotEmpty
+argument_list|(
+name|extension
+argument_list|)
 return|;
 block|}
 block|}

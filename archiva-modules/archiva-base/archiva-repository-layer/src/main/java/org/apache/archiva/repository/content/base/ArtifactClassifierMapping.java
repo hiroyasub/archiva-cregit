@@ -40,7 +40,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Maven 1.x request type to classifier mapping for translating to a Maven 2.x storage  *  * TODO reuse mappings for other repositories  *  * @since 1.1  */
+comment|/**  * Maven 1.x request type to classifier mapping for translating to a Maven 2.x storage  *<p>  * TODO reuse mappings for other repositories  *  * @since 1.1  */
 end_comment
 
 begin_class

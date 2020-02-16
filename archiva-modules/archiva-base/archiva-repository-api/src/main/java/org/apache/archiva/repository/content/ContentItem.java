@@ -27,7 +27,37 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|ManagedRepositoryContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|UnsupportedConversionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|storage
+operator|.
+name|StorageAsset
 import|;
 end_import
 
@@ -46,7 +76,7 @@ specifier|public
 interface|interface
 name|ContentItem
 block|{
-comment|/**      * Returns the repository type specific implementation      * @param clazz the specific implementation class      * @param<T> the class or interface      * @return the specific project implementation      */
+comment|/**      * Returns the repository type specific implementation      *      * @param clazz the specific implementation class      * @param<T>   the class or interface      * @return the specific project implementation      */
 parameter_list|<
 name|T
 extends|extends
@@ -64,7 +94,7 @@ parameter_list|)
 throws|throws
 name|UnsupportedConversionException
 function_decl|;
-comment|/**      * Returns<code>true</code>, if this project supports the given adaptor class.      * @param clazz the class to convert this project to      * @param<T> the type      * @return<code>true/code>, if the implementation is supported, otherwise false      */
+comment|/**      * Returns<code>true</code>, if this project supports the given adaptor class.      *      * @param clazz the class to convert this project to      * @param<T>   the type      * @return<code>true/code>, if the implementation is supported, otherwise false      */
 parameter_list|<
 name|T
 extends|extends
@@ -80,7 +110,7 @@ argument_list|>
 name|clazz
 parameter_list|)
 function_decl|;
-comment|/**      * Additional attributes      * @return the additional attributes      */
+comment|/**      * Additional attributes      *      * @return the additional attributes      */
 name|Map
 argument_list|<
 name|String
@@ -90,13 +120,23 @@ argument_list|>
 name|getAttributes
 parameter_list|( )
 function_decl|;
-comment|/**      * Returns the attribute value for the given key.      *      * @param key the attribute key      * @return the value, if the key exists, otherwise<code>null</code>      *      */
+comment|/**      * Returns the attribute value for the given key.      *      * @param key the attribute key      * @return the value, if the key exists, otherwise<code>null</code>      */
 name|String
 name|getAttribute
 parameter_list|(
 name|String
 name|key
 parameter_list|)
+function_decl|;
+comment|/**      * Returns the storage representation of the artifact. The asset must not exist.      *      * @return the asset this artifact corresponds to.      */
+name|StorageAsset
+name|getAsset
+parameter_list|( )
+function_decl|;
+comment|/**      * The repository this project is part of.      *      * @return the repository content      */
+name|ManagedRepositoryContent
+name|getRepository
+parameter_list|( )
 function_decl|;
 block|}
 end_interface

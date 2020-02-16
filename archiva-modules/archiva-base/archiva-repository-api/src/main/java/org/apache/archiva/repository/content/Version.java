@@ -19,46 +19,16 @@ end_comment
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|UnsupportedRepositoryTypeException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|storage
-operator|.
-name|StorageAsset
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|List
 import|;
 end_import
 
 begin_comment
-comment|/**  *  * Each artifact is attached to exactly one version.  *  * Implementations must provide proper hash and equals methods.  *  * @author Martin Stockhammer<martin_s@apache.org>  */
+comment|/**  * Each artifact is attached to exactly one version.  *<p>  * Implementations must provide proper hash and equals methods.  *  * @author Martin Stockhammer<martin_s@apache.org>  */
 end_comment
 
 begin_interface
@@ -71,17 +41,20 @@ block|{
 comment|/**      * Returns the version string.      *      * @return the version string      */
 name|String
 name|getVersion
-parameter_list|()
+parameter_list|( )
 function_decl|;
-comment|/**      * Returns the local representation of the version. For maven this is a directory.      * It is implementation dependent, what exactly this asset points to.      *      * @return the local storage representation of the version      */
-name|StorageAsset
-name|getAsset
-parameter_list|()
+comment|/**      * Returns the version segments. E.g. for 1.3.4 it will return ["1","3"."4"]      *      * @return      */
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getVersionSegments
+parameter_list|( )
 function_decl|;
-comment|/**      * Each version is attached to a project.      * @return the attached project      */
+comment|/**      * Returns the project this version is attached to.      *      * @return the project instance. Will never return<code>null</code>      */
 name|Project
 name|getProject
-parameter_list|()
+parameter_list|( )
 function_decl|;
 block|}
 end_interface

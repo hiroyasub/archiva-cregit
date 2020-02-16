@@ -170,7 +170,7 @@ name|Inject
 name|RepositoryContentFactory
 name|repositoryContentFactory
 decl_stmt|;
-comment|/**      * Returns the physical location of a given artifact in the repository. There is no check for the      * existence of the returned file.      *      * @param repository The repository, where the artifact is stored.      * @param artifactReference The artifact reference.      * @return The absolute path to the artifact.      * @throws RepositoryException      */
+comment|/**      * Returns the physical location of a given artifact in the repository. There is no check for the      * existence of the returned file.      *      * @param repository        The repository, where the artifact is stored.      * @param artifactReference The artifact reference.      * @return The absolute path to the artifact.      * @throws RepositoryException      */
 specifier|public
 name|Path
 name|getArtifactPath
@@ -214,7 +214,7 @@ argument_list|(
 name|repository
 operator|.
 name|getLocation
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|resolve
@@ -223,7 +223,7 @@ name|artifactPath
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the physical location of a given artifact in the repository. There is no check for the      * existence of the returned file.      *      * @param repository The repository, where the artifact is stored.      * @param artifactReference The artifact reference.      * @return The asset representation of the artifact.      * @throws RepositoryException      */
+comment|/**      * Returns the physical location of a given artifact in the repository. There is no check for the      * existence of the returned file.      *      * @param repository        The repository, where the artifact is stored.      * @param artifactReference The artifact reference.      * @return The asset representation of the artifact.      * @throws RepositoryException      */
 specifier|public
 name|StorageAsset
 name|getArtifactAsset

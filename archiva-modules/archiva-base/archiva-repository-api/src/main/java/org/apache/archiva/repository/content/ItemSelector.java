@@ -52,11 +52,11 @@ name|ItemSelector
 block|{
 name|String
 name|getProjectId
-parameter_list|()
+parameter_list|( )
 function_decl|;
 name|String
 name|getNamespace
-parameter_list|()
+parameter_list|( )
 function_decl|;
 name|String
 name|getVersion
@@ -64,7 +64,7 @@ parameter_list|( )
 function_decl|;
 name|String
 name|getArtifactVersion
-parameter_list|()
+parameter_list|( )
 function_decl|;
 name|String
 name|getArtifactId
@@ -72,17 +72,24 @@ parameter_list|( )
 function_decl|;
 name|String
 name|getType
-parameter_list|()
+parameter_list|( )
 function_decl|;
 name|String
 name|getClassifier
-parameter_list|()
+parameter_list|( )
 function_decl|;
 name|String
 name|getAttribute
 parameter_list|(
 name|String
 name|key
+parameter_list|)
+function_decl|;
+name|String
+name|getExtension
+parameter_list|(
+name|String
+name|extension
 parameter_list|)
 function_decl|;
 name|Map
@@ -97,7 +104,7 @@ function_decl|;
 specifier|default
 name|boolean
 name|hasNamespace
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 operator|!
@@ -113,7 +120,7 @@ block|}
 specifier|default
 name|boolean
 name|hasProjectId
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 operator|!
@@ -129,7 +136,7 @@ block|}
 specifier|default
 name|boolean
 name|hasVersion
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 operator|!
@@ -138,14 +145,14 @@ operator|.
 name|isEmpty
 argument_list|(
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 return|;
 block|}
 specifier|default
 name|boolean
 name|hasArtifactId
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 operator|!
@@ -161,7 +168,7 @@ block|}
 specifier|default
 name|boolean
 name|hasArtifactVersion
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 operator|!
@@ -177,7 +184,7 @@ block|}
 specifier|default
 name|boolean
 name|hasType
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 operator|!
@@ -193,7 +200,7 @@ block|}
 specifier|default
 name|boolean
 name|hasClassifier
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 operator|!
@@ -208,7 +215,11 @@ return|;
 block|}
 name|boolean
 name|hasAttributes
-parameter_list|()
+parameter_list|( )
+function_decl|;
+name|boolean
+name|hasExtension
+parameter_list|( )
 function_decl|;
 block|}
 end_interface
