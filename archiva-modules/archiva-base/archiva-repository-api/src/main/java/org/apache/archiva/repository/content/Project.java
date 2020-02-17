@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * The project is the container for several versions each with different artifacts.  *  *<pre>  * project +--> version 1 + ->  artifact 1  *         |              |  *         |              + ->  artifact 2  *         |  *         +--> version 2 ----> artifact 3  *</pre>  *<p>  * Implementations must provide proper hash and equals methods.  *  * @author Martin Stockhammer<martin_s@apache.org>  */
+comment|/**  * The project is the container for several versions each with different artifacts.  *  *<pre>  * namespace1 +--> project 1 +--> version 11 +--> artifact 111  *            |              |               |  *            |              |               +--> artifact 112  *            |              |  *            |              +--> version 12 +--> artifact 121  *            |                              |  *            |                              +--> artifact 122  *            |                              +--> ...  *            |  *            +--> project 2 +--> version 21 +--> artifact 211  *                           |               +--> ...  *                           +--> version 22 +--> artifact 221  *                                           +--> ...  *</pre>  *  *<p>  * Implementations must provide proper hash and equals methods.  *</p>  *  * @author Martin Stockhammer<martin_s@apache.org>  */
 end_comment
 
 begin_interface
