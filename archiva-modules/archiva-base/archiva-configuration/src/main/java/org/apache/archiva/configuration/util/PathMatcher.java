@@ -35,6 +35,18 @@ name|nio
 operator|.
 name|file
 operator|.
+name|InvalidPathException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
 name|Path
 import|;
 end_import
@@ -744,6 +756,8 @@ init|=
 name|tokenizePathAsArray
 argument_list|(
 name|pattern
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 return|return
@@ -754,6 +768,8 @@ argument_list|,
 name|tokenizePathAsArray
 argument_list|(
 name|str
+argument_list|,
+literal|true
 argument_list|)
 argument_list|,
 literal|true
@@ -783,6 +799,8 @@ init|=
 name|tokenizePathAsArray
 argument_list|(
 name|pattern
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 return|return
@@ -793,12 +811,15 @@ argument_list|,
 name|tokenizePathAsArray
 argument_list|(
 name|str
+argument_list|,
+literal|false
 argument_list|)
 argument_list|,
 name|isCaseSensitive
 argument_list|)
 return|;
 block|}
+comment|/**      *       * @param path      * @param osspecific      * @return      */
 specifier|static
 name|String
 index|[]
@@ -806,6 +827,9 @@ name|tokenizePathAsArray
 parameter_list|(
 name|String
 name|path
+parameter_list|,
+name|boolean
+name|osSpecific
 parameter_list|)
 block|{
 name|Path
@@ -813,6 +837,8 @@ name|root
 init|=
 literal|null
 decl_stmt|;
+try|try
+block|{
 name|Path
 name|fsPath
 init|=
@@ -836,7 +862,7 @@ operator|=
 name|fsPath
 operator|.
 name|getRoot
-argument_list|( )
+argument_list|()
 expr_stmt|;
 name|path
 operator|=
@@ -851,12 +877,25 @@ name|toString
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|InvalidPathException
+name|ipe
+parameter_list|)
+block|{
+comment|// invalid path, windauze hate **/*
+block|}
 name|char
 name|sep
 init|=
+name|osSpecific
+condition|?
 name|File
 operator|.
 name|separatorChar
+else|:
+literal|'/'
 decl_stmt|;
 name|int
 name|start
