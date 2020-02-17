@@ -1165,7 +1165,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-specifier|private
+specifier|protected
 name|String
 name|formatAsDirectory
 parameter_list|(
