@@ -138,6 +138,11 @@ name|ManagedRepositoryContent
 name|getRepository
 parameter_list|( )
 function_decl|;
+comment|/**      * Returns<code>true</code>, if the item exists, otherwise<code>false</code>      * @return<code>true</code>, if the item exists, otherwise<code>false</code>      */
+name|boolean
+name|exists
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

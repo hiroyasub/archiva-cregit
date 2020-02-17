@@ -607,6 +607,8 @@ name|N
 name|getNextBuilder
 parameter_list|( )
 function_decl|;
+annotation|@
+name|Override
 specifier|public
 name|WithAssetBuilder
 argument_list|<
@@ -648,6 +650,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|N
 name|withAsset
@@ -687,6 +691,8 @@ name|getNextBuilder
 argument_list|( )
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|O
 name|withAttribute
@@ -750,6 +756,8 @@ operator|=
 name|repository
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|I
 name|build
@@ -759,6 +767,20 @@ return|return
 name|item
 return|;
 block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|exists
+parameter_list|( )
+block|{
+return|return
+name|asset
+operator|.
+name|exists
+argument_list|( )
+return|;
 block|}
 block|}
 end_class
