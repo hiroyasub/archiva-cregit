@@ -839,6 +839,35 @@ name|uriStr
 argument_list|)
 expr_stmt|;
 block|}
+if|else if
+condition|(
+name|uriStr
+operator|.
+name|contains
+argument_list|(
+literal|":\\"
+argument_list|)
+condition|)
+block|{
+comment|//windows absolute path drive
+name|uri
+operator|=
+operator|new
+name|URI
+argument_list|(
+literal|"file:///"
+operator|+
+name|uriStr
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\\\"
+argument_list|,
+literal|"/"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 else|else
 block|{
 name|uri
