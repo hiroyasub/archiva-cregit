@@ -527,13 +527,10 @@ name|Override
 specifier|public
 name|String
 name|getExtension
-parameter_list|(
-name|String
-name|extension
-parameter_list|)
+parameter_list|(  )
 block|{
 return|return
-literal|null
+name|extension
 return|;
 block|}
 annotation|@

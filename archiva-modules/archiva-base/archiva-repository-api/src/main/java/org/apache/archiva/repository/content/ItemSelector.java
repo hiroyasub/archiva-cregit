@@ -87,10 +87,7 @@ parameter_list|)
 function_decl|;
 name|String
 name|getExtension
-parameter_list|(
-name|String
-name|extension
-parameter_list|)
+parameter_list|( )
 function_decl|;
 name|Map
 argument_list|<
