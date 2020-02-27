@@ -104,7 +104,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A instance of this interface represents information about a specific asset in a repository.  * The asset may be an real artifact, a directory, or a virtual asset.  *  * Each asset has a unique path relative to the repository.  *  * The implementation may read the data directly from the filesystem or underlying storage implementation.  *  * @author Martin Stockhammer<martin_s@apache.org>  */
+comment|/**  * A instance of this interface represents information about a specific asset in a repository.  * The asset may be an real artifact, a directory, or a virtual asset.  *  * Each asset has a unique path relative to the repository.  *  * The implementation may read the data directly from the filesystem or underlying storage implementation.  *  * @since 3.0  * @author Martin Stockhammer<martin_s@apache.org>  */
 end_comment
 
 begin_interface
@@ -122,19 +122,24 @@ name|String
 name|getPath
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the name of the asset. It may be just the filename.      * @return      */
+comment|/**      * Returns the name of the asset. It may be just the filename.      * @return the asset name      */
 name|String
 name|getName
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the time of the last modification.      *      * @return      */
+comment|/**      * Returns the time of the last modification.      *      * @return the time instant of the last modification      */
 name|Instant
 name|getModificationTime
 parameter_list|()
 function_decl|;
-comment|/**      * Returns true, if this asset is a container type and contains further child assets.      * @return      */
+comment|/**      * Returns true, if this asset is a container type and contains further child assets.      * @return<code>true</code>, if this is a container type, otherwise<code>false</code>      */
 name|boolean
 name|isContainer
+parameter_list|()
+function_decl|;
+comment|/**      * Returns true, if this asset is a leaf node and cannot contain further childs      * @return<code>true</code>, if this is a leaf type, otherwise<code>false</code>      */
+name|boolean
+name|isLeaf
 parameter_list|()
 function_decl|;
 comment|/**      * List the child assets.      *      * @return The list of children. If there are no children and if the asset is not a container, a empty list will be returned.      */
