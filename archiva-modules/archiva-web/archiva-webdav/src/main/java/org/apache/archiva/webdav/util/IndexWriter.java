@@ -907,6 +907,8 @@ control|)
 block|{
 name|List
 argument_list|<
+name|?
+extends|extends
 name|StorageAsset
 argument_list|>
 name|files

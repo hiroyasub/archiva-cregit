@@ -145,6 +145,8 @@ function_decl|;
 comment|/**      * List the child assets.      *      * @return The list of children. If there are no children and if the asset is not a container, a empty list will be returned.      */
 name|List
 argument_list|<
+name|?
+extends|extends
 name|StorageAsset
 argument_list|>
 name|list

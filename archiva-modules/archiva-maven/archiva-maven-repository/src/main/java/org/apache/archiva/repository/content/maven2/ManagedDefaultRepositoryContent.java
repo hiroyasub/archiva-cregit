@@ -3584,6 +3584,8 @@ try|try
 init|(
 name|Stream
 argument_list|<
+name|?
+extends|extends
 name|StorageAsset
 argument_list|>
 name|stream
@@ -4310,6 +4312,8 @@ try|try
 init|(
 name|Stream
 argument_list|<
+name|?
+extends|extends
 name|StorageAsset
 argument_list|>
 name|stream

@@ -485,7 +485,7 @@ name|repository
 operator|.
 name|storage
 operator|.
-name|StorageAsset
+name|FsStorageUtil
 import|;
 end_import
 
@@ -501,7 +501,7 @@ name|repository
 operator|.
 name|storage
 operator|.
-name|StorageUtil
+name|StorageAsset
 import|;
 end_import
 
@@ -3407,6 +3407,18 @@ name|ProxyException
 block|{
 try|try
 block|{
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|storage
+operator|.
+name|util
+operator|.
 name|StorageUtil
 operator|.
 name|moveAsset
@@ -3442,7 +3454,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|StorageUtil
+name|FsStorageUtil
 operator|.
 name|copyAsset
 argument_list|(

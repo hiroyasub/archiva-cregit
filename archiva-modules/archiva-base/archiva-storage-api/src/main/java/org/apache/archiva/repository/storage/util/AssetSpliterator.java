@@ -690,6 +690,8 @@ block|}
 comment|// Assets are returned in reverse order
 name|List
 argument_list|<
+name|?
+extends|extends
 name|StorageAsset
 argument_list|>
 name|getChildContainers
@@ -701,6 +703,8 @@ block|{
 specifier|final
 name|List
 argument_list|<
+name|?
+extends|extends
 name|StorageAsset
 argument_list|>
 name|children
@@ -767,6 +771,8 @@ block|}
 comment|// Assets are returned in reverse order
 name|List
 argument_list|<
+name|?
+extends|extends
 name|StorageAsset
 argument_list|>
 name|getChildFiles
@@ -778,6 +784,8 @@ block|{
 specifier|final
 name|List
 argument_list|<
+name|?
+extends|extends
 name|StorageAsset
 argument_list|>
 name|children

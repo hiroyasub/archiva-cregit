@@ -185,7 +185,7 @@ implements|implements
 name|StorageAsset
 block|{
 specifier|private
-name|StorageAsset
+name|MockAsset
 name|parent
 decl_stmt|;
 specifier|private
@@ -201,7 +201,7 @@ name|LinkedHashMap
 argument_list|<
 name|String
 argument_list|,
-name|StorageAsset
+name|MockAsset
 argument_list|>
 name|children
 init|=
@@ -215,6 +215,14 @@ name|boolean
 name|container
 init|=
 literal|false
+decl_stmt|;
+specifier|private
+name|RepositoryStorage
+name|storage
+decl_stmt|;
+specifier|private
+name|boolean
+name|throwException
 decl_stmt|;
 specifier|public
 name|MockAsset
@@ -280,6 +288,15 @@ name|name
 operator|=
 name|name
 expr_stmt|;
+name|this
+operator|.
+name|storage
+operator|=
+name|parent
+operator|.
+name|getStorage
+argument_list|( )
+expr_stmt|;
 name|parent
 operator|.
 name|registerChild
@@ -292,7 +309,7 @@ specifier|public
 name|void
 name|registerChild
 parameter_list|(
-name|StorageAsset
+name|MockAsset
 name|child
 parameter_list|)
 block|{
@@ -315,6 +332,64 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+specifier|public
+name|void
+name|unregisterChild
+parameter_list|(
+name|MockAsset
+name|child
+parameter_list|)
+block|{
+name|children
+operator|.
+name|remove
+argument_list|(
+name|child
+operator|.
+name|getName
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
+specifier|public
+name|void
+name|setStorage
+parameter_list|(
+name|RepositoryStorage
+name|storage
+parameter_list|)
+block|{
+name|this
+operator|.
+name|storage
+operator|=
+name|storage
+expr_stmt|;
+block|}
+specifier|public
+name|boolean
+name|isThrowException
+parameter_list|( )
+block|{
+return|return
+name|throwException
+return|;
+block|}
+specifier|public
+name|void
+name|setThrowException
+parameter_list|(
+name|boolean
+name|throwException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|throwException
+operator|=
+name|throwException
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -323,7 +398,7 @@ name|getStorage
 parameter_list|( )
 block|{
 return|return
-literal|null
+name|storage
 return|;
 block|}
 annotation|@
@@ -398,7 +473,7 @@ name|Override
 specifier|public
 name|List
 argument_list|<
-name|StorageAsset
+name|MockAsset
 argument_list|>
 name|list
 parameter_list|( )
@@ -562,7 +637,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|StorageAsset
+name|MockAsset
 name|getParent
 parameter_list|( )
 block|{

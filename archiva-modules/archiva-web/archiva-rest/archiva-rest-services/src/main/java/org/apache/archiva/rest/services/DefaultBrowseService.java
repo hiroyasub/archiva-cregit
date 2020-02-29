@@ -95,22 +95,6 @@ name|archiva
 operator|.
 name|maven2
 operator|.
-name|metadata
-operator|.
-name|MavenMetadataReader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|maven2
-operator|.
 name|model
 operator|.
 name|Artifact
@@ -459,7 +443,7 @@ name|repository
 operator|.
 name|storage
 operator|.
-name|StorageAsset
+name|FsStorageUtil
 import|;
 end_import
 
@@ -475,7 +459,7 @@ name|repository
 operator|.
 name|storage
 operator|.
-name|StorageUtil
+name|StorageAsset
 import|;
 end_import
 
@@ -562,20 +546,6 @@ operator|.
 name|security
 operator|.
 name|ArchivaSecurityException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|xml
-operator|.
-name|XMLException
 import|;
 end_import
 
@@ -4132,12 +4102,12 @@ argument_list|)
 condition|)
 block|{
 comment|// zip entry of the path -> path must a real file entry of the archive
-name|StorageUtil
+name|FsStorageUtil
 operator|.
 name|PathInformation
 name|pathInfo
 init|=
-name|StorageUtil
+name|FsStorageUtil
 operator|.
 name|getAssetDataAsPath
 argument_list|(
@@ -5793,12 +5763,12 @@ name|filterDepth
 operator|++
 expr_stmt|;
 block|}
-name|StorageUtil
+name|FsStorageUtil
 operator|.
 name|PathInformation
 name|pathInfo
 init|=
-name|StorageUtil
+name|FsStorageUtil
 operator|.
 name|getAssetDataAsPath
 argument_list|(
