@@ -173,6 +173,8 @@ name|repository
 operator|.
 name|storage
 operator|.
+name|fs
+operator|.
 name|FilesystemStorage
 import|;
 end_import
@@ -222,16 +224,6 @@ operator|.
 name|io
 operator|.
 name|FileUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
 import|;
 end_import
 
@@ -320,16 +312,6 @@ operator|.
 name|net
 operator|.
 name|URISyntaxException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URL
 import|;
 end_import
 

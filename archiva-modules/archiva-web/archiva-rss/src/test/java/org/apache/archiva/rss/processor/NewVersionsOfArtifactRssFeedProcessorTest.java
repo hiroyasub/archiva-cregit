@@ -211,6 +211,8 @@ name|repository
 operator|.
 name|storage
 operator|.
+name|fs
+operator|.
 name|FilesystemStorage
 import|;
 end_import
