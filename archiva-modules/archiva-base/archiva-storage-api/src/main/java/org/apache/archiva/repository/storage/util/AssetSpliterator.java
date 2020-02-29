@@ -1,8 +1,4 @@
 begin_unit|revision:1.0.0;language:Java;cregit-version:0.0.1
-begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
-end_comment
-
 begin_package
 package|package
 name|org
@@ -14,8 +10,30 @@ operator|.
 name|repository
 operator|.
 name|storage
+operator|.
+name|util
 package|;
 end_package
+
+begin_comment
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+end_comment
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|storage
+operator|.
+name|StorageAsset
+import|;
+end_import
 
 begin_import
 import|import
@@ -133,32 +151,8 @@ name|IntStream
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Stream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|StreamSupport
-import|;
-end_import
-
 begin_comment
-comment|/**  *  * Base Spliterator implementation for Storage Assets. The spliterator visits the tree by depth-first.  * For the non-concurrent usage it is guaranteed that children are visited before their  * parents. If the spliterator is used in a parallel stream, there is no guarantee for  * the order of returned assets.  *  * The estimated size is not accurate, because the tree paths are scanned on demand.  *  * @since 3.0  * @author Martin Stockhammer<martin_s@apache.org>  */
+comment|/**  *  * Base Spliterator implementation for Storage Assets. The spliterator visits the tree by depth-first.  * For the non-concurrent usage it is guaranteed that children are visited before their  * parents. If the spliterator is used in a parallel stream, there is no guarantee for  * the order of returned assets.  *  * The estimated size is not accurate, because the tree paths are scanned on demand (lazy loaded)  *  * The spliterator returns the status of the assets at the time of retrieval. If modifications occur  * during traversal the returned assets may not represent the latest state.  * There is no check for modifications during traversal and no<code>{@link java.util.ConcurrentModificationException}</code> are thrown.  *  *  *  * @since 3.0  * @author Martin Stockhammer<martin_s@apache.org>  */
 end_comment
 
 begin_class
@@ -230,7 +224,12 @@ operator||
 name|Spliterator
 operator|.
 name|NONNULL
+operator||
+name|Spliterator
+operator|.
+name|CONCURRENT
 decl_stmt|;
+specifier|public
 name|AssetSpliterator
 parameter_list|(
 name|int
@@ -247,6 +246,45 @@ name|splitThreshold
 operator|=
 name|splitThreshold
 expr_stmt|;
+name|init
+argument_list|(
+name|assets
+argument_list|)
+expr_stmt|;
+block|}
+specifier|private
+name|void
+name|init
+parameter_list|(
+name|StorageAsset
+index|[]
+name|assets
+parameter_list|)
+block|{
+if|if
+condition|(
+name|assets
+operator|.
+name|length
+operator|==
+literal|0
+operator|||
+name|assets
+index|[
+literal|0
+index|]
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"There must be at least one non-null asset"
+argument_list|)
+throw|;
+block|}
 name|Collections
 operator|.
 name|addAll
@@ -258,7 +296,20 @@ argument_list|,
 name|assets
 argument_list|)
 expr_stmt|;
+name|retrieveNextPath
+argument_list|(
+name|this
+operator|.
+name|workList
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
+specifier|public
 name|AssetSpliterator
 parameter_list|(
 name|StorageAsset
@@ -272,18 +323,13 @@ name|splitThreshold
 operator|=
 name|DEFAULT_SPLIT_THRESHOLD
 expr_stmt|;
-name|Collections
-operator|.
-name|addAll
+name|init
 argument_list|(
-name|this
-operator|.
-name|workList
-argument_list|,
 name|assets
 argument_list|)
 expr_stmt|;
 block|}
+specifier|protected
 name|AssetSpliterator
 parameter_list|()
 block|{
@@ -294,6 +340,7 @@ operator|=
 name|DEFAULT_SPLIT_THRESHOLD
 expr_stmt|;
 block|}
+specifier|protected
 name|AssetSpliterator
 parameter_list|(
 name|int
@@ -307,6 +354,7 @@ operator|=
 name|splitThreshold
 expr_stmt|;
 block|}
+specifier|protected
 name|AssetSpliterator
 parameter_list|(
 name|int
@@ -335,6 +383,7 @@ operator|=
 name|splitThreshold
 expr_stmt|;
 block|}
+specifier|protected
 name|AssetSpliterator
 parameter_list|(
 name|List
@@ -357,6 +406,18 @@ operator|.
 name|addAll
 argument_list|(
 name|baseList
+argument_list|)
+expr_stmt|;
+name|retrieveNextPath
+argument_list|(
+name|this
+operator|.
+name|workList
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -626,7 +687,7 @@ block|{
 comment|// Should happen at the end.
 block|}
 block|}
-comment|// In reverse order
+comment|// Assets are returned in reverse order
 name|List
 argument_list|<
 name|StorageAsset
@@ -703,7 +764,7 @@ argument_list|( )
 argument_list|)
 return|;
 block|}
-comment|// In reverse order
+comment|// Assets are returned in reverse order
 name|List
 argument_list|<
 name|StorageAsset
@@ -844,7 +905,7 @@ name|add
 argument_list|(
 name|workList
 operator|.
-name|getFirst
+name|removeFirst
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -854,7 +915,7 @@ name|add
 argument_list|(
 name|workList
 operator|.
-name|getFirst
+name|removeFirst
 argument_list|( )
 argument_list|)
 expr_stmt|;
