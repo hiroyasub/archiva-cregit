@@ -352,7 +352,7 @@ name|ContentAccessException
 throws|,
 name|IllegalArgumentException
 function_decl|;
-comment|/**      * Returns the artifact for the given coordinates.      *      * Normally the following coordinates should be set at the given selector:      *<ul>      *<li>namespace</li>      *<li>artifactVersion and or version</li>      *<li>artifactId or projectId</li>      *</ul>      * If the coordinates do not provide enough information for selecting a artifact, a {@link IllegalArgumentException} will be thrown      * It depends on the repository type, what exactly is deleted for a given set of coordinates. Some repository type      * may have different required and optional coordinates. For further information please check the documentation for the      * type specific implementations.      *      * The following coordinates are optional and may further specify the artifact to delete.      *<ul>      *<li>classifier</li>      *<li>type</li>      *<li>extension</li>      *</ul>      *      * @param selector the selector with the artifact coordinates      * @return a artifact      * @throws ItemNotFoundException if the selector coordinates do not specify a artifact      * @throws ContentAccessException if the access to the underlying storage failed      */
+comment|/**      * Returns the artifact object for the given coordinates.      *      * Normally the following coordinates should be set at the given selector:      *<ul>      *<li>namespace</li>      *<li>artifactVersion and or version</li>      *<li>artifactId or projectId</li>      *</ul>      * If the coordinates do not provide enough information for selecting a artifact, a {@link IllegalArgumentException} will be thrown      * It depends on the repository type, what exactly is deleted for a given set of coordinates. Some repository type      * may have different required and optional coordinates. For further information please check the documentation for the      * type specific implementations.      *      * The following coordinates are optional and may further specify the artifact to delete.      *<ul>      *<li>classifier</li>      *<li>type</li>      *<li>extension</li>      *</ul>      *      * The method always returns a artifact object, if the coordinates are valid. It does not guarantee that the artifact      * exists. To check if there is really a physical representation of the artifact, use the<code>{@link Artifact#exists()}</code>      * method of the artifact.      * For upload and data retrieval use the methods of the {@link StorageAsset} reference returned in the artifact.      *      *      * @param selector the selector with the artifact coordinates      * @return a artifact object      * @throws ItemNotFoundException if the selector coordinates do not specify a artifact      * @throws ContentAccessException if the access to the underlying storage failed      */
 name|Artifact
 name|getArtifact
 parameter_list|(
@@ -365,6 +365,8 @@ function_decl|;
 comment|/**      * Returns the artifacts that match the given selector. It is up to the repository implementation      * what artifacts are returned for a given set of coordinates.      *      * @param selector the selector for the artifacts      * @return a list of artifacts.      * @throws ItemNotFoundException if the specified coordinates cannot be found in the repository      * @throws ContentAccessException if the access to the underlying storage failed      */
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Artifact
 argument_list|>
 name|getAllArtifacts
@@ -378,6 +380,8 @@ function_decl|;
 comment|/**      * Returns the artifacts that match the given selector. It is up to the repository implementation      * what artifacts are returned for a given set of coordinates.      *      * The returned stream is autoclosable and should always closed after using it.      *      * There is no guarantee about the order of the returned artifacts      *      * @param selector the selector for the artifacts      * @return a stream with artifact elements.      * @throws ItemNotFoundException if the specified coordinates cannot be found in the repository      * @throws ContentAccessException if the access to the underlying storage failed      */
 name|Stream
 argument_list|<
+name|?
+extends|extends
 name|Artifact
 argument_list|>
 name|getAllArtifactStream
@@ -391,6 +395,8 @@ function_decl|;
 comment|/**      * Return the projects that are part of the given namespace.      *      * @param namespace the namespace      * @return the list of projects or a empty list, if there are no projects for the given namespace.      */
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Project
 argument_list|>
 name|getProjects
@@ -404,6 +410,8 @@ function_decl|;
 comment|/**      * Return the existing versions of the given project.      *      * @param project the project      * @return a list of versions or a empty list, if not versions are available for the specified project      */
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Version
 argument_list|>
 name|getVersions
@@ -417,6 +425,8 @@ function_decl|;
 comment|/**      * Return all the artifacts of a given content item (namespace, project, version)      *      * @param item the item      * @return a list of artifacts or a empty list, if no artifacts are available for the specified item      */
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Artifact
 argument_list|>
 name|getArtifacts
@@ -430,6 +440,8 @@ function_decl|;
 comment|/**      * Return all the artifacts of a given namespace and all sub namespaces that are defined under the      * given namespace.      *      * @param namespace the namespace, which is the parent namespace      * @return a list of artifacts or a empty list, if no artifacts are available for the specified namespace      */
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Artifact
 argument_list|>
 name|getArtifactsStartingWith
@@ -443,6 +455,8 @@ function_decl|;
 comment|/**      * Return a stream of artifacts that are part of the given content item. The returned stream is      * auto closable. There is no guarantee about the order of returned artifacts.      *      * As the stream may access IO resources, you should always use call this method inside try-with-resources or      * make sure, that the stream is closed after using it.      *      * @param item the item from where the artifacts should be returned      * @return a stream of artifacts. The stream is auto closable. You should always make sure, that the stream      * is closed after use.      */
 name|Stream
 argument_list|<
+name|?
+extends|extends
 name|Artifact
 argument_list|>
 name|getArtifactStream
@@ -456,6 +470,8 @@ function_decl|;
 comment|/**      * Return a stream of all artifacts that are available for the given namespace and its sub namespaces. The artifacts      * are retrieved recursively. There is no guarantee about the order of returned artifacts.      *      * As the stream may access IO resources, you should always use call this method inside try-with-resources or      * make sure, that the stream is closed after using it.      *      * @param namespace the namespace from where the artifacts should be returned      * @return a stream of artifacts. The stream is auto closable. You should always make sure, that the stream      * is closed after use.      */
 name|Stream
 argument_list|<
+name|?
+extends|extends
 name|Artifact
 argument_list|>
 name|getArtifactStreamStartingWith

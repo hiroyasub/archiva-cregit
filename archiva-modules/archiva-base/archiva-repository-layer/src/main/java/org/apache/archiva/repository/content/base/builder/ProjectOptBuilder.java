@@ -59,13 +59,6 @@ argument_list|,
 name|ProjectOptBuilder
 argument_list|>
 block|{
-name|ProjectOptBuilder
-name|withId
-parameter_list|(
-name|String
-name|id
-parameter_list|)
-function_decl|;
 name|ArchivaProject
 name|build
 parameter_list|( )

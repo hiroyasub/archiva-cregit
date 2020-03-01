@@ -682,6 +682,8 @@ name|Override
 specifier|public
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Artifact
 argument_list|>
 name|getAllArtifacts
@@ -701,6 +703,8 @@ name|Override
 specifier|public
 name|Stream
 argument_list|<
+name|?
+extends|extends
 name|Artifact
 argument_list|>
 name|getAllArtifactStream
@@ -720,6 +724,8 @@ name|Override
 specifier|public
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Project
 argument_list|>
 name|getProjects
@@ -739,6 +745,8 @@ name|Override
 specifier|public
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Version
 argument_list|>
 name|getVersions
@@ -758,6 +766,8 @@ name|Override
 specifier|public
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Artifact
 argument_list|>
 name|getArtifacts
@@ -777,6 +787,8 @@ name|Override
 specifier|public
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Artifact
 argument_list|>
 name|getArtifactsStartingWith
@@ -796,6 +808,8 @@ name|Override
 specifier|public
 name|Stream
 argument_list|<
+name|?
+extends|extends
 name|Artifact
 argument_list|>
 name|getArtifactStream
@@ -815,6 +829,8 @@ name|Override
 specifier|public
 name|Stream
 argument_list|<
+name|?
+extends|extends
 name|Artifact
 argument_list|>
 name|getArtifactStreamStartingWith
