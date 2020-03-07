@@ -91,13 +91,13 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|metadata
-operator|.
 name|repository
 operator|.
-name|storage
+name|maven
 operator|.
-name|maven2
+name|metadata
+operator|.
+name|storage
 operator|.
 name|Maven2RepositoryPathTranslator
 import|;
@@ -342,16 +342,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URI
 import|;
 end_import
 

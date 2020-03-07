@@ -129,7 +129,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|maven2
+name|maven
 operator|.
 name|MavenManagedRepository
 import|;

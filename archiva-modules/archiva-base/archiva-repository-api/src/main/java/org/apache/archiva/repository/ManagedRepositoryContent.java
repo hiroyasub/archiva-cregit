@@ -254,56 +254,7 @@ name|ManagedRepositoryContent
 extends|extends
 name|RepositoryContent
 block|{
-comment|/**      * Returns the version reference for the given coordinates.      * @param groupId the group id      * @param artifactId the artifact id      * @param version the version number      * @return a version reference      */
-name|VersionedReference
-name|toVersion
-parameter_list|(
-name|String
-name|groupId
-parameter_list|,
-name|String
-name|artifactId
-parameter_list|,
-name|String
-name|version
-parameter_list|)
-function_decl|;
-comment|/**      * Returns the version reference that represents the generic version, which means that      * snapshot versions are converted to<VERSION>-SNAPSHOT      * @param artifactReference the artifact reference      * @return the generic version      */
-name|VersionedReference
-name|toGenericVersion
-parameter_list|(
-name|ArtifactReference
-name|artifactReference
-parameter_list|)
-function_decl|;
-comment|/**      * Return the version reference that matches exactly the version string of the artifact      *      * @param artifactReference The artifact reference      * @return the version reference      */
-name|VersionedReference
-name|toVersion
-parameter_list|(
-name|ArtifactReference
-name|artifactReference
-parameter_list|)
-function_decl|;
-comment|/**      * Returns a artifact reference for the given coordinates.      * @param groupId the group id      * @param artifactId the artifact id      * @param version the version      * @param type the type      * @param classifier the classifier      * @return a artifact reference object      */
-name|ArtifactReference
-name|toArtifact
-parameter_list|(
-name|String
-name|groupId
-parameter_list|,
-name|String
-name|artifactId
-parameter_list|,
-name|String
-name|version
-parameter_list|,
-name|String
-name|type
-parameter_list|,
-name|String
-name|classifier
-parameter_list|)
-function_decl|;
+comment|/// *****************   New generation interface **********************
 comment|/**      * Removes the specified content item and all content stored under the given item.      *      * @param item the item.      * @throws ItemNotFoundException if the item cannot be found      * @throws ContentAccessException if the deletion was not possible or only partly successful, because the access      *  to the artifacts failed      */
 name|void
 name|deleteItem
@@ -502,6 +453,57 @@ name|destination
 parameter_list|)
 throws|throws
 name|IllegalArgumentException
+function_decl|;
+comment|/// *****************   End of new generation interface **********************
+comment|/**      * Returns the version reference for the given coordinates.      * @param groupId the group id      * @param artifactId the artifact id      * @param version the version number      * @return a version reference      */
+name|VersionedReference
+name|toVersion
+parameter_list|(
+name|String
+name|groupId
+parameter_list|,
+name|String
+name|artifactId
+parameter_list|,
+name|String
+name|version
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the version reference that represents the generic version, which means that      * snapshot versions are converted to<VERSION>-SNAPSHOT      * @param artifactReference the artifact reference      * @return the generic version      */
+name|VersionedReference
+name|toGenericVersion
+parameter_list|(
+name|ArtifactReference
+name|artifactReference
+parameter_list|)
+function_decl|;
+comment|/**      * Return the version reference that matches exactly the version string of the artifact      *      * @param artifactReference The artifact reference      * @return the version reference      */
+name|VersionedReference
+name|toVersion
+parameter_list|(
+name|ArtifactReference
+name|artifactReference
+parameter_list|)
+function_decl|;
+comment|/**      * Returns a artifact reference for the given coordinates.      * @param groupId the group id      * @param artifactId the artifact id      * @param version the version      * @param type the type      * @param classifier the classifier      * @return a artifact reference object      */
+name|ArtifactReference
+name|toArtifact
+parameter_list|(
+name|String
+name|groupId
+parameter_list|,
+name|String
+name|artifactId
+parameter_list|,
+name|String
+name|version
+parameter_list|,
+name|String
+name|type
+parameter_list|,
+name|String
+name|classifier
+parameter_list|)
 function_decl|;
 comment|/**      * Delete from the managed repository all files / directories associated with the      * provided version reference.      *      * @param reference the version reference to delete.      * @throws ContentNotFoundException      */
 name|void
