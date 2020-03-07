@@ -388,17 +388,20 @@ parameter_list|)
 throws|throws
 name|ContentAccessException
 function_decl|;
-comment|/**      * Return all the artifacts of a given namespace and all sub namespaces that are defined under the      * given namespace.      *      * @param namespace the namespace, which is the parent namespace      * @return a list of artifacts or a empty list, if no artifacts are available for the specified namespace      */
+comment|/**      * Return all the artifacts of a given namespace and all sub namespaces that are defined under the      * given namespace.      *      * @param namespace the namespace, which is the parent namespace      * @param recurse<code>true</code>, if all sub namespaces should be searched too, otherwise<code>false</code>      * @return a list of artifacts or a empty list, if no artifacts are available for the specified namespace      */
 name|List
 argument_list|<
 name|?
 extends|extends
 name|Artifact
 argument_list|>
-name|getArtifactsStartingWith
+name|getArtifacts
 parameter_list|(
 name|Namespace
 name|namespace
+parameter_list|,
+name|boolean
+name|recurse
 parameter_list|)
 throws|throws
 name|ContentAccessException
@@ -418,17 +421,20 @@ parameter_list|)
 throws|throws
 name|ContentAccessException
 function_decl|;
-comment|/**      * Return a stream of all artifacts that are available for the given namespace and its sub namespaces. The artifacts      * are retrieved recursively. There is no guarantee about the order of returned artifacts.      *      * As the stream may access IO resources, you should always use call this method inside try-with-resources or      * make sure, that the stream is closed after using it.      *      * @param namespace the namespace from where the artifacts should be returned      * @return a stream of artifacts. The stream is auto closable. You should always make sure, that the stream      * is closed after use.      */
+comment|/**      * Return a stream of all artifacts that are available for the given namespace and its sub namespaces. The artifacts      * are retrieved recursively. There is no guarantee about the order of returned artifacts.      *      * As the stream may access IO resources, you should always use call this method inside try-with-resources or      * make sure, that the stream is closed after using it.      *      * @param namespace the namespace from where the artifacts should be returned      * @param recurse<code>true</code>, if all sub namespaces should be searched too, otherwise<code>false</code>      * @return a stream of artifacts. The stream is auto closable. You should always make sure, that the stream      * is closed after use.      */
 name|Stream
 argument_list|<
 name|?
 extends|extends
 name|Artifact
 argument_list|>
-name|getArtifactStreamStartingWith
+name|getArtifactStream
 parameter_list|(
 name|Namespace
 name|namespace
+parameter_list|,
+name|boolean
+name|recurse
 parameter_list|)
 throws|throws
 name|ContentAccessException
@@ -448,11 +454,31 @@ parameter_list|(
 name|Path
 name|sourceFile
 parameter_list|,
-name|ItemSelector
+name|ContentItem
 name|destination
 parameter_list|)
 throws|throws
 name|IllegalArgumentException
+function_decl|;
+comment|/**      * Returns the item that matches the given path. The item at the path must not exist.      *      * @param path the path string that points to the item      * @return the content item if the path is a valid item path      * @throws LayoutException if the path is not valid for the repository layout      */
+name|ContentItem
+name|toItem
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+throws|throws
+name|LayoutException
+function_decl|;
+comment|/**      * Returns the item that matches the given asset path. The asset must not exist.      *      * @param assetPath the path to the artifact or directory      * @return the item, if it is a valid path for the repository layout      * @throws LayoutException if the path is not valid for the repository      */
+name|ContentItem
+name|toItem
+parameter_list|(
+name|StorageAsset
+name|assetPath
+parameter_list|)
+throws|throws
+name|LayoutException
 function_decl|;
 comment|/// *****************   End of new generation interface **********************
 comment|/**      * Returns the version reference for the given coordinates.      * @param groupId the group id      * @param artifactId the artifact id      * @param version the version number      * @return a version reference      */
