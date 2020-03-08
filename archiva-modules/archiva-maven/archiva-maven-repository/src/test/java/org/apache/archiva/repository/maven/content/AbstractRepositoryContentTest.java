@@ -43,6 +43,20 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|RepositoryContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|maven
 operator|.
 name|AbstractRepositoryLayerTestCase
@@ -303,6 +317,13 @@ argument_list|,
 literal|"path is too short"
 argument_list|)
 expr_stmt|;
+name|assertBadPathCi
+argument_list|(
+literal|"invalid/invalid-1.0.jar"
+argument_list|,
+literal|"path is too short"
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -312,6 +333,13 @@ name|testBadPathVersionMismatchA
 parameter_list|()
 block|{
 name|assertBadPath
+argument_list|(
+literal|"invalid/invalid/1.0/invalid-2.0.jar"
+argument_list|,
+literal|"version mismatch between path and artifact"
+argument_list|)
+expr_stmt|;
+name|assertBadPathCi
 argument_list|(
 literal|"invalid/invalid/1.0/invalid-2.0.jar"
 argument_list|,
@@ -333,6 +361,13 @@ argument_list|,
 literal|"version mismatch between path and artifact"
 argument_list|)
 expr_stmt|;
+name|assertBadPathCi
+argument_list|(
+literal|"invalid/invalid/1.0/invalid-1.0b.jar"
+argument_list|,
+literal|"version mismatch between path and artifact"
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -342,6 +377,13 @@ name|testBadPathWrongArtifactId
 parameter_list|()
 block|{
 name|assertBadPath
+argument_list|(
+literal|"org/apache/maven/test/1.0-SNAPSHOT/wrong-artifactId-1.0-20050611.112233-1.jar"
+argument_list|,
+literal|"wrong artifact id"
+argument_list|)
+expr_stmt|;
+name|assertBadPathCi
 argument_list|(
 literal|"org/apache/maven/test/1.0-SNAPSHOT/wrong-artifactId-1.0-20050611.112233-1.jar"
 argument_list|,
@@ -1278,6 +1320,38 @@ annotation|@
 name|Test
 specifier|public
 name|void
+name|testToItemSelectorOnEmptyPath
+parameter_list|()
+block|{
+try|try
+block|{
+name|getContent
+argument_list|( )
+operator|.
+name|toItemSelector
+argument_list|(
+literal|""
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"toItemSelector() should have failed due to empty path."
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|LayoutException
+name|e
+parameter_list|)
+block|{
+comment|/* expected path */
+block|}
+block|}
+annotation|@
+name|Test
+specifier|public
+name|void
 name|testToArtifactOnEmptyPath
 parameter_list|()
 block|{
@@ -1336,48 +1410,22 @@ annotation|@
 name|Test
 specifier|public
 name|void
-name|testToArtifactReferenceOnEmptyPath
+name|testToItemSelectorOnNullPath
 parameter_list|()
 block|{
 try|try
 block|{
-name|toArtifactReference
-argument_list|(
-literal|""
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have failed due to empty path."
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|LayoutException
-name|e
-parameter_list|)
-block|{
-comment|/* expected path */
-block|}
-block|}
-annotation|@
-name|Test
-specifier|public
-name|void
-name|testToArtifactReferenceOnNullPath
-parameter_list|()
-block|{
-try|try
-block|{
-name|toArtifactReference
+name|getContent
+argument_list|()
+operator|.
+name|toItemSelector
 argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Should have failed due to null path."
+literal|"toItemSelector() should have failed due to null path."
 argument_list|)
 expr_stmt|;
 block|}
@@ -2381,6 +2429,12 @@ specifier|abstract
 name|ManagedRepositoryContent
 name|getManaged
 parameter_list|()
+function_decl|;
+specifier|protected
+specifier|abstract
+name|RepositoryContent
+name|getContent
+parameter_list|( )
 function_decl|;
 block|}
 end_class

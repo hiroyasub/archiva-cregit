@@ -187,6 +187,20 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|RepositoryContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|content
 operator|.
 name|ItemSelector
@@ -1304,6 +1318,17 @@ name|Override
 specifier|protected
 name|ManagedRepositoryContent
 name|getManaged
+parameter_list|( )
+block|{
+return|return
+name|repoContent
+return|;
+block|}
+annotation|@
+name|Override
+specifier|protected
+name|RepositoryContent
+name|getContent
 parameter_list|( )
 block|{
 return|return

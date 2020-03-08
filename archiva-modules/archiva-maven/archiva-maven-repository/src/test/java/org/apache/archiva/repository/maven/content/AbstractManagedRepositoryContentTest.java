@@ -34,6 +34,50 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|ItemSelector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|base
+operator|.
+name|ArchivaItemSelector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -46,7 +90,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Martin Stockhammer<martin_s@apache.org>  */
+comment|/**  * Specific tests for ManagedRepositoryContent  *  * @author Martin Stockhammer<martin_s@apache.org>  */
 end_comment
 
 begin_class
@@ -91,7 +135,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Should have thrown a LayoutException on the invalid path ["
+literal|"toItem(path) should have thrown a LayoutException on the invalid path ["
 operator|+
 name|path
 operator|+
@@ -110,6 +154,49 @@ name|e
 parameter_list|)
 block|{
 comment|/* expected path */
+block|}
+block|}
+annotation|@
+name|Test
+specifier|public
+name|void
+name|testGetArtifactOnEmptyPath
+parameter_list|()
+block|{
+name|ItemSelector
+name|selector
+init|=
+name|ArchivaItemSelector
+operator|.
+name|builder
+argument_list|( )
+operator|.
+name|build
+argument_list|( )
+decl_stmt|;
+try|try
+block|{
+name|getManaged
+argument_list|( )
+operator|.
+name|getArtifact
+argument_list|(
+name|selector
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"getArtifact(ItemSelector) with empty selector should throw IllegalArgumentException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+comment|// Good
 block|}
 block|}
 block|}
