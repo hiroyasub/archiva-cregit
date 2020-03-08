@@ -267,6 +267,18 @@ name|ItemNotFoundException
 throws|,
 name|ContentAccessException
 function_decl|;
+comment|/**      * Returns a item for the given selector. The type of the returned item depends on the      * selector.      *      * @param selector the item selector      * @return the content item that matches the given selector      * @throws ContentAccessException if an error occured while accessing the backend      * @throws IllegalArgumentException if the selector does not select a valid content item      */
+name|ContentItem
+name|getItem
+parameter_list|(
+name|ItemSelector
+name|selector
+parameter_list|)
+throws|throws
+name|ContentAccessException
+throws|,
+name|IllegalArgumentException
+function_decl|;
 comment|/**      * Returns the namespace for the given selected coordinates. The selector must specify a namespace. All other      * coordinates are ignored.      * The following coordinates must be set at the given selector:      *<ul>      *<li>namespace</li>      *</ul>      * If not, a {@link IllegalArgumentException} will be thrown.      *      * @param namespaceSelector the selectory with the namespace coordinates      * @return the namespace      * @throws ItemNotFoundException if the item does not exist      * @throws ContentAccessException if the item cannot be accessed      * @throws IllegalArgumentException if the selector has no namespace specified      */
 name|Namespace
 name|getNamespace

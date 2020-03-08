@@ -325,6 +325,14 @@ operator|new
 name|DefaultPathParser
 argument_list|()
 decl_stmt|;
+name|PathParser
+name|getPathParser
+parameter_list|()
+block|{
+return|return
+name|defaultPathParser
+return|;
+block|}
 comment|/**      *      */
 specifier|protected
 name|List
