@@ -87,9 +87,9 @@ name|archiva
 operator|.
 name|metadata
 operator|.
-name|model
+name|maven
 operator|.
-name|maven2
+name|model
 operator|.
 name|MavenArtifactFacet
 import|;
@@ -162,18 +162,6 @@ operator|.
 name|lang3
 operator|.
 name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|jackrabbit
-operator|.
-name|JcrConstants
 import|;
 end_import
 

@@ -77,9 +77,9 @@ name|archiva
 operator|.
 name|metadata
 operator|.
-name|model
+name|maven
 operator|.
-name|maven2
+name|model
 operator|.
 name|MavenArtifactFacet
 import|;

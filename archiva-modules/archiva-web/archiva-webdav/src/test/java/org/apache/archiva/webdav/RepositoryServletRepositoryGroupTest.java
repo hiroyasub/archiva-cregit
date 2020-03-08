@@ -105,9 +105,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|maven2
-operator|.
 name|metadata
+operator|.
+name|maven
 operator|.
 name|MavenMetadataReader
 import|;
