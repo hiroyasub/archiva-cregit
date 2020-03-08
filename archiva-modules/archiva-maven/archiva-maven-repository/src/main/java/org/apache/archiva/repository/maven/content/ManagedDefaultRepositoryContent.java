@@ -3767,12 +3767,84 @@ name|Version
 argument_list|>
 name|getVersions
 parameter_list|(
+specifier|final
 name|Project
 name|project
 parameter_list|)
 block|{
+name|StorageAsset
+name|asset
+init|=
+name|getAsset
+argument_list|(
+name|project
+operator|.
+name|getNamespace
+argument_list|( )
+operator|.
+name|getNamespace
+argument_list|( )
+argument_list|,
+name|project
+operator|.
+name|getId
+argument_list|( )
+argument_list|)
+decl_stmt|;
 return|return
-literal|null
+name|asset
+operator|.
+name|list
+argument_list|( )
+operator|.
+name|stream
+argument_list|( )
+operator|.
+name|filter
+argument_list|(
+name|a
+lambda|->
+name|a
+operator|.
+name|isContainer
+argument_list|( )
+argument_list|)
+operator|.
+name|map
+argument_list|(
+name|a
+lambda|->
+name|ArchivaVersion
+operator|.
+name|withAsset
+argument_list|(
+name|a
+argument_list|)
+operator|.
+name|withProject
+argument_list|(
+name|project
+argument_list|)
+operator|.
+name|withVersion
+argument_list|(
+name|a
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+operator|.
+name|build
+argument_list|()
+argument_list|)
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toList
+argument_list|( )
+argument_list|)
 return|;
 block|}
 comment|/*         TBD      */
