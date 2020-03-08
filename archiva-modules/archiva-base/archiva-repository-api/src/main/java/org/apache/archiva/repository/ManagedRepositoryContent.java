@@ -370,7 +370,24 @@ parameter_list|)
 throws|throws
 name|ContentAccessException
 function_decl|;
-comment|/**      * Return the existing versions of the given project.      *      * @param project the project      * @return a list of versions or a empty list, if not versions are available for the specified project      */
+comment|/**      * Returns the list of projects that match the given selector. The selector must at least specify a      * a namespace.      *      * @param selector the selector      * @return the list of projects that match the selector. A empty list of not project matches.      * @throws ContentAccessException if the access to the storage backend failed      * @throws IllegalArgumentException if the selector does not contain sufficient data for selecting projects      */
+name|List
+argument_list|<
+name|?
+extends|extends
+name|Project
+argument_list|>
+name|getProjects
+parameter_list|(
+name|ItemSelector
+name|selector
+parameter_list|)
+throws|throws
+name|ContentAccessException
+throws|,
+name|IllegalArgumentException
+function_decl|;
+comment|/**      * Return the existing versions of the given project.      *      * @param project the project      * @return a list of versions or a empty list, if not versions are available for the specified project      * @throws ContentAccessException if the access to the underlying storage failed      */
 name|List
 argument_list|<
 name|?
@@ -384,6 +401,23 @@ name|project
 parameter_list|)
 throws|throws
 name|ContentAccessException
+function_decl|;
+comment|/**      * Return the versions that match the given selector. The selector must at least specify a namespace and a projectId.      *      * @param selector the item selector. At least namespace and projectId must be set.      * @return the list of version or a empty list, if no version matches the selector      * @throws ContentAccessException if the access to the backend failed      * @throws IllegalArgumentException if the selector does not contain enough information for selecting versions      */
+name|List
+argument_list|<
+name|?
+extends|extends
+name|Version
+argument_list|>
+name|getVersions
+parameter_list|(
+name|ItemSelector
+name|selector
+parameter_list|)
+throws|throws
+name|ContentAccessException
+throws|,
+name|IllegalArgumentException
 function_decl|;
 comment|/**      * Return all the artifacts of a given content item (namespace, project, version)      *      * @param item the item      * @return a list of artifacts or a empty list, if no artifacts are available for the specified item      */
 name|List
