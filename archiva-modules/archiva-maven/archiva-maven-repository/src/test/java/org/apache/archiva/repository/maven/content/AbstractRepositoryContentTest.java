@@ -219,7 +219,7 @@ begin_class
 specifier|public
 specifier|abstract
 class|class
-name|AbstractDefaultRepositoryContentTestCase
+name|AbstractRepositoryContentTest
 extends|extends
 name|AbstractRepositoryLayerTestCase
 block|{
@@ -231,6 +231,13 @@ name|testBadPathMissingType
 parameter_list|()
 block|{
 name|assertBadPath
+argument_list|(
+literal|"invalid/invalid/1/invalid-1"
+argument_list|,
+literal|"missing type"
+argument_list|)
+expr_stmt|;
+name|assertBadPathCi
 argument_list|(
 literal|"invalid/invalid/1/invalid-1"
 argument_list|,
@@ -252,6 +259,13 @@ argument_list|,
 literal|"non snapshot artifact inside of a snapshot dir"
 argument_list|)
 expr_stmt|;
+name|assertBadPathCi
+argument_list|(
+literal|"invalid/invalid/1.0-SNAPSHOT/invalid-1.0.jar"
+argument_list|,
+literal|"non snapshot artifact inside of a snapshot dir"
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -261,6 +275,13 @@ name|testBadPathTimestampedSnapshotNotInSnapshotDir
 parameter_list|()
 block|{
 name|assertBadPath
+argument_list|(
+literal|"invalid/invalid/1.0-20050611.123456-1/invalid-1.0-20050611.123456-1.jar"
+argument_list|,
+literal|"Timestamped Snapshot artifact not inside of an Snapshot dir"
+argument_list|)
+expr_stmt|;
+name|assertBadPathCi
 argument_list|(
 literal|"invalid/invalid/1.0-20050611.123456-1/invalid-1.0-20050611.123456-1.jar"
 argument_list|,
@@ -1723,6 +1744,47 @@ block|{
 try|try
 block|{
 name|toArtifactReference
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown a LayoutException on the invalid path ["
+operator|+
+name|path
+operator|+
+literal|"] because of ["
+operator|+
+name|reason
+operator|+
+literal|"]"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|LayoutException
+name|e
+parameter_list|)
+block|{
+comment|/* expected path */
+block|}
+block|}
+specifier|protected
+name|void
+name|assertBadPathCi
+parameter_list|(
+name|String
+name|path
+parameter_list|,
+name|String
+name|reason
+parameter_list|)
+block|{
+try|try
+block|{
+name|toItemSelector
 argument_list|(
 name|path
 argument_list|)

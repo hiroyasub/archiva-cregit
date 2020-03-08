@@ -1511,6 +1511,8 @@ name|getAssetPath
 argument_list|(
 name|path
 argument_list|)
+argument_list|,
+name|basePath
 argument_list|)
 return|;
 block|}

@@ -410,7 +410,7 @@ specifier|public
 class|class
 name|ManagedDefaultRepositoryContentTest
 extends|extends
-name|AbstractDefaultRepositoryContentTestCase
+name|AbstractManagedRepositoryContentTest
 block|{
 specifier|private
 name|ManagedDefaultRepositoryContent
