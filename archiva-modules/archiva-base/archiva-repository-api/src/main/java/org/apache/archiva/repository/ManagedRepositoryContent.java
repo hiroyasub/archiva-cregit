@@ -255,7 +255,7 @@ extends|extends
 name|RepositoryContent
 block|{
 comment|/// *****************   New generation interface **********************
-comment|/**      * Removes the specified content item and all content stored under the given item.      *      * @param item the item.      * @throws ItemNotFoundException if the item cannot be found      * @throws ContentAccessException if the deletion was not possible or only partly successful, because the access      *  to the artifacts failed      */
+comment|/**      * Removes the specified content item and if the item is a container or directory,      * all content stored under the given item.      *      * @param item the item.      * @throws ItemNotFoundException if the item cannot be found      * @throws ContentAccessException if the deletion was not possible or only partly successful, because the access      *  to the artifacts failed      */
 name|void
 name|deleteItem
 parameter_list|(
@@ -332,7 +332,7 @@ name|?
 extends|extends
 name|Artifact
 argument_list|>
-name|getAllArtifacts
+name|getArtifacts
 parameter_list|(
 name|ItemSelector
 name|selector
@@ -347,7 +347,7 @@ name|?
 extends|extends
 name|Artifact
 argument_list|>
-name|getAllArtifactStream
+name|getArtifactStream
 parameter_list|(
 name|ItemSelector
 name|selector
@@ -434,24 +434,6 @@ parameter_list|)
 throws|throws
 name|ContentAccessException
 function_decl|;
-comment|/**      * Return all the artifacts of a given namespace and all sub namespaces that are defined under the      * given namespace.      *      * @param namespace the namespace, which is the parent namespace      * @param recurse<code>true</code>, if all sub namespaces should be searched too, otherwise<code>false</code>      * @return a list of artifacts or a empty list, if no artifacts are available for the specified namespace      */
-name|List
-argument_list|<
-name|?
-extends|extends
-name|Artifact
-argument_list|>
-name|getArtifacts
-parameter_list|(
-name|Namespace
-name|namespace
-parameter_list|,
-name|boolean
-name|recurse
-parameter_list|)
-throws|throws
-name|ContentAccessException
-function_decl|;
 comment|/**      * Return a stream of artifacts that are part of the given content item. The returned stream is      * auto closable. There is no guarantee about the order of returned artifacts.      *      * As the stream may access IO resources, you should always use call this method inside try-with-resources or      * make sure, that the stream is closed after using it.      *      * @param item the item from where the artifacts should be returned      * @return a stream of artifacts. The stream is auto closable. You should always make sure, that the stream      * is closed after use.      */
 name|Stream
 argument_list|<
@@ -463,24 +445,6 @@ name|getArtifactStream
 parameter_list|(
 name|ContentItem
 name|item
-parameter_list|)
-throws|throws
-name|ContentAccessException
-function_decl|;
-comment|/**      * Return a stream of all artifacts that are available for the given namespace and its sub namespaces. The artifacts      * are retrieved recursively. There is no guarantee about the order of returned artifacts.      *      * As the stream may access IO resources, you should always use call this method inside try-with-resources or      * make sure, that the stream is closed after using it.      *      * @param namespace the namespace from where the artifacts should be returned      * @param recurse<code>true</code>, if all sub namespaces should be searched too, otherwise<code>false</code>      * @return a stream of artifacts. The stream is auto closable. You should always make sure, that the stream      * is closed after use.      */
-name|Stream
-argument_list|<
-name|?
-extends|extends
-name|Artifact
-argument_list|>
-name|getArtifactStream
-parameter_list|(
-name|Namespace
-name|namespace
-parameter_list|,
-name|boolean
-name|recurse
 parameter_list|)
 throws|throws
 name|ContentAccessException

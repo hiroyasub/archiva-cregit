@@ -704,7 +704,7 @@ name|?
 extends|extends
 name|Artifact
 argument_list|>
-name|getAllArtifacts
+name|getArtifacts
 parameter_list|(
 name|ItemSelector
 name|selector
@@ -725,7 +725,7 @@ name|?
 extends|extends
 name|Artifact
 argument_list|>
-name|getAllArtifactStream
+name|getArtifactStream
 parameter_list|(
 name|ItemSelector
 name|selector

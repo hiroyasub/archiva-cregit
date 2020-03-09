@@ -50,34 +50,42 @@ specifier|public
 interface|interface
 name|ItemSelector
 block|{
-name|String
-name|getProjectId
-parameter_list|( )
-function_decl|;
+comment|/**      * Selects the namespace to search for. You can use the {@link #searchSubNamespaces()} flag      * to decide, if only the given namespace or the namespace and all sub namespaces (if they exist) should be      * queried. If empty, the root namespace is searched.      * @return the namespace to search      */
 name|String
 name|getNamespace
 parameter_list|( )
 function_decl|;
+comment|/**      * Selects the project id to search for. If empty all projects are searched.      * @return the project id      */
+name|String
+name|getProjectId
+parameter_list|( )
+function_decl|;
+comment|/**      * Selects the version to search for. If empty all versions are searched.      * @return the version      */
 name|String
 name|getVersion
 parameter_list|( )
 function_decl|;
+comment|/**      * Selects a specific artifact version. This may be different from the version, e.g.      * for SNAPSHOT versions. If empty, the artifact version will be ignored.      * @return the artifact version or empty string      */
 name|String
 name|getArtifactVersion
 parameter_list|( )
 function_decl|;
+comment|/**      * Returns the artifact id to search for. If empty, all artifacts are returned.      * @return the artifact id or a empty string      */
 name|String
 name|getArtifactId
 parameter_list|( )
 function_decl|;
+comment|/**      * Returns the type to search for. If empty, the type is ignored.      * @return the type or a empty string.      */
 name|String
 name|getType
 parameter_list|( )
 function_decl|;
+comment|/**      * Returns the classifier string used for querying, or empty string if no classifier.      * If it returns a '*' than all classifiers should be selected.      * @return the classifier string      */
 name|String
 name|getClassifier
 parameter_list|( )
 function_decl|;
+comment|/**      * Returns the attribute to search for or<code>null</code>, if the      * attribute key should not be used for search.      * @param key the attribute key      * @return      */
 name|String
 name|getAttribute
 parameter_list|(
@@ -85,10 +93,12 @@ name|String
 name|key
 parameter_list|)
 function_decl|;
+comment|/**      * The extension of the file/asset.      * @return      */
 name|String
 name|getExtension
 parameter_list|( )
 function_decl|;
+comment|/**      * The map of attributes to search for      * @return      */
 name|Map
 argument_list|<
 name|String
@@ -97,6 +107,16 @@ name|String
 argument_list|>
 name|getAttributes
 parameter_list|( )
+function_decl|;
+comment|/**      * Returns<code>true</code>, if not only the given namespace but all sub namespaces      * of the given namespace should be queried too.      */
+name|boolean
+name|searchSubNamespaces
+parameter_list|()
+function_decl|;
+comment|/**      *<code>true</code>, if all files/assets should be returned that match the given selector,      * or<code>false</code>, if only the main assets should be returned.      * Related assets are e.g. hash files or signature files.      * @return<code>true</code>, if all assets should be found otherwise<code>false</code>      */
+name|boolean
+name|findRelatedArtifacts
+parameter_list|()
 function_decl|;
 specifier|default
 name|boolean
