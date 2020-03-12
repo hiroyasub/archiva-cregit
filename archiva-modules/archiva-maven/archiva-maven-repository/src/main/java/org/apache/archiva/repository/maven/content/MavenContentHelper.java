@@ -286,6 +286,14 @@ init|=
 literal|"maven-metadata.xml"
 decl_stmt|;
 specifier|public
+specifier|static
+specifier|final
+name|String
+name|METADATA_REPOSITORY_FILENAME
+init|=
+literal|"maven-metadata-repository.xml"
+decl_stmt|;
+specifier|public
 name|MavenContentHelper
 parameter_list|()
 block|{

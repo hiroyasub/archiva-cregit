@@ -127,6 +127,11 @@ name|String
 name|getContentType
 parameter_list|( )
 function_decl|;
+comment|/**      * Returns the type of the artifact      * @return      */
+name|ArtifactType
+name|getArtifactType
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

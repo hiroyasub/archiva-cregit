@@ -141,6 +141,74 @@ name|hasAttributes
 argument_list|( )
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getNamespace
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getVersion
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getArtifactId
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getArtifactVersion
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getType
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getClassifier
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|selector
+operator|.
+name|getAttributes
+argument_list|( )
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -227,6 +295,74 @@ argument_list|(
 name|selector
 operator|.
 name|hasAttributes
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getProjectId
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getVersion
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getArtifactId
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getArtifactVersion
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getType
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getClassifier
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|selector
+operator|.
+name|getAttributes
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -319,6 +455,64 @@ name|hasAttributes
 argument_list|( )
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getNamespace
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getArtifactId
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getArtifactVersion
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getType
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getClassifier
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|selector
+operator|.
+name|getAttributes
+argument_list|( )
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -405,6 +599,64 @@ argument_list|(
 name|selector
 operator|.
 name|hasAttributes
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getNamespace
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getVersion
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getArtifactId
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getType
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getClassifier
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|selector
+operator|.
+name|getAttributes
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -497,6 +749,64 @@ name|hasAttributes
 argument_list|( )
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getNamespace
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getVersion
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getArtifactVersion
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getType
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getClassifier
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|selector
+operator|.
+name|getAttributes
+argument_list|( )
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -583,6 +893,64 @@ argument_list|(
 name|selector
 operator|.
 name|hasAttributes
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getNamespace
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getVersion
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getArtifactId
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getArtifactVersion
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getClassifier
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|selector
+operator|.
+name|getAttributes
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -675,6 +1043,64 @@ name|hasAttributes
 argument_list|( )
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getNamespace
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getVersion
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getArtifactId
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getArtifactVersion
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getType
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|selector
+operator|.
+name|getAttributes
+argument_list|( )
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -784,6 +1210,56 @@ argument_list|(
 name|selector
 operator|.
 name|hasAttributes
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getVersion
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getArtifactId
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getArtifactVersion
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getType
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|selector
+operator|.
+name|getClassifier
 argument_list|( )
 argument_list|)
 expr_stmt|;

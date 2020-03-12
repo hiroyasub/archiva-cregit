@@ -47,6 +47,38 @@ name|repository
 operator|.
 name|content
 operator|.
+name|ArtifactType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|BaseArtifactTypes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
 name|Version
 import|;
 end_import
@@ -162,7 +194,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base implementation of artifact.  *<p>  * You have to use the builder method {@link #withAsset(StorageAsset)} to create a instance.  * The build() method can be called after the required attributes are set.  *<p>  * Artifact are equal if the following coordinates match:  *<ul>  *<li>repository</li>  *<li>asset</li>  *<li>version</li>  *<li>artifactId</li>  *<li>artifactVersion</li>  *<li>type</li>  *<li>classifier</li>  *</ul>  *  * @author Martin Stockhammer<martin_s@apache.org>  */
+comment|/**  * Base implementation of artifact.  *<p>  * You have to use the builder method {@link #withAsset(StorageAsset)} to create a instance.  * The build() method can be called after the required attributes are set.  *<p>  * Artifacts are equal if the following coordinates match:  *<ul>  *<li>repository</li>  *<li>asset</li>  *<li>version</li>  *<li>artifactId</li>  *<li>artifactVersion</li>  *<li>type</li>  *<li>classifier</li>  *<li>artifactType</li>  *</ul>  *  * @author Martin Stockhammer<martin_s@apache.org>  */
 end_comment
 
 begin_class
@@ -201,6 +233,10 @@ decl_stmt|;
 specifier|private
 name|String
 name|contentType
+decl_stmt|;
+specifier|private
+name|ArtifactType
+name|artifactType
 decl_stmt|;
 specifier|private
 name|ArchivaArtifact
@@ -282,6 +318,17 @@ parameter_list|( )
 block|{
 return|return
 name|contentType
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|ArtifactType
+name|getArtifactType
+parameter_list|( )
+block|{
+return|return
+name|artifactType
 return|;
 block|}
 comment|/**      * Returns the builder for creating a new artifact instance. You have to fill the      * required attributes before the build() method is available.      *      * @param asset the storage asset representing the artifact      * @return a builder for creating new artifact instance      */
@@ -422,6 +469,21 @@ condition|)
 return|return
 literal|false
 return|;
+if|if
+condition|(
+operator|!
+name|artifactType
+operator|.
+name|equals
+argument_list|(
+name|that
+operator|.
+name|artifactType
+argument_list|)
+condition|)
+return|return
+literal|false
+return|;
 return|return
 name|classifier
 operator|.
@@ -499,6 +561,17 @@ operator|*
 name|result
 operator|+
 name|classifier
+operator|.
+name|hashCode
+argument_list|( )
+expr_stmt|;
+name|result
+operator|=
+literal|31
+operator|*
+name|result
+operator|+
+name|artifactType
 operator|.
 name|hashCode
 argument_list|( )
@@ -763,6 +836,26 @@ block|}
 annotation|@
 name|Override
 specifier|public
+name|ArtifactOptBuilder
+name|withArtifactType
+parameter_list|(
+name|ArtifactType
+name|type
+parameter_list|)
+block|{
+name|item
+operator|.
+name|artifactType
+operator|=
+name|type
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
 name|ArchivaArtifact
 name|build
 parameter_list|( )
@@ -850,6 +943,24 @@ operator|.
 name|remainder
 operator|=
 literal|""
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|item
+operator|.
+name|artifactType
+operator|==
+literal|null
+condition|)
+block|{
+name|item
+operator|.
+name|artifactType
+operator|=
+name|BaseArtifactTypes
+operator|.
+name|MAIN
 expr_stmt|;
 block|}
 return|return
