@@ -689,7 +689,7 @@ name|?
 extends|extends
 name|Artifact
 argument_list|>
-name|getArtifactStream
+name|newArtifactStream
 parameter_list|(
 name|ItemSelector
 name|selector
@@ -819,7 +819,7 @@ name|?
 extends|extends
 name|Artifact
 argument_list|>
-name|getArtifactStream
+name|newArtifactStream
 parameter_list|(
 name|ContentItem
 name|item

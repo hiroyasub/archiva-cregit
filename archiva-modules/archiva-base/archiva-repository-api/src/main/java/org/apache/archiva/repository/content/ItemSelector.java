@@ -50,7 +50,7 @@ specifier|public
 interface|interface
 name|ItemSelector
 block|{
-comment|/**      * Selects the namespace to search for. You can use the {@link #searchSubNamespaces()} flag      * to decide, if only the given namespace or the namespace and all sub namespaces (if they exist) should be      * queried. If empty, the root namespace is searched.      * @return the namespace to search      */
+comment|/**      * Selects the namespace to search for. You can use the {@link #recurse()} flag      * to decide, if only the given namespace or the namespace and all sub namespaces (if they exist) should be      * queried. If empty, the root namespace is searched.      * @return the namespace to search      */
 name|String
 name|getNamespace
 parameter_list|( )
@@ -108,14 +108,14 @@ argument_list|>
 name|getAttributes
 parameter_list|( )
 function_decl|;
-comment|/**      * Returns<code>true</code>, if not only the given namespace but all sub namespaces      * of the given namespace should be queried too.      */
+comment|/**      * Returns<code>true</code>, if the query should recurse into all sub directories for      * retrieving artifacts.      */
 name|boolean
-name|searchSubNamespaces
+name|recurse
 parameter_list|()
 function_decl|;
 comment|/**      *<code>true</code>, if all files/assets should be returned that match the given selector,      * or<code>false</code>, if only the main assets should be returned.      * Related assets are e.g. hash files or signature files.      * @return<code>true</code>, if all assets should be found otherwise<code>false</code>      */
 name|boolean
-name|findRelatedArtifacts
+name|includeRelatedArtifacts
 parameter_list|()
 function_decl|;
 specifier|default

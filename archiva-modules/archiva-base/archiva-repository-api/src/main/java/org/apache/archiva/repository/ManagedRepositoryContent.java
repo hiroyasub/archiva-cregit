@@ -347,7 +347,7 @@ name|?
 extends|extends
 name|Artifact
 argument_list|>
-name|getArtifactStream
+name|newArtifactStream
 parameter_list|(
 name|ItemSelector
 name|selector
@@ -434,14 +434,14 @@ parameter_list|)
 throws|throws
 name|ContentAccessException
 function_decl|;
-comment|/**      * Return a stream of artifacts that are part of the given content item. The returned stream is      * auto closable. There is no guarantee about the order of returned artifacts.      *      * As the stream may access IO resources, you should always use call this method inside try-with-resources or      * make sure, that the stream is closed after using it.      *      * @param item the item from where the artifacts should be returned      * @return a stream of artifacts. The stream is auto closable. You should always make sure, that the stream      * is closed after use.      */
+comment|/**      * Return a stream of artifacts that are part of the given content item. The returned stream is      * auto closable. There is no guarantee about the order of returned artifacts.      *      * As the stream may access IO resources, you should always use call this method inside try-with-resources or      * make sure, that the stream is closed after using it.      *      * @param item the item from where the artifacts should be returned      * @return a stream of artifacts. The stream is auto closable. You should always make sure, that the stream      * is closed after use.      * @throws ContentAccessException if the access to the underlying storage failed      */
 name|Stream
 argument_list|<
 name|?
 extends|extends
 name|Artifact
 argument_list|>
-name|getArtifactStream
+name|newArtifactStream
 parameter_list|(
 name|ContentItem
 name|item
