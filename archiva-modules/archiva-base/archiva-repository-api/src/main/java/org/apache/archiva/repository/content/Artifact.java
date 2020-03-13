@@ -93,11 +93,13 @@ name|lastIndexOf
 argument_list|(
 literal|'.'
 argument_list|)
+operator|+
+literal|1
 decl_stmt|;
 if|if
 condition|(
 name|idx
-operator|>=
+operator|>
 literal|0
 condition|)
 block|{
