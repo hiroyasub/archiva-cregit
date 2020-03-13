@@ -249,7 +249,7 @@ argument_list|(
 block|{
 literal|"classpath*:/META-INF/spring-context.xml"
 block|,
-literal|"classpath:/spring-context-no-mock-conf.xml"
+literal|"classpath:/spring-context-repository-conf.xml"
 block|}
 argument_list|)
 specifier|public
