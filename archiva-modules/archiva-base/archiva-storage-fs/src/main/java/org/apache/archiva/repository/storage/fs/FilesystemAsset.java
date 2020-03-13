@@ -1274,6 +1274,10 @@ name|resolve
 argument_list|(
 name|p
 argument_list|)
+argument_list|,
+name|this
+operator|.
+name|basePath
 argument_list|)
 argument_list|)
 operator|.
