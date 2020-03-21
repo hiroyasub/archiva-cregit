@@ -339,6 +339,24 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|( )
+block|{
+return|return
+name|id
+operator|+
+literal|", namespace="
+operator|+
+name|namespace
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
 comment|/*      * Builder class      */
 specifier|public
 specifier|static

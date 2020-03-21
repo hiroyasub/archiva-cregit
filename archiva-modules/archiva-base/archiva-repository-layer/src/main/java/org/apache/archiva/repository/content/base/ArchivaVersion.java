@@ -393,6 +393,24 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|( )
+block|{
+return|return
+name|version
+operator|+
+literal|", project="
+operator|+
+name|project
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
 specifier|private
 specifier|static
 specifier|final
