@@ -1278,6 +1278,7 @@ argument_list|)
 return|;
 block|}
 comment|/// ************* End of new generation interface ******************
+comment|/**      * Removes the item from the filesystem. For namespaces, projects and versions it deletes      * recursively.      * For namespaces you have to be careful, because maven repositories may have sub namespaces      * parallel to projects. Which means deleting a namespaces also deletes the sub namespaces and      * not only the projects of the given namespace. Better run the delete for each project of      * a namespace.      *      * Artifacts are deleted as provided. No related artifacts will be deleted.      *      * @param item the item that should be removed      * @throws ItemNotFoundException if the item does not exist      * @throws ContentAccessException if some error occurred while accessing the filesystem      */
 annotation|@
 name|Override
 specifier|public
@@ -1436,7 +1437,7 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Could not delete namespace directory {}: {}"
+literal|"Could not delete item from path {}: {}"
 argument_list|,
 name|itemPath
 argument_list|,
@@ -1452,7 +1453,7 @@ throw|throw
 operator|new
 name|ContentAccessException
 argument_list|(
-literal|"Error occured while deleting namespace "
+literal|"Error occured while deleting item "
 operator|+
 name|item
 operator|+
