@@ -459,16 +459,18 @@ parameter_list|)
 function_decl|;
 comment|/**      * Copies the artifact to the given destination coordinates      *      * @param sourceFile the path to the source file      * @param destination the coordinates of the destination      * @throws IllegalArgumentException if the destination is not valid      */
 name|void
-name|copyArtifact
+name|addArtifact
 parameter_list|(
 name|Path
 name|sourceFile
 parameter_list|,
-name|ContentItem
+name|Artifact
 name|destination
 parameter_list|)
 throws|throws
 name|IllegalArgumentException
+throws|,
+name|ContentAccessException
 function_decl|;
 comment|/**      * Returns the item that matches the given path. The item at the path must not exist.      *      * @param path the path string that points to the item      * @return the content item if the path is a valid item path      * @throws LayoutException if the path is not valid for the repository layout      */
 name|ContentItem

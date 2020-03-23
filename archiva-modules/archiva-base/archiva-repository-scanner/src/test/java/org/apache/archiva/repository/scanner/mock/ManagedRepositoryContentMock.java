@@ -849,12 +849,12 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|copyArtifact
+name|addArtifact
 parameter_list|(
 name|Path
 name|sourceFile
 parameter_list|,
-name|ContentItem
+name|Artifact
 name|destination
 parameter_list|)
 throws|throws
