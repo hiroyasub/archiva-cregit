@@ -9966,7 +9966,7 @@ annotation|@
 name|Test
 specifier|public
 name|void
-name|testCopyArtifact
+name|testAddArtifact
 parameter_list|()
 throws|throws
 name|IOException
