@@ -689,23 +689,6 @@ name|ManagedRepository
 name|getRepository
 parameter_list|()
 function_decl|;
-comment|/**      * Given a specific {@link ProjectReference}, return the list of available versions for      * that project reference.      *      * @param reference the project reference to work off of.      * @return the list of versions found for that project reference.      * @throws ContentNotFoundException if the project reference does nto exist within the repository.      * @throws LayoutException      */
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|getVersions
-parameter_list|(
-name|ProjectReference
-name|reference
-parameter_list|)
-throws|throws
-name|ContentNotFoundException
-throws|,
-name|LayoutException
-throws|,
-name|ContentAccessException
-function_decl|;
 comment|/**      *<p>      * Given a specific {@link VersionedReference}, return the list of available versions for that      * versioned reference.      *</p>      *<p>      *<strong>NOTE:</strong> This is really only useful when working with SNAPSHOTs.      *</p>      *      * @param reference the versioned reference to work off of.      * @return the set of versions found.      * @throws ContentNotFoundException if the versioned reference does not exist within the repository.      */
 name|Set
 argument_list|<
@@ -728,16 +711,6 @@ name|boolean
 name|hasContent
 parameter_list|(
 name|ArtifactReference
-name|reference
-parameter_list|)
-throws|throws
-name|ContentAccessException
-function_decl|;
-comment|/**      * Determines if the project referenced exists in the repository.      *      * @param reference the project reference to check for.      * @return true it the project referenced exists.      */
-name|boolean
-name|hasContent
-parameter_list|(
-name|ProjectReference
 name|reference
 parameter_list|)
 throws|throws

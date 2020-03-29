@@ -3702,7 +3702,6 @@ argument_list|(
 name|ref
 argument_list|)
 expr_stmt|;
-comment|/*             ProjectReference projectReference = new ProjectReference();             projectReference.setGroupId( namespace );             projectReference.setArtifactId( projectId );              repository.getVersions(  )             */
 name|ArtifactReference
 name|artifactReference
 init|=
