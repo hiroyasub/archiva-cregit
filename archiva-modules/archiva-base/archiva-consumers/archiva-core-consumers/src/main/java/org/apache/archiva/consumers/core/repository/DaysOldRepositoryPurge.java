@@ -526,11 +526,6 @@ operator|-
 name|retentionPeriod
 argument_list|)
 expr_stmt|;
-comment|// respect retention count
-comment|// VersionedReference reference = new VersionedReference( );
-comment|// reference.setGroupId( artifact.getGroupId( ) );
-comment|// reference.setArtifactId( artifact.getArtifactId( ) );
-comment|// reference.setVersion( artifact.getVersion( ) );
 name|ArchivaItemSelector
 name|selector
 init|=
