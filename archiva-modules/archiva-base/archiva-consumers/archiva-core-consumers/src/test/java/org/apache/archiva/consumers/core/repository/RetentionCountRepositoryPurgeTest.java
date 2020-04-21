@@ -539,7 +539,7 @@ literal|"org.jruby.plugins"
 argument_list|,
 literal|"jruby-rake-plugin"
 argument_list|,
-literal|"1.0RC1-20070504.153317-1"
+literal|"1.0RC1-SNAPSHOT"
 argument_list|,
 literal|"jruby-rake-plugin-1.0RC1-20070504.153317-1.jar"
 operator|+
@@ -565,7 +565,7 @@ literal|"org.jruby.plugins"
 argument_list|,
 literal|"jruby-rake-plugin"
 argument_list|,
-literal|"1.0RC1-20070504.153317-1"
+literal|"1.0RC1-SNAPSHOT"
 argument_list|,
 literal|"jruby-rake-plugin-1.0RC1-20070504.153317-1.pom"
 operator|+
@@ -591,7 +591,7 @@ literal|"org.jruby.plugins"
 argument_list|,
 literal|"jruby-rake-plugin"
 argument_list|,
-literal|"1.0RC1-20070504.160758-2"
+literal|"1.0RC1-SNAPSHOT"
 argument_list|,
 literal|"jruby-rake-plugin-1.0RC1-20070504.160758-2.jar"
 operator|+
@@ -617,7 +617,7 @@ literal|"org.jruby.plugins"
 argument_list|,
 literal|"jruby-rake-plugin"
 argument_list|,
-literal|"1.0RC1-20070504.160758-2"
+literal|"1.0RC1-SNAPSHOT"
 argument_list|,
 literal|"jruby-rake-plugin-1.0RC1-20070504.160758-2.pom"
 operator|+
@@ -644,7 +644,7 @@ literal|"org.jruby.plugins"
 argument_list|,
 literal|"jruby-rake-plugin"
 argument_list|,
-literal|"1.0RC1-20070504.160758-2"
+literal|"1.0RC1-SNAPSHOT"
 argument_list|,
 literal|"jruby-rake-plugin-1.0RC1-20070504.160758-2-javadoc.jar"
 argument_list|)
@@ -665,7 +665,7 @@ literal|"org.jruby.plugins"
 argument_list|,
 literal|"jruby-rake-plugin"
 argument_list|,
-literal|"1.0RC1-20070504.160758-2"
+literal|"1.0RC1-SNAPSHOT"
 argument_list|,
 literal|"jruby-rake-plugin-1.0RC1-20070504.160758-2-javadoc.zip"
 argument_list|)
@@ -686,7 +686,7 @@ literal|"org.jruby.plugins"
 argument_list|,
 literal|"jruby-rake-plugin"
 argument_list|,
-literal|"1.0RC1-20070504.153317-1"
+literal|"1.0RC1-SNAPSHOT"
 argument_list|,
 literal|"jruby-rake-plugin-1.0RC1-20070504.153317-1-javadoc.jar"
 argument_list|)
@@ -707,7 +707,7 @@ literal|"org.jruby.plugins"
 argument_list|,
 literal|"jruby-rake-plugin"
 argument_list|,
-literal|"1.0RC1-20070504.153317-1"
+literal|"1.0RC1-SNAPSHOT"
 argument_list|,
 literal|"jruby-rake-plugin-1.0RC1-20070504.153317-1-javadoc.zip"
 argument_list|)
@@ -1199,7 +1199,7 @@ literal|"org.codehaus.castor"
 argument_list|,
 literal|"castor-anttasks"
 argument_list|,
-literal|"1.1.2-20070427.065136-1"
+literal|"1.1.2-SNAPSHOT"
 argument_list|,
 literal|"castor-anttasks-1.1.2-20070427.065136-1.jar.md5"
 argument_list|)
@@ -1220,7 +1220,7 @@ literal|"org.codehaus.castor"
 argument_list|,
 literal|"castor-anttasks"
 argument_list|,
-literal|"1.1.2-20070427.065136-1"
+literal|"1.1.2-SNAPSHOT"
 argument_list|,
 literal|"castor-anttasks-1.1.2-20070427.065136-1.jar.sha1"
 argument_list|)
@@ -1241,7 +1241,7 @@ literal|"org.codehaus.castor"
 argument_list|,
 literal|"castor-anttasks"
 argument_list|,
-literal|"1.1.2-20070427.065136-1"
+literal|"1.1.2-SNAPSHOT"
 argument_list|,
 literal|"castor-anttasks-1.1.2-20070427.065136-1.jar"
 argument_list|)
@@ -1262,7 +1262,7 @@ literal|"org.codehaus.castor"
 argument_list|,
 literal|"castor-anttasks"
 argument_list|,
-literal|"1.1.2-20070427.065136-1"
+literal|"1.1.2-SNAPSHOT"
 argument_list|,
 literal|"castor-anttasks-1.1.2-20070427.065136-1.pom.md5"
 argument_list|)
@@ -1283,7 +1283,7 @@ literal|"org.codehaus.castor"
 argument_list|,
 literal|"castor-anttasks"
 argument_list|,
-literal|"1.1.2-20070427.065136-1"
+literal|"1.1.2-SNAPSHOT"
 argument_list|,
 literal|"castor-anttasks-1.1.2-20070427.065136-1.pom.sha1"
 argument_list|)
@@ -1304,7 +1304,7 @@ literal|"org.codehaus.castor"
 argument_list|,
 literal|"castor-anttasks"
 argument_list|,
-literal|"1.1.2-20070427.065136-1"
+literal|"1.1.2-SNAPSHOT"
 argument_list|,
 literal|"castor-anttasks-1.1.2-20070427.065136-1.pom"
 argument_list|)
@@ -1795,7 +1795,7 @@ literal|"org.apache.maven.plugins"
 argument_list|,
 literal|"maven-assembly-plugin"
 argument_list|,
-literal|"1.1.2-20070427.065136-1"
+literal|"1.1.2-SNAPSHOT"
 argument_list|,
 literal|"maven-assembly-plugin-1.1.2-20070427.065136-1.jar.md5"
 argument_list|)
@@ -1816,7 +1816,7 @@ literal|"org.apache.maven.plugins"
 argument_list|,
 literal|"maven-assembly-plugin"
 argument_list|,
-literal|"1.1.2-20070427.065136-1"
+literal|"1.1.2-SNAPSHOT"
 argument_list|,
 literal|"maven-assembly-plugin-1.1.2-20070427.065136-1.jar.sha1"
 argument_list|)
@@ -1837,7 +1837,7 @@ literal|"org.apache.maven.plugins"
 argument_list|,
 literal|"maven-assembly-plugin"
 argument_list|,
-literal|"1.1.2-20070427.065136-1"
+literal|"1.1.2-SNAPSHOT"
 argument_list|,
 literal|"maven-assembly-plugin-1.1.2-20070427.065136-1.jar"
 argument_list|)
@@ -1858,7 +1858,7 @@ literal|"org.apache.maven.plugins"
 argument_list|,
 literal|"maven-assembly-plugin"
 argument_list|,
-literal|"1.1.2-20070427.065136-1"
+literal|"1.1.2-SNAPSHOT"
 argument_list|,
 literal|"maven-assembly-plugin-1.1.2-20070427.065136-1.pom.md5"
 argument_list|)
@@ -1879,7 +1879,7 @@ literal|"org.apache.maven.plugins"
 argument_list|,
 literal|"maven-assembly-plugin"
 argument_list|,
-literal|"1.1.2-20070427.065136-1"
+literal|"1.1.2-SNAPSHOT"
 argument_list|,
 literal|"maven-assembly-plugin-1.1.2-20070427.065136-1.pom.sha1"
 argument_list|)
@@ -1900,7 +1900,7 @@ literal|"org.apache.maven.plugins"
 argument_list|,
 literal|"maven-assembly-plugin"
 argument_list|,
-literal|"1.1.2-20070427.065136-1"
+literal|"1.1.2-SNAPSHOT"
 argument_list|,
 literal|"maven-assembly-plugin-1.1.2-20070427.065136-1.pom"
 argument_list|)

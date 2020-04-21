@@ -17,6 +17,20 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *   http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|model
+operator|.
+name|ArtifactReference
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a artifact of a repository. This object contains unique coordinates of the  * artifact. A artifact has exactly one file representation in the repository.  * The artifact instance does not tell, if the file exists or is readable. It just  * keeps the coordinates and some meta information of the artifact.  *<p>  * Artifact implementations should be immutable. The implementation must not always represent the current state of the  * corresponding storage asset (file). It is just a view of the attributes for a given point in time.  *<p>  * Implementations must provide proper hash and equals methods.  *  * @author Martin Stockhammer<martin_s@apache.org>  */
 end_comment
@@ -132,6 +146,11 @@ function_decl|;
 comment|/**      * Returns the type of the artifact      * @return      */
 name|ArtifactType
 name|getArtifactType
+parameter_list|()
+function_decl|;
+comment|/**      * Returns a unique key      * @return      */
+name|String
+name|toKey
 parameter_list|()
 function_decl|;
 block|}

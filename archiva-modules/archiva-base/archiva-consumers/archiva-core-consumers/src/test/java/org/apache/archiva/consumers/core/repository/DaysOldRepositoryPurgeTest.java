@@ -673,7 +673,7 @@ literal|"org.apache.maven.plugins"
 argument_list|,
 literal|"maven-install-plugin"
 argument_list|,
-literal|"2.2-20061118.060401-2"
+literal|"2.2-SNAPSHOT"
 argument_list|,
 literal|"maven-install-plugin-2.2-20061118.060401-2.jar"
 operator|+
@@ -699,7 +699,7 @@ literal|"org.apache.maven.plugins"
 argument_list|,
 literal|"maven-install-plugin"
 argument_list|,
-literal|"2.2-20061118.060401-2"
+literal|"2.2-SNAPSHOT"
 argument_list|,
 literal|"maven-install-plugin-2.2-20061118.060401-2.pom"
 operator|+
@@ -1360,7 +1360,7 @@ literal|"org.apache.maven.plugins"
 argument_list|,
 literal|"maven-assembly-plugin"
 argument_list|,
-literal|"1.1.2-20070427.065136-1"
+literal|"1.1.2-SNAPSHOT"
 argument_list|,
 literal|"maven-assembly-plugin-1.1.2-20070427.065136-1.jar"
 operator|+
@@ -1386,7 +1386,7 @@ literal|"org.apache.maven.plugins"
 argument_list|,
 literal|"maven-assembly-plugin"
 argument_list|,
-literal|"1.1.2-20070427.065136-1"
+literal|"1.1.2-SNAPSHOT"
 argument_list|,
 literal|"maven-assembly-plugin-1.1.2-20070427.065136-1.pom"
 operator|+
@@ -2151,7 +2151,7 @@ literal|"org.codehaus.plexus"
 argument_list|,
 literal|"plexus-utils"
 argument_list|,
-literal|"1.4.3-20070113.163208-4"
+literal|"1.4.3-SNAPSHOT"
 argument_list|,
 literal|"plexus-utils-1.4.3-20070113.163208-4.jar"
 operator|+
@@ -2177,7 +2177,7 @@ literal|"org.codehaus.plexus"
 argument_list|,
 literal|"plexus-utils"
 argument_list|,
-literal|"1.4.3-20070113.163208-4"
+literal|"1.4.3-SNAPSHOT"
 argument_list|,
 literal|"plexus-utils-1.4.3-20070113.163208-4.pom"
 operator|+

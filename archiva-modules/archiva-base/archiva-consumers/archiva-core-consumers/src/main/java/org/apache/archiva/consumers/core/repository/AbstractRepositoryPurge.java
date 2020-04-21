@@ -171,6 +171,38 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|content
+operator|.
+name|Artifact
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|ItemNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|storage
 operator|.
 name|StorageAsset
@@ -930,7 +962,7 @@ name|purge
 parameter_list|(
 name|Set
 argument_list|<
-name|ArtifactReference
+name|Artifact
 argument_list|>
 name|references
 parameter_list|)
@@ -987,7 +1019,7 @@ argument_list|( )
 decl_stmt|;
 for|for
 control|(
-name|ArtifactReference
+name|Artifact
 name|reference
 range|:
 name|references
@@ -996,15 +1028,30 @@ block|{
 name|String
 name|baseVersion
 init|=
-name|VersionUtil
-operator|.
-name|getBaseVersion
-argument_list|(
 name|reference
 operator|.
 name|getVersion
 argument_list|( )
-argument_list|)
+operator|.
+name|getVersion
+argument_list|( )
+decl_stmt|;
+name|String
+name|namespace
+init|=
+name|reference
+operator|.
+name|getVersion
+argument_list|( )
+operator|.
+name|getProject
+argument_list|( )
+operator|.
+name|getNamespace
+argument_list|( )
+operator|.
+name|getNamespace
+argument_list|( )
 decl_stmt|;
 comment|// Needed for tracking in the hashmap
 name|String
@@ -1012,19 +1059,8 @@ name|metaBaseId
 init|=
 name|reference
 operator|.
-name|getGroupId
-argument_list|( )
-operator|+
-literal|"/"
-operator|+
-name|reference
-operator|.
-name|getArtifactId
-argument_list|( )
-operator|+
-literal|"/"
-operator|+
-name|baseVersion
+name|toKey
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -1056,14 +1092,11 @@ operator|.
 name|getId
 argument_list|( )
 argument_list|,
-name|reference
-operator|.
-name|getGroupId
-argument_list|( )
+name|namespace
 argument_list|,
 name|reference
 operator|.
-name|getArtifactId
+name|getId
 argument_list|( )
 argument_list|,
 name|baseVersion
@@ -1096,12 +1129,10 @@ block|}
 name|StorageAsset
 name|artifactFile
 init|=
-name|repository
-operator|.
-name|toFile
-argument_list|(
 name|reference
-argument_list|)
+operator|.
+name|getAsset
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -1122,20 +1153,20 @@ operator|.
 name|getId
 argument_list|( )
 argument_list|,
-name|reference
-operator|.
-name|getGroupId
-argument_list|( )
+name|namespace
 argument_list|,
 name|reference
 operator|.
-name|getArtifactId
+name|getId
 argument_list|( )
 argument_list|,
 name|reference
 operator|.
 name|getVersion
 argument_list|( )
+operator|.
+name|getVersion
+argument_list|()
 argument_list|,
 name|artifactFile
 operator|.
@@ -1144,83 +1175,21 @@ argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
-try|try
-block|{
-name|artifactFile
+if|if
+condition|(
+name|reference
 operator|.
-name|getStorage
+name|exists
 argument_list|()
-operator|.
-name|removeAsset
-argument_list|(
-name|artifactFile
-argument_list|)
-expr_stmt|;
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"File deleted: {}"
-argument_list|,
-name|artifactFile
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
+condition|)
 block|{
-name|log
-operator|.
-name|error
-argument_list|(
-literal|"Could not delete file {}: {}"
-argument_list|,
-name|artifactFile
-operator|.
-name|toString
-argument_list|()
-argument_list|,
-name|e
-operator|.
-name|getMessage
-argument_list|( )
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-continue|continue;
-block|}
 try|try
 block|{
 name|repository
 operator|.
-name|deleteArtifact
+name|deleteItem
 argument_list|(
 name|reference
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ContentNotFoundException
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"skip error deleting artifact {}: {}"
-argument_list|,
-name|reference
-argument_list|,
-name|e
-operator|.
-name|getMessage
-argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1238,11 +1207,45 @@ name|ContentAccessException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Error while trying to delete artifact {}: {}"
+argument_list|,
+name|reference
+operator|.
+name|toString
+argument_list|( )
+argument_list|,
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|( )
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ItemNotFoundException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Asset deleted from background other thread: {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|boolean
 name|snapshotVersion
@@ -1251,10 +1254,7 @@ name|VersionUtil
 operator|.
 name|isSnapshot
 argument_list|(
-name|reference
-operator|.
-name|getVersion
-argument_list|( )
+name|baseVersion
 argument_list|)
 decl_stmt|;
 comment|// If this is a snapshot we have to search for artifacts with the same version. And remove all of them.
@@ -1304,7 +1304,7 @@ name|equals
 argument_list|(
 name|reference
 operator|.
-name|getVersion
+name|getArtifactVersion
 argument_list|( )
 argument_list|)
 condition|)
@@ -1395,22 +1395,19 @@ init|=
 operator|new
 name|ArtifactInfo
 argument_list|(
-name|reference
-operator|.
-name|getGroupId
-argument_list|( )
+name|namespace
 argument_list|,
 name|reference
 operator|.
-name|getArtifactId
+name|getId
 argument_list|( )
 argument_list|,
 name|baseVersion
 argument_list|,
 name|reference
 operator|.
-name|getVersion
-argument_list|( )
+name|getArtifactVersion
+argument_list|()
 argument_list|)
 decl_stmt|;
 for|for
@@ -1447,23 +1444,17 @@ operator|.
 name|getId
 argument_list|( )
 argument_list|,
-name|ArtifactReference
+name|reference
 operator|.
 name|toKey
-argument_list|(
-name|reference
-argument_list|)
+argument_list|()
 argument_list|,
 name|AuditEvent
 operator|.
 name|PURGE_ARTIFACT
 argument_list|)
 expr_stmt|;
-name|purgeSupportFiles
-argument_list|(
-name|artifactFile
-argument_list|)
-expr_stmt|;
+comment|// purgeSupportFiles( artifactFile );
 block|}
 name|purgeMetadata
 argument_list|(

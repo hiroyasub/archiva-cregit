@@ -315,7 +315,7 @@ name|ContentAccessException
 throws|,
 name|IllegalArgumentException
 function_decl|;
-comment|/**      * Returns the artifact object for the given coordinates.      *      * Normally the following coordinates should be set at the given selector:      *<ul>      *<li>namespace</li>      *<li>artifactVersion and or version</li>      *<li>artifactId or projectId</li>      *</ul>      * If the coordinates do not provide enough information for selecting a artifact, a {@link IllegalArgumentException} will be thrown      * It depends on the repository type, what exactly is deleted for a given set of coordinates. Some repository type      * may have different required and optional coordinates. For further information please check the documentation for the      * type specific implementations.      *      * The following coordinates are optional and may further specify the artifact to delete.      *<ul>      *<li>classifier</li>      *<li>type</li>      *<li>extension</li>      *</ul>      *      * The method always returns a artifact object, if the coordinates are valid. It does not guarantee that the artifact      * exists. To check if there is really a physical representation of the artifact, use the<code>{@link Artifact#exists()}</code>      * method of the artifact.      * For upload and data retrieval use the methods of the {@link StorageAsset} reference returned in the artifact.      *      *      * @param selector the selector with the artifact coordinates      * @return a artifact object      * @throws ItemNotFoundException if the selector coordinates do not specify a artifact      * @throws ContentAccessException if the access to the underlying storage failed      */
+comment|/**      * Returns the artifact object for the given coordinates.      *      * Normally the following coordinates should be set at the given selector:      *<ul>      *<li>namespace</li>      *<li>artifactVersion and or version</li>      *<li>artifactId or projectId</li>      *</ul>      * If the coordinates do not provide enough information for selecting a artifact, a {@link IllegalArgumentException} will be thrown      * It depends on the repository type, what exactly is deleted for a given set of coordinates. Some repository type      * may have different required and optional coordinates. For further information please check the documentation for the      * type specific implementations.      *      * The following coordinates are optional and may further specify the artifact to delete.      *<ul>      *<li>classifier</li>      *<li>type</li>      *<li>extension</li>      *</ul>      *      * The method always returns a artifact object, if the coordinates are valid. It does not guarantee that the artifact      * exists. To check if there is really a physical representation of the artifact, use the<code>{@link Artifact#exists()}</code>      * method of the artifact.      * For upload and data retrieval use the methods of the {@link StorageAsset} reference returned in the artifact.      *      *      * @param selector the selector with the artifact coordinates      * @return a artifact object      * @throws IllegalArgumentException if the selector coordinates do not specify a artifact      * @throws ContentAccessException if the access to the underlying storage failed      */
 name|Artifact
 name|getArtifact
 parameter_list|(
@@ -325,7 +325,7 @@ parameter_list|)
 throws|throws
 name|ContentAccessException
 function_decl|;
-comment|/**      * Returns the artifacts that match the given selector. It is up to the repository implementation      * what artifacts are returned for a given set of coordinates.      *      * @param selector the selector for the artifacts      * @return a list of artifacts.      * @throws ItemNotFoundException if the specified coordinates cannot be found in the repository      * @throws ContentAccessException if the access to the underlying storage failed      */
+comment|/**      * Returns the artifacts that match the given selector. It is up to the repository implementation      * what artifacts are returned for a given set of coordinates.      *      * @param selector the selector for the artifacts      * @return a list of artifacts.      * @throws IllegalArgumentException if the specified coordinates cannot be found in the repository      * @throws ContentAccessException if the access to the underlying storage failed      */
 name|List
 argument_list|<
 name|?
@@ -505,14 +505,6 @@ name|artifactId
 parameter_list|,
 name|String
 name|version
-parameter_list|)
-function_decl|;
-comment|/**      * Returns the version reference that represents the generic version, which means that      * snapshot versions are converted to<VERSION>-SNAPSHOT      * @param artifactReference the artifact reference      * @return the generic version      */
-name|VersionedReference
-name|toGenericVersion
-parameter_list|(
-name|ArtifactReference
-name|artifactReference
 parameter_list|)
 function_decl|;
 comment|/**      * Return the version reference that matches exactly the version string of the artifact      *      * @param artifactReference The artifact reference      * @return the version reference      */

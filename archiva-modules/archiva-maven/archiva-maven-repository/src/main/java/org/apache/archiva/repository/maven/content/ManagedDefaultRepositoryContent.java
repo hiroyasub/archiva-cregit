@@ -4550,7 +4550,7 @@ name|fileNamePattern
 operator|.
 name|append
 argument_list|(
-literal|"[A-Za-z0-9]+"
+literal|"[A-Za-z0-9.]+"
 argument_list|)
 expr_stmt|;
 block|}
@@ -5518,41 +5518,6 @@ operator|.
 name|version
 argument_list|(
 name|version
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|VersionedReference
-name|toGenericVersion
-parameter_list|(
-name|ArtifactReference
-name|artifactReference
-parameter_list|)
-block|{
-return|return
-name|toVersion
-argument_list|(
-name|artifactReference
-operator|.
-name|getGroupId
-argument_list|( )
-argument_list|,
-name|artifactReference
-operator|.
-name|getArtifactId
-argument_list|( )
-argument_list|,
-name|VersionUtil
-operator|.
-name|getBaseVersion
-argument_list|(
-name|artifactReference
-operator|.
-name|getVersion
-argument_list|( )
-argument_list|)
 argument_list|)
 return|;
 block|}
