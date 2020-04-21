@@ -627,23 +627,6 @@ name|ManagedRepository
 name|getRepository
 parameter_list|()
 function_decl|;
-comment|/**      *<p>      * Given a specific {@link VersionedReference}, return the list of available versions for that      * versioned reference.      *</p>      *<p>      *<strong>NOTE:</strong> This is really only useful when working with SNAPSHOTs.      *</p>      *      * @param reference the versioned reference to work off of.      * @return the set of versions found.      * @throws ContentNotFoundException if the versioned reference does not exist within the repository.      */
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|getVersions
-parameter_list|(
-name|VersionedReference
-name|reference
-parameter_list|)
-throws|throws
-name|ContentNotFoundException
-throws|,
-name|ContentAccessException
-throws|,
-name|LayoutException
-function_decl|;
 comment|/**      * Determines if the artifact referenced exists in the repository.      *      * @param reference the artifact reference to check for.      * @return true if the artifact referenced exists.      */
 name|boolean
 name|hasContent
