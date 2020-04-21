@@ -395,6 +395,22 @@ name|repository
 operator|.
 name|content
 operator|.
+name|Artifact
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
 name|ItemSelector
 import|;
 end_import
@@ -982,15 +998,97 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-name|foundVersions
-operator|=
-name|managedRepository
+name|ArchivaItemSelector
+name|selector
+init|=
+name|ArchivaItemSelector
 operator|.
-name|getVersions
+name|builder
+argument_list|( )
+operator|.
+name|withNamespace
 argument_list|(
 name|reference
+operator|.
+name|getGroupId
+argument_list|( )
+argument_list|)
+operator|.
+name|withProjectId
+argument_list|(
+name|reference
+operator|.
+name|getArtifactId
+argument_list|( )
+argument_list|)
+operator|.
+name|withArtifactId
+argument_list|(
+name|reference
+operator|.
+name|getArtifactId
+argument_list|( )
+argument_list|)
+operator|.
+name|withVersion
+argument_list|(
+name|reference
+operator|.
+name|getVersion
+argument_list|( )
+argument_list|)
+operator|.
+name|build
+argument_list|( )
+decl_stmt|;
+try|try
+init|(
+name|Stream
+argument_list|<
+name|?
+extends|extends
+name|Artifact
+argument_list|>
+name|stream
+init|=
+name|managedRepository
+operator|.
+name|newArtifactStream
+argument_list|(
+name|selector
+argument_list|)
+init|)
+block|{
+name|foundVersions
+operator|=
+name|stream
+operator|.
+name|map
+argument_list|(
+name|a
+lambda|->
+name|a
+operator|.
+name|getArtifactVersion
+argument_list|( )
+argument_list|)
+operator|.
+name|filter
+argument_list|(
+name|StringUtils
+operator|::
+name|isNotEmpty
+argument_list|)
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toSet
+argument_list|( )
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -1006,11 +1104,30 @@ name|ContentAccessException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Error while accessing content {}"
+argument_list|,
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|( )
+argument_list|)
 expr_stmt|;
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Could not access repository content: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|)
+throw|;
 block|}
 comment|// Next gather up the referenced 'latest' versions found in any proxied repositories
 comment|// maven-metadata-${proxyId}.xml files that may be present.
