@@ -842,6 +842,22 @@ name|append
 argument_list|(
 name|defaultString
 argument_list|(
+name|getArtifactVersion
+argument_list|( )
+argument_list|)
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|":"
+argument_list|)
+expr_stmt|;
+name|key
+operator|.
+name|append
+argument_list|(
+name|defaultString
+argument_list|(
 name|getClassifier
 argument_list|()
 argument_list|)
@@ -858,7 +874,7 @@ name|append
 argument_list|(
 name|defaultString
 argument_list|(
-name|getType
+name|getRemainder
 argument_list|()
 argument_list|)
 argument_list|)
