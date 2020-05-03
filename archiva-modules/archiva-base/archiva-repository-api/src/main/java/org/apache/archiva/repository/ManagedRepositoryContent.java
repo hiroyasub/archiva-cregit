@@ -217,6 +217,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|BitSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -228,6 +238,18 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Consumer
 import|;
 end_import
 
@@ -255,6 +277,24 @@ extends|extends
 name|RepositoryContent
 block|{
 comment|/// *****************   New generation interface **********************
+comment|/**      * Delete all items that match the given selector. The type and number of deleted items      * depend on the specific selector:      *<ul>      *<li>namespace: the complete namespace is deleted (recursively if the recurse flag is set)</li>      *<li>project: the complete project and all contained versions are deleted</li>      *<li>version: the version inside the project is deleted (project is required)</li>      *<li>artifactId: all artifacts that match the id (project and version are required)</li>      *<li>artifactVersion: all artifacts that match the version (project and version are required)</li>      *<li></li>      *</ul>      *      * @param selector the item selector that selects the artifacts to delete      * @param consumer a consumer of the items that will be called after deletion      * @returns the list of items that are deleted      * @throws ContentAccessException if the deletion was not possible or only partly successful, because the access      * to the artifacts failed      * @throws IllegalArgumentException if the selector does not specify valid artifacts to delete      */
+name|void
+name|deleteAllItems
+parameter_list|(
+name|ItemSelector
+name|selector
+parameter_list|,
+name|Consumer
+argument_list|<
+name|ItemDeleteStatus
+argument_list|>
+name|consumer
+parameter_list|)
+throws|throws
+name|ContentAccessException
+throws|,
+name|IllegalArgumentException
+function_decl|;
 comment|/**      * Removes the specified content item and if the item is a container or directory,      * all content stored under the given item.      *      * @param item the item.      * @throws ItemNotFoundException if the item cannot be found      * @throws ContentAccessException if the deletion was not possible or only partly successful, because the access      *  to the artifacts failed      */
 name|void
 name|deleteItem
@@ -315,7 +355,7 @@ name|ContentAccessException
 throws|,
 name|IllegalArgumentException
 function_decl|;
-comment|/**      * Returns the artifact object for the given coordinates.      *      * Normally the following coordinates should be set at the given selector:      *<ul>      *<li>namespace</li>      *<li>artifactVersion and or version</li>      *<li>artifactId or projectId</li>      *</ul>      * If the coordinates do not provide enough information for selecting a artifact, a {@link IllegalArgumentException} will be thrown      * It depends on the repository type, what exactly is deleted for a given set of coordinates. Some repository type      * may have different required and optional coordinates. For further information please check the documentation for the      * type specific implementations.      *      * The following coordinates are optional and may further specify the artifact to delete.      *<ul>      *<li>classifier</li>      *<li>type</li>      *<li>extension</li>      *</ul>      *      * The method always returns a artifact object, if the coordinates are valid. It does not guarantee that the artifact      * exists. To check if there is really a physical representation of the artifact, use the<code>{@link Artifact#exists()}</code>      * method of the artifact.      * For upload and data retrieval use the methods of the {@link StorageAsset} reference returned in the artifact.      *      *      * @param selector the selector with the artifact coordinates      * @return a artifact object      * @throws IllegalArgumentException if the selector coordinates do not specify a artifact      * @throws ContentAccessException if the access to the underlying storage failed      */
+comment|/**      * Returns the artifact object for the given coordinates.      *      * Normally the following coordinates should be set at the given selector:      *<ul>      *<li>namespace</li>      *<li>artifactVersion and or version</li>      *<li>artifactId or projectId</li>      *</ul>      * If the coordinates do not provide enough information for selecting a artifact, a {@link IllegalArgumentException} will be thrown      * It depends on the repository type, what exactly is returned for a given set of coordinates. Some repository type      * may have different required and optional coordinates. For further information please check the documentation for the      * type specific implementations.      *      * The following coordinates are optional and may further specify the artifact to return.      *<ul>      *<li>classifier</li>      *<li>type</li>      *<li>extension</li>      *</ul>      *      * The method always returns a artifact object, if the coordinates are valid. It does not guarantee that the artifact      * exists. To check if there is really a physical representation of the artifact, use the<code>{@link Artifact#exists()}</code>      * method of the artifact.      * For upload and data retrieval use the methods of the {@link StorageAsset} reference returned in the artifact.      *      *      * @param selector the selector with the artifact coordinates      * @return a artifact object      * @throws IllegalArgumentException if the selector coordinates do not specify a artifact      * @throws ContentAccessException if the access to the underlying storage failed      */
 name|Artifact
 name|getArtifact
 parameter_list|(
@@ -354,6 +394,26 @@ name|selector
 parameter_list|)
 throws|throws
 name|ContentAccessException
+function_decl|;
+comment|/**      * Returns a stream of items that match the given selector. It may return a stream of mixed types,      * like namespaces, projects, versions and artifacts. It will not select a specific type.      * The selector can specify the '*' pattern for all fields.      * The returned elements will be provided by depth first.      *      * @param selector the item selector that specifies the items      * @return the stream of content items      * @throws ContentAccessException if the access to the underlying storage failed      * @throws IllegalArgumentException if a illegal coordinate combination was provided      */
+name|Stream
+argument_list|<
+name|?
+extends|extends
+name|ContentItem
+argument_list|>
+name|newItemStream
+parameter_list|(
+name|ItemSelector
+name|selector
+parameter_list|,
+name|boolean
+name|parallel
+parameter_list|)
+throws|throws
+name|ContentAccessException
+throws|,
+name|IllegalArgumentException
 function_decl|;
 comment|/**      * Return the projects that are part of the given namespace.      *      * @param namespace the namespace      * @return the list of projects or a empty list, if there are no projects for the given namespace.      */
 name|List

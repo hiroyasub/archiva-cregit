@@ -18,14 +18,12 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  *  * Type of the artifact to distinguish different flavours.  *  * @author Martin Stockhammer<martin_s@apache.org>  */
+comment|/**  * The data item type  * @author Martin Stockhammer<martin_s@apache.org>  */
 end_comment
 
 begin_interface
 specifier|public
 interface|interface
-name|ArtifactType
-extends|extends
 name|DataItemType
 block|{
 name|String

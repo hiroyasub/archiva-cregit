@@ -40,9 +40,11 @@ specifier|public
 interface|interface
 name|Artifact
 extends|extends
-name|ContentItem
+name|DataItem
 block|{
 comment|/**      * The artifact identifier. The ID is unique in a given namespace of a given repository.      * But there may exist artifacts with the same ID but different types, classifiers or extensions.      *<p>      * Never returns<code>null</code> or a empty string.      *      * @return the identifier of the artifact. Never returns<code>null</code> or empty string      */
+annotation|@
+name|Override
 name|String
 name|getId
 parameter_list|( )
@@ -67,7 +69,26 @@ name|String
 name|getClassifier
 parameter_list|( )
 function_decl|;
+comment|/**      * This may be different from extension and gives the remainder that is used to build the file path from      * the artifact coordinates (namespace, id, version, classifier, type)      *      * @return the file name remainder      */
+name|String
+name|getRemainder
+parameter_list|( )
+function_decl|;
+comment|/**      * Returns the type of the artifact      * @return      */
+annotation|@
+name|Override
+name|ArtifactType
+name|getDataType
+parameter_list|()
+function_decl|;
+comment|/**      * Returns a unique key      * @return      */
+name|String
+name|toKey
+parameter_list|()
+function_decl|;
 comment|/**      * Short cut for the file name. Should always return the same value as the artifact name.      *      * @return the name of the file      */
+annotation|@
+name|Override
 specifier|default
 name|String
 name|getFileName
@@ -82,6 +103,8 @@ argument_list|( )
 return|;
 block|}
 comment|/**      * Returns the extension of the file. This method should always return the extension string after the last      * '.'-character.      *      * @return the file name extension      */
+annotation|@
+name|Override
 specifier|default
 name|String
 name|getExtension
@@ -133,26 +156,16 @@ literal|""
 return|;
 block|}
 block|}
-comment|/**      * This may be different from extension and gives the remainder that is used to build the file path from      * the artifact coordinates (namespace, id, version, classifier, type)      *      * @return the file name remainder      */
-name|String
-name|getRemainder
+specifier|default
+name|ContentItem
+name|getParent
 parameter_list|( )
-function_decl|;
-comment|/**      * Should return the mime type of the artifact.      *      * @return the mime type of the artifact.      */
-name|String
-name|getContentType
-parameter_list|( )
-function_decl|;
-comment|/**      * Returns the type of the artifact      * @return      */
-name|ArtifactType
-name|getArtifactType
-parameter_list|()
-function_decl|;
-comment|/**      * Returns a unique key      * @return      */
-name|String
-name|toKey
-parameter_list|()
-function_decl|;
+block|{
+return|return
+name|getVersion
+argument_list|()
+return|;
+block|}
 block|}
 end_interface
 
