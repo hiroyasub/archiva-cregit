@@ -28,11 +28,6 @@ name|DataItem
 extends|extends
 name|ContentItem
 block|{
-comment|/**      * Returns the parent of the data item      * @return the parent item, which is either a Version, Project or Namespace      */
-name|ContentItem
-name|getParent
-parameter_list|( )
-function_decl|;
 comment|/**      * Returns the identifier of the data item.      * @return the identifier string      */
 name|String
 name|getId

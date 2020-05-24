@@ -275,50 +275,10 @@ interface|interface
 name|ManagedRepositoryContent
 extends|extends
 name|RepositoryContent
+extends|,
+name|GenericManagedRepositoryContent
 block|{
 comment|/// *****************   New generation interface **********************
-comment|/**      * Delete all items that match the given selector. The type and number of deleted items      * depend on the specific selector:      *<ul>      *<li>namespace: the complete namespace is deleted (recursively if the recurse flag is set)</li>      *<li>project: the complete project and all contained versions are deleted</li>      *<li>version: the version inside the project is deleted (project is required)</li>      *<li>artifactId: all artifacts that match the id (project and version are required)</li>      *<li>artifactVersion: all artifacts that match the version (project and version are required)</li>      *<li></li>      *</ul>      *      * @param selector the item selector that selects the artifacts to delete      * @param consumer a consumer of the items that will be called after deletion      * @returns the list of items that are deleted      * @throws ContentAccessException if the deletion was not possible or only partly successful, because the access      * to the artifacts failed      * @throws IllegalArgumentException if the selector does not specify valid artifacts to delete      */
-name|void
-name|deleteAllItems
-parameter_list|(
-name|ItemSelector
-name|selector
-parameter_list|,
-name|Consumer
-argument_list|<
-name|ItemDeleteStatus
-argument_list|>
-name|consumer
-parameter_list|)
-throws|throws
-name|ContentAccessException
-throws|,
-name|IllegalArgumentException
-function_decl|;
-comment|/**      * Removes the specified content item and if the item is a container or directory,      * all content stored under the given item.      *      * @param item the item.      * @throws ItemNotFoundException if the item cannot be found      * @throws ContentAccessException if the deletion was not possible or only partly successful, because the access      *  to the artifacts failed      */
-name|void
-name|deleteItem
-parameter_list|(
-name|ContentItem
-name|item
-parameter_list|)
-throws|throws
-name|ItemNotFoundException
-throws|,
-name|ContentAccessException
-function_decl|;
-comment|/**      * Returns a item for the given selector. The type of the returned item depends on the      * selector.      *      * @param selector the item selector      * @return the content item that matches the given selector      * @throws ContentAccessException if an error occured while accessing the backend      * @throws IllegalArgumentException if the selector does not select a valid content item      */
-name|ContentItem
-name|getItem
-parameter_list|(
-name|ItemSelector
-name|selector
-parameter_list|)
-throws|throws
-name|ContentAccessException
-throws|,
-name|IllegalArgumentException
-function_decl|;
 comment|/**      * Returns the namespace for the given selected coordinates. The selector must specify a namespace. All other      * coordinates are ignored.      * The following coordinates must be set at the given selector:      *<ul>      *<li>namespace</li>      *</ul>      * If not, a {@link IllegalArgumentException} will be thrown.      *      * @param namespaceSelector the selectory with the namespace coordinates      * @return the namespace      * @throws ItemNotFoundException if the item does not exist      * @throws ContentAccessException if the item cannot be accessed      * @throws IllegalArgumentException if the selector has no namespace specified      */
 name|Namespace
 name|getNamespace
@@ -395,26 +355,6 @@ parameter_list|)
 throws|throws
 name|ContentAccessException
 function_decl|;
-comment|/**      * Returns a stream of items that match the given selector. It may return a stream of mixed types,      * like namespaces, projects, versions and artifacts. It will not select a specific type.      * The selector can specify the '*' pattern for all fields.      * The returned elements will be provided by depth first.      *      * @param selector the item selector that specifies the items      * @return the stream of content items      * @throws ContentAccessException if the access to the underlying storage failed      * @throws IllegalArgumentException if a illegal coordinate combination was provided      */
-name|Stream
-argument_list|<
-name|?
-extends|extends
-name|ContentItem
-argument_list|>
-name|newItemStream
-parameter_list|(
-name|ItemSelector
-name|selector
-parameter_list|,
-name|boolean
-name|parallel
-parameter_list|)
-throws|throws
-name|ContentAccessException
-throws|,
-name|IllegalArgumentException
-function_decl|;
 comment|/**      * Return the projects that are part of the given namespace.      *      * @param namespace the namespace      * @return the list of projects or a empty list, if there are no projects for the given namespace.      */
 name|List
 argument_list|<
@@ -479,6 +419,21 @@ name|ContentAccessException
 throws|,
 name|IllegalArgumentException
 function_decl|;
+comment|/**      * Returns all found artifact versions that can be found for the given selector. The selector must specify at least      * a project.      *      * @param selector the item selector that must specify at least a project      * @return the list of artifact versions      * @throws ContentAccessException if the access to the underlying storage failed      * @throws IllegalArgumentException if the selector does not have project information      */
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getArtifactVersions
+parameter_list|(
+name|ItemSelector
+name|selector
+parameter_list|)
+throws|throws
+name|ContentAccessException
+throws|,
+name|IllegalArgumentException
+function_decl|;
 comment|/**      * Return all the artifacts of a given content item (namespace, project, version)      *      * @param item the item      * @return a list of artifacts or a empty list, if no artifacts are available for the specified item      */
 name|List
 argument_list|<
@@ -509,14 +464,6 @@ parameter_list|)
 throws|throws
 name|ContentAccessException
 function_decl|;
-comment|/**      * Returns true, if the selector coordinates point to a existing item in the repository.      *      * @param selector the item selector      * @return<code>true</code>, if there exists such a item, otherwise<code>false</code>      */
-name|boolean
-name|hasContent
-parameter_list|(
-name|ItemSelector
-name|selector
-parameter_list|)
-function_decl|;
 comment|/**      * Copies the artifact to the given destination coordinates      *      * @param sourceFile the path to the source file      * @param destination the coordinates of the destination      * @throws IllegalArgumentException if the destination is not valid      */
 name|void
 name|addArtifact
@@ -531,26 +478,6 @@ throws|throws
 name|IllegalArgumentException
 throws|,
 name|ContentAccessException
-function_decl|;
-comment|/**      * Returns the item that matches the given path. The item at the path must not exist.      *      * @param path the path string that points to the item      * @return the content item if the path is a valid item path      * @throws LayoutException if the path is not valid for the repository layout      */
-name|ContentItem
-name|toItem
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-throws|throws
-name|LayoutException
-function_decl|;
-comment|/**      * Returns the item that matches the given asset path. The asset must not exist.      *      * @param assetPath the path to the artifact or directory      * @return the item, if it is a valid path for the repository layout      * @throws LayoutException if the path is not valid for the repository      */
-name|ContentItem
-name|toItem
-parameter_list|(
-name|StorageAsset
-name|assetPath
-parameter_list|)
-throws|throws
-name|LayoutException
 function_decl|;
 comment|/// *****************   End of new generation interface **********************
 comment|/**      * Returns the version reference for the given coordinates.      * @param groupId the group id      * @param artifactId the artifact id      * @param version the version number      * @return a version reference      */

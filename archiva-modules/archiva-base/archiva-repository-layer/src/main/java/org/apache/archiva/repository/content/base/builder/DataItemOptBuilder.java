@@ -138,13 +138,6 @@ name|DataItemOptBuilder
 argument_list|>
 block|{
 name|DataItemOptBuilder
-name|withParent
-parameter_list|(
-name|ContentItem
-name|parent
-parameter_list|)
-function_decl|;
-name|DataItemOptBuilder
 name|withContentType
 parameter_list|(
 name|String

@@ -123,6 +123,20 @@ name|archiva
 operator|.
 name|model
 operator|.
+name|ArchivaRepositoryMetadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|model
+operator|.
 name|ArtifactReference
 import|;
 end_import
@@ -194,6 +208,20 @@ operator|.
 name|repository
 operator|.
 name|EditableManagedRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|ItemDeleteStatus
 import|;
 end_import
 
@@ -283,7 +311,71 @@ name|repository
 operator|.
 name|content
 operator|.
+name|BaseArtifactTypes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|BaseDataItemTypes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
 name|ContentItem
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|DataItem
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|DataItemType
 import|;
 end_import
 
@@ -316,22 +408,6 @@ operator|.
 name|content
 operator|.
 name|ItemSelector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|content
-operator|.
-name|BaseArtifactTypes
 import|;
 end_import
 
@@ -380,6 +456,24 @@ operator|.
 name|content
 operator|.
 name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|base
+operator|.
+name|ArchivaContentItem
 import|;
 end_import
 
@@ -525,6 +619,22 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|metadata
+operator|.
+name|RepositoryMetadataException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|storage
 operator|.
 name|RepositoryStorage
@@ -612,6 +722,16 @@ operator|.
 name|inject
 operator|.
 name|Named
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|naming
+operator|.
+name|Name
 import|;
 end_import
 
@@ -718,6 +838,18 @@ operator|.
 name|util
 operator|.
 name|Optional
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Consumer
 import|;
 end_import
 
@@ -940,11 +1072,11 @@ comment|/**      * We are caching content items in a weak reference map. To avoi
 specifier|private
 name|ReferenceMap
 argument_list|<
-name|String
+name|StorageAsset
 argument_list|,
-name|Namespace
+name|ContentItem
 argument_list|>
-name|namespaceMap
+name|itemMap
 init|=
 operator|new
 name|ReferenceMap
@@ -956,37 +1088,9 @@ name|ReferenceMap
 argument_list|<
 name|StorageAsset
 argument_list|,
-name|Project
+name|DataItem
 argument_list|>
-name|projectMap
-init|=
-operator|new
-name|ReferenceMap
-argument_list|<>
-argument_list|( )
-decl_stmt|;
-specifier|private
-name|ReferenceMap
-argument_list|<
-name|StorageAsset
-argument_list|,
-name|Version
-argument_list|>
-name|versionMap
-init|=
-operator|new
-name|ReferenceMap
-argument_list|<>
-argument_list|( )
-decl_stmt|;
-specifier|private
-name|ReferenceMap
-argument_list|<
-name|StorageAsset
-argument_list|,
-name|Artifact
-argument_list|>
-name|artifactMap
+name|dataItemMap
 init|=
 operator|new
 name|ReferenceMap
@@ -995,7 +1099,7 @@ argument_list|( )
 decl_stmt|;
 specifier|public
 name|ManagedDefaultRepositoryContent
-parameter_list|()
+parameter_list|( )
 block|{
 name|super
 argument_list|(
@@ -1005,7 +1109,7 @@ name|singletonList
 argument_list|(
 operator|new
 name|DefaultArtifactMappingProvider
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1031,7 +1135,7 @@ name|singletonList
 argument_list|(
 operator|new
 name|DefaultArtifactMappingProvider
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1085,7 +1189,7 @@ name|singletonList
 argument_list|(
 operator|new
 name|DefaultArtifactMappingProvider
-argument_list|()
+argument_list|( )
 argument_list|)
 else|:
 name|artifactMappingProviders
@@ -1142,7 +1246,7 @@ argument_list|(
 name|namespace
 operator|.
 name|trim
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 if|if
@@ -1252,7 +1356,148 @@ argument_list|)
 return|;
 block|}
 comment|/// ************* Start of new generation interface ******************
-comment|/**      * Removes the item from the filesystem. For namespaces, projects and versions it deletes      * recursively.      * For namespaces you have to be careful, because maven repositories may have sub namespaces      * parallel to projects. Which means deleting a namespaces also deletes the sub namespaces and      * not only the projects of the given namespace. Better run the delete for each project of      * a namespace.      *      * Artifacts are deleted as provided. No related artifacts will be deleted.      *      * @param item the item that should be removed      * @throws ItemNotFoundException if the item does not exist      * @throws ContentAccessException if some error occurred while accessing the filesystem      */
+annotation|@
+name|Override
+specifier|public
+name|void
+name|deleteAllItems
+parameter_list|(
+name|ItemSelector
+name|selector
+parameter_list|,
+name|Consumer
+argument_list|<
+name|ItemDeleteStatus
+argument_list|>
+name|consumer
+parameter_list|)
+throws|throws
+name|ContentAccessException
+throws|,
+name|IllegalArgumentException
+block|{
+try|try
+init|(
+name|Stream
+argument_list|<
+name|?
+extends|extends
+name|ContentItem
+argument_list|>
+name|stream
+init|=
+name|newItemStream
+argument_list|(
+name|selector
+argument_list|,
+literal|false
+argument_list|)
+init|)
+block|{
+name|stream
+operator|.
+name|forEach
+argument_list|(
+name|item
+lambda|->
+block|{
+try|try
+block|{
+name|deleteItem
+argument_list|(
+name|item
+argument_list|)
+expr_stmt|;
+name|consumer
+operator|.
+name|accept
+argument_list|(
+operator|new
+name|ItemDeleteStatus
+argument_list|(
+name|item
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ItemNotFoundException
+name|e
+parameter_list|)
+block|{
+name|consumer
+operator|.
+name|accept
+argument_list|(
+operator|new
+name|ItemDeleteStatus
+argument_list|(
+name|item
+argument_list|,
+name|ItemDeleteStatus
+operator|.
+name|ITEM_NOT_FOUND
+argument_list|,
+name|e
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|consumer
+operator|.
+name|accept
+argument_list|(
+operator|new
+name|ItemDeleteStatus
+argument_list|(
+name|item
+argument_list|,
+name|ItemDeleteStatus
+operator|.
+name|DELETION_FAILED
+argument_list|,
+name|e
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|consumer
+operator|.
+name|accept
+argument_list|(
+operator|new
+name|ItemDeleteStatus
+argument_list|(
+name|item
+argument_list|,
+name|ItemDeleteStatus
+operator|.
+name|UNKNOWN
+argument_list|,
+name|e
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Removes the item from the filesystem. For namespaces, projects and versions it deletes      * recursively.      * For namespaces you have to be careful, because maven repositories may have sub namespaces      * parallel to projects. Which means deleting a namespaces also deletes the sub namespaces and      * not only the projects of the given namespace. Better run the delete for each project of      * a namespace.      *<p>      * Artifacts are deleted as provided. No related artifacts will be deleted.      *      * @param item the item that should be removed      * @throws ItemNotFoundException  if the item does not exist      * @throws ContentAccessException if some error occurred while accessing the filesystem      */
 annotation|@
 name|Override
 specifier|public
@@ -1306,7 +1551,7 @@ operator|+
 name|item
 operator|.
 name|toString
-argument_list|()
+argument_list|( )
 operator|+
 literal|"does not exist in the repository "
 operator|+
@@ -1321,14 +1566,14 @@ operator|!
 name|itemPath
 operator|.
 name|toAbsolutePath
-argument_list|()
+argument_list|( )
 operator|.
 name|startsWith
 argument_list|(
 name|baseDirectory
 operator|.
 name|toAbsolutePath
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -1462,12 +1707,12 @@ condition|(
 name|selector
 operator|.
 name|hasVersion
-argument_list|()
+argument_list|( )
 operator|&&
 name|selector
 operator|.
 name|hasArtifactId
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 return|return
@@ -1482,12 +1727,12 @@ condition|(
 name|selector
 operator|.
 name|hasProjectId
-argument_list|()
+argument_list|( )
 operator|&&
 name|selector
 operator|.
 name|hasVersion
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 return|return
@@ -1502,7 +1747,7 @@ condition|(
 name|selector
 operator|.
 name|hasProjectId
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 return|return
@@ -1537,49 +1782,21 @@ name|ContentAccessException
 throws|,
 name|IllegalArgumentException
 block|{
-return|return
-name|namespaceMap
-operator|.
-name|computeIfAbsent
-argument_list|(
-name|namespaceSelector
-operator|.
-name|getNamespace
-argument_list|()
-argument_list|,
-name|namespace
-lambda|->
-block|{
 name|StorageAsset
 name|nsPath
 init|=
 name|getAsset
 argument_list|(
-name|namespace
+name|namespaceSelector
+operator|.
+name|getNamespace
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
-name|ArchivaNamespace
-operator|.
-name|withRepository
-argument_list|(
-name|this
-argument_list|)
-operator|.
-name|withAsset
+name|getNamespaceFromPath
 argument_list|(
 name|nsPath
-argument_list|)
-operator|.
-name|withNamespace
-argument_list|(
-name|namespace
-argument_list|)
-operator|.
-name|build
-argument_list|( )
-return|;
-block|}
 argument_list|)
 return|;
 block|}
@@ -1604,7 +1821,7 @@ operator|!
 name|selector
 operator|.
 name|hasProjectId
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 throw|throw
@@ -1633,49 +1850,9 @@ argument_list|( )
 argument_list|)
 decl_stmt|;
 return|return
-name|projectMap
-operator|.
-name|computeIfAbsent
+name|getProjectFromPath
 argument_list|(
 name|path
-argument_list|,
-name|projectPath
-lambda|->
-block|{
-specifier|final
-name|Namespace
-name|ns
-init|=
-name|getNamespace
-argument_list|(
-name|selector
-argument_list|)
-decl_stmt|;
-return|return
-name|ArchivaProject
-operator|.
-name|withAsset
-argument_list|(
-name|projectPath
-argument_list|)
-operator|.
-name|withNamespace
-argument_list|(
-name|ns
-argument_list|)
-operator|.
-name|withId
-argument_list|(
-name|selector
-operator|.
-name|getProjectId
-argument_list|( )
-argument_list|)
-operator|.
-name|build
-argument_list|( )
-return|;
-block|}
 argument_list|)
 return|;
 block|}
@@ -1700,7 +1877,7 @@ operator|!
 name|selector
 operator|.
 name|hasProjectId
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 throw|throw
@@ -1717,7 +1894,7 @@ operator|!
 name|selector
 operator|.
 name|hasVersion
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 throw|throw
@@ -1737,63 +1914,23 @@ argument_list|(
 name|selector
 operator|.
 name|getNamespace
-argument_list|()
+argument_list|( )
 argument_list|,
 name|selector
 operator|.
 name|getProjectId
-argument_list|()
+argument_list|( )
 argument_list|,
-name|selector
-operator|.
-name|getVersion
-argument_list|()
-argument_list|)
-decl_stmt|;
-return|return
-name|versionMap
-operator|.
-name|computeIfAbsent
-argument_list|(
-name|path
-argument_list|,
-name|versionPath
-lambda|->
-block|{
-specifier|final
-name|Project
-name|project
-init|=
-name|getProject
-argument_list|(
-name|selector
-argument_list|)
-decl_stmt|;
-return|return
-name|ArchivaVersion
-operator|.
-name|withAsset
-argument_list|(
-name|path
-argument_list|)
-operator|.
-name|withProject
-argument_list|(
-name|project
-argument_list|)
-operator|.
-name|withVersion
-argument_list|(
 name|selector
 operator|.
 name|getVersion
 argument_list|( )
 argument_list|)
-operator|.
-name|build
-argument_list|()
-return|;
-block|}
+decl_stmt|;
+return|return
+name|getVersionFromPath
+argument_list|(
+name|path
 argument_list|)
 return|;
 block|}
@@ -1883,7 +2020,7 @@ condition|(
 name|selector
 operator|.
 name|hasType
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|builder
@@ -1928,45 +2065,10 @@ operator|.
 name|getParent
 argument_list|( )
 decl_stmt|;
-specifier|final
-name|String
-name|namespace
-init|=
-name|MavenContentHelper
-operator|.
-name|getNamespaceFromNamespacePath
-argument_list|(
-name|namespacePath
-argument_list|)
-decl_stmt|;
 return|return
-name|namespaceMap
-operator|.
-name|computeIfAbsent
-argument_list|(
-name|namespace
-argument_list|,
-name|myNamespace
-lambda|->
-name|ArchivaNamespace
-operator|.
-name|withRepository
-argument_list|(
-name|this
-argument_list|)
-operator|.
-name|withAsset
+name|getNamespaceFromPath
 argument_list|(
 name|namespacePath
-argument_list|)
-operator|.
-name|withNamespace
-argument_list|(
-name|namespace
-argument_list|)
-operator|.
-name|build
-argument_list|( )
 argument_list|)
 return|;
 block|}
@@ -1976,6 +2078,71 @@ name|getNamespaceFromPath
 parameter_list|(
 specifier|final
 name|StorageAsset
+name|nsPath
+parameter_list|)
+block|{
+name|ContentItem
+name|item
+init|=
+name|itemMap
+operator|.
+name|computeIfAbsent
+argument_list|(
+name|nsPath
+argument_list|,
+name|path
+lambda|->
+name|createNamespaceFromPath
+argument_list|(
+name|nsPath
+argument_list|)
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|item
+operator|.
+name|hasCharacteristic
+argument_list|(
+name|Namespace
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
+name|item
+operator|.
+name|setCharacteristic
+argument_list|(
+name|Namespace
+operator|.
+name|class
+argument_list|,
+name|createNamespaceFromPath
+argument_list|(
+name|nsPath
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|item
+operator|.
+name|adapt
+argument_list|(
+name|Namespace
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
+specifier|public
+name|Namespace
+name|createNamespaceFromPath
+parameter_list|(
+specifier|final
+name|StorageAsset
 name|namespacePath
 parameter_list|)
 block|{
@@ -1991,14 +2158,6 @@ name|namespacePath
 argument_list|)
 decl_stmt|;
 return|return
-name|namespaceMap
-operator|.
-name|computeIfAbsent
-argument_list|(
-name|namespace
-argument_list|,
-name|myNamespace
-lambda|->
 name|ArchivaNamespace
 operator|.
 name|withRepository
@@ -2018,7 +2177,6 @@ argument_list|)
 operator|.
 name|build
 argument_list|( )
-argument_list|)
 return|;
 block|}
 specifier|private
@@ -2027,19 +2185,92 @@ name|getProjectFromPath
 parameter_list|(
 specifier|final
 name|StorageAsset
-name|projectPath
+name|path
 parameter_list|)
 block|{
-return|return
-name|projectMap
+name|ContentItem
+name|item
+init|=
+name|itemMap
 operator|.
 name|computeIfAbsent
 argument_list|(
-name|projectPath
+name|path
 argument_list|,
-name|myProjectPath
+name|projectPath
 lambda|->
+name|createProjectFromPath
+argument_list|(
+name|projectPath
+argument_list|)
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|item
+operator|.
+name|hasCharacteristic
+argument_list|(
+name|Project
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
+name|item
+operator|.
+name|setCharacteristic
+argument_list|(
+name|Project
+operator|.
+name|class
+argument_list|,
+name|createProjectFromPath
+argument_list|(
+name|path
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|item
+operator|.
+name|adapt
+argument_list|(
+name|Project
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
+specifier|private
+name|Project
+name|createProjectFromPath
+parameter_list|(
+specifier|final
+name|StorageAsset
+name|projectPath
+parameter_list|)
+block|{
+name|Namespace
+name|namespace
+init|=
+name|getNamespaceFromPath
+argument_list|(
+name|projectPath
+operator|.
+name|getParent
+argument_list|( )
+argument_list|)
+decl_stmt|;
+return|return
 name|ArchivaProject
+operator|.
+name|withRepository
+argument_list|(
+name|this
+argument_list|)
 operator|.
 name|withAsset
 argument_list|(
@@ -2048,13 +2279,7 @@ argument_list|)
 operator|.
 name|withNamespace
 argument_list|(
-name|getNamespaceFromPath
-argument_list|(
-name|projectPath
-operator|.
-name|getParent
-argument_list|()
-argument_list|)
+name|namespace
 argument_list|)
 operator|.
 name|withId
@@ -2067,7 +2292,6 @@ argument_list|)
 operator|.
 name|build
 argument_list|( )
-argument_list|)
 return|;
 block|}
 specifier|private
@@ -2092,39 +2316,9 @@ name|getParent
 argument_list|( )
 decl_stmt|;
 return|return
-name|projectMap
-operator|.
-name|computeIfAbsent
+name|getProjectFromPath
 argument_list|(
 name|projectPath
-argument_list|,
-name|myProjectPath
-lambda|->
-name|ArchivaProject
-operator|.
-name|withAsset
-argument_list|(
-name|projectPath
-argument_list|)
-operator|.
-name|withNamespace
-argument_list|(
-name|getNamespaceFromArtifactPath
-argument_list|(
-name|artifactPath
-argument_list|)
-argument_list|)
-operator|.
-name|withId
-argument_list|(
-name|projectPath
-operator|.
-name|getName
-argument_list|( )
-argument_list|)
-operator|.
-name|build
-argument_list|( )
 argument_list|)
 return|;
 block|}
@@ -2147,45 +2341,193 @@ name|getParent
 argument_list|( )
 decl_stmt|;
 return|return
-name|versionMap
+name|getVersionFromPath
+argument_list|(
+name|versionPath
+argument_list|)
+return|;
+block|}
+specifier|private
+name|Version
+name|getVersionFromPath
+parameter_list|(
+name|StorageAsset
+name|path
+parameter_list|)
+block|{
+name|ContentItem
+name|item
+init|=
+name|itemMap
 operator|.
 name|computeIfAbsent
 argument_list|(
-name|versionPath
+name|path
 argument_list|,
-name|myVersionPath
+name|versionPath
 lambda|->
+name|createVersionFromPath
+argument_list|(
+name|versionPath
+argument_list|)
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|item
+operator|.
+name|hasCharacteristic
+argument_list|(
+name|Version
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
+name|item
+operator|.
+name|setCharacteristic
+argument_list|(
+name|Version
+operator|.
+name|class
+argument_list|,
+name|createVersionFromPath
+argument_list|(
+name|path
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|item
+operator|.
+name|adapt
+argument_list|(
+name|Version
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
+specifier|private
+name|Version
+name|createVersionFromPath
+parameter_list|(
+name|StorageAsset
+name|path
+parameter_list|)
+block|{
+name|Project
+name|proj
+init|=
+name|getProjectFromPath
+argument_list|(
+name|path
+operator|.
+name|getParent
+argument_list|( )
+argument_list|)
+decl_stmt|;
+return|return
 name|ArchivaVersion
+operator|.
+name|withRepository
+argument_list|(
+name|this
+argument_list|)
 operator|.
 name|withAsset
 argument_list|(
-name|versionPath
+name|path
 argument_list|)
 operator|.
 name|withProject
 argument_list|(
-name|getProjectFromArtifactPath
-argument_list|(
-name|artifactPath
-argument_list|)
+name|proj
 argument_list|)
 operator|.
 name|withVersion
 argument_list|(
-name|versionPath
+name|path
 operator|.
 name|getName
-argument_list|( )
+argument_list|()
 argument_list|)
 operator|.
 name|build
-argument_list|( )
-argument_list|)
+argument_list|()
 return|;
 block|}
 specifier|private
 name|Artifact
 name|getArtifactFromPath
+parameter_list|(
+specifier|final
+name|StorageAsset
+name|artifactPath
+parameter_list|)
+block|{
+name|DataItem
+name|item
+init|=
+name|dataItemMap
+operator|.
+name|computeIfAbsent
+argument_list|(
+name|artifactPath
+argument_list|,
+name|myArtifactPath
+lambda|->
+name|createArtifactFromPath
+argument_list|(
+name|myArtifactPath
+argument_list|)
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|item
+operator|.
+name|hasCharacteristic
+argument_list|(
+name|Artifact
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
+name|item
+operator|.
+name|setCharacteristic
+argument_list|(
+name|Artifact
+operator|.
+name|class
+argument_list|,
+name|createArtifactFromPath
+argument_list|(
+name|artifactPath
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|item
+operator|.
+name|adapt
+argument_list|(
+name|Artifact
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
+specifier|private
+name|Artifact
+name|createArtifactFromPath
 parameter_list|(
 specifier|final
 name|StorageAsset
@@ -2210,20 +2552,12 @@ argument_list|(
 name|version
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifactPath
 argument_list|)
 decl_stmt|;
 return|return
-name|artifactMap
-operator|.
-name|computeIfAbsent
-argument_list|(
-name|artifactPath
-argument_list|,
-name|myArtifactPath
-lambda|->
 name|org
 operator|.
 name|apache
@@ -2299,6 +2633,118 @@ argument_list|)
 operator|.
 name|build
 argument_list|( )
+return|;
+block|}
+specifier|private
+name|String
+name|getContentType
+parameter_list|(
+name|StorageAsset
+name|artifactPath
+parameter_list|)
+block|{
+try|try
+block|{
+return|return
+name|Files
+operator|.
+name|probeContentType
+argument_list|(
+name|artifactPath
+operator|.
+name|getFilePath
+argument_list|( )
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+return|return
+literal|""
+return|;
+block|}
+block|}
+specifier|private
+name|DataItem
+name|getDataItemFromPath
+parameter_list|(
+specifier|final
+name|StorageAsset
+name|artifactPath
+parameter_list|)
+block|{
+specifier|final
+name|String
+name|extension
+init|=
+name|StringUtils
+operator|.
+name|substringAfterLast
+argument_list|(
+name|artifactPath
+operator|.
+name|getName
+argument_list|( )
+argument_list|,
+literal|"."
+argument_list|)
+decl_stmt|;
+specifier|final
+name|String
+name|contentType
+init|=
+name|getContentType
+argument_list|(
+name|artifactPath
+argument_list|)
+decl_stmt|;
+return|return
+name|dataItemMap
+operator|.
+name|computeIfAbsent
+argument_list|(
+name|artifactPath
+argument_list|,
+name|myArtifactPath
+lambda|->
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|base
+operator|.
+name|ArchivaDataItem
+operator|.
+name|withAsset
+argument_list|(
+name|artifactPath
+argument_list|)
+operator|.
+name|withId
+argument_list|(
+name|artifactPath
+operator|.
+name|getName
+argument_list|( )
+argument_list|)
+operator|.
+name|withContentType
+argument_list|(
+name|contentType
+argument_list|)
+operator|.
+name|build
+argument_list|( )
 argument_list|)
 return|;
 block|}
@@ -2316,11 +2762,30 @@ condition|(
 name|itemPath
 operator|.
 name|isLeaf
-argument_list|()
+argument_list|( )
+condition|)
+block|{
+if|if
+condition|(
+name|dataItemMap
+operator|.
+name|containsKey
+argument_list|(
+name|itemPath
+argument_list|)
 condition|)
 block|{
 return|return
-name|getArtifactFromPath
+name|dataItemMap
+operator|.
+name|get
+argument_list|(
+name|itemPath
+argument_list|)
+return|;
+block|}
+return|return
+name|getDataItemFromPath
 argument_list|(
 name|itemPath
 argument_list|)
@@ -2330,7 +2795,7 @@ else|else
 block|{
 if|if
 condition|(
-name|versionMap
+name|itemMap
 operator|.
 name|containsKey
 argument_list|(
@@ -2339,281 +2804,18 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|versionMap
+name|itemMap
 operator|.
 name|get
 argument_list|(
 name|itemPath
-argument_list|)
-return|;
-block|}
-if|if
-condition|(
-name|projectMap
-operator|.
-name|containsKey
-argument_list|(
-name|itemPath
-argument_list|)
-condition|)
-block|{
-return|return
-name|projectMap
-operator|.
-name|get
-argument_list|(
-name|itemPath
-argument_list|)
-return|;
-block|}
-name|String
-name|ns
-init|=
-name|MavenContentHelper
-operator|.
-name|getNamespaceFromNamespacePath
-argument_list|(
-name|itemPath
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|namespaceMap
-operator|.
-name|containsKey
-argument_list|(
-name|ns
-argument_list|)
-condition|)
-block|{
-return|return
-name|namespaceMap
-operator|.
-name|get
-argument_list|(
-name|ns
-argument_list|)
-return|;
-block|}
-comment|// No cached item, so we have to gather more information:
-comment|// Check for version directory (contains at least a pom or metadata file)
-if|if
-condition|(
-name|itemPath
-operator|.
-name|list
-argument_list|( )
-operator|.
-name|stream
-argument_list|( )
-operator|.
-name|map
-argument_list|(
-name|a
-lambda|->
-name|a
-operator|.
-name|getName
-argument_list|()
-operator|.
-name|toLowerCase
-argument_list|()
-argument_list|)
-operator|.
-name|anyMatch
-argument_list|(
-name|n
-lambda|->
-name|n
-operator|.
-name|endsWith
-argument_list|(
-literal|".pom"
-argument_list|)
-argument_list|)
-condition|)
-block|{
-return|return
-name|versionMap
-operator|.
-name|computeIfAbsent
-argument_list|(
-name|itemPath
-argument_list|,
-name|myVersionPath
-lambda|->
-name|ArchivaVersion
-operator|.
-name|withAsset
-argument_list|(
-name|itemPath
-argument_list|)
-operator|.
-name|withProject
-argument_list|(
-operator|(
-name|Project
-operator|)
-name|getItemFromPath
-argument_list|(
-name|itemPath
-operator|.
-name|getParent
-argument_list|()
-argument_list|)
-argument_list|)
-operator|.
-name|withVersion
-argument_list|(
-name|itemPath
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-operator|.
-name|build
-argument_list|()
 argument_list|)
 return|;
 block|}
 else|else
 block|{
-comment|// We have to dig further and find the next directory with a pom
-name|Optional
-argument_list|<
-name|StorageAsset
-argument_list|>
-name|foundFile
-init|=
-name|StorageUtil
-operator|.
-name|newAssetStream
-argument_list|(
-name|itemPath
-argument_list|)
-operator|.
-name|filter
-argument_list|(
-name|a
-lambda|->
-name|a
-operator|.
-name|getName
-argument_list|()
-operator|.
-name|toLowerCase
-argument_list|()
-operator|.
-name|endsWith
-argument_list|(
-literal|".pom"
-argument_list|)
-operator|||
-name|a
-operator|.
-name|getName
-argument_list|()
-operator|.
-name|toLowerCase
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"maven-metadata"
-argument_list|)
-argument_list|)
-operator|.
-name|findFirst
-argument_list|( )
-decl_stmt|;
-if|if
-condition|(
-name|foundFile
-operator|.
-name|isPresent
-argument_list|()
-condition|)
-block|{
-name|int
-name|level
-init|=
-literal|0
-decl_stmt|;
-name|StorageAsset
-name|current
-init|=
-name|foundFile
-operator|.
-name|get
-argument_list|( )
-decl_stmt|;
-while|while
-condition|(
-name|current
-operator|.
-name|hasParent
-argument_list|()
-operator|&&
-operator|!
-name|current
-operator|.
-name|equals
-argument_list|(
-name|itemPath
-argument_list|)
-condition|)
-block|{
-name|level
-operator|++
-expr_stmt|;
-name|current
-operator|=
-name|current
-operator|.
-name|getParent
-argument_list|( )
-expr_stmt|;
-block|}
-comment|// Project path if it is one level up from the found file
-if|if
-condition|(
-name|level
-operator|==
-literal|2
-condition|)
-block|{
 return|return
-name|projectMap
-operator|.
-name|computeIfAbsent
-argument_list|(
-name|itemPath
-argument_list|,
-name|myItemPath
-lambda|->
-name|getProjectFromArtifactPath
-argument_list|(
-name|foundFile
-operator|.
-name|get
-argument_list|( )
-argument_list|)
-argument_list|)
-return|;
-block|}
-else|else
-block|{
-comment|// All other paths are treated as namespace
-return|return
-name|namespaceMap
-operator|.
-name|computeIfAbsent
-argument_list|(
-name|ns
-argument_list|,
-name|myNamespace
-lambda|->
-name|ArchivaNamespace
+name|ArchivaContentItem
 operator|.
 name|withRepository
 argument_list|(
@@ -2625,51 +2827,9 @@ argument_list|(
 name|itemPath
 argument_list|)
 operator|.
-name|withNamespace
-argument_list|(
-name|ns
-argument_list|)
-operator|.
 name|build
-argument_list|( )
-argument_list|)
+argument_list|()
 return|;
-block|}
-block|}
-else|else
-block|{
-comment|// Don't know what to do with it, so we treat it as namespace path
-return|return
-name|namespaceMap
-operator|.
-name|computeIfAbsent
-argument_list|(
-name|ns
-argument_list|,
-name|myNamespace
-lambda|->
-name|ArchivaNamespace
-operator|.
-name|withRepository
-argument_list|(
-name|this
-argument_list|)
-operator|.
-name|withAsset
-argument_list|(
-name|itemPath
-argument_list|)
-operator|.
-name|withNamespace
-argument_list|(
-name|ns
-argument_list|)
-operator|.
-name|build
-argument_list|( )
-argument_list|)
-return|;
-block|}
 block|}
 block|}
 block|}
@@ -2844,7 +3004,7 @@ condition|(
 name|matcher
 operator|.
 name|matches
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|info
@@ -2912,7 +3072,7 @@ condition|(
 name|cMatch
 operator|.
 name|matches
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|info
@@ -3046,7 +3206,7 @@ literal|"."
 argument_list|)
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|( )
 decl_stmt|;
 while|while
 condition|(
@@ -3058,7 +3218,7 @@ name|postfix
 argument_list|)
 operator|.
 name|matches
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|info
@@ -3090,7 +3250,7 @@ literal|"."
 argument_list|)
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 name|info
@@ -3253,7 +3413,7 @@ condition|(
 name|cMatch
 operator|.
 name|matches
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|info
@@ -3523,7 +3683,7 @@ condition|(
 name|path
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 operator|.
 name|resolve
 argument_list|(
@@ -3531,7 +3691,7 @@ name|mainFile
 argument_list|)
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|info
@@ -3621,17 +3781,17 @@ argument_list|(
 name|selector
 operator|.
 name|getNamespace
-argument_list|()
+argument_list|( )
 argument_list|,
 name|selector
 operator|.
 name|getProjectId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|selector
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -3735,24 +3895,9 @@ name|fileName
 argument_list|)
 decl_stmt|;
 return|return
-name|artifactMap
-operator|.
-name|computeIfAbsent
+name|getArtifactFromPath
 argument_list|(
 name|path
-argument_list|,
-name|artifactPath
-lambda|->
-name|createArtifact
-argument_list|(
-name|path
-argument_list|,
-name|selector
-argument_list|,
-name|classifier
-argument_list|,
-name|extension
-argument_list|)
 argument_list|)
 return|;
 block|}
@@ -3809,7 +3954,7 @@ argument_list|(
 name|Collectors
 operator|.
 name|toList
-argument_list|()
+argument_list|( )
 argument_list|)
 return|;
 block|}
@@ -3842,7 +3987,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a version object for each directory that is a direct child of the project directory.      * @param project the project for which the versions should be returned      * @return the list of versions or a empty list, if not version was found      */
+comment|/**      * Returns a version object for each directory that is a direct child of the project directory.      *      * @param project the project for which the versions should be returned      * @return the list of versions or a empty list, if not version was found      */
 annotation|@
 name|Override
 specifier|public
@@ -3918,11 +4063,11 @@ argument_list|(
 name|a
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|build
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|collect
@@ -3934,7 +4079,7 @@ argument_list|( )
 argument_list|)
 return|;
 block|}
-comment|/**      * If the selector specifies a version, all artifact versions are returned, which means for snapshot      * versions the artifact versions are returned too.      *      * @param selector the item selector. At least namespace and projectId must be set.      * @return the list of version objects or a empty list, if the selector does not match a version      * @throws ContentAccessException if the access to the underlying backend failed      * @throws IllegalArgumentException if the selector has no projectId specified      */
+comment|/**      * Returns the versions that can be found for the given selector.      *      * @param selector the item selector. At least namespace and projectId must be set.      * @return the list of version objects or a empty list, if the selector does not match a version      * @throws ContentAccessException   if the access to the underlying backend failed      * @throws IllegalArgumentException if the selector has no projectId specified      */
 annotation|@
 name|Override
 specifier|public
@@ -3961,7 +4106,7 @@ operator|!
 name|selector
 operator|.
 name|hasProjectId
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|log
@@ -3995,7 +4140,7 @@ condition|(
 name|selector
 operator|.
 name|hasVersion
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 specifier|final
@@ -4062,43 +4207,16 @@ name|map
 argument_list|(
 name|v
 lambda|->
-name|ArchivaVersion
-operator|.
-name|withAsset
+name|getVersionFromArtifactPath
 argument_list|(
 name|v
 operator|.
 name|asset
-operator|.
-name|getParent
-argument_list|()
 argument_list|)
-operator|.
-name|withProject
-argument_list|(
-name|project
-argument_list|)
-operator|.
-name|withVersion
-argument_list|(
-name|v
-operator|.
-name|version
-argument_list|)
-operator|.
-name|withAttribute
-argument_list|(
-name|SNAPSHOT_ARTIFACT_VERSION
-argument_list|,
-literal|"true"
-argument_list|)
-operator|.
-name|build
-argument_list|()
 argument_list|)
 operator|.
 name|distinct
-argument_list|()
+argument_list|( )
 operator|.
 name|collect
 argument_list|(
@@ -4115,6 +4233,237 @@ return|return
 name|getVersions
 argument_list|(
 name|project
+argument_list|)
+return|;
+block|}
+block|}
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getArtifactVersions
+parameter_list|(
+specifier|final
+name|ItemSelector
+name|selector
+parameter_list|)
+throws|throws
+name|ContentAccessException
+throws|,
+name|IllegalArgumentException
+block|{
+if|if
+condition|(
+operator|!
+name|selector
+operator|.
+name|hasProjectId
+argument_list|( )
+condition|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Bad item selector for version list: {}"
+argument_list|,
+name|selector
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Project id not set, while retrieving versions."
+argument_list|)
+throw|;
+block|}
+specifier|final
+name|Project
+name|project
+init|=
+name|getProject
+argument_list|(
+name|selector
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|selector
+operator|.
+name|hasVersion
+argument_list|( )
+condition|)
+block|{
+specifier|final
+name|StorageAsset
+name|asset
+init|=
+name|getAsset
+argument_list|(
+name|selector
+operator|.
+name|getNamespace
+argument_list|( )
+argument_list|,
+name|selector
+operator|.
+name|getProjectId
+argument_list|( )
+argument_list|,
+name|selector
+operator|.
+name|getVersion
+argument_list|( )
+argument_list|)
+decl_stmt|;
+return|return
+name|asset
+operator|.
+name|list
+argument_list|( )
+operator|.
+name|stream
+argument_list|( )
+operator|.
+name|map
+argument_list|(
+name|a
+lambda|->
+name|getArtifactInfoFromPath
+argument_list|(
+name|selector
+operator|.
+name|getVersion
+argument_list|( )
+argument_list|,
+name|a
+argument_list|)
+argument_list|)
+operator|.
+name|filter
+argument_list|(
+name|ai
+lambda|->
+name|StringUtils
+operator|.
+name|isNotEmpty
+argument_list|(
+name|ai
+operator|.
+name|version
+argument_list|)
+argument_list|)
+operator|.
+name|map
+argument_list|(
+name|v
+lambda|->
+name|v
+operator|.
+name|version
+argument_list|)
+operator|.
+name|distinct
+argument_list|( )
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toList
+argument_list|( )
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+name|project
+operator|.
+name|getAsset
+argument_list|( )
+operator|.
+name|list
+argument_list|( )
+operator|.
+name|stream
+argument_list|( )
+operator|.
+name|map
+argument_list|(
+name|a
+lambda|->
+name|getVersionFromPath
+argument_list|(
+name|a
+argument_list|)
+argument_list|)
+operator|.
+name|flatMap
+argument_list|(
+name|v
+lambda|->
+name|v
+operator|.
+name|getAsset
+argument_list|( )
+operator|.
+name|list
+argument_list|( )
+operator|.
+name|stream
+argument_list|( )
+operator|.
+name|map
+argument_list|(
+name|a
+lambda|->
+name|getArtifactInfoFromPath
+argument_list|(
+name|v
+operator|.
+name|getVersion
+argument_list|( )
+argument_list|,
+name|a
+argument_list|)
+argument_list|)
+argument_list|)
+operator|.
+name|filter
+argument_list|(
+name|ai
+lambda|->
+name|StringUtils
+operator|.
+name|isNotEmpty
+argument_list|(
+name|ai
+operator|.
+name|version
+argument_list|)
+argument_list|)
+operator|.
+name|map
+argument_list|(
+name|v
+lambda|->
+name|v
+operator|.
+name|version
+argument_list|)
+operator|.
+name|distinct
+argument_list|( )
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toList
+argument_list|( )
 argument_list|)
 return|;
 block|}
@@ -4161,7 +4510,7 @@ argument_list|(
 name|Collectors
 operator|.
 name|toList
-argument_list|()
+argument_list|( )
 argument_list|)
 return|;
 block|}
@@ -4172,7 +4521,7 @@ name|Predicate
 argument_list|<
 name|StorageAsset
 argument_list|>
-name|getFileFilterFromSelector
+name|getArtifactFileFilterFromSelector
 parameter_list|(
 specifier|final
 name|ItemSelector
@@ -4206,7 +4555,7 @@ condition|(
 name|selector
 operator|.
 name|hasArtifactId
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|fileNamePattern
@@ -4245,7 +4594,7 @@ condition|(
 name|selector
 operator|.
 name|hasArtifactVersion
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 if|if
@@ -4481,7 +4830,7 @@ condition|(
 name|selector
 operator|.
 name|includeRelatedArtifacts
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|fileNamePattern
@@ -4539,7 +4888,7 @@ argument_list|(
 name|fileNamePattern
 operator|.
 name|toString
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 return|return
@@ -4560,11 +4909,11 @@ argument_list|( )
 argument_list|)
 operator|.
 name|matches
-argument_list|()
+argument_list|( )
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the artifacts. The number of artifacts returned depend on the selector.      * If the selector sets the flag {@link ItemSelector#includeRelatedArtifacts()} to<code>true</code>,      * additional to the matching artifacts, related artifacts like hash values or signatures are included in the artifact      * stream.      * If the selector sets the flag {@link ItemSelector#recurse()} to<code>true</code>, artifacts of the given      * namespace and from all sub namespaces that start with the given namespace are returned.      *<ul>      *<li>If only a namespace is given, all artifacts with the given namespace or starting with the given      *     namespace (see {@link ItemSelector#recurse()} are returned.</li>      *<li>If a namespace and a project id, or artifact id is given, the artifacts of all versions of the given      *     namespace and project are returned.</li>      *<li>If a namespace and a project id or artifact id and a version is given, the artifacts of the given      *     version are returned</li>      *<li>If no artifact version or artifact id is given, it will return all "artifacts" found in the directory.      *     To select only artifacts that match the layout you should add the artifact id and artifact version      *     (can contain a '*' pattern).</li>      *</ul>      *      * The '*' pattern can be used in classifiers and artifact versions and match zero or more characters.      *      * There is no determinate order of the elements in the stream.      *      * Returned streams are auto closable and should be used in a try-with-resources statement.      *      * @param selector the item selector      * @throws ContentAccessException if the access to the underlying filesystem failed      */
+comment|/**      * Returns the artifacts. The number of artifacts returned depend on the selector.      * If the selector sets the flag {@link ItemSelector#includeRelatedArtifacts()} to<code>true</code>,      * additional to the matching artifacts, related artifacts like hash values or signatures are included in the artifact      * stream.      * If the selector sets the flag {@link ItemSelector#recurse()} to<code>true</code>, artifacts of the given      * namespace and from all sub namespaces that start with the given namespace are returned.      *<ul>      *<li>If only a namespace is given, all artifacts with the given namespace or starting with the given      *     namespace (see {@link ItemSelector#recurse()} are returned.</li>      *<li>If a namespace and a project id, or artifact id is given, the artifacts of all versions of the given      *     namespace and project are returned.</li>      *<li>If a namespace and a project id or artifact id and a version is given, the artifacts of the given      *     version are returned</li>      *<li>If no artifact version or artifact id is given, it will return all "artifacts" found in the directory.      *     To select only artifacts that match the layout you should add the artifact id and artifact version      *     (can contain a '*' pattern).</li>      *</ul>      *<p>      * The '*' pattern can be used in classifiers and artifact versions and match zero or more characters.      *<p>      * There is no determinate order of the elements in the stream.      *<p>      * Returned streams are auto closable and should be used in a try-with-resources statement.      *      * @param selector the item selector      * @throws ContentAccessException if the access to the underlying filesystem failed      */
 annotation|@
 name|Override
 specifier|public
@@ -4616,7 +4965,7 @@ name|StorageAsset
 argument_list|>
 name|filter
 init|=
-name|getFileFilterFromSelector
+name|getArtifactFileFilterFromSelector
 argument_list|(
 name|selector
 argument_list|)
@@ -4630,7 +4979,7 @@ operator|&&
 name|selector
 operator|.
 name|hasVersion
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 return|return
@@ -4758,7 +5107,7 @@ condition|(
 name|selector
 operator|.
 name|recurse
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 return|return
@@ -4909,12 +5258,12 @@ argument_list|(
 name|Collectors
 operator|.
 name|toList
-argument_list|()
+argument_list|( )
 argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Returns all artifacts      * @param item      * @return      * @throws ContentAccessException      */
+comment|/**      * Returns all artifacts      *      * @param item      * @return      * @throws ContentAccessException      */
 specifier|public
 name|Stream
 argument_list|<
@@ -4982,7 +5331,7 @@ name|getNamespace
 argument_list|( )
 operator|.
 name|getNamespace
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|withProjectId
@@ -4990,7 +5339,7 @@ argument_list|(
 name|item
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|build
@@ -5026,13 +5375,13 @@ argument_list|(
 name|item
 operator|.
 name|getProject
-argument_list|()
+argument_list|( )
 operator|.
 name|getNamespace
 argument_list|( )
 operator|.
 name|getNamespace
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|withProjectId
@@ -5040,10 +5389,10 @@ argument_list|(
 name|item
 operator|.
 name|getProject
-argument_list|()
+argument_list|( )
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|withVersion
@@ -5051,7 +5400,7 @@ argument_list|(
 name|item
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|build
@@ -5059,7 +5408,7 @@ argument_list|( )
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns all related artifacts that match the given artifact. That means all artifacts that have      * the same filename plus an additional extension, e.g. ${fileName}.sha2      * @param item the artifact      * @return the stream of artifacts      * @throws ContentAccessException      */
+comment|/**      * Returns all related artifacts that match the given artifact. That means all artifacts that have      * the same filename plus an additional extension, e.g. ${fileName}.sha2      *      * @param item the artifact      * @return the stream of artifacts      * @throws ContentAccessException      */
 specifier|public
 name|Stream
 argument_list|<
@@ -5258,6 +5607,766 @@ argument_list|( )
 return|;
 block|}
 block|}
+specifier|private
+name|void
+name|appendPatternRegex
+parameter_list|(
+name|StringBuilder
+name|builder
+parameter_list|,
+name|String
+name|name
+parameter_list|)
+block|{
+name|String
+index|[]
+name|patternArray
+init|=
+name|name
+operator|.
+name|split
+argument_list|(
+literal|"[*]"
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|patternArray
+operator|.
+name|length
+operator|-
+literal|1
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|builder
+operator|.
+name|append
+argument_list|(
+name|Pattern
+operator|.
+name|quote
+argument_list|(
+name|patternArray
+index|[
+name|i
+index|]
+argument_list|)
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"[A-Za-z0-9_\\-]*"
+argument_list|)
+expr_stmt|;
+block|}
+name|builder
+operator|.
+name|append
+argument_list|(
+name|Pattern
+operator|.
+name|quote
+argument_list|(
+name|patternArray
+index|[
+name|patternArray
+operator|.
+name|length
+operator|-
+literal|1
+index|]
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+name|Predicate
+argument_list|<
+name|StorageAsset
+argument_list|>
+name|getItemFileFilterFromSelector
+parameter_list|(
+name|ItemSelector
+name|selector
+parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+name|selector
+operator|.
+name|hasNamespace
+argument_list|( )
+operator|&&
+operator|!
+name|selector
+operator|.
+name|hasProjectId
+argument_list|( )
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Selector must have at least namespace and projectid"
+argument_list|)
+throw|;
+block|}
+name|StringBuilder
+name|pathMatcher
+init|=
+operator|new
+name|StringBuilder
+argument_list|(
+literal|"^"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|selector
+operator|.
+name|hasNamespace
+argument_list|( )
+condition|)
+block|{
+name|String
+name|path
+init|=
+literal|"/"
+operator|+
+name|String
+operator|.
+name|join
+argument_list|(
+literal|"/"
+argument_list|,
+name|selector
+operator|.
+name|getNamespace
+argument_list|( )
+operator|.
+name|split
+argument_list|(
+literal|"\\."
+argument_list|)
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|path
+operator|.
+name|contains
+argument_list|(
+literal|"*"
+argument_list|)
+condition|)
+block|{
+name|appendPatternRegex
+argument_list|(
+name|pathMatcher
+argument_list|,
+name|path
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|pathMatcher
+operator|.
+name|append
+argument_list|(
+name|Pattern
+operator|.
+name|quote
+argument_list|(
+name|path
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|selector
+operator|.
+name|hasProjectId
+argument_list|( )
+condition|)
+block|{
+name|pathMatcher
+operator|.
+name|append
+argument_list|(
+literal|"/"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|selector
+operator|.
+name|getProjectId
+argument_list|( )
+operator|.
+name|contains
+argument_list|(
+literal|"*"
+argument_list|)
+condition|)
+block|{
+name|appendPatternRegex
+argument_list|(
+name|pathMatcher
+argument_list|,
+name|selector
+operator|.
+name|getProjectId
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|pathMatcher
+operator|.
+name|append
+argument_list|(
+name|Pattern
+operator|.
+name|quote
+argument_list|(
+name|selector
+operator|.
+name|getProjectId
+argument_list|( )
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|selector
+operator|.
+name|hasVersion
+argument_list|( )
+condition|)
+block|{
+name|pathMatcher
+operator|.
+name|append
+argument_list|(
+literal|"/"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|selector
+operator|.
+name|getVersion
+argument_list|( )
+operator|.
+name|contains
+argument_list|(
+literal|"*"
+argument_list|)
+condition|)
+block|{
+name|appendPatternRegex
+argument_list|(
+name|pathMatcher
+argument_list|,
+name|selector
+operator|.
+name|getVersion
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|pathMatcher
+operator|.
+name|append
+argument_list|(
+name|Pattern
+operator|.
+name|quote
+argument_list|(
+name|selector
+operator|.
+name|getVersion
+argument_list|( )
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+name|pathMatcher
+operator|.
+name|append
+argument_list|(
+literal|".*"
+argument_list|)
+expr_stmt|;
+specifier|final
+name|Pattern
+name|pathPattern
+init|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+name|pathMatcher
+operator|.
+name|toString
+argument_list|( )
+argument_list|)
+decl_stmt|;
+specifier|final
+name|Predicate
+argument_list|<
+name|StorageAsset
+argument_list|>
+name|pathPredicate
+init|=
+parameter_list|(
+name|StorageAsset
+name|asset
+parameter_list|)
+lambda|->
+name|pathPattern
+operator|.
+name|matcher
+argument_list|(
+name|asset
+operator|.
+name|getPath
+argument_list|( )
+argument_list|)
+operator|.
+name|matches
+argument_list|( )
+decl_stmt|;
+if|if
+condition|(
+name|selector
+operator|.
+name|hasArtifactId
+argument_list|( )
+operator|||
+name|selector
+operator|.
+name|hasArtifactVersion
+argument_list|( )
+operator|||
+name|selector
+operator|.
+name|hasClassifier
+argument_list|( )
+operator|||
+name|selector
+operator|.
+name|hasType
+argument_list|( )
+operator|||
+name|selector
+operator|.
+name|hasExtension
+argument_list|( )
+condition|)
+block|{
+return|return
+name|getArtifactFileFilterFromSelector
+argument_list|(
+name|selector
+argument_list|)
+operator|.
+name|and
+argument_list|(
+name|pathPredicate
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+name|pathPredicate
+return|;
+block|}
+block|}
+comment|/**      * Returns a concatenation of the asset and its children as stream, if they exist.      * It descends<code>level+1</code> levels down.      *      * @param a the asset to start from      * @param level the number of child levels to descend. 0 means only the children of the given asset, 1 means the children of childrens of the given asset, ...      * @return the stream of storage assets      */
+specifier|private
+name|Stream
+argument_list|<
+name|StorageAsset
+argument_list|>
+name|getChildrenDF
+parameter_list|(
+name|StorageAsset
+name|a
+parameter_list|,
+name|int
+name|level
+parameter_list|)
+block|{
+if|if
+condition|(
+name|a
+operator|.
+name|isContainer
+argument_list|( )
+condition|)
+block|{
+if|if
+condition|(
+name|level
+operator|>
+literal|0
+condition|)
+block|{
+return|return
+name|Stream
+operator|.
+name|concat
+argument_list|(
+name|a
+operator|.
+name|list
+argument_list|()
+operator|.
+name|stream
+argument_list|( )
+operator|.
+name|flatMap
+argument_list|(
+name|ch
+lambda|->
+name|getChildrenDF
+argument_list|(
+name|ch
+argument_list|,
+name|level
+operator|-
+literal|1
+argument_list|)
+argument_list|)
+argument_list|,
+name|Stream
+operator|.
+name|of
+argument_list|(
+name|a
+argument_list|)
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+name|Stream
+operator|.
+name|concat
+argument_list|(
+name|a
+operator|.
+name|list
+argument_list|( )
+operator|.
+name|stream
+argument_list|( )
+argument_list|,
+name|Stream
+operator|.
+name|of
+argument_list|(
+name|a
+argument_list|)
+argument_list|)
+return|;
+block|}
+block|}
+else|else
+block|{
+return|return
+name|Stream
+operator|.
+name|of
+argument_list|(
+name|a
+argument_list|)
+return|;
+block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|Stream
+argument_list|<
+name|?
+extends|extends
+name|ContentItem
+argument_list|>
+name|newItemStream
+parameter_list|(
+name|ItemSelector
+name|selector
+parameter_list|,
+name|boolean
+name|parallel
+parameter_list|)
+throws|throws
+name|ContentAccessException
+throws|,
+name|IllegalArgumentException
+block|{
+specifier|final
+name|Predicate
+argument_list|<
+name|StorageAsset
+argument_list|>
+name|filter
+init|=
+name|getItemFileFilterFromSelector
+argument_list|(
+name|selector
+argument_list|)
+decl_stmt|;
+name|StorageAsset
+name|startDir
+decl_stmt|;
+if|if
+condition|(
+name|selector
+operator|.
+name|getNamespace
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"*"
+argument_list|)
+condition|)
+block|{
+name|startDir
+operator|=
+name|getAsset
+argument_list|(
+literal|""
+argument_list|)
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|selector
+operator|.
+name|hasProjectId
+argument_list|( )
+operator|&&
+name|selector
+operator|.
+name|getProjectId
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"*"
+argument_list|)
+condition|)
+block|{
+name|startDir
+operator|=
+name|getAsset
+argument_list|(
+name|selector
+operator|.
+name|getNamespace
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|selector
+operator|.
+name|hasProjectId
+argument_list|()
+operator|&&
+name|selector
+operator|.
+name|hasVersion
+argument_list|()
+operator|&&
+name|selector
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"*"
+argument_list|)
+condition|)
+block|{
+name|startDir
+operator|=
+name|getAsset
+argument_list|(
+name|selector
+operator|.
+name|getNamespace
+argument_list|( )
+argument_list|,
+name|selector
+operator|.
+name|getProjectId
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|selector
+operator|.
+name|hasProjectId
+argument_list|( )
+operator|&&
+name|selector
+operator|.
+name|hasVersion
+argument_list|( )
+condition|)
+block|{
+name|startDir
+operator|=
+name|getAsset
+argument_list|(
+name|selector
+operator|.
+name|getNamespace
+argument_list|( )
+argument_list|,
+name|selector
+operator|.
+name|getProjectId
+argument_list|( )
+argument_list|,
+name|selector
+operator|.
+name|getVersion
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|selector
+operator|.
+name|hasProjectId
+argument_list|( )
+condition|)
+block|{
+name|startDir
+operator|=
+name|getAsset
+argument_list|(
+name|selector
+operator|.
+name|getNamespace
+argument_list|( )
+argument_list|,
+name|selector
+operator|.
+name|getProjectId
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|startDir
+operator|=
+name|getAsset
+argument_list|(
+name|selector
+operator|.
+name|getNamespace
+argument_list|( )
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|selector
+operator|.
+name|recurse
+argument_list|( )
+condition|)
+block|{
+comment|// We descend into 2 subdirectories (project and version)
+return|return
+name|startDir
+operator|.
+name|list
+argument_list|( )
+operator|.
+name|stream
+argument_list|( )
+operator|.
+name|flatMap
+argument_list|(
+name|a
+lambda|->
+name|getChildrenDF
+argument_list|(
+name|a
+argument_list|,
+literal|1
+argument_list|)
+argument_list|)
+operator|.
+name|map
+argument_list|(
+name|this
+operator|::
+name|getItemFromPath
+argument_list|)
+return|;
+block|}
+block|}
+empty_stmt|;
+return|return
+name|StorageUtil
+operator|.
+name|newAssetStream
+argument_list|(
+name|startDir
+argument_list|,
+name|parallel
+argument_list|)
+operator|.
+name|filter
+argument_list|(
+name|filter
+argument_list|)
+operator|.
+name|map
+argument_list|(
+name|this
+operator|::
+name|getItemFromPath
+argument_list|)
+return|;
+block|}
 comment|/**      * Checks, if the asset/file queried by the given selector exists.      */
 annotation|@
 name|Override
@@ -5281,6 +6390,323 @@ operator|.
 name|exists
 argument_list|( )
 return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|ContentItem
+name|getParent
+parameter_list|(
+name|ContentItem
+name|item
+parameter_list|)
+block|{
+return|return
+name|getItemFromPath
+argument_list|(
+name|item
+operator|.
+name|getAsset
+argument_list|( )
+operator|.
+name|getParent
+argument_list|( )
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|List
+argument_list|<
+name|?
+extends|extends
+name|ContentItem
+argument_list|>
+name|getChildren
+parameter_list|(
+name|ContentItem
+name|item
+parameter_list|)
+block|{
+if|if
+condition|(
+name|item
+operator|.
+name|getAsset
+argument_list|()
+operator|.
+name|isLeaf
+argument_list|()
+condition|)
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|( )
+return|;
+block|}
+else|else
+block|{
+return|return
+name|item
+operator|.
+name|getAsset
+argument_list|( )
+operator|.
+name|list
+argument_list|( )
+operator|.
+name|stream
+argument_list|( )
+operator|.
+name|map
+argument_list|(
+name|a
+lambda|->
+name|getItemFromPath
+argument_list|(
+name|a
+argument_list|)
+argument_list|)
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toList
+argument_list|( )
+argument_list|)
+return|;
+block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+parameter_list|<
+name|T
+extends|extends
+name|ContentItem
+parameter_list|>
+name|T
+name|applyCharacteristic
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|clazz
+parameter_list|,
+name|ContentItem
+name|item
+parameter_list|)
+throws|throws
+name|LayoutException
+block|{
+if|if
+condition|(
+name|item
+operator|.
+name|getAsset
+argument_list|()
+operator|.
+name|isLeaf
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|clazz
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|Artifact
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
+name|Artifact
+name|artifact
+init|=
+name|getArtifactFromPath
+argument_list|(
+name|item
+operator|.
+name|getAsset
+argument_list|( )
+argument_list|)
+decl_stmt|;
+name|item
+operator|.
+name|setCharacteristic
+argument_list|(
+name|Artifact
+operator|.
+name|class
+argument_list|,
+name|artifact
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|artifact
+return|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|LayoutException
+argument_list|(
+literal|"Could not adapt file to clazz "
+operator|+
+name|clazz
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|clazz
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|Version
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
+name|Version
+name|version
+init|=
+name|getVersionFromPath
+argument_list|(
+name|item
+operator|.
+name|getAsset
+argument_list|( )
+argument_list|)
+decl_stmt|;
+name|item
+operator|.
+name|setCharacteristic
+argument_list|(
+name|Version
+operator|.
+name|class
+argument_list|,
+name|version
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|version
+return|;
+block|}
+if|else if
+condition|(
+name|clazz
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|Project
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
+name|Project
+name|project
+init|=
+name|getProjectFromPath
+argument_list|(
+name|item
+operator|.
+name|getAsset
+argument_list|( )
+argument_list|)
+decl_stmt|;
+name|item
+operator|.
+name|setCharacteristic
+argument_list|(
+name|Project
+operator|.
+name|class
+argument_list|,
+name|project
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|project
+return|;
+block|}
+if|else if
+condition|(
+name|clazz
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|Namespace
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
+name|Namespace
+name|ns
+init|=
+name|getNamespaceFromPath
+argument_list|(
+name|item
+operator|.
+name|getAsset
+argument_list|( )
+argument_list|)
+decl_stmt|;
+name|item
+operator|.
+name|setCharacteristic
+argument_list|(
+name|Namespace
+operator|.
+name|class
+argument_list|,
+name|ns
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|ns
+return|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|LayoutException
+argument_list|(
+literal|"Cannot adapt directory to clazz "
+operator|+
+name|clazz
+argument_list|)
+throw|;
+block|}
+block|}
 block|}
 comment|/**      * Moves the file to the artifact destination      */
 annotation|@
@@ -5316,13 +6742,13 @@ operator|!
 name|asset
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|asset
 operator|.
 name|create
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 name|asset
@@ -5350,10 +6776,10 @@ argument_list|,
 name|destination
 operator|.
 name|getAsset
-argument_list|()
+argument_list|( )
 operator|.
 name|getFilePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 operator|.
@@ -5403,7 +6829,7 @@ condition|(
 name|asset
 operator|.
 name|isLeaf
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 name|ItemSelector
@@ -5457,7 +6883,7 @@ argument_list|)
 return|;
 block|}
 comment|/// ************* End of new generation interface ******************
-comment|/**      * Returns a version reference from the coordinates      * @param groupId the group id      * @param artifactId the artifact id      * @param version the version      * @return the versioned reference object      */
+comment|/**      * Returns a version reference from the coordinates      *      * @param groupId    the group id      * @param artifactId the artifact id      * @param version    the version      * @return the versioned reference object      */
 annotation|@
 name|Override
 specifier|public
@@ -5477,7 +6903,7 @@ block|{
 return|return
 operator|new
 name|VersionedReference
-argument_list|()
+argument_list|( )
 operator|.
 name|groupId
 argument_list|(
@@ -5495,7 +6921,7 @@ name|version
 argument_list|)
 return|;
 block|}
-comment|/**      * Return the version the artifact is part of      * @param artifactReference      * @return      */
+comment|/**      * Return the version the artifact is part of      *      * @param artifactReference      * @return      */
 specifier|public
 name|VersionedReference
 name|toVersion
@@ -5552,7 +6978,7 @@ name|Path
 name|deleteTarget
 init|=
 name|getRepoDir
-argument_list|()
+argument_list|( )
 operator|.
 name|resolve
 argument_list|(
@@ -5577,7 +7003,7 @@ argument_list|(
 literal|"Version path for repository {} does not exist: {}"
 argument_list|,
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|deleteTarget
 argument_list|)
@@ -5589,7 +7015,7 @@ argument_list|(
 literal|"Version not found for repository "
 operator|+
 name|getId
-argument_list|()
+argument_list|( )
 operator|+
 literal|": "
 operator|+
@@ -5660,7 +7086,7 @@ operator|+
 literal|" from repository "
 operator|+
 name|getId
-argument_list|()
+argument_list|( )
 operator|+
 literal|": "
 operator|+
@@ -5683,7 +7109,7 @@ argument_list|(
 literal|"Version path for repository {} is not a directory {}"
 argument_list|,
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|deleteTarget
 argument_list|)
@@ -5695,7 +7121,7 @@ argument_list|(
 literal|"Version path for repository "
 operator|+
 name|getId
-argument_list|()
+argument_list|( )
 operator|+
 literal|" is not directory: "
 operator|+
@@ -5757,7 +7183,7 @@ argument_list|(
 literal|"Project path for repository {} does not exist: {}"
 argument_list|,
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|deleteTarget
 argument_list|)
@@ -5769,7 +7195,7 @@ argument_list|(
 literal|"Project not found for repository "
 operator|+
 name|getId
-argument_list|()
+argument_list|( )
 operator|+
 literal|": "
 operator|+
@@ -5840,7 +7266,7 @@ operator|+
 literal|" from repository "
 operator|+
 name|getId
-argument_list|()
+argument_list|( )
 operator|+
 literal|": "
 operator|+
@@ -5863,7 +7289,7 @@ argument_list|(
 literal|"Project path for repository {} is not a directory {}"
 argument_list|,
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|deleteTarget
 argument_list|)
@@ -5875,7 +7301,7 @@ argument_list|(
 literal|"Project path for repository "
 operator|+
 name|getId
-argument_list|()
+argument_list|( )
 operator|+
 literal|" is not directory: "
 operator|+
@@ -5907,7 +7333,7 @@ name|deleteProject
 argument_list|(
 operator|new
 name|ProjectReference
-argument_list|()
+argument_list|( )
 operator|.
 name|groupId
 argument_list|(
@@ -6045,7 +7471,7 @@ operator|+
 literal|" from repository "
 operator|+
 name|getId
-argument_list|()
+argument_list|( )
 operator|+
 literal|": "
 operator|+
@@ -6068,7 +7494,7 @@ argument_list|(
 literal|"Artifact path for repository {} does not exist: {}"
 argument_list|,
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|deleteTarget
 argument_list|)
@@ -6080,7 +7506,7 @@ argument_list|(
 literal|"Artifact not found for repository "
 operator|+
 name|getId
-argument_list|()
+argument_list|( )
 operator|+
 literal|": "
 operator|+
@@ -6142,7 +7568,7 @@ argument_list|(
 literal|"Namespace path for repository {} does not exist: {}"
 argument_list|,
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|deleteTarget
 argument_list|)
@@ -6154,7 +7580,7 @@ argument_list|(
 literal|"Namespace not found for repository "
 operator|+
 name|getId
-argument_list|()
+argument_list|( )
 operator|+
 literal|": "
 operator|+
@@ -6225,7 +7651,7 @@ operator|+
 literal|" from repository "
 operator|+
 name|getId
-argument_list|()
+argument_list|( )
 operator|+
 literal|": "
 operator|+
@@ -6248,7 +7674,7 @@ argument_list|(
 literal|"Namespace path for repository {} is not a directory {}"
 argument_list|,
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|deleteTarget
 argument_list|)
@@ -6260,7 +7686,7 @@ argument_list|(
 literal|"Namespace path for repository "
 operator|+
 name|getId
-argument_list|()
+argument_list|( )
 operator|+
 literal|" is not directory: "
 operator|+
@@ -6274,13 +7700,13 @@ name|Override
 specifier|public
 name|String
 name|getId
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|repository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 return|;
 block|}
 annotation|@
@@ -6316,7 +7742,7 @@ operator|!
 name|artifactDir
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 throw|throw
@@ -6328,7 +7754,7 @@ operator|+
 name|artifactDir
 operator|.
 name|getPath
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -6338,7 +7764,7 @@ operator|!
 name|artifactDir
 operator|.
 name|isContainer
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 throw|throw
@@ -6350,7 +7776,7 @@ operator|+
 name|artifactDir
 operator|.
 name|getPath
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -6368,10 +7794,10 @@ init|=
 name|artifactDir
 operator|.
 name|list
-argument_list|()
+argument_list|( )
 operator|.
 name|stream
-argument_list|()
+argument_list|( )
 init|)
 block|{
 return|return
@@ -6385,7 +7811,7 @@ operator|!
 name|asset
 operator|.
 name|isContainer
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|map
@@ -6403,7 +7829,7 @@ argument_list|(
 name|path
 operator|.
 name|getPath
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 if|if
@@ -6411,40 +7837,40 @@ condition|(
 name|artifact
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 operator|.
 name|equals
 argument_list|(
 name|reference
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|&&
 name|artifact
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 operator|.
 name|equals
 argument_list|(
 name|reference
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|&&
 name|artifact
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 operator|.
 name|equals
 argument_list|(
 name|reference
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -6474,7 +7900,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 return|return
@@ -6483,7 +7909,7 @@ return|;
 block|}
 block|}
 block_content|)
-block|.filter(Objects::nonNull
+block|.filter( Objects::nonNull
 block|)
 operator|.
 name|collect
@@ -6491,13 +7917,13 @@ argument_list|(
 name|Collectors
 operator|.
 name|toList
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 end_class
 
 begin_expr_stmt
-unit|} catch
+unit|}         catch
 operator|(
 name|RuntimeException
 name|e
@@ -6553,7 +7979,7 @@ block|}
 end_if_stmt
 
 begin_block
-unit|} else
+unit|}             else
 block|{
 throw|throw
 operator|new
@@ -6598,14 +8024,14 @@ condition|(
 name|referenceObject
 operator|.
 name|getClassifier
-argument_list|()
+argument_list|( )
 operator|!=
 literal|null
 operator|&&
 name|referenceObject
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 operator|!=
 literal|null
 condition|)
@@ -6620,27 +8046,27 @@ lambda|->
 name|referenceObject
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 operator|.
 name|equals
 argument_list|(
 name|a
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|&&
 name|referenceObject
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 operator|.
 name|equals
 argument_list|(
 name|a
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|&&
 name|referenceObject
@@ -6661,7 +8087,7 @@ operator|(
 name|a
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 operator|)
@@ -6669,20 +8095,20 @@ operator|||
 name|referenceObject
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 operator|.
 name|equals
 argument_list|(
 name|a
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|||
 name|a
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 operator|.
 name|startsWith
 argument_list|(
@@ -6693,14 +8119,14 @@ operator|&&
 name|referenceObject
 operator|.
 name|getClassifier
-argument_list|()
+argument_list|( )
 operator|.
 name|equals
 argument_list|(
 name|a
 operator|.
 name|getClassifier
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|)
 return|;
@@ -6710,14 +8136,14 @@ condition|(
 name|referenceObject
 operator|.
 name|getClassifier
-argument_list|()
+argument_list|( )
 operator|!=
 literal|null
 operator|&&
 name|referenceObject
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 condition|)
@@ -6732,27 +8158,27 @@ lambda|->
 name|referenceObject
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 operator|.
 name|equals
 argument_list|(
 name|a
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|&&
 name|referenceObject
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 operator|.
 name|equals
 argument_list|(
 name|a
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|&&
 name|referenceObject
@@ -6771,14 +8197,14 @@ operator|&&
 name|referenceObject
 operator|.
 name|getClassifier
-argument_list|()
+argument_list|( )
 operator|.
 name|equals
 argument_list|(
 name|a
 operator|.
 name|getClassifier
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|)
 return|;
@@ -6788,14 +8214,14 @@ condition|(
 name|referenceObject
 operator|.
 name|getClassifier
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 operator|&&
 name|referenceObject
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 operator|!=
 literal|null
 condition|)
@@ -6810,27 +8236,27 @@ lambda|->
 name|referenceObject
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 operator|.
 name|equals
 argument_list|(
 name|a
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|&&
 name|referenceObject
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 operator|.
 name|equals
 argument_list|(
 name|a
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|&&
 name|referenceObject
@@ -6851,7 +8277,7 @@ operator|(
 name|a
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 operator|)
@@ -6859,20 +8285,20 @@ operator|||
 name|referenceObject
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 operator|.
 name|equals
 argument_list|(
 name|a
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|||
 name|a
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 operator|.
 name|startsWith
 argument_list|(
@@ -6894,27 +8320,27 @@ lambda|->
 name|referenceObject
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 operator|.
 name|equals
 argument_list|(
 name|a
 operator|.
 name|getGroupId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|&&
 name|referenceObject
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 operator|.
 name|equals
 argument_list|(
 name|a
 operator|.
 name|getArtifactId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|&&
 name|referenceObject
@@ -6941,7 +8367,7 @@ name|Override
 specifier|public
 name|String
 name|getRepoRoot
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|convertUriToPath
@@ -6949,7 +8375,7 @@ argument_list|(
 name|repository
 operator|.
 name|getLocation
-argument_list|()
+argument_list|( )
 argument_list|)
 return|;
 block|}
@@ -6969,7 +8395,7 @@ condition|(
 name|uri
 operator|.
 name|getScheme
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 condition|)
@@ -6982,11 +8408,11 @@ argument_list|(
 name|uri
 operator|.
 name|getPath
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|toString
-argument_list|()
+argument_list|( )
 return|;
 block|}
 if|else if
@@ -6998,7 +8424,7 @@ argument_list|(
 name|uri
 operator|.
 name|getScheme
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -7011,7 +8437,7 @@ name|uri
 argument_list|)
 operator|.
 name|toString
-argument_list|()
+argument_list|( )
 return|;
 block|}
 else|else
@@ -7020,7 +8446,7 @@ return|return
 name|uri
 operator|.
 name|toString
-argument_list|()
+argument_list|( )
 return|;
 block|}
 block|}
@@ -7032,7 +8458,7 @@ name|Override
 specifier|public
 name|ManagedRepository
 name|getRepository
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|repository
@@ -7065,13 +8491,13 @@ return|return
 name|artifactFile
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 operator|&&
 operator|!
 name|artifactFile
 operator|.
 name|isContainer
-argument_list|()
+argument_list|( )
 return|;
 block|}
 end_function
@@ -7135,14 +8561,14 @@ argument_list|(
 literal|"Could not read directory from repository {} - {}: "
 argument_list|,
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|path
 argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -7220,7 +8646,7 @@ begin_function
 specifier|private
 name|Path
 name|getRepoDir
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|repository
@@ -7240,7 +8666,7 @@ begin_function
 specifier|private
 name|RepositoryStorage
 name|getStorage
-parameter_list|()
+parameter_list|( )
 block|{
 return|return
 name|repository
@@ -7281,7 +8707,7 @@ argument_list|(
 name|repository
 operator|.
 name|getLocation
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 if|if
@@ -7302,7 +8728,7 @@ operator|&&
 name|repoPath
 operator|.
 name|length
-argument_list|()
+argument_list|( )
 operator|>
 literal|0
 condition|)
@@ -7319,7 +8745,7 @@ argument_list|(
 name|repoPath
 operator|.
 name|length
-argument_list|()
+argument_list|( )
 operator|+
 literal|1
 argument_list|)
@@ -7487,7 +8913,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Get the first Artifact found in the provided VersionedReference location.      *      * @param reference the reference to the versioned reference to search within      * @return the ArtifactReference to the first artifact located within the versioned reference. or null if      *         no artifact was found within the versioned reference.      * @throws java.io.IOException     if the versioned reference is invalid (example: doesn't exist, or isn't a directory)      * @throws LayoutException      */
+comment|/**      * Get the first Artifact found in the provided VersionedReference location.      *      * @param reference the reference to the versioned reference to search within      * @return the ArtifactReference to the first artifact located within the versioned reference. or null if      * no artifact was found within the versioned reference.      * @throws java.io.IOException if the versioned reference is invalid (example: doesn't exist, or isn't a directory)      * @throws LayoutException      */
 end_comment
 
 begin_function
@@ -7600,7 +9026,7 @@ name|path
 argument_list|)
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -7622,7 +9048,7 @@ operator|+
 name|versionDir
 operator|.
 name|toAbsolutePath
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -7646,7 +9072,7 @@ operator|+
 name|versionDir
 operator|.
 name|toAbsolutePath
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -7677,7 +9103,7 @@ name|p
 argument_list|)
 operator|.
 name|toString
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|filter
@@ -7775,14 +9201,14 @@ argument_list|(
 literal|"Could not read directory from repository {} - {}: "
 argument_list|,
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|path
 argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -7903,6 +9329,36 @@ operator|.
 name|mavenContentHelper
 operator|=
 name|contentHelper
+expr_stmt|;
+block|}
+end_function
+
+begin_function
+specifier|public
+name|MavenMetadataReader
+name|getMetadataReader
+parameter_list|( )
+block|{
+return|return
+name|metadataReader
+return|;
+block|}
+end_function
+
+begin_function
+specifier|public
+name|void
+name|setMetadataReader
+parameter_list|(
+name|MavenMetadataReader
+name|metadataReader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|metadataReader
+operator|=
+name|metadataReader
 expr_stmt|;
 block|}
 end_function

@@ -101,6 +101,22 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|metadata
+operator|.
+name|maven
+operator|.
+name|MavenMetadataReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|model
 operator|.
 name|ArtifactReference
@@ -265,6 +281,22 @@ name|repository
 operator|.
 name|content
 operator|.
+name|DataItem
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
 name|ItemNotFoundException
 import|;
 end_import
@@ -347,6 +379,42 @@ name|content
 operator|.
 name|base
 operator|.
+name|ArchivaContentItem
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|base
+operator|.
+name|ArchivaDataItem
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|base
+operator|.
 name|ArchivaItemSelector
 import|;
 end_import
@@ -397,6 +465,22 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|metadata
+operator|.
+name|MetadataReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|storage
 operator|.
 name|StorageAsset
@@ -414,20 +498,6 @@ operator|.
 name|io
 operator|.
 name|FileUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang3
-operator|.
-name|StringUtils
 import|;
 end_import
 
@@ -579,47 +649,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
 import|;
 end_import
 
@@ -703,6 +733,16 @@ annotation|@
 name|Inject
 name|MavenContentHelper
 name|contentHelper
+decl_stmt|;
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+literal|"metadataReader#maven"
+argument_list|)
+name|MavenMetadataReader
+name|metadataReader
 decl_stmt|;
 annotation|@
 name|Inject
@@ -865,6 +905,13 @@ argument_list|(
 name|contentHelper
 argument_list|)
 expr_stmt|;
+name|repoContent
+operator|.
+name|setMetadataReader
+argument_list|(
+name|metadataReader
+argument_list|)
+expr_stmt|;
 comment|//repoContent = (ManagedRepositoryContent) lookup( ManagedRepositoryContent.class, "default" );
 block|}
 annotation|@
@@ -876,7 +923,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertVersions
+name|assertArtifactVersions
 argument_list|(
 literal|"snap_shots_a"
 argument_list|,
@@ -1165,6 +1212,130 @@ operator|.
 name|getVersion
 argument_list|()
 argument_list|)
+operator|.
+name|sorted
+argument_list|(
+name|comparator
+argument_list|)
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toList
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|assertArrayEquals
+argument_list|(
+name|expectedVersions
+argument_list|,
+name|versions
+operator|.
+name|toArray
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
+specifier|private
+name|void
+name|assertArtifactVersions
+parameter_list|(
+name|String
+name|artifactId
+parameter_list|,
+name|String
+name|version
+parameter_list|,
+name|String
+index|[]
+name|expectedVersions
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// Use the test metadata-repository, which is already setup for
+comment|// These kind of version tests.
+name|Path
+name|repoDir
+init|=
+name|getRepositoryPath
+argument_list|(
+literal|"metadata-repository"
+argument_list|)
+decl_stmt|;
+operator|(
+operator|(
+name|EditableManagedRepository
+operator|)
+name|repoContent
+operator|.
+name|getRepository
+argument_list|()
+operator|)
+operator|.
+name|setLocation
+argument_list|(
+name|repoDir
+operator|.
+name|toAbsolutePath
+argument_list|()
+operator|.
+name|toUri
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Request the versions.
+comment|// Sort the list (for asserts later)
+specifier|final
+name|VersionComparator
+name|comparator
+init|=
+operator|new
+name|VersionComparator
+argument_list|( )
+decl_stmt|;
+name|ItemSelector
+name|selector
+init|=
+name|ArchivaItemSelector
+operator|.
+name|builder
+argument_list|( )
+operator|.
+name|withNamespace
+argument_list|(
+literal|"org.apache.archiva.metadata.tests"
+argument_list|)
+operator|.
+name|withProjectId
+argument_list|(
+name|artifactId
+argument_list|)
+operator|.
+name|withVersion
+argument_list|(
+name|version
+argument_list|)
+operator|.
+name|build
+argument_list|( )
+decl_stmt|;
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|versions
+init|=
+name|repoContent
+operator|.
+name|getArtifactVersions
+argument_list|(
+name|selector
+argument_list|)
+operator|.
+name|stream
+argument_list|()
 operator|.
 name|sorted
 argument_list|(
@@ -3407,7 +3578,7 @@ name|MAIN
 argument_list|,
 name|mainArtifact
 operator|.
-name|getArtifactType
+name|getDataType
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -3453,7 +3624,7 @@ name|REPOSITORY_METADATA
 argument_list|,
 name|metaArtifact
 operator|.
-name|getArtifactType
+name|getDataType
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -3673,7 +3844,7 @@ name|MAIN
 argument_list|,
 name|artifact
 operator|.
-name|getArtifactType
+name|getDataType
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -3830,7 +4001,7 @@ name|RELATED
 argument_list|,
 name|artifact
 operator|.
-name|getArtifactType
+name|getDataType
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -3977,7 +4148,7 @@ name|METADATA
 argument_list|,
 name|artifact
 operator|.
-name|getArtifactType
+name|getDataType
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -4201,7 +4372,7 @@ name|MAIN
 argument_list|,
 name|artifact
 operator|.
-name|getArtifactType
+name|getDataType
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -4432,7 +4603,7 @@ name|MAIN
 argument_list|,
 name|artifact
 operator|.
-name|getArtifactType
+name|getDataType
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -4487,7 +4658,7 @@ name|RELATED
 argument_list|,
 name|artifact
 operator|.
-name|getArtifactType
+name|getDataType
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -4678,7 +4849,7 @@ name|METADATA
 argument_list|,
 name|artifact
 operator|.
-name|getArtifactType
+name|getDataType
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -4723,7 +4894,7 @@ name|MAIN
 argument_list|,
 name|artifact
 operator|.
-name|getArtifactType
+name|getDataType
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -4788,7 +4959,7 @@ name|RELATED
 argument_list|,
 name|artifact
 operator|.
-name|getArtifactType
+name|getDataType
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -6221,6 +6392,202 @@ annotation|@
 name|Test
 specifier|public
 name|void
+name|testNewItemStreamWithNamespace1
+parameter_list|()
+block|{
+name|ItemSelector
+name|selector
+init|=
+name|ArchivaItemSelector
+operator|.
+name|builder
+argument_list|( )
+operator|.
+name|withNamespace
+argument_list|(
+literal|"org.apache.axis2"
+argument_list|)
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
+name|Stream
+argument_list|<
+name|?
+extends|extends
+name|ContentItem
+argument_list|>
+name|stream
+init|=
+name|repoContent
+operator|.
+name|newItemStream
+argument_list|(
+name|selector
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
+name|List
+argument_list|<
+name|?
+extends|extends
+name|ContentItem
+argument_list|>
+name|result
+init|=
+name|stream
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toList
+argument_list|( )
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|41
+argument_list|,
+name|result
+operator|.
+name|size
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|ContentItem
+name|item
+init|=
+name|result
+operator|.
+name|get
+argument_list|(
+literal|39
+argument_list|)
+decl_stmt|;
+name|Version
+name|version
+init|=
+name|item
+operator|.
+name|adapt
+argument_list|(
+name|Version
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|version
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"1.3-SNAPSHOT"
+argument_list|,
+name|version
+operator|.
+name|getVersion
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|Project
+name|project
+init|=
+name|result
+operator|.
+name|get
+argument_list|(
+literal|40
+argument_list|)
+operator|.
+name|adapt
+argument_list|(
+name|Project
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|project
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"axis2"
+argument_list|,
+name|project
+operator|.
+name|getId
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|result
+operator|.
+name|stream
+argument_list|( )
+operator|.
+name|anyMatch
+argument_list|(
+name|a
+lambda|->
+literal|"axis2-1.3-20070725.210059-1.pom"
+operator|.
+name|equals
+argument_list|(
+name|a
+operator|.
+name|getAsset
+argument_list|( )
+operator|.
+name|getName
+argument_list|( )
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|//    @Test
+comment|//    public void testNewItemStreamWithNamespace2() {
+comment|//        ItemSelector selector = ArchivaItemSelector.builder( )
+comment|//            .withNamespace( "org.apache.maven" )
+comment|//            .build();
+comment|//
+comment|//        Stream<? extends ContentItem> stream = repoContent.newItemStream( selector, false );
+comment|//        List<? extends ContentItem> result = stream.collect( Collectors.toList( ) );
+comment|//        int versions = 0;
+comment|//        int projects = 0;
+comment|//        int artifacts = 0;
+comment|//        int namespaces = 0;
+comment|//        int dataitems = 0;
+comment|//        for (int i=0; i<result.size(); i++) {
+comment|//            ContentItem ci = result.get( i );
+comment|//            System.out.println( i + ": " + result.get( i ) + " - " +result.get(i).getClass().getName() + " - " + result.get(i).getAsset().getPath() );
+comment|//            if (ci instanceof Version) {
+comment|//                versions++;
+comment|//            } else if (ci instanceof Project) {
+comment|//                projects++;
+comment|//            } else if (ci instanceof Namespace) {
+comment|//                namespaces++;
+comment|//            } else if (ci instanceof Artifact) {
+comment|//                artifacts++;
+comment|//            } else if (ci instanceof DataItem ) {
+comment|//                dataitems++;
+comment|//            }
+comment|//        }
+comment|//        System.out.println( "namespaces=" + namespaces + ", projects=" + projects + ", versions=" + versions + ", artifacts=" + artifacts + ", dataitems=" + dataitems );
+comment|//        assertEquals( 170, result.size( ) );
+comment|//        assertEquals( 92, result.stream( ).filter( a -> a instanceof Artifact ).count( ) );
+comment|//    }
+annotation|@
+name|Test
+specifier|public
+name|void
 name|testGetArtifactFromContentItem
 parameter_list|()
 block|{
@@ -6597,7 +6964,7 @@ name|assertTrue
 argument_list|(
 name|item
 operator|instanceof
-name|Namespace
+name|ArchivaContentItem
 argument_list|)
 expr_stmt|;
 name|path
@@ -6622,7 +6989,7 @@ name|assertTrue
 argument_list|(
 name|item
 operator|instanceof
-name|Project
+name|ArchivaContentItem
 argument_list|)
 expr_stmt|;
 name|path
@@ -6647,7 +7014,7 @@ name|assertTrue
 argument_list|(
 name|item
 operator|instanceof
-name|Version
+name|ArchivaContentItem
 argument_list|)
 expr_stmt|;
 name|path
@@ -6717,7 +7084,7 @@ name|assertTrue
 argument_list|(
 name|item
 operator|instanceof
-name|Namespace
+name|ArchivaContentItem
 argument_list|)
 expr_stmt|;
 name|path
@@ -6750,7 +7117,7 @@ name|assertTrue
 argument_list|(
 name|item
 operator|instanceof
-name|Project
+name|ArchivaContentItem
 argument_list|)
 expr_stmt|;
 name|path
@@ -6783,7 +7150,7 @@ name|assertTrue
 argument_list|(
 name|item
 operator|instanceof
-name|Version
+name|ArchivaContentItem
 argument_list|)
 expr_stmt|;
 name|path
@@ -6816,7 +7183,7 @@ name|assertTrue
 argument_list|(
 name|item
 operator|instanceof
-name|Artifact
+name|DataItem
 argument_list|)
 expr_stmt|;
 block|}
@@ -7304,7 +7671,7 @@ name|MAIN
 argument_list|,
 name|artifact
 operator|.
-name|getArtifactType
+name|getDataType
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -7349,7 +7716,7 @@ name|RELATED
 argument_list|,
 name|artifact
 operator|.
-name|getArtifactType
+name|getDataType
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -7404,7 +7771,7 @@ name|RELATED
 argument_list|,
 name|artifact
 operator|.
-name|getArtifactType
+name|getDataType
 argument_list|( )
 argument_list|)
 expr_stmt|;
