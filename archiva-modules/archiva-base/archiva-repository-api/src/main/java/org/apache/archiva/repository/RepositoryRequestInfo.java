@@ -104,7 +104,7 @@ name|String
 name|requestPath
 parameter_list|)
 function_decl|;
-comment|/**      * Adjust the requestedPath to conform to the native layout of the provided {@link org.apache.archiva.repository.ManagedRepositoryContent}.      *      * @param requestPath the incoming requested path.      * @return the adjusted (to native) path.      * @throws LayoutException if the path cannot be parsed.      */
+comment|/**      * Adjust the requestedPath to conform to the native layout of the provided {@link BaseRepositoryContentLayout}.      *      * @param requestPath the incoming requested path.      * @return the adjusted (to native) path.      * @throws LayoutException if the path cannot be parsed.      */
 name|String
 name|toNativePath
 parameter_list|(

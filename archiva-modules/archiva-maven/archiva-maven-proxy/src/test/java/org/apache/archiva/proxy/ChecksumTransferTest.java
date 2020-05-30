@@ -111,6 +111,20 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|BaseRepositoryContentLayout
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|storage
 operator|.
 name|StorageAsset
@@ -234,7 +248,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ChecksumTransferTest  *  *  */
+comment|/**  * ChecksumTransferTest  */
 end_comment
 
 begin_class
@@ -249,7 +263,7 @@ name|Test
 specifier|public
 name|void
 name|testGetChecksumWhenConnectorIsDisabled
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -273,10 +287,22 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -300,7 +326,7 @@ argument_list|(
 name|expectedFile
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -349,7 +375,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -365,7 +391,7 @@ name|Test
 specifier|public
 name|void
 name|testGetChecksumBothCorrect
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -389,10 +415,22 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -416,7 +454,7 @@ argument_list|(
 name|expectedFile
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -465,7 +503,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -489,7 +527,7 @@ argument_list|,
 name|downloadedFile
 operator|.
 name|getFilePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -514,7 +552,7 @@ name|Test
 specifier|public
 name|void
 name|testGetChecksumCorrectSha1NoMd5
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -538,10 +576,22 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -555,7 +605,7 @@ argument_list|(
 name|expectedFile
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -604,7 +654,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -628,7 +678,7 @@ argument_list|,
 name|downloadedFile
 operator|.
 name|getFilePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -653,7 +703,7 @@ name|Test
 specifier|public
 name|void
 name|testGetChecksumNoSha1CorrectMd5
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -677,10 +727,22 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -694,7 +756,7 @@ argument_list|(
 name|expectedFile
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -743,7 +805,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -767,7 +829,7 @@ argument_list|,
 name|downloadedFile
 operator|.
 name|getFilePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -792,7 +854,7 @@ name|Test
 specifier|public
 name|void
 name|testGetWithNoChecksumsUsingIgnoredSetting
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -816,10 +878,22 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -833,7 +907,7 @@ argument_list|(
 name|expectedFile
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -882,7 +956,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -906,7 +980,7 @@ argument_list|,
 name|downloadedFile
 operator|.
 name|getFilePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -931,7 +1005,7 @@ name|Test
 specifier|public
 name|void
 name|testGetChecksumBadSha1BadMd5IgnoredSetting
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -955,10 +1029,22 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -972,7 +1058,7 @@ argument_list|(
 name|expectedFile
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -1021,7 +1107,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -1045,7 +1131,7 @@ argument_list|,
 name|downloadedFile
 operator|.
 name|getFilePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -1070,7 +1156,7 @@ name|Test
 specifier|public
 name|void
 name|testGetChecksumBadSha1BadMd5FailSetting
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -1094,10 +1180,22 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -1111,7 +1209,7 @@ argument_list|(
 name|expectedFile
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -1160,7 +1258,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -1185,7 +1283,7 @@ name|Test
 specifier|public
 name|void
 name|testGetChecksumBadSha1BadMd5FixSetting
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -1209,10 +1307,22 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -1226,7 +1336,7 @@ argument_list|(
 name|expectedFile
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -1275,7 +1385,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -1299,7 +1409,7 @@ argument_list|,
 name|downloadedFile
 operator|.
 name|getFilePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -1324,7 +1434,7 @@ name|Test
 specifier|public
 name|void
 name|testGetChecksumCorrectSha1BadMd5UsingFailSetting
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -1348,10 +1458,22 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -1365,7 +1487,7 @@ argument_list|(
 name|expectedFile
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -1414,7 +1536,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -1439,7 +1561,7 @@ name|Test
 specifier|public
 name|void
 name|testGetChecksumNoSha1CorrectMd5UsingFailSetting
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -1463,10 +1585,22 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -1480,7 +1614,7 @@ argument_list|(
 name|expectedFile
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -1529,7 +1663,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -1554,7 +1688,7 @@ argument_list|,
 name|downloadedFile
 operator|.
 name|getFilePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -1579,7 +1713,7 @@ name|Test
 specifier|public
 name|void
 name|testGetWithNoChecksumsUsingFailSetting
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -1603,10 +1737,22 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -1620,7 +1766,7 @@ argument_list|(
 name|expectedFile
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -1669,7 +1815,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -1694,7 +1840,7 @@ name|Test
 specifier|public
 name|void
 name|testGetChecksumCorrectSha1BadMd5UsingIgnoredSetting
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -1718,10 +1864,22 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -1735,7 +1893,7 @@ argument_list|(
 name|expectedFile
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -1784,7 +1942,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -1808,7 +1966,7 @@ argument_list|,
 name|downloadedFile
 operator|.
 name|getFilePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -1833,7 +1991,7 @@ name|Test
 specifier|public
 name|void
 name|testGetChecksumCorrectSha1BadMd5UsingFixSetting
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -1857,10 +2015,22 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -1874,7 +2044,7 @@ argument_list|(
 name|expectedFile
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -1923,7 +2093,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -1947,7 +2117,7 @@ argument_list|,
 name|downloadedFile
 operator|.
 name|getFilePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -1972,7 +2142,7 @@ name|Test
 specifier|public
 name|void
 name|testGetChecksumNoSha1CorrectMd5UsingFixSetting
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -1996,10 +2166,22 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -2013,7 +2195,7 @@ argument_list|(
 name|expectedFile
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -2062,7 +2244,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -2086,7 +2268,7 @@ argument_list|,
 name|downloadedFile
 operator|.
 name|getFilePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -2111,7 +2293,7 @@ name|Test
 specifier|public
 name|void
 name|testGetWithNoChecksumsUsingFixSetting
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -2135,10 +2317,22 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -2152,7 +2346,7 @@ argument_list|(
 name|expectedFile
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -2201,7 +2395,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -2225,7 +2419,7 @@ argument_list|,
 name|downloadedFile
 operator|.
 name|getFilePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -2250,7 +2444,7 @@ name|Test
 specifier|public
 name|void
 name|testGetChecksumNotFoundOnRemote
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -2274,10 +2468,22 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -2291,7 +2497,7 @@ argument_list|(
 name|expectedFile
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -2303,7 +2509,7 @@ argument_list|(
 name|expectedFile
 operator|.
 name|getParent
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2378,10 +2584,10 @@ expr_stmt|;
 name|EasyMock
 operator|.
 name|expectLastCall
-argument_list|()
+argument_list|( )
 operator|.
 name|once
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|wagonMock
 operator|.
@@ -2409,10 +2615,10 @@ expr_stmt|;
 name|EasyMock
 operator|.
 name|expectLastCall
-argument_list|()
+argument_list|( )
 operator|.
 name|once
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|wagonMock
 operator|.
@@ -2440,7 +2646,7 @@ expr_stmt|;
 name|EasyMock
 operator|.
 name|expectLastCall
-argument_list|()
+argument_list|( )
 operator|.
 name|andThrow
 argument_list|(
@@ -2452,12 +2658,12 @@ argument_list|)
 argument_list|)
 operator|.
 name|once
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|wagonMockControl
 operator|.
 name|replay
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|StorageAsset
 name|downloadedFile
@@ -2469,7 +2675,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -2477,7 +2683,7 @@ decl_stmt|;
 name|wagonMockControl
 operator|.
 name|verify
-argument_list|()
+argument_list|( )
 expr_stmt|;
 comment|// Do what the mock doesn't do.
 name|Path
@@ -2493,7 +2699,7 @@ name|path
 argument_list|)
 operator|.
 name|toAbsolutePath
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|Path
 name|localPath
@@ -2506,7 +2712,7 @@ name|path
 argument_list|)
 operator|.
 name|toAbsolutePath
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|Files
 operator|.
@@ -2532,7 +2738,7 @@ argument_list|(
 name|proxyPath
 operator|.
 name|getFileName
-argument_list|()
+argument_list|( )
 operator|+
 literal|".sha1"
 argument_list|)
@@ -2544,7 +2750,7 @@ argument_list|(
 name|localPath
 operator|.
 name|getFileName
-argument_list|()
+argument_list|( )
 operator|+
 literal|".sha1"
 argument_list|)
@@ -2574,7 +2780,7 @@ argument_list|,
 name|downloadedFile
 operator|.
 name|getFilePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -2599,7 +2805,7 @@ name|Test
 specifier|public
 name|void
 name|testGetAlwaysBadChecksumPresentLocallyAbsentRemoteUsingIgnoredSetting
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -2642,10 +2848,22 @@ argument_list|,
 name|remoteFile
 argument_list|)
 expr_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -2688,7 +2906,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -2712,7 +2930,7 @@ argument_list|,
 name|downloadedFile
 operator|.
 name|getFilePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|proxied1File
 argument_list|)
@@ -2738,7 +2956,7 @@ name|Test
 specifier|public
 name|void
 name|testGetAlwaysBadChecksumPresentLocallyAbsentRemoteUsingFailSetting
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -2781,10 +2999,22 @@ argument_list|,
 name|remoteFile
 argument_list|)
 expr_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -2827,7 +3057,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -2859,7 +3089,7 @@ name|Test
 specifier|public
 name|void
 name|testGetAlwaysBadChecksumPresentLocallyAbsentRemoteUsingFixSetting
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -2902,10 +3132,22 @@ argument_list|,
 name|remoteFile
 argument_list|)
 expr_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -2948,7 +3190,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -2972,7 +3214,7 @@ argument_list|,
 name|downloadedFile
 operator|.
 name|getFilePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|proxied1File
 argument_list|)

@@ -89,24 +89,6 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|maven
-operator|.
-name|content
-operator|.
-name|DefaultPathParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
 name|metadata
 operator|.
 name|base
@@ -668,7 +650,7 @@ operator|==
 literal|3
 return|;
 block|}
-comment|/**      * Adjust the requestedPath to conform to the native layout of the provided {@link org.apache.archiva.repository.ManagedRepositoryContent}.      *      * @param requestedPath the incoming requested path.      * @return the adjusted (to native) path.      * @throws LayoutException if the path cannot be parsed.      */
+comment|/**      * Adjust the requestedPath to conform to the native layout of the provided {@link BaseRepositoryContentLayout}.      *      * @param requestedPath the incoming requested path.      * @return the adjusted (to native) path.      * @throws LayoutException if the path cannot be parsed.      */
 specifier|public
 name|String
 name|toNativePath
@@ -777,6 +759,13 @@ name|repository
 operator|.
 name|getContent
 argument_list|()
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
 operator|.
 name|toPath
 argument_list|(

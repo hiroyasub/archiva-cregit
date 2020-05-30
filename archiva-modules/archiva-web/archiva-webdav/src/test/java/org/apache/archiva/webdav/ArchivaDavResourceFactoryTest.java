@@ -309,7 +309,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 import|;
 end_import
 
@@ -1562,7 +1562,7 @@ name|repoConfig
 return|;
 block|}
 specifier|private
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 name|createManagedRepositoryContent
 parameter_list|(
 name|String
@@ -1589,7 +1589,7 @@ argument_list|(
 name|repoId
 argument_list|)
 decl_stmt|;
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 name|repoContent
 init|=
 operator|new
@@ -1636,7 +1636,7 @@ specifier|private
 name|RepositoryContentProvider
 name|createRepositoryContentProvider
 parameter_list|(
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 name|content
 parameter_list|)
 block|{
@@ -1726,7 +1726,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 name|createManagedContent
 parameter_list|(
 name|org
@@ -1879,7 +1879,7 @@ name|ArchivaDavLocatorFactory
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 name|internalRepo
 init|=
 name|createManagedRepositoryContent
@@ -1887,7 +1887,7 @@ argument_list|(
 name|INTERNAL_REPO
 argument_list|)
 decl_stmt|;
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 name|releasesRepo
 init|=
 name|createManagedRepositoryContent
@@ -2295,7 +2295,7 @@ argument_list|(
 name|repoGroups
 argument_list|)
 expr_stmt|;
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 name|internalRepo
 init|=
 name|createManagedRepositoryContent
@@ -2303,7 +2303,7 @@ argument_list|(
 name|INTERNAL_REPO
 argument_list|)
 decl_stmt|;
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 name|releasesRepo
 init|=
 name|createManagedRepositoryContent
@@ -2737,7 +2737,7 @@ argument_list|(
 name|repoGroups
 argument_list|)
 expr_stmt|;
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 name|internalRepo
 init|=
 name|createManagedRepositoryContent
@@ -2745,7 +2745,7 @@ argument_list|(
 name|INTERNAL_REPO
 argument_list|)
 decl_stmt|;
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 name|localMirrorRepo
 init|=
 name|createManagedRepositoryContent
@@ -3162,7 +3162,7 @@ name|ArchivaDavLocatorFactory
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 name|internalRepo
 init|=
 name|createManagedRepositoryContent
@@ -3427,7 +3427,7 @@ name|ArchivaDavLocatorFactory
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 name|internalRepo
 init|=
 name|createManagedRepositoryContent
@@ -3623,7 +3623,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 name|legacyRepo
 init|=
 name|createManagedRepositoryContent

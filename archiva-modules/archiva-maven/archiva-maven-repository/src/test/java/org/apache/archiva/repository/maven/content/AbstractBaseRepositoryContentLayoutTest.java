@@ -97,7 +97,7 @@ begin_class
 specifier|public
 specifier|abstract
 class|class
-name|AbstractManagedRepositoryContentTest
+name|AbstractBaseRepositoryContentLayoutTest
 extends|extends
 name|AbstractRepositoryContentTest
 block|{

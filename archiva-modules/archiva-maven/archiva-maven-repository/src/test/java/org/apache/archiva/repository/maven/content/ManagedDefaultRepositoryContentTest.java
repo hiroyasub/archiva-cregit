@@ -175,6 +175,20 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|ManagedRepositoryContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|LayoutException
 import|;
 end_import
@@ -203,7 +217,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 import|;
 end_import
 
@@ -397,24 +411,6 @@ name|content
 operator|.
 name|base
 operator|.
-name|ArchivaDataItem
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|content
-operator|.
-name|base
-operator|.
 name|ArchivaItemSelector
 import|;
 end_import
@@ -452,22 +448,6 @@ operator|.
 name|storage
 operator|.
 name|ArtifactMappingProvider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|metadata
-operator|.
-name|MetadataReader
 import|;
 end_import
 
@@ -698,7 +678,7 @@ specifier|public
 class|class
 name|ManagedDefaultRepositoryContentTest
 extends|extends
-name|AbstractManagedRepositoryContentTest
+name|AbstractBaseRepositoryContentLayoutTest
 block|{
 specifier|private
 name|ManagedDefaultRepositoryContent
@@ -2217,7 +2197,7 @@ block|}
 annotation|@
 name|Override
 specifier|protected
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 name|getManaged
 parameter_list|( )
 block|{
@@ -6552,38 +6532,100 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//    @Test
-comment|//    public void testNewItemStreamWithNamespace2() {
-comment|//        ItemSelector selector = ArchivaItemSelector.builder( )
-comment|//            .withNamespace( "org.apache.maven" )
-comment|//            .build();
-comment|//
-comment|//        Stream<? extends ContentItem> stream = repoContent.newItemStream( selector, false );
-comment|//        List<? extends ContentItem> result = stream.collect( Collectors.toList( ) );
-comment|//        int versions = 0;
-comment|//        int projects = 0;
-comment|//        int artifacts = 0;
-comment|//        int namespaces = 0;
-comment|//        int dataitems = 0;
-comment|//        for (int i=0; i<result.size(); i++) {
-comment|//            ContentItem ci = result.get( i );
-comment|//            System.out.println( i + ": " + result.get( i ) + " - " +result.get(i).getClass().getName() + " - " + result.get(i).getAsset().getPath() );
-comment|//            if (ci instanceof Version) {
-comment|//                versions++;
-comment|//            } else if (ci instanceof Project) {
-comment|//                projects++;
-comment|//            } else if (ci instanceof Namespace) {
-comment|//                namespaces++;
-comment|//            } else if (ci instanceof Artifact) {
-comment|//                artifacts++;
-comment|//            } else if (ci instanceof DataItem ) {
-comment|//                dataitems++;
-comment|//            }
-comment|//        }
-comment|//        System.out.println( "namespaces=" + namespaces + ", projects=" + projects + ", versions=" + versions + ", artifacts=" + artifacts + ", dataitems=" + dataitems );
-comment|//        assertEquals( 170, result.size( ) );
-comment|//        assertEquals( 92, result.stream( ).filter( a -> a instanceof Artifact ).count( ) );
-comment|//    }
+annotation|@
+name|Test
+specifier|public
+name|void
+name|testNewItemStreamWithNamespace2
+parameter_list|()
+block|{
+name|ItemSelector
+name|selector
+init|=
+name|ArchivaItemSelector
+operator|.
+name|builder
+argument_list|( )
+operator|.
+name|withNamespace
+argument_list|(
+literal|"org.apache.maven"
+argument_list|)
+operator|.
+name|recurse
+argument_list|()
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
+name|Stream
+argument_list|<
+name|?
+extends|extends
+name|ContentItem
+argument_list|>
+name|stream
+init|=
+name|repoContent
+operator|.
+name|newItemStream
+argument_list|(
+name|selector
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
+name|List
+argument_list|<
+name|?
+extends|extends
+name|ContentItem
+argument_list|>
+name|result
+init|=
+name|stream
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toList
+argument_list|( )
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|170
+argument_list|,
+name|result
+operator|.
+name|size
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|92
+argument_list|,
+name|result
+operator|.
+name|stream
+argument_list|( )
+operator|.
+name|filter
+argument_list|(
+name|a
+lambda|->
+name|a
+operator|instanceof
+name|DataItem
+argument_list|)
+operator|.
+name|count
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Test
 specifier|public
@@ -9892,6 +9934,8 @@ throws|throws
 name|IOException
 throws|,
 name|URISyntaxException
+throws|,
+name|LayoutException
 block|{
 name|ManagedRepository
 name|repo
@@ -9908,6 +9952,18 @@ name|repo
 operator|.
 name|getContent
 argument_list|( )
+decl_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|myRepoContent
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 name|Path
 name|repoRoot
@@ -10045,14 +10101,14 @@ decl_stmt|;
 name|Artifact
 name|artifact
 init|=
-name|myRepoContent
+name|layout
 operator|.
 name|getArtifact
 argument_list|(
 name|selector
 argument_list|)
 decl_stmt|;
-name|myRepoContent
+name|layout
 operator|.
 name|addArtifact
 argument_list|(
@@ -10255,14 +10311,14 @@ argument_list|( )
 expr_stmt|;
 name|artifact
 operator|=
-name|myRepoContent
+name|layout
 operator|.
 name|getArtifact
 argument_list|(
 name|selector
 argument_list|)
 expr_stmt|;
-name|myRepoContent
+name|layout
 operator|.
 name|addArtifact
 argument_list|(

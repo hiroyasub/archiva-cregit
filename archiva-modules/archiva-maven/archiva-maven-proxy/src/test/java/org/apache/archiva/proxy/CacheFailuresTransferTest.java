@@ -127,6 +127,20 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|BaseRepositoryContentLayout
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|storage
 operator|.
 name|StorageAsset
@@ -248,7 +262,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CacheFailuresTransferTest  *  *  */
+comment|/**  * CacheFailuresTransferTest  */
 end_comment
 
 begin_class
@@ -270,7 +284,7 @@ name|Test
 specifier|public
 name|void
 name|testGetWithCacheFailuresOn
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -299,10 +313,22 @@ argument_list|(
 name|expectedFile
 argument_list|)
 expr_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -407,7 +433,7 @@ expr_stmt|;
 name|EasyMock
 operator|.
 name|expectLastCall
-argument_list|()
+argument_list|( )
 operator|.
 name|andThrow
 argument_list|(
@@ -426,7 +452,7 @@ expr_stmt|;
 name|wagonMockControl
 operator|.
 name|replay
-argument_list|()
+argument_list|( )
 expr_stmt|;
 comment|//noinspection UnusedAssignment
 name|StorageAsset
@@ -439,7 +465,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -447,18 +473,18 @@ decl_stmt|;
 name|wagonMockControl
 operator|.
 name|verify
-argument_list|()
+argument_list|( )
 expr_stmt|;
 comment|// Second attempt to download same artifact use cache
 name|wagonMockControl
 operator|.
 name|reset
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|wagonMockControl
 operator|.
 name|replay
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|downloadedFile
 operator|=
@@ -469,7 +495,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -477,7 +503,7 @@ expr_stmt|;
 name|wagonMockControl
 operator|.
 name|verify
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|assertNotDownloaded
 argument_list|(
@@ -495,7 +521,7 @@ name|Test
 specifier|public
 name|void
 name|testGetWithCacheFailuresOff
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -524,10 +550,22 @@ argument_list|(
 name|expectedFile
 argument_list|)
 expr_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -632,7 +670,7 @@ expr_stmt|;
 name|EasyMock
 operator|.
 name|expectLastCall
-argument_list|()
+argument_list|( )
 operator|.
 name|andThrow
 argument_list|(
@@ -651,7 +689,7 @@ expr_stmt|;
 name|wagonMockControl
 operator|.
 name|replay
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|StorageAsset
 name|downloadedFile
@@ -663,7 +701,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -671,13 +709,13 @@ decl_stmt|;
 name|wagonMockControl
 operator|.
 name|verify
-argument_list|()
+argument_list|( )
 expr_stmt|;
 comment|// Second attempt to download same artifact DOES NOT use cache
 name|wagonMockControl
 operator|.
 name|reset
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|wagonMock
 operator|.
@@ -703,7 +741,7 @@ expr_stmt|;
 name|EasyMock
 operator|.
 name|expectLastCall
-argument_list|()
+argument_list|( )
 operator|.
 name|andThrow
 argument_list|(
@@ -722,7 +760,7 @@ expr_stmt|;
 name|wagonMockControl
 operator|.
 name|replay
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|downloadedFile
 operator|=
@@ -733,7 +771,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -741,7 +779,7 @@ expr_stmt|;
 name|wagonMockControl
 operator|.
 name|verify
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|assertNotDownloaded
 argument_list|(
@@ -759,7 +797,7 @@ name|Test
 specifier|public
 name|void
 name|testGetWhenInBothProxiedButFirstCacheFailure
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{
@@ -783,10 +821,22 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|managedDefaultRepository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -829,7 +879,7 @@ name|UrlFailureCache
 name|failurlCache
 init|=
 name|lookupUrlFailureCache
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|failurlCache
 operator|.
@@ -899,7 +949,7 @@ argument_list|(
 name|managedDefaultRepository
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
@@ -929,7 +979,7 @@ argument_list|,
 name|downloadedFile
 operator|.
 name|getFilePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|proxied2File
 argument_list|)
@@ -943,7 +993,7 @@ block|}
 specifier|protected
 name|UrlFailureCache
 name|lookupUrlFailureCache
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|Exception
 block|{

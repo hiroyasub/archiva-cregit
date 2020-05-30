@@ -177,7 +177,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ManagedRepository
+name|ManagedRepositoryContent
 import|;
 end_import
 
@@ -191,7 +191,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ManagedRepositoryContent
+name|ManagedRepository
 import|;
 end_import
 

@@ -83,6 +83,20 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|ManagedRepositoryContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|LayoutException
 import|;
 end_import
@@ -111,7 +125,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 import|;
 end_import
 
@@ -398,6 +412,13 @@ operator|.
 name|add
 argument_list|(
 name|repository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
 operator|.
 name|toArtifactReference
 argument_list|(

@@ -57,7 +57,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 import|;
 end_import
 
@@ -278,7 +278,7 @@ block|}
 annotation|@
 name|Override
 specifier|protected
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 name|getManaged
 parameter_list|( )
 block|{

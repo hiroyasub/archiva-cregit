@@ -27,20 +27,6 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ItemConversionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
 name|ManagedRepositoryContent
 import|;
 end_import
@@ -55,7 +41,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|UnsupportedConversionException
+name|ItemConversionException
 import|;
 end_import
 

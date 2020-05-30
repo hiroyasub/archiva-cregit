@@ -87,7 +87,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 import|;
 end_import
 
@@ -2426,7 +2426,7 @@ name|LayoutException
 function_decl|;
 specifier|protected
 specifier|abstract
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 name|getManaged
 parameter_list|()
 function_decl|;
