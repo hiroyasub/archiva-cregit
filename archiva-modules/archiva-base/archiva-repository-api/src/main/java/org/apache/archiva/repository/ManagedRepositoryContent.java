@@ -121,6 +121,8 @@ begin_interface
 specifier|public
 interface|interface
 name|ManagedRepositoryContent
+extends|extends
+name|RepositoryContent
 block|{
 comment|/**      * Returns the path of the given item.      *      * @param item      * @return      */
 name|String

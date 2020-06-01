@@ -115,6 +115,22 @@ name|repository
 operator|.
 name|content
 operator|.
+name|DataItem
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
 name|ItemNotFoundException
 import|;
 end_import
@@ -449,6 +465,14 @@ name|IllegalArgumentException
 throws|,
 name|ContentAccessException
 function_decl|;
+comment|/**      * Returns the metadata file for the given version.      *      * @param version the version      * @return the metadata file      */
+name|DataItem
+name|getMetadataItem
+parameter_list|(
+name|Version
+name|version
+parameter_list|)
+function_decl|;
 comment|/// *****************   End of new generation interface **********************
 comment|/**      * Returns the version reference for the given coordinates.      * @param groupId the group id      * @param artifactId the artifact id      * @param version the version number      * @return a version reference      */
 name|VersionedReference
@@ -623,22 +647,6 @@ name|String
 name|toMetadataPath
 parameter_list|(
 name|ProjectReference
-name|reference
-parameter_list|)
-function_decl|;
-comment|/**      * Given a {@link VersionedReference}, return the path to the metadata for      * the specific version of the project.      *      * @param reference the reference to use.      * @return the path to the metadata file, or null if no metadata is appropriate.      */
-name|String
-name|toMetadataPath
-parameter_list|(
-name|VersionedReference
-name|reference
-parameter_list|)
-function_decl|;
-comment|/**      * Given an {@link ArchivaArtifact}, return the relative path to the artifact.      *      * @param reference the archiva artifact to use.      * @return the relative path to the artifact.      */
-name|String
-name|toPath
-parameter_list|(
-name|ArchivaArtifact
 name|reference
 parameter_list|)
 function_decl|;
