@@ -469,6 +469,14 @@ name|Version
 name|version
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the metadata file for the given project      *      * @param project the project      * @return the metadata file      */
+name|DataItem
+name|getMetadataItem
+parameter_list|(
+name|Project
+name|project
+parameter_list|)
+function_decl|;
 comment|/// *****************   End of new generation interface **********************
 comment|/**      * Returns the version reference for the given coordinates.      * @param groupId the group id      * @param artifactId the artifact id      * @param version the version number      * @return a version reference      */
 name|VersionedReference
