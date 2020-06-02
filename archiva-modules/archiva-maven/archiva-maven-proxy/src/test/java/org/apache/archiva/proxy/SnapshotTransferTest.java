@@ -195,19 +195,7 @@ name|junit
 operator|.
 name|Assert
 operator|.
-name|assertFalse
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertTrue
+name|*
 import|;
 end_import
 
@@ -1232,6 +1220,11 @@ argument_list|,
 name|path
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|downloadedFile
+argument_list|)
+expr_stmt|;
 name|assertFileEquals
 argument_list|(
 name|expectedFile
@@ -1303,6 +1296,13 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|artifact
+operator|.
+name|setProjectVersion
+argument_list|(
+literal|"1.0-SNAPSHOT"
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|Files
@@ -1372,6 +1372,11 @@ argument_list|,
 name|path
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|downloadedFile
+argument_list|)
+expr_stmt|;
 name|assertFileEquals
 argument_list|(
 name|expectedFile

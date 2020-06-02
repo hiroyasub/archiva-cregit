@@ -393,6 +393,16 @@ name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|artifact
+operator|.
+name|setProjectVersion
+argument_list|(
+name|metadata
+operator|.
+name|getProjectVersion
+argument_list|( )
+argument_list|)
+expr_stmt|;
 name|MavenArtifactFacet
 name|facet
 init|=

@@ -63,6 +63,34 @@ specifier|private
 name|String
 name|type
 decl_stmt|;
+specifier|public
+name|String
+name|getProjectVersion
+parameter_list|( )
+block|{
+return|return
+name|projectVersion
+return|;
+block|}
+specifier|public
+name|void
+name|setProjectVersion
+parameter_list|(
+name|String
+name|projectVersion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|projectVersion
+operator|=
+name|projectVersion
+expr_stmt|;
+block|}
+specifier|private
+name|String
+name|projectVersion
+decl_stmt|;
 comment|//-----------/
 comment|//- Methods -/
 comment|//-----------/
