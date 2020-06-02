@@ -602,26 +602,6 @@ name|String
 name|getRepoRoot
 parameter_list|()
 function_decl|;
-comment|/**      * Determines if the artifact referenced exists in the repository.      *      * @param reference the artifact reference to check for.      * @return true if the artifact referenced exists.      */
-name|boolean
-name|hasContent
-parameter_list|(
-name|ArtifactReference
-name|reference
-parameter_list|)
-throws|throws
-name|ContentAccessException
-function_decl|;
-comment|/**      * Determines if the version reference exists in the repository.      *      * @param reference the version reference to check for.      * @return true if the version referenced exists.      */
-name|boolean
-name|hasContent
-parameter_list|(
-name|VersionedReference
-name|reference
-parameter_list|)
-throws|throws
-name|ContentAccessException
-function_decl|;
 comment|/**      * Given an {@link ArtifactReference}, return the file reference to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
 name|StorageAsset
 name|toFile
@@ -635,14 +615,6 @@ name|StorageAsset
 name|toFile
 parameter_list|(
 name|ArtifactReference
-name|reference
-parameter_list|)
-function_decl|;
-comment|/**      * Given an {@link ArchivaArtifact}, return the file reference to the artifact.      *      * @param reference the archiva artifact to use.      * @return the relative path to the artifact.      */
-name|StorageAsset
-name|toFile
-parameter_list|(
-name|ArchivaArtifact
 name|reference
 parameter_list|)
 function_decl|;
