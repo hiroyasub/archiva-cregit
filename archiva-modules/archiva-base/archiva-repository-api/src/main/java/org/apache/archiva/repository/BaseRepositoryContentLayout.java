@@ -646,14 +646,6 @@ name|ArchivaArtifact
 name|reference
 parameter_list|)
 function_decl|;
-comment|/**      * Given a {@link ProjectReference}, return the path to the metadata for      * the project.      *      * @param reference the reference to use.      * @return the path to the metadata file, or null if no metadata is appropriate.      */
-name|String
-name|toMetadataPath
-parameter_list|(
-name|ProjectReference
-name|reference
-parameter_list|)
-function_decl|;
 block|}
 end_interface
 
