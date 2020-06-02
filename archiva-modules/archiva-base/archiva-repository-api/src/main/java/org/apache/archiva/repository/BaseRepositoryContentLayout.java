@@ -258,10 +258,6 @@ specifier|public
 interface|interface
 name|BaseRepositoryContentLayout
 extends|extends
-name|RepositoryContent
-extends|,
-name|ManagedRepositoryContent
-extends|,
 name|ManagedRepositoryContentLayout
 block|{
 comment|/// *****************   New generation interface **********************

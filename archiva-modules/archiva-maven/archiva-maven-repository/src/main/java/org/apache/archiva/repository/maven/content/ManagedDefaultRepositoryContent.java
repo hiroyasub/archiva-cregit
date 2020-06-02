@@ -886,6 +886,8 @@ name|ManagedDefaultRepositoryContent
 extends|extends
 name|AbstractDefaultRepositoryContent
 implements|implements
+name|ManagedRepositoryContent
+implements|,
 name|BaseRepositoryContentLayout
 block|{
 comment|// attribute flag that marks version objects that point to a snapshot artifact version

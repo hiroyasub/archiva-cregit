@@ -655,7 +655,7 @@ decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|layout
+name|repositoryContent
 operator|.
 name|toArtifactReference
 argument_list|(

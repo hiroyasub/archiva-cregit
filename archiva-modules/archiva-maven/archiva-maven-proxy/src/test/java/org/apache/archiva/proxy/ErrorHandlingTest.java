@@ -2612,7 +2612,7 @@ operator|.
 name|getRepository
 argument_list|()
 argument_list|,
-name|layout
+name|managedDefaultRepository
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -2799,7 +2799,7 @@ operator|.
 name|getRepository
 argument_list|()
 argument_list|,
-name|layout
+name|managedDefaultRepository
 operator|.
 name|toArtifactReference
 argument_list|(

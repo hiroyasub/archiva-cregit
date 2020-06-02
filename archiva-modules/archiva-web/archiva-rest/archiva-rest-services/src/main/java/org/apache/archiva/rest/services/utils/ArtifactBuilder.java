@@ -492,7 +492,7 @@ name|artifact
 operator|.
 name|setPath
 argument_list|(
-name|layout
+name|managedRepositoryContent
 operator|.
 name|toPath
 argument_list|(

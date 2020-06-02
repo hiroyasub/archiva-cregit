@@ -71,6 +71,20 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|ManagedRepositoryContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|RemoteRepository
 import|;
 end_import
@@ -278,7 +292,7 @@ block|}
 annotation|@
 name|Override
 specifier|protected
-name|BaseRepositoryContentLayout
+name|ManagedRepositoryContent
 name|getManaged
 parameter_list|( )
 block|{

@@ -43,6 +43,20 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|ManagedRepositoryContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|RepositoryContent
 import|;
 end_import
@@ -2102,6 +2116,13 @@ operator|=
 name|getManaged
 argument_list|( )
 operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+operator|.
 name|getNamespace
 argument_list|(
 name|expectedArtifact
@@ -2137,6 +2158,13 @@ name|pr
 operator|=
 name|getManaged
 argument_list|( )
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
 operator|.
 name|getProject
 argument_list|(
@@ -2184,6 +2212,13 @@ operator|=
 name|getManaged
 argument_list|( )
 operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+operator|.
 name|getVersion
 argument_list|(
 name|expectedArtifact
@@ -2220,6 +2255,13 @@ name|artifact
 init|=
 name|getManaged
 argument_list|( )
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
 operator|.
 name|getArtifact
 argument_list|(
@@ -2426,7 +2468,7 @@ name|LayoutException
 function_decl|;
 specifier|protected
 specifier|abstract
-name|BaseRepositoryContentLayout
+name|ManagedRepositoryContent
 name|getManaged
 parameter_list|()
 function_decl|;

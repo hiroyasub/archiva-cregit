@@ -175,7 +175,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|BaseRepositoryContentLayout
+name|ManagedRepositoryContent
 name|createManagedContent
 parameter_list|(
 name|ManagedRepository

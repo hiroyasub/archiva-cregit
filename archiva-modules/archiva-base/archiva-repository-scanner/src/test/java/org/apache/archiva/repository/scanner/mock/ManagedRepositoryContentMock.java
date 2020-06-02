@@ -507,6 +507,8 @@ class|class
 name|ManagedRepositoryContentMock
 implements|implements
 name|BaseRepositoryContentLayout
+implements|,
+name|ManagedRepositoryContent
 block|{
 specifier|private
 specifier|static

@@ -4457,6 +4457,9 @@ block|{
 return|return
 name|managedRepository
 operator|.
+name|getGenericContent
+argument_list|()
+operator|.
 name|toArtifactReference
 argument_list|(
 name|result

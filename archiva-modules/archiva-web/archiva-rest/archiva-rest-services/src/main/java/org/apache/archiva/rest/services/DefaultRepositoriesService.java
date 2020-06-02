@@ -2375,7 +2375,7 @@ decl_stmt|;
 name|String
 name|artifactSourcePath
 init|=
-name|layout
+name|sourceRepository
 operator|.
 name|toPath
 argument_list|(
@@ -2473,7 +2473,7 @@ decl_stmt|;
 name|String
 name|artifactPath
 init|=
-name|layout
+name|sourceRepository
 operator|.
 name|toPath
 argument_list|(
@@ -4286,7 +4286,7 @@ decl_stmt|;
 name|String
 name|path
 init|=
-name|layout
+name|repository
 operator|.
 name|toPath
 argument_list|(
@@ -4606,7 +4606,7 @@ condition|)
 block|{
 try|try
 block|{
-name|layout
+name|repository
 operator|.
 name|deleteItem
 argument_list|(

@@ -328,7 +328,7 @@ decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|layout
+name|managedDefaultRepository
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -565,7 +565,7 @@ decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|layout
+name|managedDefaultRepository
 operator|.
 name|toArtifactReference
 argument_list|(
@@ -836,7 +836,7 @@ decl_stmt|;
 name|ArtifactReference
 name|artifact
 init|=
-name|layout
+name|managedDefaultRepository
 operator|.
 name|toArtifactReference
 argument_list|(

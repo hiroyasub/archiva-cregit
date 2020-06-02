@@ -760,13 +760,6 @@ operator|.
 name|getContent
 argument_list|()
 operator|.
-name|getLayout
-argument_list|(
-name|BaseRepositoryContentLayout
-operator|.
-name|class
-argument_list|)
-operator|.
 name|toPath
 argument_list|(
 name|ref

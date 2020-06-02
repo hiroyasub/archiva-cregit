@@ -2197,7 +2197,7 @@ block|}
 annotation|@
 name|Override
 specifier|protected
-name|BaseRepositoryContentLayout
+name|ManagedRepositoryContent
 name|getManaged
 parameter_list|( )
 block|{

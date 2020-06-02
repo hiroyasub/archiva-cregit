@@ -531,13 +531,6 @@ name|artifactRef
 init|=
 name|repository
 operator|.
-name|getLayout
-argument_list|(
-name|BaseRepositoryContentLayout
-operator|.
-name|class
-argument_list|)
-operator|.
 name|toArtifactReference
 argument_list|(
 name|path

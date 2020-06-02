@@ -29,6 +29,20 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|BaseRepositoryContentLayout
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|LayoutException
 import|;
 end_import
@@ -162,6 +176,8 @@ specifier|public
 name|void
 name|testGetArtifactOnEmptyPath
 parameter_list|()
+throws|throws
+name|LayoutException
 block|{
 name|ItemSelector
 name|selector
@@ -178,6 +194,13 @@ try|try
 block|{
 name|getManaged
 argument_list|( )
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
 operator|.
 name|getArtifact
 argument_list|(
