@@ -253,6 +253,22 @@ name|repository
 operator|.
 name|content
 operator|.
+name|ItemNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
 name|ItemSelector
 import|;
 end_import
@@ -554,7 +570,7 @@ comment|// Nothing to do here, not a snapshot, skip it.
 return|return;
 block|}
 name|ItemSelector
-name|selector
+name|projectSelector
 init|=
 name|ArchivaItemSelector
 operator|.
@@ -664,7 +680,7 @@ name|repoContent
 operator|.
 name|getProject
 argument_list|(
-name|selector
+name|projectSelector
 argument_list|)
 decl_stmt|;
 for|for
@@ -753,6 +769,40 @@ name|getArtifactId
 argument_list|( )
 argument_list|)
 expr_stmt|;
+name|ArchivaItemSelector
+operator|.
+name|Builder
+name|versionSelectorBuilder
+init|=
+name|ArchivaItemSelector
+operator|.
+name|builder
+argument_list|( )
+operator|.
+name|withNamespace
+argument_list|(
+name|artifactRef
+operator|.
+name|getGroupId
+argument_list|( )
+argument_list|)
+operator|.
+name|withProjectId
+argument_list|(
+name|artifactRef
+operator|.
+name|getArtifactId
+argument_list|( )
+argument_list|)
+operator|.
+name|withArtifactId
+argument_list|(
+name|artifactRef
+operator|.
+name|getArtifactId
+argument_list|( )
+argument_list|)
+decl_stmt|;
 name|MetadataRepository
 name|metadataRepository
 init|=
@@ -779,23 +829,48 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-name|versionRef
+name|ArchivaItemSelector
+name|selector
+init|=
+name|versionSelectorBuilder
 operator|.
-name|setVersion
+name|withVersion
 argument_list|(
 name|artifactRef
 operator|.
 name|getVersion
 argument_list|( )
 argument_list|)
-expr_stmt|;
+operator|.
+name|build
+argument_list|( )
+decl_stmt|;
+name|Version
+name|version
+init|=
 name|layout
 operator|.
-name|deleteVersion
+name|getVersion
 argument_list|(
-name|versionRef
+name|selector
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|version
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+name|repository
+operator|.
+name|deleteItem
+argument_list|(
+name|version
 argument_list|)
 expr_stmt|;
+block|}
 for|for
 control|(
 name|RepositoryListener
@@ -902,25 +977,6 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ContentNotFoundException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RepositoryPurgeException
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|( )
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
 name|MetadataRepositoryException
 name|e
 parameter_list|)
@@ -955,6 +1011,27 @@ name|e
 operator|.
 name|printStackTrace
 argument_list|( )
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ItemNotFoundException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Could not find item to delete {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1059,21 +1136,9 @@ block|}
 catch|catch
 parameter_list|(
 name|RepositoryMetadataException
-name|e
-parameter_list|)
-block|{
-comment|// Ignore.
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// Ignore.
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|LayoutException
 name|e
 parameter_list|)
@@ -1095,34 +1160,16 @@ block|}
 catch|catch
 parameter_list|(
 name|ContentNotFoundException
-name|e
-parameter_list|)
-block|{
-comment|// Ignore. (Just means we have no snapshot versions left to reference).
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|RepositoryMetadataException
-name|e
-parameter_list|)
-block|{
-comment|// Ignore.
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// Ignore.
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|LayoutException
 name|e
 parameter_list|)
 block|{
-comment|// Ignore.
+comment|// Ignore. (Just means we have no snapshot versions left to reference).
 block|}
 block|}
 block|}

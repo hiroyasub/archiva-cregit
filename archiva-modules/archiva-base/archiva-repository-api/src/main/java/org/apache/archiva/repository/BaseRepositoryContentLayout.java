@@ -500,18 +500,6 @@ name|ArtifactReference
 name|artifactReference
 parameter_list|)
 function_decl|;
-comment|/**      * Delete from the managed repository all files / directories associated with the      * provided version reference.      *      * @param reference the version reference to delete.      * @throws ContentNotFoundException      */
-name|void
-name|deleteVersion
-parameter_list|(
-name|VersionedReference
-name|reference
-parameter_list|)
-throws|throws
-name|ContentNotFoundException
-throws|,
-name|ContentAccessException
-function_decl|;
 comment|/**      * delete a specified artifact from the repository      *      * @param artifactReference      * @throws ContentNotFoundException      */
 name|void
 name|deleteArtifact
@@ -607,14 +595,6 @@ name|StorageAsset
 name|toFile
 parameter_list|(
 name|VersionedReference
-name|reference
-parameter_list|)
-function_decl|;
-comment|/**      * Given an {@link ArtifactReference}, return the file reference to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
-name|StorageAsset
-name|toFile
-parameter_list|(
-name|ArtifactReference
 name|reference
 parameter_list|)
 function_decl|;
