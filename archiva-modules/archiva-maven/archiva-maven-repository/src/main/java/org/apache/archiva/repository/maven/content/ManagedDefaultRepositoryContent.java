@@ -7600,23 +7600,6 @@ operator|)
 return|;
 block|}
 block|}
-annotation|@
-name|Override
-specifier|public
-name|String
-name|getRepoRoot
-parameter_list|( )
-block|{
-return|return
-name|convertUriToPath
-argument_list|(
-name|repository
-operator|.
-name|getLocation
-argument_list|( )
-argument_list|)
-return|;
-block|}
 specifier|private
 name|String
 name|convertUriToPath

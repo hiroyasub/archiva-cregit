@@ -1947,24 +1947,6 @@ name|getId
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
-specifier|public
-name|String
-name|getRepoRoot
-parameter_list|( )
-block|{
-return|return
-name|getRepoRootAsset
-argument_list|()
-operator|.
-name|getFilePath
-argument_list|()
-operator|.
-name|toString
-argument_list|()
-return|;
-block|}
 specifier|private
 name|StorageAsset
 name|getRepoRootAsset

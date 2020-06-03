@@ -1519,17 +1519,6 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|String
-name|getRepoRoot
-parameter_list|( )
-block|{
-return|return
-literal|null
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
 name|ManagedRepository
 name|getRepository
 parameter_list|( )

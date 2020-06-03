@@ -478,11 +478,6 @@ name|project
 parameter_list|)
 function_decl|;
 comment|/// *****************   End of new generation interface **********************
-comment|/**      *<p>      * Convenience method to get the repository (on disk) root directory.      *</p>      *<p>      * Equivalent to calling<code>.getRepository().getLocation()</code>      *</p>      *      * @return the repository (on disk) root directory.      */
-name|String
-name|getRepoRoot
-parameter_list|()
-function_decl|;
 block|}
 end_interface
 
