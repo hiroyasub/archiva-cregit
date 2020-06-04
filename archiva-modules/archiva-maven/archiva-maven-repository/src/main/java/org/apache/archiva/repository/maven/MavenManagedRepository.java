@@ -422,10 +422,8 @@ name|setLocation
 argument_list|(
 name|storage
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 operator|.
 name|getFilePath
 argument_list|()
@@ -470,10 +468,8 @@ name|setLocation
 argument_list|(
 name|storage
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 operator|.
 name|getFilePath
 argument_list|()

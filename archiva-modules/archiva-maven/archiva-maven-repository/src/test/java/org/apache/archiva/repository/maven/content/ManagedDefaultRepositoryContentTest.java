@@ -6988,10 +6988,8 @@ name|repoRoot
 init|=
 name|repo
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 operator|.
 name|getFilePath
 argument_list|( )
@@ -7215,10 +7213,8 @@ name|repoRoot
 init|=
 name|repo
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 operator|.
 name|getFilePath
 argument_list|( )
@@ -7481,10 +7477,8 @@ name|repoRoot
 init|=
 name|repo
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 operator|.
 name|getFilePath
 argument_list|( )
@@ -7787,10 +7781,8 @@ name|repoRoot
 init|=
 name|repo
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 operator|.
 name|getFilePath
 argument_list|( )
@@ -8644,10 +8636,8 @@ name|repoRoot
 init|=
 name|repo
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 operator|.
 name|getFilePath
 argument_list|( )
@@ -8961,10 +8951,8 @@ name|repoRoot
 init|=
 name|repo
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 operator|.
 name|getFilePath
 argument_list|( )

@@ -2025,10 +2025,8 @@ operator|.
 name|getRepository
 argument_list|()
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getLocalPath
+argument_list|()
 operator|.
 name|getFilePath
 argument_list|()
@@ -3014,10 +3012,8 @@ operator|.
 name|getRepository
 argument_list|()
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getLocalPath
+argument_list|()
 operator|.
 name|resolve
 argument_list|(
@@ -4047,10 +4043,8 @@ operator|.
 name|getRepository
 argument_list|( )
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getLocalPath
+argument_list|()
 decl_stmt|;
 name|StorageAsset
 name|destDir
@@ -5967,10 +5961,8 @@ name|add
 argument_list|(
 name|storage
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -7227,10 +7219,8 @@ name|tmpAsset
 init|=
 name|storage
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 decl_stmt|;
 name|IndexMergerRequest
 name|indexMergerRequest

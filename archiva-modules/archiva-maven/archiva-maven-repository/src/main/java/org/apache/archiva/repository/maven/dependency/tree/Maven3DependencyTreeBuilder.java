@@ -970,10 +970,8 @@ name|localRepoDir
 operator|=
 name|repository
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 operator|.
 name|getFilePath
 argument_list|()
@@ -1375,10 +1373,8 @@ name|repoDir
 init|=
 name|managedRepo
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 decl_stmt|;
 name|StorageAsset
 name|file

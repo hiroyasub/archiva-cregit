@@ -630,10 +630,8 @@ operator|.
 name|getRepository
 argument_list|()
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 expr_stmt|;
 name|this
 operator|.

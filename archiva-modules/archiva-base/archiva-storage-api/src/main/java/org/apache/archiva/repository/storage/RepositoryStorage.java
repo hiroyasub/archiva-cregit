@@ -137,6 +137,11 @@ name|String
 name|path
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the root asset of the storage      * @return the storage asset that represents the root      */
+name|StorageAsset
+name|getRoot
+parameter_list|( )
+function_decl|;
 comment|/**      * Consumes the data and sets a lock for the file during the operation.      *      * @param asset The asset from which the data is consumed.      * @param consumerFunction The consumer that reads the data      * @param readLock If true, a read lock is acquired on the asset.      * @throws IOException      */
 name|void
 name|consumeData

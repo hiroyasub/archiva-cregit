@@ -1537,6 +1537,27 @@ annotation|@
 name|Override
 specifier|public
 name|StorageAsset
+name|getRoot
+parameter_list|( )
+block|{
+return|return
+operator|new
+name|FilesystemAsset
+argument_list|(
+name|this
+argument_list|,
+literal|""
+argument_list|,
+name|basePath
+argument_list|,
+name|basePath
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|StorageAsset
 name|addAsset
 parameter_list|(
 name|String

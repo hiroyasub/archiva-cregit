@@ -376,10 +376,8 @@ name|asset
 operator|=
 name|storage
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 expr_stmt|;
 name|ns
 operator|=

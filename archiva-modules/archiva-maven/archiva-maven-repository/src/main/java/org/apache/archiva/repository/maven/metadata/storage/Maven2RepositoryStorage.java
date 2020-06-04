@@ -1057,10 +1057,8 @@ name|basedir
 init|=
 name|managedRepository
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -3122,7 +3120,7 @@ throws|throws
 name|RepositoryStorageRuntimeException
 block|{
 name|ManagedRepository
-name|repositoryConfiguration
+name|repository
 init|=
 name|repositoryRegistry
 operator|.
@@ -3132,12 +3130,10 @@ name|repoId
 argument_list|)
 decl_stmt|;
 return|return
-name|repositoryConfiguration
+name|repository
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 return|;
 block|}
 annotation|@

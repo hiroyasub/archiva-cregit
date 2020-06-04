@@ -597,10 +597,8 @@ return|return
 name|getStorage
 argument_list|()
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 return|;
 block|}
 annotation|@

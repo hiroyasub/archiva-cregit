@@ -283,10 +283,8 @@ block|{
 return|return
 name|indexStorage
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 return|;
 block|}
 annotation|@

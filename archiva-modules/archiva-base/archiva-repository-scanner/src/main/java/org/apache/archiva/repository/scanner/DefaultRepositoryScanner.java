@@ -428,10 +428,8 @@ name|repositoryBase
 init|=
 name|repository
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 decl_stmt|;
 comment|//MRM-1342 Repository statistics report doesn't appear to be working correctly
 comment|//create the repo if not existing to have an empty stats

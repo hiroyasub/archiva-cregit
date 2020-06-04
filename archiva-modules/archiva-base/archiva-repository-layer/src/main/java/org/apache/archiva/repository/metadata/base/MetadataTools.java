@@ -4335,10 +4335,8 @@ operator|.
 name|getRepository
 argument_list|( )
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

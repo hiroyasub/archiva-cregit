@@ -518,6 +518,17 @@ block|}
 annotation|@
 name|Override
 specifier|public
+name|StorageAsset
+name|getRoot
+parameter_list|( )
+block|{
+return|return
+name|root
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
 name|void
 name|consumeData
 parameter_list|(

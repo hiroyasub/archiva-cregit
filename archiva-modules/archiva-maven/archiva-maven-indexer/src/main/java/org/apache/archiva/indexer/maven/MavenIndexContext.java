@@ -347,10 +347,8 @@ name|repositoryDirAsset
 init|=
 name|repository
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 decl_stmt|;
 name|Path
 name|repositoryDir
@@ -423,10 +421,8 @@ name|dir
 operator|=
 name|storage
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch

@@ -7733,10 +7733,8 @@ block|{
 return|return
 name|repository
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 operator|.
 name|getFilePath
 argument_list|( )
@@ -7750,10 +7748,8 @@ block|{
 return|return
 name|repository
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 operator|.
 name|getStorage
 argument_list|( )

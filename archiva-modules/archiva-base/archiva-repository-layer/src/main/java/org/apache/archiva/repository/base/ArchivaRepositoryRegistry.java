@@ -6863,10 +6863,8 @@ name|r
 lambda|->
 name|r
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 operator|.
 name|getStorage
 argument_list|( )

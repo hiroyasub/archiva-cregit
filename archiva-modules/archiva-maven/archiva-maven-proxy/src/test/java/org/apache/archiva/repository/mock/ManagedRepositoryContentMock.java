@@ -1836,10 +1836,8 @@ name|asset
 init|=
 name|repository
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 operator|.
 name|resolve
 argument_list|(
@@ -2001,10 +1999,8 @@ block|}
 return|return
 name|fsStorage
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|()
 return|;
 block|}
 annotation|@

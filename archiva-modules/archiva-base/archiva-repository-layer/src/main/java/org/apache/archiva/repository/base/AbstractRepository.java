@@ -946,10 +946,22 @@ block|{
 return|return
 name|storage
 operator|.
-name|getAsset
-argument_list|(
-literal|""
-argument_list|)
+name|getRoot
+argument_list|( )
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|StorageAsset
+name|getRoot
+parameter_list|( )
+block|{
+return|return
+name|storage
+operator|.
+name|getRoot
+argument_list|( )
 return|;
 block|}
 annotation|@
