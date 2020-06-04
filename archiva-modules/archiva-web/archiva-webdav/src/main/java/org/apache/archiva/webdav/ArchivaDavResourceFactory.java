@@ -2025,7 +2025,7 @@ operator|.
 name|getRepository
 argument_list|()
 operator|.
-name|getLocalPath
+name|getRoot
 argument_list|()
 operator|.
 name|getFilePath
@@ -3012,7 +3012,7 @@ operator|.
 name|getRepository
 argument_list|()
 operator|.
-name|getLocalPath
+name|getRoot
 argument_list|()
 operator|.
 name|resolve
@@ -4043,7 +4043,7 @@ operator|.
 name|getRepository
 argument_list|( )
 operator|.
-name|getLocalPath
+name|getRoot
 argument_list|()
 decl_stmt|;
 name|StorageAsset

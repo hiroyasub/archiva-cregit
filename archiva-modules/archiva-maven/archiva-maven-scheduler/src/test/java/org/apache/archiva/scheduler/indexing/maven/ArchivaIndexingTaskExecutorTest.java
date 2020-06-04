@@ -811,7 +811,7 @@ name|basePath
 init|=
 name|repo
 operator|.
-name|getLocalPath
+name|getRoot
 argument_list|()
 operator|.
 name|getFilePath
@@ -1084,7 +1084,7 @@ name|basePath
 init|=
 name|repo
 operator|.
-name|getLocalPath
+name|getRoot
 argument_list|()
 operator|.
 name|getFilePath
@@ -1291,7 +1291,7 @@ name|basePath
 init|=
 name|repo
 operator|.
-name|getLocalPath
+name|getRoot
 argument_list|()
 operator|.
 name|getFilePath
@@ -1655,7 +1655,7 @@ name|basePath
 init|=
 name|repo
 operator|.
-name|getLocalPath
+name|getRoot
 argument_list|()
 operator|.
 name|getFilePath

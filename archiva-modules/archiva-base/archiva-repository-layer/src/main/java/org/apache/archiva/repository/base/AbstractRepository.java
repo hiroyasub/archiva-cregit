@@ -940,20 +940,6 @@ annotation|@
 name|Override
 specifier|public
 name|StorageAsset
-name|getLocalPath
-parameter_list|()
-block|{
-return|return
-name|storage
-operator|.
-name|getRoot
-argument_list|( )
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|StorageAsset
 name|getRoot
 parameter_list|( )
 block|{

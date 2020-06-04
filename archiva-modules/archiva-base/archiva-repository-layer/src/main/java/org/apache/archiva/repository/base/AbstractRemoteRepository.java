@@ -91,22 +91,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|storage
-operator|.
-name|StorageAsset
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|net
@@ -583,22 +567,6 @@ parameter_list|( )
 block|{
 return|return
 name|timeout
-return|;
-block|}
-comment|/**      * Remote repositories resolve always relative to the base directory.      * @return      */
-annotation|@
-name|Override
-specifier|public
-name|StorageAsset
-name|getLocalPath
-parameter_list|()
-block|{
-return|return
-name|getStorage
-argument_list|()
-operator|.
-name|getRoot
-argument_list|()
 return|;
 block|}
 annotation|@

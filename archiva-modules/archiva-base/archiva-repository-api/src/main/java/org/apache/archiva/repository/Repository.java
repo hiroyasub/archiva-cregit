@@ -175,11 +175,6 @@ name|URI
 name|getLocation
 parameter_list|()
 function_decl|;
-comment|/**      * Returns a storage representation to the local data stored for this repository.      * The repository implementation may not store the real artifacts in this path. The directory structure      * is completely implementation dependant.      *      */
-name|StorageAsset
-name|getLocalPath
-parameter_list|()
-function_decl|;
 comment|/**      * A repository may allow additional locations that can be used, if the primary location is not available.      * @return      */
 name|Set
 argument_list|<
