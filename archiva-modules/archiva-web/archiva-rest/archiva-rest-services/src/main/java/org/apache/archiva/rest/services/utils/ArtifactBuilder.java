@@ -77,20 +77,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|model
-operator|.
-name|ArtifactReference
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|repository
 operator|.
 name|BaseRepositoryContentLayout
@@ -122,22 +108,6 @@ operator|.
 name|repository
 operator|.
 name|LayoutException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|content
-operator|.
-name|ItemSelector
 import|;
 end_import
 
@@ -541,7 +511,7 @@ operator|.
 name|getNamespace
 argument_list|( )
 operator|.
-name|getNamespace
+name|getId
 argument_list|( )
 argument_list|,
 name|repoArtifact

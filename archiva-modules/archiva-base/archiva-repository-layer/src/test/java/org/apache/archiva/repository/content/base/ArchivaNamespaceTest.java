@@ -259,7 +259,7 @@ literal|"test.1d.d"
 argument_list|,
 name|result
 operator|.
-name|getNamespace
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -383,7 +383,7 @@ literal|"test.1d..d."
 argument_list|,
 name|result
 operator|.
-name|getNamespace
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -514,7 +514,7 @@ literal|"test.1d.d/abc/def"
 argument_list|,
 name|result
 operator|.
-name|getNamespace
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;

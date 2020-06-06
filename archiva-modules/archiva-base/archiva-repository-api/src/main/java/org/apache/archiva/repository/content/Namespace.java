@@ -40,7 +40,7 @@ name|ContentItem
 block|{
 comment|/**      * Return the namespace string that identifies the current namespace.      * Namespaces are hierarchical and have a separator that separates the path elements. Default      * separator is '.'. But this may depend on the repository type.      *      * A namespace may be empty which is equal to the root.      *      * @return the unique name of the namespace      */
 name|String
-name|getNamespace
+name|getId
 parameter_list|( )
 function_decl|;
 comment|/**      * Returns the elements that represent the path to the namespace.      *      * @return the list of path elements      */

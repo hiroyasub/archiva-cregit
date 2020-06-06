@@ -45,6 +45,22 @@ name|repository
 operator|.
 name|content
 operator|.
+name|Namespace
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
 name|Project
 import|;
 end_import
@@ -310,7 +326,7 @@ annotation|@
 name|Override
 specifier|public
 name|String
-name|getVersion
+name|getId
 parameter_list|( )
 block|{
 return|return
@@ -326,6 +342,20 @@ parameter_list|( )
 block|{
 return|return
 name|project
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|Namespace
+name|getNamespace
+parameter_list|( )
+block|{
+return|return
+name|project
+operator|.
+name|getNamespace
+argument_list|( )
 return|;
 block|}
 annotation|@

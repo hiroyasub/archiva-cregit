@@ -286,7 +286,7 @@ name|assertNotNull
 argument_list|(
 name|item
 operator|.
-name|getVersion
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -296,7 +296,7 @@ literal|"3.4.5"
 argument_list|,
 name|item
 operator|.
-name|getVersion
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;

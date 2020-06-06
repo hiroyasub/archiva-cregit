@@ -1189,7 +1189,7 @@ name|v
 lambda|->
 name|v
 operator|.
-name|getVersion
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -2828,7 +2828,7 @@ operator|.
 name|getVersion
 argument_list|( )
 operator|.
-name|getVersion
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -2893,7 +2893,7 @@ operator|.
 name|getNamespace
 argument_list|( )
 operator|.
-name|getNamespace
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -2985,7 +2985,7 @@ operator|.
 name|getVersion
 argument_list|( )
 operator|.
-name|getVersion
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -3050,7 +3050,7 @@ operator|.
 name|getNamespace
 argument_list|( )
 operator|.
-name|getNamespace
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -3132,7 +3132,7 @@ operator|.
 name|getVersion
 argument_list|( )
 operator|.
-name|getVersion
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -5460,7 +5460,7 @@ literal|"1.3-SNAPSHOT"
 argument_list|,
 name|version
 operator|.
-name|getVersion
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -6541,6 +6541,8 @@ specifier|public
 name|void
 name|testGetNamespaceFromPath
 parameter_list|()
+throws|throws
+name|LayoutException
 block|{
 name|StorageAsset
 name|path
@@ -6576,7 +6578,7 @@ literal|"org.apache.axis2"
 argument_list|,
 name|ns
 operator|.
-name|getNamespace
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;

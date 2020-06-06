@@ -79,6 +79,38 @@ name|repository
 operator|.
 name|content
 operator|.
+name|Namespace
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|Project
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
 name|Version
 import|;
 end_import
@@ -329,6 +361,37 @@ parameter_list|( )
 block|{
 return|return
 name|artifactType
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|Namespace
+name|getNamespace
+parameter_list|( )
+block|{
+return|return
+name|version
+operator|.
+name|getProject
+argument_list|( )
+operator|.
+name|getNamespace
+argument_list|( )
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|Project
+name|getProject
+parameter_list|( )
+block|{
+return|return
+name|version
+operator|.
+name|getProject
+argument_list|( )
 return|;
 block|}
 comment|/**      * Returns the builder for creating a new artifact instance. You have to fill the      * required attributes before the build() method is available.      *      * @param asset the storage asset representing the artifact      * @return a builder for creating new artifact instance      */
@@ -778,7 +841,7 @@ operator|.
 name|getNamespace
 argument_list|()
 operator|.
-name|getNamespace
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -813,7 +876,7 @@ argument_list|(
 name|getVersion
 argument_list|()
 operator|.
-name|getVersion
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)

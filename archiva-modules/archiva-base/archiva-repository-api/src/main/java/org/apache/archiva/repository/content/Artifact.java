@@ -54,6 +54,16 @@ name|String
 name|getArtifactVersion
 parameter_list|( )
 function_decl|;
+comment|/**      * Returns the project this artifact is attached to      * @return the project      */
+name|Project
+name|getProject
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the namespace this artifact is attached to      * @return the namespace object      */
+name|Namespace
+name|getNamespace
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the attached version this artifact is part of.      *      * @return the version object      */
 name|Version
 name|getVersion

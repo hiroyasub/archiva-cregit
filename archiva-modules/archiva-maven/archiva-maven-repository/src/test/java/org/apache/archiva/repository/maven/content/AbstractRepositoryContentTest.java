@@ -2139,7 +2139,7 @@ name|groupId
 argument_list|,
 name|ns
 operator|.
-name|getNamespace
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -2235,7 +2235,7 @@ name|version
 argument_list|,
 name|ver
 operator|.
-name|getVersion
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;

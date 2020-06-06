@@ -40,7 +40,7 @@ name|ContentItem
 block|{
 comment|/**      * Returns the version string.      *      * @return the version string      */
 name|String
-name|getVersion
+name|getId
 parameter_list|( )
 function_decl|;
 comment|/**      * Returns the version segments. E.g. for 1.3.4 it will return ["1","3"."4"]      *      * @return      */
@@ -50,6 +50,11 @@ name|String
 argument_list|>
 name|getVersionSegments
 parameter_list|( )
+function_decl|;
+comment|/**      * Returns the namespace this version is attached to      * @return the namespace instance      */
+name|Namespace
+name|getNamespace
+parameter_list|()
 function_decl|;
 comment|/**      * Returns the project this version is attached to.      *      * @return the project instance. Will never return<code>null</code>      */
 name|Project

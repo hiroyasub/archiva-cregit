@@ -204,7 +204,7 @@ annotation|@
 name|Override
 specifier|public
 name|String
-name|getNamespace
+name|getId
 parameter_list|( )
 block|{
 return|return

@@ -37,36 +37,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|model
-operator|.
-name|VersionedReference
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|content
-operator|.
-name|ContentItem
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|repository
 operator|.
 name|content
@@ -84,7 +54,7 @@ specifier|public
 interface|interface
 name|RepositoryContent
 block|{
-comment|/**      * Given a repository relative path to a filename, return the {@link VersionedReference} object suitable for the path.      *      * @param path the path relative to the repository base dir for the artifact.      * @return the {@link ArtifactReference} representing the path.  (or null if path cannot be converted to      *         a {@link ArtifactReference})      * @throws LayoutException if there was a problem converting the path to an artifact.      */
+comment|/**      * Given a repository relative path to a filename, return the {@link ArtifactReference} object suitable for the path.      *      * @param path the path relative to the repository base dir for the artifact.      * @return the {@link ArtifactReference} representing the path.  (or null if path cannot be converted to      *         a {@link ArtifactReference})      * @throws LayoutException if there was a problem converting the path to an artifact.      */
 name|ArtifactReference
 name|toArtifactReference
 parameter_list|(

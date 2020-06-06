@@ -306,6 +306,20 @@ name|selector
 parameter_list|)
 throws|throws
 name|ContentAccessException
+throws|,
+name|IllegalArgumentException
+function_decl|;
+comment|/**      * Returns the artifact at the given path      * @param path the path to the artifact      * @return the artifact instance      * @throws LayoutException if the path does not point to a artifact      * @throws ContentAccessException if the access to the underlying storage failed      */
+name|Artifact
+name|getArtifact
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+throws|throws
+name|LayoutException
+throws|,
+name|ContentAccessException
 function_decl|;
 comment|/**      * Returns the artifacts that match the given selector. It is up to the repository implementation      * what artifacts are returned for a given set of coordinates.      *      * @param selector the selector for the artifacts      * @return a list of artifacts.      * @throws IllegalArgumentException if the specified coordinates cannot be found in the repository      * @throws ContentAccessException if the access to the underlying storage failed      */
 name|List
@@ -322,7 +336,7 @@ parameter_list|)
 throws|throws
 name|ContentAccessException
 function_decl|;
-comment|/**      * Returns the artifacts that match the given selector. It is up to the repository implementation      * what artifacts are returned for a given set of coordinates.      *      * The returned stream is autoclosable and should always closed after using it.      *      * There is no guarantee about the order of the returned artifacts      *      * @param selector the selector for the artifacts      * @return a stream with artifact elements.      * @throws ItemNotFoundException if the specified coordinates cannot be found in the repository      * @throws ContentAccessException if the access to the underlying storage failed      */
+comment|/**      * Returns the artifacts that match the given selector. It is up to the repository implementation      * what artifacts are returned for a given set of coordinates.      *      * The returned stream is autoclosable and should always closed after using it.      *      * There is no guarantee about the order of the returned artifacts      *      * @param selector the selector for the artifacts      * @return a stream with artifact elements.      * @throws IllegalArgumentException if the selector is not valid for the layout      * @throws ItemNotFoundException if the specified coordinates cannot be found in the repository      * @throws ContentAccessException if the access to the underlying storage failed      */
 name|Stream
 argument_list|<
 name|?
@@ -336,6 +350,8 @@ name|selector
 parameter_list|)
 throws|throws
 name|ContentAccessException
+throws|,
+name|IllegalArgumentException
 function_decl|;
 comment|/**      * Return the projects that are part of the given namespace.      *      * @param namespace the namespace      * @return the list of projects or a empty list, if there are no projects for the given namespace.      */
 name|List

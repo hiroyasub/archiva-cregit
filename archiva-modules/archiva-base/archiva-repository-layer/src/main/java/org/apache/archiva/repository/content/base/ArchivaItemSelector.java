@@ -299,7 +299,7 @@ name|namespace
 operator|=
 name|ns
 operator|.
-name|getNamespace
+name|getId
 argument_list|()
 expr_stmt|;
 block|}
@@ -327,7 +327,7 @@ operator|.
 name|getNamespace
 argument_list|( )
 operator|.
-name|getNamespace
+name|getId
 argument_list|( )
 expr_stmt|;
 name|selector
@@ -367,7 +367,7 @@ operator|.
 name|getNamespace
 argument_list|( )
 operator|.
-name|getNamespace
+name|getId
 argument_list|( )
 expr_stmt|;
 name|selector
@@ -388,7 +388,7 @@ name|version
 operator|=
 name|version
 operator|.
-name|getVersion
+name|getId
 argument_list|( )
 expr_stmt|;
 block|}
@@ -422,7 +422,7 @@ operator|.
 name|getNamespace
 argument_list|( )
 operator|.
-name|getNamespace
+name|getId
 argument_list|( )
 expr_stmt|;
 name|selector
@@ -449,7 +449,7 @@ operator|.
 name|getVersion
 argument_list|( )
 operator|.
-name|getVersion
+name|getId
 argument_list|( )
 expr_stmt|;
 name|selector

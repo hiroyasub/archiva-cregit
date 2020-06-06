@@ -253,6 +253,22 @@ name|repository
 operator|.
 name|content
 operator|.
+name|Artifact
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
 name|ItemNotFoundException
 import|;
 end_import
@@ -540,16 +556,17 @@ block|{
 comment|// Nothing to do here, file doesn't exist, skip it.
 return|return;
 block|}
-name|ArtifactReference
+name|Artifact
 name|artifactRef
 init|=
-name|repository
+name|layout
 operator|.
-name|toArtifactReference
+name|getArtifact
 argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+comment|// ArtifactReference artifactRef = repository.toArtifactReference( path );
 if|if
 condition|(
 operator|!
@@ -560,6 +577,9 @@ argument_list|(
 name|artifactRef
 operator|.
 name|getVersion
+argument_list|()
+operator|.
+name|getId
 argument_list|( )
 argument_list|)
 condition|)
@@ -579,15 +599,18 @@ name|withNamespace
 argument_list|(
 name|artifactRef
 operator|.
-name|getGroupId
+name|getNamespace
 argument_list|( )
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 operator|.
 name|withProjectId
 argument_list|(
 name|artifactRef
 operator|.
-name|getArtifactId
+name|getId
 argument_list|( )
 argument_list|)
 operator|.
@@ -703,7 +726,7 @@ name|isSnapshot
 argument_list|(
 name|version
 operator|.
-name|getVersion
+name|getId
 argument_list|()
 argument_list|)
 condition|)
@@ -714,7 +737,7 @@ name|add
 argument_list|(
 name|version
 operator|.
-name|getVersion
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -753,8 +776,11 @@ name|setGroupId
 argument_list|(
 name|artifactRef
 operator|.
-name|getGroupId
+name|getNamespace
 argument_list|( )
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|versionRef
@@ -763,7 +789,7 @@ name|setArtifactId
 argument_list|(
 name|artifactRef
 operator|.
-name|getArtifactId
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -781,15 +807,18 @@ name|withNamespace
 argument_list|(
 name|artifactRef
 operator|.
-name|getGroupId
-argument_list|( )
+name|getNamespace
+argument_list|()
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 operator|.
 name|withProjectId
 argument_list|(
 name|artifactRef
 operator|.
-name|getArtifactId
+name|getId
 argument_list|( )
 argument_list|)
 operator|.
@@ -797,7 +826,7 @@ name|withArtifactId
 argument_list|(
 name|artifactRef
 operator|.
-name|getArtifactId
+name|getId
 argument_list|( )
 argument_list|)
 decl_stmt|;
@@ -822,6 +851,9 @@ argument_list|(
 name|artifactRef
 operator|.
 name|getVersion
+argument_list|()
+operator|.
+name|getId
 argument_list|( )
 argument_list|)
 argument_list|)
@@ -837,6 +869,9 @@ argument_list|(
 name|artifactRef
 operator|.
 name|getVersion
+argument_list|()
+operator|.
+name|getId
 argument_list|( )
 argument_list|)
 operator|.
@@ -890,17 +925,23 @@ argument_list|( )
 argument_list|,
 name|artifactRef
 operator|.
-name|getGroupId
-argument_list|( )
+name|getNamespace
+argument_list|()
+operator|.
+name|getId
+argument_list|()
 argument_list|,
 name|artifactRef
 operator|.
-name|getArtifactId
+name|getId
 argument_list|( )
 argument_list|,
 name|artifactRef
 operator|.
 name|getVersion
+argument_list|()
+operator|.
+name|getId
 argument_list|( )
 argument_list|,
 name|artifactFile
@@ -923,18 +964,24 @@ argument_list|( )
 argument_list|,
 name|artifactRef
 operator|.
-name|getGroupId
-argument_list|( )
+name|getNamespace
+argument_list|()
+operator|.
+name|getId
+argument_list|()
 argument_list|,
 name|artifactRef
 operator|.
-name|getArtifactId
+name|getId
 argument_list|( )
 argument_list|,
 name|artifactRef
 operator|.
 name|getVersion
-argument_list|( )
+argument_list|()
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|needsMetadataUpdate
@@ -1043,7 +1090,7 @@ specifier|private
 name|void
 name|updateMetadata
 parameter_list|(
-name|ArtifactReference
+name|Artifact
 name|artifact
 parameter_list|)
 block|{
@@ -1060,7 +1107,10 @@ name|setGroupId
 argument_list|(
 name|artifact
 operator|.
-name|getGroupId
+name|getNamespace
+argument_list|()
+operator|.
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -1070,7 +1120,7 @@ name|setArtifactId
 argument_list|(
 name|artifact
 operator|.
-name|getArtifactId
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -1081,6 +1131,9 @@ argument_list|(
 name|artifact
 operator|.
 name|getVersion
+argument_list|()
+operator|.
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -1097,7 +1150,10 @@ name|setGroupId
 argument_list|(
 name|artifact
 operator|.
-name|getGroupId
+name|getNamespace
+argument_list|()
+operator|.
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;
@@ -1107,7 +1163,7 @@ name|setArtifactId
 argument_list|(
 name|artifact
 operator|.
-name|getArtifactId
+name|getId
 argument_list|( )
 argument_list|)
 expr_stmt|;

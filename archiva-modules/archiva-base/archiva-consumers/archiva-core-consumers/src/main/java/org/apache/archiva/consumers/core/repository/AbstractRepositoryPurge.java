@@ -1005,7 +1005,7 @@ operator|.
 name|getVersion
 argument_list|( )
 operator|.
-name|getVersion
+name|getId
 argument_list|( )
 decl_stmt|;
 name|String
@@ -1022,7 +1022,7 @@ operator|.
 name|getNamespace
 argument_list|( )
 operator|.
-name|getNamespace
+name|getId
 argument_list|( )
 decl_stmt|;
 comment|// Needed for tracking in the hashmap
@@ -1137,7 +1137,7 @@ operator|.
 name|getVersion
 argument_list|( )
 operator|.
-name|getVersion
+name|getId
 argument_list|()
 argument_list|,
 name|artifactFile

@@ -501,7 +501,7 @@ operator|.
 name|getNamespace
 argument_list|( )
 operator|.
-name|getNamespace
+name|getId
 argument_list|( )
 argument_list|)
 operator|.
@@ -526,7 +526,7 @@ operator|.
 name|getVersion
 argument_list|( )
 operator|.
-name|getVersion
+name|getId
 argument_list|( )
 argument_list|)
 operator|.
@@ -663,7 +663,7 @@ operator|.
 name|getNamespace
 argument_list|( )
 operator|.
-name|getNamespace
+name|getId
 argument_list|( )
 argument_list|)
 operator|.
@@ -688,7 +688,7 @@ operator|.
 name|getVersion
 argument_list|( )
 operator|.
-name|getVersion
+name|getId
 argument_list|( )
 argument_list|)
 operator|.
