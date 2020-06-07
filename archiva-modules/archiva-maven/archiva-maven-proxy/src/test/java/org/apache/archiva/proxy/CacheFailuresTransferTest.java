@@ -850,12 +850,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|ArtifactReference
+name|Artifact
 name|artifact
 init|=
-name|managedDefaultRepository
+name|layout
 operator|.
-name|toArtifactReference
+name|getArtifact
 argument_list|(
 name|path
 argument_list|)
