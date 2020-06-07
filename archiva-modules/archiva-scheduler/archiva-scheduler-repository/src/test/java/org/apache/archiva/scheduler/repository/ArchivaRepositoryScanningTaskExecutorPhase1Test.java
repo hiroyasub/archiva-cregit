@@ -139,7 +139,7 @@ argument_list|)
 expr_stmt|;
 name|Collection
 argument_list|<
-name|ArtifactReference
+name|String
 argument_list|>
 name|unprocessedResultList
 init|=

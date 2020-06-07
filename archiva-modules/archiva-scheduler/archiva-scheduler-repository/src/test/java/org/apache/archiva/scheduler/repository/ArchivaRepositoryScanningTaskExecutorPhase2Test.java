@@ -288,7 +288,7 @@ expr_stmt|;
 comment|// check no artifacts processed
 name|Collection
 argument_list|<
-name|ArtifactReference
+name|String
 argument_list|>
 name|unprocessedResultList
 init|=
@@ -676,7 +676,7 @@ expr_stmt|;
 comment|// check no artifacts processed
 name|Collection
 argument_list|<
-name|ArtifactReference
+name|String
 argument_list|>
 name|unprocessedResultList
 init|=
@@ -890,7 +890,7 @@ expr_stmt|;
 comment|// check no artifacts processed
 name|Collection
 argument_list|<
-name|ArtifactReference
+name|String
 argument_list|>
 name|unprocessedResultList
 init|=
@@ -1030,7 +1030,7 @@ argument_list|)
 expr_stmt|;
 name|Collection
 argument_list|<
-name|ArtifactReference
+name|String
 argument_list|>
 name|unprocessedResultList
 init|=
