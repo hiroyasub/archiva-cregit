@@ -54,16 +54,6 @@ specifier|public
 interface|interface
 name|RepositoryContent
 block|{
-comment|/**      * Given a repository relative path to a filename, return the {@link ArtifactReference} object suitable for the path.      *      * @param path the path relative to the repository base dir for the artifact.      * @return the {@link ArtifactReference} representing the path.  (or null if path cannot be converted to      *         a {@link ArtifactReference})      * @throws LayoutException if there was a problem converting the path to an artifact.      */
-name|ArtifactReference
-name|toArtifactReference
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-throws|throws
-name|LayoutException
-function_decl|;
 comment|/**      * Given an {@link ArtifactReference}, return the relative path to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
 name|String
 name|toPath
