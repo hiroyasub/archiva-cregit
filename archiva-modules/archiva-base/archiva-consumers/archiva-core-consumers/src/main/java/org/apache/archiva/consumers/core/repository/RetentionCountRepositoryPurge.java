@@ -61,6 +61,22 @@ name|archiva
 operator|.
 name|metadata
 operator|.
+name|audit
+operator|.
+name|RepositoryListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
 name|repository
 operator|.
 name|RepositorySession
@@ -91,7 +107,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 import|;
 end_import
 
@@ -119,23 +135,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|BaseRepositoryContentLayout
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|audit
-operator|.
-name|RepositoryListener
+name|ManagedRepositoryContent
 import|;
 end_import
 
@@ -341,20 +341,31 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|item
-operator|instanceof
-name|Artifact
-condition|)
-block|{
+name|BaseRepositoryContentLayout
+name|layout
+init|=
+name|repository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|Artifact
 name|artifact
 init|=
-operator|(
+name|layout
+operator|.
+name|adaptItem
+argument_list|(
 name|Artifact
-operator|)
+operator|.
+name|class
+argument_list|,
 name|item
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -362,7 +373,7 @@ operator|!
 name|artifact
 operator|.
 name|exists
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 return|return;
@@ -379,7 +390,7 @@ name|getVersion
 argument_list|( )
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -447,7 +458,7 @@ literal|"*"
 argument_list|)
 operator|.
 name|includeRelatedArtifacts
-argument_list|()
+argument_list|( )
 operator|.
 name|build
 argument_list|( )
@@ -505,7 +516,7 @@ name|isNotEmpty
 argument_list|)
 operator|.
 name|distinct
-argument_list|()
+argument_list|( )
 operator|.
 name|collect
 argument_list|(
@@ -603,7 +614,7 @@ literal|"*"
 argument_list|)
 operator|.
 name|includeRelatedArtifacts
-argument_list|()
+argument_list|( )
 operator|.
 name|withVersion
 argument_list|(
@@ -694,7 +705,7 @@ operator|&&
 name|delArtifacts
 operator|.
 name|size
-argument_list|()
+argument_list|( )
 operator|>
 literal|0
 condition|)
@@ -713,19 +724,6 @@ argument_list|(
 name|artifactsToDelete
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|RepositoryPurgeException
-argument_list|(
-literal|"Bad artifact path "
-operator|+
-name|path
-argument_list|)
-throw|;
 block|}
 block|}
 catch|catch

@@ -93,7 +93,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 import|;
 end_import
 
@@ -121,7 +121,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|BaseRepositoryContentLayout
+name|ManagedRepositoryContent
 import|;
 end_import
 
@@ -426,20 +426,26 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|item
-operator|instanceof
-name|Artifact
-condition|)
-block|{
 name|Artifact
 name|artifactItem
 init|=
-operator|(
+name|repository
+operator|.
+name|getLayout
+argument_list|(
+name|BaseRepositoryContentLayout
+operator|.
+name|class
+argument_list|)
+operator|.
+name|adaptItem
+argument_list|(
 name|Artifact
-operator|)
+operator|.
+name|class
+argument_list|,
 name|item
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -594,7 +600,7 @@ name|isNotEmpty
 argument_list|)
 operator|.
 name|distinct
-argument_list|()
+argument_list|( )
 operator|.
 name|collect
 argument_list|(
@@ -697,7 +703,7 @@ argument_list|(
 name|artifactItem
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|withClassifier
@@ -790,7 +796,7 @@ condition|(
 name|artifactList
 operator|.
 name|size
-argument_list|()
+argument_list|( )
 operator|>
 literal|0
 operator|&&
@@ -802,7 +808,7 @@ literal|0
 argument_list|)
 operator|.
 name|getAsset
-argument_list|()
+argument_list|( )
 operator|.
 name|getModificationTime
 argument_list|( )
@@ -907,7 +913,6 @@ argument_list|(
 name|artifactsToDelete
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(

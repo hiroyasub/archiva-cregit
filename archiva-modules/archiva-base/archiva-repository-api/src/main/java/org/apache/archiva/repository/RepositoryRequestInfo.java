@@ -39,6 +39,22 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|content
+operator|.
+name|ItemSelector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|features
 operator|.
 name|RepositoryFeature
@@ -57,6 +73,16 @@ block|{
 comment|/**      * Returns the artifact reference for a given path.      * Takes an incoming requested path (in "/" format) and gleans the layout      * and ArtifactReference appropriate for that content.      *      * @param requestPath The path of the web request      * @return The artifact reference      * @throws LayoutException      */
 name|ArtifactReference
 name|toArtifactReference
+parameter_list|(
+name|String
+name|requestPath
+parameter_list|)
+throws|throws
+name|LayoutException
+function_decl|;
+comment|/**      * Returns the item selector that matches the given path.      * @param requestPath the request path which may be different from the filesystem structure      * @return the item selector      * @throws LayoutException if the path is not valid for the given repository layout      */
+name|ItemSelector
+name|toItemSelector
 parameter_list|(
 name|String
 name|requestPath

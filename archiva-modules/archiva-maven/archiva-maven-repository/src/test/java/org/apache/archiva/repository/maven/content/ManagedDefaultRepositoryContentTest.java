@@ -6107,7 +6107,7 @@ name|assertTrue
 argument_list|(
 name|item
 operator|instanceof
-name|Artifact
+name|DataItem
 argument_list|)
 expr_stmt|;
 block|}

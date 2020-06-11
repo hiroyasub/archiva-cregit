@@ -421,6 +421,11 @@ name|Inject
 name|FileLockManager
 name|fileLockManager
 decl_stmt|;
+annotation|@
+name|Inject
+name|MavenContentHelper
+name|mavenContentHelper
+decl_stmt|;
 specifier|private
 name|MavenRepositoryRequestInfo
 name|repoRequest
@@ -634,6 +639,13 @@ operator|.
 name|setContent
 argument_list|(
 name|repoContent
+argument_list|)
+expr_stmt|;
+name|repoContent
+operator|.
+name|setMavenContentHelper
+argument_list|(
+name|mavenContentHelper
 argument_list|)
 expr_stmt|;
 name|repoRequest
@@ -2074,7 +2086,7 @@ decl_stmt|;
 comment|// Test (artifact) default to default - dual extension
 name|assertEquals
 argument_list|(
-literal|"org/project/example-presentation/3.2/example-presentation-3.2.xml.zip"
+literal|"/org/project/example-presentation/3.2/example-presentation-3.2.xml.zip"
 argument_list|,
 name|repoRequest
 operator|.
@@ -2105,7 +2117,7 @@ decl_stmt|;
 comment|// Test (metadata) default to default
 name|assertEquals
 argument_list|(
-literal|"org/apache/derby/derby/10.2.2.0/maven-metadata.xml.sha1"
+literal|"/org/apache/derby/derby/10.2.2.0/maven-metadata.xml.sha1"
 argument_list|,
 name|repoRequest
 operator|.
