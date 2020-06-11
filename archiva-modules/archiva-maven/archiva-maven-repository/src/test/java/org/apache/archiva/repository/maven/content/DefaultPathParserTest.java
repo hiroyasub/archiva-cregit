@@ -27,20 +27,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|model
-operator|.
-name|ArtifactReference
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|repository
 operator|.
 name|LayoutException
@@ -59,7 +45,7 @@ name|repository
 operator|.
 name|content
 operator|.
-name|PathParser
+name|ItemSelector
 import|;
 end_import
 
@@ -73,11 +59,9 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|maven
-operator|.
 name|content
 operator|.
-name|DefaultPathParser
+name|PathParser
 import|;
 end_import
 
@@ -324,6 +308,11 @@ init|=
 literal|"3.2"
 decl_stmt|;
 name|String
+name|artifactVersion
+init|=
+literal|"3.2"
+decl_stmt|;
+name|String
 name|classifier
 init|=
 literal|null
@@ -347,6 +336,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|artifactVersion
 argument_list|,
 name|classifier
 argument_list|,
@@ -379,6 +370,11 @@ init|=
 literal|"3.2"
 decl_stmt|;
 name|String
+name|artifactVersion
+init|=
+literal|"3.2"
+decl_stmt|;
+name|String
 name|classifier
 init|=
 literal|"extras"
@@ -402,6 +398,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|artifactVersion
 argument_list|,
 name|classifier
 argument_list|,
@@ -434,6 +432,11 @@ init|=
 literal|"1.3"
 decl_stmt|;
 name|String
+name|artifactVersion
+init|=
+literal|"1.3"
+decl_stmt|;
+name|String
 name|classifier
 init|=
 literal|null
@@ -458,6 +461,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|artifactVersion
 argument_list|,
 name|classifier
 argument_list|,
@@ -490,6 +495,11 @@ init|=
 literal|"1.3"
 decl_stmt|;
 name|String
+name|artifactVersion
+init|=
+literal|"1.3"
+decl_stmt|;
+name|String
 name|classifier
 init|=
 literal|"bin"
@@ -514,6 +524,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|artifactVersion
 argument_list|,
 name|classifier
 argument_list|,
@@ -547,6 +559,11 @@ init|=
 literal|"build210"
 decl_stmt|;
 name|String
+name|artifactVersion
+init|=
+literal|"build210"
+decl_stmt|;
+name|String
 name|classifier
 init|=
 literal|null
@@ -570,6 +587,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|artifactVersion
 argument_list|,
 name|classifier
 argument_list|,
@@ -603,6 +622,11 @@ init|=
 literal|"3.0-u1"
 decl_stmt|;
 name|String
+name|artifactVersion
+init|=
+literal|"3.0-u1"
+decl_stmt|;
+name|String
 name|classifier
 init|=
 literal|null
@@ -626,6 +650,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|artifactVersion
 argument_list|,
 name|classifier
 argument_list|,
@@ -661,6 +687,11 @@ init|=
 literal|"3.0-public_review"
 decl_stmt|;
 name|String
+name|artifactVersion
+init|=
+literal|"3.0-public_review"
+decl_stmt|;
+name|String
 name|classifier
 init|=
 literal|null
@@ -685,6 +716,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|artifactVersion
 argument_list|,
 name|classifier
 argument_list|,
@@ -717,6 +750,11 @@ init|=
 literal|"1.0"
 decl_stmt|;
 name|String
+name|artifactVersion
+init|=
+literal|"1.0"
+decl_stmt|;
+name|String
 name|classifier
 init|=
 literal|null
@@ -740,6 +778,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|artifactVersion
 argument_list|,
 name|classifier
 argument_list|,
@@ -772,6 +812,11 @@ init|=
 literal|"2.1"
 decl_stmt|;
 name|String
+name|artifactVersion
+init|=
+literal|"2.1"
+decl_stmt|;
+name|String
 name|classifier
 init|=
 literal|null
@@ -795,6 +840,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|artifactVersion
 argument_list|,
 name|classifier
 argument_list|,
@@ -827,6 +874,11 @@ init|=
 literal|"2.1"
 decl_stmt|;
 name|String
+name|artifactVersion
+init|=
+literal|"2.1"
+decl_stmt|;
+name|String
 name|classifier
 init|=
 literal|null
@@ -850,6 +902,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|artifactVersion
 argument_list|,
 name|classifier
 argument_list|,
@@ -883,6 +937,11 @@ init|=
 literal|"2.0.3-SNAPSHOT"
 decl_stmt|;
 name|String
+name|artifactVersion
+init|=
+literal|"2.0.3-SNAPSHOT"
+decl_stmt|;
+name|String
 name|classifier
 init|=
 literal|null
@@ -906,6 +965,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|artifactVersion
 argument_list|,
 name|classifier
 argument_list|,
@@ -939,6 +1000,11 @@ init|=
 literal|"0.2"
 decl_stmt|;
 name|String
+name|artifactVersion
+init|=
+literal|"0.2"
+decl_stmt|;
+name|String
 name|classifier
 init|=
 literal|null
@@ -962,6 +1028,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|artifactVersion
 argument_list|,
 name|classifier
 argument_list|,
@@ -995,6 +1063,11 @@ init|=
 literal|"0.3"
 decl_stmt|;
 name|String
+name|artifactVersion
+init|=
+literal|"0.3"
+decl_stmt|;
+name|String
 name|classifier
 init|=
 literal|null
@@ -1018,6 +1091,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|artifactVersion
 argument_list|,
 name|classifier
 argument_list|,
@@ -1051,6 +1126,11 @@ init|=
 literal|"2.1-alpha-1"
 decl_stmt|;
 name|String
+name|artifactVersion
+init|=
+literal|"2.1-alpha-1"
+decl_stmt|;
+name|String
 name|classifier
 init|=
 literal|"sources"
@@ -1075,6 +1155,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|artifactVersion
 argument_list|,
 name|classifier
 argument_list|,
@@ -1105,6 +1187,11 @@ decl_stmt|;
 name|String
 name|version
 init|=
+literal|"3.1-beta-1-SNAPSHOT"
+decl_stmt|;
+name|String
+name|artifactVersion
+init|=
 literal|"3.1-beta-1-20050831.101112-42"
 decl_stmt|;
 name|String
@@ -1131,6 +1218,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|artifactVersion
 argument_list|,
 name|classifier
 argument_list|,
@@ -1161,6 +1250,11 @@ decl_stmt|;
 name|String
 name|version
 init|=
+literal|"1.0-abc-1.1-SNAPSHOT"
+decl_stmt|;
+name|String
+name|artifactVersion
+init|=
 literal|"1.0-abc-1.1-20080221.062205-9"
 decl_stmt|;
 name|String
@@ -1187,6 +1281,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|artifactVersion
 argument_list|,
 name|classifier
 argument_list|,
@@ -1233,6 +1329,11 @@ decl_stmt|;
 name|String
 name|version
 init|=
+literal|"1.0-SNAPSHOT"
+decl_stmt|;
+name|String
+name|artifactVersion
+init|=
 literal|"1.0-20070219.171202-34"
 decl_stmt|;
 name|String
@@ -1259,6 +1360,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|artifactVersion
 argument_list|,
 name|classifier
 argument_list|,
@@ -1292,6 +1395,11 @@ init|=
 literal|"1.8.2"
 decl_stmt|;
 name|String
+name|artifactVersion
+init|=
+literal|"1.8.2"
+decl_stmt|;
+name|String
 name|classifier
 init|=
 literal|null
@@ -1315,6 +1423,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|artifactVersion
 argument_list|,
 name|classifier
 argument_list|,
@@ -1348,6 +1458,11 @@ init|=
 literal|"1.8.2"
 decl_stmt|;
 name|String
+name|artifactVersion
+init|=
+literal|"1.8.2"
+decl_stmt|;
+name|String
 name|classifier
 init|=
 literal|null
@@ -1371,6 +1486,8 @@ argument_list|,
 name|artifactId
 argument_list|,
 name|version
+argument_list|,
+name|artifactVersion
 argument_list|,
 name|classifier
 argument_list|,
@@ -1404,6 +1521,11 @@ init|=
 literal|"2.1"
 decl_stmt|;
 name|String
+name|artifactVersion
+init|=
+literal|"2.1"
+decl_stmt|;
+name|String
 name|classifier
 init|=
 literal|null
@@ -1428,6 +1550,8 @@ name|artifactId
 argument_list|,
 name|version
 argument_list|,
+name|artifactVersion
+argument_list|,
 name|classifier
 argument_list|,
 name|type
@@ -1445,7 +1569,7 @@ try|try
 block|{
 name|parser
 operator|.
-name|toArtifactReference
+name|toItemSelector
 argument_list|(
 literal|""
 argument_list|)
@@ -1476,7 +1600,7 @@ try|try
 block|{
 name|parser
 operator|.
-name|toArtifactReference
+name|toItemSelector
 argument_list|(
 literal|null
 argument_list|)
@@ -1507,7 +1631,7 @@ try|try
 block|{
 name|parser
 operator|.
-name|toArtifactReference
+name|toItemSelector
 argument_list|(
 literal|""
 argument_list|)
@@ -1538,7 +1662,7 @@ try|try
 block|{
 name|parser
 operator|.
-name|toArtifactReference
+name|toItemSelector
 argument_list|(
 literal|null
 argument_list|)
@@ -1576,6 +1700,9 @@ name|String
 name|version
 parameter_list|,
 name|String
+name|artifactVersion
+parameter_list|,
+name|String
 name|classifier
 parameter_list|,
 name|String
@@ -1585,12 +1712,12 @@ throws|throws
 name|LayoutException
 block|{
 comment|// Path to Artifact Reference.
-name|ArtifactReference
+name|ItemSelector
 name|testReference
 init|=
 name|parser
 operator|.
-name|toArtifactReference
+name|toItemSelector
 argument_list|(
 name|path
 argument_list|)
@@ -1605,6 +1732,8 @@ name|artifactId
 argument_list|,
 name|version
 argument_list|,
+name|artifactVersion
+argument_list|,
 name|classifier
 argument_list|,
 name|type
@@ -1615,7 +1744,7 @@ specifier|private
 name|void
 name|assertArtifactReference
 parameter_list|(
-name|ArtifactReference
+name|ItemSelector
 name|actualReference
 parameter_list|,
 name|String
@@ -1626,6 +1755,9 @@ name|artifactId
 parameter_list|,
 name|String
 name|version
+parameter_list|,
+name|String
+name|artifactVersion
 parameter_list|,
 name|String
 name|classifier
@@ -1676,7 +1808,7 @@ name|groupId
 argument_list|,
 name|actualReference
 operator|.
-name|getGroupId
+name|getNamespace
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1692,6 +1824,20 @@ name|actualReference
 operator|.
 name|getArtifactId
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|expectedId
+operator|+
+literal|" - Artifact Version"
+argument_list|,
+name|artifactVersion
+argument_list|,
+name|actualReference
+operator|.
+name|getArtifactVersion
+argument_list|( )
 argument_list|)
 expr_stmt|;
 if|if
@@ -1763,7 +1909,7 @@ try|try
 block|{
 name|parser
 operator|.
-name|toArtifactReference
+name|toItemSelector
 argument_list|(
 name|path
 argument_list|)

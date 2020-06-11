@@ -2122,7 +2122,7 @@ name|expect
 argument_list|(
 name|repoRequest
 operator|.
-name|toArtifactReference
+name|toItemSelector
 argument_list|(
 literal|"org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar"
 argument_list|)
@@ -2553,7 +2553,7 @@ name|expect
 argument_list|(
 name|repoRequest
 operator|.
-name|toArtifactReference
+name|toItemSelector
 argument_list|(
 literal|"org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar"
 argument_list|)
@@ -3012,7 +3012,7 @@ name|expect
 argument_list|(
 name|repoRequest
 operator|.
-name|toArtifactReference
+name|toItemSelector
 argument_list|(
 literal|"org/apache/archiva/archiva/1.2-SNAPSHOT/archiva-1.2-SNAPSHOT.jar"
 argument_list|)

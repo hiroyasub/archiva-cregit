@@ -70,16 +70,6 @@ specifier|public
 interface|interface
 name|RepositoryRequestInfo
 block|{
-comment|/**      * Returns the artifact reference for a given path.      * Takes an incoming requested path (in "/" format) and gleans the layout      * and ArtifactReference appropriate for that content.      *      * @param requestPath The path of the web request      * @return The artifact reference      * @throws LayoutException      */
-name|ArtifactReference
-name|toArtifactReference
-parameter_list|(
-name|String
-name|requestPath
-parameter_list|)
-throws|throws
-name|LayoutException
-function_decl|;
 comment|/**      * Returns the item selector that matches the given path.      * @param requestPath the request path which may be different from the filesystem structure      * @return the item selector      * @throws LayoutException if the path is not valid for the given repository layout      */
 name|ItemSelector
 name|toItemSelector
@@ -122,7 +112,7 @@ name|String
 name|requestPath
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the likely layout type for the given request.      * Implementations may only check the path elements for this.  To make sure, the path is valid,      * you should call {@link #toArtifactReference(String)}      *      * @return      */
+comment|/**      * Returns the likely layout type for the given request.      * Implementations may only check the path elements for this.  To make sure, the path is valid,      * you should call {@link #toItemSelector(String)}      *      * @return      */
 name|String
 name|getLayout
 parameter_list|(

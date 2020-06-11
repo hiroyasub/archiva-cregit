@@ -117,6 +117,22 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|content
+operator|.
+name|ItemSelector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|maven
 operator|.
 name|metadata
@@ -748,6 +764,8 @@ literal|"ganymed-ssh2"
 argument_list|,
 literal|"build210"
 argument_list|,
+literal|"build210"
+argument_list|,
 literal|null
 argument_list|,
 literal|"jar"
@@ -770,6 +788,8 @@ argument_list|,
 literal|"ch.ethz.ganymed"
 argument_list|,
 literal|"ganymed-ssh2"
+argument_list|,
+literal|"build210"
 argument_list|,
 literal|"build210"
 argument_list|,
@@ -805,6 +825,8 @@ literal|"comm"
 argument_list|,
 literal|"3.0-u1"
 argument_list|,
+literal|"3.0-u1"
+argument_list|,
 literal|null
 argument_list|,
 literal|"jar"
@@ -827,6 +849,8 @@ argument_list|,
 literal|"javax"
 argument_list|,
 literal|"comm"
+argument_list|,
+literal|"3.0-u1"
 argument_list|,
 literal|"3.0-u1"
 argument_list|,
@@ -862,6 +886,8 @@ literal|"ejb"
 argument_list|,
 literal|"3.0-public_review"
 argument_list|,
+literal|"3.0-public_review"
+argument_list|,
 literal|null
 argument_list|,
 literal|"jar"
@@ -884,6 +910,8 @@ argument_list|,
 literal|"javax.persistence"
 argument_list|,
 literal|"ejb"
+argument_list|,
+literal|"3.0-public_review"
 argument_list|,
 literal|"3.0-public_review"
 argument_list|,
@@ -919,6 +947,8 @@ literal|"maven-test-plugin"
 argument_list|,
 literal|"1.8.2"
 argument_list|,
+literal|"1.8.2"
+argument_list|,
 literal|null
 argument_list|,
 literal|"jar"
@@ -941,6 +971,8 @@ argument_list|,
 literal|"maven"
 argument_list|,
 literal|"maven-test-plugin"
+argument_list|,
+literal|"1.8.2"
 argument_list|,
 literal|"1.8.2"
 argument_list|,
@@ -976,6 +1008,8 @@ literal|"commons-lang"
 argument_list|,
 literal|"2.1"
 argument_list|,
+literal|"2.1"
+argument_list|,
 literal|"javadoc"
 argument_list|,
 literal|"javadoc"
@@ -998,6 +1032,8 @@ argument_list|,
 literal|"commons-lang"
 argument_list|,
 literal|"commons-lang"
+argument_list|,
+literal|"2.1"
 argument_list|,
 literal|"2.1"
 argument_list|,
@@ -1033,6 +1069,8 @@ literal|"derby"
 argument_list|,
 literal|"10.2.2.0"
 argument_list|,
+literal|"10.2.2.0"
+argument_list|,
 literal|null
 argument_list|,
 literal|"pom"
@@ -1046,6 +1084,8 @@ argument_list|,
 literal|"org.apache.derby"
 argument_list|,
 literal|"derby"
+argument_list|,
+literal|"10.2.2.0"
 argument_list|,
 literal|"10.2.2.0"
 argument_list|,
@@ -1071,6 +1111,8 @@ argument_list|,
 literal|"org.apache.derby"
 argument_list|,
 literal|"derby"
+argument_list|,
+literal|"10.2.2.0"
 argument_list|,
 literal|"10.2.2.0"
 argument_list|,
@@ -1106,6 +1148,8 @@ literal|"geronimo-ejb_2.1_spec"
 argument_list|,
 literal|"1.0.1"
 argument_list|,
+literal|"1.0.1"
+argument_list|,
 literal|null
 argument_list|,
 literal|"jar"
@@ -1128,6 +1172,8 @@ argument_list|,
 literal|"org.apache.geronimo.specs"
 argument_list|,
 literal|"geronimo-ejb_2.1_spec"
+argument_list|,
+literal|"1.0.1"
 argument_list|,
 literal|"1.0.1"
 argument_list|,
@@ -1163,6 +1209,8 @@ literal|"ldap-clients"
 argument_list|,
 literal|"0.9.1-SNAPSHOT"
 argument_list|,
+literal|"0.9.1-SNAPSHOT"
+argument_list|,
 literal|null
 argument_list|,
 literal|"pom"
@@ -1185,6 +1233,8 @@ argument_list|,
 literal|"directory-clients"
 argument_list|,
 literal|"ldap-clients"
+argument_list|,
+literal|"0.9.1-SNAPSHOT"
 argument_list|,
 literal|"0.9.1-SNAPSHOT"
 argument_list|,
@@ -1220,6 +1270,8 @@ literal|"test-arch"
 argument_list|,
 literal|"2.0.3-SNAPSHOT"
 argument_list|,
+literal|"2.0.3-SNAPSHOT"
+argument_list|,
 literal|null
 argument_list|,
 literal|"pom"
@@ -1242,6 +1294,8 @@ argument_list|,
 literal|"test.maven-arch"
 argument_list|,
 literal|"test-arch"
+argument_list|,
+literal|"2.0.3-SNAPSHOT"
 argument_list|,
 literal|"2.0.3-SNAPSHOT"
 argument_list|,
@@ -1277,6 +1331,8 @@ literal|"com.company.department.project"
 argument_list|,
 literal|"0.2"
 argument_list|,
+literal|"0.2"
+argument_list|,
 literal|null
 argument_list|,
 literal|"pom"
@@ -1299,6 +1355,8 @@ argument_list|,
 literal|"com.company.department"
 argument_list|,
 literal|"com.company.department.project"
+argument_list|,
+literal|"0.2"
 argument_list|,
 literal|"0.2"
 argument_list|,
@@ -1334,6 +1392,8 @@ literal|"redonkulous"
 argument_list|,
 literal|"3.1-beta-1-20050831.101112-42"
 argument_list|,
+literal|"3.1-beta-1-20050831.101112-42"
+argument_list|,
 literal|null
 argument_list|,
 literal|"jar"
@@ -1356,6 +1416,8 @@ argument_list|,
 literal|"org.apache.archiva.test"
 argument_list|,
 literal|"redonkulous"
+argument_list|,
+literal|"3.1-beta-1-SNAPSHOT"
 argument_list|,
 literal|"3.1-beta-1-20050831.101112-42"
 argument_list|,
@@ -2313,6 +2375,9 @@ name|String
 name|version
 parameter_list|,
 name|String
+name|artifactVersion
+parameter_list|,
+name|String
 name|classifier
 parameter_list|,
 name|String
@@ -2352,12 +2417,12 @@ operator|)
 operator|+
 name|type
 decl_stmt|;
-name|ArtifactReference
+name|ItemSelector
 name|reference
 init|=
 name|repoRequest
 operator|.
-name|toArtifactReference
+name|toItemSelector
 argument_list|(
 name|path
 argument_list|)
@@ -2381,7 +2446,7 @@ name|groupId
 argument_list|,
 name|reference
 operator|.
-name|getGroupId
+name|getNamespace
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2397,6 +2462,20 @@ name|reference
 operator|.
 name|getArtifactId
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|expectedId
+operator|+
+literal|" - Artifact Version"
+argument_list|,
+name|artifactVersion
+argument_list|,
+name|reference
+operator|.
+name|getArtifactVersion
+argument_list|( )
 argument_list|)
 expr_stmt|;
 if|if
@@ -2465,7 +2544,7 @@ try|try
 block|{
 name|repoRequest
 operator|.
-name|toArtifactReference
+name|toItemSelector
 argument_list|(
 name|path
 argument_list|)
