@@ -54,16 +54,6 @@ specifier|public
 interface|interface
 name|PathParser
 block|{
-comment|/**      * Take a path and get the ArtifactReference associated with it.      *      * @param path the relative path to parse.      * @return the ArtifactReference for the provided path. (never null)      * @throws LayoutException if there was a problem parsing the path.      */
-name|ArtifactReference
-name|toArtifactReference
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-throws|throws
-name|LayoutException
-function_decl|;
 comment|/**      * Return a item selector for the given path.      *      * @param path the path relative to the repository      * @return a item selector instance      * @throws LayoutException if the path does not reference a valid item      */
 name|ItemSelector
 name|toItemSelector

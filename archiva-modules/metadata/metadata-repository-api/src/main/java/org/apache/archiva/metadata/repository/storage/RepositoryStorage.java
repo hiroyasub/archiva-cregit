@@ -331,20 +331,7 @@ parameter_list|)
 throws|throws
 name|RepositoryStorageRuntimeException
 function_decl|;
-comment|/**      * A relocation capable client will request the POM prior to the artifact, and will then read meta-data and do      * client side relocation. A simplier client (like maven 1) will only request the artifact and not use the      * metadatas.      *<p>      * For such clients, archiva does server-side relocation by reading itself the&lt;relocation&gt; element in      * metadatas and serving the expected artifact.      * @param managedRepository the used managed repository      * @param artifact the artifact reference      * @throws org.apache.archiva.policies.ProxyDownloadException      */
-name|void
-name|applyServerSideRelocation
-parameter_list|(
-name|ManagedRepository
-name|managedRepository
-parameter_list|,
-name|ArtifactReference
-name|artifact
-parameter_list|)
-throws|throws
-name|ProxyDownloadException
-function_decl|;
-comment|/**      * A relocation capable client will request the POM prior to the artifact, and will then read meta-data and do      * client side relocation. A simplier client (like maven 1) will only request the artifact and not use the      * metadatas.      *<p>      * For such clients, archiva does server-side relocation by reading itself the&lt;relocation&gt; element in      * metadatas and serving the expected artifact.      * @param managedRepository the used managed repository      * @param artifact the artifact reference      * @throws org.apache.archiva.policies.ProxyDownloadException      */
+comment|/**      * A relocation capable client will request the POM prior to the artifact, and will then read meta-data and do      * client side relocation. A simplier client (like maven 1) will only request the artifact and not use the      * metadatas.      *<p>      * For such clients, archiva does server-side relocation by reading itself the&lt;relocation&gt; element in      * metadatas and serving the expected artifact.      * @param managedRepository the used managed repository      * @param selector the artifact reference      * @throws org.apache.archiva.policies.ProxyDownloadException      */
 name|ItemSelector
 name|applyServerSideRelocation
 parameter_list|(
