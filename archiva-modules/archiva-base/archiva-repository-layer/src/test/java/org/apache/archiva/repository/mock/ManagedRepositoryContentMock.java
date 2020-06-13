@@ -1318,6 +1318,25 @@ block|}
 annotation|@
 name|Override
 specifier|public
+name|List
+argument_list|<
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|ManagedRepositoryContentLayout
+argument_list|>
+argument_list|>
+name|getSupportedLayouts
+parameter_list|( )
+block|{
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
 name|void
 name|addArtifact
 parameter_list|(

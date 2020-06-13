@@ -138,20 +138,10 @@ name|repository
 decl_stmt|;
 specifier|public
 name|RemoteDefaultRepositoryContent
-parameter_list|(
-name|List
-argument_list|<
-name|?
-extends|extends
-name|ArtifactMappingProvider
-argument_list|>
-name|artifactMappingProviders
-parameter_list|)
+parameter_list|(  )
 block|{
 name|super
-argument_list|(
-name|artifactMappingProviders
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
