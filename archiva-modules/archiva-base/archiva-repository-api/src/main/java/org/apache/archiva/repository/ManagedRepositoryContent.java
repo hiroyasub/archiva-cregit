@@ -316,6 +316,19 @@ argument_list|>
 name|clazz
 parameter_list|)
 function_decl|;
+comment|/**      * Returns a list of supported layout classes      * @return      */
+name|List
+argument_list|<
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|ManagedRepositoryContentLayout
+argument_list|>
+argument_list|>
+name|getSupportedLayouts
+parameter_list|( )
+function_decl|;
 block|}
 end_interface
 
