@@ -171,19 +171,6 @@ argument_list|>
 name|supports
 parameter_list|( )
 function_decl|;
-comment|/**      * Performs the artifact fetch operation against the target repositories      * of the provided source repository.      *<p>      * If the artifact is found, it is downloaded and placed into the source repository      * filesystem.      *      * @deprecated Replaced by {@link #fetchFromProxies(ManagedRepository, Artifact)}      * @param repository the source repository to use. (must be a managed repository)      * @param artifact   the artifact to fetch.      * @return the file that was obtained, or null if no content was obtained      * @throws ProxyDownloadException if there was a problem fetching the content from the target repositories.      */
-name|StorageAsset
-name|fetchFromProxies
-parameter_list|(
-name|ManagedRepository
-name|repository
-parameter_list|,
-name|ArtifactReference
-name|artifact
-parameter_list|)
-throws|throws
-name|ProxyDownloadException
-function_decl|;
 comment|/**      * Performs the artifact fetch operation against the target repositories      * of the provided source repository.      *<p>      * If the artifact is found, it is downloaded and placed into the source repository      * filesystem.      *      * @param repository the source repository to use. (must be a managed repository)      * @param artifact   the artifact to fetch.      * @return the file that was obtained, or null if no content was obtained      * @throws ProxyDownloadException if there was a problem fetching the content from the target repositories.      */
 name|StorageAsset
 name|fetchFromProxies
