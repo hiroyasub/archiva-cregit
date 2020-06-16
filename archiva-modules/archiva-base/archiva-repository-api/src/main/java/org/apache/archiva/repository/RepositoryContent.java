@@ -54,14 +54,6 @@ specifier|public
 interface|interface
 name|RepositoryContent
 block|{
-comment|/**      * Given an {@link ArtifactReference}, return the relative path to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
-name|String
-name|toPath
-parameter_list|(
-name|ArtifactReference
-name|reference
-parameter_list|)
-function_decl|;
 comment|/**      * Return the path, that represents the item specified by the selector.      * @param selector the selector with the artifact coordinates      * @return the path to the content item      */
 name|String
 name|toPath

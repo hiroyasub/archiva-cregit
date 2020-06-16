@@ -983,7 +983,7 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|ArtifactReference
+name|ItemSelector
 name|reference
 init|=
 literal|null
@@ -1636,11 +1636,6 @@ operator|.
 name|withArtifactId
 argument_list|(
 literal|"shared"
-argument_list|)
-operator|.
-name|withArtifactVersion
-argument_list|(
-literal|"1.0"
 argument_list|)
 operator|.
 name|build
