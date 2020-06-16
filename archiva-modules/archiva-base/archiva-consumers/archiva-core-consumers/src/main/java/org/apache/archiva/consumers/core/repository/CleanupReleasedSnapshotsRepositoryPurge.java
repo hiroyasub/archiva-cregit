@@ -61,6 +61,22 @@ name|archiva
 operator|.
 name|metadata
 operator|.
+name|audit
+operator|.
+name|RepositoryListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|metadata
+operator|.
 name|repository
 operator|.
 name|MetadataRepository
@@ -109,20 +125,6 @@ name|archiva
 operator|.
 name|model
 operator|.
-name|ArtifactReference
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|model
-operator|.
 name|ProjectReference
 import|;
 end_import
@@ -151,7 +153,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ContentNotFoundException
+name|BaseRepositoryContentLayout
 import|;
 end_import
 
@@ -165,7 +167,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ManagedRepositoryContent
+name|ContentNotFoundException
 import|;
 end_import
 
@@ -193,7 +195,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|BaseRepositoryContentLayout
+name|ManagedRepositoryContent
 import|;
 end_import
 
@@ -222,22 +224,6 @@ operator|.
 name|repository
 operator|.
 name|RepositoryRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|audit
-operator|.
-name|RepositoryListener
 import|;
 end_import
 
@@ -351,9 +337,7 @@ name|repository
 operator|.
 name|metadata
 operator|.
-name|base
-operator|.
-name|MetadataTools
+name|RepositoryMetadataException
 import|;
 end_import
 
@@ -369,7 +353,9 @@ name|repository
 operator|.
 name|metadata
 operator|.
-name|RepositoryMetadataException
+name|base
+operator|.
+name|MetadataTools
 import|;
 end_import
 
