@@ -25,20 +25,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|model
-operator|.
-name|RepositoryURL
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|repository
 operator|.
 name|LayoutException
@@ -136,17 +122,6 @@ name|Override
 specifier|public
 name|RemoteRepository
 name|getRepository
-parameter_list|( )
-block|{
-return|return
-literal|null
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|RepositoryURL
-name|getURL
 parameter_list|( )
 block|{
 return|return

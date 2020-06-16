@@ -27,20 +27,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|model
-operator|.
-name|RepositoryURL
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|repository
 operator|.
 name|RemoteRepository
@@ -110,56 +96,6 @@ block|{
 return|return
 name|repository
 return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|RepositoryURL
-name|getURL
-parameter_list|( )
-block|{
-try|try
-block|{
-return|return
-operator|new
-name|RepositoryURL
-argument_list|(
-name|repository
-operator|.
-name|getLocation
-argument_list|( )
-operator|.
-name|toString
-argument_list|( )
-argument_list|)
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|error
-argument_list|(
-literal|"Could not convert location url {}"
-argument_list|,
-name|repository
-operator|.
-name|getLocation
-argument_list|( )
-argument_list|)
-expr_stmt|;
-return|return
-operator|new
-name|RepositoryURL
-argument_list|(
-literal|""
-argument_list|)
-return|;
-block|}
 block|}
 annotation|@
 name|Override

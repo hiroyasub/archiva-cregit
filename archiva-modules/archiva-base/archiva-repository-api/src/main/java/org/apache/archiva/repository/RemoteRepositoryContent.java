@@ -64,11 +64,6 @@ name|RemoteRepository
 name|getRepository
 parameter_list|()
 function_decl|;
-comment|/**      *<p>      * Convenience method to get the repository url.      *</p>      *       *<p>      * Equivalent to calling<code>new RepositoryURL( this.getRepository().getUrl() )</code>      *</p>      *       * @return the repository url.      */
-name|RepositoryURL
-name|getURL
-parameter_list|()
-function_decl|;
 comment|/**      * Set the repository configuration to associate with this      * repository content.      *       * @param repo the repository to associate with this repository content.      */
 name|void
 name|setRepository
