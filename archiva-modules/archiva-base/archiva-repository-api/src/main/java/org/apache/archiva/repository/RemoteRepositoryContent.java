@@ -77,14 +77,6 @@ name|RemoteRepository
 name|repo
 parameter_list|)
 function_decl|;
-comment|/**      * Given an ArtifactReference, return the url to the artifact.      *      * @param reference the artifact reference to use.      * @return the relative path to the artifact.      */
-name|RepositoryURL
-name|toURL
-parameter_list|(
-name|ArtifactReference
-name|reference
-parameter_list|)
-function_decl|;
 block|}
 end_interface
 

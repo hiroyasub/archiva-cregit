@@ -494,20 +494,6 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|Override
-specifier|public
-name|RepositoryURL
-name|toURL
-parameter_list|(
-name|ArtifactReference
-name|reference
-parameter_list|)
-block|{
-return|return
-literal|null
-return|;
-block|}
 block|}
 end_class
 
