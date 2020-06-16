@@ -27,20 +27,6 @@ name|archiva
 operator|.
 name|configuration
 operator|.
-name|ArchivaConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|configuration
-operator|.
 name|FileTypes
 import|;
 end_import
@@ -125,7 +111,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|ManagedRepositoryContent
+name|BaseRepositoryContentLayout
 import|;
 end_import
 
@@ -167,7 +153,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|BaseRepositoryContentLayout
+name|ManagedRepositoryContent
 import|;
 end_import
 
@@ -239,11 +225,9 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|metadata
+name|content
 operator|.
-name|base
-operator|.
-name|MetadataTools
+name|Project
 import|;
 end_import
 
@@ -260,6 +244,24 @@ operator|.
 name|metadata
 operator|.
 name|RepositoryMetadataException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|metadata
+operator|.
+name|base
+operator|.
+name|MetadataTools
 import|;
 end_import
 
@@ -437,12 +439,6 @@ name|Inject
 specifier|private
 name|MetadataTools
 name|metadataTools
-decl_stmt|;
-annotation|@
-name|Inject
-specifier|private
-name|ArchivaConfiguration
-name|configuration
 decl_stmt|;
 annotation|@
 name|Inject
@@ -863,48 +859,24 @@ name|String
 name|path
 parameter_list|)
 block|{
-name|ProjectReference
-name|projectRef
-init|=
-operator|new
-name|ProjectReference
-argument_list|( )
-decl_stmt|;
-name|projectRef
-operator|.
-name|setGroupId
-argument_list|(
-name|artifact
-operator|.
-name|getNamespace
-argument_list|( )
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|projectRef
-operator|.
-name|setArtifactId
-argument_list|(
-name|artifact
-operator|.
-name|getId
-argument_list|( )
-argument_list|)
-expr_stmt|;
 try|try
 block|{
+name|Project
+name|proj
+init|=
+name|artifact
+operator|.
+name|getProject
+argument_list|( )
+decl_stmt|;
 name|String
 name|metadataPath
 init|=
-name|this
-operator|.
-name|metadataTools
+name|repository
 operator|.
 name|toPath
 argument_list|(
-name|projectRef
+name|proj
 argument_list|)
 decl_stmt|;
 name|StorageAsset
@@ -948,14 +920,7 @@ name|debug
 argument_list|(
 literal|"Skipping uptodate metadata: {}"
 argument_list|,
-name|this
-operator|.
-name|metadataTools
-operator|.
-name|toPath
-argument_list|(
-name|projectRef
-argument_list|)
+name|metadataPath
 argument_list|)
 expr_stmt|;
 return|return;
@@ -977,14 +942,7 @@ name|debug
 argument_list|(
 literal|"Updated metadata: {}"
 argument_list|,
-name|this
-operator|.
-name|metadataTools
-operator|.
-name|toPath
-argument_list|(
-name|projectRef
-argument_list|)
+name|metadataPath
 argument_list|)
 expr_stmt|;
 block|}
@@ -1207,7 +1165,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/*     @Override     public void afterConfigurationChange( Registry registry, String propertyName, Object propertyValue )     {         if ( ConfigurationNames.isRepositoryScanning( propertyName ) )         {             initIncludes();         }     }      @Override     public void beforeConfigurationChange( Registry registry, String propertyName, Object propertyValue )     {         // do nothing here     }     */
 specifier|private
 name|void
 name|initIncludes

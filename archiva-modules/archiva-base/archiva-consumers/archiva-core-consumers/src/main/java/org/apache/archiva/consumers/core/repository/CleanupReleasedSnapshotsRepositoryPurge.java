@@ -1080,59 +1080,56 @@ name|Artifact
 name|artifact
 parameter_list|)
 block|{
-name|VersionedReference
+name|ItemSelector
 name|versionRef
 init|=
-operator|new
-name|VersionedReference
-argument_list|( )
-decl_stmt|;
-name|versionRef
+name|ArchivaItemSelector
 operator|.
-name|setGroupId
+name|builder
+argument_list|( )
+operator|.
+name|withNamespace
 argument_list|(
 name|artifact
 operator|.
 name|getNamespace
-argument_list|()
+argument_list|( )
 operator|.
 name|getId
 argument_list|( )
 argument_list|)
-expr_stmt|;
-name|versionRef
 operator|.
-name|setArtifactId
+name|withProjectId
 argument_list|(
 name|artifact
 operator|.
 name|getId
 argument_list|( )
 argument_list|)
-expr_stmt|;
-name|versionRef
 operator|.
-name|setVersion
+name|withVersion
 argument_list|(
 name|artifact
 operator|.
 name|getVersion
-argument_list|()
+argument_list|( )
 operator|.
 name|getId
 argument_list|( )
 argument_list|)
-expr_stmt|;
-name|ProjectReference
-name|projectRef
-init|=
-operator|new
-name|ProjectReference
+operator|.
+name|build
 argument_list|( )
 decl_stmt|;
+name|ItemSelector
 name|projectRef
+init|=
+name|ArchivaItemSelector
 operator|.
-name|setGroupId
+name|builder
+argument_list|()
+operator|.
+name|withNamespace
 argument_list|(
 name|artifact
 operator|.
@@ -1142,22 +1139,23 @@ operator|.
 name|getId
 argument_list|( )
 argument_list|)
-expr_stmt|;
-name|projectRef
 operator|.
-name|setArtifactId
+name|withProjectId
 argument_list|(
 name|artifact
 operator|.
 name|getId
 argument_list|( )
 argument_list|)
-expr_stmt|;
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
 try|try
 block|{
 name|metadataTools
 operator|.
-name|updateMetadata
+name|updateVersionMetadata
 argument_list|(
 name|repository
 argument_list|,
@@ -1189,7 +1187,7 @@ try|try
 block|{
 name|metadataTools
 operator|.
-name|updateMetadata
+name|updateProjectMetadata
 argument_list|(
 name|repository
 argument_list|,
