@@ -910,23 +910,6 @@ name|protocol
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|wagon
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|ProxyException
-argument_list|(
-literal|"Unsupported target repository protocol: "
-operator|+
-name|protocol
-argument_list|)
-throw|;
-block|}
 name|boolean
 name|connected
 init|=
@@ -952,14 +935,10 @@ name|remoteRepository
 argument_list|,
 name|remotePath
 argument_list|,
-name|repository
-argument_list|,
 name|resource
 operator|.
 name|getFilePath
 argument_list|()
-argument_list|,
-name|workingDirectory
 argument_list|,
 name|tmpResource
 argument_list|)
@@ -969,19 +948,10 @@ comment|// to
 comment|// save on connections since md5 is rarely used
 for|for
 control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
+name|StorageAsset
+name|checksumFile
+range|:
 name|checksumFiles
-operator|.
-name|length
-condition|;
-name|i
-operator|++
 control|)
 block|{
 name|String
@@ -993,10 +963,7 @@ name|StringUtils
 operator|.
 name|substringAfterLast
 argument_list|(
-name|checksumFiles
-index|[
-name|i
-index|]
+name|checksumFile
 operator|.
 name|getName
 argument_list|( )
@@ -1012,43 +979,21 @@ name|remoteRepository
 argument_list|,
 name|remotePath
 argument_list|,
-name|repository
-argument_list|,
 name|resource
 operator|.
 name|getFilePath
-argument_list|()
+argument_list|( )
 argument_list|,
 name|ext
 argument_list|,
-name|checksumFiles
-index|[
-name|i
-index|]
+name|checksumFile
 operator|.
 name|getFilePath
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|NotFoundException
-name|e
-parameter_list|)
-block|{
-name|urlFailureCache
-operator|.
-name|cacheFailure
-argument_list|(
-name|url
-argument_list|)
-expr_stmt|;
-throw|throw
-name|e
-throw|;
 block|}
 catch|catch
 parameter_list|(
@@ -1146,14 +1091,8 @@ parameter_list|,
 name|String
 name|remotePath
 parameter_list|,
-name|ManagedRepository
-name|repository
-parameter_list|,
 name|Path
 name|resource
-parameter_list|,
-name|Path
-name|tmpDirectory
 parameter_list|,
 name|StorageAsset
 name|destFile
@@ -1169,8 +1108,6 @@ name|remoteRepository
 argument_list|,
 name|remotePath
 argument_list|,
-name|repository
-argument_list|,
 name|resource
 argument_list|,
 name|destFile
@@ -1180,7 +1117,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      *<p>      * Quietly transfer the checksum file from the remote repository to the local file.      *</p>      *      * @param wagon            the wagon instance (should already be connected) to use.      * @param remoteRepository the remote repository to transfer from.      * @param remotePath       the remote path to the resource to get.      * @param repository       the managed repository that will hold the file      * @param resource         the local file that should contain the downloaded contents      * @param ext              the type of checksum to transfer (example: ".md5" or ".sha1")      * @throws ProxyException if copying the downloaded file into place did not succeed.      */
+comment|/**      *<p>      * Quietly transfer the checksum file from the remote repository to the local file.      *</p>      *      * @param wagon            the wagon instance (should already be connected) to use.      * @param remoteRepository the remote repository to transfer from.      * @param remotePath       the remote path to the resource to get.      * @param resource         the local file that should contain the downloaded contents      * @param ext              the type of checksum to transfer (example: ".md5" or ".sha1")      * @throws ProxyException if copying the downloaded file into place did not succeed.      */
 specifier|protected
 name|void
 name|transferChecksum
@@ -1193,9 +1130,6 @@ name|remoteRepository
 parameter_list|,
 name|String
 name|remotePath
-parameter_list|,
-name|ManagedRepository
-name|repository
 parameter_list|,
 name|Path
 name|resource
@@ -1248,8 +1182,6 @@ argument_list|,
 name|remotePath
 operator|+
 name|ext
-argument_list|,
-name|repository
 argument_list|,
 name|resource
 argument_list|,
@@ -1346,7 +1278,7 @@ name|e
 throw|;
 block|}
 block|}
-comment|/**      * Perform the transfer of the remote file to the local file specified.      *      * @param wagon            the wagon instance to use.      * @param remoteRepository the remote repository to use      * @param remotePath       the remote path to attempt to get      * @param repository       the managed repository that will hold the file      * @param origFile         the local file to save to      * @throws ProxyException if there was a problem moving the downloaded file into place.      */
+comment|/**      * Perform the transfer of the remote file to the local file specified.      *      * @param wagon            the wagon instance to use.      * @param remoteRepository the remote repository to use      * @param remotePath       the remote path to attempt to get      * @param origFile         the local file to save to      * @throws ProxyException if there was a problem moving the downloaded file into place.      */
 specifier|protected
 name|void
 name|transferSimpleFile
@@ -1359,9 +1291,6 @@ name|remoteRepository
 parameter_list|,
 name|String
 name|remotePath
-parameter_list|,
-name|ManagedRepository
-name|repository
 parameter_list|,
 name|Path
 name|origFile
@@ -1382,11 +1311,6 @@ assert|;
 comment|// Transfer the file.
 try|try
 block|{
-name|boolean
-name|success
-init|=
-literal|false
-decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -1429,10 +1353,6 @@ name|toFile
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|success
-operator|=
-literal|true
-expr_stmt|;
 comment|// You wouldn't get here on failure, a WagonException would have been thrown.
 name|log
 operator|.
@@ -1444,6 +1364,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|boolean
+name|success
+decl_stmt|;
 name|log
 operator|.
 name|debug
@@ -1656,11 +1579,6 @@ name|RemoteRepository
 name|remoteRepository
 parameter_list|)
 block|{
-name|boolean
-name|connected
-init|=
-literal|false
-decl_stmt|;
 specifier|final
 name|ProxyInfo
 name|networkProxy
@@ -1967,10 +1885,9 @@ argument_list|,
 name|networkProxy
 argument_list|)
 expr_stmt|;
-name|connected
-operator|=
+return|return
 literal|true
-expr_stmt|;
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -1997,14 +1914,10 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|connected
-operator|=
-literal|false
-expr_stmt|;
-block|}
 return|return
-name|connected
+literal|false
 return|;
+block|}
 block|}
 specifier|public
 name|WagonFactory
