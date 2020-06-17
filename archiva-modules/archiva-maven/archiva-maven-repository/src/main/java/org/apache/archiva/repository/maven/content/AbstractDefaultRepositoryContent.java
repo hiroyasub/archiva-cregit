@@ -63,11 +63,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|content
-operator|.
-name|base
-operator|.
-name|ArchivaItemSelector
+name|RepositoryContent
 import|;
 end_import
 
@@ -81,13 +77,9 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|maven
+name|content
 operator|.
-name|metadata
-operator|.
-name|storage
-operator|.
-name|ArtifactMappingProvider
+name|ItemSelector
 import|;
 end_import
 
@@ -117,7 +109,11 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|RepositoryContent
+name|content
+operator|.
+name|base
+operator|.
+name|ArchivaItemSelector
 import|;
 end_import
 
@@ -131,9 +127,13 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|content
+name|maven
 operator|.
-name|ItemSelector
+name|metadata
+operator|.
+name|storage
+operator|.
+name|ArtifactMappingProvider
 import|;
 end_import
 

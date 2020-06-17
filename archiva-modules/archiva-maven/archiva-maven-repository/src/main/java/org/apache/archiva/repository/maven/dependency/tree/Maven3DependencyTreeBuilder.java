@@ -165,11 +165,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|metadata
+name|maven2
 operator|.
-name|maven
+name|model
 operator|.
-name|MavenMetadataReader
+name|TreeEntry
 import|;
 end_import
 
@@ -181,11 +181,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|maven2
+name|metadata
 operator|.
-name|model
+name|maven
 operator|.
-name|TreeEntry
+name|MavenMetadataReader
 import|;
 end_import
 

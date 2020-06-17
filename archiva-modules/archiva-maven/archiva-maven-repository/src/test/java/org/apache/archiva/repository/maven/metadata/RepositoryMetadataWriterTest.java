@@ -101,6 +101,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|xmlunit
+operator|.
+name|assertj
+operator|.
+name|XmlAssert
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -152,18 +164,6 @@ operator|.
 name|file
 operator|.
 name|Paths
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|xmlunit
-operator|.
-name|assertj
-operator|.
-name|XmlAssert
 import|;
 end_import
 

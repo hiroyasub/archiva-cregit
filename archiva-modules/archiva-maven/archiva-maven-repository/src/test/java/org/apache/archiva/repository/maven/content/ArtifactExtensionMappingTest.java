@@ -29,9 +29,11 @@ name|archiva
 operator|.
 name|metadata
 operator|.
+name|maven
+operator|.
 name|model
 operator|.
-name|ArtifactMetadata
+name|MavenArtifactFacet
 import|;
 end_import
 
@@ -45,11 +47,9 @@ name|archiva
 operator|.
 name|metadata
 operator|.
-name|maven
-operator|.
 name|model
 operator|.
-name|MavenArtifactFacet
+name|ArtifactMetadata
 import|;
 end_import
 

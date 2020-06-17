@@ -47,9 +47,11 @@ name|archiva
 operator|.
 name|metadata
 operator|.
+name|maven
+operator|.
 name|model
 operator|.
-name|ArtifactMetadata
+name|MavenArtifactFacet
 import|;
 end_import
 
@@ -63,11 +65,9 @@ name|archiva
 operator|.
 name|metadata
 operator|.
-name|maven
-operator|.
 name|model
 operator|.
-name|MavenArtifactFacet
+name|ArtifactMetadata
 import|;
 end_import
 
@@ -168,18 +168,6 @@ operator|.
 name|inject
 operator|.
 name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|invoke
-operator|.
-name|MethodHandle
 import|;
 end_import
 

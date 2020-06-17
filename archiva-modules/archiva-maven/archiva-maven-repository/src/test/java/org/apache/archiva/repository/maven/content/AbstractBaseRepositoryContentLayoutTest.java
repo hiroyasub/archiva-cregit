@@ -47,7 +47,7 @@ name|repository
 operator|.
 name|content
 operator|.
-name|LayoutException
+name|ItemSelector
 import|;
 end_import
 
@@ -63,7 +63,7 @@ name|repository
 operator|.
 name|content
 operator|.
-name|ItemSelector
+name|LayoutException
 import|;
 end_import
 

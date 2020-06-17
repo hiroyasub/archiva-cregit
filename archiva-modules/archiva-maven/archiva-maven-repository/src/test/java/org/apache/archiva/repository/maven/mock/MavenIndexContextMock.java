@@ -75,9 +75,7 @@ name|repository
 operator|.
 name|storage
 operator|.
-name|fs
-operator|.
-name|FilesystemStorage
+name|StorageAsset
 import|;
 end_import
 
@@ -93,7 +91,9 @@ name|repository
 operator|.
 name|storage
 operator|.
-name|StorageAsset
+name|fs
+operator|.
+name|FilesystemStorage
 import|;
 end_import
 
