@@ -227,6 +227,22 @@ name|repository
 operator|.
 name|content
 operator|.
+name|ItemSelector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
 name|Project
 import|;
 end_import
@@ -992,49 +1008,6 @@ name|String
 name|path
 parameter_list|)
 block|{
-name|VersionedReference
-name|versionRef
-init|=
-operator|new
-name|VersionedReference
-argument_list|( )
-decl_stmt|;
-name|versionRef
-operator|.
-name|setGroupId
-argument_list|(
-name|artifact
-operator|.
-name|getNamespace
-argument_list|( )
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|versionRef
-operator|.
-name|setArtifactId
-argument_list|(
-name|artifact
-operator|.
-name|getId
-argument_list|( )
-argument_list|)
-expr_stmt|;
-name|versionRef
-operator|.
-name|setVersion
-argument_list|(
-name|artifact
-operator|.
-name|getVersion
-argument_list|( )
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|String
@@ -1046,7 +1019,10 @@ name|metadataTools
 operator|.
 name|toPath
 argument_list|(
-name|versionRef
+name|artifact
+operator|.
+name|getVersion
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|StorageAsset
@@ -1090,14 +1066,7 @@ name|debug
 argument_list|(
 literal|"Skipping uptodate metadata: {}"
 argument_list|,
-name|this
-operator|.
-name|metadataTools
-operator|.
-name|toPath
-argument_list|(
-name|versionRef
-argument_list|)
+name|metadataPath
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1119,14 +1088,7 @@ name|debug
 argument_list|(
 literal|"Updated metadata: {}"
 argument_list|,
-name|this
-operator|.
-name|metadataTools
-operator|.
-name|toPath
-argument_list|(
-name|versionRef
-argument_list|)
+name|metadataPath
 argument_list|)
 expr_stmt|;
 block|}

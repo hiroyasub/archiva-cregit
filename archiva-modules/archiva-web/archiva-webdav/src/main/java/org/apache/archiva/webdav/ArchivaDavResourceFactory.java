@@ -6824,7 +6824,7 @@ try|try
 block|{
 name|metadataTools
 operator|.
-name|toVersionedReference
+name|toVersionedSelector
 argument_list|(
 name|requestedResource
 argument_list|)
