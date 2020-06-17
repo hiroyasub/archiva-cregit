@@ -137,6 +137,8 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|content
+operator|.
 name|BaseRepositoryContentLayout
 import|;
 end_import
@@ -164,6 +166,8 @@ operator|.
 name|archiva
 operator|.
 name|repository
+operator|.
+name|content
 operator|.
 name|LayoutException
 import|;

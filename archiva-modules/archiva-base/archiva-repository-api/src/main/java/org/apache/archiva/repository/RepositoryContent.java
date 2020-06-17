@@ -31,6 +31,22 @@ name|ItemSelector
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|content
+operator|.
+name|LayoutException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Common aspects of content provider interfaces  */
 end_comment

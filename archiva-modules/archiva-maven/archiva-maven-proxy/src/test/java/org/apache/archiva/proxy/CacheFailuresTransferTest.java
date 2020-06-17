@@ -113,6 +113,8 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|content
+operator|.
 name|BaseRepositoryContentLayout
 import|;
 end_import

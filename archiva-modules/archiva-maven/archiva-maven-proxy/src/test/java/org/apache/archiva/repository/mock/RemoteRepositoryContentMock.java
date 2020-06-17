@@ -43,6 +43,8 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|content
+operator|.
 name|LayoutException
 import|;
 end_import

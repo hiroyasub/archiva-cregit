@@ -57,6 +57,8 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|content
+operator|.
 name|LayoutException
 import|;
 end_import
@@ -133,27 +135,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
 import|;
 end_import
 

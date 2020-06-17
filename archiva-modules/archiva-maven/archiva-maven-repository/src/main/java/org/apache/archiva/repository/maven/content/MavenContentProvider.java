@@ -125,6 +125,8 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|content
+operator|.
 name|BaseRepositoryContentLayout
 import|;
 end_import
@@ -224,22 +226,6 @@ operator|.
 name|repository
 operator|.
 name|RepositoryType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|model
-operator|.
-name|path
-operator|.
-name|PathTranslator
 import|;
 end_import
 

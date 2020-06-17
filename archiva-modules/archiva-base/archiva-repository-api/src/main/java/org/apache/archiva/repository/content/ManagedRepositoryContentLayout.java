@@ -8,6 +8,8 @@ operator|.
 name|archiva
 operator|.
 name|repository
+operator|.
+name|content
 package|;
 end_package
 
@@ -25,25 +27,7 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|content
-operator|.
-name|ContentItem
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|content
-operator|.
-name|DataItem
+name|ManagedRepositoryContent
 import|;
 end_import
 

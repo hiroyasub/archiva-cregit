@@ -27,6 +27,8 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|content
+operator|.
 name|ContentAccessException
 import|;
 end_import
@@ -69,6 +71,8 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|content
+operator|.
 name|LayoutException
 import|;
 end_import
@@ -97,6 +101,8 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|content
+operator|.
 name|BaseRepositoryContentLayout
 import|;
 end_import
@@ -110,6 +116,8 @@ operator|.
 name|archiva
 operator|.
 name|repository
+operator|.
+name|content
 operator|.
 name|ManagedRepositoryContentLayout
 import|;

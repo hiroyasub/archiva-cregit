@@ -39,21 +39,9 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|content
+operator|.
 name|BaseRepositoryContentLayout
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|LayoutException
 import|;
 end_import
 
@@ -69,7 +57,7 @@ name|repository
 operator|.
 name|content
 operator|.
-name|Artifact
+name|LayoutException
 import|;
 end_import
 
