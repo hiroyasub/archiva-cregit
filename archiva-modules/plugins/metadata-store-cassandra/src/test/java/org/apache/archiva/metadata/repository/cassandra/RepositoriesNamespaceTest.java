@@ -273,8 +273,6 @@ name|CassandraMetadataRepository
 argument_list|(
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|cassandraArchivaManager
 argument_list|)
 expr_stmt|;
