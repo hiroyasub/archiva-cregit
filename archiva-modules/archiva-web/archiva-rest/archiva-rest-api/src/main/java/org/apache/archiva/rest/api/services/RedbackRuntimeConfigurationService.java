@@ -21,6 +21,24 @@ end_comment
 
 begin_import
 import|import
+name|io
+operator|.
+name|swagger
+operator|.
+name|v3
+operator|.
+name|oas
+operator|.
+name|annotations
+operator|.
+name|tags
+operator|.
+name|Tag
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -246,6 +264,17 @@ annotation|@
 name|Path
 argument_list|(
 literal|"/redbackRuntimeConfigurationService/"
+argument_list|)
+annotation|@
+name|Tag
+argument_list|(
+name|name
+operator|=
+literal|"Redback"
+argument_list|,
+name|description
+operator|=
+literal|"Configuration of Redback Backend"
 argument_list|)
 specifier|public
 interface|interface

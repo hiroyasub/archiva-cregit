@@ -21,6 +21,56 @@ end_comment
 
 begin_import
 import|import
+name|io
+operator|.
+name|swagger
+operator|.
+name|v3
+operator|.
+name|oas
+operator|.
+name|annotations
+operator|.
+name|Operation
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|swagger
+operator|.
+name|v3
+operator|.
+name|oas
+operator|.
+name|annotations
+operator|.
+name|Parameter
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|swagger
+operator|.
+name|v3
+operator|.
+name|oas
+operator|.
+name|annotations
+operator|.
+name|tags
+operator|.
+name|Tag
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -277,6 +327,17 @@ name|Path
 argument_list|(
 literal|"/archivaAdministrationService/"
 argument_list|)
+annotation|@
+name|Tag
+argument_list|(
+name|name
+operator|=
+literal|"Administration"
+argument_list|,
+name|description
+operator|=
+literal|"Admin Service"
+argument_list|)
 specifier|public
 interface|interface
 name|ArchivaAdministrationService
@@ -315,7 +376,7 @@ argument_list|<
 name|LegacyArtifactPath
 argument_list|>
 name|getLegacyArtifactPaths
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
@@ -505,9 +566,39 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
+annotation|@
+name|Operation
+argument_list|(
+name|summary
+operator|=
+literal|"Return the file type and its patterns"
+argument_list|,
+name|description
+operator|=
+literal|"Returns a object that contains the file type and the configured patterns for this type"
+argument_list|)
 name|FileType
 name|getFileType
 parameter_list|(
+annotation|@
+name|Parameter
+argument_list|(
+name|name
+operator|=
+literal|"fileTypeId"
+argument_list|,
+name|description
+operator|=
+literal|"The identifier of the file type"
+argument_list|,
+name|allowEmptyValue
+operator|=
+literal|false
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|)
 annotation|@
 name|QueryParam
 argument_list|(
@@ -908,7 +999,7 @@ argument_list|<
 name|FileType
 argument_list|>
 name|getFileTypes
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
@@ -946,7 +1037,7 @@ argument_list|<
 name|String
 argument_list|>
 name|getKnownContentConsumers
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
@@ -985,7 +1076,7 @@ argument_list|<
 name|AdminRepositoryConsumer
 argument_list|>
 name|getKnownContentAdminRepositoryConsumers
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
@@ -1024,7 +1115,7 @@ argument_list|<
 name|AdminRepositoryConsumer
 argument_list|>
 name|getInvalidContentAdminRepositoryConsumers
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
@@ -1062,7 +1153,7 @@ argument_list|<
 name|String
 argument_list|>
 name|getInvalidContentConsumers
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
@@ -1103,7 +1194,7 @@ literal|true
 argument_list|)
 name|OrganisationInformation
 name|getOrganisationInformation
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
@@ -1176,7 +1267,7 @@ name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
 name|UiConfiguration
 name|getUiConfiguration
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
@@ -1213,7 +1304,7 @@ literal|true
 argument_list|)
 name|Boolean
 name|registrationDisabled
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
@@ -1283,7 +1374,7 @@ literal|true
 argument_list|)
 name|String
 name|getApplicationUrl
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
@@ -1318,7 +1409,7 @@ name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
 name|NetworkConfiguration
 name|getNetworkConfiguration
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
