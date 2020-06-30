@@ -81,6 +81,9 @@ name|validateCronExpression
 argument_list|(
 literal|"0 0,30 * * * ?"
 argument_list|)
+operator|.
+name|isValid
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -109,6 +112,9 @@ name|validateCronExpression
 argument_list|(
 literal|"0,30 * * * ?"
 argument_list|)
+operator|.
+name|isValid
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

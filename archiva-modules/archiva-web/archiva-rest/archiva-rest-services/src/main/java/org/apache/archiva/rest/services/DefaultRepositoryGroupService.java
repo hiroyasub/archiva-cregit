@@ -81,6 +81,24 @@ name|rest
 operator|.
 name|api
 operator|.
+name|model
+operator|.
+name|ActionStatus
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|rest
+operator|.
+name|api
+operator|.
 name|services
 operator|.
 name|ArchivaRestServiceException
@@ -362,7 +380,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Boolean
+name|ActionStatus
 name|addRepositoryGroup
 parameter_list|(
 name|RepositoryGroup
@@ -374,6 +392,9 @@ block|{
 try|try
 block|{
 return|return
+operator|new
+name|ActionStatus
+argument_list|(
 name|repositoryGroupAdmin
 operator|.
 name|addRepositoryGroup
@@ -396,7 +417,7 @@ argument_list|(
 name|repoGroup
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 operator|new
 name|ArrayList
@@ -405,7 +426,7 @@ argument_list|(
 name|repoGroup
 operator|.
 name|getRepositories
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 operator|.
@@ -414,7 +435,7 @@ argument_list|(
 name|repoGroup
 operator|.
 name|getMergedIndexPath
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|mergedIndexTtl
@@ -422,7 +443,7 @@ argument_list|(
 name|repoGroup
 operator|.
 name|getMergedIndexTtl
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|cronExpression
@@ -430,11 +451,12 @@ argument_list|(
 name|repoGroup
 operator|.
 name|getCronExpression
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|,
 name|getAuditInformation
-argument_list|()
+argument_list|( )
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -461,7 +483,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Boolean
+name|ActionStatus
 name|updateRepositoryGroup
 parameter_list|(
 name|RepositoryGroup
@@ -473,6 +495,9 @@ block|{
 try|try
 block|{
 return|return
+operator|new
+name|ActionStatus
+argument_list|(
 name|repositoryGroupAdmin
 operator|.
 name|updateRepositoryGroup
@@ -495,7 +520,7 @@ argument_list|(
 name|repoGroup
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 operator|new
 name|ArrayList
@@ -504,7 +529,7 @@ argument_list|(
 name|repoGroup
 operator|.
 name|getRepositories
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 operator|.
@@ -513,7 +538,7 @@ argument_list|(
 name|repoGroup
 operator|.
 name|getMergedIndexPath
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|mergedIndexTtl
@@ -521,7 +546,7 @@ argument_list|(
 name|repoGroup
 operator|.
 name|getMergedIndexTtl
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|cronExpression
@@ -529,11 +554,12 @@ argument_list|(
 name|repoGroup
 operator|.
 name|getCronExpression
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|,
 name|getAuditInformation
-argument_list|()
+argument_list|( )
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -560,7 +586,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Boolean
+name|ActionStatus
 name|deleteRepositoryGroup
 parameter_list|(
 name|String
@@ -572,6 +598,9 @@ block|{
 try|try
 block|{
 return|return
+operator|new
+name|ActionStatus
+argument_list|(
 name|repositoryGroupAdmin
 operator|.
 name|deleteRepositoryGroup
@@ -579,7 +608,8 @@ argument_list|(
 name|repositoryGroupId
 argument_list|,
 name|getAuditInformation
-argument_list|()
+argument_list|( )
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -606,7 +636,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Boolean
+name|ActionStatus
 name|addRepositoryToGroup
 parameter_list|(
 name|String
@@ -621,6 +651,9 @@ block|{
 try|try
 block|{
 return|return
+operator|new
+name|ActionStatus
+argument_list|(
 name|repositoryGroupAdmin
 operator|.
 name|addRepositoryToGroup
@@ -630,7 +663,8 @@ argument_list|,
 name|repositoryId
 argument_list|,
 name|getAuditInformation
-argument_list|()
+argument_list|( )
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -657,7 +691,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Boolean
+name|ActionStatus
 name|deleteRepositoryFromGroup
 parameter_list|(
 name|String
@@ -672,6 +706,9 @@ block|{
 try|try
 block|{
 return|return
+operator|new
+name|ActionStatus
+argument_list|(
 name|repositoryGroupAdmin
 operator|.
 name|deleteRepositoryFromGroup
@@ -681,7 +718,8 @@ argument_list|,
 name|repositoryId
 argument_list|,
 name|getAuditInformation
-argument_list|()
+argument_list|( )
+argument_list|)
 argument_list|)
 return|;
 block|}

@@ -210,6 +210,9 @@ name|copyArtifact
 argument_list|(
 name|artifactTransferRequest
 argument_list|)
+operator|.
+name|isSuccess
+argument_list|()
 decl_stmt|;
 comment|// END SNIPPET: copy-artifact
 name|assertTrue

@@ -187,7 +187,43 @@ name|api
 operator|.
 name|model
 operator|.
+name|ActionStatus
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|rest
+operator|.
+name|api
+operator|.
+name|model
+operator|.
 name|ArchivaRepositoryStatistics
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|rest
+operator|.
+name|api
+operator|.
+name|model
+operator|.
+name|FileStatus
 import|;
 end_import
 
@@ -520,7 +556,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Boolean
+name|ActionStatus
 name|deleteManagedRepository
 parameter_list|(
 name|String
@@ -535,6 +571,9 @@ block|{
 try|try
 block|{
 return|return
+operator|new
+name|ActionStatus
+argument_list|(
 name|managedRepositoryAdmin
 operator|.
 name|deleteManagedRepository
@@ -542,9 +581,10 @@ argument_list|(
 name|repoId
 argument_list|,
 name|getAuditInformation
-argument_list|()
+argument_list|( )
 argument_list|,
 name|deleteContent
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -670,7 +710,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Boolean
+name|ActionStatus
 name|updateManagedRepository
 parameter_list|(
 name|ManagedRepository
@@ -682,6 +722,9 @@ block|{
 try|try
 block|{
 return|return
+operator|new
+name|ActionStatus
+argument_list|(
 name|managedRepositoryAdmin
 operator|.
 name|updateManagedRepository
@@ -691,15 +734,16 @@ argument_list|,
 name|managedRepository
 operator|.
 name|isStageRepoNeeded
-argument_list|()
+argument_list|( )
 argument_list|,
 name|getAuditInformation
-argument_list|()
+argument_list|( )
 argument_list|,
 name|managedRepository
 operator|.
 name|isResetStats
-argument_list|()
+argument_list|( )
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -731,8 +775,8 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Boolean
-name|fileLocationExists
+name|FileStatus
+name|getFileStatus
 parameter_list|(
 name|String
 name|fileLocation
@@ -751,6 +795,9 @@ name|fileLocation
 argument_list|)
 decl_stmt|;
 return|return
+operator|new
+name|FileStatus
+argument_list|(
 name|Files
 operator|.
 name|exists
@@ -760,6 +807,7 @@ operator|.
 name|get
 argument_list|(
 name|location
+argument_list|)
 argument_list|)
 argument_list|)
 return|;

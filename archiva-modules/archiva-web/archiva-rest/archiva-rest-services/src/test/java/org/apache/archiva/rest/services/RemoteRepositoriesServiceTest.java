@@ -1022,6 +1022,9 @@ name|checkRemoteConnectivity
 argument_list|(
 literal|"id-new"
 argument_list|)
+operator|.
+name|isSuccess
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1093,6 +1096,9 @@ name|checkRemoteConnectivity
 argument_list|(
 literal|"id-maven1"
 argument_list|)
+operator|.
+name|isSuccess
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1176,6 +1182,9 @@ name|checkRemoteConnectivity
 argument_list|(
 literal|"id-oracle"
 argument_list|)
+operator|.
+name|isSuccess
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -35,6 +35,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|jaxrs
+operator|.
+name|xml
+operator|.
+name|JacksonJaxbXMLProvider
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -523,16 +539,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|ws
@@ -607,7 +613,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
+name|Arrays
 import|;
 end_import
 
@@ -642,18 +648,6 @@ operator|.
 name|atomic
 operator|.
 name|AtomicReference
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Function
 import|;
 end_import
 
@@ -1395,13 +1389,17 @@ literal|"/archivaServices/"
 argument_list|,
 name|clazz
 argument_list|,
-name|Collections
+name|Arrays
 operator|.
-name|singletonList
+name|asList
 argument_list|(
 operator|new
 name|JacksonJaxbJsonProvider
-argument_list|()
+argument_list|( )
+argument_list|,
+operator|new
+name|JacksonJaxbXMLProvider
+argument_list|( )
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1675,13 +1673,17 @@ name|RepositoryGroupService
 operator|.
 name|class
 argument_list|,
-name|Collections
+name|Arrays
 operator|.
-name|singletonList
+name|asList
 argument_list|(
 operator|new
 name|JacksonJaxbJsonProvider
-argument_list|()
+argument_list|( )
+argument_list|,
+operator|new
+name|JacksonJaxbXMLProvider
+argument_list|( )
 argument_list|)
 argument_list|)
 return|;
@@ -1712,13 +1714,17 @@ name|ProxyConnectorService
 operator|.
 name|class
 argument_list|,
-name|Collections
+name|Arrays
 operator|.
-name|singletonList
+name|asList
 argument_list|(
 operator|new
 name|JacksonJaxbJsonProvider
-argument_list|()
+argument_list|( )
+argument_list|,
+operator|new
+name|JacksonJaxbXMLProvider
+argument_list|( )
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1829,13 +1835,17 @@ name|NetworkProxyService
 operator|.
 name|class
 argument_list|,
-name|Collections
+name|Arrays
 operator|.
-name|singletonList
+name|asList
 argument_list|(
 operator|new
 name|JacksonJaxbJsonProvider
-argument_list|()
+argument_list|( )
+argument_list|,
+operator|new
+name|JacksonJaxbXMLProvider
+argument_list|( )
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1946,13 +1956,17 @@ name|ArchivaAdministrationService
 operator|.
 name|class
 argument_list|,
-name|Collections
+name|Arrays
 operator|.
-name|singletonList
+name|asList
 argument_list|(
 operator|new
 name|JacksonJaxbJsonProvider
-argument_list|()
+argument_list|( )
+argument_list|,
+operator|new
+name|JacksonJaxbXMLProvider
+argument_list|( )
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2063,13 +2077,17 @@ name|RedbackRuntimeConfigurationService
 operator|.
 name|class
 argument_list|,
-name|Collections
+name|Arrays
 operator|.
-name|singletonList
+name|asList
 argument_list|(
 operator|new
 name|JacksonJaxbJsonProvider
-argument_list|()
+argument_list|( )
+argument_list|,
+operator|new
+name|JacksonJaxbXMLProvider
+argument_list|( )
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2187,13 +2205,17 @@ name|BrowseService
 operator|.
 name|class
 argument_list|,
-name|Collections
+name|Arrays
 operator|.
-name|singletonList
+name|asList
 argument_list|(
 operator|new
 name|JacksonJaxbJsonProvider
-argument_list|()
+argument_list|( )
+argument_list|,
+operator|new
+name|JacksonJaxbXMLProvider
+argument_list|( )
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2356,13 +2378,17 @@ name|SearchService
 operator|.
 name|class
 argument_list|,
-name|Collections
+name|Arrays
 operator|.
-name|singletonList
+name|asList
 argument_list|(
 operator|new
 name|JacksonJaxbJsonProvider
-argument_list|()
+argument_list|( )
+argument_list|,
+operator|new
+name|JacksonJaxbXMLProvider
+argument_list|( )
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2489,13 +2515,17 @@ name|CommonServices
 operator|.
 name|class
 argument_list|,
-name|Collections
+name|Arrays
 operator|.
-name|singletonList
+name|asList
 argument_list|(
 operator|new
 name|JacksonJaxbJsonProvider
-argument_list|()
+argument_list|( )
+argument_list|,
+operator|new
+name|JacksonJaxbXMLProvider
+argument_list|( )
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3877,10 +3907,13 @@ argument_list|(
 name|authorizationHeader
 argument_list|)
 operator|.
-name|alreadyScanning
+name|getScanStatus
 argument_list|(
 name|repoId
 argument_list|)
+operator|.
+name|isAlreadyScanning
+argument_list|()
 condition|)
 block|{
 comment|// Would be better to cancel, if we had that capacity

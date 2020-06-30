@@ -103,7 +103,43 @@ name|api
 operator|.
 name|model
 operator|.
+name|ActionStatus
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|rest
+operator|.
+name|api
+operator|.
+name|model
+operator|.
 name|ArchivaRepositoryStatistics
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|rest
+operator|.
+name|api
+operator|.
+name|model
+operator|.
+name|FileStatus
 import|;
 end_import
 
@@ -384,7 +420,7 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
-name|Boolean
+name|ActionStatus
 name|deleteManagedRepository
 parameter_list|(
 annotation|@
@@ -503,7 +539,7 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
-name|Boolean
+name|ActionStatus
 name|updateManagedRepository
 parameter_list|(
 name|ManagedRepository
@@ -512,7 +548,7 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
-comment|/**      * @since 1.4-M3      */
+comment|/**      * @since 3.0      */
 annotation|@
 name|Path
 argument_list|(
@@ -546,8 +582,8 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
-name|Boolean
-name|fileLocationExists
+name|FileStatus
+name|getFileStatus
 parameter_list|(
 annotation|@
 name|QueryParam

@@ -143,6 +143,24 @@ name|rest
 operator|.
 name|api
 operator|.
+name|model
+operator|.
+name|ActionStatus
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|rest
+operator|.
+name|api
+operator|.
 name|services
 operator|.
 name|ArchivaRestServiceException
@@ -527,7 +545,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Boolean
+name|ActionStatus
 name|deleteRemoteRepository
 parameter_list|(
 name|String
@@ -539,6 +557,9 @@ block|{
 try|try
 block|{
 return|return
+operator|new
+name|ActionStatus
+argument_list|(
 name|remoteRepositoryAdmin
 operator|.
 name|deleteRemoteRepository
@@ -546,7 +567,8 @@ argument_list|(
 name|repositoryId
 argument_list|,
 name|getAuditInformation
-argument_list|()
+argument_list|( )
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -590,7 +612,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Boolean
+name|ActionStatus
 name|addRemoteRepository
 parameter_list|(
 name|RemoteRepository
@@ -602,6 +624,9 @@ block|{
 try|try
 block|{
 return|return
+operator|new
+name|ActionStatus
+argument_list|(
 name|remoteRepositoryAdmin
 operator|.
 name|addRemoteRepository
@@ -609,7 +634,8 @@ argument_list|(
 name|remoteRepository
 argument_list|,
 name|getAuditInformation
-argument_list|()
+argument_list|( )
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -653,7 +679,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Boolean
+name|ActionStatus
 name|updateRemoteRepository
 parameter_list|(
 name|RemoteRepository
@@ -665,6 +691,9 @@ block|{
 try|try
 block|{
 return|return
+operator|new
+name|ActionStatus
+argument_list|(
 name|remoteRepositoryAdmin
 operator|.
 name|updateRemoteRepository
@@ -672,7 +701,8 @@ argument_list|(
 name|remoteRepository
 argument_list|,
 name|getAuditInformation
-argument_list|()
+argument_list|( )
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -716,7 +746,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Boolean
+name|ActionStatus
 name|checkRemoteConnectivity
 parameter_list|(
 name|String
@@ -754,9 +784,9 @@ name|repositoryId
 argument_list|)
 expr_stmt|;
 return|return
-name|Boolean
+name|ActionStatus
 operator|.
-name|FALSE
+name|FAIL
 return|;
 block|}
 name|NetworkProxy
@@ -1055,6 +1085,9 @@ operator|)
 condition|)
 block|{
 return|return
+operator|new
+name|ActionStatus
+argument_list|(
 name|wagon
 operator|.
 name|resourceExists
@@ -1062,7 +1095,8 @@ argument_list|(
 name|remoteRepository
 operator|.
 name|getCheckPath
-argument_list|()
+argument_list|( )
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -1079,9 +1113,9 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|Boolean
+name|ActionStatus
 operator|.
-name|TRUE
+name|SUCCESS
 return|;
 block|}
 catch|catch
@@ -1103,9 +1137,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|Boolean
+name|ActionStatus
 operator|.
-name|FALSE
+name|FAIL
 return|;
 block|}
 catch|catch
@@ -1137,9 +1171,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|Boolean
+name|ActionStatus
 operator|.
-name|FALSE
+name|FAIL
 return|;
 block|}
 block|}
