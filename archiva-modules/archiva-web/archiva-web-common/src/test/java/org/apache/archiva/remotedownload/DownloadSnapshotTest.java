@@ -744,6 +744,9 @@ name|TEMPLATE_REPOSITORY_OBSERVER
 argument_list|,
 name|id
 argument_list|)
+operator|.
+name|isExists
+argument_list|()
 condition|)
 block|{
 name|roleManagementService
