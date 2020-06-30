@@ -55,6 +55,24 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|rest
+operator|.
+name|api
+operator|.
+name|model
+operator|.
+name|PingResult
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|ws
@@ -156,7 +174,7 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
-name|String
+name|PingResult
 name|ping
 parameter_list|()
 function_decl|;
@@ -196,7 +214,7 @@ name|noPermission
 operator|=
 literal|true
 argument_list|)
-name|String
+name|PingResult
 name|pingWithAuthz
 parameter_list|()
 function_decl|;

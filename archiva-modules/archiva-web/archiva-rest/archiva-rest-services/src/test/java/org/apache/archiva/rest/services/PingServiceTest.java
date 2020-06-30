@@ -29,6 +29,24 @@ name|rest
 operator|.
 name|api
 operator|.
+name|model
+operator|.
+name|PingResult
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|rest
+operator|.
+name|api
+operator|.
 name|services
 operator|.
 name|PingService
@@ -105,7 +123,7 @@ name|Exception
 block|{
 comment|// 1000000L
 comment|//WebClient.getConfig( userService ).getHttpConduit().getClient().setReceiveTimeout(3000);
-name|String
+name|PingResult
 name|res
 init|=
 name|getPingService
@@ -119,6 +137,9 @@ argument_list|(
 literal|"Yeah Baby It rocks!"
 argument_list|,
 name|res
+operator|.
+name|getOutput
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -140,7 +161,7 @@ name|Exception
 block|{
 try|try
 block|{
-name|String
+name|PingResult
 name|res
 init|=
 name|getPingService
@@ -226,7 +247,7 @@ argument_list|,
 name|authorizationHeader
 argument_list|)
 expr_stmt|;
-name|String
+name|PingResult
 name|res
 init|=
 name|service
@@ -239,6 +260,9 @@ argument_list|(
 literal|"Yeah Baby It rocks!"
 argument_list|,
 name|res
+operator|.
+name|getOutput
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -292,7 +316,7 @@ argument_list|,
 name|guestAuthzHeader
 argument_list|)
 expr_stmt|;
-name|String
+name|PingResult
 name|res
 init|=
 name|service
@@ -305,6 +329,9 @@ argument_list|(
 literal|"Yeah Baby It rocks!"
 argument_list|,
 name|res
+operator|.
+name|getOutput
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
