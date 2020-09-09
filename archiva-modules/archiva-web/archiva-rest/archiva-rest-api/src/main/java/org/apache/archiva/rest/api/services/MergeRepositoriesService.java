@@ -211,6 +211,10 @@ operator|=
 name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MERGE_REPOSITORY
+argument_list|,
+name|resource
+operator|=
+literal|"{sourceRepositoryId}"
 argument_list|)
 name|List
 argument_list|<
@@ -253,6 +257,10 @@ operator|=
 name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MERGE_REPOSITORY
+argument_list|,
+name|resource
+operator|=
+literal|"{sourceRepositoryId}"
 argument_list|)
 name|void
 name|mergeRepositories

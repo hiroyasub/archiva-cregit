@@ -276,7 +276,7 @@ name|permissions
 operator|=
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_FILE_UPLOAD
 argument_list|)
 name|FileMetadata
 name|post
@@ -314,7 +314,7 @@ name|permissions
 operator|=
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_FILE_UPLOAD
 argument_list|)
 name|Boolean
 name|deleteFile
@@ -357,7 +357,7 @@ name|permissions
 operator|=
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_FILE_UPLOAD
 argument_list|)
 name|List
 argument_list|<
@@ -482,7 +482,7 @@ name|permissions
 operator|=
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_FILE_UPLOAD
 argument_list|)
 name|Boolean
 name|clearUploadedFiles
