@@ -151,16 +151,6 @@ name|MediaType
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
 comment|/**  * contains some "free" services (i18n)  *  * @author Olivier Lamy  * @since 1.4-M3  */
 end_comment
@@ -196,11 +186,7 @@ argument_list|(
 block|{
 name|MediaType
 operator|.
-name|APPLICATION_JSON
-block|,
-name|MediaType
-operator|.
-name|APPLICATION_XML
+name|TEXT_PLAIN
 block|}
 argument_list|)
 annotation|@
@@ -210,12 +196,7 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|String
-argument_list|>
 name|getI18nResources
 parameter_list|(
 annotation|@
@@ -243,11 +224,7 @@ argument_list|(
 block|{
 name|MediaType
 operator|.
-name|APPLICATION_JSON
-block|,
-name|MediaType
-operator|.
-name|APPLICATION_XML
+name|TEXT_PLAIN
 block|}
 argument_list|)
 annotation|@
@@ -257,12 +234,7 @@ name|noRestriction
 operator|=
 literal|true
 argument_list|)
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|String
-argument_list|>
 name|getAllI18nResources
 parameter_list|(
 annotation|@
