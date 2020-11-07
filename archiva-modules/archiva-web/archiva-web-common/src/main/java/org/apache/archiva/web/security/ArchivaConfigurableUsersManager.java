@@ -676,6 +676,7 @@ return|return
 name|user
 return|;
 block|}
+comment|/*      * TODO: This must be refactored. This does not work for multiple user managers.      *  We need a combined user query that merges results      */
 annotation|@
 name|Override
 specifier|public
