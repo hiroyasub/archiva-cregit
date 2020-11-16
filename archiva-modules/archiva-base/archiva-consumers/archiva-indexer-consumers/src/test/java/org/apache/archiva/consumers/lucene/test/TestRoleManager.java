@@ -173,7 +173,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|updateRole
+name|moveTemplatedRole
 parameter_list|(
 name|String
 name|templateId
