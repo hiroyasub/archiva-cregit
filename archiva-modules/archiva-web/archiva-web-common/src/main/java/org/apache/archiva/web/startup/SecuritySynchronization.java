@@ -1205,11 +1205,11 @@ expr_stmt|;
 block|}
 name|ua
 operator|.
-name|addRoleName
+name|addRoleId
 argument_list|(
 name|ArchivaRoleConstants
 operator|.
-name|toRepositoryObserverRoleName
+name|toRepositoryObserverRoleId
 argument_list|(
 name|repoId
 argument_list|)
@@ -1237,7 +1237,7 @@ literal|"Unable to add role [{}] to {} user."
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|toRepositoryObserverRoleName
+name|toRepositoryObserverRoleId
 argument_list|(
 name|repoId
 argument_list|)

@@ -893,7 +893,7 @@ return|return;
 block|}
 name|userAssignment
 operator|.
-name|setRoleNames
+name|setRoleIds
 argument_list|(
 operator|new
 name|ArrayList
@@ -902,7 +902,7 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-literal|"Guest"
+literal|"guest"
 argument_list|)
 argument_list|)
 argument_list|)

@@ -96,6 +96,14 @@ name|REPOSITORY_OBSERVER_ROLE_PREFIX
 init|=
 literal|"Repository Observer"
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|REPOSITORY_OBSERVER_ROLE_ID_PREFIX
+init|=
+literal|"archiva-repository-observer"
+decl_stmt|;
 comment|// operations
 specifier|public
 specifier|static
@@ -271,6 +279,23 @@ return|return
 name|REPOSITORY_OBSERVER_ROLE_PREFIX
 operator|+
 literal|" - "
+operator|+
+name|repoId
+return|;
+block|}
+specifier|public
+specifier|static
+name|String
+name|toRepositoryObserverRoleId
+parameter_list|(
+name|String
+name|repoId
+parameter_list|)
+block|{
+return|return
+name|REPOSITORY_OBSERVER_ROLE_ID_PREFIX
+operator|+
+literal|"."
 operator|+
 name|repoId
 return|;

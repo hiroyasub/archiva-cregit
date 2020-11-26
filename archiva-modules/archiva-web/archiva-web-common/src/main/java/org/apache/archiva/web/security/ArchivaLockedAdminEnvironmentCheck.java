@@ -547,7 +547,7 @@ name|add
 argument_list|(
 name|RedbackRoleConstants
 operator|.
-name|SYSTEM_ADMINISTRATOR_ROLE
+name|SYSTEM_ADMINISTRATOR_ROLE_ID
 argument_list|)
 expr_stmt|;
 name|List

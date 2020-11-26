@@ -136,7 +136,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|void
+name|String
 name|createTemplatedRole
 parameter_list|(
 name|String
@@ -149,6 +149,9 @@ throws|throws
 name|RoleManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|Override
@@ -170,7 +173,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|void
+name|String
 name|moveTemplatedRole
 parameter_list|(
 name|String
@@ -186,6 +189,9 @@ throws|throws
 name|RoleManagerException
 block|{
 comment|//To change body of implemented methods use File | Settings | File Templates.
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|Override
