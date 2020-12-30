@@ -2534,10 +2534,22 @@ name|metadata
 operator|.
 name|setProperties
 argument_list|(
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|(
+operator|(
+name|Map
+operator|)
 name|model
 operator|.
 name|getProperties
-argument_list|()
+argument_list|( )
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|MavenProjectFacet
