@@ -239,7 +239,7 @@ begin_class
 annotation|@
 name|Service
 argument_list|(
-literal|"rbacManager#cached"
+literal|"rbacManager#test"
 argument_list|)
 specifier|public
 class|class
