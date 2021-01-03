@@ -94,7 +94,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Martin Stockhammer<martin_s@apache.org>  */
+comment|/**  * @author Martin Stockhammer<martin_s@apache.org>  * @since 3.0  */
 end_comment
 
 begin_class
@@ -377,6 +377,12 @@ operator|.
 name|hostName
 operator|=
 name|hostName
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
+name|hostName
 expr_stmt|;
 block|}
 annotation|@
@@ -470,6 +476,12 @@ operator|.
 name|baseDn
 operator|=
 name|baseDn
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
+name|baseDn
 expr_stmt|;
 block|}
 annotation|@
@@ -500,6 +512,12 @@ name|this
 operator|.
 name|bindDn
 operator|=
+name|bindDn
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
 name|bindDn
 expr_stmt|;
 block|}
@@ -532,6 +550,12 @@ operator|.
 name|bindPassword
 operator|=
 name|bindPassword
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
+name|bindPassword
 expr_stmt|;
 block|}
 annotation|@
@@ -563,6 +587,12 @@ operator|.
 name|groupsBaseDn
 operator|=
 name|groupsBaseDn
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
+name|groupsBaseDn
 expr_stmt|;
 block|}
 annotation|@
@@ -593,6 +623,12 @@ name|this
 operator|.
 name|authenticationMethod
 operator|=
+name|authenticationMethod
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
 name|authenticationMethod
 expr_stmt|;
 block|}

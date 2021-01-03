@@ -2576,6 +2576,37 @@ return|;
 block|}
 if|if
 condition|(
+name|conf
+operator|.
+name|getLdapConfiguration
+argument_list|()
+operator|.
+name|getExtraProperties
+argument_list|()
+operator|.
+name|containsKey
+argument_list|(
+name|key
+argument_list|)
+condition|)
+block|{
+return|return
+name|conf
+operator|.
+name|getLdapConfiguration
+argument_list|( )
+operator|.
+name|getExtraProperties
+argument_list|( )
+operator|.
+name|get
+argument_list|(
+name|key
+argument_list|)
+return|;
+block|}
+if|if
+condition|(
 name|USER_MANAGER_IMPL
 operator|.
 name|equals
@@ -2771,6 +2802,37 @@ name|conf
 operator|.
 name|getLdapGroupMappings
 argument_list|( )
+argument_list|)
+return|;
+block|}
+if|if
+condition|(
+name|conf
+operator|.
+name|getLdapConfiguration
+argument_list|()
+operator|.
+name|getExtraProperties
+argument_list|()
+operator|.
+name|containsKey
+argument_list|(
+name|key
+argument_list|)
+condition|)
+block|{
+return|return
+name|conf
+operator|.
+name|getLdapConfiguration
+argument_list|( )
+operator|.
+name|getExtraProperties
+argument_list|( )
+operator|.
+name|get
+argument_list|(
+name|key
 argument_list|)
 return|;
 block|}
