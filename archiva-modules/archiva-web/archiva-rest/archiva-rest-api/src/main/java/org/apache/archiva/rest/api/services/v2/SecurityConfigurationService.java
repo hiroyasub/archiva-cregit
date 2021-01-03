@@ -551,6 +551,11 @@ throws|throws
 name|ArchivaRestServiceException
 function_decl|;
 annotation|@
+name|Path
+argument_list|(
+literal|"config/properties"
+argument_list|)
+annotation|@
 name|GET
 annotation|@
 name|Produces
@@ -623,7 +628,7 @@ literal|"orderBy"
 argument_list|,
 name|description
 operator|=
-literal|"List of attribute used for sorting (user_id, fullName, email, created"
+literal|"List of attribute used for sorting (key, value)"
 argument_list|)
 block|,
 annotation|@
@@ -780,7 +785,7 @@ argument_list|)
 annotation|@
 name|DefaultValue
 argument_list|(
-literal|"id"
+literal|"key"
 argument_list|)
 name|List
 argument_list|<
@@ -807,7 +812,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"ldap"
+literal|"config/ldap"
 argument_list|)
 annotation|@
 name|GET
@@ -909,7 +914,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"user/cache"
+literal|"config/cache"
 argument_list|)
 annotation|@
 name|GET
@@ -1011,7 +1016,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"user/managers"
+literal|"user_managers"
 argument_list|)
 annotation|@
 name|GET
@@ -1116,7 +1121,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"rbac/managers"
+literal|"rbac_managers"
 argument_list|)
 annotation|@
 name|GET

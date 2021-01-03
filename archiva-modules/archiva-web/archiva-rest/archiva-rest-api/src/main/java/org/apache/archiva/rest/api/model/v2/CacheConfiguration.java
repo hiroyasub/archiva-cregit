@@ -128,6 +128,7 @@ block|{
 comment|// no op
 block|}
 specifier|public
+specifier|static
 name|CacheConfiguration
 name|of
 parameter_list|(
