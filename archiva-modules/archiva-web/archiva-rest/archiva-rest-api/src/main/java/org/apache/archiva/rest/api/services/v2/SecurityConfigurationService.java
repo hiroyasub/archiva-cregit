@@ -1220,20 +1220,6 @@ name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
 block|}
 argument_list|,
-name|requestBody
-operator|=
-annotation|@
-name|RequestBody
-argument_list|(
-name|required
-operator|=
-literal|true
-argument_list|,
-name|description
-operator|=
-literal|"The property value"
-argument_list|)
-argument_list|,
 name|parameters
 operator|=
 block|{
@@ -1501,20 +1487,6 @@ name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
 block|}
 argument_list|,
-name|requestBody
-operator|=
-annotation|@
-name|RequestBody
-argument_list|(
-name|required
-operator|=
-literal|true
-argument_list|,
-name|description
-operator|=
-literal|"The LDAP configuration"
-argument_list|)
-argument_list|,
 name|responses
 operator|=
 block|{
@@ -1717,20 +1689,6 @@ operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
 block|}
-argument_list|,
-name|requestBody
-operator|=
-annotation|@
-name|RequestBody
-argument_list|(
-name|required
-operator|=
-literal|true
-argument_list|,
-name|description
-operator|=
-literal|"The LDAP configuration"
-argument_list|)
 argument_list|,
 name|responses
 operator|=
