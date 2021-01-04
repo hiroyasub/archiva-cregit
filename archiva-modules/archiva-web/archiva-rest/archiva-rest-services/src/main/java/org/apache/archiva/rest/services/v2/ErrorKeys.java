@@ -48,6 +48,11 @@ name|PROPERTY_NOT_FOUND
 init|=
 literal|"archiva.property.not.found"
 decl_stmt|;
+name|String
+name|MISSING_DATA
+init|=
+literal|"archiva.missing.data"
+decl_stmt|;
 block|}
 end_interface
 
