@@ -200,6 +200,10 @@ block|}
 annotation|@
 name|Schema
 argument_list|(
+name|name
+operator|=
+literal|"error_key"
+argument_list|,
 name|description
 operator|=
 literal|"The key of the error message. If this is empty, the message message must be set."

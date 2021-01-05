@@ -75,6 +75,17 @@ name|name
 operator|=
 literal|"cacheConfiguration"
 argument_list|)
+annotation|@
+name|Schema
+argument_list|(
+name|name
+operator|=
+literal|"CacheConfiguration"
+argument_list|,
+name|description
+operator|=
+literal|"Cache configuration attributes"
+argument_list|)
 specifier|public
 class|class
 name|CacheConfiguration
@@ -202,6 +213,10 @@ block|}
 annotation|@
 name|Schema
 argument_list|(
+name|name
+operator|=
+literal|"time_to_idle_seconds"
+argument_list|,
 name|description
 operator|=
 literal|"The maximum number of seconds an element can exist in the cache without being accessed. "
@@ -235,6 +250,10 @@ block|}
 annotation|@
 name|Schema
 argument_list|(
+name|name
+operator|=
+literal|"time_to_live_seconds"
+argument_list|,
 name|description
 operator|=
 literal|"The maximum number of seconds an element can exist in the cache regardless of use. "
@@ -268,6 +287,10 @@ block|}
 annotation|@
 name|Schema
 argument_list|(
+name|name
+operator|=
+literal|"max_entries_in_memory"
+argument_list|,
 name|description
 operator|=
 literal|"The maximum cache entries to keep in memory. If the limit is reached, older entries will be evicted, or persisted on disk."
@@ -299,6 +322,10 @@ block|}
 annotation|@
 name|Schema
 argument_list|(
+name|name
+operator|=
+literal|"max_entries_on_disk"
+argument_list|,
 name|description
 operator|=
 literal|"The maximum cache entries to keep on disk. If the limit is reached, older entries will be evicted."
@@ -478,7 +505,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"{timeToIdleSeconds="
+literal|"{time_to_idle_seconds="
 argument_list|)
 operator|.
 name|append
@@ -490,7 +517,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", timeToLiveSeconds="
+literal|", time_to_live_seconds="
 argument_list|)
 operator|.
 name|append
@@ -502,7 +529,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", maxElementsInMemory="
+literal|", max_elements_in_memory="
 argument_list|)
 operator|.
 name|append
@@ -514,7 +541,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", maxElementsOnDisk="
+literal|", max_elements_on_disk="
 argument_list|)
 operator|.
 name|append

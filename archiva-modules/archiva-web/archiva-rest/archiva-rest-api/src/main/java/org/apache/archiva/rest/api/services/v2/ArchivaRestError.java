@@ -218,7 +218,7 @@ name|Schema
 argument_list|(
 name|name
 operator|=
-literal|"errorMessages"
+literal|"error_messages"
 argument_list|,
 name|description
 operator|=

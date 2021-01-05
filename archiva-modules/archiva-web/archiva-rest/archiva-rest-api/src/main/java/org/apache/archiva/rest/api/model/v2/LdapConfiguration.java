@@ -105,6 +105,17 @@ name|name
 operator|=
 literal|"ldapConfiguration"
 argument_list|)
+annotation|@
+name|Schema
+argument_list|(
+name|name
+operator|=
+literal|"LdapConfiguration"
+argument_list|,
+name|description
+operator|=
+literal|"LDAP configuration attributes"
+argument_list|)
 specifier|public
 class|class
 name|LdapConfiguration
@@ -351,6 +362,10 @@ block|}
 annotation|@
 name|Schema
 argument_list|(
+name|name
+operator|=
+literal|"host_name"
+argument_list|,
 name|description
 operator|=
 literal|"The hostname to use to connect to the LDAP server"
@@ -419,6 +434,10 @@ block|}
 annotation|@
 name|Schema
 argument_list|(
+name|name
+operator|=
+literal|"ssl_enabled"
+argument_list|,
 name|description
 operator|=
 literal|"If SSL should be used for connecting the LDAP server"
@@ -450,6 +469,10 @@ block|}
 annotation|@
 name|Schema
 argument_list|(
+name|name
+operator|=
+literal|"base_dn"
+argument_list|,
 name|description
 operator|=
 literal|"The BASE DN used for the LDAP server"
@@ -487,6 +510,10 @@ block|}
 annotation|@
 name|Schema
 argument_list|(
+name|name
+operator|=
+literal|"bind_dn"
+argument_list|,
 name|description
 operator|=
 literal|"The distinguished name of the bind user which is used to bind to the LDAP server"
@@ -524,6 +551,10 @@ block|}
 annotation|@
 name|Schema
 argument_list|(
+name|name
+operator|=
+literal|"bind_password"
+argument_list|,
 name|description
 operator|=
 literal|"The password used to bind to the ldap server"
@@ -561,6 +592,10 @@ block|}
 annotation|@
 name|Schema
 argument_list|(
+name|name
+operator|=
+literal|"groups_base_dn"
+argument_list|,
 name|description
 operator|=
 literal|"The distinguished name of the base to use for searching group."
@@ -598,6 +633,10 @@ block|}
 annotation|@
 name|Schema
 argument_list|(
+name|name
+operator|=
+literal|"authentication_method"
+argument_list|,
 name|description
 operator|=
 literal|"The authentication method used to bind to the LDAP server (PLAINTEXT, SASL, ...)"
@@ -635,6 +674,10 @@ block|}
 annotation|@
 name|Schema
 argument_list|(
+name|name
+operator|=
+literal|"bind_authenticator_enabled"
+argument_list|,
 name|description
 operator|=
 literal|"True, if the LDAP bind authentication is used for logging in to Archiva"
@@ -666,6 +709,10 @@ block|}
 annotation|@
 name|Schema
 argument_list|(
+name|name
+operator|=
+literal|"user_role_name_as_group"
+argument_list|,
 name|description
 operator|=
 literal|"True, if the archiva role name is also the LDAP group name"
@@ -1209,7 +1256,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"hostName='"
+literal|"host_name='"
 argument_list|)
 operator|.
 name|append
@@ -1238,7 +1285,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", sslEnabled="
+literal|", ssl_enabled="
 argument_list|)
 operator|.
 name|append
@@ -1250,7 +1297,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", baseDn='"
+literal|", base_dn='"
 argument_list|)
 operator|.
 name|append
@@ -1267,7 +1314,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", groupsBaseDn='"
+literal|", groups_base_dn='"
 argument_list|)
 operator|.
 name|append
@@ -1284,7 +1331,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", bindDn='"
+literal|", bind_dn='"
 argument_list|)
 operator|.
 name|append
@@ -1301,7 +1348,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", bindPassword='"
+literal|", bind_password='"
 argument_list|)
 operator|.
 name|append
@@ -1318,7 +1365,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", authenticationMethod='"
+literal|", authentication_method='"
 argument_list|)
 operator|.
 name|append
@@ -1335,7 +1382,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", bindAuthenticatorEnabled="
+literal|", bind_authenticator_enabled="
 argument_list|)
 operator|.
 name|append
@@ -1347,7 +1394,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", useRoleNameAsGroup="
+literal|", use_role_name_as_group="
 argument_list|)
 operator|.
 name|append

@@ -133,6 +133,17 @@ name|name
 operator|=
 literal|"securityConfiguration"
 argument_list|)
+annotation|@
+name|Schema
+argument_list|(
+name|name
+operator|=
+literal|"SecurityConfiguration"
+argument_list|,
+name|description
+operator|=
+literal|"Security configuration attributes."
+argument_list|)
 specifier|public
 class|class
 name|SecurityConfiguration
@@ -299,6 +310,10 @@ block|}
 annotation|@
 name|Schema
 argument_list|(
+name|name
+operator|=
+literal|"active_user_managers"
+argument_list|,
 name|description
 operator|=
 literal|"List of ids of the active user managers"
@@ -364,6 +379,10 @@ block|}
 annotation|@
 name|Schema
 argument_list|(
+name|name
+operator|=
+literal|"active_rbac_managers"
+argument_list|,
 name|description
 operator|=
 literal|"List of ids of the active rbac managers"
@@ -480,6 +499,10 @@ block|}
 annotation|@
 name|Schema
 argument_list|(
+name|name
+operator|=
+literal|"user_cache_enabled"
+argument_list|,
 name|description
 operator|=
 literal|"True, if the user cache is active. It caches data from user backend."
@@ -511,6 +534,10 @@ block|}
 annotation|@
 name|Schema
 argument_list|(
+name|name
+operator|=
+literal|"ldap_active"
+argument_list|,
 name|description
 operator|=
 literal|"True, if LDAP is used as user manager"
@@ -741,7 +768,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"selectedUserManagers="
+literal|"active_user_managers="
 argument_list|)
 operator|.
 name|append
@@ -753,7 +780,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", selectedRbacManagers="
+literal|", active_rbac_managers="
 argument_list|)
 operator|.
 name|append
@@ -777,7 +804,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", userCacheEnabled="
+literal|", user_cache_nabled="
 argument_list|)
 operator|.
 name|append
@@ -789,7 +816,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", ldapActive="
+literal|", ldap_active="
 argument_list|)
 operator|.
 name|append
