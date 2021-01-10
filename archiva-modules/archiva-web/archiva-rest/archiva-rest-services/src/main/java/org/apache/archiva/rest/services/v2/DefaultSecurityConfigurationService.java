@@ -191,7 +191,67 @@ name|ldap
 operator|.
 name|connection
 operator|.
+name|LdapConnection
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|redback
+operator|.
+name|common
+operator|.
+name|ldap
+operator|.
+name|connection
+operator|.
+name|LdapConnectionConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|redback
+operator|.
+name|common
+operator|.
+name|ldap
+operator|.
+name|connection
+operator|.
 name|LdapConnectionFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|redback
+operator|.
+name|common
+operator|.
+name|ldap
+operator|.
+name|connection
+operator|.
+name|LdapException
 import|;
 end_import
 
@@ -292,24 +352,6 @@ operator|.
 name|users
 operator|.
 name|UserManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|rest
-operator|.
-name|api
-operator|.
-name|model
-operator|.
-name|UserManagerImplementationInformation
 import|;
 end_import
 
@@ -475,20 +517,6 @@ name|apache
 operator|.
 name|commons
 operator|.
-name|collections4
-operator|.
-name|ListUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
 name|lang3
 operator|.
 name|StringUtils
@@ -573,9 +601,59 @@ begin_import
 import|import
 name|javax
 operator|.
-name|management
+name|naming
 operator|.
-name|Query
+name|AuthenticationException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|naming
+operator|.
+name|AuthenticationNotSupportedException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|naming
+operator|.
+name|CommunicationException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|naming
+operator|.
+name|InvalidNameException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|naming
+operator|.
+name|NoPermissionException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|naming
+operator|.
+name|ServiceUnavailableException
 import|;
 end_import
 
@@ -659,7 +737,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Objects
+name|Properties
 import|;
 end_import
 
@@ -747,6 +825,31 @@ name|DefaultSecurityConfigurationService
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+index|[]
+name|KNOWN_LDAP_CONTEXT_PROVIDERS
+init|=
+block|{
+literal|"com.sun.jndi.ldap.LdapCtxFactory"
+block|,
+literal|"com.ibm.jndi.LDAPCtxFactory"
+block|}
+decl_stmt|;
+specifier|private
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|availableContextProviders
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|( )
 decl_stmt|;
 specifier|private
 specifier|static
@@ -909,7 +1012,7 @@ annotation|@
 name|PostConstruct
 name|void
 name|init
-parameter_list|()
+parameter_list|( )
 block|{
 name|bundle
 operator|=
@@ -920,6 +1023,31 @@ argument_list|(
 literal|"org.apache.archiva.rest.RestBundle"
 argument_list|)
 expr_stmt|;
+for|for
+control|(
+name|String
+name|ldapClass
+range|:
+name|KNOWN_LDAP_CONTEXT_PROVIDERS
+control|)
+block|{
+if|if
+condition|(
+name|isContextFactoryAvailable
+argument_list|(
+name|ldapClass
+argument_list|)
+condition|)
+block|{
+name|availableContextProviders
+operator|.
+name|add
+argument_list|(
+name|ldapClass
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 annotation|@
 name|Override
@@ -996,7 +1124,7 @@ argument_list|(
 name|newConfig
 operator|.
 name|getActiveUserManagers
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|rbConfig
@@ -1006,7 +1134,7 @@ argument_list|(
 name|newConfig
 operator|.
 name|getActiveRbacManagers
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|rbConfig
@@ -1016,7 +1144,7 @@ argument_list|(
 name|newConfig
 operator|.
 name|isUserCacheEnabled
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|Map
@@ -1047,10 +1175,10 @@ range|:
 name|newConfig
 operator|.
 name|getProperties
-argument_list|()
+argument_list|( )
 operator|.
 name|entrySet
-argument_list|()
+argument_list|( )
 control|)
 block|{
 name|props
@@ -1118,7 +1246,7 @@ argument_list|(
 name|newConfig
 operator|.
 name|getAuthenticationMethod
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|ldapConfig
@@ -1138,7 +1266,7 @@ argument_list|(
 name|newConfig
 operator|.
 name|getBindDn
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|ldapConfig
@@ -1158,7 +1286,7 @@ argument_list|(
 name|newConfig
 operator|.
 name|getGroupsBaseDn
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|ldapConfig
@@ -1168,7 +1296,7 @@ argument_list|(
 name|newConfig
 operator|.
 name|getHostName
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|ldapConfig
@@ -1178,7 +1306,7 @@ argument_list|(
 name|newConfig
 operator|.
 name|getPort
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|ldapConfig
@@ -1188,7 +1316,7 @@ argument_list|(
 name|newConfig
 operator|.
 name|getBindPassword
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|ldapConfig
@@ -1198,7 +1326,7 @@ argument_list|(
 name|newConfig
 operator|.
 name|isUseRoleNameAsGroup
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|ldapConfig
@@ -1239,10 +1367,10 @@ range|:
 name|newConfig
 operator|.
 name|getProperties
-argument_list|()
+argument_list|( )
 operator|.
 name|entrySet
-argument_list|()
+argument_list|( )
 control|)
 block|{
 name|props
@@ -1300,7 +1428,7 @@ argument_list|(
 name|newConfig
 operator|.
 name|getMaxEntriesInMemory
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|cacheConfig
@@ -1310,7 +1438,7 @@ argument_list|(
 name|newConfig
 operator|.
 name|getMaxEntriesOnDisk
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|cacheConfig
@@ -1320,7 +1448,7 @@ argument_list|(
 name|newConfig
 operator|.
 name|getTimeToLiveSeconds
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|cacheConfig
@@ -1330,7 +1458,7 @@ argument_list|(
 name|newConfig
 operator|.
 name|getTimeToIdleSeconds
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1396,7 +1524,7 @@ argument_list|,
 name|conf
 operator|.
 name|getUserManagerImpls
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -1431,7 +1559,7 @@ range|:
 name|newConfiguration
 operator|.
 name|getActiveUserManagers
-argument_list|()
+argument_list|( )
 control|)
 block|{
 if|if
@@ -1464,7 +1592,7 @@ range|:
 name|newConfiguration
 operator|.
 name|getActiveRbacManagers
-argument_list|()
+argument_list|( )
 control|)
 block|{
 if|if
@@ -1512,13 +1640,13 @@ argument_list|,
 name|newConfiguration
 operator|.
 name|getActiveUserManagers
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|userManager
 operator|.
 name|initialize
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 if|if
@@ -1535,18 +1663,18 @@ argument_list|,
 name|newConfiguration
 operator|.
 name|getActiveRbacManagers
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|rbacManager
 operator|.
 name|initialize
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|roleManager
 operator|.
 name|initialize
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 if|if
@@ -1559,7 +1687,7 @@ block|{
 name|ldapConnectionFactory
 operator|.
 name|initialize
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 catch|catch
@@ -1595,7 +1723,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 throw|;
@@ -1617,7 +1745,7 @@ name|class
 argument_list|)
 operator|.
 name|values
-argument_list|()
+argument_list|( )
 decl_stmt|;
 for|for
 control|(
@@ -1630,7 +1758,7 @@ block|{
 name|passwordRule
 operator|.
 name|initialize
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 name|Collection
@@ -1649,7 +1777,7 @@ name|class
 argument_list|)
 operator|.
 name|values
-argument_list|()
+argument_list|( )
 decl_stmt|;
 for|for
 control|(
@@ -1662,7 +1790,7 @@ block|{
 name|cookieSettings
 operator|.
 name|initialize
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 name|Collection
@@ -1681,7 +1809,7 @@ name|class
 argument_list|)
 operator|.
 name|values
-argument_list|()
+argument_list|( )
 decl_stmt|;
 for|for
 control|(
@@ -1702,13 +1830,13 @@ operator|+
 name|authenticator
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|authenticator
 operator|.
 name|initialize
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 catch|catch
@@ -1726,7 +1854,7 @@ operator|+
 name|authenticator
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1743,7 +1871,7 @@ block|{
 name|ldapUserMapper
 operator|.
 name|initialize
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 catch|catch
@@ -1805,7 +1933,7 @@ name|ok
 argument_list|( )
 operator|.
 name|build
-argument_list|()
+argument_list|( )
 return|;
 block|}
 annotation|@
@@ -2039,7 +2167,7 @@ condition|(
 name|conf
 operator|.
 name|getConfigurationProperties
-argument_list|()
+argument_list|( )
 operator|.
 name|containsKey
 argument_list|(
@@ -2169,7 +2297,7 @@ condition|(
 name|conf
 operator|.
 name|getConfigurationProperties
-argument_list|()
+argument_list|( )
 operator|.
 name|containsKey
 argument_list|(
@@ -2282,7 +2410,9 @@ argument_list|,
 name|redbackRuntimeConfiguration
 argument_list|)
 expr_stmt|;
-return|return
+name|LdapConfiguration
+name|ldapConfig
+init|=
 name|LdapConfiguration
 operator|.
 name|of
@@ -2290,8 +2420,18 @@ argument_list|(
 name|redbackRuntimeConfiguration
 operator|.
 name|getLdapConfiguration
-argument_list|()
+argument_list|( )
 argument_list|)
+decl_stmt|;
+name|ldapConfig
+operator|.
+name|setAvailableContextFactories
+argument_list|(
+name|availableContextProviders
+argument_list|)
+expr_stmt|;
+return|return
+name|ldapConfig
 return|;
 block|}
 catch|catch
@@ -2389,6 +2529,699 @@ argument_list|)
 throw|;
 block|}
 block|}
+specifier|static
+specifier|final
+name|Properties
+name|toProperties
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|values
+parameter_list|)
+block|{
+name|Properties
+name|result
+init|=
+operator|new
+name|Properties
+argument_list|( )
+decl_stmt|;
+for|for
+control|(
+name|Map
+operator|.
+name|Entry
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|entry
+range|:
+name|values
+operator|.
+name|entrySet
+argument_list|( )
+control|)
+block|{
+name|result
+operator|.
+name|setProperty
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|( )
+argument_list|,
+name|entry
+operator|.
+name|getValue
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|result
+return|;
+block|}
+specifier|private
+specifier|static
+specifier|final
+name|boolean
+name|isContextFactoryAvailable
+parameter_list|(
+specifier|final
+name|String
+name|factoryClass
+parameter_list|)
+block|{
+try|try
+block|{
+return|return
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|getContextClassLoader
+argument_list|()
+operator|.
+name|loadClass
+argument_list|(
+name|factoryClass
+argument_list|)
+operator|!=
+literal|null
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|ClassNotFoundException
+name|e
+parameter_list|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|Response
+name|verifyLdapConfiguration
+parameter_list|(
+name|LdapConfiguration
+name|ldapConfiguration
+parameter_list|)
+throws|throws
+name|ArchivaRestServiceException
+block|{
+name|LdapConnection
+name|ldapConnection
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|LdapConnectionConfiguration
+name|ldapConnectionConfiguration
+init|=
+operator|new
+name|LdapConnectionConfiguration
+argument_list|(
+name|ldapConfiguration
+operator|.
+name|getHostName
+argument_list|( )
+argument_list|,
+name|ldapConfiguration
+operator|.
+name|getPort
+argument_list|( )
+argument_list|,
+name|ldapConfiguration
+operator|.
+name|getBaseDn
+argument_list|( )
+argument_list|,
+name|ldapConfiguration
+operator|.
+name|getContextFactory
+argument_list|( )
+argument_list|,
+name|ldapConfiguration
+operator|.
+name|getBindDn
+argument_list|( )
+argument_list|,
+name|ldapConfiguration
+operator|.
+name|getBindPassword
+argument_list|( )
+argument_list|,
+name|ldapConfiguration
+operator|.
+name|getAuthenticationMethod
+argument_list|( )
+argument_list|,
+name|toProperties
+argument_list|(
+name|ldapConfiguration
+operator|.
+name|getProperties
+argument_list|( )
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|ldapConnectionConfiguration
+operator|.
+name|setSsl
+argument_list|(
+name|ldapConfiguration
+operator|.
+name|isSslEnabled
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|ldapConnection
+operator|=
+name|ldapConnectionFactory
+operator|.
+name|getConnection
+argument_list|(
+name|ldapConnectionConfiguration
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InvalidNameException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"LDAP connection check failed with invalid name : {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|ArchivaRestServiceException
+argument_list|(
+name|ErrorMessage
+operator|.
+name|of
+argument_list|(
+name|ErrorKeys
+operator|.
+name|LDAP_INVALID_NAME
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|)
+argument_list|,
+literal|400
+argument_list|)
+throw|;
+block|}
+catch|catch
+parameter_list|(
+name|LdapException
+name|e
+parameter_list|)
+block|{
+name|handleLdapException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+name|ldapConnection
+operator|!=
+literal|null
+condition|)
+block|{
+name|ldapConnection
+operator|.
+name|close
+argument_list|( )
+expr_stmt|;
+block|}
+name|ldapConnection
+operator|=
+literal|null
+expr_stmt|;
+block|}
+try|try
+block|{
+comment|// verify groups dn value too
+name|LdapConnectionConfiguration
+name|ldapConnectionConfiguration
+init|=
+operator|new
+name|LdapConnectionConfiguration
+argument_list|(
+name|ldapConfiguration
+operator|.
+name|getHostName
+argument_list|( )
+argument_list|,
+name|ldapConfiguration
+operator|.
+name|getPort
+argument_list|( )
+argument_list|,
+name|ldapConfiguration
+operator|.
+name|getGroupsBaseDn
+argument_list|( )
+argument_list|,
+name|ldapConfiguration
+operator|.
+name|getContextFactory
+argument_list|( )
+argument_list|,
+name|ldapConfiguration
+operator|.
+name|getBindDn
+argument_list|( )
+argument_list|,
+name|ldapConfiguration
+operator|.
+name|getBindPassword
+argument_list|( )
+argument_list|,
+name|ldapConfiguration
+operator|.
+name|getAuthenticationMethod
+argument_list|( )
+argument_list|,
+name|toProperties
+argument_list|(
+name|ldapConfiguration
+operator|.
+name|getProperties
+argument_list|( )
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|ldapConnectionConfiguration
+operator|.
+name|setSsl
+argument_list|(
+name|ldapConfiguration
+operator|.
+name|isSslEnabled
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|ldapConnection
+operator|=
+name|ldapConnectionFactory
+operator|.
+name|getConnection
+argument_list|(
+name|ldapConnectionConfiguration
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InvalidNameException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"LDAP connection check failed with invalid name : {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|ArchivaRestServiceException
+argument_list|(
+name|ErrorMessage
+operator|.
+name|of
+argument_list|(
+name|ErrorKeys
+operator|.
+name|LDAP_INVALID_NAME
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|)
+argument_list|,
+literal|400
+argument_list|)
+throw|;
+block|}
+catch|catch
+parameter_list|(
+name|LdapException
+name|e
+parameter_list|)
+block|{
+name|handleLdapException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+name|ldapConnection
+operator|!=
+literal|null
+condition|)
+block|{
+name|ldapConnection
+operator|.
+name|close
+argument_list|( )
+expr_stmt|;
+block|}
+block|}
+return|return
+name|Response
+operator|.
+name|ok
+argument_list|( )
+operator|.
+name|build
+argument_list|( )
+return|;
+block|}
+specifier|private
+name|void
+name|handleLdapException
+parameter_list|(
+name|LdapException
+name|e
+parameter_list|)
+throws|throws
+name|ArchivaRestServiceException
+block|{
+name|Throwable
+name|rootCause
+init|=
+name|e
+operator|.
+name|getRootCause
+argument_list|( )
+decl_stmt|;
+if|if
+condition|(
+name|rootCause
+operator|instanceof
+name|CommunicationException
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"LDAP connection check failed with CommunicationException: {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|ArchivaRestServiceException
+argument_list|(
+name|ErrorMessage
+operator|.
+name|of
+argument_list|(
+name|ErrorKeys
+operator|.
+name|LDAP_COMMUNICATION_ERROR
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|)
+argument_list|,
+literal|400
+argument_list|)
+throw|;
+block|}
+if|else if
+condition|(
+name|rootCause
+operator|instanceof
+name|ServiceUnavailableException
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"LDAP connection check failed with ServiceUnavailableException: {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|ArchivaRestServiceException
+argument_list|(
+name|ErrorMessage
+operator|.
+name|of
+argument_list|(
+name|ErrorKeys
+operator|.
+name|LDAP_SERVICE_UNAVAILABLE
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|)
+argument_list|,
+literal|400
+argument_list|)
+throw|;
+block|}
+if|else if
+condition|(
+name|rootCause
+operator|instanceof
+name|AuthenticationException
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"LDAP connection check failed with AuthenticationException: {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|ArchivaRestServiceException
+argument_list|(
+name|ErrorMessage
+operator|.
+name|of
+argument_list|(
+name|ErrorKeys
+operator|.
+name|LDAP_SERVICE_AUTHENTICATION_FAILED
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|)
+argument_list|,
+literal|400
+argument_list|)
+throw|;
+block|}
+if|else if
+condition|(
+name|rootCause
+operator|instanceof
+name|AuthenticationNotSupportedException
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"LDAP connection check failed with AuthenticationNotSupportedException: {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|ArchivaRestServiceException
+argument_list|(
+name|ErrorMessage
+operator|.
+name|of
+argument_list|(
+name|ErrorKeys
+operator|.
+name|LDAP_SERVICE_AUTHENTICATION_NOT_SUPPORTED
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|)
+argument_list|,
+literal|400
+argument_list|)
+throw|;
+block|}
+if|else if
+condition|(
+name|rootCause
+operator|instanceof
+name|NoPermissionException
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"LDAP connection check failed with NoPermissionException: {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|ArchivaRestServiceException
+argument_list|(
+name|ErrorMessage
+operator|.
+name|of
+argument_list|(
+name|ErrorKeys
+operator|.
+name|LDAP_SERVICE_NO_PERMISSION
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|)
+argument_list|,
+literal|400
+argument_list|)
+throw|;
+block|}
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"LDAP connection check failed: {} - {}"
+argument_list|,
+name|e
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|ArchivaRestServiceException
+argument_list|(
+name|ErrorMessage
+operator|.
+name|of
+argument_list|(
+name|ErrorKeys
+operator|.
+name|LDAP_GENERIC_ERROR
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|)
+argument_list|,
+literal|400
+argument_list|)
+throw|;
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -2425,7 +3258,7 @@ argument_list|(
 name|redbackRuntimeConfiguration
 operator|.
 name|getUsersCacheConfiguration
-argument_list|()
+argument_list|( )
 argument_list|)
 return|;
 block|}
@@ -2582,14 +3415,14 @@ condition|(
 name|beans
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 return|return
 name|Collections
 operator|.
 name|emptyList
-argument_list|()
+argument_list|( )
 return|;
 block|}
 return|return
@@ -2608,10 +3441,10 @@ lambda|->
 name|entry
 operator|.
 name|getValue
-argument_list|()
+argument_list|( )
 operator|.
 name|isFinalImplementation
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|map
@@ -2718,7 +3551,7 @@ argument_list|(
 name|Collectors
 operator|.
 name|toList
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 end_class
@@ -2758,14 +3591,14 @@ condition|(
 name|beans
 operator|.
 name|isEmpty
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 return|return
 name|Collections
 operator|.
 name|emptyList
-argument_list|()
+argument_list|( )
 return|;
 block|}
 return|return
@@ -2784,10 +3617,10 @@ lambda|->
 name|entry
 operator|.
 name|getValue
-argument_list|()
+argument_list|( )
 operator|.
 name|isFinalImplementation
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|map
@@ -2897,7 +3730,7 @@ argument_list|(
 name|Collectors
 operator|.
 name|toList
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 end_expr_stmt

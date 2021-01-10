@@ -2106,14 +2106,6 @@ operator|.
 name|getConfigurationProperties
 argument_list|()
 decl_stmt|;
-name|LdapConfiguration
-name|ldapConf
-init|=
-name|redbackRuntimeConfiguration
-operator|.
-name|getLdapConfiguration
-argument_list|( )
-decl_stmt|;
 name|LDAP_MAPPER
 operator|.
 name|getAllAttributes
