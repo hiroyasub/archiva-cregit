@@ -791,6 +791,26 @@ name|v2
 operator|.
 name|ErrorKeys
 operator|.
+name|INVALID_RESULT_SET_ERROR
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|rest
+operator|.
+name|services
+operator|.
+name|v2
+operator|.
+name|ErrorKeys
+operator|.
 name|REPOSITORY_ADMIN_ERROR
 import|;
 end_import
@@ -2090,10 +2110,45 @@ decl_stmt|;
 name|int
 name|totalCount
 init|=
+name|Math
+operator|.
+name|toIntExact
+argument_list|(
 name|props
 operator|.
-name|size
+name|entrySet
 argument_list|( )
+operator|.
+name|stream
+argument_list|( )
+operator|.
+name|map
+argument_list|(
+name|entry
+lambda|->
+operator|new
+name|PropertyEntry
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|( )
+argument_list|,
+name|entry
+operator|.
+name|getValue
+argument_list|( )
+argument_list|)
+argument_list|)
+operator|.
+name|filter
+argument_list|(
+name|filter
+argument_list|)
+operator|.
+name|count
+argument_list|( )
+argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
@@ -2170,6 +2225,32 @@ argument_list|,
 name|result
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|ArithmeticException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"The total count of the result properties is higher than max integer value! {}"
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|ArchivaRestServiceException
+argument_list|(
+name|ErrorMessage
+operator|.
+name|of
+argument_list|(
+name|INVALID_RESULT_SET_ERROR
+argument_list|)
+argument_list|)
+throw|;
 block|}
 catch|catch
 parameter_list|(

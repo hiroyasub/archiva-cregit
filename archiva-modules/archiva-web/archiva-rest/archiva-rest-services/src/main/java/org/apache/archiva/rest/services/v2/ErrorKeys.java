@@ -29,6 +29,11 @@ interface|interface
 name|ErrorKeys
 block|{
 name|String
+name|INVALID_RESULT_SET_ERROR
+init|=
+literal|"archiva.result_set.invalid"
+decl_stmt|;
+name|String
 name|REPOSITORY_ADMIN_ERROR
 init|=
 literal|"archiva.repositoryadmin.error"
