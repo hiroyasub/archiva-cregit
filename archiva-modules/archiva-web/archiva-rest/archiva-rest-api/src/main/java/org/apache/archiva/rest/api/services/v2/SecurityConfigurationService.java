@@ -830,7 +830,7 @@ argument_list|)
 argument_list|)
 block|}
 argument_list|)
-name|Response
+name|SecurityConfiguration
 name|updateConfiguration
 parameter_list|(
 name|SecurityConfiguration
@@ -1701,7 +1701,7 @@ argument_list|)
 argument_list|)
 block|}
 argument_list|)
-name|Response
+name|LdapConfiguration
 name|updateLdapConfiguration
 parameter_list|(
 name|LdapConfiguration

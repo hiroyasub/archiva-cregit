@@ -346,6 +346,16 @@ name|isSsl
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|newCfg
+operator|.
+name|setContextFactory
+argument_list|(
+name|ldapConfiguration
+operator|.
+name|getContextFactory
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ldapConfiguration

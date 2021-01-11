@@ -1339,6 +1339,16 @@ name|isWritable
 argument_list|( )
 argument_list|)
 expr_stmt|;
+name|ldapConfig
+operator|.
+name|setContextFactory
+argument_list|(
+name|newConfig
+operator|.
+name|getContextFactory
+argument_list|( )
+argument_list|)
+expr_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -1465,7 +1475,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Response
+name|SecurityConfiguration
 name|updateConfiguration
 parameter_list|(
 name|SecurityConfiguration
@@ -1926,15 +1936,56 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
+try|try
+block|{
 return|return
-name|Response
+name|SecurityConfiguration
 operator|.
-name|ok
-argument_list|( )
+name|ofRedbackConfiguration
+argument_list|(
+name|redbackRuntimeConfigurationAdmin
 operator|.
-name|build
+name|getRedbackRuntimeConfiguration
 argument_list|( )
+argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|RepositoryAdminException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Error while retrieve updated configuration: {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|ArchivaRestServiceException
+argument_list|(
+name|ErrorMessage
+operator|.
+name|of
+argument_list|(
+name|REPOSITORY_ADMIN_ERROR
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|)
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -2457,7 +2508,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Response
+name|LdapConfiguration
 name|updateLdapConfiguration
 parameter_list|(
 name|LdapConfiguration
@@ -2499,15 +2550,6 @@ argument_list|(
 name|redbackRuntimeConfiguration
 argument_list|)
 expr_stmt|;
-return|return
-name|Response
-operator|.
-name|ok
-argument_list|( )
-operator|.
-name|build
-argument_list|( )
-return|;
 block|}
 catch|catch
 parameter_list|(
@@ -2524,6 +2566,59 @@ operator|.
 name|of
 argument_list|(
 name|REPOSITORY_ADMIN_ERROR
+argument_list|)
+argument_list|)
+throw|;
+block|}
+try|try
+block|{
+return|return
+name|LdapConfiguration
+operator|.
+name|of
+argument_list|(
+name|redbackRuntimeConfigurationAdmin
+operator|.
+name|getRedbackRuntimeConfiguration
+argument_list|( )
+operator|.
+name|getLdapConfiguration
+argument_list|()
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|RepositoryAdminException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Error while retrieve updated configuration: {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|ArchivaRestServiceException
+argument_list|(
+name|ErrorMessage
+operator|.
+name|of
+argument_list|(
+name|REPOSITORY_ADMIN_ERROR
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
 argument_list|)
 argument_list|)
 throw|;
