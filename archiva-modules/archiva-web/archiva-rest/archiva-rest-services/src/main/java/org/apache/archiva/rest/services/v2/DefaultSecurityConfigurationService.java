@@ -3461,7 +3461,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Response
+name|CacheConfiguration
 name|updateCacheConfiguration
 parameter_list|(
 name|CacheConfiguration
@@ -3528,12 +3528,7 @@ name|redbackRuntimeConfiguration
 argument_list|)
 expr_stmt|;
 return|return
-name|Response
-operator|.
-name|ok
-argument_list|( )
-operator|.
-name|build
+name|getCacheConfiguration
 argument_list|( )
 return|;
 block|}

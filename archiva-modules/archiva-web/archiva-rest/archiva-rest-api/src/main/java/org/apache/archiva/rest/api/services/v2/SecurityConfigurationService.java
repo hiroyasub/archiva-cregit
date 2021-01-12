@@ -2075,7 +2075,7 @@ argument_list|)
 argument_list|)
 block|}
 argument_list|)
-name|Response
+name|CacheConfiguration
 name|updateCacheConfiguration
 parameter_list|(
 name|CacheConfiguration
