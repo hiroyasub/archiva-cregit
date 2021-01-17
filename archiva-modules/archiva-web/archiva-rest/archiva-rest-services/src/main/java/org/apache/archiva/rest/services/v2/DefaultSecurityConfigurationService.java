@@ -643,6 +643,16 @@ name|javax
 operator|.
 name|naming
 operator|.
+name|NamingException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|naming
+operator|.
 name|NoPermissionException
 import|;
 end_import
@@ -2957,11 +2967,33 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|ldapConnection
 operator|.
 name|close
 argument_list|( )
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NamingException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Could not close connection: {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|ldapConnection
 operator|=
@@ -3104,11 +3136,35 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|ldapConnection
 operator|.
 name|close
 argument_list|( )
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NamingException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Could not close connection: {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 return|return
