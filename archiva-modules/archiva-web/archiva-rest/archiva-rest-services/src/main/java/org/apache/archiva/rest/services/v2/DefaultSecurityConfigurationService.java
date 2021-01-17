@@ -2641,6 +2641,11 @@ argument_list|(
 name|redbackRuntimeConfiguration
 argument_list|)
 expr_stmt|;
+name|ldapConnectionFactory
+operator|.
+name|initialize
+argument_list|( )
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
