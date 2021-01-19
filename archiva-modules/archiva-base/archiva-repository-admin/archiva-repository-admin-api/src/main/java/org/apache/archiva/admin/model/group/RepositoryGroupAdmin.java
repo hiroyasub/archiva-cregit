@@ -47,6 +47,22 @@ name|admin
 operator|.
 name|model
 operator|.
+name|EntityNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|admin
+operator|.
+name|model
+operator|.
 name|RepositoryAdminException
 import|;
 end_import
@@ -123,6 +139,7 @@ parameter_list|()
 throws|throws
 name|RepositoryAdminException
 function_decl|;
+comment|/**      * Returns the repository group. If it is not found a {@link org.apache.archiva.admin.model.EntityNotFoundException}      * will be thrown.      *      * @param repositoryGroupId the identifier of the repository group      * @return the repository group object      * @throws RepositoryAdminException      * @throws EntityNotFoundException      */
 name|RepositoryGroup
 name|getRepositoryGroup
 parameter_list|(
@@ -131,6 +148,8 @@ name|repositoryGroupId
 parameter_list|)
 throws|throws
 name|RepositoryAdminException
+throws|,
+name|EntityNotFoundException
 function_decl|;
 name|Boolean
 name|addRepositoryGroup
