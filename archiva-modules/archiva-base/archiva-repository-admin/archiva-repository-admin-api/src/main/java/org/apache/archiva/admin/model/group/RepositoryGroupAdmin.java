@@ -47,6 +47,22 @@ name|admin
 operator|.
 name|model
 operator|.
+name|EntityExistsException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|admin
+operator|.
+name|model
+operator|.
 name|EntityNotFoundException
 import|;
 end_import
@@ -122,7 +138,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Olivier Lamy  * @since 1.4-M1  */
+comment|/**  * Methods for administering repository groups (virtual repositories)  * @author Olivier Lamy  * @since 1.4-M1  */
 end_comment
 
 begin_interface
@@ -187,6 +203,7 @@ parameter_list|)
 throws|throws
 name|RepositoryAdminException
 function_decl|;
+comment|/**      * Adds the given managed repository to the repository group.      *      * @param repositoryGroupId the id of the repository group      * @param repositoryId the id of the managed repository      * @param auditInformation audit information      * @return<code>true</code>, if the repository was added, otherwise<code>false</code>      * @throws RepositoryAdminException If an error occurred , while adding the group.      * @throws EntityNotFoundException If the repository group or the managed repository with the given id does not exist      * @throws EntityExistsException If the managed repository is already member of the group      */
 name|Boolean
 name|addRepositoryToGroup
 parameter_list|(
@@ -201,6 +218,10 @@ name|auditInformation
 parameter_list|)
 throws|throws
 name|RepositoryAdminException
+throws|,
+name|EntityNotFoundException
+throws|,
+name|EntityExistsException
 function_decl|;
 name|Boolean
 name|deleteRepositoryFromGroup

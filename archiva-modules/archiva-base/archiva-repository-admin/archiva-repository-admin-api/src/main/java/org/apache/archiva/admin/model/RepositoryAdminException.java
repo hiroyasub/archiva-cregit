@@ -62,7 +62,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Olivier Lamy  * @since 1.4-M1  */
+comment|/**  *  * Base exception class for the admin interfaces. Exceptions should set keys that allows identifying and classifying the error.  *  * @author Olivier Lamy  * @since 1.4-M1  */
 end_comment
 
 begin_class
@@ -116,6 +116,36 @@ index|[
 literal|0
 index|]
 decl_stmt|;
+specifier|protected
+specifier|static
+name|String
+name|getMessage
+parameter_list|(
+name|String
+name|key
+parameter_list|,
+name|String
+index|[]
+name|params
+parameter_list|)
+block|{
+return|return
+name|MessageFormat
+operator|.
+name|format
+argument_list|(
+name|bundle
+operator|.
+name|getString
+argument_list|(
+name|key
+argument_list|)
+argument_list|,
+name|params
+argument_list|)
+return|;
+block|}
+comment|/**      * Tries to retrieve a message from the bundle for the given key and returns the      * exception.      * @param key the identifier of the error      * @param params parameters for translating the message      * @return the exception      */
 specifier|public
 specifier|static
 name|RepositoryAdminException
@@ -166,35 +196,7 @@ return|return
 name|ex
 return|;
 block|}
-specifier|protected
-specifier|static
-name|String
-name|getMessage
-parameter_list|(
-name|String
-name|key
-parameter_list|,
-name|String
-index|[]
-name|params
-parameter_list|)
-block|{
-return|return
-name|MessageFormat
-operator|.
-name|format
-argument_list|(
-name|bundle
-operator|.
-name|getString
-argument_list|(
-name|key
-argument_list|)
-argument_list|,
-name|params
-argument_list|)
-return|;
-block|}
+comment|/**      * Tries to retrieve a message from the bundle for the given key and returns the      * exception.      * @param key the identifier of the error      * @param cause the exception that caused the error      * @param params parameters for translating the message      * @return the exception      */
 specifier|public
 specifier|static
 name|RepositoryAdminException
@@ -250,6 +252,7 @@ return|return
 name|ex
 return|;
 block|}
+comment|/**      * Tries to retrieve a message from the bundle for the given key and the given field and returns the      * exception.      * @param key the identifier of the error      * @param fieldName the field this exception is for      * @param params parameters for translating the message      * @return the exception      */
 specifier|public
 specifier|static
 name|RepositoryAdminException
@@ -305,6 +308,7 @@ return|return
 name|ex
 return|;
 block|}
+comment|/**      * Tries to retrieve a message from the bundle for the given key and the given field and returns the      * exception.      * @param key the identifier of the error      * @param fieldName the field this exception is for      * @param cause the exception that caused this error      * @param params parameters for translating the message      * @return the exception      */
 specifier|public
 specifier|static
 name|RepositoryAdminException

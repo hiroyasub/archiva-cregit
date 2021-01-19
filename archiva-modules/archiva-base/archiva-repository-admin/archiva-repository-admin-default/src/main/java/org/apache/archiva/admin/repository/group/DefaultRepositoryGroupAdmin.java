@@ -1449,14 +1449,17 @@ literal|null
 condition|)
 block|{
 throw|throw
-operator|new
-name|RepositoryAdminException
+name|EntityNotFoundException
+operator|.
+name|ofMessage
 argument_list|(
-literal|"repositoryGroup with id "
+literal|"Repository group with id "
 operator|+
 name|repositoryGroupId
 operator|+
 literal|" doesn't not exists so cannot add repository to it"
+argument_list|,
+name|repositoryGroupId
 argument_list|)
 throw|;
 block|}
@@ -1471,11 +1474,12 @@ operator|)
 condition|)
 block|{
 throw|throw
-operator|new
 name|RepositoryAdminException
+operator|.
+name|ofKey
 argument_list|(
-literal|"The repository group is not editable "
-operator|+
+literal|"repository_group.not_editable"
+argument_list|,
 name|repositoryGroupId
 argument_list|)
 throw|;
@@ -1516,9 +1520,9 @@ condition|)
 block|{
 throw|throw
 argument_list|new
-name|RepositoryAdminException
+name|EntityExistsException
 argument_list|(
-literal|"repositoryGroup with id "
+literal|"Repository group with id "
 operator|+
 name|repositoryGroupId
 operator|+
@@ -1553,14 +1557,17 @@ literal|null
 condition|)
 block|{
 throw|throw
-operator|new
-name|RepositoryAdminException
+name|EntityNotFoundException
+operator|.
+name|ofMessage
 argument_list|(
 literal|"Repository with id "
 operator|+
 name|repositoryId
 operator|+
 literal|" does not exist"
+argument_list|,
+name|repositoryId
 argument_list|)
 throw|;
 block|}
@@ -1665,14 +1672,17 @@ literal|null
 condition|)
 block|{
 throw|throw
-operator|new
-name|RepositoryAdminException
+name|EntityNotFoundException
+operator|.
+name|ofMessage
 argument_list|(
-literal|"repositoryGroup with id "
+literal|"Repository group with id "
 operator|+
 name|repositoryGroupId
 operator|+
 literal|" doesn't not exists so cannot remove repository from it"
+argument_list|,
+name|repositoryGroupId
 argument_list|)
 throw|;
 block|}
@@ -1704,8 +1714,9 @@ argument_list|)
 condition|)
 block|{
 throw|throw
-argument_list|new
-name|RepositoryAdminException
+argument_list|EntityNotFoundException
+operator|.
+name|ofMessage
 argument_list|(
 literal|"repositoryGroup with id "
 operator|+
@@ -1713,6 +1724,8 @@ name|repositoryGroupId
 operator|+
 literal|" doesn't not contains repository with id"
 operator|+
+name|repositoryId
+argument_list|,
 name|repositoryId
 argument_list|)
 block|;         }
@@ -1727,11 +1740,12 @@ operator|)
 condition|)
 block|{
 throw|throw
-operator|new
 name|RepositoryAdminException
+operator|.
+name|ofKey
 argument_list|(
-literal|"Repository group is not editable "
-operator|+
+literal|"repository_group.not_editable"
+argument_list|,
 name|repositoryGroupId
 argument_list|)
 throw|;

@@ -122,7 +122,8 @@ specifier|private
 name|int
 name|mergedIndexTtl
 init|=
-literal|30
+operator|-
+literal|1
 decl_stmt|;
 comment|/**      * default model value is empty so none      * @since 2.0.0      */
 specifier|private
