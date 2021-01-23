@@ -53,6 +53,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -202,6 +212,14 @@ parameter_list|,
 name|long
 name|count
 parameter_list|)
+function_decl|;
+comment|/**      * Returns the list of field names of custom values stored in this instance.      * @return the list of stored custom values      */
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getAvailableCustomValues
+parameter_list|()
 function_decl|;
 block|}
 end_interface

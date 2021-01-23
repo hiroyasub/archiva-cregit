@@ -407,7 +407,7 @@ name|services
 operator|.
 name|v2
 operator|.
-name|Configuration
+name|RestConfiguration
 operator|.
 name|DEFAULT_PAGE_LIMIT
 import|;

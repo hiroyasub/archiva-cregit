@@ -710,7 +710,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|ActionStatus
+name|Boolean
 name|updateManagedRepository
 parameter_list|(
 name|ManagedRepository
@@ -721,10 +721,6 @@ name|ArchivaRestServiceException
 block|{
 try|try
 block|{
-return|return
-operator|new
-name|ActionStatus
-argument_list|(
 name|managedRepositoryAdmin
 operator|.
 name|updateManagedRepository
@@ -744,7 +740,9 @@ operator|.
 name|isResetStats
 argument_list|( )
 argument_list|)
-argument_list|)
+expr_stmt|;
+return|return
+literal|true
 return|;
 block|}
 catch|catch

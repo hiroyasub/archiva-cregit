@@ -539,7 +539,7 @@ name|ArchivaRoleConstants
 operator|.
 name|OPERATION_MANAGE_CONFIGURATION
 argument_list|)
-name|ActionStatus
+name|Boolean
 name|updateManagedRepository
 parameter_list|(
 name|ManagedRepository

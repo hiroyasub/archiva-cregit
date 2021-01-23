@@ -19,6 +19,10 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
+begin_comment
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+end_comment
+
 begin_import
 import|import
 name|org
@@ -459,6 +463,12 @@ name|Context
 name|UriInfo
 name|uriInfo
 decl_stmt|;
+annotation|@
+name|Inject
+specifier|private
+name|RepositoryGroupAdmin
+name|repositoryGroupAdmin
+decl_stmt|;
 specifier|private
 specifier|static
 specifier|final
@@ -506,12 +516,6 @@ block|{
 literal|"id"
 block|}
 argument_list|)
-decl_stmt|;
-annotation|@
-name|Inject
-specifier|private
-name|RepositoryGroupAdmin
-name|repositoryGroupAdmin
 decl_stmt|;
 static|static
 block|{
@@ -896,7 +900,7 @@ name|of
 argument_list|(
 name|ErrorKeys
 operator|.
-name|REPOSITORY_GROUP_NOT_EXIST
+name|REPOSITORY_GROUP_NOT_FOUND
 argument_list|,
 literal|""
 argument_list|)
@@ -954,7 +958,7 @@ name|of
 argument_list|(
 name|ErrorKeys
 operator|.
-name|REPOSITORY_GROUP_NOT_EXIST
+name|REPOSITORY_GROUP_NOT_FOUND
 argument_list|,
 name|repositoryGroupId
 argument_list|)
@@ -1414,7 +1418,7 @@ name|of
 argument_list|(
 name|ErrorKeys
 operator|.
-name|REPOSITORY_GROUP_NOT_EXIST
+name|REPOSITORY_GROUP_NOT_FOUND
 argument_list|,
 literal|""
 argument_list|)
@@ -1649,7 +1653,7 @@ name|of
 argument_list|(
 name|ErrorKeys
 operator|.
-name|REPOSITORY_GROUP_NOT_EXIST
+name|REPOSITORY_GROUP_NOT_FOUND
 argument_list|,
 name|repositoryGroupId
 argument_list|)
@@ -1704,7 +1708,7 @@ name|of
 argument_list|(
 name|ErrorKeys
 operator|.
-name|REPOSITORY_GROUP_NOT_EXIST
+name|REPOSITORY_GROUP_NOT_FOUND
 argument_list|,
 literal|""
 argument_list|)
@@ -1775,7 +1779,7 @@ name|of
 argument_list|(
 name|ErrorKeys
 operator|.
-name|REPOSITORY_GROUP_NOT_EXIST
+name|REPOSITORY_GROUP_NOT_FOUND
 argument_list|,
 name|repositoryGroupId
 argument_list|)
@@ -1836,7 +1840,7 @@ name|of
 argument_list|(
 name|ErrorKeys
 operator|.
-name|REPOSITORY_GROUP_NOT_EXIST
+name|REPOSITORY_GROUP_NOT_FOUND
 argument_list|,
 literal|""
 argument_list|)
@@ -1865,7 +1869,7 @@ name|of
 argument_list|(
 name|ErrorKeys
 operator|.
-name|REPOSITORY_NOT_EXIST
+name|REPOSITORY_NOT_FOUND
 argument_list|,
 literal|""
 argument_list|)
@@ -2019,7 +2023,7 @@ name|of
 argument_list|(
 name|ErrorKeys
 operator|.
-name|REPOSITORY_GROUP_NOT_EXIST
+name|REPOSITORY_GROUP_NOT_FOUND
 argument_list|,
 literal|""
 argument_list|)
@@ -2048,7 +2052,7 @@ name|of
 argument_list|(
 name|ErrorKeys
 operator|.
-name|REPOSITORY_NOT_EXIST
+name|REPOSITORY_NOT_FOUND
 argument_list|,
 literal|""
 argument_list|)
@@ -2170,7 +2174,7 @@ name|of
 argument_list|(
 name|ErrorKeys
 operator|.
-name|REPOSITORY_GROUP_NOT_EXIST
+name|REPOSITORY_GROUP_NOT_FOUND
 argument_list|,
 name|repositoryGroupId
 argument_list|)
@@ -2205,7 +2209,7 @@ name|of
 argument_list|(
 name|ErrorKeys
 operator|.
-name|REPOSITORY_NOT_EXIST
+name|REPOSITORY_NOT_FOUND
 argument_list|,
 name|repositoryGroupId
 argument_list|)
@@ -2232,7 +2236,7 @@ name|of
 argument_list|(
 name|ErrorKeys
 operator|.
-name|REPOSITORY_GROUP_NOT_EXIST
+name|REPOSITORY_GROUP_NOT_FOUND
 argument_list|,
 name|repositoryGroupId
 argument_list|)
