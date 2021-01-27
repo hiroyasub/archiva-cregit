@@ -177,6 +177,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|test
+operator|.
+name|context
+operator|.
+name|junit4
+operator|.
+name|SpringJUnit4ClassRunner
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|text
@@ -259,7 +275,7 @@ begin_class
 annotation|@
 name|RunWith
 argument_list|(
-name|ArchivaSpringJUnit4ClassRunner
+name|SpringJUnit4ClassRunner
 operator|.
 name|class
 argument_list|)
