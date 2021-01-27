@@ -151,7 +151,19 @@ specifier|static
 name|IndexingTask
 name|of
 parameter_list|(
-name|ArtifactIndexingTask
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|admin
+operator|.
+name|model
+operator|.
+name|beans
+operator|.
+name|IndexingTask
 name|repositoryTask
 parameter_list|)
 block|{
@@ -168,7 +180,7 @@ name|setFullRepository
 argument_list|(
 name|repositoryTask
 operator|.
-name|isExecuteOnEntireRepo
+name|isFullScan
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -178,7 +190,7 @@ name|setUpdateOnly
 argument_list|(
 name|repositoryTask
 operator|.
-name|isOnlyUpdate
+name|isUpdateOnly
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -188,11 +200,8 @@ name|setResource
 argument_list|(
 name|repositoryTask
 operator|.
-name|getResourceFile
-argument_list|( )
-operator|.
-name|toString
-argument_list|( )
+name|getResource
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|indexingTask
@@ -201,7 +210,7 @@ name|setMaxExecutionTimeMs
 argument_list|(
 name|repositoryTask
 operator|.
-name|getMaxExecutionTime
+name|getMaxExecutionTimeMs
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -211,10 +220,7 @@ name|setRepositoryId
 argument_list|(
 name|repositoryTask
 operator|.
-name|getRepository
-argument_list|()
-operator|.
-name|getId
+name|getRepositoryId
 argument_list|()
 argument_list|)
 expr_stmt|;

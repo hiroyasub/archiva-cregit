@@ -9,6 +9,8 @@ name|archiva
 operator|.
 name|rest
 operator|.
+name|api
+operator|.
 name|services
 operator|.
 name|v2

@@ -1116,7 +1116,6 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
-comment|/**      * scan directories      * @since 1.4-M3      */
 annotation|@
 name|Path
 argument_list|(

@@ -152,7 +152,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Olivier Lamy  * @since 1.4-M1  */
+comment|/**  * Base administration interface for Archiva. Provides methods for managing archiva base tasks.  * @author Olivier Lamy  * @since 1.4-M1  */
 end_comment
 
 begin_interface
