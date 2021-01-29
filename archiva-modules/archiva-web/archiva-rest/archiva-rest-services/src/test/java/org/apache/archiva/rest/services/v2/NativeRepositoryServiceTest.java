@@ -1054,6 +1054,214 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+name|void
+name|scheduleIndexDownload
+parameter_list|()
+block|{
+name|String
+name|token
+init|=
+name|getAdminToken
+argument_list|( )
+decl_stmt|;
+name|Response
+name|response
+init|=
+name|given
+argument_list|( )
+operator|.
+name|spec
+argument_list|(
+name|getRequestSpec
+argument_list|(
+name|token
+argument_list|)
+argument_list|)
+operator|.
+name|contentType
+argument_list|(
+name|JSON
+argument_list|)
+operator|.
+name|when
+argument_list|( )
+operator|.
+name|post
+argument_list|(
+literal|"remote/central/index/download/start"
+argument_list|)
+operator|.
+name|then
+argument_list|( )
+operator|.
+name|statusCode
+argument_list|(
+literal|200
+argument_list|)
+operator|.
+name|extract
+argument_list|( )
+operator|.
+name|response
+argument_list|( )
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|response
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+name|void
+name|getIndexDownloadList
+parameter_list|()
+block|{
+name|String
+name|token
+init|=
+name|getAdminToken
+argument_list|( )
+decl_stmt|;
+name|given
+argument_list|( )
+operator|.
+name|spec
+argument_list|(
+name|getRequestSpec
+argument_list|(
+name|token
+argument_list|)
+argument_list|)
+operator|.
+name|contentType
+argument_list|(
+name|JSON
+argument_list|)
+operator|.
+name|when
+argument_list|( )
+operator|.
+name|queryParam
+argument_list|(
+literal|"immediate"
+argument_list|,
+literal|"true"
+argument_list|)
+operator|.
+name|post
+argument_list|(
+literal|"remote/central/index/download/start"
+argument_list|)
+operator|.
+name|then
+argument_list|( )
+operator|.
+name|statusCode
+argument_list|(
+literal|200
+argument_list|)
+operator|.
+name|extract
+argument_list|( )
+operator|.
+name|response
+argument_list|( )
+expr_stmt|;
+name|Response
+name|response
+init|=
+name|given
+argument_list|( )
+operator|.
+name|spec
+argument_list|(
+name|getRequestSpec
+argument_list|(
+name|token
+argument_list|)
+argument_list|)
+operator|.
+name|contentType
+argument_list|(
+name|JSON
+argument_list|)
+operator|.
+name|when
+argument_list|( )
+operator|.
+name|get
+argument_list|(
+literal|"remote/index/downloads"
+argument_list|)
+operator|.
+name|then
+argument_list|( )
+operator|.
+name|statusCode
+argument_list|(
+literal|200
+argument_list|)
+operator|.
+name|extract
+argument_list|( )
+operator|.
+name|response
+argument_list|( )
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|response
+argument_list|)
+expr_stmt|;
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|downloads
+init|=
+name|response
+operator|.
+name|getBody
+argument_list|( )
+operator|.
+name|jsonPath
+argument_list|( )
+operator|.
+name|getList
+argument_list|(
+literal|""
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|downloads
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"central"
+argument_list|,
+name|downloads
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
