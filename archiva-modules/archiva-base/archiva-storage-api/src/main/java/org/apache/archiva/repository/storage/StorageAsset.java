@@ -112,12 +112,12 @@ specifier|public
 interface|interface
 name|StorageAsset
 block|{
-comment|/**      * Returns the storage this asset belongs to.      * @return      */
+comment|/**      * Returns the storage this asset belongs to. Each asset belongs to exactly one storage instance.      *      * @return the storage instance      */
 name|RepositoryStorage
 name|getStorage
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the complete path relative to the repository to the given asset.      *      * @return A path starting with '/' that uniquely identifies the asset in the repository.      */
+comment|/**      * Returns the complete path relative to the base path to the given asset.      *      * @return A path starting with '/' that uniquely identifies the asset in the repository.      */
 name|String
 name|getPath
 parameter_list|()
@@ -142,7 +142,7 @@ name|boolean
 name|isLeaf
 parameter_list|()
 function_decl|;
-comment|/**      * List the child assets.      *      * @return The list of children. If there are no children and if the asset is not a container, a empty list will be returned.      */
+comment|/**      * List the child assets. Implementations should return a ordered list of children.      *      * @return The list of children. If there are no children and if the asset is not a container, a empty list will be returned.      */
 name|List
 argument_list|<
 name|?
@@ -157,21 +157,21 @@ name|long
 name|getSize
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the input stream of the artifact content.      * It will throw a IOException, if the stream could not be created.      * Implementations should create a new stream instance for each invocation and make sure that the      * stream is proper closed after usage.      *      * @return The InputStream representing the content of the artifact.      * @throws IOException      */
+comment|/**      * Returns the input stream of the artifact content.      * This method will throw a IOException, if the stream could not be created.      * Assets of type {@link AssetType#CONTAINER} will throw an IOException because they have no data attached.      * Implementations should create a new stream instance for each invocation and make sure that the      * stream is proper closed after usage.      *      * @return The InputStream representing the content of the artifact.      * @throws IOException if the stream could not be created, either because of a problem accessing the storage, or because      * the asset is not capable to provide a data stream      */
 name|InputStream
 name|getReadStream
 parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns a NIO representation of the data.      *      * @return A channel to the asset data.      * @throws IOException      */
+comment|/**      * Returns a NIO representation of the data.      * This method will throw a IOException, if the stream could not be created.      * Assets of type {@link AssetType#CONTAINER} will throw an IOException because they have no data attached.      * Implementations should create a new channel instance for each invocation and make sure that the      * channel is proper closed after usage.       * @return A channel to the asset data.      * @throws IOException if the channel could not be created, either because of a problem accessing the storage, or because      * the asset is not capable to provide a data stream      */
 name|ReadableByteChannel
 name|getReadChannel
 parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      *      * Returns an output stream where you can write data to the asset. The operation is not locked or synchronized.      * User of this method have to make sure, that the stream is proper closed after usage.      *      * @param replace If true, the original data will be replaced, otherwise the data will be appended.      * @return The OutputStream where the data can be written.      * @throws IOException      */
+comment|/**      *      * Returns an output stream where you can write data to the asset. The operation is not locked or synchronized.      * This method will throw a IOException, if the stream could not be created.      * Assets of type {@link AssetType#CONTAINER} will throw an IOException because they have no data attached.      * User of this method have to make sure, that the stream is proper closed after usage.      *      * @param replace If true, the original data will be replaced, otherwise the data will be appended.      * @return The OutputStream where the data can be written.      * @throws IOException if the stream could not be created, either because of a problem accessing the storage, or because      * the asset is not capable to provide a data stream      */
 name|OutputStream
 name|getWriteStream
 parameter_list|(
@@ -181,7 +181,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns a NIO representation of the asset where you can write the data.      *      * @param replace True, if the content should be replaced by the data written to the stream.      * @return The Channel for writing the data.      * @throws IOException      */
+comment|/**      * Returns a NIO representation of the asset where you can write the data.      * This method will throw a IOException, if the stream could not be created.      * Assets of type {@link AssetType#CONTAINER} will throw an IOException because they have no data attached.      * Implementations should create a new channel instance for each invocation and make sure that the      * channel is proper closed after usage.      *      * @param replace True, if the content should be replaced by the data written to the stream.      * @return The Channel for writing the data.      * @throws IOException if the channel could not be created, either because of a problem accessing the storage, or because      * the asset is not capable to provide a data stream      */
 name|WritableByteChannel
 name|getWriteChannel
 parameter_list|(
@@ -191,7 +191,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Replaces the content. The implementation may do an atomic move operation, or keep a backup. If      * the operation fails, the implementation should try to restore the old data, if possible.      *      * The original file may be deleted, if the storage was successful.      *      * @param newData Replaces the data by the content of the given file.      */
+comment|/**      * Replaces the content. The implementation may do an atomic move operation, or keep a backup. If      * the operation fails, the implementation should try to restore the old data, if possible.      *      * The original file may be deleted, if the storage was successful.      *      * @param newData Replaces the data by the content of the given file.      * @throws IOException if the access to the storage failed      */
 name|boolean
 name|replaceDataFromFile
 parameter_list|(
@@ -213,6 +213,16 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Creates the asset as the given type      * @param type the type to create, if the asset does not exist      * @throws IOException if the asset could not be created      */
+name|void
+name|create
+parameter_list|(
+name|AssetType
+name|type
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 comment|/**      * Returns the real path to the asset, if it exist. Not all implementations may implement this method.      * The method throws {@link UnsupportedOperationException}, if and only if {@link #isFileBased()} returns false.      *      * @return The filesystem path to the asset.      * @throws UnsupportedOperationException If the underlying storage is not file based.      */
 name|Path
 name|getFilePath
@@ -220,27 +230,35 @@ parameter_list|()
 throws|throws
 name|UnsupportedOperationException
 function_decl|;
-comment|/**      * Returns true, if the asset can return a file path for the given asset. If this is true, the  {@link #getFilePath()}      * will not throw a {@link UnsupportedOperationException}      *      * @return      */
+comment|/**      * Returns true, if the asset can return a file path for the given asset. If this is true, the  {@link #getFilePath()}      * must not throw a {@link UnsupportedOperationException}      *      * @return      */
 name|boolean
 name|isFileBased
 parameter_list|()
 function_decl|;
-comment|/**      * Returns true, if there is a parent to this asset.      * @return      */
+comment|/**      * Returns true, if there is a parent to this asset.      * @return True, if this asset is a descendant of a parent. False, if this is the root asset of the storage.      */
 name|boolean
 name|hasParent
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the parent of this asset.      * @return The asset, or<code>null</code>, if it does not exist.      */
+comment|/**      * Returns the parent of this asset. If this is the root asset of the underlying storage,      *<code>null</code> will be returned.      *      * @return The asset, or<code>null</code>, if it does not exist.      */
 name|StorageAsset
 name|getParent
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the asset relative to the given path      * @param toPath      * @return      */
+comment|/**      * Returns the asset instance relative to the given path. The returned asset may not persisted yet.      *      * @param toPath the path relative to the current asset      * @return the asset representing the given path      */
 name|StorageAsset
 name|resolve
 parameter_list|(
 name|String
 name|toPath
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the relative path from<code>this</code> asset to the given asset.      * If the given asset is from a different storage implementation, than this asset, the      * result is undefined.      *      * @param asset the asset that should be a descendant of<code>this</code>      * @return the relative path      */
+name|String
+name|relativize
+parameter_list|(
+name|StorageAsset
+name|asset
 parameter_list|)
 function_decl|;
 block|}

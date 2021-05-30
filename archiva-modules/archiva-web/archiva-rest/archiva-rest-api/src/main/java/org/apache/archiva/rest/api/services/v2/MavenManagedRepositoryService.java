@@ -139,6 +139,24 @@ name|annotations
 operator|.
 name|security
 operator|.
+name|OAuthScope
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|swagger
+operator|.
+name|v3
+operator|.
+name|oas
+operator|.
+name|annotations
+operator|.
+name|security
+operator|.
 name|SecurityRequirement
 import|;
 end_import
@@ -211,26 +229,6 @@ name|model
 operator|.
 name|v2
 operator|.
-name|Artifact
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|rest
-operator|.
-name|api
-operator|.
-name|model
-operator|.
-name|v2
-operator|.
 name|FileInfo
 import|;
 end_import
@@ -252,6 +250,26 @@ operator|.
 name|v2
 operator|.
 name|MavenManagedRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|rest
+operator|.
+name|api
+operator|.
+name|model
+operator|.
+name|v2
+operator|.
+name|MavenManagedRepositoryUpdate
 import|;
 end_import
 
@@ -1489,7 +1507,15 @@ argument_list|)
 name|MavenManagedRepository
 name|updateManagedRepository
 parameter_list|(
-name|MavenManagedRepository
+annotation|@
+name|PathParam
+argument_list|(
+literal|"id"
+argument_list|)
+name|String
+name|repositoryId
+parameter_list|,
+name|MavenManagedRepositoryUpdate
 name|managedRepository
 parameter_list|)
 throws|throws
@@ -1498,7 +1524,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"{id}/a/{filePath: .+}"
+literal|"{id}/path/{filePath: .+}"
 argument_list|)
 annotation|@
 name|GET
@@ -1518,7 +1544,11 @@ name|permissions
 operator|=
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_MANAGE_CONFIGURATION
+name|OPERATION_REPOSITORY_ACCESS
+argument_list|,
+name|resource
+operator|=
+literal|"{id}"
 argument_list|)
 annotation|@
 name|Operation
@@ -1669,11 +1699,11 @@ parameter_list|)
 throws|throws
 name|ArchivaRestServiceException
 function_decl|;
-comment|/**      * permissions are checked in impl      * will copy an artifact from the source repository to the target repository      */
+comment|/**      * Permissions are checked in impl      * will copy an artifact from the source repository to the target repository      */
 annotation|@
 name|Path
 argument_list|(
-literal|"{srcId}/a/{path: .+}/copyto/{dstId}"
+literal|"{srcId}/path/{path: .+}/copyto/{dstId}"
 argument_list|)
 annotation|@
 name|POST
@@ -1708,7 +1738,29 @@ name|name
 operator|=
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_RUN_INDEXER
+name|OPERATION_REPOSITORY_ACCESS
+argument_list|,
+name|scopes
+operator|=
+block|{
+literal|"{srcId}"
+block|}
+argument_list|)
+block|,
+annotation|@
+name|SecurityRequirement
+argument_list|(
+name|name
+operator|=
+name|ArchivaRoleConstants
+operator|.
+name|OPERATION_REPOSITORY_UPLOAD
+argument_list|,
+name|scopes
+operator|=
+block|{
+literal|"{dstId}"
+block|}
 argument_list|)
 block|}
 argument_list|,
@@ -1829,7 +1881,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"{id}/a/{path: .+}"
+literal|"{id}/path/{path: .+}"
 argument_list|)
 annotation|@
 name|DELETE
@@ -1977,7 +2029,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"{id}/c/{namespace}/{projectId}/{version}"
+literal|"{id}/co/{group}/{project}/{version}"
 argument_list|)
 annotation|@
 name|DELETE
@@ -2116,7 +2168,7 @@ parameter_list|,
 annotation|@
 name|PathParam
 argument_list|(
-literal|"namespace"
+literal|"group"
 argument_list|)
 name|String
 name|namespace
@@ -2124,7 +2176,7 @@ parameter_list|,
 annotation|@
 name|PathParam
 argument_list|(
-literal|"projectId"
+literal|"project"
 argument_list|)
 name|String
 name|projectId
@@ -2155,7 +2207,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"{id}/c/{namespace}/{projectId}"
+literal|"{id}/co/{group}/{project}"
 argument_list|)
 annotation|@
 name|DELETE
@@ -2294,7 +2346,7 @@ parameter_list|,
 annotation|@
 name|PathParam
 argument_list|(
-literal|"namespace"
+literal|"group"
 argument_list|)
 name|String
 name|namespace
@@ -2302,7 +2354,7 @@ parameter_list|,
 annotation|@
 name|PathParam
 argument_list|(
-literal|"projectId"
+literal|"project"
 argument_list|)
 name|String
 name|projectId
@@ -2325,7 +2377,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"{id}/c/{namespace}"
+literal|"{id}/co/{namespace}"
 argument_list|)
 annotation|@
 name|DELETE
