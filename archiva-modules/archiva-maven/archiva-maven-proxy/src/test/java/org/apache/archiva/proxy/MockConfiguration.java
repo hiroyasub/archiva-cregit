@@ -442,6 +442,25 @@ name|RegistryException
 block|{
 comment|/* do nothing */
 block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|save
+parameter_list|(
+name|Configuration
+name|configuration
+parameter_list|,
+name|String
+name|eventTag
+parameter_list|)
+throws|throws
+name|RegistryException
+throws|,
+name|IndeterminateConfigurationException
+block|{
+comment|// do nothing
+block|}
 specifier|public
 name|void
 name|triggerChange

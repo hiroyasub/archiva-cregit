@@ -14,6 +14,8 @@ operator|.
 name|services
 operator|.
 name|v2
+operator|.
+name|maven
 package|;
 end_package
 
@@ -281,6 +283,46 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|rest
+operator|.
+name|api
+operator|.
+name|services
+operator|.
+name|v2
+operator|.
+name|ArchivaRestError
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|rest
+operator|.
+name|api
+operator|.
+name|services
+operator|.
+name|v2
+operator|.
+name|ArchivaRestServiceException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|security
 operator|.
 name|common
@@ -486,7 +528,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Martin Stockhammer<martin_s@apache.org>  * @since 3.0  */
+comment|/**  * Service interface for managing managed maven repositories  *  * @author Martin Stockhammer<martin_s@apache.org>  * @since 3.0  */
 end_comment
 
 begin_interface

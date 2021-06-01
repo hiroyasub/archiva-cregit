@@ -151,6 +151,20 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|IndeterminateConfigurationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
 name|RepositoryScanningConfiguration
 import|;
 end_import
@@ -556,6 +570,25 @@ throws|throws
 name|RegistryException
 block|{
 comment|/* do nothing */
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|save
+parameter_list|(
+name|Configuration
+name|configuration
+parameter_list|,
+name|String
+name|eventTag
+parameter_list|)
+throws|throws
+name|RegistryException
+throws|,
+name|IndeterminateConfigurationException
+block|{
+comment|// do nothing
 block|}
 specifier|public
 name|void

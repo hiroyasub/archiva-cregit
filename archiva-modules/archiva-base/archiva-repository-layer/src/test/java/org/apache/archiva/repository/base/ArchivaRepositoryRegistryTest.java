@@ -420,6 +420,16 @@ name|Inject
 name|ArchivaConfiguration
 name|archivaConfiguration
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
+annotation|@
+name|Inject
+name|RepositoryGroupHandler
+name|repositoryGroupHandler
+decl_stmt|;
 specifier|private
 specifier|static
 specifier|final

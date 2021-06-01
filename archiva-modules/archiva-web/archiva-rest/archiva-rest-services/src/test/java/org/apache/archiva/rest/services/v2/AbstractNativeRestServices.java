@@ -1911,7 +1911,7 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Serer is not in STARTED state!"
+literal|"Server is not in STARTED state!"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2031,22 +2031,12 @@ argument_list|()
 operator|.
 name|jackson2ObjectMapperFactory
 argument_list|(
-operator|new
-name|Jackson2ObjectMapperFactory
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|ObjectMapper
-name|create
 parameter_list|(
-name|Type
 name|cls
 parameter_list|,
-name|String
 name|charset
 parameter_list|)
+lambda|->
 block|{
 name|ObjectMapper
 name|om
@@ -2081,7 +2071,6 @@ expr_stmt|;
 return|return
 name|om
 return|;
-block|}
 block|}
 argument_list|)
 argument_list|)
