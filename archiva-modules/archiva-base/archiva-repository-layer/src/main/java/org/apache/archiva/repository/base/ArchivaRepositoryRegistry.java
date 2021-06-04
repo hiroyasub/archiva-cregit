@@ -25,9 +25,137 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|components
+operator|.
+name|registry
+operator|.
+name|RegistryException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|configuration
 operator|.
-name|*
+name|ArchivaConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
+name|Configuration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
+name|ConfigurationEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
+name|ConfigurationListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
+name|IndeterminateConfigurationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
+name|ManagedRepositoryConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
+name|ProxyConnectorConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
+name|RemoteRepositoryConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
+name|RepositoryGroupConfiguration
 import|;
 end_import
 
@@ -42,6 +170,20 @@ operator|.
 name|event
 operator|.
 name|Event
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|event
+operator|.
+name|EventHandler
 import|;
 end_import
 
@@ -83,7 +225,7 @@ name|archiva
 operator|.
 name|indexer
 operator|.
-name|*
+name|ArchivaIndexManager
 import|;
 end_import
 
@@ -95,11 +237,51 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|components
+name|indexer
 operator|.
-name|registry
+name|ArchivaIndexingContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|RegistryException
+name|apache
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|IndexCreationFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|IndexManagerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|indexer
+operator|.
+name|IndexUpdateFailedException
 import|;
 end_import
 
@@ -297,7 +479,7 @@ name|repository
 operator|.
 name|event
 operator|.
-name|*
+name|LifecycleEvent
 import|;
 end_import
 
@@ -309,9 +491,43 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|repository
+operator|.
 name|event
 operator|.
-name|EventHandler
+name|RepositoryEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|event
+operator|.
+name|RepositoryIndexEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|event
+operator|.
+name|RepositoryRegistryEvent
 import|;
 end_import
 
@@ -471,7 +687,77 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -619,7 +905,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 specifier|private
 name|Map
@@ -649,7 +935,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 specifier|private
 name|Map
@@ -673,7 +959,7 @@ name|rwLock
 init|=
 operator|new
 name|ReentrantReadWriteLock
-argument_list|()
+argument_list|( )
 decl_stmt|;
 specifier|private
 name|RepositoryGroupHandler
@@ -758,15 +1044,15 @@ name|PostConstruct
 specifier|private
 name|void
 name|initialize
-parameter_list|()
+parameter_list|( )
 block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -824,8 +1110,24 @@ literal|true
 argument_list|)
 expr_stmt|;
 name|initializeRepositoryGroups
-argument_list|()
+argument_list|( )
 expr_stmt|;
+for|for
+control|(
+name|RepositoryProvider
+name|provider
+range|:
+name|repositoryProviders
+control|)
+block|{
+name|provider
+operator|.
+name|addRepositoryEventHandler
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|configurationHandler
@@ -841,10 +1143,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 name|pushEvent
@@ -865,12 +1167,12 @@ condition|(
 name|managed_initialized
 operator|.
 name|get
-argument_list|()
+argument_list|( )
 operator|&&
 name|remote_initialized
 operator|.
 name|get
-argument_list|()
+argument_list|( )
 operator|&&
 name|groups_initalized
 operator|.
@@ -896,7 +1198,7 @@ block|}
 specifier|private
 name|void
 name|initializeRepositoryGroups
-parameter_list|()
+parameter_list|( )
 block|{
 if|if
 condition|(
@@ -912,7 +1214,7 @@ operator|.
 name|groupHandler
 operator|.
 name|initializeFromConfig
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|this
 operator|.
@@ -953,19 +1255,19 @@ operator|=
 name|groupHandler
 expr_stmt|;
 name|initializeRepositoryGroups
-argument_list|()
+argument_list|( )
 expr_stmt|;
 if|if
 condition|(
 name|managed_initialized
 operator|.
 name|get
-argument_list|()
+argument_list|( )
 operator|&&
 name|remote_initialized
 operator|.
 name|get
-argument_list|()
+argument_list|( )
 operator|&&
 name|groups_initalized
 operator|.
@@ -993,7 +1295,7 @@ name|PreDestroy
 specifier|public
 name|void
 name|destroy
-parameter_list|()
+parameter_list|( )
 block|{
 for|for
 control|(
@@ -1003,19 +1305,19 @@ range|:
 name|managedRepositories
 operator|.
 name|values
-argument_list|()
+argument_list|( )
 control|)
 block|{
 name|rep
 operator|.
 name|close
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 name|managedRepositories
 operator|.
 name|clear
-argument_list|()
+argument_list|( )
 expr_stmt|;
 for|for
 control|(
@@ -1025,24 +1327,24 @@ range|:
 name|remoteRepositories
 operator|.
 name|values
-argument_list|()
+argument_list|( )
 control|)
 block|{
 name|repo
 operator|.
 name|close
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 name|remoteRepositories
 operator|.
 name|clear
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|groupHandler
 operator|.
 name|close
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|pushEvent
 argument_list|(
@@ -1066,7 +1368,7 @@ argument_list|,
 name|RepositoryProvider
 argument_list|>
 name|getRepositoryProviderMap
-parameter_list|()
+parameter_list|( )
 block|{
 name|Map
 argument_list|<
@@ -1079,7 +1381,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -1104,7 +1406,7 @@ range|:
 name|provider
 operator|.
 name|provides
-argument_list|()
+argument_list|( )
 control|)
 block|{
 name|map
@@ -1137,7 +1439,7 @@ return|return
 name|repositoryProviders
 operator|.
 name|stream
-argument_list|()
+argument_list|( )
 operator|.
 name|filter
 argument_list|(
@@ -1146,7 +1448,7 @@ lambda|->
 name|repositoryProvider
 operator|.
 name|provides
-argument_list|()
+argument_list|( )
 operator|.
 name|contains
 argument_list|(
@@ -1155,11 +1457,11 @@ argument_list|)
 argument_list|)
 operator|.
 name|findFirst
-argument_list|()
+argument_list|( )
 operator|.
 name|orElseThrow
 argument_list|(
-parameter_list|()
+parameter_list|( )
 lambda|->
 operator|new
 name|RepositoryException
@@ -1175,7 +1477,7 @@ comment|/*      * Updates the repositories      */
 specifier|private
 name|void
 name|updateManagedRepositoriesFromConfig
-parameter_list|()
+parameter_list|( )
 block|{
 try|try
 block|{
@@ -1188,7 +1490,7 @@ init|=
 operator|new
 name|HashSet
 argument_list|<>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|List
 argument_list|<
@@ -1199,10 +1501,10 @@ init|=
 name|configurationHandler
 operator|.
 name|getBaseConfiguration
-argument_list|()
+argument_list|( )
 operator|.
 name|getManagedRepositories
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -1238,7 +1540,7 @@ argument_list|(
 name|repoConfig
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 if|if
@@ -1266,14 +1568,14 @@ name|class
 argument_list|)
 operator|.
 name|get
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
 name|stagF
 operator|.
 name|getStagingRepository
-argument_list|()
+argument_list|( )
 operator|!=
 literal|null
 condition|)
@@ -1285,10 +1587,10 @@ argument_list|(
 name|stagF
 operator|.
 name|getStagingRepository
-argument_list|()
+argument_list|( )
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -1303,10 +1605,10 @@ init|=
 name|managedRepositories
 operator|.
 name|keySet
-argument_list|()
+argument_list|( )
 operator|.
 name|stream
-argument_list|()
+argument_list|( )
 operator|.
 name|filter
 argument_list|(
@@ -1326,7 +1628,7 @@ argument_list|(
 name|Collectors
 operator|.
 name|toList
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 for|for
@@ -1350,7 +1652,7 @@ decl_stmt|;
 name|removed
 operator|.
 name|close
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -1369,7 +1671,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1399,7 +1701,7 @@ argument_list|,
 name|cfg
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|ManagedRepository
@@ -1487,7 +1789,7 @@ argument_list|,
 name|repo
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 if|if
@@ -1515,19 +1817,19 @@ name|class
 argument_list|)
 operator|.
 name|get
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
 name|feature
 operator|.
 name|isStageRepoNeeded
-argument_list|()
+argument_list|( )
 operator|&&
 name|feature
 operator|.
 name|getStagingRepository
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 condition|)
@@ -1542,7 +1844,7 @@ argument_list|(
 name|repo
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1571,7 +1873,7 @@ argument_list|(
 name|stageRepo
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|stageRepo
 argument_list|)
@@ -1641,7 +1943,7 @@ condition|(
 name|repo
 operator|.
 name|getContent
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 condition|)
@@ -1661,7 +1963,7 @@ expr_stmt|;
 name|editableRepo
 operator|.
 name|getContent
-argument_list|()
+argument_list|( )
 operator|.
 name|setRepository
 argument_list|(
@@ -1678,7 +1980,7 @@ operator|+
 name|repo
 operator|.
 name|hasIndex
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 if|if
@@ -1686,13 +1988,13 @@ condition|(
 name|repo
 operator|.
 name|hasIndex
-argument_list|()
+argument_list|( )
 operator|&&
 operator|(
 name|repo
 operator|.
 name|getIndexingContext
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 operator|||
@@ -1700,10 +2002,10 @@ operator|!
 name|repo
 operator|.
 name|getIndexingContext
-argument_list|()
+argument_list|( )
 operator|.
 name|isOpen
-argument_list|()
+argument_list|( )
 operator|)
 condition|)
 block|{
@@ -1716,7 +2018,7 @@ argument_list|,
 name|repo
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|createIndexingContext
@@ -1851,7 +2153,7 @@ argument_list|(
 name|editableRepo
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 try|try
@@ -1891,14 +2193,14 @@ operator|+
 name|editableRepo
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 operator|+
 literal|": "
 operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1932,7 +2234,7 @@ argument_list|(
 name|baseRepoCfg
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1974,7 +2276,7 @@ name|class
 argument_list|)
 operator|.
 name|get
-argument_list|()
+argument_list|( )
 operator|.
 name|setStageRepoNeeded
 argument_list|(
@@ -2011,7 +2313,7 @@ block|}
 specifier|private
 name|void
 name|updateRemoteRepositoriesFromConfig
-parameter_list|()
+parameter_list|( )
 block|{
 try|try
 block|{
@@ -2024,10 +2326,10 @@ init|=
 name|configurationHandler
 operator|.
 name|getBaseConfiguration
-argument_list|()
+argument_list|( )
 operator|.
 name|getRemoteRepositories
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -2047,7 +2349,7 @@ init|=
 operator|new
 name|HashSet
 argument_list|<>
-argument_list|()
+argument_list|( )
 decl_stmt|;
 for|for
 control|(
@@ -2071,7 +2373,7 @@ argument_list|(
 name|repoConfig
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -2084,10 +2386,10 @@ init|=
 name|remoteRepositories
 operator|.
 name|keySet
-argument_list|()
+argument_list|( )
 operator|.
 name|stream
-argument_list|()
+argument_list|( )
 operator|.
 name|filter
 argument_list|(
@@ -2107,7 +2409,7 @@ argument_list|(
 name|Collectors
 operator|.
 name|toList
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 for|for
@@ -2131,7 +2433,7 @@ decl_stmt|;
 name|removed
 operator|.
 name|close
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -2150,7 +2452,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -2180,7 +2482,7 @@ argument_list|,
 name|cfg
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|RemoteRepository
@@ -2236,7 +2538,7 @@ operator|&&
 name|repo
 operator|.
 name|getContent
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 condition|)
@@ -2275,7 +2577,7 @@ operator|&&
 name|repo
 operator|.
 name|getIndexingContext
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 condition|)
@@ -2313,10 +2615,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -2328,18 +2630,18 @@ argument_list|(
 name|managedRepositories
 operator|.
 name|values
-argument_list|()
+argument_list|( )
 operator|.
 name|stream
-argument_list|()
+argument_list|( )
 argument_list|,
 name|remoteRepositories
 operator|.
 name|values
-argument_list|()
+argument_list|( )
 operator|.
 name|stream
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|collect
@@ -2347,7 +2649,7 @@ argument_list|(
 name|Collectors
 operator|.
 name|toList
-argument_list|()
+argument_list|( )
 argument_list|)
 return|;
 block|}
@@ -2356,10 +2658,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -2377,10 +2679,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -2388,7 +2690,7 @@ return|return
 name|uManagedRepository
 operator|.
 name|values
-argument_list|()
+argument_list|( )
 return|;
 block|}
 finally|finally
@@ -2396,10 +2698,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -2417,10 +2719,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -2428,7 +2730,7 @@ return|return
 name|uRemoteRepositories
 operator|.
 name|values
-argument_list|()
+argument_list|( )
 return|;
 block|}
 finally|finally
@@ -2436,10 +2738,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -2456,10 +2758,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -2475,10 +2777,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -2496,10 +2798,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -2595,10 +2897,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -2616,10 +2918,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -2637,10 +2939,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -2658,10 +2960,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -2679,10 +2981,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -2699,10 +3001,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -2720,10 +3022,10 @@ block|{
 name|rwLock
 operator|.
 name|readLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -2767,10 +3069,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -2781,7 +3083,7 @@ init|=
 name|managedRepository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -2833,7 +3135,7 @@ block|{
 name|originRepo
 operator|.
 name|close
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 name|RepositoryProvider
@@ -2844,7 +3146,7 @@ argument_list|(
 name|managedRepository
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|ManagedRepositoryConfiguration
@@ -2863,7 +3165,7 @@ init|=
 name|configurationHandler
 operator|.
 name|getBaseConfiguration
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|updateRepositoryReferences
 argument_list|(
@@ -3001,7 +3303,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -3016,7 +3318,7 @@ operator|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 condition|?
@@ -3027,7 +3329,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 operator|)
 argument_list|)
 throw|;
@@ -3038,10 +3340,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -3061,10 +3363,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -3075,7 +3377,7 @@ init|=
 name|managedRepositoryConfiguration
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 decl_stmt|;
 specifier|final
 name|RepositoryType
@@ -3088,7 +3390,7 @@ argument_list|(
 name|managedRepositoryConfiguration
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|Configuration
@@ -3097,7 +3399,7 @@ init|=
 name|configurationHandler
 operator|.
 name|getBaseConfiguration
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|ManagedRepository
 name|repo
@@ -3187,7 +3489,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -3205,7 +3507,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -3218,10 +3520,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -3244,10 +3546,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -3258,7 +3560,7 @@ init|=
 name|managedRepositoryConfiguration
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 decl_stmt|;
 specifier|final
 name|RepositoryType
@@ -3271,7 +3573,7 @@ argument_list|(
 name|managedRepositoryConfiguration
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|ManagedRepository
@@ -3300,7 +3602,7 @@ operator|&&
 name|repo
 operator|.
 name|isOpen
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 if|if
@@ -3436,10 +3738,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -3459,10 +3761,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -3499,10 +3801,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -3522,10 +3824,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -3543,10 +3845,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -3569,10 +3871,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -3592,10 +3894,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -3627,7 +3929,7 @@ argument_list|(
 name|managedRepositoryConfiguration
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 if|if
@@ -3682,7 +3984,7 @@ argument_list|(
 name|remoteRepositoryConfiguration
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 if|if
@@ -3730,7 +4032,7 @@ argument_list|(
 name|repositoryGroupConfiguration
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 if|if
@@ -3774,10 +4076,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -3788,7 +4090,7 @@ init|=
 name|remoteRepository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -3848,7 +4150,7 @@ block|{
 name|originRepo
 operator|.
 name|close
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 specifier|final
@@ -3860,7 +4162,7 @@ argument_list|(
 name|remoteRepository
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|newCfg
@@ -4042,7 +4344,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -4057,7 +4359,7 @@ operator|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 condition|?
@@ -4068,7 +4370,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 operator|)
 argument_list|)
 throw|;
@@ -4079,10 +4381,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -4102,10 +4404,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -4115,7 +4417,7 @@ init|=
 name|configurationHandler
 operator|.
 name|getBaseConfiguration
-argument_list|()
+argument_list|( )
 decl_stmt|;
 try|try
 block|{
@@ -4155,7 +4457,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -4170,7 +4472,7 @@ operator|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 condition|?
@@ -4181,7 +4483,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 operator|)
 argument_list|)
 throw|;
@@ -4192,10 +4494,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -4215,10 +4517,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -4229,7 +4531,7 @@ init|=
 name|remoteRepositoryConfiguration
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 decl_stmt|;
 specifier|final
 name|RepositoryType
@@ -4242,7 +4544,7 @@ argument_list|(
 name|remoteRepositoryConfiguration
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|Configuration
@@ -4251,7 +4553,7 @@ init|=
 name|configurationHandler
 operator|.
 name|getBaseConfiguration
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|RemoteRepository
 name|repo
@@ -4341,7 +4643,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -4359,7 +4661,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -4372,10 +4674,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -4403,10 +4705,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -4417,7 +4719,7 @@ init|=
 name|remoteRepositoryConfiguration
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 decl_stmt|;
 specifier|final
 name|RepositoryType
@@ -4430,7 +4732,7 @@ argument_list|(
 name|remoteRepositoryConfiguration
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|RemoteRepository
@@ -4459,7 +4761,7 @@ operator|&&
 name|repo
 operator|.
 name|isOpen
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 if|if
@@ -4595,10 +4897,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -4723,7 +5025,7 @@ operator|+
 name|repo
 operator|.
 name|getClass
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -4757,7 +5059,7 @@ init|=
 name|managedRepository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|ManagedRepository
 name|repo
@@ -4777,10 +5079,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -4803,7 +5105,7 @@ block|{
 name|repo
 operator|.
 name|close
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|this
 operator|.
@@ -4820,7 +5122,7 @@ init|=
 name|configurationHandler
 operator|.
 name|getBaseConfiguration
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|ManagedRepositoryConfiguration
 name|cfg
@@ -4887,7 +5189,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -4899,7 +5201,7 @@ argument_list|(
 name|repo
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|repo
 argument_list|)
@@ -4913,7 +5215,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -4922,10 +5224,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -4961,7 +5263,7 @@ init|=
 name|managedRepository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|ManagedRepository
 name|repo
@@ -4981,10 +5283,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -5007,7 +5309,7 @@ block|{
 name|repo
 operator|.
 name|close
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|this
 operator|.
@@ -5065,10 +5367,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -5102,7 +5404,7 @@ init|=
 name|repositoryGroup
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -5117,10 +5419,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -5137,10 +5439,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -5176,7 +5478,7 @@ init|=
 name|repositoryGroup
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -5191,10 +5493,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -5213,10 +5515,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -5235,7 +5537,7 @@ block|{
 name|repo
 operator|.
 name|close
-argument_list|()
+argument_list|( )
 expr_stmt|;
 name|RemoteRepositoryConfiguration
 name|cfg
@@ -5247,7 +5549,7 @@ argument_list|(
 name|repo
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 if|if
@@ -5278,7 +5580,7 @@ argument_list|(
 name|configuration
 operator|.
 name|getProxyConnectors
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 for|for
@@ -5298,12 +5600,12 @@ argument_list|(
 name|proxyConnector
 operator|.
 name|getTargetRepoId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|repo
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -5346,7 +5648,7 @@ init|=
 name|remoteRepository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|RemoteRepository
 name|repo
@@ -5366,10 +5668,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -5395,7 +5697,7 @@ init|=
 name|configurationHandler
 operator|.
 name|getBaseConfiguration
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|doRemoveRepo
 argument_list|(
@@ -5444,7 +5746,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -5456,7 +5758,7 @@ argument_list|(
 name|repo
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|repo
 argument_list|)
@@ -5470,7 +5772,7 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -5479,10 +5781,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -5518,7 +5820,7 @@ init|=
 name|remoteRepository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|RemoteRepository
 name|repo
@@ -5538,10 +5840,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|lock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 try|try
 block|{
@@ -5590,10 +5892,10 @@ block|{
 name|rwLock
 operator|.
 name|writeLock
-argument_list|()
+argument_list|( )
 operator|.
 name|unlock
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -5607,7 +5909,7 @@ name|reload
 parameter_list|( )
 block|{
 name|initialize
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 comment|/**      * Resets the indexing context of a given repository.      *      * @param repository The repository      * @throws IndexUpdateFailedException If the index could not be resetted.      */
@@ -5628,7 +5930,7 @@ condition|(
 name|repository
 operator|.
 name|hasIndex
-argument_list|()
+argument_list|( )
 operator|&&
 name|repository
 operator|instanceof
@@ -5651,7 +5953,7 @@ argument_list|(
 name|repository
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|reset
@@ -5659,7 +5961,7 @@ argument_list|(
 name|repository
 operator|.
 name|getIndexingContext
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|eRepo
@@ -5722,7 +6024,7 @@ argument_list|(
 name|repo
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|ManagedRepositoryConfiguration
@@ -5840,10 +6142,10 @@ operator|+
 name|repo
 operator|.
 name|getClass
-argument_list|()
+argument_list|( )
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -5899,7 +6201,7 @@ argument_list|(
 name|repo
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|RemoteRepositoryConfiguration
@@ -5984,7 +6286,7 @@ lambda|->
 name|r
 operator|.
 name|getRoot
-argument_list|()
+argument_list|( )
 operator|.
 name|getStorage
 argument_list|( )
@@ -6036,7 +6338,7 @@ argument_list|)
 condition|)
 block|{
 name|reload
-argument_list|()
+argument_list|( )
 expr_stmt|;
 block|}
 block|}
@@ -6169,35 +6471,6 @@ name|idxEvent
 init|=
 name|event
 decl_stmt|;
-if|if
-condition|(
-name|managedRepositories
-operator|.
-name|containsKey
-argument_list|(
-name|idxEvent
-operator|.
-name|getRepository
-argument_list|()
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-operator|||
-name|remoteRepositories
-operator|.
-name|containsKey
-argument_list|(
-name|idxEvent
-operator|.
-name|getRepository
-argument_list|()
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-condition|)
-block|{
 name|EditableRepository
 name|repo
 init|=
@@ -6207,23 +6480,14 @@ operator|)
 name|idxEvent
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
 name|repo
 operator|!=
 literal|null
-operator|&&
-name|repo
-operator|.
-name|getIndexingContext
-argument_list|()
-operator|!=
-literal|null
 condition|)
-block|{
-try|try
 block|{
 name|ArchivaIndexManager
 name|idxmgr
@@ -6233,15 +6497,20 @@ argument_list|(
 name|repo
 operator|.
 name|getType
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|idxmgr
+name|repo
+operator|.
+name|getIndexingContext
+argument_list|( )
 operator|!=
 literal|null
 condition|)
+block|{
+try|try
 block|{
 name|ArchivaIndexingContext
 name|newCtx
@@ -6253,7 +6522,7 @@ argument_list|(
 name|repo
 operator|.
 name|getIndexingContext
-argument_list|()
+argument_list|( )
 argument_list|,
 name|repo
 argument_list|)
@@ -6273,6 +6542,56 @@ name|repo
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|IndexCreationFailedException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Could not move index to new directory: '{}'"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|( )
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+try|try
+block|{
+name|ArchivaIndexingContext
+name|context
+init|=
+name|idxmgr
+operator|.
+name|createContext
+argument_list|(
+name|repo
+argument_list|)
+decl_stmt|;
+name|repo
+operator|.
+name|setIndexingContext
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+name|idxmgr
+operator|.
+name|updateLocalIndexPath
+argument_list|(
+name|repo
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -6284,12 +6603,12 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Could not move index to new directory {}"
+literal|"Could not create index:  '{}'"
 argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -6311,7 +6630,7 @@ condition|(
 name|event
 operator|.
 name|getSource
-argument_list|()
+argument_list|( )
 operator|==
 name|this
 condition|)
@@ -6325,7 +6644,7 @@ condition|(
 name|event
 operator|.
 name|hasPreviousEvent
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 return|return
@@ -6334,7 +6653,7 @@ argument_list|(
 name|event
 operator|.
 name|getPreviousEvent
-argument_list|()
+argument_list|( )
 argument_list|)
 return|;
 block|}

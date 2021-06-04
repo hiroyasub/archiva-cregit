@@ -73,6 +73,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|event
+operator|.
+name|RepositoryEvent
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -253,6 +269,19 @@ name|repositoryGroup
 parameter_list|)
 throws|throws
 name|RepositoryException
+function_decl|;
+comment|/**      * This event handler is registered to all newly created repositories immediately after creation. This may be needed by      * some components to get events right after creation of the instance.      *      * @param eventHandler the event handler instance      */
+name|void
+name|addRepositoryEventHandler
+parameter_list|(
+name|EventHandler
+argument_list|<
+name|?
+super|super
+name|RepositoryEvent
+argument_list|>
+name|eventHandler
+parameter_list|)
 function_decl|;
 block|}
 end_interface

@@ -792,7 +792,7 @@ name|Paths
 operator|.
 name|get
 argument_list|(
-literal|"src/test/"
+literal|"src/test"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1225,11 +1225,6 @@ operator|.
 name|deleteOnExit
 argument_list|()
 expr_stmt|;
-name|createIndexingContext
-argument_list|(
-name|remoteRepository
-argument_list|)
-expr_stmt|;
 name|RemoteIndexFeature
 name|rif
 init|=
@@ -1267,33 +1262,13 @@ literal|"/index-updates/"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|IndexCreationFeature
-name|icf
-init|=
-name|remoteRepository
-operator|.
-name|getFeature
-argument_list|(
-name|IndexCreationFeature
-operator|.
-name|class
-argument_list|)
-operator|.
-name|get
-argument_list|( )
-decl_stmt|;
-name|icf
-operator|.
-name|setLocalIndexPath
+name|createIndexingContext
 argument_list|(
 name|remoteRepository
-operator|.
-name|getAsset
-argument_list|(
-literal|"index"
-argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// IndexCreationFeature icf = remoteRepository.getFeature( IndexCreationFeature.class ).get( );
+comment|// icf.setLocalIndexPath( remoteRepository.getAsset(  "index" ) );
 return|return
 name|remoteRepository
 return|;
