@@ -70,6 +70,13 @@ init|=
 literal|"archiva."
 decl_stmt|;
 name|String
+name|VALIDATION_ERROR
+init|=
+name|PREFIX
+operator|+
+literal|"validation_error"
+decl_stmt|;
+name|String
 name|REPOSITORY_GROUP_PREFIX
 init|=
 name|PREFIX
@@ -168,6 +175,13 @@ init|=
 name|REPOSITORY_GROUP_PREFIX
 operator|+
 literal|"exists"
+decl_stmt|;
+name|String
+name|REPOSITORY_GROUP_UPDATE_FAILED
+init|=
+name|REPOSITORY_GROUP_PREFIX
+operator|+
+literal|"update.failed"
 decl_stmt|;
 name|String
 name|REPOSITORY_GROUP_DELETE_FAILED

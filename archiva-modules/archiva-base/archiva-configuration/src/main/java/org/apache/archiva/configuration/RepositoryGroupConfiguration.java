@@ -110,9 +110,40 @@ name|String
 argument_list|>
 name|repositories
 decl_stmt|;
+comment|/**      * The path for local data      */
+specifier|private
+name|String
+name|location
+decl_stmt|;
 comment|//-----------/
 comment|//- Methods -/
 comment|//-----------/
+comment|/**      * Return the local path for group data. If the merged index property is set to a non absolute path,      * it is relative to this location.      *      * @return the path for group data storage      */
+specifier|public
+name|String
+name|getLocation
+parameter_list|( )
+block|{
+return|return
+name|location
+return|;
+block|}
+comment|/**      * Set the local path for group data      * @param location      */
+specifier|public
+name|void
+name|setLocation
+parameter_list|(
+name|String
+name|location
+parameter_list|)
+block|{
+name|this
+operator|.
+name|location
+operator|=
+name|location
+expr_stmt|;
+block|}
 comment|/**      * Method addRepository.      *       * @param string      */
 specifier|public
 name|void

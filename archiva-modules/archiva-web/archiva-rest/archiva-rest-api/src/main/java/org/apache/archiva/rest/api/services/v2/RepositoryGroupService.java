@@ -700,7 +700,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"{repositoryGroupId}"
+literal|"{id}"
 argument_list|)
 annotation|@
 name|GET
@@ -853,7 +853,7 @@ parameter_list|(
 annotation|@
 name|PathParam
 argument_list|(
-literal|"repositoryGroupId"
+literal|"id"
 argument_list|)
 name|String
 name|repositoryGroupId
@@ -960,7 +960,7 @@ literal|"201"
 argument_list|,
 name|description
 operator|=
-literal|"If the list could be returned"
+literal|"If the repository group was created"
 argument_list|,
 name|content
 operator|=
@@ -1104,7 +1104,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"{repositoryGroupId}"
+literal|"{id}"
 argument_list|)
 annotation|@
 name|PUT
@@ -1334,7 +1334,7 @@ parameter_list|(
 annotation|@
 name|PathParam
 argument_list|(
-literal|"repositoryGroupId"
+literal|"id"
 argument_list|)
 name|String
 name|groupId
@@ -1348,7 +1348,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"{repositoryGroupId}"
+literal|"{id}"
 argument_list|)
 annotation|@
 name|DELETE
@@ -1480,7 +1480,7 @@ parameter_list|(
 annotation|@
 name|PathParam
 argument_list|(
-literal|"repositoryGroupId"
+literal|"id"
 argument_list|)
 name|String
 name|repositoryGroupId
@@ -1491,7 +1491,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"{repositoryGroupId}/repositories/{repositoryId}"
+literal|"{id}/repositories/{repositoryId}"
 argument_list|)
 annotation|@
 name|PUT
@@ -1623,7 +1623,7 @@ parameter_list|(
 annotation|@
 name|PathParam
 argument_list|(
-literal|"repositoryGroupId"
+literal|"id"
 argument_list|)
 name|String
 name|repositoryGroupId
@@ -1642,7 +1642,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"{repositoryGroupId}/repositories/{repositoryId}"
+literal|"{id}/repositories/{repositoryId}"
 argument_list|)
 annotation|@
 name|DELETE
@@ -1774,7 +1774,7 @@ parameter_list|(
 annotation|@
 name|PathParam
 argument_list|(
-literal|"repositoryGroupId"
+literal|"id"
 argument_list|)
 name|String
 name|repositoryGroupId

@@ -24,6 +24,8 @@ specifier|public
 enum|enum
 name|RepositoryType
 block|{
+name|ALL
+block|,
 name|MAVEN
 block|,
 name|NPM

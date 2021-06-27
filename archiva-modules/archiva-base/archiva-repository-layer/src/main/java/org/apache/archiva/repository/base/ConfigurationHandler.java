@@ -101,6 +101,20 @@ name|Service
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|locks
+operator|.
+name|ReentrantReadWriteLock
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is just a simple wrapper to access the archiva configuration used by the registry and associated classes  *  * @author Martin Stockhammer<martin_s@apache.org>  */
 end_comment
@@ -126,6 +140,14 @@ decl_stmt|;
 specifier|private
 name|ArchivaConfiguration
 name|archivaConfiguration
+decl_stmt|;
+specifier|final
+name|ReentrantReadWriteLock
+name|lock
+init|=
+operator|new
+name|ReentrantReadWriteLock
+argument_list|( )
 decl_stmt|;
 specifier|public
 name|ConfigurationHandler
@@ -241,6 +263,14 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
+block|}
+name|ReentrantReadWriteLock
+name|getLock
+parameter_list|()
+block|{
+return|return
+name|lock
+return|;
 block|}
 block|}
 end_class

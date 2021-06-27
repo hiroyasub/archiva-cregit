@@ -5303,6 +5303,20 @@ name|mergedIndexTtl
 argument_list|)
 expr_stmt|;
 comment|//String cronExpression = registry.getString( prefix + "cronExpression", value.getCronExpression() );
+name|value
+operator|.
+name|setLocation
+argument_list|(
+name|registry
+operator|.
+name|getString
+argument_list|(
+name|prefix
+operator|+
+literal|"location"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|List
 argument_list|<
 name|String
