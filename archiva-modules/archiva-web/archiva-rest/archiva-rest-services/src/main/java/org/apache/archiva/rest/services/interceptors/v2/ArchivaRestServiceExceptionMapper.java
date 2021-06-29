@@ -226,7 +226,13 @@ name|Status
 operator|.
 name|Family
 operator|.
-name|SERVER_ERROR
+name|familyOf
+argument_list|(
+name|e
+operator|.
+name|getHttpErrorCode
+argument_list|( )
+argument_list|)
 return|;
 block|}
 specifier|public

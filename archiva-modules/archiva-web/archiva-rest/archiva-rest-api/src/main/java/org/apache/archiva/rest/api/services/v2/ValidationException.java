@@ -123,8 +123,20 @@ name|Collectors
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Stream
+import|;
+end_import
+
 begin_comment
-comment|/**  * Exception is thrown  * @author Martin Stockhammer<martin_s@apache.org>  */
+comment|/**  * Exception is thrown  *  * @author Martin Stockhammer<martin_s@apache.org>  */
 end_comment
 
 begin_class
@@ -264,6 +276,85 @@ return|;
 block|}
 specifier|public
 specifier|static
+name|ValidationException
+name|of
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|validation
+operator|.
+name|ValidationError
+argument_list|>
+argument_list|>
+name|errorMap
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ValidationException
+argument_list|(
+name|errorMap
+operator|.
+name|entrySet
+argument_list|( )
+operator|.
+name|stream
+argument_list|( )
+operator|.
+name|flatMap
+argument_list|(
+name|v
+lambda|->
+name|v
+operator|.
+name|getValue
+argument_list|( )
+operator|.
+name|stream
+argument_list|( )
+operator|.
+name|map
+argument_list|(
+name|k
+lambda|->
+name|ValidationError
+operator|.
+name|of
+argument_list|(
+name|v
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|k
+argument_list|)
+argument_list|)
+argument_list|)
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toList
+argument_list|( )
+argument_list|)
+argument_list|)
+return|;
+block|}
+specifier|public
+specifier|static
 parameter_list|<
 name|R
 extends|extends
@@ -284,7 +375,7 @@ condition|(
 name|result
 operator|.
 name|isValid
-argument_list|()
+argument_list|( )
 condition|)
 block|{
 return|return
@@ -367,7 +458,7 @@ condition|?
 name|Collections
 operator|.
 name|emptyList
-argument_list|()
+argument_list|( )
 else|:
 name|validationErrors
 return|;

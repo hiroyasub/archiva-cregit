@@ -350,9 +350,6 @@ argument_list|(
 literal|""
 argument_list|)
 operator|.
-name|prettyPeek
-argument_list|()
-operator|.
 name|then
 argument_list|( )
 operator|.
@@ -701,9 +698,6 @@ argument_list|(
 literal|""
 argument_list|)
 operator|.
-name|prettyPeek
-argument_list|()
-operator|.
 name|then
 argument_list|( )
 operator|.
@@ -845,9 +839,6 @@ argument_list|(
 literal|"managed/internal/statistics"
 argument_list|)
 operator|.
-name|prettyPeek
-argument_list|()
-operator|.
 name|then
 argument_list|( )
 operator|.
@@ -906,9 +897,6 @@ name|post
 argument_list|(
 literal|"managed/internal/scan/schedule"
 argument_list|)
-operator|.
-name|prettyPeek
-argument_list|()
 operator|.
 name|then
 argument_list|( )
@@ -969,9 +957,6 @@ argument_list|(
 literal|"managed/internal/scan/now"
 argument_list|)
 operator|.
-name|prettyPeek
-argument_list|()
-operator|.
 name|then
 argument_list|( )
 operator|.
@@ -1030,9 +1015,6 @@ name|get
 argument_list|(
 literal|"managed/internal/scan/status"
 argument_list|)
-operator|.
-name|prettyPeek
-argument_list|()
 operator|.
 name|then
 argument_list|( )

@@ -2527,9 +2527,6 @@ argument_list|(
 literal|"/authenticate"
 argument_list|)
 operator|.
-name|prettyPeek
-argument_list|()
-operator|.
 name|then
 argument_list|( )
 operator|.
@@ -2544,14 +2541,6 @@ operator|.
 name|response
 argument_list|( )
 decl_stmt|;
-name|result
-operator|.
-name|getBody
-argument_list|( )
-operator|.
-name|prettyPrint
-argument_list|( )
-expr_stmt|;
 return|return
 name|result
 operator|.

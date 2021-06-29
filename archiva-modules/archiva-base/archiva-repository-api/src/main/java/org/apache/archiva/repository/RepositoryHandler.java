@@ -47,6 +47,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|validation
+operator|.
+name|RepositoryValidator
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -235,6 +251,14 @@ name|R
 argument_list|>
 name|getAll
 parameter_list|()
+function_decl|;
+comment|/**      * Returns a validator that can be used to validate repository data      * @return a validator instance      */
+name|RepositoryValidator
+argument_list|<
+name|R
+argument_list|>
+name|getValidator
+parameter_list|( )
 function_decl|;
 comment|/**      * Returns<code>true</code>, if the repository is registered with the given id, otherwise<code>false</code>      * @param id the repository identifier      * @return<code>true</code>, if it is registered, otherwise<code>false</code>      */
 name|boolean
