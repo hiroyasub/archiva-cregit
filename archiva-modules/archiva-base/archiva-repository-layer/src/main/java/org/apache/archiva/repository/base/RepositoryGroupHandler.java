@@ -2024,6 +2024,13 @@ argument_list|,
 name|configuration
 argument_list|)
 expr_stmt|;
+name|updateReferences
+argument_list|(
+name|repo
+argument_list|,
+name|repositoryGroupConfiguration
+argument_list|)
+expr_stmt|;
 return|return
 name|repo
 return|;
@@ -2140,7 +2147,10 @@ condition|)
 block|{
 name|put
 argument_list|(
-name|repositoryConfiguration
+name|result
+operator|.
+name|getRepository
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
