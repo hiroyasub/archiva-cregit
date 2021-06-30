@@ -1741,7 +1741,7 @@ literal|"404"
 argument_list|,
 name|description
 operator|=
-literal|"The group with the given id does not exist, or the repository was not part of the group."
+literal|"Either the group with the given id does not exist, or the repository was not part of the group."
 argument_list|,
 name|content
 operator|=
