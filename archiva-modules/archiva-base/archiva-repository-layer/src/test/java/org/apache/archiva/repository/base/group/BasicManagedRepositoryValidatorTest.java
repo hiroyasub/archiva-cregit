@@ -9,7 +9,9 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|validation
+name|base
+operator|.
+name|group
 package|;
 end_package
 
@@ -21,25 +23,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|archiva
+name|jupiter
 operator|.
-name|repository
+name|api
 operator|.
-name|Repository
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Function
+name|Test
 import|;
 end_import
 
@@ -47,58 +37,40 @@ begin_comment
 comment|/**  * @author Martin Stockhammer<martin_s@apache.org>  */
 end_comment
 
-begin_interface
-specifier|public
-interface|interface
-name|RepositoryChecker
-parameter_list|<
-name|R
-extends|extends
-name|Repository
-parameter_list|,
-name|D
-parameter_list|>
-extends|extends
-name|Function
-argument_list|<
-name|R
-argument_list|,
-name|CheckedResult
-argument_list|<
-name|R
-argument_list|,
-name|D
-argument_list|>
-argument_list|>
+begin_class
+class|class
+name|BasicManagedRepositoryValidatorTest
 block|{
 annotation|@
-name|Override
-name|CheckedResult
-argument_list|<
-name|R
-argument_list|,
-name|D
-argument_list|>
+name|Test
+name|void
 name|apply
-parameter_list|(
-name|R
-name|r
-parameter_list|)
-function_decl|;
-name|CheckedResult
-argument_list|<
-name|R
-argument_list|,
-name|D
-argument_list|>
-name|applyForUpdate
-parameter_list|(
-name|R
-name|repo
-parameter_list|)
-function_decl|;
+parameter_list|( )
+block|{
 block|}
-end_interface
+annotation|@
+name|Test
+name|void
+name|applyForUpdate
+parameter_list|( )
+block|{
+block|}
+annotation|@
+name|Test
+name|void
+name|getFlavour
+parameter_list|( )
+block|{
+block|}
+annotation|@
+name|Test
+name|void
+name|isFlavour
+parameter_list|( )
+block|{
+block|}
+block|}
+end_class
 
 end_unit
 

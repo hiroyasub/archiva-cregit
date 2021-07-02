@@ -99,6 +99,8 @@ name|repository
 operator|.
 name|base
 operator|.
+name|managed
+operator|.
 name|BasicManagedRepository
 import|;
 end_import
@@ -114,6 +116,8 @@ operator|.
 name|repository
 operator|.
 name|base
+operator|.
+name|remote
 operator|.
 name|BasicRemoteRepository
 import|;

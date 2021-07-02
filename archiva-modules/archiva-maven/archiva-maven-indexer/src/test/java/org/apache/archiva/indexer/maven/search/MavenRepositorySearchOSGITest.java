@@ -95,6 +95,8 @@ name|repository
 operator|.
 name|base
 operator|.
+name|group
+operator|.
 name|RepositoryGroupHandler
 import|;
 end_import

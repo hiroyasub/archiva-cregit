@@ -785,6 +785,17 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
+specifier|public
+name|Registry
+name|getRegistry
+parameter_list|( )
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 end_class
 

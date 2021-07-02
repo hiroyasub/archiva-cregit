@@ -41,6 +41,22 @@ name|repository
 operator|.
 name|validation
 operator|.
+name|CheckedResult
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|validation
+operator|.
 name|RepositoryChecker
 import|;
 end_import
@@ -58,6 +74,22 @@ operator|.
 name|validation
 operator|.
 name|RepositoryValidator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|validation
+operator|.
+name|ValidationResponse
 import|;
 end_import
 
@@ -259,6 +291,28 @@ name|R
 argument_list|>
 name|getValidator
 parameter_list|( )
+function_decl|;
+comment|/**      * Validates the set attributes of the given repository instance and returns the validation result.      * The repository registry uses all available validators and applies their validateRepository method to the given      * repository. Validation results will be merged per field.      *      * @param repository the repository to validate against      * @return the result of the validation.      */
+name|ValidationResponse
+argument_list|<
+name|R
+argument_list|>
+name|validateRepository
+parameter_list|(
+name|R
+name|repository
+parameter_list|)
+function_decl|;
+comment|/**      * Validates the set attributes of the given repository instance for a repository update and returns the validation result.      * The repository registry uses all available validators and applies their validateRepositoryForUpdate method to the given      * repository. Validation results will be merged per field.      *      * @param repository the repository to validate against      * @return the result of the validation.      */
+name|ValidationResponse
+argument_list|<
+name|R
+argument_list|>
+name|validateRepositoryForUpdate
+parameter_list|(
+name|R
+name|repository
+parameter_list|)
 function_decl|;
 comment|/**      * Returns<code>true</code>, if the repository is registered with the given id, otherwise<code>false</code>      * @param id the repository identifier      * @return<code>true</code>, if it is registered, otherwise<code>false</code>      */
 name|boolean

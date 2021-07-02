@@ -27,6 +27,22 @@ name|components
 operator|.
 name|registry
 operator|.
+name|Registry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|components
+operator|.
+name|registry
+operator|.
 name|RegistryException
 import|;
 end_import
@@ -214,6 +230,11 @@ specifier|public
 name|Path
 name|getDataDirectory
 parameter_list|()
+function_decl|;
+comment|/**      * Return the used configuration registry      * @return      */
+name|Registry
+name|getRegistry
+parameter_list|( )
 function_decl|;
 block|}
 end_interface

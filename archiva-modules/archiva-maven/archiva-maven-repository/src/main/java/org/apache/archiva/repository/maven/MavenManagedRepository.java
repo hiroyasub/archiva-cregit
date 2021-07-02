@@ -159,6 +159,8 @@ name|repository
 operator|.
 name|base
 operator|.
+name|managed
+operator|.
 name|AbstractManagedRepository
 import|;
 end_import

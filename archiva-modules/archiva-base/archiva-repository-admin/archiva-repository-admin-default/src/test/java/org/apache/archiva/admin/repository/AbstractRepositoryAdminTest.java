@@ -243,6 +243,8 @@ name|repository
 operator|.
 name|base
 operator|.
+name|group
+operator|.
 name|RepositoryGroupHandler
 import|;
 end_import
@@ -284,16 +286,6 @@ operator|.
 name|junit
 operator|.
 name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|BeforeClass
 import|;
 end_import
 

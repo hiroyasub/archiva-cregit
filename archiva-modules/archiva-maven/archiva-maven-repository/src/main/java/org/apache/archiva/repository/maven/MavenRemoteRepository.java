@@ -141,6 +141,8 @@ name|repository
 operator|.
 name|base
 operator|.
+name|remote
+operator|.
 name|AbstractRemoteRepository
 import|;
 end_import

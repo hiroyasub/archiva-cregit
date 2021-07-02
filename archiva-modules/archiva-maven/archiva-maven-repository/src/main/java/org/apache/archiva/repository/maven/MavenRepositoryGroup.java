@@ -131,6 +131,8 @@ name|repository
 operator|.
 name|base
 operator|.
+name|group
+operator|.
 name|AbstractRepositoryGroup
 import|;
 end_import

@@ -264,6 +264,7 @@ literal|""
 argument_list|)
 expr_stmt|;
 block|}
+specifier|public
 name|ReentrantReadWriteLock
 name|getLock
 parameter_list|()

@@ -121,6 +121,8 @@ name|repository
 operator|.
 name|base
 operator|.
+name|group
+operator|.
 name|RepositoryGroupHandler
 import|;
 end_import
@@ -170,22 +172,6 @@ operator|.
 name|runner
 operator|.
 name|RunWith
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|beans
-operator|.
-name|factory
-operator|.
-name|annotation
-operator|.
-name|Autowired
 import|;
 end_import
 
