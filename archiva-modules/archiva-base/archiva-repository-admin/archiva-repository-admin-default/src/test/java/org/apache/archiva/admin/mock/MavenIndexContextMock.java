@@ -243,6 +243,20 @@ name|repository
 operator|=
 name|repository
 expr_stmt|;
+if|if
+condition|(
+name|delegate
+operator|!=
+literal|null
+operator|&&
+name|delegate
+operator|.
+name|getIndexDirectoryFile
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 try|try
 block|{
 name|this
@@ -255,14 +269,14 @@ argument_list|(
 name|delegate
 operator|.
 name|getIndexDirectoryFile
-argument_list|()
+argument_list|( )
 operator|.
 name|toPath
-argument_list|()
+argument_list|( )
 argument_list|,
 operator|new
 name|DefaultFileLockManager
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -275,8 +289,9 @@ block|{
 name|e
 operator|.
 name|printStackTrace
-argument_list|()
+argument_list|( )
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
@@ -421,6 +436,12 @@ literal|false
 expr_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|delegate
+operator|!=
+literal|null
+condition|)
 name|delegate
 operator|.
 name|close
@@ -453,6 +474,12 @@ literal|false
 expr_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|delegate
+operator|!=
+literal|null
+condition|)
 name|delegate
 operator|.
 name|close
