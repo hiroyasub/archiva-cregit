@@ -83,22 +83,6 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|validation
-operator|.
-name|CheckedResult
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
 name|EditableRepositoryGroup
 import|;
 end_import
@@ -144,6 +128,22 @@ operator|.
 name|base
 operator|.
 name|ConfigurationHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|validation
+operator|.
+name|CheckedResult
 import|;
 end_import
 
@@ -899,6 +899,16 @@ argument_list|)
 expr_stmt|;
 name|result
 operator|.
+name|setName
+argument_list|(
+name|group
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
 name|setLocation
 argument_list|(
 name|group
@@ -1133,7 +1143,7 @@ argument_list|(
 name|validationResult
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|)
 return|;
 block|}
@@ -1147,7 +1157,7 @@ argument_list|(
 name|validationResult
 operator|.
 name|getResult
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -1319,7 +1329,7 @@ argument_list|(
 name|validationResult
 operator|.
 name|getRepository
-argument_list|()
+argument_list|( )
 argument_list|)
 return|;
 block|}
@@ -1333,7 +1343,7 @@ argument_list|(
 name|validationResult
 operator|.
 name|getResult
-argument_list|()
+argument_list|( )
 argument_list|)
 throw|;
 block|}
@@ -1373,7 +1383,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 throw|;
@@ -1675,10 +1685,10 @@ condition|(
 name|editableRepositoryGroup
 operator|.
 name|getRepositories
-argument_list|()
+argument_list|( )
 operator|.
 name|stream
-argument_list|()
+argument_list|( )
 operator|.
 name|anyMatch
 argument_list|(
@@ -1691,7 +1701,7 @@ argument_list|(
 name|repo
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 condition|)
@@ -1815,7 +1825,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|,
 literal|500
@@ -1966,10 +1976,10 @@ condition|(
 name|repositoryGroup
 operator|.
 name|getRepositories
-argument_list|()
+argument_list|( )
 operator|.
 name|stream
-argument_list|()
+argument_list|( )
 operator|.
 name|noneMatch
 argument_list|(
@@ -1982,7 +1992,7 @@ argument_list|(
 name|r
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 condition|)
@@ -2106,7 +2116,7 @@ argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|,
 literal|500

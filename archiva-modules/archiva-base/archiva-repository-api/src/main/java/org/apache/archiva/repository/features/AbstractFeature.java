@@ -102,6 +102,13 @@ name|EventHandler
 name|listener
 parameter_list|)
 block|{
+if|if
+condition|(
+name|listener
+operator|!=
+literal|null
+condition|)
+block|{
 name|this
 operator|.
 name|listener
@@ -111,6 +118,7 @@ argument_list|(
 name|listener
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|AbstractFeature
 parameter_list|(

@@ -470,7 +470,7 @@ return|return
 name|packedIndexPath
 return|;
 block|}
-comment|/**      * Sets the path (relative or absolute) of the packed index.      *      * Throws a {@link RepositoryIndexEvent.Index#PACKED_INDEX_URI_CHANGE}, if the value changes.      *      * @param packedIndexPath the new path uri for the packed index      */
+comment|/**      * Sets the path (relative or absolute) of the packed index.      *      * Throws a {@link RepositoryIndexEvent#packedIndexUriChange(Object, Repository, URI, URI)}, if the value changes.      *      * @param packedIndexPath the new path uri for the packed index      */
 specifier|public
 name|void
 name|setPackedIndexPath

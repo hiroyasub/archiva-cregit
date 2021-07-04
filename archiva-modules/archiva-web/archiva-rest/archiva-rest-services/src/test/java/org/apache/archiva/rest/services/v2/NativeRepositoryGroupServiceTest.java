@@ -523,6 +523,15 @@ argument_list|,
 literal|"group_001"
 argument_list|)
 expr_stmt|;
+name|jsonAsMap
+operator|.
+name|put
+argument_list|(
+literal|"name"
+argument_list|,
+literal|"group_001"
+argument_list|)
+expr_stmt|;
 name|Response
 name|response
 init|=
@@ -554,9 +563,6 @@ name|post
 argument_list|(
 literal|""
 argument_list|)
-operator|.
-name|prettyPeek
-argument_list|()
 operator|.
 name|then
 argument_list|( )
@@ -753,6 +759,15 @@ argument_list|,
 literal|"group_001"
 argument_list|)
 expr_stmt|;
+name|jsonAsMap
+operator|.
+name|put
+argument_list|(
+literal|"name"
+argument_list|,
+literal|"group_001"
+argument_list|)
+expr_stmt|;
 name|Response
 name|response
 init|=
@@ -784,6 +799,9 @@ name|post
 argument_list|(
 literal|""
 argument_list|)
+operator|.
+name|prettyPeek
+argument_list|()
 operator|.
 name|then
 argument_list|( )
@@ -899,14 +917,6 @@ name|delete
 argument_list|(
 literal|"group_001"
 argument_list|)
-operator|.
-name|then
-argument_list|( )
-operator|.
-name|statusCode
-argument_list|(
-literal|200
-argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -987,6 +997,15 @@ operator|.
 name|put
 argument_list|(
 literal|"id"
+argument_list|,
+name|groupName
+argument_list|)
+expr_stmt|;
+name|jsonAsMap
+operator|.
+name|put
+argument_list|(
+literal|"name"
 argument_list|,
 name|groupName
 argument_list|)
@@ -1181,14 +1200,6 @@ name|delete
 argument_list|(
 name|groupName
 argument_list|)
-operator|.
-name|then
-argument_list|( )
-operator|.
-name|statusCode
-argument_list|(
-literal|200
-argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1270,6 +1281,15 @@ operator|.
 name|put
 argument_list|(
 literal|"id"
+argument_list|,
+name|groupName
+argument_list|)
+expr_stmt|;
+name|jsonAsMap
+operator|.
+name|put
+argument_list|(
+literal|"name"
 argument_list|,
 name|groupName
 argument_list|)
@@ -1651,14 +1671,6 @@ name|delete
 argument_list|(
 name|groupName
 argument_list|)
-operator|.
-name|then
-argument_list|( )
-operator|.
-name|statusCode
-argument_list|(
-literal|200
-argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1696,6 +1708,15 @@ operator|.
 name|put
 argument_list|(
 literal|"id"
+argument_list|,
+literal|"group_001"
+argument_list|)
+expr_stmt|;
+name|jsonAsMap
+operator|.
+name|put
+argument_list|(
+literal|"name"
 argument_list|,
 literal|"group_001"
 argument_list|)
@@ -1986,14 +2007,6 @@ name|delete
 argument_list|(
 literal|"group_001"
 argument_list|)
-operator|.
-name|then
-argument_list|( )
-operator|.
-name|statusCode
-argument_list|(
-literal|200
-argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -2029,6 +2042,15 @@ operator|.
 name|put
 argument_list|(
 literal|"id"
+argument_list|,
+literal|"group_001"
+argument_list|)
+expr_stmt|;
+name|jsonAsMap
+operator|.
+name|put
+argument_list|(
+literal|"name"
 argument_list|,
 literal|"group_001"
 argument_list|)
@@ -2418,6 +2440,15 @@ name|jsonAsMap
 operator|.
 name|put
 argument_list|(
+literal|"name"
+argument_list|,
+literal|"group_001"
+argument_list|)
+expr_stmt|;
+name|jsonAsMap
+operator|.
+name|put
+argument_list|(
 literal|"repositories"
 argument_list|,
 name|Arrays
@@ -2786,6 +2817,15 @@ name|jsonAsMap
 operator|.
 name|put
 argument_list|(
+literal|"name"
+argument_list|,
+literal|"group_001"
+argument_list|)
+expr_stmt|;
+name|jsonAsMap
+operator|.
+name|put
+argument_list|(
 literal|"repositories"
 argument_list|,
 name|Arrays
@@ -3090,14 +3130,6 @@ operator|.
 name|delete
 argument_list|(
 literal|"group_001"
-argument_list|)
-operator|.
-name|then
-argument_list|( )
-operator|.
-name|statusCode
-argument_list|(
-literal|200
 argument_list|)
 expr_stmt|;
 block|}

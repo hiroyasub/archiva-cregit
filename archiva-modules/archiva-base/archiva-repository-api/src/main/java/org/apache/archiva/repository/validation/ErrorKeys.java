@@ -90,12 +90,12 @@ decl_stmt|;
 name|String
 name|INVALID_SCHEDULING_EXPRESSION
 init|=
-literal|"scheduling_exp_invalid"
+literal|"invalid_scheduling_exp"
 decl_stmt|;
 name|String
 name|INVALID_LOCATION
 init|=
-literal|"location_invalid"
+literal|"invalid_location"
 decl_stmt|;
 block|}
 end_interface

@@ -89,6 +89,22 @@ name|repository
 operator|.
 name|validation
 operator|.
+name|ValidationError
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|validation
+operator|.
 name|ValidationResponse
 import|;
 end_import
@@ -109,12 +125,22 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
 
 begin_comment
-comment|/**  *  * This is the generic interface that handles different repository flavours.  *  * @author Martin Stockhammer<martin_s@apache.org>  */
+comment|/**  * This is the generic interface that handles different repository flavours, currently for  * ManagedRepository, RemoteRepository and RepositoryGroup  *  * @author Martin Stockhammer<martin_s@apache.org>  */
 end_comment
 
 begin_interface
@@ -129,7 +155,20 @@ parameter_list|,
 name|C
 parameter_list|>
 block|{
-comment|/**      * Creates instances from the archiva configuration. The instances are not registered in the registry.      *      * @return A map of (repository id, Repository) pairs      */
+comment|/**      * Initializes the current state from the configuration      */
+name|void
+name|initializeFromConfig
+parameter_list|( )
+function_decl|;
+comment|/**      * Initializes the repository. E.g. starts scheduling and activate additional processes.      * @param repository the repository to initialize      */
+name|void
+name|initialize
+parameter_list|(
+name|R
+name|repository
+parameter_list|)
+function_decl|;
+comment|/**      * Creates new instances from the archiva configuration. The instances are not registered in the registry.      *      * @return A map of (repository id, Repository) pairs      */
 name|Map
 argument_list|<
 name|String
@@ -137,9 +176,9 @@ argument_list|,
 name|R
 argument_list|>
 name|newInstancesFromConfig
-parameter_list|()
+parameter_list|( )
 function_decl|;
-comment|/**      * Creates a new instance without registering and without updating the archiva configuration      *      * @param type the repository type      * @param id the repository identifier      * @return the repository instance      * @throws RepositoryException if the creation failed      */
+comment|/**      * Creates a new instance without registering and without updating the archiva configuration      *      * @param type the repository type      * @param id   the repository identifier      * @return the repository instance      * @throws RepositoryException if the creation failed      */
 name|R
 name|newInstance
 parameter_list|(
@@ -182,7 +221,7 @@ parameter_list|)
 throws|throws
 name|RepositoryException
 function_decl|;
-comment|/**      * Adds a repository from the given repository configuration. The changes are stored in      * the configuration object. The archiva registry is not updated.      * The returned repository instance is a clone of the registered repository instance. It is not registered      * and not initialized. References are not updated.      *      * @param repositoryConfiguration the repository configuration      * @param configuration the configuration instance      * @return the repository instance that was created or updated      * @throws RepositoryException if the update or creation failed      */
+comment|/**      * Adds a repository from the given repository configuration. The changes are stored in      * the configuration object. The archiva registry is not updated.      * The returned repository instance is a clone of the registered repository instance. It is not registered      * and not initialized. References are not updated.      *      * @param repositoryConfiguration the repository configuration      * @param configuration           the configuration instance      * @return the repository instance that was created or updated      * @throws RepositoryException if the update or creation failed      */
 name|R
 name|put
 parameter_list|(
@@ -195,7 +234,7 @@ parameter_list|)
 throws|throws
 name|RepositoryException
 function_decl|;
-comment|/**      * Adds or updates a repository from the given configuration data. The resulting repository is      * checked by the repository checker and the result is returned.      * If the checker returns a valid result, the registry is updated and configuration is saved.      *      * @param repositoryConfiguration the repository configuration      * @param checker the checker that validates the repository data      * @return the repository and the check result      * @throws RepositoryException if the creation or update failed      */
+comment|/**      * Adds or updates a repository from the given configuration data. The resulting repository is      * checked by the repository checker and the result is returned.      * If the checker returns a valid result, the registry is updated and configuration is saved.      *      * @param repositoryConfiguration the repository configuration      * @param checker                 the checker that validates the repository data      * @return the repository and the check result      * @throws RepositoryException if the creation or update failed      */
 parameter_list|<
 name|D
 parameter_list|>
@@ -232,7 +271,7 @@ parameter_list|)
 throws|throws
 name|RepositoryException
 function_decl|;
-comment|/**      * Removes the given repository from the registry and updates only the given configuration instance.      * The archiva registry is not updated      *      * @param id the repository identifier      * @param configuration the configuration to update      * @throws RepositoryException if the repository could not be removed      */
+comment|/**      * Removes the given repository from the registry and updates only the given configuration instance.      * The archiva registry is not updated      *      * @param id            the repository identifier      * @param configuration the configuration to update      * @throws RepositoryException if the repository could not be removed      */
 name|void
 name|remove
 parameter_list|(
@@ -263,7 +302,7 @@ parameter_list|)
 throws|throws
 name|RepositoryException
 function_decl|;
-comment|/**      * Updates the references and stores updates in the given<code>configuration</code> instance.      * The references that are updated depend on the concrete repository subclass<code>R</code>.      * This method may register/unregister repositories depending on the implementation. That means there is no simple      * way to roll back, if an error occurs.      *      * @param repo the repository for which references are updated      * @param repositoryConfiguration the repository configuration      */
+comment|/**      * Updates the references and stores updates in the given<code>configuration</code> instance.      * The references that are updated depend on the concrete repository subclass<code>R</code>.      * This method may register/unregister repositories depending on the implementation. That means there is no simple      * way to roll back, if an error occurs.      *      * @param repo                    the repository for which references are updated      * @param repositoryConfiguration the repository configuration      */
 name|void
 name|updateReferences
 parameter_list|(
@@ -282,9 +321,9 @@ argument_list|<
 name|R
 argument_list|>
 name|getAll
-parameter_list|()
+parameter_list|( )
 function_decl|;
-comment|/**      * Returns a validator that can be used to validate repository data      * @return a validator instance      */
+comment|/**      * Returns a validator that can be used to validate repository data      *      * @return a validator instance      */
 name|RepositoryValidator
 argument_list|<
 name|R
@@ -293,9 +332,19 @@ name|getValidator
 parameter_list|( )
 function_decl|;
 comment|/**      * Validates the set attributes of the given repository instance and returns the validation result.      * The repository registry uses all available validators and applies their validateRepository method to the given      * repository. Validation results will be merged per field.      *      * @param repository the repository to validate against      * @return the result of the validation.      */
-name|ValidationResponse
+name|CheckedResult
 argument_list|<
 name|R
+argument_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|ValidationError
+argument_list|>
+argument_list|>
 argument_list|>
 name|validateRepository
 parameter_list|(
@@ -304,9 +353,19 @@ name|repository
 parameter_list|)
 function_decl|;
 comment|/**      * Validates the set attributes of the given repository instance for a repository update and returns the validation result.      * The repository registry uses all available validators and applies their validateRepositoryForUpdate method to the given      * repository. Validation results will be merged per field.      *      * @param repository the repository to validate against      * @return the result of the validation.      */
-name|ValidationResponse
+name|CheckedResult
 argument_list|<
 name|R
+argument_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|ValidationError
+argument_list|>
+argument_list|>
 argument_list|>
 name|validateRepositoryForUpdate
 parameter_list|(
@@ -314,7 +373,7 @@ name|R
 name|repository
 parameter_list|)
 function_decl|;
-comment|/**      * Returns<code>true</code>, if the repository is registered with the given id, otherwise<code>false</code>      * @param id the repository identifier      * @return<code>true</code>, if it is registered, otherwise<code>false</code>      */
+comment|/**      * Returns<code>true</code>, if the repository is registered with the given id, otherwise<code>false</code>      *      * @param id the repository identifier      * @return<code>true</code>, if it is registered, otherwise<code>false</code>      */
 name|boolean
 name|has
 parameter_list|(
@@ -325,12 +384,12 @@ function_decl|;
 comment|/**      * Initializes      */
 name|void
 name|init
-parameter_list|()
+parameter_list|( )
 function_decl|;
 comment|/**      * Closes the handler      */
 name|void
 name|close
-parameter_list|()
+parameter_list|( )
 function_decl|;
 block|}
 end_interface
