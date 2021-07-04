@@ -507,10 +507,9 @@ name|ISEMPTY
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-name|matcher
-operator|=
+if|else if
+condition|(
+operator|!
 name|REPOSITORY_NAME_VALID_EXPRESSION_PATTERN
 operator|.
 name|matcher
@@ -520,11 +519,6 @@ operator|.
 name|getName
 argument_list|( )
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|matcher
 operator|.
 name|matches
 argument_list|( )
@@ -545,7 +539,6 @@ argument_list|,
 name|REPOSITORY_NAME_ALLOWED
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(

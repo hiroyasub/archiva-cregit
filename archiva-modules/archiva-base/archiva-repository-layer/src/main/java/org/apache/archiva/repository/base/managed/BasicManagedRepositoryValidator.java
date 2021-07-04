@@ -559,7 +559,7 @@ name|ISEMPTY
 argument_list|)
 expr_stmt|;
 block|}
-if|if
+if|else if
 condition|(
 operator|!
 name|REPOSITORY_NAME_VALID_EXPRESSION_PATTERN
@@ -569,7 +569,7 @@ argument_list|(
 name|managedRepository
 operator|.
 name|getName
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|matches
