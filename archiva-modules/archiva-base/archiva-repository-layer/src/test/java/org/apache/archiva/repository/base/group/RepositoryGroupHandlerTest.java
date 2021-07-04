@@ -60,13 +60,6 @@ block|{
 annotation|@
 name|Test
 name|void
-name|init
-parameter_list|( )
-block|{
-block|}
-annotation|@
-name|Test
-name|void
 name|initializeFromConfig
 parameter_list|( )
 block|{

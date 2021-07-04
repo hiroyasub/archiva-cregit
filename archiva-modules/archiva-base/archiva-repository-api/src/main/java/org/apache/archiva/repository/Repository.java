@@ -266,6 +266,18 @@ name|boolean
 name|isOpen
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the last state of this repository instance. As multiple repository instances may point to the      * same repository, this is only a representation of the last state, when this particular instance was      * used by the registry.      *      * @return the last known state of this repository instance      */
+specifier|default
+name|RepositoryState
+name|getLastState
+parameter_list|()
+block|{
+return|return
+name|RepositoryState
+operator|.
+name|CREATED
+return|;
+block|}
 block|}
 end_interface
 

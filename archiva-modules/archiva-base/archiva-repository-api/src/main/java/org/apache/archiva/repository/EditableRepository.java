@@ -162,6 +162,14 @@ name|ArchivaIndexingContext
 name|context
 parameter_list|)
 function_decl|;
+comment|/**      * Sets the last repository state.      * @param state the state value      */
+name|void
+name|setLastState
+parameter_list|(
+name|RepositoryState
+name|state
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
