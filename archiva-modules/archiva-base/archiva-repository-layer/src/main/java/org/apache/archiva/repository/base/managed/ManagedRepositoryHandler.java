@@ -517,7 +517,7 @@ name|values
 argument_list|( )
 control|)
 block|{
-name|initialize
+name|activateRepository
 argument_list|(
 name|managedRepository
 argument_list|)
@@ -528,7 +528,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|initialize
+name|activateRepository
 parameter_list|(
 name|ManagedRepository
 name|repository

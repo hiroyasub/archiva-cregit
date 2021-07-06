@@ -95,22 +95,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|validation
-operator|.
-name|ValidationResponse
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -162,7 +146,7 @@ parameter_list|( )
 function_decl|;
 comment|/**      * Initializes the repository. E.g. starts scheduling and activate additional processes.      * @param repository the repository to initialize      */
 name|void
-name|initialize
+name|activateRepository
 parameter_list|(
 name|R
 name|repository
@@ -191,7 +175,7 @@ parameter_list|)
 throws|throws
 name|RepositoryException
 function_decl|;
-comment|/**      * Creates a new instance and updates the given configuration object.      *      * @param repositoryConfiguration the configuration instance      * @return a newly created instance      * @throws RepositoryException if the creation failed      */
+comment|/**      * Creates a new instance based on the given configuration instance. The instance is not activated and not registered.      *      * @param repositoryConfiguration the configuration instance      * @return a newly created instance      * @throws RepositoryException if the creation failed      */
 name|R
 name|newInstance
 parameter_list|(
@@ -284,7 +268,7 @@ parameter_list|)
 throws|throws
 name|RepositoryException
 function_decl|;
-comment|/**      * Returns the repository with the given identifier or<code>null</code>, if it is not registered.      *      * @param id the repository id      * @return if the retrieval failed      */
+comment|/**      * Returns the repository with the given identifier or<code>null</code>, if no repository is registered      * with the given id.      *      * @param id the repository id      * @return the repository instance or<code>null</code>      */
 name|R
 name|get
 parameter_list|(
@@ -381,12 +365,12 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
-comment|/**      * Initializes      */
+comment|/**      * Initializes the handler. This method must be called before using the repository handler.      */
 name|void
 name|init
 parameter_list|( )
 function_decl|;
-comment|/**      * Closes the handler      */
+comment|/**      * Closes the handler. After closing, the repository handler instance is not usable anymore.      */
 name|void
 name|close
 parameter_list|( )

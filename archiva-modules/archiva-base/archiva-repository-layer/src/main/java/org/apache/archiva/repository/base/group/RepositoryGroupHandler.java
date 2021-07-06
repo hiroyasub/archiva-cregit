@@ -399,22 +399,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|validation
-operator|.
-name|ValidationResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|commons
 operator|.
 name|lang3
@@ -840,7 +824,7 @@ name|values
 argument_list|( )
 control|)
 block|{
-name|initialize
+name|activateRepository
 argument_list|(
 name|group
 argument_list|)
@@ -919,7 +903,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|initialize
+name|activateRepository
 parameter_list|(
 name|RepositoryGroup
 name|repositoryGroup
@@ -1607,7 +1591,7 @@ operator|.
 name|SAVED
 argument_list|)
 expr_stmt|;
-name|initialize
+name|activateRepository
 argument_list|(
 name|repositoryGroup
 argument_list|)
@@ -1891,7 +1875,7 @@ operator|.
 name|REFERENCES_SET
 argument_list|)
 expr_stmt|;
-name|initialize
+name|activateRepository
 argument_list|(
 name|currentRepository
 argument_list|)
@@ -2017,7 +2001,7 @@ operator|.
 name|REFERENCES_SET
 argument_list|)
 expr_stmt|;
-name|initialize
+name|activateRepository
 argument_list|(
 name|oldRepository
 argument_list|)
