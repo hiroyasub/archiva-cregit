@@ -406,7 +406,7 @@ block|}
 annotation|@
 name|Test
 name|void
-name|initialize
+name|activateRepository
 parameter_list|( )
 block|{
 block|}

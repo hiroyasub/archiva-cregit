@@ -3074,7 +3074,7 @@ if|else if
 condition|(
 name|groupHandler
 operator|.
-name|has
+name|hasRepository
 argument_list|(
 name|repoId
 argument_list|)
@@ -3264,7 +3264,7 @@ argument_list|)
 operator|||
 name|groupHandler
 operator|.
-name|has
+name|hasRepository
 argument_list|(
 name|repoId
 argument_list|)
@@ -3325,7 +3325,7 @@ block|{
 return|return
 name|groupHandler
 operator|.
-name|has
+name|hasRepository
 argument_list|(
 name|groupId
 argument_list|)
@@ -5773,7 +5773,7 @@ if|if
 condition|(
 name|groupHandler
 operator|.
-name|has
+name|hasRepository
 argument_list|(
 name|id
 argument_list|)
@@ -5847,7 +5847,7 @@ if|if
 condition|(
 name|groupHandler
 operator|.
-name|has
+name|hasRepository
 argument_list|(
 name|id
 argument_list|)

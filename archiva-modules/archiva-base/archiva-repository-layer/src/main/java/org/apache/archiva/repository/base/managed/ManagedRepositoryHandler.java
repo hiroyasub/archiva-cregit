@@ -1013,7 +1013,7 @@ annotation|@
 name|Override
 specifier|public
 name|boolean
-name|has
+name|hasRepository
 parameter_list|(
 name|String
 name|id

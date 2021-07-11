@@ -359,7 +359,7 @@ parameter_list|)
 function_decl|;
 comment|/**      * Returns<code>true</code>, if the repository is registered with the given id, otherwise<code>false</code>      *      * @param id the repository identifier      * @return<code>true</code>, if it is registered, otherwise<code>false</code>      */
 name|boolean
-name|has
+name|hasRepository
 parameter_list|(
 name|String
 name|id
