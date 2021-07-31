@@ -155,6 +155,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -392,6 +402,8 @@ name|ISEMPTY
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
 if|if
 condition|(
 name|repoGroupId
@@ -457,6 +469,7 @@ argument_list|,
 name|REPOSITORY_ID_ALLOWED
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

@@ -1218,6 +1218,13 @@ argument_list|(
 name|validator
 argument_list|)
 expr_stmt|;
+name|validator
+operator|.
+name|setRepositoryRegistry
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|val
