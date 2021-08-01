@@ -2324,22 +2324,12 @@ argument_list|(
 name|id
 argument_list|)
 decl_stmt|;
-name|Configuration
-name|configuration
-init|=
-name|configurationHandler
-operator|.
-name|getBaseConfiguration
-argument_list|( )
-decl_stmt|;
 name|RepositoryGroup
 name|repositoryGroup
 init|=
-name|put
+name|newInstance
 argument_list|(
 name|repositoryConfiguration
-argument_list|,
-name|configuration
 argument_list|)
 decl_stmt|;
 name|CheckedResult
@@ -3055,10 +3045,15 @@ name|getAll
 parameter_list|( )
 block|{
 return|return
+name|Collections
+operator|.
+name|unmodifiableCollection
+argument_list|(
 name|repositoryGroups
 operator|.
 name|values
 argument_list|( )
+argument_list|)
 return|;
 block|}
 annotation|@
