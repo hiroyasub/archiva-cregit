@@ -58,6 +58,8 @@ argument_list|)
 specifier|public
 class|class
 name|RepositoryGroupConfiguration
+extends|extends
+name|AbstractRepositoryConfiguration
 implements|implements
 name|Serializable
 block|{

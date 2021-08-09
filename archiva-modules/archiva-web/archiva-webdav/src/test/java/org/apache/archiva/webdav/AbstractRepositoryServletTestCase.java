@@ -129,6 +129,20 @@ name|archiva
 operator|.
 name|repository
 operator|.
+name|RepositoryException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
 name|base
 operator|.
 name|ArchivaRepositoryRegistry
@@ -178,6 +192,24 @@ operator|.
 name|group
 operator|.
 name|RepositoryGroupHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|base
+operator|.
+name|managed
+operator|.
+name|ManagedRepositoryHandler
 import|;
 end_import
 
@@ -818,6 +850,16 @@ name|RepositoryGroupHandler
 name|repositoryGroupHandler
 decl_stmt|;
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
+annotation|@
+name|Inject
+name|ManagedRepositoryHandler
+name|managedRepositoryHandler
+decl_stmt|;
+annotation|@
 name|Inject
 name|ArchivaRepositoryRegistry
 name|repositoryRegistry
@@ -1121,10 +1163,30 @@ name|forEach
 argument_list|(
 name|r
 lambda|->
-name|r
+block|{
+try|try
+block|{
+name|repositoryRegistry
 operator|.
-name|close
-argument_list|()
+name|removeRepository
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RepositoryException
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|( )
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 name|org
@@ -1283,67 +1345,20 @@ argument_list|(
 name|archivaConfiguration
 argument_list|)
 expr_stmt|;
-name|ArchivaIndexingContext
-name|ctx
-init|=
-name|repositoryRegistry
-operator|.
-name|getManagedRepository
-argument_list|(
-name|REPOID_INTERNAL
-argument_list|)
-operator|.
-name|getIndexingContext
-argument_list|( )
-decl_stmt|;
-try|try
-block|{
-if|if
-condition|(
-name|repositoryRegistry
-operator|.
-name|getIndexManager
-argument_list|(
-name|RepositoryType
-operator|.
-name|MAVEN
-argument_list|)
-operator|!=
-literal|null
-condition|)
-block|{
-name|repositoryRegistry
-operator|.
-name|getIndexManager
-argument_list|(
-name|RepositoryType
-operator|.
-name|MAVEN
-argument_list|)
-operator|.
-name|pack
-argument_list|(
-name|ctx
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|ctx
-operator|!=
-literal|null
-condition|)
-block|{
-name|ctx
-operator|.
-name|close
-argument_list|( )
-expr_stmt|;
-block|}
-block|}
+comment|// repositoryRegistry.reload();
+comment|// ArchivaIndexingContext ctx = repositoryRegistry.getManagedRepository( REPOID_INTERNAL ).getIndexingContext( );
+comment|//        try
+comment|//        {
+comment|//            if (repositoryRegistry.getIndexManager(RepositoryType.MAVEN)!=null) {
+comment|//                repositoryRegistry.getIndexManager(RepositoryType.MAVEN).pack(ctx);
+comment|//            }
+comment|//        } finally
+comment|//        {
+comment|//            if (ctx!=null)
+comment|//            {
+comment|//                ctx.close( );
+comment|//            }
+comment|//        }
 name|CacheManager
 operator|.
 name|getInstance
@@ -3967,14 +3982,36 @@ name|repo
 operator|.
 name|setIndexDir
 argument_list|(
+name|location
+operator|.
+name|resolve
+argument_list|(
 literal|".indexer"
+argument_list|)
+operator|.
+name|toAbsolutePath
+argument_list|()
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|repo
 operator|.
 name|setPackedIndexDir
 argument_list|(
+name|location
+operator|.
+name|resolve
+argument_list|(
 literal|".index"
+argument_list|)
+operator|.
+name|toAbsolutePath
+argument_list|( )
+operator|.
+name|toString
+argument_list|( )
 argument_list|)
 expr_stmt|;
 return|return
@@ -4111,6 +4148,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|repoRootDir
+operator|!=
+literal|null
+condition|)
+block|{
 name|org
 operator|.
 name|apache
@@ -4146,6 +4190,7 @@ argument_list|(
 name|repoRootDir
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 specifier|protected

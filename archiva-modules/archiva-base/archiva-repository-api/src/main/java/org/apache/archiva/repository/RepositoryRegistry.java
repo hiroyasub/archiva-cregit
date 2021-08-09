@@ -252,6 +252,8 @@ interface|interface
 name|RepositoryRegistry
 extends|extends
 name|EventSource
+extends|,
+name|RepositoryHandlerManager
 block|{
 comment|/**      * Set the configuration for the registry      * @param archivaConfiguration the archiva configuration instance      */
 name|void

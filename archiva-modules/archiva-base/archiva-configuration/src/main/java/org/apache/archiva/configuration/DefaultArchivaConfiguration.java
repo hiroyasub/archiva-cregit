@@ -2094,7 +2094,9 @@ block|{
 name|section
 operator|=
 name|createDefaultConfigurationFile
-argument_list|()
+argument_list|(
+name|eventTag
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -2517,7 +2519,10 @@ block|}
 specifier|private
 name|Registry
 name|createDefaultConfigurationFile
-parameter_list|()
+parameter_list|(
+name|String
+name|eventTag
+parameter_list|)
 throws|throws
 name|RegistryException
 block|{
@@ -2629,7 +2634,13 @@ name|ConfigurationEvent
 operator|.
 name|SAVED
 argument_list|,
+name|eventTag
+operator|==
+literal|null
+condition|?
 literal|"default-file"
+else|:
+name|eventTag
 argument_list|)
 expr_stmt|;
 name|Registry

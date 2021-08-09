@@ -25,6 +25,20 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|AbstractRepositoryConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|configuration
+operator|.
 name|Configuration
 import|;
 end_import
@@ -137,6 +151,8 @@ extends|extends
 name|Repository
 parameter_list|,
 name|C
+extends|extends
+name|AbstractRepositoryConfiguration
 parameter_list|>
 block|{
 comment|/**      * Initializes the current state from the configuration      */
@@ -147,6 +163,14 @@ function_decl|;
 comment|/**      * Initializes the repository. E.g. starts scheduling and activate additional processes.      * @param repository the repository to initialize      */
 name|void
 name|activateRepository
+parameter_list|(
+name|R
+name|repository
+parameter_list|)
+function_decl|;
+comment|/**      * Reset the repository. E.g. stops scheduling.      * @param repository      */
+name|void
+name|deactivateRepository
 parameter_list|(
 name|R
 name|repository
@@ -276,12 +300,15 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
-comment|/**      * Clones a given repository without registering.      *      * @param repo the repository that should be cloned      * @return a newly created instance with the same repository data      */
+comment|/**      * Clones a given repository without registering.      *      * @param repo the repository that should be cloned      * @param newId the new identifier of the cloned instance      * @return a newly created instance with the same repository data      */
 name|R
 name|clone
 parameter_list|(
 name|R
 name|repo
+parameter_list|,
+name|String
+name|newId
 parameter_list|)
 throws|throws
 name|RepositoryException
@@ -365,6 +392,14 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
+comment|/**      * This is called, when another variant repository was removed. This is needed only for certain variants.      *      * @param repository      */
+name|void
+name|processOtherVariantRemoval
+parameter_list|(
+name|Repository
+name|repository
+parameter_list|)
+function_decl|;
 comment|/**      * Initializes the handler. This method must be called before using the repository handler.      */
 name|void
 name|init
@@ -374,6 +409,47 @@ comment|/**      * Closes the handler. After closing, the repository handler ins
 name|void
 name|close
 parameter_list|( )
+function_decl|;
+comment|/**      * Sets the repository provider list      * @param providers      */
+name|void
+name|setRepositoryProviders
+parameter_list|(
+name|List
+argument_list|<
+name|RepositoryProvider
+argument_list|>
+name|providers
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the list of repository validators      * @param repositoryValidatorList      */
+name|void
+name|setRepositoryValidator
+parameter_list|(
+name|List
+argument_list|<
+name|RepositoryValidator
+argument_list|<
+name|?
+extends|extends
+name|Repository
+argument_list|>
+argument_list|>
+name|repositoryValidatorList
+parameter_list|)
+function_decl|;
+name|Class
+argument_list|<
+name|R
+argument_list|>
+name|getVariant
+parameter_list|()
+function_decl|;
+name|Class
+argument_list|<
+name|C
+argument_list|>
+name|getConfigurationVariant
+parameter_list|()
 function_decl|;
 block|}
 end_interface
