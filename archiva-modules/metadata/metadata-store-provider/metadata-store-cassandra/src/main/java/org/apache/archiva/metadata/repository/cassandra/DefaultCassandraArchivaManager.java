@@ -321,37 +321,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Comparator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|datastax
-operator|.
-name|oss
-operator|.
-name|driver
-operator|.
-name|api
-operator|.
-name|querybuilder
-operator|.
-name|QueryBuilder
-operator|.
-name|literal
 import|;
 end_import
 
@@ -414,6 +384,8 @@ implements|implements
 name|CassandraArchivaManager
 block|{
 specifier|private
+specifier|static
+specifier|final
 name|Logger
 name|logger
 init|=
@@ -421,8 +393,9 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|getClass
-argument_list|( )
+name|DefaultCassandraArchivaManager
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 annotation|@
