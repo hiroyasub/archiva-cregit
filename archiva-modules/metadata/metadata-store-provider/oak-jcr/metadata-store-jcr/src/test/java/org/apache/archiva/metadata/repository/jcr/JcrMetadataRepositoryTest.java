@@ -95,39 +95,7 @@ name|metadata
 operator|.
 name|repository
 operator|.
-name|MetadataRepositoryException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
 name|MetadataService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|metadata
-operator|.
-name|repository
-operator|.
-name|MetadataSessionException
 import|;
 end_import
 
@@ -171,7 +139,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|AfterClass
+name|jupiter
+operator|.
+name|api
+operator|.
+name|AfterAll
 import|;
 end_import
 
@@ -181,7 +153,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeAll
 import|;
 end_import
 
@@ -191,7 +167,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|BeforeClass
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeEach
 import|;
 end_import
 
@@ -200,18 +180,12 @@ import|import
 name|org
 operator|.
 name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jcr
-operator|.
-name|RepositoryException
 import|;
 end_import
 
@@ -351,7 +325,7 @@ name|sessionFactory
 return|;
 block|}
 annotation|@
-name|BeforeClass
+name|BeforeAll
 specifier|public
 specifier|static
 name|void
@@ -464,7 +438,7 @@ argument_list|( )
 expr_stmt|;
 block|}
 annotation|@
-name|Before
+name|BeforeEach
 annotation|@
 name|Override
 specifier|public
@@ -540,7 +514,7 @@ block|}
 block|}
 block|}
 annotation|@
-name|AfterClass
+name|AfterAll
 specifier|public
 specifier|static
 name|void

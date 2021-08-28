@@ -19,16 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -301,6 +291,10 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
 import|;
 end_import
@@ -311,9 +305,27 @@ name|org
 operator|.
 name|junit
 operator|.
-name|runner
+name|jupiter
 operator|.
-name|RunWith
+name|api
+operator|.
+name|TestInstance
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|extension
+operator|.
+name|ExtendWith
 import|;
 end_import
 
@@ -361,9 +373,11 @@ name|test
 operator|.
 name|context
 operator|.
-name|junit4
+name|junit
 operator|.
-name|SpringJUnit4ClassRunner
+name|jupiter
+operator|.
+name|SpringExtension
 import|;
 end_import
 
@@ -547,13 +561,38 @@ name|assertThat
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|*
+import|;
+end_import
+
 begin_class
 annotation|@
-name|RunWith
+name|ExtendWith
 argument_list|(
-name|SpringJUnit4ClassRunner
+name|SpringExtension
 operator|.
 name|class
+argument_list|)
+annotation|@
+name|TestInstance
+argument_list|(
+name|TestInstance
+operator|.
+name|Lifecycle
+operator|.
+name|PER_CLASS
 argument_list|)
 annotation|@
 name|ContextConfiguration
@@ -570,8 +609,6 @@ specifier|public
 specifier|abstract
 class|class
 name|AbstractMetadataRepositoryTest
-extends|extends
-name|TestCase
 block|{
 specifier|protected
 specifier|static
@@ -739,6 +776,22 @@ name|assertRetrySleepMs
 init|=
 literal|500
 decl_stmt|;
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+block|}
+specifier|protected
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+block|}
 comment|/*      * Used by tryAssert to allow to throw exceptions in the lambda expression.      */
 annotation|@
 name|FunctionalInterface
@@ -2504,6 +2557,11 @@ argument_list|,
 name|TEST_PROJECT_VERSION
 argument_list|)
 expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|metadata
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|TEST_PROJECT_VERSION
@@ -2554,6 +2612,14 @@ name|getUrl
 argument_list|( )
 argument_list|)
 expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|metadata
+operator|.
+name|getScm
+argument_list|( )
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"connection"
@@ -2593,6 +2659,14 @@ name|getUrl
 argument_list|( )
 argument_list|)
 expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|metadata
+operator|.
+name|getCiManagement
+argument_list|( )
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"system"
@@ -2616,6 +2690,14 @@ name|getCiManagement
 argument_list|( )
 operator|.
 name|getUrl
+argument_list|( )
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|metadata
+operator|.
+name|getIssueManagement
 argument_list|( )
 argument_list|)
 expr_stmt|;

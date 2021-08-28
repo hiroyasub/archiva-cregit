@@ -60,6 +60,11 @@ argument_list|(
 literal|"projectVersion"
 argument_list|)
 block|,
+name|PROJECT_PROPERTIES
+argument_list|(
+literal|"projectProperties"
+argument_list|)
+block|,
 name|KEY
 argument_list|(
 literal|"facetKey"
@@ -103,6 +108,11 @@ block|,
 name|VERSION
 argument_list|(
 literal|"version"
+argument_list|)
+block|,
+name|VERSION_PROPERTIES
+argument_list|(
+literal|"versionProperties"
 argument_list|)
 block|,
 name|GROUP_ID

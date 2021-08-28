@@ -97,7 +97,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|After
+name|jupiter
+operator|.
+name|api
+operator|.
+name|AfterEach
 import|;
 end_import
 
@@ -107,7 +111,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeEach
 import|;
 end_import
 
@@ -116,6 +124,10 @@ import|import
 name|org
 operator|.
 name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
 operator|.
 name|Test
 import|;
@@ -127,9 +139,13 @@ name|org
 operator|.
 name|junit
 operator|.
-name|runner
+name|jupiter
 operator|.
-name|RunWith
+name|api
+operator|.
+name|extension
+operator|.
+name|ExtendWith
 import|;
 end_import
 
@@ -164,6 +180,24 @@ operator|.
 name|context
 operator|.
 name|ContextConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|test
+operator|.
+name|context
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|SpringExtension
 import|;
 end_import
 
@@ -209,9 +243,9 @@ end_comment
 
 begin_class
 annotation|@
-name|RunWith
+name|ExtendWith
 argument_list|(
-name|ArchivaSpringJUnit4ClassRunner
+name|SpringExtension
 operator|.
 name|class
 argument_list|)
@@ -258,7 +292,7 @@ name|CassandraMetadataRepository
 name|cmr
 decl_stmt|;
 annotation|@
-name|Before
+name|BeforeEach
 specifier|public
 name|void
 name|setup
@@ -300,7 +334,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|After
+name|AfterEach
 specifier|public
 name|void
 name|shutdown

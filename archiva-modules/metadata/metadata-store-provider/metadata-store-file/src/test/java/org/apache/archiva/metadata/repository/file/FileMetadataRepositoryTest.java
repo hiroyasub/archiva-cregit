@@ -147,7 +147,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeEach
 import|;
 end_import
 
@@ -157,7 +161,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Disabled
 import|;
 end_import
 
@@ -204,16 +212,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -287,7 +285,7 @@ name|sessionFactory
 return|;
 block|}
 annotation|@
-name|Before
+name|BeforeEach
 annotation|@
 name|Override
 specifier|public
@@ -395,7 +393,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|Ignore
+name|Disabled
 specifier|public
 name|void
 name|testGetArtifactsByProjectVersionMetadata
@@ -408,7 +406,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|Ignore
+name|Disabled
 specifier|public
 name|void
 name|testGetArtifactsByProjectVersionMetadataNoRepository
@@ -421,7 +419,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|Ignore
+name|Disabled
 specifier|public
 name|void
 name|testGetArtifactsByProjectVersionMetadataAllRepositories
@@ -434,7 +432,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|Ignore
+name|Disabled
 specifier|public
 name|void
 name|testGetArtifactsByMetadataAllRepositories
@@ -447,7 +445,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|Ignore
+name|Disabled
 specifier|public
 name|void
 name|testGetArtifactsByPropertySingleResult
@@ -460,7 +458,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|Ignore
+name|Disabled
 specifier|public
 name|void
 name|testSearchArtifactsByKey
@@ -473,7 +471,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|Ignore
+name|Disabled
 specifier|public
 name|void
 name|testSearchArtifactsByKeyExact
@@ -486,7 +484,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|Ignore
+name|Disabled
 specifier|public
 name|void
 name|testSearchArtifactsFullText
@@ -499,7 +497,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|Ignore
+name|Disabled
 specifier|public
 name|void
 name|testSearchArtifactsFullTextExact
@@ -512,7 +510,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|Ignore
+name|Disabled
 specifier|public
 name|void
 name|testSearchArtifactsByFacetKeyAllRepos
@@ -525,7 +523,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|Ignore
+name|Disabled
 specifier|public
 name|void
 name|testSearchArtifactsByFacetKey
@@ -538,7 +536,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|Ignore
+name|Disabled
 specifier|public
 name|void
 name|testSearchArtifactsFullTextByFacet
