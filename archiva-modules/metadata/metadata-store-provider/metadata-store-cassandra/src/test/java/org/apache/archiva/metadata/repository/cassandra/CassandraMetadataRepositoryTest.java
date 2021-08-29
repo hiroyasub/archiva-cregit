@@ -1179,10 +1179,12 @@ index|]
 argument_list|)
 argument_list|)
 operator|.
-name|thenAccept
+name|whenComplete
 argument_list|(
 parameter_list|(
 name|c
+parameter_list|,
+name|e
 parameter_list|)
 lambda|->
 block|{
@@ -1199,15 +1201,38 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
-argument_list|)
+if|if
+condition|(
+name|e
+operator|!=
+literal|null
+condition|)
+block|{
+name|System
 operator|.
-name|get
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"TRUNCATE ERROR DETECTED: "
+operator|+
+name|e
+operator|.
+name|getMessage
 argument_list|( )
+argument_list|)
 expr_stmt|;
 block|}
 block|}
-else|else
+block_content|)
+block|.get(
+block_content|)
+function|;
+block|}
+end_class
+
+begin_block
+unit|} else
 block|{
 name|System
 operator|.
@@ -1219,8 +1244,10 @@ literal|"cassandraArchivaManager is null"
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-specifier|static
+end_block
+
+begin_function
+unit|}      static
 name|void
 name|clearReposAndNamespace
 parameter_list|(
@@ -1239,8 +1266,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 
