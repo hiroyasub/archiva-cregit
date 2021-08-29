@@ -618,6 +618,15 @@ decl_stmt|;
 annotation|@
 name|Value
 argument_list|(
+literal|"${cassandra.driverTimeoutMs}"
+argument_list|)
+specifier|private
+name|int
+name|driverTimeoutMs
+decl_stmt|;
+annotation|@
+name|Value
+argument_list|(
 literal|"${cassandra.readConsistencyLevel}"
 argument_list|)
 specifier|private
@@ -852,9 +861,9 @@ name|REQUEST_TIMEOUT
 argument_list|,
 name|Duration
 operator|.
-name|ofSeconds
+name|ofMillis
 argument_list|(
-literal|10
+name|driverTimeoutMs
 argument_list|)
 argument_list|)
 operator|.

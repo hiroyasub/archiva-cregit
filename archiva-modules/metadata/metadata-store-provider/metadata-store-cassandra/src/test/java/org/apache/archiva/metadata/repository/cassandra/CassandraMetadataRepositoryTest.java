@@ -541,7 +541,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Setting up "
+literal|"Setting up - "
 operator|+
 operator|(
 name|testNum
@@ -554,6 +554,8 @@ name|testInfo
 operator|.
 name|getDisplayName
 argument_list|()
+operator|+
+literal|" - 0ms"
 argument_list|)
 expr_stmt|;
 name|super
@@ -567,7 +569,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Setting up 2 "
+literal|"Setting up - "
 operator|+
 name|testInfo
 operator|.
@@ -584,6 +586,8 @@ argument_list|( )
 operator|-
 name|cTime
 operator|)
+operator|+
+literal|"ms"
 argument_list|)
 expr_stmt|;
 name|assertMaxTries
@@ -751,7 +755,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Finished setting up "
+literal|"Finished setting up - "
 operator|+
 name|testInfo
 operator|.
@@ -768,6 +772,8 @@ argument_list|( )
 operator|-
 name|cTime
 operator|)
+operator|+
+literal|"ms"
 argument_list|)
 expr_stmt|;
 block|}
@@ -933,7 +939,15 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Shutting down "
+literal|"Shutting down - "
+operator|+
+operator|(
+name|testNum
+operator|-
+literal|1
+operator|)
+operator|+
+literal|" - "
 operator|+
 name|testInfo
 operator|.
@@ -950,6 +964,8 @@ argument_list|( )
 operator|-
 name|cTime
 operator|)
+operator|+
+literal|"ms"
 argument_list|)
 expr_stmt|;
 name|clearReposAndNamespace
@@ -975,7 +991,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Shutting down finished"
+literal|"Shutting down finished - "
 operator|+
 name|testInfo
 operator|.
@@ -992,6 +1008,8 @@ argument_list|( )
 operator|-
 name|cTime
 operator|)
+operator|+
+literal|"ms"
 argument_list|)
 expr_stmt|;
 block|}
