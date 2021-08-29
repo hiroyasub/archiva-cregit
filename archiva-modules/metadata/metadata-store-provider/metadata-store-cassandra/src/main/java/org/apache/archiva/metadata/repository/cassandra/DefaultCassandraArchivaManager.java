@@ -834,6 +834,15 @@ argument_list|,
 name|readConsistencyLevel
 argument_list|)
 operator|.
+name|withInt
+argument_list|(
+name|DefaultDriverOption
+operator|.
+name|REQUEST_TIMEOUT
+argument_list|,
+literal|10
+argument_list|)
+operator|.
 name|build
 argument_list|( )
 expr_stmt|;
