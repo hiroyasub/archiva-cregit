@@ -1362,6 +1362,11 @@ name|threadPoolSize
 init|=
 literal|5
 decl_stmt|;
+name|long
+name|queueTimeOutMs
+init|=
+literal|60000
+decl_stmt|;
 specifier|private
 name|StatisticsProvider
 name|statisticsProvider
@@ -1980,6 +1985,8 @@ operator|new
 name|DocumentQueue
 argument_list|(
 name|queueSize
+argument_list|,
+name|queueTimeOutMs
 argument_list|,
 name|tracker
 argument_list|,
