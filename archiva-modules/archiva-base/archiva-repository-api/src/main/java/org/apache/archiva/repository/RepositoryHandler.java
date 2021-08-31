@@ -138,7 +138,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the generic interface that handles different repository flavours, currently for  * ManagedRepository, RemoteRepository and RepositoryGroup  *  * Lifecycle/states of a repository:  *<ul>  *<li>Instance created: This state is reached by the newInstance-methods. The instance is created, filled with the  *     corresponding attribute data and references are updated. References are object references to other repositories, if they exist.  *     The instance is not registered on the registry (stored) and configuration is not updated.</li>  *<li>Instance registered: Instances added/updated by the put()-methods are created and registered on the registry.  *     If all goes well, the configuration is updated.</li>  *<li>Instance initialized:</li>  *</ul>  *  *  * @author Martin Stockhammer<martin_s@apache.org>  */
+comment|/**  * This is the generic interface that handles different repository flavours, currently for  * ManagedRepository, RemoteRepository and RepositoryGroup  *  * Lifecycle/states of a repository:  *<ul>  *<li>Instance created: This state is reached by the newInstance-methods. The instance is created, filled with the  *     corresponding attribute data and references are updated. References are object references to other repositories, if they exist.  *     The instance is not registered on the registry (stored) and configuration is not updated.</li>  *<li>Instance registered: Instances added/updated by the put()-methods are created and registered on the registry.  *     If all goes well, the configuration is updated.</li>  *<li>Instance initialized:</li>  *</ul>  *  * The repository handler are not thread safe. Synchronization is done by registry if necessary.  *  * @author Martin Stockhammer<martin_s@apache.org>  */
 end_comment
 
 begin_interface
@@ -437,6 +437,7 @@ argument_list|>
 name|repositoryValidatorList
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the repository variant, this handler manages.      * @return the concrete variant class      */
 name|Class
 argument_list|<
 name|R
@@ -444,6 +445,7 @@ argument_list|>
 name|getVariant
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the repository configuration variant, this handler manages.      * @return the concrete configuration variant class      */
 name|Class
 argument_list|<
 name|C

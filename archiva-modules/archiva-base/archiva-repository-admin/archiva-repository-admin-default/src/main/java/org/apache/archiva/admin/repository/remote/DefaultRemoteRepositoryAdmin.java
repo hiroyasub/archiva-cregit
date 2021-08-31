@@ -151,20 +151,6 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|indexer
-operator|.
-name|ArchivaIndexingContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
 name|metadata
 operator|.
 name|model
@@ -331,16 +317,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -395,39 +371,12 @@ name|PostConstruct
 specifier|private
 name|void
 name|initialize
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|RepositoryAdminException
 block|{
-for|for
-control|(
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|admin
-operator|.
-name|model
-operator|.
-name|beans
-operator|.
-name|RemoteRepository
-name|remoteRepository
-range|:
-name|getRemoteRepositories
-argument_list|()
-control|)
-block|{
-name|createIndexContext
-argument_list|(
-name|remoteRepository
-argument_list|)
-expr_stmt|;
 block|}
-block|}
-comment|/*  * Conversion between the repository from the registry and the serialized DTO for the admin API  */
+comment|/*      * Conversion between the repository from the registry and the serialized DTO for the admin API      */
 specifier|private
 name|org
 operator|.
@@ -490,10 +439,10 @@ operator|.
 name|RemoteRepository
 argument_list|(
 name|getArchivaConfiguration
-argument_list|()
+argument_list|( )
 operator|.
 name|getDefaultLocale
-argument_list|()
+argument_list|( )
 argument_list|)
 decl_stmt|;
 name|setBaseRepoAttributes
@@ -512,7 +461,7 @@ argument_list|(
 name|repo
 operator|.
 name|getLocation
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -523,7 +472,7 @@ argument_list|(
 name|repo
 operator|.
 name|getSchedulingDefinition
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|adminRepo
@@ -533,7 +482,7 @@ argument_list|(
 name|repo
 operator|.
 name|getCheckPath
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|adminRepo
@@ -543,7 +492,7 @@ argument_list|(
 name|repo
 operator|.
 name|getExtraHeaders
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|adminRepo
@@ -553,7 +502,7 @@ argument_list|(
 name|repo
 operator|.
 name|getExtraParameters
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|adminRepo
@@ -566,10 +515,10 @@ operator|)
 name|repo
 operator|.
 name|getTimeout
-argument_list|()
+argument_list|( )
 operator|.
 name|getSeconds
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|RepositoryCredentials
@@ -578,7 +527,7 @@ init|=
 name|repo
 operator|.
 name|getLoginCredentials
-argument_list|()
+argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -606,7 +555,7 @@ argument_list|(
 name|pCreds
 operator|.
 name|getUsername
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|adminRepo
@@ -619,14 +568,14 @@ argument_list|(
 name|pCreds
 operator|.
 name|getPassword
-argument_list|()
+argument_list|( )
 operator|!=
 literal|null
 condition|?
 name|pCreds
 operator|.
 name|getPassword
-argument_list|()
+argument_list|( )
 else|:
 operator|new
 name|char
@@ -662,7 +611,7 @@ name|class
 argument_list|)
 operator|.
 name|get
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|adminRepo
 operator|.
@@ -673,7 +622,7 @@ argument_list|(
 name|rif
 operator|.
 name|getIndexUri
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -684,7 +633,7 @@ argument_list|(
 name|rif
 operator|.
 name|isDownloadRemoteIndex
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|adminRepo
@@ -694,7 +643,7 @@ argument_list|(
 name|rif
 operator|.
 name|getProxyId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|adminRepo
@@ -704,7 +653,7 @@ argument_list|(
 name|rif
 operator|.
 name|isDownloadRemoteIndexOnStartup
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|adminRepo
@@ -717,10 +666,10 @@ operator|)
 name|rif
 operator|.
 name|getDownloadTimeout
-argument_list|()
+argument_list|( )
 operator|.
 name|getSeconds
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -749,7 +698,7 @@ name|class
 argument_list|)
 operator|.
 name|get
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|adminRepo
 operator|.
@@ -762,11 +711,11 @@ argument_list|(
 name|icf
 operator|.
 name|getIndexPath
-argument_list|()
+argument_list|( )
 argument_list|)
 operator|.
 name|toString
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 block|}
@@ -777,7 +726,7 @@ argument_list|(
 name|repo
 operator|.
 name|getDescription
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 return|return
@@ -809,7 +758,7 @@ name|repoConfig
 init|=
 operator|new
 name|RemoteRepositoryConfiguration
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|setBaseRepoAttributes
 argument_list|(
@@ -823,14 +772,14 @@ operator|.
 name|setUrl
 argument_list|(
 name|getRepositoryCommonValidator
-argument_list|()
+argument_list|( )
 operator|.
 name|removeExpressions
 argument_list|(
 name|repo
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -841,7 +790,7 @@ argument_list|(
 name|repo
 operator|.
 name|getCronExpression
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|repoConfig
@@ -851,7 +800,7 @@ argument_list|(
 name|repo
 operator|.
 name|getCheckPath
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|repoConfig
@@ -861,7 +810,7 @@ argument_list|(
 name|repo
 operator|.
 name|getExtraHeaders
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|repoConfig
@@ -871,7 +820,7 @@ argument_list|(
 name|repo
 operator|.
 name|getExtraParameters
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|repoConfig
@@ -881,7 +830,7 @@ argument_list|(
 name|repo
 operator|.
 name|getUserName
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|repoConfig
@@ -891,7 +840,7 @@ argument_list|(
 name|repo
 operator|.
 name|getPassword
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|repoConfig
@@ -901,7 +850,7 @@ argument_list|(
 name|repo
 operator|.
 name|getTimeout
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|repoConfig
@@ -911,7 +860,7 @@ argument_list|(
 name|repo
 operator|.
 name|getRemoteIndexUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|repoConfig
@@ -921,7 +870,7 @@ argument_list|(
 name|repo
 operator|.
 name|isDownloadRemoteIndex
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|repoConfig
@@ -931,7 +880,7 @@ argument_list|(
 name|repo
 operator|.
 name|getRemoteDownloadNetworkProxyId
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|repoConfig
@@ -941,7 +890,7 @@ argument_list|(
 name|repo
 operator|.
 name|isDownloadRemoteIndexOnStartup
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|repoConfig
@@ -951,7 +900,7 @@ argument_list|(
 name|repo
 operator|.
 name|getRemoteDownloadTimeout
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|repoConfig
@@ -961,7 +910,7 @@ argument_list|(
 name|repo
 operator|.
 name|getDescription
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|repoConfig
@@ -971,7 +920,7 @@ argument_list|(
 name|repo
 operator|.
 name|getIndexDirectory
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 return|return
@@ -998,7 +947,7 @@ operator|.
 name|RemoteRepository
 argument_list|>
 name|getRemoteRepositories
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|RepositoryAdminException
 block|{
@@ -1006,10 +955,10 @@ return|return
 name|repositoryRegistry
 operator|.
 name|getRemoteRepositories
-argument_list|()
+argument_list|( )
 operator|.
 name|stream
-argument_list|()
+argument_list|( )
 operator|.
 name|map
 argument_list|(
@@ -1026,7 +975,7 @@ argument_list|(
 name|Collectors
 operator|.
 name|toList
-argument_list|()
+argument_list|( )
 argument_list|)
 return|;
 block|}
@@ -1098,7 +1047,7 @@ argument_list|(
 name|remoteRepository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 literal|null
 argument_list|,
@@ -1110,7 +1059,7 @@ name|auditInformation
 argument_list|)
 expr_stmt|;
 name|getRepositoryCommonValidator
-argument_list|()
+argument_list|( )
 operator|.
 name|basicValidation
 argument_list|(
@@ -1129,7 +1078,7 @@ argument_list|(
 name|remoteRepository
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -1158,7 +1107,7 @@ argument_list|(
 name|remoteRepository
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|,
 literal|"/"
@@ -1174,7 +1123,7 @@ argument_list|(
 name|remoteRepository
 operator|.
 name|getCheckPath
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -1184,10 +1133,10 @@ init|=
 name|remoteRepository
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|( )
 decl_stmt|;
 for|for
 control|(
@@ -1195,16 +1144,16 @@ name|RepositoryCheckPath
 name|path
 range|:
 name|getArchivaConfiguration
-argument_list|()
+argument_list|( )
 operator|.
 name|getConfiguration
-argument_list|()
+argument_list|( )
 operator|.
 name|getArchivaDefaultConfiguration
-argument_list|()
+argument_list|( )
 operator|.
 name|getDefaultCheckPaths
-argument_list|()
+argument_list|( )
 control|)
 block|{
 name|log
@@ -1218,7 +1167,7 @@ argument_list|,
 name|path
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 if|if
@@ -1230,7 +1179,7 @@ argument_list|(
 name|path
 operator|.
 name|getUrl
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -1241,22 +1190,13 @@ argument_list|(
 name|path
 operator|.
 name|getPath
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 break|break;
 block|}
 block|}
 block|}
-name|Configuration
-name|configuration
-init|=
-name|getArchivaConfiguration
-argument_list|()
-operator|.
-name|getConfiguration
-argument_list|()
-decl_stmt|;
 name|RemoteRepositoryConfiguration
 name|remoteRepositoryConfiguration
 init|=
@@ -1281,8 +1221,6 @@ operator|.
 name|putRepository
 argument_list|(
 name|remoteRepositoryConfiguration
-argument_list|,
-name|configuration
 argument_list|)
 expr_stmt|;
 block|}
@@ -1301,12 +1239,12 @@ argument_list|,
 name|remoteRepositoryConfiguration
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1321,7 +1259,7 @@ operator|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 condition|?
@@ -1332,16 +1270,11 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 operator|)
 argument_list|)
 throw|;
 block|}
-name|saveConfiguration
-argument_list|(
-name|configuration
-argument_list|)
-expr_stmt|;
 return|return
 name|Boolean
 operator|.
@@ -1380,10 +1313,10 @@ name|Configuration
 name|configuration
 init|=
 name|getArchivaConfiguration
-argument_list|()
+argument_list|( )
 operator|.
 name|getConfiguration
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|RemoteRepository
 name|repo
@@ -1421,8 +1354,6 @@ operator|.
 name|removeRepository
 argument_list|(
 name|repo
-argument_list|,
-name|configuration
 argument_list|)
 expr_stmt|;
 block|}
@@ -1441,12 +1372,12 @@ argument_list|,
 name|repo
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1461,7 +1392,7 @@ operator|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 condition|?
@@ -1472,16 +1403,11 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 operator|)
 argument_list|)
 throw|;
 block|}
-name|saveConfiguration
-argument_list|(
-name|configuration
-argument_list|)
-expr_stmt|;
 return|return
 name|Boolean
 operator|.
@@ -1521,7 +1447,7 @@ init|=
 name|remoteRepository
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|triggerAuditEvent
 argument_list|(
@@ -1541,10 +1467,10 @@ name|Configuration
 name|configuration
 init|=
 name|getArchivaConfiguration
-argument_list|()
+argument_list|( )
 operator|.
 name|getConfiguration
-argument_list|()
+argument_list|( )
 decl_stmt|;
 name|RemoteRepositoryConfiguration
 name|remoteRepositoryConfiguration
@@ -1561,8 +1487,6 @@ operator|.
 name|putRepository
 argument_list|(
 name|remoteRepositoryConfiguration
-argument_list|,
-name|configuration
 argument_list|)
 expr_stmt|;
 block|}
@@ -1581,12 +1505,12 @@ argument_list|,
 name|remoteRepositoryConfiguration
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 argument_list|,
 name|e
 argument_list|)
@@ -1601,7 +1525,7 @@ operator|(
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 operator|==
 literal|null
 condition|?
@@ -1612,16 +1536,11 @@ operator|+
 name|e
 operator|.
 name|getMessage
-argument_list|()
+argument_list|( )
 operator|)
 argument_list|)
 throw|;
 block|}
-name|saveConfiguration
-argument_list|(
-name|configuration
-argument_list|)
-expr_stmt|;
 return|return
 name|Boolean
 operator|.
@@ -1650,119 +1569,47 @@ operator|.
 name|RemoteRepository
 argument_list|>
 name|getRemoteRepositoriesAsMap
-parameter_list|()
+parameter_list|( )
 throws|throws
 name|RepositoryAdminException
 block|{
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|admin
-operator|.
-name|model
-operator|.
-name|beans
-operator|.
-name|RemoteRepository
-argument_list|>
-name|map
-init|=
-operator|new
-name|HashMap
-argument_list|<>
-argument_list|()
-decl_stmt|;
-for|for
-control|(
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|admin
-operator|.
-name|model
-operator|.
-name|beans
-operator|.
-name|RemoteRepository
-name|repo
-range|:
-name|getRemoteRepositories
-argument_list|()
-control|)
-block|{
-name|map
-operator|.
-name|put
-argument_list|(
-name|repo
-operator|.
-name|getId
-argument_list|()
-argument_list|,
-name|repo
-argument_list|)
-expr_stmt|;
-block|}
 return|return
-name|map
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|ArchivaIndexingContext
-name|createIndexContext
-parameter_list|(
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|admin
-operator|.
-name|model
-operator|.
-name|beans
-operator|.
-name|RemoteRepository
-name|remoteRepository
-parameter_list|)
-throws|throws
-name|RepositoryAdminException
-block|{
-name|RemoteRepository
-name|repo
-init|=
 name|repositoryRegistry
 operator|.
-name|getRemoteRepository
+name|getRemoteRepositories
+argument_list|( )
+operator|.
+name|stream
+argument_list|( )
+operator|.
+name|map
 argument_list|(
-name|remoteRepository
+name|r
+lambda|->
+name|convertRepo
+argument_list|(
+name|r
+argument_list|)
+argument_list|)
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toMap
+argument_list|(
+name|r
+lambda|->
+name|r
 operator|.
 name|getId
-argument_list|()
+argument_list|( )
+argument_list|,
+name|r
+lambda|->
+name|r
 argument_list|)
-decl_stmt|;
-return|return
-name|repo
-operator|.
-name|getIndexingContext
-argument_list|()
+argument_list|)
 return|;
 block|}
 block|}

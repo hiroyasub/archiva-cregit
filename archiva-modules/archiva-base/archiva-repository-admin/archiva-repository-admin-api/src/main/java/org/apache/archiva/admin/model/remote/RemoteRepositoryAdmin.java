@@ -177,16 +177,6 @@ parameter_list|()
 throws|throws
 name|RepositoryAdminException
 function_decl|;
-comment|/**      * @param repository      * @return      * @throws RepositoryAdminException      * @since 1.4-M2      */
-name|ArchivaIndexingContext
-name|createIndexContext
-parameter_list|(
-name|RemoteRepository
-name|repository
-parameter_list|)
-throws|throws
-name|RepositoryAdminException
-function_decl|;
 block|}
 end_interface
 

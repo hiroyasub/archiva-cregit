@@ -197,9 +197,7 @@ name|repository
 operator|.
 name|base
 operator|.
-name|managed
-operator|.
-name|ManagedRepositoryHandler
+name|RepositoryHandlerDependencies
 import|;
 end_import
 
@@ -510,18 +508,8 @@ literal|"unused"
 argument_list|)
 annotation|@
 name|Inject
-name|ManagedRepositoryHandler
-name|managedRepositoryHandler
-decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
-annotation|@
-name|Inject
-name|RepositoryGroupHandler
-name|groupHandler
+name|RepositoryHandlerDependencies
+name|repositoryHandlerDependencies
 decl_stmt|;
 annotation|@
 name|Inject

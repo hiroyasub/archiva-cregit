@@ -143,9 +143,7 @@ name|repository
 operator|.
 name|base
 operator|.
-name|managed
-operator|.
-name|ManagedRepositoryHandler
+name|RepositoryHandlerDependencies
 import|;
 end_import
 
@@ -235,8 +233,8 @@ literal|"unused"
 argument_list|)
 annotation|@
 name|Inject
-name|ManagedRepositoryHandler
-name|managedRepositoryHandler
+name|RepositoryHandlerDependencies
+name|repositoryHandlerDependencies
 decl_stmt|;
 specifier|private
 specifier|static

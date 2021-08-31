@@ -2340,12 +2340,16 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|StringUtils
+operator|.
+name|isEmpty
+argument_list|(
 name|cfg
 operator|.
 name|getIndexDir
-argument_list|()
-operator|!=
-literal|null
+argument_list|( )
+argument_list|)
 condition|)
 block|{
 name|indexCreationFeature
@@ -2357,19 +2361,23 @@ argument_list|(
 name|cfg
 operator|.
 name|getIndexDir
-argument_list|()
+argument_list|( )
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 if|if
 condition|(
+operator|!
+name|StringUtils
+operator|.
+name|isEmpty
+argument_list|(
 name|cfg
 operator|.
 name|getPackedIndexDir
 argument_list|()
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
 name|indexCreationFeature
@@ -3033,10 +3041,20 @@ condition|(
 name|remoteIndexFeature
 operator|.
 name|getIndexUri
-argument_list|()
-operator|!=
+argument_list|( )
+operator|==
 literal|null
 condition|)
+block|{
+name|cfg
+operator|.
+name|setRemoteIndexUrl
+argument_list|(
+literal|""
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 name|cfg
 operator|.
@@ -3104,7 +3122,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|StringUtils
 operator|.
 name|isEmpty
@@ -3112,7 +3129,7 @@ argument_list|(
 name|remoteIndexFeature
 operator|.
 name|getProxyId
-argument_list|()
+argument_list|( )
 argument_list|)
 condition|)
 block|{
@@ -3120,10 +3137,7 @@ name|cfg
 operator|.
 name|setRemoteDownloadNetworkProxyId
 argument_list|(
-name|remoteIndexFeature
-operator|.
-name|getProxyId
-argument_list|()
+literal|""
 argument_list|)
 expr_stmt|;
 block|}
@@ -3133,7 +3147,10 @@ name|cfg
 operator|.
 name|setRemoteDownloadNetworkProxyId
 argument_list|(
-literal|""
+name|remoteIndexFeature
+operator|.
+name|getProxyId
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -113,11 +113,9 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|base
+name|content
 operator|.
-name|managed
-operator|.
-name|ManagedRepositoryHandler
+name|Artifact
 import|;
 end_import
 
@@ -134,22 +132,6 @@ operator|.
 name|content
 operator|.
 name|BaseRepositoryContentLayout
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|content
-operator|.
-name|Artifact
 import|;
 end_import
 

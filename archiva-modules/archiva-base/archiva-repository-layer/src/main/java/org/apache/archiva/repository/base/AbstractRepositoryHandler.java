@@ -1051,6 +1051,11 @@ name|R
 name|repository
 parameter_list|)
 block|{
+name|repository
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override

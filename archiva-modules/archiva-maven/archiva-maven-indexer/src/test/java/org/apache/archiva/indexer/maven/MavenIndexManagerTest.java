@@ -71,22 +71,6 @@ name|archiva
 operator|.
 name|repository
 operator|.
-name|base
-operator|.
-name|ArchivaRepositoryRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
 name|RepositoryType
 import|;
 end_import
@@ -103,9 +87,7 @@ name|repository
 operator|.
 name|base
 operator|.
-name|group
-operator|.
-name|RepositoryGroupHandler
+name|ArchivaRepositoryRegistry
 import|;
 end_import
 
@@ -121,9 +103,7 @@ name|repository
 operator|.
 name|base
 operator|.
-name|managed
-operator|.
-name|ManagedRepositoryHandler
+name|RepositoryHandlerDependencies
 import|;
 end_import
 
@@ -522,18 +502,8 @@ literal|"unused"
 argument_list|)
 annotation|@
 name|Inject
-name|ManagedRepositoryHandler
-name|managedRepositoryHandler
-decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
-annotation|@
-name|Inject
-name|RepositoryGroupHandler
-name|groupHandler
+name|RepositoryHandlerDependencies
+name|repositoryHandlerDependencies
 decl_stmt|;
 specifier|private
 name|Path

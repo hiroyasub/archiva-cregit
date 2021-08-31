@@ -247,6 +247,24 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|repository
+operator|.
+name|base
+operator|.
+name|remote
+operator|.
+name|RemoteRepositoryHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|jupiter
@@ -536,6 +554,11 @@ annotation|@
 name|Inject
 name|ManagedRepositoryHandler
 name|managedRepositoryHandler
+decl_stmt|;
+annotation|@
+name|Inject
+name|RemoteRepositoryHandler
+name|remoteRepositoryHandler
 decl_stmt|;
 specifier|private
 specifier|static
@@ -2423,13 +2446,6 @@ argument_list|(
 name|cfg
 argument_list|)
 expr_stmt|;
-name|assertSame
-argument_list|(
-name|internalRepo
-argument_list|,
-name|repo
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"This is central test 002"
@@ -2496,6 +2512,13 @@ operator|new
 name|RemoteRepositoryConfiguration
 argument_list|()
 decl_stmt|;
+name|Configuration
+name|newConfiguration
+init|=
+operator|new
+name|Configuration
+argument_list|( )
+decl_stmt|;
 name|cfg
 operator|.
 name|setId
@@ -2519,7 +2542,7 @@ name|putRepository
 argument_list|(
 name|cfg
 argument_list|,
-name|configuration
+name|newConfiguration
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -2589,12 +2612,25 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|1
 argument_list|,
 name|repos
 operator|.
 name|size
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|newConfiguration
+operator|.
+name|getRemoteRepositories
+argument_list|( )
+operator|.
+name|size
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|RemoteRepository
@@ -2635,14 +2671,7 @@ name|putRepository
 argument_list|(
 name|cfg
 argument_list|,
-name|configuration
-argument_list|)
-expr_stmt|;
-name|assertSame
-argument_list|(
-name|internalRepo
-argument_list|,
-name|repo
+name|newConfiguration
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2659,13 +2688,13 @@ name|assertEquals
 argument_list|(
 literal|2
 argument_list|,
-name|repositoryRegistry
+name|newConfiguration
 operator|.
 name|getRemoteRepositories
-argument_list|()
+argument_list|( )
 operator|.
 name|size
-argument_list|()
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|repositoryRegistry
