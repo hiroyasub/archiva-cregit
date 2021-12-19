@@ -725,7 +725,7 @@ name|common
 operator|.
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 import|;
 end_import
 
@@ -743,7 +743,7 @@ name|common
 operator|.
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 import|;
 end_import
 
@@ -2633,7 +2633,7 @@ name|isAuthorized
 argument_list|(
 name|securitySession
 argument_list|,
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 argument_list|,
 name|srcRepositoryId
 argument_list|)
@@ -2658,7 +2658,7 @@ name|PERMISSION_REPOSITORY_DENIED
 argument_list|,
 name|srcRepositoryId
 argument_list|,
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 argument_list|)
 argument_list|,
 literal|403
@@ -2722,7 +2722,7 @@ name|securitySession
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 argument_list|,
 name|dstRepositoryId
 argument_list|)
@@ -2747,7 +2747,7 @@ name|PERMISSION_REPOSITORY_DENIED
 argument_list|,
 name|dstRepositoryId
 argument_list|,
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 argument_list|)
 argument_list|)
 throw|;

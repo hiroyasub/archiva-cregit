@@ -399,7 +399,7 @@ name|permissions
 operator|=
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 argument_list|)
 name|Boolean
 name|save

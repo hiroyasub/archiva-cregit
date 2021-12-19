@@ -1437,7 +1437,7 @@ literal|"internal"
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 argument_list|)
 expr_stmt|;
 name|EasyMock
@@ -1684,7 +1684,7 @@ literal|"internal"
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 argument_list|)
 argument_list|)
 operator|.
@@ -1820,7 +1820,7 @@ literal|"internal"
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 argument_list|)
 argument_list|)
 operator|.
@@ -2203,7 +2203,7 @@ name|eq
 argument_list|(
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2644,7 +2644,7 @@ name|eq
 argument_list|(
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2952,7 +2952,7 @@ literal|"internal"
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 argument_list|)
 argument_list|)
 operator|.
@@ -3098,7 +3098,7 @@ name|eq
 argument_list|(
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3358,7 +3358,7 @@ literal|"internal"
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 argument_list|)
 argument_list|)
 operator|.
@@ -3758,7 +3758,7 @@ name|eq
 argument_list|(
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4171,7 +4171,7 @@ name|eq
 argument_list|(
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 argument_list|)
 argument_list|)
 argument_list|)

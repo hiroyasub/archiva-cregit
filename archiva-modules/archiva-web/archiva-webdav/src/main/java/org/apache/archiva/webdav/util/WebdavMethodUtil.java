@@ -189,7 +189,7 @@ block|{
 return|return
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 return|;
 block|}
 if|else if
@@ -212,7 +212,7 @@ block|{
 return|return
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_DELETE
+name|OPERATION_DELETE_ARTIFACT
 return|;
 block|}
 else|else
@@ -220,7 +220,7 @@ block|{
 return|return
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 return|;
 block|}
 block|}

@@ -352,7 +352,7 @@ name|OPERATION_DELETE_REPOSITORY
 block|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 block|,
 name|ArchivaRoleConstants
 operator|.
@@ -360,11 +360,11 @@ name|OPERATION_EDIT_REPOSITORY
 block|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 block|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 block|,
 literal|"archiva-guest"
 block|}

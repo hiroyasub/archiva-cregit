@@ -491,7 +491,7 @@ literal|"corporate"
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -605,7 +605,7 @@ literal|"corporate"
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 argument_list|)
 expr_stmt|;
 name|fail
@@ -722,7 +722,7 @@ literal|"corporate"
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -808,7 +808,7 @@ literal|"corporate"
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 argument_list|)
 expr_stmt|;
 name|fail
@@ -869,7 +869,7 @@ literal|"corporate"
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -913,7 +913,7 @@ literal|"corporate"
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -957,7 +957,7 @@ literal|"corporate"
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -994,7 +994,7 @@ literal|"corporate"
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 argument_list|)
 decl_stmt|;
 name|assertFalse

@@ -113,6 +113,7 @@ name|OPERATION_MANAGE_USERS
 init|=
 literal|"archiva-manage-users"
 decl_stmt|;
+comment|/**      * Maintenance role, that allows to run all configuration changes      */
 specifier|public
 specifier|static
 specifier|final
@@ -129,6 +130,7 @@ name|OPERATION_ACTIVE_GUEST
 init|=
 literal|"archiva-guest"
 decl_stmt|;
+comment|/**      * Allows to run the indexer update      */
 specifier|public
 specifier|static
 specifier|final
@@ -153,6 +155,7 @@ name|OPERATION_ACCESS_REPORT
 init|=
 literal|"archiva-access-reports"
 decl_stmt|;
+comment|/**      * Permission to add a repository      * Scope: application      */
 specifier|public
 specifier|static
 specifier|final
@@ -161,14 +164,16 @@ name|OPERATION_ADD_REPOSITORY
 init|=
 literal|"archiva-add-repository"
 decl_stmt|;
+comment|/**      * Permission to read the attributes and contents of a repository      * Scope: repository      */
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 init|=
 literal|"archiva-read-repository"
 decl_stmt|;
+comment|/**      * Permission to delete a repository      * Scope: repository      */
 specifier|public
 specifier|static
 specifier|final
@@ -177,6 +182,7 @@ name|OPERATION_DELETE_REPOSITORY
 init|=
 literal|"archiva-delete-repository"
 decl_stmt|;
+comment|/**      * Permission edit attributes of a repository      * Scope: repository      */
 specifier|public
 specifier|static
 specifier|final
@@ -185,14 +191,52 @@ name|OPERATION_EDIT_REPOSITORY
 init|=
 literal|"archiva-edit-repository"
 decl_stmt|;
+comment|/**      * Permission to upload a artifact to a specific repository      * Scope: repository      */
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 init|=
-literal|"archiva-upload-repository"
+literal|"archiva-add-artifact"
 decl_stmt|;
+comment|/**      * Permission to delete a artifact from a repository      * Scope: repository      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OPERATION_DELETE_ARTIFACT
+init|=
+literal|"archiva-delete-artifact"
+decl_stmt|;
+comment|/**      * Permission to delete a namespace (maven group) from a repository.      * Scope: repository      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OPERATION_DELETE_NAMESPACE
+init|=
+literal|"archiva-delete-namespace"
+decl_stmt|;
+comment|/**      * Permission to delete a project      * Scope: repository      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OPERATION_DELETE_PROJECT
+init|=
+literal|"archiva-delete-project"
+decl_stmt|;
+comment|/**      * Permission to delete a version      * Scope: repository      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OPERATION_DELETE_VERSION
+init|=
+literal|"archiva-delete-version"
+decl_stmt|;
+comment|/**      * Permission to upload a file to the upload workspace      * Scope: application      */
 specifier|public
 specifier|static
 specifier|final
@@ -200,14 +244,6 @@ name|String
 name|OPERATION_FILE_UPLOAD
 init|=
 literal|"archiva-upload-file"
-decl_stmt|;
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|OPERATION_REPOSITORY_DELETE
-init|=
-literal|"archiva-delete-artifact"
 decl_stmt|;
 specifier|public
 specifier|static

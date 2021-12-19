@@ -375,7 +375,7 @@ name|operation
 init|=
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 decl_stmt|;
 return|return
 name|getAccessibleRepositoryIds
@@ -410,7 +410,7 @@ name|operation
 init|=
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 decl_stmt|;
 return|return
 name|getAccessibleRepositoryIds
@@ -519,7 +519,7 @@ name|principal
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 argument_list|)
 return|;
 block|}
@@ -549,7 +549,7 @@ name|principal
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 argument_list|)
 return|;
 block|}
@@ -966,7 +966,7 @@ name|securitySession
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 argument_list|,
 name|repoId
 argument_list|)
@@ -1026,7 +1026,7 @@ name|securitySession
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_DELETE
+name|OPERATION_DELETE_ARTIFACT
 argument_list|,
 name|repoId
 argument_list|)

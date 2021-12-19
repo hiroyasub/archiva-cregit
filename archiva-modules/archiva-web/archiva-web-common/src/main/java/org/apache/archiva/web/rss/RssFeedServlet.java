@@ -1657,7 +1657,7 @@ argument_list|,
 comment|//
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 argument_list|)
 condition|)
 block|{

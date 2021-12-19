@@ -2309,7 +2309,7 @@ name|securitySession
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_ACCESS
+name|OPERATION_READ_REPOSITORY
 argument_list|,
 name|artifactTransferRequest
 operator|.
@@ -2386,7 +2386,7 @@ name|securitySession
 argument_list|,
 name|ArchivaRoleConstants
 operator|.
-name|OPERATION_REPOSITORY_UPLOAD
+name|OPERATION_ADD_ARTIFACT
 argument_list|,
 name|artifactTransferRequest
 operator|.
