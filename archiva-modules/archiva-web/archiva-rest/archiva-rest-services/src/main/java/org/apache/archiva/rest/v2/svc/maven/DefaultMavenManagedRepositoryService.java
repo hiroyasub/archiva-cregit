@@ -12,6 +12,8 @@ operator|.
 name|v2
 operator|.
 name|svc
+operator|.
+name|maven
 package|;
 end_package
 
@@ -1334,7 +1336,7 @@ parameter_list|(
 name|String
 name|repositoryId
 parameter_list|,
-name|boolean
+name|Boolean
 name|deleteContent
 parameter_list|)
 throws|throws

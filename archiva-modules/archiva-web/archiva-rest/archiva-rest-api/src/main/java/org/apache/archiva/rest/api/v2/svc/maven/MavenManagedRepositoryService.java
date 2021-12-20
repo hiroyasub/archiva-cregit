@@ -299,22 +299,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|security
-operator|.
-name|common
-operator|.
-name|ArchivaRoleConstants
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|ws
@@ -528,7 +512,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Service interface for update, delete, add of Managed Maven Repositories  *  * @author Martin Stockhammer<martin_s@apache.org>  * @since 3.0  */
+comment|/**  *  * Service interface for update, delete, add of Managed Maven Repositories  *  * The add, delete, update methods for a repository use "/{id}" with the classical CRUD actions.  * Where {id} is the repository ID.  *  * There are subpaths for certain repository management functions:  *<ul>  *<li>{@code /{id}/path/{groupsection1/groupsection2/... }/{project}/{version}/{artifact-file}}  *  is used for accessing artifacts and directories by their repository path</li>  *<li>{@code /{id}/co/{groupid}/{artifactid}/{version} } is used to access Maven artifacts by their coordinates.  *  Which means, {groupid} is a '.' separated string.  *</li>  *</ul>  *  * @author Martin Stockhammer<martin_s@apache.org>  * @since 3.0  */
 end_comment
 
 begin_interface
@@ -537,11 +521,11 @@ name|Schema
 argument_list|(
 name|name
 operator|=
-literal|"ManagedRepositoryService"
+literal|"MavenManagedRepositoryService"
 argument_list|,
 name|description
 operator|=
-literal|"Managing and configuration of managed repositories"
+literal|"Managing and configuration of managed maven repositories"
 argument_list|)
 annotation|@
 name|Path
@@ -585,7 +569,11 @@ name|RedbackAuthorization
 argument_list|(
 name|permissions
 operator|=
+block|{
 name|OPERATION_MANAGE_CONFIGURATION
+block|,
+name|OPERATION_LIST_REPOSITORIES
+block|}
 argument_list|)
 annotation|@
 name|Operation
@@ -667,6 +655,14 @@ argument_list|(
 name|name
 operator|=
 name|OPERATION_MANAGE_CONFIGURATION
+argument_list|)
+block|,
+annotation|@
+name|SecurityRequirement
+argument_list|(
+name|name
+operator|=
+name|OPERATION_LIST_REPOSITORIES
 argument_list|)
 block|}
 argument_list|,
@@ -1161,11 +1157,16 @@ name|String
 name|repositoryId
 parameter_list|,
 annotation|@
+name|DefaultValue
+argument_list|(
+literal|"false"
+argument_list|)
+annotation|@
 name|QueryParam
 argument_list|(
 literal|"deleteContent"
 argument_list|)
-name|boolean
+name|Boolean
 name|deleteContent
 parameter_list|)
 throws|throws
@@ -1659,7 +1660,7 @@ name|Operation
 argument_list|(
 name|summary
 operator|=
-literal|"Returns the status of a given file in the repository"
+literal|"Returns the status of a given artifact file in the repository"
 argument_list|,
 name|security
 operator|=
@@ -1840,7 +1841,7 @@ name|Operation
 argument_list|(
 name|summary
 operator|=
-literal|"Copies a artifact from the source repository to the destination repository"
+literal|"Copies a artifact from the source repository to the destination repository with the same path"
 argument_list|,
 name|security
 operator|=
@@ -2022,7 +2023,7 @@ name|Operation
 argument_list|(
 name|summary
 operator|=
-literal|"Deletes a artifact in the repository."
+literal|"Deletes a artifact from the repository."
 argument_list|,
 name|security
 operator|=
@@ -2157,7 +2158,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"{id}/co/{group}/{project}/{version}"
+literal|"{id}/co/{groupid}/{artifactid}/{version}"
 argument_list|)
 annotation|@
 name|DELETE
@@ -2190,7 +2191,7 @@ name|Operation
 argument_list|(
 name|summary
 operator|=
-literal|"Removes a version tree in the repository"
+literal|"Removes a version and all its content from the repository"
 argument_list|,
 name|security
 operator|=
@@ -2314,7 +2315,7 @@ parameter_list|,
 annotation|@
 name|PathParam
 argument_list|(
-literal|"group"
+literal|"groupid"
 argument_list|)
 name|String
 name|namespace
@@ -2322,7 +2323,7 @@ parameter_list|,
 annotation|@
 name|PathParam
 argument_list|(
-literal|"project"
+literal|"artifactid"
 argument_list|)
 name|String
 name|projectId
@@ -2353,7 +2354,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"{id}/co/{group}/{project}"
+literal|"{id}/co/{groupid}/{artifactid}"
 argument_list|)
 annotation|@
 name|DELETE
@@ -2378,7 +2379,7 @@ name|Operation
 argument_list|(
 name|summary
 operator|=
-literal|"Removes a project tree in the repository"
+literal|"Removes a artifact and all its versions from the repository"
 argument_list|,
 name|security
 operator|=
@@ -2462,7 +2463,7 @@ literal|"404"
 argument_list|,
 name|description
 operator|=
-literal|"The managed repository with this id does not exist. Or the project does not exist."
+literal|"The managed repository with this id does not exist. Or the artifact does not exist."
 argument_list|,
 name|content
 operator|=
@@ -2502,7 +2503,7 @@ parameter_list|,
 annotation|@
 name|PathParam
 argument_list|(
-literal|"group"
+literal|"groupid"
 argument_list|)
 name|String
 name|namespace
@@ -2510,7 +2511,7 @@ parameter_list|,
 annotation|@
 name|PathParam
 argument_list|(
-literal|"project"
+literal|"artifactid"
 argument_list|)
 name|String
 name|projectId
@@ -2533,7 +2534,7 @@ function_decl|;
 annotation|@
 name|Path
 argument_list|(
-literal|"{id}/co/{namespace}"
+literal|"{id}/co/{groupid}"
 argument_list|)
 annotation|@
 name|DELETE
@@ -2566,7 +2567,7 @@ name|Operation
 argument_list|(
 name|summary
 operator|=
-literal|"Removes a namespace tree in the repository"
+literal|"Removes a group and all subfolders from the repository"
 argument_list|,
 name|security
 operator|=
@@ -2650,7 +2651,7 @@ literal|"404"
 argument_list|,
 name|description
 operator|=
-literal|"The managed repository with this id does not exist. Or the namespace does not exist."
+literal|"The managed repository with this id does not exist. Or the groupid does not exist."
 argument_list|,
 name|content
 operator|=
@@ -2690,7 +2691,7 @@ parameter_list|,
 annotation|@
 name|PathParam
 argument_list|(
-literal|"namespace"
+literal|"groupid"
 argument_list|)
 name|String
 name|namespace

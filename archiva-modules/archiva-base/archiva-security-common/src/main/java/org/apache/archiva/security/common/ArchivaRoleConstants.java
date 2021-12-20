@@ -155,7 +155,7 @@ name|OPERATION_ACCESS_REPORT
 init|=
 literal|"archiva-access-reports"
 decl_stmt|;
-comment|/**      * Permission to add a repository      * Scope: application      */
+comment|/**      * Permission to add a repository      * Scope: global      */
 specifier|public
 specifier|static
 specifier|final
@@ -236,7 +236,7 @@ name|OPERATION_DELETE_VERSION
 init|=
 literal|"archiva-delete-version"
 decl_stmt|;
-comment|/**      * Permission to upload a file to the upload workspace      * Scope: application      */
+comment|/**      * Permission to upload a file to the upload workspace      * Scope: global      */
 specifier|public
 specifier|static
 specifier|final
@@ -244,6 +244,15 @@ name|String
 name|OPERATION_FILE_UPLOAD
 init|=
 literal|"archiva-upload-file"
+decl_stmt|;
+comment|/**      * Permission to list all available repositories      * Scope: global      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OPERATION_LIST_REPOSITORIES
+init|=
+literal|"archiva-list-repositories"
 decl_stmt|;
 specifier|public
 specifier|static
