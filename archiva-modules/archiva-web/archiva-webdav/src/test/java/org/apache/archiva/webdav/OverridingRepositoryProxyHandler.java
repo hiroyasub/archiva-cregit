@@ -23,9 +23,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|proxy
-operator|.
 name|maven
+operator|.
+name|proxy
 operator|.
 name|MavenRepositoryProxyHandler
 import|;

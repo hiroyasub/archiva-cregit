@@ -91,9 +91,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|proxy
-operator|.
 name|maven
+operator|.
+name|proxy
 operator|.
 name|WagonFactory
 import|;
@@ -107,9 +107,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|proxy
-operator|.
 name|maven
+operator|.
+name|proxy
 operator|.
 name|WagonFactoryRequest
 import|;

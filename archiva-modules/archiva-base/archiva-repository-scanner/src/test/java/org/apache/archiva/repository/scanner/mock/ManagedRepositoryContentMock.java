@@ -59,9 +59,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|metadata
-operator|.
 name|maven
+operator|.
+name|metadata
 operator|.
 name|model
 operator|.
@@ -252,22 +252,6 @@ operator|.
 name|content
 operator|.
 name|DataItem
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|content
-operator|.
-name|ItemNotFoundException
 import|;
 end_import
 
