@@ -25,7 +25,7 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|maven2
+name|maven
 operator|.
 name|model
 operator|.
@@ -48,20 +48,6 @@ operator|.
 name|services
 operator|.
 name|MergeRepositoriesService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|io
-operator|.
-name|FileUtils
 import|;
 end_import
 
@@ -116,18 +102,6 @@ operator|.
 name|file
 operator|.
 name|Path
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Paths
 import|;
 end_import
 

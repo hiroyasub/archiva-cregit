@@ -95,7 +95,7 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|maven2
+name|maven
 operator|.
 name|model
 operator|.
@@ -138,24 +138,6 @@ operator|.
 name|services
 operator|.
 name|BaseSetup
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|redback
-operator|.
-name|rest
-operator|.
-name|services
-operator|.
-name|FakeCreateAdminService
 import|;
 end_import
 

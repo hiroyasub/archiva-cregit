@@ -175,6 +175,8 @@ name|archiva
 operator|.
 name|maven
 operator|.
+name|common
+operator|.
 name|proxy
 operator|.
 name|WagonFactory
@@ -191,6 +193,8 @@ name|archiva
 operator|.
 name|maven
 operator|.
+name|common
+operator|.
 name|proxy
 operator|.
 name|WagonFactoryException
@@ -206,6 +210,8 @@ operator|.
 name|archiva
 operator|.
 name|maven
+operator|.
+name|common
 operator|.
 name|proxy
 operator|.

@@ -81,7 +81,7 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|maven2
+name|maven
 operator|.
 name|model
 operator|.
@@ -97,7 +97,7 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|maven2
+name|maven
 operator|.
 name|model
 operator|.

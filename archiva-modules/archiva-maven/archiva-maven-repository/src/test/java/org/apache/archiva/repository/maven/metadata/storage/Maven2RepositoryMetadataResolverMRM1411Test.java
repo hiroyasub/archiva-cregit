@@ -255,6 +255,8 @@ name|archiva
 operator|.
 name|maven
 operator|.
+name|common
+operator|.
 name|proxy
 operator|.
 name|WagonFactory
@@ -270,6 +272,8 @@ operator|.
 name|archiva
 operator|.
 name|maven
+operator|.
+name|common
 operator|.
 name|proxy
 operator|.

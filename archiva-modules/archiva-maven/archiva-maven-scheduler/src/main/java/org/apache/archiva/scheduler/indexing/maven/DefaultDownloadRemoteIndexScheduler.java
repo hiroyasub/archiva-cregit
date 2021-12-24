@@ -147,6 +147,8 @@ name|archiva
 operator|.
 name|maven
 operator|.
+name|common
+operator|.
 name|proxy
 operator|.
 name|WagonFactory
