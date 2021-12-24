@@ -572,60 +572,10 @@ operator|.
 name|currentTimeMillis
 argument_list|( )
 expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"Setting up - "
-operator|+
-operator|(
-name|testNum
-operator|++
-operator|)
-operator|+
-literal|" - "
-operator|+
-name|testInfo
-operator|.
-name|getDisplayName
-argument_list|()
-operator|+
-literal|" - 0ms"
-argument_list|)
-expr_stmt|;
 name|super
 operator|.
 name|setUp
 argument_list|()
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"Setting up - "
-operator|+
-name|testInfo
-operator|.
-name|getDisplayName
-argument_list|( )
-operator|+
-literal|" - "
-operator|+
-operator|(
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|( )
-operator|-
-name|cTime
-operator|)
-operator|+
-literal|"ms"
-argument_list|)
 expr_stmt|;
 name|assertMaxTries
 operator|=
@@ -781,33 +731,6 @@ name|clearedTables
 argument_list|)
 expr_stmt|;
 block|}
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"Finished setting up - "
-operator|+
-name|testInfo
-operator|.
-name|getDisplayName
-argument_list|()
-operator|+
-literal|" - "
-operator|+
-operator|(
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|( )
-operator|-
-name|cTime
-operator|)
-operator|+
-literal|"ms"
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * ensure all dependant tables are cleaned up (mailinglist, license, dependencies)      *      * @throws Exception      */
 annotation|@
@@ -965,41 +888,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"Shutting down - "
-operator|+
-operator|(
-name|testNum
-operator|-
-literal|1
-operator|)
-operator|+
-literal|" - "
-operator|+
-name|testInfo
-operator|.
-name|getDisplayName
-argument_list|( )
-operator|+
-literal|" - "
-operator|+
-operator|(
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|( )
-operator|-
-name|cTime
-operator|)
-operator|+
-literal|"ms"
-argument_list|)
-expr_stmt|;
 name|clearReposAndNamespace
 argument_list|(
 name|cassandraArchivaManager
@@ -1011,33 +899,6 @@ name|super
 operator|.
 name|tearDown
 argument_list|()
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"Shutting down finished - "
-operator|+
-name|testInfo
-operator|.
-name|getDisplayName
-argument_list|( )
-operator|+
-literal|" - "
-operator|+
-operator|(
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|( )
-operator|-
-name|cTime
-operator|)
-operator|+
-literal|"ms"
-argument_list|)
 expr_stmt|;
 block|}
 specifier|static

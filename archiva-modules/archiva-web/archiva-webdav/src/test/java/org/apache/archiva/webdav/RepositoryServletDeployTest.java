@@ -63,6 +63,8 @@ name|archiva
 operator|.
 name|webdav
 operator|.
+name|mock
+operator|.
 name|httpunit
 operator|.
 name|MkColMethodWebRequest

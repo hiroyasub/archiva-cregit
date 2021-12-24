@@ -235,6 +235,10 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|webdav
+operator|.
+name|mock
+operator|.
 name|metadata
 operator|.
 name|audit
