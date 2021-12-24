@@ -129,9 +129,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|repository
-operator|.
 name|maven
+operator|.
+name|repository
 operator|.
 name|MavenManagedRepository
 import|;

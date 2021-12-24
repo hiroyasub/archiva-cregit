@@ -429,9 +429,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|repository
-operator|.
 name|maven
+operator|.
+name|repository
 operator|.
 name|content
 operator|.
@@ -447,9 +447,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|repository
-operator|.
 name|maven
+operator|.
+name|repository
 operator|.
 name|content
 operator|.
@@ -465,9 +465,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|repository
-operator|.
 name|maven
+operator|.
+name|repository
 operator|.
 name|content
 operator|.
@@ -483,9 +483,9 @@ name|apache
 operator|.
 name|archiva
 operator|.
-name|repository
-operator|.
 name|maven
+operator|.
+name|repository
 operator|.
 name|metadata
 operator|.
