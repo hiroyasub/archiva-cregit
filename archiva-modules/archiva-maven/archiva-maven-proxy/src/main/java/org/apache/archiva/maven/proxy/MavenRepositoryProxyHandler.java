@@ -81,6 +81,8 @@ name|archiva
 operator|.
 name|proxy
 operator|.
+name|base
+operator|.
 name|DefaultRepositoryProxyHandler
 import|;
 end_import
@@ -94,6 +96,8 @@ operator|.
 name|archiva
 operator|.
 name|proxy
+operator|.
+name|base
 operator|.
 name|NotFoundException
 import|;
@@ -109,6 +113,8 @@ name|archiva
 operator|.
 name|proxy
 operator|.
+name|base
+operator|.
 name|NotModifiedException
 import|;
 end_import
@@ -122,6 +128,8 @@ operator|.
 name|archiva
 operator|.
 name|proxy
+operator|.
+name|base
 operator|.
 name|ProxyException
 import|;
