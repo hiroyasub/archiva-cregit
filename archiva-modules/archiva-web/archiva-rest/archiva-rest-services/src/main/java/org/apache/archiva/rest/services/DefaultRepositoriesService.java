@@ -1059,11 +1059,11 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|maven
+operator|.
 name|scheduler
 operator|.
 name|indexing
-operator|.
-name|maven
 operator|.
 name|ArchivaIndexingTaskExecutor
 import|;
