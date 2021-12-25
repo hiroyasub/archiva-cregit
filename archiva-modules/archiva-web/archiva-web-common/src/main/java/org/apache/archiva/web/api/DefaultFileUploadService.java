@@ -2690,6 +2690,21 @@ argument_list|(
 name|repositoryId
 argument_list|)
 decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Finding artifact path for {}, {}, {}, {}"
+argument_list|,
+name|groupId
+argument_list|,
+name|artifactId
+argument_list|,
+name|version
+argument_list|,
+name|packaging
+argument_list|)
+expr_stmt|;
 name|ItemSelector
 name|selector
 init|=

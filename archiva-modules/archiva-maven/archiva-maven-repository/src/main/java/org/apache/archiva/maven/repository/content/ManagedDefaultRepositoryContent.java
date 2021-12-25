@@ -990,6 +990,15 @@ name|String
 name|assetPath
 parameter_list|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Get asset {}"
+argument_list|,
+name|assetPath
+argument_list|)
+expr_stmt|;
 return|return
 name|getStorage
 argument_list|( )
