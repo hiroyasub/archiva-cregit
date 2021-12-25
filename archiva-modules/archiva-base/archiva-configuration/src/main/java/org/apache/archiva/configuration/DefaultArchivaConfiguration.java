@@ -4079,7 +4079,7 @@ name|repoPath
 operator|.
 name|endsWith
 argument_list|(
-literal|"data/repositories/"
+literal|"/repositories/"
 operator|+
 name|repo
 operator|.
