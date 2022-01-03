@@ -394,7 +394,7 @@ name|Cache
 argument_list|<
 name|String
 argument_list|,
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -846,7 +846,7 @@ name|MetadataResolutionException
 block|{
 try|try
 block|{
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1089,7 +1089,7 @@ literal|"-"
 operator|+
 name|namespace
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1391,7 +1391,7 @@ literal|"-"
 operator|+
 name|namespace
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>

@@ -35,6 +35,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -94,7 +104,17 @@ class|class
 name|ProjectVersionMetadata
 extends|extends
 name|FacetedMetadata
+implements|implements
+name|Serializable
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|5506968284780639002L
+decl_stmt|;
 comment|/**      * id is the version      */
 specifier|private
 name|String

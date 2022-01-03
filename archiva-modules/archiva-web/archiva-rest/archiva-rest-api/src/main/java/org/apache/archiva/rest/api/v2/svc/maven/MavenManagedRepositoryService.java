@@ -512,7 +512,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * Service interface for update, delete, add of Managed Maven Repositories  *  * The add, delete, update methods for a repository use "/{id}" with the classical CRUD actions.  * Where {id} is the repository ID.  *  * There are subpaths for certain repository management functions:  *<ul>  *<li>{@code /{id}/path/{groupsection1/groupsection2/... }/{project}/{version}/{artifact-file}}  *  is used for accessing artifacts and directories by their repository path</li>  *<li>{@code /{id}/co/{groupid}/{artifactid}/{version} } is used to access Maven artifacts by their coordinates.  *  Which means, {groupid} is a '.' separated string.  *</li>  *</ul>  *  * @author Martin Stockhammer<martin_s@apache.org>  * @since 3.0  */
+comment|/**  *  * Service interface for update, delete, add of Managed Maven Repositories  *  * The add, delete, update methods for a repository use "/{id}" with the classical CRUD actions.  * Where {id} is the repository ID.  *  * There are subpaths for certain repository management functions:  *<ul>  *<li>{@code /{id}/path/{groupsection1/groupsection2/... }/{project}/{version}/{artifact-file}}  *  is used for accessing artifacts and directories by their repository path</li>  *<li>{@code /{id}/co/{groupid}/{artifactid}/{version} } is used to access Maven artifacts by their coordinates.  *  Which means, {groupid} is a '.' separated string.  *</li>  *</ul>  *  * @author Martin Schreier<martin_s@apache.org>  * @since 3.0  */
 end_comment
 
 begin_interface
@@ -2567,7 +2567,7 @@ name|Operation
 argument_list|(
 name|summary
 operator|=
-literal|"Removes a group and all subfolders from the repository"
+literal|"Removes a maven group and all containing artifacts and sub groups from the repository"
 argument_list|,
 name|security
 operator|=

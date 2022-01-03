@@ -12,6 +12,8 @@ operator|.
 name|v2
 operator|.
 name|svc
+operator|.
+name|maven
 package|;
 end_package
 
@@ -82,6 +84,24 @@ operator|.
 name|svc
 operator|.
 name|RestConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|rest
+operator|.
+name|v2
+operator|.
+name|svc
+operator|.
+name|AbstractNativeRestServices
 import|;
 end_import
 
@@ -264,7 +284,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Martin Stockhammer<martin_s@apache.org>  */
+comment|/**  * @author Martin Schreier<martin_s@apache.org>  */
 end_comment
 
 begin_class

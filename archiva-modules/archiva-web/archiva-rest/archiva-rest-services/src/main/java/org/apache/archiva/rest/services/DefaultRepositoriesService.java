@@ -1504,7 +1504,7 @@ name|Cache
 argument_list|<
 name|String
 argument_list|,
-name|Collection
+name|List
 argument_list|<
 name|String
 argument_list|>

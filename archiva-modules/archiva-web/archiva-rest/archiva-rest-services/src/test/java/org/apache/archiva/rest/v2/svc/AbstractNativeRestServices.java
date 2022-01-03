@@ -610,7 +610,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Native REST tests do not use the JAX-RS client and can be used with a remote  * REST API service. The tests  *  * @author Martin Stockhammer<martin_s@apache.org>  */
+comment|/**  * Native REST tests do not use the JAX-RS client and can be used with a remote  * REST API service. The tests  *  * @author Martin Schreier<martin_s@apache.org>  */
 end_comment
 
 begin_class
