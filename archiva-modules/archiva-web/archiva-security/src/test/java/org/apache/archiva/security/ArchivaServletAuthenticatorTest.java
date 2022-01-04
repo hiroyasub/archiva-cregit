@@ -147,26 +147,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|easymock
-operator|.
-name|EasyMock
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|easymock
-operator|.
-name|IMocksControl
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Before
@@ -215,6 +195,30 @@ name|HttpServletRequest
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|mock
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|when
+import|;
+end_import
+
 begin_comment
 comment|/**  * ArchivaServletAuthenticatorTest  */
 end_comment
@@ -240,10 +244,6 @@ name|ServletAuthenticator
 name|servletAuth
 decl_stmt|;
 specifier|private
-name|IMocksControl
-name|httpServletRequestControl
-decl_stmt|;
-specifier|private
 name|HttpServletRequest
 name|request
 decl_stmt|;
@@ -263,18 +263,9 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|httpServletRequestControl
-operator|=
-name|EasyMock
-operator|.
-name|createControl
-argument_list|( )
-expr_stmt|;
 name|request
 operator|=
-name|httpServletRequestControl
-operator|.
-name|createMock
+name|mock
 argument_list|(
 name|HttpServletRequest
 operator|.
@@ -529,9 +520,7 @@ literal|"corporate"
 argument_list|)
 expr_stmt|;
 comment|//httpServletRequestControl.expectAndReturn( request.getRemoteAddr(), "192.168.111.111" );
-name|EasyMock
-operator|.
-name|expect
+name|when
 argument_list|(
 name|request
 operator|.
@@ -539,7 +528,7 @@ name|getRemoteAddr
 argument_list|()
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 literal|"192.168.111.111"
 argument_list|)
@@ -586,11 +575,6 @@ argument_list|,
 name|user
 argument_list|)
 decl_stmt|;
-name|httpServletRequestControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
 try|try
 block|{
 name|servletAuth
@@ -631,11 +615,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|httpServletRequestControl
-operator|.
-name|verify
-argument_list|()
-expr_stmt|;
 name|restoreGuestInitialValues
 argument_list|(
 name|USER_ALPACA

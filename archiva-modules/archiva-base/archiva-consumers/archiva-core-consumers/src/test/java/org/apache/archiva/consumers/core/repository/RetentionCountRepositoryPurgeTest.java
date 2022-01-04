@@ -71,16 +71,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|easymock
-operator|.
-name|EasyMock
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|After
@@ -114,6 +104,16 @@ operator|.
 name|mockito
 operator|.
 name|ArgumentCaptor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
 import|;
 end_import
 
@@ -187,7 +187,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|eq
 import|;
@@ -278,19 +278,9 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-name|sessionControl
+name|Mockito
 operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|sessionFactoryControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|EasyMock
-operator|.
-name|expect
+name|when
 argument_list|(
 name|sessionFactory
 operator|.
@@ -298,14 +288,14 @@ name|createSession
 argument_list|( )
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|repositorySession
 argument_list|)
 expr_stmt|;
-name|EasyMock
+name|Mockito
 operator|.
-name|expect
+name|when
 argument_list|(
 name|repositorySession
 operator|.
@@ -313,7 +303,7 @@ name|getRepository
 argument_list|()
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|metadataRepository
 argument_list|)
@@ -321,24 +311,6 @@ expr_stmt|;
 name|repositorySession
 operator|.
 name|save
-argument_list|()
-expr_stmt|;
-name|EasyMock
-operator|.
-name|expectLastCall
-argument_list|()
-operator|.
-name|anyTimes
-argument_list|()
-expr_stmt|;
-name|sessionFactoryControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|sessionControl
-operator|.
-name|replay
 argument_list|()
 expr_stmt|;
 name|repoPurge
@@ -712,11 +684,6 @@ argument_list|,
 literal|"jruby-rake-plugin-1.0RC1-20070504.153317-1-javadoc.zip"
 argument_list|)
 expr_stmt|;
-name|listenerControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
 comment|// Provide the metadata list
 name|List
 argument_list|<
@@ -767,11 +734,6 @@ name|process
 argument_list|(
 name|PATH_TO_BY_RETENTION_COUNT_ARTIFACT
 argument_list|)
-expr_stmt|;
-name|listenerControl
-operator|.
-name|verify
-argument_list|()
 expr_stmt|;
 comment|// Verify the metadataRepository invocations
 name|verify
@@ -1309,11 +1271,6 @@ argument_list|,
 literal|"castor-anttasks-1.1.2-20070427.065136-1.pom"
 argument_list|)
 expr_stmt|;
-name|listenerControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
 comment|// Provide the metadata list
 name|List
 argument_list|<
@@ -1364,11 +1321,6 @@ name|process
 argument_list|(
 name|PATH_TO_BY_RETENTION_COUNT_POM
 argument_list|)
-expr_stmt|;
-name|listenerControl
-operator|.
-name|verify
-argument_list|()
 expr_stmt|;
 comment|// Verify the metadataRepository invocations
 name|verify
@@ -1905,11 +1857,6 @@ argument_list|,
 literal|"maven-assembly-plugin-1.1.2-20070427.065136-1.pom"
 argument_list|)
 expr_stmt|;
-name|listenerControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
 comment|// Provide the metadata list
 name|List
 argument_list|<
@@ -1960,11 +1907,6 @@ name|process
 argument_list|(
 name|PATH_TO_TEST_ORDER_OF_DELETION
 argument_list|)
-expr_stmt|;
-name|listenerControl
-operator|.
-name|verify
-argument_list|()
 expr_stmt|;
 comment|// Verify the metadataRepository invocations
 name|verify

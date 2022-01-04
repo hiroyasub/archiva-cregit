@@ -103,16 +103,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|easymock
-operator|.
-name|EasyMock
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|After
@@ -178,6 +168,18 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|when
 import|;
 end_import
 
@@ -268,9 +270,7 @@ argument_list|)
 decl_stmt|;
 comment|// search artifactId
 comment|// EasyMock.expect( archivaConfig.getDefaultLocale() ).andReturn( Locale.getDefault( ) ).anyTimes();
-name|EasyMock
-operator|.
-name|expect
+name|when
 argument_list|(
 name|archivaConfig
 operator|.
@@ -278,18 +278,10 @@ name|getConfiguration
 argument_list|()
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|config
 argument_list|)
-operator|.
-name|anyTimes
-argument_list|()
-expr_stmt|;
-name|archivaConfigControl
-operator|.
-name|replay
-argument_list|()
 expr_stmt|;
 name|SearchFields
 name|searchFields
@@ -333,11 +325,6 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-name|archivaConfigControl
-operator|.
-name|verify
-argument_list|()
-expr_stmt|;
 name|assertNotNull
 argument_list|(
 name|results

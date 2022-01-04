@@ -197,16 +197,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|easymock
-operator|.
-name|EasyMock
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Before
@@ -220,6 +210,16 @@ operator|.
 name|junit
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
 import|;
 end_import
 
@@ -365,7 +365,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|eq
 import|;
@@ -489,18 +489,9 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|listenerControl
-operator|=
-name|EasyMock
-operator|.
-name|createControl
-argument_list|( )
-expr_stmt|;
 name|listener
 operator|=
-name|listenerControl
-operator|.
-name|createMock
+name|mock
 argument_list|(
 name|RepositoryListener
 operator|.
@@ -520,19 +511,9 @@ argument_list|(
 name|listener
 argument_list|)
 decl_stmt|;
-name|sessionControl
+name|Mockito
 operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|sessionFactoryControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|EasyMock
-operator|.
-name|expect
+name|when
 argument_list|(
 name|sessionFactory
 operator|.
@@ -540,14 +521,14 @@ name|createSession
 argument_list|( )
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|repositorySession
 argument_list|)
 expr_stmt|;
-name|EasyMock
+name|Mockito
 operator|.
-name|expect
+name|when
 argument_list|(
 name|repositorySession
 operator|.
@@ -555,7 +536,7 @@ name|getRepository
 argument_list|()
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|metadataRepository
 argument_list|)
@@ -563,24 +544,6 @@ expr_stmt|;
 name|repositorySession
 operator|.
 name|save
-argument_list|()
-expr_stmt|;
-name|EasyMock
-operator|.
-name|expectLastCall
-argument_list|()
-operator|.
-name|anyTimes
-argument_list|()
-expr_stmt|;
-name|sessionFactoryControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|sessionControl
-operator|.
-name|replay
 argument_list|()
 expr_stmt|;
 name|repoPurge
@@ -779,11 +742,6 @@ argument_list|,
 literal|"maven-plugin-plugin-2.3-SNAPSHOT.jar"
 argument_list|)
 expr_stmt|;
-name|listenerControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
 comment|// Provide the metadata list
 name|List
 argument_list|<
@@ -834,11 +792,6 @@ name|process
 argument_list|(
 name|PATH_TO_RELEASED_SNAPSHOT_IN_SAME_REPO
 argument_list|)
-expr_stmt|;
-name|listenerControl
-operator|.
-name|verify
-argument_list|()
 expr_stmt|;
 comment|// Verify the metadataRepository invocations
 comment|// complete snapshot version removal for released
@@ -1247,11 +1200,6 @@ name|prepareTestRepos
 argument_list|()
 decl_stmt|;
 comment|// test listeners for the correct artifacts
-name|listenerControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
 name|Path
 name|file
 init|=
@@ -1310,11 +1258,6 @@ name|process
 argument_list|(
 name|INDEX_PATH
 argument_list|)
-expr_stmt|;
-name|listenerControl
-operator|.
-name|verify
-argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
@@ -1534,11 +1477,6 @@ argument_list|,
 literal|"released-artifact-in-diff-repo-1.0-SNAPSHOT.jar"
 argument_list|)
 expr_stmt|;
-name|listenerControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
 comment|// Provide the metadata list
 name|List
 argument_list|<
@@ -1632,11 +1570,6 @@ name|process
 argument_list|(
 name|PATH_TO_RELEASED_SNAPSHOT_IN_DIFF_REPO
 argument_list|)
-expr_stmt|;
-name|listenerControl
-operator|.
-name|verify
-argument_list|()
 expr_stmt|;
 comment|// Verify the metadataRepository invocations
 comment|// Complete version removal for cleanup
@@ -2025,11 +1958,6 @@ literal|"2.0.4-SNAPSHOT"
 argument_list|)
 decl_stmt|;
 comment|// test listeners for the correct artifacts - no deletions
-name|listenerControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
 comment|// Provide the metadata list
 name|List
 argument_list|<
@@ -2168,11 +2096,6 @@ name|CleanupReleasedSnapshotsRepositoryPurgeTest
 operator|.
 name|PATH_TO_HIGHER_SNAPSHOT_EXISTS_IN_SAME_REPO
 argument_list|)
-expr_stmt|;
-name|listenerControl
-operator|.
-name|verify
-argument_list|()
 expr_stmt|;
 comment|// Verify the metadataRepository invocations
 comment|// No removal

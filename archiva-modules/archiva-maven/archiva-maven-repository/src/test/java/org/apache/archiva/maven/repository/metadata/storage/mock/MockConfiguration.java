@@ -187,16 +187,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|easymock
-operator|.
-name|IMocksControl
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|stereotype
@@ -283,11 +273,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|easymock
+name|mockito
 operator|.
-name|EasyMock
+name|Mockito
 operator|.
-name|createNiceControl
+name|mock
 import|;
 end_import
 
@@ -344,10 +334,6 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|private
-name|IMocksControl
-name|registryControl
-decl_stmt|;
-specifier|private
 name|Registry
 name|registryMock
 decl_stmt|;
@@ -355,16 +341,9 @@ specifier|public
 name|MockConfiguration
 parameter_list|()
 block|{
-name|registryControl
-operator|=
-name|createNiceControl
-argument_list|()
-expr_stmt|;
 name|registryMock
 operator|=
-name|registryControl
-operator|.
-name|createMock
+name|mock
 argument_list|(
 name|Registry
 operator|.

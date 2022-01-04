@@ -367,26 +367,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|easymock
-operator|.
-name|EasyMock
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|easymock
-operator|.
-name|IMocksControl
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Before
@@ -669,6 +649,18 @@ name|*
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|mock
+import|;
+end_import
+
 begin_comment
 comment|/**  * AbstractProxyTestCase  */
 end_comment
@@ -805,10 +797,6 @@ init|=
 literal|"src/test/repositories/managed"
 decl_stmt|;
 comment|// protected static final String REPOPATH_DEFAULT_MANAGED_TARGET = "target/test-repository/managed";
-specifier|protected
-name|IMocksControl
-name|wagonMockControl
-decl_stmt|;
 specifier|protected
 name|Wagon
 name|wagonMock
@@ -1154,18 +1142,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Setup the wagon mock.
-name|wagonMockControl
-operator|=
-name|EasyMock
-operator|.
-name|createNiceControl
-argument_list|()
-expr_stmt|;
 name|wagonMock
 operator|=
-name|wagonMockControl
-operator|.
-name|createMock
+name|mock
 argument_list|(
 name|Wagon
 operator|.

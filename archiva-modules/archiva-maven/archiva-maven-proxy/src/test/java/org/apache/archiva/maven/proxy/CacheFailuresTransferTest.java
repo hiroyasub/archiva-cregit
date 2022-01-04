@@ -171,16 +171,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|easymock
-operator|.
-name|EasyMock
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -264,6 +254,42 @@ operator|.
 name|Assert
 operator|.
 name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|ArgumentMatchers
+operator|.
+name|any
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|ArgumentMatchers
+operator|.
+name|eq
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|*
 import|;
 end_import
 
@@ -416,33 +442,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|wagonMock
-operator|.
-name|get
-argument_list|(
-name|EasyMock
-operator|.
-name|eq
-argument_list|(
-name|path
-argument_list|)
-argument_list|,
-name|EasyMock
-operator|.
-name|anyObject
-argument_list|(
-name|File
-operator|.
-name|class
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|EasyMock
-operator|.
-name|expectLastCall
-argument_list|( )
-operator|.
-name|andThrow
+name|doThrow
 argument_list|(
 operator|new
 name|ResourceDoesNotExistException
@@ -451,15 +451,21 @@ literal|"resource does not exist."
 argument_list|)
 argument_list|)
 operator|.
-name|times
+name|when
 argument_list|(
-literal|2
+name|wagonMock
 argument_list|)
-expr_stmt|;
-name|wagonMockControl
 operator|.
-name|replay
-argument_list|( )
+name|get
+argument_list|(
+name|eq
+argument_list|(
+name|path
+argument_list|)
+argument_list|,
+name|any
+argument_list|(  )
+argument_list|)
 expr_stmt|;
 comment|//noinspection UnusedAssignment
 name|StorageAsset
@@ -477,22 +483,6 @@ argument_list|,
 name|artifact
 argument_list|)
 decl_stmt|;
-name|wagonMockControl
-operator|.
-name|verify
-argument_list|( )
-expr_stmt|;
-comment|// Second attempt to download same artifact use cache
-name|wagonMockControl
-operator|.
-name|reset
-argument_list|( )
-expr_stmt|;
-name|wagonMockControl
-operator|.
-name|replay
-argument_list|( )
-expr_stmt|;
 name|downloadedFile
 operator|=
 name|proxyHandler
@@ -506,11 +496,6 @@ argument_list|( )
 argument_list|,
 name|artifact
 argument_list|)
-expr_stmt|;
-name|wagonMockControl
-operator|.
-name|verify
-argument_list|( )
 expr_stmt|;
 name|assertNotDownloaded
 argument_list|(
@@ -653,33 +638,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|wagonMock
-operator|.
-name|get
-argument_list|(
-name|EasyMock
-operator|.
-name|eq
-argument_list|(
-name|path
-argument_list|)
-argument_list|,
-name|EasyMock
-operator|.
-name|anyObject
-argument_list|(
-name|File
-operator|.
-name|class
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|EasyMock
-operator|.
-name|expectLastCall
-argument_list|( )
-operator|.
-name|andThrow
+name|doThrow
 argument_list|(
 operator|new
 name|ResourceDoesNotExistException
@@ -688,15 +647,21 @@ literal|"resource does not exist."
 argument_list|)
 argument_list|)
 operator|.
-name|times
+name|when
 argument_list|(
-literal|2
+name|wagonMock
 argument_list|)
-expr_stmt|;
-name|wagonMockControl
 operator|.
-name|replay
+name|get
+argument_list|(
+name|eq
+argument_list|(
+name|path
+argument_list|)
+argument_list|,
+name|any
 argument_list|( )
+argument_list|)
 expr_stmt|;
 name|StorageAsset
 name|downloadedFile
@@ -713,44 +678,33 @@ argument_list|,
 name|artifact
 argument_list|)
 decl_stmt|;
-name|wagonMockControl
-operator|.
 name|verify
-argument_list|( )
-expr_stmt|;
-comment|// Second attempt to download same artifact DOES NOT use cache
-name|wagonMockControl
-operator|.
-name|reset
-argument_list|( )
-expr_stmt|;
+argument_list|(
 name|wagonMock
+argument_list|,
+name|times
+argument_list|(
+literal|2
+argument_list|)
+argument_list|)
 operator|.
 name|get
 argument_list|(
-name|EasyMock
-operator|.
 name|eq
 argument_list|(
 name|path
 argument_list|)
 argument_list|,
-name|EasyMock
-operator|.
-name|anyObject
-argument_list|(
-name|File
-operator|.
-name|class
-argument_list|)
+name|any
+argument_list|( )
 argument_list|)
 expr_stmt|;
-name|EasyMock
-operator|.
-name|expectLastCall
-argument_list|( )
-operator|.
-name|andThrow
+name|reset
+argument_list|(
+name|wagonMock
+argument_list|)
+expr_stmt|;
+name|doThrow
 argument_list|(
 operator|new
 name|ResourceDoesNotExistException
@@ -759,15 +713,21 @@ literal|"resource does not exist."
 argument_list|)
 argument_list|)
 operator|.
-name|times
+name|when
 argument_list|(
-literal|2
+name|wagonMock
 argument_list|)
-expr_stmt|;
-name|wagonMockControl
 operator|.
-name|replay
+name|get
+argument_list|(
+name|eq
+argument_list|(
+name|path
+argument_list|)
+argument_list|,
+name|any
 argument_list|( )
+argument_list|)
 expr_stmt|;
 name|downloadedFile
 operator|=
@@ -783,10 +743,26 @@ argument_list|,
 name|artifact
 argument_list|)
 expr_stmt|;
-name|wagonMockControl
-operator|.
 name|verify
+argument_list|(
+name|wagonMock
+argument_list|,
+name|times
+argument_list|(
+literal|2
+argument_list|)
+argument_list|)
+operator|.
+name|get
+argument_list|(
+name|eq
+argument_list|(
+name|path
+argument_list|)
+argument_list|,
+name|any
 argument_list|( )
+argument_list|)
 expr_stmt|;
 name|assertNotDownloaded
 argument_list|(

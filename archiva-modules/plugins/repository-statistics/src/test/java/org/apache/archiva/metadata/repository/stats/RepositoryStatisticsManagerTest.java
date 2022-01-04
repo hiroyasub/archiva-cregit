@@ -21,11 +21,19 @@ end_comment
 
 begin_import
 import|import
-name|junit
+name|org
 operator|.
-name|framework
+name|apache
 operator|.
-name|TestCase
+name|archiva
+operator|.
+name|maven
+operator|.
+name|metadata
+operator|.
+name|model
+operator|.
+name|MavenArtifactFacet
 import|;
 end_import
 
@@ -42,24 +50,6 @@ operator|.
 name|model
 operator|.
 name|ArtifactMetadata
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|maven
-operator|.
-name|metadata
-operator|.
-name|model
-operator|.
-name|MavenArtifactFacet
 import|;
 end_import
 
@@ -155,25 +145,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|archiva
+name|jupiter
 operator|.
-name|test
+name|api
 operator|.
-name|utils
-operator|.
-name|ArchivaBlockJUnit4ClassRunner
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|easymock
-operator|.
-name|IMocksControl
+name|BeforeEach
 import|;
 end_import
 
@@ -183,15 +161,9 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|jupiter
 operator|.
-name|junit
+name|api
 operator|.
 name|Test
 import|;
@@ -201,11 +173,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|mockito
 operator|.
-name|runner
-operator|.
-name|RunWith
+name|Mockito
 import|;
 end_import
 
@@ -303,27 +273,34 @@ begin_import
 import|import static
 name|org
 operator|.
-name|easymock
+name|junit
 operator|.
-name|EasyMock
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
 operator|.
 name|*
 import|;
 end_import
 
 begin_class
-annotation|@
-name|RunWith
-argument_list|(
-name|ArchivaBlockJUnit4ClassRunner
-operator|.
-name|class
-argument_list|)
 specifier|public
 class|class
 name|RepositoryStatisticsManagerTest
-extends|extends
-name|TestCase
 block|{
 specifier|private
 name|DefaultRepositoryStatisticsManager
@@ -336,10 +313,6 @@ name|String
 name|TEST_REPO_ID
 init|=
 literal|"test-repo"
-decl_stmt|;
-specifier|private
-name|IMocksControl
-name|metadataRepositoryControl
 decl_stmt|;
 specifier|private
 name|MetadataRepository
@@ -393,14 +366,6 @@ name|RepositorySessionFactory
 name|repositorySessionFactory
 decl_stmt|;
 specifier|private
-name|IMocksControl
-name|factoryControl
-decl_stmt|;
-specifier|private
-name|IMocksControl
-name|sessionControl
-decl_stmt|;
-specifier|private
 name|RepositorySession
 name|session
 decl_stmt|;
@@ -438,9 +403,7 @@ name|fmt
 return|;
 block|}
 annotation|@
-name|Override
-annotation|@
-name|Before
+name|BeforeEach
 specifier|public
 name|void
 name|setUp
@@ -448,43 +411,24 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 name|repositoryStatisticsManager
 operator|=
 operator|new
 name|DefaultRepositoryStatisticsManager
 argument_list|()
 expr_stmt|;
-name|metadataRepositoryControl
-operator|=
-name|createControl
-argument_list|()
-expr_stmt|;
 name|metadataRepository
 operator|=
-name|metadataRepositoryControl
-operator|.
-name|createMock
+name|mock
 argument_list|(
 name|MetadataRepository
 operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|factoryControl
-operator|=
-name|createControl
-argument_list|()
-expr_stmt|;
 name|repositorySessionFactory
 operator|=
-name|factoryControl
-operator|.
-name|createMock
+name|mock
 argument_list|(
 name|RepositorySessionFactory
 operator|.
@@ -498,16 +442,9 @@ argument_list|(
 name|repositorySessionFactory
 argument_list|)
 expr_stmt|;
-name|sessionControl
-operator|=
-name|createControl
-argument_list|( )
-expr_stmt|;
 name|session
 operator|=
-name|sessionControl
-operator|.
-name|createMock
+name|mock
 argument_list|(
 name|RepositorySession
 operator|.
@@ -616,17 +553,7 @@ argument_list|(
 literal|56229
 argument_list|)
 expr_stmt|;
-name|sessionControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|factoryControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|repositorySessionFactory
 operator|.
@@ -634,12 +561,12 @@ name|createSession
 argument_list|( )
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|session
 operator|.
@@ -647,7 +574,7 @@ name|getRepository
 argument_list|()
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|metadataRepository
 argument_list|)
@@ -657,23 +584,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|expectLastCall
-argument_list|( )
-operator|.
-name|anyTimes
-argument_list|( )
-expr_stmt|;
-name|factoryControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|sessionControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -689,7 +600,7 @@ name|FACET_ID
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -701,7 +612,7 @@ name|SECOND_TEST_SCAN
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -719,15 +630,10 @@ name|SECOND_TEST_SCAN
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|stats
 argument_list|)
-expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|replay
-argument_list|()
 expr_stmt|;
 name|stats
 operator|=
@@ -838,11 +744,6 @@ name|getScanEndTime
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|verify
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -853,17 +754,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|sessionControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|factoryControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|repositorySessionFactory
 operator|.
@@ -871,12 +762,12 @@ name|createSession
 argument_list|( )
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|session
 operator|.
@@ -884,7 +775,7 @@ name|getRepository
 argument_list|()
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|metadataRepository
 argument_list|)
@@ -894,23 +785,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|expectLastCall
-argument_list|( )
-operator|.
-name|anyTimes
-argument_list|( )
-expr_stmt|;
-name|factoryControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|sessionControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -926,7 +801,7 @@ name|FACET_ID
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Collections
 operator|.
@@ -936,11 +811,6 @@ operator|>
 name|emptyList
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|replay
-argument_list|()
 expr_stmt|;
 name|RepositoryStatistics
 name|stats
@@ -956,11 +826,6 @@ name|assertNull
 argument_list|(
 name|stats
 argument_list|)
-expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|verify
-argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -1008,17 +873,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|sessionControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|factoryControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|repositorySessionFactory
 operator|.
@@ -1026,12 +881,12 @@ name|createSession
 argument_list|( )
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|session
 operator|.
@@ -1039,7 +894,7 @@ name|getRepository
 argument_list|()
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|metadataRepository
 argument_list|)
@@ -1047,22 +902,6 @@ expr_stmt|;
 name|session
 operator|.
 name|close
-argument_list|()
-expr_stmt|;
-name|expectLastCall
-argument_list|( )
-operator|.
-name|anyTimes
-argument_list|( )
-expr_stmt|;
-name|factoryControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|sessionControl
-operator|.
-name|replay
 argument_list|()
 expr_stmt|;
 name|metadataRepository
@@ -1076,7 +915,7 @@ argument_list|,
 name|stats
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -1092,7 +931,7 @@ name|FACET_ID
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -1105,7 +944,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -1126,15 +965,10 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|stats
 argument_list|)
-expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|replay
-argument_list|()
 expr_stmt|;
 name|repositoryStatisticsManager
 operator|.
@@ -1253,11 +1087,6 @@ name|getScanEndTime
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|verify
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -1313,17 +1142,7 @@ literal|6000
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|sessionControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|factoryControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|repositorySessionFactory
 operator|.
@@ -1331,12 +1150,12 @@ name|createSession
 argument_list|( )
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|session
 operator|.
@@ -1344,7 +1163,7 @@ name|getRepository
 argument_list|()
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|metadataRepository
 argument_list|)
@@ -1352,22 +1171,6 @@ expr_stmt|;
 name|session
 operator|.
 name|close
-argument_list|()
-expr_stmt|;
-name|expectLastCall
-argument_list|( )
-operator|.
-name|anyTimes
-argument_list|( )
-expr_stmt|;
-name|factoryControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|sessionControl
-operator|.
-name|replay
 argument_list|()
 expr_stmt|;
 name|metadataRepository
@@ -1416,7 +1219,7 @@ argument_list|,
 name|stats2
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -1432,7 +1235,7 @@ name|FACET_ID
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -1449,8 +1252,16 @@ name|getName
 argument_list|()
 argument_list|)
 argument_list|)
+operator|.
+name|thenReturn
+argument_list|(
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -1471,7 +1282,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|stats2
 argument_list|)
@@ -1488,38 +1299,6 @@ name|DefaultRepositoryStatistics
 operator|.
 name|FACET_ID
 argument_list|)
-expr_stmt|;
-name|expect
-argument_list|(
-name|metadataRepository
-operator|.
-name|getMetadataFacets
-argument_list|(
-name|session
-argument_list|,
-name|TEST_REPO_ID
-argument_list|,
-name|DefaultRepositoryStatistics
-operator|.
-name|FACET_ID
-argument_list|)
-argument_list|)
-operator|.
-name|andReturn
-argument_list|(
-name|Collections
-operator|.
-expr|<
-name|String
-operator|>
-name|emptyList
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|replay
-argument_list|()
 expr_stmt|;
 name|repositoryStatisticsManager
 operator|.
@@ -1584,11 +1363,6 @@ name|TEST_REPO_ID
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|verify
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -1599,17 +1373,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|sessionControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|factoryControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|repositorySessionFactory
 operator|.
@@ -1617,12 +1381,12 @@ name|createSession
 argument_list|( )
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|session
 operator|.
@@ -1630,7 +1394,7 @@ name|getRepository
 argument_list|()
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|metadataRepository
 argument_list|)
@@ -1640,23 +1404,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|expectLastCall
-argument_list|( )
-operator|.
-name|anyTimes
-argument_list|( )
-expr_stmt|;
-name|factoryControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|sessionControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -1672,7 +1420,7 @@ name|FACET_ID
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Collections
 operator|.
@@ -1680,12 +1428,7 @@ expr|<
 name|String
 operator|>
 name|emptyList
-argument_list|()
-argument_list|)
-operator|.
-name|times
-argument_list|(
-literal|2
+argument_list|( )
 argument_list|)
 expr_stmt|;
 name|metadataRepository
@@ -1700,11 +1443,6 @@ name|DefaultRepositoryStatistics
 operator|.
 name|FACET_ID
 argument_list|)
-expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|replay
-argument_list|()
 expr_stmt|;
 name|assertNull
 argument_list|(
@@ -1733,10 +1471,26 @@ name|TEST_REPO_ID
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|metadataRepositoryControl
-operator|.
 name|verify
-argument_list|()
+argument_list|(
+name|metadataRepository
+argument_list|,
+name|times
+argument_list|(
+literal|2
+argument_list|)
+argument_list|)
+operator|.
+name|getMetadataFacets
+argument_list|(
+name|session
+argument_list|,
+name|TEST_REPO_ID
+argument_list|,
+name|DefaultRepositoryStatistics
+operator|.
+name|FACET_ID
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -1760,17 +1514,7 @@ operator|new
 name|Date
 argument_list|()
 decl_stmt|;
-name|sessionControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|factoryControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|repositorySessionFactory
 operator|.
@@ -1778,12 +1522,12 @@ name|createSession
 argument_list|( )
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|session
 operator|.
@@ -1791,7 +1535,7 @@ name|getRepository
 argument_list|()
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|metadataRepository
 argument_list|)
@@ -1799,22 +1543,6 @@ expr_stmt|;
 name|session
 operator|.
 name|close
-argument_list|()
-expr_stmt|;
-name|expectLastCall
-argument_list|( )
-operator|.
-name|anyTimes
-argument_list|( )
-expr_stmt|;
-name|factoryControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|sessionControl
-operator|.
-name|replay
 argument_list|()
 expr_stmt|;
 name|addStats
@@ -1899,7 +1627,7 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -1915,7 +1643,7 @@ name|FACET_ID
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|keys
 argument_list|)
@@ -1931,7 +1659,7 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -1949,7 +1677,7 @@ name|key
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|statsCreated
 operator|.
@@ -1958,11 +1686,6 @@ argument_list|(
 name|key
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|replay
-argument_list|()
 expr_stmt|;
 for|for
 control|(
@@ -2065,11 +1788,6 @@ operator|.
 name|getScanStartTime
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|verify
-argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -2093,17 +1811,7 @@ operator|new
 name|Date
 argument_list|()
 decl_stmt|;
-name|sessionControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|factoryControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|repositorySessionFactory
 operator|.
@@ -2111,12 +1819,12 @@ name|createSession
 argument_list|( )
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|session
 operator|.
@@ -2124,7 +1832,7 @@ name|getRepository
 argument_list|()
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|metadataRepository
 argument_list|)
@@ -2132,22 +1840,6 @@ expr_stmt|;
 name|session
 operator|.
 name|close
-argument_list|()
-expr_stmt|;
-name|expectLastCall
-argument_list|( )
-operator|.
-name|anyTimes
-argument_list|( )
-expr_stmt|;
-name|factoryControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|sessionControl
-operator|.
-name|replay
 argument_list|()
 expr_stmt|;
 name|addStats
@@ -2232,7 +1924,7 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -2248,7 +1940,7 @@ name|FACET_ID
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|keys
 argument_list|)
@@ -2263,7 +1955,7 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -2281,7 +1973,7 @@ name|key
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|statsCreated
 operator|.
@@ -2300,7 +1992,7 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -2318,7 +2010,7 @@ name|key
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|statsCreated
 operator|.
@@ -2327,11 +2019,6 @@ argument_list|(
 name|key
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|replay
-argument_list|()
 expr_stmt|;
 for|for
 control|(
@@ -2450,11 +2137,6 @@ name|getScanStartTime
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|verify
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -2477,17 +2159,7 @@ operator|new
 name|Date
 argument_list|()
 decl_stmt|;
-name|sessionControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|factoryControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|repositorySessionFactory
 operator|.
@@ -2495,12 +2167,12 @@ name|createSession
 argument_list|( )
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|session
 operator|.
@@ -2508,7 +2180,7 @@ name|getRepository
 argument_list|()
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|metadataRepository
 argument_list|)
@@ -2516,22 +2188,6 @@ expr_stmt|;
 name|session
 operator|.
 name|close
-argument_list|()
-expr_stmt|;
-name|expectLastCall
-argument_list|( )
-operator|.
-name|anyTimes
-argument_list|( )
-expr_stmt|;
-name|factoryControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|sessionControl
-operator|.
-name|replay
 argument_list|()
 expr_stmt|;
 name|addStats
@@ -2616,7 +2272,7 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -2632,7 +2288,7 @@ name|FACET_ID
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|keys
 argument_list|)
@@ -2647,7 +2303,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -2665,7 +2321,7 @@ name|key
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|statsCreated
 operator|.
@@ -2684,7 +2340,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -2702,7 +2358,7 @@ name|key
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|statsCreated
 operator|.
@@ -2711,11 +2367,6 @@ argument_list|(
 name|key
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|replay
-argument_list|()
 expr_stmt|;
 for|for
 control|(
@@ -2842,11 +2493,6 @@ operator|.
 name|getScanStartTime
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|verify
-argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -2870,17 +2516,7 @@ operator|new
 name|Date
 argument_list|()
 decl_stmt|;
-name|sessionControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|factoryControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|repositorySessionFactory
 operator|.
@@ -2888,12 +2524,12 @@ name|createSession
 argument_list|( )
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|session
 operator|.
@@ -2901,7 +2537,7 @@ name|getRepository
 argument_list|()
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|metadataRepository
 argument_list|)
@@ -2909,22 +2545,6 @@ expr_stmt|;
 name|session
 operator|.
 name|close
-argument_list|()
-expr_stmt|;
-name|expectLastCall
-argument_list|( )
-operator|.
-name|anyTimes
-argument_list|( )
-expr_stmt|;
-name|factoryControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|sessionControl
-operator|.
-name|replay
 argument_list|()
 expr_stmt|;
 name|addStats
@@ -3009,7 +2629,7 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -3025,7 +2645,7 @@ name|FACET_ID
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|keys
 argument_list|)
@@ -3040,7 +2660,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -3058,7 +2678,7 @@ name|key
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|statsCreated
 operator|.
@@ -3077,7 +2697,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -3095,7 +2715,7 @@ name|key
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|statsCreated
 operator|.
@@ -3114,7 +2734,7 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -3132,7 +2752,7 @@ name|key
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|statsCreated
 operator|.
@@ -3141,11 +2761,6 @@ argument_list|(
 name|key
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|replay
-argument_list|()
 expr_stmt|;
 for|for
 control|(
@@ -3288,11 +2903,6 @@ name|getScanStartTime
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|verify
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -3315,17 +2925,7 @@ operator|new
 name|Date
 argument_list|()
 decl_stmt|;
-name|sessionControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|factoryControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|repositorySessionFactory
 operator|.
@@ -3333,12 +2933,12 @@ name|createSession
 argument_list|( )
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|session
 operator|.
@@ -3346,7 +2946,7 @@ name|getRepository
 argument_list|()
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|metadataRepository
 argument_list|)
@@ -3354,22 +2954,6 @@ expr_stmt|;
 name|session
 operator|.
 name|close
-argument_list|()
-expr_stmt|;
-name|expectLastCall
-argument_list|( )
-operator|.
-name|anyTimes
-argument_list|( )
-expr_stmt|;
-name|factoryControl
-operator|.
-name|replay
-argument_list|()
-expr_stmt|;
-name|sessionControl
-operator|.
-name|replay
 argument_list|()
 expr_stmt|;
 name|addStats
@@ -3454,7 +3038,7 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -3470,15 +3054,10 @@ name|FACET_ID
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|keys
 argument_list|)
-expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|replay
-argument_list|()
 expr_stmt|;
 for|for
 control|(
@@ -3557,11 +3136,6 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|metadataRepositoryControl
-operator|.
-name|verify
-argument_list|()
 expr_stmt|;
 block|}
 specifier|private
@@ -3840,12 +3414,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|sessionControl
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|repositorySessionFactory
 operator|.
@@ -3853,15 +3422,10 @@ name|createSession
 argument_list|( )
 argument_list|)
 operator|.
-name|andStubReturn
+name|thenReturn
 argument_list|(
 name|session
 argument_list|)
-expr_stmt|;
-name|factoryControl
-operator|.
-name|replay
-argument_list|()
 expr_stmt|;
 for|for
 control|(
@@ -3878,7 +3442,7 @@ name|i
 operator|++
 control|)
 block|{
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -3890,7 +3454,7 @@ name|TEST_REPO_ID
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -3902,7 +3466,7 @@ literal|"org"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -3916,7 +3480,7 @@ literal|"com"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -3927,7 +3491,7 @@ name|asList
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -3941,7 +3505,7 @@ literal|"com"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -3951,7 +3515,7 @@ literal|"example"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -3965,7 +3529,7 @@ literal|"com.example"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -3976,7 +3540,7 @@ name|asList
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -3990,7 +3554,7 @@ literal|"com.example"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4000,7 +3564,7 @@ literal|"example-project"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4016,7 +3580,7 @@ literal|"example-project"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4028,7 +3592,7 @@ literal|"1.1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4046,7 +3610,7 @@ literal|"1.0"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4076,7 +3640,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4094,7 +3658,7 @@ literal|"1.1"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4124,7 +3688,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4138,7 +3702,7 @@ literal|"org"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4150,7 +3714,7 @@ literal|"codehaus"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4164,7 +3728,7 @@ literal|"org.apache"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4176,7 +3740,7 @@ literal|"maven"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4190,7 +3754,7 @@ literal|"org.apache"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4201,7 +3765,7 @@ name|asList
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4215,7 +3779,7 @@ literal|"org.apache.archiva"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4226,7 +3790,7 @@ name|asList
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4240,7 +3804,7 @@ literal|"org.apache.archiva"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4252,7 +3816,7 @@ literal|"metadata-model"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4268,7 +3832,7 @@ literal|"metadata-repository-api"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4280,7 +3844,7 @@ literal|"1.3"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4298,7 +3862,7 @@ literal|"1.3-SNAPSHOT"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4328,7 +3892,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4346,7 +3910,7 @@ literal|"1.3"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4376,7 +3940,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4392,7 +3956,7 @@ literal|"metadata-model"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4404,7 +3968,7 @@ literal|"1.3"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4422,7 +3986,7 @@ literal|"1.3-SNAPSHOT"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4452,7 +4016,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4470,7 +4034,7 @@ literal|"1.3"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4500,7 +4064,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4514,7 +4078,7 @@ literal|"org.apache.maven"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4525,7 +4089,7 @@ name|asList
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4539,7 +4103,7 @@ literal|"org.apache.maven"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4549,7 +4113,7 @@ literal|"maven-model"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4565,7 +4129,7 @@ literal|"maven-model"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4575,7 +4139,7 @@ literal|"2.2.1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4593,7 +4157,7 @@ literal|"2.2.1"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4623,7 +4187,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4637,7 +4201,7 @@ literal|"org.codehaus"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4647,7 +4211,7 @@ literal|"plexus"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4661,7 +4225,7 @@ literal|"org"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4672,7 +4236,7 @@ name|asList
 argument_list|(  )
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4686,7 +4250,7 @@ literal|"org.codehaus"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4697,7 +4261,7 @@ name|asList
 argument_list|(  )
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4711,7 +4275,7 @@ literal|"org.codehaus.plexus"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4722,7 +4286,7 @@ name|asList
 argument_list|(  )
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4736,7 +4300,7 @@ literal|"org.codehaus.plexus"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4746,7 +4310,7 @@ literal|"plexus-spring"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4762,7 +4326,7 @@ literal|"plexus-spring"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4776,7 +4340,7 @@ literal|"1.2"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4794,7 +4358,7 @@ literal|"1.0"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4824,7 +4388,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4842,7 +4406,7 @@ literal|"1.1"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.
@@ -4872,7 +4436,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|metadataRepository
 operator|.
@@ -4890,7 +4454,7 @@ literal|"1.2"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|Arrays
 operator|.

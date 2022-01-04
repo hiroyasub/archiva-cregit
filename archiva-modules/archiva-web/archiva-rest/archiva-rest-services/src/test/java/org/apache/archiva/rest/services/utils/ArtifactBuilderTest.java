@@ -91,9 +91,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|easymock
+name|junit
 operator|.
-name|TestSubject
+name|Test
 import|;
 end_import
 
@@ -101,9 +101,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|mockito
 operator|.
-name|Test
+name|InjectMocks
 import|;
 end_import
 
@@ -163,7 +163,7 @@ class|class
 name|ArtifactBuilderTest
 block|{
 annotation|@
-name|TestSubject
+name|InjectMocks
 specifier|private
 name|ArtifactBuilder
 name|builder
