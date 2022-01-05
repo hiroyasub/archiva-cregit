@@ -385,21 +385,27 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|joda
+name|java
 operator|.
 name|time
 operator|.
-name|DateTime
+name|Instant
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|joda
+name|time
+operator|.
+name|LocalDateTime
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
 name|time
 operator|.
@@ -411,15 +417,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|joda
+name|util
 operator|.
-name|time
-operator|.
-name|format
-operator|.
-name|ISODateTimeFormat
+name|Comparator
 import|;
 end_import
 
@@ -429,7 +431,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
 import|;
 end_import
 
@@ -1321,31 +1333,22 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Need to get the ISO8601 date for properties
-name|DateTime
-name|dt
-init|=
-operator|new
-name|DateTime
-argument_list|(
-literal|0
-argument_list|)
-decl_stmt|;
-name|DateTimeFormatter
-name|fmt
-init|=
-name|ISODateTimeFormat
-operator|.
-name|dateTime
-argument_list|()
-decl_stmt|;
+comment|// DateTime dt = new DateTime( 0 );
+comment|// DateTimeFormatter fmt = ISODateTimeFormat.dateTime();
+comment|// String modifiedDate = fmt.print( dt );
 name|String
 name|modifiedDate
 init|=
-name|fmt
+name|LocalDateTime
 operator|.
-name|print
+name|now
+argument_list|( )
+operator|.
+name|format
 argument_list|(
-name|dt
+name|DateTimeFormatter
+operator|.
+name|ISO_OFFSET_DATE_TIME
 argument_list|)
 decl_stmt|;
 name|properties
