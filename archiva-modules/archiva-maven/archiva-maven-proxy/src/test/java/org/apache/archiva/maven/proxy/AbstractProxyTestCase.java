@@ -19,18 +19,6 @@ end_comment
 
 begin_import
 import|import
-name|net
-operator|.
-name|sf
-operator|.
-name|ehcache
-operator|.
-name|CacheManager
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -1173,14 +1161,6 @@ name|setDelegate
 argument_list|(
 name|wagonMock
 argument_list|)
-expr_stmt|;
-name|CacheManager
-operator|.
-name|getInstance
-argument_list|()
-operator|.
-name|clearAll
-argument_list|()
 expr_stmt|;
 name|log
 operator|.
