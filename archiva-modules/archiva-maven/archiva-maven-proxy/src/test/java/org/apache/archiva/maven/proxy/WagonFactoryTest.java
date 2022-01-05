@@ -9,8 +9,6 @@ name|archiva
 operator|.
 name|maven
 operator|.
-name|common
-operator|.
 name|proxy
 package|;
 end_package
