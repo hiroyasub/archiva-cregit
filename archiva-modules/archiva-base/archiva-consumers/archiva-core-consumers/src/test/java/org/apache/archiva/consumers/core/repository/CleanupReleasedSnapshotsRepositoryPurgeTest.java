@@ -243,7 +243,7 @@ name|org
 operator|.
 name|xmlunit
 operator|.
-name|assertj
+name|assertj3
 operator|.
 name|XmlAssert
 import|;
