@@ -1339,19 +1339,17 @@ name|getClassifier
 argument_list|( )
 argument_list|)
 expr_stmt|;
-name|metaRemovalList
-operator|.
-name|put
-argument_list|(
-name|info
-argument_list|,
-name|artifactMetadata
-argument_list|)
-expr_stmt|;
 block|}
 else|else
 block|{
-comment|// metadataRepository.removeTimestampedArtifact( artifactMetadata, baseVersion );
+name|info
+operator|.
+name|setClassifier
+argument_list|(
+literal|""
+argument_list|)
+expr_stmt|;
+block|}
 name|metaRemovalList
 operator|.
 name|put
@@ -1361,7 +1359,6 @@ argument_list|,
 name|artifactMetadata
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -1807,6 +1804,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|mavenArtifactFacet
+operator|!=
+literal|null
+operator|&&
 name|StringUtils
 operator|.
 name|equals
