@@ -113,6 +113,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|Configuration
 import|;
 end_import
@@ -127,6 +129,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|UserInterfaceOptions
 import|;
 end_import
@@ -140,6 +144,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|WebappConfiguration
 import|;
@@ -328,6 +334,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|LegacyArtifactPath
 name|legacyArtifactPath
 range|:
@@ -406,6 +414,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|LegacyArtifactPath
 operator|.
 name|class
@@ -463,6 +473,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|LegacyArtifactPath
 name|legacyArtifactPath
 init|=
@@ -474,6 +486,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|LegacyArtifactPath
 argument_list|()
@@ -545,6 +559,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|FileType
 name|fileType
@@ -655,6 +671,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|FileType
 name|fileType
 init|=
@@ -719,6 +737,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|FileType
 name|fileType
@@ -835,6 +855,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|FileType
 operator|.
 name|class
@@ -879,6 +901,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|FileType
 name|fileType
 init|=
@@ -890,6 +914,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|FileType
 argument_list|()
@@ -1293,6 +1319,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|FileType
 argument_list|>
 name|configFileTypes
@@ -1353,6 +1381,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|FileType
 name|fileType
@@ -1460,6 +1490,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|OrganisationInformation
 name|organisationInformation
@@ -1690,6 +1722,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|OrganisationInformation
 name|organisationInformationModel
 init|=
@@ -1707,6 +1741,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|OrganisationInformation
 operator|.
@@ -1892,6 +1928,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|NetworkConfiguration
 name|networkConfiguration
 init|=
@@ -1986,6 +2024,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|NetworkConfiguration
 operator|.
 name|class
@@ -2012,6 +2052,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|FileType
 name|getFileTypeById
 parameter_list|(
@@ -2031,6 +2073,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|FileType
 name|fileType

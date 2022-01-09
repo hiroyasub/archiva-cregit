@@ -59,6 +59,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|ProxyConnectorConfiguration
 import|;
 end_import

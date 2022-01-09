@@ -110,6 +110,8 @@ class|class
 name|FileInfo
 implements|implements
 name|Serializable
+implements|,
+name|RestModel
 block|{
 specifier|private
 specifier|static

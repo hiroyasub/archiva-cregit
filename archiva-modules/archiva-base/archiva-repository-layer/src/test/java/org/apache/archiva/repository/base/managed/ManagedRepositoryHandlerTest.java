@@ -77,6 +77,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|provider
+operator|.
 name|ArchivaConfiguration
 import|;
 end_import
@@ -91,6 +93,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|Configuration
 import|;
 end_import
@@ -104,6 +108,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|ManagedRepositoryConfiguration
 import|;
@@ -120,22 +126,6 @@ operator|.
 name|indexer
 operator|.
 name|IndexManagerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|indexer
-operator|.
-name|merger
-operator|.
-name|MergedRemoteIndexesScheduler
 import|;
 end_import
 
@@ -362,16 +352,6 @@ operator|.
 name|extension
 operator|.
 name|ExtendWith
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mock
 import|;
 end_import
 

@@ -45,6 +45,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|provider
+operator|.
 name|ArchivaConfiguration
 import|;
 end_import
@@ -59,6 +61,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|FileType
 import|;
 end_import
@@ -72,6 +76,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|provider
 operator|.
 name|FileTypes
 import|;

@@ -91,6 +91,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|provider
+operator|.
 name|ArchivaConfiguration
 import|;
 end_import
@@ -105,6 +107,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|provider
+operator|.
 name|ConfigurationEvent
 import|;
 end_import
@@ -118,6 +122,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|provider
 operator|.
 name|ConfigurationListener
 import|;

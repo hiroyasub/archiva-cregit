@@ -25,6 +25,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|AbstractRepositoryConfiguration
 import|;
 end_import

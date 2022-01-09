@@ -145,6 +145,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|Configuration
 import|;
 end_import
@@ -159,6 +161,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|ManagedRepositoryConfiguration
 import|;
 end_import
@@ -172,6 +176,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|ProxyConnectorConfiguration
 import|;
@@ -654,16 +660,6 @@ operator|.
 name|util
 operator|.
 name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
 import|;
 end_import
 

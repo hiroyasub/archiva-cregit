@@ -93,6 +93,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|AbstractRepositoryConfiguration
 import|;
 end_import
@@ -106,6 +108,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|provider
 operator|.
 name|ArchivaConfiguration
 import|;
@@ -121,6 +125,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|Configuration
 import|;
 end_import
@@ -134,6 +140,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|provider
 operator|.
 name|IndeterminateConfigurationException
 import|;

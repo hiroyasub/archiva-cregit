@@ -55,6 +55,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|provider
+operator|.
 name|FileTypes
 import|;
 end_import

@@ -53,6 +53,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|provider
+operator|.
 name|ArchivaConfiguration
 import|;
 end_import

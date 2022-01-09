@@ -173,6 +173,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|provider
+operator|.
 name|ArchivaConfiguration
 import|;
 end_import
@@ -186,6 +188,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|Configuration
 import|;
@@ -201,6 +205,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|provider
+operator|.
 name|FileTypes
 import|;
 end_import
@@ -214,6 +220,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|RepositoryGroupConfiguration
 import|;
@@ -620,16 +628,6 @@ operator|.
 name|runner
 operator|.
 name|RunWith
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
 import|;
 end_import
 

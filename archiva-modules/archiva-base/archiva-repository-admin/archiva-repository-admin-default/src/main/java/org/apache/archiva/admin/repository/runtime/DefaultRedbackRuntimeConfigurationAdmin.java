@@ -151,6 +151,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|provider
+operator|.
 name|ArchivaConfiguration
 import|;
 end_import
@@ -165,6 +167,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|Configuration
 import|;
 end_import
@@ -178,6 +182,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|provider
 operator|.
 name|IndeterminateConfigurationException
 import|;
@@ -225,6 +231,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|provider
+operator|.
 name|util
 operator|.
 name|ConfigMapper
@@ -260,22 +268,6 @@ operator|.
 name|configuration
 operator|.
 name|UserConfigurationException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|redback
-operator|.
-name|configuration
-operator|.
-name|UserConfigurationKeys
 import|;
 end_import
 
@@ -1802,6 +1794,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|RedbackRuntimeConfiguration
 name|runtimeConfiguration
 init|=
@@ -1885,6 +1879,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|RedbackRuntimeConfiguration
 name|runtimeConfiguration
@@ -2018,6 +2014,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|LdapGroupMapping
 argument_list|>
 name|mappings
@@ -2066,6 +2064,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|LdapGroupMapping
 name|mapping
@@ -2162,6 +2162,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|RedbackRuntimeConfiguration
 name|build
 parameter_list|(
@@ -2176,6 +2178,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|RedbackRuntimeConfiguration
 name|res
@@ -2194,6 +2198,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|RedbackRuntimeConfiguration
 operator|.
@@ -2242,6 +2248,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|LdapConfiguration
 operator|.
 name|class
@@ -2289,6 +2297,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|CacheConfiguration
 operator|.
@@ -2331,6 +2341,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|LdapGroupMapping
 argument_list|>
 name|mappings
@@ -2361,6 +2373,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|LdapGroupMapping
 name|mapping
 init|=
@@ -2372,6 +2386,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|LdapGroupMapping
 argument_list|()

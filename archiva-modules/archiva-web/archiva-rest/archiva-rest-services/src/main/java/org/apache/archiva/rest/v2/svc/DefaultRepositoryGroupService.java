@@ -69,6 +69,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|RepositoryGroupConfiguration
 import|;
 end_import

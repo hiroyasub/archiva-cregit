@@ -120,6 +120,8 @@ class|class
 name|ScanStatus
 implements|implements
 name|Serializable
+implements|,
+name|RestModel
 block|{
 specifier|private
 name|boolean

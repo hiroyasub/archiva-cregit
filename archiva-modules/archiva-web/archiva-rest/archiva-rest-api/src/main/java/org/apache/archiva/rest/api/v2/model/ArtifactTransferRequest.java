@@ -59,6 +59,8 @@ class|class
 name|ArtifactTransferRequest
 implements|implements
 name|Serializable
+implements|,
+name|RestModel
 block|{
 specifier|private
 specifier|static

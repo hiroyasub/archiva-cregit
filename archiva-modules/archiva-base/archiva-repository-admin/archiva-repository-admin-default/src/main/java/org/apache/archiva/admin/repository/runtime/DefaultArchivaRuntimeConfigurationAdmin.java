@@ -133,6 +133,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|provider
+operator|.
 name|ArchivaConfiguration
 import|;
 end_import
@@ -147,6 +149,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|Configuration
 import|;
 end_import
@@ -160,6 +164,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|provider
 operator|.
 name|IndeterminateConfigurationException
 import|;
@@ -640,6 +646,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|ArchivaRuntimeConfiguration
 name|archivaRuntimeConfiguration
 parameter_list|)
@@ -747,6 +755,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|ArchivaRuntimeConfiguration
 name|build
 parameter_list|(
@@ -771,6 +781,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|ArchivaRuntimeConfiguration
 argument_list|()
 return|;
@@ -782,6 +794,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|ArchivaRuntimeConfiguration
 name|res
@@ -800,6 +814,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|ArchivaRuntimeConfiguration
 operator|.
@@ -837,6 +853,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|CacheConfiguration
 operator|.
@@ -876,6 +894,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|FileLockConfiguration
 operator|.

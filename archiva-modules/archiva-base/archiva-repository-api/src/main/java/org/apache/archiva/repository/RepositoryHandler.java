@@ -25,6 +25,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|AbstractRepositoryConfiguration
 import|;
 end_import
@@ -38,6 +40,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|Configuration
 import|;
@@ -264,6 +268,29 @@ argument_list|,
 name|D
 argument_list|>
 name|checker
+parameter_list|)
+throws|throws
+name|RepositoryException
+function_decl|;
+comment|/**      * Adds or updates a repository from the given configuration data. The resulting repository is      * checked by the default repository checker of the handler instance and the result is returned.      * If the checker returns a valid result, the registry is updated and configuration is saved.      *      * @param repositoryConfiguration the repository configuration      * @return the repository and the check result as map of attributes -> list of validation errors      * @throws RepositoryException if the creation or update failed      */
+name|CheckedResult
+argument_list|<
+name|R
+argument_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|ValidationError
+argument_list|>
+argument_list|>
+argument_list|>
+name|putWithCheck
+parameter_list|(
+name|C
+name|repositoryConfiguration
 parameter_list|)
 throws|throws
 name|RepositoryException

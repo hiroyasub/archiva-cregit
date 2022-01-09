@@ -25,6 +25,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|provider
+operator|.
 name|ArchivaConfiguration
 import|;
 end_import
@@ -38,6 +40,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|Configuration
 import|;
@@ -53,6 +57,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|ManagedRepositoryConfiguration
 import|;
 end_import
@@ -67,6 +73,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|model
+operator|.
 name|RemoteRepositoryConfiguration
 import|;
 end_import
@@ -80,6 +88,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|RepositoryGroupConfiguration
 import|;
@@ -410,6 +420,29 @@ parameter_list|)
 throws|throws
 name|RepositoryException
 function_decl|;
+comment|/**      * Validates the given repository configuration and adds the repository persistent to the registry, if it is valid.      * If the validation was not successful, the repository will not be added or persistet, and it will return the list of validation errors.      *      * @param configuration the managed repository configuration      * @return the managed repository or a list of validation errors      * @throws RepositoryException if there are errors while adding the repository      */
+name|CheckedResult
+argument_list|<
+name|ManagedRepository
+argument_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|ValidationError
+argument_list|>
+argument_list|>
+argument_list|>
+name|putRepositoryAndValidate
+parameter_list|(
+name|ManagedRepositoryConfiguration
+name|configuration
+parameter_list|)
+throws|throws
+name|RepositoryException
+function_decl|;
 comment|/**      * Adds or updates the given repository group. If a repository group with the given id exists already, it is updated      * from the data of the given instance. Otherwise a new repository is created and updated by the data of the given instance.      *      * The archiva configuration is updated and saved after updating the registered repository instance.      *      * @param repositoryGroup the repository group      * @return the repository instance, that was created or updated      * @throws RepositoryException if an error occurred while creating or updating the instance      */
 name|RepositoryGroup
 name|putRepositoryGroup
@@ -479,6 +512,29 @@ function_decl|;
 comment|/**      * Adds or updates the given remote repository. If a remote repository with the given id exists already, it is updated      * from the data of the given configuration. Otherwise a new repository is created and updated by the data of the given configuration.      *      * The archiva configuration is updated and saved after updating the registered repository instance.      *      * @param remoteRepositoryConfiguration the remote repository configuration      * @return the repository instance, that was created or updated      * @throws RepositoryException if an error occurred while creating or updating the instance      */
 name|RemoteRepository
 name|putRepository
+parameter_list|(
+name|RemoteRepositoryConfiguration
+name|remoteRepositoryConfiguration
+parameter_list|)
+throws|throws
+name|RepositoryException
+function_decl|;
+comment|/**      * Adds or updates the given remote repository. If a remote repository with the given id exists already, it is updated      * from the data of the given configuration. Otherwise a new repository is created and updated by the data of the given configuration.      *      * The remoteRepositoryConfiguration is validated before adding to the registry and persisting. If the validation fails,      * it is not registered or updated.      *      * @param remoteRepositoryConfiguration the remote repository configuration      * @return the repository instance, that was created or updated      * @throws RepositoryException if an error occurred while creating or updating the instance      */
+name|CheckedResult
+argument_list|<
+name|RemoteRepository
+argument_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|ValidationError
+argument_list|>
+argument_list|>
+argument_list|>
+name|putRepositoryAndValidate
 parameter_list|(
 name|RemoteRepositoryConfiguration
 name|remoteRepositoryConfiguration

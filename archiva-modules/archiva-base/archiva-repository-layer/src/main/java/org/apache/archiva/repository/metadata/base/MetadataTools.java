@@ -121,6 +121,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|provider
+operator|.
 name|ArchivaConfiguration
 import|;
 end_import
@@ -134,6 +136,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|provider
 operator|.
 name|ConfigurationEvent
 import|;
@@ -149,6 +153,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|provider
+operator|.
 name|ConfigurationListener
 import|;
 end_import
@@ -162,6 +168,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|ConfigurationNames
 import|;
@@ -177,6 +185,8 @@ name|archiva
 operator|.
 name|configuration
 operator|.
+name|provider
+operator|.
 name|FileTypes
 import|;
 end_import
@@ -190,6 +200,8 @@ operator|.
 name|archiva
 operator|.
 name|configuration
+operator|.
+name|model
 operator|.
 name|ProxyConnectorConfiguration
 import|;
