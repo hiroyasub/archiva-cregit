@@ -77,22 +77,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|archiva
-operator|.
-name|repository
-operator|.
-name|storage
-operator|.
-name|StorageAsset
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|net
@@ -208,7 +192,7 @@ name|RepositoryCapabilities
 name|getCapabilities
 parameter_list|()
 function_decl|;
-comment|/**      * Extension method that allows to provide different features that are not supported by all      * repository types.      *      * @param clazz The feature class that is requested      * @param<T> This is the class of the feature      * @return The feature implementation for this repository instance, if it is supported      * @throws UnsupportedFeatureException if the feature is not supported by this repository type      */
+comment|/**      * Extension method that allows to provide different features that are not supported by all      * repository types.      *      * @param<T> This is the class of the feature      * @param clazz The feature class that is requested      * @return The feature implementation for this repository instance, if it is supported      * @throws UnsupportedFeatureException if the feature is not supported by this repository type      */
 parameter_list|<
 name|T
 extends|extends
@@ -217,10 +201,7 @@ argument_list|<
 name|T
 argument_list|>
 parameter_list|>
-name|RepositoryFeature
-argument_list|<
 name|T
-argument_list|>
 name|getFeature
 parameter_list|(
 name|Class

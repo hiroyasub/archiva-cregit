@@ -1847,7 +1847,7 @@ argument_list|)
 argument_list|,
 name|managedRepository
 operator|.
-name|isHasStagingRepository
+name|hasStagingRepository
 argument_list|()
 argument_list|,
 name|getAuditInformation
@@ -1949,7 +1949,7 @@ name|repo
 argument_list|,
 name|managedRepository
 operator|.
-name|isHasStagingRepository
+name|hasStagingRepository
 argument_list|( )
 argument_list|,
 name|getAuditInformation

@@ -18,7 +18,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * @author Martin Schreier<martin_s@apache.org>  */
+comment|/**  * Marker interface that is used for configuration model classes.  *   * @author Martin Schreier<martin_s@apache.org>  */
 end_comment
 
 begin_interface

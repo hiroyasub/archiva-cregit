@@ -530,10 +530,7 @@ argument_list|<
 name|T
 argument_list|>
 parameter_list|>
-name|RepositoryFeature
-argument_list|<
 name|T
-argument_list|>
 name|getFeature
 parameter_list|(
 name|Class
@@ -559,10 +556,7 @@ condition|)
 block|{
 return|return
 operator|(
-name|RepositoryFeature
-argument_list|<
 name|T
-argument_list|>
 operator|)
 name|remoteIndexFeature
 return|;
@@ -581,10 +575,7 @@ condition|)
 block|{
 return|return
 operator|(
-name|RepositoryFeature
-argument_list|<
 name|T
-argument_list|>
 operator|)
 name|indexCreationFeature
 return|;

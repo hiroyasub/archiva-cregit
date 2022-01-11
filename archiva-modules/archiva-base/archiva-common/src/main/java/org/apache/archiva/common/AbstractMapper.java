@@ -16,13 +16,14 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or m
 end_comment
 
 begin_comment
-comment|/**  * Interface that returns a given DTO mapper.  *  * @author Martin Schreier<martin_s@apache.org>  *  * @param<B> The base type for the model mapper  * @param<T> The target type for the model mapper  * @param<R> The reverse source type for the model mapper  */
+comment|/**  * @author Martin Schreier<martin_s@apache.org>  */
 end_comment
 
-begin_interface
+begin_class
 specifier|public
-interface|interface
-name|ModelMapperFactory
+specifier|abstract
+class|class
+name|AbstractMapper
 parameter_list|<
 name|B
 parameter_list|,
@@ -30,34 +31,32 @@ name|T
 parameter_list|,
 name|R
 parameter_list|>
-block|{
-comment|/**      * Returns a mapper for the given source and target type. If no mapper is registered for this combination,      * it will throw a {@link IllegalArgumentException}      * @param baseType the source type for the mapping      * @param destinationType the destination type      * @param<B2> base type      * @param<T2> destination type      * @param<R2> Reverse source type      * @return the mapper instance      */
-parameter_list|<
-name|B2
-extends|extends
-name|B
-parameter_list|,
-name|T2
-extends|extends
-name|T
-parameter_list|,
-name|R2
-extends|extends
-name|R
-parameter_list|>
+implements|implements
 name|MultiModelMapper
 argument_list|<
-name|B2
+name|B
 argument_list|,
-name|T2
+name|T
 argument_list|,
-name|R2
+name|R
 argument_list|>
-name|getMapper
+block|{
+annotation|@
+name|Override
+specifier|public
+parameter_list|<
+name|S2
+parameter_list|,
+name|T2
+parameter_list|,
+name|R2
+parameter_list|>
+name|boolean
+name|supports
 parameter_list|(
 name|Class
 argument_list|<
-name|B2
+name|S2
 argument_list|>
 name|baseType
 parameter_list|,
@@ -73,11 +72,71 @@ name|R2
 argument_list|>
 name|reverseSourceType
 parameter_list|)
-throws|throws
-name|IllegalArgumentException
-function_decl|;
+block|{
+return|return
+operator|(
+name|baseType
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|getBaseType
+argument_list|( )
+argument_list|)
+operator|&&
+name|destinationType
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|getDestinationType
+argument_list|( )
+argument_list|)
+operator|&&
+name|reverseSourceType
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|getReverseSourceType
+argument_list|( )
+argument_list|)
+operator|)
+return|;
 block|}
-end_interface
+annotation|@
+name|Override
+specifier|public
+name|int
+name|hashCode
+parameter_list|( )
+block|{
+return|return
+name|getHash
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|equals
+parameter_list|(
+name|Object
+name|obj
+parameter_list|)
+block|{
+return|return
+name|super
+operator|.
+name|hashCode
+argument_list|( )
+operator|==
+name|obj
+operator|.
+name|hashCode
+argument_list|( )
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 

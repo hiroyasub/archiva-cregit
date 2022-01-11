@@ -922,7 +922,7 @@ literal|"True, if this repository has a staging repository assigned"
 argument_list|)
 specifier|public
 name|boolean
-name|isHasStagingRepository
+name|hasStagingRepository
 parameter_list|( )
 block|{
 return|return

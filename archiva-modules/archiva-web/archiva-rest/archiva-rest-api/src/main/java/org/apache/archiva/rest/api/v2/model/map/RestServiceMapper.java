@@ -33,7 +33,21 @@ name|archiva
 operator|.
 name|common
 operator|.
-name|ModelMapper
+name|AbstractMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|common
+operator|.
+name|MultiModelMapper
 import|;
 end_import
 
@@ -61,6 +75,20 @@ name|apache
 operator|.
 name|archiva
 operator|.
+name|repository
+operator|.
+name|Repository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
 name|rest
 operator|.
 name|api
@@ -77,10 +105,11 @@ begin_comment
 comment|/**  * @author Martin Schreier<martin_s@apache.org>  */
 end_comment
 
-begin_interface
+begin_class
 specifier|public
-interface|interface
-name|RestMapper
+specifier|abstract
+class|class
+name|RestServiceMapper
 parameter_list|<
 name|S
 extends|extends
@@ -89,16 +118,31 @@ parameter_list|,
 name|T
 extends|extends
 name|ConfigurationModel
+parameter_list|,
+name|R
+extends|extends
+name|Repository
 parameter_list|>
 extends|extends
-name|ModelMapper
+name|AbstractMapper
 argument_list|<
 name|S
 argument_list|,
 name|T
+argument_list|,
+name|R
+argument_list|>
+implements|implements
+name|MultiModelMapper
+argument_list|<
+name|S
+argument_list|,
+name|T
+argument_list|,
+name|R
 argument_list|>
 block|{ }
-end_interface
+end_class
 
 end_unit
 

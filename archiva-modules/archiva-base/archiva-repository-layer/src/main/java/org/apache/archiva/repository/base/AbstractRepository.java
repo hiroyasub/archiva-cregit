@@ -59,18 +59,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|cronutils
-operator|.
-name|parser
-operator|.
-name|CronParser
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -286,20 +274,6 @@ operator|.
 name|features
 operator|.
 name|StagingRepositoryFeature
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang3
-operator|.
-name|StringUtils
 import|;
 end_import
 
@@ -1047,10 +1021,7 @@ argument_list|<
 name|T
 argument_list|>
 parameter_list|>
-name|RepositoryFeature
-argument_list|<
 name|T
-argument_list|>
 name|getFeature
 parameter_list|(
 name|Class
@@ -1074,10 +1045,7 @@ condition|)
 block|{
 return|return
 operator|(
-name|RepositoryFeature
-argument_list|<
 name|T
-argument_list|>
 operator|)
 name|featureMap
 operator|.
