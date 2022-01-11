@@ -1482,9 +1482,6 @@ name|IndexCreationFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|icf
 operator|.
@@ -1574,9 +1571,6 @@ name|RemoteIndexFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|icf
 operator|.

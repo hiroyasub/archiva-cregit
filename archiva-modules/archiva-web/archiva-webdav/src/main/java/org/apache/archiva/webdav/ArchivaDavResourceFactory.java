@@ -2730,9 +2730,6 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|get
-argument_list|()
-operator|.
 name|getIndexPath
 argument_list|()
 operator|.
@@ -5789,9 +5786,6 @@ name|IndexCreationFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|mergedIndexPath
 operator|=
@@ -6126,9 +6120,6 @@ name|IndexCreationFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|StorageAsset
 name|repoIndexDirectory
@@ -7167,9 +7158,6 @@ name|IndexCreationFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|Path
 name|indexPath

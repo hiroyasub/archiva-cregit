@@ -93,17 +93,6 @@ operator|=
 name|stageRepoNeeded
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-specifier|public
-name|StagingRepositoryFeature
-name|get
-parameter_list|()
-block|{
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Returns the staging repository, if it exists.      *      * @return The staging repository, null if not set.      *      */
 specifier|public
 name|ManagedRepository

@@ -895,9 +895,6 @@ name|ArtifactCleanupFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|( )
 decl_stmt|;
 name|acf
 operator|.
@@ -945,9 +942,6 @@ name|IndexCreationFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|( )
 decl_stmt|;
 name|icf
 operator|.
@@ -984,9 +978,6 @@ name|StagingRepositoryFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|( )
 decl_stmt|;
 name|srf
 operator|.
@@ -1370,9 +1361,6 @@ name|RemoteIndexFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|( )
 decl_stmt|;
 name|rif
 operator|.
@@ -1637,9 +1625,6 @@ name|ArtifactCleanupFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|( )
 decl_stmt|;
 name|configuration
 operator|.
@@ -1685,9 +1670,6 @@ name|IndexCreationFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|( )
 decl_stmt|;
 name|configuration
 operator|.
@@ -1732,9 +1714,6 @@ name|StagingRepositoryFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|( )
 decl_stmt|;
 name|configuration
 operator|.
@@ -1977,9 +1956,6 @@ name|RemoteIndexFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|( )
 decl_stmt|;
 name|configuration
 operator|.

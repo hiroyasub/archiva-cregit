@@ -106,11 +106,6 @@ name|clazz
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the concrete feature instance.      * @return the feature instance.      */
-name|T
-name|get
-parameter_list|()
-function_decl|;
 block|}
 end_interface
 

@@ -1700,9 +1700,6 @@ name|IndexCreationFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|StorageAsset
 name|packedIndexDirectory

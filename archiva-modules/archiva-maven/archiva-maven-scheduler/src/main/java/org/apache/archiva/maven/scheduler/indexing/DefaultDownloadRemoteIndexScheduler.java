@@ -549,9 +549,6 @@ name|RemoteIndexFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 comment|// TODO record jobs from configuration
 if|if
@@ -703,9 +700,6 @@ name|RemoteIndexFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|NetworkProxy
 name|networkProxy

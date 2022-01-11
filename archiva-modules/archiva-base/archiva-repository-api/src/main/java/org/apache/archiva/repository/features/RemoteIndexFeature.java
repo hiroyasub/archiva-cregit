@@ -129,17 +129,6 @@ name|proxyId
 init|=
 literal|""
 decl_stmt|;
-annotation|@
-name|Override
-specifier|public
-name|RemoteIndexFeature
-name|get
-parameter_list|()
-block|{
-return|return
-name|this
-return|;
-block|}
 comment|/**      * True, if the remote index should be downloaded.      * @return True if download, otherwise false.      */
 specifier|public
 name|boolean

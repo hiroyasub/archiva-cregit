@@ -1533,9 +1533,6 @@ name|StagingRepositoryFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 if|if
 condition|(

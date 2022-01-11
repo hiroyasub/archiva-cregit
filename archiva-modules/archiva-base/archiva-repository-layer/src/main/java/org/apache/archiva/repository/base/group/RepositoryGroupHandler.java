@@ -1009,9 +1009,6 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|get
-argument_list|( )
-operator|.
 name|getLocalIndexPath
 argument_list|( )
 return|;

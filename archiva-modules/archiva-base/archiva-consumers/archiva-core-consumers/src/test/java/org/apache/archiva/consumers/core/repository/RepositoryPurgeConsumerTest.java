@@ -928,9 +928,6 @@ name|ArtifactCleanupFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|atf
 operator|.
@@ -1640,9 +1637,6 @@ name|ArtifactCleanupFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|atf
 operator|.
@@ -2223,9 +2217,6 @@ name|ArtifactCleanupFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|acf
 operator|.
@@ -2672,9 +2663,6 @@ name|ArtifactCleanupFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|acf
 operator|.

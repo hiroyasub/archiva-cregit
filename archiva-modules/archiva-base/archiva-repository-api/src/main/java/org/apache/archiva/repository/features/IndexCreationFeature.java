@@ -293,17 +293,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
-specifier|public
-name|IndexCreationFeature
-name|get
-parameter_list|()
-block|{
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Returns true, if no packed index files should be created.      * @return True, if no packed index files are created, otherwise false.      */
 specifier|public
 name|boolean

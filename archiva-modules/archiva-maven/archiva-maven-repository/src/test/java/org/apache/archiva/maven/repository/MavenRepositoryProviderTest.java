@@ -972,9 +972,6 @@ name|ArtifactCleanupFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -1020,9 +1017,6 @@ name|IndexCreationFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -1075,9 +1069,6 @@ name|StagingRepositoryFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
@@ -1524,9 +1515,6 @@ name|ArtifactCleanupFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|( )
 decl_stmt|;
 throw|throw
 operator|new
@@ -1555,9 +1543,6 @@ name|IndexCreationFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|( )
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -1585,9 +1570,6 @@ name|StagingRepositoryFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|( )
 decl_stmt|;
 throw|throw
 operator|new
@@ -1616,9 +1598,6 @@ name|RemoteIndexFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|assertNull
 argument_list|(
@@ -1749,9 +1728,6 @@ name|StagingRepositoryFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|( )
 decl_stmt|;
 name|stagingFeat
 operator|.
@@ -1771,9 +1747,6 @@ name|IndexCreationFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|indexCreationFeature
 operator|.
@@ -1804,9 +1777,6 @@ name|ArtifactCleanupFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|artifactCleanupFeature
 operator|.
@@ -2084,9 +2054,6 @@ name|RemoteIndexFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|remoteIndexFeature
 operator|.
@@ -2143,9 +2110,6 @@ name|IndexCreationFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|indexCreationFeature
 operator|.
@@ -2375,9 +2339,6 @@ name|IndexCreationFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|indexCreationFeature
 operator|.
@@ -2716,9 +2677,6 @@ name|IndexCreationFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 try|try
 block|{

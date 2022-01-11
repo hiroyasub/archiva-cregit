@@ -101,17 +101,6 @@ operator|=
 name|retentionCount
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-specifier|public
-name|ArtifactCleanupFeature
-name|get
-parameter_list|()
-block|{
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Returns true, if snapshot artifacts should be deleted, when artifacts with release version      * exist in one of the managed repositories.      * @return True, if artifacts should be deleted after release, otherwise false.      */
 specifier|public
 name|boolean

@@ -1262,9 +1262,6 @@ name|RemoteIndexFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|rif
 operator|.
@@ -1293,7 +1290,7 @@ argument_list|(
 name|remoteRepository
 argument_list|)
 expr_stmt|;
-comment|// IndexCreationFeature icf = remoteRepository.getFeature( IndexCreationFeature.class ).get( );
+comment|// IndexCreationFeature icf = remoteRepository.getFeature( IndexCreationFeature.class );
 comment|// icf.setLocalIndexPath( remoteRepository.getAsset(  "index" ) );
 return|return
 name|remoteRepository

@@ -1719,9 +1719,6 @@ name|RemoteIndexFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|remoteUpdateUri
 operator|=
@@ -1897,9 +1894,6 @@ name|RemoteIndexFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|( )
 decl_stmt|;
 if|if
 condition|(
@@ -3414,9 +3408,6 @@ name|IndexCreationFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 try|try
 block|{
@@ -3505,9 +3496,6 @@ name|IndexCreationFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|Path
 name|repoDir
@@ -3761,9 +3749,6 @@ name|RemoteIndexFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|( )
 decl_stmt|;
 name|indexDirectory
 operator|=

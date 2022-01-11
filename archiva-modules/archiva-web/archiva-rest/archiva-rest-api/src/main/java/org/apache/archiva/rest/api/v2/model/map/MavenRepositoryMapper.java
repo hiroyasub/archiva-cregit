@@ -445,9 +445,6 @@ name|StagingRepositoryFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|( )
 decl_stmt|;
 name|ArtifactCleanupFeature
 name|acf
@@ -460,9 +457,6 @@ name|ArtifactCleanupFeature
 operator|.
 name|class
 argument_list|)
-operator|.
-name|get
-argument_list|( )
 decl_stmt|;
 name|result
 operator|.
