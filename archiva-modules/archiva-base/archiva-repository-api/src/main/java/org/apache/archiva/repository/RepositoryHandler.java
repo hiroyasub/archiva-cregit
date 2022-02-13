@@ -469,7 +469,7 @@ name|Class
 argument_list|<
 name|R
 argument_list|>
-name|getVariant
+name|getFlavour
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the repository configuration variant, this handler manages.      * @return the concrete configuration variant class      */
@@ -477,7 +477,7 @@ name|Class
 argument_list|<
 name|C
 argument_list|>
-name|getConfigurationVariant
+name|getConfigurationFlavour
 parameter_list|()
 function_decl|;
 block|}

@@ -312,6 +312,14 @@ name|PREFIX
 operator|+
 literal|"user.not_authenticated"
 decl_stmt|;
+comment|/**      * Repository add action failed      */
+name|String
+name|REPOSITORY_ADD_FAILED
+init|=
+name|PREFIX
+operator|+
+literal|"add.failed"
+decl_stmt|;
 block|}
 end_interface
 

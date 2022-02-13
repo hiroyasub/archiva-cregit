@@ -95,7 +95,7 @@ name|archiva
 operator|.
 name|event
 operator|.
-name|EventManager
+name|BasicEventManager
 import|;
 end_import
 
@@ -619,7 +619,7 @@ name|state
 decl_stmt|;
 specifier|private
 specifier|final
-name|EventManager
+name|BasicEventManager
 name|eventManager
 decl_stmt|;
 name|Map
@@ -724,7 +724,7 @@ operator|.
 name|eventManager
 operator|=
 operator|new
-name|EventManager
+name|BasicEventManager
 argument_list|(
 name|this
 argument_list|)
@@ -808,7 +808,7 @@ operator|.
 name|eventManager
 operator|=
 operator|new
-name|EventManager
+name|BasicEventManager
 argument_list|(
 name|this
 argument_list|)

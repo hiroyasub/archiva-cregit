@@ -658,8 +658,6 @@ argument_list|( )
 return|;
 block|}
 annotation|@
-name|Disabled
-annotation|@
 name|Test
 annotation|@
 name|Order
@@ -737,7 +735,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"maven"
+literal|"MAVEN"
 argument_list|,
 name|json
 operator|.

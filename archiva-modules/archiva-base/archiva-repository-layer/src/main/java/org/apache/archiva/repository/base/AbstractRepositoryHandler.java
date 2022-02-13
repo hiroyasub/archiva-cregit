@@ -105,7 +105,7 @@ name|archiva
 operator|.
 name|event
 operator|.
-name|EventManager
+name|BasicEventManager
 import|;
 end_import
 
@@ -480,7 +480,7 @@ name|configurationClazz
 decl_stmt|;
 specifier|private
 specifier|final
-name|EventManager
+name|BasicEventManager
 name|eventManager
 decl_stmt|;
 specifier|private
@@ -539,7 +539,7 @@ operator|.
 name|eventManager
 operator|=
 operator|new
-name|EventManager
+name|BasicEventManager
 argument_list|(
 name|this
 argument_list|)
@@ -929,7 +929,7 @@ name|Class
 argument_list|<
 name|R
 argument_list|>
-name|getVariant
+name|getFlavour
 parameter_list|( )
 block|{
 return|return
@@ -945,7 +945,7 @@ name|Class
 argument_list|<
 name|C
 argument_list|>
-name|getConfigurationVariant
+name|getConfigurationFlavour
 parameter_list|( )
 block|{
 return|return

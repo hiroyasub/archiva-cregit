@@ -12,7 +12,7 @@ package|;
 end_package
 
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *  http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_import
@@ -41,7 +41,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|LinkedHashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -57,10 +67,14 @@ name|ConcurrentHashMap
 import|;
 end_import
 
+begin_comment
+comment|/**  * @author Martin Schreier<martin_s@apache.org>  */
+end_comment
+
 begin_class
 specifier|public
 class|class
-name|EventManager
+name|AbstractEventManager
 implements|implements
 name|EventSource
 block|{
@@ -68,18 +82,18 @@ specifier|private
 specifier|static
 specifier|final
 name|Logger
-name|LOG
+name|log
 init|=
 name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|EventManager
+name|AbstractEventManager
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-specifier|private
+specifier|protected
 specifier|final
 name|ConcurrentHashMap
 argument_list|<
@@ -102,40 +116,6 @@ name|ConcurrentHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-specifier|private
-specifier|final
-name|Object
-name|source
-decl_stmt|;
-specifier|public
-name|EventManager
-parameter_list|(
-name|Object
-name|source
-parameter_list|)
-block|{
-if|if
-condition|(
-name|source
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"The source may not be null"
-argument_list|)
-throw|;
-block|}
-name|this
-operator|.
-name|source
-operator|=
-name|source
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 specifier|public
@@ -201,6 +181,18 @@ name|eventHandler
 argument_list|)
 expr_stmt|;
 block|}
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Event handler registered: "
+operator|+
+name|eventHandler
+operator|.
+name|getClass
+argument_list|( )
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -250,14 +242,30 @@ argument_list|(
 name|eventHandler
 argument_list|)
 expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Event handler unregistered: "
+operator|+
+name|eventHandler
+operator|.
+name|getClass
+argument_list|( )
+argument_list|)
+expr_stmt|;
 block|}
 block|}
+comment|/**      * Fires the given event for the given source. If the source of the provided event does not match the<code>source</code>      * parameter the event will be chained.      *      * The event will be sent to all registered event handler. Exceptions during handling are not propagated to the      * caller.      *      * @param fireEvent the event to fire      * @param source the source object      */
 specifier|public
 name|void
 name|fireEvent
 parameter_list|(
 name|Event
 name|fireEvent
+parameter_list|,
+name|Object
+name|source
 parameter_list|)
 block|{
 specifier|final
@@ -357,12 +365,12 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
 comment|// We catch all errors from handlers
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(

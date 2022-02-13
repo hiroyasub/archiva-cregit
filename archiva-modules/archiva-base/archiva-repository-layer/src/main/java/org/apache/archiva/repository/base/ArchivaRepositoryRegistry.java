@@ -215,7 +215,21 @@ name|archiva
 operator|.
 name|event
 operator|.
-name|EventManager
+name|BasicEventManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|event
+operator|.
+name|EventSource
 import|;
 end_import
 
@@ -230,6 +244,22 @@ operator|.
 name|event
 operator|.
 name|EventType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|archiva
+operator|.
+name|event
+operator|.
+name|central
+operator|.
+name|CentralEventManager
 import|;
 end_import
 
@@ -663,6 +693,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -861,6 +901,16 @@ argument_list|>
 argument_list|>
 name|repositoryValidatorList
 decl_stmt|;
+annotation|@
+name|Inject
+annotation|@
+name|Named
+argument_list|(
+literal|"eventManager#archiva"
+argument_list|)
+name|CentralEventManager
+name|centralEventManager
+decl_stmt|;
 specifier|private
 name|boolean
 name|ignoreIndexing
@@ -869,7 +919,7 @@ literal|false
 decl_stmt|;
 specifier|private
 specifier|final
-name|EventManager
+name|BasicEventManager
 name|eventManager
 decl_stmt|;
 specifier|private
@@ -982,7 +1032,7 @@ operator|.
 name|eventManager
 operator|=
 operator|new
-name|EventManager
+name|BasicEventManager
 argument_list|(
 name|this
 argument_list|)
@@ -1151,6 +1201,15 @@ operator|.
 name|addListener
 argument_list|(
 name|this
+argument_list|)
+expr_stmt|;
+name|registerEventHandler
+argument_list|(
+name|EventType
+operator|.
+name|ROOT
+argument_list|,
+name|centralEventManager
 argument_list|)
 expr_stmt|;
 block|}
@@ -4631,7 +4690,7 @@ if|if
 condition|(
 name|handler
 operator|.
-name|getVariant
+name|getFlavour
 argument_list|( )
 operator|.
 name|isAssignableFrom
@@ -4660,7 +4719,7 @@ if|else if
 condition|(
 name|handler
 operator|.
-name|getVariant
+name|getFlavour
 argument_list|( )
 operator|.
 name|isAssignableFrom
@@ -4689,7 +4748,7 @@ if|else if
 condition|(
 name|handler
 operator|.
-name|getVariant
+name|getFlavour
 argument_list|()
 operator|.
 name|isAssignableFrom

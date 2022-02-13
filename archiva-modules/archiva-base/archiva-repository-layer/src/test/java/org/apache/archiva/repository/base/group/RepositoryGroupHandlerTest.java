@@ -1005,7 +1005,7 @@ name|when
 argument_list|(
 name|managedRepositoryHandler
 operator|.
-name|getVariant
+name|getFlavour
 argument_list|( )
 argument_list|)
 operator|.
@@ -1081,7 +1081,7 @@ name|when
 argument_list|(
 name|remoteRepositoryHandler
 operator|.
-name|getVariant
+name|getFlavour
 argument_list|( )
 argument_list|)
 operator|.
