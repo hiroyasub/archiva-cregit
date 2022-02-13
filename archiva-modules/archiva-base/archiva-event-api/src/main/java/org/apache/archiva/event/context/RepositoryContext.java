@@ -87,14 +87,14 @@ specifier|private
 specifier|static
 specifier|final
 name|String
-name|PREFIX
+name|ID
 init|=
 literal|"repository"
 decl_stmt|;
 specifier|private
 specifier|final
 name|String
-name|id
+name|repositoryId
 decl_stmt|;
 specifier|private
 specifier|final
@@ -110,7 +110,7 @@ specifier|public
 name|RepositoryContext
 parameter_list|(
 name|String
-name|id
+name|repositoryId
 parameter_list|,
 name|String
 name|type
@@ -121,9 +121,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|id
+name|repositoryId
 operator|=
-name|id
+name|repositoryId
 expr_stmt|;
 name|this
 operator|.
@@ -141,11 +141,11 @@ block|}
 comment|/**      * Returns the repository id      * @return the repository id      */
 specifier|public
 name|String
-name|getId
+name|getRepositoryId
 parameter_list|( )
 block|{
 return|return
-name|id
+name|repositoryId
 return|;
 block|}
 comment|/**      * Returns the repository type (e.g. MAVEN)      * @return the string representation of the repository type      */
@@ -197,18 +197,18 @@ name|values
 operator|.
 name|put
 argument_list|(
-name|PREFIX
+name|ID
 operator|+
-literal|".id"
+literal|".repositoryId"
 argument_list|,
-name|id
+name|repositoryId
 argument_list|)
 expr_stmt|;
 name|values
 operator|.
 name|put
 argument_list|(
-name|PREFIX
+name|ID
 operator|+
 literal|".type"
 argument_list|,
@@ -219,7 +219,7 @@ name|values
 operator|.
 name|put
 argument_list|(
-name|PREFIX
+name|ID
 operator|+
 literal|".flavour"
 argument_list|,
@@ -234,11 +234,11 @@ annotation|@
 name|Override
 specifier|public
 name|String
-name|getPrefix
+name|getId
 parameter_list|( )
 block|{
 return|return
-name|PREFIX
+name|ID
 return|;
 block|}
 block|}

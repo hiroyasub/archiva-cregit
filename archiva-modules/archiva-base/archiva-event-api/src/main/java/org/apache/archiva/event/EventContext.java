@@ -34,9 +34,9 @@ specifier|public
 interface|interface
 name|EventContext
 block|{
-comment|/**      * Returns the prefix used for entry keys in the repository data map.      * @return the prefix string for this context      */
+comment|/**      * Returns the id which is also used as prefix for keys in the repository data map.      * @return the identifier of this context      */
 name|String
-name|getPrefix
+name|getId
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the context data as map of strings. Each entry key is prefixed with      * the unique prefix of this context.      *      * @return the map of key value pairs stored in this context      */
