@@ -1187,7 +1187,6 @@ name|tryAssert
 argument_list|(
 parameter_list|( )
 lambda|->
-block|{
 name|assertThat
 argument_list|(
 name|getRepository
@@ -1206,8 +1205,6 @@ argument_list|( )
 operator|.
 name|isEmpty
 argument_list|( )
-expr_stmt|;
-block|}
 argument_list|)
 expr_stmt|;
 name|getRepository
@@ -1226,7 +1223,6 @@ name|tryAssert
 argument_list|(
 parameter_list|( )
 lambda|->
-block|{
 name|assertThat
 argument_list|(
 name|getRepository
@@ -1255,8 +1251,6 @@ name|hasSize
 argument_list|(
 literal|1
 argument_list|)
-expr_stmt|;
-block|}
 argument_list|)
 expr_stmt|;
 name|getRepository
@@ -1275,7 +1269,6 @@ name|tryAssert
 argument_list|(
 parameter_list|( )
 lambda|->
-block|{
 name|assertThat
 argument_list|(
 name|getRepository
@@ -1294,8 +1287,6 @@ argument_list|( )
 operator|.
 name|isEmpty
 argument_list|( )
-expr_stmt|;
-block|}
 argument_list|)
 expr_stmt|;
 block|}
