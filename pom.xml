@@ -112,7 +112,7 @@
 
 
     <!-- Jackrabbit classes are still used for webdav -->
-    <jackrabbit.version>2.20.2</jackrabbit.version>
+    <jackrabbit.version>2.21.16</jackrabbit.version>
     <metrics-core.version>4.1.18</metrics-core.version>
 
     <derbyVersion>10.13.1.1</derbyVersion>
