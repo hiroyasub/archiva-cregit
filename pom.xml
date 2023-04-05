@@ -96,7 +96,7 @@
     <maven.resolver.version>1.6.2</maven.resolver.version>
     <maven.indexer.version>6.2.2</maven.indexer.version>
     <maven-model-converter.version>2.3</maven-model-converter.version>
-    <wagon.version>3.3.3</wagon.version>
+    <wagon.version>3.5.3</wagon.version>
 
     <!-- dependencies of maven modules -->
     <jsoup.version>1.14.2</jsoup.version>
